@@ -19,7 +19,16 @@ interface LineEvent {
   source?: { type?: string; userId?: string };
   replyToken?: string;
   postback?: { data: string };
-  message?: { type?: string; text?: string };
+  message?: {
+    type?: string;
+    text?: string;
+    /** image / audio / video / file メッセージの ID（コンテンツ取得に使う）。 */
+    id?: string;
+    /** audio / video の長さ（ミリ秒）。音声の長さ上限チェックに使う。 */
+    duration?: number;
+    /** コンテンツ提供元。external の場合は originalContentUrl から取得する。 */
+    contentProvider?: { type?: string; originalContentUrl?: string };
+  };
   [key: string]: unknown;
 }
 
@@ -613,6 +622,14 @@ async function dispatchEvent(event: LineEvent): Promise<void> {
 
 async function handleMessage(event: LineEvent): Promise<void> {
   const messageType = event.message?.type;
+
+  // 画像・音声は AI チャットボット（Gemini）にマルチモーダル入力として渡す。
+  // テキスト系コマンド（設定変更 / 復帰キーワード等）の判定は不要なので先に分岐。
+  if (messageType === 'image' || messageType === 'audio') {
+    await handleMediaMessage(event, messageType);
+    return;
+  }
+
   if (messageType !== 'text') {
     console.warn(
       '[lineWebhook] handleMessage: non-text message type:',
@@ -652,7 +669,12 @@ async function handleMessage(event: LineEvent): Promise<void> {
         detectRestartIntent(text) &&
         (await isEligibleForRestartWelcome(userData))
       ) {
-        await handleRestartIntent(uid, replyToken, event);
+        await handleRestartIntent(
+          uid,
+          replyToken,
+          event,
+          (userData?.status as string | undefined) ?? null
+        );
         return;
       }
     } catch (error) {
@@ -680,6 +702,154 @@ async function handleMessage(event: LineEvent): Promise<void> {
   );
 }
 
+// ── 画像・音声メッセージ → AI チャットボット（マルチモーダル） ─────────────
+//
+// LINE の image / audio メッセージは実体がイベントに載らないため、messageId で
+// Messaging API の content エンドポイントからバイナリを取得し、base64 にして
+// handleAiChat へ渡す。コスト・レイテンシ対策として音声は長さ上限を設ける。
+
+/** 音声の長さ上限（ミリ秒）。これを超えると Gemini 呼び出し前に断る（課金ゼロ）。 */
+const MAX_AUDIO_DURATION_MS = 60_000;
+/** ダウンロードするコンテンツの最大バイト数（base64 で約 1.33 倍に膨らむ点に留意）。 */
+const MAX_MEDIA_BYTES = 8 * 1024 * 1024;
+
+const AUDIO_TOO_LONG_TEXT =
+  'ごめんね、聞き取れる音声は60秒までなんだ🎤 もう少し短く録音して送ってくれる？';
+const MEDIA_ERROR_TEXT =
+  'ごめんね、送ってくれたファイルをうまく読み取れなかったみたい💦 もう一度試してみてね。';
+
+/**
+ * LINE のメッセージコンテンツ（画像・音声の実体）を取得して base64 で返す。
+ * contentProvider が external の場合は originalContentUrl から取得する。
+ * @throws サイズ超過 / HTTP エラー / 取得元不明のとき
+ */
+async function fetchLineMessageContent(message: {
+  id?: string;
+  contentProvider?: { type?: string; originalContentUrl?: string };
+}): Promise<{ data: string; mimeType: string }> {
+  const provider = message.contentProvider;
+  let url: string;
+  const headers: Record<string, string> = {};
+
+  if (provider?.type === 'external' && provider.originalContentUrl) {
+    url = provider.originalContentUrl;
+  } else {
+    if (!message.id) {
+      throw new Error('message id is missing');
+    }
+    const token = process.env.LINE_MESSAGING_CHANNEL_ACCESS_TOKEN || '';
+    if (!token) {
+      throw new Error('LINE_MESSAGING_CHANNEL_ACCESS_TOKEN is not set');
+    }
+    url =
+      'https://api-data.line.me/v2/bot/message/' +
+      `${encodeURIComponent(message.id)}/content`;
+    headers.Authorization = `Bearer ${token}`;
+  }
+
+  const res = await fetch(url, { headers });
+  if (!res.ok) {
+    throw new Error(`content fetch HTTP ${res.status}`);
+  }
+  // ダウンロード前に content-length で粗くガード（無い場合は読み込み後に判定）。
+  const declaredLen = Number(res.headers.get('content-length') || 0);
+  if (declaredLen && declaredLen > MAX_MEDIA_BYTES) {
+    throw new Error(`content too large: ${declaredLen}`);
+  }
+  const headerMime =
+    res.headers.get('content-type')?.split(';')[0]?.trim() || '';
+  const buf = Buffer.from(await res.arrayBuffer());
+  if (buf.byteLength > MAX_MEDIA_BYTES) {
+    throw new Error(`content too large: ${buf.byteLength}`);
+  }
+  return { data: buf.toString('base64'), mimeType: headerMime };
+}
+
+/**
+ * 画像・音声メッセージを AI チャットボットに渡す。
+ * - 音声は長さ上限を超えたらダウンロードせず断る（課金ゼロ）。
+ * - MIME は LINE の形式が決まっているため、種別から確実なものを与える
+ *   （画像=image/jpeg、音声=audio/mp4 を基本に、ヘッダ優先で補正）。
+ */
+async function handleMediaMessage(
+  event: LineEvent,
+  messageType: 'image' | 'audio'
+): Promise<void> {
+  const message = event.message;
+  const replyToken = event.replyToken;
+  const uid = buildUid(event);
+  if (!message || !replyToken || !uid) {
+    console.warn('[lineWebhook] handleMediaMessage: missing message/token/uid');
+    return;
+  }
+
+  // 音声は長さ上限チェック（ダウンロード前 = 課金ゼロで弾く）。
+  if (
+    messageType === 'audio' &&
+    typeof message.duration === 'number' &&
+    message.duration > MAX_AUDIO_DURATION_MS
+  ) {
+    try {
+      const client = await getLineClient();
+      await client.replyMessage({
+        replyToken,
+        messages: [{ type: 'text', text: AUDIO_TOO_LONG_TEXT }],
+      });
+    } catch (error) {
+      console.error('[lineWebhook] audio-too-long reply failed:', error);
+    }
+    return;
+  }
+
+  // コンテンツ取得（失敗時はフォールバック文）。
+  let content: { data: string; mimeType: string };
+  try {
+    content = await fetchLineMessageContent(message);
+  } catch (error) {
+    console.error('[lineWebhook] fetchLineMessageContent failed:', error);
+    try {
+      const client = await getLineClient();
+      await client.replyMessage({
+        replyToken,
+        messages: [{ type: 'text', text: MEDIA_ERROR_TEXT }],
+      });
+    } catch (replyError) {
+      console.error('[lineWebhook] media-error reply failed:', replyError);
+    }
+    return;
+  }
+
+  // Gemini に渡す MIME を決定（LINE の形式は既知なので種別から確実に）。
+  let mimeType: string;
+  if (messageType === 'image') {
+    mimeType = content.mimeType.startsWith('image/')
+      ? content.mimeType
+      : 'image/jpeg';
+  } else {
+    // LINE の音声は m4a（AAC/MP4 コンテナ）。Gemini には audio/mp4 で渡す。
+    mimeType = 'audio/mp4';
+  }
+
+  // userData を 1 回 read して handleAiChat に渡す（追加 read を避ける）。
+  let userData: Record<string, unknown> | undefined;
+  try {
+    const { db } = await getDb();
+    const snap = await db.doc(`users/${uid}`).get();
+    userData = snap.data();
+  } catch (error) {
+    console.error('[lineWebhook] handleMediaMessage state read failed:', error);
+  }
+
+  try {
+    const { handleAiChat } = await import('./aiChat');
+    await handleAiChat(uid, replyToken, '', userData as never, [
+      { mimeType, data: content.data },
+    ]);
+  } catch (error) {
+    console.error('[lineWebhook] handleAiChat (media) failed:', error);
+  }
+}
+
 /**
  * 復帰意思を検知したユーザーの status を active に戻し、おかえりメッセージと
  * 1 問を送信する。1 日に複数回マッチしてもサーバー側の挙動は冪等
@@ -688,9 +858,21 @@ async function handleMessage(event: LineEvent): Promise<void> {
 async function handleRestartIntent(
   uid: string,
   replyToken: string | undefined,
-  event: LineEvent
+  event: LineEvent,
+  previousStatus: string | null = null
 ): Promise<void> {
   console.log(`[lineWebhook] restart intent detected for ${uid}`);
+
+  // 復帰キーワード経由の再活性化を funnel に記録（retention 計測の盲点だった）。
+  // 失敗しても本体フロー（status reset + おかえり + 1問）は止めない。
+  try {
+    const { logServerFunnelEvent } = await import('./funnelEvent');
+    await logServerFunnelEvent('restart_intent_detected', uid, {
+      previousStatus,
+    });
+  } catch (error) {
+    console.warn('[lineWebhook] restart intent funnel log failed:', error);
+  }
 
   try {
     const { db, FieldValue } = await getDb();
@@ -4024,6 +4206,44 @@ interface SendOptions {
 
 const RECENT_QUESTION_LIMIT = 10;
 
+/**
+ * 問題プールのインメモリ TTL キャッシュ（Firestore read 削減）。
+ *
+ * selectAndSendQuestion は出題のたびに subject×grade の questions を全件 .get() する
+ * 最ホットパスで、1配信あたり数百 read（中1歴史 ≈700件）を消費していた。Cloud
+ * Functions のインスタンスは複数リクエスト/複数ユーザーで再利用されるため、
+ * subject×grade 単位で TTL キャッシュすると、毎日配信バッチ（1インスタンスが時間枠の
+ * 対象ユーザーを順次処理）の read が (ユーザー数×問題数) → (種類数×問題数) に激減する。
+ *
+ * 出題ロジックは不変。キャッシュ内容は全ユーザー共通の公開出題データのみ。
+ * 同期直後の新問題は最大 TTL ぶん反映が遅れるが出題内容に実害なし。
+ */
+const QUESTION_POOL_TTL_MS = 10 * 60 * 1000; // 10分
+const questionPoolCache = new Map<
+  string,
+  { docs: FirebaseFirestore.QueryDocumentSnapshot[]; fetchedAt: number }
+>();
+
+async function getGradeQuestionDocs(
+  db: FirebaseFirestore.Firestore,
+  subject: ValidSubject,
+  grade: ValidGrade
+): Promise<FirebaseFirestore.QueryDocumentSnapshot[]> {
+  const key = `${subject}-${grade}`;
+  const cached = questionPoolCache.get(key);
+  if (cached && Date.now() - cached.fetchedAt < QUESTION_POOL_TTL_MS) {
+    return cached.docs;
+  }
+  // 取得失敗時は例外を伝播させ、成功時のみキャッシュする。
+  const snap = await db
+    .collection('questions')
+    .where('subject', '==', subject)
+    .where('grade', '==', grade)
+    .get();
+  questionPoolCache.set(key, { docs: snap.docs, fetchedAt: Date.now() });
+  return snap.docs;
+}
+
 export async function selectAndSendQuestion(
   uid: string,
   options: SendOptions = {}
@@ -4143,13 +4363,11 @@ export async function selectAndSendQuestion(
       )
     : [];
 
-  const snap = await db
-    .collection('questions')
-    .where('subject', '==', subject)
-    .where('grade', '==', grade)
-    .get();
+  // 問題プールは subject×grade 単位でインメモリ TTL キャッシュする（getGradeQuestionDocs）。
+  // 出題のたびに全件 read していた最ホットパスの Firestore read を削減する。
+  const questionDocs = await getGradeQuestionDocs(db, subject, grade);
 
-  if (snap.empty) {
+  if (questionDocs.length === 0) {
     console.warn(
       '[lineWebhook] selectAndSendQuestion: no questions',
       subject,
@@ -4177,11 +4395,11 @@ export async function selectAndSendQuestion(
   // 出題範囲が設定されていれば topic で絞り込む
   const scopedDocs =
     testScopeTopics.length > 0
-      ? snap.docs.filter((d) => {
+      ? questionDocs.filter((d) => {
           const topic = d.get('topic');
           return typeof topic === 'string' && testScopeTopics.includes(topic);
         })
-      : snap.docs;
+      : questionDocs;
 
   // 範囲設定済みでも合致する問題が 0 件の場合は、無言の未配信を防ぐため
   // 全範囲にフォールバックして必ず 1 問配信する（範囲の単元名が questions と
@@ -4193,7 +4411,7 @@ export async function selectAndSendQuestion(
       uid,
       testScopeTopics
     );
-    effectiveDocs = snap.docs;
+    effectiveDocs = questionDocs;
   }
 
   const candidates = effectiveDocs.filter((d) => !recentIds.includes(d.id));

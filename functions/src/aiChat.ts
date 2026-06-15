@@ -7,7 +7,7 @@
  * Gemini に送り、応答を LINE reply で返す。
  *
  * コスト管理（多層）:
- *   1. ユーザー別の 1 日利用上限（無料5 / トライアル・プレミアム50）。
+ *   1. 1 日利用上限（プラン統合により全ユーザー共通 20 回）。
  *      超過時は API を呼ばず固定文で断る（課金ゼロ）。
  *   2. 出力トークン上限・入力履歴ターン制限でトークンを抑制。
  *   3. Gemini 呼び出し成功時のみ count を消費（エラーで上限を無駄にしない）。
@@ -33,7 +33,7 @@ const GEMINI_TIMEOUT_MS = 12_000;
 
 /** 上限超過時の固定文。 */
 const LIMIT_REACHED_TEXT =
-  "今日の質問はここまで！たくさん使ってくれてありがとう😊 また明日、続きを聞かせてね。";
+  "ごめんね、1日にやり取りできる回数に達しちゃったみたい💦 また明日、続きを質問してね😊";
 /** Gemini エラー時のフォールバック文。 */
 const FALLBACK_ERROR_TEXT =
   "ごめんね、いまうまく答えられなかったみたい💦 もう一度送ってみてくれる？";
@@ -48,13 +48,58 @@ interface GeminiResult {
 }
 
 /**
+ * マルチモーダル入力（画像・音声）の 1 パート。base64 データと MIME タイプを持つ。
+ * webhook 側が LINE のコンテンツ API から取得してこの形に詰めて渡す。
+ */
+export interface AiChatMediaPart {
+  /** Gemini に渡す MIME タイプ（例: "image/jpeg" / "audio/mp4"）。 */
+  mimeType: string;
+  /** base64 エンコード済みのバイナリ。 */
+  data: string;
+}
+
+/** メディア種別を MIME から判定（プロンプト・履歴マーカーの出し分け用）。 */
+function mediaKind(media: AiChatMediaPart[]): "image" | "audio" | "mixed" {
+  const kinds = new Set(
+    media.map((m) => (m.mimeType.startsWith("audio/") ? "audio" : "image"))
+  );
+  if (kinds.size > 1) return "mixed";
+  return kinds.has("audio") ? "audio" : "image";
+}
+
+/** テキスト無しでメディアだけ送られたときに Gemini へ与える既定の指示文。 */
+function defaultMediaPrompt(media: AiChatMediaPart[]): string {
+  switch (mediaKind(media)) {
+    case "audio":
+      return "送られてきた音声を聞き取って、その内容にわかりやすく答えてあげてね。質問が含まれていれば中学生にもわかるように解説して。";
+    case "image":
+      return "送られてきた画像の内容を読み取って、わかりやすく説明したり質問に答えてあげてね。問題の写真なら解き方も教えてあげて。";
+    default:
+      return "送られてきたファイルの内容を読み取って、わかりやすく答えてあげてね。";
+  }
+}
+
+/** 履歴に残す user 側マーカー（base64 は保存せず、何を送ったかだけ残す）。 */
+function mediaHistoryMarker(media: AiChatMediaPart[], caption: string): string {
+  const tag =
+    mediaKind(media) === "audio"
+      ? "[音声を送信]"
+      : mediaKind(media) === "image"
+        ? "[画像を送信]"
+        : "[ファイルを送信]";
+  return caption ? `${tag} ${caption}` : tag;
+}
+
+/**
  * Gemini REST API（generativelanguage）を fetch で呼び出す。
  * 成功時は応答テキストを返す。失敗・空応答時は throw する。
+ * media が渡された場合は最後の user ターンに inlineData として添付する。
  */
 async function callGemini(
   systemPrompt: string,
   history: AiChatTurn[],
-  userText: string
+  userText: string,
+  media?: AiChatMediaPart[]
 ): Promise<GeminiResult> {
   const apiKey = process.env.GEMINI_API_KEY || "";
   if (!apiKey) {
@@ -62,12 +107,23 @@ async function callGemini(
   }
   const model = process.env.GEMINI_MODEL || "gemini-3.1-flash-lite";
 
+  // 最後の user ターン: メディア（あれば）→ テキストの順に parts を並べる。
+  const userParts: Array<Record<string, unknown>> = [];
+  if (media) {
+    for (const m of media) {
+      userParts.push({
+        inlineData: { mimeType: m.mimeType, data: m.data },
+      });
+    }
+  }
+  userParts.push({ text: userText });
+
   const contents = [
     ...history.map((turn) => ({
       role: turn.role,
       parts: [{ text: turn.text }],
     })),
-    { role: "user", parts: [{ text: userText }] },
+    { role: "user", parts: userParts },
   ];
 
   const body = {
@@ -135,10 +191,20 @@ export async function handleAiChat(
   uid: string,
   replyToken: string,
   userText: string,
-  userData: UserDoc | undefined
+  userData: UserDoc | undefined,
+  media?: AiChatMediaPart[]
 ): Promise<void> {
   const trimmed = userText.trim();
-  if (!trimmed) return;
+  const hasMedia = !!media && media.length > 0;
+  // テキストも添付も無ければ何もしない（メディアだけ・テキストだけは続行）。
+  if (!trimmed && !hasMedia) return;
+
+  // Gemini に渡す指示文と、履歴に残す user 側テキスト。
+  // メディアのみ（キャプション無し）のときは既定の指示文を補う。
+  const promptText = hasMedia ? trimmed || defaultMediaPrompt(media!) : trimmed;
+  const historyUserText = hasMedia
+    ? mediaHistoryMarker(media!, trimmed)
+    : trimmed;
 
   const plan = getUserPlan(userData as Record<string, unknown> | undefined);
   const limit = getDailyLimit(plan);
@@ -170,7 +236,7 @@ export async function handleAiChat(
   let answer: string;
   try {
     const systemPrompt = buildSystemPrompt(userData);
-    const result = await callGemini(systemPrompt, priorHistory, trimmed);
+    const result = await callGemini(systemPrompt, priorHistory, promptText, media);
     answer = result.text;
   } catch (error) {
     console.error("[aiChat] Gemini call failed:", error);
@@ -203,7 +269,7 @@ export async function handleAiChat(
     const newHistory = trimHistory(
       [
         ...priorHistory,
-        { role: "user" as const, text: trimmed },
+        { role: "user" as const, text: historyUserText },
         { role: "model" as const, text: answer },
       ],
       maxTurns
