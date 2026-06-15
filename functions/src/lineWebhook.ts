@@ -13,6 +13,7 @@ import {
 import { nextStreakState, type StreakState } from './streakState';
 import { recordPushDelivery } from './deliveryStats';
 import type { PushType } from './deliveryStatsTypes';
+import type { LastQuestionSnapshot } from './userDocTypes';
 
 interface LineEvent {
   type: string;
@@ -855,20 +856,47 @@ async function handleMediaMessage(
  * 1 問を送信する。1 日に複数回マッチしてもサーバー側の挙動は冪等
  * （status が既に active なら遷移処理は no-op）。
  */
+/**
+ * Win-back メッセージのワンタップ CTA（postback type=restart）。
+ * 明示タップなので復帰キーワードの誤爆防止ゲート（isEligibleForRestartWelcome）は
+ * 通さず、無条件で「おかえり + 1問」フローへ流す。これにより Day-3（at-risk・
+ * 4〜7日）の受信者もキーワードを打たずに 1 タップで復帰できる。
+ * previousStatus は funnel context 用に 1 read で取得（postback は reply 課金対象外）。
+ */
+async function handleRestartPostback(
+  uid: string,
+  replyToken: string | undefined,
+  event: LineEvent
+): Promise<void> {
+  let previousStatus: string | null = null;
+  try {
+    const { db } = await getDb();
+    const snap = await db.doc(`users/${uid}`).get();
+    previousStatus = (snap.data()?.status as string | undefined) ?? null;
+  } catch (error) {
+    console.warn('[lineWebhook] restart postback status read failed:', error);
+  }
+  await handleRestartIntent(uid, replyToken, event, previousStatus, 'winback_cta');
+}
+
 async function handleRestartIntent(
   uid: string,
   replyToken: string | undefined,
   event: LineEvent,
-  previousStatus: string | null = null
+  previousStatus: string | null = null,
+  source: 'keyword' | 'winback_cta' = 'keyword'
 ): Promise<void> {
-  console.log(`[lineWebhook] restart intent detected for ${uid}`);
+  console.log(
+    `[lineWebhook] restart intent detected for ${uid} (source=${source})`
+  );
 
-  // 復帰キーワード経由の再活性化を funnel に記録（retention 計測の盲点だった）。
+  // 復帰（再活性化）を funnel に記録（retention 計測の盲点だった）。
   // 失敗しても本体フロー（status reset + おかえり + 1問）は止めない。
   try {
     const { logServerFunnelEvent } = await import('./funnelEvent');
     await logServerFunnelEvent('restart_intent_detected', uid, {
       previousStatus,
+      source,
     });
   } catch (error) {
     console.warn('[lineWebhook] restart intent funnel log failed:', error);
@@ -1108,6 +1136,11 @@ async function handlePostback(event: LineEvent): Promise<void> {
 
   if (type === 'extra_question') {
     await handleExtraQuestionPostback(uid, replyToken);
+    return;
+  }
+
+  if (type === 'restart') {
+    await handleRestartPostback(uid, replyToken, event);
     return;
   }
 
@@ -3722,6 +3755,8 @@ async function handleWeakReviewPostback(
     await db.doc(`users/${uid}`).set(
       {
         lastQuestionDeliveredAt: FieldValue.serverTimestamp(),
+        // AI チャットボットが「さっきの問題」に答えられるよう最後の問題を保存。
+        lastQuestion: buildLastQuestionSnapshot(pickedId, question),
         lastAnsweredQuestionId: FieldValue.delete(),
         updatedAt: FieldValue.serverTimestamp(),
       },
@@ -4428,6 +4463,8 @@ export async function selectAndSendQuestion(
       {
         recentQuestionIds: updatedRecent,
         lastQuestionDeliveredAt: FieldValue.serverTimestamp(),
+        // AI チャットボットが「さっきの問題」に答えられるよう最後の問題を保存。
+        lastQuestion: buildLastQuestionSnapshot(picked.id, question),
         // 同じ問題が再出題された場合に「すでに回答済み」ブロックが発生しないよう、
         // 新しい問題を送るタイミングで前回の回答済みフラグを必ずクリアする。
         lastAnsweredQuestionId: FieldValue.delete(),
@@ -4506,6 +4543,25 @@ export async function selectAndSendQuestion(
   } catch (error) {
     console.error('[lineWebhook] selectAndSendQuestion send failed:', error);
   }
+}
+
+/**
+ * `users/{uid}.lastQuestion` に書き込む問題スナップショットを組み立てる。
+ * 問題を送った各経路（毎日配信 / 追加で解く / 苦手復習）で merge set する。
+ * AI チャットボットがこれを文脈に使い「さっきの問題」等に答えられるようにする。
+ */
+function buildLastQuestionSnapshot(
+  questionId: string,
+  q: Question
+): LastQuestionSnapshot {
+  return {
+    id: questionId,
+    topic: q.topic,
+    text: q.text,
+    choices: [...q.choices],
+    correctChoiceId: q.correctChoiceId,
+    explanation: q.explanation,
+  };
 }
 
 function buildQuestionMessage(

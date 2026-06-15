@@ -156,5 +156,34 @@ export function buildSystemPrompt(userData: UserDoc | undefined): string {
 
   const context = `\n\n# 今話している相手の情報（参考）\n- 学年: ${grade}\n- 登録教科: ${subject}\nこの情報を踏まえて、相手に合わせた言葉づかい・難易度で答えてね。ただし学年や教科が未設定なら、それを責めずに自然に進める。`;
 
-  return SERVICE_KNOWLEDGE + context;
+  return SERVICE_KNOWLEDGE + context + buildLastQuestionContext(userData);
+}
+
+/**
+ * 直近に出題した問題を文脈として差し込む（`users/{uid}.lastQuestion`）。
+ * 相手が「さっきの問題」「答えは？」「なんで？」のように直近の問題を指して
+ * きたときに、AI が正しく解説できるようにする。関係ない話題のときは無理に
+ * 持ち出さないよう促す。lastQuestion が無ければ空文字を返す。
+ */
+function buildLastQuestionContext(userData: UserDoc | undefined): string {
+  const q = userData?.lastQuestion;
+  if (!q || !Array.isArray(q.choices) || q.choices.length === 0) return "";
+
+  const choices = q.choices.map((c, i) => `${i + 1}. ${c}`).join(" / ");
+  const correct =
+    q.choices[q.correctChoiceId] !== undefined
+      ? `${q.correctChoiceId + 1}. ${q.choices[q.correctChoiceId]}`
+      : "(不明)";
+
+  return (
+    `\n\n# このユーザーに最後に出題した問題（参考）\n` +
+    `相手が「さっきの問題」「答えは？」「なんで？」のように直近の問題について` +
+    `質問してきたら、これを指しているとみなして解説してあげてね。` +
+    `関係ない話題のときは無理に持ち出さないこと。\n` +
+    `- 単元: ${q.topic}\n` +
+    `- 問題: ${q.text}\n` +
+    `- 選択肢: ${choices}\n` +
+    `- 正解: ${correct}\n` +
+    `- 解説: ${q.explanation}`
+  );
 }

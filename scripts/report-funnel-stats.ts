@@ -32,6 +32,7 @@ interface FunnelDoc {
   lineUserId?: string;
   eventType?: string;
   occurredAt?: Timestamp;
+  context?: Record<string, unknown> | null;
 }
 
 function pct(n: number, d: number): string {
@@ -60,6 +61,10 @@ async function main() {
   const last30ByEvent: Record<string, number> = {};
   const uuByEvent: Record<string, Set<string>> = {};
 
+  // Win-back 効果の定点指標用アキュムレータ。
+  const restartBySource: Record<string, Set<string>> = {}; // source -> UU
+  const recoveryByFrom: Record<string, Set<string>> = {}; // status_transition で to=active の from -> UU
+
   let adminExcluded = 0;
 
   for (const doc of snap.docs) {
@@ -82,6 +87,16 @@ async function main() {
 
     if (!uuByEvent[t]) uuByEvent[t] = new Set<string>();
     if (lid) uuByEvent[t].add(lid);
+
+    // Win-back 効果指標
+    if (t === "restart_intent_detected" && lid) {
+      const src = String(ev.context?.source ?? "(unknown)");
+      (restartBySource[src] ??= new Set<string>()).add(lid);
+    }
+    if (t === "status_transition" && lid && ev.context?.to === "active") {
+      const from = String(ev.context?.from ?? "(unknown)");
+      (recoveryByFrom[from] ??= new Set<string>()).add(lid);
+    }
   }
 
   console.log(`\n(管理者除外: ${adminExcluded} 件)\n`);
@@ -155,6 +170,45 @@ async function main() {
     if (total === 0) continue;
     console.log(`  ${t.padEnd(36)} total=${String(total).padStart(4)}  UU=${String(uu).padStart(3)}`);
   }
+
+  console.log("\n========== Win-back 効果（retention 定点指標） ==========");
+  const winbackUU = uuByEvent["winback_sent"]?.size ?? 0;
+  const restartTotalUU = new Set<string>();
+  Object.values(restartBySource).forEach((s) => s.forEach((u) => restartTotalUU.add(u)));
+  const recoveryTotalUU = new Set<string>();
+  Object.values(recoveryByFrom).forEach((s) => s.forEach((u) => recoveryTotalUU.add(u)));
+
+  console.log(`  Win-back 送信 UU                      : ${winbackUU}`);
+  console.log(
+    `  復帰検知 restart_intent_detected UU   : ${restartTotalUU.size}` +
+      (winbackUU ? `  (送信比 ${pct(restartTotalUU.size, winbackUU)})` : ""),
+  );
+  const srcKeys = Object.keys(restartBySource).sort();
+  if (srcKeys.length > 0) {
+    for (const k of srcKeys) {
+      console.log(`     └ source=${k.padEnd(14)} UU=${restartBySource[k].size}`);
+    }
+  } else {
+    console.log("     └ (まだ記録なし。今回のデプロイ後から蓄積)");
+  }
+  console.log(
+    `  回復遷移 status_transition→active UU  : ${recoveryTotalUU.size}` +
+      (winbackUU ? `  (送信比 ${pct(recoveryTotalUU.size, winbackUU)})` : ""),
+  );
+  const fromKeys = Object.keys(recoveryByFrom).sort();
+  if (fromKeys.length > 0) {
+    for (const k of fromKeys) {
+      console.log(`     └ from=${k.padEnd(16)} UU=${recoveryByFrom[k].size}`);
+    }
+  } else {
+    console.log("     └ (まだ記録なし。日次 recalc が status_transition を記録する)");
+  }
+  console.log(
+    "  ※ restart_intent_detected / status_transition は計測埋め込み後から蓄積。",
+  );
+  console.log(
+    "    過去分の実復帰率はワンショット結合（winback送信時刻 vs lastAnsweredAt）で別途算出。",
+  );
 
   console.log("\n========== 完了 ==========\n");
 }

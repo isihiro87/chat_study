@@ -5,9 +5,14 @@
  *
  * 使い方:
  *   gcloud auth application-default login
- *   npx tsx scripts/sync-questions-from-content.ts --dry-run     # 差分のみ
- *   npx tsx scripts/sync-questions-from-content.ts               # 実行
- *   npx tsx scripts/sync-questions-from-content.ts --prune       # 古い同期分を削除
+ *   npx tsx scripts/sync-questions-from-content.ts --dry-run     # 差分のみ（書き込み無し）
+ *   npx tsx scripts/sync-questions-from-content.ts               # upsert（孤児があれば WARN）
+ *   npx tsx scripts/sync-questions-from-content.ts --dry-run --prune  # 削除対象をプレビューのみ
+ *   npx tsx scripts/sync-questions-from-content.ts --prune       # upsert + 古い同期分を削除
+ *
+ * ⚠️ 再発防止: upsert は削除をしないため、JSON から問題を消すと Firestore に
+ *    孤児ドキュメント（content-history-v1 で source に無い ID）が残り、配信され
+ *    続ける。通常 sync でも孤児を検知して WARN するので、出たら --prune で掃除する。
  *
  * Document ID: `q-history-{topicId}-{questionId}` 形式（例: q-history-jomon-era-q1）
  *
@@ -166,7 +171,8 @@ async function main(): Promise<void> {
     console.log(`  ${g}: ${n} 問`);
   }
 
-  if (dryRun) {
+  // --dry-run（prune なし）は Firestore に触れず差分計算のみで終了
+  if (dryRun && !prune) {
     console.log('[sync] dry-run, no writes');
     return;
   }
@@ -183,37 +189,65 @@ async function main(): Promise<void> {
   }
   const db = getFirestore();
 
-  let wrote = 0;
-  for (const q of local) {
-    const { id, ...data } = q;
-    try {
-      await db.collection('questions').doc(id).set(
-        {
-          ...data,
-          lastSyncedAt: FieldValue.serverTimestamp(),
-        },
-        { merge: true }
-      );
-      wrote++;
-      if (wrote % 50 === 0) console.log(`  ${wrote} / ${local.length}`);
-    } catch (err) {
-      console.error(`  ✗ write failed ${id}:`, err);
+  // --dry-run --prune は upsert せず、削除対象（孤児）のプレビューのみ
+  if (!dryRun) {
+    let wrote = 0;
+    for (const q of local) {
+      const { id, ...data } = q;
+      try {
+        await db.collection('questions').doc(id).set(
+          {
+            ...data,
+            lastSyncedAt: FieldValue.serverTimestamp(),
+          },
+          { merge: true }
+        );
+        wrote++;
+        if (wrote % 50 === 0) console.log(`  ${wrote} / ${local.length}`);
+      } catch (err) {
+        console.error(`  ✗ write failed ${id}:`, err);
+      }
     }
+    console.log(`[sync] wrote ${wrote} questions`);
   }
-  console.log(`[sync] wrote ${wrote} questions`);
+
+  // --- 孤児（content-history-v1 で現行ソースに無い ID）の検知 ---
+  // upsert は削除しないため、JSON から消した問題が残って配信され続ける。
+  // --prune 指定時は削除、未指定時は WARN だけして掃除を促す（再発防止）。
+  const snap = await db
+    .collection('questions')
+    .where('syncSource', '==', SYNC_SOURCE_TAG)
+    .get();
+  const localIds = new Set(local.map((q) => q.id));
+  const orphans = snap.docs.filter((d) => !localIds.has(d.id));
 
   if (prune) {
-    const snap = await db
-      .collection('questions')
-      .where('syncSource', '==', SYNC_SOURCE_TAG)
-      .get();
-    const localIds = new Set(local.map((q) => q.id));
-    const toDelete = snap.docs.filter((d) => !localIds.has(d.id));
-    console.log(`[sync] prune candidates: ${toDelete.length}`);
-    for (const doc of toDelete) {
-      await doc.ref.delete();
-      console.log(`  - deleted ${doc.id}`);
+    console.log(`[sync] prune candidates: ${orphans.length}`);
+    for (const doc of orphans) {
+      const topic = (doc.data() as { topic?: string }).topic ?? '';
+      if (dryRun) {
+        console.log(`  - (dry-run) would delete ${doc.id}  topic=${topic}`);
+      } else {
+        await doc.ref.delete();
+        console.log(`  - deleted ${doc.id}  topic=${topic}`);
+      }
     }
+    if (dryRun) {
+      console.log('[sync] dry-run, nothing deleted（実削除は --prune を --dry-run なしで）');
+    }
+  } else if (orphans.length > 0) {
+    console.warn(
+      `\n⚠️ [sync] 孤児 ${orphans.length} 件（JSON から消えたのに Firestore に残存し配信され続けている問題）:`
+    );
+    for (const doc of orphans) {
+      const topic = (doc.data() as { topic?: string }).topic ?? '';
+      console.warn(`     [${doc.id}] topic=${topic}`);
+    }
+    console.warn(
+      `   → 掃除するには:  npx tsx scripts/sync-questions-from-content.ts --dry-run --prune  で確認後、--prune で削除\n`
+    );
+  } else {
+    console.log('[sync] 孤児なし（Firestore は現行ソースと一致）');
   }
 }
 

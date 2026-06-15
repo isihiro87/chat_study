@@ -1,0 +1,387 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade1",
+  "topicId": "vocab-lesson1",
+  "name": "Hello, Everyone! の単語",
+  "subtitle": "自己紹介・好きなもの・学校生活の語彙",
+  "icon": "👋",
+  "order": 0,
+  "chatId": "eng-vocab-lesson1",
+  "explanation": {
+    "sections": [
+      {
+        "title": "自己紹介で使うことば",
+        "content": "名前・出身・好きなものを伝える基本語が中心です。call me、from、Japanese sweets のように、短い自己紹介でそのまま使える形で覚えます。",
+        "keyPoints": [
+          "Call me Eddy. の call は「電話する」ではなく「呼ぶ」。me は「私を」。",
+          "I'm from South Africa. の from は「出身」を表す。",
+          "Japanese は「日本の」「日本語の」。国名由来の語なので大文字で始める。"
+        ]
+      },
+      {
+        "title": "好きなもの・趣味のことば",
+        "content": "love、watch、fan、rugby、comic、anime など、好きなものや趣味を話す語をまとめます。too、with、often も文を自然に広げる重要語です。",
+        "keyPoints": [
+          "I often watch rugby with my friends. は often、watch、with をまとめて確認。",
+          "don't は do not の短縮形。一般動詞の否定で使う。",
+          "too は文末に置いて「〜もまた」を表す。"
+        ]
+      },
+      {
+        "title": "学校生活のことば",
+        "content": "school、art、English、math、lunch、lesson など、学校生活で使う語を確認します。take は「取る」だけでなく「授業を受ける」にも使います。",
+        "keyPoints": [
+          "take art lessons で「美術の授業を受ける」。",
+          "English は教科名・言語名なので大文字で始める。",
+          "How about you? の about は「〜について」のイメージ。"
+        ]
+      }
+    ]
+  },
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "eng-vocab-lesson1-fc01",
+      "front": "love",
+      "back": "〜が大好きである、〜を愛している",
+      "explanation": "love は「〜が大好きである、〜を愛している」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc02",
+      "front": "watch",
+      "back": "〜を見る",
+      "explanation": "watch は「〜を見る」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc03",
+      "front": "call",
+      "back": "〜を…と呼ぶ、名づける",
+      "explanation": "call は「〜を…と呼ぶ、名づける」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc04",
+      "front": "number",
+      "back": "数、数字",
+      "explanation": "number は「数、数字」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc05",
+      "front": "Japanese",
+      "back": "日本の、日本人の、日本語の",
+      "explanation": "Japanese は「日本の、日本人の、日本語の」を表します。名前・地名・国名などは、文の途中でも大文字で始めます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc06",
+      "front": "want to",
+      "back": "〜したい",
+      "explanation": "want to は「〜したい」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc07",
+      "front": "join",
+      "back": "〜に加わる、参加する",
+      "explanation": "join は「〜に加わる、参加する」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc08",
+      "front": "club",
+      "back": "クラブ、部",
+      "explanation": "club は「クラブ、部」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc09",
+      "front": "and",
+      "back": "〜と…",
+      "explanation": "and は「〜と…」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc10",
+      "front": "from",
+      "back": "〜から、〜出身の",
+      "explanation": "from は「〜から、〜出身の」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc11",
+      "front": "everyone",
+      "back": "みなさん、みんな、だれでも",
+      "explanation": "everyone は「みなさん、みんな、だれでも」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc12",
+      "front": "me",
+      "back": "私を、私に",
+      "explanation": "me は「私を、私に」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc13",
+      "front": "too",
+      "back": "〜もまた、そのうえ",
+      "explanation": "too は「〜もまた、そのうえ」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc14",
+      "front": "South Africa",
+      "back": "南アフリカ共和国",
+      "explanation": "South Africa は「南アフリカ共和国」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc15",
+      "front": "sweet(s)",
+      "back": "甘い菓子、キャンディー／和菓子",
+      "explanation": "sweet(s) は「甘い菓子、キャンディー／和菓子」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc16",
+      "front": "with",
+      "back": "〜といっしょに",
+      "explanation": "with は「〜といっしょに」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc17",
+      "front": "often",
+      "back": "しばしば、よく",
+      "explanation": "often は「しばしば、よく」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc18",
+      "front": "but",
+      "back": "しかし、けれども",
+      "explanation": "but は「しかし、けれども」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc19",
+      "front": "don’t",
+      "back": "do not の短縮形",
+      "explanation": "don’t は do not を短くした形です。アポストロフィ（'）は、なくなった文字の場所を示す印です。たとえば don't では o が省略されています。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc20",
+      "front": "great",
+      "back": "すばらしい、とても楽しい",
+      "explanation": "great は「すばらしい、とても楽しい」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc21",
+      "front": "friend",
+      "back": "友達",
+      "explanation": "friend は「友達」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc22",
+      "front": "no",
+      "back": "いいえ、いや、だめだ",
+      "explanation": "no は「いいえ、いや、だめだ」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc23",
+      "front": "not",
+      "back": "〜でない、〜しない",
+      "explanation": "not は「〜でない、〜しない」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc24",
+      "front": "oh",
+      "back": "まあ、あら、ああ、おや",
+      "explanation": "oh は「まあ、あら、ああ、おや」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc25",
+      "front": "fan",
+      "back": "ファン",
+      "explanation": "fan は「ファン」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc26",
+      "front": "rugby",
+      "back": "ラグビー",
+      "explanation": "rugby は「ラグビー」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc27",
+      "front": "about",
+      "back": "〜について、〜に関する",
+      "explanation": "about は「〜について、〜に関する」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc28",
+      "front": "draw",
+      "back": "線画をかく",
+      "explanation": "draw は「線画をかく」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc29",
+      "front": "so",
+      "back": "だから、それで、では",
+      "explanation": "so は「だから、それで、では」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc30",
+      "front": "school",
+      "back": "学校",
+      "explanation": "school は「学校」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc31",
+      "front": "art",
+      "back": "芸術、美術",
+      "explanation": "art は「芸術、美術」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc32",
+      "front": "how",
+      "back": "どのように、どんなようす",
+      "explanation": "how は「どのように、どんなようす」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc33",
+      "front": "take",
+      "back": "〜を受ける、〜を利用する",
+      "explanation": "take は「〜を受ける、〜を利用する」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc34",
+      "front": "swimming",
+      "back": "水泳",
+      "explanation": "swimming は「水泳」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc35",
+      "front": "English",
+      "back": "英語",
+      "explanation": "English は「英語」を表します。名前・地名・国名などは、文の途中でも大文字で始めます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc36",
+      "front": "bike",
+      "back": "自転車",
+      "explanation": "bike は「自転車」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc37",
+      "front": "math",
+      "back": "数学",
+      "explanation": "math は「数学」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc38",
+      "front": "lunch",
+      "back": "昼食",
+      "explanation": "lunch は「昼食」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc39",
+      "front": "anime",
+      "back": "日本のアニメ",
+      "explanation": "anime は「日本のアニメ」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc40",
+      "front": "lesson",
+      "back": "授業、レッスン",
+      "explanation": "lesson は「授業、レッスン」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson1-fc41",
+      "front": "comic",
+      "back": "マンガ",
+      "explanation": "comic は「マンガ」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "「Call me Eddy.」の call の意味として正しいものは？",
+        "options": [
+          "電話する",
+          "呼ぶ",
+          "見る",
+          "参加する"
+        ],
+        "correctIndex": 1,
+        "explanation": "Call me Eddy. は「私をエディと呼んで」。この call は「呼ぶ」の意味です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "I'm from South Africa. の from の意味は？",
+        "options": [
+          "〜について",
+          "〜といっしょに",
+          "〜出身の",
+          "〜もまた"
+        ],
+        "correctIndex": 2,
+        "explanation": "I'm from ... は「私は…出身です」。from は出発点・出身を表します。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "「私はよく友達とラグビーを見る」に合う語の組み合わせは？",
+        "options": [
+          "often / with",
+          "too / from",
+          "not / about",
+          "so / no"
+        ],
+        "correctIndex": 0,
+        "explanation": "I often watch rugby with my friends. の形で、often は「よく」、with は「〜といっしょに」。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "「do not」の短縮形は？",
+        "options": [
+          "can't",
+          "don't",
+          "it's",
+          "who's"
+        ],
+        "correctIndex": 1,
+        "explanation": "do not は don't。' は省略された文字がある場所を示す印です。",
+        "difficulty": "basic"
+      }
+    ]
+  }
+}

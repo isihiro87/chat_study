@@ -1,0 +1,422 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade1",
+  "topicId": "vocab-lesson6",
+  "name": "A Rakugo Performer from the U.K. の単語",
+  "subtitle": "演芸・持ち物・服装の語彙",
+  "icon": "🎭",
+  "order": 5,
+  "chatId": "eng-vocab-lesson6",
+  "explanation": {
+    "sections": [
+      {
+        "title": "6-1: 人を紹介することば",
+        "content": "show、performer、the U.K.、him、her、say、together など、人や活動を紹介する語を確認します。",
+        "keyPoints": [
+          "him は「彼を／彼に」、her は「彼女を／彼女に」「彼女の」。",
+          "let’s は let us の短縮形で「〜しましょう」。",
+          "Why don’t we ...? は「〜しませんか。」という提案の表現。"
+        ]
+      },
+      {
+        "title": "6-2: 時間・持ち物のことば",
+        "content": "minute、history、whose、yours、mine、ticket など、時間や持ち物をたずねる語をまとめます。",
+        "keyPoints": [
+          "whose は「だれの／だれのもの」。",
+          "mine は「私のもの」、yours は「あなたのもの」。",
+          "be careful with は「〜のあつかいに気をつける」。"
+        ]
+      },
+      {
+        "title": "6-3: 道具・服装のことば",
+        "content": "cushion、role、prop、collection、which、wear など、演技や服装に関係する語を確認します。",
+        "keyPoints": [
+          "which は「どちら／どちらの」。選択肢から選ぶときに使う。",
+          "different は「いろいろな／異なった」。",
+          "wear は「着ている／身につけている」。"
+        ]
+      }
+    ]
+  },
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "eng-vocab-lesson6-fc01",
+      "front": "show",
+      "back": "ショー",
+      "explanation": "show は「ショー」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc02",
+      "front": "performer",
+      "back": "演技者、演者",
+      "explanation": "performer は「演技者、演者」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc03",
+      "front": "the U.K.",
+      "back": "英国、イギリス",
+      "explanation": "the U.K. は「英国、イギリス」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc04",
+      "front": "everything",
+      "back": "何でも、全てのもの・こと",
+      "explanation": "everything は「何でも、全てのもの・こと」を表します。人を指す語は、文の中での役割によって形が変わります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc05",
+      "front": "him",
+      "back": "彼を、彼に",
+      "explanation": "him は「彼を、彼に」を表します。人を指す語は、文の中での役割によって形が変わります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc06",
+      "front": "her",
+      "back": "彼女を、彼女に／彼女の",
+      "explanation": "her は「彼女を、彼女に／彼女の」を表します。人を指す語は、文の中での役割によって形が変わります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc07",
+      "front": "say",
+      "back": "〜を言う、〜だと言う",
+      "explanation": "say は「〜を言う、〜だと言う」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc08",
+      "front": "together",
+      "back": "いっしょに、ともに",
+      "explanation": "together は「いっしょに、ともに」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc09",
+      "front": "let’s",
+      "back": "〜しましょう",
+      "explanation": "let’s は「〜しましょう」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc10",
+      "front": "how’s",
+      "back": "how is の短縮形",
+      "explanation": "how’s は how is を短くした形です。アポストロフィ（'）は、なくなった文字の場所を示す印です。たとえば don't では o が省略されています。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc11",
+      "front": "Why don’t we ...?",
+      "back": "〜しませんか。",
+      "explanation": "Why don’t we ...? は「〜しませんか。」という表現です。... の部分に動作や名詞を入れて、自分の文にできます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc12",
+      "front": "know",
+      "back": "知っている",
+      "explanation": "know は「知っている」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc13",
+      "front": "visit",
+      "back": "〜を訪れる",
+      "explanation": "visit は「〜を訪れる」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc14",
+      "front": "tell",
+      "back": "〜を話す、伝える",
+      "explanation": "tell は「〜を話す、伝える」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc15",
+      "front": "see",
+      "back": "〜に会う、〜を見る",
+      "explanation": "see は「〜に会う、〜を見る」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc16",
+      "front": "minute",
+      "back": "分",
+      "explanation": "minute は「分」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc17",
+      "front": "history",
+      "back": "歴史",
+      "explanation": "history は「歴史」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc18",
+      "front": "whose",
+      "back": "だれの、だれのもの",
+      "explanation": "whose は「だれの、だれのもの」を表します。人を指す語は、文の中での役割によって形が変わります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc19",
+      "front": "yours",
+      "back": "あなたのもの、あなたたちのもの",
+      "explanation": "yours は「あなたのもの、あなたたちのもの」を表します。人を指す語は、文の中での役割によって形が変わります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc20",
+      "front": "mine",
+      "back": "私のもの",
+      "explanation": "mine は「私のもの」を表します。人を指す語は、文の中での役割によって形が変わります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc21",
+      "front": "wait",
+      "back": "待つ",
+      "explanation": "wait は「待つ」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc22",
+      "front": "careful",
+      "back": "注意深い",
+      "explanation": "careful は「注意深い」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc23",
+      "front": "crowded",
+      "back": "こみ合った、満員の",
+      "explanation": "crowded は「こみ合った、満員の」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc24",
+      "front": "still",
+      "back": "まだ、今でも",
+      "explanation": "still は「まだ、今でも」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc25",
+      "front": "maybe",
+      "back": "たぶん、もしかすると",
+      "explanation": "maybe は「たぶん、もしかすると」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc26",
+      "front": "over",
+      "back": "〜より多く、〜をこえて",
+      "explanation": "over は「〜より多く、〜をこえて」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc27",
+      "front": "ticket",
+      "back": "切符、チケット",
+      "explanation": "ticket は「切符、チケット」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc28",
+      "front": "start",
+      "back": "始まる、出発する",
+      "explanation": "start は「始まる、出発する」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc29",
+      "front": "Thanks.",
+      "back": "ありがとう。",
+      "explanation": "Thanks. は「ありがとう。」という会話表現です。短い文なので、声に出してそのまま覚えましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc30",
+      "front": "be careful with",
+      "back": "〜のあつかいに気をつける",
+      "explanation": "be careful with は「〜のあつかいに気をつける」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc31",
+      "front": "How old ...?",
+      "back": "何歳で、作られてからどれくらいで",
+      "explanation": "How old ...? は「何歳で、作られてからどれくらいで」という表現です。... の部分に動作や名詞を入れて、自分の文にできます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc32",
+      "front": "cushion",
+      "back": "クッション、ざぶとん",
+      "explanation": "cushion は「クッション、ざぶとん」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc33",
+      "front": "role",
+      "back": "役、役割",
+      "explanation": "role は「役、役割」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc34",
+      "front": "prop",
+      "back": "小道具",
+      "explanation": "prop は「小道具」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc35",
+      "front": "collection",
+      "back": "収集したもの、コレクション",
+      "explanation": "collection は「収集したもの、コレクション」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc36",
+      "front": "which",
+      "back": "どちら、どちらの人・もの",
+      "explanation": "which は「どちら、どちらの人・もの」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc37",
+      "front": "use",
+      "back": "〜を使う、利用する",
+      "explanation": "use は「〜を使う、利用する」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc38",
+      "front": "different",
+      "back": "いろいろな、異なった",
+      "explanation": "different は「いろいろな、異なった」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc39",
+      "front": "large",
+      "back": "大きい、多数の",
+      "explanation": "large は「大きい、多数の」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc40",
+      "front": "casual",
+      "back": "カジュアルな、ふだん着の",
+      "explanation": "casual は「カジュアルな、ふだん着の」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc41",
+      "front": "only",
+      "back": "ただ〜だけ",
+      "explanation": "only は「ただ〜だけ」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc42",
+      "front": "or",
+      "back": "〜かまたは〜、〜や〜",
+      "explanation": "or は「〜かまたは〜、〜や〜」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc43",
+      "front": "hand",
+      "back": "手",
+      "explanation": "hand は「手」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc44",
+      "front": "towel",
+      "back": "タオル、手ぬぐい",
+      "explanation": "towel は「タオル、手ぬぐい」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc45",
+      "front": "clothes",
+      "back": "衣服、服",
+      "explanation": "clothes は「衣服、服」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson6-fc46",
+      "front": "wear",
+      "back": "〜を着ている、身につけている",
+      "explanation": "wear は「〜を着ている、身につけている」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Why don’t we ...? の意味は？",
+        "options": [
+          "なぜ〜しないのですか",
+          "〜しませんか",
+          "何歳ですか",
+          "どちらですか"
+        ],
+        "correctIndex": 1,
+        "explanation": "Why don’t we ...? は相手を誘う「〜しませんか。」の表現です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q2",
+        "question": "mine の意味は？",
+        "options": [
+          "私のもの",
+          "あなたのもの",
+          "彼のもの",
+          "彼女のもの"
+        ],
+        "correctIndex": 0,
+        "explanation": "mine は「私のもの」。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q3",
+        "question": "whose の意味は？",
+        "options": [
+          "だれの、だれのもの",
+          "どちらの",
+          "いつの",
+          "どこで"
+        ],
+        "correctIndex": 0,
+        "explanation": "whose は所有者をたずねる疑問詞です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q4",
+        "question": "be careful with の意味は？",
+        "options": [
+          "〜といっしょに行く",
+          "〜のあつかいに気をつける",
+          "〜の上に置く",
+          "〜を楽しみに待つ"
+        ],
+        "correctIndex": 1,
+        "explanation": "be careful with は「〜のあつかいに気をつける」。",
+        "difficulty": "standard"
+      }
+    ]
+  }
+}

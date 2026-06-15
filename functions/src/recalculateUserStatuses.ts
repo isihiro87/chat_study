@@ -58,6 +58,11 @@ export const recalculateUserStatuses = functions
     const now = new Date();
     let lastDoc: FirebaseFirestore.QueryDocumentSnapshot | null = null;
 
+    // status 遷移を funnel に記録するため収集（書き込みはスキャン完了後にまとめて行い、
+    // batch コミットのレイテンシに影響させない）。retention 計測の盲点だった
+    // 「回復遷移（at-risk/dormant -> active）」もここで可視化する。
+    const transitionEvents: { uid: string; from: UserStatus; to: UserStatus }[] = [];
+
     while (true) {
       let query = db
         .collection("users")
@@ -109,6 +114,7 @@ export const recalculateUserStatuses = functions
         const transitionKey = `${oldStatus}->${newStatus}`;
         stats.transitions[transitionKey] =
           (stats.transitions[transitionKey] ?? 0) + 1;
+        transitionEvents.push({ uid: doc.id, from: oldStatus, to: newStatus });
 
         const updates: Record<string, unknown> = {
           status: newStatus,
@@ -136,6 +142,26 @@ export const recalculateUserStatuses = functions
 
       lastDoc = snap.docs[snap.docs.length - 1] ?? null;
       if (snap.size < BATCH_SIZE) break;
+    }
+
+    // 収集した status 遷移を funnel に記録（件数はユーザー数で上界、通常は数十/日）。
+    // 失敗は許容（funnel データ欠損 OK・本体は止めない）。チャンクで並列化。
+    if (transitionEvents.length > 0) {
+      const { logServerFunnelEvent } = await import("./funnelEvent");
+      const CHUNK = 50;
+      for (let i = 0; i < transitionEvents.length; i += CHUNK) {
+        await Promise.all(
+          transitionEvents.slice(i, i + CHUNK).map((t) =>
+            logServerFunnelEvent("status_transition", t.uid, {
+              from: t.from,
+              to: t.to,
+            })
+          )
+        );
+      }
+      console.log(
+        `[recalculateUserStatuses] logged ${transitionEvents.length} status_transition events`
+      );
     }
 
     const elapsed = Date.now() - startedAt;

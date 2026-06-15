@@ -31,8 +31,8 @@ const MAX_OUTPUT_TOKENS = 500;
 /** Gemini 呼び出しのタイムアウト（ms）。LINE replyToken の有効期間内に返す。 */
 const GEMINI_TIMEOUT_MS = 12_000;
 
-/** 上限超過時の固定文。 */
-const LIMIT_REACHED_TEXT =
+/** 上限超過時の固定文。webhook 側のメディア早期ガードでも再利用する。 */
+export const LIMIT_REACHED_TEXT =
   "ごめんね、1日にやり取りできる回数に達しちゃったみたい💦 また明日、続きを質問してね😊";
 /** Gemini エラー時のフォールバック文。 */
 const FALLBACK_ERROR_TEXT =

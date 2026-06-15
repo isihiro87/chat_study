@@ -79,6 +79,15 @@ function bubbleApologyAnswered() {
           },
           {
             type: "text",
+            text: "⏰ ご設定の朝6時に、今日から毎日1問お届けします。",
+            wrap: true,
+            size: "sm",
+            color: "#92400E",
+            weight: "bold",
+            margin: "md",
+          },
+          {
+            type: "text",
             text: RESTART_HINT_TEXT,
             wrap: true,
             size: "xs",
@@ -94,7 +103,7 @@ function bubbleApologyAnswered() {
 function bubbleTrialInfo() {
   return {
     type: "flex",
-    altText: "7日間プレミアム体験中です（登録しない限り料金は発生しません）",
+    altText: "7日間プレミアム体験中です（登録しない限り料金はかかりません）",
     contents: {
       type: "bubble",
       size: "kilo",
@@ -128,19 +137,12 @@ function bubbleTrialInfo() {
           },
           {
             type: "text",
-            text: "ご自分で本登録の手続きをしない限り料金は発生しません。安心してお試しください。",
+            text: "登録しない限り料金はかからないよ。安心してたくさん使ってね😊",
             wrap: true,
             size: "sm",
             color: "#92400E",
             weight: "bold",
             margin: "md",
-          },
-          {
-            type: "text",
-            text: "✅ クレジットカード登録不要・自動課金なし\n✅ 期間中の登録で月¥680 永続ロック",
-            wrap: true,
-            size: "xs",
-            color: "#666666",
           },
         ],
       },

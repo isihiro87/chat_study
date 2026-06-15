@@ -1,0 +1,380 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade1",
+  "topicId": "vocab-lesson4",
+  "name": "Friends in New Zealand の単語",
+  "subtitle": "ニュージーランド・数・時刻・気持ちの語彙",
+  "icon": "🇳🇿",
+  "order": 3,
+  "chatId": "eng-vocab-lesson4",
+  "explanation": {
+    "sections": [
+      {
+        "title": "New Zealand と動物のことば",
+        "content": "New Zealand、puppy、animal、sheep、kiwi など、ニュージーランドに関係する語を確認します。国名は大文字で始めます。",
+        "keyPoints": [
+          "New Zealand は国名なので N と Z を大文字にする。",
+          "sheep は単数形も複数形も sheep。",
+          "kiwi は鳥・果物・ニュージーランドに関係する語として出やすい。"
+        ]
+      },
+      {
+        "title": "数・量をたずねる表現",
+        "content": "How many ...?、a lot of、one of、they、they’re など、数や量を表す表現をまとめます。",
+        "keyPoints": [
+          "How many ...? は「いくつの〜／何人の〜」。後ろは複数名詞。",
+          "a lot of は「たくさんの」。数えられる名詞にも数えられない名詞にも使える。",
+          "one of は「〜の1つ／1人」。後ろは複数名詞にする。"
+        ]
+      },
+      {
+        "title": "時刻・気持ち・位置のことば",
+        "content": "noon、o’clock、morning、afternoon、p.m.、worry、nervous、front、right、turn など、会話で使う基本語を整理します。",
+        "keyPoints": [
+          "nervous は「緊張して」。テストで意味を問われやすい。",
+          "front は「前、正面」。in front of の形も意識する。",
+          "right は「正しい」のほか「右」の意味もあるので文脈で判断する。"
+        ]
+      }
+    ]
+  },
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "eng-vocab-lesson4-fc01",
+      "front": "New Zealand",
+      "back": "ニュージーランド",
+      "explanation": "New Zealand は「ニュージーランド」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson4-fc02",
+      "front": "puppy",
+      "back": "子犬",
+      "explanation": "puppy は「子犬」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson4-fc03",
+      "front": "someday",
+      "back": "いつか",
+      "explanation": "someday は「いつか」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson4-fc04",
+      "front": "they",
+      "back": "彼らは、彼女らは、それらは",
+      "explanation": "they は「彼らは、彼女らは、それらは」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson4-fc05",
+      "front": "they’re",
+      "back": "they are の短縮形",
+      "explanation": "they’re は they are を短くした形です。アポストロフィ（'）は、なくなった文字の場所を示す印です。たとえば don't では o が省略されています。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson4-fc06",
+      "front": "of",
+      "back": "〜の、〜の中の、〜のうちの",
+      "explanation": "of は「〜の、〜の中の、〜のうちの」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson4-fc07",
+      "front": "a lot of",
+      "back": "たくさんの、多くの",
+      "explanation": "a lot of は「たくさんの、多くの」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-lesson4-fc08",
+      "front": "one of",
+      "back": "〜の1つ、〜の1人",
+      "explanation": "one of は「〜の1つ、〜の1人」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-lesson4-fc09",
+      "front": "How many ...?",
+      "back": "いくつの〜、何人の〜",
+      "explanation": "How many ...? は「いくつの〜、何人の〜」という表現です。... の部分に動作や名詞を入れて、自分の文にできます。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-lesson4-fc10",
+      "front": "Japan",
+      "back": "日本",
+      "explanation": "Japan は「日本」を表します。名前・地名・国名などは、文の途中でも大文字で始めます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson4-fc11",
+      "front": "visit",
+      "back": "人・場所を訪ねる",
+      "explanation": "visit は「人・場所を訪ねる」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson4-fc12",
+      "front": "animal",
+      "back": "動物",
+      "explanation": "animal は「動物」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson4-fc13",
+      "front": "like",
+      "back": "〜のような、〜に似た、〜らしい",
+      "explanation": "like は「〜のような、〜に似た、〜らしい」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson4-fc14",
+      "front": "last",
+      "back": "最後の、最終の",
+      "explanation": "last は「最後の、最終の」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson4-fc15",
+      "front": "noon",
+      "back": "正午、真昼",
+      "explanation": "noon は「正午、真昼」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson4-fc16",
+      "front": "o’clock",
+      "back": "〜時",
+      "explanation": "o’clock は「〜時」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson4-fc17",
+      "front": "sports",
+      "back": "スポーツ",
+      "explanation": "sports は「スポーツ」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson4-fc18",
+      "front": "basketball",
+      "back": "バスケットボール",
+      "explanation": "basketball は「バスケットボール」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson4-fc19",
+      "front": "time",
+      "back": "時刻、時間",
+      "explanation": "time は「時刻、時間」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson4-fc20",
+      "front": "morning",
+      "back": "午前、朝",
+      "explanation": "morning は「午前、朝」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson4-fc21",
+      "front": "afternoon",
+      "back": "午後",
+      "explanation": "afternoon は「午後」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson4-fc22",
+      "front": "p.m.",
+      "back": "午後",
+      "explanation": "p.m. は「午後」という会話表現です。短い文なので、声に出してそのまま覚えましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson4-fc23",
+      "front": "be",
+      "back": "〜である、〜になる",
+      "explanation": "be は「〜である、〜になる」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson4-fc24",
+      "front": "worry",
+      "back": "心配する、悩む",
+      "explanation": "worry は「心配する、悩む」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson4-fc25",
+      "front": "yourself",
+      "back": "あなた自身を、あなた自身に",
+      "explanation": "yourself は「あなた自身を、あなた自身に」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson4-fc26",
+      "front": "front",
+      "back": "前、正面",
+      "explanation": "front は「前、正面」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-lesson4-fc27",
+      "front": "right",
+      "back": "正しい、正確な",
+      "explanation": "right は「正しい、正確な」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-lesson4-fc28",
+      "front": "turn",
+      "back": "順番、番",
+      "explanation": "turn は「順番、番」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-lesson4-fc29",
+      "front": "fun",
+      "back": "楽しいこと",
+      "explanation": "fun は「楽しいこと」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson4-fc30",
+      "front": "boy",
+      "back": "男の子",
+      "explanation": "boy は「男の子」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson4-fc31",
+      "front": "man",
+      "back": "男性、男の人",
+      "explanation": "man は「男性、男の人」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson4-fc32",
+      "front": "sad",
+      "back": "悲しい",
+      "explanation": "sad は「悲しい」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson4-fc33",
+      "front": "picture",
+      "back": "絵、絵画、写真",
+      "explanation": "picture は「絵、絵画、写真」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson4-fc34",
+      "front": "long",
+      "back": "長い",
+      "explanation": "long は「長い」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson4-fc35",
+      "front": "nervous",
+      "back": "緊張して",
+      "explanation": "nervous は「緊張して」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-lesson4-fc36",
+      "front": "sheep",
+      "back": "羊",
+      "explanation": "sheep は「羊」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson4-fc37",
+      "front": "kiwi",
+      "back": "キーウィ",
+      "explanation": "kiwi は「キーウィ」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson4-fc38",
+      "front": "table",
+      "back": "テーブル",
+      "explanation": "table は「テーブル」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson4-fc39",
+      "front": "song",
+      "back": "歌",
+      "explanation": "song は「歌」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson4-fc40",
+      "front": "kitchen",
+      "back": "台所、キッチン",
+      "explanation": "kitchen は「台所、キッチン」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "How many ...? の意味は？",
+        "options": [
+          "どのくらい長い",
+          "いくつの〜、何人の〜",
+          "いつか",
+          "〜のような"
+        ],
+        "correctIndex": 1,
+        "explanation": "How many ...? は数をたずねる表現です。後ろには複数名詞を置きます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q2",
+        "question": "a lot of の意味は？",
+        "options": [
+          "最後の",
+          "たくさんの",
+          "正午",
+          "正しい"
+        ],
+        "correctIndex": 1,
+        "explanation": "a lot of は「たくさんの、多くの」。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q3",
+        "question": "they're の短縮前は？",
+        "options": [
+          "they is",
+          "they are",
+          "there are",
+          "they were"
+        ],
+        "correctIndex": 1,
+        "explanation": "they're は they are の短縮形です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q4",
+        "question": "nervous の意味として正しいものは？",
+        "options": [
+          "悲しい",
+          "楽しい",
+          "緊張して",
+          "長い"
+        ],
+        "correctIndex": 2,
+        "explanation": "nervous は発表や試合の前などの「緊張して」を表します。",
+        "difficulty": "standard"
+      }
+    ]
+  }
+}

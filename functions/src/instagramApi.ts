@@ -1,6 +1,10 @@
 import type { IgDmEventMetaError } from './igTypes';
 
-const GRAPH_API_BASE = 'https://graph.facebook.com/v22.0';
+// Instagram API with Instagram Login（Instagram ログイン方式）を使う。
+// この方式ではホストが graph.facebook.com ではなく graph.instagram.com になり、
+// access_token は Page Access Token ではなく Instagram User Access Token を使う。
+// （Facebook ログイン方式に戻す場合は graph.facebook.com/v22.0 に変更する）
+const GRAPH_API_BASE = 'https://graph.instagram.com/v22.0';
 
 export interface ReplyToCommentResult {
   ok: boolean;

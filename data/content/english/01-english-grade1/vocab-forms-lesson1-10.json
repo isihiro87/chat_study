@@ -1,0 +1,537 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade1",
+  "topicId": "vocab-forms-lesson1-10",
+  "name": "短縮形・変化形・過去形まとめ",
+  "subtitle": "didn't / went / was / There is ... など",
+  "icon": "✂️",
+  "order": 8,
+  "chatId": "eng-vocab-forms-lesson1-10",
+  "explanation": {
+    "sections": [
+      {
+        "title": "短縮形・変化形・過去形はセットで覚える",
+        "content": "短縮形はもとの形、過去形は原形と変化のしかたをセットで確認します。人称代名詞の目的格・所有代名詞、There is / There are の表現もまとめて覚えます。",
+        "keyPoints": [
+          "didn't = did not、wasn't = was not、weren't = were not。",
+          "go → went、see → saw、make → made、win → won のような不規則変化に注意。",
+          "There is ... / There are ... は「〜があります、〜がいます」を表す。"
+        ]
+      }
+    ]
+  },
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "eng-vocab-forms-fc01",
+      "front": "doesn’t",
+      "back": "does not の短縮形",
+      "explanation": "doesn’t は does not を短くした形です。アポストロフィ（'）は、なくなった文字の場所を示す印です。たとえば don't では o が省略されています。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-forms-fc02",
+      "front": "let’s",
+      "back": "let us の短縮形、〜しましょう",
+      "explanation": "let’s は let us を短くした形です。アポストロフィ（'）は、なくなった文字の場所を示す印です。たとえば don't では o が省略されています。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-forms-fc03",
+      "front": "how’s",
+      "back": "how is の短縮形",
+      "explanation": "how’s は how is を短くした形です。アポストロフィ（'）は、なくなった文字の場所を示す印です。たとえば don't では o が省略されています。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-forms-fc04",
+      "front": "we’re",
+      "back": "we are の短縮形",
+      "explanation": "we’re は we are を短くした形です。アポストロフィ（'）は、なくなった文字の場所を示す印です。たとえば don't では o が省略されています。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-forms-fc05",
+      "front": "I’m",
+      "back": "I am の短縮形",
+      "explanation": "I’m は I am を短くした形です。アポストロフィ（'）は、なくなった文字の場所を示す印です。たとえば don't では o が省略されています。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc06",
+      "front": "don’t",
+      "back": "do not の短縮形",
+      "explanation": "don’t は do not を短くした形です。アポストロフィ（'）は、なくなった文字の場所を示す印です。たとえば don't では o が省略されています。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc07",
+      "front": "didn’t",
+      "back": "did not の短縮形",
+      "explanation": "didn’t は did not を短くした形です。アポストロフィ（'）は、なくなった文字の場所を示す印です。たとえば don't では o が省略されています。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc08",
+      "front": "wasn’t",
+      "back": "was not の短縮形",
+      "explanation": "wasn’t は was not を短くした形です。アポストロフィ（'）は、なくなった文字の場所を示す印です。たとえば don't では o が省略されています。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc09",
+      "front": "weren’t",
+      "back": "were not の短縮形",
+      "explanation": "weren’t は were not を短くした形です。アポストロフィ（'）は、なくなった文字の場所を示す印です。たとえば don't では o が省略されています。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc10",
+      "front": "isn’t",
+      "back": "is not の短縮形",
+      "explanation": "isn’t は is not を短くした形です。アポストロフィ（'）は、なくなった文字の場所を示す印です。たとえば don't では o が省略されています。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc11",
+      "front": "aren’t",
+      "back": "are not の短縮形",
+      "explanation": "aren’t は are not を短くした形です。アポストロフィ（'）は、なくなった文字の場所を示す印です。たとえば don't では o が省略されています。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc12",
+      "front": "does",
+      "back": "do の三人称単数現在形",
+      "explanation": "does は「do の三人称単数現在形」です。主語が he / she / it などのときに出やすい形です。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-forms-fc13",
+      "front": "has",
+      "back": "have の三人称単数現在形",
+      "explanation": "has は「have の三人称単数現在形」です。主語が he / she / it などのときに出やすい形です。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-forms-fc14",
+      "front": "did",
+      "back": "do の過去形",
+      "explanation": "did は do の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc15",
+      "front": "children",
+      "back": "child の複数形",
+      "explanation": "children は「child の複数形」です。単数形と形が変わるので、セットで覚えましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-forms-fc16",
+      "front": "mine",
+      "back": "私のもの",
+      "explanation": "mine は「私のもの」を表します。人を指す語は、文の中での役割によって形が変わります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-forms-fc17",
+      "front": "yours",
+      "back": "あなたのもの、あなたたちのもの",
+      "explanation": "yours は「あなたのもの、あなたたちのもの」を表します。人を指す語は、文の中での役割によって形が変わります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-forms-fc18",
+      "front": "his",
+      "back": "彼のもの／彼の",
+      "explanation": "his は「彼のもの／彼の」を表します。人を指す語は、文の中での役割によって形が変わります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc19",
+      "front": "hers",
+      "back": "彼女のもの",
+      "explanation": "hers は「彼女のもの」を表します。人を指す語は、文の中での役割によって形が変わります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc20",
+      "front": "ours",
+      "back": "私たちのもの",
+      "explanation": "ours は「私たちのもの」を表します。人を指す語は、文の中での役割によって形が変わります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc21",
+      "front": "theirs",
+      "back": "彼ら・彼女ら・それらのもの",
+      "explanation": "theirs は「彼ら・彼女ら・それらのもの」を表します。人を指す語は、文の中での役割によって形が変わります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc22",
+      "front": "him",
+      "back": "彼を、彼に",
+      "explanation": "him は「彼を、彼に」を表します。人を指す語は、文の中での役割によって形が変わります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc23",
+      "front": "her",
+      "back": "彼女を、彼女に",
+      "explanation": "her は「彼女を、彼女に」を表します。人を指す語は、文の中での役割によって形が変わります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc24",
+      "front": "them",
+      "back": "彼らを、彼女らを、それらを",
+      "explanation": "them は「彼らを、彼女らを、それらを」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc25",
+      "front": "played",
+      "back": "play の過去形",
+      "explanation": "played は play の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc26",
+      "front": "used",
+      "back": "use の過去形",
+      "explanation": "used は use の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc27",
+      "front": "watched",
+      "back": "watch の過去形",
+      "explanation": "watched は watch の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc28",
+      "front": "studied",
+      "back": "study の過去形",
+      "explanation": "studied は study の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc29",
+      "front": "tried",
+      "back": "try の過去形",
+      "explanation": "tried は try の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc30",
+      "front": "lived",
+      "back": "live の過去形",
+      "explanation": "lived は live の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc31",
+      "front": "stopped",
+      "back": "stop の過去形",
+      "explanation": "stopped は stop の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc32",
+      "front": "went",
+      "back": "go の過去形",
+      "explanation": "went は go の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc33",
+      "front": "saw",
+      "back": "see の過去形",
+      "explanation": "saw は see の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc34",
+      "front": "met",
+      "back": "meet の過去形",
+      "explanation": "met は meet の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc35",
+      "front": "ate",
+      "back": "eat の過去形",
+      "explanation": "ate は eat の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc36",
+      "front": "came",
+      "back": "come の過去形",
+      "explanation": "came は come の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc37",
+      "front": "wrote",
+      "back": "write の過去形",
+      "explanation": "wrote は write の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc38",
+      "front": "bought",
+      "back": "buy の過去形",
+      "explanation": "bought は buy の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc39",
+      "front": "got",
+      "back": "get の過去形",
+      "explanation": "got は get の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc40",
+      "front": "read",
+      "back": "read の過去形／読む",
+      "explanation": "read は read の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc41",
+      "front": "said",
+      "back": "say の過去形",
+      "explanation": "said は say の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc42",
+      "front": "spent",
+      "back": "spend の過去形",
+      "explanation": "spent は spend の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc43",
+      "front": "made",
+      "back": "make の過去形",
+      "explanation": "made は make の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc44",
+      "front": "won",
+      "back": "win の過去形",
+      "explanation": "won は win の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc45",
+      "front": "fell",
+      "back": "fall の過去形",
+      "explanation": "fell は fall の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc46",
+      "front": "was",
+      "back": "am / is の過去形",
+      "explanation": "was は am / is の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc47",
+      "front": "were",
+      "back": "are の過去形",
+      "explanation": "were は are の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc48",
+      "front": "Did you ...?",
+      "back": "あなたは〜しましたか。",
+      "explanation": "Did you ...? は「あなたは〜しましたか。」という表現です。... の部分に動作や名詞を入れて、自分の文にできます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc49",
+      "front": "Yes, I did.",
+      "back": "はい、しました。",
+      "explanation": "Yes, I did. は「はい、しました。」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc50",
+      "front": "No, I didn’t.",
+      "back": "いいえ、しませんでした。",
+      "explanation": "No, I didn’t. は「いいえ、しませんでした。」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc51",
+      "front": "Were you ...?",
+      "back": "あなたは〜でしたか。",
+      "explanation": "Were you ...? は「あなたは〜でしたか。」という表現です。... の部分に動作や名詞を入れて、自分の文にできます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc52",
+      "front": "Yes, I was.",
+      "back": "はい、そうでした。",
+      "explanation": "Yes, I was. は「はい、そうでした。」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc53",
+      "front": "No, I wasn’t.",
+      "back": "いいえ、ちがいました。",
+      "explanation": "No, I wasn’t. は「いいえ、ちがいました。」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc54",
+      "front": "What did you do ...?",
+      "back": "あなたは…に何をしましたか。",
+      "explanation": "What did you do ...? は「あなたは…に何をしましたか。」という表現です。... の部分に動作や名詞を入れて、自分の文にできます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc55",
+      "front": "How was ...?",
+      "back": "〜はどうでしたか。",
+      "explanation": "How was ...? は「〜はどうでしたか。」という表現です。... の部分に動作や名詞を入れて、自分の文にできます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc56",
+      "front": "How many times ...?",
+      "back": "何回〜ですか。",
+      "explanation": "How many times ...? は「何回〜ですか。」という表現です。... の部分に動作や名詞を入れて、自分の文にできます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc57",
+      "front": "There is ...",
+      "back": "〜があります、〜がいます。",
+      "explanation": "There is ... は「〜があります、〜がいます。」という表現です。... の部分に動作や名詞を入れて、自分の文にできます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc58",
+      "front": "There are ...",
+      "back": "〜があります、〜がいます。",
+      "explanation": "There are ... は「〜があります、〜がいます。」という表現です。... の部分に動作や名詞を入れて、自分の文にできます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc59",
+      "front": "it's",
+      "back": "it is の短縮形",
+      "explanation": "it's は it is を短くした形です。アポストロフィ（'）は、なくなった文字の場所を示す印です。たとえば don't では o が省略されています。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc60",
+      "front": "who's",
+      "back": "who is の短縮形",
+      "explanation": "who's は who is を短くした形です。アポストロフィ（'）は、なくなった文字の場所を示す印です。たとえば don't では o が省略されています。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc61",
+      "front": "what's",
+      "back": "what is の短縮形",
+      "explanation": "what's は what is を短くした形です。アポストロフィ（'）は、なくなった文字の場所を示す印です。たとえば don't では o が省略されています。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc62",
+      "front": "where's",
+      "back": "where is の短縮形",
+      "explanation": "where's は where is を短くした形です。アポストロフィ（'）は、なくなった文字の場所を示す印です。たとえば don't では o が省略されています。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc63",
+      "front": "when's",
+      "back": "when is の短縮形",
+      "explanation": "when's は when is を短くした形です。アポストロフィ（'）は、なくなった文字の場所を示す印です。たとえば don't では o が省略されています。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc64",
+      "front": "can't",
+      "back": "cannot の短縮形",
+      "explanation": "can't は cannot を短くした形です。アポストロフィ（'）は、なくなった文字の場所を示す印です。たとえば don't では o が省略されています。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-forms-fc65",
+      "front": "they're",
+      "back": "they are の短縮形",
+      "explanation": "they're は they are を短くした形です。アポストロフィ（'）は、なくなった文字の場所を示す印です。たとえば don't では o が省略されています。",
+      "difficulty": "basic"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "doesn't の短縮前は？",
+        "options": [
+          "do not",
+          "does not",
+          "did not",
+          "is not"
+        ],
+        "correctIndex": 1,
+        "explanation": "doesn't は does not の短縮形です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q2",
+        "question": "has は何の形？",
+        "options": [
+          "have の三人称単数現在形",
+          "do の三人称単数現在形",
+          "child の複数形",
+          "I am の短縮形"
+        ],
+        "correctIndex": 0,
+        "explanation": "has は have の三人称単数現在形です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q3",
+        "question": "children は何の形？",
+        "options": [
+          "child の複数形",
+          "child の過去形",
+          "children の単数形",
+          "人称代名詞"
+        ],
+        "correctIndex": 0,
+        "explanation": "children は child の複数形です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q4",
+        "question": "mine の意味は？",
+        "options": [
+          "私のもの",
+          "あなたのもの",
+          "彼らのもの",
+          "彼女のもの"
+        ],
+        "correctIndex": 0,
+        "explanation": "mine は「私のもの」を表します。",
+        "difficulty": "standard"
+      }
+    ]
+  }
+}

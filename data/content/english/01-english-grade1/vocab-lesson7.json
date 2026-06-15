@@ -1,0 +1,408 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade1",
+  "topicId": "vocab-lesson7",
+  "name": "An Online Tour of the U.K. の単語",
+  "subtitle": "予定・観光・写真の語彙",
+  "icon": "🇬🇧",
+  "order": 6,
+  "chatId": "eng-vocab-lesson7",
+  "explanation": {
+    "sections": [
+      {
+        "title": "7-1: 予定を話すことば",
+        "content": "tomorrow、free、plan、What’s up?、sound like、look forward to など、予定や気持ちを話す表現を確認します。",
+        "keyPoints": [
+          "look forward to は「〜を楽しみに待つ」。to の後ろは名詞や ing 形が来る。",
+          "sound like は「〜のように聞こえる／思える」。",
+          "What’s up? は「どうしたのですか。」という会話表現。"
+        ]
+      },
+      {
+        "title": "7-2: 観光地と人々のことば",
+        "content": "place、souvenir、market、those、people、Welcome to ... など、観光や場所紹介の語をまとめます。",
+        "keyPoints": [
+          "those は「あれらの／それらの」。this、that、these とセットで確認。",
+          "people は「人々」。person の複数の意味で使う。",
+          "Welcome to ... は「〜へようこそ。」"
+        ]
+      },
+      {
+        "title": "7-3: 家族・写真・気持ちのことば",
+        "content": "mom、dad、palace、angry、funny、I’m sorry.、take pictures、look at などを確認します。",
+        "keyPoints": [
+          "we’re は we are の短縮形。",
+          "take pictures は「写真を撮る」。",
+          "look at は「〜を見る」。watch との違いも意識する。"
+        ]
+      }
+    ]
+  },
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "eng-vocab-lesson7-fc01",
+      "front": "tomorrow",
+      "back": "明日、明日は",
+      "explanation": "tomorrow は「明日、明日は」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc02",
+      "front": "free",
+      "back": "空いている、ひまな",
+      "explanation": "free は「空いている、ひまな」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc03",
+      "front": "talk",
+      "back": "話す",
+      "explanation": "talk は「話す」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc04",
+      "front": "plan",
+      "back": "計画、予定",
+      "explanation": "plan は「計画、予定」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc05",
+      "front": "What’s up?",
+      "back": "どうしたのですか。",
+      "explanation": "What’s up? は「どうしたのですか。」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc06",
+      "front": "sound like",
+      "back": "〜のように聞こえる、〜のように思える",
+      "explanation": "sound like は「〜のように聞こえる、〜のように思える」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc07",
+      "front": "look forward to",
+      "back": "〜を楽しみに待つ",
+      "explanation": "look forward to は「〜を楽しみに待つ」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc08",
+      "front": "mean",
+      "back": "〜を意味する",
+      "explanation": "mean は「〜を意味する」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc09",
+      "front": "busy",
+      "back": "忙しい",
+      "explanation": "busy は「忙しい」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc10",
+      "front": "now",
+      "back": "今",
+      "explanation": "now は「今」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc11",
+      "front": "party",
+      "back": "パーティー",
+      "explanation": "party は「パーティー」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc12",
+      "front": "online tour",
+      "back": "オンラインツアー",
+      "explanation": "online tour は「オンラインツアー」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc13",
+      "front": "next",
+      "back": "次の、今度の",
+      "explanation": "next は「次の、今度の」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc14",
+      "front": "game",
+      "back": "試合、ゲーム",
+      "explanation": "game は「試合、ゲーム」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc15",
+      "front": "place",
+      "back": "場所、ところ",
+      "explanation": "place は「場所、ところ」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc16",
+      "front": "souvenir",
+      "back": "おみやげ",
+      "explanation": "souvenir は「おみやげ」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc17",
+      "front": "market",
+      "back": "市場",
+      "explanation": "market は「市場」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc18",
+      "front": "appear",
+      "back": "現れる、姿を現す",
+      "explanation": "appear は「現れる、姿を現す」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc19",
+      "front": "those",
+      "back": "あれらの、それらの",
+      "explanation": "those は「あれらの、それらの」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc20",
+      "front": "people",
+      "back": "人々",
+      "explanation": "people は「人々」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc21",
+      "front": "Welcome to ...",
+      "back": "〜へようこそ。",
+      "explanation": "Welcome to ... は「〜へようこそ。」という表現です。... の部分に動作や名詞を入れて、自分の文にできます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc22",
+      "front": "buy",
+      "back": "〜を買う",
+      "explanation": "buy は「〜を買う」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc23",
+      "front": "food",
+      "back": "食べ物",
+      "explanation": "food は「食べ物」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc24",
+      "front": "movie",
+      "back": "映画",
+      "explanation": "movie は「映画」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc25",
+      "front": "Harry Potter",
+      "back": "ハリー・ポッター",
+      "explanation": "Harry Potter は「ハリー・ポッター」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc26",
+      "front": "John",
+      "back": "ジョン",
+      "explanation": "John は「ジョン」を表します。名前・地名・国名などは、文の途中でも大文字で始めます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc27",
+      "front": "London",
+      "back": "ロンドン",
+      "explanation": "London は「ロンドン」を表します。名前・地名・国名などは、文の途中でも大文字で始めます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc28",
+      "front": "Peter Rabbit",
+      "back": "ピーター・ラビット",
+      "explanation": "Peter Rabbit は「ピーター・ラビット」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc29",
+      "front": "the Lake District",
+      "back": "湖水地方",
+      "explanation": "the Lake District は「湖水地方」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc30",
+      "front": "mom",
+      "back": "お母さん",
+      "explanation": "mom は「お母さん」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc31",
+      "front": "dad",
+      "back": "お父さん",
+      "explanation": "dad は「お父さん」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc32",
+      "front": "palace",
+      "back": "宮殿",
+      "explanation": "palace は「宮殿」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc33",
+      "front": "angry",
+      "back": "怒った、腹を立てた",
+      "explanation": "angry は「怒った、腹を立てた」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc34",
+      "front": "funny",
+      "back": "おかしな、こっけいな",
+      "explanation": "funny は「おかしな、こっけいな」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc35",
+      "front": "OK",
+      "back": "わかった、だいじょうぶ",
+      "explanation": "OK は「わかった、だいじょうぶ」を表します。名前・地名・国名などは、文の途中でも大文字で始めます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc36",
+      "front": "I’m sorry.",
+      "back": "ごめんなさい。すみません。",
+      "explanation": "I’m sorry. は「ごめんなさい。すみません。」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc37",
+      "front": "Buckingham Palace",
+      "back": "バッキンガム宮殿",
+      "explanation": "Buckingham Palace は「バッキンガム宮殿」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc38",
+      "front": "travel",
+      "back": "旅行する",
+      "explanation": "travel は「旅行する」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc39",
+      "front": "still",
+      "back": "まだ",
+      "explanation": "still は「まだ」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc40",
+      "front": "we’re",
+      "back": "we are の短縮形",
+      "explanation": "we’re は we are を短くした形です。アポストロフィ（'）は、なくなった文字の場所を示す印です。たとえば don't では o が省略されています。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc41",
+      "front": "picture",
+      "back": "写真、絵",
+      "explanation": "picture は「写真、絵」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc42",
+      "front": "take pictures",
+      "back": "写真を撮る",
+      "explanation": "take pictures は「写真を撮る」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc43",
+      "front": "look at",
+      "back": "〜を見る",
+      "explanation": "look at は「〜を見る」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson7-fc44",
+      "front": "don’t",
+      "back": "do not の短縮形",
+      "explanation": "don’t は do not を短くした形です。アポストロフィ（'）は、なくなった文字の場所を示す印です。たとえば don't では o が省略されています。",
+      "difficulty": "basic"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "look forward to の意味は？",
+        "options": [
+          "〜を楽しみに待つ",
+          "〜を見る",
+          "〜を買う",
+          "〜へようこそ"
+        ],
+        "correctIndex": 0,
+        "explanation": "look forward to は「〜を楽しみに待つ」。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q2",
+        "question": "those の意味は？",
+        "options": [
+          "これらの",
+          "あれらの、それらの",
+          "この",
+          "あの"
+        ],
+        "correctIndex": 1,
+        "explanation": "those は「あれらの／それらの」。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q3",
+        "question": "take pictures の意味は？",
+        "options": [
+          "絵を見る",
+          "写真を撮る",
+          "場所を訪れる",
+          "市場で買う"
+        ],
+        "correctIndex": 1,
+        "explanation": "take pictures は「写真を撮る」。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q4",
+        "question": "we’re の短縮前は？",
+        "options": [
+          "we is",
+          "we are",
+          "we were",
+          "we do"
+        ],
+        "correctIndex": 1,
+        "explanation": "we’re は we are の短縮形です。",
+        "difficulty": "basic"
+      }
+    ]
+  }
+}

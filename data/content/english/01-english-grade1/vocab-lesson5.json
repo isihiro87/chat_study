@@ -1,0 +1,485 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade1",
+  "topicId": "vocab-lesson5",
+  "name": "My Brother in Hawaii の単語",
+  "subtitle": "ハワイ・生活・三人称単数現在の語彙",
+  "icon": "🌺",
+  "order": 4,
+  "chatId": "eng-vocab-lesson5",
+  "explanation": {
+    "sections": [
+      {
+        "title": "5-1: ハワイ紹介のことば",
+        "content": "blog、guide、spot、local、tour、beautiful など、場所を紹介するときの語を確認します。Hawaii と Honolulu は地名なので大文字で始めます。",
+        "keyPoints": [
+          "his は「彼の」。he とは使う位置が違う。",
+          "... year(s) old は「〜歳で」。年齢を言う形として覚える。",
+          "enjoy ...ing は「〜して楽しむ」。後ろは ing 形にする。"
+        ]
+      },
+      {
+        "title": "5-2: 生活と習慣のことば",
+        "content": "life、surf、every、weekend、sometimes、usually など、日常生活や習慣を表す語をまとめます。has、does、doesn’t は三人称単数現在の形として重要です。",
+        "keyPoints": [
+          "has は have の三人称単数現在形。",
+          "does は do の三人称単数現在形、doesn’t は does not の短縮形。",
+          "sometimes は「ときどき」、usually は「ふつう、たいてい」。頻度の違いを意識する。"
+        ]
+      },
+      {
+        "title": "5-3: 店や食べ物のことば",
+        "content": "cafe、owner、website、popular、fried egg、on top of など、店や食べ物を説明する語を確認します。",
+        "keyPoints": [
+          "on top of は「〜の上に」。位置を表すまとまりで覚える。",
+          "friendly は「親しみやすい」。人や雰囲気を説明できる。",
+          "Japanese は「日本語」「日本の」「日本人の」と文脈で意味が変わる。"
+        ]
+      }
+    ]
+  },
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "eng-vocab-lesson5-fc01",
+      "front": "blog",
+      "back": "ブログ",
+      "explanation": "blog は「ブログ」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc02",
+      "front": "guide",
+      "back": "ガイド、案内人",
+      "explanation": "guide は「ガイド、案内人」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc03",
+      "front": "spot",
+      "back": "場所、地点",
+      "explanation": "spot は「場所、地点」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc04",
+      "front": "local",
+      "back": "地元の、地方の",
+      "explanation": "local は「地元の、地方の」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc05",
+      "front": "tour",
+      "back": "旅行、ツアー、見学",
+      "explanation": "tour は「旅行、ツアー、見学」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc06",
+      "front": "beautiful",
+      "back": "美しい",
+      "explanation": "beautiful は「美しい」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc07",
+      "front": "his",
+      "back": "彼の",
+      "explanation": "his は「彼の」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc08",
+      "front": "any",
+      "back": "いくつかの、何かの",
+      "explanation": "any は「いくつかの、何かの」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc09",
+      "front": "... year(s) old",
+      "back": "〜歳で",
+      "explanation": "... year(s) old は「〜歳で」という表現です。... の部分に動作や名詞を入れて、自分の文にできます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc10",
+      "front": "old",
+      "back": "古い、年齢が〜",
+      "explanation": "old は「古い、年齢が〜」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc11",
+      "front": "nature",
+      "back": "自然",
+      "explanation": "nature は「自然」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc12",
+      "front": "enjoy ...ing",
+      "back": "〜して楽しむ",
+      "explanation": "enjoy ...ing は「〜して楽しむ」という表現です。... の部分に動作や名詞を入れて、自分の文にできます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc13",
+      "front": "Hawaii",
+      "back": "ハワイ",
+      "explanation": "Hawaii は「ハワイ」を表します。名前・地名・国名などは、文の途中でも大文字で始めます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc14",
+      "front": "Honolulu",
+      "back": "ホノルル",
+      "explanation": "Honolulu は「ホノルル」を表します。名前・地名・国名などは、文の途中でも大文字で始めます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc15",
+      "front": "work",
+      "back": "働く",
+      "explanation": "work は「働く」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc16",
+      "front": "live",
+      "back": "住む、暮らす",
+      "explanation": "live は「住む、暮らす」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc17",
+      "front": "play",
+      "back": "〜をする、〜を演奏する",
+      "explanation": "play は「〜をする、〜を演奏する」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc18",
+      "front": "make",
+      "back": "〜を作る",
+      "explanation": "make は「〜を作る」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc19",
+      "front": "practice",
+      "back": "〜を練習する",
+      "explanation": "practice は「〜を練習する」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc20",
+      "front": "watch",
+      "back": "〜を見る",
+      "explanation": "watch は「〜を見る」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc21",
+      "front": "study",
+      "back": "〜を勉強する",
+      "explanation": "study は「〜を勉強する」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc22",
+      "front": "read",
+      "back": "〜を読む",
+      "explanation": "read は「〜を読む」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc23",
+      "front": "life",
+      "back": "生活、暮らし",
+      "explanation": "life は「生活、暮らし」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc24",
+      "front": "has",
+      "back": "have の三人称単数現在形",
+      "explanation": "has は「have の三人称単数現在形」です。主語が he / she / it などのときに出やすい形です。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc25",
+      "front": "surf",
+      "back": "サーフィンをする",
+      "explanation": "surf は「サーフィンをする」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc26",
+      "front": "every",
+      "back": "毎〜",
+      "explanation": "every は「毎〜」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc27",
+      "front": "question",
+      "back": "質問",
+      "explanation": "question は「質問」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc28",
+      "front": "dolphin",
+      "back": "イルカ",
+      "explanation": "dolphin は「イルカ」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc29",
+      "front": "does",
+      "back": "do の三人称単数現在形",
+      "explanation": "does は「do の三人称単数現在形」です。主語が he / she / it などのときに出やすい形です。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc30",
+      "front": "doesn’t",
+      "back": "does not の短縮形",
+      "explanation": "doesn’t は does not を短くした形です。アポストロフィ（'）は、なくなった文字の場所を示す印です。たとえば don't では o が省略されています。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc31",
+      "front": "weekend",
+      "back": "週末",
+      "explanation": "weekend は「週末」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc32",
+      "front": "sometimes",
+      "back": "ときどき",
+      "explanation": "sometimes は「ときどき」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc33",
+      "front": "where",
+      "back": "どこに、どこで、どこへ",
+      "explanation": "where は「どこに、どこで、どこへ」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc34",
+      "front": "how",
+      "back": "どのように、どれくらい",
+      "explanation": "how は「どのように、どれくらい」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc35",
+      "front": "near",
+      "back": "〜の近くに",
+      "explanation": "near は「〜の近くに」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc36",
+      "front": "beach",
+      "back": "浜、浜辺",
+      "explanation": "beach は「浜、浜辺」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc37",
+      "front": "usually",
+      "back": "ふつう、たいてい",
+      "explanation": "usually は「ふつう、たいてい」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc38",
+      "front": "after",
+      "back": "〜のあとに",
+      "explanation": "after は「〜のあとに」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc39",
+      "front": "lunch",
+      "back": "昼食",
+      "explanation": "lunch は「昼食」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc40",
+      "front": "cafe",
+      "back": "喫茶店、カフェ",
+      "explanation": "cafe は「喫茶店、カフェ」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc41",
+      "front": "owner",
+      "back": "所有者、持ち主",
+      "explanation": "owner は「所有者、持ち主」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc42",
+      "front": "patty",
+      "back": "パティ",
+      "explanation": "patty は「パティ」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc43",
+      "front": "top",
+      "back": "上部、てっぺん",
+      "explanation": "top は「上部、てっぺん」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc44",
+      "front": "website",
+      "back": "ウェブサイト",
+      "explanation": "website は「ウェブサイト」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc45",
+      "front": "popular",
+      "back": "人気のある",
+      "explanation": "popular は「人気のある」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc46",
+      "front": "wonderful",
+      "back": "すばらしい、すてきな",
+      "explanation": "wonderful は「すばらしい、すてきな」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc47",
+      "front": "fried egg",
+      "back": "目玉焼き",
+      "explanation": "fried egg は「目玉焼き」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc48",
+      "front": "friendly",
+      "back": "親しみやすい",
+      "explanation": "friendly は「親しみやすい」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc49",
+      "front": "on top of",
+      "back": "〜の上に",
+      "explanation": "on top of は「〜の上に」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc50",
+      "front": "know",
+      "back": "知っている、わかる",
+      "explanation": "know は「知っている、わかる」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc51",
+      "front": "restaurant",
+      "back": "レストラン",
+      "explanation": "restaurant は「レストラン」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc52",
+      "front": "rice",
+      "back": "米、ごはん",
+      "explanation": "rice は「米、ごはん」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc53",
+      "front": "speak",
+      "back": "〜を話す",
+      "explanation": "speak は「〜を話す」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc54",
+      "front": "Japanese",
+      "back": "日本語、日本の、日本人の",
+      "explanation": "Japanese は「日本語、日本の、日本人の」を表します。名前・地名・国名などは、文の途中でも大文字で始めます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson5-fc55",
+      "front": "not",
+      "back": "〜でない、〜しない",
+      "explanation": "not は「〜でない、〜しない」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "enjoy ...ing の意味は？",
+        "options": [
+          "〜して楽しむ",
+          "〜する必要がある",
+          "〜の上に",
+          "〜の近くに"
+        ],
+        "correctIndex": 0,
+        "explanation": "enjoy ...ing は「〜して楽しむ」。後ろは動詞の ing 形にします。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q2",
+        "question": "has は何の形？",
+        "options": [
+          "have の三人称単数現在形",
+          "do の三人称単数現在形",
+          "be の過去形",
+          "child の複数形"
+        ],
+        "correctIndex": 0,
+        "explanation": "has は have の三人称単数現在形です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q3",
+        "question": "doesn’t の短縮前は？",
+        "options": [
+          "do not",
+          "does not",
+          "did not",
+          "is not"
+        ],
+        "correctIndex": 1,
+        "explanation": "doesn’t は does not の短縮形です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q4",
+        "question": "on top of の意味は？",
+        "options": [
+          "〜のあとに",
+          "〜の上に",
+          "〜の近くに",
+          "〜のように"
+        ],
+        "correctIndex": 1,
+        "explanation": "on top of は「〜の上に」。位置を表す表現です。",
+        "difficulty": "standard"
+      }
+    ]
+  }
+}

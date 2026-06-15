@@ -48,7 +48,7 @@ const ADMIN_LINE_USER_IDS = new Set<string>([
 ]);
 
 const LIFF_SETTINGS_URL = "https://liff.line.me/2009587166-IvJl78Hk";
-const LIFF_SCOPE_URL = "https://liff.line.me/2009587166-fLjzMGk8";
+const LIFF_SCOPE_URL = "https://line.chatstudy.jp/scope";
 const LIFF_PREMIUM_INFO_URL = "https://liff.line.me/2009587166-k51bH4LC";
 
 type Segment = "A" | "B" | "C" | "D" | "E";

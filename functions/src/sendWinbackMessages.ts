@@ -205,7 +205,29 @@ export const sendWinbackMessages = functions
         try {
           await lineClient.pushMessage({
             to: lineUserId,
-            messages: [{ type: "text", text: bodyText }],
+            // 実復帰の主経路は「キーワード入力」ではなく「直接もう一度解く」こと
+            // （計測で確認済み）。摩擦を下げるためワンタップ CTA を付ける。
+            // タップ → postback type=restart → handleRestartIntent（おかえり + 1問）。
+            // 明示タップなので復帰キーワードの誤爆防止ゲート（8日）は通さない。
+            messages: [
+              {
+                type: "text",
+                text: bodyText,
+                quickReply: {
+                  items: [
+                    {
+                      type: "action",
+                      action: {
+                        type: "postback",
+                        label: "今日の1問に挑戦",
+                        data: "type=restart&src=winback",
+                        displayText: "今日の1問に挑戦",
+                      },
+                    },
+                  ],
+                },
+              },
+            ],
           });
         } catch (error) {
           console.error(

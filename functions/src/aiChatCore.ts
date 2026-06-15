@@ -8,19 +8,17 @@
 import type { AiChatTurn } from "./userDocTypes";
 import type { UserPlan } from "./lineWebhook";
 
-/** 無料プランの 1 日あたり AI 応答回数上限。 */
-export const FREE_DAILY_LIMIT = 5;
-/** トライアル・プレミアムの 1 日あたり上限（スパム対策のための高上限）。 */
-export const PREMIUM_DAILY_LIMIT = 50;
+/** 全ユーザー共通の 1 日あたり AI 応答回数上限（プラン統合後）。 */
+export const DAILY_LIMIT = 20;
 
 /** 無料プランで保持する会話ターン数（user/model のペア数）。 */
 export const FREE_HISTORY_TURNS = 3;
 /** トライアル・プレミアムで保持する会話ターン数（微増）。 */
 export const PREMIUM_HISTORY_TURNS = 6;
 
-/** プランに応じた 1 日上限を返す。 */
-export function getDailyLimit(plan: UserPlan): number {
-  return plan === "premium" ? PREMIUM_DAILY_LIMIT : FREE_DAILY_LIMIT;
+/** 1 日上限を返す（プラン統合により全ユーザー共通）。 */
+export function getDailyLimit(_plan: UserPlan): number {
+  return DAILY_LIMIT;
 }
 
 /** プランに応じた保持ターン数を返す。 */

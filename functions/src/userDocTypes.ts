@@ -83,6 +83,25 @@ export interface AiChatTurn {
 }
 
 /**
+ * 最後に出題した問題のスナップショット（`users/{uid}.lastQuestion`）。
+ * AI チャットボットが直近の問題について解説できるよう、正解・解説まで含めて保持する。
+ */
+export interface LastQuestionSnapshot {
+  /** Firestore `questions` のドキュメント ID。 */
+  id: string;
+  /** 単元名（questions.topic）。 */
+  topic: string;
+  /** 問題文。 */
+  text: string;
+  /** 4 択の選択肢。 */
+  choices: string[];
+  /** 正解の選択肢インデックス（0-3）。 */
+  correctChoiceId: number;
+  /** 解説文。 */
+  explanation: string;
+}
+
+/**
  * フォールバック AI チャット（Gemini）のユーザー別状態。
  * コスト管理のための日次カウントと、文脈維持のための直近会話履歴を持つ。
  */
@@ -228,6 +247,14 @@ export interface UserDoc {
 
   /** Gemini フォールバック応答の日次カウント・会話履歴。 */
   aiChat?: AiChatState;
+
+  /**
+   * このユーザーに最後に出題した問題のスナップショット。
+   * 問題送信時（毎日配信 / 追加で解く / 苦手復習）に書き込み、AI チャットボットが
+   * 「さっきの問題」等の質問に答えられるよう buildSystemPrompt で文脈に注入する。
+   * 配信時刻は別フィールド `lastQuestionDeliveredAt` を参照。
+   */
+  lastQuestion?: LastQuestionSnapshot;
 
   // === メタ ===
   createdAt?: Timestamp;

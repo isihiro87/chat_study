@@ -1,0 +1,688 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade1",
+  "topicId": "vocab-lesson10",
+  "name": "This Year’s Memories の単語",
+  "subtitle": "思い出・学校生活・There is/are の語彙",
+  "icon": "📸",
+  "order": 10,
+  "chatId": "eng-vocab-lesson10",
+  "explanation": {
+    "sections": [
+      {
+        "title": "10-1: 思い出を話すことば",
+        "content": "mistake、realize、remember、were、won、bored、wasn’t、weren’t など、過去の出来事や気持ちを表す語を確認します。",
+        "keyPoints": [
+          "were は are の過去形。am / is の過去形は was。",
+          "wasn’t は was not、weren’t は were not の短縮形。",
+          "won は win の過去形。win first place で「1位を取る」。"
+        ]
+      },
+      {
+        "title": "10-2: アルバムと思い出のことば",
+        "content": "break、then、way、heart、album、look for、talk about、bring back など、思い出をふり返る語をまとめます。",
+        "keyPoints": [
+          "on one’s way to は「〜へ行く途中で」。",
+          "bring back は「〜を思い出させる」。",
+          "bring back a lot of memories は「たくさんの思い出をよみがえらせる」。"
+        ]
+      },
+      {
+        "title": "10-3: 旅行・キャンプ・存在を表す表現",
+        "content": "trip、tent、campground、hot spring、There is ...、There are ... など、場所にあるものを説明する語と表現を確認します。",
+        "keyPoints": [
+          "There is ... は単数、There are ... は複数に使う。",
+          "There isn’t ... / There aren’t ... は「〜がありません、〜がいません」。",
+          "for two nights は「2泊の間」。"
+        ]
+      }
+    ]
+  },
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "eng-vocab-lesson10-fc01",
+      "front": "mistake",
+      "back": "誤り、まちがい",
+      "explanation": "mistake は「誤り、まちがい」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc02",
+      "front": "realize",
+      "back": "〜だと気づく",
+      "explanation": "realize は「〜だと気づく」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc03",
+      "front": "remember",
+      "back": "〜を思い出す、覚えている",
+      "explanation": "remember は「〜を思い出す、覚えている」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc04",
+      "front": "were",
+      "back": "are の過去形",
+      "explanation": "were は are の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc05",
+      "front": "won",
+      "back": "win の過去形、勝った",
+      "explanation": "won は win の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc06",
+      "front": "bored",
+      "back": "退屈した、うんざりした",
+      "explanation": "bored は「退屈した、うんざりした」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc07",
+      "front": "anyone",
+      "back": "だれでも／だれも",
+      "explanation": "anyone は「だれでも／だれも」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc08",
+      "front": "at first",
+      "back": "最初は、はじめは",
+      "explanation": "at first は「最初は、はじめは」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc09",
+      "front": "liked",
+      "back": "like の過去形",
+      "explanation": "liked は like の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc10",
+      "front": "wasn’t",
+      "back": "was not の短縮形",
+      "explanation": "wasn’t は was not を短くした形です。アポストロフィ（'）は、なくなった文字の場所を示す印です。たとえば don't では o が省略されています。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc11",
+      "front": "weren’t",
+      "back": "were not の短縮形",
+      "explanation": "weren’t は were not を短くした形です。アポストロフィ（'）は、なくなった文字の場所を示す印です。たとえば don't では o が省略されています。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc12",
+      "front": "anyway",
+      "back": "とにかく、それでも",
+      "explanation": "anyway は「とにかく、それでも」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc13",
+      "front": "contest",
+      "back": "コンテスト、コンクール",
+      "explanation": "contest は「コンテスト、コンクール」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc14",
+      "front": "chorus",
+      "back": "合唱",
+      "explanation": "chorus は「合唱」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc15",
+      "front": "made",
+      "back": "make の過去形",
+      "explanation": "made は make の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc16",
+      "front": "sorry",
+      "back": "すまなく思って、残念で",
+      "explanation": "sorry は「すまなく思って、残念で」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc17",
+      "front": "performance",
+      "back": "演技、演奏、発表",
+      "explanation": "performance は「演技、演奏、発表」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc18",
+      "front": "strong",
+      "back": "強い",
+      "explanation": "strong は「強い」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc19",
+      "front": "nervous",
+      "back": "緊張した",
+      "explanation": "nervous は「緊張した」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc20",
+      "front": "rainy",
+      "back": "雨の、雨が降っている",
+      "explanation": "rainy は「雨の、雨が降っている」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc21",
+      "front": "famous",
+      "back": "有名な",
+      "explanation": "famous は「有名な」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc22",
+      "front": "singer",
+      "back": "歌手",
+      "explanation": "singer は「歌手」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc23",
+      "front": "vacation",
+      "back": "休暇",
+      "explanation": "vacation は「休暇」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc24",
+      "front": "how",
+      "back": "どのように、どんな",
+      "explanation": "how は「どのように、どんな」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc25",
+      "front": "win first place",
+      "back": "1位を取る",
+      "explanation": "win first place は「1位を取る」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc26",
+      "front": "school life",
+      "back": "学校生活",
+      "explanation": "school life は「学校生活」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc27",
+      "front": "break",
+      "back": "休憩",
+      "explanation": "break は「休憩」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc28",
+      "front": "then",
+      "back": "そのとき、それから",
+      "explanation": "then は「そのとき、それから」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc29",
+      "front": "way",
+      "back": "道、方法",
+      "explanation": "way は「道、方法」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc30",
+      "front": "beat",
+      "back": "どきどきする、打つ",
+      "explanation": "beat は「どきどきする、打つ」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc31",
+      "front": "bring back",
+      "back": "〜を思い出させる",
+      "explanation": "bring back は「〜を思い出させる」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc32",
+      "front": "heart",
+      "back": "心臓、心",
+      "explanation": "heart は「心臓、心」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc33",
+      "front": "each",
+      "back": "それぞれの、各自の",
+      "explanation": "each は「それぞれの、各自の」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc34",
+      "front": "hey",
+      "back": "やあ、おい、ちょっと",
+      "explanation": "hey は「やあ、おい、ちょっと」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc35",
+      "front": "album",
+      "back": "アルバム",
+      "explanation": "album は「アルバム」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc36",
+      "front": "on one’s way to",
+      "back": "〜へ行く途中で",
+      "explanation": "on one’s way to は「〜へ行く途中で」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc37",
+      "front": "during",
+      "back": "〜の間",
+      "explanation": "during は「〜の間」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc38",
+      "front": "lunch break",
+      "back": "昼休み",
+      "explanation": "lunch break は「昼休み」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc39",
+      "front": "next game",
+      "back": "次の試合",
+      "explanation": "next game は「次の試合」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc40",
+      "front": "memories",
+      "back": "思い出",
+      "explanation": "memories は「思い出」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc41",
+      "front": "look for",
+      "back": "〜を探す",
+      "explanation": "look for は「〜を探す」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc42",
+      "front": "picture",
+      "back": "写真、絵",
+      "explanation": "picture は「写真、絵」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc43",
+      "front": "help",
+      "back": "〜を助ける、手伝う",
+      "explanation": "help は「〜を助ける、手伝う」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc44",
+      "front": "talk about",
+      "back": "〜について話す",
+      "explanation": "talk about は「〜について話す」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc45",
+      "front": "make an album",
+      "back": "アルバムを作る",
+      "explanation": "make an album は「アルバムを作る」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc46",
+      "front": "bring back a lot of memories",
+      "back": "たくさんの思い出をよみがえらせる",
+      "explanation": "bring back a lot of memories は「たくさんの思い出をよみがえらせる」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc47",
+      "front": "trip",
+      "back": "旅行",
+      "explanation": "trip は「旅行」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc48",
+      "front": "tent",
+      "back": "テント",
+      "explanation": "tent は「テント」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc49",
+      "front": "near",
+      "back": "〜の近くに",
+      "explanation": "near は「〜の近くに」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc50",
+      "front": "campground",
+      "back": "キャンプ場",
+      "explanation": "campground は「キャンプ場」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc51",
+      "front": "hot spring",
+      "back": "温泉",
+      "explanation": "hot spring は「温泉」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc52",
+      "front": "event",
+      "back": "行事、イベント",
+      "explanation": "event は「行事、イベント」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc53",
+      "front": "night",
+      "back": "夜、夜間",
+      "explanation": "night は「夜、夜間」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc54",
+      "front": "camping",
+      "back": "キャンプ",
+      "explanation": "camping は「キャンプ」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc55",
+      "front": "is not",
+      "back": "〜ではない、〜がない",
+      "explanation": "is not は「〜ではない、〜がない」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc56",
+      "front": "isn’t",
+      "back": "is not の短縮形",
+      "explanation": "isn’t は is not を短くした形です。アポストロフィ（'）は、なくなった文字の場所を示す印です。たとえば don't では o が省略されています。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc57",
+      "front": "are not",
+      "back": "〜ではない、〜がない",
+      "explanation": "are not は「〜ではない、〜がない」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc58",
+      "front": "aren’t",
+      "back": "are not の短縮形",
+      "explanation": "aren’t は are not を短くした形です。アポストロフィ（'）は、なくなった文字の場所を示す印です。たとえば don't では o が省略されています。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc59",
+      "front": "set up",
+      "back": "〜を設置する、組み立てる",
+      "explanation": "set up は「〜を設置する、組み立てる」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc60",
+      "front": "main",
+      "back": "主な、主要な",
+      "explanation": "main は「主な、主要な」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc61",
+      "front": "There is ...",
+      "back": "〜があります、〜がいます",
+      "explanation": "There is ... は「〜があります、〜がいます」という表現です。... の部分に動作や名詞を入れて、自分の文にできます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc62",
+      "front": "There are ...",
+      "back": "〜があります、〜がいます",
+      "explanation": "There are ... は「〜があります、〜がいます」という表現です。... の部分に動作や名詞を入れて、自分の文にできます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc63",
+      "front": "There isn’t ...",
+      "back": "〜がありません、〜がいません",
+      "explanation": "There isn’t ... は「〜がありません、〜がいません」という表現です。... の部分に動作や名詞を入れて、自分の文にできます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc64",
+      "front": "There aren’t ...",
+      "back": "〜がありません、〜がいません",
+      "explanation": "There aren’t ... は「〜がありません、〜がいません」という表現です。... の部分に動作や名詞を入れて、自分の文にできます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc65",
+      "front": "lake",
+      "back": "湖",
+      "explanation": "lake は「湖」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc66",
+      "front": "bench",
+      "back": "ベンチ",
+      "explanation": "bench は「ベンチ」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc67",
+      "front": "gym",
+      "back": "体育館",
+      "explanation": "gym は「体育館」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc68",
+      "front": "cap",
+      "back": "帽子",
+      "explanation": "cap は「帽子」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc69",
+      "front": "desk",
+      "back": "机",
+      "explanation": "desk は「机」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc70",
+      "front": "restaurant",
+      "back": "レストラン",
+      "explanation": "restaurant は「レストラン」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc71",
+      "front": "station",
+      "back": "駅",
+      "explanation": "station は「駅」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc72",
+      "front": "zoo",
+      "back": "動物園",
+      "explanation": "zoo は「動物園」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc73",
+      "front": "monkey",
+      "back": "サル",
+      "explanation": "monkey は「サル」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc74",
+      "front": "child",
+      "back": "子ども",
+      "explanation": "child は「子ども」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc75",
+      "front": "children",
+      "back": "子どもたち",
+      "explanation": "children は「子どもたち」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc76",
+      "front": "river",
+      "back": "川",
+      "explanation": "river は「川」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc77",
+      "front": "mountain",
+      "back": "山",
+      "explanation": "mountain は「山」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc78",
+      "front": "campfire",
+      "back": "キャンプファイヤー",
+      "explanation": "campfire は「キャンプファイヤー」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc79",
+      "front": "clean",
+      "back": "きれいな、清潔な",
+      "explanation": "clean は「きれいな、清潔な」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc80",
+      "front": "large",
+      "back": "大きい",
+      "explanation": "large は「大きい」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc81",
+      "front": "beautiful",
+      "back": "美しい",
+      "explanation": "beautiful は「美しい」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc82",
+      "front": "hot",
+      "back": "熱い、暑い",
+      "explanation": "hot は「熱い、暑い」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc83",
+      "front": "main event",
+      "back": "主な行事",
+      "explanation": "main event は「主な行事」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson10-fc84",
+      "front": "for two nights",
+      "back": "2泊の間",
+      "explanation": "for two nights は「2泊の間」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "were は何の過去形？",
+        "options": [
+          "am / is",
+          "are",
+          "do",
+          "go"
+        ],
+        "correctIndex": 1,
+        "explanation": "were は are の過去形です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q2",
+        "question": "won は何の過去形？",
+        "options": [
+          "win",
+          "want",
+          "work",
+          "write"
+        ],
+        "correctIndex": 0,
+        "explanation": "won は win の過去形です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q3",
+        "question": "look for の意味は？",
+        "options": [
+          "〜を探す",
+          "〜を見る",
+          "〜を思い出させる",
+          "〜を設置する"
+        ],
+        "correctIndex": 0,
+        "explanation": "look for は「〜を探す」。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q4",
+        "question": "There are ... の意味は？",
+        "options": [
+          "〜がありました",
+          "〜があります、〜がいます",
+          "〜がありません",
+          "〜でした"
+        ],
+        "correctIndex": 1,
+        "explanation": "There are ... は複数のものについて「〜があります、〜がいます」と言う表現です。",
+        "difficulty": "standard"
+      }
+    ]
+  }
+}

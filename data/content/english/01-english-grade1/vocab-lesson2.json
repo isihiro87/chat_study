@@ -1,0 +1,317 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade1",
+  "topicId": "vocab-lesson2",
+  "name": "身の回り・教室・できることの単語",
+  "subtitle": "身の回り・教室・できることの語彙",
+  "icon": "🎒",
+  "order": 1,
+  "chatId": "eng-vocab-lesson2",
+  "explanation": {
+    "sections": [
+      {
+        "title": "身の回りのもの",
+        "content": "notebook、fruit、food、train など、身近なものを表す名詞を確認します。our、your、it などの代名詞まわりも重要です。",
+        "keyPoints": [
+          "our は「私たちの」、your は「あなたの／あなたたちの」。",
+          "it は「それは／それが」。前に出たものを受ける。",
+          "some は「いくつかの／少しの」。数えられる名詞にも数えられない名詞にも使う。"
+        ]
+      },
+      {
+        "title": "人・学校・生活の語",
+        "content": "teacher、father、parent(s)、class、team など、人や学校生活に関する語をまとめます。Mr. と Ms. は敬称としてテストにも出やすい表記です。",
+        "keyPoints": [
+          "Mr. は男性、Ms. は女性に使う敬称。ピリオドを忘れない。",
+          "teacher は「先生」、parent(s) は「親／両親」。",
+          "class は「学級・組・クラス」。lesson とは区別する。"
+        ]
+      },
+      {
+        "title": "できることを言う語",
+        "content": "can、can’t、speak、read、cook、make、drink など、できることや行動を表す語を確認します。",
+        "keyPoints": [
+          "can は「〜できる」。後ろの動詞は原形。",
+          "can't は cannot の短縮形で「〜できない」。",
+          "speak Chinese / speak English のように、言語を話すときは speak を使う。"
+        ]
+      }
+    ]
+  },
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "eng-vocab-lesson2-fc01",
+      "front": "our",
+      "back": "私たちの",
+      "explanation": "our は「私たちの」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson2-fc02",
+      "front": "your",
+      "back": "あなたの、あなたたちの",
+      "explanation": "your は「あなたの、あなたたちの」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson2-fc03",
+      "front": "parent(s)",
+      "back": "親、両親",
+      "explanation": "parent(s) は「親、両親」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson2-fc04",
+      "front": "some",
+      "back": "いくつかの、いくらかの、少しの",
+      "explanation": "some は「いくつかの、いくらかの、少しの」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson2-fc05",
+      "front": "can’t",
+      "back": "cannot の短縮形、〜できない",
+      "explanation": "can’t は cannot を短くした形です。アポストロフィ（'）は、なくなった文字の場所を示す印です。たとえば don't では o が省略されています。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson2-fc06",
+      "front": "class",
+      "back": "学級、組、クラス",
+      "explanation": "class は「学級、組、クラス」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson2-fc07",
+      "front": "it",
+      "back": "それは、それが",
+      "explanation": "it は「それは、それが」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson2-fc08",
+      "front": "fruit",
+      "back": "果物、果実",
+      "explanation": "fruit は「果物、果実」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson2-fc09",
+      "front": "rainy",
+      "back": "雨の、雨の多い",
+      "explanation": "rainy は「雨の、雨の多い」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson2-fc10",
+      "front": "train",
+      "back": "列車、電車",
+      "explanation": "train は「列車、電車」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson2-fc11",
+      "front": "today",
+      "back": "今日、現在では",
+      "explanation": "today は「今日、現在では」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson2-fc12",
+      "front": "notebook",
+      "back": "ノート",
+      "explanation": "notebook は「ノート」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson2-fc13",
+      "front": "new",
+      "back": "新しい、新任の",
+      "explanation": "new は「新しい、新任の」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson2-fc14",
+      "front": "team",
+      "back": "チーム、組",
+      "explanation": "team は「チーム、組」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson2-fc15",
+      "front": "well",
+      "back": "じょうずに、うまく、よく",
+      "explanation": "well は「じょうずに、うまく、よく」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson2-fc16",
+      "front": "read",
+      "back": "〜を読む、読んで知る",
+      "explanation": "read は「〜を読む、読んで知る」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson2-fc17",
+      "front": "teacher",
+      "back": "先生、教師",
+      "explanation": "teacher は「先生、教師」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson2-fc18",
+      "front": "very",
+      "back": "非常に、とても",
+      "explanation": "very は「非常に、とても」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson2-fc19",
+      "front": "father",
+      "back": "父、お父さん",
+      "explanation": "father は「父、お父さん」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson2-fc20",
+      "front": "food",
+      "back": "食べ物",
+      "explanation": "food は「食べ物」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson2-fc21",
+      "front": "make",
+      "back": "〜を作る、得る",
+      "explanation": "make は「〜を作る、得る」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson2-fc22",
+      "front": "thank",
+      "back": "〜に感謝する",
+      "explanation": "thank は「〜に感謝する」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson2-fc23",
+      "front": "Ms.",
+      "back": "〜さん、〜先生 ※女性に使う",
+      "explanation": "Ms. は「〜さん、〜先生 ※女性に使う」という会話表現です。短い文なので、声に出してそのまま覚えましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson2-fc24",
+      "front": "Mr.",
+      "back": "〜さん、〜先生 ※男性に使う",
+      "explanation": "Mr. は「〜さん、〜先生 ※男性に使う」という会話表現です。短い文なので、声に出してそのまま覚えましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson2-fc25",
+      "front": "speak",
+      "back": "言語を話す",
+      "explanation": "speak は「言語を話す」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson2-fc26",
+      "front": "sea",
+      "back": "海、海洋",
+      "explanation": "sea は「海、海洋」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson2-fc27",
+      "front": "drink",
+      "back": "〜を飲む",
+      "explanation": "drink は「〜を飲む」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson2-fc28",
+      "front": "cook",
+      "back": "〜を料理する",
+      "explanation": "cook は「〜を料理する」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson2-fc29",
+      "front": "China",
+      "back": "中国",
+      "explanation": "China は「中国」を表します。名前・地名・国名などは、文の途中でも大文字で始めます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson2-fc30",
+      "front": "Chinese",
+      "back": "中国の、中国人の、中国語の",
+      "explanation": "Chinese は「中国の、中国人の、中国語の」を表します。名前・地名・国名などは、文の途中でも大文字で始めます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson2-fc31",
+      "front": "can",
+      "back": "〜できる",
+      "explanation": "can は「〜できる」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "「〜できる」を表す語は？",
+        "options": [
+          "can",
+          "some",
+          "well",
+          "it"
+        ],
+        "correctIndex": 0,
+        "explanation": "can は「〜できる」。can speak English のように使います。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "cannot の短縮形は？",
+        "options": [
+          "don't",
+          "can't",
+          "they're",
+          "it's"
+        ],
+        "correctIndex": 1,
+        "explanation": "cannot は can't。can not と分けず、cannot と書く形も確認します。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "女性に使う「〜さん、〜先生」の敬称は？",
+        "options": [
+          "Mr.",
+          "Ms.",
+          "our",
+          "your"
+        ],
+        "correctIndex": 1,
+        "explanation": "Ms. は女性に使う敬称です。Mr. は男性に使います。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "「中国語を話す」を英語で表すときに使う動詞は？",
+        "options": [
+          "read",
+          "drink",
+          "speak",
+          "make"
+        ],
+        "correctIndex": 2,
+        "explanation": "言語を話すときは speak を使います。speak Chinese で「中国語を話す」。",
+        "difficulty": "basic"
+      }
+    ]
+  }
+}

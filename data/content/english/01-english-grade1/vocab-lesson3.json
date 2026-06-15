@@ -1,0 +1,366 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade1",
+  "topicId": "vocab-lesson3",
+  "name": "Our School の単語",
+  "subtitle": "学校紹介・疑問詞・曜日や場所の語彙",
+  "icon": "🏫",
+  "order": 2,
+  "chatId": "eng-vocab-lesson3",
+  "explanation": {
+    "sections": [
+      {
+        "title": "学校紹介で使うことば",
+        "content": "character、favorite、symbol、interesting、brave など、学校や人物を紹介するときの語を確認します。favorite と character はテストで狙われやすい語です。",
+        "keyPoints": [
+          "favorite は「いちばん好きな／お気に入りの」。つづりに注意。",
+          "character は「登場人物」。chara で止めない。",
+          "symbol は「シンボル／象徴」。発音とつづりをセットで確認。"
+        ]
+      },
+      {
+        "title": "疑問詞と短縮形",
+        "content": "who、what、where、how と、who’s、what’s、where’s、when’s をまとめます。意味だけでなく、短縮前の形も確認します。",
+        "keyPoints": [
+          "who's = who is、what's = what is。",
+          "where は「どこに／どこで／どこへ」、when は「いつ」。",
+          "how は「どのように」。自己紹介の語彙とあわせて復習。"
+        ]
+      },
+      {
+        "title": "放課後・予定のことば",
+        "content": "after school、practice、usually、Tuesday、next、near、good luck など、予定や活動を話す語を学びます。",
+        "keyPoints": [
+          "usually は「いつも／たいてい」。頻度を表す副詞。",
+          "practice は「練習する」。名詞「練習」としても使う。",
+          "good luck は「幸運を祈ります」。応援の表現。"
+        ]
+      }
+    ]
+  },
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "eng-vocab-lesson3-fc01",
+      "front": "character",
+      "back": "登場人物",
+      "explanation": "character は「登場人物」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-lesson3-fc02",
+      "front": "wow",
+      "back": "うわあ",
+      "explanation": "wow は「うわあ」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson3-fc03",
+      "front": "favorite",
+      "back": "いちばん好きな、お気に入りの",
+      "explanation": "favorite は「いちばん好きな、お気に入りの」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-lesson3-fc04",
+      "front": "who’s",
+      "back": "who is の短縮形",
+      "explanation": "who’s は who is を短くした形です。アポストロフィ（'）は、なくなった文字の場所を示す印です。たとえば don't では o が省略されています。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson3-fc05",
+      "front": "family",
+      "back": "家族、一族",
+      "explanation": "family は「家族、一族」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson3-fc06",
+      "front": "for",
+      "back": "〜のかわりに、〜に相当する",
+      "explanation": "for は「〜のかわりに、〜に相当する」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson3-fc07",
+      "front": "what’s",
+      "back": "what is の短縮形",
+      "explanation": "what’s は what is を短くした形です。アポストロフィ（'）は、なくなった文字の場所を示す印です。たとえば don't では o が省略されています。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson3-fc08",
+      "front": "also",
+      "back": "〜もまた、そのうえ",
+      "explanation": "also は「〜もまた、そのうえ」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson3-fc09",
+      "front": "symbol",
+      "back": "シンボル、象徴、記号",
+      "explanation": "symbol は「シンボル、象徴、記号」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-lesson3-fc10",
+      "front": "who",
+      "back": "だれ",
+      "explanation": "who は「だれ」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson3-fc11",
+      "front": "interesting",
+      "back": "おもしろい、興味深い",
+      "explanation": "interesting は「おもしろい、興味深い」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson3-fc12",
+      "front": "what",
+      "back": "何",
+      "explanation": "what は「何」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson3-fc13",
+      "front": "brave",
+      "back": "勇敢な",
+      "explanation": "brave は「勇敢な」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson3-fc14",
+      "front": "online",
+      "back": "オンラインで",
+      "explanation": "online は「オンラインで」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson3-fc15",
+      "front": "week",
+      "back": "週、1週間",
+      "explanation": "week は「週、1週間」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson3-fc16",
+      "front": "around",
+      "back": "〜の近くに",
+      "explanation": "around は「〜の近くに」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson3-fc17",
+      "front": "after school",
+      "back": "放課後に",
+      "explanation": "after school は「放課後に」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson3-fc18",
+      "front": "live",
+      "back": "住む、住んでいる",
+      "explanation": "live は「住む、住んでいる」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson3-fc19",
+      "front": "about",
+      "back": "約、およそ、〜について",
+      "explanation": "about は「約、およそ、〜について」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson3-fc20",
+      "front": "study",
+      "back": "勉強する",
+      "explanation": "study は「勉強する」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson3-fc21",
+      "front": "Tuesday",
+      "back": "火曜日",
+      "explanation": "Tuesday は「火曜日」を表します。名前・地名・国名などは、文の途中でも大文字で始めます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson3-fc22",
+      "front": "usually",
+      "back": "いつも、たいてい",
+      "explanation": "usually は「いつも、たいてい」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-lesson3-fc23",
+      "front": "how",
+      "back": "どのように",
+      "explanation": "how は「どのように」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson3-fc24",
+      "front": "where",
+      "back": "どこに、どこで、どこへ",
+      "explanation": "where は「どこに、どこで、どこへ」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson3-fc25",
+      "front": "where’s",
+      "back": "where is の短縮形",
+      "explanation": "where’s は where is を短くした形です。アポストロフィ（'）は、なくなった文字の場所を示す印です。たとえば don't では o が省略されています。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson3-fc26",
+      "front": "when’s",
+      "back": "when is の短縮形",
+      "explanation": "when’s は when is を短くした形です。アポストロフィ（'）は、なくなった文字の場所を示す印です。たとえば don't では o が省略されています。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson3-fc27",
+      "front": "date",
+      "back": "日付",
+      "explanation": "date は「日付」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson3-fc28",
+      "front": "hallway",
+      "back": "ろうか",
+      "explanation": "hallway は「ろうか」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson3-fc29",
+      "front": "luck",
+      "back": "運、幸運",
+      "explanation": "luck は「運、幸運」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson3-fc30",
+      "front": "month",
+      "back": "月、1か月",
+      "explanation": "month は「月、1か月」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson3-fc31",
+      "front": "win",
+      "back": "勝つ",
+      "explanation": "win は「勝つ」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson3-fc32",
+      "front": "next",
+      "back": "次の、今度の、となりの",
+      "explanation": "next は「次の、今度の、となりの」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson3-fc33",
+      "front": "near",
+      "back": "〜の近くに、〜の近くで",
+      "explanation": "near は「〜の近くに、〜の近くで」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson3-fc34",
+      "front": "good luck",
+      "back": "幸運を祈ります",
+      "explanation": "good luck は「幸運を祈ります」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson3-fc35",
+      "front": "practice",
+      "back": "練習する",
+      "explanation": "practice は「練習する」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-lesson3-fc36",
+      "front": "hard",
+      "back": "一生懸命に、熱心に",
+      "explanation": "hard は「一生懸命に、熱心に」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson3-fc37",
+      "front": "park",
+      "back": "公園",
+      "explanation": "park は「公園」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson3-fc38",
+      "front": "game",
+      "back": "試合、ゲーム",
+      "explanation": "game は「試合、ゲーム」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "favorite の意味として正しいものは？",
+        "options": [
+          "勇敢な",
+          "いちばん好きな",
+          "近くの",
+          "オンラインで"
+        ],
+        "correctIndex": 1,
+        "explanation": "favorite は「いちばん好きな／お気に入りの」。favorite character で「お気に入りの登場人物」。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q2",
+        "question": "character の意味は？",
+        "options": [
+          "登場人物",
+          "日付",
+          "ろうか",
+          "幸運"
+        ],
+        "correctIndex": 0,
+        "explanation": "character は物語やアニメなどの「登場人物」を表します。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q3",
+        "question": "「いつも、たいてい」を表す語は？",
+        "options": [
+          "usually",
+          "around",
+          "hard",
+          "next"
+        ],
+        "correctIndex": 0,
+        "explanation": "usually は頻度を表す副詞で「いつも、たいてい」。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q4",
+        "question": "where's の短縮前は？",
+        "options": [
+          "where are",
+          "where is",
+          "when is",
+          "what is"
+        ],
+        "correctIndex": 1,
+        "explanation": "where's は where is の短縮形です。",
+        "difficulty": "basic"
+      }
+    ]
+  }
+}

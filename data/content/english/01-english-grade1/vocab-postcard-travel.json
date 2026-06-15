@@ -1,0 +1,231 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade1",
+  "topicId": "vocab-postcard-travel",
+  "name": "旅先からの便り・絵はがきの単語",
+  "subtitle": "絵はがき・旅先・あいさつの語彙",
+  "icon": "✉️",
+  "order": 9,
+  "chatId": "eng-vocab-postcard-travel",
+  "explanation": {
+    "sections": [
+      {
+        "title": "絵はがきで使うことば",
+        "content": "Dear ...、Love,、postcard、hotel、city など、旅先からの便りに出やすい語を確認します。",
+        "keyPoints": [
+          "Dear ... は手紙の書き出しで「親愛なる〜へ、〜様」。",
+          "Love, は結びの表現で「愛をこめて、親しみをこめて」。",
+          "take care of oneself は「体に気をつける」。oneself は相手に合わせて変わる。"
+        ]
+      },
+      {
+        "title": "雪やスキーのことば",
+        "content": "snow、fell、ski、outside、down、for the first time など、旅先での出来事を伝える語をまとめます。",
+        "keyPoints": [
+          "fell は fall の過去形。",
+          "for the first time は「初めて」。",
+          "miss は「〜がいなくてさびしいと思う」「〜を逃す」。文脈で意味を判断する。"
+        ]
+      }
+    ]
+  },
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "eng-vocab-lesson95-fc01",
+      "front": "Dear ...",
+      "back": "親愛なる〜へ、〜様",
+      "explanation": "Dear ... は「親愛なる〜へ、〜様」という表現です。... の部分に動作や名詞を入れて、自分の文にできます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson95-fc02",
+      "front": "snow",
+      "back": "雪",
+      "explanation": "snow は「雪」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson95-fc03",
+      "front": "grandpa",
+      "back": "おじいちゃん",
+      "explanation": "grandpa は「おじいちゃん」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson95-fc04",
+      "front": "grandma",
+      "back": "おばあちゃん",
+      "explanation": "grandma は「おばあちゃん」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson95-fc05",
+      "front": "Mt.",
+      "back": "山、〜山",
+      "explanation": "Mt. は「山、〜山」という会話表現です。短い文なので、声に出してそのまま覚えましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson95-fc06",
+      "front": "fell",
+      "back": "fall の過去形、倒れた、落ちた",
+      "explanation": "fell は fall の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson95-fc07",
+      "front": "miss",
+      "back": "〜がいなくてさびしいと思う、〜を逃す",
+      "explanation": "miss は「〜がいなくてさびしいと思う、〜を逃す」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson95-fc08",
+      "front": "ski",
+      "back": "スキーをする",
+      "explanation": "ski は「スキーをする」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson95-fc09",
+      "front": "outside",
+      "back": "外で、外へ",
+      "explanation": "outside は「外で、外へ」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson95-fc10",
+      "front": "down",
+      "back": "下へ",
+      "explanation": "down は「下へ」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson95-fc11",
+      "front": "care",
+      "back": "世話、注意",
+      "explanation": "care は「世話、注意」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson95-fc12",
+      "front": "for the first time",
+      "back": "初めて",
+      "explanation": "for the first time は「初めて」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson95-fc13",
+      "front": "take care of oneself",
+      "back": "体に気をつける",
+      "explanation": "take care of oneself は「体に気をつける」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson95-fc14",
+      "front": "postcard",
+      "back": "絵はがき",
+      "explanation": "postcard は「絵はがき」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson95-fc15",
+      "front": "hotel",
+      "back": "ホテル",
+      "explanation": "hotel は「ホテル」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson95-fc16",
+      "front": "city",
+      "back": "市、都市",
+      "explanation": "city は「市、都市」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson95-fc17",
+      "front": "great",
+      "back": "すばらしい",
+      "explanation": "great は「すばらしい」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson95-fc18",
+      "front": "picture",
+      "back": "写真、絵",
+      "explanation": "picture は「写真、絵」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson95-fc19",
+      "front": "card",
+      "back": "カード",
+      "explanation": "card は「カード」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson95-fc20",
+      "front": "Love,",
+      "back": "愛をこめて、親しみをこめて",
+      "explanation": "Love, は「愛をこめて、親しみをこめて」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "fell は何の過去形？",
+        "options": [
+          "feel",
+          "fall",
+          "find",
+          "fly"
+        ],
+        "correctIndex": 1,
+        "explanation": "fell は fall の過去形です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q2",
+        "question": "for the first time の意味は？",
+        "options": [
+          "初めて",
+          "長い間",
+          "すぐに",
+          "下へ"
+        ],
+        "correctIndex": 0,
+        "explanation": "for the first time は「初めて」。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q3",
+        "question": "Dear ... はどんな表現？",
+        "options": [
+          "手紙の書き出し",
+          "手紙の結び",
+          "場所の名前",
+          "過去形"
+        ],
+        "correctIndex": 0,
+        "explanation": "Dear ... は手紙や絵はがきの書き出しで使います。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "take care of oneself の意味は？",
+        "options": [
+          "写真を撮る",
+          "体に気をつける",
+          "初めて行く",
+          "下へ落ちる"
+        ],
+        "correctIndex": 1,
+        "explanation": "take care of oneself は「体に気をつける」。",
+        "difficulty": "standard"
+      }
+    ]
+  }
+}

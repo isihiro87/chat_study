@@ -16,10 +16,14 @@ import type {
  * 1. GET ?hub.mode=subscribe&hub.verify_token=...&hub.challenge=... に応答
  * 2. POST: X-Hub-Signature-256 検証 → 200 即返し → 非同期で本処理
  *
+ * 方式: Instagram API with Instagram Login（graph.instagram.com）
+ *
  * 設定: 必要な Secret を Functions Secret Manager に登録
  *   - META_APP_SECRET           : Meta App Secret（署名検証）
- *   - META_PAGE_ACCESS_TOKEN    : 長期 Page Access Token
- *   - META_IG_USER_ID           : 自社 Instagram ビジネスアカウント ID
+ *   - META_PAGE_ACCESS_TOKEN    : Instagram User Access Token（長期・60日）。
+ *                                 ※ Instagram ログイン方式のため Page Token ではなく
+ *                                    IG ユーザートークンを格納（env 名は互換のため踏襲）
+ *   - META_IG_USER_ID           : 自社 Instagram プロアカウントの user_id（GET /me?fields=user_id）
  *   - META_WEBHOOK_VERIFY_TOKEN : Webhook 検証用任意トークン
  */
 export const instagramWebhook = functions

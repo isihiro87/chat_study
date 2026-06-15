@@ -1,0 +1,723 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade1",
+  "topicId": "vocab-lesson9",
+  "name": "Winter Vacation の単語",
+  "subtitle": "冬休み・新年・過去形の語彙",
+  "icon": "❄️",
+  "order": 11,
+  "chatId": "eng-vocab-lesson9",
+  "explanation": {
+    "sections": [
+      {
+        "title": "9-1: 冬休みと旅行のことば",
+        "content": "snowboarding、relax、during、stay、go back など、休み中の行動を表す語を確認します。played、used、watched など、規則動詞の過去形もまとめて覚えます。",
+        "keyPoints": [
+          "during は「〜の間」。期間を表す語と一緒に使う。",
+          "go back は「戻る、帰る」。go の過去形は went。",
+          "study → studied、try → tried、stop → stopped のつづり変化に注意。"
+        ]
+      },
+      {
+        "title": "9-2: 新年と疑問文のことば",
+        "content": "New Year、special、rice cake、grandparent、traditional など、新年に関係する語を確認します。did、didn’t、did not は過去の疑問文・否定文の中心です。",
+        "keyPoints": [
+          "did は do の過去形。Did you ...? で「あなたは〜しましたか」。",
+          "didn’t は did not の短縮形で「〜しませんでした」。",
+          "wrote は write の過去形。write とセットで覚える。"
+        ]
+      },
+      {
+        "title": "9-3: 願い・おみくじ・日付表現",
+        "content": "wish、fortune slip、spend、bought、got、said など、初詣や日記で使える語を確認します。last month、last year、yesterday など過去を表す語も重要です。",
+        "keyPoints": [
+          "spend → spent、buy → bought、get → got、say → said は不規則変化。",
+          "on New Year’s Day は「元日に」、on New Year’s Eve は「大みそかに」。",
+          "have a ... time は「〜な時を過ごす」。"
+        ]
+      }
+    ]
+  },
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "eng-vocab-lesson9-fc01",
+      "front": "snowboarding",
+      "back": "スノーボード",
+      "explanation": "snowboarding は「スノーボード」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc02",
+      "front": "relax",
+      "back": "くつろぐ",
+      "explanation": "relax は「くつろぐ」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc03",
+      "front": "during",
+      "back": "〜の間、〜の間じゅう",
+      "explanation": "during は「〜の間、〜の間じゅう」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc04",
+      "front": "stay",
+      "back": "滞在する、泊まる",
+      "explanation": "stay は「滞在する、泊まる」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc05",
+      "front": "go back",
+      "back": "戻る、帰る",
+      "explanation": "go back は「戻る、帰る」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc06",
+      "front": "Christmas Day",
+      "back": "クリスマス",
+      "explanation": "Christmas Day は「クリスマス」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc07",
+      "front": "ice hockey",
+      "back": "アイスホッケー",
+      "explanation": "ice hockey は「アイスホッケー」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc08",
+      "front": "vacation",
+      "back": "休暇、休み",
+      "explanation": "vacation は「休暇、休み」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc09",
+      "front": "met",
+      "back": "meet の過去形、会った",
+      "explanation": "met は meet の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc10",
+      "front": "meet",
+      "back": "〜に会う",
+      "explanation": "meet は「〜に会う」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc11",
+      "front": "at home",
+      "back": "家で、在宅して",
+      "explanation": "at home は「家で、在宅して」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc12",
+      "front": "back",
+      "back": "戻って、返して",
+      "explanation": "back は「戻って、返して」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc13",
+      "front": "Vancouver",
+      "back": "バンクーバー",
+      "explanation": "Vancouver は「バンクーバー」を表します。名前・地名・国名などは、文の途中でも大文字で始めます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc14",
+      "front": "Whistler Village",
+      "back": "ウィスラー・ビレッジ",
+      "explanation": "Whistler Village は「ウィスラー・ビレッジ」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc15",
+      "front": "play",
+      "back": "〜をする",
+      "explanation": "play は「〜をする」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc16",
+      "front": "played",
+      "back": "play の過去形",
+      "explanation": "played は play の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc17",
+      "front": "use",
+      "back": "〜を使う",
+      "explanation": "use は「〜を使う」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc18",
+      "front": "used",
+      "back": "use の過去形",
+      "explanation": "used は use の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc19",
+      "front": "watch",
+      "back": "〜を見る",
+      "explanation": "watch は「〜を見る」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc20",
+      "front": "watched",
+      "back": "watch の過去形",
+      "explanation": "watched は watch の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc21",
+      "front": "study",
+      "back": "〜を勉強する",
+      "explanation": "study は「〜を勉強する」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc22",
+      "front": "studied",
+      "back": "study の過去形",
+      "explanation": "studied は study の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc23",
+      "front": "try",
+      "back": "〜を試す、やってみる",
+      "explanation": "try は「〜を試す、やってみる」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc24",
+      "front": "tried",
+      "back": "try の過去形",
+      "explanation": "tried は try の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc25",
+      "front": "live",
+      "back": "住む",
+      "explanation": "live は「住む」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc26",
+      "front": "lived",
+      "back": "live の過去形",
+      "explanation": "lived は live の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc27",
+      "front": "stop",
+      "back": "止まる、止める",
+      "explanation": "stop は「止まる、止める」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc28",
+      "front": "stopped",
+      "back": "stop の過去形",
+      "explanation": "stopped は stop の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc29",
+      "front": "go",
+      "back": "行く",
+      "explanation": "go は「行く」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc30",
+      "front": "went",
+      "back": "go の過去形",
+      "explanation": "went は go の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc31",
+      "front": "see",
+      "back": "見る、会う",
+      "explanation": "see は「見る、会う」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc32",
+      "front": "saw",
+      "back": "see の過去形",
+      "explanation": "saw は see の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc33",
+      "front": "eat",
+      "back": "食べる",
+      "explanation": "eat は「食べる」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc34",
+      "front": "ate",
+      "back": "eat の過去形",
+      "explanation": "ate は eat の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc35",
+      "front": "come",
+      "back": "来る",
+      "explanation": "come は「来る」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc36",
+      "front": "came",
+      "back": "come の過去形",
+      "explanation": "came は come の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc37",
+      "front": "New Year",
+      "back": "新年",
+      "explanation": "New Year は「新年」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc38",
+      "front": "special",
+      "back": "特別な",
+      "explanation": "special は「特別な」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc39",
+      "front": "did",
+      "back": "do の過去形",
+      "explanation": "did は do の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc40",
+      "front": "rice cake",
+      "back": "もち",
+      "explanation": "rice cake は「もち」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc41",
+      "front": "grandparent",
+      "back": "祖父、祖母、祖父母",
+      "explanation": "grandparent は「祖父、祖母、祖父母」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc42",
+      "front": "card",
+      "back": "カード",
+      "explanation": "card は「カード」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc43",
+      "front": "wrote",
+      "back": "write の過去形、書いた",
+      "explanation": "wrote は write の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc44",
+      "front": "write",
+      "back": "書く",
+      "explanation": "write は「書く」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc45",
+      "front": "New Year’s Eve",
+      "back": "大みそか",
+      "explanation": "New Year’s Eve は「大みそか」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc46",
+      "front": "Good for you!",
+      "back": "よくやったね。",
+      "explanation": "Good for you! は「よくやったね。」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc47",
+      "front": "didn’t",
+      "back": "did not の短縮形",
+      "explanation": "didn’t は did not を短くした形です。アポストロフィ（'）は、なくなった文字の場所を示す印です。たとえば don't では o が省略されています。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc48",
+      "front": "did not",
+      "back": "〜しませんでした",
+      "explanation": "did not は「〜しませんでした」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc49",
+      "front": "question",
+      "back": "質問",
+      "explanation": "question は「質問」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc50",
+      "front": "traditional",
+      "back": "伝統的な",
+      "explanation": "traditional は「伝統的な」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc51",
+      "front": "visit",
+      "back": "〜を訪れる",
+      "explanation": "visit は「〜を訪れる」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc52",
+      "front": "clean",
+      "back": "〜を掃除する、きれいにする",
+      "explanation": "clean は「〜を掃除する、きれいにする」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc53",
+      "front": "enjoy",
+      "back": "〜を楽しむ",
+      "explanation": "enjoy は「〜を楽しむ」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc54",
+      "front": "help",
+      "back": "〜を手伝う",
+      "explanation": "help は「〜を手伝う」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc55",
+      "front": "go skiing",
+      "back": "スキーに行く",
+      "explanation": "go skiing は「スキーに行く」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc56",
+      "front": "snowboard",
+      "back": "スノーボードをする",
+      "explanation": "snowboard は「スノーボードをする」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc57",
+      "front": "wish",
+      "back": "願い",
+      "explanation": "wish は「願い」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc58",
+      "front": "bad",
+      "back": "悪い、よくない",
+      "explanation": "bad は「悪い、よくない」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc59",
+      "front": "fortune slip",
+      "back": "おみくじ",
+      "explanation": "fortune slip は「おみくじ」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc60",
+      "front": "spend",
+      "back": "過ごす、費やす",
+      "explanation": "spend は「過ごす、費やす」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc61",
+      "front": "spent",
+      "back": "spend の過去形",
+      "explanation": "spent は spend の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc62",
+      "front": "tablet",
+      "back": "タブレット",
+      "explanation": "tablet は「タブレット」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc63",
+      "front": "wooden",
+      "back": "木でできた、木製の",
+      "explanation": "wooden は「木でできた、木製の」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc64",
+      "front": "New Year’s Day",
+      "back": "元日",
+      "explanation": "New Year’s Day は「元日」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc65",
+      "front": "board game",
+      "back": "ボードゲーム",
+      "explanation": "board game は「ボードゲーム」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc66",
+      "front": "charm",
+      "back": "お守り",
+      "explanation": "charm は「お守り」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc67",
+      "front": "bought",
+      "back": "buy の過去形、買った",
+      "explanation": "bought は buy の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc68",
+      "front": "buy",
+      "back": "〜を買う",
+      "explanation": "buy は「〜を買う」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc69",
+      "front": "have a ... time",
+      "back": "〜な時を過ごす",
+      "explanation": "have a ... time は「〜な時を過ごす」という表現です。... の部分に動作や名詞を入れて、自分の文にできます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc70",
+      "front": "got",
+      "back": "get の過去形",
+      "explanation": "got は get の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc71",
+      "front": "get",
+      "back": "〜を得る、受け取る",
+      "explanation": "get は「〜を得る、受け取る」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc72",
+      "front": "read",
+      "back": "read の過去形／読む",
+      "explanation": "read は read の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc73",
+      "front": "said",
+      "back": "say の過去形",
+      "explanation": "said は say の過去形です。「昨日」「先週」「冬休み」など、もう終わったことを話すときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc74",
+      "front": "say",
+      "back": "〜と言う",
+      "explanation": "say は「〜と言う」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc75",
+      "front": "shrine",
+      "back": "神社",
+      "explanation": "shrine は「神社」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc76",
+      "front": "fortune",
+      "back": "運、運勢",
+      "explanation": "fortune は「運、運勢」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc77",
+      "front": "future",
+      "back": "未来、将来",
+      "explanation": "future は「未来、将来」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc78",
+      "front": "notebook",
+      "back": "ノート",
+      "explanation": "notebook は「ノート」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc79",
+      "front": "blue",
+      "back": "青い",
+      "explanation": "blue は「青い」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc80",
+      "front": "shirt",
+      "back": "シャツ",
+      "explanation": "shirt は「シャツ」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc81",
+      "front": "window",
+      "back": "窓",
+      "explanation": "window は「窓」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc82",
+      "front": "open",
+      "back": "〜を開ける",
+      "explanation": "open は「〜を開ける」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc83",
+      "front": "Japanese food",
+      "back": "日本食",
+      "explanation": "Japanese food は「日本食」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc84",
+      "front": "on New Year’s Day",
+      "back": "元日に",
+      "explanation": "on New Year’s Day は「元日に」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc85",
+      "front": "on New Year’s Eve",
+      "back": "大みそかに",
+      "explanation": "on New Year’s Eve は「大みそかに」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc86",
+      "front": "last month",
+      "back": "先月",
+      "explanation": "last month は「先月」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc87",
+      "front": "last year",
+      "back": "昨年",
+      "explanation": "last year は「昨年」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc88",
+      "front": "last weekend",
+      "back": "先週末",
+      "explanation": "last weekend は「先週末」というまとまりの表現です。1語ずつ分けず、かたまりで読めると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-lesson9-fc89",
+      "front": "yesterday",
+      "back": "昨日",
+      "explanation": "yesterday は「昨日」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "go の過去形は？",
+        "options": [
+          "goed",
+          "went",
+          "gone",
+          "goes"
+        ],
+        "correctIndex": 1,
+        "explanation": "go の過去形は went です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q2",
+        "question": "didn’t の短縮前は？",
+        "options": [
+          "do not",
+          "does not",
+          "did not",
+          "was not"
+        ],
+        "correctIndex": 2,
+        "explanation": "didn’t は did not の短縮形です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q3",
+        "question": "spend の過去形は？",
+        "options": [
+          "spended",
+          "spent",
+          "spend",
+          "spented"
+        ],
+        "correctIndex": 1,
+        "explanation": "spend の過去形は spent です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q4",
+        "question": "last weekend の意味は？",
+        "options": [
+          "来週末",
+          "先週末",
+          "毎週末",
+          "週末の間"
+        ],
+        "correctIndex": 1,
+        "explanation": "last weekend は「先週末」。過去を表す語句です。",
+        "difficulty": "basic"
+      }
+    ]
+  }
+}
