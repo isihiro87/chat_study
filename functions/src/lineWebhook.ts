@@ -4503,7 +4503,11 @@ async function handleAnswerPostback(
     currentUserData = userData;
     if (userData?.lastAnsweredQuestionId === questionId) {
       console.warn('[lineWebhook] handleAnswer duplicate:', uid, questionId);
-      await replyText(replyToken, 'すでに回答済みです。', '(duplicate answer)');
+      await replyText(
+        replyToken,
+        'その問題はもう答えてくれてるよ😊 ちゃんと記録できてるから安心してね。また次の問題で待ってるね！',
+        '(duplicate answer)'
+      );
       return;
     }
   } catch (error) {
