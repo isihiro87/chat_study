@@ -198,15 +198,19 @@ export function buildGuideText(subject: string, grade: number): string {
   );
 }
 
-/** トグル後の短い確認文。 */
+/** トグル後の短い確認文。タップ＝即保存が伝わる文言にする。 */
 export function buildPickConfirmText(
   kind: 'add' | 'remove' | 'reset',
   eraName: string,
   count: number
 ): string {
-  if (kind === 'reset') return '選択をリセットしたよ。もう一度えらんでね。';
-  if (kind === 'add') return `✅「${eraName}」を追加（計${count}）。続けてえらべるよ。`;
-  return `☑「${eraName}」を外したよ（計${count}）。`;
+  if (kind === 'reset') {
+    return 'ぜんぶ解除して保存したよ（今は学年ぜんぶから出題）。もう一度えらべるよ。';
+  }
+  if (kind === 'add') {
+    return `✅「${eraName}」を範囲に追加して保存したよ（計${count}）。\nこのまま続けて選べるよ。終わったら「これで決定」を押してね（押さなくても保存ずみ）。`;
+  }
+  return `「${eraName}」を範囲から外して保存したよ（計${count}）。`;
 }
 
 /** 確定後の確認文。 */

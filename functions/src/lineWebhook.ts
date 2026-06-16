@@ -17,7 +17,6 @@ import {
   toggleEra,
   normalizeSel,
   expandErasToTopics,
-  buildGuideText,
   buildPickConfirmText,
   buildCommitText,
   buildScopeQuickItems,
@@ -1235,7 +1234,7 @@ async function handlePostback(event: LineEvent): Promise<void> {
   }
 
   if (type === 'scope_pick') {
-    await handleScopePickPostback(replyToken, params);
+    await handleScopePickPostback(uid, replyToken, params);
     return;
   }
 
@@ -1379,7 +1378,143 @@ function toLineQuickReply(items: ScopeQuickItem[]): messagingApi.QuickReply {
 }
 
 /**
- * 範囲設定フロー開始: 学年・教科を確認し、時代ガイド + Quick Reply を reply。
+ * 範囲設定の最初のガイド（Flex カード）。手順を丁寧に案内し、下に Quick Reply の
+ * 時代チップを並べる（チップは LINE 仕様で装飾不可なのでカード側で説明する）。
+ * design-guide 準拠（amber-500 / グラデ・影なし）。
+ */
+function buildScopeGuideFlex(subject: string, grade: number) {
+  const metas = getEraMetas(subject, grade);
+  const eraRows = metas.flatMap((m) => [
+    {
+      type: 'text' as const,
+      text: `▫️ ${m.shortName}${m.whenLabel ? `（${m.whenLabel}）` : ''}`,
+      wrap: true,
+      size: 'sm' as const,
+      weight: 'bold' as const,
+      color: '#111827',
+      margin: 'md' as const,
+    },
+    ...(m.keyTerms
+      ? [
+          {
+            type: 'text' as const,
+            text: m.keyTerms,
+            wrap: true,
+            size: 'xs' as const,
+            color: '#6B7280',
+          },
+        ]
+      : []),
+  ]);
+
+  const step = (label: string, text: string) => ({
+    type: 'box' as const,
+    layout: 'baseline' as const,
+    spacing: 'sm' as const,
+    contents: [
+      {
+        type: 'text' as const,
+        text: label,
+        size: 'sm' as const,
+        weight: 'bold' as const,
+        color: '#F59E0B',
+        flex: 0,
+      },
+      {
+        type: 'text' as const,
+        text,
+        size: 'sm' as const,
+        color: '#111827',
+        wrap: true,
+        flex: 1,
+      },
+    ],
+  });
+
+  return {
+    type: 'flex' as const,
+    altText: 'テスト範囲を選ぼう（習った時代をタップ）',
+    contents: {
+      type: 'bubble' as const,
+      header: {
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        backgroundColor: '#F59E0B',
+        paddingAll: '16px',
+        contents: [
+          {
+            type: 'text' as const,
+            text: '🎯 テスト範囲をえらぼう',
+            color: '#FFFFFF',
+            weight: 'bold' as const,
+            size: 'lg' as const,
+          },
+          {
+            type: 'text' as const,
+            text: '習ったところから毎日の1問が届くよ',
+            color: '#FFFFFF',
+            size: 'xs' as const,
+            margin: 'sm' as const,
+          },
+        ],
+      },
+      body: {
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        paddingAll: '20px',
+        spacing: 'md' as const,
+        contents: [
+          {
+            type: 'text' as const,
+            text: 'かんたん3ステップ',
+            size: 'sm' as const,
+            weight: 'bold' as const,
+            color: '#111827',
+          },
+          {
+            type: 'box' as const,
+            layout: 'vertical' as const,
+            spacing: 'sm' as const,
+            contents: [
+              step('①', '下のボタンで、習った時代をタップ → タップした瞬間に保存されるよ'),
+              step('②', 'いくつでも追加OK。もう一度タップで取り消しもできるよ'),
+              step('③', '終わったら「これで決定」をタップ（押さなくても保存ずみ）'),
+            ],
+          },
+          {
+            type: 'separator' as const,
+            margin: 'lg' as const,
+          },
+          {
+            type: 'text' as const,
+            text: '▼ 習ったところはどれ？（時期はだいたいの目安）',
+            size: 'xs' as const,
+            weight: 'bold' as const,
+            color: '#111827',
+            wrap: true,
+            margin: 'lg' as const,
+          },
+          ...eraRows,
+          {
+            type: 'separator' as const,
+            margin: 'lg' as const,
+          },
+          {
+            type: 'text' as const,
+            text: '🔧 単元ごとに細かく決めたいときは、下の「詳しく設定」からどうぞ。',
+            size: 'xs' as const,
+            color: '#9CA3AF',
+            wrap: true,
+            margin: 'lg' as const,
+          },
+        ],
+      },
+    },
+  };
+}
+
+/**
+ * 範囲設定フロー開始: 学年・教科を確認し、ガイド Flex + Quick Reply を reply。
  * 学年・教科は選択済み前提（オンボ完了後）。未対応教科・未設定は /scope へフォールバック。
  */
 async function handleScopeStartPostback(
@@ -1423,8 +1558,7 @@ async function handleScopeStartPostback(
       replyToken,
       messages: [
         {
-          type: 'text',
-          text: buildGuideText(subject, grade),
+          ...buildScopeGuideFlex(subject, grade),
           quickReply: toLineQuickReply(items),
         },
       ],
@@ -1464,8 +1598,14 @@ async function replyScopeDetailFallback(replyToken: string): Promise<void> {
   }
 }
 
-/** 時代チップのトグル / リセット。Firestore は読まず data の sel を更新して貼り直す。 */
+/**
+ * 時代チップのトグル / リセット。タップした瞬間に testScope を保存する
+ * （「決定」を待たずに反映＝ユーザー要望）。push トリガは lastSource='line_inline'
+ * で抑止されるため、picking 中の確認・1問目 push は出ない（reply のみ・無料）。
+ * 選択集合は postback data に往復させて保持する（読み取りは保存前の1書き込みのみ）。
+ */
 async function handleScopePickPostback(
+  uid: string,
   replyToken: string | undefined,
   params: URLSearchParams
 ): Promise<void> {
@@ -1492,6 +1632,25 @@ async function handleScopePickPostback(
     const meta = getEraMetas(subject, grade).find((e) => e.eraId === eraId);
     const eraName = meta?.shortName ?? '';
     confirmText = buildPickConfirmText(had ? 'remove' : 'add', eraName, sel.length);
+  }
+
+  // タップした瞬間に保存（決定不要）。lastSource='line_inline' で push トリガを抑止。
+  try {
+    const { db, FieldValue } = await getDb();
+    await db.doc(`users/${uid}`).set(
+      {
+        testScope: {
+          topics: expandErasToTopics(subject, grade, sel),
+          updatedAt: FieldValue.serverTimestamp(),
+          lastSource: 'line_inline',
+        },
+      },
+      { merge: true }
+    );
+  } catch (error) {
+    console.error('[lineWebhook] handleScopePick write failed:', error);
+    await replyText(replyToken, '保存に失敗しちゃった。もう一度タップしてね。', '(scope_pick: write failed)');
+    return;
   }
 
   const items = buildScopeQuickItems(subject, grade, sel, TEST_RANGE_SCOPE_URL);

@@ -34,30 +34,37 @@ export const onTestScopeSaved = functions
     // 確認＋1問目を送っているので、push は出さない（二重送信・配信枠の無駄を防ぐ）。
     if (after.testScope?.lastSource === 'line_inline') return;
 
-    const topics: string[] = Array.isArray(after.testScope?.topics)
-      ? (after.testScope.topics as unknown[]).filter(
-          (t): t is string => typeof t === 'string'
-        )
-      : [];
-    if (topics.length === 0) return; // クリア時は「設定できました」を送らない
-
     const lineUserId =
       typeof after.lineUserId === 'string' ? after.lineUserId : '';
     if (!lineUserId) return;
     if (after.blocked === true) return;
 
-    // 範囲が多すぎる場合はメッセージが長くなりすぎないよう上限を設ける
-    const MAX_LIST = 30;
-    const shown = topics.slice(0, MAX_LIST);
-    const listText = shown.map((t) => `・${t}`).join('\n');
-    const moreText =
-      topics.length > MAX_LIST ? `\n…ほか ${topics.length - MAX_LIST} 単元` : '';
+    const topics: string[] = Array.isArray(after.testScope?.topics)
+      ? (after.testScope.topics as unknown[]).filter(
+          (t): t is string => typeof t === 'string'
+        )
+      : [];
 
-    const text =
-      `✅ 出題範囲を設定しました！\n\n` +
-      `【選択中の範囲（${topics.length}単元）】\n` +
-      `${listText}${moreText}\n\n` +
-      `この範囲から毎日1問お届けします。範囲はリッチメニュー「出題範囲設定」からいつでも変更できます。`;
+    let text: string;
+    if (topics.length === 0) {
+      // クリア（全範囲）も「設定できたこと」を伝える（詳しく設定ページで全解除した等）。
+      text =
+        `✅ 出題範囲を「学年ぜんぶ」に設定しました！\n\n` +
+        `学年の全範囲から毎日1問お届けします。範囲はリッチメニュー「出題範囲設定」からいつでも絞り込めます。`;
+    } else {
+      // 範囲が多すぎる場合はメッセージが長くなりすぎないよう上限を設ける
+      const MAX_LIST = 30;
+      const shown = topics.slice(0, MAX_LIST);
+      const listText = shown.map((t) => `・${t}`).join('\n');
+      const moreText =
+        topics.length > MAX_LIST ? `\n…ほか ${topics.length - MAX_LIST} 単元` : '';
+
+      text =
+        `✅ 出題範囲を設定しました！\n\n` +
+        `【選択中の範囲（${topics.length}単元）】\n` +
+        `${listText}${moreText}\n\n` +
+        `この範囲から毎日1問お届けします。範囲はリッチメニュー「出題範囲設定」からいつでも変更できます。`;
+    }
 
     try {
       const client = await getLineClient();

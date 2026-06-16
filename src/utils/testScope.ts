@@ -37,6 +37,10 @@ export async function saveTestScope(uid: string, topics: string[]): Promise<void
       testScope: {
         topics,
         updatedAt: serverTimestamp(),
+        // 詳しく設定ページ経由の保存であることを明示。これがないと、直前に
+        // トーク内フローで付いた lastSource='line_inline' が merge で残り、
+        // onTestScopeSaved の確認 push がスキップされてしまう。
+        lastSource: 'page',
       },
     },
     { merge: true }
