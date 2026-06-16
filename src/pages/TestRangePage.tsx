@@ -15,7 +15,14 @@ type GradeNum = 1 | 2 | 3;
 // 保存完了後に公式LINEのトーク画面へ戻すための deep link。
 // 外部ブラウザ（openExternalBrowser=1）で開かれているため liff.closeWindow は
 // 使えない。この URL をタップすると LINE アプリの公式アカウントのトークが開く。
-const LINE_OFFICIAL_CHAT_URL = 'https://line.me/R/ti/p/@chatstudy';
+//
+// ⚠️ `https://line.me/R/ti/p/@<basicId>` 形式は外部ブラウザから叩くと
+// 「友達に追加できませんでした。URLをご確認ください。」エラーになることがある。
+// WelcomePage 等で実績のある lin.ee 短縮リンク（外部ブラウザ→LINEアプリ遷移を
+// 正しく処理）を使う。env で上書き可。
+const LINE_OFFICIAL_CHAT_URL =
+  (import.meta.env.VITE_OFFICIAL_LINE_ADD_FRIEND_URL as string | undefined) ||
+  'https://lin.ee/wxDOngU';
 
 /**
  * userDoc.grade は "中2"（文字列）で保存される一方、scope index の grade キーは
