@@ -1384,24 +1384,25 @@ function toLineQuickReply(items: ScopeQuickItem[]): messagingApi.QuickReply {
  */
 function buildScopeGuideFlex(subject: string, grade: number) {
   const metas = getEraMetas(subject, grade);
+  // 早見表（タップ不可の参考リスト）。チェックボックスに見えないよう、ボタン風の
+  // マーカー（▫️ 等）は使わず、グレーの本文テキストとして表示する。
   const eraRows = metas.flatMap((m) => [
     {
       type: 'text' as const,
-      text: `▫️ ${m.shortName}${m.whenLabel ? `（${m.whenLabel}）` : ''}`,
+      text: `・${m.shortName}${m.whenLabel ? `（${m.whenLabel}）` : ''}`,
       wrap: true,
       size: 'sm' as const,
-      weight: 'bold' as const,
-      color: '#111827',
-      margin: 'md' as const,
+      color: '#4B5563',
+      margin: 'sm' as const,
     },
     ...(m.keyTerms
       ? [
           {
             type: 'text' as const,
-            text: m.keyTerms,
+            text: `　${m.keyTerms}`,
             wrap: true,
             size: 'xs' as const,
-            color: '#6B7280',
+            color: '#9CA3AF',
           },
         ]
       : []),
@@ -1433,7 +1434,7 @@ function buildScopeGuideFlex(subject: string, grade: number) {
 
   return {
     type: 'flex' as const,
-    altText: 'テスト範囲を選ぼう（習った時代をタップ）',
+    altText: 'テスト範囲を選ぼう（画面下のボタンをタップ）',
     contents: {
       type: 'bubble' as const,
       header: {
@@ -1476,8 +1477,8 @@ function buildScopeGuideFlex(subject: string, grade: number) {
             layout: 'vertical' as const,
             spacing: 'sm' as const,
             contents: [
-              step('①', '下のボタンで、習った時代をタップ → タップした瞬間に保存されるよ'),
-              step('②', 'いくつでも追加OK。もう一度タップで取り消しもできるよ'),
+              step('①', 'この画面のいちばん下に出るボタンをタップ → 習った時代を選ぶ（タップした瞬間に保存）'),
+              step('②', 'いくつでも選べるよ。もう一度タップで取り消しもOK'),
               step('③', '終わったら「これで決定」をタップ（押さなくても保存ずみ）'),
             ],
           },
@@ -1487,21 +1488,53 @@ function buildScopeGuideFlex(subject: string, grade: number) {
           },
           {
             type: 'text' as const,
-            text: '▼ 習ったところはどれ？（時期はだいたいの目安）',
+            text: '📖 時代の早見表（どれを習ったかの確認用）',
             size: 'xs' as const,
             weight: 'bold' as const,
             color: '#111827',
             wrap: true,
             margin: 'lg' as const,
           },
-          ...eraRows,
           {
-            type: 'separator' as const,
+            type: 'text' as const,
+            text: '※ ここはタップできません。時期はだいたいの目安だよ。',
+            size: 'xxs' as const,
+            color: '#9CA3AF',
+            wrap: true,
+          },
+          ...eraRows,
+          // 「選ぶのは下のボタン」を強調する誘導枠（操作の入口を1か所に）。
+          {
+            type: 'box' as const,
+            layout: 'vertical' as const,
+            backgroundColor: '#FFF7ED',
+            cornerRadius: 'md' as const,
+            paddingAll: '14px',
             margin: 'lg' as const,
+            contents: [
+              {
+                type: 'text' as const,
+                text: '👇 選ぶときは、この下のボタンをタップ',
+                size: 'sm' as const,
+                weight: 'bold' as const,
+                color: '#B45309',
+                wrap: true,
+                align: 'center' as const,
+              },
+              {
+                type: 'text' as const,
+                text: '（メッセージのいちばん下に横並びで出るよ）',
+                size: 'xxs' as const,
+                color: '#B45309',
+                wrap: true,
+                align: 'center' as const,
+                margin: 'sm' as const,
+              },
+            ],
           },
           {
             type: 'text' as const,
-            text: '🔧 単元ごとに細かく決めたいときは、下の「詳しく設定」からどうぞ。',
+            text: '🔧 単元ごとに細かく決めたいときは「詳しく設定」のボタンからどうぞ。',
             size: 'xs' as const,
             color: '#9CA3AF',
             wrap: true,
