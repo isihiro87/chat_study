@@ -340,10 +340,20 @@ export function buildOnboardingCompleteSummaryFlex(opts: {
           },
           {
             type: 'text' as const,
-            text: '🤖 困ったときや勉強の質問は、このトークにそのまま送ればAIが答えるよ。',
+            text:
+              `🤖 勉強の質問は、このトークにそのまま送ればAIが答えるよ。\n` +
+              `写真や音声メッセージでもOK（例：問題の写真を送って「これ教えて」）。`,
             wrap: true,
             size: 'xs' as const,
             color: '#374151',
+            margin: 'sm' as const,
+          },
+          {
+            type: 'text' as const,
+            text: '※AIなので、たまに答えが正確でないこともあるよ。参考として使ってね。',
+            wrap: true,
+            size: 'xxs' as const,
+            color: '#9CA3AF',
             margin: 'sm' as const,
           },
           {
