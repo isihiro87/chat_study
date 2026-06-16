@@ -115,14 +115,30 @@ export function TestRangePage() {
     // 孤立トピックが保存に残り続けるのを防ぐ。
     if (!seededRef.current) {
       seededRef.current = true;
+      const eras = lineScopeIndex[subject]?.[grade] ?? [];
       const validNames = new Set(
-        (lineScopeIndex[subject]?.[grade] ?? []).flatMap((e) =>
-          e.topics.map((t) => t.name)
-        )
+        eras.flatMap((e) => e.topics.map((t) => t.name))
       );
-      setSelected(
-        new Set(userDoc.testScopeTopics.filter((t) => validNames.has(t)))
+      const seed = new Set(
+        userDoc.testScopeTopics.filter((t) => validNames.has(t))
       );
+      // 公式LINE トーク内フローから「詳しく設定」で来た場合、選んだ時代を
+      // ?eras=era1,era2 で受け取り、その配下の単元を初期チェックに加える。
+      const erasParam = new URLSearchParams(window.location.search).get('eras');
+      if (erasParam) {
+        const wanted = new Set(
+          erasParam
+            .split(',')
+            .map((s) => s.trim())
+            .filter(Boolean)
+        );
+        for (const era of eras) {
+          if (wanted.has(era.eraId)) {
+            for (const t of era.topics) seed.add(t.name);
+          }
+        }
+      }
+      setSelected(seed);
     }
     setStatus('ready');
     setErrorMessage(null);

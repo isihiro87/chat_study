@@ -11,6 +11,19 @@ import {
   isDayStreakMilestone,
 } from './messageVariations';
 import { nextStreakState, type StreakState } from './streakState';
+import {
+  supportsEraFlow,
+  parseSel,
+  toggleEra,
+  normalizeSel,
+  expandErasToTopics,
+  buildGuideText,
+  buildPickConfirmText,
+  buildCommitText,
+  buildScopeQuickItems,
+  getEraMetas,
+  type ScopeQuickItem,
+} from './lineScopeFlow';
 import { recordPushDelivery } from './deliveryStats';
 import type { PushType } from './deliveryStatsTypes';
 import type { LastQuestionSnapshot } from './userDocTypes';
@@ -43,6 +56,14 @@ const VALID_GRADES: readonly ValidGrade[] = ['中1', '中2', '中3'] as const;
 
 type ValidSubject = 'history' | 'english';
 const VALID_SUBJECTS: readonly ValidSubject[] = ['history', 'english'] as const;
+
+/** 学年文字列（'中1'）→ スコープロジック用の数値（1）。不正値は null。 */
+function gradeToScopeNumber(grade: unknown): 1 | 2 | 3 | null {
+  if (grade === '中1') return 1;
+  if (grade === '中2') return 2;
+  if (grade === '中3') return 3;
+  return null;
+}
 const SUBJECT_LABELS: Record<ValidSubject, string> = {
   history: '歴史',
   english: '英語',
@@ -352,9 +373,10 @@ export function buildOnboardingCompleteSummaryFlex(opts: {
             color: '#F59E0B',
             height: 'sm' as const,
             action: {
-              type: 'uri' as const,
+              type: 'postback' as const,
               label: '出題範囲を設定する',
-              uri: TEST_RANGE_SCOPE_URL,
+              data: 'type=scope_start',
+              displayText: '出題範囲を設定する',
             },
           },
           {
@@ -1207,6 +1229,21 @@ async function handlePostback(event: LineEvent): Promise<void> {
     return;
   }
 
+  if (type === 'scope_start') {
+    await handleScopeStartPostback(uid, replyToken);
+    return;
+  }
+
+  if (type === 'scope_pick') {
+    await handleScopePickPostback(replyToken, params);
+    return;
+  }
+
+  if (type === 'scope_commit') {
+    await handleScopeCommitPostback(uid, replyToken, params);
+    return;
+  }
+
   if (type === 'premium_info') {
     await handlePremiumInfoPostback(replyToken, uid, params.get('source'));
     return;
@@ -1306,29 +1343,239 @@ async function handleSettingsMenuPostback(
   }
 }
 
+// 「出題範囲設定」エントリ（リッチメニュー / オンボ完了flex / 回答後ナッジ）は
+// すべてこのトーク内フロー（Quick Reply 逐次選択）を起動する。
 async function handleTestRangeMenuPostback(
   uid: string,
   replyToken: string | undefined
 ): Promise<void> {
+  await handleScopeStartPostback(uid, replyToken);
+}
+
+/** ScopeQuickItem[] を LINE の quickReply オブジェクトに変換。 */
+function toLineQuickReply(items: ScopeQuickItem[]): messagingApi.QuickReply {
+  return {
+    items: items.map((item) =>
+      item.url
+        ? {
+            type: 'action' as const,
+            action: {
+              type: 'uri' as const,
+              label: item.label,
+              uri: item.url,
+            },
+          }
+        : {
+            type: 'action' as const,
+            action: {
+              type: 'postback' as const,
+              label: item.label,
+              data: item.data ?? '',
+              // displayText は省略（ユーザー側エコーを出さず吹き出しを増やさない）
+            },
+          }
+    ),
+  };
+}
+
+/**
+ * 範囲設定フロー開始: 学年・教科を確認し、時代ガイド + Quick Reply を reply。
+ * 学年・教科は選択済み前提（オンボ完了後）。未対応教科・未設定は /scope へフォールバック。
+ */
+async function handleScopeStartPostback(
+  uid: string,
+  replyToken: string | undefined
+): Promise<void> {
   if (!replyToken) return;
-  let plan: UserPlan = 'free';
-  let gradePremiumEligible = true;
+
+  let grade: number | null = null;
+  let subject: string | undefined;
   try {
     const { db } = await getDb();
-    const userSnap = await db.doc(`users/${uid}`).get();
-    const data = userSnap.data();
-    plan = getUserPlan(data);
-    gradePremiumEligible = isPremiumEligibleGrade(data?.grade);
+    const snap = await db.doc(`users/${uid}`).get();
+    const data = snap.data();
+    grade = gradeToScopeNumber(data?.grade);
+    subject = typeof data?.subject === 'string' ? data.subject : undefined;
   } catch (error) {
-    console.error('[lineWebhook] handleTestRangeMenu user read failed:', error);
+    console.error('[lineWebhook] handleScopeStart user read failed:', error);
   }
-  const flex = buildTestRangeMenuFlexMessage(plan, gradePremiumEligible);
+
+  // 学年・教科未設定（オンボ未完了）→ 設定を促す
+  if (grade === null || !subject) {
+    await replyText(
+      replyToken,
+      'さきに学年と教科を設定してね。メニューから登録できるよ。',
+      '(scope_start: missing grade/subject)'
+    );
+    return;
+  }
+
+  // 時代フロー非対応（英語など時代1個 / 対応外学年）→ /scope ページへ誘導
+  if (!supportsEraFlow(subject, grade)) {
+    await replyScopeDetailFallback(replyToken);
+    return;
+  }
+
+  const items = buildScopeQuickItems(subject, grade, [], TEST_RANGE_SCOPE_URL);
   try {
     const client = await getLineClient();
-    await client.replyMessage({ replyToken, messages: [flex] });
+    await client.replyMessage({
+      replyToken,
+      messages: [
+        {
+          type: 'text',
+          text: buildGuideText(subject, grade),
+          quickReply: toLineQuickReply(items),
+        },
+      ],
+    });
   } catch (error) {
-    console.error('[lineWebhook] handleTestRangeMenu reply failed:', error);
+    console.error('[lineWebhook] handleScopeStart reply failed:', error);
   }
+}
+
+/** 時代フローを使えない教科向けに /scope ページへの導線だけ返す。 */
+async function replyScopeDetailFallback(replyToken: string): Promise<void> {
+  try {
+    const client = await getLineClient();
+    await client.replyMessage({
+      replyToken,
+      messages: [
+        {
+          type: 'text',
+          text: '出題範囲は設定ページから単元ごとに選べるよ。',
+          quickReply: {
+            items: [
+              {
+                type: 'action' as const,
+                action: {
+                  type: 'uri' as const,
+                  label: '🔧 範囲を設定する',
+                  uri: TEST_RANGE_SCOPE_URL,
+                },
+              },
+            ],
+          },
+        },
+      ],
+    });
+  } catch (error) {
+    console.error('[lineWebhook] replyScopeDetailFallback failed:', error);
+  }
+}
+
+/** 時代チップのトグル / リセット。Firestore は読まず data の sel を更新して貼り直す。 */
+async function handleScopePickPostback(
+  replyToken: string | undefined,
+  params: URLSearchParams
+): Promise<void> {
+  if (!replyToken) return;
+  const subject = params.get('s') ?? '';
+  const gradeRaw = Number(params.get('g'));
+  const grade = gradeRaw === 1 || gradeRaw === 2 || gradeRaw === 3 ? gradeRaw : null;
+  if (!subject || grade === null || getEraMetas(subject, grade).length === 0) {
+    await replyText(replyToken, 'もう一度、範囲設定からやり直してね。', '(scope_pick: bad params)');
+    return;
+  }
+
+  const prevSel = normalizeSel(subject, grade, parseSel(params.get('sel')));
+  let sel: string[];
+  let confirmText: string;
+
+  if (params.get('reset') === '1') {
+    sel = [];
+    confirmText = buildPickConfirmText('reset', '', 0);
+  } else {
+    const eraId = params.get('era') ?? '';
+    const had = prevSel.includes(eraId);
+    sel = toggleEra(subject, grade, prevSel, eraId);
+    const meta = getEraMetas(subject, grade).find((e) => e.eraId === eraId);
+    const eraName = meta?.shortName ?? '';
+    confirmText = buildPickConfirmText(had ? 'remove' : 'add', eraName, sel.length);
+  }
+
+  const items = buildScopeQuickItems(subject, grade, sel, TEST_RANGE_SCOPE_URL);
+  try {
+    const client = await getLineClient();
+    await client.replyMessage({
+      replyToken,
+      messages: [
+        {
+          type: 'text',
+          text: confirmText,
+          quickReply: toLineQuickReply(items),
+        },
+      ],
+    });
+  } catch (error) {
+    console.error('[lineWebhook] handleScopePick reply failed:', error);
+  }
+}
+
+/**
+ * 範囲確定: 選択 era を topic.name に展開して testScope を保存し、reply で確認。
+ * 初回設定時は 1問目も reply で送る。push トリガ（onTestScopeSaved /
+ * onTestScopeFirstSet）は lastSource='line_inline' を見てスキップ＝二重送信を防ぐ。
+ */
+async function handleScopeCommitPostback(
+  uid: string,
+  replyToken: string | undefined,
+  params: URLSearchParams
+): Promise<void> {
+  if (!replyToken) return;
+  const subject = params.get('s') ?? '';
+  const gradeRaw = Number(params.get('g'));
+  const grade = gradeRaw === 1 || gradeRaw === 2 || gradeRaw === 3 ? gradeRaw : null;
+  if (!subject || grade === null) {
+    await replyText(replyToken, 'もう一度、範囲設定からやり直してね。', '(scope_commit: bad params)');
+    return;
+  }
+
+  const sel = normalizeSel(subject, grade, parseSel(params.get('sel')));
+  const topics = expandErasToTopics(subject, grade, sel);
+
+  let isInitialSetup = false;
+  try {
+    const { db, FieldValue } = await getDb();
+    const snap = await db.doc(`users/${uid}`).get();
+    const data = snap.data();
+    isInitialSetup =
+      typeof data?.preferredHour === 'number' && !data?.lastQuestionDeliveredAt;
+
+    await db.doc(`users/${uid}`).set(
+      {
+        testScope: {
+          topics,
+          updatedAt: FieldValue.serverTimestamp(),
+          lastSource: 'line_inline',
+        },
+      },
+      { merge: true }
+    );
+  } catch (error) {
+    console.error('[lineWebhook] handleScopeCommit write failed:', error);
+    await replyText(replyToken, '保存に失敗しちゃった。もう一度試してね。', '(scope_commit: write failed)');
+    return;
+  }
+
+  const confirmText = buildCommitText(subject, grade, sel);
+
+  // 初回設定なら確認文 + 1問目を一度の reply で送る（push トリガは抑止済み）
+  if (isInitialSetup) {
+    try {
+      await selectAndSendQuestion(uid, {
+        replyToken,
+        prependMessages: [{ type: 'text', text: confirmText }],
+        isInitialSetup: true,
+      });
+      return;
+    } catch (error) {
+      console.error('[lineWebhook] handleScopeCommit first-question failed:', error);
+      // フォールバック: 確認文だけでも返す
+    }
+  }
+
+  await replyText(replyToken, confirmText, '(scope_commit)');
 }
 
 async function handleSettingsGuidePostback(
@@ -2057,85 +2304,6 @@ function buildSettingsMenuFlexMessage() {
   };
 }
 
-function buildTestRangeMenuFlexMessage(
-  plan: UserPlan = 'premium',
-  gradePremiumEligible: boolean = true
-) {
-  const bodyText =
-    plan === 'premium'
-      ? 'チェックした単元から「追加で解く」「苦手を復習」の問題が出るよ。まだ習っていないところは外しておくと勉強がはかどる👍'
-      : gradePremiumEligible
-        ? '今チェックしておくと、毎日の1問が出題範囲から優先して届きます。プレミアムでは「追加で解く」「苦手を復習」にも反映されます。'
-        : '今チェックしておくと、毎日の1問が出題範囲から優先して届きます。範囲を絞って効率よく勉強できます。';
-
-  return {
-    type: 'flex' as const,
-    altText: '出題範囲設定',
-    contents: {
-      type: 'bubble' as const,
-      size: 'kilo' as const,
-      header: {
-        type: 'box' as const,
-        layout: 'vertical' as const,
-        backgroundColor: '#F59E0B',
-        paddingAll: '14px',
-        contents: [
-          {
-            type: 'text' as const,
-            text: '🎯 出題範囲設定',
-            color: '#FFFFFF',
-            weight: 'bold' as const,
-            size: 'md' as const,
-          },
-        ],
-      },
-      body: {
-        type: 'box' as const,
-        layout: 'vertical' as const,
-        paddingAll: '20px',
-        spacing: 'sm' as const,
-        contents: [
-          {
-            type: 'text' as const,
-            text: '出題してほしい単元にチェックを入れよう！',
-            wrap: true,
-            size: 'sm' as const,
-            color: '#111827',
-            weight: 'bold' as const,
-          },
-          {
-            type: 'text' as const,
-            text: bodyText,
-            wrap: true,
-            size: 'xs' as const,
-            color: '#6B7280',
-            margin: 'sm' as const,
-          },
-        ],
-      },
-      footer: {
-        type: 'box' as const,
-        layout: 'vertical' as const,
-        spacing: 'sm' as const,
-        paddingAll: '16px',
-        contents: [
-          {
-            type: 'button' as const,
-            style: 'primary' as const,
-            color: '#F59E0B',
-            height: 'sm' as const,
-            action: {
-              type: 'uri' as const,
-              label: '範囲を設定する',
-              uri: TEST_RANGE_SCOPE_URL,
-            },
-          },
-        ],
-      },
-    },
-  };
-}
-
 /**
  * テスト範囲を未設定のユーザーに、回答直後「範囲を設定すると毎日の1問が
  * その単元から届くよ」と促す nudge flex。`onAnswerCreated` から push される。
@@ -2206,9 +2374,10 @@ export function buildScopeSetupNudgeFlexMessage() {
             color: '#F59E0B',
             height: 'sm' as const,
             action: {
-              type: 'uri' as const,
+              type: 'postback' as const,
               label: '範囲を設定する',
-              uri: TEST_RANGE_SCOPE_URL,
+              data: 'type=scope_start',
+              displayText: '範囲を設定する',
             },
           },
         ],
@@ -2266,9 +2435,10 @@ function buildSettingsGuideFlexMessage() {
             color: '#F59E0B',
             height: 'sm' as const,
             action: {
-              type: 'uri' as const,
+              type: 'postback' as const,
               label: '🎯 テスト範囲設定',
-              uri: TEST_RANGE_SCOPE_URL,
+              data: 'type=scope_start',
+              displayText: '🎯 テスト範囲設定',
             },
           },
           {

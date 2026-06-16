@@ -42,6 +42,12 @@ export const onTestScopeFirstSet = functions
       return;
     }
 
+    // トーク内フロー（Quick Reply 逐次選択）で確定した場合は webhook が reply で
+    // 1問目を送るため、ここでの push はスキップ（二重送信を防ぐ）。
+    if (after.testScope?.lastSource === 'line_inline') {
+      return;
+    }
+
     if (typeof after.preferredHour !== 'number') {
       return;
     }
