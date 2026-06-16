@@ -1479,7 +1479,7 @@ function buildScopeGuideFlex(subject: string, grade: number) {
             contents: [
               step('①', 'この画面のいちばん下に出るボタンをタップ → 習った時代を選ぶ（タップした瞬間に保存）'),
               step('②', 'いくつでも選べるよ。もう一度タップで取り消しもOK'),
-              step('③', '終わったら「これで決定」をタップ（押さなくても保存ずみ）'),
+              step('③', '終わったら「これで決定」をタップ'),
             ],
           },
           {

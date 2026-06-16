@@ -208,7 +208,7 @@ export function buildPickConfirmText(
     return 'ぜんぶ解除して保存したよ（今は学年ぜんぶから出題）。もう一度えらべるよ。';
   }
   if (kind === 'add') {
-    return `✅「${eraName}」を範囲に追加して保存したよ（計${count}）。\nこのまま続けて選べるよ。終わったら「これで決定」を押してね（押さなくても保存ずみ）。`;
+    return `✅「${eraName}」を範囲に追加して保存したよ（計${count}）。\nこのまま続けて選べるよ。終わったら「これで決定」を押してね。`;
   }
   return `「${eraName}」を範囲から外して保存したよ（計${count}）。`;
 }
@@ -264,7 +264,7 @@ export function buildScopeQuickItems(
   });
 
   items.push({
-    label: `✅ この範囲で決定（${sel.length}）`,
+    label: `✅ これで決定（${sel.length}）`,
     data: buildCommitData(subject, grade, sel),
   });
 
