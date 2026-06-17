@@ -2998,12 +2998,10 @@ function buildLiffUnitsDeepLink(
 }
 
 /**
- * 解説の直後に1通だけ添える「この分野をもっと暗記↓ + 暗記カードを開くボタン」の
- * 小さい flex。
- *
- * 旧版は「📬 明日もまた届くよ」「連続◯日 / 累計◯問」「暗記カード / 四択クイズの
- * 2ボタン」を1枚に詰め込んでいたが、毎回送られる情報量が多く煩雑なため最小構成に
- * 整理（2026-05-31）。
+ * 解説の直後に1通だけ添える次アクション flex（小サイズ）。
+ * 「🃏 この分野を暗記（暗記カード）」と「✏️ もう一問解く」の2ボタンを横に並べ、
+ * 暗記でも追加演習でもワンタップで続けられるようにする。
+ * （「もう一問解く」= extra_question は全ユーザー無料・reply で課金対象外。）
  *
  * topicName が空の場合（旧データなど）は何も返さず、呼び出し側で flex 自体を
  * 添付しないよう null を返す。
@@ -3014,7 +3012,7 @@ function buildPostAnswerNextStepFlexMessage(options: {
   if (!options.topicName) return null;
   return {
     type: 'flex' as const,
-    altText: 'この分野をもっと暗記',
+    altText: 'つづけて学ぼう（暗記カード / もう一問）',
     contents: {
       type: 'bubble' as const,
       size: 'kilo' as const,
@@ -3026,26 +3024,46 @@ function buildPostAnswerNextStepFlexMessage(options: {
         contents: [
           {
             type: 'text' as const,
-            text: 'この分野をもっと暗記↓',
+            text: 'つづけて学ぼう👇',
             weight: 'bold' as const,
             size: 'sm' as const,
             color: '#111827',
             align: 'center' as const,
           },
           {
-            type: 'button' as const,
-            style: 'primary' as const,
-            color: '#F59E0B',
-            height: 'sm' as const,
-            action: {
-              type: 'uri' as const,
-              label: '🃏 暗記カードを開く',
-              uri: buildLiffUnitsDeepLink(
-                options.topicName,
-                'fc',
-                'post_answer',
-              ),
-            },
+            type: 'box' as const,
+            layout: 'horizontal' as const,
+            spacing: 'sm' as const,
+            contents: [
+              {
+                type: 'button' as const,
+                style: 'primary' as const,
+                color: '#F59E0B',
+                height: 'sm' as const,
+                flex: 1,
+                action: {
+                  type: 'uri' as const,
+                  label: '🃏 この分野を暗記',
+                  uri: buildLiffUnitsDeepLink(
+                    options.topicName,
+                    'fc',
+                    'post_answer',
+                  ),
+                },
+              },
+              {
+                type: 'button' as const,
+                style: 'secondary' as const,
+                height: 'sm' as const,
+                flex: 1,
+                action: {
+                  type: 'postback' as const,
+                  label: '✏️ もう一問解く',
+                  data: 'type=extra_question',
+                  displayText: 'もう一問解く',
+                },
+              },
+            ],
           },
         ],
       },
@@ -4456,6 +4474,29 @@ async function handleSelectTimePostback(
               `🤖 困ったときや勉強の質問は、このトークにそのまま送ればAIが答えるよ。`,
           },
         ];
+
+    // 教科設定の直後にそのまま範囲設定へ取りかかれるよう、対応教科なら完了サマリーに
+    // 続けて範囲設定ガイド（時代チップ付き）を同じ reply で送る。ユーザーはボタンを
+    // 探さずその場でタップして範囲を選び始められる（reply なので配信枠は消費しない）。
+    const scopeGrade = gradeToScopeNumber(storedGrade);
+    if (
+      summaryFlex &&
+      scopeGrade !== null &&
+      typeof storedSubject === 'string' &&
+      supportsEraFlow(storedSubject, scopeGrade)
+    ) {
+      const scopeItems = buildScopeQuickItems(
+        storedSubject,
+        scopeGrade,
+        [],
+        TEST_RANGE_SCOPE_URL
+      );
+      replyMessages.push({
+        ...buildScopeGuideFlex(storedSubject, scopeGrade),
+        quickReply: toLineQuickReply(scopeItems),
+      } as unknown as messagingApi.Message);
+    }
+
     await client.replyMessage({ replyToken, messages: replyMessages });
   } catch (error) {
     console.error(
