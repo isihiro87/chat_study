@@ -3052,7 +3052,8 @@ function buildPostAnswerNextStepFlexMessage(options: {
               },
               {
                 type: 'button' as const,
-                style: 'secondary' as const,
+                style: 'primary' as const,
+                color: '#F59E0B',
                 height: 'sm' as const,
                 action: {
                   type: 'postback' as const,
