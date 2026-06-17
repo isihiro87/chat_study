@@ -3032,7 +3032,7 @@ function buildPostAnswerNextStepFlexMessage(options: {
           },
           {
             type: 'box' as const,
-            layout: 'horizontal' as const,
+            layout: 'vertical' as const,
             spacing: 'sm' as const,
             contents: [
               {
@@ -3040,7 +3040,6 @@ function buildPostAnswerNextStepFlexMessage(options: {
                 style: 'primary' as const,
                 color: '#F59E0B',
                 height: 'sm' as const,
-                flex: 1,
                 action: {
                   type: 'uri' as const,
                   label: '🃏 この分野を暗記',
@@ -3055,7 +3054,6 @@ function buildPostAnswerNextStepFlexMessage(options: {
                 type: 'button' as const,
                 style: 'secondary' as const,
                 height: 'sm' as const,
-                flex: 1,
                 action: {
                   type: 'postback' as const,
                   label: '✏️ もう一問解く',
