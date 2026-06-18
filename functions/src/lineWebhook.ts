@@ -211,6 +211,59 @@ export function buildSubjectSelectMessage() {
   });
 }
 
+// 学年・教科は 1 ユーザー 1 日（JST）あたりこの回数まで変更可能。
+// 連打・誤操作の乱用を防ぐ。LIFF 設定ページのスイッチャーと同じ
+// users/{uid}.learningChangeCount / learningChangeDate を共有して数える。
+const LEARNING_CHANGE_DAILY_LIMIT = 3;
+
+/** user doc から「今日あと何回 学年・教科を変更できるか」。 */
+function remainingLearningChanges(
+  data: Record<string, unknown> | undefined
+): number {
+  const date =
+    typeof data?.learningChangeDate === 'string' ? data.learningChangeDate : null;
+  const count =
+    typeof data?.learningChangeCount === 'number' ? data.learningChangeCount : 0;
+  const todayCount = date === getJstDateString(new Date()) ? count : 0;
+  return Math.max(0, LEARNING_CHANGE_DAILY_LIMIT - todayCount);
+}
+
+// トーク内「学年・教科を変更」フロー（postback 逐次選択。LIFF 不要）。
+function buildChangeLearningGradeMessage() {
+  return buildOnboardingSelectFlex({
+    step: 1,
+    total: 2,
+    headerTitle: '学年を変更',
+    bodyText: '新しい学年を選んでね。',
+    altText: '学年を選んでください',
+    options: [
+      { label: '中1', data: 'type=change_learning_grade&grade=中1' },
+      { label: '中2', data: 'type=change_learning_grade&grade=中2' },
+      { label: '中3', data: 'type=change_learning_grade&grade=中3' },
+    ],
+  });
+}
+
+function buildChangeLearningSubjectMessage(grade: string) {
+  return buildOnboardingSelectFlex({
+    step: 2,
+    total: 2,
+    headerTitle: '教科を変更',
+    bodyText: `学年は「${grade}」だね。次は教科を選んでね。\n※今は「歴史」「理科」が配信中です。`,
+    altText: '教科を選んでください',
+    options: [
+      {
+        label: '歴史',
+        data: `type=change_learning_subject&grade=${grade}&subject=history`,
+      },
+      {
+        label: '理科',
+        data: `type=change_learning_subject&grade=${grade}&subject=science`,
+      },
+    ],
+  });
+}
+
 export function buildTimeSelectMessage() {
   return buildOnboardingSelectFlex({
     step: 3,
@@ -1232,6 +1285,21 @@ async function handlePostback(event: LineEvent): Promise<void> {
     return;
   }
 
+  if (type === 'change_learning') {
+    await handleChangeLearningStart(uid, replyToken);
+    return;
+  }
+
+  if (type === 'change_learning_grade') {
+    await handleChangeLearningGrade(replyToken, params);
+    return;
+  }
+
+  if (type === 'change_learning_subject') {
+    await handleChangeLearningSubject(uid, replyToken, params);
+    return;
+  }
+
   if (type === 'report_summary') {
     await handleReportSummaryPostback(uid, replyToken);
     return;
@@ -1795,6 +1863,128 @@ async function handleSettingsGuidePostback(
     await client.replyMessage({ replyToken, messages: [flex] });
   } catch (error) {
     console.error('[lineWebhook] handleSettingsGuide reply failed:', error);
+  }
+}
+
+/**
+ * トーク内「学年・教科を変更」フロー（LIFF を使わずチャットで完結）。
+ * 設定・サポート flex の「🎓 学年・教科を変更」postback から起動。
+ *   change_learning（開始: 上限チェック→学年選択）
+ *     → change_learning_grade（学年選択→教科選択。まだ保存しない）
+ *       → change_learning_subject（教科選択→ grade+subject を確定保存・カウント+1）
+ * 1日(JST)3回まで。LIFF スイッチャーと同じ learningChangeCount/Date を共有。
+ */
+async function handleChangeLearningStart(
+  uid: string,
+  replyToken: string | undefined
+): Promise<void> {
+  if (!replyToken) return;
+  const { db } = await getDb();
+  try {
+    const snap = await db.doc(`users/${uid}`).get();
+    if (remainingLearningChanges(snap.data()) <= 0) {
+      await replyText(
+        replyToken,
+        `学年・教科の変更は1日${LEARNING_CHANGE_DAILY_LIMIT}回までだよ🙏\nまた明日変更できるよ。`,
+        '(change_learning limit)'
+      );
+      return;
+    }
+    const client = await getLineClient();
+    await client.replyMessage({
+      replyToken,
+      messages: [
+        { type: 'text', text: '学年・教科を変更するよ。まずは学年を選んでね。' },
+        buildChangeLearningGradeMessage(),
+      ],
+    });
+  } catch (error) {
+    console.error('[lineWebhook] handleChangeLearningStart failed:', error);
+  }
+}
+
+async function handleChangeLearningGrade(
+  replyToken: string | undefined,
+  params: URLSearchParams
+): Promise<void> {
+  if (!replyToken) return;
+  const grade = params.get('grade');
+  if (!grade || !VALID_GRADES.includes(grade as ValidGrade)) {
+    await replyText(replyToken, 'もう一度、学年を選んでね。', '(change_learning bad grade)');
+    return;
+  }
+  // ここではまだ保存しない（教科選択まで確定させず、中断時に部分変更を残さない）。
+  try {
+    const client = await getLineClient();
+    await client.replyMessage({
+      replyToken,
+      messages: [buildChangeLearningSubjectMessage(grade)],
+    });
+  } catch (error) {
+    console.error('[lineWebhook] handleChangeLearningGrade failed:', error);
+  }
+}
+
+async function handleChangeLearningSubject(
+  uid: string,
+  replyToken: string | undefined,
+  params: URLSearchParams
+): Promise<void> {
+  if (!replyToken) return;
+  const grade = params.get('grade');
+  const subject = params.get('subject');
+  if (
+    !grade ||
+    !VALID_GRADES.includes(grade as ValidGrade) ||
+    !subject ||
+    !VALID_SUBJECTS.includes(subject as ValidSubject)
+  ) {
+    await replyText(
+      replyToken,
+      'もう一度、設定・サポートの「学年・教科を変更」からやり直してね。',
+      '(change_learning bad params)'
+    );
+    return;
+  }
+  const { db, FieldValue } = await getDb();
+  try {
+    const snap = await db.doc(`users/${uid}`).get();
+    const data = snap.data();
+    const today = getJstDateString(new Date());
+    const prevDate =
+      typeof data?.learningChangeDate === 'string' ? data.learningChangeDate : null;
+    const prevCount =
+      typeof data?.learningChangeCount === 'number' ? data.learningChangeCount : 0;
+    const todayCount = prevDate === today ? prevCount : 0;
+    if (todayCount >= LEARNING_CHANGE_DAILY_LIMIT) {
+      await replyText(
+        replyToken,
+        `学年・教科の変更は1日${LEARNING_CHANGE_DAILY_LIMIT}回までだよ🙏\nまた明日変更できるよ。`,
+        '(change_learning limit at commit)'
+      );
+      return;
+    }
+    const newCount = todayCount + 1;
+    await db.doc(`users/${uid}`).set(
+      {
+        grade,
+        subject,
+        learningChangeCount: newCount,
+        learningChangeDate: today,
+        updatedAt: FieldValue.serverTimestamp(),
+      },
+      { merge: true }
+    );
+    const subjectLabel = SUBJECT_LABELS[subject as ValidSubject];
+    const remaining = Math.max(0, LEARNING_CHANGE_DAILY_LIMIT - newCount);
+    await replyText(
+      replyToken,
+      `✅ 学年「${grade}」・教科「${subjectLabel}」に変更したよ！\n` +
+        `これからこの設定で毎日の1問が届くよ。\n（今日はあと${remaining}回変更できるよ）`,
+      '(change_learning done)'
+    );
+  } catch (error) {
+    console.error('[lineWebhook] handleChangeLearningSubject failed:', error);
   }
 }
 
@@ -2653,9 +2843,10 @@ function buildSettingsGuideFlexMessage() {
             style: 'secondary' as const,
             height: 'sm' as const,
             action: {
-              type: 'uri' as const,
+              type: 'postback' as const,
               label: '🎓 学年・教科を変更',
-              uri: LIFF_SETTINGS_URL,
+              data: 'type=change_learning',
+              displayText: '🎓 学年・教科を変更',
             },
           },
           {
