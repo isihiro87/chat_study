@@ -2654,6 +2654,16 @@ function buildSettingsGuideFlexMessage() {
             height: 'sm' as const,
             action: {
               type: 'uri' as const,
+              label: '🎓 学年・教科を変更',
+              uri: LIFF_SETTINGS_URL,
+            },
+          },
+          {
+            type: 'button' as const,
+            style: 'secondary' as const,
+            height: 'sm' as const,
+            action: {
+              type: 'uri' as const,
               label: '⚙️ 設定画面を開く',
               uri: LIFF_SETTINGS_URL,
             },

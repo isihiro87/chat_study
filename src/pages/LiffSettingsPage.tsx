@@ -95,6 +95,14 @@ interface UserSettings {
   plan: Plan;
 }
 
+// この LIFF ページ自身の LIFF ID。Vercel に VITE_LIFF_ID_SETTINGS が未設定だと
+// ビルド時に undefined となり、useLiffAuth が LIFF ログインを一切試みず認証失敗
+// （「アプリを再起動してください」画面）になる。webhook 側と同じ既定 ID を
+// フォールバックに持たせ、env 未設定でも確実に認証できるようにする。
+const SETTINGS_LIFF_ID =
+  (import.meta.env.VITE_LIFF_ID_SETTINGS as string | undefined) ??
+  '2009587166-IvJl78Hk';
+
 function sanitizeNickname(raw: string): string {
   return raw.replace(/\s+/g, ' ').trim().slice(0, NICKNAME_MAX_LEN);
 }
@@ -112,9 +120,7 @@ type Status = 'loading' | 'ready' | 'saving' | 'saved' | 'error';
 export function LiffSettingsPage() {
   const { user, loading, userDoc, userDocLoaded } = useAuth();
 
-  const { attempted: liffAuthAttempted } = useLiffAuth(
-    import.meta.env.VITE_LIFF_ID_SETTINGS as string | undefined
-  );
+  const { attempted: liffAuthAttempted } = useLiffAuth(SETTINGS_LIFF_ID);
 
   const [status, setStatus] = useState<Status>('loading');
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
