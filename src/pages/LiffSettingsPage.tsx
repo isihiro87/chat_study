@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { doc, serverTimestamp, setDoc } from 'firebase/firestore/lite';
+import { doc, getDoc, serverTimestamp, setDoc } from 'firebase/firestore/lite';
 import { db, auth } from '../firebase/config';
 import { useAuth } from '../contexts/AuthContext';
 import { useLiffAuth } from '../hooks/useLiffAuth';
@@ -25,17 +25,37 @@ const GRADE_NUM_TO_LABEL = (g: 1 | 2 | 3 | null): GradeLabel | null => {
   return null;
 };
 
-type Subject = 'history' | 'english';
+type Subject = 'history' | 'english' | 'science';
 type GradeLabel = '中1' | '中2' | '中3';
 type PreferredHour = 6 | 7 | 16 | 18 | 20;
 type Plan = 'free' | 'premium';
 const NICKNAME_MAX_LEN = 20;
 
-// 英語コンテンツは未配信のため、現状の設定ページでは「歴史」のみ選択可能。
-// 配信開始時に { id: 'english', label: '英語', emoji: '🔤' } を再追加する。
+// 学年・教科の変更は 1 ユーザー 1 日（JST）あたりこの回数まで。
+// 連続タップでの誤変更・乱用を防ぐ。保存のたびに最新カウントを読み直して判定する。
+const LEARNING_CHANGE_LIMIT_PER_DAY = 3;
+
+// 英語コンテンツは未配信のため非表示。配信開始時に
+// { id: 'english', label: '英語', emoji: '🔤' } を追加する。
 const SUBJECTS: { id: Subject; label: string; emoji: string }[] = [
   { id: 'history', label: '歴史', emoji: '⏳' },
+  { id: 'science', label: '理科', emoji: '🔬' },
 ];
+
+/** JST の 'YYYY-MM-DD'（日次カウントのリセット境界）。 */
+function jstDateStr(): string {
+  return new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Tokyo' }).format(
+    new Date()
+  );
+}
+
+/** user doc から「今日あと何回 学年・教科を変更できるか」を求める。 */
+function computeRemainingChanges(data: Record<string, unknown> | undefined): number {
+  const date = typeof data?.learningChangeDate === 'string' ? data.learningChangeDate : null;
+  const count = typeof data?.learningChangeCount === 'number' ? data.learningChangeCount : 0;
+  const todayCount = date === jstDateStr() ? count : 0;
+  return Math.max(0, LEARNING_CHANGE_LIMIT_PER_DAY - todayCount);
+}
 
 const GRADES: { value: GradeLabel; label: string }[] = [
   { value: '中1', label: '中1' },
@@ -100,6 +120,8 @@ export function LiffSettingsPage() {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [settings, setSettings] = useState<UserSettings | null>(null);
   const [nicknameDraft, setNicknameDraft] = useState('');
+  // 学年・教科の本日の残り変更回数（null = 取得前）。
+  const [remainingChanges, setRemainingChanges] = useState<number | null>(null);
 
   // プレミアム解約フロー: 確認パネル展開 → 確定ボタン押下で Cloud Function を叩く。
   // 二段階にすることで誤タップでの解約を防ぐ（無料体験中はそもそも解約ボタン自体を出さない）。
@@ -238,7 +260,77 @@ export function LiffSettingsPage() {
       plan: (userDoc?.plan ?? 'free') as Plan,
     });
     setStatus('ready');
+
+    // 学年・教科の本日の残り変更回数を取得（userDoc にはカウントを載せていない
+    // ため 1 回だけ読む。設定ページは低頻度なので read 規律上も許容範囲）。
+    let active = true;
+    void (async () => {
+      try {
+        const snap = await getDoc(doc(db, 'users', user.uid));
+        if (active) setRemainingChanges(computeRemainingChanges(snap.data()));
+      } catch {
+        // 取得失敗時は表示用にデフォルト上限を出す（保存時に再判定するので安全）。
+        if (active) setRemainingChanges(LEARNING_CHANGE_LIMIT_PER_DAY);
+      }
+    })();
+    return () => {
+      active = false;
+    };
   }, [user, loading, userDoc, userDocLoaded]);
+
+  /**
+   * 学年・教科の変更（1日3回まで）。保存直前に最新カウントを読み直して原子性に
+   * 近い判定をし、上限到達時は書き込まずメッセージを出す。同値の再タップは
+   * カウントを消費しない。
+   */
+  const saveLearningField = async (key: 'subject' | 'grade', value: string) => {
+    if (!user || !settings) return;
+    if (settings[key] === value) return; // 同じ値: 変更なし＝カウント消費しない
+    setStatus('saving');
+    setErrorMessage(null);
+    try {
+      const ref = doc(db, 'users', user.uid);
+      const snap = await getDoc(ref);
+      const data = snap.data();
+      const today = jstDateStr();
+      const prevDate =
+        typeof data?.learningChangeDate === 'string' ? data.learningChangeDate : null;
+      const prevCount =
+        typeof data?.learningChangeCount === 'number' ? data.learningChangeCount : 0;
+      const todayCount = prevDate === today ? prevCount : 0;
+
+      if (todayCount >= LEARNING_CHANGE_LIMIT_PER_DAY) {
+        setRemainingChanges(0);
+        setErrorMessage(
+          `学年・教科の変更は1日${LEARNING_CHANGE_LIMIT_PER_DAY}回までです。また明日変更できます。`
+        );
+        setStatus('ready');
+        return;
+      }
+
+      const newCount = todayCount + 1;
+      await setDoc(
+        ref,
+        {
+          [key]: value,
+          learningChangeCount: newCount,
+          learningChangeDate: today,
+          updatedAt: serverTimestamp(),
+        },
+        { merge: true }
+      );
+      setSettings((prev) => (prev ? { ...prev, [key]: value } : prev));
+      setRemainingChanges(Math.max(0, LEARNING_CHANGE_LIMIT_PER_DAY - newCount));
+      setStatus('saved');
+      setTimeout(() => {
+        setStatus((s) => (s === 'saved' ? 'ready' : s));
+      }, 1500);
+    } catch (err) {
+      console.error('[LiffSettingsPage] learning save failed', err);
+      setErrorMessage('保存できませんでした。通信状況を確認してください。');
+      setStatus('error');
+    }
+  };
 
   const saveField = async <K extends keyof UserSettings>(
     key: K,
@@ -351,6 +443,15 @@ export function LiffSettingsPage() {
           </p>
         </section>
 
+        {/* 学年・教科の変更回数の案内（1日3回まで） */}
+        <p className="text-xs text-gray-400 px-1">
+          {remainingChanges === 0
+            ? `本日の学年・教科の変更上限（${LEARNING_CHANGE_LIMIT_PER_DAY}回）に達しました。また明日変更できます。`
+            : `学年・教科の変更は1日${LEARNING_CHANGE_LIMIT_PER_DAY}回まで${
+                remainingChanges === null ? '' : `（今日はあと${remainingChanges}回）`
+              }`}
+        </p>
+
         {/* 教科 */}
         <section className="bg-white rounded-2xl shadow-sm p-5">
           <div className="text-xs text-gray-500 mb-2">教科</div>
@@ -360,8 +461,8 @@ export function LiffSettingsPage() {
               return (
                 <button
                   key={sub.id}
-                  onClick={() => void saveField('subject', sub.id)}
-                  disabled={status === 'saving'}
+                  onClick={() => void saveLearningField('subject', sub.id)}
+                  disabled={status === 'saving' || remainingChanges === 0}
                   className={`flex-1 rounded-full py-2.5 px-4 text-sm font-medium transition ${
                     active
                       ? 'bg-amber-500 text-white'
@@ -386,8 +487,8 @@ export function LiffSettingsPage() {
               return (
                 <button
                   key={g.value}
-                  onClick={() => void saveField('grade', g.value)}
-                  disabled={status === 'saving'}
+                  onClick={() => void saveLearningField('grade', g.value)}
+                  disabled={status === 'saving' || remainingChanges === 0}
                   className={`flex-1 rounded-full py-2 text-sm font-medium transition ${
                     active
                       ? 'bg-gray-800 text-white'
