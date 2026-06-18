@@ -13,6 +13,9 @@
 
 export type ServerFunnelEventType =
   | "richmenu_premium_info_tap"
+  // 学習エンゲージメント（回答後カード / メニューの追加学習動線）
+  | "extra_question_tap"
+  | "weak_review_tap"
   | "trial_started"
   | "trial_reminder_sent"
   | "trial_expired"

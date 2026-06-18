@@ -27,7 +27,7 @@ const REPO_ROOT = resolve(__dirname, '..');
 const CONTENT_DIR = join(REPO_ROOT, 'data', 'content');
 const OUT_DIR = join(REPO_ROOT, 'src', 'data', 'generated');
 
-type SubjectId = 'history' | 'english';
+type SubjectId = 'history' | 'english' | 'science';
 type Grade = 1 | 2 | 3;
 
 // data/content/<subject>/<folder> の学年マップ。
@@ -65,6 +65,21 @@ const GRADE_FOLDERS: Record<SubjectId, Record<Grade, string[]>> = {
     2: [],
     3: [],
   },
+  science: {
+    1: [
+      'grade1/1-biology',
+      'grade1/2-chemistry',
+      'grade1/3-physics',
+      'grade1/4-earth',
+    ],
+    2: [
+      'grade2/1-chemical-change',
+      'grade2/2-biology',
+      'grade2/3-weather',
+      'grade2/4-electricity',
+    ],
+    3: [],
+  },
 };
 
 // eraId -> 表示名。未登録の eraId は eraId そのままにフォールバック。
@@ -96,6 +111,16 @@ const ERA_DISPLAY_NAMES: Record<
   'modern-world': { name: '現代の世界と日本', icon: '🌏', period: '1989年〜現在' },
   // english grade 1
   'english-grade1': { name: '中1 英語の単語', icon: '📘', period: '教科書レッスンの単語' },
+  // science grade 1
+  'sci1-biology': { name: '生物の観察と分類', icon: '🔬', period: '生物分野' },
+  'sci1-chemistry': { name: '身のまわりの物質', icon: '⚗️', period: '化学分野' },
+  'sci1-physics': { name: '光・音・力', icon: '💡', period: '物理分野' },
+  'sci1-earth': { name: '大地の変化', icon: '🌋', period: '地学分野' },
+  // science grade 2
+  'sci2-chemical-change': { name: '化学変化と原子・分子', icon: '⚗️', period: '化学分野' },
+  'sci2-biology': { name: '生物のからだのつくり', icon: '🔬', period: '生物分野' },
+  'sci2-weather': { name: '天気とその変化', icon: '🌦️', period: '地学分野' },
+  'sci2-electricity': { name: '電流とその利用', icon: '⚡', period: '物理分野' },
 };
 
 // grade×eraId -> 公式LINE トーク内 範囲設定フロー用の補助メタ。
@@ -131,6 +156,16 @@ const ERA_HINTS: Record<
   'modern-world': { shortName: '現代の世界', whenLabel: '中3 11〜12月ごろ', keyTerms: '冷戦終結・平成・現代の課題' },
   // english grade 1
   'english-grade1': { shortName: '中1英単語', whenLabel: '中1 通年', keyTerms: '教科書レッスンの単語' },
+  // science grade 1
+  'sci1-biology': { shortName: '生物の観察と分類', whenLabel: '中1 4〜7月ごろ', keyTerms: '観察・植物の分類・動物の分類' },
+  'sci1-chemistry': { shortName: '身のまわりの物質', whenLabel: '中1 9〜12月ごろ', keyTerms: '気体・水溶液・状態変化' },
+  'sci1-physics': { shortName: '光・音・力', whenLabel: '中1 1〜2月ごろ', keyTerms: '光・音・力とばね' },
+  'sci1-earth': { shortName: '大地の変化', whenLabel: '中1 2〜3月ごろ', keyTerms: '火山・地震・地層' },
+  // science grade 2
+  'sci2-chemical-change': { shortName: '化学変化と原子分子', whenLabel: '中2 4〜7月ごろ', keyTerms: '化合・分解・化学反応式・質量保存' },
+  'sci2-biology': { shortName: '生物のからだ', whenLabel: '中2 7〜9月ごろ', keyTerms: '細胞・光合成・消化・血液・神経' },
+  'sci2-weather': { shortName: '天気とその変化', whenLabel: '中2 10〜12月ごろ', keyTerms: '湿度・雲・前線・日本の天気' },
+  'sci2-electricity': { shortName: '電流とその利用', whenLabel: '中2 1〜3月ごろ', keyTerms: '静電気・オームの法則・電流と磁界' },
 };
 
 interface RawTopic {
@@ -216,6 +251,7 @@ function buildSubject(subject: SubjectId): Record<Grade, ScopeEra[]> {
 const index: Record<SubjectId, Record<Grade, ScopeEra[]>> = {
   history: buildSubject('history'),
   english: buildSubject('english'),
+  science: buildSubject('science'),
 };
 
 // --- functions 側（公式LINE トーク内 範囲設定フロー）用スリムマップ ---
@@ -253,6 +289,7 @@ function buildSubjectEraMetas(
 const eraMetaIndex: Record<SubjectId, Record<Grade, EraMeta[]>> = {
   history: buildSubjectEraMetas('history'),
   english: buildSubjectEraMetas('english'),
+  science: buildSubjectEraMetas('science'),
 };
 
 const banner =
@@ -275,7 +312,7 @@ export interface ScopeEra {
   topics: ScopeTopic[];
 }
 
-export type ScopeSubjectId = 'history' | 'english';
+export type ScopeSubjectId = 'history' | 'english' | 'science';
 export type ScopeGrade = 1 | 2 | 3;
 
 `;
@@ -308,7 +345,7 @@ const eraTypes = `export interface EraMeta {
   topics: string[];
 }
 
-export type ScopeSubjectId = 'history' | 'english';
+export type ScopeSubjectId = 'history' | 'english' | 'science';
 export type ScopeGrade = 1 | 2 | 3;
 
 `;
@@ -323,7 +360,7 @@ const eraOutPath = join(FUNCTIONS_OUT_DIR, 'line-scope-eras.generated.ts');
 writeFileSync(eraOutPath, eraBanner + eraTypes + eraBody, 'utf-8');
 
 // サマリ出力
-for (const subject of ['history', 'english'] as SubjectId[]) {
+for (const subject of ['history', 'english', 'science'] as SubjectId[]) {
   for (const grade of [1, 2, 3] as Grade[]) {
     const eras = index[subject][grade];
     const topicCount = eras.reduce((n, e) => n + e.topics.length, 0);

@@ -1,32 +1,33 @@
 /**
- * data/content/history/ の quiz 問題を Firestore `questions` collection に
+ * data/content/<subject>/ の quiz 問題を Firestore `questions` collection に
  * 同期する。webhook（毎日配信・追加で解く・苦手復習）は `questions`
  * collection を見ているため、ここに同期しないと testScope が効かない。
  *
  * 使い方:
  *   gcloud auth application-default login
- *   npx tsx scripts/sync-questions-from-content.ts --dry-run     # 差分のみ（書き込み無し）
- *   npx tsx scripts/sync-questions-from-content.ts               # upsert（孤児があれば WARN）
- *   npx tsx scripts/sync-questions-from-content.ts --dry-run --prune  # 削除対象をプレビューのみ
- *   npx tsx scripts/sync-questions-from-content.ts --prune       # upsert + 古い同期分を削除
+ *   # 既定は history（後方互換）
+ *   npx tsx scripts/sync-questions-from-content.ts --dry-run            # history 差分のみ
+ *   npx tsx scripts/sync-questions-from-content.ts                      # history upsert
+ *   # 教科を指定（例: 理科 中1）
+ *   npx tsx scripts/sync-questions-from-content.ts --subject=science --grade=中1 --dry-run
+ *   npx tsx scripts/sync-questions-from-content.ts --subject=science --grade=中1
+ *   npx tsx scripts/sync-questions-from-content.ts --subject=science --prune  # 孤児掃除（subject全体）
  *
  * ⚠️ 再発防止: upsert は削除をしないため、JSON から問題を消すと Firestore に
- *    孤児ドキュメント（content-history-v1 で source に無い ID）が残り、配信され
+ *    孤児ドキュメント（その教科の syncSource で source に無い ID）が残り、配信され
  *    続ける。通常 sync でも孤児を検知して WARN するので、出たら --prune で掃除する。
+ *    prune は教科ごとの syncSource で絞るので他教科には影響しない。
  *
- * Document ID: `q-history-{topicId}-{questionId}` 形式（例: q-history-jomon-era-q1）
+ * Document ID: `q-<subject>-<topicId>-<questionId>`（例 q-history-jomon-era-q1 /
+ *              q-science-sci1-flower-seed-q1）。教科で接頭辞が違うので衝突しない。
  *
  * フィールド:
- *   - subject: "history"
- *   - grade:   "中1" | "中2" | "中3"（フォルダ番号から自動判定）
- *   - topic:   topic.name（細かい日本語、testScope と一致する）
- *   - text:    question.question
- *   - choices: question.options
- *   - correctChoiceId: question.correctIndex
- *   - explanation: question.explanation
- *   - difficulty:  question.difficulty
+ *   - subject: "history" | "science" | ...
+ *   - grade:   "中1" | "中2" | "中3"
+ *   - topic:   topic.name（細かい日本語、testScope と一致する＝questions.topic）
+ *   - text/choices/correctChoiceId/explanation/difficulty
  *   - contentTopicId: 元データの topic.topicId（trace 用）
- *   - syncSource: "content-history-v1"（prune の識別子）
+ *   - syncSource: "content-<subject>-v1"（prune の識別子）
  */
 
 import { readdirSync, readFileSync } from 'node:fs';
@@ -36,44 +37,76 @@ import { fileURLToPath } from 'node:url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const REPO_ROOT = resolve(__dirname, '..');
-const CONTENT_DIR = join(REPO_ROOT, 'data', 'content', 'history');
+const CONTENT_DIR = join(REPO_ROOT, 'data', 'content');
 const FIREBASE_PROJECT_ID = 'chatstudy-63477';
-const SYNC_SOURCE_TAG = 'content-history-v1';
 
-const GRADE_FOLDERS: Record<string, string[]> = {
-  中1: [
-    '01-history-basics',
-    '02-ancient-world',
-    '03-japanese-origins',
-    '04-ancient-state',
-    '05-warrior-kamakura',
-    '06-medieval-world',
-  ],
-  中2: [
-    '07-early-modern',
-    '08-edo-establishment',
-    '09-modern-era',
-    '10-bakumatsu',
-    '11-meiji-early',
-    '12-meiji-late',
-  ],
-  中3: [
-    '13-ww1-japan',
-    '14-taisho-democracy',
-    '15-showa-crisis',
-    '16-ww2-japan',
-    '17-postwar-japan',
-    '18-cold-war-era',
-    '19-modern-world',
-  ],
-};
+type Grade = '中1' | '中2' | '中3';
 
-function folderToGrade(folder: string): '中1' | '中2' | '中3' | null {
-  for (const [grade, folders] of Object.entries(GRADE_FOLDERS)) {
-    if (folders.includes(folder)) return grade as '中1' | '中2' | '中3';
-  }
-  return null;
+interface SubjectSyncConfig {
+  subjectId: string; // questions.subject の値
+  contentSubdir: string; // data/content/<contentSubdir>
+  docIdPrefix: string; // q-<subject>
+  syncSourceTag: string; // content-<subject>-v1
+  // grade -> data/content/<contentSubdir>/<folder> の相対パス（folder は階層を含んでよい）
+  gradeFolders: Record<Grade, string[]>;
 }
+
+const SUBJECTS: Record<string, SubjectSyncConfig> = {
+  history: {
+    subjectId: 'history',
+    contentSubdir: 'history',
+    docIdPrefix: 'q-history',
+    syncSourceTag: 'content-history-v1',
+    gradeFolders: {
+      中1: [
+        '01-history-basics',
+        '02-ancient-world',
+        '03-japanese-origins',
+        '04-ancient-state',
+        '05-warrior-kamakura',
+        '06-medieval-world',
+      ],
+      中2: [
+        '07-early-modern',
+        '08-edo-establishment',
+        '09-modern-era',
+        '10-bakumatsu',
+        '11-meiji-early',
+        '12-meiji-late',
+      ],
+      中3: [
+        '13-ww1-japan',
+        '14-taisho-democracy',
+        '15-showa-crisis',
+        '16-ww2-japan',
+        '17-postwar-japan',
+        '18-cold-war-era',
+        '19-modern-world',
+      ],
+    },
+  },
+  science: {
+    subjectId: 'science',
+    contentSubdir: 'science',
+    docIdPrefix: 'q-science',
+    syncSourceTag: 'content-science-v1',
+    gradeFolders: {
+      中1: [
+        'grade1/1-biology',
+        'grade1/2-chemistry',
+        'grade1/3-physics',
+        'grade1/4-earth',
+      ],
+      中2: [
+        'grade2/1-chemical-change',
+        'grade2/2-biology',
+        'grade2/3-weather',
+        'grade2/4-electricity',
+      ],
+      中3: [],
+    },
+  },
+};
 
 interface ContentQuiz {
   id: string;
@@ -106,46 +139,54 @@ interface FirestoreQuestion {
   syncSource: string;
 }
 
-function loadAllQuestions(): FirestoreQuestion[] {
+function loadAllQuestions(
+  config: SubjectSyncConfig,
+  gradeFilter: Grade | null
+): FirestoreQuestion[] {
   const out: FirestoreQuestion[] = [];
-  for (const folder of readdirSync(CONTENT_DIR)) {
-    const grade = folderToGrade(folder);
-    if (!grade) continue;
-    const dir = join(CONTENT_DIR, folder);
-    let files: string[] = [];
-    try {
-      files = readdirSync(dir).filter((f) => f.endsWith('.json'));
-    } catch {
-      continue;
-    }
-    for (const file of files) {
-      const raw = readFileSync(join(dir, file), 'utf-8');
-      const topic = JSON.parse(raw) as ContentTopic;
-      const questions = topic.quiz?.questions ?? [];
-      for (const q of questions) {
-        if (
-          typeof q.id !== 'string' ||
-          typeof q.question !== 'string' ||
-          !Array.isArray(q.options) ||
-          q.options.length !== 4 ||
-          typeof q.correctIndex !== 'number'
-        ) {
-          console.warn(`[skip invalid] ${folder}/${file} ${q.id}`);
-          continue;
+  for (const [grade, folders] of Object.entries(config.gradeFolders) as [
+    Grade,
+    string[],
+  ][]) {
+    if (gradeFilter && grade !== gradeFilter) continue;
+    for (const folder of folders) {
+      const dir = join(CONTENT_DIR, config.contentSubdir, folder);
+      let files: string[] = [];
+      try {
+        files = readdirSync(dir).filter((f) => f.endsWith('.json'));
+      } catch {
+        console.warn(`[skip missing folder] ${config.contentSubdir}/${folder}`);
+        continue;
+      }
+      for (const file of files) {
+        const raw = readFileSync(join(dir, file), 'utf-8');
+        const topic = JSON.parse(raw) as ContentTopic;
+        const questions = topic.quiz?.questions ?? [];
+        for (const q of questions) {
+          if (
+            typeof q.id !== 'string' ||
+            typeof q.question !== 'string' ||
+            !Array.isArray(q.options) ||
+            q.options.length !== 4 ||
+            typeof q.correctIndex !== 'number'
+          ) {
+            console.warn(`[skip invalid] ${folder}/${file} ${q.id}`);
+            continue;
+          }
+          out.push({
+            id: `${config.docIdPrefix}-${topic.topicId}-${q.id}`,
+            subject: config.subjectId,
+            grade,
+            topic: topic.name,
+            text: q.question,
+            choices: q.options,
+            correctChoiceId: q.correctIndex,
+            explanation: q.explanation ?? '',
+            difficulty: q.difficulty ?? 'basic',
+            contentTopicId: topic.topicId,
+            syncSource: config.syncSourceTag,
+          });
         }
-        out.push({
-          id: `q-history-${topic.topicId}-${q.id}`,
-          subject: 'history',
-          grade,
-          topic: topic.name,
-          text: q.question,
-          choices: q.options,
-          correctChoiceId: q.correctIndex,
-          explanation: q.explanation ?? '',
-          difficulty: q.difficulty ?? 'basic',
-          contentTopicId: topic.topicId,
-          syncSource: SYNC_SOURCE_TAG,
-        });
       }
     }
   }
@@ -156,20 +197,35 @@ async function main(): Promise<void> {
   const args = process.argv.slice(2);
   const dryRun = args.includes('--dry-run');
   const prune = args.includes('--prune');
+  const subjectArg = (
+    args.find((a) => a.startsWith('--subject='))?.split('=')[1] ?? 'history'
+  ).trim();
+  const gradeArg = args
+    .find((a) => a.startsWith('--grade='))
+    ?.split('=')[1]
+    ?.trim() as Grade | undefined;
 
-  const local = loadAllQuestions();
+  const config = SUBJECTS[subjectArg];
+  if (!config) {
+    console.error(
+      `[sync] unknown --subject=${subjectArg}（対応: ${Object.keys(SUBJECTS).join(', ')}）`
+    );
+    process.exit(1);
+  }
+  const gradeFilter: Grade | null =
+    gradeArg && ['中1', '中2', '中3'].includes(gradeArg) ? gradeArg : null;
+
+  const local = loadAllQuestions(config, gradeFilter);
   console.log(
-    `[sync] mode=${dryRun ? 'dry-run' : 'live'} prune=${prune} project=${FIREBASE_PROJECT_ID}`
+    `[sync] subject=${config.subjectId} grade=${gradeFilter ?? 'all'} mode=${dryRun ? 'dry-run' : 'live'} prune=${prune} project=${FIREBASE_PROJECT_ID}`
   );
-  console.log(`[sync] loaded ${local.length} quiz questions from data/content/history`);
+  console.log(
+    `[sync] loaded ${local.length} quiz questions from data/content/${config.contentSubdir}`
+  );
 
   const byGrade: Record<string, number> = {};
-  for (const q of local) {
-    byGrade[q.grade] = (byGrade[q.grade] ?? 0) + 1;
-  }
-  for (const [g, n] of Object.entries(byGrade)) {
-    console.log(`  ${g}: ${n} 問`);
-  }
+  for (const q of local) byGrade[q.grade] = (byGrade[q.grade] ?? 0) + 1;
+  for (const [g, n] of Object.entries(byGrade)) console.log(`  ${g}: ${n} 問`);
 
   // --dry-run（prune なし）は Firestore に触れず差分計算のみで終了
   if (dryRun && !prune) {
@@ -189,7 +245,6 @@ async function main(): Promise<void> {
   }
   const db = getFirestore();
 
-  // --dry-run --prune は upsert せず、削除対象（孤児）のプレビューのみ
   if (!dryRun) {
     let wrote = 0;
     for (const q of local) {
@@ -211,12 +266,21 @@ async function main(): Promise<void> {
     console.log(`[sync] wrote ${wrote} questions`);
   }
 
-  // --- 孤児（content-history-v1 で現行ソースに無い ID）の検知 ---
-  // upsert は削除しないため、JSON から消した問題が残って配信され続ける。
-  // --prune 指定時は削除、未指定時は WARN だけして掃除を促す（再発防止）。
+  // --- 孤児（この教科の syncSource で現行ソースに無い ID）の検知 ---
+  // prune は教科ごとの syncSourceTag で絞るので他教科には影響しない。
+  // ⚠️ --grade 指定時は他学年を「孤児」と誤判定するため prune/孤児WARN をスキップ。
+  if (gradeFilter) {
+    if (prune) {
+      console.warn(
+        '[sync] --grade 指定中は prune をスキップ（他学年を孤児と誤判定するため）。subject 全体で --prune してください。'
+      );
+    }
+    return;
+  }
+
   const snap = await db
     .collection('questions')
-    .where('syncSource', '==', SYNC_SOURCE_TAG)
+    .where('syncSource', '==', config.syncSourceTag)
     .get();
   const localIds = new Set(local.map((q) => q.id));
   const orphans = snap.docs.filter((d) => !localIds.has(d.id));
@@ -244,7 +308,7 @@ async function main(): Promise<void> {
       console.warn(`     [${doc.id}] topic=${topic}`);
     }
     console.warn(
-      `   → 掃除するには:  npx tsx scripts/sync-questions-from-content.ts --dry-run --prune  で確認後、--prune で削除\n`
+      `   → 掃除するには:  npx tsx scripts/sync-questions-from-content.ts --subject=${config.subjectId} --dry-run --prune  で確認後、--prune で削除\n`
     );
   } else {
     console.log('[sync] 孤児なし（Firestore は現行ソースと一致）');

@@ -13,7 +13,7 @@ export interface EraMeta {
   topics: string[];
 }
 
-export type ScopeSubjectId = 'history' | 'english';
+export type ScopeSubjectId = 'history' | 'english' | 'science';
 export type ScopeGrade = 1 | 2 | 3;
 
 export const lineScopeEras: Record<ScopeSubjectId, Record<ScopeGrade, EraMeta[]>> = {
@@ -291,6 +291,127 @@ export const lineScopeEras: Record<ScopeSubjectId, Record<ScopeGrade, EraMeta[]>
   "english": {
     "1": [],
     "2": [],
+    "3": []
+  },
+  "science": {
+    "1": [
+      {
+        "eraId": "sci1-biology",
+        "eraName": "生物の観察と分類",
+        "shortName": "生物の観察と分類",
+        "whenLabel": "中1 4〜7月ごろ",
+        "keyTerms": "観察・植物の分類・動物の分類",
+        "topics": [
+          "観察のしかた",
+          "顕微鏡の詳細",
+          "花と種子のしくみ",
+          "植物の分類",
+          "脊椎動物",
+          "無脊椎動物と分類"
+        ]
+      },
+      {
+        "eraId": "sci1-chemistry",
+        "eraName": "身のまわりの物質",
+        "shortName": "身のまわりの物質",
+        "whenLabel": "中1 9〜12月ごろ",
+        "keyTerms": "気体・水溶液・状態変化",
+        "topics": [
+          "身のまわりの物質とその性質",
+          "気体の性質",
+          "水溶液の性質",
+          "物質の姿と状態変化"
+        ]
+      },
+      {
+        "eraId": "sci1-physics",
+        "eraName": "光・音・力",
+        "shortName": "光・音・力",
+        "whenLabel": "中1 1〜2月ごろ",
+        "keyTerms": "光・音・力とばね",
+        "topics": [
+          "光の世界",
+          "音の世界",
+          "力の世界"
+        ]
+      },
+      {
+        "eraId": "sci1-earth",
+        "eraName": "大地の変化",
+        "shortName": "大地の変化",
+        "whenLabel": "中1 2〜3月ごろ",
+        "keyTerms": "火山・地震・地層",
+        "topics": [
+          "火をふく大地",
+          "動き続ける大地",
+          "地層から読みとる大地の変化"
+        ]
+      }
+    ],
+    "2": [
+      {
+        "eraId": "sci2-chemical-change",
+        "eraName": "化学変化と原子・分子",
+        "shortName": "化学変化と原子分子",
+        "whenLabel": "中2 4〜7月ごろ",
+        "keyTerms": "化合・分解・化学反応式・質量保存",
+        "topics": [
+          "物質のなり立ち",
+          "物質どうしの化学変化",
+          "酸素がかかわる化学変化",
+          "化学変化と物質の質量",
+          "化学変化とその利用"
+        ]
+      },
+      {
+        "eraId": "sci2-biology",
+        "eraName": "生物のからだのつくり",
+        "shortName": "生物のからだ",
+        "whenLabel": "中2 7〜9月ごろ",
+        "keyTerms": "細胞・光合成・消化・血液・神経",
+        "topics": [
+          "生物と細胞",
+          "光合成と呼吸",
+          "水と養分の通り道",
+          "動物のからだのつくりとはたらき",
+          "感覚器官",
+          "神経と運動"
+        ]
+      },
+      {
+        "eraId": "sci2-weather",
+        "eraName": "天気とその変化",
+        "shortName": "天気とその変化",
+        "whenLabel": "中2 10〜12月ごろ",
+        "keyTerms": "湿度・雲・前線・日本の天気",
+        "topics": [
+          "気象の観測と圧力",
+          "大気圧と天気図",
+          "等圧線と風",
+          "水蒸気と湿度",
+          "雲のでき方",
+          "気団と前線",
+          "大気の動き",
+          "日本の四季の天気"
+        ]
+      },
+      {
+        "eraId": "sci2-electricity",
+        "eraName": "電流とその利用",
+        "shortName": "電流とその利用",
+        "whenLabel": "中2 1〜3月ごろ",
+        "keyTerms": "静電気・オームの法則・電流と磁界",
+        "topics": [
+          "静電気と放電",
+          "陰極線と電子・放射線",
+          "回路と電流・電圧",
+          "オームの法則と抵抗",
+          "電気エネルギー",
+          "電流と磁界（1）",
+          "電流と磁界（2）"
+        ]
+      }
+    ],
     "3": []
   }
 };

@@ -53,8 +53,8 @@ interface LineWebhookBody {
 type ValidGrade = '中1' | '中2' | '中3';
 const VALID_GRADES: readonly ValidGrade[] = ['中1', '中2', '中3'] as const;
 
-type ValidSubject = 'history' | 'english';
-const VALID_SUBJECTS: readonly ValidSubject[] = ['history', 'english'] as const;
+type ValidSubject = 'history' | 'english' | 'science';
+const VALID_SUBJECTS: readonly ValidSubject[] = ['history', 'english', 'science'] as const;
 
 /** 学年文字列（'中1'）→ スコープロジック用の数値（1）。不正値は null。 */
 function gradeToScopeNumber(grade: unknown): 1 | 2 | 3 | null {
@@ -66,6 +66,7 @@ function gradeToScopeNumber(grade: unknown): 1 | 2 | 3 | null {
 const SUBJECT_LABELS: Record<ValidSubject, string> = {
   history: '歴史',
   english: '英語',
+  science: '理科',
 };
 // 教科別のヘッダー背景色。将来 math/science/geography を追加する際は
 // ValidSubject 型と SUBJECT_LABELS / SUBJECT_HEADER_COLORS を同時に更新する。
@@ -73,8 +74,8 @@ const SUBJECT_LABELS: Record<ValidSubject, string> = {
 const SUBJECT_HEADER_COLORS: Record<ValidSubject, string> = {
   history: '#A16207', // 社会系の茶色
   english: '#EC4899', // ピンク
+  science: '#10B981', // 緑
   // math: "#3B82F6",     // 青
-  // science: "#10B981",  // 緑
   // geography: "#A16207", // 茶色（歴史と同じ社会系）
 };
 
@@ -194,16 +195,19 @@ export function buildGradeSelectMessage() {
   });
 }
 
-// 現状は「歴史」のみ表示。英語・数学などが解放されたら options に追加していく。
+// 配信中の教科を options に並べる。新教科が解放されたら追加していく。
 export function buildSubjectSelectMessage() {
   return buildOnboardingSelectFlex({
     step: 2,
     total: 3,
     headerTitle: '教科を選ぶ',
     bodyText:
-      '勉強したい教科を選んでね。\n※今は「歴史」だけ配信中です。英語・数学・理科・地理は順次追加予定！',
+      '勉強したい教科を選んでね。\n※今は「歴史」「理科」が配信中です。英語・数学・地理は順次追加予定！',
     altText: '教科を選んでください',
-    options: [{ label: '歴史', data: 'type=select_subject&subject=history' }],
+    options: [
+      { label: '歴史', data: 'type=select_subject&subject=history' },
+      { label: '理科', data: 'type=select_subject&subject=science' },
+    ],
   });
 }
 
@@ -988,7 +992,7 @@ async function handleRestartIntent(
   }
 
   try {
-    await selectAndSendQuestion(uid, { pushType: 'restartWelcome' });
+    await selectAndSendQuestion(uid, { pushType: 'restartWelcome', source: 'restart' });
   } catch (error) {
     console.error('[lineWebhook] restart selectAndSendQuestion failed:', error);
   }
@@ -1194,7 +1198,7 @@ async function handlePostback(event: LineEvent): Promise<void> {
   }
 
   if (type === 'extra_question') {
-    await handleExtraQuestionPostback(uid, replyToken);
+    await handleExtraQuestionPostback(uid, replyToken, params.get('src'));
     return;
   }
 
@@ -1769,6 +1773,7 @@ async function handleScopeCommitPostback(
         replyToken,
         prependMessages: [{ type: 'text', text: confirmText }],
         isInitialSetup: true,
+        source: 'onboarding',
       });
       return;
     } catch (error) {
@@ -3058,7 +3063,7 @@ function buildPostAnswerNextStepFlexMessage(options: {
                 action: {
                   type: 'postback' as const,
                   label: '✏️ もう一問解く',
-                  data: 'type=extra_question',
+                  data: 'type=extra_question&src=post_answer',
                   displayText: 'もう一問解く',
                 },
               },
@@ -3993,7 +3998,8 @@ export function buildPremiumNudgeFlexMessage(reason: PremiumNudgeReason) {
 
 async function handleExtraQuestionPostback(
   uid: string,
-  replyToken: string | undefined
+  replyToken: string | undefined,
+  src: string | null = null
 ): Promise<void> {
   if (!replyToken) return;
 
@@ -4003,6 +4009,18 @@ async function handleExtraQuestionPostback(
 
   // 2026-06 トライアル廃止: 「1問解く」は全ユーザーが無料で使える。
   // reply（postback への応答）で送るため LINE 通数課金の対象外。
+
+  // 「もう一問解く / 追加で解く」タップを計測。src で発火元カードを区別
+  // （post_answer = 回答後カード / それ以外 = 各種 flex）。回答後カードの
+  // クリック率は extra_question_tap(src=post_answer) ÷ 同日 answers 件数で算出。
+  try {
+    const { logServerFunnelEvent } = await import('./funnelEvent');
+    await logServerFunnelEvent('extra_question_tap', uid, {
+      src: src ?? 'unknown',
+    });
+  } catch (error) {
+    console.error('[lineWebhook] extra_question_tap log failed:', error);
+  }
 
   // 初回利用フラグだけ記録する。
   const isFirstExtraQuestion = !userData?.firstExtraQuestionAt;
@@ -4024,6 +4042,7 @@ async function handleExtraQuestionPostback(
     replyToken,
     introText: getExtraQuestionIntro(),
     bypassDailyLimit: true,
+    source: 'extra',
   });
 }
 
@@ -4036,6 +4055,14 @@ async function handleWeakReviewPostback(
   const { db, FieldValue } = await getDb();
   const userSnap = await db.doc(`users/${uid}`).get();
   const userData = userSnap.data();
+
+  // 「苦手を復習」タップを計測（対象0件で出題に至らない場合も含めタップ自体を記録）。
+  try {
+    const { logServerFunnelEvent } = await import('./funnelEvent');
+    await logServerFunnelEvent('weak_review_tap', uid);
+  } catch (error) {
+    console.error('[lineWebhook] weak_review_tap log failed:', error);
+  }
 
   // 2026-06 トライアル廃止: 「苦手を復習」は全ユーザーが無料で使える。
 
@@ -4174,6 +4201,8 @@ async function handleWeakReviewPostback(
         lastQuestionDeliveredAt: FieldValue.serverTimestamp(),
         // AI チャットボットが「さっきの問題」に答えられるよう最後の問題を保存。
         lastQuestion: buildLastQuestionSnapshot(pickedId, question),
+        // 回答時に answers.source へ転記する配信経路（苦手復習）。
+        lastQuestionSource: 'weak_review',
         lastAnsweredQuestionId: FieldValue.delete(),
         updatedAt: FieldValue.serverTimestamp(),
       },
@@ -4620,6 +4649,12 @@ async function handleAnswerPostback(
     // 回答記録が残らず onAnswerCreated（連続記録・累計・初回フォロー）も発火しない。
     // 欠落フィールドは null にフォールバックして write を必ず成功させる
     // （onAnswerCreated 側は topic=null / subject='' を許容済み）。
+    // 出題時に記録した配信経路を転記（daily / extra / weak_review ...）。
+    // 旧データや経路不明は 'daily' にフォールバック（毎日配信が大多数）。
+    const answerSource =
+      typeof currentUserData?.lastQuestionSource === 'string'
+        ? (currentUserData.lastQuestionSource as string)
+        : 'daily';
     await db.collection('answers').add({
       uid,
       questionId,
@@ -4628,6 +4663,7 @@ async function handleAnswerPostback(
       subject: question.subject ?? null,
       grade: question.grade ?? null,
       topic: question.topic ?? null,
+      source: answerSource,
       answeredAt: FieldValue.serverTimestamp(),
     });
   } catch (error) {
@@ -4681,7 +4717,22 @@ interface SendOptions {
   appendMessages?: LineMessage[];
   /** push 経路で deliveryStats に記録する種別。replyMessage 時は計上しない。 */
   pushType?: PushType;
+  /**
+   * この出題の配信経路。回答時に `answers.source` へ転記され、追加学習量
+   * （daily / extra / weak_review / restart / onboarding ...）の継続観測に使う。
+   * 既定は 'daily'（毎日配信 push）。
+   */
+  source?: AnswerSource;
 }
+
+/** answers.source / lastQuestionSource に記録する出題経路。 */
+export type AnswerSource =
+  | 'daily'
+  | 'extra'
+  | 'weak_review'
+  | 'restart'
+  | 'onboarding'
+  | 'manual';
 
 const RECENT_QUESTION_LIMIT = 10;
 
@@ -4736,6 +4787,7 @@ export async function selectAndSendQuestion(
     prependMessages,
     appendMessages,
     pushType = 'dailyQuiz',
+    source = 'daily',
   } = options;
   const { db, FieldValue } = await getDb();
 
@@ -4909,6 +4961,8 @@ export async function selectAndSendQuestion(
         lastQuestionDeliveredAt: FieldValue.serverTimestamp(),
         // AI チャットボットが「さっきの問題」に答えられるよう最後の問題を保存。
         lastQuestion: buildLastQuestionSnapshot(picked.id, question),
+        // 回答時に answers.source へ転記する配信経路（追加学習量の計測用）。
+        lastQuestionSource: source,
         // 同じ問題が再出題された場合に「すでに回答済み」ブロックが発生しないよう、
         // 新しい問題を送るタイミングで前回の回答済みフラグを必ずクリアする。
         lastAnsweredQuestionId: FieldValue.delete(),

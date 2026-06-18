@@ -1,0 +1,362 @@
+{
+  "subjectId": "science",
+  "eraId": "sci2-electricity",
+  "topicId": "sci2-ohms-law",
+  "name": "オームの法則と抵抗",
+  "subtitle": "V=RI・合成抵抗・導体と不導体",
+  "icon": "📐",
+  "order": 4,
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "{抵抗|ていこう}",
+      "back": "電流の流れにくさを表す量を何という？",
+      "explanation": "単位はオーム（記号Ω）。抵抗が大きいほど電流は流れにくい。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "オーム（Ω）",
+      "back": "電気抵抗の大きさを表す単位は？",
+      "explanation": "1Vの電圧を加えたとき1Aの電流が流れる抵抗が1Ωである。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "オームの{法則|ほうそく}",
+      "back": "抵抗を流れる電流の大きさが、両端に加わる電圧に比例するという関係を何という？",
+      "explanation": "V＝R×I（電圧＝抵抗×電流）の関係で表される。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc4",
+      "front": "V＝R×I",
+      "back": "電圧V、抵抗R、電流Iの関係を表すオームの法則の式は？",
+      "explanation": "変形すると R＝V÷I、I＝V÷R となる。3つのうち2つがわかれば残り1つが求まる。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc5",
+      "front": "{導体|どうたい}",
+      "back": "抵抗が小さく、電気を通しやすい物質を何という？",
+      "explanation": "金・銀・銅・鉄・アルミニウムなどの金属が代表例。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "{不導体|ふどうたい}（{絶縁体|ぜつえんたい}）",
+      "back": "抵抗がきわめて大きく、電気をほとんど通さない物質を何という？",
+      "explanation": "ガラスやゴムなどが代表例。絶縁体ともいう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc7",
+      "front": "ニクロム",
+      "back": "ほかの金属より抵抗が大きく、電熱線の材料に使われる金属は？",
+      "explanation": "抵抗が大きいため電流を流すと発熱しやすく、電熱器などに利用される。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "{合成抵抗|ごうせいていこう}",
+      "back": "回路全体の抵抗を、1つの抵抗としてとらえたものを何という？",
+      "explanation": "直列回路と並列回路で求め方が異なる。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc9",
+      "front": "R＝R₁＋R₂",
+      "back": "直列回路の合成抵抗を、各抵抗R₁・R₂で表す式は？",
+      "explanation": "直列回路の合成抵抗は各部分の抵抗の和に等しい。同じ抵抗を2個直列につなぐと全体は2倍になる。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "$\\frac{1}{R}=\\frac{1}{R_1}+\\frac{1}{R_2}$",
+      "back": "並列回路の合成抵抗Rを、各抵抗R₁・R₂で表す式は？",
+      "explanation": "逆数の和になる。並列の合成抵抗はどの抵抗よりも小さくなる。同じ抵抗を2個並列につなぐと全体は半分になる。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc11",
+      "front": "どの抵抗よりも小さくなる",
+      "back": "並列回路の合成抵抗は、ひとつひとつの抵抗と比べてどうなるか？",
+      "explanation": "並列につなぐと電流の通り道が増えるため、全体としては流れやすくなり抵抗は小さくなる。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "20Ω",
+      "back": "ある抵抗器に2Vの電圧を加えたら0.1Aの電流が流れた。この抵抗器の抵抗は何Ω？",
+      "explanation": "R＝V÷I＝2÷0.1＝20〔Ω〕。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "0.2A",
+      "back": "15Ωの抵抗器に3.0Vの電圧を加えたとき、流れる電流は何A？",
+      "explanation": "I＝V÷R＝3.0÷15＝0.2〔A〕。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "{物質|ぶっしつ}の種類・長さ・太さ",
+      "back": "抵抗の大きさは、何によって決まるか（3つ）？",
+      "explanation": "同じ物質でも長いほど抵抗は大きく、太いほど抵抗は小さくなる。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc15",
+      "front": "{半導体|はんどうたい}",
+      "back": "導体と不導体の中間の性質をもつ物質を何という？",
+      "explanation": "シリコン（ケイ素）が代表例。コンピュータの部品（IC）や太陽電池などに利用される。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc17",
+      "front": "{銀|ぎん}",
+      "back": "銀・銅・鉄のうち、電気抵抗が最も小さいのは？",
+      "explanation": "電気抵抗は銀＜銅＜鉄の順に大きくなる。導線にはおもに銅が使われる。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "電流の流れにくさを表す量を何といいますか。",
+        "options": [
+          "電力",
+          "電圧",
+          "電流",
+          "抵抗"
+        ],
+        "correctIndex": 3,
+        "explanation": "電流の流れにくさを電気抵抗（抵抗）といい、単位はオーム（Ω）である。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "抵抗を流れる電流の大きさが、両端に加わる電圧に比例するという関係を何といいますか。",
+        "options": [
+          "フックの法則",
+          "オームの法則",
+          "慣性の法則",
+          "作用・反作用の法則"
+        ],
+        "correctIndex": 1,
+        "explanation": "電流と電圧が比例する関係をオームの法則という。V＝R×Iで表される。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q3",
+        "question": "電流Iが0.2A、抵抗Rが20Ωのとき、電圧Vは何Vですか。",
+        "options": [
+          "100V",
+          "0.01V",
+          "4.0V",
+          "40V"
+        ],
+        "correctIndex": 2,
+        "explanation": "オームの法則より V＝R×I＝20×0.2＝4.0〔V〕。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q4",
+        "question": "電圧Vが6.0V、抵抗Rが30Ωのとき、電流Iは何Aですか。",
+        "options": [
+          "0.2A",
+          "5.0A",
+          "180A",
+          "0.5A"
+        ],
+        "correctIndex": 0,
+        "explanation": "オームの法則より I＝V÷R＝6.0÷30＝0.2〔A〕。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "抵抗器の両端に3Vの電圧を加えたところ、0.5Aの電流が流れました。この抵抗器の抵抗は何Ωですか。",
+        "options": [
+          "1.5Ω",
+          "6Ω",
+          "0.17Ω",
+          "15Ω"
+        ],
+        "correctIndex": 1,
+        "explanation": "R＝V÷I＝3÷0.5＝6〔Ω〕。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "抵抗が小さく、電気を通しやすい物質を何といいますか。",
+        "options": [
+          "不導体",
+          "絶縁体",
+          "導体",
+          "半導体"
+        ],
+        "correctIndex": 2,
+        "explanation": "金属などの電気を通しやすい物質を導体という。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q7",
+        "question": "抵抗が大きく、電気をほとんど通さない物質はどれですか。",
+        "options": [
+          "銅",
+          "鉄",
+          "ガラス",
+          "アルミニウム"
+        ],
+        "correctIndex": 2,
+        "explanation": "ガラスやゴムは抵抗がきわめて大きい不導体（絶縁体）である。銅・鉄・アルミニウムは導体。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q8",
+        "question": "電熱線の材料に使われ、ほかの金属より抵抗が大きい金属はどれですか。",
+        "options": [
+          "銀",
+          "ニクロム",
+          "金",
+          "アルミニウム"
+        ],
+        "correctIndex": 1,
+        "explanation": "ニクロムは抵抗が大きく発熱しやすいため、電熱線の材料に使われる。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "20Ωの抵抗器R₁と30Ωの抵抗器R₂を直列につないだとき、回路全体の抵抗（合成抵抗）は何Ωですか。",
+        "options": [
+          "12Ω",
+          "50Ω",
+          "10Ω",
+          "600Ω"
+        ],
+        "correctIndex": 1,
+        "explanation": "直列回路の合成抵抗は和に等しい。R＝20＋30＝50〔Ω〕。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "5Ωの抵抗器Aと15Ωの抵抗器Bを直列につなぎ、4Vの電圧を加えました。点Pを流れる電流は何Aですか。",
+        "options": [
+          "0.2A",
+          "0.8A",
+          "5A",
+          "0.27A"
+        ],
+        "correctIndex": 0,
+        "explanation": "合成抵抗＝5＋15＝20Ω。直列なので回路全体に I＝V÷R＝4÷20＝0.2〔A〕が流れる。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q11",
+        "question": "6Ωの抵抗器R₁と12Ωの抵抗器R₂を並列につないだとき、回路全体の抵抗（合成抵抗）は何Ωですか。",
+        "options": [
+          "18Ω",
+          "9Ω",
+          "4Ω",
+          "2Ω"
+        ],
+        "correctIndex": 2,
+        "explanation": "1/R＝1/6＋1/12＝2/12＋1/12＝3/12＝1/4。よってR＝4〔Ω〕で、どの抵抗よりも小さい。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q12",
+        "question": "同じ大きさの抵抗器Pを2個並列につなぐと、全体の抵抗は抵抗器P1個と比べてどうなりますか。",
+        "options": [
+          "2倍になる",
+          "変わらない",
+          "2分の1になる",
+          "4倍になる"
+        ],
+        "correctIndex": 2,
+        "explanation": "同じ抵抗を2個並列につなぐと、合成抵抗は1個のときの2分の1になる。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q13",
+        "question": "10Ωの抵抗器Xと15Ωの抵抗器Yを並列につなぎ、6Vの電圧を加えました。抵抗器Xを流れる電流は何Aですか。",
+        "options": [
+          "0.6A",
+          "0.4A",
+          "0.24A",
+          "1.5A"
+        ],
+        "correctIndex": 0,
+        "explanation": "並列なので各抵抗に6Vが加わる。Xを流れる電流は I＝V÷R＝6÷10＝0.6〔A〕。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q14",
+        "question": "電圧と電流の関係を表すグラフが、原点を通る直線になるのはなぜですか。",
+        "options": [
+          "電流が電圧に反比例するから",
+          "電圧が一定だから",
+          "電流が一定だから",
+          "電流が電圧に比例するから"
+        ],
+        "correctIndex": 3,
+        "explanation": "オームの法則により、抵抗を流れる電流は加わる電圧に比例するので、グラフは原点を通る直線になる。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q15",
+        "question": "電流Iが2A、電圧Vが6Vのとき、抵抗Rは何Ωですか。",
+        "options": [
+          "12Ω",
+          "3Ω",
+          "0.33Ω",
+          "4Ω"
+        ],
+        "correctIndex": 1,
+        "explanation": "R＝V÷I＝6÷2＝3〔Ω〕。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q16",
+        "question": "40Ωの抵抗器に0.05Aの電流を流すためには、何Vの電圧を加えればよいですか。",
+        "options": [
+          "2V",
+          "800V",
+          "0.00125V",
+          "8V"
+        ],
+        "correctIndex": 0,
+        "explanation": "V＝R×I＝40×0.05＝2〔V〕。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q17",
+        "question": "導体と不導体の中間の性質をもち、シリコン（ケイ素）が代表例である物質を何といいますか。",
+        "options": [
+          "半導体",
+          "絶縁体",
+          "超電導体",
+          "誘電体"
+        ],
+        "correctIndex": 0,
+        "explanation": "導体と不導体の中間の性質をもつ物質を半導体という。シリコンが代表例で、電子部品に使われる。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q18",
+        "question": "銀・銅・鉄・ニクロムのうち、電気抵抗が最も小さいのはどれですか。",
+        "options": [
+          "鉄",
+          "ニクロム",
+          "銅",
+          "銀"
+        ],
+        "correctIndex": 3,
+        "explanation": "電気抵抗は銀＜銅＜鉄の順に大きい。銀が最も電流を通しやすいが、導線にはおもに銅が使われる。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

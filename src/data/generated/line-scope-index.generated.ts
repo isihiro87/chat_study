@@ -17,7 +17,7 @@ export interface ScopeEra {
   topics: ScopeTopic[];
 }
 
-export type ScopeSubjectId = 'history' | 'english';
+export type ScopeSubjectId = 'history' | 'english' | 'science';
 export type ScopeGrade = 1 | 2 | 3;
 
 export const lineScopeIndex: Record<ScopeSubjectId, Record<ScopeGrade, ScopeEra[]>> = {
@@ -642,77 +642,289 @@ export const lineScopeIndex: Record<ScopeSubjectId, Record<ScopeGrade, ScopeEra[
     ]
   },
   "english": {
+    "1": [],
+    "2": [],
+    "3": []
+  },
+  "science": {
     "1": [
       {
-        "eraId": "english-grade1",
-        "eraName": "中1 英語の単語",
-        "eraIcon": "📘",
-        "eraPeriod": "教科書レッスンの単語",
+        "eraId": "sci1-biology",
+        "eraName": "生物の観察と分類",
+        "eraIcon": "🔬",
+        "eraPeriod": "生物分野",
         "topics": [
           {
-            "name": "Hello, Everyone! の単語",
-            "subtitle": "自己紹介・好きなもの・学校生活の語彙",
-            "icon": "👋"
+            "name": "観察のしかた",
+            "subtitle": "スケッチ・ルーペ・分類の基準",
+            "icon": "🔬"
           },
           {
-            "name": "身の回り・教室・できることの単語",
-            "subtitle": "身の回り・教室・できることの語彙",
-            "icon": "🎒"
+            "name": "顕微鏡の詳細",
+            "subtitle": "プレパラート・倍率計算・顕微鏡の各部分",
+            "icon": "🔬"
           },
           {
-            "name": "Our School の単語",
-            "subtitle": "学校紹介・疑問詞・曜日や場所の語彙",
-            "icon": "🏫"
+            "name": "花と種子のしくみ",
+            "subtitle": "花のつくり・受粉・被子植物と裸子植物",
+            "icon": "🌸"
           },
           {
-            "name": "Friends in New Zealand の単語",
-            "subtitle": "ニュージーランド・数・時刻・気持ちの語彙",
-            "icon": "🇳🇿"
+            "name": "植物の分類",
+            "subtitle": "シダ植物・コケ植物・植物全体の分類",
+            "icon": "🌿"
           },
           {
-            "name": "My Brother in Hawaii の単語",
-            "subtitle": "ハワイ・生活・三人称単数現在の語彙",
-            "icon": "🌺"
+            "name": "脊椎動物",
+            "subtitle": "5つのグループ・恒温動物と変温動物・卵生と胎生",
+            "icon": "🐟"
           },
           {
-            "name": "A Rakugo Performer from the U.K. の単語",
-            "subtitle": "演芸・持ち物・服装の語彙",
-            "icon": "🎭"
+            "name": "無脊椎動物と分類",
+            "subtitle": "節足動物・軟体動物・動物の分類まとめ",
+            "icon": "🦀"
+          }
+        ]
+      },
+      {
+        "eraId": "sci1-chemistry",
+        "eraName": "身のまわりの物質",
+        "eraIcon": "⚗️",
+        "eraPeriod": "化学分野",
+        "topics": [
+          {
+            "name": "身のまわりの物質とその性質",
+            "subtitle": "物体と物質・金属と非金属・密度・有機物と無機物",
+            "icon": "🔍"
           },
           {
-            "name": "An Online Tour of the U.K. の単語",
-            "subtitle": "予定・観光・写真の語彙",
-            "icon": "🇬🇧"
+            "name": "気体の性質",
+            "subtitle": "気体の発生と性質・集め方",
+            "icon": "💨"
           },
           {
-            "name": "Think Globally, Act Locally の単語",
-            "subtitle": "ボランティア・環境・支援活動の語彙",
+            "name": "水溶液の性質",
+            "subtitle": "溶解・質量パーセント濃度・溶解度と再結晶",
+            "icon": "🧫"
+          },
+          {
+            "name": "物質の姿と状態変化",
+            "subtitle": "状態変化・体積と質量の変化・沸点と融点・蒸留",
+            "icon": "🌡️"
+          }
+        ]
+      },
+      {
+        "eraId": "sci1-physics",
+        "eraName": "光・音・力",
+        "eraIcon": "💡",
+        "eraPeriod": "物理分野",
+        "topics": [
+          {
+            "name": "光の世界",
+            "subtitle": "光の直進・反射・屈折・レンズ",
+            "icon": "🔦"
+          },
+          {
+            "name": "音の世界",
+            "subtitle": "音の伝わり方・振幅・振動数",
+            "icon": "🔊"
+          },
+          {
+            "name": "力の世界",
+            "subtitle": "力のはたらき・フックの法則・力のつり合い",
+            "icon": "💪"
+          }
+        ]
+      },
+      {
+        "eraId": "sci1-earth",
+        "eraName": "大地の変化",
+        "eraIcon": "🌋",
+        "eraPeriod": "地学分野",
+        "topics": [
+          {
+            "name": "火をふく大地",
+            "subtitle": "マグマと噴火・火山噴出物・火成岩・火山の恵みと災害",
+            "icon": "🌋"
+          },
+          {
+            "name": "動き続ける大地",
+            "subtitle": "地震のゆれ・P波とS波・プレート・地震への備え",
             "icon": "🌍"
           },
           {
-            "name": "短縮形・変化形・過去形まとめ",
-            "subtitle": "didn't / went / was / There is ... など",
-            "icon": "✂️"
-          },
-          {
-            "name": "旅先からの便り・絵はがきの単語",
-            "subtitle": "絵はがき・旅先・あいさつの語彙",
-            "icon": "✉️"
-          },
-          {
-            "name": "This Year’s Memories の単語",
-            "subtitle": "思い出・学校生活・There is/are の語彙",
-            "icon": "📸"
-          },
-          {
-            "name": "Winter Vacation の単語",
-            "subtitle": "冬休み・新年・過去形の語彙",
-            "icon": "❄️"
+            "name": "地層から読みとる大地の変化",
+            "subtitle": "地層のなり立ち・堆積岩・化石・大地の変動",
+            "icon": "🪨"
           }
         ]
       }
     ],
-    "2": [],
+    "2": [
+      {
+        "eraId": "sci2-chemical-change",
+        "eraName": "化学変化と原子・分子",
+        "eraIcon": "⚗️",
+        "eraPeriod": "化学分野",
+        "topics": [
+          {
+            "name": "物質のなり立ち",
+            "subtitle": "分解・原子・元素記号・分子・化学式",
+            "icon": "🔬"
+          },
+          {
+            "name": "物質どうしの化学変化",
+            "subtitle": "化合・化合物の性質・化学反応式",
+            "icon": "🧪"
+          },
+          {
+            "name": "酸素がかかわる化学変化",
+            "subtitle": "酸化・燃焼・還元",
+            "icon": "🔥"
+          },
+          {
+            "name": "化学変化と物質の質量",
+            "subtitle": "質量保存の法則・質量比",
+            "icon": "⚖️"
+          },
+          {
+            "name": "化学変化とその利用",
+            "subtitle": "発熱反応・吸熱反応・化学エネルギー",
+            "icon": "🌡️"
+          }
+        ]
+      },
+      {
+        "eraId": "sci2-biology",
+        "eraName": "生物のからだのつくり",
+        "eraIcon": "🔬",
+        "eraPeriod": "生物分野",
+        "topics": [
+          {
+            "name": "生物と細胞",
+            "subtitle": "植物細胞・動物細胞・単細胞生物と多細胞生物",
+            "icon": "🔬"
+          },
+          {
+            "name": "光合成と呼吸",
+            "subtitle": "光合成・気孔・蒸散・植物の呼吸",
+            "icon": "☀️"
+          },
+          {
+            "name": "水と養分の通り道",
+            "subtitle": "維管束・道管・師管・蒸散の実験",
+            "icon": "💧"
+          },
+          {
+            "name": "動物のからだのつくりとはたらき",
+            "subtitle": "消化・吸収・呼吸・血液循環・排出",
+            "icon": "🫀"
+          },
+          {
+            "name": "感覚器官",
+            "subtitle": "目・耳・鼻・皮膚・舌のつくりとはたらき",
+            "icon": "👁️"
+          },
+          {
+            "name": "神経と運動",
+            "subtitle": "神経系・反射・骨と筋肉",
+            "icon": "⚡"
+          }
+        ]
+      },
+      {
+        "eraId": "sci2-weather",
+        "eraName": "天気とその変化",
+        "eraIcon": "🌦️",
+        "eraPeriod": "地学分野",
+        "topics": [
+          {
+            "name": "気象の観測と圧力",
+            "subtitle": "天気の記号・乾湿計・圧力の計算",
+            "icon": "🌡️"
+          },
+          {
+            "name": "大気圧と天気図",
+            "subtitle": "大気圧・等圧線・高低気圧・風向風力",
+            "icon": "🌀"
+          },
+          {
+            "name": "等圧線と風",
+            "subtitle": "等圧線・高気圧と低気圧・風の吹き方",
+            "icon": "💨"
+          },
+          {
+            "name": "水蒸気と湿度",
+            "subtitle": "飽和水蒸気量・露点・湿度の計算",
+            "icon": "💧"
+          },
+          {
+            "name": "雲のでき方",
+            "subtitle": "雲の発生・水の循環・上昇気流",
+            "icon": "☁️"
+          },
+          {
+            "name": "気団と前線",
+            "subtitle": "寒冷前線・温暖前線・温帯低気圧",
+            "icon": "🌧️"
+          },
+          {
+            "name": "大気の動き",
+            "subtitle": "偏西風・季節風・海陸風・気団",
+            "icon": "🌏"
+          },
+          {
+            "name": "日本の四季の天気",
+            "subtitle": "西高東低・梅雨・台風・気象災害",
+            "icon": "🗾"
+          }
+        ]
+      },
+      {
+        "eraId": "sci2-electricity",
+        "eraName": "電流とその利用",
+        "eraIcon": "⚡",
+        "eraPeriod": "物理分野",
+        "topics": [
+          {
+            "name": "静電気と放電",
+            "subtitle": "帯電・放電・真空放電",
+            "icon": "⚡"
+          },
+          {
+            "name": "陰極線と電子・放射線",
+            "subtitle": "クルックス管・電流の正体・放射線",
+            "icon": "🔬"
+          },
+          {
+            "name": "回路と電流・電圧",
+            "subtitle": "直列・並列回路の電流と電圧",
+            "icon": "🔌"
+          },
+          {
+            "name": "オームの法則と抵抗",
+            "subtitle": "V=RI・合成抵抗・導体と不導体",
+            "icon": "📐"
+          },
+          {
+            "name": "電気エネルギー",
+            "subtitle": "電力・熱量・電力量",
+            "icon": "💡"
+          },
+          {
+            "name": "電流と磁界（1）",
+            "subtitle": "磁界・磁力線・電磁力・モーター",
+            "icon": "🧲"
+          },
+          {
+            "name": "電流と磁界（2）",
+            "subtitle": "電磁誘導・発電機・直流と交流",
+            "icon": "🔌"
+          }
+        ]
+      }
+    ],
     "3": []
   }
 };

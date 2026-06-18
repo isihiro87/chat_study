@@ -1,0 +1,329 @@
+{
+  "subjectId": "science",
+  "eraId": "sci2-electricity",
+  "topicId": "sci2-electric-energy",
+  "name": "電気エネルギー",
+  "subtitle": "電力・熱量・電力量",
+  "icon": "💡",
+  "order": 5,
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "{電気|でんき}エネルギー",
+      "back": "電気がもつエネルギーで、光・熱・音・運動などに変えて利用されるものは？",
+      "explanation": "蛍光灯は光、電気ストーブは熱、送風機は運動に変えて利用している。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "{電力|でんりょく}",
+      "back": "1秒間あたりに使われる電気エネルギーの大きさを表す値を何という？",
+      "explanation": "消費電力ともいう。単位はワット（記号W）。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "ワット（W）",
+      "back": "電力の大きさを表す単位は？",
+      "explanation": "1Vの電圧で1Aの電流が流れたときの電力が1Wである。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "電力〔W〕＝電圧〔V〕×電流〔A〕",
+      "back": "電力を、電圧と電流を使って表す式は？",
+      "explanation": "100Vの電圧で2Aの電流が流れる電熱器の電力は100×2＝200W。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc5",
+      "front": "{熱量|ねつりょう}",
+      "back": "電流を流すときに発生する熱の量を何という？",
+      "explanation": "単位はジュール（記号J）。1gの水の温度を1℃上げるのに必要な熱量は約4.2J。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "熱量〔J〕＝電力〔W〕×時間〔s〕",
+      "back": "熱量を、電力と時間を使って表す式は？",
+      "explanation": "時間の単位「秒」は s で表す。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc7",
+      "front": "ジュール（J）",
+      "back": "熱量や電力量の大きさを表す単位は？",
+      "explanation": "1Wの電力を1秒間使ったときの電気エネルギーが1J。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc8",
+      "front": "{電力量|でんりょくりょう}",
+      "back": "一定時間電流が流れたときに消費される電気エネルギーの総量を何という？",
+      "explanation": "単位はジュール（J）やワット時（Wh）・キロワット時（kWh）。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc9",
+      "front": "電力量〔J〕＝電力〔W〕×時間〔s〕",
+      "back": "電力量を、電力と時間を使って表す式は？",
+      "explanation": "熱量の式と同じ形。1Wの電力を1時間使うと電力量は1Wh。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "ワット{時|じ}（Wh）",
+      "back": "電気料金の算出などに使われ、ワットと時間を組み合わせた電力量の単位は？",
+      "explanation": "1Whは1Wの電力を1時間使ったときの電力量。1000Wh＝1kWh。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "3600J",
+      "back": "1Whは何Jか？",
+      "explanation": "1Wh＝1W×1h＝1W×3600s＝3600J。1時間は3600秒だから。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc12",
+      "front": "8.5A",
+      "back": "「100V−850W」と表示された電気製品に100Vの電圧を加えたとき、流れる電流は何A？",
+      "explanation": "電力＝電圧×電流より、電流＝電力÷電圧＝850÷100＝8.5〔A〕。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc13",
+      "front": "電力に{比例|ひれい}する",
+      "back": "電流を流す時間が同じとき、水の上昇温度は電力とどのような関係になるか？",
+      "explanation": "電力が大きいほど発生する熱量が大きくなり、水の上昇温度も大きくなる。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "{並列|へいれつ}に接続されている",
+      "back": "家庭の複数の電気製品は、たがいに直列・並列のどちらに接続されているか？",
+      "explanation": "すべての電気製品が並列に接続され、それぞれに100Vの電圧が加わる。テーブルタップに流れる電流は各製品の電流の和になる。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc15",
+      "front": "1kWh",
+      "back": "1kW（＝1000W）の電力を1時間使ったときの電力量を何という？",
+      "explanation": "電気料金の計算によく使われる単位。1kWh＝1000W×1時間。",
+      "difficulty": "standard"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "1秒間あたりに使われる電気エネルギーの大きさを表す値を何といいますか。",
+        "options": [
+          "電力",
+          "電力量",
+          "熱量",
+          "電圧"
+        ],
+        "correctIndex": 0,
+        "explanation": "1秒間あたりに使われる電気エネルギーの大きさを電力（消費電力）といい、単位はワット（W）。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "電力の単位として正しいものはどれですか。",
+        "options": [
+          "ワット",
+          "ジュール",
+          "ボルト",
+          "オーム"
+        ],
+        "correctIndex": 0,
+        "explanation": "電力の単位はワット（W）。Jは熱量・電力量、Vは電圧、Ωは抵抗の単位。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "100Vの電圧を加えると2Aの電流が流れる電熱器があります。この電熱器の電力は何Wですか。",
+        "options": [
+          "50W",
+          "98W",
+          "200W",
+          "102W"
+        ],
+        "correctIndex": 2,
+        "explanation": "電力＝電圧×電流＝100×2＝200〔W〕。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q4",
+        "question": "電流を流すときに発生する熱の量を何といいますか。",
+        "options": [
+          "電力",
+          "電力量",
+          "電気抵抗",
+          "熱量"
+        ],
+        "correctIndex": 3,
+        "explanation": "電流を流すときに発生する熱の量を熱量といい、単位はジュール（J）。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "「100V−500W」と表示された電気製品に100Vの電圧を加えると、流れる電流は何Aですか。",
+        "options": [
+          "5A",
+          "50000A",
+          "0.2A",
+          "600A"
+        ],
+        "correctIndex": 0,
+        "explanation": "電流＝電力÷電圧＝500÷100＝5〔A〕。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "3Vの電圧を加えて0.4Aの電流が流れたヒーターに、3分間電流を流したときに発生する熱量は何Jですか。",
+        "options": [
+          "1.2J",
+          "72J",
+          "216J",
+          "3.6J"
+        ],
+        "correctIndex": 2,
+        "explanation": "電力＝3×0.4＝1.2W。時間＝3分＝180秒。熱量＝電力×時間＝1.2×180＝216〔J〕。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q7",
+        "question": "電熱線に3Vの電圧を加えたところ0.3Aの電流が流れました。電熱線で消費される電力は何Wですか。",
+        "options": [
+          "10W",
+          "0.9W",
+          "0.1W",
+          "9W"
+        ],
+        "correctIndex": 1,
+        "explanation": "電力＝電圧×電流＝3×0.3＝0.9〔W〕。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "一定時間電流が流れたときに消費される電気エネルギーの総量を何といいますか。",
+        "options": [
+          "電力",
+          "熱量",
+          "電流量",
+          "電力量"
+        ],
+        "correctIndex": 3,
+        "explanation": "消費される電気エネルギーの総量を電力量という。単位はJやWh。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "1Whは何Jですか。",
+        "options": [
+          "60J",
+          "1000J",
+          "3600J",
+          "100J"
+        ],
+        "correctIndex": 2,
+        "explanation": "1Wh＝1W×3600s＝3600J。1時間は3600秒だから。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q10",
+        "question": "「100V−800W」の電熱器を100Vの電源につないで2時間使いました。このときの電力量は何Whですか。",
+        "options": [
+          "400Wh",
+          "1600Wh",
+          "800Wh",
+          "1000Wh"
+        ],
+        "correctIndex": 1,
+        "explanation": "電力量＝電力×時間＝800W×2h＝1600〔Wh〕。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q11",
+        "question": "電流を流す時間が同じとき、水の上昇温度は電力とどのような関係になりますか。",
+        "options": [
+          "電力に比例する",
+          "電力に反比例する",
+          "電力に関係なく一定",
+          "電力の2乗に比例する"
+        ],
+        "correctIndex": 0,
+        "explanation": "電力が大きいほど発生する熱量が大きくなるため、水の上昇温度は電力に比例する。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "電気ストーブは、電気エネルギーをおもに何に変えて利用していますか。",
+        "options": [
+          "光",
+          "熱",
+          "音",
+          "運動"
+        ],
+        "correctIndex": 1,
+        "explanation": "電気ストーブは電気エネルギーを熱に変えて利用する。蛍光灯は光、送風機は運動に変える。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q13",
+        "question": "電源装置に電熱線をつなぐと、4.8Wの電力で0.4Aの電流が流れました。電源装置の電圧は何Vですか。",
+        "options": [
+          "1.92V",
+          "12V",
+          "4.4V",
+          "0.08V"
+        ],
+        "correctIndex": 1,
+        "explanation": "電力＝電圧×電流より、電圧＝電力÷電流＝4.8÷0.4＝12〔V〕。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q14",
+        "question": "テレビ（消費電力120W）を10分間使ったときに消費する電力量は何Jですか。",
+        "options": [
+          "1200J",
+          "2000J",
+          "72000J",
+          "12000J"
+        ],
+        "correctIndex": 2,
+        "explanation": "時間＝10分＝600秒。電力量＝電力×時間＝120×600＝72000〔J〕。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q15",
+        "question": "消費電力1000Wのドライヤーを100Vのコンセントにつないだとき、流れる電流は何Aですか。",
+        "options": [
+          "100A",
+          "10A",
+          "0.1A",
+          "1000A"
+        ],
+        "correctIndex": 1,
+        "explanation": "電流＝電力÷電圧＝1000÷100＝10〔A〕。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q16",
+        "question": "「100V−600W」のこたつ、「100V−800W」の電気ストーブ、「100V−200W」のテレビを100Vのコンセントに同時につなぎました。流れる電流の合計は何Aですか。",
+        "options": [
+          "6A",
+          "8A",
+          "2A",
+          "16A"
+        ],
+        "correctIndex": 3,
+        "explanation": "合計電力＝600＋800＋200＝1600W。家庭の製品は並列なので電圧は100V。電流＝1600÷100＝16〔A〕。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

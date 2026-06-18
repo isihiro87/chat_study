@@ -29,7 +29,7 @@ const SUBJECT_AVAILABILITY: Array<{
   { key: "history", label: "歴史", status: "live" },
   { key: "english", label: "英語", status: "coming" },
   { key: "math", label: "数学", status: "coming" },
-  { key: "science", label: "理科", status: "coming" },
+  { key: "science", label: "理科", status: "live" },
   { key: "geography", label: "地理", status: "coming" },
   // 公開したら status を "coming" → "live" に変えるだけ。新教科はこの配列に1行足す。
 ];

@@ -40,7 +40,23 @@ import type {
 
 type GradeNum = 1 | 2 | 3;
 
-async function loadHistoryEras(grade: GradeNum): Promise<StudyEra[] | null> {
+async function loadStudyEras(
+  subject: string,
+  grade: GradeNum,
+): Promise<StudyEra[] | null> {
+  if (subject === 'science') {
+    // 理科は現状 grade1 / grade2 を配信
+    if (grade === 1) {
+      const m = await import('../data/generated/line-study-science-g1.generated');
+      return m.lineStudyScienceEras;
+    }
+    if (grade === 2) {
+      const m = await import('../data/generated/line-study-science-g2.generated');
+      return m.lineStudyScienceEras;
+    }
+    return null;
+  }
+  // history（既定）
   switch (grade) {
     case 1: {
       const m = await import('../data/generated/line-study-history-g1.generated');
@@ -73,13 +89,14 @@ async function loadHistoryEras(grade: GradeNum): Promise<StudyEra[] | null> {
 async function resolveDeepLinkTopic(
   topicName: string,
   preferredGrade: GradeNum | null,
+  subject: string,
 ): Promise<{ topic: StudyTopic; grade: GradeNum } | null> {
   const grades: GradeNum[] = preferredGrade
     ? ([preferredGrade, ...([1, 2, 3] as GradeNum[]).filter((g) => g !== preferredGrade)])
     : ([1, 2, 3] as GradeNum[]);
 
   for (const g of grades) {
-    const eras = await loadHistoryEras(g);
+    const eras = await loadStudyEras(subject, g);
     if (!eras) continue;
     const exact = eras
       .flatMap((e) => e.topics)
@@ -161,8 +178,6 @@ function savePersistedSetupPrefs(prefs: PersistedSetupPrefs) {
   }
 }
 
-// LIFF 現状スコープは歴史のみ。将来教科切替する場合はここに subject を渡す。
-const CURRENT_SUBJECT_ID = 'history';
 
 interface PerTopicStat {
   fcClearCount: number;
@@ -266,6 +281,9 @@ export function LiffUnitsPage() {
   );
   // ユーザーの登録学年（初期値の決定に使う）。
   const userGrade: GradeNum | null = userDoc?.grade ?? null;
+  // 登録教科（study データの動的 import・進捗キーに使う）。現状 history / science。
+  const currentSubjectId: 'history' | 'science' =
+    userDoc?.subject === 'science' ? 'science' : 'history';
   // 表示中の学年（ユーザー操作で切り替え可能）。初期 = 登録学年。
   const [selectedGrade, setSelectedGrade] = useState<GradeNum | null>(null);
   const [historyEras, setHistoryEras] = useState<StudyEra[] | null>(null);
@@ -308,7 +326,7 @@ export function LiffUnitsPage() {
     if (!userDoc) return;
     setStudyStats(userDoc.studyStats);
     setSelectedGrade((prev) => prev ?? userDoc.grade ?? null);
-    const subjectPref = userDoc.studyPrefs[CURRENT_SUBJECT_ID];
+    const subjectPref = userDoc.studyPrefs[currentSubjectId];
     if (subjectPref?.difficulties && subjectPref.difficulties.length > 0) {
       const saved = subjectPref.difficulties.filter((d): d is Difficulty =>
         (ALL_DIFFICULTIES as string[]).includes(d),
@@ -353,7 +371,7 @@ export function LiffUnitsPage() {
     setErasLoading(true);
     setHistoryEras(null);
     (async () => {
-      const eras = await loadHistoryEras(selectedGrade);
+      const eras = await loadStudyEras(currentSubjectId, selectedGrade);
       if (cancelled) return;
       setHistoryEras(eras ?? []);
       setErasLoading(false);
@@ -361,7 +379,7 @@ export function LiffUnitsPage() {
     return () => {
       cancelled = true;
     };
-  }, [selectedGrade]);
+  }, [selectedGrade, currentSubjectId]);
 
   const allEras: StudyEra[] = useMemo(() => historyEras ?? [], [historyEras]);
 
@@ -382,6 +400,7 @@ export function LiffUnitsPage() {
       const resolved = await resolveDeepLinkTopic(
         deepLinkTopicName,
         selectedGrade,
+        currentSubjectId,
       );
       if (!resolved) {
         setDeepLinkUnresolved(true);
@@ -411,6 +430,7 @@ export function LiffUnitsPage() {
     deepLinkKind,
     allItemStats,
     selectedGrade,
+    currentSubjectId,
   ]);
 
   const filteredEras: StudyEra[] = useMemo(() => {
@@ -630,7 +650,7 @@ export function LiffUnitsPage() {
         doc(db, 'users', user.uid),
         {
           studyPrefs: {
-            [CURRENT_SUBJECT_ID]: {
+            [currentSubjectId]: {
               difficulties: sortedDiffs,
               updatedAt: serverTimestamp(),
             },
