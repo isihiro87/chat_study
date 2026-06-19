@@ -296,116 +296,188 @@ export const lineScopeEras: Record<ScopeSubjectId, Record<ScopeGrade, EraMeta[]>
   "science": {
     "1": [
       {
-        "eraId": "sci1-biology",
-        "eraName": "生物の観察と分類",
-        "shortName": "生物の観察と分類",
-        "whenLabel": "中1 4〜7月ごろ",
-        "keyTerms": "観察・植物の分類・動物の分類",
+        "eraId": "sci1-plant",
+        "eraName": "植物の観察と分類",
+        "shortName": "植物の観察と分類",
+        "whenLabel": "中1 4〜6月ごろ",
+        "keyTerms": "観察・顕微鏡・花のつくり・植物の分類",
         "topics": [
           "観察のしかた",
           "顕微鏡の詳細",
           "花と種子のしくみ",
-          "植物の分類",
+          "植物の分類"
+        ]
+      },
+      {
+        "eraId": "sci1-animal",
+        "eraName": "動物の分類",
+        "shortName": "動物の分類",
+        "whenLabel": "中1 6〜7月ごろ",
+        "keyTerms": "脊椎動物・無脊椎動物",
+        "topics": [
           "脊椎動物",
           "無脊椎動物と分類"
         ]
       },
       {
-        "eraId": "sci1-chemistry",
+        "eraId": "sci1-substance",
         "eraName": "身のまわりの物質",
         "shortName": "身のまわりの物質",
-        "whenLabel": "中1 9〜12月ごろ",
-        "keyTerms": "気体・水溶液・状態変化",
+        "whenLabel": "中1 9〜10月ごろ",
+        "keyTerms": "物質の性質・密度・気体",
         "topics": [
           "身のまわりの物質とその性質",
-          "気体の性質",
+          "気体の性質"
+        ]
+      },
+      {
+        "eraId": "sci1-solution",
+        "eraName": "水溶液と状態変化",
+        "shortName": "水溶液と状態変化",
+        "whenLabel": "中1 10〜12月ごろ",
+        "keyTerms": "溶解度・質量パーセント濃度・状態変化",
+        "topics": [
           "水溶液の性質",
           "物質の姿と状態変化"
         ]
       },
       {
-        "eraId": "sci1-physics",
-        "eraName": "光・音・力",
-        "shortName": "光・音・力",
-        "whenLabel": "中1 1〜2月ごろ",
-        "keyTerms": "光・音・力とばね",
+        "eraId": "sci1-light-sound",
+        "eraName": "光と音",
+        "shortName": "光と音",
+        "whenLabel": "中1 12〜1月ごろ",
+        "keyTerms": "光の反射・屈折・凸レンズ・音",
         "topics": [
           "光の世界",
-          "音の世界",
+          "音の世界"
+        ]
+      },
+      {
+        "eraId": "sci1-force",
+        "eraName": "力",
+        "shortName": "力",
+        "whenLabel": "中1 1〜2月ごろ",
+        "keyTerms": "力のはたらき・フックの法則・つり合い",
+        "topics": [
           "力の世界"
         ]
       },
       {
-        "eraId": "sci1-earth",
-        "eraName": "大地の変化",
-        "shortName": "大地の変化",
+        "eraId": "sci1-volcano-quake",
+        "eraName": "火山と地震",
+        "shortName": "火山と地震",
         "whenLabel": "中1 2〜3月ごろ",
-        "keyTerms": "火山・地震・地層",
+        "keyTerms": "マグマ・火成岩・P波S波・震度",
         "topics": [
           "火をふく大地",
-          "動き続ける大地",
+          "動き続ける大地"
+        ]
+      },
+      {
+        "eraId": "sci1-strata",
+        "eraName": "地層",
+        "shortName": "地層",
+        "whenLabel": "中1 3月ごろ",
+        "keyTerms": "地層・堆積岩・化石",
+        "topics": [
           "地層から読みとる大地の変化"
         ]
       }
     ],
     "2": [
       {
-        "eraId": "sci2-chemical-change",
-        "eraName": "化学変化と原子・分子",
-        "shortName": "化学変化と原子分子",
-        "whenLabel": "中2 4〜7月ごろ",
-        "keyTerms": "化合・分解・化学反応式・質量保存",
+        "eraId": "sci2-chem-basic",
+        "eraName": "物質の成り立ちと化学変化",
+        "shortName": "物質の成り立ち・化学変化",
+        "whenLabel": "中2 4〜6月ごろ",
+        "keyTerms": "分解・原子分子・化学反応式・酸化還元",
         "topics": [
           "物質のなり立ち",
           "物質どうしの化学変化",
-          "酸素がかかわる化学変化",
+          "酸素がかかわる化学変化"
+        ]
+      },
+      {
+        "eraId": "sci2-chem-mass",
+        "eraName": "化学変化と質量・熱",
+        "shortName": "化学変化と質量・熱",
+        "whenLabel": "中2 6〜7月ごろ",
+        "keyTerms": "質量保存・質量比・発熱吸熱",
+        "topics": [
           "化学変化と物質の質量",
           "化学変化とその利用"
         ]
       },
       {
-        "eraId": "sci2-biology",
-        "eraName": "生物のからだのつくり",
-        "shortName": "生物のからだ",
+        "eraId": "sci2-bio-plant",
+        "eraName": "植物のからだとはたらき",
+        "shortName": "植物のからだ",
         "whenLabel": "中2 7〜9月ごろ",
-        "keyTerms": "細胞・光合成・消化・血液・神経",
+        "keyTerms": "細胞・光合成・呼吸・蒸散",
         "topics": [
           "生物と細胞",
           "光合成と呼吸",
-          "水と養分の通り道",
+          "水と養分の通り道"
+        ]
+      },
+      {
+        "eraId": "sci2-bio-animal",
+        "eraName": "動物のからだとはたらき",
+        "shortName": "動物のからだ",
+        "whenLabel": "中2 9〜10月ごろ",
+        "keyTerms": "消化・血液循環・感覚器官・神経",
+        "topics": [
           "動物のからだのつくりとはたらき",
           "感覚器官",
           "神経と運動"
         ]
       },
       {
-        "eraId": "sci2-weather",
-        "eraName": "天気とその変化",
-        "shortName": "天気とその変化",
+        "eraId": "sci2-weather-water",
+        "eraName": "気象観測と大気中の水",
+        "shortName": "気象観測と大気中の水",
         "whenLabel": "中2 10〜12月ごろ",
-        "keyTerms": "湿度・雲・前線・日本の天気",
+        "keyTerms": "圧力・気圧・湿度・雲のでき方",
         "topics": [
           "気象の観測と圧力",
           "大気圧と天気図",
           "等圧線と風",
           "水蒸気と湿度",
-          "雲のでき方",
+          "雲のでき方"
+        ]
+      },
+      {
+        "eraId": "sci2-weather-front",
+        "eraName": "前線と日本の天気",
+        "shortName": "前線と日本の天気",
+        "whenLabel": "中2 12〜1月ごろ",
+        "keyTerms": "気団・前線・日本の四季",
+        "topics": [
           "気団と前線",
           "大気の動き",
           "日本の四季の天気"
         ]
       },
       {
-        "eraId": "sci2-electricity",
-        "eraName": "電流とその利用",
-        "shortName": "電流とその利用",
-        "whenLabel": "中2 1〜3月ごろ",
-        "keyTerms": "静電気・オームの法則・電流と磁界",
+        "eraId": "sci2-elec-circuit",
+        "eraName": "静電気と電流回路",
+        "shortName": "静電気と電流回路",
+        "whenLabel": "中2 1〜2月ごろ",
+        "keyTerms": "静電気・回路・オームの法則・抵抗",
         "topics": [
           "静電気と放電",
           "陰極線と電子・放射線",
           "回路と電流・電圧",
-          "オームの法則と抵抗",
+          "オームの法則と抵抗"
+        ]
+      },
+      {
+        "eraId": "sci2-elec-power",
+        "eraName": "電力と電流の利用",
+        "shortName": "電力と電流の利用",
+        "whenLabel": "中2 2〜3月ごろ",
+        "keyTerms": "電力・電力量・電流と磁界・電磁誘導",
+        "topics": [
           "電気エネルギー",
           "電流と磁界（1）",
           "電流と磁界（2）"

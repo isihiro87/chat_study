@@ -111,16 +111,24 @@ const ERA_DISPLAY_NAMES: Record<
   'modern-world': { name: '現代の世界と日本', icon: '🌏', period: '1989年〜現在' },
   // english grade 1
   'english-grade1': { name: '中1 英語の単語', icon: '📘', period: '教科書レッスンの単語' },
-  // science grade 1
-  'sci1-biology': { name: '生物の観察と分類', icon: '🔬', period: '生物分野' },
-  'sci1-chemistry': { name: '身のまわりの物質', icon: '⚗️', period: '化学分野' },
-  'sci1-physics': { name: '光・音・力', icon: '💡', period: '物理分野' },
-  'sci1-earth': { name: '大地の変化', icon: '🌋', period: '地学分野' },
-  // science grade 2
-  'sci2-chemical-change': { name: '化学変化と原子・分子', icon: '⚗️', period: '化学分野' },
-  'sci2-biology': { name: '生物のからだのつくり', icon: '🔬', period: '生物分野' },
-  'sci2-weather': { name: '天気とその変化', icon: '🌦️', period: '地学分野' },
-  'sci2-electricity': { name: '電流とその利用', icon: '⚡', period: '物理分野' },
+  // science grade 1（ワークの章・節順に細分化）
+  'sci1-plant': { name: '植物の観察と分類', icon: '🌱', period: '生物分野' },
+  'sci1-animal': { name: '動物の分類', icon: '🐟', period: '生物分野' },
+  'sci1-substance': { name: '身のまわりの物質', icon: '⚗️', period: '化学分野' },
+  'sci1-solution': { name: '水溶液と状態変化', icon: '💧', period: '化学分野' },
+  'sci1-light-sound': { name: '光と音', icon: '💡', period: '物理分野' },
+  'sci1-force': { name: '力', icon: '⚖️', period: '物理分野' },
+  'sci1-volcano-quake': { name: '火山と地震', icon: '🌋', period: '地学分野' },
+  'sci1-strata': { name: '地層', icon: '🪨', period: '地学分野' },
+  // science grade 2（ワークの章・節順に細分化）
+  'sci2-chem-basic': { name: '物質の成り立ちと化学変化', icon: '⚛️', period: '化学分野' },
+  'sci2-chem-mass': { name: '化学変化と質量・熱', icon: '⚖️', period: '化学分野' },
+  'sci2-bio-plant': { name: '植物のからだとはたらき', icon: '🔬', period: '生物分野' },
+  'sci2-bio-animal': { name: '動物のからだとはたらき', icon: '🧠', period: '生物分野' },
+  'sci2-weather-water': { name: '気象観測と大気中の水', icon: '☁️', period: '地学分野' },
+  'sci2-weather-front': { name: '前線と日本の天気', icon: '🌀', period: '地学分野' },
+  'sci2-elec-circuit': { name: '静電気と電流回路', icon: '⚡', period: '物理分野' },
+  'sci2-elec-power': { name: '電力と電流の利用', icon: '🔌', period: '物理分野' },
 };
 
 // grade×eraId -> 公式LINE トーク内 範囲設定フロー用の補助メタ。
@@ -156,16 +164,24 @@ const ERA_HINTS: Record<
   'modern-world': { shortName: '現代の世界', whenLabel: '中3 11〜12月ごろ', keyTerms: '冷戦終結・平成・現代の課題' },
   // english grade 1
   'english-grade1': { shortName: '中1英単語', whenLabel: '中1 通年', keyTerms: '教科書レッスンの単語' },
-  // science grade 1
-  'sci1-biology': { shortName: '生物の観察と分類', whenLabel: '中1 4〜7月ごろ', keyTerms: '観察・植物の分類・動物の分類' },
-  'sci1-chemistry': { shortName: '身のまわりの物質', whenLabel: '中1 9〜12月ごろ', keyTerms: '気体・水溶液・状態変化' },
-  'sci1-physics': { shortName: '光・音・力', whenLabel: '中1 1〜2月ごろ', keyTerms: '光・音・力とばね' },
-  'sci1-earth': { shortName: '大地の変化', whenLabel: '中1 2〜3月ごろ', keyTerms: '火山・地震・地層' },
-  // science grade 2
-  'sci2-chemical-change': { shortName: '化学変化と原子分子', whenLabel: '中2 4〜7月ごろ', keyTerms: '化合・分解・化学反応式・質量保存' },
-  'sci2-biology': { shortName: '生物のからだ', whenLabel: '中2 7〜9月ごろ', keyTerms: '細胞・光合成・消化・血液・神経' },
-  'sci2-weather': { shortName: '天気とその変化', whenLabel: '中2 10〜12月ごろ', keyTerms: '湿度・雲・前線・日本の天気' },
-  'sci2-electricity': { shortName: '電流とその利用', whenLabel: '中2 1〜3月ごろ', keyTerms: '静電気・オームの法則・電流と磁界' },
+  // science grade 1（ワークの章・節順に細分化）
+  'sci1-plant': { shortName: '植物の観察と分類', whenLabel: '中1 4〜6月ごろ', keyTerms: '観察・顕微鏡・花のつくり・植物の分類' },
+  'sci1-animal': { shortName: '動物の分類', whenLabel: '中1 6〜7月ごろ', keyTerms: '脊椎動物・無脊椎動物' },
+  'sci1-substance': { shortName: '身のまわりの物質', whenLabel: '中1 9〜10月ごろ', keyTerms: '物質の性質・密度・気体' },
+  'sci1-solution': { shortName: '水溶液と状態変化', whenLabel: '中1 10〜12月ごろ', keyTerms: '溶解度・質量パーセント濃度・状態変化' },
+  'sci1-light-sound': { shortName: '光と音', whenLabel: '中1 12〜1月ごろ', keyTerms: '光の反射・屈折・凸レンズ・音' },
+  'sci1-force': { shortName: '力', whenLabel: '中1 1〜2月ごろ', keyTerms: '力のはたらき・フックの法則・つり合い' },
+  'sci1-volcano-quake': { shortName: '火山と地震', whenLabel: '中1 2〜3月ごろ', keyTerms: 'マグマ・火成岩・P波S波・震度' },
+  'sci1-strata': { shortName: '地層', whenLabel: '中1 3月ごろ', keyTerms: '地層・堆積岩・化石' },
+  // science grade 2（ワークの章・節順に細分化）
+  'sci2-chem-basic': { shortName: '物質の成り立ち・化学変化', whenLabel: '中2 4〜6月ごろ', keyTerms: '分解・原子分子・化学反応式・酸化還元' },
+  'sci2-chem-mass': { shortName: '化学変化と質量・熱', whenLabel: '中2 6〜7月ごろ', keyTerms: '質量保存・質量比・発熱吸熱' },
+  'sci2-bio-plant': { shortName: '植物のからだ', whenLabel: '中2 7〜9月ごろ', keyTerms: '細胞・光合成・呼吸・蒸散' },
+  'sci2-bio-animal': { shortName: '動物のからだ', whenLabel: '中2 9〜10月ごろ', keyTerms: '消化・血液循環・感覚器官・神経' },
+  'sci2-weather-water': { shortName: '気象観測と大気中の水', whenLabel: '中2 10〜12月ごろ', keyTerms: '圧力・気圧・湿度・雲のでき方' },
+  'sci2-weather-front': { shortName: '前線と日本の天気', whenLabel: '中2 12〜1月ごろ', keyTerms: '気団・前線・日本の四季' },
+  'sci2-elec-circuit': { shortName: '静電気と電流回路', whenLabel: '中2 1〜2月ごろ', keyTerms: '静電気・回路・オームの法則・抵抗' },
+  'sci2-elec-power': { shortName: '電力と電流の利用', whenLabel: '中2 2〜3月ごろ', keyTerms: '電力・電力量・電流と磁界・電磁誘導' },
 };
 
 interface RawTopic {
@@ -192,23 +208,24 @@ interface ScopeEra {
   topics: ScopeTopic[];
 }
 
-function loadFolder(
+// フォルダ内の topic を order 順に読む。各 topic は自分の eraId を持つ
+// （1 フォルダに複数 era が混在しうる＝理科の細分化に対応）。
+function loadFolderTopics(
   subject: SubjectId,
   folder: string
-): { eraId: string; topics: (ScopeTopic & { order: number })[] } {
+): (ScopeTopic & { eraId: string; order: number })[] {
   const dir = join(CONTENT_DIR, subject, folder);
   let files: string[] = [];
   try {
     files = readdirSync(dir).filter((f) => f.endsWith('.json'));
   } catch {
-    return { eraId: folder, topics: [] };
+    return [];
   }
-  const topics: (ScopeTopic & { order: number })[] = [];
-  let eraId = folder;
+  const topics: (ScopeTopic & { eraId: string; order: number })[] = [];
   for (const file of files) {
     const data = JSON.parse(readFileSync(join(dir, file), 'utf-8')) as RawTopic;
-    eraId = data.eraId;
     topics.push({
+      eraId: data.eraId,
       name: data.name,
       subtitle: data.subtitle ?? '',
       icon: data.icon ?? '',
@@ -216,22 +233,34 @@ function loadFolder(
     });
   }
   topics.sort((a, b) => a.order - b.order);
-  return { eraId, topics };
+  return topics;
 }
 
+// 単元（era）の並びは「フォルダ順 × フォルダ内 order 順」での eraId 初出順。
+// data/content のフォルダ番号＝ワークの章順、topic.order＝章内の節順なので、
+// これがそのままワーク（PDF）の単元順になる。
 function buildSubject(subject: SubjectId): Record<Grade, ScopeEra[]> {
   const out = { 1: [] as ScopeEra[], 2: [] as ScopeEra[], 3: [] as ScopeEra[] };
   for (const gradeKey of [1, 2, 3] as Grade[]) {
-    const eras: ScopeEra[] = [];
+    const byEra = new Map<string, (ScopeTopic & { order: number })[]>();
+    const eraOrder: string[] = [];
     for (const folder of GRADE_FOLDERS[subject][gradeKey]) {
-      const { eraId, topics } = loadFolder(subject, folder);
-      if (topics.length === 0) continue;
+      for (const t of loadFolderTopics(subject, folder)) {
+        if (!byEra.has(t.eraId)) {
+          byEra.set(t.eraId, []);
+          eraOrder.push(t.eraId);
+        }
+        byEra.get(t.eraId)!.push(t);
+      }
+    }
+    out[gradeKey] = eraOrder.map((eraId) => {
+      const topics = byEra.get(eraId)!;
       const meta = ERA_DISPLAY_NAMES[eraId] ?? {
         name: eraId,
         icon: '📚',
         period: '',
       };
-      eras.push({
+      return {
         eraId,
         eraName: meta.name,
         eraIcon: meta.icon,
@@ -241,9 +270,8 @@ function buildSubject(subject: SubjectId): Record<Grade, ScopeEra[]> {
           subtitle,
           icon,
         })),
-      });
-    }
-    out[gradeKey] = eras;
+      };
+    });
   }
   return out;
 }

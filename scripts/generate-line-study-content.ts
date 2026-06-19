@@ -115,16 +115,24 @@ const ERA_DISPLAY_NAMES: Record<string, { name: string; icon: string; period: st
   'postwar-japan': { name: '戦後の日本', icon: '🕊️', period: '1945年〜1952年' },
   'cold-war-era': { name: '冷戦と日本の成長', icon: '🌐', period: '1950年代〜1970年代' },
   'modern-world': { name: '現代の世界と日本', icon: '🌏', period: '1989年〜現在' },
-  // science grade 1
-  'sci1-biology': { name: '生物の観察と分類', icon: '🔬', period: '生物分野' },
-  'sci1-chemistry': { name: '身のまわりの物質', icon: '⚗️', period: '化学分野' },
-  'sci1-physics': { name: '光・音・力', icon: '💡', period: '物理分野' },
-  'sci1-earth': { name: '大地の変化', icon: '🌋', period: '地学分野' },
-  // science grade 2
-  'sci2-chemical-change': { name: '化学変化と原子・分子', icon: '⚗️', period: '化学分野' },
-  'sci2-biology': { name: '生物のからだのつくり', icon: '🔬', period: '生物分野' },
-  'sci2-weather': { name: '天気とその変化', icon: '🌦️', period: '地学分野' },
-  'sci2-electricity': { name: '電流とその利用', icon: '⚡', period: '物理分野' },
+  // science grade 1（ワークの章・節順に細分化）
+  'sci1-plant': { name: '植物の観察と分類', icon: '🌱', period: '生物分野' },
+  'sci1-animal': { name: '動物の分類', icon: '🐟', period: '生物分野' },
+  'sci1-substance': { name: '身のまわりの物質', icon: '⚗️', period: '化学分野' },
+  'sci1-solution': { name: '水溶液と状態変化', icon: '💧', period: '化学分野' },
+  'sci1-light-sound': { name: '光と音', icon: '💡', period: '物理分野' },
+  'sci1-force': { name: '力', icon: '⚖️', period: '物理分野' },
+  'sci1-volcano-quake': { name: '火山と地震', icon: '🌋', period: '地学分野' },
+  'sci1-strata': { name: '地層', icon: '🪨', period: '地学分野' },
+  // science grade 2（ワークの章・節順に細分化）
+  'sci2-chem-basic': { name: '物質の成り立ちと化学変化', icon: '⚛️', period: '化学分野' },
+  'sci2-chem-mass': { name: '化学変化と質量・熱', icon: '⚖️', period: '化学分野' },
+  'sci2-bio-plant': { name: '植物のからだとはたらき', icon: '🔬', period: '生物分野' },
+  'sci2-bio-animal': { name: '動物のからだとはたらき', icon: '🧠', period: '生物分野' },
+  'sci2-weather-water': { name: '気象観測と大気中の水', icon: '☁️', period: '地学分野' },
+  'sci2-weather-front': { name: '前線と日本の天気', icon: '🌀', period: '地学分野' },
+  'sci2-elec-circuit': { name: '静電気と電流回路', icon: '⚡', period: '物理分野' },
+  'sci2-elec-power': { name: '電力と電流の利用', icon: '🔌', period: '物理分野' },
 };
 
 interface RawFlashcard {
@@ -174,25 +182,25 @@ interface OutEra {
   topics: OutTopic[];
 }
 
-function loadTopicsFromFolder(
+// フォルダ内の topic を order 順に読む。各 topic は自分の eraId を持つ
+// （1 フォルダに複数 era が混在しうる＝理科の細分化に対応）。
+function loadFolderTopics(
   srcDir: string,
   folder: string
-): { eraId: string; topics: OutTopic[] } {
+): (OutTopic & { eraId: string })[] {
   const dir = join(srcDir, folder);
   let files: string[] = [];
   try {
     files = readdirSync(dir).filter((f) => f.endsWith('.json'));
   } catch {
-    return { eraId: folder, topics: [] };
+    return [];
   }
-  if (files.length === 0) return { eraId: folder, topics: [] };
-  const topics: OutTopic[] = [];
-  let eraId = folder;
+  const topics: (OutTopic & { eraId: string })[] = [];
   for (const file of files) {
     const raw = readFileSync(join(dir, file), 'utf-8');
     const data = JSON.parse(raw) as RawTopic;
-    eraId = data.eraId;
     topics.push({
+      eraId: data.eraId,
       topicId: data.topicId,
       name: data.name,
       subtitle: data.subtitle ?? '',
@@ -203,7 +211,7 @@ function loadTopicsFromFolder(
     });
   }
   topics.sort((a, b) => a.order - b.order);
-  return { eraId, topics };
+  return topics;
 }
 
 const TYPES = `export interface StudyFlashcard {
@@ -245,19 +253,30 @@ export interface StudyEra {
 
 function emitGrade(cfg: SubjectConfig, grade: number, folders: string[]) {
   const srcDir = join(CONTENT_DIR, cfg.subjectId);
-  const eras: OutEra[] = [];
+  // 単元（era）の並びは「フォルダ順 × フォルダ内 order 順」での eraId 初出順。
+  // フォルダ番号＝ワークの章順、topic.order＝章内の節順なので、ワーク（PDF）順になる。
+  const byEra = new Map<string, OutTopic[]>();
+  const eraOrder: string[] = [];
   for (const folder of folders) {
-    const { eraId, topics } = loadTopicsFromFolder(srcDir, folder);
-    if (topics.length === 0) continue;
+    for (const t of loadFolderTopics(srcDir, folder)) {
+      const { eraId, ...topic } = t;
+      if (!byEra.has(eraId)) {
+        byEra.set(eraId, []);
+        eraOrder.push(eraId);
+      }
+      byEra.get(eraId)!.push(topic);
+    }
+  }
+  const eras: OutEra[] = eraOrder.map((eraId) => {
     const meta = ERA_DISPLAY_NAMES[eraId] ?? { name: eraId, icon: '📚', period: '' };
-    eras.push({
+    return {
       eraId,
       eraName: meta.name,
       eraIcon: meta.icon,
       eraPeriod: meta.period,
-      topics,
-    });
-  }
+      topics: byEra.get(eraId)!,
+    };
+  });
   if (eras.length === 0) return; // 中身が無い学年はファイルを作らない
 
   const banner =

@@ -1,6 +1,6 @@
 {
   "subjectId": "science",
-  "eraId": "sci2-electricity",
+  "eraId": "sci2-elec-circuit",
   "topicId": "sci2-circuit-ohm",
   "name": "回路と電流・電圧",
   "subtitle": "直列・並列回路の電流と電圧",

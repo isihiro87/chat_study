@@ -1,6 +1,6 @@
 {
   "subjectId": "science",
-  "eraId": "sci2-weather",
+  "eraId": "sci2-weather-water",
   "topicId": "sci2-weather-observation",
   "name": "気象の観測と圧力",
   "subtitle": "天気の記号・乾湿計・圧力の計算",

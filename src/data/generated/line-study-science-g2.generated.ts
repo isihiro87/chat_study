@@ -40,9 +40,9 @@ export interface StudyEra {
 
 export const lineStudyScienceEras: StudyEra[] = [
   {
-    "eraId": "sci2-chemical-change",
-    "eraName": "化学変化と原子・分子",
-    "eraIcon": "⚗️",
+    "eraId": "sci2-chem-basic",
+    "eraName": "物質の成り立ちと化学変化",
+    "eraIcon": "⚛️",
     "eraPeriod": "化学分野",
     "topics": [
       {
@@ -1325,7 +1325,15 @@ export const lineStudyScienceEras: StudyEra[] = [
             "difficulty": "standard"
           }
         ]
-      },
+      }
+    ]
+  },
+  {
+    "eraId": "sci2-chem-mass",
+    "eraName": "化学変化と質量・熱",
+    "eraIcon": "⚖️",
+    "eraPeriod": "化学分野",
+    "topics": [
       {
         "topicId": "sci2-mass-conservation",
         "name": "化学変化と物質の質量",
@@ -1996,8 +2004,8 @@ export const lineStudyScienceEras: StudyEra[] = [
     ]
   },
   {
-    "eraId": "sci2-biology",
-    "eraName": "生物のからだのつくり",
+    "eraId": "sci2-bio-plant",
+    "eraName": "植物のからだとはたらき",
     "eraIcon": "🔬",
     "eraPeriod": "生物分野",
     "topics": [
@@ -3199,7 +3207,15 @@ export const lineStudyScienceEras: StudyEra[] = [
             "difficulty": "advanced"
           }
         ]
-      },
+      }
+    ]
+  },
+  {
+    "eraId": "sci2-bio-animal",
+    "eraName": "動物のからだとはたらき",
+    "eraIcon": "🧠",
+    "eraPeriod": "生物分野",
+    "topics": [
       {
         "topicId": "sci2-animal-body",
         "name": "動物のからだのつくりとはたらき",
@@ -4591,9 +4607,9 @@ export const lineStudyScienceEras: StudyEra[] = [
     ]
   },
   {
-    "eraId": "sci2-weather",
-    "eraName": "天気とその変化",
-    "eraIcon": "🌦️",
+    "eraId": "sci2-weather-water",
+    "eraName": "気象観測と大気中の水",
+    "eraIcon": "☁️",
     "eraPeriod": "地学分野",
     "topics": [
       {
@@ -6177,7 +6193,15 @@ export const lineStudyScienceEras: StudyEra[] = [
             "difficulty": "standard"
           }
         ]
-      },
+      }
+    ]
+  },
+  {
+    "eraId": "sci2-weather-front",
+    "eraName": "前線と日本の天気",
+    "eraIcon": "🌀",
+    "eraPeriod": "地学分野",
+    "topics": [
       {
         "topicId": "sci2-fronts",
         "name": "気団と前線",
@@ -7048,8 +7072,8 @@ export const lineStudyScienceEras: StudyEra[] = [
     ]
   },
   {
-    "eraId": "sci2-electricity",
-    "eraName": "電流とその利用",
+    "eraId": "sci2-elec-circuit",
+    "eraName": "静電気と電流回路",
     "eraIcon": "⚡",
     "eraPeriod": "物理分野",
     "topics": [
@@ -8428,7 +8452,15 @@ export const lineStudyScienceEras: StudyEra[] = [
             "difficulty": "advanced"
           }
         ]
-      },
+      }
+    ]
+  },
+  {
+    "eraId": "sci2-elec-power",
+    "eraName": "電力と電流の利用",
+    "eraIcon": "🔌",
+    "eraPeriod": "物理分野",
+    "topics": [
       {
         "topicId": "sci2-electric-energy",
         "name": "電気エネルギー",

@@ -649,9 +649,9 @@ export const lineScopeIndex: Record<ScopeSubjectId, Record<ScopeGrade, ScopeEra[
   "science": {
     "1": [
       {
-        "eraId": "sci1-biology",
-        "eraName": "生物の観察と分類",
-        "eraIcon": "🔬",
+        "eraId": "sci1-plant",
+        "eraName": "植物の観察と分類",
+        "eraIcon": "🌱",
         "eraPeriod": "生物分野",
         "topics": [
           {
@@ -673,7 +673,15 @@ export const lineScopeIndex: Record<ScopeSubjectId, Record<ScopeGrade, ScopeEra[
             "name": "植物の分類",
             "subtitle": "シダ植物・コケ植物・植物全体の分類",
             "icon": "🌿"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "sci1-animal",
+        "eraName": "動物の分類",
+        "eraIcon": "🐟",
+        "eraPeriod": "生物分野",
+        "topics": [
           {
             "name": "脊椎動物",
             "subtitle": "5つのグループ・恒温動物と変温動物・卵生と胎生",
@@ -687,7 +695,7 @@ export const lineScopeIndex: Record<ScopeSubjectId, Record<ScopeGrade, ScopeEra[
         ]
       },
       {
-        "eraId": "sci1-chemistry",
+        "eraId": "sci1-substance",
         "eraName": "身のまわりの物質",
         "eraIcon": "⚗️",
         "eraPeriod": "化学分野",
@@ -701,7 +709,15 @@ export const lineScopeIndex: Record<ScopeSubjectId, Record<ScopeGrade, ScopeEra[
             "name": "気体の性質",
             "subtitle": "気体の発生と性質・集め方",
             "icon": "💨"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "sci1-solution",
+        "eraName": "水溶液と状態変化",
+        "eraIcon": "💧",
+        "eraPeriod": "化学分野",
+        "topics": [
           {
             "name": "水溶液の性質",
             "subtitle": "溶解・質量パーセント濃度・溶解度と再結晶",
@@ -715,8 +731,8 @@ export const lineScopeIndex: Record<ScopeSubjectId, Record<ScopeGrade, ScopeEra[
         ]
       },
       {
-        "eraId": "sci1-physics",
-        "eraName": "光・音・力",
+        "eraId": "sci1-light-sound",
+        "eraName": "光と音",
         "eraIcon": "💡",
         "eraPeriod": "物理分野",
         "topics": [
@@ -729,7 +745,15 @@ export const lineScopeIndex: Record<ScopeSubjectId, Record<ScopeGrade, ScopeEra[
             "name": "音の世界",
             "subtitle": "音の伝わり方・振幅・振動数",
             "icon": "🔊"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "sci1-force",
+        "eraName": "力",
+        "eraIcon": "⚖️",
+        "eraPeriod": "物理分野",
+        "topics": [
           {
             "name": "力の世界",
             "subtitle": "力のはたらき・フックの法則・力のつり合い",
@@ -738,8 +762,8 @@ export const lineScopeIndex: Record<ScopeSubjectId, Record<ScopeGrade, ScopeEra[
         ]
       },
       {
-        "eraId": "sci1-earth",
-        "eraName": "大地の変化",
+        "eraId": "sci1-volcano-quake",
+        "eraName": "火山と地震",
         "eraIcon": "🌋",
         "eraPeriod": "地学分野",
         "topics": [
@@ -752,7 +776,15 @@ export const lineScopeIndex: Record<ScopeSubjectId, Record<ScopeGrade, ScopeEra[
             "name": "動き続ける大地",
             "subtitle": "地震のゆれ・P波とS波・プレート・地震への備え",
             "icon": "🌍"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "sci1-strata",
+        "eraName": "地層",
+        "eraIcon": "🪨",
+        "eraPeriod": "地学分野",
+        "topics": [
           {
             "name": "地層から読みとる大地の変化",
             "subtitle": "地層のなり立ち・堆積岩・化石・大地の変動",
@@ -763,9 +795,9 @@ export const lineScopeIndex: Record<ScopeSubjectId, Record<ScopeGrade, ScopeEra[
     ],
     "2": [
       {
-        "eraId": "sci2-chemical-change",
-        "eraName": "化学変化と原子・分子",
-        "eraIcon": "⚗️",
+        "eraId": "sci2-chem-basic",
+        "eraName": "物質の成り立ちと化学変化",
+        "eraIcon": "⚛️",
         "eraPeriod": "化学分野",
         "topics": [
           {
@@ -782,7 +814,15 @@ export const lineScopeIndex: Record<ScopeSubjectId, Record<ScopeGrade, ScopeEra[
             "name": "酸素がかかわる化学変化",
             "subtitle": "酸化・燃焼・還元",
             "icon": "🔥"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "sci2-chem-mass",
+        "eraName": "化学変化と質量・熱",
+        "eraIcon": "⚖️",
+        "eraPeriod": "化学分野",
+        "topics": [
           {
             "name": "化学変化と物質の質量",
             "subtitle": "質量保存の法則・質量比",
@@ -796,8 +836,8 @@ export const lineScopeIndex: Record<ScopeSubjectId, Record<ScopeGrade, ScopeEra[
         ]
       },
       {
-        "eraId": "sci2-biology",
-        "eraName": "生物のからだのつくり",
+        "eraId": "sci2-bio-plant",
+        "eraName": "植物のからだとはたらき",
         "eraIcon": "🔬",
         "eraPeriod": "生物分野",
         "topics": [
@@ -815,7 +855,15 @@ export const lineScopeIndex: Record<ScopeSubjectId, Record<ScopeGrade, ScopeEra[
             "name": "水と養分の通り道",
             "subtitle": "維管束・道管・師管・蒸散の実験",
             "icon": "💧"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "sci2-bio-animal",
+        "eraName": "動物のからだとはたらき",
+        "eraIcon": "🧠",
+        "eraPeriod": "生物分野",
+        "topics": [
           {
             "name": "動物のからだのつくりとはたらき",
             "subtitle": "消化・吸収・呼吸・血液循環・排出",
@@ -834,9 +882,9 @@ export const lineScopeIndex: Record<ScopeSubjectId, Record<ScopeGrade, ScopeEra[
         ]
       },
       {
-        "eraId": "sci2-weather",
-        "eraName": "天気とその変化",
-        "eraIcon": "🌦️",
+        "eraId": "sci2-weather-water",
+        "eraName": "気象観測と大気中の水",
+        "eraIcon": "☁️",
         "eraPeriod": "地学分野",
         "topics": [
           {
@@ -863,7 +911,15 @@ export const lineScopeIndex: Record<ScopeSubjectId, Record<ScopeGrade, ScopeEra[
             "name": "雲のでき方",
             "subtitle": "雲の発生・水の循環・上昇気流",
             "icon": "☁️"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "sci2-weather-front",
+        "eraName": "前線と日本の天気",
+        "eraIcon": "🌀",
+        "eraPeriod": "地学分野",
+        "topics": [
           {
             "name": "気団と前線",
             "subtitle": "寒冷前線・温暖前線・温帯低気圧",
@@ -882,8 +938,8 @@ export const lineScopeIndex: Record<ScopeSubjectId, Record<ScopeGrade, ScopeEra[
         ]
       },
       {
-        "eraId": "sci2-electricity",
-        "eraName": "電流とその利用",
+        "eraId": "sci2-elec-circuit",
+        "eraName": "静電気と電流回路",
         "eraIcon": "⚡",
         "eraPeriod": "物理分野",
         "topics": [
@@ -906,7 +962,15 @@ export const lineScopeIndex: Record<ScopeSubjectId, Record<ScopeGrade, ScopeEra[
             "name": "オームの法則と抵抗",
             "subtitle": "V=RI・合成抵抗・導体と不導体",
             "icon": "📐"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "sci2-elec-power",
+        "eraName": "電力と電流の利用",
+        "eraIcon": "🔌",
+        "eraPeriod": "物理分野",
+        "topics": [
           {
             "name": "電気エネルギー",
             "subtitle": "電力・熱量・電力量",

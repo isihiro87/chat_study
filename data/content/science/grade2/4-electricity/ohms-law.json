@@ -1,6 +1,6 @@
 {
   "subjectId": "science",
-  "eraId": "sci2-electricity",
+  "eraId": "sci2-elec-circuit",
   "topicId": "sci2-ohms-law",
   "name": "オームの法則と抵抗",
   "subtitle": "V=RI・合成抵抗・導体と不導体",

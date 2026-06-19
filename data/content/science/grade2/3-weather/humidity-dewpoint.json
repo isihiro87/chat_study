@@ -1,6 +1,6 @@
 {
   "subjectId": "science",
-  "eraId": "sci2-weather",
+  "eraId": "sci2-weather-water",
   "topicId": "sci2-humidity-dewpoint",
   "name": "水蒸気と湿度",
   "subtitle": "飽和水蒸気量・露点・湿度の計算",

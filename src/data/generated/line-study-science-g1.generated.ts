@@ -40,9 +40,9 @@ export interface StudyEra {
 
 export const lineStudyScienceEras: StudyEra[] = [
   {
-    "eraId": "sci1-biology",
-    "eraName": "生物の観察と分類",
-    "eraIcon": "🔬",
+    "eraId": "sci1-plant",
+    "eraName": "植物の観察と分類",
+    "eraIcon": "🌱",
     "eraPeriod": "生物分野",
     "topics": [
       {
@@ -1651,7 +1651,15 @@ export const lineStudyScienceEras: StudyEra[] = [
             "id": "q22"
           }
         ]
-      },
+      }
+    ]
+  },
+  {
+    "eraId": "sci1-animal",
+    "eraName": "動物の分類",
+    "eraIcon": "🐟",
+    "eraPeriod": "生物分野",
+    "topics": [
       {
         "topicId": "sci1-vertebrates",
         "name": "脊椎動物",
@@ -2416,7 +2424,7 @@ export const lineStudyScienceEras: StudyEra[] = [
     ]
   },
   {
-    "eraId": "sci1-chemistry",
+    "eraId": "sci1-substance",
     "eraName": "身のまわりの物質",
     "eraIcon": "⚗️",
     "eraPeriod": "化学分野",
@@ -3361,7 +3369,15 @@ export const lineStudyScienceEras: StudyEra[] = [
             "difficulty": "advanced"
           }
         ]
-      },
+      }
+    ]
+  },
+  {
+    "eraId": "sci1-solution",
+    "eraName": "水溶液と状態変化",
+    "eraIcon": "💧",
+    "eraPeriod": "化学分野",
+    "topics": [
       {
         "topicId": "sci1-solution-properties",
         "name": "水溶液の性質",
@@ -4040,8 +4056,8 @@ export const lineStudyScienceEras: StudyEra[] = [
     ]
   },
   {
-    "eraId": "sci1-physics",
-    "eraName": "光・音・力",
+    "eraId": "sci1-light-sound",
+    "eraName": "光と音",
     "eraIcon": "💡",
     "eraPeriod": "物理分野",
     "topics": [
@@ -4867,7 +4883,15 @@ export const lineStudyScienceEras: StudyEra[] = [
             "difficulty": "advanced"
           }
         ]
-      },
+      }
+    ]
+  },
+  {
+    "eraId": "sci1-force",
+    "eraName": "力",
+    "eraIcon": "⚖️",
+    "eraPeriod": "物理分野",
+    "topics": [
       {
         "topicId": "sci1-force",
         "name": "力の世界",
@@ -5288,8 +5312,8 @@ export const lineStudyScienceEras: StudyEra[] = [
     ]
   },
   {
-    "eraId": "sci1-earth",
-    "eraName": "大地の変化",
+    "eraId": "sci1-volcano-quake",
+    "eraName": "火山と地震",
     "eraIcon": "🌋",
     "eraPeriod": "地学分野",
     "topics": [
@@ -6599,7 +6623,15 @@ export const lineStudyScienceEras: StudyEra[] = [
             "difficulty": "advanced"
           }
         ]
-      },
+      }
+    ]
+  },
+  {
+    "eraId": "sci1-strata",
+    "eraName": "地層",
+    "eraIcon": "🪨",
+    "eraPeriod": "地学分野",
+    "topics": [
       {
         "topicId": "sci1-strata",
         "name": "地層から読みとる大地の変化",
