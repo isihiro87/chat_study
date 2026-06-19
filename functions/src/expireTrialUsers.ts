@@ -14,6 +14,13 @@ import { logServerFunnelEvent } from "./funnelEvent";
 import { getJstDateString } from "./streakState";
 import { recordPushDelivery } from "./deliveryStats";
 
+// 2026-06-20 ハードキルスイッチ。トライアル廃止に伴い、トライアル中リマインダー
+// （Day1/3/6/7）と期限切れ push を完全停止する。drip 等と同様、export 撤去だけでは
+// スコープ指定デプロイで孤児化した scheduled function が残存し誤送する実績があるため、
+// 本体側でも必ず即 return する。再開する場合はこのフラグを true に。
+// boolean 型にして「常に return＝本体到達不能」と型解析されないようにしている。
+const TRIAL_EXPIRE_ENABLED: boolean = false;
+
 const REMINDER_COOLDOWN_MS = 24 * 60 * 60 * 1000;
 
 // 申込から最低 12h 経過するまで Day 1 リマインダーを送らないガード（A-11）。
@@ -68,6 +75,10 @@ export const expireTrialUsers = functions
   .pubsub.schedule("0 7,8 * * *")
   .timeZone("Asia/Tokyo")
   .onRun(async () => {
+    if (!TRIAL_EXPIRE_ENABLED) {
+      console.log("[expireTrialUsers] disabled (trial flow retired)");
+      return;
+    }
     // 平日は 07:00、土日は 08:00 の起動だけ実処理する（深夜配信回避）。
     const jstNow = new Date(Date.now() + 9 * 60 * 60 * 1000);
     const jstHour = jstNow.getUTCHours();

@@ -16,6 +16,11 @@ import { logServerFunnelEvent } from './funnelEvent';
 import { recordPushDelivery } from './deliveryStats';
 import { computeTrialEndJst } from './trialDuration';
 
+// 2026-06-20 トライアル廃止。申込時の自動トライアル付与（plan=premium / planSource=trial）
+// と「トライアル開始」flex push を停止する。再開する場合は true に。
+// boolean 型にして「常に skip＝付与到達不能」と型解析されないようにしている。
+const TRIAL_GRANT_ENABLED: boolean = false;
+
 /**
  * `premiumApplications/{id}` ドキュメント作成時のフォローアップ Function。
  *
@@ -74,11 +79,17 @@ export const onPremiumApplicationCreated = functions
       | 'already_paid'
       | 'failed'
       | 'skipped_no_uid'
+      | 'skipped_disabled'
       | 'skipped_grade_not_eligible' = 'skipped_no_uid';
     let trialOutcomeDetail = '';
     let trialEndIso = '';
 
-    if (!uid) {
+    if (!TRIAL_GRANT_ENABLED) {
+      trialOutcome = 'skipped_disabled';
+      console.log(
+        `[onPremiumApplicationCreated] trial 自動付与は停止中 (TRIAL_GRANT_ENABLED=false) uid=${uid || '(no uid)'} applicationId=${applicationId}`
+      );
+    } else if (!uid) {
       console.warn(
         `[onPremiumApplicationCreated] lineUserId 不在のため trial 自動開放をスキップ (applicationId=${applicationId})`
       );
