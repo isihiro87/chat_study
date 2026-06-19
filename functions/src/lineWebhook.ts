@@ -1977,15 +1977,106 @@ async function handleChangeLearningSubject(
     );
     const subjectLabel = SUBJECT_LABELS[subject as ValidSubject];
     const remaining = Math.max(0, LEARNING_CHANGE_DAILY_LIMIT - newCount);
-    await replyText(
-      replyToken,
-      `✅ 学年「${grade}」・教科「${subjectLabel}」に変更したよ！\n` +
-        `これからこの設定で毎日の1問が届くよ。\n（今日はあと${remaining}回変更できるよ）`,
-      '(change_learning done)'
-    );
+    // 確認メッセージに続けて、新しい学年・教科でのテスト範囲設定を促す flex
+    // （ボタンはトーク内 scope フローを起動）を同じ reply で送る。
+    try {
+      const client = await getLineClient();
+      await client.replyMessage({
+        replyToken,
+        messages: [
+          {
+            type: 'text' as const,
+            text:
+              `✅ 学年「${grade}」・教科「${subjectLabel}」に変更したよ！\n` +
+              `これからこの設定で毎日の1問が届くよ。\n（今日はあと${remaining}回変更できるよ）`,
+          },
+          buildScopeAfterChangeFlexMessage(),
+        ],
+      });
+    } catch (sendError) {
+      console.error(
+        '[lineWebhook] handleChangeLearningSubject reply failed:',
+        sendError
+      );
+    }
   } catch (error) {
     console.error('[lineWebhook] handleChangeLearningSubject failed:', error);
   }
+}
+
+/**
+ * 学年・教科を変更した直後に、新しい範囲でテスト対策を促す flex。
+ * ボタンはトーク内 scope フロー（type=scope_start）を起動する。
+ * buildScopeSetupNudgeFlexMessage と違い「アプリ再起動」注記は付けない
+ * （scope_start は LIFF ではなくトーク内 Quick Reply で完結するため不要）。
+ */
+function buildScopeAfterChangeFlexMessage() {
+  return {
+    type: 'flex' as const,
+    altText: 'テスト範囲を設定すると、毎日の1問が習った範囲から届きます',
+    contents: {
+      type: 'bubble' as const,
+      size: 'kilo' as const,
+      header: {
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        backgroundColor: '#F59E0B',
+        paddingAll: '14px',
+        contents: [
+          {
+            type: 'text' as const,
+            text: '🎯 テスト範囲も設定しよう',
+            color: '#FFFFFF',
+            weight: 'bold' as const,
+            size: 'md' as const,
+          },
+        ],
+      },
+      body: {
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        paddingAll: '20px',
+        spacing: 'sm' as const,
+        contents: [
+          {
+            type: 'text' as const,
+            text: '今は学年ぜんぶから出題しているよ。習った単元にしぼると、毎日の1問がその範囲から届いてテスト対策の効率がぐっと上がる👍',
+            wrap: true,
+            size: 'sm' as const,
+            color: '#111827',
+          },
+          {
+            type: 'text' as const,
+            text: '下のボタンから、出題してほしい単元を選んでね。',
+            wrap: true,
+            size: 'xs' as const,
+            color: '#6B7280',
+            margin: 'sm' as const,
+          },
+        ],
+      },
+      footer: {
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        spacing: 'sm' as const,
+        paddingAll: '16px',
+        contents: [
+          {
+            type: 'button' as const,
+            style: 'primary' as const,
+            color: '#F59E0B',
+            height: 'sm' as const,
+            action: {
+              type: 'postback' as const,
+              label: '🎯 テスト範囲を設定する',
+              data: 'type=scope_start',
+              displayText: '🎯 テスト範囲を設定する',
+            },
+          },
+        ],
+      },
+    },
+  };
 }
 
 async function handleReportSummaryPostback(
