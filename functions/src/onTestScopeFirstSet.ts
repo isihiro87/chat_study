@@ -77,6 +77,7 @@ export const onTestScopeFirstSet = functions
         introText: getInitialFirstQuestionIntro(hourLabel),
         trailingText: getInitialFirstQuestionTrailing(hourLabel),
         isInitialSetup: true,
+        source: 'onboarding',
       });
     } catch (e) {
       console.error('[onTestScopeFirstSet] push failed:', e);

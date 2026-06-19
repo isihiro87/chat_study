@@ -65,6 +65,10 @@ async function main() {
   const restartBySource: Record<string, Set<string>> = {}; // source -> UU
   const recoveryByFrom: Record<string, Set<string>> = {}; // status_transition で to=active の from -> UU
 
+  // 学習エンゲージメント: 「もう一問解く」タップを発火元 src 別に 7d 集計。
+  const extraTapBySrc7d: Record<string, number> = {}; // src -> 件数(7d)
+  let weakReviewTap7d = 0;
+
   let adminExcluded = 0;
 
   for (const doc of snap.docs) {
@@ -97,6 +101,16 @@ async function main() {
       const from = String(ev.context?.from ?? "(unknown)");
       (recoveryByFrom[from] ??= new Set<string>()).add(lid);
     }
+
+    // 学習エンゲージメント（直近7日）
+    if (at && at.toMillis() >= sevenDaysAgo.toMillis()) {
+      if (t === "extra_question_tap") {
+        const src = String(ev.context?.src ?? "unknown");
+        extraTapBySrc7d[src] = (extraTapBySrc7d[src] ?? 0) + 1;
+      } else if (t === "weak_review_tap") {
+        weakReviewTap7d++;
+      }
+    }
   }
 
   console.log(`\n(管理者除外: ${adminExcluded} 件)\n`);
@@ -125,6 +139,65 @@ async function main() {
     }
   }
 
+  // ========== 学習エンゲージメント（追加学習動線） ==========
+  // 回答後カードは回答のたびに表示されるため、分母 = 直近7日の answers 件数。
+  // クリック率 = extra_question_tap(src=post_answer) ÷ answers(7d)。
+  console.log("\n========== 学習エンゲージメント（直近7日） ==========");
+  const ANSWERS_SCAN_CAP = 8000; // 全件スキャン暴走の保険（CLAUDE.md read 規律）
+  let answers7d = 0;
+  const answersBySource: Record<string, { total: number; correct: number }> = {};
+  try {
+    const ansSnap = await db
+      .collection("answers")
+      .where("answeredAt", ">=", sevenDaysAgo)
+      .limit(ANSWERS_SCAN_CAP)
+      .get();
+    answers7d = ansSnap.size;
+    if (ansSnap.size >= ANSWERS_SCAN_CAP) {
+      console.log(`  ⚠️ answers が上限 ${ANSWERS_SCAN_CAP} に到達。一部のみ集計（実数はこれ以上）。`);
+    }
+    for (const d of ansSnap.docs) {
+      const src = String(d.get("source") ?? "(untagged)");
+      const isCorrect = d.get("isCorrect") === true;
+      const acc = (answersBySource[src] ??= { total: 0, correct: 0 });
+      acc.total++;
+      if (isCorrect) acc.correct++;
+    }
+  } catch (error) {
+    console.log("  answers 取得失敗:", (error as Error).message);
+  }
+
+  console.log(`\n回答数(7d, 全経路) = ${answers7d}`);
+  console.log("経路別 回答数 / 正答率（answers.source）:");
+  const ansSrcKeys = Object.keys(answersBySource).sort(
+    (a, b) => answersBySource[b].total - answersBySource[a].total,
+  );
+  if (ansSrcKeys.length === 0) {
+    console.log("  (source タグ付き回答なし＝デプロイ前/未回答)");
+  } else {
+    for (const s of ansSrcKeys) {
+      const a = answersBySource[s];
+      console.log(
+        `  ${s.padEnd(12)} ${String(a.total).padStart(5)} 回  正答率 ${pct(a.correct, a.total)}`,
+      );
+    }
+  }
+
+  const postAnswerTaps = extraTapBySrc7d["post_answer"] ?? 0;
+  const totalExtraTaps = Object.values(extraTapBySrc7d).reduce((s, n) => s + n, 0);
+  console.log("\n「もう一問解く / 追加で解く」タップ(7d):");
+  console.log(`  合計 = ${totalExtraTaps} 回`);
+  for (const [src, n] of Object.entries(extraTapBySrc7d).sort((a, b) => b[1] - a[1])) {
+    console.log(`    src=${src.padEnd(12)} ${n} 回`);
+  }
+  console.log(
+    `  ▶ 回答後カードのクリック率 = post_answer タップ ${postAnswerTaps} ÷ 回答数 ${answers7d} = ${pct(postAnswerTaps, answers7d)}`,
+  );
+  console.log(`「苦手を復習」タップ(7d) = ${weakReviewTap7d} 回`);
+  console.log(
+    "  ※ extra_question_tap / weak_review_tap は 2026-06-18 計測開始。それ以前は 0 表示。",
+  );
+
   console.log("\n========== クライアント側 申込ファネル（UU ベース） ==========");
   const funnelSteps: Array<{ key: string; label: string }> = [
     { key: "liff_units_open", label: "じっくり学ぶ LIFF 起動" },
@@ -148,6 +221,8 @@ async function main() {
 
   console.log("\n========== サーバー側 重要イベント ==========");
   const importantServerEvents = [
+    "extra_question_tap",
+    "weak_review_tap",
     "richmenu_premium_info_tap",
     "trial_started",
     "trial_reminder_sent",

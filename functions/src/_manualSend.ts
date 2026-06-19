@@ -53,6 +53,7 @@ async function main() {
   await selectAndSendQuestion(uid, {
     bypassDailyLimit: true,
     pushType: 'dailyQuiz',
+    source: 'manual',
   });
   console.log('[manualSend] done');
 }
