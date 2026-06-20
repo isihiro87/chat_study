@@ -88,6 +88,12 @@ const SUBJECTS: SubjectConfig[] = [
         'grade2/3-weather',
         'grade2/4-electricity',
       ],
+      3: [
+        'grade3/1-chemistry',
+        'grade3/2-biology',
+        'grade3/3-physics',
+        'grade3/4-earth',
+      ],
     },
   },
 ];
@@ -133,6 +139,18 @@ const ERA_DISPLAY_NAMES: Record<string, { name: string; icon: string; period: st
   'sci2-weather-front': { name: '前線と日本の天気', icon: '🌀', period: '地学分野' },
   'sci2-elec-circuit': { name: '静電気と電流回路', icon: '⚡', period: '物理分野' },
   'sci2-elec-power': { name: '電力と電流の利用', icon: '🔌', period: '物理分野' },
+  // science grade 3（ワークの章・節順に細分化）
+  'sci3-ion-electrolysis': { name: 'イオンと電気分解', icon: '⚡', period: '化学分野' },
+  'sci3-acid-neutral': { name: '酸・アルカリと中和', icon: '🧪', period: '化学分野' },
+  'sci3-battery': { name: '電池のしくみ', icon: '🔋', period: '化学分野' },
+  'sci3-growth-reproduction': { name: '生物の成長と生殖', icon: '🌱', period: '生物分野' },
+  'sci3-heredity': { name: '遺伝の規則性', icon: '🧬', period: '生物分野' },
+  'sci3-evolution': { name: '生物の進化', icon: '🦕', period: '生物分野' },
+  'sci3-motion-force': { name: '運動と力・水圧', icon: '🏃', period: '物理分野' },
+  'sci3-work-energy': { name: '仕事とエネルギー', icon: '🔧', period: '物理分野' },
+  'sci3-celestial-motion': { name: '天体の動き', icon: '🌏', period: '地学分野' },
+  'sci3-moon-venus': { name: '月と金星の見え方', icon: '🌙', period: '地学分野' },
+  'sci3-solar-universe': { name: '太陽系と宇宙', icon: '🌌', period: '地学分野' },
 };
 
 interface RawFlashcard {

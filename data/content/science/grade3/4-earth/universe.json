@@ -1,6 +1,6 @@
 {
   "subjectId": "science",
-  "eraId": "sci3-earth",
+  "eraId": "sci3-solar-universe",
   "topicId": "sci3-universe",
   "name": "宇宙の広がり",
   "subtitle": "銀河系・光年・天文単位",
@@ -37,13 +37,6 @@
       "difficulty": "basic"
     },
     {
-      "id": "fc5",
-      "front": "約1.5億km",
-      "back": "1天文単位は約何kmか？",
-      "explanation": "1天文単位＝太陽と地球の平均距離で、約1.5億km。",
-      "difficulty": "standard"
-    },
-    {
       "id": "fc6",
       "front": "約9.5兆km",
       "back": "1光年は約何kmか？",
@@ -56,20 +49,6 @@
       "back": "銀河系を上から見たときの形は？",
       "explanation": "銀河系は渦を巻いた円盤状で、横から見ると中央がふくらんだレンズ状をしている。",
       "difficulty": "standard"
-    },
-    {
-      "id": "fc8",
-      "front": "約10万光年",
-      "back": "銀河系の直径はおよそ何光年か？",
-      "explanation": "銀河系の直径は約10万光年。光でも横切るのに約10万年かかる。",
-      "difficulty": "standard"
-    },
-    {
-      "id": "fc9",
-      "front": "約1.5万光年",
-      "back": "銀河系の厚みはおよそ何光年か？",
-      "explanation": "銀河系の厚みは約1.5万光年。中央がふくらんだ円盤状をしている。",
-      "difficulty": "advanced"
     },
     {
       "id": "fc10",
@@ -98,13 +77,6 @@
       "back": "銀河や銀河系をつくっている、自ら光を出す天体を何という？",
       "explanation": "銀河は数億から数千億個の恒星の集団。太陽も恒星の1つ。",
       "difficulty": "basic"
-    },
-    {
-      "id": "fc14",
-      "front": "約6.3万天文単位",
-      "back": "1光年は約何天文単位にあたるか？",
-      "explanation": "1光年（約9.5兆km）は約6.3万天文単位。恒星間の距離は天文単位より光年で表すほうが便利。",
-      "difficulty": "advanced"
     },
     {
       "id": "fc15",
@@ -140,28 +112,12 @@
         "difficulty": "basic"
       },
       {
-        "id": "q3",
-        "question": "太陽と地球の平均距離を1とした距離の単位を何といいますか。",
-        "options": ["光年", "天文単位", "光秒", "パーセク"],
-        "correctIndex": 1,
-        "explanation": "太陽と地球の平均距離（約1.5億km）を1とした単位を天文単位という。",
-        "difficulty": "standard"
-      },
-      {
         "id": "q4",
         "question": "光が1年間に進む距離を1とした距離の単位を何といいますか。",
         "options": ["天文単位", "光時", "等級", "光年"],
         "correctIndex": 3,
         "explanation": "光が1年間に進む距離（約9.5兆km）を1とした単位を光年という。",
         "difficulty": "basic"
-      },
-      {
-        "id": "q5",
-        "question": "1天文単位はおよそ何kmですか。",
-        "options": ["約1.5万km", "約150万km", "約1.5億km", "約9.5兆km"],
-        "correctIndex": 2,
-        "explanation": "1天文単位は太陽と地球の平均距離で、約1.5億km。",
-        "difficulty": "standard"
       },
       {
         "id": "q6",
@@ -212,35 +168,11 @@
         "difficulty": "standard"
       },
       {
-        "id": "q12",
-        "question": "1光年はおよそ何天文単位にあたりますか。",
-        "options": ["約63天文単位", "約630天文単位", "約6300天文単位", "約6.3万天文単位"],
-        "correctIndex": 3,
-        "explanation": "1光年（約9.5兆km）は約6.3万天文単位。恒星間の距離は天文単位より光年で表すほうが便利。",
-        "difficulty": "advanced"
-      },
-      {
-        "id": "q13",
-        "question": "恒星までの非常に遠い距離を表すのに、天文単位ではなく光年を用いるのはなぜですか。",
-        "options": ["恒星は太陽系の天体に比べて非常に遠いから", "恒星は太陽系の天体に比べて非常に近いから", "光年の方が単位が小さいから", "天文単位では計算できないから"],
-        "correctIndex": 0,
-        "explanation": "恒星までの距離は太陽系内の天体に比べて非常に遠いため、天文単位より大きな単位である光年を用いる。",
-        "difficulty": "advanced"
-      },
-      {
         "id": "q14",
         "question": "ある恒星までの距離が4光年であるとき、その恒星から出た光が地球に届くまでに何年かかりますか。",
         "options": ["約4年", "約40年", "約400年", "約4万年"],
         "correctIndex": 0,
         "explanation": "1光年は光が1年で進む距離なので、4光年離れた恒星の光は地球に届くまで約4年かかる。",
-        "difficulty": "advanced"
-      },
-      {
-        "id": "q15",
-        "question": "銀河系の厚みはおよそ何光年ですか。",
-        "options": ["約1.5万光年", "約10万光年", "約3万光年", "約2000光年"],
-        "correctIndex": 0,
-        "explanation": "銀河系の厚みは約1.5万光年で、中央がふくらんだ円盤状をしている。",
         "difficulty": "advanced"
       },
       {
@@ -250,14 +182,6 @@
         "correctIndex": 0,
         "explanation": "太陽系は銀河系（天の川銀河）に属している。その銀河系は宇宙に無数にある銀河の1つ。",
         "difficulty": "basic"
-      },
-      {
-        "id": "q17",
-        "question": "太陽系の位置から銀河系の中心までの距離は、およそ何光年ですか。",
-        "options": ["約1万光年", "約100光年", "約10万光年", "約3万光年"],
-        "correctIndex": 3,
-        "explanation": "太陽系は銀河系の中心から約3万光年の位置にある。銀河系全体の直径は約10万光年。",
-        "difficulty": "advanced"
       }
     ]
   }

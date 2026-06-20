@@ -484,6 +484,129 @@ export const lineScopeEras: Record<ScopeSubjectId, Record<ScopeGrade, EraMeta[]>
         ]
       }
     ],
-    "3": []
+    "3": [
+      {
+        "eraId": "sci3-ion-electrolysis",
+        "eraName": "イオンと電気分解",
+        "shortName": "イオンと電気分解",
+        "whenLabel": "中3 4〜5月ごろ",
+        "keyTerms": "電解質・電気分解・原子・イオン・電離",
+        "topics": [
+          "電解質と電気分解",
+          "原子の構造とイオン"
+        ]
+      },
+      {
+        "eraId": "sci3-acid-neutral",
+        "eraName": "酸・アルカリと中和",
+        "shortName": "酸・アルカリと中和",
+        "whenLabel": "中3 5〜6月ごろ",
+        "keyTerms": "酸・アルカリ・pH・指示薬・中和・塩",
+        "topics": [
+          "酸性・アルカリ性の性質",
+          "中和反応"
+        ]
+      },
+      {
+        "eraId": "sci3-battery",
+        "eraName": "電池のしくみ",
+        "shortName": "電池のしくみ",
+        "whenLabel": "中3 6〜7月ごろ",
+        "keyTerms": "電池・イオンへのなりやすさ・ダニエル電池・燃料電池",
+        "topics": [
+          "電池のしくみ",
+          "いろいろな電池"
+        ]
+      },
+      {
+        "eraId": "sci3-growth-reproduction",
+        "eraName": "生物の成長と生殖",
+        "shortName": "生物の成長と生殖",
+        "whenLabel": "中3 7〜9月ごろ",
+        "keyTerms": "細胞分裂・染色体・無性生殖・有性生殖・減数分裂",
+        "topics": [
+          "細胞分裂と無性生殖",
+          "有性生殖と減数分裂"
+        ]
+      },
+      {
+        "eraId": "sci3-heredity",
+        "eraName": "遺伝の規則性",
+        "shortName": "遺伝の規則性",
+        "whenLabel": "中3 9〜10月ごろ",
+        "keyTerms": "遺伝・形質・顕性潜性・分離の法則・DNA",
+        "topics": [
+          "遺伝の規則性",
+          "DNAと遺伝子技術"
+        ]
+      },
+      {
+        "eraId": "sci3-evolution",
+        "eraName": "生物の進化",
+        "shortName": "生物の進化",
+        "whenLabel": "中3 10月ごろ",
+        "keyTerms": "脊椎動物・相同器官・進化・化石",
+        "topics": [
+          "脊椎動物の進化",
+          "進化の証拠と多様性"
+        ]
+      },
+      {
+        "eraId": "sci3-motion-force",
+        "eraName": "運動と力・水圧",
+        "shortName": "運動と力・水圧",
+        "whenLabel": "中3 10〜11月ごろ",
+        "keyTerms": "速さ・等速直線運動・慣性・水圧・浮力",
+        "topics": [
+          "物体の運動",
+          "力のはたらき方",
+          "水圧と浮力"
+        ]
+      },
+      {
+        "eraId": "sci3-work-energy",
+        "eraName": "仕事とエネルギー",
+        "shortName": "仕事とエネルギー",
+        "whenLabel": "中3 11〜12月ごろ",
+        "keyTerms": "仕事・仕事率・位置エネルギー・運動エネルギー・力学的エネルギー",
+        "topics": [
+          "エネルギーと力学的エネルギー",
+          "仕事とエネルギー変換"
+        ]
+      },
+      {
+        "eraId": "sci3-celestial-motion",
+        "eraName": "天体の動き",
+        "shortName": "天体の動き",
+        "whenLabel": "中3 12〜1月ごろ",
+        "keyTerms": "日周運動・年周運動・地軸・季節の変化",
+        "topics": [
+          "地球の運動と天体の動き①",
+          "地球の運動と天体の動き②"
+        ]
+      },
+      {
+        "eraId": "sci3-moon-venus",
+        "eraName": "月と金星の見え方",
+        "shortName": "月と金星",
+        "whenLabel": "中3 1〜2月ごろ",
+        "keyTerms": "月の満ち欠け・日食月食・金星の見え方",
+        "topics": [
+          "月と金星の見え方①",
+          "月と金星の見え方②"
+        ]
+      },
+      {
+        "eraId": "sci3-solar-universe",
+        "eraName": "太陽系と宇宙",
+        "shortName": "太陽系と宇宙",
+        "whenLabel": "中3 2〜3月ごろ",
+        "keyTerms": "惑星・太陽・銀河系・恒星・天文単位",
+        "topics": [
+          "太陽系の天体",
+          "宇宙の広がり"
+        ]
+      }
+    ]
   }
 };

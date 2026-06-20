@@ -78,7 +78,12 @@ const GRADE_FOLDERS: Record<SubjectId, Record<Grade, string[]>> = {
       'grade2/3-weather',
       'grade2/4-electricity',
     ],
-    3: [],
+    3: [
+      'grade3/1-chemistry',
+      'grade3/2-biology',
+      'grade3/3-physics',
+      'grade3/4-earth',
+    ],
   },
 };
 
@@ -129,6 +134,18 @@ const ERA_DISPLAY_NAMES: Record<
   'sci2-weather-front': { name: '前線と日本の天気', icon: '🌀', period: '地学分野' },
   'sci2-elec-circuit': { name: '静電気と電流回路', icon: '⚡', period: '物理分野' },
   'sci2-elec-power': { name: '電力と電流の利用', icon: '🔌', period: '物理分野' },
+  // science grade 3（ワークの章・節順に細分化）
+  'sci3-ion-electrolysis': { name: 'イオンと電気分解', icon: '⚡', period: '化学分野' },
+  'sci3-acid-neutral': { name: '酸・アルカリと中和', icon: '🧪', period: '化学分野' },
+  'sci3-battery': { name: '電池のしくみ', icon: '🔋', period: '化学分野' },
+  'sci3-growth-reproduction': { name: '生物の成長と生殖', icon: '🌱', period: '生物分野' },
+  'sci3-heredity': { name: '遺伝の規則性', icon: '🧬', period: '生物分野' },
+  'sci3-evolution': { name: '生物の進化', icon: '🦕', period: '生物分野' },
+  'sci3-motion-force': { name: '運動と力・水圧', icon: '🏃', period: '物理分野' },
+  'sci3-work-energy': { name: '仕事とエネルギー', icon: '🔧', period: '物理分野' },
+  'sci3-celestial-motion': { name: '天体の動き', icon: '🌏', period: '地学分野' },
+  'sci3-moon-venus': { name: '月と金星の見え方', icon: '🌙', period: '地学分野' },
+  'sci3-solar-universe': { name: '太陽系と宇宙', icon: '🌌', period: '地学分野' },
 };
 
 // grade×eraId -> 公式LINE トーク内 範囲設定フロー用の補助メタ。
@@ -182,6 +199,18 @@ const ERA_HINTS: Record<
   'sci2-weather-front': { shortName: '前線と日本の天気', whenLabel: '中2 12〜1月ごろ', keyTerms: '気団・前線・日本の四季' },
   'sci2-elec-circuit': { shortName: '静電気と電流回路', whenLabel: '中2 1〜2月ごろ', keyTerms: '静電気・回路・オームの法則・抵抗' },
   'sci2-elec-power': { shortName: '電力と電流の利用', whenLabel: '中2 2〜3月ごろ', keyTerms: '電力・電力量・電流と磁界・電磁誘導' },
+  // science grade 3（ワークの章・節順に細分化）
+  'sci3-ion-electrolysis': { shortName: 'イオンと電気分解', whenLabel: '中3 4〜5月ごろ', keyTerms: '電解質・電気分解・原子・イオン・電離' },
+  'sci3-acid-neutral': { shortName: '酸・アルカリと中和', whenLabel: '中3 5〜6月ごろ', keyTerms: '酸・アルカリ・pH・指示薬・中和・塩' },
+  'sci3-battery': { shortName: '電池のしくみ', whenLabel: '中3 6〜7月ごろ', keyTerms: '電池・イオンへのなりやすさ・ダニエル電池・燃料電池' },
+  'sci3-growth-reproduction': { shortName: '生物の成長と生殖', whenLabel: '中3 7〜9月ごろ', keyTerms: '細胞分裂・染色体・無性生殖・有性生殖・減数分裂' },
+  'sci3-heredity': { shortName: '遺伝の規則性', whenLabel: '中3 9〜10月ごろ', keyTerms: '遺伝・形質・顕性潜性・分離の法則・DNA' },
+  'sci3-evolution': { shortName: '生物の進化', whenLabel: '中3 10月ごろ', keyTerms: '脊椎動物・相同器官・進化・化石' },
+  'sci3-motion-force': { shortName: '運動と力・水圧', whenLabel: '中3 10〜11月ごろ', keyTerms: '速さ・等速直線運動・慣性・水圧・浮力' },
+  'sci3-work-energy': { shortName: '仕事とエネルギー', whenLabel: '中3 11〜12月ごろ', keyTerms: '仕事・仕事率・位置エネルギー・運動エネルギー・力学的エネルギー' },
+  'sci3-celestial-motion': { shortName: '天体の動き', whenLabel: '中3 12〜1月ごろ', keyTerms: '日周運動・年周運動・地軸・季節の変化' },
+  'sci3-moon-venus': { shortName: '月と金星', whenLabel: '中3 1〜2月ごろ', keyTerms: '月の満ち欠け・日食月食・金星の見え方' },
+  'sci3-solar-universe': { shortName: '太陽系と宇宙', whenLabel: '中3 2〜3月ごろ', keyTerms: '惑星・太陽・銀河系・恒星・天文単位' },
 };
 
 interface RawTopic {

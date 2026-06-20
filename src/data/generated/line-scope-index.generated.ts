@@ -989,6 +989,210 @@ export const lineScopeIndex: Record<ScopeSubjectId, Record<ScopeGrade, ScopeEra[
         ]
       }
     ],
-    "3": []
+    "3": [
+      {
+        "eraId": "sci3-ion-electrolysis",
+        "eraName": "イオンと電気分解",
+        "eraIcon": "⚡",
+        "eraPeriod": "化学分野",
+        "topics": [
+          {
+            "name": "電解質と電気分解",
+            "subtitle": "電解質・非電解質・電気分解のしくみ",
+            "icon": "⚡"
+          },
+          {
+            "name": "原子の構造とイオン",
+            "subtitle": "原子核・電子・イオン式・電離式",
+            "icon": "⚛️"
+          }
+        ]
+      },
+      {
+        "eraId": "sci3-acid-neutral",
+        "eraName": "酸・アルカリと中和",
+        "eraIcon": "🧪",
+        "eraPeriod": "化学分野",
+        "topics": [
+          {
+            "name": "酸性・アルカリ性の性質",
+            "subtitle": "指示薬・pH・酸とアルカリの正体",
+            "icon": "🧪"
+          },
+          {
+            "name": "中和反応",
+            "subtitle": "中和のしくみ・塩（えん）・さまざまな中和",
+            "icon": "🧂"
+          }
+        ]
+      },
+      {
+        "eraId": "sci3-battery",
+        "eraName": "電池のしくみ",
+        "eraIcon": "🔋",
+        "eraPeriod": "化学分野",
+        "topics": [
+          {
+            "name": "電池のしくみ",
+            "subtitle": "電池の条件・電極反応・イオンへのなりやすさ",
+            "icon": "🔋"
+          },
+          {
+            "name": "いろいろな電池",
+            "subtitle": "ダニエル電池・一次電池・二次電池・燃料電池",
+            "icon": "🔌"
+          }
+        ]
+      },
+      {
+        "eraId": "sci3-growth-reproduction",
+        "eraName": "生物の成長と生殖",
+        "eraIcon": "🌱",
+        "eraPeriod": "生物分野",
+        "topics": [
+          {
+            "name": "細胞分裂と無性生殖",
+            "subtitle": "体細胞分裂・観察方法・無性生殖",
+            "icon": "🌱"
+          },
+          {
+            "name": "有性生殖と減数分裂",
+            "subtitle": "有性生殖・発生・減数分裂・染色体の受けつがれ方",
+            "icon": "🐣"
+          }
+        ]
+      },
+      {
+        "eraId": "sci3-heredity",
+        "eraName": "遺伝の規則性",
+        "eraIcon": "🧬",
+        "eraPeriod": "生物分野",
+        "topics": [
+          {
+            "name": "遺伝の規則性",
+            "subtitle": "メンデルの法則・顕性形質と潜性形質・分離の法則",
+            "icon": "🧬"
+          },
+          {
+            "name": "DNAと遺伝子技術",
+            "subtitle": "DNAのしくみ・遺伝子組換え・クローン",
+            "icon": "🔬"
+          }
+        ]
+      },
+      {
+        "eraId": "sci3-evolution",
+        "eraName": "生物の進化",
+        "eraIcon": "🦕",
+        "eraPeriod": "生物分野",
+        "topics": [
+          {
+            "name": "脊椎動物の進化",
+            "subtitle": "生物の歴史・水中から陸上へ・脊椎動物の分類",
+            "icon": "🦕"
+          },
+          {
+            "name": "進化の証拠と多様性",
+            "subtitle": "始祖鳥・相同器官・進化と多様性",
+            "icon": "🦴"
+          }
+        ]
+      },
+      {
+        "eraId": "sci3-motion-force",
+        "eraName": "運動と力・水圧",
+        "eraIcon": "🏃",
+        "eraPeriod": "物理分野",
+        "topics": [
+          {
+            "name": "物体の運動",
+            "subtitle": "速さ・記録タイマー・等速直線運動",
+            "icon": "📏"
+          },
+          {
+            "name": "力のはたらき方",
+            "subtitle": "合力と分力・慣性・作用反作用",
+            "icon": "💪"
+          },
+          {
+            "name": "水圧と浮力",
+            "subtitle": "水中ではたらく力",
+            "icon": "🌊"
+          }
+        ]
+      },
+      {
+        "eraId": "sci3-work-energy",
+        "eraName": "仕事とエネルギー",
+        "eraIcon": "🔧",
+        "eraPeriod": "物理分野",
+        "topics": [
+          {
+            "name": "エネルギーと力学的エネルギー",
+            "subtitle": "エネルギーの種類・力学的エネルギーの保存",
+            "icon": "⚡"
+          },
+          {
+            "name": "仕事とエネルギー変換",
+            "subtitle": "仕事の原理・仕事率・変換効率",
+            "icon": "🔧"
+          }
+        ]
+      },
+      {
+        "eraId": "sci3-celestial-motion",
+        "eraName": "天体の動き",
+        "eraIcon": "🌏",
+        "eraPeriod": "地学分野",
+        "topics": [
+          {
+            "name": "地球の運動と天体の動き①",
+            "subtitle": "太陽・自転・公転・年周運動",
+            "icon": "🌏"
+          },
+          {
+            "name": "地球の運動と天体の動き②",
+            "subtitle": "天球・星の方位別の動き・南中高度計算",
+            "icon": "🌏"
+          }
+        ]
+      },
+      {
+        "eraId": "sci3-moon-venus",
+        "eraName": "月と金星の見え方",
+        "eraIcon": "🌙",
+        "eraPeriod": "地学分野",
+        "topics": [
+          {
+            "name": "月と金星の見え方①",
+            "subtitle": "満ち欠け・内惑星・日食と月食",
+            "icon": "🌙"
+          },
+          {
+            "name": "月と金星の見え方②",
+            "subtitle": "月の公転・金星の満ち欠け・皆既日食と金環日食",
+            "icon": "🌙"
+          }
+        ]
+      },
+      {
+        "eraId": "sci3-solar-universe",
+        "eraName": "太陽系と宇宙",
+        "eraIcon": "🌌",
+        "eraPeriod": "地学分野",
+        "topics": [
+          {
+            "name": "太陽系の天体",
+            "subtitle": "惑星の分類・特徴・衛星と小天体",
+            "icon": "🪐"
+          },
+          {
+            "name": "宇宙の広がり",
+            "subtitle": "銀河系・光年・天文単位",
+            "icon": "🌌"
+          }
+        ]
+      }
+    ]
   }
 };

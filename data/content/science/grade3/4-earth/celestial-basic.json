@@ -1,6 +1,6 @@
 {
   "subjectId": "science",
-  "eraId": "sci3-earth",
+  "eraId": "sci3-celestial-motion",
   "topicId": "sci3-celestial-basic",
   "name": "地球の運動と天体の動き①",
   "subtitle": "太陽・自転・公転・年周運動",
@@ -445,10 +445,10 @@
         "id": "q19",
         "question": "太陽の直径は、地球の直径のおよそ何倍ですか。",
         "options": [
-          "約11倍",
+          "約32倍",
           "約109倍",
-          "約400倍",
-          "約1100倍"
+          "約268倍",
+          "約540倍"
         ],
         "correctIndex": 1,
         "explanation": "太陽の直径は地球の約109倍。密度は地球より小さい。",

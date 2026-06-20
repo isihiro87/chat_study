@@ -103,7 +103,12 @@ const SUBJECTS: Record<string, SubjectSyncConfig> = {
         'grade2/3-weather',
         'grade2/4-electricity',
       ],
-      中3: [],
+      中3: [
+        'grade3/1-chemistry',
+        'grade3/2-biology',
+        'grade3/3-physics',
+        'grade3/4-earth',
+      ],
     },
   },
 };
