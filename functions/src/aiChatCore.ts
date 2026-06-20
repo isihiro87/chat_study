@@ -9,7 +9,7 @@ import type { AiChatTurn } from "./userDocTypes";
 import type { UserPlan } from "./lineWebhook";
 
 /** 全ユーザー共通の 1 日あたり AI 応答回数上限（プラン統合後）。 */
-export const DAILY_LIMIT = 20;
+export const DAILY_LIMIT = 40;
 
 /** 無料プランで保持する会話ターン数（user/model のペア数）。 */
 export const FREE_HISTORY_TURNS = 3;

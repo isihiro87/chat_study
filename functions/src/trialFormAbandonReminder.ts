@@ -18,11 +18,24 @@ import { recordPushDelivery } from "./deliveryStats";
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
+/**
+ * 2026-06-16 ハードキルスイッチ。プレミアム/トライアル導線は 2026-06-08 に廃止
+ * （index.ts の export 撤去）したが、スコープ指定デプロイでは孤児化した scheduled
+ * function が残存して動き続け、本 push（「途中で止まってない？…プレミアム申込フォーム…」）
+ * が誤送された。export を消すだけでは「今後送らない」を保証できないため本体でも即 return。
+ * boolean 型で「常に return＝本体到達不能」と型解析されないようにしている。
+ */
+const ABANDON_REMINDER_ENABLED: boolean = false;
+
 export const trialFormAbandonReminder = functions
   .region("asia-northeast1")
   .pubsub.schedule("0 19 * * *")
   .timeZone("Asia/Tokyo")
   .onRun(async () => {
+    if (!ABANDON_REMINDER_ENABLED) {
+      console.log("[trialFormAbandonReminder] disabled (premium flow retired)");
+      return;
+    }
     const startedAt = Date.now();
 
     const { initializeApp, getApps } = await import("firebase-admin/app");

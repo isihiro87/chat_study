@@ -41,6 +41,9 @@ export { sendWinbackMessages } from './sendWinbackMessages';
 // 送信通数の月次レポート（通数モニタは新モデルでも継続）
 export { monthlyDeliveryReport } from './monthlyDeliveryReport';
 
+// 月末ふり返りレポート 招待 push（AI 学習分析。タップで reply 生成）
+export { sendMonthlyReportInvite } from './sendMonthlyReportInvite';
+
 // 2026-06 トライアル廃止・課金導線停止:
 // 以下の trial 関連 cron は登録を停止（ファイル本体は dormant として残置）。
 // 再開する場合はこの export を復活させる。

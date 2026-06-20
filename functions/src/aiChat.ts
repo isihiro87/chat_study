@@ -7,7 +7,7 @@
  * Gemini に送り、応答を LINE reply で返す。
  *
  * コスト管理（多層）:
- *   1. 1 日利用上限（プラン統合により全ユーザー共通 20 回）。
+ *   1. 1 日利用上限（プラン統合により全ユーザー共通 40 回）。
  *      超過時は API を呼ばず固定文で断る（課金ゼロ）。
  *   2. 出力トークン上限・入力履歴ターン制限でトークンを抑制。
  *   3. Gemini 呼び出し成功時のみ count を消費（エラーで上限を無駄にしない）。
@@ -99,13 +99,17 @@ async function callGemini(
   systemPrompt: string,
   history: AiChatTurn[],
   userText: string,
-  media?: AiChatMediaPart[]
+  media?: AiChatMediaPart[],
+  maxOutputTokens: number = MAX_OUTPUT_TOKENS,
+  modelOverride?: string,
+  timeoutMs: number = GEMINI_TIMEOUT_MS
 ): Promise<GeminiResult> {
   const apiKey = process.env.GEMINI_API_KEY || "";
   if (!apiKey) {
     throw new Error("GEMINI_API_KEY is not set");
   }
-  const model = process.env.GEMINI_MODEL || "gemini-3.1-flash-lite";
+  const model =
+    modelOverride || process.env.GEMINI_MODEL || "gemini-3.1-flash-lite";
 
   // 最後の user ターン: メディア（あれば）→ テキストの順に parts を並べる。
   const userParts: Array<Record<string, unknown>> = [];
@@ -130,7 +134,7 @@ async function callGemini(
     system_instruction: { parts: [{ text: systemPrompt }] },
     contents,
     generationConfig: {
-      maxOutputTokens: MAX_OUTPUT_TOKENS,
+      maxOutputTokens,
       temperature: 0.7,
     },
   };
@@ -140,7 +144,7 @@ async function callGemini(
     `${encodeURIComponent(model)}:generateContent?key=${apiKey}`;
 
   const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), GEMINI_TIMEOUT_MS);
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
     const res = await fetch(url, {
       method: "POST",
@@ -296,6 +300,31 @@ export async function handleAiChat(
   // 消費しない。deliveryStats（push 配信枠モニター）には記録しない。
   // 利用量・コストは Gemini 側（Google AI Studio / GCP 課金）と
   // users/{uid}.aiChat.count で把握する。
+}
+
+/**
+ * 履歴なしの単発 Gemini 生成（月末レポート等の自由文生成で再利用）。
+ * systemPrompt に指示、userText に素材を渡す。成功時はテキスト、失敗時は throw。
+ * AI チャットのレート枠（aiChat.count）とは別系統で、呼び出し側でコストを管理する。
+ * model を渡すと既定（GEMINI_MODEL / flash-lite）を上書きできる。
+ */
+export async function generateGeminiText(
+  systemPrompt: string,
+  userText: string,
+  maxOutputTokens?: number,
+  model?: string,
+  timeoutMs?: number
+): Promise<string> {
+  const { text } = await callGemini(
+    systemPrompt,
+    [],
+    userText,
+    undefined,
+    maxOutputTokens,
+    model,
+    timeoutMs
+  );
+  return text;
 }
 
 /** firebase-admin の Firestore を遅延初期化して返す（lineWebhook と同パターン）。 */

@@ -1305,6 +1305,12 @@ async function handlePostback(event: LineEvent): Promise<void> {
     return;
   }
 
+  if (type === 'monthly_report') {
+    const { handleMonthlyReportPostback } = await import('./monthlyReport');
+    await handleMonthlyReportPostback(uid, replyToken, params);
+    return;
+  }
+
   if (type === 'test_range_menu') {
     await handleTestRangeMenuPostback(uid, replyToken);
     return;
@@ -1791,6 +1797,48 @@ async function handleScopePickPostback(
  * 初回設定時は 1問目も reply で送る。push トリガ（onTestScopeSaved /
  * onTestScopeFirstSet）は lastSource='line_inline' を見てスキップ＝二重送信を防ぐ。
  */
+/**
+ * 範囲設定の完了通知に添える「今すぐ1問に挑戦」CTA flex。
+ * ボタンは extra_question（全ユーザー無料・reply 送信で配信枠を消費しない）を起動し、
+ * 直前に保存した testScope を反映した出題にそのまま取りかかれる。
+ */
+function buildScopeCommitCtaFlex() {
+  return {
+    type: 'flex' as const,
+    altText: 'さっそく1問に挑戦してみよう！',
+    contents: {
+      type: 'bubble' as const,
+      body: {
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        paddingAll: '16px',
+        spacing: 'md' as const,
+        contents: [
+          {
+            type: 'text' as const,
+            text: 'さっそく、設定した範囲から1問やってみよう！',
+            wrap: true,
+            size: 'sm' as const,
+            color: '#333333',
+          },
+          {
+            type: 'button' as const,
+            style: 'primary' as const,
+            color: '#F59E0B',
+            height: 'sm' as const,
+            action: {
+              type: 'postback' as const,
+              label: '✏️ 今すぐ1問に挑戦',
+              data: 'type=extra_question&src=scope_commit',
+              displayText: '今すぐ1問に挑戦',
+            },
+          },
+        ],
+      },
+    },
+  };
+}
+
 async function handleScopeCommitPostback(
   uid: string,
   replyToken: string | undefined,
@@ -1848,6 +1896,22 @@ async function handleScopeCommitPostback(
       console.error('[lineWebhook] handleScopeCommit first-question failed:', error);
       // フォールバック: 確認文だけでも返す
     }
+  }
+
+  // 設定し直し（非初回）: 確認文に「すぐ1問に取りかかれる」ボタンを添えて
+  // 1 度の reply で送る（extra_question は無料・reply 送信で配信枠を消費しない）。
+  try {
+    const client = await getLineClient();
+    await client.replyMessage({
+      replyToken,
+      messages: [
+        { type: 'text', text: confirmText },
+        buildScopeCommitCtaFlex(),
+      ],
+    });
+    return;
+  } catch (error) {
+    console.error('[lineWebhook] handleScopeCommit cta reply failed:', error);
   }
 
   await replyText(replyToken, confirmText, '(scope_commit)');
@@ -2741,7 +2805,7 @@ function buildSettingsMenuFlexMessage() {
           },
           {
             type: 'text' as const,
-            text: '解約や問い合わせは下のボタンから。',
+            text: 'お問い合わせは下のボタンから。',
             wrap: true,
             size: 'xs' as const,
             color: '#6B7280',
@@ -2774,16 +2838,6 @@ function buildSettingsMenuFlexMessage() {
               type: 'uri' as const,
               label: '問い合わせ',
               uri: CONTACT_URL,
-            },
-          },
-          {
-            type: 'button' as const,
-            style: 'secondary' as const,
-            height: 'sm' as const,
-            action: {
-              type: 'uri' as const,
-              label: 'プレミアム解約案内',
-              uri: LIFF_PREMIUM_INFO_URL,
             },
           },
         ],
@@ -2904,7 +2958,7 @@ function buildSettingsGuideFlexMessage() {
         contents: [
           {
             type: 'text' as const,
-            text: 'よく使う設定はこちらから。学年・配信時刻・解約・お問い合わせは設定画面の中から進められるよ。',
+            text: 'よく使う設定はこちらから。学年・配信時刻・お問い合わせは設定画面の中から進められるよ。',
             wrap: true,
             size: 'sm' as const,
             color: '#111827',
@@ -3115,20 +3169,6 @@ function buildReportSummaryFlexMessage(
               uri: LIFF_REPORT_URL,
             },
           },
-          ...(plan === 'free'
-            ? [
-                {
-                  type: 'button' as const,
-                  style: 'secondary' as const,
-                  height: 'sm' as const,
-                  action: {
-                    type: 'uri' as const,
-                    label: '✨ プレミアムを試す',
-                    uri: LIFF_PREMIUM_INFO_URL,
-                  },
-                },
-              ]
-            : []),
         ],
       },
     },

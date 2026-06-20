@@ -23,6 +23,15 @@ import {
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
+/**
+ * 2026-06-16 ハードキルスイッチ。プレミアム/トライアル導線は 2026-06-08 に廃止
+ * （index.ts の export 撤去）したが、スコープ指定デプロイでは孤児化した scheduled
+ * function が残存して動き続け、プレミアム再申込 push が誤送される恐れがある。
+ * export を消すだけでは「今後送らない」を保証できないため本体でも即 return。
+ * boolean 型で「常に return＝本体到達不能」と型解析されないようにしている。
+ */
+const POST_TRIAL_FOLLOWUP_ENABLED: boolean = false;
+
 type FollowupKey = "day15" | "day30";
 
 function pickFollowupMilestone(
@@ -41,6 +50,10 @@ export const postTrialFollowup = functions
   .pubsub.schedule("0 19 * * *")
   .timeZone("Asia/Tokyo")
   .onRun(async () => {
+    if (!POST_TRIAL_FOLLOWUP_ENABLED) {
+      console.log("[postTrialFollowup] disabled (premium flow retired)");
+      return;
+    }
     const startedAt = Date.now();
 
     const { initializeApp, getApps } = await import("firebase-admin/app");

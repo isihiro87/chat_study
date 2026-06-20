@@ -14,10 +14,10 @@ import {
 import type { AiChatTurn } from "../userDocTypes";
 
 describe("getDailyLimit", () => {
-  it("プラン統合後は全ユーザー共通で 20", () => {
+  it("プラン統合後は全ユーザー共通で 40", () => {
     expect(getDailyLimit("free")).toBe(DAILY_LIMIT);
-    expect(getDailyLimit("free")).toBe(20);
-    expect(getDailyLimit("premium")).toBe(20);
+    expect(getDailyLimit("free")).toBe(40);
+    expect(getDailyLimit("premium")).toBe(40);
   });
 });
 
@@ -103,17 +103,17 @@ describe("evaluateRateLimit", () => {
     expect(r).toEqual({ currentCount: 0, limited: false });
   });
 
-  it("統合後の上限（20）", () => {
+  it("統合後の上限（40）", () => {
     const r = evaluateRateLimit(
-      { dateJST: "2026-06-02", count: 19 },
+      { dateJST: "2026-06-02", count: 39 },
       "2026-06-02",
-      20
+      40
     );
     expect(r.limited).toBe(false);
     const r2 = evaluateRateLimit(
-      { dateJST: "2026-06-02", count: 20 },
+      { dateJST: "2026-06-02", count: 40 },
       "2026-06-02",
-      20
+      40
     );
     expect(r2.limited).toBe(true);
   });

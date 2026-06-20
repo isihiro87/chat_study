@@ -36,7 +36,10 @@ export type ServerFunnelEventType =
   | "premium_apply_form_abandoned"
   | "post_trial_followup_sent"
   // 月次送信モニタリング
-  | "monthly_delivery_report_generated";
+  | "monthly_delivery_report_generated"
+  // 月末ふり返りレポート（AI 学習分析）
+  | "monthly_report_invite_sent"
+  | "monthly_report_viewed";
 
 export async function logServerFunnelEvent(
   eventType: ServerFunnelEventType,

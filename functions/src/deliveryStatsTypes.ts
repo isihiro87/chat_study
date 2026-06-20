@@ -21,6 +21,7 @@ export type PushType =
   | "postTrialFollowup"
   | "restartWelcome"
   | "deliveryTransition"
+  | "monthlyReport"
   | "other";
 
 /** 送信種別ごとのカウント。 */
@@ -56,6 +57,7 @@ export function emptyPushCountByType(): PushCountByType {
     postTrialFollowup: 0,
     restartWelcome: 0,
     deliveryTransition: 0,
+    monthlyReport: 0,
     other: 0,
   };
 }

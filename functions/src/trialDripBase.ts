@@ -74,8 +74,26 @@ interface RunStats {
  * trial 中のユーザーを抽出し、指定 milestone の day 数に一致する人に push する。
  * milestone 別の重複防止と 24h cooldown を実装。
  */
+/**
+ * トライアル/プレミアム導線の有効フラグ。2026-06 の全機能無料化に伴い false。
+ * false の間、全 trial drip cron（Day2〜6 / Day7 リマインド）は本体に入らず即 return。
+ */
+const TRIAL_DRIP_ENABLED: boolean = false;
+
 export async function runTrialDrip(input: RunTrialDripInput): Promise<RunStats> {
   const { milestone, funnelEventType, pushType, buildMessages } = input;
+
+  // 2026-06-16 ハードキルスイッチ。トライアル/プレミアム導線は 2026-06-08 に廃止
+  // （index.ts の export を撤去）したが、デプロイをスコープ指定で行うと孤児化した
+  // scheduled function が残存して動き続け、プレミアム申込フォロー push 等が誤送された
+  // 実績がある。export を消すだけでは「今後送らない」を保証できないため、本体側でも
+  // 必ず即 return する。再開する場合はこのフラグを true にし、index.ts の export を復活させる。
+  // boolean 型にして「常に return で本体が到達不能」と型解析されないようにしている。
+  if (!TRIAL_DRIP_ENABLED) {
+    console.log(`[trialDrip:${milestone}] disabled (trial/premium flow retired)`);
+    return { totalScanned: 0, sent: 0, skipped: 0, failed: 0, blockedSkipped: 0 };
+  }
+
   const targetDay = MILESTONE_TO_DAY_NUMBER[milestone];
 
   const { initializeApp, getApps } = await import("firebase-admin/app");
