@@ -602,6 +602,196 @@
           ]
         },
         "id": "math-g2-triangles-q29"
+      },
+      {
+        "question": "下の図のように $AB=AC$ の二等辺三角形で、頂角 ∠$A=20°$ です。底角 ∠$x$ の大きさを求めましょう。",
+        "options": [
+          "80°",
+          "20°",
+          "160°",
+          "70°"
+        ],
+        "correctIndex": 0,
+        "explanation": "二等辺三角形の2つの底角は等しい。底角の和は $180°-20°=160°$ なので、\n$\\angle x=160°÷2=80°$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "triangle",
+          "angles": [
+            20,
+            80,
+            80
+          ],
+          "vertexNames": [
+            "A",
+            "B",
+            "C"
+          ],
+          "angleLabels": [
+            "20°",
+            "x",
+            null
+          ]
+        },
+        "id": "math-g2-triangles-q30"
+      },
+      {
+        "question": "下の図のように $AB=AC$ の二等辺三角形で、底角 ∠$B=55°$ です。頂角 ∠$x$ の大きさを求めましょう。",
+        "options": [
+          "55°",
+          "125°",
+          "70°",
+          "110°"
+        ],
+        "correctIndex": 2,
+        "explanation": "二等辺三角形の2つの底角は等しいので、両方 $55°$。\n$\\angle x=180°-55°-55°=70°$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "triangle",
+          "angles": [
+            70,
+            55,
+            55
+          ],
+          "vertexNames": [
+            "A",
+            "B",
+            "C"
+          ],
+          "angleLabels": [
+            "x",
+            "55°",
+            null
+          ]
+        },
+        "id": "math-g2-triangles-q31"
+      },
+      {
+        "question": "下の図のように $AB=AC$ の二等辺三角形で、頂角 ∠$A=110°$ です。底角 ∠$x$ の大きさを求めましょう。",
+        "options": [
+          "70°",
+          "55°",
+          "110°",
+          "35°"
+        ],
+        "correctIndex": 3,
+        "explanation": "二等辺三角形の2つの底角は等しい。底角の和は $180°-110°=70°$ なので、\n$\\angle x=70°÷2=35°$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "triangle",
+          "angles": [
+            110,
+            35,
+            35
+          ],
+          "vertexNames": [
+            "A",
+            "B",
+            "C"
+          ],
+          "angleLabels": [
+            "110°",
+            null,
+            "x"
+          ]
+        },
+        "id": "math-g2-triangles-q32"
+      },
+      {
+        "question": "下の図のように $AB=AC$ の二等辺三角形で、底角 ∠$C=48°$ です。頂角 ∠$x$ の大きさを求めましょう。",
+        "options": [
+          "48°",
+          "84°",
+          "96°",
+          "132°"
+        ],
+        "correctIndex": 1,
+        "explanation": "二等辺三角形の2つの底角は等しいので、両方 $48°$。\n$\\angle x=180°-48°-48°=84°$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "triangle",
+          "angles": [
+            84,
+            48,
+            48
+          ],
+          "vertexNames": [
+            "A",
+            "B",
+            "C"
+          ],
+          "angleLabels": [
+            "x",
+            null,
+            "48°"
+          ]
+        },
+        "id": "math-g2-triangles-q33"
+      },
+      {
+        "question": "下の図の三角形で、∠$A=55°$、∠$B=85°$ です。残りの内角 ∠$x$ の大きさを求めましょう。",
+        "options": [
+          "30°",
+          "40°",
+          "50°",
+          "140°"
+        ],
+        "correctIndex": 1,
+        "explanation": "三角形の内角の和は $180°$ です。\n$\\angle x=180°-55°-85°=40°$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "triangle",
+          "angles": [
+            55,
+            85,
+            40
+          ],
+          "vertexNames": [
+            "A",
+            "B",
+            "C"
+          ],
+          "angleLabels": [
+            "55°",
+            "85°",
+            "x"
+          ]
+        },
+        "id": "math-g2-triangles-q34"
+      },
+      {
+        "question": "下の図の三角形で、∠$A=64°$、∠$B=58°$ です。頂点 C の外角 ∠$x$ の大きさを求めましょう。",
+        "options": [
+          "58°",
+          "122°",
+          "64°",
+          "116°"
+        ],
+        "correctIndex": 1,
+        "explanation": "三角形の外角は、それととなり合わない2つの内角の和に等しい。\n頂点 C の外角 $\\angle x=\\angle A+\\angle B=64°+58°=122°$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "triangle",
+          "angles": [
+            64,
+            58,
+            58
+          ],
+          "vertexNames": [
+            "A",
+            "B",
+            "C"
+          ],
+          "angleLabels": [
+            "64°",
+            "58°",
+            null
+          ],
+          "exterior": {
+            "at": "C",
+            "text": "x"
+          }
+        },
+        "id": "math-g2-triangles-q35"
       }
     ]
   }

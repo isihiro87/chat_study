@@ -462,6 +462,200 @@
           ]
         },
         "id": "math-g2-quadrilaterals-q25"
+      },
+      {
+        "question": "下の図の平行四辺形 ABCD で、∠$D=100°$ です。となり合う角 ∠$x$ の大きさを求めましょう。",
+        "options": [
+          "80°",
+          "100°",
+          "50°",
+          "90°"
+        ],
+        "correctIndex": 0,
+        "explanation": "平行四辺形でとなり合う角の和は $180°$。∠$x$（∠A）は ∠D ととなり合うので、\n$\\angle x=180°-100°=80°$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "parallelogram",
+          "angle": 100,
+          "vertexNames": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "angleLabels": [
+            "x",
+            null,
+            null,
+            "100°"
+          ]
+        },
+        "id": "math-g2-quadrilaterals-q26"
+      },
+      {
+        "question": "下の図の平行四辺形 ABCD で、∠$D=105°$ です。向かい合う角 ∠$x$ の大きさを求めましょう。",
+        "options": [
+          "75°",
+          "52.5°",
+          "105°",
+          "95°"
+        ],
+        "correctIndex": 2,
+        "explanation": "平行四辺形の対角は等しい。∠$x$（∠B）は ∠D の対角なので、\n$\\angle x=105°$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "parallelogram",
+          "angle": 105,
+          "vertexNames": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "angleLabels": [
+            null,
+            "x",
+            null,
+            "105°"
+          ]
+        },
+        "id": "math-g2-quadrilaterals-q27"
+      },
+      {
+        "question": "下の図の平行四辺形 ABCD で、∠$D=75°$ です。となり合う角 ∠$x$ の大きさを求めましょう。",
+        "options": [
+          "75°",
+          "105°",
+          "37.5°",
+          "115°"
+        ],
+        "correctIndex": 1,
+        "explanation": "平行四辺形でとなり合う角の和は $180°$。∠$x$（∠C）は ∠D ととなり合うので、\n$\\angle x=180°-75°=105°$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "parallelogram",
+          "angle": 75,
+          "vertexNames": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "angleLabels": [
+            null,
+            null,
+            "x",
+            "75°"
+          ]
+        },
+        "id": "math-g2-quadrilaterals-q28"
+      },
+      {
+        "question": "下の図の平行四辺形 ABCD で、∠$B=50°$ です。となり合う角 ∠$x$ の大きさを求めましょう。",
+        "options": [
+          "50°",
+          "65°",
+          "100°",
+          "130°"
+        ],
+        "correctIndex": 3,
+        "explanation": "平行四辺形でとなり合う角の和は $180°$。∠$x$（∠C）は ∠B ととなり合うので、\n$\\angle x=180°-50°=130°$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "parallelogram",
+          "angle": 50,
+          "vertexNames": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "angleLabels": [
+            null,
+            "50°",
+            "x",
+            null
+          ]
+        },
+        "id": "math-g2-quadrilaterals-q29"
+      },
+      {
+        "question": "下の図の平行四辺形 ABCD で、$AB=8$cm、$BC=5$cm です。辺 CD の長さを求めましょう。",
+        "options": [
+          "8cm",
+          "5cm",
+          "13cm",
+          "3cm"
+        ],
+        "correctIndex": 0,
+        "explanation": "平行四辺形の対辺は等しい。辺 CD は辺 AB と向かい合う対辺なので、\n$CD=AB=8$cm です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "parallelogram",
+          "angle": 70,
+          "vertexNames": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "angleLabels": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "sideLabels": [
+            {
+              "between": "AB",
+              "text": "8cm"
+            },
+            {
+              "between": "BC",
+              "text": "5cm"
+            }
+          ]
+        },
+        "id": "math-g2-quadrilaterals-q30"
+      },
+      {
+        "question": "下の図の平行四辺形 ABCD で、$AB=8$cm、$BC=5$cm です。辺 DA の長さを求めましょう。",
+        "options": [
+          "8cm",
+          "5cm",
+          "13cm",
+          "4cm"
+        ],
+        "correctIndex": 1,
+        "explanation": "平行四辺形の対辺は等しい。辺 DA は辺 BC と向かい合う対辺なので、\n$DA=BC=5$cm です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "parallelogram",
+          "angle": 70,
+          "vertexNames": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "angleLabels": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "sideLabels": [
+            {
+              "between": "AB",
+              "text": "8cm"
+            },
+            {
+              "between": "BC",
+              "text": "5cm"
+            }
+          ]
+        },
+        "id": "math-g2-quadrilaterals-q31"
       }
     ]
   }

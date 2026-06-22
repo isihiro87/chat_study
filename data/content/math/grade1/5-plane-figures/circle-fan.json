@@ -460,6 +460,116 @@
           "kind": "circle",
           "radiusLabel": "5cm"
         }
+      },
+      {
+        "id": "math-g1-circle-fan-q30",
+        "question": "下の図のおうぎ形の弧の長さを求めましょう。",
+        "options": [
+          "$4\\pi$ cm",
+          "$9\\pi$ cm",
+          "$2\\pi$ cm",
+          "$18\\pi$ cm"
+        ],
+        "correctIndex": 0,
+        "explanation": "弧の長さ $=2\\pi r\\times\\frac{a}{360}=2\\pi\\times9\\times\\frac{80}{360}=18\\pi\\times\\frac{2}{9}=4\\pi$ cm です。\n中心角 80°は全体の $\\frac{2}{9}$ になります。",
+        "difficulty": "advanced",
+        "image": {
+          "kind": "sector",
+          "centralAngle": 80,
+          "radiusLabel": "9cm",
+          "angleLabel": "80°"
+        }
+      },
+      {
+        "id": "math-g1-circle-fan-q31",
+        "question": "下の図のおうぎ形の弧の長さを求めましょう。",
+        "options": [
+          "$6\\pi$ cm",
+          "$12\\pi$ cm",
+          "$30\\pi$ cm",
+          "$15\\pi$ cm"
+        ],
+        "correctIndex": 1,
+        "explanation": "弧の長さ $=2\\pi r\\times\\frac{a}{360}=2\\pi\\times15\\times\\frac{144}{360}=30\\pi\\times\\frac{2}{5}=12\\pi$ cm です。\n中心角 144°は全体の $\\frac{2}{5}$ になります。",
+        "difficulty": "advanced",
+        "image": {
+          "kind": "sector",
+          "centralAngle": 144,
+          "radiusLabel": "15cm",
+          "angleLabel": "144°"
+        }
+      },
+      {
+        "id": "math-g1-circle-fan-q32",
+        "question": "下の図のおうぎ形の面積を求めましょう。",
+        "options": [
+          "$20\\pi$ cm$^2$",
+          "$100\\pi$ cm$^2$",
+          "$40\\pi$ cm$^2$",
+          "$50\\pi$ cm$^2$"
+        ],
+        "correctIndex": 2,
+        "explanation": "面積 $=\\pi r^2\\times\\frac{a}{360}=\\pi\\times10^2\\times\\frac{144}{360}=100\\pi\\times\\frac{2}{5}=40\\pi$ cm$^2$ です。\n中心角 144°は全体の $\\frac{2}{5}$ になります。",
+        "difficulty": "advanced",
+        "image": {
+          "kind": "sector",
+          "centralAngle": 144,
+          "radiusLabel": "10cm",
+          "angleLabel": "144°"
+        }
+      },
+      {
+        "id": "math-g1-circle-fan-q33",
+        "question": "下の図のおうぎ形の面積を求めましょう。",
+        "options": [
+          "$36\\pi$ cm$^2$",
+          "$10\\pi$ cm$^2$",
+          "$15\\pi$ cm$^2$",
+          "$30\\pi$ cm$^2$"
+        ],
+        "correctIndex": 3,
+        "explanation": "面積 $=\\pi r^2\\times\\frac{a}{360}=\\pi\\times6^2\\times\\frac{300}{360}=36\\pi\\times\\frac{5}{6}=30\\pi$ cm$^2$ です。\n中心角 300°は全体の $\\frac{5}{6}$ になります。",
+        "difficulty": "advanced",
+        "image": {
+          "kind": "sector",
+          "centralAngle": 300,
+          "radiusLabel": "6cm",
+          "angleLabel": "300°"
+        }
+      },
+      {
+        "id": "math-g1-circle-fan-q34",
+        "question": "下の図の円の周の長さを求めましょう。",
+        "options": [
+          "$8\\pi$ cm",
+          "$4\\pi$ cm",
+          "$16\\pi$ cm",
+          "$12\\pi$ cm"
+        ],
+        "correctIndex": 0,
+        "explanation": "円周 $=2\\pi r=2\\pi\\times4=8\\pi$ cm です。\n直径 8cm に円周率をかけても同じになります。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "circle",
+          "radiusLabel": "4cm"
+        }
+      },
+      {
+        "id": "math-g1-circle-fan-q35",
+        "question": "下の図の円の面積を求めましょう。",
+        "options": [
+          "$20\\pi$ cm$^2$",
+          "$100\\pi$ cm$^2$",
+          "$10\\pi$ cm$^2$",
+          "$50\\pi$ cm$^2$"
+        ],
+        "correctIndex": 1,
+        "explanation": "面積 $=\\pi r^2=\\pi\\times10^2=100\\pi$ cm$^2$ です。\n半径を2回かけてから円周率をかけます。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "circle",
+          "radiusLabel": "10cm"
+        }
       }
     ]
   }
