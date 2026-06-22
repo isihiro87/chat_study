@@ -137,10 +137,13 @@ function buildTriangle(img: any): string {
     const lab = labels && labels[i];
     if (!lab) return;
     const v = P[k], n = neighbor[k];
-    const arc = angleArc(v, P[n[0]], P[n[1]], 20);
+    const arc = angleArc(v, P[n[0]], P[n[1]], 23);
     parts.push(arc.path);
-    const lx = v[0] + 33 * Math.cos(arc.mid), ly = v[1] + 33 * Math.sin(arc.mid);
-    parts.push(svgText(lx, ly, lab, { fill: COL_ANGLE, weight: 'bold', size: 15 }));
+    // 狭い角ほどラベルを内側へ深く置く（辺との重なり回避）
+    const ang = (img.angles as number[])[i];
+    const lr = ang < 50 ? 50 : 42;
+    const lx = v[0] + lr * Math.cos(arc.mid), ly = v[1] + lr * Math.sin(arc.mid);
+    parts.push(svgText(lx, ly, lab, { fill: COL_ANGLE, weight: 'bold', size: 17 }));
   });
   // 外角ラベル
   if (ext && ext.text) {
@@ -148,10 +151,10 @@ function buildTriangle(img: any): string {
     const e = T(extra[0]);
     const others = ['A', 'B', 'C'].filter((k) => k !== ext.at && k !== (ext.at === 'C' ? 'B' : ext.at === 'B' ? 'C' : 'B'));
     const apex = others[0]; // 上の頂点
-    const arc = angleArc(v, [e[0], e[1]], P[apex], 18);
+    const arc = angleArc(v, [e[0], e[1]], P[apex], 20);
     parts.push(arc.path);
-    const lx = v[0] + 30 * Math.cos(arc.mid), ly = v[1] + 30 * Math.sin(arc.mid);
-    parts.push(svgText(lx, ly, ext.text, { fill: COL_ANGLE, weight: 'bold', size: 15 }));
+    const lx = v[0] + 38 * Math.cos(arc.mid), ly = v[1] + 38 * Math.sin(arc.mid);
+    parts.push(svgText(lx, ly, ext.text, { fill: COL_ANGLE, weight: 'bold', size: 17 }));
   }
   // 頂点名
   const vn = img.vertexNames as string[] | undefined;
@@ -191,10 +194,13 @@ function buildSector(img: any): string {
   const a1: [number, number] = [O[0] + r2 * Math.cos(rad(s0)), O[1] - r2 * Math.sin(rad(s0))];
   const a2: [number, number] = [O[0] + r2 * Math.cos(rad(s0 + a)), O[1] - r2 * Math.sin(rad(s0 + a))];
   parts.push(`<path d="M${a1[0].toFixed(1)},${a1[1].toFixed(1)} A${r2},${r2} 0 ${large} 0 ${a2[0].toFixed(1)},${a2[1].toFixed(1)}" fill="none" stroke="${COL_ANGLE}" stroke-width="2"/>`);
-  if (img.angleLabel) parts.push(svgText(O[0], O[1] - 48, img.angleLabel, { fill: COL_ANGLE, weight: 'bold', size: 15 }));
+  if (img.angleLabel) parts.push(svgText(O[0], O[1] - 50, img.angleLabel, { fill: COL_ANGLE, weight: 'bold', size: 16 }));
   if (img.radiusLabel) {
-    const mid: [number, number] = [(O[0] + p1[0]) / 2, (O[1] + p1[1]) / 2];
-    parts.push(svgText(mid[0] - 14, mid[1], img.radiusLabel, { size: 13, fill: COL_SHAPE }));
+    // 半径ラベルは半径の中ほど＋扇の外側へ垂直オフセット（中心角の弧と離す）
+    const u: [number, number] = [(p1[0] - O[0]) / R, (p1[1] - O[1]) / R];
+    const nrm: [number, number] = [-u[1], u[0]]; // 扇の外側（右半径の右どなり）
+    const base: [number, number] = [O[0] + u[0] * R * 0.58, O[1] + u[1] * R * 0.58];
+    parts.push(svgText(base[0] + nrm[0] * 18, base[1] + nrm[1] * 18, img.radiusLabel, { size: 14, fill: COL_SHAPE }));
   }
   parts.push(svgText(O[0] - 10, O[1] + 12, 'O', { size: 14, fill: COL_SHAPE, weight: 'bold' }));
   return wrap(parts.join(''));
@@ -272,13 +278,21 @@ function buildParallel(img: any): string {
     bottom: (180 - slant) / 2,
   };
   // 画面座標：上方向が負yなので、数学角→画面は y を反転
+  const ACUTE = new Set(['lower-left', 'upper-right', 'top', 'bottom']);
   for (const lb of img.labels || []) {
     const v = lb.at === 'top' ? Ptop : Pbot;
-    const ang = sectorDir[lb.sector as string] ?? 0;
-    const rr = 34;
-    const lx = v[0] + rr * Math.cos(rad(ang));
-    const ly = v[1] - rr * Math.sin(rad(ang));
-    parts.push(svgText(lx, ly, lb.text, { fill: COL_ANGLE, weight: 'bold', size: 14 }));
+    const beta = sectorDir[lb.sector as string] ?? 0; // 二等分線（数学角）
+    const half = (ACUTE.has(lb.sector as string) ? slant : 180 - slant) / 2;
+    // 角の弧（二等分線をはさむ両側の境界ray間）
+    const p1: [number, number] = [v[0] + Math.cos(rad(beta - half)), v[1] - Math.sin(rad(beta - half))];
+    const p2: [number, number] = [v[0] + Math.cos(rad(beta + half)), v[1] - Math.sin(rad(beta + half))];
+    const arc = angleArc(v, p1, p2, 20);
+    parts.push(arc.path);
+    // ラベルは二等分線方向に十分離して（直線と重ならない位置に）置く
+    const rr = 44;
+    const lx = v[0] + rr * Math.cos(rad(beta));
+    const ly = v[1] - rr * Math.sin(rad(beta));
+    parts.push(svgText(lx, ly, lb.text, { fill: COL_ANGLE, weight: 'bold', size: 17 }));
   }
   return wrap(parts.join(''));
 }
