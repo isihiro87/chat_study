@@ -437,9 +437,10 @@ function buildRectPrism(img: any): string {
 function buildCylinder(img: any): string {
   const cx = SIZE / 2, rx = 74, ry = 22, topY = 96, botY = 270;
   const parts: string[] = [];
+  // 胴の塗り（底面の手前のふくらみまで含める）
+  parts.push(`<path d="M${cx - rx},${topY} L${cx - rx},${botY} A${rx},${ry} 0 0 0 ${cx + rx},${botY} L${cx + rx},${topY} Z" fill="${COL_FILL}" stroke="none"/>`);
+  // 側線
   parts.push(`<path d="M${cx - rx},${topY} L${cx - rx},${botY} M${cx + rx},${topY} L${cx + rx},${botY}" stroke="${COL_SHAPE}" stroke-width="2.4"/>`);
-  // 胴の塗り
-  parts.push(`<rect x="${cx - rx}" y="${topY}" width="${2 * rx}" height="${botY - topY}" fill="${COL_FILL}" stroke="none"/>`);
   // 底（手前実線・奥破線）→ 上面（実線楕円）
   parts.push(ellipseHalf(cx, botY, rx, ry, true, false));
   parts.push(ellipseHalf(cx, botY, rx, ry, false, true));
@@ -454,7 +455,8 @@ function buildCone(img: any): string {
   const cx = SIZE / 2, rx = 78, ry = 24, botY = 268, apexY = 80;
   const apex: [number, number] = [cx, apexY];
   const parts: string[] = [];
-  parts.push(`<polygon points="${apex.join(',')} ${cx - rx},${botY} ${cx + rx},${botY}" fill="${COL_FILL}" stroke="none"/>`);
+  // 塗り（底面の手前のふくらみまで含める）
+  parts.push(`<path d="M${apex[0]},${apex[1]} L${cx - rx},${botY} A${rx},${ry} 0 0 0 ${cx + rx},${botY} Z" fill="${COL_FILL}" stroke="none"/>`);
   parts.push(ellipseHalf(cx, botY, rx, ry, true, false));
   parts.push(ellipseHalf(cx, botY, rx, ry, false, true));
   parts.push(line(apex, [cx - rx, botY])); parts.push(line(apex, [cx + rx, botY]));
