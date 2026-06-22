@@ -1,0 +1,117 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g3-quadratic-func",
+  "topicId": "math-g3-rate-of-change",
+  "name": "変化の割合",
+  "subtitle": "一次関数との大きな違い",
+  "icon": "📊",
+  "order": 3,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": [
+      {
+        "id": "math-g3-rate-of-change-q1",
+        "question": "下のグラフは関数 $y=\\frac{1}{2}x^2$ のグラフです。$x$ が $2$ から $4$ まで増えるときの変化の割合を求めましょう。",
+        "options": ["$3$", "$6$", "$\\frac{1}{2}$", "$2$"],
+        "correctIndex": 0,
+        "explanation": "変化の割合 $=\\dfrac{y\\text{の増加量}}{x\\text{の増加量}}$ です。$x=2$ のとき $y=\\frac{1}{2}\\times2^2=2$、$x=4$ のとき $y=\\frac{1}{2}\\times4^2=8$。よって変化の割合 $=\\dfrac{8-2}{4-2}=\\dfrac{6}{2}=3$。公式 $a(p+q)=\\frac{1}{2}(2+4)=3$ でも確認できます。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "coordinate",
+          "range": 9,
+          "parabolas": [{ "a": 0.5 }],
+          "points": [
+            { "x": 2, "y": 2 },
+            { "x": 4, "y": 8 }
+          ]
+        }
+      },
+      {
+        "id": "math-g3-rate-of-change-q2",
+        "question": "下のグラフは関数 $y=x^2$ のグラフです。$x$ が $1$ から $3$ まで増えるときの変化の割合を求めましょう。",
+        "options": ["$3$", "$8$", "$4$", "$5$"],
+        "correctIndex": 2,
+        "explanation": "$x=1$ のとき $y=1^2=1$、$x=3$ のとき $y=3^2=9$。よって変化の割合 $=\\dfrac{9-1}{3-1}=\\dfrac{8}{2}=4$。公式 $a(p+q)=1\\times(1+3)=4$ と一致します。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "coordinate",
+          "range": 10,
+          "parabolas": [{ "a": 1 }],
+          "points": [
+            { "x": 1, "y": 1 },
+            { "x": 3, "y": 9 }
+          ]
+        }
+      },
+      {
+        "id": "math-g3-rate-of-change-q3",
+        "question": "下のグラフは関数 $y=2x^2$ のグラフです。$x$ が $-1$ から $2$ まで増えるときの変化の割合を求めましょう。",
+        "options": ["$6$", "$2$", "$-2$", "$3$"],
+        "correctIndex": 1,
+        "explanation": "$x=-1$ のとき $y=2\\times(-1)^2=2$、$x=2$ のとき $y=2\\times2^2=8$。よって変化の割合 $=\\dfrac{8-2}{2-(-1)}=\\dfrac{6}{3}=2$。公式 $a(p+q)=2\\times(-1+2)=2$ と一致します。原点をまたぐ区間でも求め方は同じです。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "coordinate",
+          "range": 9,
+          "parabolas": [{ "a": 2 }],
+          "points": [
+            { "x": -1, "y": 2 },
+            { "x": 2, "y": 8 }
+          ]
+        }
+      },
+      {
+        "id": "math-g3-rate-of-change-q4",
+        "question": "下のグラフは関数 $y=-x^2$ のグラフです。$x$ が $1$ から $3$ まで増えるときの変化の割合を求めましょう。",
+        "options": ["$4$", "$-8$", "$-2$", "$-4$"],
+        "correctIndex": 3,
+        "explanation": "$x=1$ のとき $y=-1^2=-1$、$x=3$ のとき $y=-3^2=-9$。よって変化の割合 $=\\dfrac{-9-(-1)}{3-1}=\\dfrac{-8}{2}=-4$。公式 $a(p+q)=-1\\times(1+3)=-4$ と一致します。$a<0$ なので変化の割合は負になります。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "coordinate",
+          "range": 10,
+          "parabolas": [{ "a": -1 }],
+          "points": [
+            { "x": 1, "y": -1 },
+            { "x": 3, "y": -9 }
+          ]
+        }
+      },
+      {
+        "id": "math-g3-rate-of-change-q5",
+        "question": "下のグラフは関数 $y=\\frac{1}{2}x^2$ のグラフです。$x$ が $-4$ から $-2$ まで増えるときの変化の割合を求めましょう。",
+        "options": ["$3$", "$-3$", "$-6$", "$-\\frac{1}{2}$"],
+        "correctIndex": 1,
+        "explanation": "$x=-4$ のとき $y=\\frac{1}{2}\\times(-4)^2=8$、$x=-2$ のとき $y=\\frac{1}{2}\\times(-2)^2=2$。よって変化の割合 $=\\dfrac{2-8}{-2-(-4)}=\\dfrac{-6}{2}=-3$。公式 $a(p+q)=\\frac{1}{2}(-4+(-2))=-3$ と一致します。負の区間では $y$ が減っていくので変化の割合は負です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "coordinate",
+          "range": 9,
+          "parabolas": [{ "a": 0.5 }],
+          "points": [
+            { "x": -4, "y": 8 },
+            { "x": -2, "y": 2 }
+          ]
+        }
+      },
+      {
+        "id": "math-g3-rate-of-change-q6",
+        "question": "下のグラフは関数 $y=-\\frac{1}{2}x^2$ のグラフです。$x$ が $-2$ から $4$ まで増えるときの変化の割合を求めましょう。",
+        "options": ["$1$", "$-3$", "$-1$", "$-2$"],
+        "correctIndex": 2,
+        "explanation": "$x=-2$ のとき $y=-\\frac{1}{2}\\times(-2)^2=-2$、$x=4$ のとき $y=-\\frac{1}{2}\\times4^2=-8$。よって変化の割合 $=\\dfrac{-8-(-2)}{4-(-2)}=\\dfrac{-6}{6}=-1$。公式 $a(p+q)=-\\frac{1}{2}(-2+4)=-1$ と一致します。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "coordinate",
+          "range": 9,
+          "parabolas": [{ "a": -0.5 }],
+          "points": [
+            { "x": -2, "y": -2 },
+            { "x": 4, "y": -8 }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -41,13 +41,15 @@ const PUBLIC_BASE = 'https://www.chatstudy.jp/graphs';
 const CHECK_ONLY = process.argv.includes('--check');
 
 type LineSpec = { a: number; b?: number; label?: string };
-type CurveSpec = { a: number; label?: string };
+type CurveSpec = { a: number; label?: string }; // 双曲線 y = a/x
+type ParabolaSpec = { a: number; label?: string }; // 放物線 y = a x^2
 type PointSpec = { x: number; y: number; label?: string; open?: boolean };
 interface CoordImage {
   kind: 'coordinate';
   range?: number;
   lines?: LineSpec[];
   curves?: CurveSpec[];
+  parabolas?: ParabolaSpec[];
   points?: PointSpec[];
 }
 
@@ -61,6 +63,7 @@ const COL_GRID = '#E5E7EB';
 const COL_AXIS = '#374151';
 const COL_LINE = '#1D3557'; // 直線（青系）
 const COL_CURVE = '#E63946'; // 双曲線（赤系）
+const COL_PARABOLA = '#2E7D32'; // 放物線（緑系）
 const COL_POINT = '#1D3557';
 const COL_TEXT = '#374151';
 
@@ -150,6 +153,27 @@ function buildSvg(img: CoordImage): string {
     if (cv.label) {
       parts.push(
         `<text x="${(SIZE - PAD - 4).toFixed(1)}" y="${(PAD + 14).toFixed(1)}" font-size="13" fill="${COL_CURVE}" font-family="sans-serif" text-anchor="end">${esc(cv.label)}</text>`
+      );
+    }
+  }
+
+  // 放物線 y = a x^2
+  for (const pb of img.parabolas ?? []) {
+    const seg: string[] = [];
+    const step = 0.04;
+    for (let x = -R; x <= R + 1e-9; x += step) {
+      const y = pb.a * x * x;
+      if (y < -R || y > R) continue;
+      seg.push(`${X(x).toFixed(1)},${Y(y).toFixed(1)}`);
+    }
+    if (seg.length >= 2) {
+      parts.push(
+        `<polyline points="${seg.join(' ')}" fill="none" stroke="${COL_PARABOLA}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>`
+      );
+    }
+    if (pb.label) {
+      parts.push(
+        `<text x="${(SIZE - PAD - 4).toFixed(1)}" y="${(PAD + 14).toFixed(1)}" font-size="13" fill="${COL_PARABOLA}" font-family="sans-serif" text-anchor="end">${esc(pb.label)}</text>`
       );
     }
   }

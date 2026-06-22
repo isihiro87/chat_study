@@ -1,0 +1,399 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g2-linear-func",
+  "topicId": "math-g2-slope-intercept",
+  "name": "グラフの傾きと切片",
+  "subtitle": "グラフの読み方・かき方",
+  "icon": "📐",
+  "order": 2,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": [
+      {
+        "id": "math-g2-slope-intercept-q1",
+        "question": "一次関数 $y = 3x - 4$ の傾きと切片の組はどれですか。",
+        "options": [
+          "傾き $-4$、切片 $3$",
+          "傾き $3$、切片 $-4$",
+          "傾き $3$、切片 $4$",
+          "傾き $-3$、切片 $-4$"
+        ],
+        "correctIndex": 1,
+        "explanation": "一次関数 $y = ax + b$ では $a$ が傾き、$b$ が切片。\n$y = 3x - 4$ なので傾きは $3$、切片は $-4$。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-slope-intercept-q2",
+        "question": "一次関数 $y = -2x + 5$ の傾きと切片の組はどれですか。",
+        "options": [
+          "傾き $5$、切片 $-2$",
+          "傾き $2$、切片 $5$",
+          "傾き $-2$、切片 $5$",
+          "傾き $-2$、切片 $-5$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$y = ax + b$ で $a$ が傾き、$b$ が切片。\n$y = -2x + 5$ なので傾きは $-2$、切片は $5$。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-slope-intercept-q3",
+        "question": "一次関数 $y = \\frac{2}{3}x - 1$ の傾きはいくつですか。",
+        "options": [
+          "$-1$",
+          "$\\frac{3}{2}$",
+          "$-\\frac{2}{3}$",
+          "$\\frac{2}{3}$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$y = ax + b$ の $a$ が傾き。$y = \\frac{2}{3}x - 1$ なので傾きは $\\frac{2}{3}$。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-slope-intercept-q4",
+        "question": "一次関数 $y = 4x + 6$ の切片はいくつですか。",
+        "options": [
+          "$6$",
+          "$4$",
+          "$-6$",
+          "$10$"
+        ],
+        "correctIndex": 0,
+        "explanation": "切片は $y = ax + b$ の $b$。$y = 4x + 6$ なので切片は $6$。\n切片はグラフが $y$ 軸と交わる点の $y$ 座標を表す。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-slope-intercept-q5",
+        "question": "傾きについての説明で正しいものはどれですか。",
+        "options": [
+          "グラフが $y$ 軸と交わる点の $y$ 座標を表す",
+          "$x$ が1増えるときの $y$ の増加量を表す",
+          "$y$ が1増えるときの $x$ の増加量を表す",
+          "グラフが $x$ 軸と交わる点の $x$ 座標を表す"
+        ],
+        "correctIndex": 1,
+        "explanation": "傾き $a$ は変化の割合に等しく、「$x$ が1増えるときの $y$ の増加量」を表す。\nグラフが $y$ 軸と交わる点の $y$ 座標を表すのは切片。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-slope-intercept-q6",
+        "question": "一次関数 $y = -\\frac{1}{2}x + 3$ の傾きと切片の組はどれですか。",
+        "options": [
+          "傾き $3$、切片 $-\\frac{1}{2}$",
+          "傾き $\\frac{1}{2}$、切片 $3$",
+          "傾き $-\\frac{1}{2}$、切片 $3$",
+          "傾き $-\\frac{1}{2}$、切片 $-3$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$y = ax + b$ より傾きは $a = -\\frac{1}{2}$、切片は $b = 3$。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-slope-intercept-q7",
+        "question": "次の2直線のうち、たがいに平行であるものの組はどれですか。",
+        "options": [
+          "$y = 2x + 1$ と $y = -2x + 1$",
+          "$y = 3x + 2$ と $y = 2x + 2$",
+          "$y = x + 4$ と $y = 4x + 1$",
+          "$y = 2x + 1$ と $y = 2x - 3$"
+        ],
+        "correctIndex": 3,
+        "explanation": "2直線が平行になるのは傾きが等しいとき。\n$y = 2x + 1$ と $y = 2x - 3$ はどちらも傾きが $2$ なので平行。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-slope-intercept-q8",
+        "question": "直線 $y = -3x + 2$ に平行で、切片が $5$ の直線の式はどれですか。",
+        "options": [
+          "$y = -3x + 5$",
+          "$y = 3x + 5$",
+          "$y = -3x + 2$",
+          "$y = 5x - 3$"
+        ],
+        "correctIndex": 0,
+        "explanation": "平行な直線は傾きが等しいので傾きは $-3$。切片が $5$ なので $y = -3x + 5$。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-slope-intercept-q9",
+        "question": "傾きが正（$a > 0$）の一次関数のグラフはどんな直線ですか。",
+        "options": [
+          "右下がりの直線",
+          "右上がりの直線",
+          "$x$ 軸に平行な直線",
+          "$y$ 軸に平行な直線"
+        ],
+        "correctIndex": 1,
+        "explanation": "傾きが正のとき、$x$ が増えると $y$ も増えるので、グラフは右上がりの直線になる。\n傾きが負なら右下がりになる。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-slope-intercept-q10",
+        "question": "傾きが負（$a < 0$）の一次関数のグラフはどんな直線ですか。",
+        "options": [
+          "右上がりの直線",
+          "$x$ 軸に平行な直線",
+          "右下がりの直線",
+          "原点を通る直線"
+        ],
+        "correctIndex": 2,
+        "explanation": "傾きが負のとき、$x$ が増えると $y$ は減るので、グラフは右下がりの直線になる。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-slope-intercept-q11",
+        "question": "一次関数 $y = 2x - 3$ のグラフは、比例 $y = 2x$ のグラフをどのように平行移動したものですか。",
+        "options": [
+          "$y$ 軸の正の方向に3だけ移動",
+          "$x$ 軸の正の方向に3だけ移動",
+          "$x$ 軸の負の方向に3だけ移動",
+          "$y$ 軸の負の方向に3だけ移動"
+        ],
+        "correctIndex": 3,
+        "explanation": "$y = 2x - 3$ は $y = 2x$ のグラフを、切片の分だけ $y$ 軸方向に移動したもの。切片が $-3$ なので、$y$ 軸の負の方向に3だけ平行移動した直線になる。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-slope-intercept-q12",
+        "question": "一次関数 $y = -3x + 1$ のグラフ上で、$x$ が2増えると $y$ はどれだけ変化しますか。",
+        "options": [
+          "$6$ 減少する",
+          "$6$ 増加する",
+          "$3$ 減少する",
+          "$2$ 減少する"
+        ],
+        "correctIndex": 0,
+        "explanation": "傾きが $-3$ なので、$x$ が1増えると $y$ は3減る。$x$ が2増えると $y$ は $-3 \\times 2 = -6$、つまり6減少する。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-slope-intercept-q13",
+        "question": "傾きが $\\frac{3}{4}$ の直線では、$x$ が4増えると $y$ はどれだけ増えますか。",
+        "options": [
+          "$4$",
+          "$3$",
+          "$\\frac{3}{4}$",
+          "$7$"
+        ],
+        "correctIndex": 1,
+        "explanation": "傾き $\\frac{3}{4}$ は「$x$ が4増えると $y$ が3増える」という意味。よって $y$ は3増える。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-slope-intercept-q14",
+        "question": "切片が同じで傾きが異なる2つの一次関数のグラフについて、正しいものはどれですか。",
+        "options": [
+          "たがいに平行になる",
+          "$x$ 軸上の同じ点を通る",
+          "$y$ 軸上の同じ点を通る",
+          "必ず原点を通る"
+        ],
+        "correctIndex": 2,
+        "explanation": "切片はグラフが $y$ 軸と交わる点の $y$ 座標。切片が同じなら、$y$ 軸上の同じ点を通る。傾きが違うので平行にはならない。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-slope-intercept-q15",
+        "question": "一次関数 $y = 5x + 2$ で、傾きが表す意味として正しいものはどれですか。",
+        "options": [
+          "$x$ が1増えると $y$ が2増える",
+          "$x$ が5増えると $y$ が1増える",
+          "グラフが $y$ 軸と $(0, 5)$ で交わる",
+          "$x$ が1増えると $y$ が5増える"
+        ],
+        "correctIndex": 3,
+        "explanation": "傾きは $5$ なので「$x$ が1増えると $y$ が5増える」という意味。切片は $2$ なので $y$ 軸とは $(0, 2)$ で交わる。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-slope-intercept-q16",
+        "question": "直線 $y = \\frac{1}{2}x + 4$ に平行な直線の傾きはどれですか。",
+        "options": [
+          "$\\frac{1}{2}$",
+          "$-\\frac{1}{2}$",
+          "$2$",
+          "$4$"
+        ],
+        "correctIndex": 0,
+        "explanation": "平行な直線どうしは傾きが等しい。もとの直線の傾きは $\\frac{1}{2}$ なので、平行な直線の傾きも $\\frac{1}{2}$。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-slope-intercept-q17",
+        "question": "下のグラフの直線の傾きと切片の組はどれですか。",
+        "options": [
+          "傾き $-2$、切片 $-1$",
+          "傾き $2$、切片 $-1$",
+          "傾き $2$、切片 $1$",
+          "傾き $-1$、切片 $2$"
+        ],
+        "correctIndex": 1,
+        "explanation": "グラフは $y$ 軸と $(0, -1)$ で交わるので切片は $-1$。\n$x$ が1増えると $y$ は2増えている（$(0, -1)$ から $(1, 1)$）ので傾きは $2$。\nよって傾き $2$、切片 $-1$。",
+        "difficulty": "basic",
+        "image": {
+          "kind": "coordinate",
+          "range": 6,
+          "lines": [{ "a": 2, "b": -1 }],
+          "points": [
+            { "x": 0, "y": -1, "label": "(0, -1)" },
+            { "x": 1, "y": 1, "label": "(1, 1)" }
+          ]
+        }
+      },
+      {
+        "id": "math-g2-slope-intercept-q18",
+        "question": "下のグラフの直線の傾きと切片の組はどれですか。",
+        "options": [
+          "傾き $1$、切片 $3$",
+          "傾き $-3$、切片 $1$",
+          "傾き $-1$、切片 $3$",
+          "傾き $-1$、切片 $-3$"
+        ],
+        "correctIndex": 2,
+        "explanation": "グラフは $y$ 軸と $(0, 3)$ で交わるので切片は $3$。\n$x$ が1増えると $y$ は1減っている（$(0, 3)$ から $(1, 2)$）ので傾きは $-1$。\nよって傾き $-1$、切片 $3$。",
+        "difficulty": "basic",
+        "image": {
+          "kind": "coordinate",
+          "range": 6,
+          "lines": [{ "a": -1, "b": 3 }],
+          "points": [
+            { "x": 0, "y": 3, "label": "(0, 3)" },
+            { "x": 1, "y": 2, "label": "(1, 2)" }
+          ]
+        }
+      },
+      {
+        "id": "math-g2-slope-intercept-q19",
+        "question": "下のグラフの直線の傾きはいくつですか。",
+        "options": [
+          "$2$",
+          "$\\frac{1}{2}$",
+          "$-1$",
+          "$1$"
+        ],
+        "correctIndex": 3,
+        "explanation": "グラフは $(0, 2)$ から $(2, 4)$ へ進み、$x$ が2増えると $y$ も2増えている。\n傾き $= \\frac{2}{2} = 1$。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "coordinate",
+          "range": 6,
+          "lines": [{ "a": 1, "b": 2 }],
+          "points": [
+            { "x": 0, "y": 2, "label": "(0, 2)" },
+            { "x": 2, "y": 4, "label": "(2, 4)" }
+          ]
+        }
+      },
+      {
+        "id": "math-g2-slope-intercept-q20",
+        "question": "下のグラフの直線の切片はいくつですか。",
+        "options": [
+          "$0$",
+          "$-2$",
+          "$2$",
+          "$-1$"
+        ],
+        "correctIndex": 0,
+        "explanation": "切片はグラフが $y$ 軸と交わる点の $y$ 座標。\nこの直線は原点 $(0, 0)$ を通っているので切片は $0$。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "coordinate",
+          "range": 6,
+          "lines": [{ "a": -2, "b": 0 }],
+          "points": [
+            { "x": 0, "y": 0, "label": "(0, 0)" },
+            { "x": 1, "y": -2, "label": "(1, -2)" }
+          ]
+        }
+      },
+      {
+        "id": "math-g2-slope-intercept-q21",
+        "question": "下のグラフの直線の傾きと切片の組はどれですか。",
+        "options": [
+          "傾き $2$、切片 $1$",
+          "傾き $1$、切片 $\\frac{1}{2}$",
+          "傾き $\\frac{1}{2}$、切片 $1$",
+          "傾き $-\\frac{1}{2}$、切片 $1$"
+        ],
+        "correctIndex": 2,
+        "explanation": "グラフは $y$ 軸と $(0, 1)$ で交わるので切片は $1$。\n$(0, 1)$ から $(2, 2)$ へ進み、$x$ が2増えると $y$ は1増えるので傾きは $\\frac{1}{2}$。\nよって傾き $\\frac{1}{2}$、切片 $1$。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "coordinate",
+          "range": 6,
+          "lines": [{ "a": 0.5, "b": 1 }],
+          "points": [
+            { "x": 0, "y": 1, "label": "(0, 1)" },
+            { "x": 2, "y": 2, "label": "(2, 2)" }
+          ]
+        }
+      },
+      {
+        "id": "math-g2-slope-intercept-q22",
+        "question": "下のグラフの直線の傾きと切片の組はどれですか。",
+        "options": [
+          "傾き $-3$、切片 $-2$",
+          "傾き $3$、切片 $-2$",
+          "傾き $3$、切片 $2$",
+          "傾き $-2$、切片 $3$"
+        ],
+        "correctIndex": 1,
+        "explanation": "グラフは $y$ 軸と $(0, -2)$ で交わるので切片は $-2$。\n$(0, -2)$ から $(1, 1)$ へ進み、$x$ が1増えると $y$ は3増えるので傾きは $3$。\nよって傾き $3$、切片 $-2$。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "coordinate",
+          "range": 6,
+          "lines": [{ "a": 3, "b": -2 }],
+          "points": [
+            { "x": 0, "y": -2, "label": "(0, -2)" },
+            { "x": 1, "y": 1, "label": "(1, 1)" }
+          ]
+        }
+      },
+      {
+        "id": "math-g2-slope-intercept-q23",
+        "question": "下のグラフの直線の傾きはいくつですか。",
+        "options": [
+          "$-\\frac{1}{2}$",
+          "$\\frac{1}{2}$",
+          "$-2$",
+          "$2$"
+        ],
+        "correctIndex": 0,
+        "explanation": "グラフは $(0, 3)$ から $(2, 2)$ へ進み、$x$ が2増えると $y$ は1減っている。\n傾き $= \\frac{-1}{2} = -\\frac{1}{2}$。",
+        "difficulty": "advanced",
+        "image": {
+          "kind": "coordinate",
+          "range": 6,
+          "lines": [{ "a": -0.5, "b": 3 }],
+          "points": [
+            { "x": 0, "y": 3, "label": "(0, 3)" },
+            { "x": 2, "y": 2, "label": "(2, 2)" }
+          ]
+        }
+      },
+      {
+        "id": "math-g2-slope-intercept-q24",
+        "question": "下のグラフの直線の傾きと切片の組はどれですか。",
+        "options": [
+          "傾き $-1$、切片 $3$",
+          "傾き $-1$、切片 $-3$",
+          "傾き $-3$、切片 $1$",
+          "傾き $1$、切片 $-3$"
+        ],
+        "correctIndex": 3,
+        "explanation": "グラフは $y$ 軸と $(0, -3)$ で交わるので切片は $-3$。\n$(0, -3)$ から $(2, -1)$ へ進み、$x$ が2増えると $y$ は2増えるので傾きは $1$。\nよって傾き $1$、切片 $-3$。",
+        "difficulty": "advanced",
+        "image": {
+          "kind": "coordinate",
+          "range": 6,
+          "lines": [{ "a": 1, "b": -3 }],
+          "points": [
+            { "x": 0, "y": -3, "label": "(0, -3)" },
+            { "x": 2, "y": -1, "label": "(2, -1)" }
+          ]
+        }
+      }
+    ]
+  }
+}

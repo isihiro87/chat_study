@@ -1,0 +1,99 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g3-quadratic-func",
+  "topicId": "math-g3-quad-func-range",
+  "name": "値の変化と変域",
+  "subtitle": "x=0をまたぐときに注意",
+  "icon": "↕️",
+  "order": 2,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": [
+      {
+        "id": "math-g3-quad-func-range-q1",
+        "question": "下のグラフ（$y=x^2$）で、$x$ の変域が $-2 \\leqq x \\leqq 1$ のときの $y$ の変域を求めましょう。",
+        "options": ["$0 \\leqq y \\leqq 4$", "$1 \\leqq y \\leqq 4$", "$-2 \\leqq y \\leqq 1$", "$0 \\leqq y \\leqq 1$"],
+        "correctIndex": 0,
+        "explanation": "変域 $-2 \\leqq x \\leqq 1$ は $x=0$ をふくむので、最小値は頂点の $y=0$ です。最大値は原点から遠い $x=-2$ のとき $y=(-2)^2=4$。よって $0 \\leqq y \\leqq 4$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "coordinate",
+          "range": 6,
+          "parabolas": [{ "a": 1 }],
+          "points": [{ "x": -2, "y": 4, "label": "(-2, 4)" }]
+        }
+      },
+      {
+        "id": "math-g3-quad-func-range-q2",
+        "question": "下のグラフ（$y=\\frac{1}{2}x^2$）で、$x$ の変域が $2 \\leqq x \\leqq 4$ のときの $y$ の変域を求めましょう。",
+        "options": ["$0 \\leqq y \\leqq 8$", "$2 \\leqq y \\leqq 8$", "$2 \\leqq y \\leqq 4$", "$0 \\leqq y \\leqq 4$"],
+        "correctIndex": 1,
+        "explanation": "変域 $2 \\leqq x \\leqq 4$ は $x=0$ をふくみません。$y=\\frac{1}{2}x^2$ では $x$ が大きいほど $y$ も大きいので、$x=2$ で最小 $y=\\frac{1}{2}\\times4=2$、$x=4$ で最大 $y=\\frac{1}{2}\\times16=8$。よって $2 \\leqq y \\leqq 8$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "coordinate",
+          "range": 8,
+          "parabolas": [{ "a": 0.5 }],
+          "points": [{ "x": 4, "y": 8, "label": "(4, 8)" }]
+        }
+      },
+      {
+        "id": "math-g3-quad-func-range-q3",
+        "question": "下のグラフ（$y=-x^2$）で、$x$ の変域が $-1 \\leqq x \\leqq 2$ のときの $y$ の変域を求めましょう。",
+        "options": ["$-4 \\leqq y \\leqq -1$", "$0 \\leqq y \\leqq 4$", "$-4 \\leqq y \\leqq 0$", "$-1 \\leqq y \\leqq 4$"],
+        "correctIndex": 2,
+        "explanation": "$a<0$ なので上に最大、下に最小です。変域 $-1 \\leqq x \\leqq 2$ は $x=0$ をふくむので、最大値は頂点の $y=0$。最小値は原点から遠い $x=2$ のとき $y=-(2)^2=-4$。よって $-4 \\leqq y \\leqq 0$ です。",
+        "difficulty": "hard",
+        "image": {
+          "kind": "coordinate",
+          "range": 6,
+          "parabolas": [{ "a": -1 }],
+          "points": [{ "x": 2, "y": -4, "label": "(2, -4)" }]
+        }
+      },
+      {
+        "id": "math-g3-quad-func-range-q4",
+        "question": "下のグラフ（$y=2x^2$）で、$x$ の変域が $-1 \\leqq x \\leqq 1$ のときの $y$ の変域を求めましょう。",
+        "options": ["$-2 \\leqq y \\leqq 2$", "$2 \\leqq y \\leqq 2$", "$1 \\leqq y \\leqq 2$", "$0 \\leqq y \\leqq 2$"],
+        "correctIndex": 3,
+        "explanation": "変域 $-1 \\leqq x \\leqq 1$ は $x=0$ をふくむので、最小値は頂点の $y=0$ です。最大値は $x=\\pm1$ のとき $y=2\\times1^2=2$。よって $0 \\leqq y \\leqq 2$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "coordinate",
+          "range": 6,
+          "parabolas": [{ "a": 2 }],
+          "points": [{ "x": 1, "y": 2, "label": "(1, 2)" }]
+        }
+      },
+      {
+        "id": "math-g3-quad-func-range-q5",
+        "question": "下のグラフ（$y=\\frac{1}{2}x^2$）で、$x$ の変域が $-4 \\leqq x \\leqq 2$ のときの $y$ の変域を求めましょう。",
+        "options": ["$0 \\leqq y \\leqq 8$", "$2 \\leqq y \\leqq 8$", "$0 \\leqq y \\leqq 2$", "$-4 \\leqq y \\leqq 2$"],
+        "correctIndex": 0,
+        "explanation": "変域 $-4 \\leqq x \\leqq 2$ は $x=0$ をふくむので、最小値は頂点の $y=0$ です。最大値は原点から遠い $x=-4$ のとき $y=\\frac{1}{2}\\times(-4)^2=\\frac{1}{2}\\times16=8$。よって $0 \\leqq y \\leqq 8$ です。",
+        "difficulty": "hard",
+        "image": {
+          "kind": "coordinate",
+          "range": 8,
+          "parabolas": [{ "a": 0.5 }],
+          "points": [{ "x": -4, "y": 8, "label": "(-4, 8)" }]
+        }
+      },
+      {
+        "id": "math-g3-quad-func-range-q6",
+        "question": "下のグラフ（$y=-\\frac{1}{2}x^2$）で、$x$ の変域が $2 \\leqq x \\leqq 4$ のときの $y$ の変域を求めましょう。",
+        "options": ["$-8 \\leqq y \\leqq 0$", "$-8 \\leqq y \\leqq -2$", "$2 \\leqq y \\leqq 8$", "$-2 \\leqq y \\leqq 8$"],
+        "correctIndex": 1,
+        "explanation": "変域 $2 \\leqq x \\leqq 4$ は $x=0$ をふくみません。$a<0$ で $x>0$ の範囲では $x$ が大きいほど $y$ は小さくなります。$x=2$ で最大 $y=-\\frac{1}{2}\\times4=-2$、$x=4$ で最小 $y=-\\frac{1}{2}\\times16=-8$。よって $-8 \\leqq y \\leqq -2$ です。",
+        "difficulty": "hard",
+        "image": {
+          "kind": "coordinate",
+          "range": 8,
+          "parabolas": [{ "a": -0.5 }],
+          "points": [{ "x": 4, "y": -8, "label": "(4, -8)" }]
+        }
+      }
+    ]
+  }
+}

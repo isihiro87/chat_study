@@ -1,0 +1,299 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g2-linear-func",
+  "topicId": "math-g2-linear-func-meaning",
+  "name": "一次関数の意味",
+  "subtitle": "y = ax + b の世界へ",
+  "icon": "📈",
+  "order": 1,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": [
+      {
+        "id": "math-g2-linear-func-meaning-q1",
+        "question": "次の中で、$y$ が $x$ の一次関数であるものはどれですか。",
+        "options": [
+          "$y = 3x - 5$",
+          "$y = \\frac{6}{x}$",
+          "$y = 2x^2$",
+          "$y = x^2 + 1$"
+        ],
+        "correctIndex": 0,
+        "explanation": "一次関数は $y = ax + b$（$a$、$b$ は定数、$a \\neq 0$）の形で表される。\n$y = 3x - 5$ はこの形なので一次関数。$y = \\frac{6}{x}$ は反比例、$y = 2x^2$ や $y = x^2 + 1$ は $x$ の2乗を含むので一次関数ではない。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-linear-func-meaning-q2",
+        "question": "一次関数 $y = ax + b$ で、$b = 0$ のとき $y$ は $x$ の何といえますか。",
+        "options": [
+          "$x$ に反比例する",
+          "$x$ に比例する",
+          "$x$ の2乗に比例する",
+          "定数になる"
+        ],
+        "correctIndex": 1,
+        "explanation": "$b = 0$ のとき $y = ax$ となる。これは比例の式なので、$y$ は $x$ に比例する。\n比例は一次関数の特別な場合（切片が0）といえる。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-linear-func-meaning-q3",
+        "question": "一次関数 $y = -4x + 7$ で、$x = 2$ のときの $y$ の値はいくつですか。",
+        "options": [
+          "$15$",
+          "$-15$",
+          "$-1$",
+          "$1$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$x = 2$ を代入すると $y = -4 \\times 2 + 7 = -8 + 7 = -1$。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-linear-func-meaning-q4",
+        "question": "一次関数 $y = 3x - 2$ で、$x = -3$ のときの $y$ の値はいくつですか。",
+        "options": [
+          "$7$",
+          "$-7$",
+          "$11$",
+          "$-11$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$x = -3$ を代入すると $y = 3 \\times (-3) - 2 = -9 - 2 = -11$。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-linear-func-meaning-q5",
+        "question": "一次関数 $y = 2x + 5$ の変化の割合はいくつですか。",
+        "options": [
+          "$2$",
+          "$5$",
+          "$\\frac{5}{2}$",
+          "$7$"
+        ],
+        "correctIndex": 0,
+        "explanation": "一次関数 $y = ax + b$ の変化の割合は、つねに $a$ に等しい。\n$y = 2x + 5$ では $a = 2$ なので、変化の割合は $2$。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-linear-func-meaning-q6",
+        "question": "一次関数 $y = -3x + 1$ で、$x$ の値が1増加すると $y$ の値はどう変化しますか。",
+        "options": [
+          "3増加する",
+          "3減少する",
+          "1減少する",
+          "変わらない"
+        ],
+        "correctIndex": 1,
+        "explanation": "変化の割合は $a = -3$。これは「$x$ が1増えると $y$ が $-3$ 変化する」という意味なので、$y$ は3減少する。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-linear-func-meaning-q7",
+        "question": "一次関数 $y = 4x - 3$ で、$x$ の増加量が2のときの $y$ の増加量はいくつですか。",
+        "options": [
+          "$2$",
+          "$5$",
+          "$8$",
+          "$4$"
+        ],
+        "correctIndex": 2,
+        "explanation": "（$y$ の増加量）＝（変化の割合）×（$x$ の増加量）。\n変化の割合は $4$ なので、$y$ の増加量 $= 4 \\times 2 = 8$。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-linear-func-meaning-q8",
+        "question": "一次関数 $y = -2x + 6$ で、$x$ の増加量が5のときの $y$ の増加量はいくつですか。",
+        "options": [
+          "$10$",
+          "$-4$",
+          "$-7$",
+          "$-10$"
+        ],
+        "correctIndex": 3,
+        "explanation": "（$y$ の増加量）＝（変化の割合）×（$x$ の増加量）$= -2 \\times 5 = -10$。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-linear-func-meaning-q9",
+        "question": "ある一次関数で、$x$ の増加量が3のとき $y$ の増加量が12でした。この一次関数の変化の割合はいくつですか。",
+        "options": [
+          "$4$",
+          "$3$",
+          "$9$",
+          "$36$"
+        ],
+        "correctIndex": 0,
+        "explanation": "（変化の割合）＝（$y$ の増加量）÷（$x$ の増加量）$= 12 \\div 3 = 4$。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-linear-func-meaning-q10",
+        "question": "一次関数 $y = \\frac{1}{2}x + 3$ で、$x$ の増加量が6のときの $y$ の増加量はいくつですか。",
+        "options": [
+          "$6$",
+          "$3$",
+          "$12$",
+          "$\\frac{1}{2}$"
+        ],
+        "correctIndex": 1,
+        "explanation": "（$y$ の増加量）＝（変化の割合）×（$x$ の増加量）$= \\frac{1}{2} \\times 6 = 3$。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-linear-func-meaning-q11",
+        "question": "一次関数 $y = 2x - 1$ で、$x$ の変域が $1 \\leqq x \\leqq 4$ のときの $y$ の変域はどれですか。",
+        "options": [
+          "$-1 \\leqq y \\leqq 7$",
+          "$1 \\leqq y \\leqq 4$",
+          "$1 \\leqq y \\leqq 7$",
+          "$0 \\leqq y \\leqq 8$"
+        ],
+        "correctIndex": 2,
+        "explanation": "変化の割合が正なので、$x$ が大きいほど $y$ も大きい。\n$x = 1$ のとき $y = 2 \\times 1 - 1 = 1$、$x = 4$ のとき $y = 2 \\times 4 - 1 = 7$。\nよって $y$ の変域は $1 \\leqq y \\leqq 7$。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-linear-func-meaning-q12",
+        "question": "一次関数 $y = -x + 5$ で、$x$ の変域が $-2 \\leqq x \\leqq 3$ のときの $y$ の変域はどれですか。",
+        "options": [
+          "$-2 \\leqq y \\leqq 3$",
+          "$3 \\leqq y \\leqq 7$",
+          "$2 \\leqq y \\leqq 5$",
+          "$2 \\leqq y \\leqq 7$"
+        ],
+        "correctIndex": 3,
+        "explanation": "変化の割合が負なので、$x$ が大きいほど $y$ は小さい。\n$x = -2$ のとき $y = -(-2) + 5 = 7$、$x = 3$ のとき $y = -3 + 5 = 2$。\nよって $y$ の変域は $2 \\leqq y \\leqq 7$。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-linear-func-meaning-q13",
+        "question": "一次関数 $y = ax + b$ について正しく説明しているものはどれですか。",
+        "options": [
+          "$a$、$b$ は定数で $a \\neq 0$ である",
+          "$a$ は必ず0でなければならない",
+          "$x$ と $y$ は反比例の関係にある",
+          "$b$ がないと一次関数とはいえない"
+        ],
+        "correctIndex": 0,
+        "explanation": "一次関数は $y = ax + b$（$a$、$b$ は定数、$a \\neq 0$）の形。$a = 0$ だと $y = b$ となり一次関数ではない。$b = 0$ でも $y = ax$ という一次関数（比例）なので、$b$ は0でもよい。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-linear-func-meaning-q14",
+        "question": "1辺が $x\\,\\text{cm}$ の正方形の周の長さを $y\\,\\text{cm}$ とするとき、$y$ を $x$ の式で表すとどれですか。",
+        "options": [
+          "$y = x^2$",
+          "$y = 4x$",
+          "$y = 2x$",
+          "$y = x + 4$"
+        ],
+        "correctIndex": 1,
+        "explanation": "正方形の周の長さは1辺の4倍なので $y = 4x$。これは一次関数（比例）になっている。\nなお面積なら $y = x^2$ で一次関数ではない。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-linear-func-meaning-q15",
+        "question": "水が10L入った水そうから、毎分2Lずつ水をぬくとき、$x$ 分後の水の量 $y\\,\\text{L}$ を式で表すとどれですか。",
+        "options": [
+          "$y = 2x + 10$",
+          "$y = -2x - 10$",
+          "$y = -2x + 10$",
+          "$y = 10x - 2$"
+        ],
+        "correctIndex": 2,
+        "explanation": "はじめの水の量が10Lで、毎分2L減るから $x$ 分後は $2x$ L減る。\nよって $y = 10 - 2x = -2x + 10$。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-linear-func-meaning-q16",
+        "question": "ある一次関数で、$x = 1$ のとき $y = 5$、$x = 4$ のとき $y = 14$ でした。この一次関数の変化の割合はいくつですか。",
+        "options": [
+          "$9$",
+          "$\\frac{1}{3}$",
+          "$5$",
+          "$3$"
+        ],
+        "correctIndex": 3,
+        "explanation": "（変化の割合）＝（$y$ の増加量）÷（$x$ の増加量）$= \\frac{14 - 5}{4 - 1} = \\frac{9}{3} = 3$。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-linear-func-meaning-q17",
+        "question": "下のグラフは一次関数です。変化の割合（＝傾き）はいくつですか。",
+        "options": [
+          "$2$",
+          "$-2$",
+          "$\\frac{1}{2}$",
+          "$-1$"
+        ],
+        "correctIndex": 0,
+        "explanation": "グラフは点 $(0, -1)$ と $(1, 1)$ を通り、$x$ が1増えると $y$ は2増える。\nよって変化の割合（傾き）は $2$。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "coordinate",
+          "range": 6,
+          "lines": [{ "a": 2, "b": -1 }],
+          "points": [{ "x": 0, "y": -1 }, { "x": 1, "y": 1 }]
+        }
+      },
+      {
+        "id": "math-g2-linear-func-meaning-q18",
+        "question": "下のグラフの一次関数で、$x$ が2増えると $y$ はいくつ増えますか。",
+        "options": [
+          "$1$",
+          "$2$",
+          "$4$",
+          "$3$"
+        ],
+        "correctIndex": 1,
+        "explanation": "グラフは点 $(0, 2)$ と $(1, 3)$ を通り、傾きは $1$。\n$x$ が2増えると $y$ は（傾き）×2 $= 1 \\times 2 = 2$ 増える。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "coordinate",
+          "range": 6,
+          "lines": [{ "a": 1, "b": 2 }],
+          "points": [{ "x": 0, "y": 2 }, { "x": 1, "y": 3 }]
+        }
+      },
+      {
+        "id": "math-g2-linear-func-meaning-q19",
+        "question": "下のグラフは一次関数です。変化の割合（＝傾き）はいくつですか。",
+        "options": [
+          "$1$",
+          "$3$",
+          "$-1$",
+          "$-3$"
+        ],
+        "correctIndex": 2,
+        "explanation": "グラフは点 $(0, 3)$ と $(1, 2)$ を通り、$x$ が1増えると $y$ は1減る。\nよって変化の割合（傾き）は $-1$。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "coordinate",
+          "range": 6,
+          "lines": [{ "a": -1, "b": 3 }],
+          "points": [{ "x": 0, "y": 3 }, { "x": 1, "y": 2 }]
+        }
+      },
+      {
+        "id": "math-g2-linear-func-meaning-q20",
+        "question": "下のグラフの一次関数で、$x$ が2増えると $y$ はいくつ増えますか。",
+        "options": [
+          "$2$",
+          "$6$",
+          "$3$",
+          "$4$"
+        ],
+        "correctIndex": 3,
+        "explanation": "グラフは点 $(0, -3)$ と $(1, -1)$ を通り、傾きは $2$。\n$x$ が2増えると $y$ は（傾き）×2 $= 2 \\times 2 = 4$ 増える。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "coordinate",
+          "range": 6,
+          "lines": [{ "a": 2, "b": -3 }],
+          "points": [{ "x": 0, "y": -3 }, { "x": 1, "y": -1 }]
+        }
+      }
+    ]
+  }
+}
