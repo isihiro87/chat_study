@@ -230,6 +230,238 @@
         "correctIndex": 0,
         "explanation": "∠A と ∠C は向かい合う角（対角）なので等しくなります。\nよって ∠C $=80°$ です。",
         "difficulty": "standard"
+      },
+      {
+        "question": "下の図の平行四辺形 ABCD で、∠$D=110°$ です。向かい合う角 ∠$x$ の大きさを求めましょう。",
+        "options": [
+          "70°",
+          "110°",
+          "55°",
+          "90°"
+        ],
+        "correctIndex": 1,
+        "explanation": "平行四辺形の対角は等しい。∠$x$（∠B）は ∠D の対角なので、\n$\\angle x=110°$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "parallelogram",
+          "angle": 110,
+          "vertexNames": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "angleLabels": [
+            null,
+            "x",
+            null,
+            "110°"
+          ]
+        },
+        "id": "math-g2-quadrilaterals-q18"
+      },
+      {
+        "question": "下の図の平行四辺形 ABCD で、∠$D=110°$ です。となり合う角 ∠$x$ の大きさを求めましょう。",
+        "options": [
+          "70°",
+          "110°",
+          "35°",
+          "90°"
+        ],
+        "correctIndex": 0,
+        "explanation": "平行四辺形でとなり合う角の和は $180°$。∠$x$（∠A）は ∠D ととなり合うので、\n$\\angle x=180°-110°=70°$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "parallelogram",
+          "angle": 110,
+          "vertexNames": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "angleLabels": [
+            "x",
+            null,
+            null,
+            "110°"
+          ]
+        },
+        "id": "math-g2-quadrilaterals-q19"
+      },
+      {
+        "question": "下の図の平行四辺形 ABCD で、∠$D=125°$ です。となり合う角 ∠$x$ の大きさを求めましょう。",
+        "options": [
+          "125°",
+          "65°",
+          "55°",
+          "45°"
+        ],
+        "correctIndex": 2,
+        "explanation": "平行四辺形でとなり合う角の和は $180°$。∠$x$（∠C）は ∠D ととなり合うので、\n$\\angle x=180°-125°=55°$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "parallelogram",
+          "angle": 125,
+          "vertexNames": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "angleLabels": [
+            null,
+            null,
+            "x",
+            "125°"
+          ]
+        },
+        "id": "math-g2-quadrilaterals-q20"
+      },
+      {
+        "question": "下の図の平行四辺形 ABCD で、∠$B=70°$ です。となり合う角 ∠$x$ の大きさを求めましょう。",
+        "options": [
+          "70°",
+          "55°",
+          "90°",
+          "110°"
+        ],
+        "correctIndex": 3,
+        "explanation": "平行四辺形でとなり合う角の和は $180°$。∠$x$（∠A）は ∠B ととなり合うので、\n$\\angle x=180°-70°=110°$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "parallelogram",
+          "angle": 70,
+          "vertexNames": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "angleLabels": [
+            "x",
+            "70°",
+            null,
+            null
+          ]
+        },
+        "id": "math-g2-quadrilaterals-q21"
+      },
+      {
+        "question": "下の図の平行四辺形 ABCD で、∠$D=130°$ です。となり合う角 ∠$x$ の大きさを求めましょう。",
+        "options": [
+          "50°",
+          "130°",
+          "65°",
+          "40°"
+        ],
+        "correctIndex": 0,
+        "explanation": "平行四辺形でとなり合う角の和は $180°$。∠$x$（∠A）は ∠D ととなり合うので、\n$\\angle x=180°-130°=50°$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "parallelogram",
+          "angle": 130,
+          "vertexNames": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "angleLabels": [
+            "x",
+            null,
+            null,
+            "130°"
+          ]
+        },
+        "id": "math-g2-quadrilaterals-q22"
+      },
+      {
+        "question": "下の図の平行四辺形 ABCD で、∠$D=65°$ です。向かい合う角 ∠$x$ の大きさを求めましょう。",
+        "options": [
+          "115°",
+          "65°",
+          "32.5°",
+          "130°"
+        ],
+        "correctIndex": 1,
+        "explanation": "平行四辺形の対角は等しい。∠$x$（∠B）は ∠D の対角なので、\n$\\angle x=65°$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "parallelogram",
+          "angle": 65,
+          "vertexNames": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "angleLabels": [
+            null,
+            "x",
+            null,
+            "65°"
+          ]
+        },
+        "id": "math-g2-quadrilaterals-q23"
+      },
+      {
+        "question": "下の図の平行四辺形 ABCD で、∠$B=115°$ です。となり合う角 ∠$x$ の大きさを求めましょう。",
+        "options": [
+          "115°",
+          "45°",
+          "65°",
+          "75°"
+        ],
+        "correctIndex": 2,
+        "explanation": "平行四辺形でとなり合う角の和は $180°$。∠$x$（∠C）は ∠B ととなり合うので、\n$\\angle x=180°-115°=65°$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "parallelogram",
+          "angle": 115,
+          "vertexNames": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "angleLabels": [
+            null,
+            "115°",
+            "x",
+            null
+          ]
+        },
+        "id": "math-g2-quadrilaterals-q24"
+      },
+      {
+        "question": "下の図の平行四辺形 ABCD で、∠$D=95°$ です。向かい合う角 ∠$x$ の大きさを求めましょう。",
+        "options": [
+          "85°",
+          "105°",
+          "47.5°",
+          "95°"
+        ],
+        "correctIndex": 3,
+        "explanation": "平行四辺形の対角は等しい。∠$x$（∠B）は ∠D の対角なので、\n$\\angle x=95°$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "parallelogram",
+          "angle": 95,
+          "vertexNames": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "angleLabels": [
+            null,
+            "x",
+            null,
+            "95°"
+          ]
+        },
+        "id": "math-g2-quadrilaterals-q25"
       }
     ]
   }

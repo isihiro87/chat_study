@@ -477,6 +477,360 @@
           "angleLabel": "x"
         },
         "id": "math-g2-angles-q26"
+      },
+      {
+        "id": "math-g2-angles-q27",
+        "question": "下の図で、2直線 $m$、$n$ は平行です。∠$x$ の大きさを求めましょう。",
+        "options": [
+          "63°",
+          "117°",
+          "27°",
+          "126°"
+        ],
+        "correctIndex": 0,
+        "explanation": "平行線の同位角は等しいので、$\\angle x$ は $63°$ の同位角です。\nよって $\\angle x=63°$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "parallel-lines",
+          "slant": 63,
+          "lineNames": [
+            "m",
+            "n"
+          ],
+          "labels": [
+            {
+              "at": "top",
+              "sector": "lower-left",
+              "text": "63°"
+            },
+            {
+              "at": "bottom",
+              "sector": "lower-left",
+              "text": "x"
+            }
+          ]
+        }
+      },
+      {
+        "id": "math-g2-angles-q28",
+        "question": "下の図で、2直線 $m$、$n$ は平行です。∠$x$ の大きさを求めましょう。",
+        "options": [
+          "130°",
+          "50°",
+          "40°",
+          "100°"
+        ],
+        "correctIndex": 1,
+        "explanation": "平行線の錯角は等しいので、$\\angle x$ は $50°$ の錯角です。\nよって $\\angle x=50°$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "parallel-lines",
+          "slant": 50,
+          "lineNames": [
+            "m",
+            "n"
+          ],
+          "labels": [
+            {
+              "at": "top",
+              "sector": "lower-left",
+              "text": "50°"
+            },
+            {
+              "at": "bottom",
+              "sector": "upper-right",
+              "text": "x"
+            }
+          ]
+        }
+      },
+      {
+        "id": "math-g2-angles-q29",
+        "question": "下の図で、2直線 $m$、$n$ は平行です。∠$x$ の大きさを求めましょう。",
+        "options": [
+          "72°",
+          "144°",
+          "108°",
+          "118°"
+        ],
+        "correctIndex": 2,
+        "explanation": "平行線の同じ側にある内角（同側内角）の和は $180°$ です。\n$\\angle x=180°-72°=108°$ です。",
+        "difficulty": "advanced",
+        "image": {
+          "kind": "parallel-lines",
+          "slant": 72,
+          "lineNames": [
+            "m",
+            "n"
+          ],
+          "labels": [
+            {
+              "at": "top",
+              "sector": "lower-left",
+              "text": "72°"
+            },
+            {
+              "at": "bottom",
+              "sector": "upper-left",
+              "text": "x"
+            }
+          ]
+        }
+      },
+      {
+        "id": "math-g2-angles-q30",
+        "question": "下の図で、2直線 $m$、$n$ は平行です。∠$x$ の大きさを求めましょう。",
+        "options": [
+          "50°",
+          "100°",
+          "65°",
+          "130°"
+        ],
+        "correctIndex": 3,
+        "explanation": "平行線の同位角は等しいので、$\\angle x$ は $130°$ の同位角です。\nよって $\\angle x=130°$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "parallel-lines",
+          "slant": 50,
+          "lineNames": [
+            "m",
+            "n"
+          ],
+          "labels": [
+            {
+              "at": "top",
+              "sector": "lower-right",
+              "text": "130°"
+            },
+            {
+              "at": "bottom",
+              "sector": "lower-right",
+              "text": "x"
+            }
+          ]
+        }
+      },
+      {
+        "id": "math-g2-angles-q31",
+        "question": "下の図で、2直線 $m$、$n$ は平行です。∠$x$ の大きさを求めましょう。",
+        "options": [
+          "118°",
+          "62°",
+          "59°",
+          "124°"
+        ],
+        "correctIndex": 0,
+        "explanation": "平行線の錯角は等しいので、$\\angle x$ は $118°$ の錯角です。\nよって $\\angle x=118°$ です。",
+        "difficulty": "advanced",
+        "image": {
+          "kind": "parallel-lines",
+          "slant": 62,
+          "lineNames": [
+            "m",
+            "n"
+          ],
+          "labels": [
+            {
+              "at": "top",
+              "sector": "lower-right",
+              "text": "118°"
+            },
+            {
+              "at": "bottom",
+              "sector": "upper-left",
+              "text": "x"
+            }
+          ]
+        }
+      },
+      {
+        "id": "math-g2-angles-q32",
+        "question": "下の図の三角形で、∠$x$ の大きさを求めましょう。",
+        "options": [
+          "60°",
+          "70°",
+          "50°",
+          "110°"
+        ],
+        "correctIndex": 1,
+        "explanation": "三角形の内角の和は $180°$ です。\n$\\angle x=180°-50°-60°=70°$ です。",
+        "difficulty": "basic",
+        "image": {
+          "kind": "triangle",
+          "angles": [
+            70,
+            50,
+            60
+          ],
+          "vertexNames": [
+            "A",
+            "B",
+            "C"
+          ],
+          "angleLabels": [
+            "x",
+            "50°",
+            "60°"
+          ]
+        }
+      },
+      {
+        "id": "math-g2-angles-q33",
+        "question": "下の図の直角三角形で、∠$x$ の大きさを求めましょう。",
+        "options": [
+          "55°",
+          "45°",
+          "35°",
+          "65°"
+        ],
+        "correctIndex": 2,
+        "explanation": "三角形の内角の和は $180°$ です。\n$\\angle x=180°-90°-55°=35°$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "triangle",
+          "angles": [
+            90,
+            35,
+            55
+          ],
+          "vertexNames": [
+            "A",
+            "B",
+            "C"
+          ],
+          "angleLabels": [
+            "90°",
+            "x",
+            "55°"
+          ]
+        }
+      },
+      {
+        "id": "math-g2-angles-q34",
+        "question": "下の図で、∠$x$ は三角形の外角です。∠$x$ の大きさを求めましょう。",
+        "options": [
+          "115°",
+          "95°",
+          "75°",
+          "105°"
+        ],
+        "correctIndex": 3,
+        "explanation": "三角形の外角は、それととなり合わない2つの内角の和に等しくなります。\n$\\angle x=65°+40°=105°$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "triangle",
+          "angles": [
+            65,
+            40,
+            75
+          ],
+          "vertexNames": [
+            "A",
+            "B",
+            "C"
+          ],
+          "angleLabels": [
+            "65°",
+            "40°",
+            null
+          ],
+          "exterior": {
+            "at": "C",
+            "text": "x"
+          }
+        }
+      },
+      {
+        "id": "math-g2-angles-q35",
+        "question": "下の図で、∠$x$ は三角形の外角です。∠$x$ の大きさを求めましょう。",
+        "options": [
+          "127°",
+          "117°",
+          "53°",
+          "107°"
+        ],
+        "correctIndex": 0,
+        "explanation": "三角形の外角は、それととなり合わない2つの内角の和に等しくなります。\n$\\angle x=55°+72°=127°$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "triangle",
+          "angles": [
+            55,
+            72,
+            53
+          ],
+          "vertexNames": [
+            "A",
+            "B",
+            "C"
+          ],
+          "angleLabels": [
+            "55°",
+            "72°",
+            null
+          ],
+          "exterior": {
+            "at": "C",
+            "text": "x"
+          }
+        }
+      },
+      {
+        "id": "math-g2-angles-q36",
+        "question": "下の図は正八角形です。1つの内角 ∠$x$ の大きさを求めましょう。",
+        "options": [
+          "120°",
+          "135°",
+          "144°",
+          "108°"
+        ],
+        "correctIndex": 1,
+        "explanation": "正八角形の内角の和は $180°\\times(8-2)=1080°$ です。\n1つの内角は $1080°\\div8=135°$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "polygon",
+          "n": 8,
+          "markAngle": true,
+          "angleLabel": "x"
+        }
+      },
+      {
+        "id": "math-g2-angles-q37",
+        "question": "下の図は正十角形です。1つの内角 ∠$x$ の大きさを求めましょう。",
+        "options": [
+          "135°",
+          "150°",
+          "144°",
+          "120°"
+        ],
+        "correctIndex": 2,
+        "explanation": "正十角形の内角の和は $180°\\times(10-2)=1440°$ です。\n1つの内角は $1440°\\div10=144°$ です。",
+        "difficulty": "advanced",
+        "image": {
+          "kind": "polygon",
+          "n": 10,
+          "markAngle": true,
+          "angleLabel": "x"
+        }
+      },
+      {
+        "id": "math-g2-angles-q38",
+        "question": "下の図は正十二角形です。1つの内角 ∠$x$ の大きさを求めましょう。",
+        "options": [
+          "135°",
+          "144°",
+          "120°",
+          "150°"
+        ],
+        "correctIndex": 3,
+        "explanation": "正十二角形の内角の和は $180°\\times(12-2)=1800°$ です。\n1つの内角は $1800°\\div12=150°$ です。",
+        "difficulty": "advanced",
+        "image": {
+          "kind": "polygon",
+          "n": 12,
+          "markAngle": true,
+          "angleLabel": "x"
+        }
       }
     ]
   }

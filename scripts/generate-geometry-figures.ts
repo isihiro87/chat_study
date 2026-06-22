@@ -58,7 +58,7 @@ const COL_ANGLE = '#E63946'; // 角の弧・ラベル（赤系）
 const COL_TEXT = '#374151';
 const COL_AUX = '#9CA3AF'; // 補助線
 
-const GEOM_KINDS = new Set(['triangle', 'sector', 'parallel-lines', 'polygon', 'circle']);
+const GEOM_KINDS = new Set(['triangle', 'sector', 'parallel-lines', 'polygon', 'circle', 'parallelogram']);
 
 function esc(s: string): string {
   return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -304,6 +304,53 @@ function buildParallel(img: any): string {
   return wrap(parts.join(''));
 }
 
+// ---------- parallelogram ----------
+function buildParallelogram(img: any): string {
+  const th = (img.angle as number) ?? 110; // 頂点Dの内角
+  const base = 1.5, side = 1.05;
+  // D(左下), C(右下), A(左上), B(右上)
+  const raw: Record<string, [number, number]> = {
+    D: [0, 0], C: [base, 0],
+    A: [side * Math.cos(rad(th)), side * Math.sin(rad(th))],
+    B: [base + side * Math.cos(rad(th)), side * Math.sin(rad(th))],
+  };
+  const order = ['A', 'B', 'C', 'D'];
+  const xs = order.map((k) => raw[k][0]), ys = order.map((k) => raw[k][1]);
+  const minX = Math.min(...xs), maxX = Math.max(...xs), minY = Math.min(...ys), maxY = Math.max(...ys);
+  const pad = 60;
+  const scale = Math.min((SIZE - 2 * pad) / (maxX - minX), (SIZE - 2 * pad) / (maxY - minY));
+  const w = (maxX - minX) * scale, h = (maxY - minY) * scale;
+  const ox = (SIZE - w) / 2, oy = (SIZE - h) / 2;
+  const T = (p: [number, number]): [number, number] => [ox + (p[0] - minX) * scale, oy + h - (p[1] - minY) * scale];
+  const P: Record<string, [number, number]> = { A: T(raw.A), B: T(raw.B), C: T(raw.C), D: T(raw.D) };
+  const cen: [number, number] = [(P.A[0] + P.B[0] + P.C[0] + P.D[0]) / 4, (P.A[1] + P.B[1] + P.C[1] + P.D[1]) / 4];
+  const parts: string[] = [];
+  parts.push(`<polygon points="${order.map((k) => `${P[k][0].toFixed(1)},${P[k][1].toFixed(1)}`).join(' ')}" fill="${COL_FILL}" stroke="${COL_SHAPE}" stroke-width="2.5" stroke-linejoin="round"/>`);
+  const nb: Record<string, [string, string]> = { A: ['B', 'D'], B: ['A', 'C'], C: ['B', 'D'], D: ['A', 'C'] };
+  const labels = img.angleLabels as (string | null)[] | undefined;
+  order.forEach((k, i) => {
+    const lab = labels && labels[i];
+    if (!lab) return;
+    const v = P[k], n = nb[k];
+    const arc = angleArc(v, P[n[0]], P[n[1]], 24);
+    parts.push(arc.path);
+    parts.push(svgText(v[0] + 40 * Math.cos(arc.mid), v[1] + 40 * Math.sin(arc.mid), lab, { fill: COL_ANGLE, weight: 'bold', size: 16 }));
+  });
+  const vn = img.vertexNames as string[] | undefined;
+  if (vn) order.forEach((k, i) => {
+    if (!vn[i]) return;
+    const v = P[k], dir = [v[0] - cen[0], v[1] - cen[1]], len = Math.hypot(dir[0], dir[1]) || 1;
+    parts.push(svgText(v[0] + (dir[0] / len) * 16, v[1] + (dir[1] / len) * 16, vn[i], { weight: 'bold', size: 15, fill: COL_SHAPE }));
+  });
+  for (const s of img.sideLabels || []) {
+    const a = s.between[0], b = s.between[1];
+    const m: [number, number] = [(P[a][0] + P[b][0]) / 2, (P[a][1] + P[b][1]) / 2];
+    const dir = [m[0] - cen[0], m[1] - cen[1]], len = Math.hypot(dir[0], dir[1]) || 1;
+    parts.push(svgText(m[0] + (dir[0] / len) * 15, m[1] + (dir[1] / len) * 15, s.text, { size: 13, fill: COL_SHAPE }));
+  }
+  return wrap(parts.join(''));
+}
+
 // ---------- polygon ----------
 function buildPolygon(img: any): string {
   const n = img.n as number;
@@ -332,6 +379,7 @@ function build(img: any): string {
     case 'sector': return buildSector(img);
     case 'circle': return buildCircle(img);
     case 'parallel-lines': return buildParallel(img);
+    case 'parallelogram': return buildParallelogram(img);
     case 'polygon': return buildPolygon(img);
     default: throw new Error('unknown kind: ' + img.kind);
   }
