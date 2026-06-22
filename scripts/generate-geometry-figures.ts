@@ -137,11 +137,13 @@ function buildTriangle(img: any): string {
     const lab = labels && labels[i];
     if (!lab) return;
     const v = P[k], n = neighbor[k];
-    const arc = angleArc(v, P[n[0]], P[n[1]], 23);
+    // 狭い角ほど弧を大きめに（小さく見えるのを防ぐ）
+    const ang = (img.angles as number[])[i];
+    const arcR = ang < 45 ? 34 : ang < 70 ? 30 : 26;
+    const arc = angleArc(v, P[n[0]], P[n[1]], arcR);
     parts.push(arc.path);
     // 狭い角ほどラベルを内側へ深く置く（辺との重なり回避）
-    const ang = (img.angles as number[])[i];
-    const lr = ang < 50 ? 50 : 42;
+    const lr = ang < 50 ? 54 : 44;
     const lx = v[0] + lr * Math.cos(arc.mid), ly = v[1] + lr * Math.sin(arc.mid);
     parts.push(svgText(lx, ly, lab, { fill: COL_ANGLE, weight: 'bold', size: 17 }));
   });
@@ -277,22 +279,27 @@ function buildParallel(img: any): string {
     left: 180 - slant / 2,
     bottom: (180 - slant) / 2,
   };
-  // 画面座標：上方向が負yなので、数学角→画面は y を反転
-  const ACUTE = new Set(['lower-left', 'upper-right', 'top', 'bottom']);
+  // 角を作る実際の2本（水平線の左/右 と 横断線の上/下）から弧と二等分線を決める。
+  const tDown: [number, number] = [u[0], u[1]]; // 横断線・下向き
+  const tUp: [number, number] = [-u[0], -u[1]]; // 横断線・上向き
+  const hLeft: [number, number] = [-1, 0];
+  const hRight: [number, number] = [1, 0];
+  const sectorRays: Record<string, [[number, number], [number, number]]> = {
+    'lower-left': [hLeft, tDown], 'lower-right': [hRight, tDown], 'upper-left': [hLeft, tUp], 'upper-right': [hRight, tUp],
+    top: [hLeft, tDown], right: [hRight, tDown], left: [hLeft, tUp], bottom: [hRight, tUp],
+  };
   for (const lb of img.labels || []) {
     const v = lb.at === 'top' ? Ptop : Pbot;
-    const beta = sectorDir[lb.sector as string] ?? 0; // 二等分線（数学角）
-    const half = (ACUTE.has(lb.sector as string) ? slant : 180 - slant) / 2;
-    // 角の弧（二等分線をはさむ両側の境界ray間）
-    const p1: [number, number] = [v[0] + Math.cos(rad(beta - half)), v[1] - Math.sin(rad(beta - half))];
-    const p2: [number, number] = [v[0] + Math.cos(rad(beta + half)), v[1] - Math.sin(rad(beta + half))];
-    const arc = angleArc(v, p1, p2, 20);
-    parts.push(arc.path);
-    // ラベルは二等分線方向に十分離して（直線と重ならない位置に）置く
-    const rr = 44;
-    const lx = v[0] + rr * Math.cos(rad(beta));
-    const ly = v[1] - rr * Math.sin(rad(beta));
-    parts.push(svgText(lx, ly, lb.text, { fill: COL_ANGLE, weight: 'bold', size: 17 }));
+    const [r1, r2] = sectorRays[lb.sector as string] || [hRight, tDown];
+    // 弧は2本のray方向の点をとって描く（実際の角に一致）
+    const arcR = 24;
+    const p1: [number, number] = [v[0] + r1[0] * 40, v[1] + r1[1] * 40];
+    const p2: [number, number] = [v[0] + r2[0] * 40, v[1] + r2[1] * 40];
+    parts.push(angleArc(v, p1, p2, arcR).path);
+    // 二等分線方向（2 ray の単位ベクトルの和）にラベルを離して置く
+    let bx = r1[0] + r2[0], by = r1[1] + r2[1];
+    const bl = Math.hypot(bx, by) || 1; bx /= bl; by /= bl;
+    parts.push(svgText(v[0] + bx * 46, v[1] + by * 46, lb.text, { fill: COL_ANGLE, weight: 'bold', size: 17 }));
   }
   return wrap(parts.join(''));
 }
