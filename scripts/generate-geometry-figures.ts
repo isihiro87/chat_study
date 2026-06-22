@@ -212,13 +212,23 @@ function buildSector(img: any): string {
   const a1: [number, number] = [O[0] + r2 * Math.cos(rad(s0)), O[1] - r2 * Math.sin(rad(s0))];
   const a2: [number, number] = [O[0] + r2 * Math.cos(rad(s0 + a)), O[1] - r2 * Math.sin(rad(s0 + a))];
   parts.push(`<path d="M${a1[0].toFixed(1)},${a1[1].toFixed(1)} A${r2},${r2} 0 ${large} 0 ${a2[0].toFixed(1)},${a2[1].toFixed(1)}" fill="none" stroke="${COL_ANGLE}" stroke-width="2"/>`);
-  if (img.angleLabel) parts.push(svgText(O[0], O[1] - (r2 + 18), img.angleLabel, { fill: COL_ANGLE, weight: 'bold', size: 16 }));
+  if (img.angleLabel) {
+    // 中心角が狭いと「真上＝くさびの内側」に置くと重なるので、外側（左ななめ下）へ出す
+    if (a < 70) {
+      const dir = s0 + a + 26; // 左側の半径よりさらに外側
+      const rr = r2 + 26;
+      parts.push(svgText(O[0] + rr * Math.cos(rad(dir)), O[1] - rr * Math.sin(rad(dir)), img.angleLabel, { fill: COL_ANGLE, weight: 'bold', size: 16 }));
+    } else {
+      parts.push(svgText(O[0], O[1] - (r2 + 18), img.angleLabel, { fill: COL_ANGLE, weight: 'bold', size: 16 }));
+    }
+  }
   if (img.radiusLabel) {
-    // 半径ラベルは半径の中ほど＋扇の外側へ垂直オフセット（中心角の弧と離す）
+    // 半径ラベルは半径の中ほど＋扇の外側へ垂直オフセット（半径線・弧と離す）。狭い扇ほど離す。
     const u: [number, number] = [(p1[0] - O[0]) / R, (p1[1] - O[1]) / R];
     const nrm: [number, number] = [-u[1], u[0]]; // 扇の外側（右半径の右どなり）
-    const base: [number, number] = [O[0] + u[0] * R * 0.58, O[1] + u[1] * R * 0.58];
-    parts.push(svgText(base[0] + nrm[0] * 18, base[1] + nrm[1] * 18, img.radiusLabel, { size: 14, fill: COL_SHAPE }));
+    const off = a < 70 ? 30 : 20;
+    const base: [number, number] = [O[0] + u[0] * R * 0.55, O[1] + u[1] * R * 0.55];
+    parts.push(svgText(base[0] + nrm[0] * off, base[1] + nrm[1] * off, img.radiusLabel, { size: 14, fill: COL_SHAPE }));
   }
   parts.push(svgText(O[0] - 10, O[1] + 12, 'O', { size: 14, fill: COL_SHAPE, weight: 'bold' }));
   return wrap(parts.join(''));
