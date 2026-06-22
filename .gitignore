@@ -57,3 +57,6 @@ src/data/subjects/fe-exam/contents/*.pdf
 
 # math graph debug SVGs (PNGs are the served assets)
 public/graphs/*.svg
+
+# 図の一括確認用シート（一時ファイル）
+_figure-review.png
