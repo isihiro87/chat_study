@@ -54,3 +54,6 @@ src/data/subjects/fe-exam/contents/*.pdf
 
 # Claude Code runtime locks
 .claude/scheduled_tasks.lock
+
+# math graph debug SVGs (PNGs are the served assets)
+public/graphs/*.svg

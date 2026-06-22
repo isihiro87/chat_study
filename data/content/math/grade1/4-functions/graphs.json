@@ -219,7 +219,7 @@
         "difficulty": "advanced"
       },
       {
-        "question": "右のグラフは比例 $y=ax$ のグラフです。比例定数 $a$ を求めましょう。",
+        "question": "下のグラフは比例 $y=ax$ のグラフです。比例定数 $a$ を求めましょう。",
         "options": [
           "$a=2$",
           "$a=\\frac{1}{2}$",
@@ -248,7 +248,7 @@
         "id": "math-g1-graphs-q17"
       },
       {
-        "question": "右のグラフが表す式はどれですか。",
+        "question": "下のグラフが表す式はどれですか。",
         "options": [
           "$y=-x$",
           "$y=x$",
@@ -277,7 +277,7 @@
         "id": "math-g1-graphs-q18"
       },
       {
-        "question": "右のグラフの点 $A$ の座標を答えましょう。",
+        "question": "下のグラフの点 $A$ の座標を答えましょう。",
         "options": [
           "$(3, -2)$",
           "$(-2, 3)$",
@@ -301,7 +301,7 @@
         "id": "math-g1-graphs-q19"
       },
       {
-        "question": "右のグラフは反比例のグラフです。式を求めましょう。",
+        "question": "下のグラフは反比例のグラフです。式を求めましょう。",
         "options": [
           "$y=\\frac{6}{x}$",
           "$y=\\frac{x}{6}$",
@@ -328,6 +328,220 @@
           ]
         },
         "id": "math-g1-graphs-q20"
+      },
+      {
+        "id": "math-g1-graphs-q21",
+        "question": "下のグラフの点 $A$ の座標を答えましょう。",
+        "options": [
+          "$(-3, 4)$",
+          "$(4, -3)$",
+          "$(3, -4)$",
+          "$(-4, 3)$"
+        ],
+        "correctIndex": 0,
+        "explanation": "点 $A$ は $x$ 座標が $-3$、$y$ 座標が $4$ の位置にあるので、座標は $(-3, 4)$ です。",
+        "difficulty": "basic",
+        "image": {
+          "kind": "coordinate",
+          "range": 5,
+          "points": [
+            {
+              "x": -3,
+              "y": 4,
+              "label": "A"
+            }
+          ]
+        }
+      },
+      {
+        "id": "math-g1-graphs-q22",
+        "question": "下のグラフの点 $A$ は第何象限にありますか。",
+        "options": [
+          "第1象限",
+          "第3象限",
+          "第2象限",
+          "第4象限"
+        ],
+        "correctIndex": 1,
+        "explanation": "点 $A$ は $(-2, -3)$ で、$x$ 座標も $y$ 座標も負です。両方が負の点は第3象限にあります。",
+        "difficulty": "basic",
+        "image": {
+          "kind": "coordinate",
+          "range": 5,
+          "points": [
+            {
+              "x": -2,
+              "y": -3,
+              "label": "A"
+            }
+          ]
+        }
+      },
+      {
+        "id": "math-g1-graphs-q23",
+        "question": "下のグラフはどのようなグラフですか。",
+        "options": [
+          "比例のグラフ",
+          "原点を通る直線",
+          "反比例のグラフ",
+          "放物線"
+        ],
+        "correctIndex": 2,
+        "explanation": "なめらかな2つの曲線（双曲線）になっているので、反比例のグラフです。点 $(2, 3)$ を通り $xy=6$ で一定です。",
+        "difficulty": "basic",
+        "image": {
+          "kind": "coordinate",
+          "range": 7,
+          "curves": [
+            {
+              "a": 6
+            }
+          ],
+          "points": [
+            {
+              "x": 2,
+              "y": 3,
+              "label": "(2, 3)"
+            }
+          ]
+        }
+      },
+      {
+        "id": "math-g1-graphs-q24",
+        "question": "下のグラフの2直線 $\\ell$、$m$ の交点の座標を答えましょう。",
+        "options": [
+          "$(3, 2)$",
+          "$(1, 2)$",
+          "$(2, 2)$",
+          "$(2, 3)$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$\\ell$ は $y=x+1$、$m$ は $y=-x+5$ です。$x+1=-x+5$ より $2x=4$、$x=2$。このとき $y=2+1=3$ なので交点は $(2, 3)$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "coordinate",
+          "range": 7,
+          "lines": [
+            {
+              "a": 1,
+              "b": 1
+            },
+            {
+              "a": -1,
+              "b": 5
+            }
+          ]
+        }
+      },
+      {
+        "id": "math-g1-graphs-q25",
+        "question": "下のグラフが表す直線の式はどれですか。",
+        "options": [
+          "$y=2x-1$",
+          "$y=2x+1$",
+          "$y=x-1$",
+          "$y=-2x-1$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$y$ 軸との交点（切片）が $-1$、点 $(2, 3)$ を通ります。傾きは $\\frac{3-(-1)}{2-0}=2$ なので、式は $y=2x-1$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "coordinate",
+          "range": 5,
+          "lines": [
+            {
+              "a": 2,
+              "b": -1
+            }
+          ],
+          "points": [
+            {
+              "x": 2,
+              "y": 3,
+              "label": "(2, 3)"
+            }
+          ]
+        }
+      },
+      {
+        "id": "math-g1-graphs-q26",
+        "question": "下のグラフの点 $A$ の座標を答えましょう。",
+        "options": [
+          "$(2, 4)$",
+          "$(4, 2)$",
+          "$(-4, 2)$",
+          "$(4, -2)$"
+        ],
+        "correctIndex": 1,
+        "explanation": "点 $A$ は $x$ 座標が $4$、$y$ 座標が $2$ の位置にあるので、座標は $(4, 2)$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "coordinate",
+          "range": 5,
+          "points": [
+            {
+              "x": 4,
+              "y": 2,
+              "label": "A"
+            }
+          ]
+        }
+      },
+      {
+        "id": "math-g1-graphs-q27",
+        "question": "下のグラフの2直線 $\\ell$、$m$ の交点の座標を答えましょう。",
+        "options": [
+          "$(1, 2)$",
+          "$(2, 3)$",
+          "$(2, 2)$",
+          "$(3, 2)$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$\\ell$ は $y=2x-2$、$m$ は $y=-x+4$ です。$2x-2=-x+4$ より $3x=6$、$x=2$。このとき $y=2\\times2-2=2$ なので交点は $(2, 2)$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "coordinate",
+          "range": 7,
+          "lines": [
+            {
+              "a": 2,
+              "b": -2
+            },
+            {
+              "a": -1,
+              "b": 4
+            }
+          ]
+        }
+      },
+      {
+        "id": "math-g1-graphs-q28",
+        "question": "下のグラフはどのようなグラフですか。",
+        "options": [
+          "双曲線",
+          "反比例のグラフ",
+          "$x$ 軸に平行な直線",
+          "比例のグラフ"
+        ],
+        "correctIndex": 3,
+        "explanation": "原点を通る1本の直線で、点 $(1, 1)$ を通ります。$y=x$ のように原点を通る直線は比例のグラフです。",
+        "difficulty": "advanced",
+        "image": {
+          "kind": "coordinate",
+          "range": 5,
+          "lines": [
+            {
+              "a": 1
+            }
+          ],
+          "points": [
+            {
+              "x": 1,
+              "y": 1,
+              "label": "(1, 1)"
+            }
+          ]
+        }
       }
     ]
   }

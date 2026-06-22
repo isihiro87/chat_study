@@ -1,0 +1,335 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g1-functions",
+  "topicId": "math-g1-proportion",
+  "name": "比例",
+  "subtitle": "y=axの世界を理解しよう",
+  "icon": "📈",
+  "order": 1,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": [
+      {
+        "id": "math-g1-proportion-q1",
+        "question": "「ともなって変わる2つの量 $x$、$y$ があり、$x$ の値を決めるとそれに対応して $y$ の値がただ1つに決まる」とき、$y$ は $x$ の何であるといいますか。",
+        "options": [
+          "$x$ の関数",
+          "$x$ の比例定数",
+          "$x$ の変域",
+          "$x$ の座標"
+        ],
+        "correctIndex": 0,
+        "explanation": "$x$ の値を決めると $y$ の値がただ1つに決まるとき、$y$ は $x$ の関数であるといいます。\n比例や反比例は関数の代表的な例です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-proportion-q2",
+        "question": "$y$ が $x$ に比例するとき、$x$ と $y$ の関係を表す式はどれですか。ただし $a$ は比例定数とします。",
+        "options": [
+          "$y = \\frac{a}{x}$",
+          "$y = ax$",
+          "$y = x + a$",
+          "$y = ax^2$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$y$ が $x$ に比例するとき、$y = ax$（$a$ は比例定数）の形で表されます。\n$\\frac{a}{x}$ は反比例の式です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-proportion-q3",
+        "question": "$y$ は $x$ に比例し、$x = 2$ のとき $y = 10$ です。比例定数を求めなさい。",
+        "options": [
+          "$8$",
+          "$12$",
+          "$5$",
+          "$20$"
+        ],
+        "correctIndex": 2,
+        "explanation": "比例の式 $y = ax$ に $x = 2$、$y = 10$ を代入すると $10 = a \\times 2$ より $a = 5$。\nしたがって比例定数は $5$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-proportion-q4",
+        "question": "$y$ は $x$ に比例し、$x = 3$ のとき $y = -12$ です。$y$ を $x$ の式で表しなさい。",
+        "options": [
+          "$y = 4x$",
+          "$y = -\\frac{1}{4}x$",
+          "$y = -12x$",
+          "$y = -4x$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$y = ax$ に $x = 3$、$y = -12$ を代入すると $-12 = a \\times 3$ より $a = -4$。\nよって $y = -4x$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-proportion-q5",
+        "question": "比例の式 $y = 6x$ において、$x = -2$ のときの $y$ の値を求めなさい。",
+        "options": [
+          "$12$",
+          "$-12$",
+          "$-3$",
+          "$4$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$y = 6x$ に $x = -2$ を代入すると $y = 6 \\times (-2) = -12$。\nしたがって $y = -12$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-proportion-q6",
+        "question": "次のうち、$y$ が $x$ に比例しているものはどれですか。",
+        "options": [
+          "縦 $x$ cm、横 5 cm の長方形の周の長さ $y$ cm",
+          "面積が 20 cm² の長方形の縦 $x$ cm と横 $y$ cm",
+          "1個 80 円のりんごを $x$ 個買ったときの代金 $y$ 円",
+          "12 km の道のりのうち $x$ km 進んだ残り $y$ km"
+        ],
+        "correctIndex": 2,
+        "explanation": "代金は $y = 80x$ となり比例します。\n2番目は $y = 2(x + 5)$、3番目は $y = \\frac{20}{x}$（反比例）、4番目は $y = 12 - x$ で、いずれも比例ではありません。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-proportion-q7",
+        "question": "$y$ は $x$ に比例し、$x = -4$ のとき $y = 28$ です。$x = 5$ のときの $y$ の値を求めなさい。",
+        "options": [
+          "$35$",
+          "$-7$",
+          "$20$",
+          "$-35$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$y = ax$ に $x = -4$、$y = 28$ を代入すると $28 = a \\times (-4)$ より $a = -7$。\nよって $y = -7x$ となり、$x = 5$ のとき $y = -7 \\times 5 = -35$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-proportion-q8",
+        "question": "$x$ の変域が「$-2$ 以上 5 未満」であるとき、不等号を使って正しく表したものはどれですか。",
+        "options": [
+          "$-2 \\leqq x < 5$",
+          "$-2 < x \\leqq 5$",
+          "$-2 \\leqq x \\leqq 5$",
+          "$-2 < x < 5$"
+        ],
+        "correctIndex": 0,
+        "explanation": "「以上」はその値を含むので $\\leqq$、「未満」はその値を含まないので $<$ を使います。\nよって $-2 \\leqq x < 5$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-proportion-q9",
+        "question": "「$x$ は 3 より大きく 8 以下である」を不等号を使って表したものはどれですか。",
+        "options": [
+          "$3 \\leqq x < 8$",
+          "$3 \\leqq x \\leqq 8$",
+          "$3 < x \\leqq 8$",
+          "$3 < x < 8$"
+        ],
+        "correctIndex": 2,
+        "explanation": "「3 より大きい」は 3 を含まないので $3 < x$、「8 以下」は 8 を含むので $x \\leqq 8$。\nまとめて $3 < x \\leqq 8$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-proportion-q10",
+        "question": "比例の式 $y = \\frac{3}{4}x$ において、$x = 8$ のときの $y$ の値を求めなさい。",
+        "options": [
+          "$\\frac{3}{2}$",
+          "$\\frac{32}{3}$",
+          "$11$",
+          "$6$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$y = \\frac{3}{4}x$ に $x = 8$ を代入すると $y = \\frac{3}{4} \\times 8 = 6$。\nしたがって $y = 6$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-proportion-q11",
+        "question": "$y$ は $x$ に比例し、$x = 6$ のとき $y = -10$ です。比例定数を求めなさい。",
+        "options": [
+          "$-\\frac{5}{3}$",
+          "$-\\frac{3}{5}$",
+          "$-60$",
+          "$\\frac{5}{3}$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$y = ax$ に $x = 6$、$y = -10$ を代入すると $-10 = a \\times 6$ より $a = -\\frac{10}{6} = -\\frac{5}{3}$。\nしたがって比例定数は $-\\frac{5}{3}$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-proportion-q12",
+        "question": "毎分 12 L の割合で水そうに水を入れます。$x$ 分間に入る水の量を $y$ L とするとき、$x$ と $y$ の関係を表す式はどれですか。",
+        "options": [
+          "$y = \\frac{12}{x}$",
+          "$y = 12x$",
+          "$y = x + 12$",
+          "$y = 12 - x$"
+        ],
+        "correctIndex": 1,
+        "explanation": "1分で 12 L なので、$x$ 分では $12x$ L の水が入ります。\nよって $y = 12x$ となり、$y$ は $x$ に比例します。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-proportion-q13",
+        "question": "$y$ は $x$ に比例し、$x = -3$ のとき $y = 18$ です。$x = -1$ のときの $y$ の値を求めなさい。",
+        "options": [
+          "$-6$",
+          "$54$",
+          "$-18$",
+          "$6$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$y = ax$ に $x = -3$、$y = 18$ を代入すると $18 = a \\times (-3)$ より $a = -6$。\nよって $y = -6x$ となり、$x = -1$ のとき $y = -6 \\times (-1) = 6$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-proportion-q14",
+        "question": "比例 $y = ax$ について正しく説明しているものはどれですか。",
+        "options": [
+          "$x$ の値が2倍、3倍になると、$y$ の値も2倍、3倍になる",
+          "$x$ の値が2倍になると、$y$ の値は $\\frac{1}{2}$ 倍になる",
+          "$x$ の値が増えると、$y$ の値は必ず増える",
+          "$x = 0$ のとき $y$ の値は決まらない"
+        ],
+        "correctIndex": 0,
+        "explanation": "比例では $x$ が2倍、3倍になると $y$ も2倍、3倍になります。\n$\\frac{1}{2}$ 倍になるのは反比例の性質です。また $a < 0$ なら $x$ が増えると $y$ は減ります。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-proportion-q15",
+        "question": "$y$ は $x$ に比例し、$x = 8$ のとき $y = -72$ です。$y$ を $x$ の式で表しなさい。",
+        "options": [
+          "$y = 9x$",
+          "$y = -9x$",
+          "$y = -\\frac{1}{9}x$",
+          "$y = -72x$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$y = ax$ に $x = 8$、$y = -72$ を代入すると $-72 = a \\times 8$ より $a = -9$。\nよって $y = -9x$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-proportion-q16",
+        "question": "比例 $y = \\frac{2}{5}x$ において、$y = 6$ となるときの $x$ の値を求めなさい。",
+        "options": [
+          "$\\frac{12}{5}$",
+          "$\\frac{5}{12}$",
+          "$15$",
+          "$30$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$y = \\frac{2}{5}x$ に $y = 6$ を代入すると $6 = \\frac{2}{5}x$。\n両辺に $\\frac{5}{2}$ をかけて $x = 6 \\times \\frac{5}{2} = 15$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-proportion-q17",
+        "question": "下のグラフは比例のグラフです。$y$ を $x$ の式で表しなさい。",
+        "options": [
+          "$y = 3x$",
+          "$y = \\frac{1}{3}x$",
+          "$y = -3x$",
+          "$y = x + 3$"
+        ],
+        "correctIndex": 0,
+        "explanation": "グラフは原点と点 $(1, 3)$ を通っています。\n比例の式 $y = ax$ に代入すると $3 = a \\times 1$ より $a = 3$。\nよって $y = 3x$ です。",
+        "difficulty": "basic",
+        "image": { "kind": "coordinate", "range": 6, "lines": [{ "a": 3 }], "points": [{ "x": 1, "y": 3, "label": "(1, 3)" }] }
+      },
+      {
+        "id": "math-g1-proportion-q18",
+        "question": "下のグラフは比例 $y = ax$ のグラフです。比例定数 $a$ の値を求めなさい。",
+        "options": [
+          "$1$",
+          "$2$",
+          "$4$",
+          "$\\frac{1}{2}$"
+        ],
+        "correctIndex": 1,
+        "explanation": "グラフは原点と点 $(2, 4)$ を通っています。\n$a = \\frac{y}{x} = \\frac{4}{2} = 2$。\nよって比例定数 $a$ は $2$ です。",
+        "difficulty": "basic",
+        "image": { "kind": "coordinate", "range": 6, "lines": [{ "a": 2 }], "points": [{ "x": 2, "y": 4, "label": "(2, 4)" }] }
+      },
+      {
+        "id": "math-g1-proportion-q19",
+        "question": "下のグラフが表す式はどれですか。",
+        "options": [
+          "$y = 2x$",
+          "$y = \\frac{1}{2}x$",
+          "$y = -2x$",
+          "$y = -\\frac{1}{2}x$"
+        ],
+        "correctIndex": 2,
+        "explanation": "グラフは右下がりで、原点と点 $(1, -2)$ を通っています。\n$y = ax$ に代入すると $-2 = a \\times 1$ より $a = -2$。\nよって $y = -2x$ です。",
+        "difficulty": "standard",
+        "image": { "kind": "coordinate", "range": 6, "lines": [{ "a": -2 }], "points": [{ "x": 1, "y": -2, "label": "(1, -2)" }] }
+      },
+      {
+        "id": "math-g1-proportion-q20",
+        "question": "下のグラフは比例のグラフです。$y$ を $x$ の式で表しなさい。",
+        "options": [
+          "$y = 2x$",
+          "$y = -\\frac{1}{2}x$",
+          "$y = -2x$",
+          "$y = \\frac{1}{2}x$"
+        ],
+        "correctIndex": 3,
+        "explanation": "グラフは原点と点 $(2, 1)$ を通っています。\n$a = \\frac{y}{x} = \\frac{1}{2}$。\nよって $y = \\frac{1}{2}x$ です。",
+        "difficulty": "standard",
+        "image": { "kind": "coordinate", "range": 6, "lines": [{ "a": 0.5 }], "points": [{ "x": 2, "y": 1, "label": "(2, 1)" }] }
+      },
+      {
+        "id": "math-g1-proportion-q21",
+        "question": "下のグラフが表す式はどれですか。",
+        "options": [
+          "$y = 4x$",
+          "$y = \\frac{1}{4}x$",
+          "$y = -4x$",
+          "$y = x + 4$"
+        ],
+        "correctIndex": 0,
+        "explanation": "グラフは原点と点 $(1, 4)$ を通っています。\n$y = ax$ に代入すると $4 = a \\times 1$ より $a = 4$。\nよって $y = 4x$ です。",
+        "difficulty": "standard",
+        "image": { "kind": "coordinate", "range": 6, "lines": [{ "a": 4 }], "points": [{ "x": 1, "y": 4, "label": "(1, 4)" }] }
+      },
+      {
+        "id": "math-g1-proportion-q22",
+        "question": "下のグラフは比例 $y = ax$ のグラフです。比例定数 $a$ の値を求めなさい。",
+        "options": [
+          "$3$",
+          "$-3$",
+          "$-\\frac{1}{3}$",
+          "$\\frac{1}{3}$"
+        ],
+        "correctIndex": 1,
+        "explanation": "グラフは右下がりで、原点と点 $(1, -3)$ を通っています。\n$a = \\frac{y}{x} = \\frac{-3}{1} = -3$。\nよって比例定数 $a$ は $-3$ です。",
+        "difficulty": "standard",
+        "image": { "kind": "coordinate", "range": 6, "lines": [{ "a": -3 }], "points": [{ "x": 1, "y": -3, "label": "(1, -3)" }] }
+      },
+      {
+        "id": "math-g1-proportion-q23",
+        "question": "下のグラフは比例のグラフです。$y$ を $x$ の式で表しなさい。",
+        "options": [
+          "$y = 3x$",
+          "$y = -\\frac{1}{3}x$",
+          "$y = \\frac{1}{3}x$",
+          "$y = -3x$"
+        ],
+        "correctIndex": 2,
+        "explanation": "グラフは原点と点 $(3, 1)$ を通っています。\n$a = \\frac{y}{x} = \\frac{1}{3}$。\nよって $y = \\frac{1}{3}x$ です。",
+        "difficulty": "advanced",
+        "image": { "kind": "coordinate", "range": 6, "lines": [{ "a": 0.3333333333333333 }], "points": [{ "x": 3, "y": 1, "label": "(3, 1)" }] }
+      },
+      {
+        "id": "math-g1-proportion-q24",
+        "question": "下のグラフが表す式はどれですか。",
+        "options": [
+          "$y = \\frac{1}{2}x$",
+          "$y = -2x$",
+          "$y = 2x$",
+          "$y = -\\frac{1}{2}x$"
+        ],
+        "correctIndex": 3,
+        "explanation": "グラフは右下がりで、原点と点 $(2, -1)$ を通っています。\n$a = \\frac{y}{x} = \\frac{-1}{2} = -\\frac{1}{2}$。\nよって $y = -\\frac{1}{2}x$ です。",
+        "difficulty": "advanced",
+        "image": { "kind": "coordinate", "range": 6, "lines": [{ "a": -0.5 }], "points": [{ "x": 2, "y": -1, "label": "(2, -1)" }] }
+      }
+    ]
+  }
+}

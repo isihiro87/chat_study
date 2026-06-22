@@ -34,7 +34,9 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
 const CONTENT_DIR = join(ROOT, 'data/content/math');
 const OUT_DIR = join(ROOT, 'public/graphs');
-const PUBLIC_BASE = 'https://line.chatstudy.jp/graphs';
+// public/ は www ビルド（dist/）に同梱され www.chatstudy.jp で配信される
+// （LINE ビルドは publicDir が public_line のため public/ は含まれない）。
+const PUBLIC_BASE = 'https://www.chatstudy.jp/graphs';
 
 const CHECK_ONLY = process.argv.includes('--check');
 
