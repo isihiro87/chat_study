@@ -1,0 +1,483 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g2-parallel",
+  "topicId": "math-g2-angles",
+  "name": "平行線と多角形の角",
+  "subtitle": "角の性質と計算",
+  "icon": "📐",
+  "order": 1,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": [
+      {
+        "id": "math-g2-angles-q1",
+        "question": "2直線が交わってできる4つの角のうち、向かい合う2つの角を何といいますか。",
+        "options": [
+          "対頂角",
+          "同位角",
+          "錯角",
+          "内角"
+        ],
+        "correctIndex": 0,
+        "explanation": "2直線が交わるとき、向かい合った2つの角を対頂角といいます。\n対頂角はつねに等しくなります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-angles-q2",
+        "question": "2直線が交わり、できた角の1つが $115°$ のとき、その対頂角は何度ですか。",
+        "options": [
+          "$65°$",
+          "$115°$",
+          "$245°$",
+          "$90°$"
+        ],
+        "correctIndex": 1,
+        "explanation": "対頂角は等しいので、$115°$ の対頂角も $115°$ です。\nよって $115°$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-angles-q3",
+        "question": "平行な2直線に1本の直線が交わるとき、同じ位置にある等しい角を何といいますか。",
+        "options": [
+          "対頂角",
+          "錯角",
+          "同位角",
+          "外角"
+        ],
+        "correctIndex": 2,
+        "explanation": "2直線に1本の直線が交わるとき、同じ位置にある角どうしを同位角といいます。\n2直線が平行ならば、同位角は等しくなります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-angles-q4",
+        "question": "平行な2直線に1本の直線が交わり、ある同位角が $72°$ のとき、それと等しい同位角は何度ですか。",
+        "options": [
+          "$108°$",
+          "$18°$",
+          "$36°$",
+          "$72°$"
+        ],
+        "correctIndex": 3,
+        "explanation": "2直線が平行なので同位角は等しくなります。\nよって $72°$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-angles-q5",
+        "question": "平行な2直線に1本の直線が交わるとき、斜め向かいの位置にある等しい角を何といいますか。",
+        "options": [
+          "錯角",
+          "同位角",
+          "対頂角",
+          "内角"
+        ],
+        "correctIndex": 0,
+        "explanation": "2直線にもう1本の直線が交わるとき、斜め向かいにある角どうしを錯角といいます。\n2直線が平行ならば、錯角は等しくなります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-angles-q6",
+        "question": "平行な2直線に1本の直線が交わり、ある同位角が $65°$ のとき、その錯角は何度ですか。",
+        "options": [
+          "$115°$",
+          "$65°$",
+          "$25°$",
+          "$130°$"
+        ],
+        "correctIndex": 1,
+        "explanation": "2直線が平行なので、同位角も錯角も等しくなります。\nよって錯角は $65°$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-angles-q7",
+        "question": "三角形の3つの内角の和は何度ですか。",
+        "options": [
+          "$360°$",
+          "$90°$",
+          "$180°$",
+          "$270°$"
+        ],
+        "correctIndex": 2,
+        "explanation": "三角形の3つの内角の和はつねに $180°$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-angles-q8",
+        "question": "三角形の2つの内角が $48°$ と $57°$ のとき、残りの内角は何度ですか。",
+        "options": [
+          "$85°$",
+          "$95°$",
+          "$105°$",
+          "$75°$"
+        ],
+        "correctIndex": 3,
+        "explanation": "内角の和は $180°$ なので、$180°-(48°+57°)=180°-105°=75°$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-angles-q9",
+        "question": "三角形の2つの内角が $90°$ と $35°$ のとき、残りの内角は何度ですか。",
+        "options": [
+          "$55°$",
+          "$45°$",
+          "$65°$",
+          "$35°$"
+        ],
+        "correctIndex": 0,
+        "explanation": "内角の和は $180°$ なので、$180°-(90°+35°)=180°-125°=55°$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-angles-q10",
+        "question": "三角形の1つの外角は、それととなり合わない2つの内角とどんな関係がありますか。",
+        "options": [
+          "となり合わない2つの内角の差に等しい",
+          "となり合わない2つの内角の和に等しい",
+          "3つの内角の和に等しい",
+          "となり合う内角に等しい"
+        ],
+        "correctIndex": 1,
+        "explanation": "三角形の1つの外角は、それととなり合わない2つの内角の和に等しくなります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-angles-q11",
+        "question": "三角形で、ある外角ととなり合わない2つの内角が $50°$ と $67°$ のとき、その外角は何度ですか。",
+        "options": [
+          "$107°$",
+          "$127°$",
+          "$117°$",
+          "$63°$"
+        ],
+        "correctIndex": 2,
+        "explanation": "外角はとなり合わない2つの内角の和に等しいので、$50°+67°=117°$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-angles-q12",
+        "question": "$n$ 角形の内角の和を求める式はどれですか。",
+        "options": [
+          "$180°\\times n$",
+          "$360°\\times(n-2)$",
+          "$90°\\times(n-2)$",
+          "$180°\\times(n-2)$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$n$ 角形は1つの頂点から対角線をひくと $(n-2)$ 個の三角形に分けられます。\nよって内角の和は $180°\\times(n-2)$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-angles-q13",
+        "question": "六角形の内角の和は何度ですか。",
+        "options": [
+          "$720°$",
+          "$540°$",
+          "$900°$",
+          "$1080°$"
+        ],
+        "correctIndex": 0,
+        "explanation": "内角の和は $180°\\times(n-2)$ で求めます。\n$180°\\times(6-2)=180°\\times4=720°$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-angles-q14",
+        "question": "十角形の内角の和は何度ですか。",
+        "options": [
+          "$1260°$",
+          "$1440°$",
+          "$1620°$",
+          "$1800°$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$180°\\times(n-2)$ で求めます。\n$180°\\times(10-2)=180°\\times8=1440°$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-angles-q15",
+        "question": "多角形の外角の和は何度ですか。",
+        "options": [
+          "$180°$",
+          "$540°$",
+          "$360°$",
+          "頂点の数によって変わる"
+        ],
+        "correctIndex": 2,
+        "explanation": "多角形の外角の和は、頂点の数に関係なくつねに $360°$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-angles-q16",
+        "question": "正十二角形の1つの外角は何度ですか。",
+        "options": [
+          "$36°$",
+          "$45°$",
+          "$60°$",
+          "$30°$"
+        ],
+        "correctIndex": 3,
+        "explanation": "正多角形の外角はすべて等しく、外角の和は $360°$ です。\n$360°\\div12=30°$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-angles-q17",
+        "question": "正十二角形の1つの内角は何度ですか。",
+        "options": [
+          "$150°$",
+          "$140°$",
+          "$135°$",
+          "$120°$"
+        ],
+        "correctIndex": 0,
+        "explanation": "1つの内角は、内角とその外角の和が $180°$ であることから求められます。\n外角が $360°\\div12=30°$ なので、内角は $180°-30°=150°$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-angles-q18",
+        "question": "1つの内角が $108°$ である正多角形は、正何角形ですか。",
+        "options": [
+          "正六角形",
+          "正五角形",
+          "正八角形",
+          "正十角形"
+        ],
+        "correctIndex": 1,
+        "explanation": "1つの外角は $180°-108°=72°$ です。\n外角の和は $360°$ なので、$360°\\div72°=5$ より正五角形です。",
+        "difficulty": "advanced"
+      },
+      {
+        "question": "下の図で、2直線 $m$、$n$ は平行です。∠$x$ の大きさを求めましょう。",
+        "options": [
+          "72°",
+          "108°",
+          "36°",
+          "144°"
+        ],
+        "correctIndex": 0,
+        "explanation": "平行線の同位角は等しいので、$\\angle x$ は $72°$ の同位角。\nよって $\\angle x=72°$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "parallel-lines",
+          "slant": 72,
+          "lineNames": [
+            "m",
+            "n"
+          ],
+          "labels": [
+            {
+              "at": "top",
+              "sector": "lower-left",
+              "text": "72°"
+            },
+            {
+              "at": "bottom",
+              "sector": "lower-left",
+              "text": "x"
+            }
+          ]
+        },
+        "id": "math-g2-angles-q19"
+      },
+      {
+        "question": "下の図で、2直線 $m$、$n$ は平行です。∠$x$ の大きさを求めましょう。",
+        "options": [
+          "122°",
+          "58°",
+          "32°",
+          "148°"
+        ],
+        "correctIndex": 1,
+        "explanation": "平行線の錯角は等しいので、$\\angle x$ は $58°$ の錯角。\nよって $\\angle x=58°$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "parallel-lines",
+          "slant": 58,
+          "lineNames": [
+            "m",
+            "n"
+          ],
+          "labels": [
+            {
+              "at": "top",
+              "sector": "lower-left",
+              "text": "58°"
+            },
+            {
+              "at": "bottom",
+              "sector": "upper-right",
+              "text": "x"
+            }
+          ]
+        },
+        "id": "math-g2-angles-q20"
+      },
+      {
+        "question": "下の図で、2直線 $m$、$n$ は平行です。∠$x$ の大きさを求めましょう。",
+        "options": [
+          "68°",
+          "112°",
+          "124°",
+          "56°"
+        ],
+        "correctIndex": 1,
+        "explanation": "平行線の同じ側にある内角（同側内角）の和は $180°$ です。\n$\\angle x=180°-68°=112°$。",
+        "difficulty": "advanced",
+        "image": {
+          "kind": "parallel-lines",
+          "slant": 68,
+          "lineNames": [
+            "m",
+            "n"
+          ],
+          "labels": [
+            {
+              "at": "top",
+              "sector": "lower-left",
+              "text": "68°"
+            },
+            {
+              "at": "bottom",
+              "sector": "upper-left",
+              "text": "x"
+            }
+          ]
+        },
+        "id": "math-g2-angles-q21"
+      },
+      {
+        "question": "下の図の三角形で、∠$x$ の大きさを求めましょう。",
+        "options": [
+          "60°",
+          "70°",
+          "50°",
+          "120°"
+        ],
+        "correctIndex": 0,
+        "explanation": "三角形の内角の和は $180°$。\n$\\angle x=180°-55°-65°=60°$ です。",
+        "difficulty": "basic",
+        "image": {
+          "kind": "triangle",
+          "angles": [
+            60,
+            55,
+            65
+          ],
+          "vertexNames": [
+            "A",
+            "B",
+            "C"
+          ],
+          "angleLabels": [
+            "x",
+            "55°",
+            "65°"
+          ]
+        },
+        "id": "math-g2-angles-q22"
+      },
+      {
+        "question": "下の図の三角形で、∠$x$ の大きさを求めましょう。",
+        "options": [
+          "75°",
+          "65°",
+          "115°",
+          "55°"
+        ],
+        "correctIndex": 1,
+        "explanation": "三角形の内角の和は $180°$。\n$\\angle x=180°-40°-75°=65°$ です。",
+        "difficulty": "basic",
+        "image": {
+          "kind": "triangle",
+          "angles": [
+            40,
+            65,
+            75
+          ],
+          "vertexNames": [
+            "A",
+            "B",
+            "C"
+          ],
+          "angleLabels": [
+            "40°",
+            "x",
+            "75°"
+          ]
+        },
+        "id": "math-g2-angles-q23"
+      },
+      {
+        "question": "下の図で、∠$x$ は三角形の外角です。∠$x$ の大きさを求めましょう。",
+        "options": [
+          "130°",
+          "120°",
+          "60°",
+          "110°"
+        ],
+        "correctIndex": 1,
+        "explanation": "三角形の外角は、それととなり合わない2つの内角の和に等しい。\n$\\angle x=70°+50°=120°$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "triangle",
+          "angles": [
+            70,
+            50,
+            60
+          ],
+          "vertexNames": [
+            "A",
+            "B",
+            "C"
+          ],
+          "angleLabels": [
+            "70°",
+            "50°",
+            null
+          ],
+          "exterior": {
+            "at": "C",
+            "text": "x"
+          }
+        },
+        "id": "math-g2-angles-q24"
+      },
+      {
+        "question": "下の図は正五角形です。1つの内角 ∠$x$ の大きさを求めましょう。",
+        "options": [
+          "108°",
+          "120°",
+          "72°",
+          "100°"
+        ],
+        "correctIndex": 0,
+        "explanation": "正五角形の内角の和は $180°×(5-2)=540°$。\n1つの内角は $540°÷5=108°$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "polygon",
+          "n": 5,
+          "markAngle": true,
+          "angleLabel": "x"
+        },
+        "id": "math-g2-angles-q25"
+      },
+      {
+        "question": "下の図は正六角形です。1つの内角 ∠$x$ の大きさを求めましょう。",
+        "options": [
+          "108°",
+          "135°",
+          "120°",
+          "144°"
+        ],
+        "correctIndex": 2,
+        "explanation": "正六角形の内角の和は $180°×(6-2)=720°$。\n1つの内角は $720°÷6=120°$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "polygon",
+          "n": 6,
+          "markAngle": true,
+          "angleLabel": "x"
+        },
+        "id": "math-g2-angles-q26"
+      }
+    ]
+  }
+}

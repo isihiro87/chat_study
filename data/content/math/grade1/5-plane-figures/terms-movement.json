@@ -1,0 +1,223 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g1-plane",
+  "topicId": "math-g1-plane-move",
+  "name": "直線と角・図形の移動",
+  "subtitle": "用語と移動を理解しよう",
+  "icon": "📐",
+  "order": 1,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": [
+      {
+        "id": "math-g1-plane-move-q1",
+        "question": "2点 A、B を通ってまっすぐにのびて、両方向に限りなくつづくものを何といいますか。",
+        "options": [
+          "直線 AB",
+          "線分 AB",
+          "半直線 AB",
+          "弦 AB"
+        ],
+        "correctIndex": 0,
+        "explanation": "両方向に限りなくのびるものを直線 AB といいます。\n両端で区切られた部分が線分、一方だけにのびるものが半直線です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-plane-move-q2",
+        "question": "直線のうち、2点 A、B で区切られた部分（両端のある部分）を何といいますか。",
+        "options": [
+          "直線 AB",
+          "半直線 AB",
+          "線分 AB",
+          "弧 AB"
+        ],
+        "correctIndex": 2,
+        "explanation": "両端のある部分を線分 AB といいます。\n両方向にのびるものが直線、一方だけにのびるものが半直線です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-plane-move-q3",
+        "question": "点 A を端として、点 B の方向に一方だけ限りなくのびるものを何といいますか。",
+        "options": [
+          "線分 AB",
+          "半直線 AB",
+          "直線 AB",
+          "中心角 AB"
+        ],
+        "correctIndex": 1,
+        "explanation": "一方だけにのびるものを半直線 AB といいます。\n始点が A で B の方向にのびるので、半直線 AB と表します。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-plane-move-q4",
+        "question": "2点 A、B を結ぶ線分 AB の長さを、2点 A、B の何といいますか。",
+        "options": [
+          "角度",
+          "面積",
+          "周の長さ",
+          "距離"
+        ],
+        "correctIndex": 3,
+        "explanation": "2点を結ぶ線分の長さを、その2点間の距離といいます。\nまっすぐ結んだいちばん短い長さが距離です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-plane-move-q5",
+        "question": "円周上の2点を結ぶ線分を何といいますか。",
+        "options": [
+          "弧",
+          "弦",
+          "半径",
+          "中心角"
+        ],
+        "correctIndex": 1,
+        "explanation": "円周上の2点を結ぶ線分を弦といいます。\n円周上の2点で区切られた円周の一部分は弧といいます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-plane-move-q6",
+        "question": "円周上の2点で区切られた、円周の一部分を何といいますか。",
+        "options": [
+          "弦",
+          "直径",
+          "弧",
+          "接線"
+        ],
+        "correctIndex": 2,
+        "explanation": "円周の一部分を弧といいます。\n弧 AB と表し、2点を結ぶまっすぐな線分は弦といいます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-plane-move-q7",
+        "question": "おうぎ形で、2つの半径がつくる角（円の中心の所にできる角）を何といいますか。",
+        "options": [
+          "円周角",
+          "対頂角",
+          "錯角",
+          "中心角"
+        ],
+        "correctIndex": 3,
+        "explanation": "おうぎ形で2つの半径がつくる角を中心角といいます。\n中心角の大きさは、おうぎ形の弧の長さや面積に比例します。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-plane-move-q8",
+        "question": "図形を、その形と大きさを変えずに、一定の方向に一定の長さだけずらして移す移動を何といいますか。",
+        "options": [
+          "回転移動",
+          "平行移動",
+          "対称移動",
+          "点対称移動"
+        ],
+        "correctIndex": 1,
+        "explanation": "一定の方向に一定の長さだけずらす移動を平行移動といいます。\n対応する2点を結ぶ線分は、すべて平行で長さが等しくなります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-plane-move-q9",
+        "question": "図形を、1つの点を中心として、一定の角度だけまわして移す移動を何といいますか。",
+        "options": [
+          "平行移動",
+          "対称移動",
+          "回転移動",
+          "拡大移動"
+        ],
+        "correctIndex": 2,
+        "explanation": "1つの点を中心にまわして移す移動を回転移動といいます。\nこのとき中心とした点を回転の中心といいます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-plane-move-q10",
+        "question": "図形を、1つの直線を折り目として折り返して移す移動を何といいますか。",
+        "options": [
+          "平行移動",
+          "対称移動",
+          "回転移動",
+          "中心移動"
+        ],
+        "correctIndex": 1,
+        "explanation": "1つの直線を折り目として折り返す移動を対称移動といいます。\nこのとき折り目とした直線を対称の軸といいます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-plane-move-q11",
+        "question": "回転移動のうち、180°だけ回転移動することをとくに何といいますか。",
+        "options": [
+          "平行移動",
+          "対称移動",
+          "点対称移動",
+          "直角移動"
+        ],
+        "correctIndex": 2,
+        "explanation": "180°の回転移動をとくに点対称移動といいます。\n回転の中心は、対応する2点を結ぶ線分の真ん中（中点）になります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-plane-move-q12",
+        "question": "平行移動・回転移動・対称移動のどの移動においても、移動前の図形と移動後の図形について正しいものはどれですか。",
+        "options": [
+          "形は同じだが大きさは変わる",
+          "形も大きさも変わらず合同である",
+          "大きさは同じだが形は変わる",
+          "形も大きさも変わる"
+        ],
+        "correctIndex": 1,
+        "explanation": "これらの移動では図形の形も大きさも変わりません。\nつまり、移動前と移動後の図形は合同です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-plane-move-q13",
+        "question": "ある三角形を平行移動したとき、対応する3組の点を結んだ3本の線分について正しいものはどれですか。",
+        "options": [
+          "すべて平行で、長さも等しい",
+          "すべて長さが等しいが平行ではない",
+          "すべて平行だが長さはちがう",
+          "1点で交わる"
+        ],
+        "correctIndex": 0,
+        "explanation": "平行移動では、対応する点を結んだ線分はすべて平行で、長さも等しくなります。\n図形全体が同じ向きに同じだけずれるためです。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-plane-move-q14",
+        "question": "ある図形を点 O を中心として回転移動しました。点 O から対応する2点までの距離について正しいものはどれですか。",
+        "options": [
+          "回転の中心からの距離は等しい",
+          "回転の中心からの距離は2倍になる",
+          "回転の中心からの距離は半分になる",
+          "回転の中心からの距離は角度で変わる"
+        ],
+        "correctIndex": 0,
+        "explanation": "回転移動では、回転の中心から対応する2点までの距離は等しくなります。\nまた、対応する2点と中心を結んでできる角の大きさはすべて等しく、回転した角度と同じです。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-plane-move-q15",
+        "question": "ある三角形を直線 $\\ell$ を軸として対称移動しました。対応する2点を結ぶ線分と軸 $\\ell$ の関係として正しいものはどれですか。",
+        "options": [
+          "軸 $\\ell$ と平行になる",
+          "軸 $\\ell$ で交わり、長さも等しく分けられる",
+          "軸 $\\ell$ と垂直に交わり、軸で2等分される",
+          "軸 $\\ell$ 上の1点で接する"
+        ],
+        "correctIndex": 2,
+        "explanation": "対称移動では、対応する2点を結ぶ線分は対称の軸と垂直に交わります。\nさらに、その交点で線分は2等分されます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-plane-move-q16",
+        "question": "ある図形を平行移動だけして、別の図形にぴったり重ねることができました。この2つの図形の向きについて正しいものはどれですか。",
+        "options": [
+          "向きは反対になっている",
+          "向きは同じである",
+          "90°ちがう向きになる",
+          "向きは決まらない"
+        ],
+        "correctIndex": 1,
+        "explanation": "平行移動はずらすだけなので、図形の向きは変わりません。\n向きが反対になるのは対称移動の特徴です。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

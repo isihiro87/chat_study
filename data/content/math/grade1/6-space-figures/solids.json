@@ -1,0 +1,159 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g1-space",
+  "topicId": "math-g1-space-solids",
+  "name": "いろいろな立体",
+  "subtitle": "立体の種類と位置関係",
+  "icon": "🧊",
+  "order": 1,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": [
+      {
+        "id": "math-g1-space-solids-q1",
+        "question": "底面が多角形で、側面がすべて長方形の柱状の立体を何といいますか。",
+        "options": ["角柱", "角錐", "円柱", "円錐"],
+        "correctIndex": 0,
+        "explanation": "底面が多角形で側面が長方形の柱状の立体を角柱といいます。\n底面が円なら円柱、先がとがった立体は角錐や円錐になります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-space-solids-q2",
+        "question": "底面が円で、頂点が1つあり側面が曲面になっている立体を何といいますか。",
+        "options": ["円柱", "円錐", "角錐", "球"],
+        "correctIndex": 1,
+        "explanation": "底面が円で1つの頂点に向かって細くなる立体を円錐といいます。\n底面が円でも頂点がなく上下に2つの円があるものは円柱です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-space-solids-q3",
+        "question": "五角柱の面の数はいくつですか。",
+        "options": ["5", "6", "7", "10"],
+        "correctIndex": 2,
+        "explanation": "五角柱は上下の底面が2つと、側面が5つあります。\n2＋5＝7なので面の数は7です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-space-solids-q4",
+        "question": "六角柱の辺の数はいくつですか。",
+        "options": ["12", "15", "18", "24"],
+        "correctIndex": 2,
+        "explanation": "六角柱は底面の六角形に辺が6本ずつで上下合わせて12本、側面の縦の辺が6本あります。\n12＋6＝18なので辺は18本です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-space-solids-q5",
+        "question": "四角錐の頂点の数はいくつですか。",
+        "options": ["4", "5", "6", "8"],
+        "correctIndex": 1,
+        "explanation": "四角錐は底面の四角形の頂点が4つと、先端の頂点が1つあります。\n4＋1＝5なので頂点は5つです。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-space-solids-q6",
+        "question": "三角錐の面の数はいくつですか。",
+        "options": ["3", "4", "5", "6"],
+        "correctIndex": 1,
+        "explanation": "三角錐は底面の三角形が1つと、側面の三角形が3つあります。\n1＋3＝4なので面は4つです。三角錐は最も少ない面でできる多面体です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-space-solids-q7",
+        "question": "平面だけで囲まれた立体を何といいますか。",
+        "options": ["多面体", "回転体", "曲面体", "正多角形"],
+        "correctIndex": 0,
+        "explanation": "いくつかの平面だけで囲まれた立体を多面体といいます。\n円柱や円錐は曲面をふくむので多面体ではありません。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-space-solids-q8",
+        "question": "正多面体は全部で何種類ありますか。",
+        "options": ["4種類", "5種類", "6種類", "8種類"],
+        "correctIndex": 1,
+        "explanation": "正多面体は正四面体・正六面体・正八面体・正十二面体・正二十面体の5種類だけです。\nどの面も合同な正多角形で、どの頂点にも同じ数の面が集まります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-space-solids-q9",
+        "question": "面がすべて正三角形で、面の数が8つの正多面体はどれですか。",
+        "options": ["正四面体", "正六面体", "正八面体", "正十二面体"],
+        "correctIndex": 2,
+        "explanation": "面が正三角形でできる正多面体は正四面体・正八面体・正二十面体の3つです。\nそのうち面が8つのものは正八面体です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-space-solids-q10",
+        "question": "正十二面体の面はどんな正多角形でできていますか。",
+        "options": ["正三角形", "正方形", "正五角形", "正六角形"],
+        "correctIndex": 2,
+        "explanation": "正十二面体は12個の正五角形でできています。\n正六角形だけでは立体的に閉じることができないため正多面体にはなりません。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-space-solids-q11",
+        "question": "空間内の2つの直線が、平行でなく交わりもしない位置関係を何といいますか。",
+        "options": ["垂直", "平行", "ねじれの位置", "対角の位置"],
+        "correctIndex": 2,
+        "explanation": "同じ平面上になく、平行でも交わりもしない2直線の関係をねじれの位置といいます。\n平面図形にはなく空間図形だけにある位置関係です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-space-solids-q12",
+        "question": "空間内の2つの直線の位置関係として、当てはまらないものはどれですか。",
+        "options": ["交わる", "平行である", "ねじれの位置にある", "ねじれて交わる"],
+        "correctIndex": 3,
+        "explanation": "空間内の2直線は「交わる」「平行である」「ねじれの位置にある」の3通りのいずれかです。\n「ねじれて交わる」というものは存在しません。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-space-solids-q13",
+        "question": "直線と平面が垂直であるといえるのはどんなときですか。",
+        "options": ["直線が平面上の1本の直線と垂直なとき", "直線が平面上のすべての直線と垂直なとき", "直線が平面と平行なとき", "直線が平面と交わるとき"],
+        "correctIndex": 1,
+        "explanation": "直線が平面と交わり、その交点を通る平面上のすべての直線と垂直になるとき、直線と平面は垂直であるといいます。\n1本とだけ垂直でも全体として垂直とはいえません。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-space-solids-q14",
+        "question": "長方形を、1辺を軸として1回転させてできる立体はどれですか。",
+        "options": ["球", "円錐", "三角柱", "円柱"],
+        "correctIndex": 3,
+        "explanation": "長方形の1辺を軸にして1回転させると、上下に円ができる柱状の立体になり円柱ができます。\n回転させてできる立体を回転体といいます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-space-solids-q15",
+        "question": "直角三角形を、直角をはさむ1辺を軸として1回転させてできる立体はどれですか。",
+        "options": ["円柱", "円錐", "球", "角錐"],
+        "correctIndex": 1,
+        "explanation": "直角三角形を直角をはさむ辺のまわりに1回転させると、底面が円で頂点が1つの立体になり円錐ができます。\n軸となる辺が円錐の高さになります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-space-solids-q16",
+        "question": "半円を、直径を軸として1回転させてできる立体はどれですか。",
+        "options": ["円柱", "円錐", "球", "半球"],
+        "correctIndex": 2,
+        "explanation": "半円の直径を軸にして1回転させると、すべての方向にふくらんだ球ができます。\n半円を直径で2回分回すと考えると球になることがわかります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-space-solids-q17",
+        "question": "立体を真上から見た図のことを何といいますか。",
+        "options": ["立面図", "平面図", "展開図", "見取図"],
+        "correctIndex": 1,
+        "explanation": "立体を真上から見た図を平面図、正面から見た図を立面図といいます。\n立体の全体の形を表した図は見取図、表面を切り開いた図は展開図です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-space-solids-q18",
+        "question": "立体の表面を切り開いて平面に広げた図を何といいますか。",
+        "options": ["見取図", "展開図", "投影図", "平面図"],
+        "correctIndex": 1,
+        "explanation": "立体の表面を辺にそって切り開き、平面に広げた図を展開図といいます。\n展開図を組み立てるともとの立体になり、表面積を求めるときに役立ちます。",
+        "difficulty": "basic"
+      }
+    ]
+  }
+}

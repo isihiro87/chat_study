@@ -1,0 +1,223 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g1-plane",
+  "topicId": "math-g1-plane-construction",
+  "name": "作図",
+  "subtitle": "基本の作図を理解しよう",
+  "icon": "✏️",
+  "order": 2,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": [
+      {
+        "id": "math-g1-plane-construction-q1",
+        "question": "作図では、目盛りを使わずに2つの道具だけを使って図をかきます。その2つの道具はどれですか。",
+        "options": [
+          "分度器とコンパス",
+          "三角定規と分度器",
+          "定規と分度器",
+          "定規とコンパス"
+        ],
+        "correctIndex": 3,
+        "explanation": "作図では定規とコンパスだけを使います。\n定規は直線をひくためだけに使い、長さをはかるのには使いません。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-plane-construction-q2",
+        "question": "線分 AB を垂直に2等分する直線を何といいますか。",
+        "options": [
+          "角の二等分線",
+          "垂直二等分線",
+          "中線",
+          "対称の軸"
+        ],
+        "correctIndex": 1,
+        "explanation": "線分を垂直に2等分する直線を垂直二等分線といいます。\nこの直線は線分のちょうど真ん中（中点）を通ります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-plane-construction-q3",
+        "question": "2点 A、B から等しい距離にある点は、どんな線の上に集まりますか。",
+        "options": [
+          "角 A の二等分線",
+          "点 A を通る垂線",
+          "線分 AB を3等分する点",
+          "線分 AB の垂直二等分線"
+        ],
+        "correctIndex": 3,
+        "explanation": "2点 A、B から等しい距離にある点の集まりは、線分 AB の垂直二等分線です。\nだから2点から等距離の点を見つけるには垂直二等分線を作図します。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-plane-construction-q4",
+        "question": "線分 AB の中点（真ん中の点）を作図で見つけるには、何を作図すればよいですか。",
+        "options": [
+          "角の二等分線",
+          "点 A を通る垂線",
+          "線分 AB の垂直二等分線",
+          "点 B を通る平行線"
+        ],
+        "correctIndex": 2,
+        "explanation": "垂直二等分線は線分を垂直に2等分するので、線分との交点が中点になります。\nだから中点を見つけるには垂直二等分線を作図します。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-plane-construction-q5",
+        "question": "1つの角を、大きさが等しい2つの角に分ける半直線を何といいますか。",
+        "options": [
+          "垂直二等分線",
+          "角の二等分線",
+          "垂線",
+          "中心線"
+        ],
+        "correctIndex": 1,
+        "explanation": "1つの角を等しい2つの角に分ける半直線を角の二等分線といいます。\n角を半分にしたいときに作図します。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-plane-construction-q6",
+        "question": "角 AOB の2辺（半直線 OA と半直線 OB）から等しい距離にある点は、どんな線の上に集まりますか。",
+        "options": [
+          "OA の垂直二等分線",
+          "角 AOB の二等分線",
+          "OB を通る垂線",
+          "OA に平行な直線"
+        ],
+        "correctIndex": 1,
+        "explanation": "角の2辺から等しい距離にある点の集まりは、その角の二等分線です。\n2つの直線から等距離の点を見つけるには角の二等分線を作図します。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-plane-construction-q7",
+        "question": "ある角の二等分線を作図することで、もとの角の半分の大きさの角をつくれます。120°の角の二等分線を作図すると、できる角の大きさは何度ですか。",
+        "options": [
+          "30°",
+          "45°",
+          "60°",
+          "90°"
+        ],
+        "correctIndex": 2,
+        "explanation": "角の二等分線はもとの角を半分にするので、120° ÷ 2 = 60° です。\nこのように二等分線を使うと、半分の大きさの角をつくれます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-plane-construction-q8",
+        "question": "ある直線に対して垂直に交わる直線を何といいますか。",
+        "options": [
+          "平行線",
+          "二等分線",
+          "垂線",
+          "対角線"
+        ],
+        "correctIndex": 2,
+        "explanation": "ある直線と垂直に交わる直線を垂線といいます。\nつまり90°で交わる直線です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-plane-construction-q9",
+        "question": "直線 $\\ell$ 上にない点 P から、直線 $\\ell$ までのいちばん短い距離をはかる線をひきたいとき、何を作図すればよいですか。",
+        "options": [
+          "点 P を通る $\\ell$ への垂線",
+          "点 P を通る $\\ell$ への平行線",
+          "$\\ell$ の垂直二等分線",
+          "点 P での角の二等分線"
+        ],
+        "correctIndex": 0,
+        "explanation": "点から直線までのいちばん短い距離は、その点から直線にひいた垂線の長さです。\nだから点 P を通る垂線を作図します。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-plane-construction-q10",
+        "question": "垂直二等分線を作図するとき、コンパスでとる「2点 A、B それぞれを中心にかく円の半径」について正しいものはどれですか。",
+        "options": [
+          "A と B で半径を等しくする",
+          "A の半径を B より大きくする",
+          "A の半径を B より小さくする",
+          "半径は毎回変えてよい"
+        ],
+        "correctIndex": 0,
+        "explanation": "垂直二等分線の作図では、2点 A、B から等しい半径で円（弧）をかきます。\n半径を等しくすることで、2点から等距離の交点が決まるからです。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-plane-construction-q11",
+        "question": "正三角形の作図のしかたを利用すると、コンパスと定規だけで何度の角をつくることができますか。",
+        "options": [
+          "45°",
+          "50°",
+          "60°",
+          "70°"
+        ],
+        "correctIndex": 2,
+        "explanation": "正三角形の3つの角はすべて60°です。\nだから正三角形の作図を利用すると、60°の角をつくることができます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-plane-construction-q12",
+        "question": "60°の角を作図し、その角の二等分線をさらに作図しました。最後にできる角の大きさは何度ですか。",
+        "options": [
+          "15°",
+          "20°",
+          "30°",
+          "45°"
+        ],
+        "correctIndex": 2,
+        "explanation": "60°の角を二等分すると 60° ÷ 2 = 30° です。\n正三角形と二等分線を組み合わせると、30°の角を作図できます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-plane-construction-q13",
+        "question": "三角形の3つの辺について、それぞれの垂直二等分線をかくと、3本の直線は1つの点で交わります。この点を中心にすると、3つの頂点をどのように通る円がかけますか。",
+        "options": [
+          "3つの頂点すべてを通る円",
+          "頂点を1つだけ通る円",
+          "どの頂点も通らない円",
+          "辺の中点だけを通る円"
+        ],
+        "correctIndex": 0,
+        "explanation": "垂直二等分線上の点は、その辺の両端から等距離にあります。\n3本の交点は3つの頂点すべてから等距離なので、その点を中心にすると3頂点を通る円がかけます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-plane-construction-q14",
+        "question": "直線 $\\ell$ 上の点 A において、直線 $\\ell$ に垂直な直線をひきたいとき、点 A でつくられる角は何度ですか。",
+        "options": [
+          "45°",
+          "60°",
+          "90°",
+          "120°"
+        ],
+        "correctIndex": 2,
+        "explanation": "垂線は、もとの直線と90°で交わる直線です。\nだから点 A でできる角は90°になります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-plane-construction-q15",
+        "question": "角の二等分線の作図には、角の頂点を中心にかく弧と、その弧が2辺と交わった点を中心にかく弧を使います。最後にひく半直線は、何を結んでできますか。",
+        "options": [
+          "角の頂点と、2つの弧の交点を結ぶ",
+          "角の2辺の端を結ぶ",
+          "弧の交点だけを2つ結ぶ",
+          "辺の中点どうしを結ぶ"
+        ],
+        "correctIndex": 0,
+        "explanation": "角の二等分線は、角の頂点と、2つの弧が交わってできた点を結んでひきます。\nこの半直線が角をちょうど半分に分けます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-plane-construction-q16",
+        "question": "「点 P を通り、直線 $\\ell$ に平行な直線」を作図するとき、利用できる平行線の性質はどれですか。",
+        "options": [
+          "錯角が等しければ2直線は平行である",
+          "面積が等しければ2直線は平行である",
+          "長さが等しければ2直線は平行である",
+          "中点を通れば2直線は平行である"
+        ],
+        "correctIndex": 0,
+        "explanation": "2直線に1本の直線が交わるとき、錯角が等しければその2直線は平行です。\nこの性質を使い、同じ角を移しとって平行線を作図します。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

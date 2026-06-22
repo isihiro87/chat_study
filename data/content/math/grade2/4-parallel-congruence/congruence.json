@@ -1,0 +1,249 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g2-parallel",
+  "topicId": "math-g2-congruence",
+  "name": "三角形の合同",
+  "subtitle": "合同条件を理解しよう",
+  "icon": "📐",
+  "order": 2,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": [
+      {
+        "id": "math-g2-congruence-q1",
+        "question": "2つの図形がぴったり重なり合うとき、これらの図形はどんな関係といいますか。",
+        "options": [
+          "合同である",
+          "相似である",
+          "平行である",
+          "対称である"
+        ],
+        "correctIndex": 0,
+        "explanation": "2つの図形が、形も大きさも同じでぴったり重なり合うとき、これらは合同であるといいます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-congruence-q2",
+        "question": "2つの図形が合同であることを表す記号はどれですか。",
+        "options": [
+          "$=$",
+          "$\\equiv$",
+          "$\\angle$",
+          "$\\parallel$"
+        ],
+        "correctIndex": 1,
+        "explanation": "合同は記号 $\\equiv$ で表します。\n例えば $\\triangle$ABC$\\equiv\\triangle$DEF のように書きます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-congruence-q3",
+        "question": "合同な2つの図形で、重なり合う辺や角を何といいますか。",
+        "options": [
+          "対頂する辺・角",
+          "平行な辺・角",
+          "対応する辺・角",
+          "となり合う辺・角"
+        ],
+        "correctIndex": 2,
+        "explanation": "合同な図形で重なり合う辺や角を、対応する辺・対応する角といいます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-congruence-q4",
+        "question": "2つの三角形が合同であるとき、対応する辺や角についていえることはどれですか。",
+        "options": [
+          "対応する辺の長さだけ等しい",
+          "対応する角の大きさだけ等しい",
+          "辺も角も等しいとは限らない",
+          "対応する辺の長さも対応する角の大きさも等しい"
+        ],
+        "correctIndex": 3,
+        "explanation": "合同な図形では、対応する辺の長さはそれぞれ等しく、対応する角の大きさもそれぞれ等しくなります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-congruence-q5",
+        "question": "$\\triangle$ABC$\\equiv\\triangle$DEF のとき、辺ABに対応する辺はどれですか。",
+        "options": [
+          "辺DE",
+          "辺EF",
+          "辺DF",
+          "辺BC"
+        ],
+        "correctIndex": 0,
+        "explanation": "合同を表す式は対応する頂点の順に書きます。\nA→D、B→E なので、辺ABに対応するのは辺DEです。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-congruence-q6",
+        "question": "三角形の合同条件は全部でいくつありますか。",
+        "options": [
+          "2つ",
+          "3つ",
+          "4つ",
+          "5つ"
+        ],
+        "correctIndex": 1,
+        "explanation": "三角形の合同条件は「3組の辺」「2組の辺とその間の角」「1組の辺とその両端の角」の3つです。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-congruence-q7",
+        "question": "三角形の合同条件にあてはまらないものはどれですか。",
+        "options": [
+          "3組の辺がそれぞれ等しい",
+          "2組の辺とその間の角がそれぞれ等しい",
+          "3組の角がそれぞれ等しい",
+          "1組の辺とその両端の角がそれぞれ等しい"
+        ],
+        "correctIndex": 2,
+        "explanation": "3組の角が等しくても大きさが決まらないので合同とはいえません。\n合同条件は「3組の辺」「2組の辺とその間の角」「1組の辺とその両端の角」の3つです。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-congruence-q8",
+        "question": "2つの三角形で、3組の辺がそれぞれ等しいとき使える合同条件はどれですか。",
+        "options": [
+          "2組の辺とその間の角がそれぞれ等しい",
+          "1組の辺とその両端の角がそれぞれ等しい",
+          "3組の角がそれぞれ等しい",
+          "3組の辺がそれぞれ等しい"
+        ],
+        "correctIndex": 3,
+        "explanation": "辺の長さの情報だけが3組そろっているので、「3組の辺がそれぞれ等しい」が使えます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-congruence-q9",
+        "question": "2つの三角形で、2組の辺とその間の角がそれぞれ等しいとき使える合同条件はどれですか。",
+        "options": [
+          "2組の辺とその間の角がそれぞれ等しい",
+          "3組の辺がそれぞれ等しい",
+          "1組の辺とその両端の角がそれぞれ等しい",
+          "3組の角がそれぞれ等しい"
+        ],
+        "correctIndex": 0,
+        "explanation": "2つの辺とその間にはさまれた角がわかっているので、「2組の辺とその間の角がそれぞれ等しい」が使えます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-congruence-q10",
+        "question": "2つの三角形で、1組の辺とその両端の角がそれぞれ等しいとき使える合同条件はどれですか。",
+        "options": [
+          "2組の辺とその間の角がそれぞれ等しい",
+          "1組の辺とその両端の角がそれぞれ等しい",
+          "3組の辺がそれぞれ等しい",
+          "3組の角がそれぞれ等しい"
+        ],
+        "correctIndex": 1,
+        "explanation": "1つの辺とその両端の角がわかっているので、「1組の辺とその両端の角がそれぞれ等しい」が使えます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-congruence-q11",
+        "question": "$\\triangle$ABCと$\\triangle$DEFで、AB$=$DE、BC$=$EF、$\\angle$B$=\\angle$Eが等しいとき使える合同条件はどれですか。",
+        "options": [
+          "3組の辺がそれぞれ等しい",
+          "1組の辺とその両端の角がそれぞれ等しい",
+          "2組の辺とその間の角がそれぞれ等しい",
+          "3組の角がそれぞれ等しい"
+        ],
+        "correctIndex": 2,
+        "explanation": "辺ABと辺BCの間の角が $\\angle$Bです。\n2つの辺とその間の角が等しいので「2組の辺とその間の角がそれぞれ等しい」が使えます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-congruence-q12",
+        "question": "$\\triangle$ABCと$\\triangle$DEFで、BC$=$EF、$\\angle$B$=\\angle$E、$\\angle$C$=\\angle$Fが等しいとき使える合同条件はどれですか。",
+        "options": [
+          "2組の辺とその間の角がそれぞれ等しい",
+          "3組の辺がそれぞれ等しい",
+          "3組の角がそれぞれ等しい",
+          "1組の辺とその両端の角がそれぞれ等しい"
+        ],
+        "correctIndex": 3,
+        "explanation": "辺BCの両端の角が $\\angle$Bと $\\angle$Cです。\n1つの辺とその両端の角が等しいので「1組の辺とその両端の角がそれぞれ等しい」が使えます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-congruence-q13",
+        "question": "$\\triangle$ABCと$\\triangle$DEFで、AB$=$DE、BC$=$EF、CA$=$FDが等しいとき使える合同条件はどれですか。",
+        "options": [
+          "3組の辺がそれぞれ等しい",
+          "2組の辺とその間の角がそれぞれ等しい",
+          "1組の辺とその両端の角がそれぞれ等しい",
+          "3組の角がそれぞれ等しい"
+        ],
+        "correctIndex": 0,
+        "explanation": "3組の辺の長さがそれぞれ等しいので、「3組の辺がそれぞれ等しい」が使えます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-congruence-q14",
+        "question": "あることがらについて、「○○ならば△△」の○○の部分を何といいますか。",
+        "options": [
+          "結論",
+          "仮定",
+          "証明",
+          "定理"
+        ],
+        "correctIndex": 1,
+        "explanation": "「○○ならば△△」の形で、○○のように初めにわかっていることがらを仮定といいます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-congruence-q15",
+        "question": "あることがらについて、「○○ならば△△」の△△の部分を何といいますか。",
+        "options": [
+          "仮定",
+          "定義",
+          "結論",
+          "公式"
+        ],
+        "correctIndex": 2,
+        "explanation": "「○○ならば△△」の形で、△△のように導かれることがらを結論といいます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-congruence-q16",
+        "question": "「$a=b$ ならば $a+c=b+c$ である」ということがらで、仮定はどれですか。",
+        "options": [
+          "$a+c=b+c$",
+          "$a=c$",
+          "$b=c$",
+          "$a=b$"
+        ],
+        "correctIndex": 3,
+        "explanation": "「○○ならば△△」の○○が仮定です。\nよって仮定は $a=b$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-congruence-q17",
+        "question": "「$\\triangle$ABC$\\equiv\\triangle$DEF ならば $\\angle$A$=\\angle$D である」ということがらで、結論はどれですか。",
+        "options": [
+          "$\\angle$A$=\\angle$D",
+          "$\\triangle$ABC$\\equiv\\triangle$DEF",
+          "AB$=$DE",
+          "$\\angle$B$=\\angle$E"
+        ],
+        "correctIndex": 0,
+        "explanation": "「○○ならば△△」の△△が結論です。\nよって結論は $\\angle$A$=\\angle$D です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-congruence-q18",
+        "question": "すでに正しいと認められたことがらを根拠にして、あることがらが成り立つことを説明することを何といいますか。",
+        "options": [
+          "仮定",
+          "証明",
+          "作図",
+          "計算"
+        ],
+        "correctIndex": 1,
+        "explanation": "すでに正しいと認められたことがらを根拠にして、結論が成り立つことを示すことを証明といいます。",
+        "difficulty": "basic"
+      }
+    ]
+  }
+}

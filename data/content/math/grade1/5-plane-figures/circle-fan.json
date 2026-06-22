@@ -1,0 +1,318 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g1-plane",
+  "topicId": "math-g1-circle-fan",
+  "name": "円とおうぎ形",
+  "subtitle": "弧の長さと面積を求めよう",
+  "icon": "⚪",
+  "order": 3,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": [
+      {
+        "id": "math-g1-circle-fan-q1",
+        "question": "半径 $r$ の円の周の長さ（円周）を表す式はどれですか。",
+        "options": [
+          "$\\pi r^2$",
+          "$2\\pi r$",
+          "$\\pi r$",
+          "$4\\pi r$"
+        ],
+        "correctIndex": 1,
+        "explanation": "円周は「直径 × 円周率」で求めます。\n直径は $2r$ なので、円周 $= 2r \\times \\pi = 2\\pi r$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-circle-fan-q2",
+        "question": "半径 $r$ の円の面積を表す式はどれですか。",
+        "options": [
+          "$2\\pi r$",
+          "$\\pi r$",
+          "$\\pi r^2$",
+          "$2\\pi r^2$"
+        ],
+        "correctIndex": 2,
+        "explanation": "円の面積は「半径 × 半径 × 円周率」で求めます。\nだから面積 $= r \\times r \\times \\pi = \\pi r^2$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-circle-fan-q3",
+        "question": "半径 5cm の円の周の長さを求めなさい。",
+        "options": [
+          "$5\\pi$ cm",
+          "$25\\pi$ cm",
+          "$20\\pi$ cm",
+          "$10\\pi$ cm"
+        ],
+        "correctIndex": 3,
+        "explanation": "円周 $= 2\\pi r = 2 \\times \\pi \\times 5 = 10\\pi$ (cm) です。\n直径 10cm に円周率をかけても同じになります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-circle-fan-q4",
+        "question": "半径 7cm の円の面積を求めなさい。",
+        "options": [
+          "$14\\pi$ cm$^2$",
+          "$49\\pi$ cm$^2$",
+          "$7\\pi$ cm$^2$",
+          "$28\\pi$ cm$^2$"
+        ],
+        "correctIndex": 1,
+        "explanation": "円の面積 $= \\pi r^2 = \\pi \\times 7^2 = 49\\pi$ (cm$^2$) です。\n半径を2回かけてから円周率をかけます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-circle-fan-q5",
+        "question": "直径 12cm の円の周の長さを求めなさい。",
+        "options": [
+          "$6\\pi$ cm",
+          "$12\\pi$ cm",
+          "$24\\pi$ cm",
+          "$36\\pi$ cm"
+        ],
+        "correctIndex": 1,
+        "explanation": "円周 $=$ 直径 $\\times \\pi = 12 \\times \\pi = 12\\pi$ (cm) です。\n半径は 6cm なので $2\\pi \\times 6 = 12\\pi$ としても同じです。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-circle-fan-q6",
+        "question": "半径 $r$、中心角 $a$°のおうぎ形の弧の長さを表す式はどれですか。",
+        "options": [
+          "$2\\pi r \\times \\frac{a}{360}$",
+          "$\\pi r^2 \\times \\frac{a}{360}$",
+          "$2\\pi r \\times \\frac{360}{a}$",
+          "$\\pi r \\times \\frac{a}{180}$"
+        ],
+        "correctIndex": 0,
+        "explanation": "おうぎ形の弧は、円周 $2\\pi r$ の中心角の割合 $\\frac{a}{360}$ の分だけあります。\nだから弧 $= 2\\pi r \\times \\frac{a}{360}$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-circle-fan-q7",
+        "question": "半径 $r$、中心角 $a$°のおうぎ形の面積を表す式はどれですか。",
+        "options": [
+          "$2\\pi r \\times \\frac{a}{360}$",
+          "$\\pi r^2 \\times \\frac{a}{360}$",
+          "$\\pi r^2 \\times \\frac{360}{a}$",
+          "$\\pi r \\times \\frac{a}{360}$"
+        ],
+        "correctIndex": 1,
+        "explanation": "おうぎ形の面積は、円の面積 $\\pi r^2$ の中心角の割合 $\\frac{a}{360}$ の分だけあります。\nだから面積 $= \\pi r^2 \\times \\frac{a}{360}$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-circle-fan-q8",
+        "question": "半径 6cm、中心角 120°のおうぎ形の弧の長さを求めなさい。",
+        "options": [
+          "$2\\pi$ cm",
+          "$6\\pi$ cm",
+          "$12\\pi$ cm",
+          "$4\\pi$ cm"
+        ],
+        "correctIndex": 3,
+        "explanation": "弧 $= 2\\pi r \\times \\frac{a}{360} = 2\\pi \\times 6 \\times \\frac{120}{360} = 12\\pi \\times \\frac{1}{3} = 4\\pi$ (cm) です。\n中心角が全体の $\\frac{1}{3}$ なので、円周の $\\frac{1}{3}$ になります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-circle-fan-q9",
+        "question": "半径 6cm、中心角 120°のおうぎ形の面積を求めなさい。",
+        "options": [
+          "$6\\pi$ cm$^2$",
+          "$9\\pi$ cm$^2$",
+          "$12\\pi$ cm$^2$",
+          "$36\\pi$ cm$^2$"
+        ],
+        "correctIndex": 2,
+        "explanation": "面積 $= \\pi r^2 \\times \\frac{a}{360} = \\pi \\times 6^2 \\times \\frac{120}{360} = 36\\pi \\times \\frac{1}{3} = 12\\pi$ (cm$^2$) です。\n中心角が全体の $\\frac{1}{3}$ なので、円の面積の $\\frac{1}{3}$ になります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-circle-fan-q10",
+        "question": "半径 4cm、中心角 90°のおうぎ形の弧の長さを求めなさい。",
+        "options": [
+          "$\\pi$ cm",
+          "$4\\pi$ cm",
+          "$2\\pi$ cm",
+          "$8\\pi$ cm"
+        ],
+        "correctIndex": 2,
+        "explanation": "弧 $= 2\\pi r \\times \\frac{a}{360} = 2\\pi \\times 4 \\times \\frac{90}{360} = 8\\pi \\times \\frac{1}{4} = 2\\pi$ (cm) です。\n中心角 90°は全体の $\\frac{1}{4}$ なので、円周の $\\frac{1}{4}$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-circle-fan-q11",
+        "question": "半径 4cm、中心角 90°のおうぎ形の面積を求めなさい。",
+        "options": [
+          "$2\\pi$ cm$^2$",
+          "$8\\pi$ cm$^2$",
+          "$16\\pi$ cm$^2$",
+          "$4\\pi$ cm$^2$"
+        ],
+        "correctIndex": 3,
+        "explanation": "面積 $= \\pi r^2 \\times \\frac{a}{360} = \\pi \\times 4^2 \\times \\frac{90}{360} = 16\\pi \\times \\frac{1}{4} = 4\\pi$ (cm$^2$) です。\n中心角 90°は全体の $\\frac{1}{4}$ なので、円の面積の $\\frac{1}{4}$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-circle-fan-q12",
+        "question": "半径 9cm、中心角 60°のおうぎ形の弧の長さを求めなさい。",
+        "options": [
+          "$3\\pi$ cm",
+          "$6\\pi$ cm",
+          "$9\\pi$ cm",
+          "$18\\pi$ cm"
+        ],
+        "correctIndex": 0,
+        "explanation": "弧 $= 2\\pi r \\times \\frac{a}{360} = 2\\pi \\times 9 \\times \\frac{60}{360} = 18\\pi \\times \\frac{1}{6} = 3\\pi$ (cm) です。\n中心角 60°は全体の $\\frac{1}{6}$ になります。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-circle-fan-q13",
+        "question": "半径 3cm、中心角 240°のおうぎ形の面積を求めなさい。",
+        "options": [
+          "$3\\pi$ cm$^2$",
+          "$6\\pi$ cm$^2$",
+          "$9\\pi$ cm$^2$",
+          "$12\\pi$ cm$^2$"
+        ],
+        "correctIndex": 1,
+        "explanation": "面積 $= \\pi r^2 \\times \\frac{a}{360} = \\pi \\times 3^2 \\times \\frac{240}{360} = 9\\pi \\times \\frac{2}{3} = 6\\pi$ (cm$^2$) です。\n中心角 240°は全体の $\\frac{2}{3}$ になります。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-circle-fan-q14",
+        "question": "おうぎ形で、半径や中心角を求めるのに使える関係はどれですか。",
+        "options": [
+          "弧の長さは中心角の大きさに比例する",
+          "弧の長さは中心角の大きさに反比例する",
+          "弧の長さは半径に反比例する",
+          "弧の長さは中心角に関係なく一定である"
+        ],
+        "correctIndex": 0,
+        "explanation": "同じ半径のおうぎ形では、弧の長さは中心角の大きさに比例します。\n面積も同じように中心角に比例します。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-circle-fan-q15",
+        "question": "半径 6cm の円で、中心角が 180°のおうぎ形（半円）の弧の長さを求めなさい。",
+        "options": [
+          "$3\\pi$ cm",
+          "$12\\pi$ cm",
+          "$18\\pi$ cm",
+          "$6\\pi$ cm"
+        ],
+        "correctIndex": 3,
+        "explanation": "弧 $= 2\\pi r \\times \\frac{a}{360} = 2\\pi \\times 6 \\times \\frac{180}{360} = 12\\pi \\times \\frac{1}{2} = 6\\pi$ (cm) です。\n半円なので円周 $12\\pi$ の半分になります。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-circle-fan-q16",
+        "question": "半径 10cm、中心角 72°のおうぎ形の面積を求めなさい。",
+        "options": [
+          "$10\\pi$ cm$^2$",
+          "$50\\pi$ cm$^2$",
+          "$20\\pi$ cm$^2$",
+          "$100\\pi$ cm$^2$"
+        ],
+        "correctIndex": 2,
+        "explanation": "面積 $= \\pi r^2 \\times \\frac{a}{360} = \\pi \\times 10^2 \\times \\frac{72}{360} = 100\\pi \\times \\frac{1}{5} = 20\\pi$ (cm$^2$) です。\n中心角 72°は全体の $\\frac{1}{5}$ になります。",
+        "difficulty": "advanced"
+      },
+      {
+        "question": "下の図のおうぎ形の弧の長さを求めましょう。",
+        "options": [
+          "$4\\pi$ cm",
+          "$2\\pi$ cm",
+          "$12\\pi$ cm",
+          "$6\\pi$ cm"
+        ],
+        "correctIndex": 0,
+        "explanation": "弧の長さ $=2\\pi r\\times\\frac{a}{360}=2\\pi\\times6\\times\\frac{120}{360}=4\\pi$ cm です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "sector",
+          "centralAngle": 120,
+          "radiusLabel": "6cm",
+          "angleLabel": "120°"
+        },
+        "id": "math-g1-circle-fan-q17"
+      },
+      {
+        "question": "下の図のおうぎ形の面積を求めましょう。",
+        "options": [
+          "$64\\pi$ cm$^2$",
+          "$16\\pi$ cm$^2$",
+          "$8\\pi$ cm$^2$",
+          "$32\\pi$ cm$^2$"
+        ],
+        "correctIndex": 1,
+        "explanation": "面積 $=\\pi r^2\\times\\frac{a}{360}=\\pi\\times8^2\\times\\frac{90}{360}=64\\pi\\times\\frac14=16\\pi$ cm$^2$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "sector",
+          "centralAngle": 90,
+          "radiusLabel": "8cm",
+          "angleLabel": "90°"
+        },
+        "id": "math-g1-circle-fan-q18"
+      },
+      {
+        "question": "下の図のおうぎ形の弧の長さを求めましょう。",
+        "options": [
+          "$5\\pi$ cm",
+          "$10\\pi$ cm",
+          "$24\\pi$ cm",
+          "$12\\pi$ cm"
+        ],
+        "correctIndex": 1,
+        "explanation": "弧の長さ $=2\\pi\\times12\\times\\frac{150}{360}=24\\pi\\times\\frac{5}{12}=10\\pi$ cm です。",
+        "difficulty": "advanced",
+        "image": {
+          "kind": "sector",
+          "centralAngle": 150,
+          "radiusLabel": "12cm",
+          "angleLabel": "150°"
+        },
+        "id": "math-g1-circle-fan-q19"
+      },
+      {
+        "question": "下の図のおうぎ形の面積を求めましょう。",
+        "options": [
+          "$6\\pi$ cm$^2$",
+          "$36\\pi$ cm$^2$",
+          "$3\\pi$ cm$^2$",
+          "$12\\pi$ cm$^2$"
+        ],
+        "correctIndex": 0,
+        "explanation": "面積 $=\\pi\\times6^2\\times\\frac{60}{360}=36\\pi\\times\\frac16=6\\pi$ cm$^2$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "sector",
+          "centralAngle": 60,
+          "radiusLabel": "6cm",
+          "angleLabel": "60°"
+        },
+        "id": "math-g1-circle-fan-q20"
+      },
+      {
+        "question": "下の図のおうぎ形の弧の長さを求めましょう。",
+        "options": [
+          "$3\\pi$ cm",
+          "$9\\pi$ cm",
+          "$6\\pi$ cm",
+          "$18\\pi$ cm"
+        ],
+        "correctIndex": 2,
+        "explanation": "弧の長さ $=2\\pi\\times9\\times\\frac{120}{360}=18\\pi\\times\\frac13=6\\pi$ cm です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "sector",
+          "centralAngle": 120,
+          "radiusLabel": "9cm",
+          "angleLabel": "120°"
+        },
+        "id": "math-g1-circle-fan-q21"
+      }
+    ]
+  }
+}

@@ -1,0 +1,262 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g2-probability",
+  "topicId": "math-g2-probability",
+  "name": "確率",
+  "subtitle": "確率の求め方と利用",
+  "icon": "🎲",
+  "order": 1,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": [
+      {
+        "id": "math-g2-probability-q1",
+        "question": "1個のさいころを投げるとき、3の目が出る確率を求めなさい。",
+        "options": [
+          "$\\frac{1}{6}$",
+          "$\\frac{1}{3}$",
+          "$\\frac{3}{6}$",
+          "$\\frac{1}{2}$"
+        ],
+        "correctIndex": 0,
+        "explanation": "さいころの目の出方は1から6までの6通りで、どれも同様に確からしいです。\nそのうち3の目が出るのは1通りなので、確率は $\\frac{1}{6}$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-probability-q2",
+        "question": "1個のさいころを投げるとき、偶数の目が出る確率を求めなさい。",
+        "options": [
+          "$\\frac{1}{6}$",
+          "$\\frac{2}{6}$",
+          "$\\frac{1}{2}$",
+          "$\\frac{1}{3}$"
+        ],
+        "correctIndex": 2,
+        "explanation": "全部で6通りの目の出方があり、偶数は2、4、6の3通りです。\n確率は $\\frac{3}{6}=\\frac{1}{2}$ となります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-probability-q3",
+        "question": "あることがらの起こる確率が1のとき、そのことがらについて正しいものはどれですか。",
+        "options": [
+          "$\\frac{0}{1}$",
+          "$\\frac{1}{2}$",
+          "$\\frac{1}{4}$",
+          "$\\frac{1}{1}$"
+        ],
+        "correctIndex": 3,
+        "explanation": "確率は0以上1以下の値をとり、必ず起こることがらの確率は1です。\n$\\frac{1}{1}=1$ なので、起こることが確実な状態を表します。確率が0のときは決して起こりません。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-probability-q4",
+        "question": "1から10までの数が1つずつ書かれた10枚のカードから1枚引くとき、その数が3の倍数である確率を求めなさい。",
+        "options": [
+          "$\\frac{3}{10}$",
+          "$\\frac{1}{3}$",
+          "$\\frac{2}{5}$",
+          "$\\frac{1}{5}$"
+        ],
+        "correctIndex": 0,
+        "explanation": "カードの引き方は全部で10通りです。\n3の倍数は3、6、9の3通りなので、確率は $\\frac{3}{10}$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-probability-q5",
+        "question": "赤玉2個、白玉3個が入った袋から玉を1個取り出すとき、白玉が出る確率を求めなさい。",
+        "options": [
+          "$\\frac{2}{5}$",
+          "$\\frac{3}{5}$",
+          "$\\frac{1}{3}$",
+          "$\\frac{3}{2}$"
+        ],
+        "correctIndex": 1,
+        "explanation": "玉は全部で $2+3=5$ 個あり、取り出し方は5通りで、どれも同様に確からしいです。\n白玉は3個なので、白玉が出る確率は $\\frac{3}{5}$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-probability-q6",
+        "question": "当たりくじが3本、はずれくじが7本入っているくじから1本引くとき、当たる確率を求めなさい。",
+        "options": [
+          "$\\frac{3}{7}$",
+          "$\\frac{7}{10}$",
+          "$\\frac{3}{10}$",
+          "$\\frac{1}{3}$"
+        ],
+        "correctIndex": 2,
+        "explanation": "くじは全部で $3+7=10$ 本あり、引き方は10通りです。\n当たりは3本なので、当たる確率は $\\frac{3}{10}$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-probability-q7",
+        "question": "ジョーカーを除く52枚のトランプから1枚引くとき、ハートのカードである確率を求めなさい。",
+        "options": [
+          "$\\frac{1}{4}$",
+          "$\\frac{1}{13}$",
+          "$\\frac{13}{52}$",
+          "$\\frac{1}{2}$"
+        ],
+        "correctIndex": 0,
+        "explanation": "カードは全部で52枚あり、引き方は52通りです。\nハートは13枚なので、確率は $\\frac{13}{52}=\\frac{1}{4}$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-probability-q8",
+        "question": "1個のさいころを投げるとき、3以上の目が出る確率を求めなさい。",
+        "options": [
+          "$\\frac{1}{2}$",
+          "$\\frac{2}{3}$",
+          "$\\frac{1}{3}$",
+          "$\\frac{3}{6}$"
+        ],
+        "correctIndex": 1,
+        "explanation": "目の出方は全部で6通りです。\n3以上の目は3、4、5、6の4通りなので、確率は $\\frac{4}{6}=\\frac{2}{3}$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-probability-q9",
+        "question": "2枚の硬貨を同時に投げるとき、2枚とも表が出る確率を求めなさい。",
+        "options": [
+          "$\\frac{1}{2}$",
+          "$\\frac{1}{3}$",
+          "$\\frac{1}{4}$",
+          "$\\frac{2}{4}$"
+        ],
+        "correctIndex": 2,
+        "explanation": "2枚を表と裏で区別すると、出方は（表表）（表裏）（裏表）（裏裏）の4通りです。\n2枚とも表は1通りなので、確率は $\\frac{1}{4}$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-probability-q10",
+        "question": "2枚の硬貨を同時に投げるとき、表と裏が1枚ずつ出る確率を求めなさい。",
+        "options": [
+          "$\\frac{1}{4}$",
+          "$\\frac{1}{2}$",
+          "$\\frac{2}{2}$",
+          "$\\frac{1}{3}$"
+        ],
+        "correctIndex": 1,
+        "explanation": "2枚を区別すると出方は（表表）（表裏）（裏表）（裏裏）の4通りです。\n表と裏が1枚ずつになるのは（表裏）（裏表）の2通りなので、確率は $\\frac{2}{4}=\\frac{1}{2}$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-probability-q11",
+        "question": "3枚の硬貨を同時に投げるとき、3枚とも表が出る確率を求めなさい。",
+        "options": [
+          "$\\frac{1}{8}$",
+          "$\\frac{1}{3}$",
+          "$\\frac{1}{6}$",
+          "$\\frac{3}{8}$"
+        ],
+        "correctIndex": 0,
+        "explanation": "3枚を区別すると、表裏の出方は $2\\times2\\times2=8$ 通りです。\n3枚とも表になるのは1通りなので、確率は $\\frac{1}{8}$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-probability-q12",
+        "question": "大小2個のさいころを同時に投げるとき、出る目の和が7になる確率を求めなさい。",
+        "options": [
+          "$\\frac{5}{36}$",
+          "$\\frac{7}{36}$",
+          "$\\frac{1}{9}$",
+          "$\\frac{1}{6}$"
+        ],
+        "correctIndex": 3,
+        "explanation": "2個のさいころの目の出方は全部で $6\\times6=36$ 通りです。\n和が7になるのは（1,6）（2,5）（3,4）（4,3）（5,2）（6,1）の6通りなので、確率は $\\frac{6}{36}=\\frac{1}{6}$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-probability-q13",
+        "question": "大小2個のさいころを同時に投げるとき、出る目の和が5になる確率を求めなさい。",
+        "options": [
+          "$\\frac{1}{6}$",
+          "$\\frac{5}{36}$",
+          "$\\frac{1}{9}$",
+          "$\\frac{1}{12}$"
+        ],
+        "correctIndex": 2,
+        "explanation": "目の出方は全部で $6\\times6=36$ 通りです。\n和が5になるのは（1,4）（2,3）（3,2）（4,1）の4通りなので、確率は $\\frac{4}{36}=\\frac{1}{9}$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-probability-q14",
+        "question": "大小2個のさいころを同時に投げるとき、出る目の積が偶数になる確率を求めなさい。",
+        "options": [
+          "$\\frac{1}{4}$",
+          "$\\frac{1}{2}$",
+          "$\\frac{3}{4}$",
+          "$\\frac{2}{3}$"
+        ],
+        "correctIndex": 2,
+        "explanation": "目の出方は全部で36通りです。積が奇数になるのは両方とも奇数のときで $3\\times3=9$ 通りです。\nよって積が偶数になるのは $36-9=27$ 通りで、確率は $\\frac{27}{36}=\\frac{3}{4}$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-probability-q15",
+        "question": "大小2個のさいころを同時に投げるとき、出る目が同じになる確率を求めなさい。",
+        "options": [
+          "$\\frac{1}{3}$",
+          "$\\frac{1}{12}$",
+          "$\\frac{1}{9}$",
+          "$\\frac{1}{6}$"
+        ],
+        "correctIndex": 3,
+        "explanation": "目の出方は全部で36通りです。\n2個の目が同じになるのは（1,1）（2,2）（3,3）（4,4）（5,5）（6,6）の6通りなので、確率は $\\frac{6}{36}=\\frac{1}{6}$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-probability-q16",
+        "question": "2枚の硬貨を同時に投げるとき、少なくとも1枚は表が出る確率を求めなさい。",
+        "options": [
+          "$\\frac{1}{4}$",
+          "$\\frac{1}{2}$",
+          "$\\frac{3}{4}$",
+          "$\\frac{2}{3}$"
+        ],
+        "correctIndex": 2,
+        "explanation": "2枚を区別すると出方は4通りです。少なくとも1枚が表になる確率は、1から「1枚も表が出ない（2枚とも裏）」確率をひいて求めます。\n2枚とも裏は1通りなので、確率は $1-\\frac{1}{4}=\\frac{3}{4}$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-probability-q17",
+        "question": "3枚の硬貨を同時に投げるとき、少なくとも1枚は表が出る確率を求めなさい。",
+        "options": [
+          "$\\frac{1}{8}$",
+          "$\\frac{7}{8}$",
+          "$\\frac{3}{4}$",
+          "$\\frac{1}{2}$"
+        ],
+        "correctIndex": 1,
+        "explanation": "3枚を区別すると出方は $2\\times2\\times2=8$ 通りです。少なくとも1枚が表になる確率は、1から「3枚とも裏」の確率をひいて求めます。\n3枚とも裏は1通りなので、確率は $1-\\frac{1}{8}=\\frac{7}{8}$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-probability-q18",
+        "question": "赤玉3個、白玉2個が入った袋から同時に2個取り出すとき、少なくとも1個は赤玉である確率を求めなさい。",
+        "options": [
+          "$\\frac{1}{10}$",
+          "$\\frac{3}{5}$",
+          "$\\frac{9}{10}$",
+          "$\\frac{7}{10}$"
+        ],
+        "correctIndex": 2,
+        "explanation": "5個から2個取り出す組合せは全部で10通りです。少なくとも1個が赤玉になる確率は、1から「2個とも白玉」の確率をひいて求めます。\n白玉2個から2個取り出すのは1通りなので、確率は $1-\\frac{1}{10}=\\frac{9}{10}$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-probability-q19",
+        "question": "当たりくじ2本、はずれくじ3本の合計5本から、A、Bの2人がこの順に1本ずつ引きます。引いたくじはもどさないとき、Aが当たる確率を求めなさい。",
+        "options": [
+          "$\\frac{1}{5}$",
+          "$\\frac{2}{5}$",
+          "$\\frac{3}{5}$",
+          "$\\frac{2}{3}$"
+        ],
+        "correctIndex": 1,
+        "explanation": "Aが引くときくじは5本あり、引き方は5通りです。\n当たりは2本なので、Aが当たる確率は $\\frac{2}{5}$ です。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}
