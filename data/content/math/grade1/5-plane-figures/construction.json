@@ -217,6 +217,114 @@
         "correctIndex": 0,
         "explanation": "2直線に1本の直線が交わるとき、錯角が等しければその2直線は平行です。\nこの性質を使い、同じ角を移しとって平行線を作図します。",
         "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-plane-construction-q17",
+        "question": "下の図は、ある作図の途中です。線分 AB の両端 A、B を中心に等しい半径でかいた弧の交点を結ぶと、どんな直線ができますか。",
+        "options": [
+          "線分 AB の垂直二等分線",
+          "角の二等分線",
+          "点 A を通る平行線",
+          "点 B での垂線"
+        ],
+        "correctIndex": 0,
+        "explanation": "2点 A、B から等しい半径でかいた弧の交点を結ぶと、線分 AB の垂直二等分線ができます。\nこの直線は線分 AB を垂直に2等分します。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "construction",
+          "ctype": "perp-bisector",
+          "showLine": false
+        }
+      },
+      {
+        "id": "math-g1-plane-construction-q18",
+        "question": "下の図は、ある作図の途中です。角の頂点を中心にかいた弧と、その弧が2辺と交わった点を中心にかいた弧の交点を頂点と結ぶと、どんな線ができますか。",
+        "options": [
+          "垂直二等分線",
+          "角の二等分線",
+          "点を通る垂線",
+          "平行線"
+        ],
+        "correctIndex": 1,
+        "explanation": "角の頂点と、2つの弧の交点を結ぶと、その角の二等分線ができます。\nこの線は1つの角を等しい2つの角に分けます。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "construction",
+          "ctype": "angle-bisector",
+          "showLine": false
+        }
+      },
+      {
+        "id": "math-g1-plane-construction-q19",
+        "question": "下の図は、直線上の点 P を通る作図の途中です。この作図で、最後にできる直線は何ですか。",
+        "options": [
+          "点 P を通る垂線",
+          "点 P を通る平行線",
+          "角の二等分線",
+          "線分の垂直二等分線"
+        ],
+        "correctIndex": 0,
+        "explanation": "点 P を中心とした弧と、その左右の交点から等しい半径でかいた弧の交点を P と結ぶと、点 P を通る垂線ができます。\nこの直線はもとの直線と90°で交わります。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "construction",
+          "ctype": "perpendicular",
+          "showLine": false
+        }
+      },
+      {
+        "id": "math-g1-plane-construction-q20",
+        "question": "下の図のように作図した垂直二等分線について、この直線上の点は2点 A、B からどんな距離にありますか。",
+        "options": [
+          "A に近いほど短い距離",
+          "B に近いほど短い距離",
+          "2点 A、B から等しい距離",
+          "距離は点によってばらばら"
+        ],
+        "correctIndex": 2,
+        "explanation": "垂直二等分線上のどの点も、2点 A、B から等しい距離にあります。\nだから2点から等距離の点を見つけたいときは垂直二等分線を作図します。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "construction",
+          "ctype": "perp-bisector",
+          "showLine": true
+        }
+      },
+      {
+        "id": "math-g1-plane-construction-q21",
+        "question": "下の図のように作図した角の二等分線について、この線上の点は角の2つの辺からどんな距離にありますか。",
+        "options": [
+          "片方の辺にだけ近い",
+          "角の2つの辺から等しい距離",
+          "頂点に近いほど遠い距離",
+          "距離は決まらない"
+        ],
+        "correctIndex": 1,
+        "explanation": "角の二等分線上のどの点も、角の2つの辺から等しい距離にあります。\nだから2つの直線から等距離の点を見つけたいときは角の二等分線を作図します。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "construction",
+          "ctype": "angle-bisector",
+          "showLine": true
+        }
+      },
+      {
+        "id": "math-g1-plane-construction-q22",
+        "question": "下の図は、直線上の点 P を通る垂線を作図したものです。点 P でできる角の大きさは何度ですか。",
+        "options": [
+          "45°",
+          "60°",
+          "90°",
+          "120°"
+        ],
+        "correctIndex": 2,
+        "explanation": "垂線はもとの直線と垂直に交わる直線です。\nだから点 P でできる角は90°になります。",
+        "difficulty": "basic",
+        "image": {
+          "kind": "construction",
+          "ctype": "perpendicular",
+          "showLine": true
+        }
       }
     ]
   }

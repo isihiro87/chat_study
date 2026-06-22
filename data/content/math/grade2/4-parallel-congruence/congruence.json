@@ -243,6 +243,209 @@
         "correctIndex": 1,
         "explanation": "すでに正しいと認められたことがらを根拠にして、結論が成り立つことを示すことを証明といいます。",
         "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-congruence-q19",
+        "question": "下の図で、2つの三角形が合同であることを示すのに使う合同条件はどれですか。",
+        "options": [
+          "3組の辺がそれぞれ等しい",
+          "2組の辺とその間の角がそれぞれ等しい",
+          "1組の辺とその両端の角がそれぞれ等しい",
+          "3組の角がそれぞれ等しい"
+        ],
+        "correctIndex": 0,
+        "explanation": "図では3つの辺すべてに等しい印がついています。\nAB$=$DE、BC$=$EF、CA$=$FD なので「3組の辺がそれぞれ等しい」が使えます。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "two-triangles",
+          "left": { "angles": [70, 60, 50], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [70, 60, 50], "vertexNames": ["D", "E", "F"] },
+          "sideTicks": [
+            { "tri": "left", "side": "AB", "n": 1 },
+            { "tri": "right", "side": "DE", "n": 1 },
+            { "tri": "left", "side": "BC", "n": 2 },
+            { "tri": "right", "side": "EF", "n": 2 },
+            { "tri": "left", "side": "CA", "n": 3 },
+            { "tri": "right", "side": "FD", "n": 3 }
+          ],
+          "angleMarks": []
+        }
+      },
+      {
+        "id": "math-g2-congruence-q20",
+        "question": "下の図で、2つの三角形が合同であることを示すのに使う合同条件はどれですか。",
+        "options": [
+          "1組の辺とその両端の角がそれぞれ等しい",
+          "3組の辺がそれぞれ等しい",
+          "2組の辺とその間の角がそれぞれ等しい",
+          "3組の角がそれぞれ等しい"
+        ],
+        "correctIndex": 2,
+        "explanation": "図では2つの辺 AB、BC とその間の角 $\\angle$B に等しい印がついています。\nAB$=$DE、BC$=$EF、$\\angle$B$=\\angle$E なので「2組の辺とその間の角がそれぞれ等しい」が使えます。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "two-triangles",
+          "left": { "angles": [70, 60, 50], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [70, 60, 50], "vertexNames": ["D", "E", "F"] },
+          "sideTicks": [
+            { "tri": "left", "side": "AB", "n": 1 },
+            { "tri": "right", "side": "DE", "n": 1 },
+            { "tri": "left", "side": "BC", "n": 2 },
+            { "tri": "right", "side": "EF", "n": 2 }
+          ],
+          "angleMarks": [
+            { "tri": "left", "at": "B", "n": 1 },
+            { "tri": "right", "at": "E", "n": 1 }
+          ]
+        }
+      },
+      {
+        "id": "math-g2-congruence-q21",
+        "question": "下の図で、2つの三角形が合同であることを示すのに使う合同条件はどれですか。",
+        "options": [
+          "2組の辺とその間の角がそれぞれ等しい",
+          "3組の角がそれぞれ等しい",
+          "3組の辺がそれぞれ等しい",
+          "1組の辺とその両端の角がそれぞれ等しい"
+        ],
+        "correctIndex": 3,
+        "explanation": "図では1つの辺 BC とその両端の角 $\\angle$B、$\\angle$C に等しい印がついています。\nBC$=$EF、$\\angle$B$=\\angle$E、$\\angle$C$=\\angle$F なので「1組の辺とその両端の角がそれぞれ等しい」が使えます。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "two-triangles",
+          "left": { "angles": [70, 60, 50], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [70, 60, 50], "vertexNames": ["D", "E", "F"] },
+          "sideTicks": [
+            { "tri": "left", "side": "BC", "n": 1 },
+            { "tri": "right", "side": "EF", "n": 1 }
+          ],
+          "angleMarks": [
+            { "tri": "left", "at": "B", "n": 1 },
+            { "tri": "right", "at": "E", "n": 1 },
+            { "tri": "left", "at": "C", "n": 2 },
+            { "tri": "right", "at": "F", "n": 2 }
+          ]
+        }
+      },
+      {
+        "id": "math-g2-congruence-q22",
+        "question": "下の図で、2つの三角形が合同であることを示すのに使う合同条件はどれですか。",
+        "options": [
+          "3組の角がそれぞれ等しい",
+          "2組の辺とその間の角がそれぞれ等しい",
+          "1組の辺とその両端の角がそれぞれ等しい",
+          "3組の辺がそれぞれ等しい"
+        ],
+        "correctIndex": 1,
+        "explanation": "図では2つの辺 CA、AB とその間の角 $\\angle$A に等しい印がついています。\n間の角は2つの辺の共通の頂点 A の角です。\nCA$=$FD、AB$=$DE、$\\angle$A$=\\angle$D なので「2組の辺とその間の角がそれぞれ等しい」が使えます。",
+        "difficulty": "advanced",
+        "image": {
+          "kind": "two-triangles",
+          "left": { "angles": [70, 60, 50], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [70, 60, 50], "vertexNames": ["D", "E", "F"] },
+          "sideTicks": [
+            { "tri": "left", "side": "CA", "n": 1 },
+            { "tri": "right", "side": "FD", "n": 1 },
+            { "tri": "left", "side": "AB", "n": 2 },
+            { "tri": "right", "side": "DE", "n": 2 }
+          ],
+          "angleMarks": [
+            { "tri": "left", "at": "A", "n": 1 },
+            { "tri": "right", "at": "D", "n": 1 }
+          ]
+        }
+      },
+      {
+        "id": "math-g2-congruence-q23",
+        "question": "下の図で $\\triangle$ABC$\\equiv\\triangle$DEF です。辺ABに対応する辺はどれですか。",
+        "options": [
+          "辺EF",
+          "辺DE",
+          "辺DF",
+          "辺BC"
+        ],
+        "correctIndex": 1,
+        "explanation": "合同の式 $\\triangle$ABC$\\equiv\\triangle$DEF は対応する頂点の順に書きます。\nA→D、B→E なので、辺ABに対応するのは辺DEです。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "two-triangles",
+          "left": { "angles": [70, 60, 50], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [70, 60, 50], "vertexNames": ["D", "E", "F"] },
+          "sideTicks": [
+            { "tri": "left", "side": "AB", "n": 1 },
+            { "tri": "right", "side": "DE", "n": 1 }
+          ],
+          "angleMarks": []
+        }
+      },
+      {
+        "id": "math-g2-congruence-q24",
+        "question": "下の図で $\\triangle$ABC$\\equiv\\triangle$DEF です。$\\angle$Bに対応する角はどれですか。",
+        "options": [
+          "$\\angle$D",
+          "$\\angle$F",
+          "$\\angle$E",
+          "$\\angle$A"
+        ],
+        "correctIndex": 2,
+        "explanation": "合同の式 $\\triangle$ABC$\\equiv\\triangle$DEF は対応する頂点の順に書きます。\nB→E なので、$\\angle$Bに対応するのは$\\angle$Eです。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "two-triangles",
+          "left": { "angles": [70, 60, 50], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [70, 60, 50], "vertexNames": ["D", "E", "F"] },
+          "sideTicks": [],
+          "angleMarks": [
+            { "tri": "left", "at": "B", "n": 1 },
+            { "tri": "right", "at": "E", "n": 1 }
+          ]
+        }
+      },
+      {
+        "id": "math-g2-congruence-q25",
+        "question": "下の図で $\\triangle$ABC$\\equiv\\triangle$DEF です。辺EFに対応する辺はどれですか。",
+        "options": [
+          "辺BC",
+          "辺AB",
+          "辺CA",
+          "辺DF"
+        ],
+        "correctIndex": 0,
+        "explanation": "合同の式 $\\triangle$ABC$\\equiv\\triangle$DEF は対応する頂点の順に書きます。\nE→B、F→C なので、辺EFに対応するのは辺BCです。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "two-triangles",
+          "left": { "angles": [70, 60, 50], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [70, 60, 50], "vertexNames": ["D", "E", "F"] },
+          "sideTicks": [
+            { "tri": "left", "side": "BC", "n": 1 },
+            { "tri": "right", "side": "EF", "n": 1 }
+          ],
+          "angleMarks": []
+        }
+      },
+      {
+        "id": "math-g2-congruence-q26",
+        "question": "下の図で $\\triangle$ABC$\\equiv\\triangle$DEF です。$\\angle$Fに対応する角はどれですか。",
+        "options": [
+          "$\\angle$D",
+          "$\\angle$E",
+          "$\\angle$C",
+          "$\\angle$B"
+        ],
+        "correctIndex": 2,
+        "explanation": "合同の式 $\\triangle$ABC$\\equiv\\triangle$DEF は対応する頂点の順に書きます。\nF→C なので、$\\angle$Fに対応するのは$\\angle$Cです。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "two-triangles",
+          "left": { "angles": [70, 60, 50], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [70, 60, 50], "vertexNames": ["D", "E", "F"] },
+          "sideTicks": [],
+          "angleMarks": [
+            { "tri": "left", "at": "C", "n": 1 },
+            { "tri": "right", "at": "F", "n": 1 }
+          ]
+        }
       }
     ]
   }

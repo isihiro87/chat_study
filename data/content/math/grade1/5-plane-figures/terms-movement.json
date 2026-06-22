@@ -217,6 +217,108 @@
         "correctIndex": 1,
         "explanation": "平行移動はずらすだけなので、図形の向きは変わりません。\n向きが反対になるのは対称移動の特徴です。",
         "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-plane-move-q17",
+        "question": "下の図は、$\\triangle$ABCを$\\triangle$A'B'C'にどのように移動したものですか。",
+        "options": [
+          "平行移動",
+          "対称移動",
+          "回転移動",
+          "拡大移動"
+        ],
+        "correctIndex": 0,
+        "explanation": "矢印の向きに、形と大きさを変えずに一定の長さだけずらしています。\nこれは平行移動です。",
+        "difficulty": "basic",
+        "image": {
+          "kind": "movement",
+          "mtype": "translation"
+        }
+      },
+      {
+        "id": "math-g1-plane-move-q18",
+        "question": "下の図は、$\\triangle$ABCを軸 $\\ell$ を使って$\\triangle$A'B'C'に移動したものです。この移動を何といいますか。",
+        "options": [
+          "平行移動",
+          "対称移動",
+          "回転移動",
+          "点対称移動"
+        ],
+        "correctIndex": 1,
+        "explanation": "直線 $\\ell$ を折り目として折り返しています。\nこれは（線）対称移動で、直線 $\\ell$ を対称の軸といいます。",
+        "difficulty": "basic",
+        "image": {
+          "kind": "movement",
+          "mtype": "reflection"
+        }
+      },
+      {
+        "id": "math-g1-plane-move-q19",
+        "question": "下の図は、$\\triangle$ABCを点 O を中心に180°まわして$\\triangle$A'B'C'に移動したものです。この移動をとくに何といいますか。",
+        "options": [
+          "平行移動",
+          "対称移動",
+          "点対称移動",
+          "直角移動"
+        ],
+        "correctIndex": 2,
+        "explanation": "1つの点 O を中心に180°回転させる移動を、とくに点対称移動といいます。\n点 O は対応する2点を結ぶ線分の中点になります。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "movement",
+          "mtype": "rotation"
+        }
+      },
+      {
+        "id": "math-g1-plane-move-q20",
+        "question": "下の図のように対称移動したとき、対応する2点を結ぶ線分と対称の軸 $\\ell$ の関係として正しいものはどれですか。",
+        "options": [
+          "軸 $\\ell$ と平行になる",
+          "軸 $\\ell$ と垂直に交わり、軸で2等分される",
+          "軸 $\\ell$ 上の1点で接する",
+          "軸 $\\ell$ と同じ長さになる"
+        ],
+        "correctIndex": 1,
+        "explanation": "対称移動では、対応する2点を結ぶ線分は対称の軸と垂直に交わります。\nさらに、その交点で線分は2等分されます。",
+        "difficulty": "advanced",
+        "image": {
+          "kind": "movement",
+          "mtype": "reflection"
+        }
+      },
+      {
+        "id": "math-g1-plane-move-q21",
+        "question": "下の図のように平行移動したとき、対応する点を結んだ線分（AとA'、BとB'、CとC'を結ぶ線分）について正しいものはどれですか。",
+        "options": [
+          "どれも平行で、長さも等しい",
+          "どれも長さは等しいが平行ではない",
+          "1点で交わる",
+          "向きも長さもばらばら"
+        ],
+        "correctIndex": 0,
+        "explanation": "平行移動では、対応する点を結んだ線分はどれも平行で、長さも等しくなります。\n図形全体が同じ向きに同じだけずれるからです。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "movement",
+          "mtype": "translation"
+        }
+      },
+      {
+        "id": "math-g1-plane-move-q22",
+        "question": "下の図のように点 O を中心に回転移動したとき、点 O から対応する2点（例えば A と A'）までの距離について正しいものはどれですか。",
+        "options": [
+          "A' の方が2倍遠い",
+          "A' の方が半分近い",
+          "O からの距離は等しい",
+          "角度によって変わる"
+        ],
+        "correctIndex": 2,
+        "explanation": "回転移動では、回転の中心 O から対応する2点までの距離は等しくなります。\nまた、O と対応する2点を結んでできる角は、回転した角度と同じです。",
+        "difficulty": "advanced",
+        "image": {
+          "kind": "movement",
+          "mtype": "rotation"
+        }
       }
     ]
   }

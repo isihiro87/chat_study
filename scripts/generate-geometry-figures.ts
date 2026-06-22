@@ -58,7 +58,7 @@ const COL_ANGLE = '#E63946'; // 角の弧・ラベル（赤系）
 const COL_TEXT = '#374151';
 const COL_AUX = '#9CA3AF'; // 補助線
 
-const GEOM_KINDS = new Set(['triangle', 'sector', 'parallel-lines', 'polygon', 'circle', 'parallelogram', 'rect-prism', 'cylinder', 'cone', 'sphere', 'tri-prism', 'boxplot', 'histogram']);
+const GEOM_KINDS = new Set(['triangle', 'sector', 'parallel-lines', 'polygon', 'circle', 'parallelogram', 'rect-prism', 'cylinder', 'cone', 'sphere', 'tri-prism', 'boxplot', 'histogram', 'two-triangles', 'construction', 'movement']);
 
 function esc(s: string): string {
   return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -558,10 +558,172 @@ function buildHistogram(img: any): string {
   return wrap(parts.join(''));
 }
 
+// ===== 合同・作図・移動 =====
+function triLocalPts(angles: number[]): Record<string, [number, number]> {
+  const [A, B, C] = angles;
+  const t = Math.sin(rad(C)) / Math.sin(rad(A));
+  return { A: [t * Math.cos(rad(B)), t * Math.sin(rad(B))], B: [0, 0], C: [1, 0] };
+}
+function fitPts(pts: Record<string, [number, number]>, cx: number, cy: number, boxW: number, boxH: number) {
+  const ks = Object.keys(pts);
+  const xs = ks.map((k) => pts[k][0]), ys = ks.map((k) => pts[k][1]);
+  const minX = Math.min(...xs), maxX = Math.max(...xs), minY = Math.min(...ys), maxY = Math.max(...ys);
+  const sc = Math.min(boxW / (maxX - minX || 1), boxH / (maxY - minY || 1));
+  const w = (maxX - minX) * sc, h = (maxY - minY) * sc;
+  const out: Record<string, [number, number]> = {};
+  for (const k of ks) out[k] = [cx - w / 2 + (pts[k][0] - minX) * sc, cy + h / 2 - (pts[k][1] - minY) * sc];
+  return out;
+}
+function tickMarks(P: [number, number], Q: [number, number], n: number): string {
+  let s = '';
+  const mid: [number, number] = [(P[0] + Q[0]) / 2, (P[1] + Q[1]) / 2];
+  const L = Math.hypot(Q[0] - P[0], Q[1] - P[1]) || 1;
+  const u: [number, number] = [(Q[0] - P[0]) / L, (Q[1] - P[1]) / L], pp: [number, number] = [-u[1], u[0]];
+  for (let k = 0; k < n; k++) {
+    const o = (k - (n - 1) / 2) * 5;
+    const c = [mid[0] + u[0] * o, mid[1] + u[1] * o];
+    s += `<line x1="${(c[0] - pp[0] * 6).toFixed(1)}" y1="${(c[1] - pp[1] * 6).toFixed(1)}" x2="${(c[0] + pp[0] * 6).toFixed(1)}" y2="${(c[1] + pp[1] * 6).toFixed(1)}" stroke="${COL_ANGLE}" stroke-width="2"/>`;
+  }
+  return s;
+}
+
+// ---------- 2つの三角形（合同） ----------
+function buildTwoTriangles(img: any): string {
+  const PL = fitPts(triLocalPts(img.left.angles), 84, 190, 112, 150);
+  const PR = fitPts(triLocalPts(img.right.angles), 276, 190, 112, 150);
+  const tri: Record<string, Record<string, [number, number]>> = { left: PL, right: PR };
+  const vn: Record<string, string[]> = { left: img.left.vertexNames, right: img.right.vertexNames };
+  const parts: string[] = [];
+  for (const side of ['left', 'right']) {
+    const P = tri[side];
+    parts.push(`<polygon points="${['A', 'B', 'C'].map((k) => `${P[k][0].toFixed(1)},${P[k][1].toFixed(1)}`).join(' ')}" fill="${COL_FILL}" stroke="${COL_SHAPE}" stroke-width="2.4" stroke-linejoin="round"/>`);
+    const cen: [number, number] = [(P.A[0] + P.B[0] + P.C[0]) / 3, (P.A[1] + P.B[1] + P.C[1]) / 3];
+    const names = vn[side];
+    ['A', 'B', 'C'].forEach((k, i) => {
+      if (!names || !names[i]) return;
+      const v = P[k], d = [v[0] - cen[0], v[1] - cen[1]], len = Math.hypot(d[0], d[1]) || 1;
+      parts.push(svgText(v[0] + (d[0] / len) * 16, v[1] + (d[1] / len) * 16, names[i], { weight: 'bold', size: 15, fill: COL_SHAPE }));
+    });
+  }
+  // 表示名(D/E/F等)→内部キー(A/B/C 位置)
+  const keyMap = (side: string): Record<string, string> => {
+    const names = vn[side]; const map: Record<string, string> = {};
+    ['A', 'B', 'C'].forEach((k, i) => { map[names[i]] = k; });
+    return map;
+  };
+  for (const t of img.sideTicks || []) {
+    const P = tri[t.tri], mp = keyMap(t.tri);
+    parts.push(tickMarks(P[mp[t.side[0]]], P[mp[t.side[1]]], t.n));
+  }
+  const nbr: Record<string, [string, string]> = { A: ['B', 'C'], B: ['A', 'C'], C: ['A', 'B'] };
+  for (const m of img.angleMarks || []) {
+    const P = tri[m.tri], mp = keyMap(m.tri), key = mp[m.at], v = P[key], nb = nbr[key];
+    for (let k = 0; k < m.n; k++) parts.push(angleArc(v, P[nb[0]], P[nb[1]], 13 + k * 5).path);
+  }
+  return wrap(parts.join(''));
+}
+
+// ---------- 作図 ----------
+function arcCenter(c: [number, number], r: number, a1: number, a2: number): string {
+  // a1→a2 の短い方の弧（minor arc）を描く
+  const d = ((((a2 - a1) % 360) + 540) % 360) - 180; // -180..180
+  const a2adj = a1 + d;
+  const s: [number, number] = [c[0] + r * Math.cos(rad(a1)), c[1] - r * Math.sin(rad(a1))];
+  const e: [number, number] = [c[0] + r * Math.cos(rad(a2adj)), c[1] - r * Math.sin(rad(a2adj))];
+  const sweep = d > 0 ? 1 : 0;
+  return `<path d="M${s[0].toFixed(1)},${s[1].toFixed(1)} A${r},${r} 0 0 ${sweep} ${e[0].toFixed(1)},${e[1].toFixed(1)}" fill="none" stroke="${COL_ANGLE}" stroke-width="1.6"/>`;
+}
+function buildConstruction(img: any): string {
+  const parts: string[] = [];
+  const type = img.ctype;
+  if (type === 'perp-bisector') {
+    const A: [number, number] = [120, 210], B: [number, number] = [260, 210];
+    const mx = (A[0] + B[0]) / 2, half = (B[0] - A[0]) / 2, r = 96, hh = Math.sqrt(r * r - half * half);
+    const top: [number, number] = [mx, 210 - hh], bot: [number, number] = [mx, 210 + hh];
+    parts.push(line(A, B));
+    const angTo = (c: [number, number], p: [number, number]) => (Math.atan2(-(p[1] - c[1]), p[0] - c[0]) * 180) / Math.PI;
+    parts.push(arcCenter(A, r, angTo(A, top), angTo(A, bot)));
+    parts.push(arcCenter(B, r, angTo(B, bot), angTo(B, top)));
+    if (img.showLine) parts.push(`<line x1="${mx}" y1="${(top[1] - 24).toFixed(1)}" x2="${mx}" y2="${(bot[1] + 24).toFixed(1)}" stroke="${COL_SHAPE}" stroke-width="2" stroke-dasharray="6 4"/>`);
+    parts.push(`<circle cx="${A[0]}" cy="${A[1]}" r="2.5" fill="${COL_SHAPE}"/><circle cx="${B[0]}" cy="${B[1]}" r="2.5" fill="${COL_SHAPE}"/>`);
+    parts.push(svgText(A[0] - 6, A[1] + 16, 'A', { weight: 'bold', size: 15, fill: COL_SHAPE }));
+    parts.push(svgText(B[0] + 6, B[1] + 16, 'B', { weight: 'bold', size: 15, fill: COL_SHAPE }));
+  } else if (type === 'angle-bisector') {
+    const O: [number, number] = [110, 250];
+    const a1 = 0, a2 = 52; // 2辺の角度（上向き）
+    const L = 210;
+    const r1: [number, number] = [O[0] + L * Math.cos(rad(a1)), O[1] - L * Math.sin(rad(a1))];
+    const r2: [number, number] = [O[0] + L * Math.cos(rad(a2)), O[1] - L * Math.sin(rad(a2))];
+    parts.push(line(O, r1)); parts.push(line(O, r2));
+    const rr = 78;
+    const P1: [number, number] = [O[0] + rr * Math.cos(rad(a1)), O[1] - rr * Math.sin(rad(a1))];
+    const P2: [number, number] = [O[0] + rr * Math.cos(rad(a2)), O[1] - rr * Math.sin(rad(a2))];
+    parts.push(arcCenter(O, rr, a1 - 6, a2 + 6));
+    const rr2 = 64;
+    // 交点（二等分線方向 a=(a1+a2)/2）
+    const ab = (a1 + a2) / 2;
+    const Q: [number, number] = [O[0] + (rr + 20) * Math.cos(rad(ab)), O[1] - (rr + 20) * Math.sin(rad(ab))];
+    parts.push(arcCenter(P1, rr2, ab + 25, ab - 25));
+    parts.push(arcCenter(P2, rr2, ab + 25, ab - 25));
+    if (img.showLine) parts.push(`<line x1="${O[0]}" y1="${O[1]}" x2="${(O[0] + 200 * Math.cos(rad(ab))).toFixed(1)}" y2="${(O[1] - 200 * Math.sin(rad(ab))).toFixed(1)}" stroke="${COL_SHAPE}" stroke-width="2" stroke-dasharray="6 4"/>`);
+    parts.push(`<circle cx="${O[0]}" cy="${O[1]}" r="2.5" fill="${COL_SHAPE}"/>`);
+    parts.push(svgText(O[0] - 12, O[1] + 6, 'O', { weight: 'bold', size: 15, fill: COL_SHAPE }));
+  } else { // perpendicular: 直線上の点Pでの垂線
+    const y = 230, P: [number, number] = [180, y];
+    parts.push(line([40, y], [320, y]));
+    const d = 60;
+    const Lp: [number, number] = [P[0] - d, y], Rp: [number, number] = [P[0] + d, y];
+    const r = 84, hh = Math.sqrt(r * r - d * d);
+    parts.push(arcCenter(Lp, r, 90 - 40, 90 + 40));
+    parts.push(arcCenter(Rp, r, 90 - 40, 90 + 40));
+    if (img.showLine) parts.push(`<line x1="${P[0]}" y1="${(y - hh - 26).toFixed(1)}" x2="${P[0]}" y2="${y + 6}" stroke="${COL_SHAPE}" stroke-width="2" stroke-dasharray="6 4"/>`);
+    parts.push(`<circle cx="${P[0]}" cy="${y}" r="2.5" fill="${COL_SHAPE}"/>`);
+    parts.push(svgText(P[0], y + 18, 'P', { weight: 'bold', size: 15, fill: COL_SHAPE }));
+  }
+  return wrap(parts.join(''));
+}
+
+// ---------- 図形の移動 ----------
+function buildMovement(img: any): string {
+  const type = img.mtype;
+  const base = triLocalPts([70, 60, 50]);
+  const parts: string[] = [];
+  const drawTri = (P: Record<string, [number, number]>, dashed: boolean, label?: string[]) => {
+    parts.push(`<polygon points="${['A', 'B', 'C'].map((k) => `${P[k][0].toFixed(1)},${P[k][1].toFixed(1)}`).join(' ')}" fill="${dashed ? 'none' : COL_FILL}" stroke="${dashed ? COL_HID : COL_SHAPE}" stroke-width="2.2"${dashed ? ' stroke-dasharray="6 4"' : ''} stroke-linejoin="round"/>`);
+    if (label) { const cen: [number, number] = [(P.A[0] + P.B[0] + P.C[0]) / 3, (P.A[1] + P.B[1] + P.C[1]) / 3]; ['A', 'B', 'C'].forEach((k, i) => { if (label[i]) parts.push(svgText(P[k][0] + (P[k][0] - cen[0]) * 0.28, P[k][1] + (P[k][1] - cen[1]) * 0.28, label[i], { size: 13, weight: 'bold', fill: dashed ? COL_HID : COL_SHAPE })); }); }
+  };
+  if (type === 'translation') {
+    const P1 = fitPts(base, 120, 170, 120, 130);
+    const off: [number, number] = [120, 60];
+    const P2: Record<string, [number, number]> = {}; for (const k of ['A', 'B', 'C']) P2[k] = [P1[k][0] + off[0], P1[k][1] + off[1]];
+    drawTri(P1, false, ['A', 'B', 'C']); drawTri(P2, true, ["A'", "B'", "C'"]);
+    parts.push(`<defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="${COL_SHAPE}"/></marker></defs>`);
+    parts.push(`<line x1="${P1.A[0].toFixed(1)}" y1="${P1.A[1].toFixed(1)}" x2="${(P2.A[0] - 4).toFixed(1)}" y2="${(P2.A[1] - 2).toFixed(1)}" stroke="${COL_SHAPE}" stroke-width="1.6" marker-end="url(#ar)"/>`);
+  } else if (type === 'reflection') {
+    const axisX = 184;
+    const P1 = fitPts(base, 110, 185, 120, 150);
+    const P2: Record<string, [number, number]> = {}; for (const k of ['A', 'B', 'C']) P2[k] = [2 * axisX - P1[k][0], P1[k][1]];
+    parts.push(`<line x1="${axisX}" y1="40" x2="${axisX}" y2="320" stroke="${COL_HID}" stroke-width="1.8" stroke-dasharray="7 5"/>`);
+    drawTri(P1, false, ['A', 'B', 'C']); drawTri(P2, true, ["A'", "B'", "C'"]);
+    parts.push(svgText(axisX + 12, 52, 'ℓ', { size: 14, fill: COL_TEXT }));
+  } else { // rotation 180°（点対称）
+    const O: [number, number] = [184, 188];
+    const P1 = fitPts(base, 116, 130, 110, 110);
+    const P2: Record<string, [number, number]> = {}; for (const k of ['A', 'B', 'C']) P2[k] = [2 * O[0] - P1[k][0], 2 * O[1] - P1[k][1]];
+    drawTri(P1, false, ['A', 'B', 'C']); drawTri(P2, true, ["A'", "B'", "C'"]);
+    parts.push(`<circle cx="${O[0]}" cy="${O[1]}" r="2.6" fill="${COL_SHAPE}"/>`);
+    parts.push(svgText(O[0] + 10, O[1] + 12, 'O', { size: 14, weight: 'bold', fill: COL_SHAPE }));
+  }
+  return wrap(parts.join(''));
+}
+
 function build(img: any): string {
   switch (img.kind) {
     case 'boxplot': return buildBoxplot(img);
     case 'histogram': return buildHistogram(img);
+    case 'two-triangles': return buildTwoTriangles(img);
+    case 'construction': return buildConstruction(img);
+    case 'movement': return buildMovement(img);
     case 'triangle': return buildTriangle(img);
     case 'sector': return buildSector(img);
     case 'circle': return buildCircle(img);
