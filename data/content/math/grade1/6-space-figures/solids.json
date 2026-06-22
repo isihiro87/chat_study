@@ -153,6 +153,60 @@
         "correctIndex": 1,
         "explanation": "立体の表面を辺にそって切り開き、平面に広げた図を展開図といいます。\n展開図を組み立てるともとの立体になり、表面積を求めるときに役立ちます。",
         "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-space-solids-q19",
+        "question": "下の図の立体の名前は何ですか。",
+        "options": ["円錐", "円柱", "三角柱", "球"],
+        "correctIndex": 0,
+        "explanation": "底面が円で、1つの頂点に向かって細くなり側面が曲面になっている立体を円錐といいます。\n底面が円でも頂点がなく上下に2つの円があるものは円柱です。",
+        "difficulty": "basic",
+        "image": { "kind": "cone", "r": "3cm", "h": "4cm" }
+      },
+      {
+        "id": "math-g1-space-solids-q20",
+        "question": "下の図の立体の名前は何ですか。",
+        "options": ["円錐", "円柱", "三角柱", "球"],
+        "correctIndex": 1,
+        "explanation": "底面が円で、上下に合同な2つの円があり側面が曲面になっている柱状の立体を円柱といいます。\n頂点があって細くなっていく立体は円錐です。",
+        "difficulty": "basic",
+        "image": { "kind": "cylinder", "r": "3cm", "h": "7cm" }
+      },
+      {
+        "id": "math-g1-space-solids-q21",
+        "question": "下の図の立体の名前は何ですか。",
+        "options": ["円錐", "円柱", "球", "三角柱"],
+        "correctIndex": 2,
+        "explanation": "どの方向から見ても円に見え、中心からの距離がすべて等しい点の集まりでできた立体を球といいます。\n半円を直径を軸にして1回転させると球ができます。",
+        "difficulty": "basic",
+        "image": { "kind": "sphere", "r": "5cm" }
+      },
+      {
+        "id": "math-g1-space-solids-q22",
+        "question": "下の図の立体の名前は何ですか。",
+        "options": ["円柱", "四角柱", "円錐", "三角柱"],
+        "correctIndex": 3,
+        "explanation": "底面が三角形で、側面がすべて長方形になっている柱状の立体を三角柱といいます。\n底面が四角形なら四角柱、底面が円なら円柱です。",
+        "difficulty": "basic",
+        "image": { "kind": "tri-prism", "base": "6cm", "h": "4cm", "len": "8cm" }
+      },
+      {
+        "id": "math-g1-space-solids-q23",
+        "question": "下の図の三角柱の辺の数はいくつですか。",
+        "options": ["9", "6", "5", "12"],
+        "correctIndex": 0,
+        "explanation": "三角柱は底面の三角形に辺が3本ずつで上下合わせて6本、側面の縦の辺が3本あります。\n6＋3＝9なので辺は9本です。",
+        "difficulty": "standard",
+        "image": { "kind": "tri-prism", "base": "6cm", "h": "4cm", "len": "8cm" }
+      },
+      {
+        "id": "math-g1-space-solids-q24",
+        "question": "下の図の四角柱（直方体）の面の数はいくつですか。",
+        "options": ["4", "6", "8", "12"],
+        "correctIndex": 1,
+        "explanation": "四角柱（直方体）は上下の底面が2つと、側面が4つあります。\n2＋4＝6なので面の数は6です。",
+        "difficulty": "standard",
+        "image": { "kind": "rect-prism", "w": "6cm", "d": "4cm", "h": "5cm" }
       }
     ]
   }

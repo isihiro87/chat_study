@@ -58,7 +58,7 @@ const COL_ANGLE = '#E63946'; // 角の弧・ラベル（赤系）
 const COL_TEXT = '#374151';
 const COL_AUX = '#9CA3AF'; // 補助線
 
-const GEOM_KINDS = new Set(['triangle', 'sector', 'parallel-lines', 'polygon', 'circle', 'parallelogram']);
+const GEOM_KINDS = new Set(['triangle', 'sector', 'parallel-lines', 'polygon', 'circle', 'parallelogram', 'rect-prism', 'cylinder', 'cone', 'sphere', 'tri-prism']);
 
 function esc(s: string): string {
   return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -399,6 +399,105 @@ function buildPolygon(img: any): string {
   return wrap(parts.join(''));
 }
 
+// ===== 立体（空間図形）: 斜投影で模式的に描く =====
+const COL_HID = '#9CA3AF'; // 隠れ線（破線）
+function line(a: [number, number], b: [number, number], dashed = false) {
+  return `<line x1="${a[0].toFixed(1)}" y1="${a[1].toFixed(1)}" x2="${b[0].toFixed(1)}" y2="${b[1].toFixed(1)}" stroke="${dashed ? COL_HID : COL_SHAPE}" stroke-width="${dashed ? 1.6 : 2.4}"${dashed ? ' stroke-dasharray="5 4"' : ''}/>`;
+}
+// 楕円の下半分(手前=実線)・上半分(奥=破線)
+function ellipseHalf(cx: number, cy: number, rx: number, ry: number, lower: boolean, dashed: boolean) {
+  const sweep = lower ? 0 : 1;
+  return `<path d="M${(cx - rx).toFixed(1)},${cy.toFixed(1)} A${rx},${ry} 0 0 ${sweep} ${(cx + rx).toFixed(1)},${cy.toFixed(1)}" fill="none" stroke="${dashed ? COL_HID : COL_SHAPE}" stroke-width="${dashed ? 1.6 : 2.4}"${dashed ? ' stroke-dasharray="5 4"' : ''}/>`;
+}
+
+// ---------- 直方体・立方体 ----------
+function buildRectPrism(img: any): string {
+  const FW = img.cube ? 130 : 150, FH = img.cube ? 130 : 108;
+  const odx = 56, ody = -42; // 奥行き方向
+  const ox = (SIZE - (FW + odx)) / 2, oy = (SIZE + (FH - ody)) / 2 - 8;
+  const A: [number, number] = [ox, oy], B: [number, number] = [ox + FW, oy], C: [number, number] = [ox + FW, oy - FH], D: [number, number] = [ox, oy - FH];
+  const off = (p: [number, number]): [number, number] => [p[0] + odx, p[1] + ody];
+  const A2 = off(A), B2 = off(B), C2 = off(C), D2 = off(D);
+  const parts: string[] = [];
+  // 面（手前・上・右）を薄く塗る
+  parts.push(`<polygon points="${[A, B, C, D].map((p) => p.join(',')).join(' ')}" fill="${COL_FILL}" stroke="none"/>`);
+  parts.push(`<polygon points="${[D, C, C2, D2].map((p) => p.join(',')).join(' ')}" fill="#DCE6F0" stroke="none"/>`);
+  parts.push(`<polygon points="${[B, C, C2, B2].map((p) => p.join(',')).join(' ')}" fill="#E8EEF5" stroke="none"/>`);
+  // 隠れ線（奥の左下 A2 まわり）
+  parts.push(line(A, A2, true)); parts.push(line(A2, B2, true)); parts.push(line(A2, D2, true));
+  // 実線
+  for (const [p, q] of [[A, B], [B, C], [C, D], [D, A], [B, B2], [C, C2], [D, D2], [B2, C2], [C2, D2]] as [[number, number], [number, number]][]) parts.push(line(p, q));
+  if (img.w) parts.push(svgText((A[0] + B[0]) / 2, A[1] + 16, img.w, { size: 13, fill: COL_SHAPE }));
+  if (img.h) parts.push(svgText(B[0] + 16, (B[1] + C[1]) / 2, img.h, { size: 13, fill: COL_SHAPE }));
+  if (img.d) parts.push(svgText((C[0] + C2[0]) / 2 + 10, (C[1] + C2[1]) / 2 - 2, img.d, { size: 13, fill: COL_SHAPE }));
+  return wrap(parts.join(''));
+}
+
+// ---------- 円柱 ----------
+function buildCylinder(img: any): string {
+  const cx = SIZE / 2, rx = 74, ry = 22, topY = 96, botY = 270;
+  const parts: string[] = [];
+  parts.push(`<path d="M${cx - rx},${topY} L${cx - rx},${botY} M${cx + rx},${topY} L${cx + rx},${botY}" stroke="${COL_SHAPE}" stroke-width="2.4"/>`);
+  // 胴の塗り
+  parts.push(`<rect x="${cx - rx}" y="${topY}" width="${2 * rx}" height="${botY - topY}" fill="${COL_FILL}" stroke="none"/>`);
+  // 底（手前実線・奥破線）→ 上面（実線楕円）
+  parts.push(ellipseHalf(cx, botY, rx, ry, true, false));
+  parts.push(ellipseHalf(cx, botY, rx, ry, false, true));
+  parts.push(`<ellipse cx="${cx}" cy="${topY}" rx="${rx}" ry="${ry}" fill="${COL_FILL}" stroke="${COL_SHAPE}" stroke-width="2.4"/>`);
+  if (img.r) { parts.push(line([cx, topY], [cx + rx, topY])); parts.push(svgText(cx + rx / 2, topY - 10, img.r, { size: 13, fill: COL_SHAPE })); }
+  if (img.h) parts.push(svgText(cx + rx + 16, (topY + botY) / 2, img.h, { size: 13, fill: COL_SHAPE }));
+  return wrap(parts.join(''));
+}
+
+// ---------- 円錐 ----------
+function buildCone(img: any): string {
+  const cx = SIZE / 2, rx = 78, ry = 24, botY = 268, apexY = 80;
+  const apex: [number, number] = [cx, apexY];
+  const parts: string[] = [];
+  parts.push(`<polygon points="${apex.join(',')} ${cx - rx},${botY} ${cx + rx},${botY}" fill="${COL_FILL}" stroke="none"/>`);
+  parts.push(ellipseHalf(cx, botY, rx, ry, true, false));
+  parts.push(ellipseHalf(cx, botY, rx, ry, false, true));
+  parts.push(line(apex, [cx - rx, botY])); parts.push(line(apex, [cx + rx, botY]));
+  if (img.h) { parts.push(line(apex, [cx, botY], true)); parts.push(svgText(cx + 10, (apexY + botY) / 2, img.h, { size: 13, fill: COL_SHAPE })); }
+  if (img.r) { parts.push(line([cx, botY], [cx + rx, botY])); parts.push(svgText(cx + rx / 2, botY + 16, img.r, { size: 13, fill: COL_SHAPE })); }
+  return wrap(parts.join(''));
+}
+
+// ---------- 球 ----------
+function buildSphere(img: any): string {
+  const cx = SIZE / 2, cy = SIZE / 2, R = 116;
+  const parts: string[] = [];
+  parts.push(`<circle cx="${cx}" cy="${cy}" r="${R}" fill="${COL_FILL}" stroke="${COL_SHAPE}" stroke-width="2.4"/>`);
+  parts.push(ellipseHalf(cx, cy, R, 34, true, false));
+  parts.push(ellipseHalf(cx, cy, R, 34, false, true));
+  if (img.r) {
+    parts.push(`<circle cx="${cx}" cy="${cy}" r="2.5" fill="${COL_SHAPE}"/>`);
+    parts.push(line([cx, cy], [cx + R * Math.cos(rad(35)), cy - R * Math.sin(rad(35))]));
+    parts.push(svgText(cx + R * 0.5, cy - R * 0.32, img.r, { size: 13, fill: COL_SHAPE }));
+  }
+  return wrap(parts.join(''));
+}
+
+// ---------- 三角柱 ----------
+function buildTriPrism(img: any): string {
+  const odx = 70, ody = -40;
+  // 手前の三角形（上頂点・底辺）
+  const ox = 96, baseY = 250, tw = 120, th = 130;
+  const A: [number, number] = [ox + tw / 2, baseY - th], B: [number, number] = [ox, baseY], C: [number, number] = [ox + tw, baseY];
+  const off = (p: [number, number]): [number, number] => [p[0] + odx, p[1] + ody];
+  const A2 = off(A), B2 = off(B), C2 = off(C);
+  const parts: string[] = [];
+  parts.push(`<polygon points="${[A, B, C].map((p) => p.join(',')).join(' ')}" fill="${COL_FILL}" stroke="none"/>`);
+  parts.push(`<polygon points="${[A, C, C2, A2].map((p) => p.join(',')).join(' ')}" fill="#E8EEF5" stroke="none"/>`);
+  // 隠れ線（奥の B2）
+  parts.push(line(B, B2, true)); parts.push(line(B2, A2, true)); parts.push(line(B2, C2, true));
+  for (const [p, q] of [[A, B], [B, C], [C, A], [A, A2], [C, C2], [A2, C2]] as [[number, number], [number, number]][]) parts.push(line(p, q));
+  if (img.len) parts.push(svgText((C[0] + C2[0]) / 2 + 6, (C[1] + C2[1]) / 2 + 14, img.len, { size: 13, fill: COL_SHAPE }));
+  if (img.base) parts.push(svgText((B[0] + C[0]) / 2, B[1] + 16, img.base, { size: 13, fill: COL_SHAPE }));
+  if (img.h) parts.push(svgText(A[0] - 14, (A[1] + baseY) / 2, img.h, { size: 13, fill: COL_SHAPE }));
+  return wrap(parts.join(''));
+}
+
 function build(img: any): string {
   switch (img.kind) {
     case 'triangle': return buildTriangle(img);
@@ -407,6 +506,11 @@ function build(img: any): string {
     case 'parallel-lines': return buildParallel(img);
     case 'parallelogram': return buildParallelogram(img);
     case 'polygon': return buildPolygon(img);
+    case 'rect-prism': return buildRectPrism(img);
+    case 'cylinder': return buildCylinder(img);
+    case 'cone': return buildCone(img);
+    case 'sphere': return buildSphere(img);
+    case 'tri-prism': return buildTriPrism(img);
     default: throw new Error('unknown kind: ' + img.kind);
   }
 }

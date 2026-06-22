@@ -153,6 +153,114 @@
         "correctIndex": 2,
         "explanation": "底面2つの面積は$3\\times3\\times2=18$cm$^2$、側面積は底面のまわりの長さ×高さで$(3\\times4)\\times10=120$cm$^2$です。\n$18+120=138$なので表面積は138cm$^2$です。",
         "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-space-measure-q19",
+        "question": "下の図の直方体の体積を求めましょう。",
+        "options": ["$120$ cm$^3$", "$60$ cm$^3$", "$24$ cm$^3$", "$240$ cm$^3$"],
+        "correctIndex": 0,
+        "explanation": "直方体の体積は縦×横×高さで求めます。\n$6\\times4\\times5=120$なので体積は$120$ cm$^3$です。",
+        "difficulty": "basic",
+        "image": { "kind": "rect-prism", "w": "6cm", "d": "4cm", "h": "5cm" }
+      },
+      {
+        "id": "math-g1-space-measure-q20",
+        "question": "下の図の立方体の体積を求めましょう。",
+        "options": ["$48$ cm$^3$", "$64$ cm$^3$", "$16$ cm$^3$", "$96$ cm$^3$"],
+        "correctIndex": 1,
+        "explanation": "立方体の体積は1辺×1辺×1辺で求めます。\n$4\\times4\\times4=64$なので体積は$64$ cm$^3$です。",
+        "difficulty": "basic",
+        "image": { "kind": "rect-prism", "cube": true, "w": "4cm" }
+      },
+      {
+        "id": "math-g1-space-measure-q21",
+        "question": "下の図の円柱の体積を求めましょう。円周率は$\\pi$とします。",
+        "options": ["$21\\pi$ cm$^3$", "$42\\pi$ cm$^3$", "$63\\pi$ cm$^3$", "$126\\pi$ cm$^3$"],
+        "correctIndex": 2,
+        "explanation": "円柱の体積は底面積×高さで、底面積は$\\pi\\times3^2=9\\pi$ cm$^2$です。\n$9\\pi\\times7=63\\pi$なので体積は$63\\pi$ cm$^3$です。",
+        "difficulty": "standard",
+        "image": { "kind": "cylinder", "r": "3cm", "h": "7cm" }
+      },
+      {
+        "id": "math-g1-space-measure-q22",
+        "question": "下の図の円柱の体積を求めましょう。円周率は$\\pi$とします。",
+        "options": ["$20\\pi$ cm$^3$", "$40\\pi$ cm$^3$", "$50\\pi$ cm$^3$", "$100\\pi$ cm$^3$"],
+        "correctIndex": 3,
+        "explanation": "底面積は$\\pi\\times5^2=25\\pi$ cm$^2$です。\n体積は$25\\pi\\times4=100\\pi$なので$100\\pi$ cm$^3$です。",
+        "difficulty": "standard",
+        "image": { "kind": "cylinder", "r": "5cm", "h": "4cm" }
+      },
+      {
+        "id": "math-g1-space-measure-q23",
+        "question": "下の図の円錐の体積を求めましょう。円周率は$\\pi$とします。",
+        "options": ["$12\\pi$ cm$^3$", "$36\\pi$ cm$^3$", "$24\\pi$ cm$^3$", "$48\\pi$ cm$^3$"],
+        "correctIndex": 0,
+        "explanation": "底面積は$\\pi\\times3^2=9\\pi$ cm$^2$です。\n錐の体積は底面積×高さ×$\\frac{1}{3}$なので$9\\pi\\times4\\times\\frac{1}{3}=12\\pi$、体積は$12\\pi$ cm$^3$です。",
+        "difficulty": "standard",
+        "image": { "kind": "cone", "r": "3cm", "h": "4cm" }
+      },
+      {
+        "id": "math-g1-space-measure-q24",
+        "question": "下の図の円錐の体積を求めましょう。円周率は$\\pi$とします。",
+        "options": ["$144\\pi$ cm$^3$", "$48\\pi$ cm$^3$", "$96\\pi$ cm$^3$", "$24\\pi$ cm$^3$"],
+        "correctIndex": 1,
+        "explanation": "底面積は$\\pi\\times6^2=36\\pi$ cm$^2$です。\n体積は$36\\pi\\times4\\times\\frac{1}{3}=48\\pi$なので$48\\pi$ cm$^3$です。",
+        "difficulty": "advanced",
+        "image": { "kind": "cone", "r": "6cm", "h": "4cm" }
+      },
+      {
+        "id": "math-g1-space-measure-q25",
+        "question": "下の図の球の体積を求めましょう。円周率は$\\pi$とします。",
+        "options": ["$18\\pi$ cm$^3$", "$27\\pi$ cm$^3$", "$36\\pi$ cm$^3$", "$108\\pi$ cm$^3$"],
+        "correctIndex": 2,
+        "explanation": "球の体積は$\\frac{4}{3}\\pi r^3$で求めます。\n$\\frac{4}{3}\\times\\pi\\times3^3=\\frac{4}{3}\\times27\\pi=36\\pi$なので体積は$36\\pi$ cm$^3$です。",
+        "difficulty": "standard",
+        "image": { "kind": "sphere", "r": "3cm" }
+      },
+      {
+        "id": "math-g1-space-measure-q26",
+        "question": "下の図の三角柱の体積を求めましょう。",
+        "options": ["$48$ cm$^3$", "$192$ cm$^3$", "$72$ cm$^3$", "$96$ cm$^3$"],
+        "correctIndex": 3,
+        "explanation": "底面の三角形の面積は$6\\times4\\div2=12$ cm$^2$です。\n体積は底面積×高さ（長さ）なので$12\\times8=96$、体積は$96$ cm$^3$です。",
+        "difficulty": "standard",
+        "image": { "kind": "tri-prism", "base": "6cm", "h": "4cm", "len": "8cm" }
+      },
+      {
+        "id": "math-g1-space-measure-q27",
+        "question": "下の図の直方体の表面積を求めましょう。",
+        "options": ["$148$ cm$^2$", "$120$ cm$^2$", "$74$ cm$^2$", "$160$ cm$^2$"],
+        "correctIndex": 0,
+        "explanation": "直方体の表面積は$2\\times(縦\\times横+横\\times高さ+縦\\times高さ)$で求めます。\n$2\\times(6\\times4+4\\times5+6\\times5)=2\\times(24+20+30)=2\\times74=148$なので表面積は$148$ cm$^2$です。",
+        "difficulty": "advanced",
+        "image": { "kind": "rect-prism", "w": "6cm", "d": "4cm", "h": "5cm" }
+      },
+      {
+        "id": "math-g1-space-measure-q28",
+        "question": "下の図の立方体の表面積を求めましょう。",
+        "options": ["$64$ cm$^2$", "$96$ cm$^2$", "$48$ cm$^2$", "$16$ cm$^2$"],
+        "correctIndex": 1,
+        "explanation": "立方体は合同な正方形の面が6つあります。\n1つの面は$4\\times4=16$ cm$^2$で、$16\\times6=96$なので表面積は$96$ cm$^2$です。",
+        "difficulty": "basic",
+        "image": { "kind": "rect-prism", "cube": true, "w": "4cm" }
+      },
+      {
+        "id": "math-g1-space-measure-q29",
+        "question": "下の図の円柱の表面積を求めましょう。円周率は$\\pi$とします。",
+        "options": ["$42\\pi$ cm$^2$", "$48\\pi$ cm$^2$", "$60\\pi$ cm$^2$", "$78\\pi$ cm$^2$"],
+        "correctIndex": 2,
+        "explanation": "底面2つの面積は$\\pi\\times3^2\\times2=18\\pi$ cm$^2$、側面積は底面の円周×高さで$2\\pi\\times3\\times7=42\\pi$ cm$^2$です。\n$18\\pi+42\\pi=60\\pi$なので表面積は$60\\pi$ cm$^2$です。",
+        "difficulty": "advanced",
+        "image": { "kind": "cylinder", "r": "3cm", "h": "7cm" }
+      },
+      {
+        "id": "math-g1-space-measure-q30",
+        "question": "下の図の球の表面積を求めましょう。円周率は$\\pi$とします。",
+        "options": ["$25\\pi$ cm$^2$", "$50\\pi$ cm$^2$", "$75\\pi$ cm$^2$", "$100\\pi$ cm$^2$"],
+        "correctIndex": 3,
+        "explanation": "球の表面積は$4\\pi r^2$で求めます。\n$4\\times\\pi\\times5^2=4\\times25\\pi=100\\pi$なので表面積は$100\\pi$ cm$^2$です。",
+        "difficulty": "standard",
+        "image": { "kind": "sphere", "r": "5cm" }
       }
     ]
   }
