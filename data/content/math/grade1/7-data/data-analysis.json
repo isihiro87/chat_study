@@ -153,6 +153,60 @@
         "correctIndex": 3,
         "explanation": "相対度数は、その階級の度数を度数の合計でわって求めます。\n度数の合計は$8+12+16+4=40$人で、2番目の階級の度数は12なので、$\\frac{12}{40}=0.30$ より相対度数は0.30です。",
         "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-data-analysis-q19",
+        "question": "下のヒストグラムで、最も度数が多い階級はどれですか。",
+        "options": ["20以上25未満", "15以上20未満", "25以上30未満", "10以上15未満"],
+        "correctIndex": 0,
+        "explanation": "ヒストグラムでは、棒（柱）が最も高い階級の度数が最も多くなります。\n度数は順に2, 5, 8, 4, 1で、最も大きいのは8の「20以上25未満」の階級です。",
+        "difficulty": "basic",
+        "image": { "kind": "histogram", "boundaries": [10, 15, 20, 25, 30, 35], "freqs": [2, 5, 8, 4, 1], "yLabel": "(人)" }
+      },
+      {
+        "id": "math-g1-data-analysis-q20",
+        "question": "下のヒストグラムで、30以上40未満の階級の度数は何人ですか。",
+        "options": ["9人", "6人", "7人", "3人"],
+        "correctIndex": 1,
+        "explanation": "30以上40未満の階級の棒の高さを目盛りで読みます。\nその高さは6なので、この階級の度数は6人です。",
+        "difficulty": "basic",
+        "image": { "kind": "histogram", "boundaries": [0, 10, 20, 30, 40, 50], "freqs": [3, 7, 9, 6, 2], "yLabel": "(人)" }
+      },
+      {
+        "id": "math-g1-data-analysis-q21",
+        "question": "下のヒストグラムで、度数の合計（全体の人数）は何人ですか。",
+        "options": ["20人", "21人", "23人", "25人"],
+        "correctIndex": 2,
+        "explanation": "度数の合計は、すべての階級の度数（棒の高さ）をたして求めます。\n$1+4+8+7+3=23$ より、全体の人数は23人です。",
+        "difficulty": "standard",
+        "image": { "kind": "histogram", "boundaries": [40, 50, 60, 70, 80, 90], "freqs": [1, 4, 8, 7, 3], "yLabel": "(人)" }
+      },
+      {
+        "id": "math-g1-data-analysis-q22",
+        "question": "下のヒストグラムで、度数が最も少ない階級はどれですか。",
+        "options": ["5以上10未満", "10以上15未満", "0以上5未満", "20以上25未満"],
+        "correctIndex": 3,
+        "explanation": "ヒストグラムでは、棒（柱）が最も低い階級の度数が最も少なくなります。\n度数は順に6, 9, 3, 7, 1で、最も小さいのは1の「20以上25未満」の階級です。",
+        "difficulty": "basic",
+        "image": { "kind": "histogram", "boundaries": [0, 5, 10, 15, 20, 25], "freqs": [6, 9, 3, 7, 1], "yLabel": "(人)" }
+      },
+      {
+        "id": "math-g1-data-analysis-q23",
+        "question": "下のヒストグラムで、中央値（メジアン）が入る階級はどれですか。",
+        "options": ["30以上40未満", "20以上30未満", "40以上50未満", "10以上20未満"],
+        "correctIndex": 0,
+        "explanation": "度数の合計は$2+4+7+5+2=20$人なので、中央値は小さい方から数えて10番目と11番目の間にあります。\n累積度数は2, 6, 13, …となり、10番目・11番目はどちらも「30以上40未満」の階級に入るので、中央値が入る階級は30以上40未満です。",
+        "difficulty": "advanced",
+        "image": { "kind": "histogram", "boundaries": [10, 20, 30, 40, 50, 60], "freqs": [2, 4, 7, 5, 2], "yLabel": "(人)" }
+      },
+      {
+        "id": "math-g1-data-analysis-q24",
+        "question": "下のヒストグラムで、30以上の人数は何人ですか。",
+        "options": ["8人", "16人", "13人", "9人"],
+        "correctIndex": 1,
+        "explanation": "30以上の人数は、30以上40未満・40以上50未満・50以上60未満の度数をたして求めます。\n$8+5+3=16$ より、30以上の人数は16人です。",
+        "difficulty": "standard",
+        "image": { "kind": "histogram", "boundaries": [10, 20, 30, 40, 50, 60], "freqs": [3, 6, 8, 5, 3], "yLabel": "(人)" }
       }
     ]
   }

@@ -153,6 +153,78 @@
         "correctIndex": 1,
         "explanation": "範囲は最大値と最小値だけで決まるため、極端な値（外れ値）があると大きく変わってしまいます。\n四分位範囲は中央付近の半分のデータの広がりを表すので、極端な値の影響を受けにくく、散らばりをとらえやすい指標です。",
         "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-boxplot-q19",
+        "question": "下の箱ひげ図で、第1四分位数（Q1）はいくつですか。",
+        "options": ["6", "10", "2", "14"],
+        "correctIndex": 0,
+        "explanation": "第1四分位数（Q1）は箱の左端が表す値です。\n目盛りを読むと箱の左端は6なので、第1四分位数は6です。",
+        "difficulty": "basic",
+        "image": { "kind": "boxplot", "min": 2, "q1": 6, "median": 10, "q3": 14, "max": 18, "axisMin": 0, "axisMax": 20, "axisStep": 2 }
+      },
+      {
+        "id": "math-g2-boxplot-q20",
+        "question": "下の箱ひげ図で、中央値（第2四分位数）はいくつですか。",
+        "options": ["10", "14", "20", "26"],
+        "correctIndex": 1,
+        "explanation": "中央値（第2四分位数）は箱の中の線が表す値です。\n目盛りを読むと箱の中の線は14なので、中央値は14です。",
+        "difficulty": "basic",
+        "image": { "kind": "boxplot", "min": 4, "q1": 10, "median": 14, "q3": 20, "max": 26, "axisMin": 0, "axisMax": 28, "axisStep": 2 }
+      },
+      {
+        "id": "math-g2-boxplot-q21",
+        "question": "下の箱ひげ図で、第3四分位数（Q3）はいくつですか。",
+        "options": ["20", "30", "40", "50"],
+        "correctIndex": 2,
+        "explanation": "第3四分位数（Q3）は箱の右端が表す値です。\n目盛りを読むと箱の右端は40なので、第3四分位数は40です。",
+        "difficulty": "basic",
+        "image": { "kind": "boxplot", "min": 10, "q1": 20, "median": 30, "q3": 40, "max": 50, "axisMin": 0, "axisMax": 50, "axisStep": 5 }
+      },
+      {
+        "id": "math-g2-boxplot-q22",
+        "question": "下の箱ひげ図で、最大値はいくつですか。",
+        "options": ["25", "35", "15", "45"],
+        "correctIndex": 3,
+        "explanation": "最大値は右のひげの先端が表す値です。\n目盛りを読むとひげの右端は45なので、最大値は45です。",
+        "difficulty": "basic",
+        "image": { "kind": "boxplot", "min": 5, "q1": 15, "median": 25, "q3": 35, "max": 45, "axisMin": 0, "axisMax": 50, "axisStep": 5 }
+      },
+      {
+        "id": "math-g2-boxplot-q23",
+        "question": "下の箱ひげ図で、範囲（最大値−最小値）はいくつですか。",
+        "options": ["24", "27", "21", "12"],
+        "correctIndex": 0,
+        "explanation": "範囲は「最大値−最小値」で求めます。\nひげの右端（最大値）は27、左端（最小値）は3なので、$27−3＝24$ より範囲は24です。",
+        "difficulty": "standard",
+        "image": { "kind": "boxplot", "min": 3, "q1": 9, "median": 15, "q3": 21, "max": 27, "axisMin": 0, "axisMax": 30, "axisStep": 3 }
+      },
+      {
+        "id": "math-g2-boxplot-q24",
+        "question": "下の箱ひげ図で、四分位範囲（第3四分位数−第1四分位数）はいくつですか。",
+        "options": ["30", "18", "12", "24"],
+        "correctIndex": 1,
+        "explanation": "四分位範囲は「第3四分位数−第1四分位数」で求め、箱の横の長さにあたります。\n箱の右端（Q3）は30、左端（Q1）は12なので、$30−12＝18$ より四分位範囲は18です。",
+        "difficulty": "standard",
+        "image": { "kind": "boxplot", "min": 6, "q1": 12, "median": 18, "q3": 30, "max": 36, "axisMin": 0, "axisMax": 36, "axisStep": 6 }
+      },
+      {
+        "id": "math-g2-boxplot-q25",
+        "question": "下の箱ひげ図で、最小値はいくつですか。",
+        "options": ["16", "24", "8", "40"],
+        "correctIndex": 2,
+        "explanation": "最小値は左のひげの先端が表す値です。\n目盛りを読むとひげの左端は8なので、最小値は8です。",
+        "difficulty": "basic",
+        "image": { "kind": "boxplot", "min": 8, "q1": 16, "median": 24, "q3": 32, "max": 40, "axisMin": 0, "axisMax": 40, "axisStep": 4 }
+      },
+      {
+        "id": "math-g2-boxplot-q26",
+        "question": "下の箱ひげ図で、範囲（最大値−最小値）はいくつですか。",
+        "options": ["35", "45", "20", "50"],
+        "correctIndex": 3,
+        "explanation": "範囲は「最大値−最小値」で求めます。\nひげの右端（最大値）は60、左端（最小値）は10なので、$60−10＝50$ より範囲は50です。",
+        "difficulty": "standard",
+        "image": { "kind": "boxplot", "min": 10, "q1": 25, "median": 35, "q3": 45, "max": 60, "axisMin": 0, "axisMax": 60, "axisStep": 5 }
       }
     ]
   }

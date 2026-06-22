@@ -58,7 +58,7 @@ const COL_ANGLE = '#E63946'; // 角の弧・ラベル（赤系）
 const COL_TEXT = '#374151';
 const COL_AUX = '#9CA3AF'; // 補助線
 
-const GEOM_KINDS = new Set(['triangle', 'sector', 'parallel-lines', 'polygon', 'circle', 'parallelogram', 'rect-prism', 'cylinder', 'cone', 'sphere', 'tri-prism']);
+const GEOM_KINDS = new Set(['triangle', 'sector', 'parallel-lines', 'polygon', 'circle', 'parallelogram', 'rect-prism', 'cylinder', 'cone', 'sphere', 'tri-prism', 'boxplot', 'histogram']);
 
 function esc(s: string): string {
   return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -500,8 +500,68 @@ function buildTriPrism(img: any): string {
   return wrap(parts.join(''));
 }
 
+// ===== 統計図 =====
+// ---------- 箱ひげ図 ----------
+function buildBoxplot(img: any): string {
+  const { min, q1, median, q3, max } = img;
+  const aMin = img.axisMin, aMax = img.axisMax, aStep = img.axisStep;
+  const left = 52, right = SIZE - 28, axisY = 256, boxY = 120, boxH = 84;
+  const midY = boxY + boxH / 2;
+  const X = (v: number) => left + ((v - aMin) / (aMax - aMin)) * (right - left);
+  const parts: string[] = [];
+  // 数直線
+  parts.push(`<line x1="${left}" y1="${axisY}" x2="${right}" y2="${axisY}" stroke="${COL_SHAPE}" stroke-width="2"/>`);
+  for (let v = aMin; v <= aMax + 1e-9; v += aStep) {
+    parts.push(`<line x1="${X(v).toFixed(1)}" y1="${axisY}" x2="${X(v).toFixed(1)}" y2="${axisY + 6}" stroke="${COL_SHAPE}" stroke-width="1.5"/>`);
+    parts.push(svgText(X(v), axisY + 18, String(v), { size: 12, fill: COL_TEXT }));
+  }
+  // ひげ
+  parts.push(`<line x1="${X(min).toFixed(1)}" y1="${midY}" x2="${X(q1).toFixed(1)}" y2="${midY}" stroke="${COL_SHAPE}" stroke-width="2"/>`);
+  parts.push(`<line x1="${X(q3).toFixed(1)}" y1="${midY}" x2="${X(max).toFixed(1)}" y2="${midY}" stroke="${COL_SHAPE}" stroke-width="2"/>`);
+  for (const v of [min, max]) parts.push(`<line x1="${X(v).toFixed(1)}" y1="${boxY + 16}" x2="${X(v).toFixed(1)}" y2="${boxY + boxH - 16}" stroke="${COL_SHAPE}" stroke-width="2"/>`);
+  // 箱
+  parts.push(`<rect x="${X(q1).toFixed(1)}" y="${boxY}" width="${(X(q3) - X(q1)).toFixed(1)}" height="${boxH}" fill="${COL_FILL}" stroke="${COL_SHAPE}" stroke-width="2"/>`);
+  // 中央値
+  parts.push(`<line x1="${X(median).toFixed(1)}" y1="${boxY}" x2="${X(median).toFixed(1)}" y2="${boxY + boxH}" stroke="${COL_SHAPE}" stroke-width="2.4"/>`);
+  return wrap(parts.join(''));
+}
+
+// ---------- ヒストグラム ----------
+function buildHistogram(img: any): string {
+  const bnd: number[] = img.boundaries; // 階級の境界（n+1個）
+  const freqs: number[] = img.freqs; // 各階級の度数（n個）
+  const yMax = img.yMax || Math.max(...freqs);
+  const left = 54, bottom = 268, top = 56, right = SIZE - 26;
+  const plotW = right - left, plotH = bottom - top;
+  const n = freqs.length;
+  const bw = plotW / n;
+  const parts: string[] = [];
+  // y軸・x軸
+  parts.push(`<line x1="${left}" y1="${top}" x2="${left}" y2="${bottom}" stroke="${COL_SHAPE}" stroke-width="2"/>`);
+  parts.push(`<line x1="${left}" y1="${bottom}" x2="${right}" y2="${bottom}" stroke="${COL_SHAPE}" stroke-width="2"/>`);
+  // y目盛り（度数）
+  for (let v = 0; v <= yMax; v++) {
+    const y = bottom - (v / yMax) * plotH;
+    parts.push(`<line x1="${left - 5}" y1="${y.toFixed(1)}" x2="${left}" y2="${y.toFixed(1)}" stroke="${COL_SHAPE}" stroke-width="1.3"/>`);
+    parts.push(svgText(left - 14, y, String(v), { size: 11, fill: COL_TEXT }));
+  }
+  // バー＋x境界ラベル
+  for (let i = 0; i < n; i++) {
+    const x = left + i * bw, h = (freqs[i] / yMax) * plotH;
+    if (freqs[i] > 0) parts.push(`<rect x="${x.toFixed(1)}" y="${(bottom - h).toFixed(1)}" width="${bw.toFixed(1)}" height="${h.toFixed(1)}" fill="${COL_FILL}" stroke="${COL_SHAPE}" stroke-width="1.6"/>`);
+  }
+  for (let i = 0; i <= n; i++) {
+    const x = left + i * bw;
+    parts.push(svgText(x, bottom + 14, String(bnd[i]), { size: 10, fill: COL_TEXT }));
+  }
+  if (img.yLabel) parts.push(svgText(left - 6, top - 16, img.yLabel, { size: 11, fill: COL_TEXT, anchor: 'start' }));
+  return wrap(parts.join(''));
+}
+
 function build(img: any): string {
   switch (img.kind) {
+    case 'boxplot': return buildBoxplot(img);
+    case 'histogram': return buildHistogram(img);
     case 'triangle': return buildTriangle(img);
     case 'sector': return buildSector(img);
     case 'circle': return buildCircle(img);
