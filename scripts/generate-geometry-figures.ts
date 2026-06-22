@@ -207,8 +207,8 @@ function buildSector(img: any): string {
   const large = a > 180 ? 1 : 0;
   const parts: string[] = [];
   parts.push(`<path d="M${O[0]},${O[1]} L${p1[0].toFixed(1)},${p1[1].toFixed(1)} A${R},${R} 0 ${large} 0 ${p2[0].toFixed(1)},${p2[1].toFixed(1)} Z" fill="${COL_FILL}" stroke="${COL_SHAPE}" stroke-width="2.5" stroke-linejoin="round"/>`);
-  // 中心角の弧（半径に対して小さめ・上限つき）
-  const r2 = Math.min(32, R * 0.22);
+  // 中心角の弧（少し大きめにして見やすく・上限つき）
+  const r2 = Math.min(42, R * 0.3);
   const a1: [number, number] = [O[0] + r2 * Math.cos(rad(s0)), O[1] - r2 * Math.sin(rad(s0))];
   const a2: [number, number] = [O[0] + r2 * Math.cos(rad(s0 + a)), O[1] - r2 * Math.sin(rad(s0 + a))];
   parts.push(`<path d="M${a1[0].toFixed(1)},${a1[1].toFixed(1)} A${r2},${r2} 0 ${large} 0 ${a2[0].toFixed(1)},${a2[1].toFixed(1)}" fill="none" stroke="${COL_ANGLE}" stroke-width="2"/>`);
