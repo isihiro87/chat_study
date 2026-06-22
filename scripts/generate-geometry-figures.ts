@@ -183,20 +183,36 @@ function buildTriangle(img: any): string {
 // ---------- sector / circle ----------
 function buildSector(img: any): string {
   const a = img.centralAngle as number;
-  const O: [number, number] = [SIZE / 2, SIZE / 2 + 30];
-  const R = 130;
   const s0 = 90 - a / 2; // 上向き中心に
-  const p1: [number, number] = [O[0] + R * Math.cos(rad(s0)), O[1] - R * Math.sin(rad(s0))];
-  const p2: [number, number] = [O[0] + R * Math.cos(rad(s0 + a)), O[1] - R * Math.sin(rad(s0 + a))];
+  // 単位半径での扇の形（頂点O＋弧）から bbox を出し、キャンバスに合わせて半径を決める
+  // （中心角が小さい扇ほど半径を大きく描いて余白を減らす）
+  const upts: [number, number][] = [[0, 0]];
+  const N = 72;
+  for (let i = 0; i <= N; i++) {
+    const ang = s0 + (a * i) / N;
+    upts.push([Math.cos(rad(ang)), Math.sin(rad(ang))]);
+  }
+  const uxs = upts.map((p) => p[0]), uys = upts.map((p) => p[1]);
+  const minX = Math.min(...uxs), maxX = Math.max(...uxs), minY = Math.min(...uys), maxY = Math.max(...uys);
+  const MARGIN = 66;
+  const avail = SIZE - 2 * MARGIN;
+  const R = Math.min(avail / (maxX - minX), avail / (maxY - minY));
+  const w = (maxX - minX) * R, h = (maxY - minY) * R;
+  const ox = (SIZE - w) / 2, oy = (SIZE - h) / 2;
+  // 数学座標(yは上)→画面座標
+  const Tm = (mx: number, my: number): [number, number] => [ox + (mx - minX) * R, oy + h - (my - minY) * R];
+  const O = Tm(0, 0);
+  const p1 = Tm(Math.cos(rad(s0)), Math.sin(rad(s0)));
+  const p2 = Tm(Math.cos(rad(s0 + a)), Math.sin(rad(s0 + a)));
   const large = a > 180 ? 1 : 0;
   const parts: string[] = [];
   parts.push(`<path d="M${O[0]},${O[1]} L${p1[0].toFixed(1)},${p1[1].toFixed(1)} A${R},${R} 0 ${large} 0 ${p2[0].toFixed(1)},${p2[1].toFixed(1)} Z" fill="${COL_FILL}" stroke="${COL_SHAPE}" stroke-width="2.5" stroke-linejoin="round"/>`);
-  // 中心角の弧
-  const r2 = 30;
+  // 中心角の弧（半径に対して小さめ・上限つき）
+  const r2 = Math.min(32, R * 0.22);
   const a1: [number, number] = [O[0] + r2 * Math.cos(rad(s0)), O[1] - r2 * Math.sin(rad(s0))];
   const a2: [number, number] = [O[0] + r2 * Math.cos(rad(s0 + a)), O[1] - r2 * Math.sin(rad(s0 + a))];
   parts.push(`<path d="M${a1[0].toFixed(1)},${a1[1].toFixed(1)} A${r2},${r2} 0 ${large} 0 ${a2[0].toFixed(1)},${a2[1].toFixed(1)}" fill="none" stroke="${COL_ANGLE}" stroke-width="2"/>`);
-  if (img.angleLabel) parts.push(svgText(O[0], O[1] - 50, img.angleLabel, { fill: COL_ANGLE, weight: 'bold', size: 16 }));
+  if (img.angleLabel) parts.push(svgText(O[0], O[1] - (r2 + 18), img.angleLabel, { fill: COL_ANGLE, weight: 'bold', size: 16 }));
   if (img.radiusLabel) {
     // 半径ラベルは半径の中ほど＋扇の外側へ垂直オフセット（中心角の弧と離す）
     const u: [number, number] = [(p1[0] - O[0]) / R, (p1[1] - O[1]) / R];
