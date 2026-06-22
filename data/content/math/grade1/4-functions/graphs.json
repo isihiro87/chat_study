@@ -1,0 +1,334 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g1-functions",
+  "topicId": "math-g1-graphs",
+  "name": "比例・反比例の利用",
+  "subtitle": "グラフを使って問題を解こう",
+  "icon": "🔍",
+  "order": 3,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": [
+      {
+        "id": "math-g1-graphs-q1",
+        "question": "点 $A$ の $x$ 座標が 4、$y$ 座標が $-3$ であるとき、点 $A$ の座標を正しく表したものはどれですか。",
+        "options": [
+          "$(4, -3)$",
+          "$(-3, 4)$",
+          "$(-4, 3)$",
+          "$(3, -4)$"
+        ],
+        "correctIndex": 0,
+        "explanation": "座標は（$x$ 座標, $y$ 座標）の順に書きます。\n$x$ 座標が 4、$y$ 座標が $-3$ なので $(4, -3)$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-graphs-q2",
+        "question": "点 $(-5, 0)$ について正しく説明しているものはどれですか。",
+        "options": [
+          "$y$ 軸上にある点",
+          "$x$ 軸上にある点",
+          "原点",
+          "第2象限にある点"
+        ],
+        "correctIndex": 1,
+        "explanation": "$y$ 座標が 0 の点は $x$ 軸上にあります。\nよって $(-5, 0)$ は $x$ 軸上の点です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-graphs-q3",
+        "question": "点 $(3, -2)$ は第何象限にありますか。",
+        "options": [
+          "第1象限",
+          "第2象限",
+          "第4象限",
+          "第3象限"
+        ],
+        "correctIndex": 2,
+        "explanation": "$x$ 座標が正、$y$ 座標が負の点は第4象限にあります。\nよって $(3, -2)$ は第4象限です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-graphs-q4",
+        "question": "点 $(-4, 5)$ は第何象限にありますか。",
+        "options": [
+          "第1象限",
+          "第3象限",
+          "第4象限",
+          "第2象限"
+        ],
+        "correctIndex": 3,
+        "explanation": "$x$ 座標が負、$y$ 座標が正の点は第2象限にあります。\nよって $(-4, 5)$ は第2象限です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-graphs-q5",
+        "question": "比例 $y = 2x$ のグラフが必ず通る点はどれですか。",
+        "options": [
+          "$(3, 5)$",
+          "$(3, 6)$",
+          "$(2, 1)$",
+          "$(1, 3)$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$y = 2x$ に各 $x$ を代入して確かめます。\n$x = 3$ のとき $y = 2 \\times 3 = 6$ なので $(3, 6)$ を通ります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-graphs-q6",
+        "question": "比例 $y = ax$ のグラフについて正しく説明しているものはどれですか。",
+        "options": [
+          "原点を通らない直線",
+          "原点を通る2つの曲線",
+          "原点を通る直線",
+          "$x$ 軸と平行な直線"
+        ],
+        "correctIndex": 2,
+        "explanation": "比例 $y = ax$ のグラフは、必ず原点 $(0, 0)$ を通る直線になります。\n$x = 0$ のとき $y = 0$ となるためです。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-graphs-q7",
+        "question": "比例 $y = ax$ で $a > 0$ のとき、グラフはどのような直線になりますか。",
+        "options": [
+          "右下がりの直線",
+          "横軸に平行な直線",
+          "原点を通らない直線",
+          "右上がりの直線"
+        ],
+        "correctIndex": 3,
+        "explanation": "$a > 0$ のとき、$x$ が増えると $y$ も増えるので、グラフは右上がりの直線になります。\n$a < 0$ のときは右下がりです。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-graphs-q8",
+        "question": "比例 $y = -3x$ のグラフについて正しいものはどれですか。",
+        "options": [
+          "原点を通る右下がりの直線",
+          "原点を通る右上がりの直線",
+          "原点を通らない直線",
+          "双曲線"
+        ],
+        "correctIndex": 0,
+        "explanation": "比例のグラフは原点を通る直線です。$a = -3 < 0$ なので、$x$ が増えると $y$ は減り、右下がりになります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-graphs-q9",
+        "question": "反比例 $y = \\frac{a}{x}$ のグラフは何とよばれますか。",
+        "options": [
+          "放物線",
+          "原点を通る直線",
+          "双曲線",
+          "円"
+        ],
+        "correctIndex": 2,
+        "explanation": "反比例 $y = \\frac{a}{x}$ のグラフは、なめらかな2つの曲線になり、双曲線とよばれます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-graphs-q10",
+        "question": "反比例 $y = \\frac{12}{x}$ のグラフが通る点はどれですか。",
+        "options": [
+          "$(3, 9)$",
+          "$(4, 8)$",
+          "$(2, 4)$",
+          "$(3, 4)$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$y = \\frac{12}{x}$ に $x = 3$ を代入すると $y = \\frac{12}{3} = 4$ なので $(3, 4)$ を通ります。\n他の点は式を満たしません。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-graphs-q11",
+        "question": "反比例 $y = \\frac{a}{x}$ で $a > 0$ のとき、グラフがある象限の組み合わせはどれですか。",
+        "options": [
+          "第1象限と第3象限",
+          "第2象限と第4象限",
+          "第1象限と第2象限",
+          "第3象限と第4象限"
+        ],
+        "correctIndex": 0,
+        "explanation": "$a > 0$ のとき、$x$ と $y$ の符号が同じになるため、グラフは第1象限と第3象限にあります。\n$a < 0$ のときは第2象限と第4象限です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-graphs-q12",
+        "question": "$y$ 軸について点 $(2, 3)$ と対称な点の座標はどれですか。",
+        "options": [
+          "$(2, -3)$",
+          "$(-2, 3)$",
+          "$(-2, -3)$",
+          "$(3, 2)$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$y$ 軸について対称な点は $x$ 座標の符号だけが変わります。\nよって $(2, 3)$ と対称な点は $(-2, 3)$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-graphs-q13",
+        "question": "比例 $y = ax$ のグラフが点 $(2, 6)$ を通るとき、比例定数 $a$ を求めなさい。",
+        "options": [
+          "$4$",
+          "$12$",
+          "$\\frac{1}{3}$",
+          "$3$"
+        ],
+        "correctIndex": 3,
+        "explanation": "グラフが $(2, 6)$ を通るので $y = ax$ に $x = 2$、$y = 6$ を代入。\n$6 = a \\times 2$ より $a = 3$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-graphs-q14",
+        "question": "反比例 $y = \\frac{a}{x}$ のグラフが点 $(2, 5)$ を通るとき、比例定数 $a$ を求めなさい。",
+        "options": [
+          "$10$",
+          "$\\frac{5}{2}$",
+          "$\\frac{2}{5}$",
+          "$7$"
+        ],
+        "correctIndex": 0,
+        "explanation": "反比例では $a = xy$。グラフが $(2, 5)$ を通るので $a = 2 \\times 5 = 10$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-graphs-q15",
+        "question": "$x$ 軸について点 $(-4, 5)$ と対称な点の座標はどれですか。",
+        "options": [
+          "$(4, 5)$",
+          "$(-4, -5)$",
+          "$(4, -5)$",
+          "$(5, -4)$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$x$ 軸について対称な点は $y$ 座標の符号だけが変わります。\nよって $(-4, 5)$ と対称な点は $(-4, -5)$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-graphs-q16",
+        "question": "原点について点 $(3, -2)$ と対称な点の座標はどれですか。",
+        "options": [
+          "$(-3, -2)$",
+          "$(3, 2)$",
+          "$(-3, 2)$",
+          "$(-2, 3)$"
+        ],
+        "correctIndex": 2,
+        "explanation": "原点について対称な点は $x$ 座標、$y$ 座標の両方の符号が変わります。\nよって $(3, -2)$ と対称な点は $(-3, 2)$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "question": "右のグラフは比例 $y=ax$ のグラフです。比例定数 $a$ を求めましょう。",
+        "options": [
+          "$a=2$",
+          "$a=\\frac{1}{2}$",
+          "$a=-2$",
+          "$a=3$"
+        ],
+        "correctIndex": 0,
+        "explanation": "グラフは原点と点 $(1, 2)$ を通っているので、$a=\\frac{y}{x}=\\frac{2}{1}=2$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "coordinate",
+          "range": 5,
+          "lines": [
+            {
+              "a": 2
+            }
+          ],
+          "points": [
+            {
+              "x": 1,
+              "y": 2,
+              "label": "(1, 2)"
+            }
+          ]
+        },
+        "id": "math-g1-graphs-q17"
+      },
+      {
+        "question": "右のグラフが表す式はどれですか。",
+        "options": [
+          "$y=-x$",
+          "$y=x$",
+          "$y=-2x$",
+          "$y=-\\frac{1}{2}x$"
+        ],
+        "correctIndex": 0,
+        "explanation": "原点を通り、$x=2$ のとき $y=-2$ を通る右下がりの直線なので、傾きは $\\frac{-2}{2}=-1$。式は $y=-x$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "coordinate",
+          "range": 5,
+          "lines": [
+            {
+              "a": -1
+            }
+          ],
+          "points": [
+            {
+              "x": 2,
+              "y": -2,
+              "label": "(2, -2)"
+            }
+          ]
+        },
+        "id": "math-g1-graphs-q18"
+      },
+      {
+        "question": "右のグラフの点 $A$ の座標を答えましょう。",
+        "options": [
+          "$(3, -2)$",
+          "$(-2, 3)$",
+          "$(-3, 2)$",
+          "$(2, -3)$"
+        ],
+        "correctIndex": 0,
+        "explanation": "点 $A$ は $x$ 座標が $3$、$y$ 座標が $-2$ の位置にあるので、座標は $(3, -2)$ です。",
+        "difficulty": "basic",
+        "image": {
+          "kind": "coordinate",
+          "range": 5,
+          "points": [
+            {
+              "x": 3,
+              "y": -2,
+              "label": "A"
+            }
+          ]
+        },
+        "id": "math-g1-graphs-q19"
+      },
+      {
+        "question": "右のグラフは反比例のグラフです。式を求めましょう。",
+        "options": [
+          "$y=\\frac{6}{x}$",
+          "$y=\\frac{x}{6}$",
+          "$y=6x$",
+          "$y=-\\frac{6}{x}$"
+        ],
+        "correctIndex": 0,
+        "explanation": "グラフは点 $(2, 3)$ を通る双曲線です。反比例の比例定数は $a=xy=2\\times3=6$ なので、式は $y=\\frac{6}{x}$ です。",
+        "difficulty": "standard",
+        "image": {
+          "kind": "coordinate",
+          "range": 7,
+          "curves": [
+            {
+              "a": 6
+            }
+          ],
+          "points": [
+            {
+              "x": 2,
+              "y": 3,
+              "label": "(2, 3)"
+            }
+          ]
+        },
+        "id": "math-g1-graphs-q20"
+      }
+    ]
+  }
+}
