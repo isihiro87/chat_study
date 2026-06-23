@@ -668,23 +668,26 @@ function buildConstruction(img: any): string {
     parts.push(svgText(A[0] - 6, A[1] + 16, 'A', { weight: 'bold', size: 15, fill: COL_SHAPE }));
     parts.push(svgText(B[0] + 6, B[1] + 16, 'B', { weight: 'bold', size: 15, fill: COL_SHAPE }));
   } else if (type === 'angle-bisector') {
-    const O: [number, number] = [104, 252];
-    const a1 = 0, a2 = 54, L = 214;
+    const O: [number, number] = [96, 254];
+    const a1 = 0, a2 = 56, L = 220;
     parts.push(line(O, [O[0] + L * Math.cos(rad(a1)), O[1] - L * Math.sin(rad(a1))]));
     parts.push(line(O, [O[0] + L * Math.cos(rad(a2)), O[1] - L * Math.sin(rad(a2))]));
-    const rr = 80;
+    const rr = 66;
     const P1: [number, number] = [O[0] + rr * Math.cos(rad(a1)), O[1] - rr * Math.sin(rad(a1))];
     const P2: [number, number] = [O[0] + rr * Math.cos(rad(a2)), O[1] - rr * Math.sin(rad(a2))];
-    // 各辺と交わる位置に小さな弧（コンパスの印）
-    parts.push(arcCenter(O, rr, a1 - 10, a1 + 10));
-    parts.push(arcCenter(O, rr, a2 - 10, a2 + 10));
-    // P1,P2 中心の等半径の弧（2交点 near/far の間を結ぶ＝垂直二等分線と同じレンズ状）
-    const rr2 = 62;
+    // 2辺を横切る弧（P1,P2 を作る）
+    parts.push(arcCenter(O, rr, a1 - 9, a2 + 9));
+    // P1,P2 中心の等半径の弧。奥の交点 far で短く交わる（X）。far を頂点ではなく
+    // 通過点にするため、各弧を「もう一方の中心へ向く側」に寄せて描く。
+    const rr2 = 74;
     const far = circInter(P1, P2, rr2, O, 'far');
-    const near = circInter(P1, P2, rr2, O, 'near');
-    parts.push(arcCenter(P1, rr2, angDeg(P1, near), angDeg(P1, far)));
-    parts.push(arcCenter(P2, rr2, angDeg(P2, far), angDeg(P2, near)));
-    if (img.showLine) parts.push(`<line x1="${O[0]}" y1="${O[1]}" x2="${(O[0] + (Math.hypot(far[0] - O[0], far[1] - O[1]) + 64) * Math.cos(rad((a1 + a2) / 2))).toFixed(1)}" y2="${(O[1] - (Math.hypot(far[0] - O[0], far[1] - O[1]) + 64) * Math.sin(rad((a1 + a2) / 2))).toFixed(1)}" stroke="${COL_SHAPE}" stroke-width="2" stroke-dasharray="6 4"/>`);
+    const aP1 = angDeg(P1, far), aP2 = angDeg(P2, far);
+    // P1 の弧は P2 側（角度が P2 方向）へ、P2 の弧は P1 側へ少し寄せて交差を明確に
+    const towardP2 = angDeg(P1, P2) > aP1 ? 1 : -1;
+    const towardP1 = angDeg(P2, P1) > aP2 ? 1 : -1;
+    parts.push(arcCenter(P1, rr2, aP1 - 12, aP1 + 12 + 18 * towardP2));
+    parts.push(arcCenter(P2, rr2, aP2 - 12, aP2 + 12 + 18 * towardP1));
+    if (img.showLine) parts.push(`<line x1="${O[0]}" y1="${O[1]}" x2="${(O[0] + (Math.hypot(far[0] - O[0], far[1] - O[1]) + 70) * Math.cos(rad((a1 + a2) / 2))).toFixed(1)}" y2="${(O[1] - (Math.hypot(far[0] - O[0], far[1] - O[1]) + 70) * Math.sin(rad((a1 + a2) / 2))).toFixed(1)}" stroke="${COL_SHAPE}" stroke-width="2" stroke-dasharray="6 4"/>`);
     parts.push(`<circle cx="${O[0]}" cy="${O[1]}" r="2.5" fill="${COL_SHAPE}"/>`);
     parts.push(svgText(O[0] - 14, O[1] + 4, 'O', { weight: 'bold', size: 15, fill: COL_SHAPE }));
   } else { // perpendicular: 直線上の点Pでの垂線
