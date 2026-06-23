@@ -19,11 +19,7 @@ const ADMIN = 'U429b1d951fc7236c9e8e85e5ca96b910';
 const BASE = 'https://www.chatstudy.jp/graphs';
 
 const TRIAL: { folder: string; file: string; id: string }[] = [
-  { folder: 'grade2/2-simultaneous-equations', file: 'basics.json', id: 'math-g2-simul-eq-basics-q4' },
-  { folder: 'grade2/3-linear-functions', file: 'find-equation.json', id: 'math-g2-find-linear-eq-q2' },
-  { folder: 'grade1/1-positive-negative', file: 'add-sub.json', id: 'math-g1-add-sub-q10' },
-  { folder: 'grade2/1-expressions', file: 'monomial-mul-div.json', id: 'math-g2-mono-mul-div-q31' },
-  { folder: 'grade1/3-equations', file: 'basics.json', id: 'math-g1-eq-basics-q5' },
+  { folder: 'grade1/3-equations', file: 'basics.json', id: 'math-g1-eq-basics-q5' }, // x/4=6 のみ
 ];
 
 const SUP: Record<string, string> = { '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴', '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹' };
@@ -61,13 +57,14 @@ async function urlLive(url: string): Promise<boolean> {
 
 // 問題は本文幅いっぱい（size:full）で余白を削減。選択肢は「1行の式は大きめ・分数の式は
 // 控えめ」の2段倍率で、文字サイズの見た目を揃えつつ余白を活かす。
-const SCALE_SINGLE = 0.8; // 1行の式（x=24 など）
-const SCALE_FRAC = 0.62; // 分数を含む式（x=3/2 など）
+const SCALE_Q = 0.58; // 問題文の表示倍率（小さめに）
+const SCALE_SINGLE = 0.9; // 1行の式（x=24 など）大きめ
+const SCALE_FRAC = 0.62; // 分数を含む式（x=3/2 など）現状維持
 const FRAC_H = 50; // この高さ(論理px)を超えたら分数とみなす
-const CAP_C = 210; // 選択肢画像の表示幅の上限
+const CAP_C = 240; // 選択肢画像の表示幅の上限
 
 function buildCard(q: any, dim: { width: number; height: number }, optDims: { width: number; height: number }[]) {
-  const url = `${BASE}/math-tex-${q.id}.png?v=8`;
+  const url = `${BASE}/math-tex-${q.id}.png?v=10`;
   const optionRows = (q.options as string[]).map((_opt, i) => {
     const scale = optDims[i].height > FRAC_H ? SCALE_FRAC : SCALE_SINGLE;
     const imgW = Math.min(CAP_C, Math.round(scale * optDims[i].width));
@@ -77,7 +74,7 @@ function buildCard(q: any, dim: { width: number; height: number }, optDims: { wi
       // 本番ではここに action: postback（回答）を付ければ画像選択肢のままタップ回答にできる
       contents: [
         { type: 'text' as const, text: String.fromCharCode(65 + i), flex: 0, size: 'md' as const, weight: 'bold' as const, color: '#F59E0B', gravity: 'center' as const },
-        { type: 'image' as const, url: `${BASE}/math-tex-${q.id}-opt${i}.png?v=8`, size: `${imgW}px`, aspectRatio: `${optDims[i].width}:${optDims[i].height}`, aspectMode: 'fit' as const, align: 'start' as const, gravity: 'center' as const, backgroundColor: '#FFFFFF' },
+        { type: 'image' as const, url: `${BASE}/math-tex-${q.id}-opt${i}.png?v=10`, size: `${imgW}px`, aspectRatio: `${optDims[i].width}:${optDims[i].height}`, aspectMode: 'fit' as const, align: 'start' as const, gravity: 'center' as const, backgroundColor: '#FFFFFF' },
       ],
     };
   });
@@ -120,7 +117,7 @@ async function main() {
   // 公開確認（問題画像＋選択肢画像）
   for (let k = 0; k < TRIAL.length; k++) {
     const t = TRIAL[k];
-    const urls = [`${BASE}/math-tex-${t.id}.png?v=8`, ...items[k].q.options.map((_: any, i: number) => `${BASE}/math-tex-${t.id}-opt${i}.png?v=8`)];
+    const urls = [`${BASE}/math-tex-${t.id}.png?v=10`, ...items[k].q.options.map((_: any, i: number) => `${BASE}/math-tex-${t.id}-opt${i}.png?v=10`)];
     for (const u of urls) {
       const live = await urlLive(u);
       if (!live) { console.error(`画像が未公開です（push & Vercelデプロイ待ち）: ${u}`); process.exit(1); }
