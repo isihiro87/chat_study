@@ -89,16 +89,16 @@ function textToAtoms(text: string): TextAtom[] {
   return atoms;
 }
 
-function mathToBox(tex: string): MathBox {
-  const node = mjDoc.convert(tex, { display: false, em: EM, ex: EX });
+function mathToBox(tex: string, em = EM, ex = EX, display = false): MathBox {
+  const node = mjDoc.convert(tex, { display, em, ex });
   const svgEl = adaptor.firstChild(node as any);
   let svg = adaptor.outerHTML(svgEl as any);
   const wEx = parseFloat((svg.match(/width="([\d.]+)ex"/) || [])[1] || '1');
   const hEx = parseFloat((svg.match(/height="([\d.]+)ex"/) || [])[1] || '1');
   const vAlign = parseFloat((svg.match(/vertical-align:\s*(-?[\d.]+)ex/) || [])[1] || '0');
-  const w = wEx * EX;
-  const h = hEx * EX;
-  const depth = -vAlign * EX; // ベースライン下の深さ
+  const w = wEx * ex;
+  const h = hEx * ex;
+  const depth = -vAlign * ex; // ベースライン下の深さ
   const ascent = h - depth;
   // width/height を px に置換し、currentColor を本文色に
   svg = svg
@@ -124,27 +124,39 @@ function lineToAtoms(line: string): Atom[] {
   return atoms;
 }
 
+// 数式だけの行は大きく組版（ディスプレイ数式）
+const BIG_EM = 48;
+const BIG_EX = 24;
+const MIN_W = 220;
+
 export async function renderQuestionToPng(
   text: string,
-  outPath: string
+  outPath: string,
+  opts: { forceWidth?: number } = {}
 ): Promise<{ width: number; height: number }> {
   const placed: string[] = [];
   let y = PAD;
+  let rightEdge = MIN_W; // 実際に使った右端（タイトに幅を決める）
   const rawLines = text.split('\n');
 
   for (const raw of rawLines) {
-    const atoms = lineToAtoms(raw.trim());
-    if (atoms.length === 0) {
+    const line = raw.trim();
+    if (line.length === 0) {
       y += F * 0.6; // 空行
       continue;
     }
-    // 折り返ししながら視覚行に分割
+    // 数式のみの行は大きく中央寄せ気味に（後でタイト幅にするので左寄せでOK）
+    const pure = /^\$[^$]+\$$/.test(line);
+    const atoms: Atom[] = pure
+      ? [mathToBox(line.slice(1, -1), BIG_EM, BIG_EX, true)]
+      : lineToAtoms(line);
+
     let lineAtoms: Atom[] = [];
     let x = PAD;
     const flush = () => {
       if (lineAtoms.length === 0) return;
-      let asc = TEXT_ASCENT;
-      let dep = TEXT_DEPTH;
+      let asc = pure ? 0 : TEXT_ASCENT;
+      let dep = pure ? 0 : TEXT_DEPTH;
       for (const a of lineAtoms) {
         if (a.type === 'math') {
           asc = Math.max(asc, a.ascent);
@@ -168,13 +180,13 @@ export async function renderQuestionToPng(
           cx += a.w;
         }
       }
+      rightEdge = Math.max(rightEdge, cx);
       y = baseline + dep + LINE_GAP;
       lineAtoms = [];
       x = PAD;
     };
     for (const a of atoms) {
       if (x + a.w > PAD + MAXW && lineAtoms.length > 0) flush();
-      // 行頭の空白は捨てる
       if (lineAtoms.length === 0 && a.type === 'text' && a.text === ' ') continue;
       lineAtoms.push(a);
       x += a.w;
@@ -182,7 +194,7 @@ export async function renderQuestionToPng(
     flush();
   }
 
-  const width = PAD * 2 + MAXW;
+  const width = Math.max(Math.ceil(rightEdge + PAD), opts.forceWidth ?? 0); // 内容にタイトに合わせる（forceWidthで揃える）
   const height = Math.ceil(y - LINE_GAP + PAD);
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}"><rect width="${width}" height="${height}" fill="${COL_BG}"/>${placed.join('')}</svg>`;
   await sharp(Buffer.from(svg), { density: 192 }).png().toFile(outPath);
