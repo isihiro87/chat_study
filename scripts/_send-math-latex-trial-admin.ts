@@ -64,8 +64,7 @@ const FRAC_H = 50; // この高さ(論理px)を超えたら分数とみなす
 const CAP_C = 240; // 選択肢画像の表示幅の上限
 
 function buildCard(q: any, dim: { width: number; height: number }, optDims: { width: number; height: number }[]) {
-  const url = `${BASE}/math-tex-${q.id}.png?v=8`;
-  const qW = Math.round(SCALE_Q * dim.width);
+  const url = `${BASE}/math-tex-${q.id}.png?v=11`;
   const optionRows = (q.options as string[]).map((_opt, i) => {
     const scale = optDims[i].height > FRAC_H ? SCALE_FRAC : SCALE_SINGLE;
     const imgW = Math.min(CAP_C, Math.round(scale * optDims[i].width));
@@ -75,7 +74,7 @@ function buildCard(q: any, dim: { width: number; height: number }, optDims: { wi
       // 本番ではここに action: postback（回答）を付ければ画像選択肢のままタップ回答にできる
       contents: [
         { type: 'text' as const, text: String.fromCharCode(65 + i), flex: 0, size: 'md' as const, weight: 'bold' as const, color: '#F59E0B', gravity: 'center' as const },
-        { type: 'image' as const, url: `${BASE}/math-tex-${q.id}-opt${i}.png?v=8`, size: `${imgW}px`, aspectRatio: `${optDims[i].width}:${optDims[i].height}`, aspectMode: 'fit' as const, align: 'start' as const, gravity: 'center' as const, backgroundColor: '#FFFFFF' },
+        { type: 'image' as const, url: `${BASE}/math-tex-${q.id}-opt${i}.png?v=11`, size: `${imgW}px`, aspectRatio: `${optDims[i].width}:${optDims[i].height}`, aspectMode: 'fit' as const, align: 'start' as const, gravity: 'center' as const, backgroundColor: '#FFFFFF' },
       ],
     };
   });
@@ -87,7 +86,7 @@ function buildCard(q: any, dim: { width: number; height: number }, optDims: { wi
       header: { type: 'box' as const, layout: 'vertical' as const, backgroundColor: '#3B82F6', paddingAll: '14px',
         contents: [{ type: 'text' as const, text: '数学｜中2', color: '#FFFFFF', weight: 'bold' as const, size: 'md' as const }] },
       body: { type: 'box' as const, layout: 'vertical' as const, paddingAll: '8px', contents: [
-        { type: 'image' as const, url, size: `${qW}px`, aspectRatio: `${dim.width}:${dim.height}`, aspectMode: 'fit' as const, align: 'start' as const, backgroundColor: '#FFFFFF' },
+        { type: 'image' as const, url, size: 'full' as const, aspectRatio: `${dim.width}:${dim.height}`, aspectMode: 'fit' as const, align: 'start' as const, backgroundColor: '#FFFFFF' },
       ] },
       footer: { type: 'box' as const, layout: 'vertical' as const, spacing: 'sm' as const, paddingAll: '10px', contents: optionRows },
     },
@@ -118,7 +117,7 @@ async function main() {
   // 公開確認（問題画像＋選択肢画像）
   for (let k = 0; k < TRIAL.length; k++) {
     const t = TRIAL[k];
-    const urls = [`${BASE}/math-tex-${t.id}.png?v=8`, ...items[k].q.options.map((_: any, i: number) => `${BASE}/math-tex-${t.id}-opt${i}.png?v=8`)];
+    const urls = [`${BASE}/math-tex-${t.id}.png?v=11`, ...items[k].q.options.map((_: any, i: number) => `${BASE}/math-tex-${t.id}-opt${i}.png?v=11`)];
     for (const u of urls) {
       const live = await urlLive(u);
       if (!live) { console.error(`画像が未公開です（push & Vercelデプロイ待ち）: ${u}`); process.exit(1); }
