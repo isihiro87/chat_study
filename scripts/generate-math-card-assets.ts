@@ -53,7 +53,7 @@ async function main() {
   const grades = gradeArg ? [gradeArg] : ['中1', '中2', '中3'];
   if (!existsSync(OUT_DIR)) mkdirSync(OUT_DIR, { recursive: true });
 
-  const manifest: Record<string, { questionParts: Part[]; choiceParts: Part[] }> = {};
+  const manifest: Record<string, { questionParts: Part[]; choiceParts: Part[]; explanationImage?: { u: string; w: number; h: number } }> = {};
   let nImg = 0, nQ = 0;
 
   for (const grade of grades) {
@@ -92,7 +92,15 @@ async function main() {
               nImg++;
             }
           }
-          manifest[docId] = { questionParts, choiceParts };
+          // 解説: 数式（$...$）を含むものだけ MathJax 画像化（段組み分数など）
+          let explanationImage: { u: string; w: number; h: number } | undefined;
+          if (typeof q.explanation === 'string' && q.explanation.includes('$')) {
+            const out = join(OUT_DIR, `${qid}-exp.png`);
+            const d = await renderQuestionToPng(q.explanation, out);
+            explanationImage = { u: `${BASE}/${qid}-exp.png`, w: d.width, h: d.height };
+            nImg++;
+          }
+          manifest[docId] = { questionParts, choiceParts, ...(explanationImage ? { explanationImage } : {}) };
           nQ++;
           if (nQ % 50 === 0) console.log(`  ${nQ} 問 / ${nImg} 画像`);
         }

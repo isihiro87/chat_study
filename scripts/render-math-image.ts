@@ -203,6 +203,7 @@ export async function renderQuestionToPng(
   const width = Math.max(Math.ceil(rightEdge + PAD), opts.forceWidth ?? 0); // 内容にタイトに合わせる（forceWidthで揃える）
   const height = Math.ceil(y - LINE_GAP + PAD);
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}"><rect width="${width}" height="${height}" fill="${COL_BG}"/>${placed.join('')}</svg>`;
-  await sharp(Buffer.from(svg), { density: 192 }).png().toFile(outPath);
+  // 白地に文字主体なのでパレットPNG(16色)で大幅に圧縮（画質はほぼ維持）
+  await sharp(Buffer.from(svg), { density: 192 }).png({ palette: true, colors: 16, compressionLevel: 9 }).toFile(outPath);
   return { width, height };
 }

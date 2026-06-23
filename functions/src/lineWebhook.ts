@@ -107,6 +107,7 @@ interface Question {
   questionParts?: Array<{ t: 'text'; s: string } | { t: 'img'; u: string; w: number; h: number }>;
   // 選択肢: 文章は {t:'text'} のテキスト、数式は {t:'img'} の MathJax 画像（混在可）
   choiceParts?: Array<{ t?: string; s?: string; u?: string; w?: number; h?: number }>;
+  explanationImage?: { u: string; w: number; h: number }; // 解説のMathJax画像（数式入りのみ）
 }
 
 interface OnboardingSelectOption {
@@ -4955,9 +4956,41 @@ async function handleAnswerPostback(
     : getIncorrectFeedback({ correctLabel });
   // 旧版は「⭕正解+励まし」と「📖解説」を 2 通の text に分けて送っていたが、
   // ユーザー体感が冗長なため 1 通に統合（2026-05-31）。
-  const combinedText = isCorrect
-    ? `⭕ 正解！\n${feedbackBody}\n\n📖 解説\n${question.explanation}`
-    : `❌ 不正解…\n${feedbackBody}\n\n📖 解説\n${question.explanation}`;
+  // 数学ハイブリッドで解説画像があるときは、解説を MathJax 画像で別 flex 表示する。
+  const useExpImage =
+    question.renderMode === 'math-hybrid' &&
+    question.explanationImage &&
+    typeof question.explanationImage.u === 'string';
+  const head = isCorrect ? '⭕ 正解！' : '❌ 不正解…';
+  const combinedText = useExpImage
+    ? `${head}\n${feedbackBody}\n\n📖 解説`
+    : `${head}\n${feedbackBody}\n\n📖 解説\n${question.explanation}`;
+  const explanationFlex = useExpImage
+    ? {
+        type: 'flex' as const,
+        altText: `解説: ${question.explanation.slice(0, 60)}`,
+        contents: {
+          type: 'bubble' as const,
+          size: 'kilo' as const,
+          body: {
+            type: 'box' as const,
+            layout: 'vertical' as const,
+            paddingAll: '16px',
+            contents: [
+              {
+                type: 'image' as const,
+                url: question.explanationImage!.u,
+                size: 'full' as const,
+                aspectRatio: `${question.explanationImage!.w}:${question.explanationImage!.h}`,
+                aspectMode: 'fit' as const,
+                align: 'start' as const,
+                backgroundColor: '#FFFFFF',
+              },
+            ],
+          },
+        },
+      }
+    : null;
   const nextStepFlex = buildPostAnswerNextStepFlexMessage({
     topicName: question.topic,
   });
@@ -4971,6 +5004,9 @@ async function handleAnswerPostback(
     const replyMessages: LineMessage[] = [
       { type: 'text', text: combinedText },
     ];
+    if (explanationFlex) {
+      replyMessages.push(explanationFlex as unknown as LineMessage);
+    }
     if (nextStepFlex) {
       replyMessages.push(nextStepFlex as LineMessage);
     }

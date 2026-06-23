@@ -218,10 +218,11 @@ interface FirestoreQuestion {
   renderMode?: string;
   questionParts?: unknown[];
   choiceParts?: unknown[];
+  explanationImage?: { u: string; w: number; h: number };
 }
 
-// 数学カードアセットの manifest（docId → {questionParts, choiceParts}）。無ければ空。
-const MATH_CARD_MANIFEST: Record<string, { questionParts: unknown[]; choiceParts: unknown[] }> = (() => {
+// 数学カードアセットの manifest（docId → {questionParts, choiceParts, explanationImage?}）。無ければ空。
+const MATH_CARD_MANIFEST: Record<string, { questionParts: unknown[]; choiceParts: unknown[]; explanationImage?: { u: string; w: number; h: number } }> = (() => {
   try {
     return JSON.parse(readFileSync(join(CONTENT_DIR, 'math', '_card-assets.generated.json'), 'utf-8'));
   } catch {
@@ -289,6 +290,7 @@ function loadAllQuestions(
               rec.renderMode = 'math-hybrid';
               rec.questionParts = m.questionParts;
               rec.choiceParts = m.choiceParts;
+              if (m.explanationImage) rec.explanationImage = m.explanationImage;
             }
           }
           out.push(rec);
