@@ -25,7 +25,7 @@ const texInput = new TeX({ packages: AllPackages });
 const F = 30; // 通常テキストのフォントサイズ
 const EX = F / 2; // 1ex = 15px（math の x-height 目安）
 const EM = F; // 1em = 30px
-const MAXW = 410; // 本文の最大幅。1行の指示文（「次の方程式を解きましょう。」等）が途中改行しない幅にする
+const MAXW = 300; // 本文の最大幅（kilo bubble に合わせて狭めに折り返す）
 const PAD = 6; // 余白（最小限。間隔はカード側の padding に任せる）
 const LINE_GAP = 16; // 行間の追加スペース
 const COL_TEXT = '#111827';
@@ -81,12 +81,6 @@ function textToAtoms(text: string): TextAtom[] {
       const w = word.split('').reduce((a, c) => a + charWidth(c), 0);
       atoms.push({ type: 'text', text: word, w });
       i = j;
-    } else if (/[。、，．！？）」』】｝〕》〉,.!?)\]]/.test(ch) && atoms.length > 0) {
-      // 行頭に来てはいけない閉じ括弧・句読点は前の atom にくっつけて折り返さない
-      const prev = atoms[atoms.length - 1];
-      prev.text += ch;
-      prev.w += charWidth(ch);
-      i++;
     } else {
       atoms.push({ type: 'text', text: ch, w: charWidth(ch) });
       i++;
