@@ -61,6 +61,8 @@ function charWidth(ch: string): number {
   if (c >= 0x3000) return F; // CJK・全角
   if (/[0-9A-Za-z]/.test(ch)) return F * 0.56;
   if (/[（）「」、。．，：；！？]/.test(ch)) return F; // 全角記号
+  if (ch === '%' || ch === '％') return F * 1.05; // Noto CJK の % はほぼ全角幅（次文字との重なり防止）
+  if (/[＝×÷±√π≦≧≠≡∠△∽∥°]/.test(ch)) return F; // 全角扱いの記号
   return F * 0.34; // 半角記号
 }
 

@@ -72,7 +72,9 @@ async function main() {
           const lines = (q.question as string).split('\n');
           for (let li = 0; li < lines.length; li++) {
             const line = lines[li];
-            if (isPureMathLine(line)) {
+            // 行内に数式（$...$）を含むなら、その行ごと MathJax 画像化（インラインの 3x-y=4 / y= も MathJax で揃える）。
+            // 数式を全く含まない日本語のみの行は Flex テキスト（他教科と文字サイズを揃える）。
+            if (/\$[^$]+\$/.test(line)) {
               const out = join(OUT_DIR, `${qid}-q${li}.png`);
               const d = await renderQuestionToPng(line.trim(), out);
               questionParts.push({ t: 'img', u: `${BASE}/${qid}-q${li}.png`, w: d.width, h: d.height });

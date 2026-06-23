@@ -5502,6 +5502,7 @@ function buildLastQuestionSnapshot(
 // 数学ハイブリッドカード: 日本語=Flexテキスト(他教科と同サイズ) / 数式・選択肢=MathJax画像。
 // 画像はビルド時生成（generate-math-card-assets）し www.chatstudy.jp/graphs/mathcard に公開済み。
 const MATH_FORMULA_SCALE = 0.66; // 問題内の数式画像の表示倍率
+const MATH_FORMULA_CAP = 258; // 問題画像の最大表示幅（kilo バブルからはみ出さない）
 const MATH_CHOICE_SCALE = 0.6; // 選択肢画像（全MathJax）の表示倍率
 const MATH_CHOICE_CAP = 240;
 function buildMathHybridMessage(
@@ -5521,7 +5522,7 @@ function buildMathHybridMessage(
     if (p.t === 'text') {
       body.push({ type: 'text', text: p.s, wrap: true, weight: 'bold', size: 'lg', color: '#111827', ...(margin ? { margin } : {}) });
     } else {
-      body.push({ type: 'image', url: p.u, size: `${Math.round(MATH_FORMULA_SCALE * p.w)}px`, aspectRatio: `${p.w}:${p.h}`, aspectMode: 'fit', align: 'start', backgroundColor: '#FFFFFF', ...(margin ? { margin } : {}) });
+      body.push({ type: 'image', url: p.u, size: `${Math.min(MATH_FORMULA_CAP, Math.round(MATH_FORMULA_SCALE * p.w))}px`, aspectRatio: `${p.w}:${p.h}`, aspectMode: 'fit', align: 'start', backgroundColor: '#FFFFFF', ...(margin ? { margin } : {}) });
     }
   });
   // 図つき問題は図も表示
