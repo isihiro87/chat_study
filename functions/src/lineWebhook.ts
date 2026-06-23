@@ -53,8 +53,8 @@ interface LineWebhookBody {
 type ValidGrade = '中1' | '中2' | '中3';
 const VALID_GRADES: readonly ValidGrade[] = ['中1', '中2', '中3'] as const;
 
-type ValidSubject = 'history' | 'english' | 'science';
-const VALID_SUBJECTS: readonly ValidSubject[] = ['history', 'english', 'science'] as const;
+type ValidSubject = 'history' | 'english' | 'science' | 'math';
+const VALID_SUBJECTS: readonly ValidSubject[] = ['history', 'english', 'science', 'math'] as const;
 
 /** 学年文字列（'中1'）→ スコープロジック用の数値（1）。不正値は null。 */
 function gradeToScopeNumber(grade: unknown): 1 | 2 | 3 | null {
@@ -67,6 +67,7 @@ const SUBJECT_LABELS: Record<ValidSubject, string> = {
   history: '歴史',
   english: '英語',
   science: '理科',
+  math: '数学',
 };
 // 教科別のヘッダー背景色。将来 math/science/geography を追加する際は
 // ValidSubject 型と SUBJECT_LABELS / SUBJECT_HEADER_COLORS を同時に更新する。
@@ -75,7 +76,7 @@ const SUBJECT_HEADER_COLORS: Record<ValidSubject, string> = {
   history: '#A16207', // 社会系の茶色
   english: '#EC4899', // ピンク
   science: '#10B981', // 緑
-  // math: "#3B82F6",     // 青
+  math: '#3B82F6', // 青
   // geography: "#A16207", // 茶色（歴史と同じ社会系）
 };
 
@@ -100,6 +101,11 @@ interface Question {
   choices: [string, string, string, string];
   correctChoiceId: 0 | 1 | 2 | 3;
   explanation: string;
+  imageUrl?: string; // 図つき問題（数学のグラフ/図形/統計など）。あれば問題文の下に表示
+  // 数学ハイブリッドカード: 日本語=テキスト / 数式=画像 / 選択肢=全MathJax画像
+  renderMode?: string; // 'math-hybrid' のとき下記 parts でカードを組む
+  questionParts?: Array<{ t: 'text'; s: string } | { t: 'img'; u: string; w: number; h: number }>;
+  choiceParts?: Array<{ u: string; w: number; h: number }>;
 }
 
 interface OnboardingSelectOption {
@@ -357,7 +363,7 @@ export function buildOnboardingCompleteSummaryFlex(opts: {
           {
             type: 'text' as const,
             text:
-              `📅 はじめの2週間は毎日1問お届け！\n` +
+              `📅 はじめの1週間は毎日1問お届け！\n` +
               `そのあとは週3回（月・水・金）に届きます。`,
             wrap: true,
             size: 'xs' as const,
@@ -4829,7 +4835,7 @@ async function handleSelectTimePostback(
             type: 'text',
             text:
               `設定完了！明日から${hourLabel}に1問お届けします。\n\n` +
-              `📅 はじめの2週間は毎日、そのあとは週3回（月・水・金）に届きます。配信がない日も、メニューの「1問解く」を押せばいつでも問題に挑戦できるよ。\n\n` +
+              `📅 はじめの1週間は毎日、そのあとは週3回（月・水・金）に届きます。配信がない日も、メニューの「1問解く」を押せばいつでも問題に挑戦できるよ。\n\n` +
               `📖 届いた問題は選択肢をタップするだけ。すぐに正解と解説が出ます。メニューから「苦手を復習」「じっくり学ぶ」も使えます。\n\n` +
               `🤖 困ったときや勉強の質問は、このトークにそのまま送ればAIが答えるよ。`,
           },
@@ -5394,11 +5400,73 @@ function buildLastQuestionSnapshot(
   };
 }
 
+// 数学ハイブリッドカード: 日本語=Flexテキスト(他教科と同サイズ) / 数式・選択肢=MathJax画像。
+// 画像はビルド時生成（generate-math-card-assets）し www.chatstudy.jp/graphs/mathcard に公開済み。
+const MATH_FORMULA_SCALE = 0.66; // 問題内の数式画像の表示倍率
+const MATH_CHOICE_SCALE = 0.6; // 選択肢画像（全MathJax）の表示倍率
+const MATH_CHOICE_CAP = 240;
+function buildMathHybridMessage(
+  questionId: string,
+  q: Question,
+  introText?: string
+) {
+  const subjectLabel = SUBJECT_LABELS[q.subject];
+  const headerColor = SUBJECT_HEADER_COLORS[q.subject];
+  const body: messagingApi.FlexComponent[] = [];
+  if (introText) {
+    body.push({ type: 'text', text: introText, wrap: true, size: 'sm', color: '#6B7280' });
+    body.push({ type: 'separator', margin: 'md', color: '#E5E7EB' });
+  }
+  (q.questionParts ?? []).forEach((p, idx) => {
+    const margin = idx > 0 || introText ? ('md' as const) : undefined;
+    if (p.t === 'text') {
+      body.push({ type: 'text', text: p.s, wrap: true, weight: 'bold', size: 'lg', color: '#111827', ...(margin ? { margin } : {}) });
+    } else {
+      body.push({ type: 'image', url: p.u, size: `${Math.round(MATH_FORMULA_SCALE * p.w)}px`, aspectRatio: `${p.w}:${p.h}`, aspectMode: 'fit', align: 'start', backgroundColor: '#FFFFFF', ...(margin ? { margin } : {}) });
+    }
+  });
+  // 図つき問題は図も表示
+  if (typeof q.imageUrl === 'string' && q.imageUrl.startsWith('https://')) {
+    body.push({ type: 'image', url: q.imageUrl, size: 'full', aspectRatio: '1:1', aspectMode: 'fit', margin: 'lg', backgroundColor: '#FAF9F7' });
+  }
+  const footer: messagingApi.FlexComponent[] = (q.choiceParts ?? []).map((c, i) => ({
+    type: 'box' as const,
+    layout: 'horizontal' as const,
+    paddingAll: '10px',
+    cornerRadius: 'md' as const,
+    spacing: 'sm' as const,
+    backgroundColor: '#FFFFFF',
+    borderColor: '#E5E7EB',
+    borderWidth: '1px',
+    alignItems: 'center' as const,
+    action: { type: 'postback' as const, label: `${String.fromCharCode(65 + i)}`, data: `type=answer&questionId=${questionId}&choice=${i}`, displayText: q.choices[i] },
+    contents: [
+      { type: 'text' as const, text: String.fromCharCode(65 + i), flex: 0, size: 'sm' as const, weight: 'bold' as const, color: '#F59E0B', gravity: 'center' as const },
+      { type: 'image' as const, url: c.u, size: `${Math.min(MATH_CHOICE_CAP, Math.round(MATH_CHOICE_SCALE * c.w))}px`, aspectRatio: `${c.w}:${c.h}`, aspectMode: 'fit' as const, align: 'start' as const, gravity: 'center' as const, margin: 'md' as const, backgroundColor: '#FFFFFF' },
+    ],
+  }));
+  return {
+    type: 'flex' as const,
+    altText: `${subjectLabel}｜${q.grade}: ${q.text.slice(0, 40)}`,
+    contents: {
+      type: 'bubble' as const,
+      size: 'kilo' as const,
+      header: { type: 'box' as const, layout: 'vertical' as const, backgroundColor: headerColor, paddingAll: '14px', contents: [{ type: 'text' as const, text: `${subjectLabel}｜${q.grade}`, color: '#FFFFFF', weight: 'bold' as const, size: 'md' as const }] },
+      body: { type: 'box' as const, layout: 'vertical' as const, paddingAll: '20px', contents: body },
+      footer: { type: 'box' as const, layout: 'vertical' as const, spacing: 'sm' as const, paddingAll: '16px', contents: footer },
+    },
+  };
+}
+
 function buildQuestionMessage(
   questionId: string,
   q: Question,
   introText?: string
 ) {
+  // 数学はハイブリッドカード（parts があるとき）
+  if (q.renderMode === 'math-hybrid' && Array.isArray(q.questionParts) && Array.isArray(q.choiceParts) && q.choiceParts.length > 0) {
+    return buildMathHybridMessage(questionId, q, introText);
+  }
   const subjectLabel = SUBJECT_LABELS[q.subject];
   const headerColor = SUBJECT_HEADER_COLORS[q.subject];
   const bodyContents: messagingApi.FlexComponent[] = [];
@@ -5426,6 +5494,18 @@ function buildQuestionMessage(
     align: 'start' as const,
     ...(introText ? { margin: 'md' as const } : {}),
   });
+  // 図つき問題は問題文の下に図を表示（数学のグラフ/図形/統計など）
+  if (typeof q.imageUrl === 'string' && q.imageUrl.startsWith('https://')) {
+    bodyContents.push({
+      type: 'image' as const,
+      url: q.imageUrl,
+      size: 'full' as const,
+      aspectRatio: '1:1' as const,
+      aspectMode: 'fit' as const,
+      margin: 'lg' as const,
+      backgroundColor: '#FAF9F7',
+    });
+  }
   return {
     type: 'flex' as const,
     altText: `${subjectLabel}｜${q.grade}: ${q.text.slice(0, 40)}`,

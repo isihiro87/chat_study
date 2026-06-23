@@ -111,7 +111,77 @@ const SUBJECTS: Record<string, SubjectSyncConfig> = {
       ],
     },
   },
+  math: {
+    subjectId: 'math',
+    contentSubdir: 'math',
+    docIdPrefix: 'q-math',
+    syncSourceTag: 'content-math-v1',
+    gradeFolders: {
+      中1: [
+        'grade1/1-positive-negative',
+        'grade1/2-literal-expressions',
+        'grade1/3-equations',
+        'grade1/4-functions',
+        'grade1/5-plane-figures',
+        'grade1/6-space-figures',
+        'grade1/7-data',
+      ],
+      中2: [
+        'grade2/1-expressions',
+        'grade2/2-simultaneous-equations',
+        'grade2/3-linear-functions',
+        'grade2/4-parallel-congruence',
+        'grade2/5-triangles-quadrilaterals',
+        'grade2/6-probability',
+        'grade2/7-data',
+      ],
+      中3: [
+        'grade3/1-expansion-factoring',
+        'grade3/2-square-roots',
+        'grade3/3-quadratic-equations',
+        'grade3/4-quadratic-functions',
+      ],
+    },
+  },
 };
+
+// LINE は Flex テキストで LaTeX を描画しないため、$...$ の数式を読める Unicode に変換する。
+const SUP: Record<string, string> = { '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴', '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹' };
+function latexToPlain(s: string): string {
+  if (typeof s !== 'string') return s;
+  return s
+    // 連立方程式 cases 環境 → カンマ区切り
+    .replace(/\\begin\{cases\}([\s\S]+?)\\end\{cases\}/g, (_m, inner: string) =>
+      inner.split(/\\\\/).map((x) => x.trim()).filter(Boolean).join('，  ')
+    )
+    .replace(/\$([^$]+)\$/g, (_m, x: string) => x) // $...$ の囲みを外す
+    .replace(/\\d?frac\{([^{}]+)\}\{([^{}]+)\}/g, (_m, a: string, b: string) => {
+      const par = (x: string) => (/[+\-]/.test(x.slice(1)) ? `(${x})` : x); // 多項のときは括弧
+      return `${par(a.trim())}/${par(b.trim())}`;
+    })
+    .replace(/\\sqrt\{([^{}]+)\}/g, '√$1')
+    .replace(/\\sqrt/g, '√')
+    .replace(/\\pi/g, 'π')
+    .replace(/\\times/g, '×')
+    .replace(/\\div/g, '÷')
+    .replace(/\\pm/g, '±')
+    .replace(/\\cdot/g, '・')
+    .replace(/\\leqq|\\leq/g, '≦')
+    .replace(/\\geqq|\\geq/g, '≧')
+    .replace(/\\neq/g, '≠')
+    .replace(/\\angle\s*/g, '∠')
+    .replace(/\\triangle\s*/g, '△')
+    .replace(/\^\{(\d+)\}/g, (_m, d: string) => d.split('').map((c) => SUP[c] ?? c).join(''))
+    .replace(/\^(\d)/g, (_m, d: string) => SUP[d] ?? d)
+    .replace(/\\left|\\right/g, '')
+    .replace(/\\,|\\;|\\ /g, ' ')
+    .replace(/\\\\/g, ' ')
+    .replace(/\\/g, '')
+    .replace(/[ \t]+/g, ' ')
+    .trim();
+}
+
+const GRAPH_BASE_URL = 'https://www.chatstudy.jp/graphs';
 
 interface ContentQuiz {
   id: string;
@@ -120,6 +190,7 @@ interface ContentQuiz {
   correctIndex: number;
   explanation?: string;
   difficulty?: string;
+  image?: unknown; // 図つき問題（座標/幾何/統計）。あれば imageUrl を付与
 }
 
 interface ContentTopic {
@@ -142,7 +213,21 @@ interface FirestoreQuestion {
   difficulty: string;
   contentTopicId: string;
   syncSource: string;
+  imageUrl?: string; // 図つき問題のみ
+  // 数学ハイブリッドカード（generate-math-card-assets の manifest 由来）
+  renderMode?: string;
+  questionParts?: unknown[];
+  choiceParts?: unknown[];
 }
+
+// 数学カードアセットの manifest（docId → {questionParts, choiceParts}）。無ければ空。
+const MATH_CARD_MANIFEST: Record<string, { questionParts: unknown[]; choiceParts: unknown[] }> = (() => {
+  try {
+    return JSON.parse(readFileSync(join(CONTENT_DIR, 'math', '_card-assets.generated.json'), 'utf-8'));
+  } catch {
+    return {};
+  }
+})();
 
 function loadAllQuestions(
   config: SubjectSyncConfig,
@@ -178,19 +263,35 @@ function loadAllQuestions(
             console.warn(`[skip invalid] ${folder}/${file} ${q.id}`);
             continue;
           }
-          out.push({
+          // 数学のみ LaTeX を LINE 表示用 Unicode に変換（他教科は素通し）
+          const conv = config.subjectId === 'math' ? latexToPlain : (x: string) => x;
+          const rec: FirestoreQuestion = {
             id: `${config.docIdPrefix}-${topic.topicId}-${q.id}`,
             subject: config.subjectId,
             grade,
             topic: topic.name,
-            text: q.question,
-            choices: q.options,
+            text: conv(q.question),
+            choices: q.options.map(conv),
             correctChoiceId: q.correctIndex,
-            explanation: q.explanation ?? '',
+            explanation: conv(q.explanation ?? ''),
             difficulty: q.difficulty ?? 'basic',
             contentTopicId: topic.topicId,
             syncSource: config.syncSourceTag,
-          });
+          };
+          // 図つき問題は public/graphs に生成済みPNG（= 問題id名）を imageUrl で参照
+          if (q.image && typeof q.image === 'object') {
+            rec.imageUrl = `${GRAPH_BASE_URL}/${q.id}.png`;
+          }
+          // 数学ハイブリッドカード: manifest があれば parts を付与
+          if (config.subjectId === 'math') {
+            const m = MATH_CARD_MANIFEST[rec.id];
+            if (m && Array.isArray(m.questionParts) && Array.isArray(m.choiceParts)) {
+              rec.renderMode = 'math-hybrid';
+              rec.questionParts = m.questionParts;
+              rec.choiceParts = m.choiceParts;
+            }
+          }
+          out.push(rec);
         }
       }
     }
