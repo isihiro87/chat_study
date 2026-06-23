@@ -105,7 +105,8 @@ interface Question {
   // 数学ハイブリッドカード: 日本語=テキスト / 数式=画像 / 選択肢=全MathJax画像
   renderMode?: string; // 'math-hybrid' のとき下記 parts でカードを組む
   questionParts?: Array<{ t: 'text'; s: string } | { t: 'img'; u: string; w: number; h: number }>;
-  choiceParts?: Array<{ u: string; w: number; h: number }>;
+  // 選択肢: 文章は {t:'text'} のテキスト、数式は {t:'img'} の MathJax 画像（混在可）
+  choiceParts?: Array<{ t?: string; s?: string; u?: string; w?: number; h?: number }>;
 }
 
 interface OnboardingSelectOption {
@@ -5429,22 +5430,29 @@ function buildMathHybridMessage(
   if (typeof q.imageUrl === 'string' && q.imageUrl.startsWith('https://')) {
     body.push({ type: 'image', url: q.imageUrl, size: 'full', aspectRatio: '1:1', aspectMode: 'fit', margin: 'lg', backgroundColor: '#FAF9F7' });
   }
-  const footer: messagingApi.FlexComponent[] = (q.choiceParts ?? []).map((c, i) => ({
-    type: 'box' as const,
-    layout: 'horizontal' as const,
-    paddingAll: '10px',
-    cornerRadius: 'md' as const,
-    spacing: 'sm' as const,
-    backgroundColor: '#FFFFFF',
-    borderColor: '#E5E7EB',
-    borderWidth: '1px',
-    alignItems: 'center' as const,
-    action: { type: 'postback' as const, label: `${String.fromCharCode(65 + i)}`, data: `type=answer&questionId=${questionId}&choice=${i}`, displayText: q.choices[i] },
-    contents: [
-      { type: 'text' as const, text: String.fromCharCode(65 + i), flex: 0, size: 'sm' as const, weight: 'bold' as const, color: '#F59E0B', gravity: 'center' as const },
-      { type: 'image' as const, url: c.u, size: `${Math.min(MATH_CHOICE_CAP, Math.round(MATH_CHOICE_SCALE * c.w))}px`, aspectRatio: `${c.w}:${c.h}`, aspectMode: 'fit' as const, align: 'start' as const, gravity: 'center' as const, margin: 'md' as const, backgroundColor: '#FFFFFF' },
-    ],
-  }));
+  const footer: messagingApi.FlexComponent[] = (q.choiceParts ?? []).map((c, i) => {
+    // 文章選択肢はテキスト、数式選択肢は MathJax 画像
+    const inner: messagingApi.FlexComponent =
+      c.t === 'text' || (!c.u && typeof c.s === 'string')
+        ? { type: 'text', text: c.s ?? q.choices[i], wrap: true, size: 'sm', color: '#111827', margin: 'md', gravity: 'center' }
+        : { type: 'image', url: c.u as string, size: `${Math.min(MATH_CHOICE_CAP, Math.round(MATH_CHOICE_SCALE * (c.w ?? 100)))}px`, aspectRatio: `${c.w}:${c.h}`, aspectMode: 'fit', align: 'start', gravity: 'center', margin: 'md', backgroundColor: '#FFFFFF' };
+    return {
+      type: 'box' as const,
+      layout: 'horizontal' as const,
+      paddingAll: '10px',
+      cornerRadius: 'md' as const,
+      spacing: 'sm' as const,
+      backgroundColor: '#FFFFFF',
+      borderColor: '#E5E7EB',
+      borderWidth: '1px',
+      alignItems: 'center' as const,
+      action: { type: 'postback' as const, label: `${String.fromCharCode(65 + i)}`, data: `type=answer&questionId=${questionId}&choice=${i}`, displayText: q.choices[i] },
+      contents: [
+        { type: 'text' as const, text: String.fromCharCode(65 + i), flex: 0, size: 'sm' as const, weight: 'bold' as const, color: '#F59E0B', gravity: 'center' as const },
+        inner,
+      ],
+    };
+  });
   return {
     type: 'flex' as const,
     altText: `${subjectLabel}｜${q.grade}: ${q.text.slice(0, 40)}`,

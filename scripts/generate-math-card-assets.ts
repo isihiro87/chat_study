@@ -43,6 +43,8 @@ function latexToPlain(s: string): string {
     .replace(/\\,|\\;|\\ /g, ' ').replace(/\\\\/g, ' ').replace(/\\/g, '').replace(/[ \t]+/g, ' ').trim();
 }
 const isPureMathLine = (line: string) => /^\$[^$]+\$$/.test(line.trim());
+// 日本語（ひらがな・カタカナ・漢字）を含むか＝「文章がメインの選択肢」
+const hasCJK = (s: string) => /[぀-ヿ㐀-鿿々〆ヶ]/.test(s);
 
 type Part = { t: 'text'; s: string } | { t: 'img'; u: string; w: number; h: number };
 
@@ -51,7 +53,7 @@ async function main() {
   const grades = gradeArg ? [gradeArg] : ['中1', '中2', '中3'];
   if (!existsSync(OUT_DIR)) mkdirSync(OUT_DIR, { recursive: true });
 
-  const manifest: Record<string, { questionParts: Part[]; choiceParts: { u: string; w: number; h: number }[] }> = {};
+  const manifest: Record<string, { questionParts: Part[]; choiceParts: Part[] }> = {};
   let nImg = 0, nQ = 0;
 
   for (const grade of grades) {
@@ -77,13 +79,18 @@ async function main() {
               questionParts.push({ t: 'text', s: latexToPlain(line) });
             }
           }
-          // 選択肢（全部画像）
-          const choiceParts: { u: string; w: number; h: number }[] = [];
+          // 選択肢: 文章（日本語を含む）→ テキスト / 数式 → MathJax 画像
+          const choiceParts: Part[] = [];
           for (let i = 0; i < q.options.length; i++) {
-            const out = join(OUT_DIR, `${qid}-opt${i}.png`);
-            const d = await renderQuestionToPng(q.options[i], out);
-            choiceParts.push({ u: `${BASE}/${qid}-opt${i}.png`, w: d.width, h: d.height });
-            nImg++;
+            const opt = q.options[i] as string;
+            if (hasCJK(opt)) {
+              choiceParts.push({ t: 'text', s: latexToPlain(opt) });
+            } else {
+              const out = join(OUT_DIR, `${qid}-opt${i}.png`);
+              const d = await renderQuestionToPng(opt, out);
+              choiceParts.push({ t: 'img', u: `${BASE}/${qid}-opt${i}.png`, w: d.width, h: d.height });
+              nImg++;
+            }
           }
           manifest[docId] = { questionParts, choiceParts };
           nQ++;
