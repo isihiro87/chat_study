@@ -672,21 +672,15 @@ function buildConstruction(img: any): string {
     const a1 = 0, a2 = 56, L = 220;
     parts.push(line(O, [O[0] + L * Math.cos(rad(a1)), O[1] - L * Math.sin(rad(a1))]));
     parts.push(line(O, [O[0] + L * Math.cos(rad(a2)), O[1] - L * Math.sin(rad(a2))]));
-    const rr = 66;
-    const P1: [number, number] = [O[0] + rr * Math.cos(rad(a1)), O[1] - rr * Math.sin(rad(a1))];
-    const P2: [number, number] = [O[0] + rr * Math.cos(rad(a2)), O[1] - rr * Math.sin(rad(a2))];
-    // 2辺を横切る弧（P1,P2 を作る）
+    const rr = 70;
+    const P1: [number, number] = [O[0] + rr * Math.cos(rad(a1)), O[1] - rr * Math.sin(rad(a1))]; // 下辺の交点 Q
+    const P2: [number, number] = [O[0] + rr * Math.cos(rad(a2)), O[1] - rr * Math.sin(rad(a2))]; // 上辺の交点 P
+    // ① 2辺を横切る弧（O中心）で P,Q を作る
     parts.push(arcCenter(O, rr, a1 - 9, a2 + 9));
-    // P1,P2 中心の等半径の弧。奥の交点 far で短く交わる（X）。far を頂点ではなく
-    // 通過点にするため、各弧を「もう一方の中心へ向く側」に寄せて描く。
-    const rr2 = 74;
-    const far = circInter(P1, P2, rr2, O, 'far');
-    const aP1 = angDeg(P1, far), aP2 = angDeg(P2, far);
-    // P1 の弧は P2 側（角度が P2 方向）へ、P2 の弧は P1 側へ少し寄せて交差を明確に
-    const towardP2 = angDeg(P1, P2) > aP1 ? 1 : -1;
-    const towardP1 = angDeg(P2, P1) > aP2 ? 1 : -1;
-    parts.push(arcCenter(P1, rr2, aP1 - 12, aP1 + 12 + 18 * towardP2));
-    parts.push(arcCenter(P2, rr2, aP2 - 12, aP2 + 12 + 18 * towardP1));
+    // ② P,Q を中心に半径OP(=rr)の弧をかき、奥の交点 R で交わる（短い弧をRで対称に）
+    const far = circInter(P1, P2, rr, O, 'far'); // R（もう一方の交点は O）
+    parts.push(arcThrough(P1, rr, far, 26));
+    parts.push(arcThrough(P2, rr, far, 26));
     if (img.showLine) parts.push(`<line x1="${O[0]}" y1="${O[1]}" x2="${(O[0] + (Math.hypot(far[0] - O[0], far[1] - O[1]) + 70) * Math.cos(rad((a1 + a2) / 2))).toFixed(1)}" y2="${(O[1] - (Math.hypot(far[0] - O[0], far[1] - O[1]) + 70) * Math.sin(rad((a1 + a2) / 2))).toFixed(1)}" stroke="${COL_SHAPE}" stroke-width="2" stroke-dasharray="6 4"/>`);
     parts.push(`<circle cx="${O[0]}" cy="${O[1]}" r="2.5" fill="${COL_SHAPE}"/>`);
     parts.push(svgText(O[0] - 14, O[1] + 4, 'O', { weight: 'bold', size: 15, fill: COL_SHAPE }));
