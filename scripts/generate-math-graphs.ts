@@ -71,6 +71,22 @@ function esc(s: string): string {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
+// 背景色のハロ（縁取り）付きテキスト。線・曲線が裏を横切っても数字が読めるようにする。
+function haloText(
+  x: number,
+  y: number,
+  t: string | number,
+  opts: { size: number; anchor?: string; fill?: string; weight?: string } = { size: 10 }
+): string {
+  const { size, anchor = 'middle', fill = COL_TEXT, weight } = opts;
+  const attr = `x="${x.toFixed(1)}" y="${y.toFixed(1)}" font-size="${size}" font-family="sans-serif" text-anchor="${anchor}"${weight ? ` font-weight="${weight}"` : ''}`;
+  const label = esc(String(t));
+  return (
+    `<text ${attr} fill="none" stroke="${COL_BG}" stroke-width="3.5" stroke-linejoin="round">${label}</text>` +
+    `<text ${attr} fill="${fill}">${label}</text>`
+  );
+}
+
 function buildSvg(img: CoordImage): string {
   const R = img.range && img.range > 0 ? img.range : 5;
   const plot = SIZE - 2 * PAD;
@@ -194,24 +210,14 @@ function buildSvg(img: CoordImage): string {
   parts.push(
     `<path d="M${cx.toFixed(1)},${PAD - 4} l-3,6 l6,0 z" fill="${COL_AXIS}"/>`
   );
-  parts.push(
-    `<text x="${(SIZE - PAD + 2).toFixed(1)}" y="${(cy - 6).toFixed(1)}" font-size="13" fill="${COL_TEXT}" font-family="sans-serif" text-anchor="end">x</text>`
-  );
-  parts.push(
-    `<text x="${(cx + 6).toFixed(1)}" y="${(PAD + 6).toFixed(1)}" font-size="13" fill="${COL_TEXT}" font-family="sans-serif">y</text>`
-  );
-  parts.push(
-    `<text x="${(cx - 5).toFixed(1)}" y="${(cy + 14).toFixed(1)}" font-size="12" fill="${COL_TEXT}" font-family="sans-serif" text-anchor="end">O</text>`
-  );
-  // 目もり数字（±R と中間1つ）
+  parts.push(haloText(SIZE - PAD + 2, cy - 6, 'x', { size: 13, anchor: 'end' }));
+  parts.push(haloText(cx + 6, PAD + 6, 'y', { size: 13, anchor: 'start' }));
+  parts.push(haloText(cx - 5, cy + 14, 'O', { size: 12, anchor: 'end' }));
+  // 目もり数字（±R と中間1つ）。線が裏を横切っても読めるようハロ付き。
   for (const t of [-R, Math.round(R / 2) || 1, R]) {
     if (t === 0) continue;
-    parts.push(
-      `<text x="${X(t).toFixed(1)}" y="${(cy + 14).toFixed(1)}" font-size="10" fill="${COL_TEXT}" font-family="sans-serif" text-anchor="middle">${t}</text>`
-    );
-    parts.push(
-      `<text x="${(cx - 5).toFixed(1)}" y="${(Y(t) + 4).toFixed(1)}" font-size="10" fill="${COL_TEXT}" font-family="sans-serif" text-anchor="end">${t}</text>`
-    );
+    parts.push(haloText(X(t), cy + 14, t, { size: 10, anchor: 'middle' }));
+    parts.push(haloText(cx - 5, Y(t) + 4, t, { size: 10, anchor: 'end' }));
   }
 
   // 点
@@ -222,7 +228,9 @@ function buildSvg(img: CoordImage): string {
     parts.push(
       `<circle cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" r="4.5" fill="${fill}" stroke="${COL_POINT}" stroke-width="2"/>`
     );
-    if (p.label) {
+    // 座標形式のラベル（(2, 3) など）はグラフから読み取れるので描かない。
+    // 名前付きの点（A など）のみラベルを残す。
+    if (p.label && !/^\(\s*-?\d/.test(p.label)) {
       parts.push(
         `<text x="${(px + 8).toFixed(1)}" y="${(py - 8).toFixed(1)}" font-size="13" fill="${COL_POINT}" font-family="sans-serif" font-weight="bold">${esc(p.label)}</text>`
       );
