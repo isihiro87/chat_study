@@ -60,16 +60,20 @@ async function urlLive(url: string): Promise<boolean> {
 }
 
 function buildCard(q: any, dim: { width: number; height: number }, optDims: { width: number; height: number }[]) {
-  const url = `${BASE}/math-tex-${q.id}.png?v=2`;
-  const optionRows = (q.options as string[]).map((_opt, i) => ({
-    type: 'box' as const, layout: 'horizontal' as const, paddingAll: '12px', cornerRadius: 'md' as const, spacing: 'md' as const,
-    backgroundColor: '#FFFFFF', borderColor: '#E5E7EB', borderWidth: '1px', alignItems: 'center' as const,
-    // 本番ではここに action: postback（回答）を付ければ画像選択肢のままタップ回答にできる
-    contents: [
-      { type: 'text' as const, text: String.fromCharCode(65 + i), flex: 0, size: 'lg' as const, weight: 'bold' as const, color: '#F59E0B', align: 'center' as const, gravity: 'center' as const },
-      { type: 'image' as const, url: `${BASE}/math-tex-${q.id}-opt${i}.png?v=2`, size: 'full' as const, aspectRatio: `${optDims[i].width}:${optDims[i].height}`, aspectMode: 'fit' as const, align: 'start' as const, backgroundColor: '#FFFFFF' },
-    ],
-  }));
+  const url = `${BASE}/math-tex-${q.id}.png?v=3`;
+  const CHOICE_H = 46; // 選択肢画像の表示高さ（px）。1行ぶんに圧縮してカードを高くしない
+  const optionRows = (q.options as string[]).map((_opt, i) => {
+    const imgW = Math.round(CHOICE_H * (optDims[i].width / optDims[i].height));
+    return {
+      type: 'box' as const, layout: 'horizontal' as const, paddingAll: '8px', cornerRadius: 'md' as const, spacing: 'md' as const,
+      backgroundColor: '#FFFFFF', borderColor: '#E5E7EB', borderWidth: '1px', alignItems: 'center' as const,
+      // 本番ではここに action: postback（回答）を付ければ画像選択肢のままタップ回答にできる
+      contents: [
+        { type: 'text' as const, text: String.fromCharCode(65 + i), flex: 0, size: 'lg' as const, weight: 'bold' as const, color: '#F59E0B', align: 'center' as const, gravity: 'center' as const },
+        { type: 'image' as const, url: `${BASE}/math-tex-${q.id}-opt${i}.png?v=3`, size: `${imgW}px`, aspectRatio: `${optDims[i].width}:${optDims[i].height}`, aspectMode: 'fit' as const, align: 'start' as const, gravity: 'center' as const, backgroundColor: '#FFFFFF' },
+      ],
+    };
+  });
   return {
     type: 'flex' as const,
     altText: `数学（LaTeX組版・試作）: ${latexToPlain(q.question).slice(0, 40)}`,
@@ -94,17 +98,12 @@ async function main() {
     if (!q) throw new Error('問題が見つからない: ' + t.id);
     const out = join(ROOT, 'public/graphs', `math-tex-${t.id}.png`);
     const dim = await renderQuestionToPng(q.question, out);
-    // 選択肢: まずタイトに測り、4つを最大幅に揃えて再レンダリング（スケールを統一）
-    const tmp: { width: number; height: number }[] = [];
-    for (let i = 0; i < q.options.length; i++) {
-      tmp.push(await renderQuestionToPng(q.options[i], join(ROOT, 'public/graphs', `math-tex-${t.id}-opt${i}.png`)));
-    }
-    const commonW = Math.max(...tmp.map((d) => d.width));
+    // 選択肢はタイトに1回レンダリング（カード側で一定の高さに縮めて表示＝コンパクト）
     const optDims: { width: number; height: number }[] = [];
     for (let i = 0; i < q.options.length; i++) {
-      optDims.push(await renderQuestionToPng(q.options[i], join(ROOT, 'public/graphs', `math-tex-${t.id}-opt${i}.png`), { forceWidth: commonW }));
+      optDims.push(await renderQuestionToPng(q.options[i], join(ROOT, 'public/graphs', `math-tex-${t.id}-opt${i}.png`)));
     }
-    console.log(`  rendered Q ${dim.width}x${dim.height} + ${q.options.length}択(${commonW}px)  | ${q.question.replace(/\n/g, ' ').slice(0, 36)}`);
+    console.log(`  rendered Q ${dim.width}x${dim.height} + ${q.options.length}択  | ${q.question.replace(/\n/g, ' ').slice(0, 36)}`);
     items.push({ q, dim, optDims });
   }
   if (!EXECUTE) {
@@ -114,7 +113,7 @@ async function main() {
   // 公開確認（問題画像＋選択肢画像）
   for (let k = 0; k < TRIAL.length; k++) {
     const t = TRIAL[k];
-    const urls = [`${BASE}/math-tex-${t.id}.png?v=2`, ...items[k].q.options.map((_: any, i: number) => `${BASE}/math-tex-${t.id}-opt${i}.png?v=2`)];
+    const urls = [`${BASE}/math-tex-${t.id}.png?v=3`, ...items[k].q.options.map((_: any, i: number) => `${BASE}/math-tex-${t.id}-opt${i}.png?v=3`)];
     for (const u of urls) {
       const live = await urlLive(u);
       if (!live) { console.error(`画像が未公開です（push & Vercelデプロイ待ち）: ${u}`); process.exit(1); }
