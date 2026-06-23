@@ -25,7 +25,7 @@ const texInput = new TeX({ packages: AllPackages });
 const F = 30; // 通常テキストのフォントサイズ
 const EX = F / 2; // 1ex = 15px（math の x-height 目安）
 const EM = F; // 1em = 30px
-const MAXW = 370; // 折り返し幅。size:full で問題欄いっぱいに出すので、ほぼこの幅で自然に折り返す
+const MAXW = 370; // 折り返し幅
 const PAD = 6; // 余白（最小限。間隔はカード側の padding に任せる）
 const LINE_GAP = 16; // 行間の追加スペース
 const COL_TEXT = '#111827';

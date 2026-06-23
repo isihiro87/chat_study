@@ -55,76 +55,100 @@ async function urlLive(url: string): Promise<boolean> {
   try { const r = await fetch(url, { method: 'HEAD' }); return r.ok && (r.headers.get('content-type') || '').includes('image'); } catch { return false; }
 }
 
-// 問題は本文幅いっぱい（size:full）で余白を削減。選択肢は「1行の式は大きめ・分数の式は
-// 控えめ」の2段倍率で、文字サイズの見た目を揃えつつ余白を活かす。
-const SCALE_Q = 0.58; // 問題文の表示倍率（小さめに）
-const SCALE_SINGLE = 0.9; // 1行の式（x=24 など）大きめ
-const SCALE_FRAC = 0.62; // 分数を含む式（x=3/2 など）現状維持
-const FRAC_H = 50; // この高さ(論理px)を超えたら分数とみなす
-const CAP_C = 240; // 選択肢画像の表示幅の上限
+// 方法1（ハイブリッド）: 日本語は Flex テキスト（理科と同じ lg/sm）、数式（分数等）だけ画像。
+// 画像化が必要か（段組み分数・根号・連立）。これら以外は Unicode テキストで足りる。
+const VER = 'v=12';
+const FORMULA_SCALE = 0.66; // 問題内の数式画像の表示倍率（数式の文字 ≒ lg 相当）
+const CHOICE_FRAC_SCALE = 0.55; // 選択肢の分数画像の表示倍率（sm テキストの選択肢に寄せる）
+function needsImage(latex: string): boolean {
+  return /\\d?frac|\\sqrt|\\begin\{cases\}/.test(latex);
+}
+const isPureMathLine = (line: string) => /^\$[^$]+\$$/.test(line.trim());
 
-function buildCard(q: any, dim: { width: number; height: number }, optDims: { width: number; height: number }[]) {
-  const url = `${BASE}/math-tex-${q.id}.png?v=11`;
-  const optionRows = (q.options as string[]).map((_opt, i) => {
-    const scale = optDims[i].height > FRAC_H ? SCALE_FRAC : SCALE_SINGLE;
-    const imgW = Math.min(CAP_C, Math.round(scale * optDims[i].width));
+type Part = { type: 'text'; text: string } | { type: 'image'; url: string; w: number; h: number };
+
+function buildCard(q: any, qParts: Part[], choiceParts: Part[]) {
+  const body: any[] = qParts.map((p, idx) =>
+    p.type === 'text'
+      ? { type: 'text', text: p.text, wrap: true, size: 'lg', weight: 'bold', color: '#111827', ...(idx > 0 ? { margin: 'md' } : {}) }
+      : { type: 'image', url: `${p.url}?${VER}`, size: `${Math.round(FORMULA_SCALE * p.w)}px`, aspectRatio: `${p.w}:${p.h}`, aspectMode: 'fit', align: 'start', margin: 'md', backgroundColor: '#FFFFFF' }
+  );
+  const optionRows = choiceParts.map((c, i) => {
+    const inner = c.type === 'text'
+      ? { type: 'text', text: c.text, wrap: true, size: 'sm', color: '#111827', margin: 'md', gravity: 'center' }
+      : { type: 'image', url: `${c.url}?${VER}`, size: `${Math.round(CHOICE_FRAC_SCALE * c.w)}px`, aspectRatio: `${c.w}:${c.h}`, aspectMode: 'fit', align: 'start', margin: 'md', gravity: 'center', backgroundColor: '#FFFFFF' };
     return {
-      type: 'box' as const, layout: 'horizontal' as const, paddingAll: '10px', cornerRadius: 'md' as const, spacing: 'md' as const,
-      backgroundColor: '#FFFFFF', borderColor: '#E5E7EB', borderWidth: '1px', alignItems: 'center' as const,
-      // 本番ではここに action: postback（回答）を付ければ画像選択肢のままタップ回答にできる
-      contents: [
-        { type: 'text' as const, text: String.fromCharCode(65 + i), flex: 0, size: 'md' as const, weight: 'bold' as const, color: '#F59E0B', gravity: 'center' as const },
-        { type: 'image' as const, url: `${BASE}/math-tex-${q.id}-opt${i}.png?v=11`, size: `${imgW}px`, aspectRatio: `${optDims[i].width}:${optDims[i].height}`, aspectMode: 'fit' as const, align: 'start' as const, gravity: 'center' as const, backgroundColor: '#FFFFFF' },
-      ],
+      type: 'box', layout: 'horizontal', paddingAll: '10px', cornerRadius: 'md', spacing: 'sm',
+      backgroundColor: '#FFFFFF', borderColor: '#E5E7EB', borderWidth: '1px', alignItems: 'center',
+      contents: [{ type: 'text', text: String.fromCharCode(65 + i), flex: 0, size: 'sm', weight: 'bold', color: '#F59E0B', gravity: 'center' }, inner],
     };
   });
   return {
     type: 'flex' as const,
-    altText: `数学（LaTeX組版・試作）: ${latexToPlain(q.question).slice(0, 40)}`,
+    altText: `数学（試作）: ${latexToPlain(q.question).slice(0, 40)}`,
     contents: {
-      type: 'bubble' as const, size: 'kilo' as const,
-      header: { type: 'box' as const, layout: 'vertical' as const, backgroundColor: '#3B82F6', paddingAll: '14px',
-        contents: [{ type: 'text' as const, text: '数学｜中2', color: '#FFFFFF', weight: 'bold' as const, size: 'md' as const }] },
-      body: { type: 'box' as const, layout: 'vertical' as const, paddingAll: '8px', contents: [
-        { type: 'image' as const, url, size: 'full' as const, aspectRatio: `${dim.width}:${dim.height}`, aspectMode: 'fit' as const, align: 'start' as const, backgroundColor: '#FFFFFF' },
-      ] },
-      footer: { type: 'box' as const, layout: 'vertical' as const, spacing: 'sm' as const, paddingAll: '10px', contents: optionRows },
+      type: 'bubble', size: 'kilo',
+      header: { type: 'box', layout: 'vertical', backgroundColor: '#3B82F6', paddingAll: '14px',
+        contents: [{ type: 'text', text: '数学｜中2', color: '#FFFFFF', weight: 'bold', size: 'md' }] },
+      body: { type: 'box', layout: 'vertical', paddingAll: '20px', contents: body },
+      footer: { type: 'box', layout: 'vertical', spacing: 'sm', paddingAll: '16px', contents: optionRows },
     },
   };
 }
 
 async function main() {
   console.log(`[math-latex-trial] render=${RENDER} execute=${EXECUTE} 送信先=${ADMIN}`);
-  const items: { q: any; dim: { width: number; height: number }; optDims: { width: number; height: number }[] }[] = [];
+  const items: { q: any; qParts: Part[]; choiceParts: Part[]; urls: string[] }[] = [];
   for (const t of TRIAL) {
     const j = JSON.parse(readFileSync(join(ROOT, 'data/content/math', t.folder, t.file), 'utf8'));
     const q = j.quiz.questions.find((x: any) => x.id === t.id);
     if (!q) throw new Error('問題が見つからない: ' + t.id);
-    const out = join(ROOT, 'public/graphs', `math-tex-${t.id}.png`);
-    const dim = await renderQuestionToPng(q.question, out);
-    // 選択肢はタイトに1回レンダリング（カード側で一定の高さに縮めて表示＝コンパクト）
-    const optDims: { width: number; height: number }[] = [];
-    for (let i = 0; i < q.options.length; i++) {
-      optDims.push(await renderQuestionToPng(q.options[i], join(ROOT, 'public/graphs', `math-tex-${t.id}-opt${i}.png`)));
+    const urls: string[] = [];
+    // 問題文: 行ごとに「数式のみ行→画像」「それ以外→Unicodeテキスト(lg)」
+    const qParts: Part[] = [];
+    const lines = (q.question as string).split('\n');
+    for (let li = 0; li < lines.length; li++) {
+      const line = lines[li];
+      if (isPureMathLine(line)) {
+        const fp = join(ROOT, 'public/graphs', `math-tex-${t.id}-q${li}.png`);
+        const d = await renderQuestionToPng(line.trim(), fp);
+        const url = `${BASE}/math-tex-${t.id}-q${li}.png`;
+        qParts.push({ type: 'image', url, w: d.width, h: d.height });
+        urls.push(url);
+      } else if (line.trim()) {
+        qParts.push({ type: 'text', text: latexToPlain(line) });
+      }
     }
-    console.log(`  rendered Q ${dim.width}x${dim.height} + ${q.options.length}択  | ${q.question.replace(/\n/g, ' ').slice(0, 36)}`);
-    items.push({ q, dim, optDims });
+    // 選択肢: 分数等を含む→画像 / それ以外→Unicodeテキスト(sm)
+    const choiceParts: Part[] = [];
+    for (let i = 0; i < q.options.length; i++) {
+      const opt = q.options[i] as string;
+      if (needsImage(opt)) {
+        const op = join(ROOT, 'public/graphs', `math-tex-${t.id}-opt${i}.png`);
+        const d = await renderQuestionToPng(opt, op);
+        const url = `${BASE}/math-tex-${t.id}-opt${i}.png`;
+        choiceParts.push({ type: 'image', url, w: d.width, h: d.height });
+        urls.push(url);
+      } else {
+        choiceParts.push({ type: 'text', text: latexToPlain(opt) });
+      }
+    }
+    const nImg = qParts.filter((p) => p.type === 'image').length + choiceParts.filter((p) => p.type === 'image').length;
+    console.log(`  ${t.id}: テキスト${qParts.filter((p) => p.type === 'text').length}+画像${nImg}（問題${qParts.length}部 / 選択肢${choiceParts.length}）`);
+    items.push({ q, qParts, choiceParts, urls });
   }
   if (!EXECUTE) {
     console.log('\n[render] 画像生成のみ。commit & push → Vercel公開後に --execute で送信。');
     return;
   }
-  // 公開確認（問題画像＋選択肢画像）
-  for (let k = 0; k < TRIAL.length; k++) {
-    const t = TRIAL[k];
-    const urls = [`${BASE}/math-tex-${t.id}.png?v=11`, ...items[k].q.options.map((_: any, i: number) => `${BASE}/math-tex-${t.id}-opt${i}.png?v=11`)];
-    for (const u of urls) {
-      const live = await urlLive(u);
+  for (const it of items) {
+    for (const u of it.urls) {
+      const live = await urlLive(`${u}?${VER}`);
       if (!live) { console.error(`画像が未公開です（push & Vercelデプロイ待ち）: ${u}`); process.exit(1); }
     }
-    console.log(`  OK  ${t.id}（問題＋${items[k].q.options.length}択）`);
+    console.log(`  OK  ${it.q.id}（公開確認 ${it.urls.length}枚）`);
   }
-  const cards = items.map(({ q, dim, optDims }) => buildCard(q, dim, optDims));
+  const cards = items.map(({ q, qParts, choiceParts }) => buildCard(q, qParts, choiceParts));
   const res = await fetch('https://api.line.me/v2/bot/message/push', {
     method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${loadToken()}` },
     body: JSON.stringify({ to: ADMIN, messages: cards }),
