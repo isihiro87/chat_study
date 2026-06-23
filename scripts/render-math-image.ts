@@ -124,9 +124,9 @@ function lineToAtoms(line: string): Atom[] {
   return atoms;
 }
 
-// 数式だけの行は少し大きめに組版（大きくしすぎると行高が増えるので控えめ）
-const BIG_EM = 38;
-const BIG_EX = 19;
+// 数式だけの行も本文と同じ大きさで組版（大きく見せない）
+const BIG_EM = 30;
+const BIG_EX = 15;
 const MIN_W = 200;
 
 export async function renderQuestionToPng(

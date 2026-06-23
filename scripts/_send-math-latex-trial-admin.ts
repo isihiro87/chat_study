@@ -60,7 +60,7 @@ async function urlLive(url: string): Promise<boolean> {
 }
 
 function buildCard(q: any, dim: { width: number; height: number }, optDims: { width: number; height: number }[]) {
-  const url = `${BASE}/math-tex-${q.id}.png?v=3`;
+  const url = `${BASE}/math-tex-${q.id}.png?v=4`;
   const CHOICE_H = 46; // 選択肢画像の表示高さ（px）。1行ぶんに圧縮してカードを高くしない
   const optionRows = (q.options as string[]).map((_opt, i) => {
     const imgW = Math.round(CHOICE_H * (optDims[i].width / optDims[i].height));
@@ -70,7 +70,7 @@ function buildCard(q: any, dim: { width: number; height: number }, optDims: { wi
       // 本番ではここに action: postback（回答）を付ければ画像選択肢のままタップ回答にできる
       contents: [
         { type: 'text' as const, text: String.fromCharCode(65 + i), flex: 0, size: 'lg' as const, weight: 'bold' as const, color: '#F59E0B', align: 'center' as const, gravity: 'center' as const },
-        { type: 'image' as const, url: `${BASE}/math-tex-${q.id}-opt${i}.png?v=3`, size: `${imgW}px`, aspectRatio: `${optDims[i].width}:${optDims[i].height}`, aspectMode: 'fit' as const, align: 'start' as const, gravity: 'center' as const, backgroundColor: '#FFFFFF' },
+        { type: 'image' as const, url: `${BASE}/math-tex-${q.id}-opt${i}.png?v=4`, size: `${imgW}px`, aspectRatio: `${optDims[i].width}:${optDims[i].height}`, aspectMode: 'fit' as const, align: 'start' as const, gravity: 'center' as const, backgroundColor: '#FFFFFF' },
       ],
     };
   });
@@ -113,7 +113,7 @@ async function main() {
   // 公開確認（問題画像＋選択肢画像）
   for (let k = 0; k < TRIAL.length; k++) {
     const t = TRIAL[k];
-    const urls = [`${BASE}/math-tex-${t.id}.png?v=3`, ...items[k].q.options.map((_: any, i: number) => `${BASE}/math-tex-${t.id}-opt${i}.png?v=3`)];
+    const urls = [`${BASE}/math-tex-${t.id}.png?v=4`, ...items[k].q.options.map((_: any, i: number) => `${BASE}/math-tex-${t.id}-opt${i}.png?v=4`)];
     for (const u of urls) {
       const live = await urlLive(u);
       if (!live) { console.error(`画像が未公開です（push & Vercelデプロイ待ち）: ${u}`); process.exit(1); }
