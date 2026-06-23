@@ -675,13 +675,15 @@ function buildConstruction(img: any): string {
     const rr = 70;
     const P1: [number, number] = [O[0] + rr * Math.cos(rad(a1)), O[1] - rr * Math.sin(rad(a1))]; // 下辺の交点 Q
     const P2: [number, number] = [O[0] + rr * Math.cos(rad(a2)), O[1] - rr * Math.sin(rad(a2))]; // 上辺の交点 P
-    // ① 2辺を横切る弧（O中心）で P,Q を作る
-    parts.push(arcCenter(O, rr, a1 - 9, a2 + 9));
-    // ② P,Q を中心に半径OP(=rr)の弧をかき、奥の交点 R で交わる（短い弧をRで対称に）
-    const far = circInter(P1, P2, rr, O, 'far'); // R（もう一方の交点は O）
-    parts.push(arcThrough(P1, rr, far, 26));
-    parts.push(arcThrough(P2, rr, far, 26));
-    if (img.showLine) parts.push(`<line x1="${O[0]}" y1="${O[1]}" x2="${(O[0] + (Math.hypot(far[0] - O[0], far[1] - O[1]) + 70) * Math.cos(rad((a1 + a2) / 2))).toFixed(1)}" y2="${(O[1] - (Math.hypot(far[0] - O[0], far[1] - O[1]) + 70) * Math.sin(rad((a1 + a2) / 2))).toFixed(1)}" stroke="${COL_SHAPE}" stroke-width="2" stroke-dasharray="6 4"/>`);
+    // ① 2辺との交点 P,Q に小さな弧（印）
+    parts.push(arcCenter(O, rr, a1 - 7, a1 + 7));
+    parts.push(arcCenter(O, rr, a2 - 7, a2 + 7));
+    // ② P,Q を中心に半径OP(=rr)の弧。交点は O と R。OとRの間を結ぶ弧にすると
+    //    垂直二等分線・垂線と同じ「向かい合うレンズ形」になる。
+    const R = circInter(P1, P2, rr, O, 'far');
+    parts.push(arcCenter(P1, rr, angDeg(P1, O), angDeg(P1, R)));
+    parts.push(arcCenter(P2, rr, angDeg(P2, R), angDeg(P2, O)));
+    if (img.showLine) parts.push(`<line x1="${O[0]}" y1="${O[1]}" x2="${(O[0] + (Math.hypot(R[0] - O[0], R[1] - O[1]) + 70) * Math.cos(rad((a1 + a2) / 2))).toFixed(1)}" y2="${(O[1] - (Math.hypot(R[0] - O[0], R[1] - O[1]) + 70) * Math.sin(rad((a1 + a2) / 2))).toFixed(1)}" stroke="${COL_SHAPE}" stroke-width="2" stroke-dasharray="6 4"/>`);
     parts.push(`<circle cx="${O[0]}" cy="${O[1]}" r="2.5" fill="${COL_SHAPE}"/>`);
     parts.push(svgText(O[0] - 14, O[1] + 4, 'O', { weight: 'bold', size: 15, fill: COL_SHAPE }));
   } else { // perpendicular: 直線上の点Pでの垂線
