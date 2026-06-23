@@ -633,6 +633,25 @@ function arcCenter(c: [number, number], r: number, a1: number, a2: number): stri
   const sweep = d > 0 ? 1 : 0;
   return `<path d="M${s[0].toFixed(1)},${s[1].toFixed(1)} A${r},${r} 0 0 ${sweep} ${e[0].toFixed(1)},${e[1].toFixed(1)}" fill="none" stroke="${COL_ANGLE}" stroke-width="1.6"/>`;
 }
+function angDeg(c: [number, number], p: [number, number]): number {
+  return (Math.atan2(-(p[1] - c[1]), p[0] - c[0]) * 180) / Math.PI;
+}
+// 半径の等しい2円(中心c1,c2・半径r)の交点。pick='far'/'near' は基準点 ref からの遠近で選ぶ。
+function circInter(c1: [number, number], c2: [number, number], r: number, ref: [number, number], pick: 'far' | 'near'): [number, number] {
+  const dx = c2[0] - c1[0], dy = c2[1] - c1[1], dd = Math.hypot(dx, dy);
+  const a = dd / 2; // r1=r2
+  const h = Math.sqrt(Math.max(0, r * r - a * a));
+  const mx = c1[0] + (a * dx) / dd, my = c1[1] + (a * dy) / dd;
+  const ox = (-dy / dd) * h, oy = (dx / dd) * h;
+  const i1: [number, number] = [mx + ox, my + oy], i2: [number, number] = [mx - ox, my - oy];
+  const d1 = Math.hypot(i1[0] - ref[0], i1[1] - ref[1]), d2 = Math.hypot(i2[0] - ref[0], i2[1] - ref[1]);
+  return pick === 'far' ? (d1 > d2 ? i1 : i2) : d1 < d2 ? i1 : i2;
+}
+// 中心cから点ptを通る小さな弧（±span度）
+function arcThrough(c: [number, number], r: number, pt: [number, number], span = 24): string {
+  const a = angDeg(c, pt);
+  return arcCenter(c, r, a - span, a + span);
+}
 function buildConstruction(img: any): string {
   const parts: string[] = [];
   const type = img.ctype;
@@ -641,44 +660,44 @@ function buildConstruction(img: any): string {
     const mx = (A[0] + B[0]) / 2, half = (B[0] - A[0]) / 2, r = 96, hh = Math.sqrt(r * r - half * half);
     const top: [number, number] = [mx, 210 - hh], bot: [number, number] = [mx, 210 + hh];
     parts.push(line(A, B));
-    const angTo = (c: [number, number], p: [number, number]) => (Math.atan2(-(p[1] - c[1]), p[0] - c[0]) * 180) / Math.PI;
-    parts.push(arcCenter(A, r, angTo(A, top), angTo(A, bot)));
-    parts.push(arcCenter(B, r, angTo(B, bot), angTo(B, top)));
-    if (img.showLine) parts.push(`<line x1="${mx}" y1="${(top[1] - 24).toFixed(1)}" x2="${mx}" y2="${(bot[1] + 24).toFixed(1)}" stroke="${COL_SHAPE}" stroke-width="2" stroke-dasharray="6 4"/>`);
+    // A,B 中心の弧（上下の交点 top/bot を通す）
+    parts.push(arcCenter(A, r, angDeg(A, bot), angDeg(A, top)));
+    parts.push(arcCenter(B, r, angDeg(B, top), angDeg(B, bot)));
+    if (img.showLine) parts.push(`<line x1="${mx}" y1="${(top[1] - 26).toFixed(1)}" x2="${mx}" y2="${(bot[1] + 26).toFixed(1)}" stroke="${COL_SHAPE}" stroke-width="2" stroke-dasharray="6 4"/>`);
     parts.push(`<circle cx="${A[0]}" cy="${A[1]}" r="2.5" fill="${COL_SHAPE}"/><circle cx="${B[0]}" cy="${B[1]}" r="2.5" fill="${COL_SHAPE}"/>`);
     parts.push(svgText(A[0] - 6, A[1] + 16, 'A', { weight: 'bold', size: 15, fill: COL_SHAPE }));
     parts.push(svgText(B[0] + 6, B[1] + 16, 'B', { weight: 'bold', size: 15, fill: COL_SHAPE }));
   } else if (type === 'angle-bisector') {
-    const O: [number, number] = [110, 250];
-    const a1 = 0, a2 = 52; // 2辺の角度（上向き）
-    const L = 210;
-    const r1: [number, number] = [O[0] + L * Math.cos(rad(a1)), O[1] - L * Math.sin(rad(a1))];
-    const r2: [number, number] = [O[0] + L * Math.cos(rad(a2)), O[1] - L * Math.sin(rad(a2))];
-    parts.push(line(O, r1)); parts.push(line(O, r2));
-    const rr = 78;
+    const O: [number, number] = [104, 252];
+    const a1 = 0, a2 = 54, L = 214;
+    parts.push(line(O, [O[0] + L * Math.cos(rad(a1)), O[1] - L * Math.sin(rad(a1))]));
+    parts.push(line(O, [O[0] + L * Math.cos(rad(a2)), O[1] - L * Math.sin(rad(a2))]));
+    const rr = 80;
     const P1: [number, number] = [O[0] + rr * Math.cos(rad(a1)), O[1] - rr * Math.sin(rad(a1))];
     const P2: [number, number] = [O[0] + rr * Math.cos(rad(a2)), O[1] - rr * Math.sin(rad(a2))];
-    parts.push(arcCenter(O, rr, a1 - 6, a2 + 6));
-    const rr2 = 64;
-    // 交点（二等分線方向 a=(a1+a2)/2）
-    const ab = (a1 + a2) / 2;
-    const Q: [number, number] = [O[0] + (rr + 20) * Math.cos(rad(ab)), O[1] - (rr + 20) * Math.sin(rad(ab))];
-    parts.push(arcCenter(P1, rr2, ab + 25, ab - 25));
-    parts.push(arcCenter(P2, rr2, ab + 25, ab - 25));
-    if (img.showLine) parts.push(`<line x1="${O[0]}" y1="${O[1]}" x2="${(O[0] + 200 * Math.cos(rad(ab))).toFixed(1)}" y2="${(O[1] - 200 * Math.sin(rad(ab))).toFixed(1)}" stroke="${COL_SHAPE}" stroke-width="2" stroke-dasharray="6 4"/>`);
+    parts.push(arcCenter(O, rr, a1 - 7, a2 + 7)); // 2辺を横切る弧
+    const rr2 = 70;
+    const Q = circInter(P1, P2, rr2, O, 'far'); // P1,P2中心の弧の交点（O から遠い方＝角の内側奥）
+    parts.push(arcThrough(P1, rr2, Q, 22));
+    parts.push(arcThrough(P2, rr2, Q, 22));
+    if (img.showLine) parts.push(`<line x1="${O[0]}" y1="${O[1]}" x2="${(O[0] + (Math.hypot(Q[0] - O[0], Q[1] - O[1]) + 70) * Math.cos(rad((a1 + a2) / 2))).toFixed(1)}" y2="${(O[1] - (Math.hypot(Q[0] - O[0], Q[1] - O[1]) + 70) * Math.sin(rad((a1 + a2) / 2))).toFixed(1)}" stroke="${COL_SHAPE}" stroke-width="2" stroke-dasharray="6 4"/>`);
     parts.push(`<circle cx="${O[0]}" cy="${O[1]}" r="2.5" fill="${COL_SHAPE}"/>`);
-    parts.push(svgText(O[0] - 12, O[1] + 6, 'O', { weight: 'bold', size: 15, fill: COL_SHAPE }));
+    parts.push(svgText(O[0] - 14, O[1] + 4, 'O', { weight: 'bold', size: 15, fill: COL_SHAPE }));
   } else { // perpendicular: 直線上の点Pでの垂線
-    const y = 230, P: [number, number] = [180, y];
+    const y = 246, P: [number, number] = [180, y];
     parts.push(line([40, y], [320, y]));
-    const d = 60;
+    const d = 58;
     const Lp: [number, number] = [P[0] - d, y], Rp: [number, number] = [P[0] + d, y];
-    const r = 84, hh = Math.sqrt(r * r - d * d);
-    parts.push(arcCenter(Lp, r, 90 - 40, 90 + 40));
-    parts.push(arcCenter(Rp, r, 90 - 40, 90 + 40));
-    if (img.showLine) parts.push(`<line x1="${P[0]}" y1="${(y - hh - 26).toFixed(1)}" x2="${P[0]}" y2="${y + 6}" stroke="${COL_SHAPE}" stroke-width="2" stroke-dasharray="6 4"/>`);
+    const r = 92;
+    const up = circInter(Lp, Rp, r, [P[0], y - 300], 'near'); // 上の交点
+    const dn = circInter(Lp, Rp, r, [P[0], y + 300], 'near'); // 下の交点
+    // Lp,Rp の弧を、上下の交点を通る範囲で描く
+    parts.push(arcCenter(Lp, r, angDeg(Lp, dn), angDeg(Lp, up)));
+    parts.push(arcCenter(Rp, r, angDeg(Rp, up), angDeg(Rp, dn)));
+    if (img.showLine) parts.push(`<line x1="${P[0]}" y1="${(up[1] - 24).toFixed(1)}" x2="${P[0]}" y2="${(dn[1] + 10).toFixed(1)}" stroke="${COL_SHAPE}" stroke-width="2" stroke-dasharray="6 4"/>`);
+    parts.push(`<circle cx="${Lp[0]}" cy="${y}" r="2.3" fill="${COL_SHAPE}"/><circle cx="${Rp[0]}" cy="${y}" r="2.3" fill="${COL_SHAPE}"/>`);
     parts.push(`<circle cx="${P[0]}" cy="${y}" r="2.5" fill="${COL_SHAPE}"/>`);
-    parts.push(svgText(P[0], y + 18, 'P', { weight: 'bold', size: 15, fill: COL_SHAPE }));
+    parts.push(svgText(P[0] - 14, y + 17, 'P', { weight: 'bold', size: 15, fill: COL_SHAPE }));
   }
   return wrap(parts.join(''));
 }
