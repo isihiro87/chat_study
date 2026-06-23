@@ -127,7 +127,7 @@ function lineToAtoms(line: string): Atom[] {
 // 数式だけの行も本文と同じ大きさで組版（大きく見せない）
 const BIG_EM = 30;
 const BIG_EX = 15;
-const MIN_W = 200;
+const MIN_W = 40; // 最小幅（短い選択肢が余白で水増しされないようタイトに）
 
 export async function renderQuestionToPng(
   text: string,

@@ -59,22 +59,25 @@ async function urlLive(url: string): Promise<boolean> {
   try { const r = await fetch(url, { method: 'HEAD' }); return r.ok && (r.headers.get('content-type') || '').includes('image'); } catch { return false; }
 }
 
-// 問題は本文幅いっぱい（size:full）に表示＝余白を減らす。狭く折り返している(MAXW300)ので
-// 文字サイズは他教科の lg 相当に収まる。選択肢は余白を活かして少し大きめ(≈md/lg)に。
-const SCALE_C = 0.62; // 選択肢の表示倍率（大きめにして余白を活用）
+// 問題は本文幅いっぱい（size:full）で余白を削減。選択肢は「1行の式は大きめ・分数の式は
+// 控えめ」の2段倍率で、文字サイズの見た目を揃えつつ余白を活かす。
+const SCALE_SINGLE = 0.8; // 1行の式（x=24 など）
+const SCALE_FRAC = 0.62; // 分数を含む式（x=3/2 など）
+const FRAC_H = 50; // この高さ(論理px)を超えたら分数とみなす
 const CAP_C = 210; // 選択肢画像の表示幅の上限
 
 function buildCard(q: any, dim: { width: number; height: number }, optDims: { width: number; height: number }[]) {
-  const url = `${BASE}/math-tex-${q.id}.png?v=7`;
+  const url = `${BASE}/math-tex-${q.id}.png?v=8`;
   const optionRows = (q.options as string[]).map((_opt, i) => {
-    const imgW = Math.min(CAP_C, Math.round(SCALE_C * optDims[i].width));
+    const scale = optDims[i].height > FRAC_H ? SCALE_FRAC : SCALE_SINGLE;
+    const imgW = Math.min(CAP_C, Math.round(scale * optDims[i].width));
     return {
       type: 'box' as const, layout: 'horizontal' as const, paddingAll: '10px', cornerRadius: 'md' as const, spacing: 'md' as const,
       backgroundColor: '#FFFFFF', borderColor: '#E5E7EB', borderWidth: '1px', alignItems: 'center' as const,
       // 本番ではここに action: postback（回答）を付ければ画像選択肢のままタップ回答にできる
       contents: [
         { type: 'text' as const, text: String.fromCharCode(65 + i), flex: 0, size: 'md' as const, weight: 'bold' as const, color: '#F59E0B', gravity: 'center' as const },
-        { type: 'image' as const, url: `${BASE}/math-tex-${q.id}-opt${i}.png?v=7`, size: `${imgW}px`, aspectRatio: `${optDims[i].width}:${optDims[i].height}`, aspectMode: 'fit' as const, align: 'start' as const, gravity: 'center' as const, backgroundColor: '#FFFFFF' },
+        { type: 'image' as const, url: `${BASE}/math-tex-${q.id}-opt${i}.png?v=8`, size: `${imgW}px`, aspectRatio: `${optDims[i].width}:${optDims[i].height}`, aspectMode: 'fit' as const, align: 'start' as const, gravity: 'center' as const, backgroundColor: '#FFFFFF' },
       ],
     };
   });
@@ -85,10 +88,10 @@ function buildCard(q: any, dim: { width: number; height: number }, optDims: { wi
       type: 'bubble' as const, size: 'kilo' as const,
       header: { type: 'box' as const, layout: 'vertical' as const, backgroundColor: '#3B82F6', paddingAll: '14px',
         contents: [{ type: 'text' as const, text: '数学｜中2', color: '#FFFFFF', weight: 'bold' as const, size: 'md' as const }] },
-      body: { type: 'box' as const, layout: 'vertical' as const, paddingAll: '14px', contents: [
+      body: { type: 'box' as const, layout: 'vertical' as const, paddingAll: '8px', contents: [
         { type: 'image' as const, url, size: 'full' as const, aspectRatio: `${dim.width}:${dim.height}`, aspectMode: 'fit' as const, align: 'start' as const, backgroundColor: '#FFFFFF' },
       ] },
-      footer: { type: 'box' as const, layout: 'vertical' as const, spacing: 'sm' as const, paddingAll: '14px', contents: optionRows },
+      footer: { type: 'box' as const, layout: 'vertical' as const, spacing: 'sm' as const, paddingAll: '10px', contents: optionRows },
     },
   };
 }
@@ -117,7 +120,7 @@ async function main() {
   // 公開確認（問題画像＋選択肢画像）
   for (let k = 0; k < TRIAL.length; k++) {
     const t = TRIAL[k];
-    const urls = [`${BASE}/math-tex-${t.id}.png?v=7`, ...items[k].q.options.map((_: any, i: number) => `${BASE}/math-tex-${t.id}-opt${i}.png?v=7`)];
+    const urls = [`${BASE}/math-tex-${t.id}.png?v=8`, ...items[k].q.options.map((_: any, i: number) => `${BASE}/math-tex-${t.id}-opt${i}.png?v=8`)];
     for (const u of urls) {
       const live = await urlLive(u);
       if (!live) { console.error(`画像が未公開です（push & Vercelデプロイ待ち）: ${u}`); process.exit(1); }
