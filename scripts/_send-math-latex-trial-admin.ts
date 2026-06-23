@@ -57,12 +57,10 @@ async function urlLive(url: string): Promise<boolean> {
 
 // 方法1（ハイブリッド）: 日本語は Flex テキスト（理科と同じ lg/sm）、数式（分数等）だけ画像。
 // 画像化が必要か（段組み分数・根号・連立）。これら以外は Unicode テキストで足りる。
-const VER = 'v=12';
+const VER = 'v=13';
 const FORMULA_SCALE = 0.66; // 問題内の数式画像の表示倍率（数式の文字 ≒ lg 相当）
-const CHOICE_FRAC_SCALE = 0.55; // 選択肢の分数画像の表示倍率（sm テキストの選択肢に寄せる）
-function needsImage(latex: string): boolean {
-  return /\\d?frac|\\sqrt|\\begin\{cases\}/.test(latex);
-}
+const CHOICE_SCALE = 0.6; // 選択肢は全部 MathJax 画像で統一。主文字が揃う単一倍率
+const CAP_C = 240; // 選択肢画像の表示幅の上限
 const isPureMathLine = (line: string) => /^\$[^$]+\$$/.test(line.trim());
 
 type Part = { type: 'text'; text: string } | { type: 'image'; url: string; w: number; h: number };
@@ -74,9 +72,8 @@ function buildCard(q: any, qParts: Part[], choiceParts: Part[]) {
       : { type: 'image', url: `${p.url}?${VER}`, size: `${Math.round(FORMULA_SCALE * p.w)}px`, aspectRatio: `${p.w}:${p.h}`, aspectMode: 'fit', align: 'start', margin: 'md', backgroundColor: '#FFFFFF' }
   );
   const optionRows = choiceParts.map((c, i) => {
-    const inner = c.type === 'text'
-      ? { type: 'text', text: c.text, wrap: true, size: 'sm', color: '#111827', margin: 'md', gravity: 'center' }
-      : { type: 'image', url: `${c.url}?${VER}`, size: `${Math.round(CHOICE_FRAC_SCALE * c.w)}px`, aspectRatio: `${c.w}:${c.h}`, aspectMode: 'fit', align: 'start', margin: 'md', gravity: 'center', backgroundColor: '#FFFFFF' };
+    // 選択肢は全部 MathJax 画像で統一
+    const inner = { type: 'image', url: `${(c as any).url}?${VER}`, size: `${Math.min(CAP_C, Math.round(CHOICE_SCALE * (c as any).w))}px`, aspectRatio: `${(c as any).w}:${(c as any).h}`, aspectMode: 'fit', align: 'start', margin: 'md', gravity: 'center', backgroundColor: '#FFFFFF' };
     return {
       type: 'box', layout: 'horizontal', paddingAll: '10px', cornerRadius: 'md', spacing: 'sm',
       backgroundColor: '#FFFFFF', borderColor: '#E5E7EB', borderWidth: '1px', alignItems: 'center',
@@ -119,19 +116,15 @@ async function main() {
         qParts.push({ type: 'text', text: latexToPlain(line) });
       }
     }
-    // 選択肢: 分数等を含む→画像 / それ以外→Unicodeテキスト(sm)
+    // 選択肢: 全部 MathJax 画像で統一（x=24 の数字も含めて書体をそろえる）
     const choiceParts: Part[] = [];
     for (let i = 0; i < q.options.length; i++) {
       const opt = q.options[i] as string;
-      if (needsImage(opt)) {
-        const op = join(ROOT, 'public/graphs', `math-tex-${t.id}-opt${i}.png`);
-        const d = await renderQuestionToPng(opt, op);
-        const url = `${BASE}/math-tex-${t.id}-opt${i}.png`;
-        choiceParts.push({ type: 'image', url, w: d.width, h: d.height });
-        urls.push(url);
-      } else {
-        choiceParts.push({ type: 'text', text: latexToPlain(opt) });
-      }
+      const op = join(ROOT, 'public/graphs', `math-tex-${t.id}-opt${i}.png`);
+      const d = await renderQuestionToPng(opt, op);
+      const url = `${BASE}/math-tex-${t.id}-opt${i}.png`;
+      choiceParts.push({ type: 'image', url, w: d.width, h: d.height });
+      urls.push(url);
     }
     const nImg = qParts.filter((p) => p.type === 'image').length + choiceParts.filter((p) => p.type === 'image').length;
     console.log(`  ${t.id}: テキスト${qParts.filter((p) => p.type === 'text').length}+画像${nImg}（問題${qParts.length}部 / 選択肢${choiceParts.length}）`);
