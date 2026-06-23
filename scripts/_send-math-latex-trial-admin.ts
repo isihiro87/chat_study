@@ -59,18 +59,24 @@ async function urlLive(url: string): Promise<boolean> {
   try { const r = await fetch(url, { method: 'HEAD' }); return r.ok && (r.headers.get('content-type') || '').includes('image'); } catch { return false; }
 }
 
+// 他教科のテキストカード（kilo bubble・問題=lg・選択肢=sm）に大きさを合わせる。
+// source em=30 を「lg≈19px / sm≈13px」相当で表示するため固定倍率で出す。
+const SCALE_Q = 19 / 30; // 問題文 ≈ lg
+const SCALE_C = 13 / 30; // 選択肢 ≈ sm
+const CAP_Q = 230; // kilo 本文幅の目安（超えたら頭打ち）
+
 function buildCard(q: any, dim: { width: number; height: number }, optDims: { width: number; height: number }[]) {
-  const url = `${BASE}/math-tex-${q.id}.png?v=4`;
-  const CHOICE_H = 46; // 選択肢画像の表示高さ（px）。1行ぶんに圧縮してカードを高くしない
+  const url = `${BASE}/math-tex-${q.id}.png?v=6`;
+  const qW = Math.min(CAP_Q, Math.round(SCALE_Q * dim.width));
   const optionRows = (q.options as string[]).map((_opt, i) => {
-    const imgW = Math.round(CHOICE_H * (optDims[i].width / optDims[i].height));
+    const imgW = Math.min(CAP_Q - 30, Math.round(SCALE_C * optDims[i].width));
     return {
-      type: 'box' as const, layout: 'horizontal' as const, paddingAll: '8px', cornerRadius: 'md' as const, spacing: 'md' as const,
+      type: 'box' as const, layout: 'horizontal' as const, paddingAll: '10px', cornerRadius: 'md' as const, spacing: 'md' as const,
       backgroundColor: '#FFFFFF', borderColor: '#E5E7EB', borderWidth: '1px', alignItems: 'center' as const,
       // 本番ではここに action: postback（回答）を付ければ画像選択肢のままタップ回答にできる
       contents: [
-        { type: 'text' as const, text: String.fromCharCode(65 + i), flex: 0, size: 'lg' as const, weight: 'bold' as const, color: '#F59E0B', align: 'center' as const, gravity: 'center' as const },
-        { type: 'image' as const, url: `${BASE}/math-tex-${q.id}-opt${i}.png?v=4`, size: `${imgW}px`, aspectRatio: `${optDims[i].width}:${optDims[i].height}`, aspectMode: 'fit' as const, align: 'start' as const, gravity: 'center' as const, backgroundColor: '#FFFFFF' },
+        { type: 'text' as const, text: String.fromCharCode(65 + i), flex: 0, size: 'sm' as const, weight: 'bold' as const, color: '#F59E0B', gravity: 'center' as const },
+        { type: 'image' as const, url: `${BASE}/math-tex-${q.id}-opt${i}.png?v=6`, size: `${imgW}px`, aspectRatio: `${optDims[i].width}:${optDims[i].height}`, aspectMode: 'fit' as const, align: 'start' as const, gravity: 'center' as const, backgroundColor: '#FFFFFF' },
       ],
     };
   });
@@ -78,11 +84,11 @@ function buildCard(q: any, dim: { width: number; height: number }, optDims: { wi
     type: 'flex' as const,
     altText: `数学（LaTeX組版・試作）: ${latexToPlain(q.question).slice(0, 40)}`,
     contents: {
-      type: 'bubble' as const, size: 'mega' as const,
+      type: 'bubble' as const, size: 'kilo' as const,
       header: { type: 'box' as const, layout: 'vertical' as const, backgroundColor: '#3B82F6', paddingAll: '14px',
-        contents: [{ type: 'text' as const, text: '数学（LaTeX組版・表示確認）', color: '#FFFFFF', weight: 'bold' as const, size: 'md' as const }] },
-      body: { type: 'box' as const, layout: 'vertical' as const, paddingAll: '16px', contents: [
-        { type: 'image' as const, url, size: 'full' as const, aspectRatio: `${dim.width}:${dim.height}`, aspectMode: 'fit' as const, backgroundColor: '#FFFFFF' },
+        contents: [{ type: 'text' as const, text: '数学｜中2', color: '#FFFFFF', weight: 'bold' as const, size: 'md' as const }] },
+      body: { type: 'box' as const, layout: 'vertical' as const, paddingAll: '20px', contents: [
+        { type: 'image' as const, url, size: `${qW}px`, aspectRatio: `${dim.width}:${dim.height}`, aspectMode: 'fit' as const, align: 'start' as const, backgroundColor: '#FFFFFF' },
       ] },
       footer: { type: 'box' as const, layout: 'vertical' as const, spacing: 'sm' as const, paddingAll: '16px', contents: optionRows },
     },
@@ -113,7 +119,7 @@ async function main() {
   // 公開確認（問題画像＋選択肢画像）
   for (let k = 0; k < TRIAL.length; k++) {
     const t = TRIAL[k];
-    const urls = [`${BASE}/math-tex-${t.id}.png?v=4`, ...items[k].q.options.map((_: any, i: number) => `${BASE}/math-tex-${t.id}-opt${i}.png?v=4`)];
+    const urls = [`${BASE}/math-tex-${t.id}.png?v=6`, ...items[k].q.options.map((_: any, i: number) => `${BASE}/math-tex-${t.id}-opt${i}.png?v=6`)];
     for (const u of urls) {
       const live = await urlLive(u);
       if (!live) { console.error(`画像が未公開です（push & Vercelデプロイ待ち）: ${u}`); process.exit(1); }

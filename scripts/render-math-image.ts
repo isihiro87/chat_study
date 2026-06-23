@@ -25,8 +25,8 @@ const texInput = new TeX({ packages: AllPackages });
 const F = 30; // 通常テキストのフォントサイズ
 const EX = F / 2; // 1ex = 15px（math の x-height 目安）
 const EM = F; // 1em = 30px
-const MAXW = 660; // 本文の最大幅
-const PAD = 30; // 余白
+const MAXW = 300; // 本文の最大幅（kilo bubble に合わせて狭めに折り返す＝文字を小さく表示できる）
+const PAD = 12; // 余白（少なめ。間隔はカード側の padding に任せる）
 const LINE_GAP = 16; // 行間の追加スペース
 const COL_TEXT = '#111827';
 const COL_BG = '#FFFFFF';
