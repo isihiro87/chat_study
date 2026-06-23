@@ -35,9 +35,11 @@ function latexToPlain(s: string): string {
     .replace(/\$([^$]+)\$/g, (_m, x: string) => x)
     .replace(/\\left|\\right/g, '')
     .replace(/\\d?frac\{([^{}]+)\}\{([^{}]+)\}/g, (_m, a: string, b: string) => { const p = (x: string) => (/[+\-]/.test(x.slice(1)) ? `(${x})` : x); return `${p(a.trim())}/${p(b.trim())}`; })
+    .replace(/\\text\{([^{}]*)\}/g, '$1')
     .replace(/\\sqrt\{([^{}]+)\}/g, '√$1').replace(/\\sqrt/g, '√').replace(/\\pi/g, 'π')
     .replace(/\\times/g, '×').replace(/\\div/g, '÷').replace(/\\pm/g, '±').replace(/\\cdot/g, '・')
     .replace(/\\leqq|\\leq/g, '≦').replace(/\\geqq|\\geq/g, '≧').replace(/\\neq/g, '≠')
+    .replace(/\\equiv/g, '≡').replace(/\\sim/g, '∼').replace(/\\parallel/g, '∥').replace(/\\ell/g, 'ℓ')
     .replace(/\\angle\s*/g, '∠').replace(/\\triangle\s*/g, '△')
     .replace(/\^\{(\d+)\}/g, (_m, d: string) => d.split('').map((c) => SUP[c] ?? c).join('')).replace(/\^(\d)/g, (_m, d: string) => SUP[d] ?? d)
     .replace(/\\,|\\;|\\ /g, ' ').replace(/\\\\/g, ' ').replace(/\\/g, '').replace(/[ \t]+/g, ' ').trim();
@@ -79,11 +81,12 @@ async function main() {
               questionParts.push({ t: 'text', s: latexToPlain(line) });
             }
           }
-          // 選択肢: 文章（日本語を含む）→ テキスト / 数式 → MathJax 画像
+          // 選択肢: 日本語を含む or $...$数式でない → テキスト / $...$数式 → MathJax 画像。
+          // （「∠B」等の素テキストは画像化せずテキスト表示）
           const choiceParts: Part[] = [];
           for (let i = 0; i < q.options.length; i++) {
             const opt = q.options[i] as string;
-            if (hasCJK(opt)) {
+            if (hasCJK(opt) || !/\$[^$]+\$/.test(opt)) {
               choiceParts.push({ t: 'text', s: latexToPlain(opt) });
             } else {
               const out = join(OUT_DIR, `${qid}-opt${i}.png`);

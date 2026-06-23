@@ -34,6 +34,7 @@ interface LineEvent {
   postback?: { data: string };
   message?: {
     type?: string;
+    /** text メッセージ本文。sticker の場合はメッセージスタンプの文字（あれば）。 */
     text?: string;
     /** image / audio / video / file メッセージの ID（コンテンツ取得に使う）。 */
     id?: string;
@@ -41,6 +42,8 @@ interface LineEvent {
     duration?: number;
     /** コンテンツ提供元。external の場合は originalContentUrl から取得する。 */
     contentProvider?: { type?: string; originalContentUrl?: string };
+    /** sticker の意味・感情を表すキーワード配列（LINE が付与。最大15個・無いこともある）。 */
+    keywords?: string[];
   };
   [key: string]: unknown;
 }
@@ -727,6 +730,13 @@ async function handleMessage(event: LineEvent): Promise<void> {
     return;
   }
 
+  // スタンプは AI チャットボットに「スタンプの内容＋これまでの会話」を踏まえて
+  // 返答させる。reply 送信なので配信枠は消費しない（コストは Gemini 分のみ）。
+  if (messageType === 'sticker') {
+    await handleStickerMessage(event);
+    return;
+  }
+
   if (messageType !== 'text') {
     console.warn(
       '[lineWebhook] handleMessage: non-text message type:',
@@ -972,6 +982,55 @@ async function handleMediaMessage(
     ]);
   } catch (error) {
     console.error('[lineWebhook] handleAiChat (media) failed:', error);
+  }
+}
+
+// ── スタンプメッセージ → AI チャットボット ────────────────────────────────
+//
+// スタンプの実体（絵柄）は画像認識せず、LINE が付与するメタ情報だけで内容を
+// 把握する。優先順位:
+//   1. message.text … メッセージスタンプ（文字入り）の文字を最優先
+//   2. message.keywords … スタンプの意味・感情キーワード（無いこともある）
+//   3. どちらも無ければ「スタンプを送ってくれた」事実だけを伝える
+// いずれの場合も handleAiChat が会話履歴を含めて応答するため、「これまでの
+// 会話＋スタンプ」を踏まえた返事になる。レート制限・履歴・計測も handleAiChat
+// 内で完結する（reply 送信なので配信枠は消費しない）。
+async function handleStickerMessage(event: LineEvent): Promise<void> {
+  const message = event.message;
+  const replyToken = event.replyToken;
+  const uid = buildUid(event);
+  if (!message || !replyToken || !uid) {
+    console.warn('[lineWebhook] handleStickerMessage: missing message/token/uid');
+    return;
+  }
+
+  // AI に渡すユーザー発話テキストを合成する。履歴にもこの文字列が user 側の
+  // ターンとして残るため、自然文として読める形にしておく。
+  const stickerText = message.text?.trim();
+  const keywords = (message.keywords ?? [])
+    .map((k) => (typeof k === 'string' ? k.trim() : ''))
+    .filter(Boolean);
+
+  let userText: string;
+  if (stickerText) {
+    // (1) メッセージスタンプの文字をそのまま発話として扱う。
+    userText = stickerText;
+  } else if (keywords.length > 0) {
+    // (2) キーワードからスタンプの意味を伝える。
+    userText = `（スタンプを送りました。意味: ${keywords.slice(0, 5).join('・')}）`;
+  } else {
+    // (3) 手がかりが無いときは、送ってくれた事実だけ伝えて会話文脈で返答させる。
+    userText = '（スタンプを送りました）';
+  }
+
+  try {
+    const { db } = await getDb();
+    const snap = await db.doc(`users/${uid}`).get();
+    const userData = snap.data();
+    const { handleAiChat } = await import('./aiChat');
+    await handleAiChat(uid, replyToken, userText, userData as never);
+  } catch (error) {
+    console.error('[lineWebhook] handleStickerMessage failed:', error);
   }
 }
 
@@ -4962,8 +5021,9 @@ async function handleAnswerPostback(
     question.explanationImage &&
     typeof question.explanationImage.u === 'string';
   const head = isCorrect ? '⭕ 正解！' : '❌ 不正解…';
+  // 解説を画像で出すときは本文に解説テキストを入れず、見出しも解説バブル側に置く
   const combinedText = useExpImage
-    ? `${head}\n${feedbackBody}\n\n📖 解説`
+    ? `${head}\n${feedbackBody}`
     : `${head}\n${feedbackBody}\n\n📖 解説\n${question.explanation}`;
   const explanationFlex = useExpImage
     ? {
@@ -4977,6 +5037,7 @@ async function handleAnswerPostback(
             layout: 'vertical' as const,
             paddingAll: '16px',
             contents: [
+              { type: 'text' as const, text: '📖 解説', weight: 'bold' as const, size: 'sm' as const, color: '#6B7280' },
               {
                 type: 'image' as const,
                 url: question.explanationImage!.u,
@@ -4984,6 +5045,7 @@ async function handleAnswerPostback(
                 aspectRatio: `${question.explanationImage!.w}:${question.explanationImage!.h}`,
                 aspectMode: 'fit' as const,
                 align: 'start' as const,
+                margin: 'md' as const,
                 backgroundColor: '#FFFFFF',
               },
             ],
