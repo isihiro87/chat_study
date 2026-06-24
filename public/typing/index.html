@@ -547,6 +547,11 @@ details[open] .set-head{border-bottom:1px solid var(--line);}
         <span id="recName">ゲスト</span>
         <button class="btn" id="editNameBtn">名前を変える</button>
       </div>
+      <p class="board-note" style="margin-top:10px;">機種変・別の端末に きろくを移すときは「ひきつぎコード」を使ってね。</p>
+      <div class="prof-row" style="margin-top:6px; gap:8px; flex-wrap:wrap;">
+        <button class="btn" id="exportDataBtn">📤 データを書き出す</button>
+        <button class="btn" id="importDataBtn">📥 データを取り込む</button>
+      </div>
     </div>
 
     <div class="panel">
@@ -601,8 +606,25 @@ details[open] .set-head{border-bottom:1px solid var(--line);}
   <div class="card">
     <h2>なまえを とうろく</h2>
     <p>全国ランキングで つかう なまえを いれてね。<br>（あとで「名前を変える」からへんこうできます）</p>
+    <p style="color:var(--bad); font-weight:800; font-size:13px; margin:-4px 0 6px;">⚠ 本名（ほんみょう）は入れないでね。すきなニックネームにしよう。</p>
     <input id="nameInput" maxlength="12" autocomplete="off" placeholder="ニックネーム（12文字まで）">
-    <button class="btn primary" id="nameSaveBtn" style="width:100%; padding:13px;">けってい</button>
+    <button class="btn" id="nameRerollBtn" type="button" style="width:100%; padding:9px; margin-top:6px;">🎲 べつの なまえにする</button>
+    <button class="btn primary" id="nameSaveBtn" style="width:100%; padding:13px; margin-top:8px;">けってい</button>
+  </div>
+</div>
+
+<!-- ============ ひきつぎ（データ移行）モーダル ============ -->
+<div class="modal" id="transferModal">
+  <div class="card">
+    <h2 id="transferTitle">ひきつぎ</h2>
+    <p id="transferDesc" style="font-size:13px; line-height:1.8;"></p>
+    <textarea id="transferText" rows="4" autocomplete="off" spellcheck="false" style="width:100%; box-sizing:border-box; font-family:monospace; font-size:12px; padding:10px; border:1px solid var(--line); border-radius:10px; resize:vertical;"></textarea>
+    <div class="prof-row" style="gap:8px; flex-wrap:wrap; margin-top:10px;">
+      <button class="btn" id="transferCopyBtn" type="button">コピー</button>
+      <button class="btn primary" id="transferImportBtn" type="button" style="display:none;">このコードを取り込む</button>
+      <button class="btn ghost" id="transferCloseBtn" type="button">閉じる</button>
+    </div>
+    <div class="submit-note" id="transferNote" style="margin-top:8px;"></div>
   </div>
 </div>
 
@@ -2074,16 +2096,29 @@ async function syncPlayerToCloud(){
   finally{ cloudSyncing=false; }
 }
 
+// 全国ランキングに「登録ずみの自己ベスト」をカテゴリ（単元×条件）ごとに端末記録する。
+// rankings は追加専用で重複削除できないため、自己ベスト更新時だけクラウド投稿して
+// ボードが同一プレイヤーの低スコアで埋まる/肥大するのを抑える。
+const SUBMITTED_BEST_KEY='tq_submitted_best_v1';
+function catKeyOf(e){ return `${e.subjectId||''}__${e.mode||''}__${e.param||0}`; }
+function submittedBestMap(){ return LS.get(SUBMITTED_BEST_KEY, {}); }
 async function submitScore(entry){
   const v=validateRankEntry(entry);
   if(!v.ok) return {ok:false, online:false, error:v.reason};
   entry.name=cleanName(entry.name);
   LS.set('tq_last_submit_at', Date.now());
   if(onlineReady){
+    const pb=submittedBestMap(), ck=catKeyOf(entry);
+    // 自己ベスト未更新ならクラウド投稿はスキップ（端末内記録だけ残す）
+    if(pb[ck]!=null && (entry.score|0)<=pb[ck]){
+      saveLocalBoard(entry);
+      return {ok:true, online:false, skipped:true, best:pb[ck]};
+    }
     try{
       if(RC.provider==='supabase') await sbInsert(entry);
       else if(RC.provider==='firebase') await fbInsert(entry);
       saveLocalBoard(entry);   // 自分の記録は端末にも残す
+      pb[ck]=Math.max(pb[ck]||0, entry.score|0); LS.set(SUBMITTED_BEST_KEY, pb);
       return {ok:true, online:true};
     }catch(e){ saveLocalBoard(entry); return {ok:true, online:false, error:String(e)}; }
   }
@@ -2114,12 +2149,21 @@ async function fetchBoard(filter){
 
 /* ---------- 名前とうろくモーダル ---------- */
 let nameModalCb=null;
+// 本名を入れさせないため、未登録時はランダムなニックネームを初期表示する（PII配慮）。
+const NICK_ADJ=['すばやい','げんきな','かしこい','ねっしんな','ゆうかんな','しずかな','たのしい','まじめな','つよい','やさしい','ぴかぴか','きらきら'];
+const NICK_NOUN=['ネコ','イヌ','パンダ','キツネ','タカ','クマ','ウサギ','リス','イルカ','ペンギン','ロボ','ドラゴン','ホシ','カミナリ','ニンジャ','サムライ'];
+function randomNick(){
+  const a=NICK_ADJ[Math.floor(Math.random()*NICK_ADJ.length)];
+  const n=NICK_NOUN[Math.floor(Math.random()*NICK_NOUN.length)];
+  const num=Math.floor(Math.random()*90)+10;
+  return cleanName(a+n+num);
+}
 function openNameModal(cb){
   nameModalCb=cb||null;
   const p=getProfile();
-  $('nameInput').value = (p&&p.name) || '';
+  $('nameInput').value = (p&&p.name) || randomNick();
   $('nameModal').classList.add('show');
-  setTimeout(()=>$('nameInput').focus(), 60);
+  setTimeout(()=>{ $('nameInput').focus(); try{ $('nameInput').select(); }catch(e){} }, 60);
 }
 function saveNameModal(){
   const v=cleanName($('nameInput').value);
@@ -2130,7 +2174,62 @@ function saveNameModal(){
   const cb=nameModalCb; nameModalCb=null; if(cb) cb();
 }
 $('nameSaveBtn').addEventListener('click', saveNameModal);
+$('nameRerollBtn').addEventListener('click', ()=>{ $('nameInput').value=randomNick(); $('nameInput').focus(); try{ $('nameInput').select(); }catch(e){} });
 $('nameInput').addEventListener('keydown', e=>{ if(e.key==='Enter'){ e.preventDefault(); saveNameModal(); } });
+
+/* ---------- ひきつぎ（端末間のデータ移行・クラウド読取なし） ---------- */
+// localStorage の主要キーだけを1つのコードに固めて持ち運ぶ（players の read には依存しない）。
+const TRANSFER_KEYS=[PROFILE_KEY, STATS_KEY, HIST_KEY, PID_KEY, CFG_KEY, SUBMITTED_BEST_KEY];
+function b64enc(s){ return btoa(unescape(encodeURIComponent(s))); }
+function b64dec(s){ return decodeURIComponent(escape(atob(s))); }
+function buildTransferCode(){
+  const d={};
+  for(const k of TRANSFER_KEYS){ const v=localStorage.getItem(k); if(v!=null) d[k]=v; }
+  return 'TS1.'+b64enc(JSON.stringify({v:1, d}));
+}
+function applyTransferCode(code){
+  code=String(code||'').trim();
+  if(!code) return {ok:false, error:'コードが空です。'};
+  if(code.indexOf('TS1.')===0) code=code.slice(4);
+  let obj;
+  try{ obj=JSON.parse(b64dec(code)); }catch(e){ return {ok:false, error:'コードを読み取れません（コピーミスかも）。'}; }
+  if(!obj || typeof obj.d!=='object' || obj.d===null) return {ok:false, error:'コードの形式がちがいます。'};
+  let n=0;
+  for(const k of TRANSFER_KEYS){ if(typeof obj.d[k]==='string'){ localStorage.setItem(k, obj.d[k]); n++; } }
+  if(!n) return {ok:false, error:'取り込めるデータがありませんでした。'};
+  return {ok:true, count:n};
+}
+function openTransfer(mode){
+  const isExport = mode==='export';
+  $('transferTitle').textContent = isExport ? '📤 データを書き出す' : '📥 データを取り込む';
+  $('transferDesc').innerHTML = isExport
+    ? 'この「ひきつぎコード」をコピーして、メモやLINEの自分宛てに保存してね。<br>別の端末の「取り込む」に貼り付けると、きろくを移せます。'
+    : '別の端末で書き出した「ひきつぎコード」を貼り付けて「取り込む」を押してね。<br><b style="color:var(--bad)">いまの端末のきろくは上書きされます。</b>';
+  $('transferImportBtn').style.display = isExport ? 'none' : '';
+  $('transferCopyBtn').style.display   = isExport ? '' : 'none';
+  const ta=$('transferText');
+  ta.readOnly = isExport;
+  ta.value = isExport ? buildTransferCode() : '';
+  $('transferNote').textContent='';
+  $('transferModal').classList.add('show');
+  setTimeout(()=>{ ta.focus(); if(isExport){ try{ ta.select(); }catch(e){} } }, 60);
+}
+$('exportDataBtn').addEventListener('click', ()=>openTransfer('export'));
+$('importDataBtn').addEventListener('click', ()=>openTransfer('import'));
+$('transferCloseBtn').addEventListener('click', ()=>$('transferModal').classList.remove('show'));
+$('transferCopyBtn').addEventListener('click', async ()=>{
+  const ta=$('transferText'); ta.select();
+  try{ await navigator.clipboard.writeText(ta.value); $('transferNote').className='submit-note ok'; $('transferNote').textContent='コピーしました。安全な場所に保存してね。'; }
+  catch(e){ try{ document.execCommand('copy'); $('transferNote').className='submit-note ok'; $('transferNote').textContent='コピーしました。'; }
+            catch(e2){ $('transferNote').className='submit-note ng'; $('transferNote').textContent='コピーできませんでした。手動で選んでコピーしてね。'; } }
+});
+$('transferImportBtn').addEventListener('click', ()=>{
+  if(!confirm('いまの端末のきろくを、貼り付けたコードの内容で上書きします。よろしいですか？')) return;
+  const r=applyTransferCode($('transferText').value);
+  if(!r.ok){ $('transferNote').className='submit-note ng'; $('transferNote').textContent=r.error; return; }
+  $('transferNote').className='submit-note ok'; $('transferNote').textContent='取り込みました。画面を更新します…';
+  setTimeout(()=>location.reload(), 800);
+});
 function refreshUserBar(){ $('hdrName').textContent=playerName(); }
 function syncSettingsPanelText(){
   const panel=$('settingsPanel'), label=$('settingsToggleText');
@@ -2164,6 +2263,11 @@ async function doSubmit(){
   if(!r.ok){
     note.className='submit-note ng'; note.textContent=r.error||'登録できませんでした。';
     btn.disabled=false; return;
+  }
+  if(r.skipped){
+    note.className='submit-note';
+    note.textContent=`自己ベスト未更新のため全国ランキングはそのまま（自己ベスト ${r.best}点）。今回の記録は端末に保存しました。`;
+    btn.textContent='登録ずみ ✓'; return;
   }
   if(!r.online && onlineReady){
     note.className='submit-note ng'; note.textContent='⚠ 通信に失敗。この端末に保存しました。';
