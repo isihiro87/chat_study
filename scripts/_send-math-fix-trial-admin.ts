@@ -26,19 +26,13 @@ const HEADER_COLOR = '#3B82F6';
 
 // content file（folder/file）+ q.id。docId は generator と同じ `q-math-${topicId}-${q.id}`。
 const TYPE1_ITEMS: { folder: string; file: string; id: string }[] = [
-  { folder: 'grade2/3-linear-functions', file: 'equations-and-graphs.json', id: 'math-g2-eq-and-graphs-q2' },  // 3x-y=4 → y=
-  { folder: 'grade2/1-expressions', file: 'monomial-polynomial.json', id: 'math-g2-monomial-poly-q3' },        // 多項式 4x-7y+5 の項
-  { folder: 'grade2/2-simultaneous-equations', file: 'basics.json', id: 'math-g2-simul-eq-basics-q13' },        // x=-1,y=3 を解にもつ
-  { folder: 'grade2/3-linear-functions', file: 'equations-and-graphs.json', id: 'math-g2-eq-and-graphs-q11' }, // 2直線 y=-2x+8 と y=x-1 交点
-  { folder: 'grade2/3-linear-functions', file: 'equations-and-graphs.json', id: 'math-g2-eq-and-graphs-q1' },  // 2x+y=5 → y=
+  { folder: 'grade2/1-expressions', file: 'literal-expressions.json', id: 'math-g2-literal-expr-q3' },  // 5,8,11,-11
+  { folder: 'grade2/1-expressions', file: 'literal-expressions.json', id: 'math-g2-literal-expr-q4' },  // -3,15,-15,3
+  { folder: 'grade2/1-expressions', file: 'literal-expressions.json', id: 'math-g2-literal-expr-q17' }, // 4,16,-4,10
+  { folder: 'grade1/1-positive-negative', file: 'add-sub.json', id: 'math-g1-add-sub-q10' },            // 分数選択肢
+  { folder: 'grade1/2-literal-expressions', file: 'notation.json', id: 'math-g1-lit-notation-q11' },    // 項の列挙
 ];
-const TYPE2_ITEMS: { folder: string; file: string; id: string }[] = [
-  { folder: 'grade1/2-literal-expressions', file: 'relations.json', id: 'math-g1-lit-relations-q8' },          // x人の20%
-  { folder: 'grade2/2-simultaneous-equations', file: 'applications-advanced.json', id: 'math-g2-simul-eq-apps-adv-q6' },  // 濃度3%
-  { folder: 'grade2/2-simultaneous-equations', file: 'applications-advanced.json', id: 'math-g2-simul-eq-apps-adv-q10' }, // 5%と10%
-  { folder: 'grade2/2-simultaneous-equations', file: 'applications-advanced.json', id: 'math-g2-simul-eq-apps-adv-q11' }, // 20%増減
-  { folder: 'grade2/2-simultaneous-equations', file: 'applications-advanced.json', id: 'math-g2-simul-eq-apps-adv-q15' }, // 10%と4%
-];
+const TYPE2_ITEMS: { folder: string; file: string; id: string }[] = [];
 
 const SUP: Record<string, string> = { '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴', '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹' };
 function latexToPlain(s: string): string {
@@ -155,11 +149,9 @@ async function main() {
 
   if (!EXECUTE) { console.log('\nドライラン完了。--execute で実送信。'); return; }
 
-  // 1リクエスト最大5メッセージ。タイプ見出しテキスト + カードを分割送信。
-  await pushMessages([{ type: 'text', text: '【修正確認①】問題文のインライン数式（3x-y=4 / y= など）が MathJax 表示になったか' }, ...t1.cards.slice(0, 4).map((c) => c.card)]);
-  await pushMessages([...t1.cards.slice(4).map((c) => c.card)]);
-  await pushMessages([{ type: 'text', text: '【修正確認②】タップして解説の「%」が次の文字と重ならないか（食塩水・割合）' }, ...t2.cards.slice(0, 4).map((c) => c.card)]);
-  await pushMessages([...t2.cards.slice(4).map((c) => c.card)]);
-  console.log(`\n送信成功（Type1 ${t1.cards.length} + Type2 ${t2.cards.length}）`);
+  // 1リクエスト最大5メッセージ。見出しテキスト + カードを分割送信。
+  await pushMessages([{ type: 'text', text: '【整合性修正】選択肢が画像とテキストに割れていた5問。全選択肢が同じ書体（MathJax）で揃ったか確認してください。' }, ...t1.cards.slice(0, 4).map((c) => c.card)]);
+  if (t1.cards.length > 4) await pushMessages([...t1.cards.slice(4).map((c) => c.card)]);
+  console.log(`\n送信成功（${t1.cards.length}問）`);
 }
 main().catch((e) => { console.error(e); process.exit(1); });
