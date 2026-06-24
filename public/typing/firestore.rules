@@ -1,0 +1,81 @@
+rules_version = '2';
+
+// =============================================================================
+//  タイピングゲーム（タイプでスタディ）専用 Firestore セキュリティルール
+// -----------------------------------------------------------------------------
+//  ⚠ これは公式LINE/Web本体（chatstudy）とは【別の Firebase プロジェクト】
+//     `type-study-88ced` 用のルールです。本体の /firestore.rules とは無関係。
+//
+//  ■ 反映方法（どちらか）
+//   A) Firebase コンソール:
+//      console.firebase.google.com → プロジェクト `type-study-88ced`
+//      → 構築 → Firestore Database → 「ルール」タブにこの内容を貼り付け →「公開」
+//   B) CLI（このプロジェクトを使う設定がある場合）:
+//      firebase deploy --only firestore:rules --project type-study-88ced
+//
+//  ■ このルールの狙い（改善案1: セキュリティルール厳格化）
+//   - rankings: 「リーダーボード表示のための read は公開」だが、
+//               create は型・桁・必須フィールドを厳格検証して偽データ投入を抑止。
+//               update / delete は一切不可（追加専用）。
+//   - players : アプリは書き込むだけで読み戻していないため read を完全に閉じる
+//               （＝全プレイヤーの名前・履歴を誰でも列挙できる穴を塞ぐ）。
+//               write は型・サイズを軽く検証し、任意データの保管庫化を防ぐ。
+//
+//  ■ 限界（次の打ち手）
+//   このページは Firebase Auth を使わず公開 REST + Web APIキーで書き込むため、
+//   ルールだけでは「本人だけが自分の players を書き換える」ことや、
+//   上限内の偽スコア投入までは防げません。本格的な不正対策は
+//   App Check 導入 or Cloud Function 経由の検証（改善案2）が必要です。
+// =============================================================================
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // rankings の1件が、クライアント(fbInsert)が書く想定スキーマに厳密一致するか検証。
+    function isValidRanking(d) {
+      return d.keys().hasOnly(['name','score','subjectId','era','mode','param','acc','kpm','rank','created_at'])
+          && d.keys().hasAll(['name','score','subjectId','era','mode','param','acc','kpm','rank','created_at'])
+          && d.name is string       && d.name.size() > 0 && d.name.size() <= 32
+          && d.subjectId is string  && d.subjectId.size() <= 64
+          && d.era is string        && d.era.size() <= 64
+          && d.mode is string       && d.mode.size() <= 32
+          && d.rank is string       && d.rank.size() <= 8
+          && d.score is int         && d.score >= 0 && d.score <= 1000000
+          && d.param is int         && d.param >= 0 && d.param <= 1000000
+          && d.acc   is int         && d.acc   >= 0 && d.acc   <= 100
+          && d.kpm   is int         && d.kpm   >= 0 && d.kpm   <= 10000
+          && d.created_at is timestamp;
+    }
+
+    // players の1ドキュメント（端末の全データ）を軽く検証。
+    // 深い構造(stats/profile)は検証せず、フィールド構成・名前長・履歴件数だけ縛る。
+    function isValidPlayer(d) {
+      return d.keys().hasOnly(['playerId','name','profile','stats','history','updatedAt'])
+          && d.playerId is string  && d.playerId.size() > 0 && d.playerId.size() <= 64
+          && d.name is string      && d.name.size() <= 32
+          && d.profile is map
+          && d.stats   is map
+          && d.history is list     && d.history.size() <= 100
+          && d.updatedAt is string && d.updatedAt.size() <= 40;
+    }
+
+    // ---- 全国ランキング（追加専用・公開read） ----
+    match /rankings/{doc} {
+      allow read: if true;          // リーダーボード表示に必要
+      allow update, delete: if false;
+      allow create: if isValidRanking(request.resource.data);
+    }
+
+    // ---- プレイヤーの全データ（端末ごと1ドキュメント・read不可） ----
+    match /players/{pid} {
+      allow read: if false;         // アプリは読み戻さない → 列挙・盗み見を禁止
+      allow delete: if false;
+      allow create, update: if isValidPlayer(request.resource.data);
+    }
+
+    // ---- それ以外は全面拒否 ----
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
