@@ -23,28 +23,28 @@ describe('isPublicPath', () => {
     expect(isPublicPath('/liff/anything-else')).toBe(true);
   });
 
-  it('returns false for learning page (deeper than topic select)', () => {
+  it('原則公開: 学習・クイズ・チャット・設定・静的ページもログイン不要', () => {
     expect(
       isPublicPath('/subjects/history/eras/jomon/topics/joumon-jidai')
-    ).toBe(false);
+    ).toBe(true);
+    expect(isPublicPath('/subjects/history/random-quiz')).toBe(true);
+    expect(isPublicPath('/chat/abc123')).toBe(true);
+    expect(isPublicPath('/settings')).toBe(true);
+    // 静的タイピングページ（public/typing）も React 経由で来ても公開扱い
+    expect(isPublicPath('/typing')).toBe(true);
+    expect(isPublicPath('/typing/')).toBe(true);
   });
 
-  it('returns false for random quiz / chat / settings / admin', () => {
-    expect(isPublicPath('/subjects/history/random-quiz')).toBe(false);
-    expect(isPublicPath('/chat/abc123')).toBe(false);
-    expect(isPublicPath('/settings')).toBe(false);
+  it('returns true for unknown / future paths (default public)', () => {
+    expect(isPublicPath('/nonexistent')).toBe(true);
+    expect(isPublicPath('/foo/bar')).toBe(true);
+    expect(isPublicPath('/subjects')).toBe(true);
+    expect(isPublicPath('/subjects/history/eras')).toBe(true);
+  });
+
+  it('returns false only for admin (auth required)', () => {
     expect(isPublicPath('/admin')).toBe(false);
-  });
-
-  it('returns false for unknown / nonexistent paths', () => {
-    expect(isPublicPath('/nonexistent')).toBe(false);
-    expect(isPublicPath('/foo/bar')).toBe(false);
-  });
-
-  it('handles trailing segments correctly', () => {
-    // /subjects (subjectId なし) は公開パターンに合致しない
-    expect(isPublicPath('/subjects')).toBe(false);
-    // /subjects/x/eras (eraId なし) も合致しない
-    expect(isPublicPath('/subjects/history/eras')).toBe(false);
+    expect(isPublicPath('/admin/')).toBe(false);
+    expect(isPublicPath('/admin/dashboard')).toBe(false);
   });
 });

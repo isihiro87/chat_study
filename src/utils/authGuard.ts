@@ -1,37 +1,30 @@
 /**
  * 認証ガードのパス判定ユーティリティ。
  *
- * 公開パス（未認証で閲覧可能）と認証必須パスを一元管理する。
- * 公開: TopPage / EraSelectPage / TopicSelectPage / WelcomePage / LINEコールバック / LIFFエントリ
- * 認証必須: LearningPage / HistoryChatPage / RandomQuizPage / SettingsPage / AdminPage
+ * 方針（2026-06-24〜）: **原則ログインは求めない**。
+ * デフォルトを「公開（未認証で閲覧可）」とし、認証必須は管理画面のみとする。
+ * 新規ページ（例: /typing 等の静的ページや今後追加するルート）は、ここに
+ * 何も書かなくてもデフォルトで公開になる。
+ *
+ * 認証必須にしたいパスだけを `AUTH_REQUIRED_PREFIXES` に追加する。
  *
  * 詳細は `.steering/20260510-line-only-auth/design.md` を参照。
  */
 
-const PUBLIC_PATH_EXACT: readonly string[] = ['/', '/terms', '/privacy', '/legal', '/for-parents', '/premium'];
-
-const PUBLIC_PATH_PREFIXES: readonly string[] = [
-  '/welcome',
-  '/auth/line/callback',
-  '/liff/',
-];
-
-const PUBLIC_PATH_PATTERNS: readonly RegExp[] = [
-  // EraSelectPage: /subjects/:subjectId （eras 以降を含むものは除外）
-  /^\/subjects\/[^/]+$/,
-  // TopicSelectPage: /subjects/:subjectId/eras/:eraId
-  /^\/subjects\/[^/]+\/eras\/[^/]+$/,
-];
+// 認証必須パス（プレフィックス一致）。これ以外はすべて公開。
+const AUTH_REQUIRED_PREFIXES: readonly string[] = ['/admin'];
 
 export function isPublicPath(pathname: string): boolean {
-  // Vercel の trailingSlash: true で `/premium` → `/premium/` に自動リダイレクトされるため、
+  // Vercel の trailingSlash: true で `/path` → `/path/` に自動リダイレクトされるため、
   // 末尾スラッシュを除いてから判定する（ルート `/` は除外）。
   const normalized =
     pathname !== '/' && pathname.endsWith('/')
       ? pathname.slice(0, -1)
       : pathname;
-  if (PUBLIC_PATH_EXACT.includes(normalized)) return true;
-  if (PUBLIC_PATH_PREFIXES.some((p) => normalized.startsWith(p))) return true;
-  if (PUBLIC_PATH_PATTERNS.some((re) => re.test(normalized))) return true;
-  return false;
+
+  // 認証必須プレフィックス（完全一致 or 配下）に該当しなければ公開。
+  const requiresAuth = AUTH_REQUIRED_PREFIXES.some(
+    (p) => normalized === p || normalized.startsWith(p + '/')
+  );
+  return !requiresAuth;
 }
