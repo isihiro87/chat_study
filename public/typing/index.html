@@ -1,0 +1,2325 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>タイプでスタディ｜打って覚える 中学べんきょうタイピング</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#eef4fc; --panel:#ffffff; --panel2:#f4f8fe; --line:#dbe4f1;
+  --ink:#21324e; --sub:#6b7a96; --accent:#2f7df0; --accent-d:#1f5fd0; --accent-soft:#e6f0ff;
+  --ok:#1aa861; --ok-soft:#e3f7ec; --bad:#e5484d; --gold:#f5a623;
+  --radius:18px;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  font-family:'M PLUS Rounded 1c',-apple-system,'Yu Gothic',sans-serif;
+  background:
+    radial-gradient(1100px 520px at 50% -8%, #ffffff 0%, transparent 65%),
+    var(--bg);
+  color:var(--ink); min-height:100dvh;
+  display:flex; align-items:flex-start; justify-content:center; padding:18px;
+}
+.mono{font-family:'JetBrains Mono',monospace;}
+#app{width:100%; max-width:780px;}
+.screen{display:none; animation:fade .25s ease;}
+.screen.active{display:block;}
+@keyframes fade{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:none;}}
+
+/* ---------- タイトル ---------- */
+.logo{text-align:center; margin:10px 0 2px;}
+.logo .jp{font-size:clamp(32px,7vw,50px); font-weight:800; letter-spacing:1px; color:var(--accent);}
+.logo .en{font-family:'JetBrains Mono',monospace; color:var(--sub); letter-spacing:6px; font-size:13px; margin-top:2px;}
+.logo .catch{color:var(--sub); font-size:14px; margin-top:8px;}
+.panel{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:18px; margin-top:16px; box-shadow:0 8px 22px rgba(33,50,78,.06);}
+.panel h2{margin:0 0 12px; font-size:15px; font-weight:800; color:var(--ink);}
+
+/* 折りたたみ（設定・あそびかた） */
+.settings, .help-d{padding:0; overflow:hidden;}
+.set-head{list-style:none; cursor:pointer; display:flex; align-items:center; gap:10px; padding:15px 18px; user-select:none;}
+.set-head::-webkit-details-marker{display:none;}
+.set-title{font-size:15px; font-weight:800; color:var(--ink); flex:0 0 auto;}
+.set-summary{font-size:12px; font-weight:600; color:var(--sub); flex:1 1 auto; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; text-align:right;}
+.set-action{font-size:12px; font-weight:800; color:var(--accent-d); background:var(--accent-soft); border:1px solid #bcd4fb; border-radius:999px; padding:5px 10px; flex:0 0 auto;}
+.set-caret{color:var(--sub); flex:0 0 auto; transition:transform .15s; margin-left:auto;}
+.set-summary + .set-caret{margin-left:0;}
+details[open] .set-caret{transform:rotate(180deg);}
+.set-head:focus-visible{outline:3px solid var(--accent); outline-offset:-3px; border-radius:var(--radius);}
+details[open] .set-head{border-bottom:1px solid var(--line);}
+.set-group{padding:14px 18px;}
+.set-group + .set-group{border-top:1px solid var(--line);}
+.set-group h3{margin:0 0 10px; font-size:14px; font-weight:800; color:var(--ink);}
+.help-d .help{padding:4px 18px 18px;}
+.opt-row{display:flex; gap:10px; flex-wrap:wrap;}
+.chip{flex:1 1 auto; min-width:96px; text-align:center; cursor:pointer; padding:13px 8px; border:2px solid var(--line); border-radius:14px; background:var(--panel2); color:var(--ink); font-size:15px; font-weight:700; transition:.12s; user-select:none;}
+.chip small{display:block; color:var(--sub); font-size:11px; font-weight:500; margin-top:3px;}
+.chip:hover{border-color:var(--accent); background:#fff;}
+.chip[aria-pressed="true"]{border-color:var(--accent); background:var(--accent-soft); color:var(--accent-d); box-shadow:0 2px 8px rgba(47,125,240,.18);}
+.chip:focus-visible{outline:3px solid var(--accent); outline-offset:2px;}
+#soundBtn[aria-pressed="false"]{color:var(--sub); opacity:.75;}
+.subject-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:11px;}
+.subj{cursor:pointer; border:1px solid var(--line); border-radius:16px; background:var(--panel2); padding:13px 12px; display:flex; align-items:center; gap:11px; transition:.12s; position:relative;}
+.subj:hover{transform:translateY(-2px); border-color:var(--sc,var(--accent)); background:#fff; box-shadow:0 8px 18px rgba(33,50,78,.10);}
+.subj:focus-visible{outline:3px solid var(--accent); outline-offset:2px;}
+.subj .big{font-size:24px; width:44px; height:44px; flex:0 0 44px; display:grid; place-items:center; border-radius:12px; background:var(--sc,#888); color:#fff; font-weight:800; box-shadow:0 3px 8px rgba(0,0,0,.12);}
+.subj .meta{min-width:0;}
+.subj .nm{font-size:14px; font-weight:700; line-height:1.25;}
+.subj .tg{font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--sub); letter-spacing:1px;}
+.subj .cnt{font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--sub);}
+.plays{display:inline-flex; align-items:center; gap:3px; font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--sub);}
+.plays .medal{font-size:14px; line-height:1;}
+.subj .plays{margin-left:8px; vertical-align:middle;}
+.subj .meta .plays{display:flex; margin:3px 0 0;}
+.rgroup-head .plays, .era-sub-head .plays{margin-left:4px;}
+.rgroup-head .plays .medal, .era-sub-head .plays .medal{font-size:16px;}
+/* 範囲（時代）選択：ステージ選択風カードのグリッド */
+#subjectGrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(185px,1fr)); gap:11px; align-items:stretch;}
+.special-row{grid-column:1/-1; display:grid; grid-template-columns:1fr 1fr; gap:11px;}
+.subj.all, .subj.era, .subj.weak-card{flex-direction:column; align-items:stretch; gap:5px; text-align:left; position:relative;}
+.subj.weak-card{padding:12px 14px; background:linear-gradient(90deg,#ffeaea,var(--panel2)); border-color:#f3b4b4; border-left:6px solid var(--bad);}
+.subj.weak-card.disabled{opacity:.55; cursor:default;}
+@media(max-width:480px){ .special-row{grid-template-columns:1fr;} }
+.subj.era{padding:11px 20px 11px 12px; border-left:6px solid var(--sc,var(--line));}
+.subj.all{grid-column:1/-1; padding:12px 14px; background:linear-gradient(90deg,#fff7e6,var(--panel2)); border-color:#f4d79a; border-left:6px solid var(--gold);}
+.special-row .subj.all{grid-column:auto;}   /* おまかせは上段では半分幅にして苦手と横並び */
+.subj.era:hover{transform:translateY(-2px); background:#fff;}
+.subj.era.open{border-color:var(--sc,var(--accent)); background:#fff; box-shadow:0 6px 16px rgba(33,50,78,.14);}
+/* バッジ */
+.st-badge{align-self:flex-start; font-size:10px; font-weight:800; padding:2px 9px; border-radius:999px; color:#fff; letter-spacing:.5px;}
+.st-badge.b-osusume{background:var(--gold);} .st-badge.b-review{background:var(--bad);}
+.st-badge.b-clear{background:var(--ok);} .st-badge.b-omakase{background:var(--accent);}
+.st-badge.b-perfect{background:linear-gradient(90deg,var(--gold),#ffce5a); color:#5a3d00;}
+.subj.era:has(.b-perfect), .subj.part.is-perfect{border-color:var(--gold);}
+.subj.part.is-perfect{background:#fffaf0;}
+/* 攻略度でカードの色（銅→銀→金）。答えが出る前に入力しきった割合 */
+.subj.m-bronze{border-color:#c48a4e; background:linear-gradient(135deg,#f6e6d3,#fff);}
+.subj.m-silver{border-color:#9aa6b6; background:linear-gradient(135deg,#e9edf2,#fff);}
+.subj.m-gold{border-color:#e0b020; background:linear-gradient(135deg,#fff0bf,#fff);}
+.subj.era.m-bronze{border-left-color:#c48a4e;} .subj.era.m-silver{border-left-color:#9aa6b6;} .subj.era.m-gold{border-left-color:#e0b020;}
+.subj.m-gold .st-fill{background:linear-gradient(90deg,#e0b020,#ffd95a);}
+.st-name{font-size:15px; font-weight:800; color:var(--ink); line-height:1.25;}
+.st-sub{font-size:11px; font-weight:700; color:var(--accent-d);}
+.st-lv{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--sub);}
+.st-lv .st-dot{margin:0 4px;}
+.st-plays{color:var(--gold); font-weight:700;}
+.st-bar{height:9px; background:#dfe7f3; border-radius:6px; overflow:hidden; margin-top:2px;}
+.st-fill{display:block; height:100%; background:var(--sc,var(--accent)); border-radius:6px; transition:width .3s;}
+.subj.era.is-clear .st-fill{background:var(--ok);}
+.st-status{font-size:11.5px; font-weight:700; color:var(--ink);}
+.subj.era.is-clear .st-status{color:var(--ok);}
+.subj.era .ex-caret{position:absolute; right:9px; top:10px; color:var(--sub); font-size:11px; transition:transform .15s;}
+.subj.era.open .ex-caret{transform:rotate(180deg);}
+/* 開いたときのパート */
+.parts-panel{grid-column:1/-1; border:1px solid var(--sc,var(--line)); border-radius:14px; background:var(--panel2); padding:12px; display:flex; flex-direction:column; gap:10px;}
+.parts-panel .es-start{align-self:flex-start; padding:9px 14px; font-size:13px; font-weight:800; border-color:var(--sc,var(--accent)); color:var(--sc,var(--accent-d));}
+.parts-panel .es-start:hover{background:var(--sc,var(--accent)); color:#fff; border-color:var(--sc,var(--accent));}
+.part-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:9px;}
+.subj.part{padding:10px 11px;}
+/* ①②… は色付き四角をやめて、時代カラーの数字だけにする */
+.subj.part .big{background:none; box-shadow:none; color:var(--sc,var(--accent-d)); width:auto; height:auto; flex:0 0 auto; font-size:18px; font-weight:800; margin-right:2px;}
+.subj.part.has-review{border-color:var(--bad); background:#fff5f5;}
+.part-badge{display:inline-block; margin-left:6px; font-size:9px; padding:1px 7px; vertical-align:middle;}
+.help{color:var(--ink); font-size:13px; line-height:1.9;}
+.help b{color:var(--accent-d);}
+.kbd{font-family:'JetBrains Mono',monospace; background:var(--accent-soft); border:1px solid #bcd4fb; border-radius:6px; padding:1px 7px; color:var(--accent-d); font-size:12px; font-weight:700;}
+
+/* ---------- プレイ ---------- */
+#play{position:relative;}
+/* プレイ画面は画面の高さいっぱいを使い、問題を中央に・空いた下半分にキーボードガイドを置く */
+#play.active{display:flex; flex-direction:column; min-height:calc(100dvh - 36px);}
+#play .stage{flex:1 1 auto;}
+.topbar{display:flex; align-items:center; gap:10px;}
+.btn{cursor:pointer; border:2px solid var(--line); background:#fff; color:var(--ink); border-radius:14px; padding:10px 16px; font-family:inherit; font-size:14px; font-weight:700; transition:.12s;}
+.btn:hover{border-color:var(--accent); color:var(--accent-d);}
+.btn.primary{background:var(--accent); color:#fff; border-color:var(--accent); box-shadow:0 4px 12px rgba(47,125,240,.3);}
+.btn.primary:hover{background:var(--accent-d); color:#fff;}
+.btn.ghost{background:transparent; border-color:transparent; color:var(--sub);}
+.btn.ghost:hover{background:var(--panel2);}
+.subj-label{margin-left:auto; text-align:right;}
+.subj-label .nm{font-size:15px; font-weight:800;}
+.subj-label .tg{font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--sub); letter-spacing:2px;}
+.stats{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:14px;}
+.stat{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:10px 8px; text-align:center; box-shadow:0 4px 12px rgba(33,50,78,.05);}
+.stat .k{font-size:11px; color:var(--sub); font-weight:700;}
+.stat .v{font-family:'JetBrains Mono',monospace; font-size:24px; font-weight:700; color:var(--ink);}
+#combo.hot .v{color:var(--gold);}
+.timewrap{margin-top:12px; height:14px; background:#dfe7f3; border-radius:10px; overflow:hidden;}
+#timebar{height:100%; width:100%; background:linear-gradient(90deg,var(--accent),#56c5b0); transition:width .1s linear;}
+#timebar.low{background:linear-gradient(90deg,#ffae3d,var(--bad));}
+.stage{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:30px 20px 22px; margin-top:14px; text-align:center; min-height:240px; display:flex; flex-direction:column; justify-content:center; gap:20px; box-shadow:0 8px 22px rgba(33,50,78,.07);}
+.stage.shake{animation:shake .18s;}
+@keyframes shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-7px);}75%{transform:translateX(7px);}}
+/* お題は文字数に関わらず固定サイズ（長文は折り返す） */
+.ask{font-size:21px; font-weight:700; line-height:1.6; color:var(--ink); max-width:30em; margin:0 auto;}
+.kana-line{font-size:42px; font-weight:700; letter-spacing:2px; line-height:1.25; display:flex; flex-wrap:wrap; justify-content:center; gap:1px 3px;}
+.roman-line{font-family:'JetBrains Mono',monospace; font-size:21px; font-weight:500; letter-spacing:1px; color:var(--sub); display:flex; flex-wrap:wrap; justify-content:center; gap:0 2px; min-height:26px;}
+.u{transition:color .1s, transform .1s;}
+.u.done{color:var(--ok);}
+.u.cur{color:var(--accent);}
+.kana-line .u.cur{transform:translateY(-2px);}
+.u.mask{color:#c2ccde;}
+.roman-line .typed{color:var(--accent-d); font-weight:700;}
+.roman-line .u.cur{color:var(--ink); border-bottom:3px solid var(--accent); border-radius:1px;}
+.roman-line.bad .u.cur{color:var(--bad); border-bottom-color:var(--bad);}
+#countNum{animation:cdpop .42s ease;}
+@keyframes cdpop{0%{opacity:0; transform:scale(.5);}40%{opacity:1; transform:scale(1.15);}100%{opacity:1; transform:scale(1);}}
+.hintline{color:var(--sub); font-size:13px;}
+.playbtns{display:flex; gap:10px; justify-content:center; margin-top:4px;}
+.gain{position:absolute; left:50%; top:44%; transform:translateX(-50%); font-family:'JetBrains Mono',monospace; font-size:32px; font-weight:700; color:var(--gold); pointer-events:none; opacity:0; text-shadow:0 2px 6px rgba(245,166,35,.3);}
+.gain.show{animation:gain .7s ease-out;}
+@keyframes gain{0%{opacity:0; transform:translate(-50%,6px) scale(.8);}30%{opacity:1;}100%{opacity:0; transform:translate(-50%,-34px) scale(1.1);}}
+.note{position:absolute; left:50%; bottom:12px; transform:translateX(-50%); background:#fff; color:var(--bad); border:2px solid var(--bad); padding:7px 14px; border-radius:10px; font-size:13px; font-weight:700; opacity:0; transition:.2s; pointer-events:none; white-space:nowrap; box-shadow:0 4px 12px rgba(229,72,77,.2);}
+.note.show{opacity:1;}
+
+/* ---------- 運指ガイド（オンスクリーンキーボード） ---------- */
+.kbguide{margin-top:12px; background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:12px 10px; box-shadow:0 6px 16px rgba(33,50,78,.05);}
+.kbguide .krow{display:flex; justify-content:center; gap:5px; margin:5px 0;}
+.kbguide .key{font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:700; width:34px; height:34px; display:grid; place-items:center; border-radius:8px; border:1px solid var(--line); background:var(--panel2); color:var(--ink); transition:transform .08s, background .08s, color .08s; user-select:none;}
+.kbguide .key.f0{background:#fde8ee;} .kbguide .key.f1{background:#fdeede;} .kbguide .key.f2{background:#fdf6dd;} .kbguide .key.f3{background:#e6f6e6;}
+.kbguide .key.f4{background:#e1f3f7;} .kbguide .key.f5{background:#e3ecfb;} .kbguide .key.f6{background:#ece6fb;} .kbguide .key.f7{background:#f6e3f3;}
+.kbguide .key.home{box-shadow:inset 0 -3px 0 rgba(33,50,78,.16);}
+.kbguide .key.next{background:var(--accent); color:#fff; border-color:var(--accent); transform:translateY(-3px) scale(1.08); box-shadow:0 5px 12px rgba(47,125,240,.4);}
+.kbguide .fingerhint{text-align:center; font-size:12px; color:var(--sub); font-weight:700; margin-top:6px; min-height:18px;}
+.kbguide .fingerhint b{color:var(--accent-d);}
+@media (max-width:480px){
+  .kbguide .key{width:28px; height:30px; font-size:12px;}
+  .kbguide .krow{gap:3px;}
+}
+
+/* スタート確認オーバーレイ */
+.overlay{position:absolute; inset:0; background:rgba(238,244,252,.96); backdrop-filter:blur(2px); border-radius:var(--radius); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:18px; text-align:center; padding:24px; z-index:5;}
+.overlay h2{font-size:clamp(30px,8vw,54px); font-weight:800; margin:0; letter-spacing:2px; color:var(--accent);}
+.overlay p{color:var(--ink); font-size:15px; line-height:1.9; margin:0;}
+.ime-keyhint{font-size:14px; color:var(--ink); line-height:1.8; background:#fff; border:1px solid var(--line); border-radius:12px; padding:9px 14px; max-width:30em;}
+.ime-status{font-size:15px; min-height:24px; font-weight:700; color:var(--sub);}
+.ime-status.ok{color:var(--ok);} .ime-status.ng{color:var(--bad);}
+#imeInput{position:absolute; opacity:0; width:1px; height:1px; left:-50px; pointer-events:none;}
+.overlay{overflow:auto;}
+.ov-back{position:absolute; top:14px; left:14px; padding:8px 14px; font-size:13px;}
+.overlay-settings{width:100%; max-width:430px; border:1px solid var(--line); border-radius:14px; background:rgba(255,255,255,.9);}
+.overlay-settings>summary{list-style:none; cursor:pointer; font-weight:800; color:var(--accent-d); padding:11px 14px; text-align:center; user-select:none;}
+.overlay-settings>summary::-webkit-details-marker{display:none;}
+.overlay-settings .ov-set-body{padding:0 14px 14px; max-height:42vh; overflow:auto; display:flex; flex-direction:column; gap:8px;}
+.overlay-settings .ov-set-label{font-size:12px; font-weight:800; color:var(--sub); margin-top:6px; text-align:left;}
+.overlay-settings .chip{padding:9px 6px; font-size:13px; min-width:60px;}
+.overlay-settings .chip small{display:none;}
+
+/* ---------- リザルト ---------- */
+.rank-wrap{text-align:center;}
+.rank{font-family:'JetBrains Mono',monospace; font-size:clamp(74px,22vw,130px); font-weight:700; line-height:1;}
+.rank.S{color:var(--gold);} .rank.A{color:var(--accent);} .rank.B{color:#16a085;} .rank.C{color:var(--sub);} .rank.dash{color:var(--sub);}
+.rank-msg{color:var(--ink); font-size:17px; font-weight:700; margin-top:4px;}
+.best-banner{font-size:15px; font-weight:800; color:#fff; background:linear-gradient(90deg,var(--gold),#ffce5a); border-radius:999px; padding:6px 18px; display:inline-block; margin:0 auto 6px; box-shadow:0 4px 12px rgba(245,166,35,.35); animation:bestpop .5s ease;}
+@keyframes bestpop{0%{transform:scale(.5);opacity:0;}60%{transform:scale(1.12);}100%{transform:scale(1);opacity:1;}}
+.title-badge{font-size:15px; font-weight:800; color:var(--accent-d); margin-top:2px;}
+.acc-panel{margin-top:12px;}
+.acc-head{display:flex; justify-content:space-between; align-items:baseline; font-size:13px; font-weight:800; color:var(--ink);}
+.acc-big{font-size:22px; color:var(--accent-d);}
+.acc-bar{height:14px; background:#dfe7f3; border-radius:10px; overflow:hidden; margin:8px 0 6px;}
+.acc-fill{height:100%; width:0; border-radius:10px; background:linear-gradient(90deg,var(--accent),#56c5b0); transition:width .6s ease;}
+.acc-fill.hi{background:linear-gradient(90deg,var(--ok),#56c5b0);}
+.acc-fill.lo{background:linear-gradient(90deg,#ffae3d,var(--bad));}
+.acc-info{font-size:12px; color:var(--sub); font-weight:700;}
+.hidden-perfect{margin-top:10px; font-size:14px; font-weight:700; color:var(--sub);}
+.hidden-perfect.perfect{font-size:18px; font-weight:800; color:#fff; background:linear-gradient(90deg,var(--gold),#ffce5a); border-radius:12px; padding:10px 14px; box-shadow:0 6px 16px rgba(245,166,35,.35);}
+.result-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:16px;}
+.review{margin-top:16px;}
+.review h3{font-size:14px; font-weight:800; color:var(--bad); margin:0 0 10px;}
+.review .item{background:var(--panel2); border:1px solid var(--line); border-left:4px solid var(--bad); border-radius:10px; padding:11px 13px; margin-bottom:8px; font-size:14px;}
+.review .item .q{color:var(--sub); font-size:13px;}
+.review .item .a{margin-top:4px;} .review .item .a b{color:var(--ink); font-weight:800;}
+.review .item .a .rm{font-family:'JetBrains Mono',monospace; color:var(--accent-d); font-weight:700;}
+.perfect{color:var(--ok); background:var(--ok-soft); border-radius:12px; text-align:center; padding:16px; font-size:16px; font-weight:700;}
+.result-btns{display:flex; flex-wrap:wrap; gap:10px; margin-top:18px;}
+.result-btns .btn{flex:1 1 40%; padding:15px;}
+.foot{text-align:center; color:var(--sub); font-size:11px; margin-top:18px;}
+
+/* ---------- ユーザーバー / きろく / ランキング ---------- */
+.userbar{display:flex; align-items:center; gap:10px; margin-top:12px; flex-wrap:wrap;}
+.userbar .who{font-size:14px; color:var(--ink);}
+.userbar .who b{color:var(--accent-d);}
+.userbar .btn{margin-left:auto; padding:9px 14px; font-size:13px;}
+.prof-row{display:flex; align-items:center; gap:12px; flex-wrap:wrap;}
+.prof-row #recName{font-size:20px; font-weight:800; color:var(--accent-d);}
+.prof-row .btn{margin-left:auto; padding:8px 12px; font-size:13px;}
+.era-item,.weak-item,.board-row{display:flex; align-items:center; gap:10px; padding:9px 12px; border:1px solid var(--line); border-radius:10px; background:var(--panel2); margin-bottom:7px; font-size:14px;}
+.era-item .nm{font-weight:700;}
+.era-item .sc{margin-left:auto; font-family:'JetBrains Mono',monospace; color:var(--sub); font-size:12px;}
+.weak-item .term{font-weight:800;}
+.weak-item .q{color:var(--sub); font-size:12px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+.weak-item .ct{margin-left:auto; font-family:'JetBrains Mono',monospace; color:var(--bad); font-weight:700; flex:0 0 auto;}
+.weak-item .due{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--accent-d); font-weight:700; flex:0 0 auto;}
+.report-actions{display:flex; gap:10px; flex-wrap:wrap;}
+.report-actions .btn{flex:1 1 180px;}
+.rank-cats{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px;}
+.rank-cats .rank-cat{padding:7px 12px; font-size:13px; font-weight:700;}
+.rank-cats .rank-cat.on{background:var(--accent); color:#fff; border-color:var(--accent);}
+.board-head{display:flex; align-items:center; gap:10px; margin-bottom:10px; flex-wrap:wrap;}
+.board-head select{font-family:inherit; padding:7px 10px; border:1px solid var(--line); border-radius:10px; background:#fff; color:var(--ink);}
+.board-head .scope{font-size:13px; font-weight:700; color:var(--sub);}
+.board-head .btn{margin-left:auto; padding:7px 12px; font-size:13px;}
+.board-row .pos{width:30px; flex:0 0 30px; font-family:'JetBrains Mono',monospace; font-weight:700; color:var(--sub); text-align:center;}
+.board-row.top1 .pos{color:var(--gold);} .board-row.top2 .pos{color:#9aa7bd;} .board-row.top3 .pos{color:#c8893f;}
+.board-row .bn{font-weight:700; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+.board-row .be{font-size:11px; color:var(--sub); margin-left:6px;}
+.board-row .bs{margin-left:auto; font-family:'JetBrains Mono',monospace; font-weight:700; color:var(--ink); flex:0 0 auto;}
+.board-row.me{border-color:var(--accent); background:var(--accent-soft);}
+.board-row.admin{border-color:var(--gold); background:linear-gradient(90deg,#fff7e0,var(--panel2));}
+.admin-mark{display:inline-block; margin-left:6px; font-size:10px; font-weight:800; color:#5a3d00; background:linear-gradient(90deg,var(--gold),#ffce5a); border-radius:999px; padding:1px 8px; vertical-align:middle;}
+.board-note{font-size:12px; color:var(--sub); margin:6px 0;}
+/* 実績バッジ */
+.badge-count{font-size:12px; color:var(--sub); font-weight:700;}
+.badge-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(96px,1fr)); gap:10px;}
+.badge{display:flex; flex-direction:column; align-items:center; gap:4px; text-align:center; padding:11px 6px; border:1px solid var(--line); border-radius:14px; background:var(--panel2);}
+.badge .bi{font-size:26px; line-height:1;}
+.badge .bn{font-size:11px; font-weight:700; color:var(--ink); line-height:1.2;}
+.badge .bd{font-size:10px; color:var(--sub); line-height:1.2;}
+.badge.locked{opacity:.4; filter:grayscale(1);}
+.badge.locked .bi{filter:grayscale(1);}
+.newbadges{background:linear-gradient(90deg,#fff7e6,var(--panel2)); border-color:#f4d79a;}
+.newbadges .nb-title{font-weight:800; color:var(--gold); margin-bottom:10px;}
+.newbadges .nb-list{display:flex; flex-wrap:wrap; gap:10px;}
+.newbadges .nb{display:flex; align-items:center; gap:9px; background:#fff; border:1px solid #f4d79a; border-radius:12px; padding:8px 12px;}
+.newbadges .nb .bi{font-size:24px;}
+.newbadges .nb .bt b{display:block; font-size:13px;}
+.newbadges .nb .bt small{color:var(--sub); font-size:11px;}
+.submit-row{margin-top:16px;}
+.submit-note{font-size:13px; font-weight:700; text-align:center; margin-top:8px; min-height:20px;}
+.submit-note.ok{color:var(--ok);} .submit-note.ng{color:var(--bad);}
+.modal{position:fixed; inset:0; background:rgba(33,50,78,.5); display:none; align-items:center; justify-content:center; z-index:50; padding:20px;}
+.modal.show{display:flex;}
+.modal .card{background:#fff; border-radius:var(--radius); padding:26px 24px; max-width:380px; width:100%; text-align:center; box-shadow:0 16px 48px rgba(0,0,0,.25);}
+.modal h2{margin:0 0 8px; color:var(--accent-d); font-size:20px;}
+.modal p{color:var(--sub); font-size:13px; margin:0 0 16px; line-height:1.7;}
+.modal input{width:100%; font-family:inherit; font-size:20px; text-align:center; padding:12px; border:2px solid var(--line); border-radius:12px; margin-bottom:16px;}
+.modal input:focus{outline:none; border-color:var(--accent);}
+
+@media (max-width:480px){
+  .stats,.result-grid{grid-template-columns:repeat(2,1fr);}
+  .stat .v{font-size:20px;}
+  .kana-line{font-size:34px;}
+  .roman-line{font-size:18px;}
+  .ask{font-size:19px;}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important; transition:none !important;}
+}
+
+</style>
+</head>
+<body>
+<div id="app">
+
+  <!-- ============ タイトル画面 ============ -->
+  <section id="title" class="screen active">
+    <div class="logo">
+      <div class="jp">タイプでスタディ</div>
+      <div class="en">T Y P E &nbsp; S T U D Y</div>
+      <div class="catch">打って覚える 中学べんきょうタイピング 〜まずは歴史〜</div>
+    </div>
+
+    <div class="userbar">
+      <div class="who">👤 <b id="hdrName">ゲスト</b> さん</div>
+      <button class="btn ghost" id="soundBtn" title="音のオン／オフ" aria-pressed="true" style="margin-left:auto;">🔊 音</button>
+      <button class="btn ghost" id="openRecordsBtn">📊 きろく＆ランキング</button>
+    </div>
+
+    <details class="panel settings" id="settingsPanel" open>
+      <summary class="set-head">
+        <span class="set-title">⚙ せってい</span>
+        <span class="set-summary" id="settingsSummary"></span>
+        <span class="set-action" id="settingsToggleText">閉じる</span>
+        <span class="set-caret" aria-hidden="true">▾</span>
+      </summary>
+
+      <div class="set-group">
+        <h3>① 問題数（何問やる？）</h3>
+        <div class="opt-row" id="countRow">
+          <div class="chip" data-count="5">5問</div>
+          <div class="chip" data-count="10" aria-pressed="true">10問</div>
+          <div class="chip" data-count="20">20問</div>
+          <div class="chip" data-count="99999">全問</div>
+        </div>
+      </div>
+
+      <div class="set-group">
+        <h3>② 答えの出し方</h3>
+        <div class="opt-row" id="modeRow">
+          <div class="chip" data-hide="1" aria-pressed="true">少し考えてから見る<small>数秒後に表示・出る前に完答でボーナス</small></div>
+          <div class="chip" data-hide="0">最初から見る<small>こたえを見ながら練習</small></div>
+        </div>
+        <div class="opt-row" id="revealRow" style="margin-top:10px;">
+          <div class="chip" data-reveal="2">2秒で表示</div>
+          <div class="chip" data-reveal="3" aria-pressed="true">3秒で表示</div>
+          <div class="chip" data-reveal="5">5秒で表示</div>
+          <div class="chip" data-reveal="8">8秒で表示</div>
+        </div>
+      </div>
+
+      <div class="set-group">
+        <h3>③ キーボードのヒント</h3>
+        <div class="opt-row" id="kbRow">
+          <div class="chip" data-kb="0" aria-pressed="true">ヒントなし<small>画面をすっきり・自分のペースで</small></div>
+          <div class="chip" data-kb="1">ヒントあり<small>つぎに打つキーと指を案内（はじめての人に）</small></div>
+        </div>
+      </div>
+    </details>
+
+    <div class="panel">
+      <h2>時代をえらんでスタート！</h2>
+      <div id="subjectGrid"></div>
+    </div>
+
+    <details class="panel help-d" id="helpPanel">
+      <summary class="set-head">
+        <span class="set-title">❓ あそびかた</span>
+        <span class="set-caret" aria-hidden="true">▾</span>
+      </summary>
+      <div class="help">
+        ・お題（問い）の<b>こたえ</b>を、表示されたローマ字どおりにキーボードで打ちます。<br>
+        ・「かくす」モードはこたえが <b>●●●</b> で隠れ、<b>手が止まって数秒たつと漢字とローマ字が表示</b>されます（秒数は②で選べます）。<b>表示される前に最後まで打ち切れたらボーナス</b>（⚡+50）。<b>全問それができたらパーフェクト！</b><br>
+        ・歴史は<b>発音どおりのローマ字</b>で打ちます（例：とうきょう＝<span class="kbd">toukyou</span>、しょうぐん＝<span class="kbd">syougun</span>）。<br>
+        ・はじめての人は <b>せってい③で「運指ガイド」を表示する</b> にすると、つぎに打つキーと指を案内します（ふだんは非表示でOK）。<br>
+        ・むずかしい問題は <span class="kbd">Esc</span> でスキップ、<b>⏸ポーズ</b>でひとやすみできます。<br>
+        ・はじめる前に <b>日本語入力（IME）を半角（オフ）</b>にしてね。
+      </div>
+    </details>
+    <div class="foot">© タイプでスタディ ／ 問題内容は marutto-study の歴史教材より（原本は読み取りのみ）</div>
+  </section>
+
+  <!-- ============ プレイ画面 ============ -->
+  <section id="play" class="screen">
+    <div class="topbar">
+      <button class="btn ghost" id="homeBtn">← ホーム</button>
+      <div class="subj-label">
+        <div class="nm" id="plName">—</div>
+        <div class="tg" id="plTag">—</div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="k" id="stTimeK">のこり秒</div><div class="v mono" id="stTime">60</div></div>
+      <div class="stat"><div class="k">スコア</div><div class="v mono" id="stScore">0</div></div>
+      <div class="stat" id="combo"><div class="k">コンボ</div><div class="v mono" id="stCombo">0</div></div>
+      <div class="stat"><div class="k">クリア</div><div class="v mono" id="stClear">0</div></div>
+    </div>
+    <div class="timewrap"><div id="timebar"></div></div>
+
+    <div class="stage" id="stage">
+      <div class="ask" id="ask">じゅんびちゅう…</div>
+      <div class="kana-line" id="kanaLine"></div>
+      <div class="roman-line" id="romanLine"></div>
+      <div class="hintline" id="hintLine"></div>
+      <div class="playbtns">
+        <button class="btn ghost" id="quitBtn">やめる</button>
+      </div>
+      <div class="gain" id="gain"></div>
+      <div class="note" id="note">日本語入力がオンです。半角にしてね</div>
+    </div>
+
+    <!-- 運指ガイド（オンスクリーンキーボード） -->
+    <div class="kbguide" id="kbGuide" aria-hidden="true"></div>
+
+    <!-- スタート確認オーバーレイ -->
+    <div class="overlay" id="startOverlay">
+      <button class="btn ghost ov-back" id="readyBackBtn">← 単元をえらぶ</button>
+      <h2>READY?</h2>
+      <p>キーボードを<b>半角（英数）</b>にして、<br><span class="kbd">Enter</span> か <span class="kbd">Space</span> でスタート！</p>
+      <div class="ime-keyhint" id="imeKeyHint"></div>
+      <div class="ime-status" id="imeStatus"></div>
+      <button class="btn primary" id="startBtn" style="font-size:18px; padding:14px 34px;">▶ スタート</button>
+      <div style="font-size:13px; color:var(--sub); font-weight:700;">（<span class="kbd">Enter</span> / <span class="kbd">Space</span> キーでもスタートできます）</div>
+
+      <details class="overlay-settings" id="overlaySettings">
+        <summary>⚙ 設定を変える</summary>
+        <div class="ov-set-body">
+          <div class="ov-set-label">問題数</div>
+          <div class="opt-row" id="countRow2">
+            <div class="chip" data-count="5">5問</div>
+            <div class="chip" data-count="10">10問</div>
+            <div class="chip" data-count="20">20問</div>
+            <div class="chip" data-count="99999">全問</div>
+          </div>
+          <div class="ov-set-label">答えの出し方</div>
+          <div class="opt-row" id="modeRow2">
+            <div class="chip" data-hide="1">少し考える</div>
+            <div class="chip" data-hide="0">最初から見る</div>
+          </div>
+          <div class="opt-row" id="revealRow2">
+            <div class="chip" data-reveal="2">2秒</div>
+            <div class="chip" data-reveal="3">3秒</div>
+            <div class="chip" data-reveal="5">5秒</div>
+            <div class="chip" data-reveal="8">8秒</div>
+          </div>
+          <div class="ov-set-label">キーボードのヒント</div>
+          <div class="opt-row" id="kbRow2">
+            <div class="chip" data-kb="0">ヒントなし</div>
+            <div class="chip" data-kb="1">ヒントあり</div>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <!-- カウントダウン -->
+    <div class="overlay" id="countdownOverlay" style="display:none;">
+      <h2 id="countNum">3</h2>
+    </div>
+
+    <!-- ポーズ -->
+    <div class="overlay" id="pauseOverlay" style="display:none;">
+      <h2>PAUSE</h2>
+      <p>ひとやすみ中…</p>
+      <button class="btn primary" id="resumeBtn" style="padding:14px 28px; font-size:16px;">▶ つづける</button>
+      <button class="btn ghost" id="pauseHomeBtn">ホームにもどる</button>
+    </div>
+    <input id="imeInput" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" inputmode="latin">
+  </section>
+
+  <!-- ============ リザルト画面 ============ -->
+  <section id="result" class="screen">
+    <div class="panel rank-wrap">
+      <div class="best-banner" id="bestBanner" style="display:none;">🎉 自己ベスト更新！</div>
+      <div class="rank" id="rank">A</div>
+      <div class="title-badge" id="titleBadge"></div>
+      <div class="rank-msg" id="rankMsg"></div>
+      <div class="hidden-perfect" id="hiddenPerfect" style="display:none;"></div>
+    </div>
+    <div class="result-grid">
+      <div class="stat"><div class="k">スコア</div><div class="v mono" id="rScore">0</div></div>
+      <div class="stat"><div class="k">クリア数</div><div class="v mono" id="rClear">0</div></div>
+      <div class="stat"><div class="k">正確率</div><div class="v mono" id="rAcc">0%</div></div>
+      <div class="stat"><div class="k">KEYS/分</div><div class="v mono" id="rKpm">0</div></div>
+    </div>
+    <div class="panel acc-panel">
+      <div class="acc-head"><span>正答率グラフ</span><span class="acc-big mono" id="accBig">0%</span></div>
+      <div class="acc-bar"><div class="acc-fill" id="accFill"></div></div>
+      <div class="acc-info" id="accInfo"></div>
+    </div>
+    <div class="panel newbadges" id="newBadges" style="display:none;"></div>
+    <div class="panel review" id="reviewBox">
+      <h3>にがて 復習リスト</h3>
+      <div id="reviewList"></div>
+      <button class="btn" id="resWeakBtn" style="width:100%; margin-top:10px; display:none;">⚡ にがてを集中練習</button>
+    </div>
+    <div class="submit-row">
+      <button class="btn primary" id="submitScoreBtn" style="width:100%; padding:15px; font-size:15px;">🏆 全国ランキングに登録</button>
+      <div class="submit-note" id="submitNote"></div>
+    </div>
+    <div class="result-btns">
+      <button class="btn" id="againBtn">もう一回（Enter）</button>
+      <button class="btn" id="recordsBtn">きろくを見る</button>
+      <button class="btn" id="backBtn">範囲えらびへ</button>
+    </div>
+  </section>
+
+  <!-- ============ きろく＆ランキング画面 ============ -->
+  <section id="records" class="screen">
+    <div class="topbar">
+      <button class="btn ghost" id="recHomeBtn">← ホーム</button>
+      <div class="subj-label"><div class="nm">📊 きろく＆ランキング</div></div>
+    </div>
+
+    <div class="panel">
+      <h2>👤 プレイヤー</h2>
+      <div class="prof-row">
+        <span id="recName">ゲスト</span>
+        <button class="btn" id="editNameBtn">名前を変える</button>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>マイきろく</h2>
+      <div class="result-grid">
+        <div class="stat"><div class="k">プレイ回数</div><div class="v mono" id="myPlays">0</div></div>
+        <div class="stat"><div class="k">最高スコア</div><div class="v mono" id="myBest">0</div></div>
+        <div class="stat"><div class="k">累計時間</div><div class="v mono" id="myTime">0分</div></div>
+        <div class="stat"><div class="k">連続日数</div><div class="v mono" id="myStreak">0日</div></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>🏅 実績バッジ <span id="badgeCount" class="badge-count"></span></h2>
+      <div class="badge-grid" id="badgeGrid"></div>
+    </div>
+
+    <div class="panel">
+      <h2>時代べつ成績</h2>
+      <div id="eraStats"></div>
+    </div>
+
+    <div class="panel">
+      <h2>にがて問題ベスト10</h2>
+      <p class="board-note">「できた回数 − できなかった回数」。0になったら にがて から外れます。</p>
+      <div id="weakStats"></div>
+      <button class="btn primary" id="weakDrillBtn" style="width:100%; margin-top:12px; display:none;">⚡ にがてを集中練習</button>
+    </div>
+
+    <div class="panel">
+      <h2>キー別ミス</h2>
+      <div id="keyStats"></div>
+    </div>
+
+
+    <div class="panel">
+      <h2>🏆 ランキング</h2>
+      <p class="board-note">あなたが登録したランキング（問題数ごと）から選べます。</p>
+      <div class="board-head">
+        <select id="boardCatSel"></select>
+        <button class="btn" id="reloadBoardBtn">更新</button>
+      </div>
+      <div class="scope" id="boardScope" style="margin-bottom:8px;"></div>
+      <div id="boardList"></div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ============ 名前とうろくモーダル ============ -->
+<div class="modal" id="nameModal">
+  <div class="card">
+    <h2>なまえを とうろく</h2>
+    <p>全国ランキングで つかう なまえを いれてね。<br>（あとで「名前を変える」からへんこうできます）</p>
+    <input id="nameInput" maxlength="12" autocomplete="off" placeholder="ニックネーム（12文字まで）">
+    <button class="btn primary" id="nameSaveBtn" style="width:100%; padding:13px;">けってい</button>
+  </div>
+</div>
+
+<!-- 問題データ（別ファイル・教員が編集しやすいよう分離） -->
+<script src="data-history.js"></script>
+<!-- 全国ランキングの接続せってい（別ファイル・キーを貼るだけ） -->
+<script src="ranking-config.js"></script>
+<script>
+"use strict";
+/* =========================================================================
+   ローマ字入力エンジン（test.js で全1162問の打鍵可能性を検証済み）
+   ========================================================================= */
+const BASE = {
+  'あ':['a'],'い':['i'],'う':['u','wu','whu'],'え':['e'],'お':['o'],
+  'か':['ka','ca'],'き':['ki'],'く':['ku','cu','qu'],'け':['ke'],'こ':['ko','co'],
+  'が':['ga'],'ぎ':['gi'],'ぐ':['gu'],'げ':['ge'],'ご':['go'],
+  'さ':['sa'],'し':['shi','si','ci'],'す':['su'],'せ':['se'],'そ':['so'],
+  'ざ':['za'],'じ':['ji','zi'],'ず':['zu'],'ぜ':['ze'],'ぞ':['zo'],
+  'た':['ta'],'ち':['chi','ti','ci'],'つ':['tsu','tu'],'て':['te'],'と':['to'],
+  'だ':['da'],'ぢ':['di','dzi'],'づ':['du','dzu'],'で':['de'],'ど':['do'],
+  'な':['na'],'に':['ni'],'ぬ':['nu'],'ね':['ne'],'の':['no'],
+  'は':['ha'],'ひ':['hi'],'ふ':['fu','hu'],'へ':['he'],'ほ':['ho'],
+  'ば':['ba'],'び':['bi'],'ぶ':['bu'],'べ':['be'],'ぼ':['bo'],
+  'ぱ':['pa'],'ぴ':['pi'],'ぷ':['pu'],'ぺ':['pe'],'ぽ':['po'],
+  'ま':['ma'],'み':['mi'],'む':['mu'],'め':['me'],'も':['mo'],
+  'や':['ya'],'ゆ':['yu'],'よ':['yo'],
+  'ら':['ra'],'り':['ri'],'る':['ru'],'れ':['re'],'ろ':['ro'],
+  'わ':['wa'],'を':['wo','o'],'ゔ':['vu'],
+  'ぁ':['la','xa'],'ぃ':['li','xi','lyi','xyi'],'ぅ':['lu','xu'],'ぇ':['le','xe','lye','xye'],'ぉ':['lo','xo'],
+  'ゃ':['lya','xya'],'ゅ':['lyu','xyu'],'ょ':['lyo','xyo'],'ゎ':['lwa','xwa'],
+};
+const YOUON_PREFIX = {
+  'き':['ky'],'ぎ':['gy'],'し':['sh','sy'],'じ':['j','jy','zy'],'ち':['ch','ty','cy'],
+  'ぢ':['dy'],'に':['ny'],'ひ':['hy'],'び':['by'],'ぴ':['py'],'み':['my'],'り':['ry'],
+  'ふ':['fy'],'ゔ':['vy'],
+};
+const SMALLY = {'ゃ':'a','ゅ':'u','ょ':'o'};
+const FOREIGN = {
+  'ふぁ':['fa'],'ふぃ':['fi'],'ふぇ':['fe'],'ふぉ':['fo'],'ふゅ':['fyu'],
+  'うぃ':['wi'],'うぇ':['we'],'うぉ':['who'],
+  'ゔぁ':['va'],'ゔぃ':['vi'],'ゔぇ':['ve'],'ゔぉ':['vo'],
+  'てぃ':['thi'],'てゅ':['thu'],'でぃ':['dhi'],'でゅ':['dhu'],
+  'とぅ':['twu'],'どぅ':['dwu'],'ぐぁ':['gwa'],'くぁ':['qa','kwa'],
+  'つぁ':['tsa'],'つぃ':['tsi'],'つぇ':['tse'],'つぉ':['tso'],
+  'いぇ':['ye'],'じぇ':['je','zye'],'ちぇ':['che','tye'],'しぇ':['she','sye'],
+};
+const SMALL_SET = new Set(['ぁ','ぃ','ぅ','ぇ','ぉ','ゃ','ゅ','ょ','ゎ']);
+const uniq = a => [...new Set(a)];
+
+function mergeRomans(k1,k2){
+  let out=[];
+  const key=k1+k2;
+  if(FOREIGN[key]) out.push(...FOREIGN[key]);
+  if(SMALLY[k2] && YOUON_PREFIX[k1]) for(const p of YOUON_PREFIX[k1]) out.push(p+SMALLY[k2]);
+  const a1=BASE[k1]||[], a2=BASE[k2]||[];
+  for(const a of a1) for(const b of a2) out.push(a+b);
+  return uniq(out);
+}
+const canMerge = (k1,k2) => SMALL_SET.has(k2) && !!BASE[k1];
+
+function compileKana(s){
+  const raw=[];
+  for(let i=0;i<s.length;i++){
+    const c=s[i], n=s[i+1];
+    if(c==='ー'){ raw.push({kind:'cho'}); continue; }
+    if(c==='っ'){ raw.push({kind:'sokuon'}); continue; }
+    if(c==='ん'){ raw.push({kind:'n'}); continue; }
+    if(n && canMerge(c,n)){ raw.push({kind:'kana',kana:c+n,romans:mergeRomans(c,n)}); i++; continue; }
+    raw.push({kind:'kana',kana:c,romans:(BASE[c]||[c]).slice()});
+  }
+  const units=[];
+  for(let i=0;i<raw.length;i++){
+    const t=raw[i], next=raw[i+1];
+    if(t.kind==='kana'){
+      units.push({kana:t.kana,romans:t.romans.slice(),disp:t.romans[0]});
+    } else if(t.kind==='cho'){
+      units.push({kana:'ー',romans:['-'],disp:'-'});
+    } else if(t.kind==='sokuon'){
+      let romans=['ltu','xtu','ltsu','xtsu'], disp='tsu';
+      if(next && next.kind==='kana'){
+        const heads=uniq(next.romans.map(r=>r[0]).filter(h=>/[a-z]/.test(h)));
+        const dbl=heads.filter(h=>!'aiueo'.includes(h));
+        if(dbl.length){ romans=uniq([...dbl,...romans]); disp=dbl[0]; }
+      }
+      units.push({kana:'っ',romans,disp});
+    } else if(t.kind==='n'){
+      let romans=['nn','xn'], allowSingle=false;
+      if(next && next.kind==='kana') allowSingle = next.romans.every(r=>!'aiueony'.includes(r[0]));
+      else if(next && next.kind==='sokuon') allowSingle=true;
+      if(allowSingle) romans=['nn','n','xn'];
+      units.push({kana:'ん',romans,disp: allowSingle?'n':'nn'});
+    }
+  }
+  return units;
+}
+function compileRaw(s){
+  return [...s].map(ch => ({kana:'',romans:[ch.toLowerCase()],disp:ch}));
+}
+function compileAnswer(ans, mode){ return mode==='kana' ? compileKana(ans) : compileRaw(ans); }
+
+// 1キー処理: {type:'progress'|'complete'|'carry'|'mistake', buf?}
+function feed(units, idx, buf, key){
+  key=key.toLowerCase();
+  const u=units[idx];
+  const t=buf+key;
+  if(u.romans.some(r=>r.startsWith(t)&&r.length>t.length)) return {type:'progress',buf:t};
+  if(u.romans.includes(t)) return {type:'complete'};
+  if(buf && u.romans.includes(buf)) return {type:'carry'};
+  return {type:'mistake'};
+}
+
+/* =========================================================================
+   科目データ構築（歴史: 時代ごと ＋ おまかせ全時代）
+   ========================================================================= */
+const SUBJECTS_ALL_KEY = 'all-history';
+const SUBJECTS = Object.assign({}, window.HISTORY_SUBJECTS || {});
+// おまかせ（全時代ミックス）
+(function(){
+  if(!window.HISTORY_SUBJECTS) return;
+  const all=[];
+  for(const id in window.HISTORY_SUBJECTS) all.push(...window.HISTORY_SUBJECTS[id].q);
+  SUBJECTS[SUBJECTS_ALL_KEY] = {
+    name:'おまかせ（全時代）', tag:'ALL HISTORY', color:'#ffd34d', big:'全', mode:'kana',
+    hint:'全時代からランダム出題！歴史用語をローマ字で', q:all, _all:true
+  };
+})();
+
+/* =========================================================================
+   単元の階層（時代区分・学年）— 教材に合わせて編集できます
+   ・ERA_META: 各時代を「時代区分(period)」と「学年(grade)」に対応づけ
+   ・グループ全体（例：古代ぜんぶ）をまとめて出題範囲にできる
+   ========================================================================= */
+const ERA_META = {
+  'history-basics':   {period:'古代', grade:'中1'},
+  'ancient-world':    {period:'古代', grade:'中1'},
+  'japanese-origins': {period:'古代', grade:'中1'},
+  'ancient-state':    {period:'古代', grade:'中1'},
+  'warrior-kamakura': {period:'中世', grade:'中1'},
+  'medieval-world':   {period:'中世', grade:'中1'},
+  'early-modern':     {period:'近世', grade:'中2'},
+  'edo-establishment':{period:'近世', grade:'中2'},
+  'modern-era':       {period:'近代', grade:'中2'},
+  'bakumatsu':        {period:'近代', grade:'中2'},
+  'meiji-early':      {period:'近代', grade:'中2'},
+  'meiji-late':       {period:'近代', grade:'中2'},
+  'ww1-japan':        {period:'近代', grade:'中3'},
+  'taisho-democracy': {period:'近代', grade:'中3'},
+  'showa-crisis':     {period:'近代', grade:'中3'},
+  'ww2-japan':        {period:'近代', grade:'中3'},
+  'postwar-japan':    {period:'現代', grade:'中3'},
+  'cold-war-era':     {period:'現代', grade:'中3'},
+  'modern-world':     {period:'現代', grade:'中3'},
+};
+const PERIOD_ORDER = ['古代','中世','近世','近代','現代'];
+const GRADE_ORDER  = ['中1','中2','中3'];
+const GROUP_COLOR = { '古代':'#c77d3a','中世':'#3a8fc7','近世':'#7d5fc7','近代':'#1aa861','現代':'#e5894d',
+                      '中1':'#2f7df0','中2':'#1aa861','中3':'#e5484d' };
+const GROUP_BIG   = { '古代':'古','中世':'中','近世':'近','近代':'代','現代':'今',
+                      '中1':'1','中2':'2','中3':'3' };
+
+function eraIdsInOrder(){ return Object.keys(window.HISTORY_SUBJECTS||{}); }
+// 現在の分け方(period/grade)で、グループ→配下の時代ID配列 を返す
+function groupsFor(mode){
+  const order = mode==='grade' ? GRADE_ORDER : PERIOD_ORDER;
+  const key   = mode==='grade' ? 'grade' : 'period';
+  const map={};
+  for(const id of eraIdsInOrder()){
+    const meta=ERA_META[id]; const g = meta ? meta[key] : 'その他';
+    (map[g] || (map[g]=[])).push(id);
+  }
+  const known = order.filter(k=>map[k]&&map[k].length).map(k=>({name:k, ids:map[k]}));
+  if(map['その他']) known.push({name:'その他', ids:map['その他']});
+  return known;
+}
+function groupKey(mode,name){ return 'grp:'+mode+':'+name; }
+// グループ配下の全時代をまとめた動的科目を作る
+function buildGroupSubject(mode,name,ids){
+  const q=[]; for(const id of ids){ const s=window.HISTORY_SUBJECTS[id]; if(s) q.push(...s.q); }
+  const key=groupKey(mode,name);
+  SUBJECTS[key]={ name:name+'（すべて）',
+    tag:(mode==='grade'?'GRADE '+name.replace('中',''):'PERIOD '+name),
+    color:GROUP_COLOR[name]||'#888', big:GROUP_BIG[name]||'範', mode:'kana',
+    hint:name+'のはんいからまとめて出題！', q, _group:true };
+  return key;
+}
+function startGroup(mode,name,ids){ if(ids&&ids.length) startGame(buildGroupSubject(mode,name,ids)); }
+
+/* ---------- にがて練習（記録の苦手問題から動的に出題） ---------- */
+function buildWeakSubject(limit){
+  if(typeof getStats!=='function') return null;
+  const st=getStats();
+  const weak=Object.values(st.weak||{}).filter(w=>weakNet(w)<0).sort((a,b)=>weakNet(a)-weakNet(b)).slice(0, limit||20);
+  if(!weak.length) return null;
+  const q=weak.map(w=>[w.ask, w.ans, w.term||w.ans]);
+  SUBJECTS[WEAK_KEY]={ name:'にがて練習', tag:'WEAK DRILL', color:'#e5484d', big:'弱',
+    mode:'kana', hint:'まちがえやすい問題を集中練習！', q, _weak:true };
+  return SUBJECTS[WEAK_KEY];
+}
+function buildDueSubject(){
+  if(typeof getStats!=='function') return null;
+  const due=dueWeakItems(getStats(), 20);
+  if(!due.length) return null;
+  SUBJECTS[WEAK_KEY]={ name:'今日の復習', tag:'REVIEW', color:'#e5484d', big:'復',
+    mode:'kana', hint:'今日復習する問題をまとめて練習！', q:due.map(w=>[w.ask, w.ans, w.term||w.ans]), _weak:true };
+  return SUBJECTS[WEAK_KEY];
+}
+// 苦手集中モードの「全部をもう一度」で戻る、元の単元（全問の出題対象）
+let weakDrillOrigin=null;
+function startWeakPractice(){
+  if(!buildWeakSubject(20)) return;
+  weakDrillOrigin = SUBJECTS_ALL_KEY;   // 全時代の苦手 → 「全部」は おまかせ（全時代）
+  startGame(WEAK_KEY);
+}
+// リザルトの「にがてを集中練習」：その回にまちがえた問題だけを出題
+let lastSessionWeak=[];
+function startSessionWeakPractice(){
+  if(!lastSessionWeak.length) return;
+  // 直前が通常プレイなら、その単元を「全部をもう一度」の対象として記憶（苦手練習の連鎖では維持）
+  if(!(S.subject && S.subject._weak)) weakDrillOrigin = cfg.subjectId;
+  const q=lastSessionWeak.map(w=>[w.ask, w.ans, w.term||w.ans]);
+  SUBJECTS[WEAK_KEY]={ name:'にがて練習', tag:'WEAK DRILL', color:'#e5484d', big:'弱',
+    mode:'kana', hint:'この回でまちがえた問題を集中練習！', q, _weak:true };
+  startGame(WEAK_KEY);
+}
+function startDuePractice(){
+  if(!buildDueSubject()) return;
+  startGame(WEAK_KEY);
+}
+
+/* =========================================================================
+   ゲーム状態・定数
+   ========================================================================= */
+const cfg = { mode:'count', sec:60, count:10, hide:true, revealSec:3, sound:true, keyboard:false, groupMode:'period', subjectId:null };
+const S = {
+  running:false, subject:null, deck:[], deckPos:0,
+  score:0, combo:0, maxCombo:0, cleared:0, skipped:0, correct:0, wrong:0,
+  cur:null, review:new Map(),
+  clearedItems:[], keyMisses:{},
+  startAt:0, endAt:0, timer:null, revealTimer:null, revealTimeout:null,
+};
+const $ = id => document.getElementById(id);
+const screens = { title:$('title'), play:$('play'), result:$('result'), records:$('records') };
+function show(name){ for(const k in screens) screens[k].classList.toggle('active', k===name); }
+
+/* ---------- タイトル: 設定チップ（クリック／キーボード対応・設定は保存） ---------- */
+function bindChips(rowId, cb){
+  const row=$(rowId); if(!row) return;   // タイトル用とREADY用で同じIDが無い場合もある
+  row.querySelectorAll('.chip').forEach(c=>{
+    c.setAttribute('role','button'); c.tabIndex=0;
+    const act=()=>{ cb(c); saveCfg(); applyCfgToUI();
+      // READY画面で設定を変えた場合は、開始キー(Space/Enter)が効くよう入力欄へ復帰
+      const ov=$('startOverlay'); if(ov && ov.style.display!=='none') setTimeout(()=>imeInput.focus(), 0);
+    };
+    c.addEventListener('click', act);
+    c.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); act(); } });
+  });
+}
+// タイトル(xxxRow)とREADY?(xxxRow2)の両方を同じコールバックで束ねる
+function bindChipsPair(id, cb){ bindChips(id, cb); bindChips(id+'2', cb); }
+bindChipsPair('countRow', c=>{ cfg.count=+c.dataset.count; cfg.mode='count'; });
+bindChipsPair('modeRow', c=>{ cfg.hide = c.dataset.hide==='1'; });
+bindChipsPair('revealRow', c=> cfg.revealSec=+c.dataset.reveal);
+bindChipsPair('kbRow', c=>{ cfg.keyboard = c.dataset.kb==='1'; });
+
+// 設定の保存・復元（CFG_KEY は LS 定義後に参照されるので関数化）
+function saveCfg(){ if(typeof LS!=='undefined') LS.set(CFG_KEY, {mode:cfg.mode, sec:cfg.sec, count:cfg.count, hide:cfg.hide, revealSec:cfg.revealSec, sound:cfg.sound, keyboard:cfg.keyboard, groupMode:cfg.groupMode}); }
+function loadCfg(){ Object.assign(cfg, LS.get(CFG_KEY, {})); }
+function setChipPressed(rowId, attr, val){
+  const row=$(rowId); if(!row) return;
+  row.querySelectorAll('.chip').forEach(x=> x.setAttribute('aria-pressed', String(x.dataset[attr]===String(val))));
+}
+function showRows(ids, on){ ids.forEach(id=>{ const e=$(id); if(e) e.style.display = on?'flex':'none'; }); }
+const ALLQ=99999;   // 「全問」を表す問題数
+function countLabel(c){ return (c>=ALLQ) ? '全問' : c+'問'; }
+function updateCondRows(){
+  showRows(['revealRow','revealRow2'], cfg.hide);
+}
+function applyCfgToUI(){
+  cfg.mode='count';   // 出題は問題数モードのみ
+  if(![5,10,20,ALLQ].includes(cfg.count)) cfg.count=10;   // 旧設定(30秒など)の補正
+  const rows=[['countRow','count',cfg.count],
+    ['modeRow','hide',cfg.hide?'1':'0'],['revealRow','reveal',cfg.revealSec],['kbRow','kb',cfg.keyboard?'1':'0']];
+  for(const r of rows){ setChipPressed(r[0],r[1],r[2]); setChipPressed(r[0]+'2',r[1],r[2]); }
+  updateCondRows();
+  updateSoundBtn();
+  applyKbGuide();
+  updateSettingsSummary();
+}
+function updateSettingsSummary(){
+  const el=$('settingsSummary'); if(!el) return;
+  const disp = cfg.hide ? `少し考える（${cfg.revealSec}秒）` : '最初から見る';
+  const kb   = cfg.keyboard ? 'ヒントあり' : 'ヒントなし';
+  el.textContent = `${countLabel(cfg.count)}／${disp}／${kb}`;
+}
+
+/* ---------- 効果音（WebAudio・軽量シンセ） ---------- */
+let actx=null;
+function audioCtx(){
+  if(actx) return actx;
+  try{ actx=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ actx=null; }
+  return actx;
+}
+function beep(freq, dur, type, vol, delay){
+  if(!cfg.sound) return;
+  const ac=audioCtx(); if(!ac) return;
+  if(ac.state==='suspended') ac.resume();
+  const t=ac.currentTime+(delay||0);
+  const o=ac.createOscillator(), g=ac.createGain();
+  o.type=type||'square'; o.frequency.setValueAtTime(freq, t);
+  g.gain.setValueAtTime(0.0001, t);
+  g.gain.exponentialRampToValueAtTime(vol||0.06, t+0.006);
+  g.gain.exponentialRampToValueAtTime(0.0001, t+(dur||0.08));
+  o.connect(g); g.connect(ac.destination);
+  o.start(t); o.stop(t+(dur||0.08)+0.03);
+}
+const SFX = {
+  key()   { beep(880, 0.035, 'square', 0.035); },
+  clear() { beep(660,0.08,'triangle',0.08); beep(990,0.10,'triangle',0.08,0.05); },
+  bonus() { beep(880,0.07,'triangle',0.09); beep(1320,0.10,'triangle',0.09,0.06); beep(1760,0.12,'triangle',0.08,0.12); },
+  combo() { beep(1175,0.09,'triangle',0.07); },
+  miss()  { beep(150,0.13,'sawtooth',0.05); },
+  count() { beep(523,0.12,'sine',0.10); },
+  go()    { beep(1047,0.28,'sine',0.12); },
+  timeup(){ beep(392,0.18,'sawtooth',0.09); beep(294,0.30,'sawtooth',0.09,0.16); },
+};
+function updateSoundBtn(){
+  const b=$('soundBtn'); if(!b) return;
+  b.setAttribute('aria-pressed', String(!!cfg.sound));
+  b.textContent = cfg.sound ? '🔊 音' : '🔇 音';
+}
+function toggleSound(){ cfg.sound=!cfg.sound; saveCfg(); updateSoundBtn(); if(cfg.sound) SFX.go(); }
+
+/* ---------- 運指ガイド（オンスクリーンキーボード／タッチタイピング） ---------- */
+const KB_ROWS=[
+  ['q','w','e','r','t','y','u','i','o','p'],
+  ['a','s','d','f','g','h','j','k','l'],
+  ['z','x','c','v','b','n','m'],
+];
+const KEY_FINGER={ q:0,a:0,z:0, w:1,s:1,x:1, e:2,d:2,c:2, r:3,f:3,v:3,t:3,g:3,b:3,
+  y:4,h:4,n:4,u:4,j:4,m:4, i:5,k:5, o:6,l:6, p:7 };
+const FINGER_NAME=['左手 こ指','左手 くすり指','左手 中指','左手 ひとさし指','右手 ひとさし指','右手 中指','右手 くすり指','右手 こ指'];
+const HOME_KEYS=new Set(['a','s','d','f','j','k','l']);
+const keyEls={};
+function buildKeyboard(){
+  const g=$('kbGuide'); if(!g) return;
+  g.innerHTML='';
+  for(const row of KB_ROWS){
+    const r=document.createElement('div'); r.className='krow';
+    for(const k of row){
+      const el=document.createElement('div');
+      el.className='key f'+KEY_FINGER[k]+(HOME_KEYS.has(k)?' home':'');
+      el.textContent=k; keyEls[k]=el; r.appendChild(el);
+    }
+    g.appendChild(r);
+  }
+  const fh=document.createElement('div'); fh.className='fingerhint'; fh.id='fingerHint'; g.appendChild(fh);
+}
+function highlightKey(ch){
+  for(const k in keyEls) keyEls[k].classList.remove('next');
+  const fh=$('fingerHint');
+  if(ch && keyEls[ch]){
+    keyEls[ch].classList.add('next');
+    if(fh) fh.innerHTML = `つぎは <b>${ch.toUpperCase()}</b>（${FINGER_NAME[KEY_FINGER[ch]]}）`;
+  } else if(fh){ fh.textContent=''; }
+}
+function nextExpectedKey(){
+  const c=S.cur; if(!c || c.idx>=c.units.length) return '';
+  const u=c.units[c.idx];
+  const cand=u.romans.find(r=>r.startsWith(c.buf)) || u.disp;
+  return (cand[c.buf.length]||'').toLowerCase();
+}
+function applyKbGuide(){
+  const g=$('kbGuide'); if(g) g.style.display = cfg.keyboard ? '' : 'none';
+}
+
+/* ---------- タイトル: 範囲ボタン生成 ---------- */
+/* ---------- プレイ回数バッジ（回数に応じて 🥉🥈🥇🏆👑） ---------- */
+function medalForPlays(n){ return n>=20?'👑':n>=10?'🏆':n>=6?'🥇':n>=3?'🥈':n>=1?'🥉':''; }
+function playsTag(plays){
+  plays=plays||0; const med=medalForPlays(plays);
+  return `<span class="plays"${plays?` title="プレイ${plays}回"`:''}>`
+    + (med?`<span class="medal">${med}</span>`:'')
+    + `<span class="pn">${plays}回</span></span>`;
+}
+function playsOf(id){ const st=getStats(); return (((st.byEra||{})[id])||{}).plays||0; }
+
+function eraCardHtml(s, plays){
+  // （旧）テキストのみカード。おまかせ用に残す
+  return `<span class="meta"><span class="nm">${esc(s.name)}</span>`
+    + `<span class="tg">${s.tag}</span> <span class="cnt">${s.q.length}問</span>`
+    + playsTag(plays) + `</span>`;
+}
+
+/* ---------- ステージ風カード用のデータ（Lv・進捗・バッジ） ---------- */
+const _eraKeyCache={};
+function eraKeys(id){
+  if(_eraKeyCache[id]) return _eraKeyCache[id];
+  const s=window.HISTORY_SUBJECTS[id];
+  return (_eraKeyCache[id] = s ? s.q.map(q=>q[0]+''+q[1]) : []);
+}
+const ERA_IDS = ()=>Object.keys(window.HISTORY_SUBJECTS||{});
+function eraLv(id){
+  const i=ERA_IDS().indexOf(id);
+  return i<0 ? 1 : Math.min(5, Math.floor(i/4)+1);   // 時代が進むほどLvが上がる（1〜5）
+}
+function eraProgress(id, st){
+  const keys=eraKeys(id), total=keys.length;
+  const ck=(st&&st.clearedKeys)||{};
+  let done=0; for(const k of keys) if(ck[k]) done++;
+  return { done, total, pct: total?Math.round(done/total*100):0, cleared: total>0 && done>=total };
+}
+function recommendedEraId(st){
+  for(const id of ERA_IDS()){ const e=(st.byEra||{})[id]; if(!e || !e.plays) return id; }   // 最初の未挑戦の時代
+  return null;
+}
+/* ---------- クリア／パーフェクト判定（単元＝パート、時代＝全パート） ---------- */
+// パーフェクトは「何問設定で達成したか」でアイコンが変わる。複数取得時は最高位（全問が最上位）だけ表示。
+const PERFECT_TIER_ORDER=['5','10','20','all'];
+const PERFECT_ICON={'5':'⭐','10':'🌟','20':'💎','all':'👑'};
+const PERFECT_STARS={'5':'★','10':'★','20':'★★','all':'★★★'};   // 5/10問=★、20問=★★、全問=★★★
+const PERFECT_NAME={'5':'5問パーフェクト','10':'10問パーフェクト','20':'20問パーフェクト','all':'全問パーフェクト'};
+// 攻略度（答えが出る前に入力しきった問題の割合）→ 銅→銀→金
+function masteryTier(m, total){
+  if(total<=0 || m<=0) return '';
+  if(m>=total) return 'gold';
+  if(m*2>=total) return 'silver';   // 半数以上＝銀
+  return 'bronze';                  // 1問でも＝銅
+}
+function eraMastery(id, st){
+  const keys=eraKeys(id), total=keys.length, mk=(st&&st.masteredKeys)||{};
+  let m=0; for(const k of keys) if(mk[k]) m++;
+  return {mastered:m, total, tier:masteryTier(m,total)};
+}
+function partMastery(eraId, part, st){
+  const keys=eraKeys(eraId), mk=(st&&st.masteredKeys)||{};
+  let m=0, total=0; for(let i=part.from;i<part.to;i++){ total++; if(mk[keys[i]]) m++; }
+  return {mastered:m, total, tier:masteryTier(m,total)};
+}
+function tierForCount(count){ return count>=ALLQ?'all':(count===20?'20':count===10?'10':count===5?'5':null); }
+function highestTier(tiers){
+  if(!tiers) return null;
+  for(let i=PERFECT_TIER_ORDER.length-1;i>=0;i--){ if(tiers[PERFECT_TIER_ORDER[i]]) return PERFECT_TIER_ORDER[i]; }
+  return null;
+}
+function subjPerfectTier(subjId, st){
+  const e=((st&&st.byEra)||{})[subjId]; if(!e) return null;
+  return highestTier(e.perfectTiers) || (e.perfect ? 'all' : null);   // 旧データ(boolean)互換
+}
+function partCleared(eraId, part, st){
+  const ck=(st&&st.clearedKeys)||{}, keys=eraKeys(eraId);
+  for(let i=part.from;i<part.to;i++){ if(!ck[keys[i]]) return false; }
+  return true;
+}
+function partPerfectTier(eraId, idx, st){ return subjPerfectTier(partKeyOf(eraId,idx), st); }
+function partPerfect(eraId, idx, st){ return !!partPerfectTier(eraId, idx, st); }
+// 時代の「完全制覇」＝中の全単元が ★★★（全問パーフェクト）を達成したときだけ
+function eraAllPerfect(id, st){
+  if(subjPerfectTier(id, st)==='all') return true;            // 「○○をすべて」を全問パーフェクト
+  const parts=eraParts(id);
+  if(!parts.length) return false;
+  return parts.every(p=>partPerfectTier(id, p.idx, st)==='all');   // 全パートが★★★
+}
+function eraBadge(id, pr, st, recId){
+  const parts=eraParts(id);
+  if(parts.length===0){
+    const t=subjPerfectTier(id, st);
+    if(t) return {cls:'b-perfect', label: PERFECT_STARS[t]+' パーフェクト'};   // 単元（小さい時代）のパーフェクト（★の数）
+  } else if(eraAllPerfect(id, st)){
+    return {cls:'b-perfect', label:'★★★ 完全制覇'};                            // 全単元パーフェクト
+  }
+  if(pr.cleared) return {cls:'b-clear', label:'✔ 全クリア'};                    // 全単元クリア
+  if(id===recId) return {cls:'b-osusume', label:'おすすめ'};
+  return null;
+}
+// にがて（できた−できなかった が マイナス）の問題があるか
+function isWeakKey(weak, key){ const w=weak[key]; return !!w && weakNet(w)<0; }
+function partHasReview(eraId, part, st){
+  const weak=(st&&st.weak)||{}, keys=eraKeys(eraId);
+  for(let i=part.from;i<part.to;i++){ if(isWeakKey(weak, keys[i])) return true; }
+  return false;
+}
+function eraHasReview(id, st){
+  const weak=(st&&st.weak)||{};
+  for(const k of eraKeys(id)) if(isWeakKey(weak, k)) return true;
+  return false;
+}
+
+/* ---------- パート分割（内容＝セクション単位。最初以外は10〜30問が原則） ---------- */
+const PART_MIN = 10, PART_MAX = 30, PART_TOL = 3;   // 下限/上限/許容誤差（数問）
+const CIRCLED = ['①','②','③','④','⑤','⑥','⑦','⑧','⑨','⑩','⑪','⑫','⑬','⑭'];
+function circled(i){ return CIRCLED[i] || ('('+(i+1)+')'); }
+function partKeyOf(eraId, idx){ return 'part:'+eraId+':'+idx; }
+function eraParts(eraId){
+  const s=window.HISTORY_SUBJECTS[eraId]; if(!s) return [];
+  const secs=s.sections;
+  if(!secs || !secs.length){
+    // セクション情報が無い時のフォールバック（均等割り）
+    const n=s.q.length; if(n<=PART_MAX) return [];
+    const count=Math.ceil(n/PART_MAX), base=Math.floor(n/count), rem=n%count;
+    const out=[]; let a=0;
+    for(let i=0;i<count;i++){ const sz=base+(i<rem?1:0); out.push({idx:i, from:a, to:a+sz, title:'パート'+(i+1)}); a+=sz; }
+    return out;
+  }
+  // セクションを範囲に展開
+  let pos=0; const S=secs.map(arr=>{ const r={name:arr[0], from:pos, to:pos+arr[1], cnt:arr[1]}; pos+=arr[1]; return r; });
+  // 小さいセクションだけ後続と結合し、各かたまりを10〜30問に寄せる（内容の区切りは保つ）
+  const groups=[]; let i=0;
+  while(i<S.length){
+    const g=[S[i]]; let cnt=S[i].cnt; i++;
+    while(cnt<PART_MIN && i<S.length && cnt+S[i].cnt<=PART_MAX+PART_TOL){ g.push(S[i]); cnt+=S[i].cnt; i++; }
+    groups.push(g);
+  }
+  // 末尾が小さすぎる場合は直前に寄せる（先頭は小さくてもよい）
+  const sum=g=>g.reduce((n,x)=>n+x.cnt,0);
+  if(groups.length>=2){
+    const last=groups[groups.length-1], prev=groups[groups.length-2];
+    if(sum(last)<PART_MIN && sum(prev)+sum(last)<=PART_MAX+PART_TOL){ prev.push.apply(prev,last); groups.pop(); }
+  }
+  if(groups.length<=1) return [];   // 1かたまり＝分割不要（時代まるごと）
+  return groups.map((g,idx)=>({
+    idx, from:g[0].from, to:g[g.length-1].to, count:sum(g),
+    title: g.length===1 ? g[0].name : (g[0].name+'〜'+g[g.length-1].name)
+  }));
+}
+function buildPartSubject(eraId, part){
+  const s=window.HISTORY_SUBJECTS[eraId];
+  const key=partKeyOf(eraId, part.idx);
+  SUBJECTS[key]={ name:s.name+' '+circled(part.idx)+'：'+part.title,
+    tag:s.tag+' '+(part.idx+1), color:s.color, big:s.big, mode:'kana',
+    hint:esc(part.title)+'を集中練習！', q:s.q.slice(part.from, part.to), _part:true };
+  return key;
+}
+function startPart(eraId, part){ startGame(buildPartSubject(eraId, part)); }
+
+// ステージ風カードの中身（バッジ・Lv・進捗バー・あと何問）
+function eraStageHtml(id, st, recId){
+  const s=SUBJECTS[id];
+  const pr=eraProgress(id, st);
+  const lv=eraLv(id);
+  const plays=playsOf(id);
+  const badge=eraBadge(id, pr, st, recId);
+  const mast=eraMastery(id, st);
+  let status;
+  if(mast.tier==='gold') status = '🏆 全問こうりゃく！（金）';
+  else if(pr.cleared) status = '✔ クリアずみ！もう一回';
+  else if(pr.done>0) status = `あと${pr.total-pr.done}問でクリア`;
+  else status = 'まだやってないよ';
+  const sub = (id===ERA_IDS()[0]) ? '<span class="st-sub">はじめての人におすすめ</span>' : '';
+  return (badge?`<span class="st-badge ${badge.cls}">${badge.label}</span>`:'')
+    + `<span class="st-name">${esc(s.name)}</span>`
+    + sub
+    + `<span class="st-lv">Lv.${lv}<span class="st-dot">・</span>${s.q.length}問`
+      + (plays?` <span class="st-plays">${medalForPlays(plays)||''}${plays}回</span>`:'') + `</span>`
+    + `<span class="st-bar"><span class="st-fill" style="width:${pr.pct}%"></span></span>`
+    + `<span class="st-status">${esc(status)}</span>`;
+}
+
+// 1つの時代（単元）を描画。ステージ選択風カード。
+//  ・パートなし＝クリックで全問スタート
+//  ・パートあり＝クリックで開くと「○○をすべて」ボタン＋パートが下に出る（アコーディオン）
+function renderEra(root, id, st, recId){
+  const s=SUBJECTS[id]; if(!s) return;
+  const parts=eraParts(id);
+  const pr=eraProgress(id, st);
+  const mt=eraMastery(id, st).tier;
+  const card=document.createElement('button');
+  card.className='subj era'+(parts.length?' has-parts':'')+(pr.cleared?' is-clear':'')+(mt?' m-'+mt:'');
+  card.style.setProperty('--sc', s.color);
+  card.innerHTML=eraStageHtml(id, st, recId) + (parts.length?'<span class="ex-caret" aria-hidden="true">▾</span>':'');
+  if(!parts.length){
+    card.addEventListener('click', ()=>startGame(id));
+    root.appendChild(card);
+    return;
+  }
+  // 開いたときに出るパネル（全幅・初期は非表示）
+  const panel=document.createElement('div'); panel.className='parts-panel'; panel.style.display='none';
+  panel.style.setProperty('--sc', s.color);
+  const allBtn=document.createElement('button'); allBtn.type='button'; allBtn.className='btn es-start';
+  allBtn.textContent=`▶ ${s.name}をすべて（${s.q.length}問）`;
+  allBtn.addEventListener('click', ()=>startGame(id));
+  panel.appendChild(allBtn);
+  const pgrid=document.createElement('div'); pgrid.className='subject-grid part-grid';
+  for(const part of parts){
+    const ptier = partPerfectTier(id, part.idx, st);
+    const cleared = !ptier && partCleared(id, part, st);
+    const pmt = partMastery(id, part, st).tier;
+    const mark = ptier ? `<span class="st-badge b-perfect part-badge" title="${PERFECT_NAME[ptier]}">${PERFECT_STARS[ptier]}</span>`
+               : cleared ? '<span class="st-badge b-clear part-badge">✓</span>' : '';
+    const pb=document.createElement('button'); pb.className='subj part'+(ptier?' is-perfect':'')+(pmt?' m-'+pmt:''); pb.style.setProperty('--sc', s.color);
+    pb.innerHTML = `<span class="big">${circled(part.idx)}</span>`
+      + `<span class="meta"><span class="nm">${esc(part.title)}`
+      + mark + `</span>`
+      + `<span class="cnt">${part.count}問</span>`
+      + playsTag(playsOf(partKeyOf(id, part.idx))) + `</span>`;
+    pb.addEventListener('click', ()=>startPart(id, part));
+    pgrid.appendChild(pb);
+  }
+  panel.appendChild(pgrid);
+  card.addEventListener('click', ()=>{
+    const willOpen = panel.style.display==='none';
+    // 1つだけ開く（他は閉じる）＝一覧をコンパクトに保つ
+    root.querySelectorAll('.parts-panel').forEach(p=>{ if(p!==panel) p.style.display='none'; });
+    root.querySelectorAll('.subj.era').forEach(c=>{ if(c!==card) c.classList.remove('open'); });
+    panel.style.display = willOpen?'':'none';
+    card.classList.toggle('open', willOpen);
+  });
+  root.appendChild(card); root.appendChild(panel);
+}
+function buildSubjectGrid(){
+  if(!window.HISTORY_SUBJECTS) return;   // データ未読込時はエラー表示を残す
+  const root=$('subjectGrid'); if(!root) return;
+  root.innerHTML='';
+  const st=getStats();
+  const recId=recommendedEraId(st);
+  // 上段：おまかせ（全時代）と「苦手を復習」を横並びで
+  const top=document.createElement('div'); top.className='special-row';
+  const allS=SUBJECTS[SUBJECTS_ALL_KEY];
+  if(allS){
+    const ck=st.clearedKeys||{}; const totalQ=allS.q.length;
+    let done=0; for(const k in ck) done++;   // 蓄積済みのクリア問題数（全時代の合計に相当）
+    const pct=totalQ?Math.min(100,Math.round(done/totalQ*100)):0;
+    const a=document.createElement('button');
+    a.className='subj all'; a.style.setProperty('--sc', allS.color);
+    a.innerHTML=`<span class="st-badge b-omakase">いろいろ</span>`
+      + `<span class="st-name">🎲 おまかせ（全時代）</span>`
+      + `<span class="st-lv">ぜんぶの時代からランダム<span class="st-dot">・</span>${totalQ}問</span>`
+      + `<span class="st-bar"><span class="st-fill" style="width:${pct}%"></span></span>`
+      + `<span class="st-status">ぜんぶで ${pct}% クリア</span>`;
+    a.addEventListener('click', ()=>startGame(SUBJECTS_ALL_KEY));
+    top.appendChild(a);
+  }
+  // 苦手を復習（苦手に登録されている問題数を表示）
+  const weakCount=Object.values(st.weak||{}).filter(w=>weakNet(w)<0).length;
+  const wk=document.createElement('button');
+  wk.className='subj weak-card'+(weakCount?'':' disabled');
+  wk.innerHTML=`<span class="st-badge b-review">復習</span>`
+    + `<span class="st-name">⚡ 苦手を復習</span>`
+    + `<span class="st-lv">いまの にがて<span class="st-dot">・</span>${weakCount}問</span>`
+    + `<span class="st-status">${weakCount? 'まちがえた問題を集中練習！' : 'いまは にがて なし'}</span>`;
+  if(weakCount) wk.addEventListener('click', startWeakPractice);
+  top.appendChild(wk);
+  root.appendChild(top);
+  // 時代（単元）ごとにステージ風カードで表示（大きい時代はパートに展開）
+  for(const id of Object.keys(window.HISTORY_SUBJECTS)) renderEra(root, id, st, recId);
+}
+
+/* =========================================================================
+   ゲーム開始フロー
+   ========================================================================= */
+function shuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]];} return a; }
+
+function startGame(subjectId){
+  cfg.subjectId=subjectId;
+  S.subject=SUBJECTS[subjectId];
+  $('plName').textContent=S.subject.name;
+  $('plTag').textContent=S.subject.tag;
+  $('hintLine').textContent=S.subject.hint;
+  show('play');
+  openStartOverlay();
+}
+function targetQuestionCount(){
+  if(cfg.mode!=='count') return Infinity;
+  return Math.min(cfg.count, (S.subject&&S.subject.q&&S.subject.q.length) || cfg.count);
+}
+
+/* ---------- スタート確認オーバーレイ（半角チェック / 第7章） ---------- */
+let imeArmed=false;     // 半角が確認できたか
+let imeFlagged=false;   // 全角を検知したか
+const imeInput=$('imeInput');
+
+function imeKeyHintHtml(){
+  const ua=(typeof navigator!=='undefined' && (navigator.userAgent||navigator.platform))||'';
+  if(/Mac|iPhone|iPad/.test(ua))
+    return '🍎 Macは <span class="kbd">英数</span> キー（スペースの左）でこのモードに。';
+  return '🪟 Windowsは <span class="kbd">半角/全角</span> キー（キーボード左上・<span class="kbd">1</span>の左）で切りかえ。';
+}
+function openStartOverlay(){
+  $('startOverlay').style.display='flex';
+  imeArmed=false; imeFlagged=false;
+  $('imeKeyHint').innerHTML = imeKeyHintHtml();
+  setImeStatus('','');
+  const ov=$('overlaySettings'); if(ov) ov.open=false;   // 既定は閉じてREADYをすっきり
+  applyCfgToUI();                                         // READY側のチップを現在設定に同期
+  imeInput.value='';
+  setTimeout(()=>imeInput.focus(), 50);
+}
+function setImeStatus(msg, cls){
+  const el=$('imeStatus'); el.textContent=msg; el.className='ime-status'+(cls?' '+cls:'');
+}
+function hasFullwidth(str){
+  for(let i=0;i<str.length;i++){ if(str.charCodeAt(i) > 0x7F) return true; }
+  return false;
+}
+
+// オーバーレイ中の入力監視
+imeInput.addEventListener('compositionstart', e=>{
+  if(!S.running){ imeFlagged=true; imeArmed=false; setImeStatus('⚠ 日本語入力がオンです。半角（英数）にしてね','ng'); }
+});
+imeInput.addEventListener('beforeinput', e=>{
+  if(S.running){ handlePlayInput(e); return; }
+  if(!screens.play.classList.contains('active')) return;  // 開始オーバーレイ以外では無視
+  // --- オーバーレイ（開始前）---
+  if(e.inputType && e.inputType.startsWith('insertComposition')){
+    imeFlagged=true; imeArmed=false; setImeStatus('⚠ 日本語入力がオンです。半角（英数）にしてね','ng'); e.preventDefault(); return;
+  }
+  const d=e.data||'';
+  if(d===' '){ e.preventDefault(); imeInput.value=''; return; }   // スタートは keydown 側で処理
+  if(d && hasFullwidth(d)){ imeFlagged=true; imeArmed=false; setImeStatus('⚠ 日本語入力がオンです。半角（英数）にしてね','ng'); }
+  else if(d){ imeFlagged=false; imeArmed=true; setImeStatus('✓ 半角OK！ Enter か Space でスタート','ok'); }
+  e.preventDefault(); imeInput.value='';
+});
+imeInput.addEventListener('keydown', e=>{
+  if(S.running){ if(e.key==='Escape'){ e.preventDefault(); backToReady(); } return; }   // EscでREADY画面に戻る
+  if(!screens.play.classList.contains('active')) return;  // 開始オーバーレイ以外では無視
+  // Enter（優先）でもスペースでも開始
+  if(e.key==='Enter' || e.key===' '){ e.preventDefault(); if(imeFlagged) setImeStatus('⚠ まず半角（英数）にしてね','ng'); else beginPlay(); }
+});
+
+/* ---------- プレイ開始 ---------- */
+function beginPlay(){
+  $('startOverlay').style.display='none';
+  S.running=true; paused=false; S.score=0; S.combo=0; S.maxCombo=0; S.cleared=0; S.skipped=0; S.correct=0; S.wrong=0; S.hiddenClear=0;
+  S.review.clear(); S.clearedItems=[]; S.keyMisses={};
+  S.deck=shuffle(S.subject.q); S.deckPos=0;
+  imeInput.value=''; imeInput.focus();
+  $('stTimeK').textContent = cfg.mode==='time' ? 'のこり秒' : 'のこり問題';
+  // 開始前は満タン表示にしておく
+  $('stTime').textContent = cfg.mode==='time' ? cfg.sec : targetQuestionCount();
+  $('timebar').style.width='100%'; $('timebar').classList.remove('low');
+  updateStats();
+  // 3・2・1・GO! のあとに計測スタート
+  runCountdown(()=>{
+    S.startAt=performance.now();
+    S.endAt=performance.now()+cfg.sec*1000;
+    S.timer=setInterval(tick, 100);
+    imeInput.focus();
+    nextQuestion();
+  });
+}
+
+/* ---------- カウントダウン（3・2・1・GO!） ---------- */
+let countdownTimer=null;
+function pulse(el){ el.style.animation='none'; void el.offsetWidth; el.style.animation=''; }
+function runCountdown(done){
+  const ov=$('countdownOverlay'), num=$('countNum');
+  clearInterval(countdownTimer);
+  // オーディオを先に起こしておく（最初の「3」の音が遅れて2と詰まって聞こえるのを防ぐ）
+  try{ const ac=audioCtx(); if(ac && ac.state==='suspended') ac.resume(); }catch(e){}
+  let n=3;
+  ov.style.display='flex'; num.textContent=n; pulse(num); SFX.count();
+  countdownTimer=setInterval(()=>{
+    n--;
+    if(n>0){ num.textContent=n; pulse(num); SFX.count(); }
+    else if(n===0){ num.textContent='GO!'; pulse(num); SFX.go(); }
+    else { clearInterval(countdownTimer); countdownTimer=null; ov.style.display='none'; done(); }
+  }, 850);
+}
+
+/* ---------- ポーズ ---------- */
+let paused=false, pauseAt=0;
+function togglePause(){
+  if(!S.running || countdownTimer) return;   // カウントダウン中は不可
+  if(!paused){
+    paused=true; pauseAt=performance.now();
+    clearInterval(S.timer); S.timer=null; clearRevealTimers();
+    $('pauseOverlay').style.display='flex';
+  } else {
+    resumePlay();
+  }
+}
+function resumePlay(){
+  if(!paused) return;
+  paused=false;
+  const delta=performance.now()-pauseAt;
+  if(cfg.mode==='time') S.endAt+=delta;        // 締め切りを止めていた分だけ後ろへ
+  S.timer=setInterval(tick, 100);
+  $('pauseOverlay').style.display='none';
+  // かくすモードで未公開なら、答え表示タイマーを再セット
+  if(cfg.hide && S.cur && S.cur.revealed < S.cur.units.length){
+    S.revealTimeout=setTimeout(()=>{ if(S.running){ S.cur.revealed=S.cur.units.length; renderGuide(); } }, cfg.revealSec*1000);
+  }
+  imeInput.focus();
+}
+
+function tick(){
+  const bar=$('timebar');
+  if(cfg.mode==='time'){
+    const left=Math.max(0,(S.endAt-performance.now())/1000);
+    $('stTime').textContent=Math.ceil(left);
+    bar.style.width=(left/cfg.sec*100)+'%';
+    bar.classList.toggle('low', left<=10);
+    if(left<=0) endGame();
+  } else {
+    const target=targetQuestionCount();
+    const remain=Math.max(0, target-(S.cleared+S.skipped));
+    $('stTime').textContent=remain;
+    bar.style.width=(remain/target*100)+'%';
+    bar.classList.toggle('low', remain<=3);
+  }
+}
+
+// 次の問題へ。問題数モードなら規定数に達したら終了
+function advanceDeck(){
+  if(cfg.mode==='count' && (S.cleared+S.skipped)>=targetQuestionCount()){ endGame(); return; }
+  nextQuestion();
+}
+
+/* ---------- 出題 ---------- */
+function nextQuestion(){
+  if(S.deckPos>=S.deck.length){ endGame(); return; }
+  const item=S.deck[S.deckPos++];
+  const [ask, ans, term] = item;
+  const units=compileAnswer(ans, S.subject.mode);
+  S.cur={ item, ask, ans, term:term||ans, units, idx:0, buf:'',
+          revealed: cfg.hide?0:units.length, missed:false };
+  $('ask').textContent=ask;   // お題は文字数に関わらず固定サイズ（CSS）
+  clearRevealTimers();
+  armRevealTimer();   // 「最後に正しい文字を打ってから cfg.revealSec 後」に公開（入力ごとに再セット）
+  renderGuide();
+}
+// 答え一括公開タイマー（正しい入力のたびに呼んでリセット＝入力が止まってから公開）
+function armRevealTimer(){
+  if(!cfg.hide) return;
+  clearTimeout(S.revealTimeout); S.revealTimeout=null;
+  if(S.cur && S.cur.revealed >= S.cur.units.length) return;   // 既に公開済みなら何もしない
+  S.revealTimeout=setTimeout(()=>{
+    if(!S.running || !S.cur) return;
+    S.cur.revealed = S.cur.units.length; renderGuide();
+  }, cfg.revealSec*1000);
+}
+
+function renderGuide(){
+  const c=S.cur; if(!c) return;
+  const kana=$('kanaLine'), roman=$('romanLine');
+  const isKana = S.subject.mode==='kana';
+  kana.style.display = isKana ? 'flex':'none';
+  const revealed = c.revealed>0;   // かくすモードは3秒後にまとめて公開
+
+  // 漢字（答え）の行：公開後は全部、公開前でも「打った分」だけ左から見せる
+  if(isKana){
+    const term=[...c.term];
+    if(revealed){
+      kana.innerHTML = `<span class="u">${esc(c.term)}</span>`;
+    } else {
+      // 入力の進みぐあい（idx/units）に合わせて漢字を左から公開
+      // floor＝その漢字のよみを「打ち切ってから」表示（例：とく＝tokuの最後のuで徳）
+      const shown = c.units.length ? Math.floor(term.length * c.idx / c.units.length) : 0;
+      const head = term.slice(0, shown).join('');
+      const rest = term.length - shown;
+      kana.innerHTML = (head ? `<span class="u">${esc(head)}</span>` : '')
+        + (rest>0 ? `<span class="u mask">${'●'.repeat(rest)}</span>` : '');
+    }
+  }
+
+  // ローマ字の行：入力の進みぐあいを1文字ずつ色分け
+  // 公開前でも「打ったところ」は見えるようにする（先読み入力の確認用）
+  let rHtml='';
+  c.units.forEach((u,i)=>{
+    const done=i<c.idx, cur=i===c.idx;
+    if(cur){
+      // 入力中のユニット：打った分だけ表示、残りは公開後のみ表示（前は●）
+      const typed = c.buf;
+      const rest = u.disp.startsWith(typed) ? u.disp.slice(typed.length) : u.disp;
+      const restHtml = revealed ? esc(rest) : `<span class="mask">${'●'.repeat(rest.length)}</span>`;
+      rHtml += `<span class="u cur"><span class="typed">${esc(typed)}</span>${restHtml}</span>`;
+    } else if(done){
+      // 打ち終わったユニットは公開前でも表示
+      rHtml += `<span class="u done">${esc(u.disp)}</span>`;
+    } else if(revealed){
+      rHtml += `<span class="u">${esc(u.disp)}</span>`;
+    } else {
+      // まだ打っていない・未公開のユニットは●で隠す
+      rHtml += `<span class="u mask">${'●'.repeat(u.disp.length)}</span>`;
+    }
+  });
+  roman.innerHTML=rHtml;
+
+  // 運指ガイド：つぎに打つキーを強調
+  if(cfg.keyboard) highlightKey(nextExpectedKey());
+}
+const esc = s => (s||'').replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]));
+
+/* ---------- 入力処理 ---------- */
+function handlePlayInput(e){
+  // IME（全角・変換）はミスにせず通知
+  if(e.inputType && e.inputType.startsWith('insertComposition')){ imeNotice(); e.preventDefault(); return; }
+  const d=e.data||'';
+  e.preventDefault(); imeInput.value='';
+  if(!d) return;
+  if(hasFullwidth(d)){ imeNotice(); return; }
+  for(const ch of d) handleChar(ch);
+}
+imeInput.addEventListener('compositionstart', ()=>{ if(S.running) imeNotice(); });
+
+function handleChar(ch){
+  if(!S.running || paused || !S.cur) return;
+  if(/\s/.test(ch)) return;
+  const c=S.cur;
+  const expected=nextExpectedKey();
+  const r=feed(c.units, c.idx, c.buf, ch);
+  if(r.type==='progress'){ c.buf=r.buf; S.correct++; SFX.key(); armRevealTimer(); renderGuide(); }
+  else if(r.type==='complete'){ S.correct++; SFX.key(); armRevealTimer(); completeUnit(); }
+  else if(r.type==='carry'){ advanceUnit(); handleChar(ch); }
+  else { // mistake
+    S.wrong++; c.missed=true; S.combo=0;
+    if(expected && /[a-z-]/.test(expected)) S.keyMisses[expected]=(S.keyMisses[expected]||0)+1;
+    SFX.miss(); updateStats(); shake(); flashMiss();
+  }
+}
+function advanceUnit(){
+  const c=S.cur;
+  c.idx++; c.buf='';
+}
+function completeUnit(){
+  advanceUnit();
+  if(S.cur.idx>=S.cur.units.length) onClear();
+  else renderGuide();
+}
+function onClear(){
+  const c=S.cur;
+  // 答えが表示される前に最後まで打ち切れたらボーナス（かくすモードのみ）
+  const hiddenClear = (cfg.hide && c.revealed===0);
+  // 「苦手」＝かくすモードで、答えが表示される前に打ち切れず表示されてしまった問題（タイピングのミスでは判定しない）
+  const wasShown = (cfg.hide && c.revealed>0);
+  const bonus = hiddenClear ? 50 : 0;
+  const pts = 100 + S.combo*12 + bonus;
+  S.score+=pts; S.combo++; S.cleared++;
+  if(hiddenClear) S.hiddenClear++;
+  S.clearedItems.push({key:c.ask+'\u0001'+c.ans, ask:c.ask, term:c.term, ans:c.ans, knew:hiddenClear, missed:!!c.missed});
+  if(S.combo>S.maxCombo) S.maxCombo=S.combo;
+  if(wasShown) addReview(c);
+  if(bonus>0) SFX.bonus(); else if(S.combo>0 && S.combo%5===0) SFX.combo(); else SFX.clear();
+  showGain(pts, bonus);
+  updateStats();
+  advanceDeck();
+}
+function skip(){
+  if(!S.running || !S.cur) return;
+  addReview(S.cur); S.skipped++; S.combo=0; updateStats(); advanceDeck();
+}
+function addReview(c){
+  const key=c.ask+'\u0001'+c.ans;
+  if(!S.review.has(key)) S.review.set(key, {key, ask:c.ask, ans:c.ans, term:c.term, mode:S.subject.mode});
+}
+
+function updateStats(){
+  $('stScore').textContent=S.score;
+  $('stCombo').textContent=S.combo;
+  $('stClear').textContent=S.cleared;
+  $('combo').classList.toggle('hot', S.combo>=3);
+  if(cfg.mode==='count'){
+    const target=targetQuestionCount();
+    const remain=Math.max(0, target-(S.cleared+S.skipped));
+    $('stTime').textContent=remain;
+    $('timebar').style.width=(remain/target*100)+'%';
+  }
+}
+function showGain(pts, bonus){
+  const g=$('gain');
+  g.textContent = '+'+pts + (bonus>0?' ⚡':'');
+  g.classList.remove('show'); void g.offsetWidth; g.classList.add('show');
+}
+let noteTimer=null;
+function imeNotice(){
+  const n=$('note'); n.classList.add('show');
+  clearTimeout(noteTimer); noteTimer=setTimeout(()=>n.classList.remove('show'),1600);
+}
+function shake(){
+  const st=$('stage');
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  st.classList.remove('shake'); void st.offsetWidth; st.classList.add('shake');
+}
+let missTimer=null;
+function flashMiss(){
+  const rl=$('romanLine'); rl.classList.add('bad');
+  clearTimeout(missTimer); missTimer=setTimeout(()=>rl.classList.remove('bad'), 220);
+}
+
+/* ---------- フォーカス維持（スマホ対応） ---------- */
+// READY画面の設定チップ等を触ったあとも開始キーが効くよう、入力欄へフォーカスを戻す。
+// チップ/サマリーは tabindex を持ち、クリックで自身にフォーカスが移るため、遅延して取り戻す。
+$('play').addEventListener('pointerdown', e=>{
+  if(e.target.closest('button')) return;
+  if(S.running || $('startOverlay').style.display!=='none') setTimeout(()=>imeInput.focus(), 0);
+});
+
+/* =========================================================================
+   終了・リザルト
+   ========================================================================= */
+function clearRevealTimers(){ clearInterval(S.revealTimer); clearTimeout(S.revealTimeout); S.revealTimer=null; S.revealTimeout=null; }
+
+function endGame(){
+  S.running=false; paused=false;
+  clearInterval(S.timer); S.timer=null; clearRevealTimers();
+  $('pauseOverlay').style.display='none';
+  SFX.timeup();
+  $('timebar').style.width='0%';
+  const total=S.correct+S.wrong;
+  const acc = total? Math.round(S.correct/total*100) : 100;
+  const elapsed = Math.max(1,(performance.now()-S.startAt)/1000);
+  const kpm = Math.round(S.correct/(elapsed/60));
+  // ランク（モードごとに基準をかえる）
+  let rank, msg;
+  if(S.cleared===0){ rank='—'; msg='まずは1問クリアをめざそう！'; }
+  else if(cfg.mode==='count'){
+    const target=targetQuestionCount();
+    const rate=target ? S.cleared/target : 0;
+    if(rate>=1 && acc>=95){ rank='S'; msg='でんせつ級！全問パーフェクト！'; }
+    else if(rate>=0.8 && acc>=85){ rank='A'; msg='すばらしい！よく覚えてるね'; }
+    else if(rate>=0.5){ rank='B'; msg='いいかんじ！この調子'; }
+    else { rank='C'; msg='れんしゅうあるのみ！もう一回！'; }
+  } else {
+    const r = S.cleared + (acc>=95?3:acc>=85?1:0);
+    if(r>=22){ rank='S'; msg='でんせつ級！歴史マスター！'; }
+    else if(r>=15){ rank='A'; msg='すばらしい！よく覚えてるね'; }
+    else if(r>=9){ rank='B'; msg='いいかんじ！この調子'; }
+    else { rank='C'; msg='れんしゅうあるのみ！もう一回！'; }
+    // 次のランクまでの目標を提示
+    const nx=[[9,'B'],[15,'A'],[22,'S']].find(t=>r<t[0]);
+    if(nx) msg += `　あと${nx[0]-r}問で${nx[1]}ランク！`;
+  }
+  const rk=$('rank'); rk.textContent=rank;
+  rk.className='rank '+(rank==='—'?'dash':rank);
+  $('rankMsg').textContent=msg;
+  // 「答えを見ずにクリア」状況（かくすモードのみ）
+  const hp=$('hiddenPerfect');
+  if(hp){
+    const allHidden = cfg.hide && S.cleared>0 && S.skipped===0 && S.hiddenClear===S.cleared;
+    if(allHidden){
+      hp.className='hidden-perfect perfect';
+      hp.textContent=`★ パーフェクト！ぜんぶ答えを見ずにクリア（${S.hiddenClear}問）！`;
+      hp.style.display='';
+    } else if(cfg.hide && S.hiddenClear>0){
+      hp.className='hidden-perfect';
+      hp.textContent=`答えを見ずにクリア：${S.hiddenClear}／${S.cleared}問`;
+      hp.style.display='';
+    } else {
+      hp.style.display='none';
+    }
+  }
+  $('rScore').textContent=S.score;
+  $('rClear').textContent=S.cleared;
+  $('rAcc').textContent=acc+'%';
+  $('rKpm').textContent=kpm;
+  // ---- 称号・正答率グラフ・自己ベスト（記録前の値で前回比/ベスト判定）----
+  const TITLES={S:'👑 歴史マスター', A:'🎓 もの知り博士', B:'📖 みならい歴史家', C:'🌱 かけだし', '—':'🔰 ビギナー'};
+  $('titleBadge').textContent='称号：'+(TITLES[rank]||TITLES['—']);
+  const _pst=getStats();
+  const prevBestScore=(((_pst.byEra||{})[cfg.subjectId])||{}).bestScore||0;
+  const _ph=LS.get(HIST_KEY,[]).find(e=>e.subjectId===cfg.subjectId);
+  const prevAcc=_ph?_ph.acc:null;
+  const accP=document.querySelector('.acc-panel');
+  if(accP) accP.style.display = total>0 ? '' : 'none';
+  const af=$('accFill'); if(af){ af.style.width=acc+'%'; af.className='acc-fill '+(acc>=90?'hi':acc>=70?'mid':'lo'); }
+  if($('accBig')) $('accBig').textContent=acc+'%';
+  if($('accInfo')){
+    let s=`${S.correct} / ${total} キーせいかい`;
+    if(prevAcc!=null){ const d=acc-prevAcc; s += d>0?`　前回より +${d}%↑`:(d<0?`　前回より ${d}%`:'　前回と同じ'); }
+    $('accInfo').textContent=s;
+  }
+  const weakSession=!!(S.subject&&S.subject._weak);
+  const bb=$('bestBanner');
+  if(bb) bb.style.display = (!weakSession && S.cleared>0 && S.score>prevBestScore) ? '' : 'none';
+  renderReview();
+
+  // ---- データ蓄積＆ランキング登録の準備 ----
+  const isWeak = !!(S.subject && S.subject._weak);
+  const weakItems=[...S.review.values()].map(v=>({key:v.key, ask:v.ask, term:v.term, ans:v.ans}));
+  const param = cfg.count;   // 問題数モードのみ（5/10/20/全問[ALLQ]）
+  // 設定した問題数を「答えを見ずに」全部クリアできたらパーフェクト達成として記録（問題数ごとに階級）
+  const tgt = targetQuestionCount();
+  const fullPerfect = cfg.hide && S.cleared>0 && S.skipped===0 && S.hiddenClear===S.cleared && S.cleared>=tgt;
+  const perfectTier = fullPerfect ? tierForCount(cfg.count) : null;
+  recordSession({
+    subjectId: cfg.subjectId, eraName: S.subject.name, weakDrill:isWeak, perfect:fullPerfect, perfectTier,
+    mode:'count', param,
+    score:S.score, rank, acc, kpm, cleared:S.cleared, maxCombo:S.maxCombo, elapsed,
+    weakItems, clearedItems:S.clearedItems.slice(), keyMisses:Object.assign({}, S.keyMisses)
+  });
+  // ランキング登録に使う情報（カテゴリ＝単元×条件ごとに分かれる）
+  lastResult = { name:playerName(), score:S.score, subjectId:cfg.subjectId, era:S.subject.name,
+                 mode:cfg.mode, param, acc, kpm, rank };
+  renderNewBadges();
+  // 登録ボタンを毎回リセット（にがて練習はランキング対象外。登録はクリックした時だけ）
+  const sb=$('submitScoreBtn');
+  $('submitNote').textContent=''; $('submitNote').className='submit-note';
+  if(isWeak){ sb.style.display='none'; }
+  else { sb.style.display=''; sb.disabled=false; sb.textContent='🏆 全国ランキングに登録'; }
+  // リザルトの「にがて」ボタン：この回にまちがえた問題だけ（無ければ非表示）
+  lastSessionWeak = [...S.review.values()];
+  const rw=$('resWeakBtn');
+  if(rw){
+    rw.textContent = isWeak ? '⚡ 苦手をもう一度' : '⚡ にがてを集中練習';
+    rw.style.display = lastSessionWeak.length ? '' : 'none';
+  }
+  // にがて練習のリザルトは「全部をもう一度」、通常は「もう一回」
+  $('againBtn').textContent = isWeak ? '🔁 全部をもう一度' : 'もう一回（Enter）';
+
+  show('result');
+}
+function renderNewBadges(){
+  const box=$('newBadges'); if(!box) return;
+  if(!newBadges.length){ box.style.display='none'; box.innerHTML=''; return; }
+  box.style.display='';
+  box.innerHTML = '<div class="nb-title">🎉 あたらしい実績を獲得！</div>'
+    + '<div class="nb-list">' + newBadges.map(b=>
+        `<div class="nb"><span class="bi">${b.icon}</span><span class="bt"><b>${esc(b.name)}</b><small>${esc(b.desc)}</small></span></div>`
+      ).join('') + '</div>';
+}
+function renderReview(){
+  const box=$('reviewList');
+  if(S.review.size===0){
+    box.innerHTML='<div class="perfect">✨ パーフェクト！にがては なし！</div>';
+    return;
+  }
+  let html='';
+  for(const {ask, ans, term, mode} of S.review.values()){
+    const answer = mode==='kana'
+      ? `<b>${esc(term)}</b>（${esc(ans)}　<span class="rm">${esc(compileKana(ans).map(u=>u.disp).join(''))}</span>）`
+      : `<b>${esc(ans)}</b>`;
+    html += `<div class="item"><div class="q">${esc(ask)}</div><div class="a">こたえ: ${answer}</div></div>`;
+  }
+  box.innerHTML=html;
+}
+
+/* ---------- 画面ボタン ---------- */
+$('homeBtn').addEventListener('click', goHome);
+$('quitBtn').addEventListener('click', goHome);
+$('startBtn').addEventListener('click', ()=>{ if(imeFlagged) setImeStatus('⚠ まず半角（英数）にしてね','ng'); else beginPlay(); });
+$('readyBackBtn').addEventListener('click', ()=>{ $('startOverlay').style.display='none'; goHome(); });
+$('againBtn').addEventListener('click', ()=>{
+  if(S.subject && S.subject._weak){
+    // 苦手集中モードの「全部をもう一度」＝モードを解除して、その単元の全問を出題対象に
+    const origin = (weakDrillOrigin && SUBJECTS[weakDrillOrigin]) ? weakDrillOrigin : SUBJECTS_ALL_KEY;
+    startGame(origin);
+  } else {
+    show('play'); openStartOverlay();
+  }
+});
+$('backBtn').addEventListener('click', goHome);
+function goHome(){
+  S.running=false; paused=false;
+  clearInterval(S.timer); S.timer=null; clearRevealTimers();
+  clearInterval(countdownTimer); countdownTimer=null;
+  $('pauseOverlay').style.display='none'; $('countdownOverlay').style.display='none';
+  buildSubjectGrid();   // プレイ回数バッジを最新化
+  show('title');
+}
+// いまの時代のREADY?画面にもどる（プレイは中断）
+function backToReady(){
+  S.running=false; paused=false;
+  clearInterval(S.timer); S.timer=null; clearRevealTimers();
+  clearInterval(countdownTimer); countdownTimer=null;
+  $('pauseOverlay').style.display='none'; $('countdownOverlay').style.display='none';
+  if(S.subject) openStartOverlay(); else goHome();
+}
+
+/* グローバルEsc：プレイ中はホームへ（強制終了）。フォーカス外れ対策で document でも拾う */
+document.addEventListener('keydown', e=>{
+  if(S.running && e.key==='Escape'){ e.preventDefault(); backToReady(); }
+  // リザルト画面：Enter でもう一回
+  if(!S.running && screens.result.classList.contains('active') && e.key==='Enter'){
+    e.preventDefault(); $('againBtn').click();
+  }
+});
+
+/* =========================================================================
+   プレイヤーデータ蓄積（localStorage）＋ 全国ランキング
+   ========================================================================= */
+const RC = Object.assign({provider:'local', supabaseUrl:'', supabaseKey:'', table:'rankings',
+  firebaseProjectId:'', firebaseApiKey:'', collection:'rankings', adminNames:[]}, window.RANKING_CONFIG||{});
+// ランキングで「管理人」マークを付ける名前（ranking-config.js の adminNames で設定）
+function isAdminName(name){
+  const list=Array.isArray(RC.adminNames)?RC.adminNames:[];
+  const n=(name||'').trim();
+  return list.some(a=>String(a).trim()===n && n!=='');
+}
+const onlineReady =
+  (RC.provider==='supabase' && !!RC.supabaseUrl && !!RC.supabaseKey) ||
+  (RC.provider==='firebase' && !!RC.firebaseProjectId && !!RC.firebaseApiKey);
+
+const LS = {
+  get(k,d){ try{ const v=localStorage.getItem(k); return v==null? d : JSON.parse(v); }catch(e){ return d; } },
+  set(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} },
+};
+const PROFILE_KEY='tq_profile_v1', STATS_KEY='tq_stats_v1', HIST_KEY='tq_history_v1', LBOARD_KEY='tq_localboard_v1', CFG_KEY='tq_cfg_v1', PID_KEY='tq_pid_v1', SETTINGS_OPEN_KEY='tq_settings_open_v1';
+const WEAK_KEY='__weak';
+
+// 端末ごとの匿名ID（クラウド保存のキー。あとから「引き継ぎ」を足すときの土台）
+function getPlayerId(){
+  let id=LS.get(PID_KEY, null);
+  if(!id){
+    id = (window.crypto && crypto.randomUUID) ? crypto.randomUUID()
+       : 'p-'+Date.now().toString(36)+'-'+Math.floor(Math.random()*1e9).toString(36);
+    LS.set(PID_KEY, id);
+  }
+  return id;
+}
+
+function cleanName(name){
+  return String(name||'').replace(/[<>]/g,'').replace(/\s+/g,' ').trim().slice(0,12);
+}
+function getProfile(){ return LS.get(PROFILE_KEY, null); }
+function setProfile(name){
+  const old=getProfile();
+  name=cleanName(name);
+  const p={ name, createdAt: (old&&old.createdAt) || new Date().toISOString() };
+  LS.set(PROFILE_KEY, p); return p;
+}
+function playerName(){ const p=getProfile(); return (p&&p.name) || 'ゲスト'; }
+
+function blankStats(){ return {plays:0, totalTimeSec:0, bestScore:0, lastPlayDate:'', streak:0, maxCombo:0, gotS:false, gotPerfect:false, didWeak:false, byEra:{}, weak:{}, keyStats:{}, clearedKeys:{}, masteredKeys:{}, badges:{}}; }
+function getStats(){ return Object.assign(blankStats(), LS.get(STATS_KEY, {})); }
+
+/* ---------- 実績バッジ ---------- */
+function totalEras(){ return Object.keys(window.HISTORY_SUBJECTS||{}).length; }
+function eraCount(st){ const set=window.HISTORY_SUBJECTS||{}; return Object.keys(st.byEra||{}).filter(k=>k in set).length; }
+const BADGES=[
+  {id:'first',     icon:'🎮', name:'はじめの一歩', desc:'はじめてプレイ',         test:st=>st.plays>=1},
+  {id:'play10',    icon:'🔥', name:'やりこみ',     desc:'10回プレイ',             test:st=>st.plays>=10},
+  {id:'play50',    icon:'💪', name:'つわもの',     desc:'50回プレイ',             test:st=>st.plays>=50},
+  {id:'streak3',   icon:'📅', name:'3日れんぞく',  desc:'3日連続でプレイ',        test:st=>st.streak>=3},
+  {id:'streak7',   icon:'🗓️', name:'1週間れんぞく',desc:'7日連続でプレイ',        test:st=>st.streak>=7},
+  {id:'combo10',   icon:'⚡', name:'コンボ名人',   desc:'10コンボ達成',           test:st=>st.maxCombo>=10},
+  {id:'combo20',   icon:'🌟', name:'コンボ達人',   desc:'20コンボ達成',           test:st=>st.maxCombo>=20},
+  {id:'score3000', icon:'🏅', name:'高得点',       desc:'スコア3000とっぱ',       test:st=>st.bestScore>=3000},
+  {id:'score5000', icon:'👑', name:'スコアキング', desc:'スコア5000とっぱ',       test:st=>st.bestScore>=5000},
+  {id:'rankS',     icon:'🏆', name:'Sランク',      desc:'Sランクを獲得',          test:st=>!!st.gotS},
+  {id:'perfect',   icon:'✨', name:'パーフェクト', desc:'正確率100%でクリア',     test:st=>!!st.gotPerfect},
+  {id:'allEra',    icon:'🗾', name:'全時代制覇',   desc:'すべての時代をプレイ',   test:st=>eraCount(st)>=totalEras() && totalEras()>0},
+  {id:'weak',      icon:'🩹', name:'にがて克服',   desc:'にがて練習をプレイ',     test:st=>!!st.didWeak},
+];
+let newBadges=[];
+function todayStr(){ const d=new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
+function daysBetween(a,b){ return Math.round((new Date(b+'T00:00:00')-new Date(a+'T00:00:00'))/86400000); }
+function addDays(dateStr, days){
+  const d=new Date(dateStr+'T00:00:00'); d.setDate(d.getDate()+days);
+  return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+}
+// にがて度：できた回数 − できなかった回数（にがては負。0以上で にがて卒業）
+function weakNet(w){ return (w.right||0) - (w.wrong||w.count||0); }
+function dueWeakItems(st, limit){   // にがて（net<0）を苦手順で（復習練習用）
+  return Object.values((st&&st.weak)||{})
+    .filter(w=>weakNet(w)<0)
+    .sort((a,b)=>weakNet(a)-weakNet(b))
+    .slice(0, limit||20);
+}
+function updateWeakSchedule(st, res){
+  const today=todayStr();
+  const shown=new Set((res.weakItems||[]).map(w=>w.key));   // この回 答えが出てしまった＝できなかった
+  for(const w of res.weakItems||[]){
+    const cur = st.weak[w.key] || {ask:w.ask, term:w.term, ans:w.ans, subjectId:res.subjectId, wrong:0, right:0};
+    cur.term=w.term; cur.ask=w.ask; cur.ans=w.ans; cur.subjectId=res.subjectId;
+    cur.wrong=(cur.wrong!=null?cur.wrong:(cur.count||0))+1;   // できなかった +1（旧countはwrongとみなす）
+    if(cur.right==null) cur.right=0;
+    cur.streak=0;            // 連続正解リセット
+    delete cur.count;
+    cur.dueDate=addDays(today, 1);
+    cur.lastMissedAt=today;
+    st.weak[w.key]=cur;
+  }
+  for(const c of res.clearedItems||[]){
+    // 答えを見ずに（表示前に）思い出して正解できた＝できた +1・連続正解 +1。
+    // net(できた−できなかった)が0以上、または 3回連続でできたら にがて から除外。
+    if(!c.knew || shown.has(c.key) || !st.weak[c.key]) continue;
+    const cur=st.weak[c.key];
+    cur.wrong=(cur.wrong!=null?cur.wrong:(cur.count||0));
+    cur.right=(cur.right||0)+1;
+    cur.streak=(cur.streak||0)+1;
+    delete cur.count;
+    if(weakNet(cur)>=0 || cur.streak>=3){ delete st.weak[c.key]; }   // 追いつく or 3連続正解で にがて卒業
+    else { cur.interval=Math.min(14,Math.max(3,(cur.interval||1)*2)); cur.dueDate=addDays(today, cur.interval); st.weak[c.key]=cur; }
+  }
+}
+// にがてを「克服ずみ」として一覧から外す（キーは ask。古いデータ互換であいまい一致も）
+function overcomeWeak(w){
+  if(!w) return;
+  const st=getStats();
+  let removed=false;
+  if(st.weak[w.ask]){ delete st.weak[w.ask]; removed=true; }
+  else {
+    for(const k in st.weak){
+      const v=st.weak[k];
+      if(v.ask===w.ask && (v.term||'')===(w.term||'')){ delete st.weak[k]; removed=true; break; }
+    }
+  }
+  if(removed){ LS.set(STATS_KEY, st); syncPlayerToCloud(); renderRecords(); }
+}
+
+function recordSession(res){
+  const st=getStats();
+  st.plays++;
+  st.totalTimeSec += Math.round(res.elapsed);
+  st.bestScore = Math.max(st.bestScore, res.score);
+  const t=todayStr();
+  if(st.lastPlayDate){
+    const gap=daysBetween(st.lastPlayDate, t);
+    if(gap===0){/* 同日はそのまま */}
+    else if(gap===1) st.streak++;
+    else st.streak=1;
+  } else st.streak=1;
+  st.lastPlayDate=t;
+  // にがて練習は時代別成績・にがて集計に混ぜない（プレイ回数/時間/連続日数だけ加算）
+  if(!res.weakDrill){
+    const e = st.byEra[res.subjectId] || {name:res.eraName, plays:0, bestScore:0, bestAcc:0, totalCleared:0};
+    e.name=res.eraName; e.plays++;
+    e.bestScore=Math.max(e.bestScore,res.score);
+    e.bestAcc=Math.max(e.bestAcc,res.acc);
+    e.totalCleared+=res.cleared;
+    if(res.perfect){ e.perfect=true; if(res.perfectTier){ e.perfectTiers=e.perfectTiers||{}; e.perfectTiers[res.perfectTier]=true; } }
+    st.byEra[res.subjectId]=e;
+  }
+  updateWeakSchedule(st, res);
+  // 各時代の進捗用：一度でも正解した問題のキーを蓄積（どのモードで解いても加算）
+  st.clearedKeys = st.clearedKeys||{};
+  st.masteredKeys = st.masteredKeys||{};
+  for(const it of (res.clearedItems||[])){
+    if(!it || !it.key) continue;
+    st.clearedKeys[it.key]=1;
+    if(it.knew) st.masteredKeys[it.key]=1;   // 攻略＝答えが出る前に入力しきった
+  }
+  st.keyStats=st.keyStats||{};
+  for(const k in (res.keyMisses||{})){
+    st.keyStats[k]=(st.keyStats[k]||0)+res.keyMisses[k];
+  }
+  // 実績の更新・新規解除の判定
+  st.maxCombo = Math.max(st.maxCombo||0, res.maxCombo||0);
+  if(res.rank==='S') st.gotS=true;
+  if(res.acc>=100 && res.cleared>0) st.gotPerfect=true;
+  if(res.weakDrill) st.didWeak=true;
+  st.badges = st.badges||{};
+  newBadges=[];
+  for(const b of BADGES){ if(!st.badges[b.id] && b.test(st)){ st.badges[b.id]=todayStr(); newBadges.push(b); } }
+  LS.set(STATS_KEY, st);
+  const hist=LS.get(HIST_KEY, []);
+  hist.unshift({date:new Date().toISOString(), subjectId:res.subjectId, eraName:res.eraName,
+                mode:res.mode, param:res.param, score:res.score, rank:res.rank, acc:res.acc, kpm:res.kpm, cleared:res.cleared});
+  LS.set(HIST_KEY, hist.slice(0,100));
+  // クラウドにも保存（オンライン設定時のみ・失敗してもプレイには影響しない）
+  syncPlayerToCloud();
+}
+
+/* ---------- ランキング（オンライン＝Supabase または Firebase / 未設定＝端末内） ---------- */
+function saveLocalBoard(entry){
+  const b=LS.get(LBOARD_KEY, []);
+  b.push(Object.assign({created_at:new Date().toISOString()}, entry));
+  b.sort((x,y)=>y.score-x.score);
+  LS.set(LBOARD_KEY, b.slice(0,200));
+}
+function localBoard(){
+  return LS.get(LBOARD_KEY, []).slice();
+}
+// ランキングのカテゴリ一致判定（単元 × モード × 秒数/問題数）
+function matchCat(r, f){
+  if(!f) return true;
+  if(f.era!=null   && String(r.era)!==String(f.era)) return false;
+  if(f.mode!=null  && String(r.mode)!==String(f.mode)) return false;
+  if(f.param!=null && Number(r.param)!==Number(f.param)) return false;
+  return true;
+}
+/* --- Supabase (PostgREST) --- */
+async function sbInsert(entry){
+  const r=await fetch(RC.supabaseUrl+'/rest/v1/'+RC.table, {
+    method:'POST',
+    headers:{'apikey':RC.supabaseKey,'Authorization':'Bearer '+RC.supabaseKey,'Content-Type':'application/json','Prefer':'return=minimal'},
+    body: JSON.stringify(entry)
+  });
+  if(!r.ok) throw new Error('HTTP '+r.status);
+}
+async function sbFetch(){
+  // score 降順でまとめて取得 → カテゴリ絞り込みは端末側で行う
+  const url=RC.supabaseUrl+'/rest/v1/'+RC.table+'?select=name,score,subjectId,era,mode,param,acc,kpm,rank,created_at&order=score.desc&limit=500';
+  const r=await fetch(url,{headers:{'apikey':RC.supabaseKey,'Authorization':'Bearer '+RC.supabaseKey}});
+  if(!r.ok) throw new Error('HTTP '+r.status);
+  return await r.json();
+}
+
+/* --- Firebase (Firestore REST API) --- */
+function fbBase(){ return 'https://firestore.googleapis.com/v1/projects/'+RC.firebaseProjectId+'/databases/(default)/documents'; }
+function fbVal(f){
+  if(!f) return undefined;
+  if('stringValue'    in f) return f.stringValue;
+  if('integerValue'   in f) return Number(f.integerValue);
+  if('doubleValue'    in f) return f.doubleValue;
+  if('timestampValue' in f) return f.timestampValue;
+  return undefined;
+}
+function fbRow(doc){ const fl=(doc&&doc.fields)||{}, o={}; for(const k in fl) o[k]=fbVal(fl[k]); return o; }
+async function fbInsert(entry){
+  const fields={
+    name:      {stringValue: String(entry.name||'')},
+    score:     {integerValue: String(entry.score|0)},
+    subjectId: {stringValue: String(entry.subjectId||'')},
+    era:       {stringValue: String(entry.era||'')},
+    mode:      {stringValue: String(entry.mode||'')},
+    param:     {integerValue: String(entry.param|0)},
+    acc:       {integerValue: String(entry.acc|0)},
+    kpm:       {integerValue: String(entry.kpm|0)},
+    rank:      {stringValue: String(entry.rank||'')},
+    created_at:{timestampValue: new Date().toISOString()},
+  };
+  const r=await fetch(fbBase()+'/'+RC.collection+'?key='+RC.firebaseApiKey, {
+    method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({fields})
+  });
+  if(!r.ok) throw new Error('HTTP '+r.status);
+}
+async function fbFetch(){
+  // score 降順だけで取得（複合インデックス不要）→ カテゴリ絞り込みは端末側で行う
+  const body={ structuredQuery:{ from:[{collectionId:RC.collection}],
+    orderBy:[{field:{fieldPath:'score'}, direction:'DESCENDING'}], limit:500 } };
+  const r=await fetch(fbBase()+':runQuery?key='+RC.firebaseApiKey, {
+    method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body)
+  });
+  if(!r.ok) throw new Error('HTTP '+r.status);
+  const data=await r.json();
+  return data.filter(d=>d.document).map(d=>fbRow(d.document));
+}
+
+/* --- 任意のJS値 ↔ Firestore値 の変換（players ドキュメント＝全データ保存用） --- */
+function fbEnc(v){
+  if(v===null || v===undefined) return {nullValue:null};
+  if(typeof v==='boolean') return {booleanValue:v};
+  if(typeof v==='number')  return Number.isInteger(v) ? {integerValue:String(v)} : {doubleValue:v};
+  if(typeof v==='string')  return {stringValue:v};
+  if(Array.isArray(v))     return {arrayValue:{values:v.map(fbEnc)}};
+  if(typeof v==='object'){ const fields={}; for(const k in v) fields[k]=fbEnc(v[k]); return {mapValue:{fields}}; }
+  return {stringValue:String(v)};
+}
+function fbDec(f){
+  if(!f) return undefined;
+  if('nullValue'      in f) return null;
+  if('booleanValue'   in f) return f.booleanValue;
+  if('integerValue'   in f) return Number(f.integerValue);
+  if('doubleValue'    in f) return f.doubleValue;
+  if('stringValue'    in f) return f.stringValue;
+  if('timestampValue' in f) return f.timestampValue;
+  if('arrayValue'     in f) return (f.arrayValue.values||[]).map(fbDec);
+  if('mapValue'       in f){ const o={}, fl=f.mapValue.fields||{}; for(const k in fl) o[k]=fbDec(fl[k]); return o; }
+  return undefined;
+}
+
+/* --- 全データをクラウドへ保存（players/{playerId} に1ドキュメントでupsert） --- */
+let cloudSyncing=false;
+async function syncPlayerToCloud(){
+  if(!(onlineReady && RC.provider==='firebase')) return;   // 現状クラウド保存はFirebaseのみ対応
+  if(cloudSyncing) return; cloudSyncing=true;
+  try{
+    const pid=getPlayerId();
+    const doc={
+      playerId: pid,
+      name:     playerName(),
+      profile:  getProfile() || {},
+      stats:    getStats(),               // プレイ回数/累計時間/連続日数/最高/時代別/にがて
+      history:  LS.get(HIST_KEY, []),     // プレイ履歴（最新100件）
+      updatedAt:new Date().toISOString(),
+    };
+    const fields={}; for(const k in doc) fields[k]=fbEnc(doc[k]);
+    const url=fbBase()+'/players/'+encodeURIComponent(pid)+'?key='+RC.firebaseApiKey;
+    const r=await fetch(url, {method:'PATCH', headers:{'Content-Type':'application/json'}, body: JSON.stringify({fields})});
+    if(!r.ok) throw new Error('HTTP '+r.status);
+  }catch(e){ /* オフライン等。次回プレイ時にまるごと再アップロードされる */ }
+  finally{ cloudSyncing=false; }
+}
+
+async function submitScore(entry){
+  const v=validateRankEntry(entry);
+  if(!v.ok) return {ok:false, online:false, error:v.reason};
+  entry.name=cleanName(entry.name);
+  LS.set('tq_last_submit_at', Date.now());
+  if(onlineReady){
+    try{
+      if(RC.provider==='supabase') await sbInsert(entry);
+      else if(RC.provider==='firebase') await fbInsert(entry);
+      saveLocalBoard(entry);   // 自分の記録は端末にも残す
+      return {ok:true, online:true};
+    }catch(e){ saveLocalBoard(entry); return {ok:true, online:false, error:String(e)}; }
+  }
+  saveLocalBoard(entry);
+  return {ok:true, online:false};
+}
+function validateRankEntry(entry){
+  const now=Date.now();
+  const last=LS.get('tq_last_submit_at', 0);
+  if(last && now-last<8000) return {ok:false, reason:'連続投稿は少し待ってください。'};
+  if(!entry || !cleanName(entry.name)) return {ok:false, reason:'名前を入力してください。'};
+  if(!Number.isFinite(entry.score) || entry.score<0 || entry.score>200000) return {ok:false, reason:'スコア値が不正です。'};
+  if(!Number.isFinite(entry.acc) || entry.acc<0 || entry.acc>100) return {ok:false, reason:'正確率が不正です。'};
+  if(!Number.isFinite(entry.kpm) || entry.kpm<0 || entry.kpm>1200) return {ok:false, reason:'KEYS/分が不正です。'};
+  if(!['time','count'].includes(entry.mode)) return {ok:false, reason:'条件が不正です。'};
+  return {ok:true};
+}
+async function fetchBoard(filter){
+  const pick = rows => rows.filter(r=>matchCat(r,filter)).sort((a,b)=>b.score-a.score).slice(0,100);
+  if(onlineReady){
+    try{
+      const raw = RC.provider==='supabase' ? await sbFetch() : await fbFetch();
+      return {online:true, rows: pick(raw)};
+    }catch(e){ return {online:false, rows: pick(localBoard()), error:String(e)}; }
+  }
+  return {online:false, rows: pick(localBoard())};
+}
+
+/* ---------- 名前とうろくモーダル ---------- */
+let nameModalCb=null;
+function openNameModal(cb){
+  nameModalCb=cb||null;
+  const p=getProfile();
+  $('nameInput').value = (p&&p.name) || '';
+  $('nameModal').classList.add('show');
+  setTimeout(()=>$('nameInput').focus(), 60);
+}
+function saveNameModal(){
+  const v=cleanName($('nameInput').value);
+  if(!v){ $('nameInput').focus(); return; }
+  setProfile(v);
+  $('nameModal').classList.remove('show');
+  refreshUserBar();
+  const cb=nameModalCb; nameModalCb=null; if(cb) cb();
+}
+$('nameSaveBtn').addEventListener('click', saveNameModal);
+$('nameInput').addEventListener('keydown', e=>{ if(e.key==='Enter'){ e.preventDefault(); saveNameModal(); } });
+function refreshUserBar(){ $('hdrName').textContent=playerName(); }
+function syncSettingsPanelText(){
+  const panel=$('settingsPanel'), label=$('settingsToggleText');
+  if(label && panel) label.textContent = panel.open ? '閉じる' : '開く';
+}
+function restoreSettingsPanel(){
+  const panel=$('settingsPanel'); if(!panel) return;
+  const saved=LS.get(SETTINGS_OPEN_KEY, null);
+  if(saved!==null) panel.open=!!saved;
+  syncSettingsPanelText();
+  panel.addEventListener('toggle', ()=>{
+    LS.set(SETTINGS_OPEN_KEY, !!panel.open);
+    syncSettingsPanelText();
+  });
+}
+
+/* ---------- リザルトのランキング登録 ---------- */
+let lastResult=null;
+$('submitScoreBtn').addEventListener('click', ()=>{
+  if(!lastResult) return;
+  if(!getProfile()){ openNameModal(doSubmit); return; }
+  doSubmit();
+});
+function condLabel(mode, param){ return (param>=ALLQ) ? '全問' : (mode==='count' ? param+'問' : param+'秒'); }
+async function doSubmit(){
+  if(!lastResult) return;
+  const btn=$('submitScoreBtn'), note=$('submitNote');
+  btn.disabled=true; note.className='submit-note'; note.textContent='登録中…';
+  lastResult.name=playerName();
+  const r=await submitScore(lastResult);
+  if(!r.ok){
+    note.className='submit-note ng'; note.textContent=r.error||'登録できませんでした。';
+    btn.disabled=false; return;
+  }
+  if(!r.online && onlineReady){
+    note.className='submit-note ng'; note.textContent='⚠ 通信に失敗。この端末に保存しました。';
+    btn.textContent='登録ずみ ✓'; return;
+  }
+  // このカテゴリ（単元×条件）の中で何位かを計算して表示
+  const filter={era:lastResult.era, mode:lastResult.mode, param:lastResult.param};
+  const board=await fetchBoard(filter);
+  const cat = `${lastResult.era}・${condLabel(lastResult.mode,lastResult.param)}`;
+  let posText='';
+  if(board.rows.length){
+    const pos = board.rows.filter(x=>x.score>lastResult.score).length + 1;
+    posText = `　${board.online?'🌐全国':'📱端末内'} ${pos}位 / ${board.rows.length}人中`;
+  }
+  note.className='submit-note ok';
+  note.textContent = (board.online?'🎉 全国ランキングに登録！':'登録しました（この端末内）') + `（${cat}）` + posText;
+  btn.textContent='登録ずみ ✓';
+}
+
+/* ---------- きろく＆ランキング画面 ---------- */
+let boardEra='', boardMode='count', boardParam=10;
+let _weakCache=[];   // にがて一覧の表示中データ（克服ボタン用）
+let _rankCats=[];    // 自分が登録済みのランキング区分
+// 自分が登録した（リザルトで登録した）ランキング区分だけを集める
+function myRankCategories(){
+  const me=playerName(), seen={}, cats=[];
+  for(const e of localBoard()){
+    if(e.name!==me) continue;
+    if((e.mode||'count')!=='count') continue;   // 問題数ごとのみ（秒数ランキングは表示しない）
+    const key=(e.era||'')+'|'+e.param;
+    if(!seen[key]){ seen[key]=1; cats.push({era:e.era, mode:'count', param:e.param}); }
+  }
+  return cats;
+}
+function renderMyRankCats(){
+  const sel=$('boardCatSel'); if(!sel) return;
+  const cats=_rankCats=myRankCategories();
+  if(!cats.length){
+    sel.innerHTML=''; sel.style.display='none';
+    $('boardScope').textContent='';
+    $('boardList').innerHTML='<p class="board-note">まだランキングに登録していません。プレイ後のリザルト画面で「🏆 全国ランキングに登録」できます。</p>';
+    return;
+  }
+  sel.style.display='';
+  if(!cats.some(c=>c.era===boardEra && +c.param===+boardParam)){ boardEra=cats[0].era; boardMode='count'; boardParam=cats[0].param; }
+  sel.innerHTML = cats.map((c,i)=>{
+    const on = (c.era===boardEra && +c.param===+boardParam);
+    return `<option value="${i}"${on?' selected':''}>${esc(c.era)}・${condLabel(c.mode,c.param)}</option>`;
+  }).join('');
+  loadBoard();
+}
+function openRecords(){ renderRecords(); renderMyRankCats(); show('records'); }
+function renderRecords(){
+  const st=getStats();
+  $('recName').textContent=playerName();
+  $('myPlays').textContent=st.plays;
+  $('myBest').textContent=st.bestScore;
+  const h=Math.floor(st.totalTimeSec/3600), m=Math.floor((st.totalTimeSec%3600)/60);
+  $('myTime').textContent=(h?h+'時間':'')+m+'分';
+  $('myStreak').textContent=st.streak+'日';
+  // 時代べつ
+  const eras=Object.values(st.byEra).sort((a,b)=>b.bestScore-a.bestScore);
+  $('eraStats').innerHTML = eras.length
+    ? eras.map(e=>`<div class="era-item"><span class="nm">${esc(e.name)}</span><span class="sc">最高 ${e.bestScore} ／ ${e.plays}回 ／ 正確 ${e.bestAcc}%</span></div>`).join('')
+    : '<p class="board-note">まだ記録がありません。プレイしてみよう！</p>';
+  // にがて（できた−できなかった が マイナスのものだけ。0に戻ったら一覧から消える）
+  const weak=Object.values(st.weak).filter(w=>weakNet(w)<0).sort((a,b)=>weakNet(a)-weakNet(b)).slice(0,10);
+  _weakCache=weak;
+  $('weakStats').innerHTML = weak.length
+    ? weak.map((w)=>`<div class="weak-item"><span class="term">${esc(w.term||w.ans)}</span><span class="q">${esc(w.ask)}</span><span class="ct" title="できた ${w.right||0}回 − できなかった ${w.wrong||w.count||0}回">${weakNet(w)}</span></div>`).join('')
+    : '<div class="perfect">✨ にがては なし！</div>';
+  const wb=$('weakDrillBtn'); if(wb) wb.style.display = weak.length ? '' : 'none';
+  // 実績バッジ
+  const owned=st.badges||{};
+  const got=BADGES.filter(b=>owned[b.id]).length;
+  $('badgeCount').textContent = `（${got}/${BADGES.length}）`;
+  $('badgeGrid').innerHTML = BADGES.map(b=>{
+    const has=!!owned[b.id];
+    return `<div class="badge${has?'':' locked'}" title="${esc(b.desc)}">`
+      + `<span class="bi">${has?b.icon:'🔒'}</span>`
+      + `<span class="bn">${esc(b.name)}</span><span class="bd">${esc(b.desc)}</span></div>`;
+  }).join('');
+  // キー別ミス
+  const keys=Object.entries(st.keyStats||{}).sort((a,b)=>b[1]-a[1]).slice(0,10);
+  $('keyStats').innerHTML = keys.length
+    ? keys.map(([k,n])=>`<div class="weak-item"><span class="term mono">${esc(k.toUpperCase())}</span><span class="q">${esc(keyFingerLabel(k))}</span><span class="ct">×${n}</span></div>`).join('')
+    : '<div class="perfect">✨ キー別ミスは なし！</div>';
+}
+function fmtPlayDate(iso){
+  const d=new Date(iso); if(isNaN(d)) return '';
+  const p=n=>String(n).padStart(2,'0');
+  return `${d.getMonth()+1}/${d.getDate()} ${p(d.getHours())}:${p(d.getMinutes())}`;
+}
+function keyFingerLabel(k){
+  return KEY_FINGER[k]!=null ? FINGER_NAME[KEY_FINGER[k]] : '記号キー';
+}
+function buildProgressSummary(){
+  const st=getStats(), hist=LS.get(HIST_KEY, []);
+  const weak=Object.values(st.weak||{}).filter(w=>weakNet(w)<0).sort((a,b)=>weakNet(a)-weakNet(b)).slice(0,5);
+  const keys=Object.entries(st.keyStats||{}).sort((a,b)=>b[1]-a[1]).slice(0,5);
+  return [
+    `プレイヤー: ${playerName()}`,
+    `プレイ回数: ${st.plays}`,
+    `最高スコア: ${st.bestScore}`,
+    `累計時間: ${Math.round((st.totalTimeSec||0)/60)}分`,
+    `連続日数: ${st.streak}日`,
+    `にがて上位: ${weak.map(w=>(w.term||w.ans)+'('+weakNet(w)+')').join('、') || 'なし'}`,
+    `キー別ミス: ${keys.map(([k,n])=>k.toUpperCase()+'('+n+')').join('、') || 'なし'}`,
+    `最近のプレイ: ${hist.slice(0,3).map(h=>h.eraName+'/'+h.score+'点/'+h.rank).join('、') || 'なし'}`
+  ].join('\n');
+}
+function csvCell(v){ return `"${String(v==null?'':v).replace(/"/g,'""')}"`; }
+function exportProgressCsv(){
+  const hist=LS.get(HIST_KEY, []);
+  const rows=[['date','era','mode','param','score','rank','accuracy','keys_per_min','cleared']];
+  for(const h of hist) rows.push([h.date,h.eraName,h.mode,h.param,h.score,h.rank,h.acc,h.kpm,h.cleared]);
+  const csv=rows.map(r=>r.map(csvCell).join(',')).join('\r\n');
+  const blob=new Blob(['\ufeff'+csv], {type:'text/csv;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url; a.download='type-study-progress.csv'; a.click();
+  setTimeout(()=>URL.revokeObjectURL(url), 1000);
+  $('reportNote').className='submit-note ok'; $('reportNote').textContent='CSVを書き出しました。';
+}
+async function copyProgressReport(){
+  const text=buildProgressSummary();
+  try{
+    await navigator.clipboard.writeText(text);
+    $('reportNote').className='submit-note ok'; $('reportNote').textContent='進捗サマリーをコピーしました。';
+  }catch(e){
+    $('reportNote').className='submit-note ng'; $('reportNote').textContent='コピーできませんでした。';
+  }
+}
+async function loadBoard(){
+  $('boardList').innerHTML='<p class="board-note">読み込み中…</p>';
+  const filter={era:boardEra, mode:boardMode, param:boardParam};
+  const {online, rows} = await fetchBoard(filter);
+  const me=playerName();
+  const scope = online ? '🌐 全国' : (onlineReady ? '📱 端末内（オフライン）' : '📱 端末内');
+  $('boardScope').textContent = `${scope}／${boardEra} ${condLabel(boardMode,boardParam)}`;
+  if(!rows.length){
+    $('boardList').innerHTML='<p class="board-note">この単元・条件ではまだ登録がありません。プレイして「全国ランキングに登録」しよう！</p>';
+    return;
+  }
+  $('boardList').innerHTML = rows.map((r,i)=>{
+    const admin=isAdminName(r.name);
+    const cls='board-row'+(i<3?' top'+(i+1):'')+(r.name===me?' me':'')+(admin?' admin':'');
+    return `<div class="${cls}"><span class="pos">${i+1}</span>`
+      + `<span class="bn">${esc(r.name)}${admin?'<span class="admin-mark">👑管理人</span>':''}</span>`
+      + `<span class="bs">${r.score}</span></div>`;
+  }).join('');
+}
+$('boardCatSel').addEventListener('change', e=>{
+  const c=_rankCats[+e.target.value]; if(!c) return;
+  boardEra=c.era; boardMode='count'; boardParam=c.param;
+  loadBoard();
+});
+$('reloadBoardBtn').addEventListener('click', renderMyRankCats);
+$('openRecordsBtn').addEventListener('click', openRecords);
+$('recordsBtn').addEventListener('click', openRecords);
+$('recHomeBtn').addEventListener('click', goHome);
+$('editNameBtn').addEventListener('click', ()=> openNameModal(()=>{ renderRecords(); }));
+$('soundBtn').addEventListener('click', toggleSound);
+$('weakDrillBtn').addEventListener('click', startWeakPractice);
+$('resWeakBtn').addEventListener('click', startSessionWeakPractice);
+
+/* ---------- 起動 ---------- */
+// 先に設定を復元（範囲の分け方 groupMode を反映するため）
+loadCfg();
+if(!window.HISTORY_SUBJECTS){
+  document.getElementById('subjectGrid').innerHTML =
+    '<p style="color:var(--bad)">データ（data-history.js）が読み込めませんでした。</p>';
+} else {
+  buildSubjectGrid();
+}
+buildKeyboard();
+refreshUserBar();
+restoreSettingsPanel();
+// 設定（難易度・音・指ガイド・分け方）をUIに反映
+applyCfgToUI();
+// 名前は「全国ランキングに登録」を押したときに初めて聞く（初回起動を妨げない）
+</script>
+</body>
+</html>

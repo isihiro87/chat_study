@@ -19,6 +19,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,svg,webp,woff,woff2}'],
+        // 静的同梱した /typing（外部タイピングアプリ）はSWのSPAフォールバックで奪わない
+        navigateFallbackDenylist: [/^\/typing\//],
         maximumFileSizeToCacheInBytes: 3 * 1024 * 1024, // 3MB
         runtimeCaching: [
           {
