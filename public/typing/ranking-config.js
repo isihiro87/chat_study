@@ -76,6 +76,18 @@ window.RANKING_CONFIG = {
   firebaseApiKey:    'AIzaSyAufyzvlbfuw6fTWUPsjSD4tt6yWwr4DFM', // firebaseConfig の apiKey（公開OKのウェブ用キー）
   collection:        'rankings',  // Firestore のコレクション名
 
+  // --- App Check（不正書き込み・コスト悪用ふせぎ。公開前に設定を推奨） ---
+  //   両方を入れると App Check が有効になります（空のままなら無効＝従来どおり）。
+  //   設定手順:
+  //   1. Firebase コンソール → プロジェクト type-study-88ced → プロジェクト設定 →「全般」
+  //      →「マイアプリ」のウェブアプリの firebaseConfig から  appId  をコピーして下に貼る
+  //   2. 左メニュー「App Check」→ アプリを登録 → プロバイダに「reCAPTCHA v3」を選択
+  //      → 表示（または reCAPTCHA 管理画面で発行）された「サイトキー」を下に貼る
+  //   3. このファイルを本番反映 → App Check の指標が緑（成功）になったのを確認してから
+  //      App Check → Firestore の「適用（Enforce）」を ON にする
+  appId:            '1:773673222525:web:19662f82a54c135c818c14', // firebaseConfig の appId
+  recaptchaSiteKey: '6LcpmjMtAAAAALhAVjkvkszs7IFFTOM0pdHlTm-9',   // App Check の reCAPTCHA v3 サイトキー（公開OK）
+
   // --- ランキングで「👑管理人」マークを付ける名前（自分のアカウント名を入れる。複数可） ---
   adminNames: ['いっしー'],
 };

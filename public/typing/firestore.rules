@@ -40,10 +40,10 @@ service cloud.firestore {
           && d.era is string        && d.era.size() <= 64
           && d.mode is string       && d.mode.size() <= 32
           && d.rank is string       && d.rank.size() <= 8
-          && d.score is int         && d.score >= 0 && d.score <= 1000000
-          && d.param is int         && d.param >= 0 && d.param <= 1000000
+          && d.score is int         && d.score >= 0 && d.score <= 200000
+          && d.param is int         && d.param >= 0 && d.param <= 100000
           && d.acc   is int         && d.acc   >= 0 && d.acc   <= 100
-          && d.kpm   is int         && d.kpm   >= 0 && d.kpm   <= 10000
+          && d.kpm   is int         && d.kpm   >= 0 && d.kpm   <= 2000
           && d.created_at is timestamp;
     }
 

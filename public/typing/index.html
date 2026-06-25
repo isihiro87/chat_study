@@ -419,7 +419,8 @@ details[open] .set-head{border-bottom:1px solid var(--line);}
         ・はじめる前に <b>日本語入力（IME）を半角（オフ）</b>にしてね。
       </div>
     </details>
-    <div class="foot">© タイプでスタディ ／ 問題内容は marutto-study の歴史教材より（原本は読み取りのみ）</div>
+    <div class="foot">© タイプでスタディ ／ 問題内容は marutto-study の歴史教材より（原本は読み取りのみ）<br>
+      <span style="font-size:11px;">記録は おもに この端末内に保存されます。全国ランキングに登録したときだけ、ニックネームとスコアがサーバーに送信されます（本名・連絡先などはあつめません）。</span></div>
   </section>
 
   <!-- ============ プレイ画面 ============ -->
@@ -624,6 +625,7 @@ details[open] .set-head{border-bottom:1px solid var(--line);}
     <h2>なまえを とうろく</h2>
     <p>全国ランキングで つかう なまえを いれてね。<br>（あとで「名前を変える」からへんこうできます）</p>
     <p style="color:var(--bad); font-weight:800; font-size:13px; margin:-4px 0 6px;">⚠ 本名（ほんみょう）は入れないでね。すきなニックネームにしよう。</p>
+    <p style="color:var(--sub); font-size:12px; line-height:1.7; margin:0 0 8px;">登録すると <b>ニックネームとスコア</b> だけが全国ランキングに表示されます。本名・メール・連絡先などの個人情報はあつめません。</p>
     <input id="nameInput" maxlength="12" autocomplete="off" placeholder="ニックネーム（12文字まで）">
     <button class="btn" id="nameRerollBtn" type="button" style="width:100%; padding:9px; margin-top:6px;">🎲 べつの なまえにする</button>
     <button class="btn primary" id="nameSaveBtn" style="width:100%; padding:13px; margin-top:8px;">けってい</button>
@@ -1818,7 +1820,8 @@ document.addEventListener('keydown', e=>{
    プレイヤーデータ蓄積（localStorage）＋ 全国ランキング
    ========================================================================= */
 const RC = Object.assign({provider:'local', supabaseUrl:'', supabaseKey:'', table:'rankings',
-  firebaseProjectId:'', firebaseApiKey:'', collection:'rankings', adminNames:[]}, window.RANKING_CONFIG||{});
+  firebaseProjectId:'', firebaseApiKey:'', collection:'rankings', adminNames:[],
+  appId:'', recaptchaSiteKey:''}, window.RANKING_CONFIG||{});
 // ランキングで「管理人」マークを付ける名前（ranking-config.js の adminNames で設定）
 function isAdminName(name){
   const list=Array.isArray(RC.adminNames)?RC.adminNames:[];
@@ -1828,6 +1831,34 @@ function isAdminName(name){
 const onlineReady =
   (RC.provider==='supabase' && !!RC.supabaseUrl && !!RC.supabaseKey) ||
   (RC.provider==='firebase' && !!RC.firebaseProjectId && !!RC.firebaseApiKey);
+
+/* ---------- App Check（不正書き込み・コスト悪用の抑止） ----------
+   ranking-config.js の recaptchaSiteKey と appId を設定すると有効化。
+   未設定なら完全に無効＝従来どおり書き込めます。
+   Firestore で App Check を「適用（Enforce）」する前に、このコードを本番反映し、
+   App Check の指標が緑（成功）になったのを確認してから適用してください。 */
+let _acReady=false;
+function _loadScript(src){ return new Promise((res,rej)=>{ const s=document.createElement('script'); s.src=src; s.async=true; s.onload=res; s.onerror=rej; document.head.appendChild(s); }); }
+const appCheckInit = (async ()=>{
+  try{
+    if(RC.provider!=='firebase' || !RC.recaptchaSiteKey || !RC.appId || !RC.firebaseApiKey) return;
+    await _loadScript('https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js');
+    await _loadScript('https://www.gstatic.com/firebasejs/10.12.2/firebase-app-check-compat.js');
+    if(!window.firebase) return;
+    firebase.initializeApp({ apiKey:RC.firebaseApiKey, projectId:RC.firebaseProjectId, appId:RC.appId });
+    firebase.appCheck().activate(RC.recaptchaSiteKey, true);   // true=トークン自動更新
+    _acReady=true;
+  }catch(e){ /* 読み込み失敗時は素通り（適用OFFなら従来どおり動く） */ }
+})();
+// Firestore REST 各呼び出しに付ける App Check ヘッダ（無効時は空オブジェクト）
+async function appCheckHeader(){
+  try{
+    await appCheckInit;
+    if(!_acReady || !window.firebase || !firebase.appCheck) return {};
+    const t=await firebase.appCheck().getToken(false);
+    return (t && t.token) ? {'X-Firebase-AppCheck': t.token} : {};
+  }catch(e){ return {}; }
+}
 
 const LS = {
   get(k,d){ try{ const v=localStorage.getItem(k); return v==null? d : JSON.parse(v); }catch(e){ return d; } },
@@ -2050,7 +2081,7 @@ async function fbInsert(entry){
     created_at:{timestampValue: new Date().toISOString()},
   };
   const r=await fetch(fbBase()+'/'+RC.collection+'?key='+RC.firebaseApiKey, {
-    method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({fields})
+    method:'POST', headers:Object.assign({'Content-Type':'application/json'}, await appCheckHeader()), body: JSON.stringify({fields})
   });
   if(!r.ok) throw new Error('HTTP '+r.status);
 }
@@ -2059,7 +2090,7 @@ async function fbFetch(){
   const body={ structuredQuery:{ from:[{collectionId:RC.collection}],
     orderBy:[{field:{fieldPath:'score'}, direction:'DESCENDING'}], limit:500 } };
   const r=await fetch(fbBase()+':runQuery?key='+RC.firebaseApiKey, {
-    method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body)
+    method:'POST', headers:Object.assign({'Content-Type':'application/json'}, await appCheckHeader()), body: JSON.stringify(body)
   });
   if(!r.ok) throw new Error('HTTP '+r.status);
   const data=await r.json();
@@ -2106,7 +2137,7 @@ async function syncPlayerToCloud(){
     };
     const fields={}; for(const k in doc) fields[k]=fbEnc(doc[k]);
     const url=fbBase()+'/players/'+encodeURIComponent(pid)+'?key='+RC.firebaseApiKey;
-    const r=await fetch(url, {method:'PATCH', headers:{'Content-Type':'application/json'}, body: JSON.stringify({fields})});
+    const r=await fetch(url, {method:'PATCH', headers:Object.assign({'Content-Type':'application/json'}, await appCheckHeader()), body: JSON.stringify({fields})});
     if(!r.ok) throw new Error('HTTP '+r.status);
   }catch(e){ /* オフライン等。次回プレイ時にまるごと再アップロードされる */ }
   finally{ cloudSyncing=false; }
