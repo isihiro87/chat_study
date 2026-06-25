@@ -1,0 +1,14 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g3-square-roots",
+  "topicId": "math-g3-rationalization",
+  "name": "分母の有理化",
+  "subtitle": "分母の√をなくそう",
+  "icon": "📐",
+  "order": 3,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": []
+  }
+}

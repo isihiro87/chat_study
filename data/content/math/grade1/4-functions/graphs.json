@@ -42,10 +42,10 @@
         "options": [
           "第1象限",
           "第2象限",
-          "第4象限",
-          "第3象限"
+          "第3象限",
+          "第4象限"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "explanation": "$x$ 座標が正、$y$ 座標が負の点は第4象限にあります。\nよって $(3, -2)$ は第4象限です。",
         "difficulty": "standard"
       },
@@ -54,11 +54,11 @@
         "question": "点 $(-4, 5)$ は第何象限にありますか。",
         "options": [
           "第1象限",
+          "第2象限",
           "第3象限",
-          "第4象限",
-          "第2象限"
+          "第4象限"
         ],
-        "correctIndex": 3,
+        "correctIndex": 1,
         "explanation": "$x$ 座標が負、$y$ 座標が正の点は第2象限にあります。\nよって $(-4, 5)$ は第2象限です。",
         "difficulty": "standard"
       },
@@ -358,11 +358,11 @@
         "question": "下のグラフの点 $A$ は第何象限にありますか。",
         "options": [
           "第1象限",
-          "第3象限",
           "第2象限",
+          "第3象限",
           "第4象限"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "点 $A$ は $(-2, -3)$ で、$x$ 座標も $y$ 座標も負です。両方が負の点は第3象限にあります。",
         "difficulty": "basic",
         "image": {

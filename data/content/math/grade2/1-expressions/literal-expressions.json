@@ -1,0 +1,236 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g2-expressions",
+  "topicId": "math-g2-literal-expr",
+  "name": "文字式の利用",
+  "subtitle": "整数の性質を文字で証明しよう",
+  "icon": "🔤",
+  "order": 4,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": [
+      {
+        "id": "math-g2-literal-expr-q1",
+        "question": "$x=3$ のとき、式 $2x+5$ の値はいくつですか。",
+        "options": [
+          "11",
+          "8",
+          "10",
+          "16"
+        ],
+        "correctIndex": 0,
+        "explanation": "$x$ に3を代入します。$2 \\times 3+5=6+5=11$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-literal-expr-q2",
+        "question": "$a=-2$ のとき、式 $3a-4$ の値はいくつですか。",
+        "options": [
+          "$-2$",
+          "$-10$",
+          "$2$",
+          "$-6$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$a$ に $-2$ を代入します。$3 \\times (-2)-4=-6-4=-10$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-literal-expr-q3",
+        "question": "$x=4,\\ y=-1$ のとき、式 $2x-3y$ の値はいくつですか。",
+        "options": [
+          "5",
+          "8",
+          "11",
+          "$-11$"
+        ],
+        "correctIndex": 2,
+        "explanation": "代入すると $2 \\times 4-3 \\times (-1)=8+3=11$ です。$-3 \\times (-1)=+3$ になることに注意します。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-literal-expr-q4",
+        "question": "$x=-3$ のとき、式 $x^2+2x$ の値はいくつですか。",
+        "options": [
+          "$-3$",
+          "15",
+          "$-15$",
+          "3"
+        ],
+        "correctIndex": 3,
+        "explanation": "代入すると $(-3)^2+2 \\times (-3)=9-6=3$ です。$(-3)^2=9$（負の数の2乗は正）になることに注意します。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-literal-expr-q5",
+        "question": "$a=5,\\ b=2$ のとき、式 $4(a-b)+3b$ の値はいくつですか。",
+        "options": [
+          "18",
+          "12",
+          "20",
+          "26"
+        ],
+        "correctIndex": 0,
+        "explanation": "代入すると $4(5-2)+3 \\times 2=4 \\times 3+6=12+6=18$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-literal-expr-q6",
+        "question": "等式 $x+y=8$ を $y$ について解くとどうなりますか。",
+        "options": [
+          "$y=8+x$",
+          "$y=8-x$",
+          "$y=x-8$",
+          "$y=\\frac{8}{x}$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$x$ を右辺に移項します。$y=8-x$ です。移項すると符号が変わります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-literal-expr-q7",
+        "question": "等式 $2a+b=10$ を $b$ について解くとどうなりますか。",
+        "options": [
+          "$b=10+2a$",
+          "$b=\\frac{10}{2a}$",
+          "$b=10-2a$",
+          "$b=2a-10$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$2a$ を右辺に移項すると $b=10-2a$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-literal-expr-q8",
+        "question": "等式 $4x=y+3$ を $x$ について解くとどうなりますか。",
+        "options": [
+          "$x=4(y+3)$",
+          "$x=\\frac{y}{4}+3$",
+          "$x=y+3-4$",
+          "$x=\\frac{y+3}{4}$"
+        ],
+        "correctIndex": 3,
+        "explanation": "両辺を4でわります。$x=\\frac{y+3}{4}$ です。右辺全体を4でわるので分子は $y+3$ のままです。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-literal-expr-q9",
+        "question": "等式 $3x-2y=6$ を $y$ について解くとどうなりますか。",
+        "options": [
+          "$y=\\frac{3x-6}{2}$",
+          "$y=\\frac{6-3x}{2}$",
+          "$y=3x-6$",
+          "$y=\\frac{3x+6}{2}$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$-2y=6-3x$ と移項し、両辺を $-2$ でわります。$y=\\frac{6-3x}{-2}=\\frac{3x-6}{2}$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-literal-expr-q10",
+        "question": "整数 $n$ を使って偶数を表す式はどれですか。",
+        "options": [
+          "$2n+1$",
+          "$2n$",
+          "$n+2$",
+          "$n^2$"
+        ],
+        "correctIndex": 1,
+        "explanation": "偶数は2でわり切れる数なので、整数 $n$ を使うと $2n$ と表せます。$2n+1$ は奇数を表します。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-literal-expr-q11",
+        "question": "整数 $n$ を使って奇数を表す式はどれですか。",
+        "options": [
+          "$2n$",
+          "$3n$",
+          "$2n+1$",
+          "$n+1$"
+        ],
+        "correctIndex": 2,
+        "explanation": "奇数は偶数 $2n$ より1大きい数なので、$2n+1$ と表せます。$2n$ は偶数を表します。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-literal-expr-q12",
+        "question": "連続する3つの整数を、もっとも小さい数を $n$ として表したものはどれですか。",
+        "options": [
+          "$n,\\ n+2,\\ n+4$",
+          "$n,\\ 2n,\\ 3n$",
+          "$n-1,\\ n,\\ n+1$",
+          "$n,\\ n+1,\\ n+2$"
+        ],
+        "correctIndex": 3,
+        "explanation": "連続する整数は1ずつ大きくなります。もっとも小さい数を $n$ とすると、$n,\\ n+1,\\ n+2$ と表せます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-literal-expr-q13",
+        "question": "連続する3つの整数を $n,\\ n+1,\\ n+2$ とするとき、その和を表す式はどれですか。",
+        "options": [
+          "$3n+3$",
+          "$3n$",
+          "$n+3$",
+          "$3n+6$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$n+(n+1)+(n+2)=3n+3$ です。これは $3(n+1)$ とも書け、3の倍数になることがわかります。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-literal-expr-q14",
+        "question": "十の位が $a$、一の位が $b$ である2けたの自然数を表す式はどれですか。",
+        "options": [
+          "$a+b$",
+          "$10a+b$",
+          "$ab$",
+          "$10b+a$"
+        ],
+        "correctIndex": 1,
+        "explanation": "十の位の数は10倍の重みをもつので、2けたの自然数は $10a+b$ と表せます。たとえば $a=3,\\ b=5$ なら $35$ になります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-literal-expr-q15",
+        "question": "十の位が $a$、一の位が $b$ の2けたの自然数の、十の位と一の位を入れかえてできる数を表す式はどれですか。",
+        "options": [
+          "$10a+b$",
+          "$b+a$",
+          "$10b+a$",
+          "$ba$"
+        ],
+        "correctIndex": 2,
+        "explanation": "入れかえると一の位だった $b$ が十の位になります。十の位は10倍の重みなので $10b+a$ と表せます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-literal-expr-q16",
+        "question": "連続する2つの偶数を、整数 $n$ を使って表したものはどれですか。",
+        "options": [
+          "$2n,\\ 2n+1$",
+          "$n,\\ n+2$",
+          "$2n+1,\\ 2n+3$",
+          "$2n,\\ 2n+2$"
+        ],
+        "correctIndex": 3,
+        "explanation": "偶数は $2n$ と表せ、次の偶数はそれより2大きい $2n+2$ です。よって $2n,\\ 2n+2$ となります。$2n+1$ は奇数なので不適です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-literal-expr-q17",
+        "question": "$x=2,\\ y=-3$ のとき、式 $5x+2y$ の値はいくつですか。",
+        "options": [
+          "4",
+          "16",
+          "$-4$",
+          "10"
+        ],
+        "correctIndex": 0,
+        "explanation": "代入すると $5 \\times 2+2 \\times (-3)=10-6=4$ です。",
+        "difficulty": "standard"
+      }
+    ]
+  }
+}

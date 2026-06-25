@@ -1,0 +1,14 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g3-expansion-factoring",
+  "topicId": "math-g3-factoring-basics",
+  "name": "因数分解の基本",
+  "subtitle": "共通因数をくくり出そう",
+  "icon": "🔧",
+  "order": 4,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": []
+  }
+}

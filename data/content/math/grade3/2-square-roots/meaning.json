@@ -1,0 +1,14 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g3-square-roots",
+  "topicId": "math-g3-sqrt-meaning",
+  "name": "平方根の意味と大小",
+  "subtitle": "√の世界への入り口",
+  "icon": "√",
+  "order": 1,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": []
+  }
+}

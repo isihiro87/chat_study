@@ -1,0 +1,14 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g3-quadratic-eq",
+  "topicId": "math-g3-quad-eq-factoring",
+  "name": "因数分解で解く",
+  "subtitle": "A×B=0ならA=0またはB=0",
+  "icon": "🔧",
+  "order": 2,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": []
+  }
+}

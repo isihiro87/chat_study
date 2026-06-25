@@ -1,0 +1,223 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g2-simultaneous-eq",
+  "topicId": "math-g2-simul-eq-basics",
+  "name": "連立方程式の基本",
+  "subtitle": "2つの式で2つの未知数を求める",
+  "icon": "🔗",
+  "order": 1,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": [
+      {
+        "id": "math-g2-simul-eq-basics-q1",
+        "question": "2元1次方程式とはどれですか。",
+        "options": [
+          "$2x+3y=7$",
+          "$x^2+y=5$",
+          "$3x=12$",
+          "$\\frac{1}{x}+y=4$"
+        ],
+        "correctIndex": 0,
+        "explanation": "2元1次方程式は、2つの文字（元）をふくみ、その次数がどちらも1である方程式です。\n$2x+3y=7$ は $x$ と $y$ の2文字で次数1なので2元1次方程式です。$x^2$ は次数2、$3x=12$ は1元、$\\frac{1}{x}$ は1次式ではありません。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-simul-eq-basics-q2",
+        "question": "2元1次方程式 $x+y=6$ の解になる $x$、$y$ の組はどれですか。",
+        "options": [
+          "$x=1,\\ y=4$",
+          "$x=2,\\ y=4$",
+          "$x=3,\\ y=2$",
+          "$x=4,\\ y=1$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$x=2,\\ y=4$ を代入すると $2+4=6$ となり成り立ちます。\n$x=1,\\ y=4$ は $1+4=5$、$x=3,\\ y=2$ は $3+2=5$ で成り立ちません。2元1次方程式の解は無数にありますが、式を満たす組だけが解です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-simul-eq-basics-q3",
+        "question": "連立方程式の「解」の意味として正しいものはどれですか。",
+        "options": [
+          "1つ目の方程式だけを成り立たせる値",
+          "$x$ だけが求まればよい値",
+          "2つの方程式を同時に成り立たせる $x$、$y$ の値の組",
+          "どちらか一方の方程式を成り立たせる値"
+        ],
+        "correctIndex": 2,
+        "explanation": "連立方程式の解とは、組になっているすべての方程式を同時に成り立たせる $x$、$y$ の値の組のことです。\nどちらか一方だけを満たしても連立方程式の解とは言えません。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-simul-eq-basics-q4",
+        "question": "連立方程式 $\\begin{cases} x+y=5 \\\\ x-y=1 \\end{cases}$ の解はどれですか。",
+        "options": [
+          "$x=2,\\ y=3$",
+          "$x=4,\\ y=1$",
+          "$x=1,\\ y=4$",
+          "$x=3,\\ y=2$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$x=3,\\ y=2$ を代入すると $3+2=5$、$3-2=1$ となり両方成り立ちます。\n他の組は片方の式しか満たさないので解ではありません。両方の式を確かめることが大切です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-simul-eq-basics-q5",
+        "question": "次の組のうち、連立方程式 $\\begin{cases} 2x+y=8 \\\\ x-y=1 \\end{cases}$ の解になるものはどれですか。",
+        "options": [
+          "$x=3,\\ y=2$",
+          "$x=4,\\ y=0$",
+          "$x=2,\\ y=4$",
+          "$x=1,\\ y=6$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$x=3,\\ y=2$ を代入すると $2\\times3+2=8$、$3-2=1$ で両方成り立ちます。\n$x=4,\\ y=0$ は $2\\times4+0=8$ は合いますが $4-0=4\\neq1$ なので解ではありません。両方の式で確かめます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-simul-eq-basics-q6",
+        "question": "連立方程式 $\\begin{cases} 3x-y=7 \\\\ x+2y=0 \\end{cases}$ の解はどれですか。",
+        "options": [
+          "$x=2,\\ y=1$",
+          "$x=2,\\ y=-1$",
+          "$x=-2,\\ y=1$",
+          "$x=1,\\ y=-4$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$x=2,\\ y=-1$ を代入すると $3\\times2-(-1)=7$、$2+2\\times(-1)=0$ となり両方成り立ちます。\n他の組はどちらかの式が成り立ちません。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-simul-eq-basics-q7",
+        "question": "2元1次方程式 $2x+y=10$ について、$x=3$ のときの $y$ の値はどれですか。",
+        "options": [
+          "$y=7$",
+          "$y=16$",
+          "$y=4$",
+          "$y=-4$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$x=3$ を代入すると $2\\times3+y=10$、$6+y=10$ より $y=4$ です。\n2元1次方程式では片方の値を決めると、もう片方の値が1つに決まります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-simul-eq-basics-q8",
+        "question": "$x=4,\\ y=-2$ が解になる連立方程式はどれですか。",
+        "options": [
+          "$\\begin{cases} x+y=6 \\\\ x-y=2 \\end{cases}$",
+          "$\\begin{cases} x+y=2 \\\\ x-y=2 \\end{cases}$",
+          "$\\begin{cases} x+y=-2 \\\\ x-y=4 \\end{cases}$",
+          "$\\begin{cases} x+y=2 \\\\ x-y=6 \\end{cases}$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$x=4,\\ y=-2$ より $x+y=4+(-2)=2$、$x-y=4-(-2)=6$ となります。\nよって $\\begin{cases} x+y=2 \\\\ x-y=6 \\end{cases}$ がこの組を解にもつ連立方程式です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-simul-eq-basics-q9",
+        "question": "連立方程式 $\\begin{cases} x+y=7 \\\\ 2x+y=11 \\end{cases}$ の解はどれですか。",
+        "options": [
+          "$x=4,\\ y=3$",
+          "$x=3,\\ y=4$",
+          "$x=5,\\ y=2$",
+          "$x=2,\\ y=5$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$x=4,\\ y=3$ を代入すると $4+3=7$、$2\\times4+3=11$ となり両方成り立ちます。\n下の式から上の式を引くと $x=4$、これを上の式に入れて $y=3$ と求められます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-simul-eq-basics-q10",
+        "question": "2元1次方程式 $x-3y=5$ の解として正しい組はどれですか。",
+        "options": [
+          "$x=2,\\ y=1$",
+          "$x=2,\\ y=-1$",
+          "$x=5,\\ y=1$",
+          "$x=-1,\\ y=2$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$x=2,\\ y=-1$ を代入すると $2-3\\times(-1)=2+3=5$ となり成り立ちます。\n$x=2,\\ y=1$ は $2-3=-1\\neq5$ なので解ではありません。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-simul-eq-basics-q11",
+        "question": "連立方程式の2つの式のうち、片方の式だけを満たす値について正しい説明はどれですか。",
+        "options": [
+          "連立方程式の解になる",
+          "もう一方の式の解にもなる",
+          "連立方程式の解とはいえない",
+          "解の個数を2倍にする"
+        ],
+        "correctIndex": 2,
+        "explanation": "連立方程式の解は、2つの式を同時に成り立たせる値の組です。\n片方の式だけを満たしても、もう一方を満たさなければ連立方程式の解とはいえません。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-simul-eq-basics-q12",
+        "question": "連立方程式 $\\begin{cases} x+2y=8 \\\\ 3x-y=3 \\end{cases}$ の解はどれですか。",
+        "options": [
+          "$x=3,\\ y=2$",
+          "$x=4,\\ y=2$",
+          "$x=2,\\ y=2$",
+          "$x=2,\\ y=3$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$x=2,\\ y=3$ を代入すると $2+2\\times3=8$、$3\\times2-3=3$ となり両方成り立ちます。\n他の組はどちらかの式を満たしません。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-simul-eq-basics-q13",
+        "question": "$x=-1,\\ y=3$ を解にもつ2元1次方程式はどれですか。",
+        "options": [
+          "$2x+y=1$",
+          "$x+y=3$",
+          "$x-y=2$",
+          "$3x+y=1$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$x=-1,\\ y=3$ を代入すると $2\\times(-1)+3=1$ となり成り立ちます。\n$x+y=-1+3=2\\neq3$、$x-y=-1-3=-4\\neq2$ なので他は当てはまりません。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-simul-eq-basics-q14",
+        "question": "連立方程式 $\\begin{cases} 4x+y=9 \\\\ 2x-y=3 \\end{cases}$ の解はどれですか。",
+        "options": [
+          "$x=1,\\ y=5$",
+          "$x=2,\\ y=1$",
+          "$x=2,\\ y=-1$",
+          "$x=3,\\ y=3$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$x=2,\\ y=1$ を代入すると $4\\times2+1=9$、$2\\times2-1=3$ となり両方成り立ちます。\n2つの式を足すと $6x=12$、$x=2$、これを上の式に入れて $y=1$ と求められます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-simul-eq-basics-q15",
+        "question": "次の組のうち、連立方程式 $\\begin{cases} x+y=4 \\\\ 2x+2y=10 \\end{cases}$ の解はどれですか。",
+        "options": [
+          "$x=2,\\ y=2$",
+          "$x=1,\\ y=3$",
+          "解はない",
+          "$x=3,\\ y=1$"
+        ],
+        "correctIndex": 2,
+        "explanation": "下の式を2でわると $x+y=5$ となり、上の式 $x+y=4$ と矛盾します。\n同時に $x+y=4$ と $x+y=5$ を満たす値はないので、この連立方程式に解はありません。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-simul-eq-basics-q16",
+        "question": "連立方程式 $\\begin{cases} 5x-2y=4 \\\\ x+2y=8 \\end{cases}$ の解はどれですか。",
+        "options": [
+          "$x=3,\\ y=2$",
+          "$x=2,\\ y=-3$",
+          "$x=4,\\ y=2$",
+          "$x=2,\\ y=3$"
+        ],
+        "correctIndex": 3,
+        "explanation": "2つの式を足すと $6x=12$、$x=2$ となります。これを下の式に入れると $2+2y=8$、$2y=6$、$y=3$ です。\n検算すると $5\\times2-2\\times3=4$、$2+2\\times3=8$ で両方成り立ちます。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

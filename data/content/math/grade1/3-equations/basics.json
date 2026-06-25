@@ -1,0 +1,457 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g1-equations",
+  "topicId": "math-g1-eq-basics",
+  "name": "方程式の基本と移項",
+  "subtitle": "方程式の解き方の基礎",
+  "icon": "📐",
+  "order": 1,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": [
+      {
+        "id": "math-g1-eq-basics-q1",
+        "question": "次のうち、$x = 3$ が解である方程式はどれですか。",
+        "options": [
+          "$2x + 1 = 7$",
+          "$x + 4 = 5$",
+          "$3x - 2 = 10$",
+          "$5 - x = 3$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$x = 3$ を代入して左辺と右辺が等しくなる式を探します。\n$2x + 1 = 2 \\times 3 + 1 = 7$ となり右辺と等しいので、$x = 3$ が解です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-eq-basics-q2",
+        "question": "次の方程式を解きましょう。\n$x - 4 = 9$",
+        "options": [
+          "$x = 5$",
+          "$x = 13$",
+          "$x = -5$",
+          "$x = 36$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$-4$ を移項すると $x = 9 + 4$ となります。\nよって $x = 13$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-eq-basics-q3",
+        "question": "次の方程式を解きましょう。\n$x + 7 = 2$",
+        "options": [
+          "$x = 9$",
+          "$x = -9$",
+          "$x = -5$",
+          "$x = 5$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$+7$ を移項すると $x = 2 - 7$ となります。\nよって $x = -5$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-eq-basics-q4",
+        "question": "次の方程式を解きましょう。\n$5x = 35$",
+        "options": [
+          "$x = 30$",
+          "$x = 40$",
+          "$x = 175$",
+          "$x = 7$"
+        ],
+        "correctIndex": 3,
+        "explanation": "両辺を $5$ でわると $x = 35 \\div 5$ となります。\nよって $x = 7$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-eq-basics-q5",
+        "question": "次の方程式を解きましょう。\n$\\frac{x}{4} = 6$",
+        "options": [
+          "$x = 24$",
+          "$x = 10$",
+          "$x = 2$",
+          "$x = \\frac{3}{2}$"
+        ],
+        "correctIndex": 0,
+        "explanation": "両辺に $4$ をかけると $x = 6 \\times 4$ となります。\nよって $x = 24$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-eq-basics-q6",
+        "question": "次の方程式を解きましょう。\n$-3x = 21$",
+        "options": [
+          "$x = 7$",
+          "$x = -7$",
+          "$x = 18$",
+          "$x = -18$"
+        ],
+        "correctIndex": 1,
+        "explanation": "両辺を $-3$ でわると $x = 21 \\div (-3)$ となります。\nよって $x = -7$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-eq-basics-q7",
+        "question": "次の方程式を解きましょう。\n$4x + 3 = 19$",
+        "options": [
+          "$x = 5$",
+          "$x = 16$",
+          "$x = 4$",
+          "$x = -4$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$+3$ を移項すると $4x = 19 - 3 = 16$。\n両辺を $4$ でわって $x = 4$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-eq-basics-q8",
+        "question": "次の方程式を解きましょう。\n$7x - 5 = 2x + 15$",
+        "options": [
+          "$x = 2$",
+          "$x = 5$",
+          "$x = -4$",
+          "$x = 4$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$2x$ を左辺に、$-5$ を右辺に移項すると $7x - 2x = 15 + 5$。\n$5x = 20$ より $x = 4$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-eq-basics-q9",
+        "question": "次の方程式を解きましょう。\n$9 - 2x = 3x - 6$",
+        "options": [
+          "$x = 3$",
+          "$x = -3$",
+          "$x = \\frac{3}{5}$",
+          "$x = 15$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$3x$ を左辺へ、$9$ を右辺へ移項すると $-2x - 3x = -6 - 9$。\n$-5x = -15$ より $x = 3$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-eq-basics-q10",
+        "question": "次の方程式を解きましょう。\n$6x + 11 = 4x + 1$",
+        "options": [
+          "$x = 5$",
+          "$x = -5$",
+          "$x = -6$",
+          "$x = 6$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$4x$ を左辺へ、$11$ を右辺へ移項すると $6x - 4x = 1 - 11$。\n$2x = -10$ より $x = -5$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-eq-basics-q11",
+        "question": "次の方程式を解きましょう。\n$3(x - 2) = 12$",
+        "options": [
+          "$x = 4$",
+          "$x = 2$",
+          "$x = 6$",
+          "$x = 14$"
+        ],
+        "correctIndex": 2,
+        "explanation": "かっこを外すと $3x - 6 = 12$。\n$3x = 18$ より $x = 6$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-eq-basics-q12",
+        "question": "次の方程式を解きましょう。\n$2(x + 4) = 5x - 1$",
+        "options": [
+          "$x = -3$",
+          "$x = \\frac{7}{3}$",
+          "$x = 9$",
+          "$x = 3$"
+        ],
+        "correctIndex": 3,
+        "explanation": "かっこを外すと $2x + 8 = 5x - 1$。\n$2x - 5x = -1 - 8$、$-3x = -9$ より $x = 3$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-eq-basics-q13",
+        "question": "次の方程式を解きましょう。\n$5x - 3(x - 2) = 14$",
+        "options": [
+          "$x = 4$",
+          "$x = 5$",
+          "$x = 2$",
+          "$x = -4$"
+        ],
+        "correctIndex": 0,
+        "explanation": "かっこを外すと $5x - 3x + 6 = 14$。\n$2x = 8$ より $x = 4$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-eq-basics-q14",
+        "question": "$x$ についての方程式 $3x + a = 11$ の解が $x = 2$ のとき、$a$ の値を求めなさい。",
+        "options": [
+          "$a = 6$",
+          "$a = 5$",
+          "$a = -5$",
+          "$a = 17$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$x = 2$ を代入すると $3 \\times 2 + a = 11$。\n$6 + a = 11$ より $a = 5$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-eq-basics-q15",
+        "question": "次の方程式を解きましょう。\n$4(2x - 1) = 3(x + 7)$",
+        "options": [
+          "$x = 3$",
+          "$x = -5$",
+          "$x = 5$",
+          "$x = \\frac{25}{11}$"
+        ],
+        "correctIndex": 2,
+        "explanation": "かっこを外すと $8x - 4 = 3x + 21$。\n$8x - 3x = 21 + 4$、$5x = 25$ より $x = 5$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-eq-basics-q16",
+        "question": "等式の性質を使って $x - 8 = 3$ を解くとき、両辺に対して行う操作はどれですか。",
+        "options": [
+          "両辺から $8$ をひく",
+          "両辺に $8$ をかける",
+          "両辺を $8$ でわる",
+          "両辺に $8$ をたす"
+        ],
+        "correctIndex": 3,
+        "explanation": "$x$ を左辺に残すには $-8$ を打ち消します。\n両辺に $8$ をたすと $x = 3 + 8 = 11$ となります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-eq-basics-q17",
+        "question": "次の方程式を解きましょう。\n$x - 6 = 8$",
+        "options": [
+          "$x = 14$",
+          "$x = 2$",
+          "$x = -2$",
+          "$x = 48$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$-6$ を移項すると $x = 8 + 6$ となります。\nよって $x = 14$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-eq-basics-q18",
+        "question": "次の方程式を解きましょう。\n$x + 9 = 4$",
+        "options": [
+          "$x = 13$",
+          "$x = -5$",
+          "$x = 5$",
+          "$x = -13$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$+9$ を移項すると $x = 4 - 9$ となります。\nよって $x = -5$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-eq-basics-q19",
+        "question": "次の方程式を解きましょう。\n$6x = 48$",
+        "options": [
+          "$x = 42$",
+          "$x = 54$",
+          "$x = 8$",
+          "$x = 288$"
+        ],
+        "correctIndex": 2,
+        "explanation": "両辺を $6$ でわると $x = 48 \\div 6$ となります。\nよって $x = 8$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-eq-basics-q20",
+        "question": "次の方程式を解きましょう。\n$-4x = 28$",
+        "options": [
+          "$x = 7$",
+          "$x = 24$",
+          "$x = -24$",
+          "$x = -7$"
+        ],
+        "correctIndex": 3,
+        "explanation": "両辺を $-4$ でわると $x = 28 \\div (-4)$ となります。\nよって $x = -7$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-eq-basics-q21",
+        "question": "次の方程式を解きましょう。\n$5x - 2 = 18$",
+        "options": [
+          "$x = 4$",
+          "$x = 16$",
+          "$x = 20$",
+          "$x = -4$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$-2$ を移項すると $5x = 18 + 2 = 20$。\n両辺を $5$ でわって $x = 4$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-eq-basics-q22",
+        "question": "次の方程式を解きましょう。\n$8x - 7 = 3x + 13$",
+        "options": [
+          "$x = 6$",
+          "$x = 4$",
+          "$x = -4$",
+          "$x = 20$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$3x$ を左辺に、$-7$ を右辺に移項すると $8x - 3x = 13 + 7$。\n$5x = 20$ より $x = 4$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-eq-basics-q23",
+        "question": "次の方程式を解きましょう。\n$10 - 3x = 2x - 5$",
+        "options": [
+          "$x = -3$",
+          "$x = 5$",
+          "$x = 3$",
+          "$x = \\frac{5}{3}$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$2x$ を左辺へ、$10$ を右辺へ移項すると $-3x - 2x = -5 - 10$。\n$-5x = -15$ より $x = 3$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-eq-basics-q24",
+        "question": "次の方程式を解きましょう。\n$7x + 13 = 4x + 1$",
+        "options": [
+          "$x = 4$",
+          "$x = -12$",
+          "$x = 12$",
+          "$x = -4$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$4x$ を左辺へ、$13$ を右辺へ移項すると $7x - 4x = 1 - 13$。\n$3x = -12$ より $x = -4$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-eq-basics-q25",
+        "question": "次の方程式を解きましょう。\n$4(x - 3) = 8$",
+        "options": [
+          "$x = 5$",
+          "$x = 2$",
+          "$x = 11$",
+          "$x = 20$"
+        ],
+        "correctIndex": 0,
+        "explanation": "かっこを外すと $4x - 12 = 8$。\n$4x = 20$ より $x = 5$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-eq-basics-q26",
+        "question": "次の方程式を解きましょう。\n$3(x + 5) = 7x - 1$",
+        "options": [
+          "$x = -4$",
+          "$x = 4$",
+          "$x = 14$",
+          "$x = \\frac{7}{2}$"
+        ],
+        "correctIndex": 1,
+        "explanation": "かっこを外すと $3x + 15 = 7x - 1$。\n$3x - 7x = -1 - 15$、$-4x = -16$ より $x = 4$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-eq-basics-q27",
+        "question": "次の方程式を解きましょう。\n$6x - 4(x - 3) = 20$",
+        "options": [
+          "$x = 8$",
+          "$x = -4$",
+          "$x = 4$",
+          "$x = 16$"
+        ],
+        "correctIndex": 2,
+        "explanation": "かっこを外すと $6x - 4x + 12 = 20$。\n$2x = 8$ より $x = 4$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-eq-basics-q28",
+        "question": "次の方程式を解きましょう。\n$5(x - 2) = 2(x + 4)$",
+        "options": [
+          "$x = 2$",
+          "$x = -6$",
+          "$x = \\frac{2}{3}$",
+          "$x = 6$"
+        ],
+        "correctIndex": 3,
+        "explanation": "かっこを外すと $5x - 10 = 2x + 8$。\n$5x - 2x = 8 + 10$、$3x = 18$ より $x = 6$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-eq-basics-q29",
+        "question": "次の方程式を解きましょう。\n$3(2x - 1) - 2(x + 4) = 5x - 13$",
+        "options": [
+          "$x = 2$",
+          "$x = -2$",
+          "$x = 9$",
+          "$x = 6$"
+        ],
+        "correctIndex": 0,
+        "explanation": "かっこを外すと $6x - 3 - 2x - 8 = 5x - 13$、左辺は $4x - 11$。\n$4x - 5x = -13 + 11$、$-x = -2$ より $x = 2$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-eq-basics-q30",
+        "question": "次の方程式を解きましょう。\n$5x - 2(3x - 4) = -(2x - 6)$",
+        "options": [
+          "$x = 2$",
+          "$x = -2$",
+          "$x = 14$",
+          "$x = -14$"
+        ],
+        "correctIndex": 1,
+        "explanation": "かっこを外すと $5x - 6x + 8 = -2x + 6$、左辺は $-x + 8$。\n$-x + 2x = 6 - 8$、$x = -2$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-eq-basics-q31",
+        "question": "次の方程式を解きましょう。\n$4(x - 3) - 3(2x - 1) = -x - 5$",
+        "options": [
+          "$x = 4$",
+          "$x = 8$",
+          "$x = -4$",
+          "$x = -8$"
+        ],
+        "correctIndex": 2,
+        "explanation": "かっこを外すと $4x - 12 - 6x + 3 = -x - 5$、左辺は $-2x - 9$。\n$-2x + x = -5 + 9$、$-x = 4$ より $x = -4$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-eq-basics-q32",
+        "question": "次の方程式を解きましょう。\n$2(3x - 1) - 4(x - 2) = x + 9$",
+        "options": [
+          "$x = -3$",
+          "$x = 5$",
+          "$x = 15$",
+          "$x = 3$"
+        ],
+        "correctIndex": 3,
+        "explanation": "かっこを外すと $6x - 2 - 4x + 8 = x + 9$、左辺は $2x + 6$。\n$2x - x = 9 - 6$、$x = 3$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-eq-basics-q33",
+        "question": "次の方程式を解きましょう。\n$7x - 3(x + 2) = 2(x - 1) + 6$",
+        "options": [
+          "$x = 5$",
+          "$x = -5$",
+          "$x = 2$",
+          "$x = 10$"
+        ],
+        "correctIndex": 0,
+        "explanation": "両辺のかっこを外すと $7x - 3x - 6 = 2x - 2 + 6$、$4x - 6 = 2x + 4$。\n$4x - 2x = 4 + 6$、$2x = 10$ より $x = 5$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-eq-basics-q34",
+        "question": "次の方程式を解きましょう。\n$6(x - 1) - 2(2x + 3) = 3x - 16$",
+        "options": [
+          "$x = -4$",
+          "$x = 4$",
+          "$x = 22$",
+          "$x = -22$"
+        ],
+        "correctIndex": 1,
+        "explanation": "左辺のかっこを外すと $6x - 6 - 4x - 6 = 3x - 16$、$2x - 12 = 3x - 16$。\n$2x - 3x = -16 + 12$、$-x = -4$ より $x = 4$ です。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

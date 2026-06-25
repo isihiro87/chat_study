@@ -1,0 +1,14 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g3-expansion-factoring",
+  "topicId": "math-g3-expansion-advanced",
+  "name": "展開の応用",
+  "subtitle": "置き換え・式を簡単にする・式のおきかえ",
+  "icon": "🚀",
+  "order": 3,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": []
+  }
+}

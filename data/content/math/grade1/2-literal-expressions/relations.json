@@ -1,0 +1,143 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g1-literal-exp",
+  "topicId": "math-g1-lit-relations",
+  "name": "関係を表す式",
+  "subtitle": "等式と不等式で数量関係を表そう",
+  "icon": "⚖️",
+  "order": 3,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": [
+      {
+        "id": "math-g1-lit-relations-q1",
+        "question": "1個 $80$ 円のりんごを $x$ 個買ったときの代金を表す式はどれですか。",
+        "options": ["$80+x$", "$80x$", "$\\frac{80}{x}$", "$x-80$"],
+        "correctIndex": 1,
+        "explanation": "代金 = 1個の値段 × 個数 です。\n$80 \\times x = 80x$（円）となります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-lit-relations-q2",
+        "question": "$1$ 本 $a$ 円のジュースを $5$ 本買ったときの代金を表す式はどれですか。",
+        "options": ["$a+5$", "$\\frac{a}{5}$", "$5a$", "$a-5$"],
+        "correctIndex": 2,
+        "explanation": "代金 = 1本の値段 × 本数 です。\n$a \\times 5 = 5a$（円）となります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-lit-relations-q3",
+        "question": "$100$ 円出して $x$ 円の品物を買ったときのおつりを表す式はどれですか。",
+        "options": ["$x-100$", "$100+x$", "$100x$", "$100-x$"],
+        "correctIndex": 3,
+        "explanation": "おつり = 出したお金 − 代金 です。\n$100-x$（円）となります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-lit-relations-q4",
+        "question": "$a$ 本のえん筆を $4$ 人に同じ数ずつ分けるときの $1$ 人分の本数を表す式はどれですか。",
+        "options": ["$\\frac{a}{4}$", "$4a$", "$a-4$", "$a+4$"],
+        "correctIndex": 0,
+        "explanation": "1人分 = 全体の本数 ÷ 人数 です。\n$a \\div 4 = \\frac{a}{4}$（本）となります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-lit-relations-q5",
+        "question": "時速 $4$ km で $x$ 時間歩いたときに進む道のりを表す式はどれですか。",
+        "options": ["$\\frac{4}{x}$", "$4x$", "$4+x$", "$\\frac{x}{4}$"],
+        "correctIndex": 1,
+        "explanation": "道のり = 速さ × 時間 です。\n$4 \\times x = 4x$（km）となります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-lit-relations-q6",
+        "question": "$1$ 個 $x$ 円のパン $3$ 個と $1$ 個 $y$ 円のジュース $2$ 個を買ったときの代金の合計を表す式はどれですか。",
+        "options": ["$x+y$", "$3x \\times 2y$", "$3x+2y$", "$5xy$"],
+        "correctIndex": 2,
+        "explanation": "パンの代金は $3x$ 円、ジュースの代金は $2y$ 円です。\n合計は $3x+2y$（円）となります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-lit-relations-q7",
+        "question": "$a$ km の道のりを $2$ 時間で進んだときの速さ（時速）を表す式はどれですか。",
+        "options": ["$2a$", "$a-2$", "$\\frac{2}{a}$", "$\\frac{a}{2}$"],
+        "correctIndex": 3,
+        "explanation": "速さ = 道のり ÷ 時間 です。\n$a \\div 2 = \\frac{a}{2}$（km/時）となります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-lit-relations-q8",
+        "question": "$x$ 人の $20$ % の人数を表す式はどれですか。",
+        "options": ["$\\frac{20}{100}x$", "$20x$", "$\\frac{x}{20}$", "$x-20$"],
+        "correctIndex": 0,
+        "explanation": "20 % は $\\frac{20}{100}$ のことです。\n$x$ 人の20 % は $\\frac{20}{100}x$（人）となります（$0.2x$ と表してもよい）。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-lit-relations-q9",
+        "question": "$1$ 個 $a$ 円のケーキ $4$ 個を買って $1000$ 円出したときのおつりを表す式はどれですか。",
+        "options": ["$4a-1000$", "$1000-4a$", "$1000-a$", "$1000+4a$"],
+        "correctIndex": 1,
+        "explanation": "ケーキの代金は $4a$ 円です。おつり = 出したお金 − 代金 なので、\n$1000-4a$（円）となります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-lit-relations-q10",
+        "question": "「ある数 $x$ を $5$ 倍して $3$ をたすと $18$ になる」という関係を表す式はどれですか。",
+        "options": ["$5x-3=18$", "$5(x+3)=18$", "$5x+3=18$", "$x+5+3=18$"],
+        "correctIndex": 2,
+        "explanation": "$x$ を5倍すると $5x$、それに3をたすと $5x+3$ です。これが18に等しいので、\n$5x+3=18$ となります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-lit-relations-q11",
+        "question": "「$1$ 個 $x$ 円のおかしを $6$ 個買うと代金は $900$ 円だった」という関係を表す式はどれですか。",
+        "options": ["$x+6=900$", "$\\frac{x}{6}=900$", "$x-6=900$", "$6x=900$"],
+        "correctIndex": 3,
+        "explanation": "代金 = 1個の値段 × 個数 = $6x$ 円です。これが900円なので、\n$6x=900$ となります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-lit-relations-q12",
+        "question": "「$1$ 個 $a$ 円のパン $3$ 個を買って $500$ 円出すと、おつりがあった」という関係を表す式はどれですか。",
+        "options": ["$3a<500$", "$3a>500$", "$3a=500$", "$3a \\geqq 500$"],
+        "correctIndex": 0,
+        "explanation": "おつりがあるということは、代金 $3a$ 円が500円より小さいということです。\nだから $3a<500$ となります。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-lit-relations-q13",
+        "question": "「$x$ 円の品物を買ったら $400$ 円以上だった」という関係を表す式はどれですか。",
+        "options": ["$x>400$", "$x \\geqq 400$", "$x \\leqq 400$", "$x<400$"],
+        "correctIndex": 1,
+        "explanation": "「400円以上」は400円もふくむので、$\\geqq$ を使います。\nだから $x \\geqq 400$ となります。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-lit-relations-q14",
+        "question": "「$1$ 本 $80$ 円のジュースを $x$ 本買った代金は $1000$ 円以下だった」という関係を表す式はどれですか。",
+        "options": ["$80x \\geqq 1000$", "$80x<1000$", "$80x \\leqq 1000$", "$80x=1000$"],
+        "correctIndex": 2,
+        "explanation": "代金は $80x$ 円です。「1000円以下」は1000円もふくむので $\\leqq$ を使います。\nだから $80x \\leqq 1000$ となります。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-lit-relations-q15",
+        "question": "「ある数 $x$ を $3$ でわって $2$ をひくと $7$ になる」という関係を表す式はどれですか。",
+        "options": ["$\\frac{x}{3}+2=7$", "$3x-2=7$", "$\\frac{x-2}{3}=7$", "$\\frac{x}{3}-2=7$"],
+        "correctIndex": 3,
+        "explanation": "$x$ を3でわると $\\frac{x}{3}$、そこから2をひくと $\\frac{x}{3}-2$ です。これが7に等しいので、\n$\\frac{x}{3}-2=7$ となります。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-lit-relations-q16",
+        "question": "「現在 $x$ 才の人の $5$ 年後の年れい」を表す式はどれですか。",
+        "options": ["$x+5$", "$5x$", "$x-5$", "$\\frac{x}{5}$"],
+        "correctIndex": 0,
+        "explanation": "5年後は今の年れいに5をたします。\nだから $x+5$（才）となります。",
+        "difficulty": "basic"
+      }
+    ]
+  }
+}

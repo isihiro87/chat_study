@@ -1,0 +1,483 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g1-pos-neg",
+  "topicId": "math-g1-various",
+  "name": "いろいろな計算と素因数分解",
+  "subtitle": "累乗・四則混合・素因数分解を学ぼう",
+  "icon": "🔬",
+  "order": 4,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": [
+      {
+        "id": "math-g1-various-q1",
+        "question": "次の計算をしましょう。\n$4-(-3)\\times2$",
+        "options": [
+          "$-2$",
+          "$2$",
+          "$10$",
+          "$14$"
+        ],
+        "correctIndex": 2,
+        "explanation": "乗法を先に計算します。\n$(-3)\\times2=-6$ なので $4-(-6)=4+6=10$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-various-q2",
+        "question": "次の計算をしましょう。\n$(-5)\\times(-2)-6$",
+        "options": [
+          "$-16$",
+          "$4$",
+          "$16$",
+          "$-4$"
+        ],
+        "correctIndex": 1,
+        "explanation": "乗法を先に計算します。\n$(-5)\\times(-2)=+10$ なので $10-6=4$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-various-q3",
+        "question": "次の計算をしましょう。\n$36\\div(-4)+5$",
+        "options": [
+          "$+4$",
+          "$-4$",
+          "$-14$",
+          "$+14$"
+        ],
+        "correctIndex": 1,
+        "explanation": "除法を先に計算します。\n$36\\div(-4)=-9$ なので $-9+5=-4$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-various-q4",
+        "question": "次の計算をしましょう。\n$30-20\\div(-2)$",
+        "options": [
+          "$20$",
+          "$40$",
+          "$-5$",
+          "$25$"
+        ],
+        "correctIndex": 1,
+        "explanation": "除法を先に計算します。\n$20\\div(-2)=-10$ なので $30-(-10)=30+10=40$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-various-q5",
+        "question": "次の計算をしましょう。\n$2\\times(-4)-6\\div2$",
+        "options": [
+          "$-5$",
+          "$11$",
+          "$-11$",
+          "$5$"
+        ],
+        "correctIndex": 2,
+        "explanation": "乗法と除法を先に計算します。\n$2\\times(-4)=-8$、$6\\div2=3$ なので $-8-3=-11$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-various-q6",
+        "question": "次の計算をしましょう。\n$40\\div2^2-2\\times(-3)^2$",
+        "options": [
+          "$+8$",
+          "$28$",
+          "$-28$",
+          "$-8$"
+        ],
+        "correctIndex": 3,
+        "explanation": "累乗を先に計算します。\n$2^2=4$、$(-3)^2=9$ なので $40\\div4-2\\times9=10-18=-8$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-various-q7",
+        "question": "次の計算をしましょう。\n$(9-12)\\div3-2$",
+        "options": [
+          "$-3$",
+          "$+3$",
+          "$-1$",
+          "$+1$"
+        ],
+        "correctIndex": 0,
+        "explanation": "かっこの中を先に計算します。\n$9-12=-3$ なので $-3\\div3-2=-1-2=-3$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-various-q8",
+        "question": "次の計算をしましょう。\n$4-\\{(-2)^2-3^2\\}$",
+        "options": [
+          "$9$",
+          "$-1$",
+          "$1$",
+          "$-9$"
+        ],
+        "correctIndex": 0,
+        "explanation": "中かっこの累乗から計算します。\n$(-2)^2=4$、$3^2=9$ なので $\\{4-9\\}=-5$。\n$4-(-5)=4+5=9$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-various-q9",
+        "question": "次の計算をしましょう。\n$\\left(\\frac{1}{2}+\\frac{3}{4}\\right)\\times(-4)$",
+        "options": [
+          "$+5$",
+          "$-2$",
+          "$-1$",
+          "$-5$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$\\frac{1}{2}\\times(-4)+\\frac{3}{4}\\times(-4)=-2+(-3)=-5$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-various-q10",
+        "question": "次の計算をしましょう。\n$(-12)\\times\\left(\\frac{1}{3}-\\frac{3}{4}\\right)$",
+        "options": [
+          "$-5$",
+          "$-4$",
+          "$5$",
+          "$9$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$(-12)\\times\\frac{1}{3}+(-12)\\times\\left(-\\frac{3}{4}\\right)=-4+9=5$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-various-q11",
+        "question": "次の計算をしましょう。\n$13\\times55-13\\times45$",
+        "options": [
+          "$1300$",
+          "$1000$",
+          "$130$",
+          "$13$"
+        ],
+        "correctIndex": 2,
+        "explanation": "共通の $13$ でくくります。\n$13\\times(55-45)=13\\times10=130$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-various-q12",
+        "question": "$60$ を素因数分解したものはどれですか。",
+        "options": [
+          "$2^2\\times3\\times5$",
+          "$2\\times3\\times5$",
+          "$2^3\\times3\\times5$",
+          "$2^2\\times15$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$60=2\\times30=2\\times2\\times15=2\\times2\\times3\\times5$ です。\n累乗を使って $2^2\\times3\\times5$ と表します。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-various-q13",
+        "question": "$108$ を素因数分解したものはどれですか。",
+        "options": [
+          "$2^3\\times3^2$",
+          "$2^2\\times27$",
+          "$4\\times27$",
+          "$2^2\\times3^3$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$108=2\\times54=2\\times2\\times27=2\\times2\\times3\\times3\\times3$ です。\n累乗を使って $2^2\\times3^3$ と表します。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-various-q14",
+        "question": "$45$ を素因数分解したものはどれですか。",
+        "options": [
+          "$3\\times5$",
+          "$3^2\\times5$",
+          "$3^2\\times15$",
+          "$9\\times5$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$45=3\\times15=3\\times3\\times5$ です。\n累乗を使って $3^2\\times5$ と表します。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-various-q15",
+        "question": "$175$ をできるだけ小さい自然数でわって、ある数の2乗にするには、どんな数でわればよいですか。",
+        "options": [
+          "$7$",
+          "$5$",
+          "$25$",
+          "$35$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$175=5^2\\times7$ です。\n$7$ でわると $25=5^2$ になり、ある数の2乗になります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-various-q16",
+        "question": "ある日の最低気温を見たところ、月曜は $-3$ ℃、火曜は $+1$ ℃、水曜は $-4$ ℃ でした。3日間の最低気温の平均は何℃ですか。",
+        "options": [
+          "$-6$ ℃",
+          "$-2$ ℃",
+          "$+2$ ℃",
+          "$0$ ℃"
+        ],
+        "correctIndex": 1,
+        "explanation": "合計は $(-3)+(+1)+(-4)=-6$ ℃。\n平均は $-6\\div3=-2$ ℃ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-various-q17",
+        "question": "ある工場で1日1500個の生産を基準にしています。月曜は基準より $+37$ 個、火曜は $-28$ 個でした。月曜の実際の生産数は何個ですか。",
+        "options": [
+          "$1463$ 個",
+          "$1472$ 個",
+          "$1500$ 個",
+          "$1537$ 個"
+        ],
+        "correctIndex": 3,
+        "explanation": "基準との差を基準にたします。\n$1500+37=1537$ 個です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-various-q18",
+        "question": "5人の身長を150cmを基準として差で表すと、$+8,\\ -2,\\ 0,\\ +5,\\ -1$（cm）でした。5人の身長の平均は何cmですか。",
+        "options": [
+          "$152$ cm",
+          "$150$ cm",
+          "$148$ cm",
+          "$155$ cm"
+        ],
+        "correctIndex": 0,
+        "explanation": "差の合計は $8-2+0+5-1=10$、差の平均は $10\\div5=2$ cm。\n基準にたして $150+2=152$ cm です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-various-q19",
+        "question": "次の計算をしましょう。\n$7+(-4)\\times3$",
+        "options": [
+          "$-5$",
+          "$9$",
+          "$-12$",
+          "$19$"
+        ],
+        "correctIndex": 0,
+        "explanation": "乗法を先に計算します。\n$(-4)\\times3=-12$ なので $7+(-12)=-5$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-various-q20",
+        "question": "次の計算をしましょう。\n$(-6)\\times(-3)-8$",
+        "options": [
+          "$-26$",
+          "$10$",
+          "$26$",
+          "$-10$"
+        ],
+        "correctIndex": 1,
+        "explanation": "乗法を先に計算します。\n$(-6)\\times(-3)=+18$ なので $18-8=10$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-various-q21",
+        "question": "次の計算をしましょう。\n$45\\div(-9)+7$",
+        "options": [
+          "$12$",
+          "$-12$",
+          "$2$",
+          "$-2$"
+        ],
+        "correctIndex": 2,
+        "explanation": "除法を先に計算します。\n$45\\div(-9)=-5$ なので $-5+7=2$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-various-q22",
+        "question": "次の計算をしましょう。\n$24-18\\div(-3)$",
+        "options": [
+          "$2$",
+          "$18$",
+          "$-2$",
+          "$30$"
+        ],
+        "correctIndex": 3,
+        "explanation": "除法を先に計算します。\n$18\\div(-3)=-6$ なので $24-(-6)=24+6=30$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-various-q23",
+        "question": "次の計算をしましょう。\n$3\\times(-5)-8\\div4$",
+        "options": [
+          "$-17$",
+          "$13$",
+          "$-13$",
+          "$17$"
+        ],
+        "correctIndex": 0,
+        "explanation": "乗法と除法を先に計算します。\n$3\\times(-5)=-15$、$8\\div4=2$ なので $-15-2=-17$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-various-q24",
+        "question": "次の計算をしましょう。\n$18\\div3^2+4\\times(-2)^2$",
+        "options": [
+          "$-14$",
+          "$18$",
+          "$-18$",
+          "$14$"
+        ],
+        "correctIndex": 1,
+        "explanation": "累乗を先に計算します。\n$3^2=9$、$(-2)^2=4$ なので $18\\div9+4\\times4=2+16=18$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-various-q25",
+        "question": "次の計算をしましょう。\n$(7-10)\\times4+5$",
+        "options": [
+          "$-17$",
+          "$17$",
+          "$-7$",
+          "$7$"
+        ],
+        "correctIndex": 2,
+        "explanation": "かっこの中を先に計算します。\n$7-10=-3$ なので $-3\\times4+5=-12+5=-7$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-various-q26",
+        "question": "次の計算をしましょう。\n$10-\\{3^2-(-2)^2\\}$",
+        "options": [
+          "$-5$",
+          "$15$",
+          "$3$",
+          "$5$"
+        ],
+        "correctIndex": 3,
+        "explanation": "中かっこの累乗から計算します。\n$3^2=9$、$(-2)^2=4$ なので $\\{9-4\\}=5$。\n$10-5=5$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-various-q27",
+        "question": "次の計算をしましょう。\n$\\left(\\frac{2}{3}-\\frac{1}{2}\\right)\\times12$",
+        "options": [
+          "$2$",
+          "$6$",
+          "$-2$",
+          "$10$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$\\frac{2}{3}\\times12-\\frac{1}{2}\\times12=8-6=2$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-various-q28",
+        "question": "次の計算をしましょう。\n$(-15)\\times\\left(\\frac{2}{5}-\\frac{1}{3}\\right)$",
+        "options": [
+          "$1$",
+          "$11$",
+          "$-1$",
+          "$-11$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$(-15)\\times\\frac{2}{5}+(-15)\\times\\left(-\\frac{1}{3}\\right)=-6+5=-1$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-various-q29",
+        "question": "次の計算をしましょう。\n$17\\times26+17\\times74$",
+        "options": [
+          "$170$",
+          "$1700$",
+          "$17000$",
+          "$100$"
+        ],
+        "correctIndex": 1,
+        "explanation": "共通の $17$ でくくります。\n$17\\times(26+74)=17\\times100=1700$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-various-q30",
+        "question": "次の計算をしましょう。\n$-6^2+(-4)\\times(-3)$",
+        "options": [
+          "$-48$",
+          "$48$",
+          "$24$",
+          "$-24$"
+        ],
+        "correctIndex": 3,
+        "explanation": "累乗を先に計算します。\n$-6^2=-(6\\times6)=-36$、$(-4)\\times(-3)=12$ なので $-36+12=-24$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-various-q31",
+        "question": "次の計算をしましょう。\n$-2^2-\\{(-3)^2-4\\times(-2)\\}$",
+        "options": [
+          "$-21$",
+          "$13$",
+          "$-13$",
+          "$21$"
+        ],
+        "correctIndex": 0,
+        "explanation": "中かっこの中を先に計算します。\n$(-3)^2=9$、$4\\times(-2)=-8$ なので $\\{9-(-8)\\}=17$。\n$-2^2=-4$ なので $-4-17=-21$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-various-q32",
+        "question": "次の計算をしましょう。\n$(-4)^2\\div(-8)\\times(-3)-5$",
+        "options": [
+          "$-11$",
+          "$1$",
+          "$-1$",
+          "$11$"
+        ],
+        "correctIndex": 1,
+        "explanation": "累乗を先に計算します。\n$(-4)^2=16$ なので $16\\div(-8)=-2$、$-2\\times(-3)=6$。\n$6-5=1$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-various-q33",
+        "question": "次の計算をしましょう。\n$\\frac{2}{3}-\\left(-\\frac{1}{2}\\right)^2\\times\\frac{4}{3}$",
+        "options": [
+          "$1$",
+          "$-\\frac{1}{3}$",
+          "$\\frac{1}{3}$",
+          "$\\frac{2}{3}$"
+        ],
+        "correctIndex": 2,
+        "explanation": "累乗を先に計算します。\n$\\left(-\\frac{1}{2}\\right)^2=\\frac{1}{4}$ なので $\\frac{1}{4}\\times\\frac{4}{3}=\\frac{1}{3}$。\n$\\frac{2}{3}-\\frac{1}{3}=\\frac{1}{3}$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-various-q34",
+        "question": "次の計算をしましょう。\n$12\\times\\left(-\\frac{2}{3}\\right)+(-2)^3\\div(-4)$",
+        "options": [
+          "$-10$",
+          "$10$",
+          "$6$",
+          "$-6$"
+        ],
+        "correctIndex": 3,
+        "explanation": "累乗と乗除を先に計算します。\n$12\\times\\left(-\\frac{2}{3}\\right)=-8$、$(-2)^3=-8$ より $-8\\div(-4)=2$。\n$-8+2=-6$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-various-q35",
+        "question": "次の計算をしましょう。\n$-3^2+\\{(-2)^3+5\\times(-1)\\}$",
+        "options": [
+          "$-22$",
+          "$4$",
+          "$-4$",
+          "$22$"
+        ],
+        "correctIndex": 0,
+        "explanation": "中かっこの中を先に計算します。\n$(-2)^3=-8$、$5\\times(-1)=-5$ なので $\\{-8+(-5)\\}=-13$。\n$-3^2=-9$ なので $-9+(-13)=-22$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-various-q36",
+        "question": "次の計算をしましょう。\n$\\frac{5}{6}+\\left(-\\frac{1}{3}\\right)^2\\times(-6)$",
+        "options": [
+          "$-\\frac{1}{6}$",
+          "$\\frac{3}{2}$",
+          "$\\frac{1}{6}$",
+          "$-\\frac{3}{2}$"
+        ],
+        "correctIndex": 2,
+        "explanation": "累乗を先に計算します。\n$\\left(-\\frac{1}{3}\\right)^2=\\frac{1}{9}$ なので $\\frac{1}{9}\\times(-6)=-\\frac{2}{3}$。\n$\\frac{5}{6}-\\frac{2}{3}=\\frac{5}{6}-\\frac{4}{6}=\\frac{1}{6}$ です。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

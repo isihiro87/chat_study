@@ -1,0 +1,14 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g3-expansion-factoring",
+  "topicId": "math-g3-expansion-basics",
+  "name": "式の展開の基本",
+  "subtitle": "かっこを外して計算しよう",
+  "icon": "📖",
+  "order": 1,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": []
+  }
+}

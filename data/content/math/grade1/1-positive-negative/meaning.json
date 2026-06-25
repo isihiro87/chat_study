@@ -1,0 +1,223 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g1-pos-neg",
+  "topicId": "math-g1-pos-neg-meaning",
+  "name": "正の数・負の数と絶対値",
+  "subtitle": "正負の数の意味と大小を理解しよう",
+  "icon": "🔢",
+  "order": 1,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": [
+      {
+        "id": "math-g1-pos-neg-meaning-q1",
+        "question": "「0より7小さい数」を正の符号・負の符号を使って表すと、どれですか。",
+        "options": [
+          "$+7$",
+          "$-7$",
+          "$7$",
+          "$-0.7$"
+        ],
+        "correctIndex": 1,
+        "explanation": "0より小さい数は負の数で表します。\n0より7小さい数は $-7$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-pos-neg-meaning-q2",
+        "question": "「3000円の収入」を $+3000$ 円と表すとき、「2000円の支出」はどう表せますか。",
+        "options": [
+          "$+2000$ 円",
+          "$-2000$ 円",
+          "$-3000$ 円",
+          "$+5000$ 円"
+        ],
+        "correctIndex": 1,
+        "explanation": "収入を正の数で表すと、反対の意味である支出は負の数で表します。\n2000円の支出は $-2000$ 円です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-pos-neg-meaning-q3",
+        "question": "$-6$ の絶対値はいくつですか。",
+        "options": [
+          "$6$",
+          "$-6$",
+          "$0$",
+          "$1$"
+        ],
+        "correctIndex": 0,
+        "explanation": "絶対値は、その数から符号をとった大きさです。\n$-6$ の絶対値は $6$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-pos-neg-meaning-q4",
+        "question": "$+\\frac{3}{5}$ の絶対値はいくつですか。",
+        "options": [
+          "$\\frac{3}{5}$",
+          "$-\\frac{3}{5}$",
+          "$\\frac{5}{3}$",
+          "$1$"
+        ],
+        "correctIndex": 0,
+        "explanation": "絶対値は数の符号をとった大きさなので、$+\\frac{3}{5}$ の絶対値は $\\frac{3}{5}$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-pos-neg-meaning-q5",
+        "question": "絶対値が $8$ である数をすべて答えると、どれですか。",
+        "options": [
+          "$+8$",
+          "$-8$",
+          "$+8$ と $-8$",
+          "$+8$ と $0$"
+        ],
+        "correctIndex": 2,
+        "explanation": "絶対値が $8$ になる数は、数直線上で原点から距離が $8$ の点です。\n正と負の両方があるので $+8$ と $-8$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-pos-neg-meaning-q6",
+        "question": "$-3$ と $-7$ の大小関係を正しく表しているのはどれですか。",
+        "options": [
+          "$-3 < -7$",
+          "$-7 = -3$",
+          "$-7 < -3$",
+          "どれも正しくない"
+        ],
+        "correctIndex": 2,
+        "explanation": "負の数は絶対値が大きいほど小さくなります。\n$-7$ の絶対値は $7$、$-3$ の絶対値は $3$ なので $-7 < -3$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-pos-neg-meaning-q7",
+        "question": "$-4$、$+2$、$-1$ を小さい順に並べたものはどれですか。",
+        "options": [
+          "$-1,\\ -4,\\ +2$",
+          "$-4,\\ -1,\\ +2$",
+          "$+2,\\ -1,\\ -4$",
+          "$-4,\\ +2,\\ -1$"
+        ],
+        "correctIndex": 1,
+        "explanation": "数直線上で左にある数ほど小さくなります。\n小さい順に並べると $-4,\\ -1,\\ +2$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-pos-neg-meaning-q8",
+        "question": "次の数のうち、最も小さい数はどれですか。",
+        "options": [
+          "$-2$",
+          "$0$",
+          "$+3$",
+          "$-5$"
+        ],
+        "correctIndex": 3,
+        "explanation": "負の数は0より小さく、絶対値が大きいほど小さくなります。\n$-5 < -2 < 0 < +3$ なので、最も小さいのは $-5$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-pos-neg-meaning-q9",
+        "question": "次の数のうち、最も大きい数はどれですか。",
+        "options": [
+          "$+1$",
+          "$-6$",
+          "$0$",
+          "$+4$"
+        ],
+        "correctIndex": 3,
+        "explanation": "正の数は0より大きく、絶対値が大きいほど大きくなります。\n$+4 > +1 > 0 > -6$ なので、最も大きいのは $+4$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-pos-neg-meaning-q10",
+        "question": "$-2.5$ と $-2.1$ の大小関係を正しく表しているのはどれですか。",
+        "options": [
+          "$-2.5 < -2.1$",
+          "$-2.1 < -2.5$",
+          "$-2.5 = -2.1$",
+          "$-2.5 > -2.1$"
+        ],
+        "correctIndex": 0,
+        "explanation": "負の数は絶対値が大きいほど小さくなります。\n絶対値は $2.5 > 2.1$ なので $-2.5 < -2.1$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-pos-neg-meaning-q11",
+        "question": "$+2$、$-2$、$+5$、$-3$ の中で、絶対値が最も大きい数はどれですか。",
+        "options": [
+          "$-3$",
+          "$-2$",
+          "$+2$",
+          "$+5$"
+        ],
+        "correctIndex": 3,
+        "explanation": "それぞれの絶対値は $2,\\ 2,\\ 5,\\ 3$ です。\n最も大きいのは $5$ なので、絶対値が最も大きい数は $+5$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-pos-neg-meaning-q12",
+        "question": "$-15$、$+8$、$-9$、$+4$ の中で、絶対値が最も小さい数はどれですか。",
+        "options": [
+          "$+8$",
+          "$+4$",
+          "$-9$",
+          "$-15$"
+        ],
+        "correctIndex": 1,
+        "explanation": "それぞれの絶対値は $15,\\ 8,\\ 9,\\ 4$ です。\n最も小さいのは $4$ なので、絶対値が最も小さい数は $+4$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-pos-neg-meaning-q13",
+        "question": "次の数の中から、自然数をすべて選んだものはどれですか。\n$-3,\\ +5,\\ 0,\\ +7,\\ -1$",
+        "options": [
+          "$+5,\\ 0,\\ +7$",
+          "$-3,\\ +5,\\ +7$",
+          "$+5,\\ +7$",
+          "$+5,\\ +7,\\ -1$"
+        ],
+        "correctIndex": 2,
+        "explanation": "自然数は正の整数のことで、0や負の数はふくみません。\nこの中の自然数は $+5$ と $+7$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-pos-neg-meaning-q14",
+        "question": "「絶対値が $3$ 以下の整数」は全部で何個ありますか。",
+        "options": [
+          "6個",
+          "3個",
+          "7個",
+          "8個"
+        ],
+        "correctIndex": 2,
+        "explanation": "絶対値が $3$ 以下の整数は $-3,\\ -2,\\ -1,\\ 0,\\ +1,\\ +2,\\ +3$ です。\n0をふくめて全部で7個あります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-pos-neg-meaning-q15",
+        "question": "次の説明のうち、正しいものはどれですか。",
+        "options": [
+          "絶対値はいつも0以上の数になる",
+          "0には絶対値がない",
+          "負の数の絶対値はいつも負である",
+          "絶対値が大きい正の数ほど小さい"
+        ],
+        "correctIndex": 0,
+        "explanation": "絶対値は数直線上での原点からの距離なので、いつも $0$ 以上になります。\n0の絶対値は0、負の数の絶対値も正（または0）、正の数は絶対値が大きいほど大きいので、他は誤りです。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-pos-neg-meaning-q16",
+        "question": "数直線上で、原点から左へ4目もりの位置にある数はどれですか。（1目もりは1とする）",
+        "options": [
+          "$+4$",
+          "$-0.4$",
+          "$+0.4$",
+          "$-4$"
+        ],
+        "correctIndex": 3,
+        "explanation": "原点から左へ進むと負の数になります。\n左へ4目もりの位置は $-4$ です。",
+        "difficulty": "basic"
+      }
+    ]
+  }
+}

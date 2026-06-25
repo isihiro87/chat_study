@@ -1,0 +1,457 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g2-expressions",
+  "topicId": "math-g2-mono-mul-div",
+  "name": "単項式の乗法・除法",
+  "subtitle": "係数と文字を分けて計算",
+  "icon": "✖️",
+  "order": 3,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": [
+      {
+        "id": "math-g2-mono-mul-div-q1",
+        "question": "次の計算をしましょう。\n$3a \\times 4b$",
+        "options": [
+          "$12ab$",
+          "$7ab$",
+          "$12a+4b$",
+          "$12ab^2$"
+        ],
+        "correctIndex": 0,
+        "explanation": "係数どうし、文字どうしをかけます。$3 \\times 4=12$、$a \\times b=ab$。よって $12ab$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-mono-mul-div-q2",
+        "question": "次の計算をしましょう。\n$2x \\times 5x$",
+        "options": [
+          "$10x$",
+          "$10x^2$",
+          "$7x^2$",
+          "$10x^3$"
+        ],
+        "correctIndex": 1,
+        "explanation": "係数は $2 \\times 5=10$、文字は $x \\times x=x^2$。よって $10x^2$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-mono-mul-div-q3",
+        "question": "次の計算をしましょう。\n$(-3a) \\times 6b$",
+        "options": [
+          "$18ab$",
+          "$-18a+6b$",
+          "$-18ab$",
+          "$3ab$"
+        ],
+        "correctIndex": 2,
+        "explanation": "係数は $-3 \\times 6=-18$、文字は $a \\times b=ab$。よって $-18ab$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-mono-mul-div-q4",
+        "question": "次の計算をしましょう。\n$(-2x) \\times (-7y)$",
+        "options": [
+          "$-14xy$",
+          "$14x+7y$",
+          "$9xy$",
+          "$14xy$"
+        ],
+        "correctIndex": 3,
+        "explanation": "係数は $(-2) \\times (-7)=14$（負どうしの積は正）、文字は $x \\times y=xy$。よって $14xy$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-mono-mul-div-q5",
+        "question": "次の計算をしましょう。\n$(2a)^2$",
+        "options": [
+          "$4a^2$",
+          "$2a^2$",
+          "$4a$",
+          "$2a$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$(2a)^2$ は $2a \\times 2a$ です。係数 $2 \\times 2=4$、文字 $a \\times a=a^2$。よって $4a^2$ です。係数も2乗することに注意します。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-mono-mul-div-q6",
+        "question": "次の計算をしましょう。\n$(-3x)^2$",
+        "options": [
+          "$-9x^2$",
+          "$9x^2$",
+          "$6x^2$",
+          "$-6x^2$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$(-3x)^2=(-3x) \\times (-3x)$。係数 $(-3) \\times (-3)=9$、文字 $x \\times x=x^2$。よって $9x^2$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-mono-mul-div-q7",
+        "question": "次の計算をしましょう。\n$4a \\times a^2$",
+        "options": [
+          "$4a^2$",
+          "$5a^3$",
+          "$4a^3$",
+          "$4a^4$"
+        ],
+        "correctIndex": 2,
+        "explanation": "係数は $4 \\times 1=4$、文字は $a \\times a^2=a^{1+2}=a^3$。よって $4a^3$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-mono-mul-div-q8",
+        "question": "次の計算をしましょう。\n$12ab \\div 4a$",
+        "options": [
+          "$3ab$",
+          "$8b$",
+          "$3a$",
+          "$3b$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$\\frac{12ab}{4a}$ と分数にして約分します。係数 $\\frac{12}{4}=3$、文字 $\\frac{ab}{a}=b$。よって $3b$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-mono-mul-div-q9",
+        "question": "次の計算をしましょう。\n$15x^2 \\div 3x$",
+        "options": [
+          "$5x$",
+          "$5x^2$",
+          "$5$",
+          "$12x$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$\\frac{15x^2}{3x}$。係数 $\\frac{15}{3}=5$、文字 $\\frac{x^2}{x}=x$。よって $5x$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-mono-mul-div-q10",
+        "question": "次の計算をしましょう。\n$-18ab \\div 3a$",
+        "options": [
+          "$6b$",
+          "$-6b$",
+          "$-6ab$",
+          "$-15b$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$\\frac{-18ab}{3a}$。係数 $\\frac{-18}{3}=-6$、文字 $\\frac{ab}{a}=b$。よって $-6b$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-mono-mul-div-q11",
+        "question": "次の計算をしましょう。\n$8x^2 \\div 4x$",
+        "options": [
+          "$2x^2$",
+          "$2$",
+          "$2x$",
+          "$4x$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$\\frac{8x^2}{4x}$。係数 $\\frac{8}{4}=2$、文字 $\\frac{x^2}{x}=x$。よって $2x$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-mono-mul-div-q12",
+        "question": "次の計算をしましょう。\n$6xy \\div \\frac{2}{3}x$",
+        "options": [
+          "$4y$",
+          "$9xy$",
+          "$\\frac{4}{3}y$",
+          "$9y$"
+        ],
+        "correctIndex": 3,
+        "explanation": "わる数を逆数にしてかけます。$6xy \\times \\frac{3}{2x}=\\frac{6xy \\times 3}{2x}=\\frac{18xy}{2x}=9y$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-mono-mul-div-q13",
+        "question": "次の計算をしましょう。\n$2a \\times 3b \\times 4c$",
+        "options": [
+          "$24abc$",
+          "$9abc$",
+          "$24ab$",
+          "$14abc$"
+        ],
+        "correctIndex": 0,
+        "explanation": "係数を全部かけて $2 \\times 3 \\times 4=24$、文字は $a \\times b \\times c=abc$。よって $24abc$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-mono-mul-div-q14",
+        "question": "次の計算をしましょう。\n$8x^2 \\times 3y \\div 6x$",
+        "options": [
+          "$4x^2y$",
+          "$4xy$",
+          "$24xy$",
+          "$4y$"
+        ],
+        "correctIndex": 1,
+        "explanation": "わり算を分数にして $\\frac{8x^2 \\times 3y}{6x}=\\frac{24x^2y}{6x}$。係数 $\\frac{24}{6}=4$、文字 $\\frac{x^2y}{x}=xy$。よって $4xy$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-mono-mul-div-q15",
+        "question": "次の計算をしましょう。\n$12a^2b \\div 4a \\div 3b$",
+        "options": [
+          "$ab$",
+          "$a^2$",
+          "$a$",
+          "$3a$"
+        ],
+        "correctIndex": 2,
+        "explanation": "わり算をまとめて分数にすると $\\frac{12a^2b}{4a \\times 3b}=\\frac{12a^2b}{12ab}$。係数 $\\frac{12}{12}=1$、文字 $\\frac{a^2b}{ab}=a$。よって $a$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-mono-mul-div-q16",
+        "question": "次の計算をしましょう。\n$\\frac{1}{2}x \\times 6y$",
+        "options": [
+          "$\\frac{1}{3}xy$",
+          "$3y$",
+          "$6xy$",
+          "$3xy$"
+        ],
+        "correctIndex": 3,
+        "explanation": "係数 $\\frac{1}{2} \\times 6=3$、文字 $x \\times y=xy$。よって $3xy$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-mono-mul-div-q17",
+        "question": "次の計算をしましょう。\n$5a \\times 2b$",
+        "options": [
+          "$10ab$",
+          "$7ab$",
+          "$10a+2b$",
+          "$10ab^2$"
+        ],
+        "correctIndex": 0,
+        "explanation": "係数どうし、文字どうしをかけます。$5 \\times 2=10$、$a \\times b=ab$。\nよって $10ab$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-mono-mul-div-q18",
+        "question": "次の計算をしましょう。\n$3x \\times 4x$",
+        "options": [
+          "$12x$",
+          "$12x^2$",
+          "$7x^2$",
+          "$12x^3$"
+        ],
+        "correctIndex": 1,
+        "explanation": "係数は $3 \\times 4=12$、文字は $x \\times x=x^2$。\nよって $12x^2$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-mono-mul-div-q19",
+        "question": "次の計算をしましょう。\n$(-4a) \\times 3b$",
+        "options": [
+          "$12ab$",
+          "$-12a+3b$",
+          "$-12ab$",
+          "$-ab$"
+        ],
+        "correctIndex": 2,
+        "explanation": "係数は $-4 \\times 3=-12$、文字は $a \\times b=ab$。\nよって $-12ab$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-mono-mul-div-q20",
+        "question": "次の計算をしましょう。\n$(-5x) \\times (-2y)$",
+        "options": [
+          "$-10xy$",
+          "$10x+2y$",
+          "$7xy$",
+          "$10xy$"
+        ],
+        "correctIndex": 3,
+        "explanation": "係数は $(-5) \\times (-2)=10$（負どうしの積は正）、文字は $x \\times y=xy$。\nよって $10xy$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-mono-mul-div-q21",
+        "question": "次の計算をしましょう。\n$(3x)^2$",
+        "options": [
+          "$9x^2$",
+          "$3x^2$",
+          "$9x$",
+          "$6x^2$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$(3x)^2$ は $3x \\times 3x$ です。係数 $3 \\times 3=9$、文字 $x \\times x=x^2$。\nよって $9x^2$ です。係数も2乗することに注意します。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-mono-mul-div-q22",
+        "question": "次の計算をしましょう。\n$(-2a)^2$",
+        "options": [
+          "$-4a^2$",
+          "$4a^2$",
+          "$4a$",
+          "$-4a$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$(-2a)^2=(-2a) \\times (-2a)$。係数 $(-2) \\times (-2)=4$、文字 $a \\times a=a^2$。\nよって $4a^2$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-mono-mul-div-q23",
+        "question": "次の計算をしましょう。\n$5x \\times x^3$",
+        "options": [
+          "$5x^3$",
+          "$6x^4$",
+          "$5x^4$",
+          "$5x^5$"
+        ],
+        "correctIndex": 2,
+        "explanation": "係数は $5 \\times 1=5$、文字は $x \\times x^3=x^{1+3}=x^4$。\nよって $5x^4$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-mono-mul-div-q24",
+        "question": "次の計算をしましょう。\n$20ab \\div 5a$",
+        "options": [
+          "$4ab$",
+          "$15b$",
+          "$4a$",
+          "$4b$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$\\frac{20ab}{5a}$ と分数にして約分します。係数 $\\frac{20}{5}=4$、文字 $\\frac{ab}{a}=b$。\nよって $4b$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-mono-mul-div-q25",
+        "question": "次の計算をしましょう。\n$24x^2 \\div 6x$",
+        "options": [
+          "$4x$",
+          "$4x^2$",
+          "$4$",
+          "$18x$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$\\frac{24x^2}{6x}$。係数 $\\frac{24}{6}=4$、文字 $\\frac{x^2}{x}=x$。\nよって $4x$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-mono-mul-div-q26",
+        "question": "次の計算をしましょう。\n$3a \\times 2b \\times 5c$",
+        "options": [
+          "$10abc$",
+          "$30abc$",
+          "$30ab$",
+          "$15abc$"
+        ],
+        "correctIndex": 1,
+        "explanation": "係数を全部かけて $3 \\times 2 \\times 5=30$、文字は $a \\times b \\times c=abc$。\nよって $30abc$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-mono-mul-div-q27",
+        "question": "次の計算をしましょう。\n$10xy \\div \\frac{2}{5}x$",
+        "options": [
+          "$4y$",
+          "$25xy$",
+          "$25y$",
+          "$\\frac{4}{5}y$"
+        ],
+        "correctIndex": 2,
+        "explanation": "わる数を逆数にしてかけます。$10xy \\times \\frac{5}{2x}=\\frac{10xy \\times 5}{2x}=\\frac{50xy}{2x}=25y$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-mono-mul-div-q28",
+        "question": "次の計算をしましょう。\n$18a^2b \\div 6a \\div 3b$",
+        "options": [
+          "$ab$",
+          "$a^2$",
+          "$3a$",
+          "$a$"
+        ],
+        "correctIndex": 3,
+        "explanation": "わり算をまとめて分数にすると $\\frac{18a^2b}{6a \\times 3b}=\\frac{18a^2b}{18ab}$。\n係数 $\\frac{18}{18}=1$、文字 $\\frac{a^2b}{ab}=a$。よって $a$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-mono-mul-div-q29",
+        "question": "次の計算をしましょう。\n$(-2a)^3 \\times 3b \\div (-4a^2)$",
+        "options": [
+          "$6ab$",
+          "$-6ab$",
+          "$6a^2b$",
+          "$\\frac{3}{2}ab$"
+        ],
+        "correctIndex": 0,
+        "explanation": "まず累乗を計算します。$(-2a)^3=-8a^3$。\n$-8a^3 \\times 3b=-24a^3b$ なので、$\\frac{-24a^3b}{-4a^2}$。\n係数 $\\frac{-24}{-4}=6$、文字 $\\frac{a^3b}{a^2}=ab$。よって $6ab$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-mono-mul-div-q30",
+        "question": "次の計算をしましょう。\n$(-3xy)^2 \\div 9x \\times (-2y)$",
+        "options": [
+          "$2xy^3$",
+          "$-2xy^3$",
+          "$-2xy^2$",
+          "$-6xy^3$"
+        ],
+        "correctIndex": 1,
+        "explanation": "まず累乗を計算します。$(-3xy)^2=9x^2y^2$。\n$\\frac{9x^2y^2}{9x}=xy^2$ なので、$xy^2 \\times (-2y)$。\n係数 $1 \\times (-2)=-2$、文字 $xy^2 \\times y=xy^3$。よって $-2xy^3$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-mono-mul-div-q31",
+        "question": "次の計算をしましょう。\n$\\frac{3}{4}x^2y \\div \\frac{9}{8}xy \\times 2x$",
+        "options": [
+          "$\\frac{4}{3}x^3$",
+          "$\\frac{2}{3}x^2$",
+          "$\\frac{4}{3}x^2$",
+          "$\\frac{3}{4}x^2$"
+        ],
+        "correctIndex": 2,
+        "explanation": "わる数を逆数にしてかけます。$\\frac{3}{4}x^2y \\times \\frac{8}{9xy} \\times 2x$。\n係数 $\\frac{3 \\times 8 \\times 2}{4 \\times 9}=\\frac{48}{36}=\\frac{4}{3}$、文字 $\\frac{x^2y \\times x}{xy}=x^2$。\nよって $\\frac{4}{3}x^2$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-mono-mul-div-q32",
+        "question": "次の計算をしましょう。\n$(-2a^2)^3 \\div 4a^4$",
+        "options": [
+          "$2a^2$",
+          "$8a^2$",
+          "$-2a^{10}$",
+          "$-2a^2$"
+        ],
+        "correctIndex": 3,
+        "explanation": "まず累乗を計算します。$(-2a^2)^3=(-2)^3 \\times (a^2)^3=-8a^6$。\n$\\frac{-8a^6}{4a^4}$。係数 $\\frac{-8}{4}=-2$、文字 $\\frac{a^6}{a^4}=a^2$。\nよって $-2a^2$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-mono-mul-div-q33",
+        "question": "次の計算をしましょう。\n$(2x)^3 \\times (-3y) \\div 6x^2$",
+        "options": [
+          "$-4xy$",
+          "$4xy$",
+          "$-4x^2y$",
+          "$-xy$"
+        ],
+        "correctIndex": 0,
+        "explanation": "まず累乗を計算します。$(2x)^3=8x^3$。\n$8x^3 \\times (-3y)=-24x^3y$ なので、$\\frac{-24x^3y}{6x^2}$。\n係数 $\\frac{-24}{6}=-4$、文字 $\\frac{x^3y}{x^2}=xy$。よって $-4xy$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-mono-mul-div-q34",
+        "question": "次の計算をしましょう。\n$(-4a^2b) \\times 2ab^2 \\div (-8a^2b)$",
+        "options": [
+          "$a^2b$",
+          "$ab^2$",
+          "$-ab^2$",
+          "$ab^3$"
+        ],
+        "correctIndex": 1,
+        "explanation": "まず乗法を計算します。$(-4a^2b) \\times 2ab^2=-8a^3b^3$。\n$\\frac{-8a^3b^3}{-8a^2b}$。係数 $\\frac{-8}{-8}=1$、文字 $\\frac{a^3b^3}{a^2b}=ab^2$。\nよって $ab^2$ です。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

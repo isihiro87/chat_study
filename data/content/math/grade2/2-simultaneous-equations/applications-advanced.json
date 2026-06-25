@@ -1,0 +1,223 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g2-simultaneous-eq",
+  "topicId": "math-g2-simul-eq-apps-adv",
+  "name": "速さ・濃度の文章題",
+  "subtitle": "速さ・時間・距離と食塩水の問題",
+  "icon": "🏃",
+  "order": 6,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": [
+      {
+        "id": "math-g2-simul-eq-apps-adv-q1",
+        "question": "家から駅まで行くのに、はじめは時速4kmで歩き、途中から時速12kmで走ったところ、道のり10km を1時間30分で進みました。歩いた道のりを $x$ km、走った道のりを $y$ km とするとき、正しい連立方程式はどれですか。",
+        "options": [
+          "$\\begin{cases} x+y=10 \\\\ \\frac{x}{4}+\\frac{y}{12}=\\frac{3}{2} \\end{cases}$",
+          "$\\begin{cases} x+y=10 \\\\ 4x+12y=\\frac{3}{2} \\end{cases}$",
+          "$\\begin{cases} x+y=\\frac{3}{2} \\\\ \\frac{x}{4}+\\frac{y}{12}=10 \\end{cases}$",
+          "$\\begin{cases} 4x+12y=10 \\\\ x+y=\\frac{3}{2} \\end{cases}$"
+        ],
+        "correctIndex": 0,
+        "explanation": "道のりの和から $x+y=10$、時間の和から $\\frac{x}{4}+\\frac{y}{12}=\\frac{3}{2}$ です（1時間30分＝$\\frac{3}{2}$ 時間）。\n時間は「道のり÷速さ」で表します。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-simul-eq-apps-adv-q2",
+        "question": "家から駅まで行くのに、はじめは時速4kmで歩き、途中から時速12kmで走ったところ、道のり10km を1時間30分で進みました。歩いた道のりは何kmですか。",
+        "options": [
+          "6km",
+          "4km",
+          "5km",
+          "3km"
+        ],
+        "correctIndex": 1,
+        "explanation": "$\\begin{cases} x+y=10 \\\\ \\frac{x}{4}+\\frac{y}{12}=\\frac{3}{2} \\end{cases}$ で、下の式に12をかけると $3x+y=18$。上の式を引くと $2x=8$、$x=4$。\n$y=6$。検算: $\\frac{4}{4}+\\frac{6}{12}=1+0.5=1.5$ で成り立ちます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-simul-eq-apps-adv-q3",
+        "question": "A町からB町を通ってC町まで行くのに、A〜B間を時速3km、B〜C間を時速6kmで歩いたら、全体15km を4時間かかりました。A〜B間は何kmですか。",
+        "options": [
+          "6km",
+          "10km",
+          "9km",
+          "12km"
+        ],
+        "correctIndex": 2,
+        "explanation": "$\\begin{cases} x+y=15 \\\\ \\frac{x}{3}+\\frac{y}{6}=4 \\end{cases}$。下の式に6をかけると $2x+y=24$。上の式を引くと $x=9$ です。\n$y=6$。検算: $\\frac{9}{3}+\\frac{6}{6}=3+1=4$ で成り立ちます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-simul-eq-apps-adv-q4",
+        "question": "3%の食塩水と8%の食塩水を混ぜて、5%の食塩水を500g つくります。3%の食塩水を $x$ g、8%の食塩水を $y$ g とするとき、正しい連立方程式はどれですか。",
+        "options": [
+          "$\\begin{cases} x+y=500 \\\\ 3x+8y=5 \\end{cases}$",
+          "$\\begin{cases} x+y=5 \\\\ 3x+8y=500 \\end{cases}$",
+          "$\\begin{cases} 3x+8y=500 \\\\ x+y=5 \\end{cases}$",
+          "$\\begin{cases} x+y=500 \\\\ \\frac{3}{100}x+\\frac{8}{100}y=\\frac{5}{100}\\times500 \\end{cases}$"
+        ],
+        "correctIndex": 3,
+        "explanation": "食塩水の重さの和から $x+y=500$、ふくまれる食塩の重さの和から $\\frac{3}{100}x+\\frac{8}{100}y=\\frac{5}{100}\\times500$ です。\n食塩の重さは「食塩水×濃度」で表します。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-simul-eq-apps-adv-q5",
+        "question": "3%の食塩水と8%の食塩水を混ぜて、5%の食塩水を500g つくります。3%の食塩水は何g 必要ですか。",
+        "options": [
+          "300g",
+          "200g",
+          "250g",
+          "350g"
+        ],
+        "correctIndex": 0,
+        "explanation": "$\\begin{cases} x+y=500 \\\\ 3x+8y=2500 \\end{cases}$（食塩の式を100倍）。上の式を3倍した $3x+3y=1500$ を引くと $5y=1000$、$y=200$。\n$x=300$。検算: $3\\times300+8\\times200=900+1600=2500$ で成り立ちます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-simul-eq-apps-adv-q6",
+        "question": "食塩水の問題で、濃度3%の食塩水 $x$ g にふくまれる食塩の重さを表す式はどれですか。",
+        "options": [
+          "$3x$ g",
+          "$\\frac{3}{100}x$ g",
+          "$\\frac{x}{3}$ g",
+          "$\\frac{100}{3}x$ g"
+        ],
+        "correctIndex": 1,
+        "explanation": "食塩の重さは「食塩水の重さ×濃度」で求めます。濃度3%は $\\frac{3}{100}$ なので、食塩は $\\frac{3}{100}x$ g です。\n%は100でわって計算します。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-simul-eq-apps-adv-q7",
+        "question": "ある中学校の昨年の生徒数は男女合わせて300人でした。今年は男子が10%増え、女子が5%減って、全体で6人増えました。昨年の男子の人数は何人ですか。",
+        "options": [
+          "160人",
+          "150人",
+          "140人",
+          "120人"
+        ],
+        "correctIndex": 2,
+        "explanation": "昨年の男子 $x$、女子 $y$ とすると $\\begin{cases} x+y=300 \\\\ \\frac{10}{100}x-\\frac{5}{100}y=6 \\end{cases}$。下の式を20倍すると $2x-y=120$。上の式と足すと $3x=420$、$x=140$。\n$y=160$。検算: $0.1\\times140-0.05\\times160=14-8=6$ で成り立ちます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-simul-eq-apps-adv-q8",
+        "question": "速さの文章題で、道のり $x$ km を時速5kmで進むのにかかる時間を表す式はどれですか。",
+        "options": [
+          "$5x$ 時間",
+          "$\\frac{5}{x}$ 時間",
+          "$x-5$ 時間",
+          "$\\frac{x}{5}$ 時間"
+        ],
+        "correctIndex": 3,
+        "explanation": "時間は「道のり÷速さ」で求めます。道のり $x$ km、速さ時速5km なので $\\frac{x}{5}$ 時間です。\n速さの3つの関係（道のり・速さ・時間）を正しく使い分けます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-simul-eq-apps-adv-q9",
+        "question": "兄は分速80m、弟は分速60mで同じ道を進みます。弟が先に出発し、その6分後に兄が同じ地点から追いかけました。兄が弟に追いつくのは兄が出発してから何分後ですか。",
+        "options": [
+          "18分後",
+          "12分後",
+          "24分後",
+          "6分後"
+        ],
+        "correctIndex": 0,
+        "explanation": "兄が出発してから $t$ 分後に追いつくとすると、兄の進む距離 $80t$ と弟の距離 $60(t+6)$ が等しくなります。\n$80t=60(t+6)$、$80t=60t+360$、$20t=360$、$t=18$。検算: 兄 $80\\times18=1440$m、弟 $60\\times24=1440$m で一致します。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-simul-eq-apps-adv-q10",
+        "question": "5%の食塩水と10%の食塩水を混ぜて、8%の食塩水を400g つくります。10%の食塩水は何g 必要ですか。",
+        "options": [
+          "160g",
+          "240g",
+          "200g",
+          "280g"
+        ],
+        "correctIndex": 1,
+        "explanation": "5%を $x$、10%を $y$ とすると $\\begin{cases} x+y=400 \\\\ 5x+10y=3200 \\end{cases}$。上の式を5倍した $5x+5y=2000$ を引くと $5y=1200$、$y=240$。\n$x=160$。検算: $5\\times160+10\\times240=800+2400=3200$ で成り立ちます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-simul-eq-apps-adv-q11",
+        "question": "ある店で品物Aと品物Bを合わせて200個つくりました。Aは先月より20%増え、Bは先月より10%減って、今月は合わせて先月と同じ個数になりました。先月のAは何個でしたか。",
+        "options": [
+          "必ず100個ずつになる",
+          "AとBは必ず同数になる",
+          "先月の合計と今月の関係から立式する",
+          "割合は使わず引き算だけでよい"
+        ],
+        "correctIndex": 2,
+        "explanation": "増減の文章題では「先月の個数」を文字でおき、増えた分・減った分を $\\frac{20}{100}x$、$\\frac{10}{100}y$ のように割合で表して式を立てます。\n%の増減は割合の式にするのが基本です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-simul-eq-apps-adv-q12",
+        "question": "道のり12km を、行きは時速4km、帰りは時速6kmで往復しました（行きと帰りの道のりはそれぞれ12km）。往復にかかった時間は何時間ですか。",
+        "options": [
+          "4時間",
+          "6時間",
+          "3時間",
+          "5時間"
+        ],
+        "correctIndex": 3,
+        "explanation": "行きの時間は $\\frac{12}{4}=3$ 時間、帰りの時間は $\\frac{12}{6}=2$ 時間です。\n往復の時間は $3+2=5$ 時間。時間は「道のり÷速さ」で求めます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-simul-eq-apps-adv-q13",
+        "question": "ある2けたの整数があり、十の位と一の位の数の和は11、入れかえた数はもとの数より27大きいです。もとの整数はいくつですか。",
+        "options": [
+          "47",
+          "74",
+          "38",
+          "56"
+        ],
+        "correctIndex": 0,
+        "explanation": "十の位 $x$、一の位 $y$ とすると $\\begin{cases} x+y=11 \\\\ (10y+x)-(10x+y)=27 \\end{cases}$。下の式は $9y-9x=27$、$y-x=3$。\n足すと $2y=14$、$y=7$、$x=4$。もとの数は47。検算: $74-47=27$、$4+7=11$ で成り立ちます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-simul-eq-apps-adv-q14",
+        "question": "2地点A、B間を往復するのに、行きは時速30km、帰りは時速20kmで進み、往復で5時間かかりました（行きと帰りの道のりは等しい）。A、B間の道のりは何kmですか。",
+        "options": [
+          "50km",
+          "60km",
+          "40km",
+          "30km"
+        ],
+        "correctIndex": 1,
+        "explanation": "片道の道のりを $x$ km とすると $\\frac{x}{30}+\\frac{x}{20}=5$。両辺を60倍すると $2x+3x=300$、$5x=300$、$x=60$。\n検算: $\\frac{60}{30}+\\frac{60}{20}=2+3=5$ で成り立ちます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-simul-eq-apps-adv-q15",
+        "question": "10%の食塩水 $x$ g と4%の食塩水 $y$ g を混ぜます。混ぜた後の食塩の重さを表す式はどれですか。",
+        "options": [
+          "$10x+4y$ g",
+          "$\\frac{x+y}{100}$ g",
+          "$\\frac{10}{100}x+\\frac{4}{100}y$ g",
+          "$\\frac{14}{100}(x+y)$ g"
+        ],
+        "correctIndex": 2,
+        "explanation": "それぞれの食塩水にふくまれる食塩の重さの和が、混ぜた後の食塩の重さです。\n10%の食塩水の食塩は $\\frac{10}{100}x$、4%は $\\frac{4}{100}y$ なので、和は $\\frac{10}{100}x+\\frac{4}{100}y$ g です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-simul-eq-apps-adv-q16",
+        "question": "兄と弟が2km 離れた地点から向かい合って同時に歩き出します。兄は分速70m、弟は分速30mで進むと、2人が出会うのは何分後ですか。",
+        "options": [
+          "25分後",
+          "10分後",
+          "40分後",
+          "20分後"
+        ],
+        "correctIndex": 3,
+        "explanation": "2人が出会うまでに進んだ距離の和が2000m になります。$t$ 分後とすると $70t+30t=2000$、$100t=2000$、$t=20$。\n検算: 兄 $70\\times20=1400$m、弟 $30\\times20=600$m、和は2000m で一致します。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

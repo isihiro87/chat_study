@@ -1,0 +1,14 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g3-expansion-factoring",
+  "topicId": "math-g3-calc-applications",
+  "name": "式の計算の利用",
+  "subtitle": "整数の性質の証明と計算の工夫",
+  "icon": "🧩",
+  "order": 6,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": []
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g3-square-roots",
+  "topicId": "math-g3-sqrt-mul-div",
+  "name": "根号の乗法・除法",
+  "subtitle": "√の中身どうしを計算",
+  "icon": "✖️",
+  "order": 2,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": []
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g3-square-roots",
+  "topicId": "math-g3-sqrt-add-expand",
+  "name": "根号の和差と展開",
+  "subtitle": "同じ√はまとめられる",
+  "icon": "➕",
+  "order": 4,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": []
+  }
+}

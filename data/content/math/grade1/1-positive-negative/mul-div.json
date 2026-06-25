@@ -1,0 +1,470 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g1-pos-neg",
+  "topicId": "math-g1-mul-div",
+  "name": "乗法と除法",
+  "subtitle": "正負の数のかけ算・わり算のルール",
+  "icon": "✖️",
+  "order": 3,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": [
+      {
+        "id": "math-g1-mul-div-q1",
+        "question": "次の計算をしましょう。\n$(-4)\\times(+6)$",
+        "options": [
+          "$+24$",
+          "$-10$",
+          "$+10$",
+          "$-24$"
+        ],
+        "correctIndex": 3,
+        "explanation": "異符号の積は負の数になります。\n$(-4)\\times(+6)=-(4\\times6)=-24$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-mul-div-q2",
+        "question": "次の計算をしましょう。\n$(-7)\\times(-8)$",
+        "options": [
+          "$+56$",
+          "$-56$",
+          "$+15$",
+          "$-15$"
+        ],
+        "correctIndex": 0,
+        "explanation": "同符号の積は正の数になります。\n$(-7)\\times(-8)=+(7\\times8)=+56$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-mul-div-q3",
+        "question": "次の計算をしましょう。\n$(+9)\\times(-5)$",
+        "options": [
+          "$+45$",
+          "$-14$",
+          "$-45$",
+          "$+14$"
+        ],
+        "correctIndex": 2,
+        "explanation": "異符号の積は負の数になります。\n$(+9)\\times(-5)=-(9\\times5)=-45$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-mul-div-q4",
+        "question": "次の計算をしましょう。\n$(-48)\\div(-3)$",
+        "options": [
+          "$-16$",
+          "$+15$",
+          "$-51$",
+          "$+16$"
+        ],
+        "correctIndex": 3,
+        "explanation": "同符号の商は正の数になります。\n$(-48)\\div(-3)=+(48\\div3)=+16$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-mul-div-q5",
+        "question": "次の計算をしましょう。\n$(-36)\\div(+4)$",
+        "options": [
+          "$-9$",
+          "$+9$",
+          "$-32$",
+          "$+40$"
+        ],
+        "correctIndex": 0,
+        "explanation": "異符号の商は負の数になります。\n$(-36)\\div(+4)=-(36\\div4)=-9$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-mul-div-q6",
+        "question": "次の計算をしましょう。\n$(-15)\\div(-25)$",
+        "options": [
+          "$+\\frac{3}{5}$",
+          "$-\\frac{3}{5}$",
+          "$+\\frac{5}{3}$",
+          "$-\\frac{5}{3}$"
+        ],
+        "correctIndex": 0,
+        "explanation": "同符号の商は正の数です。\n$(-15)\\div(-25)=+\\frac{15}{25}=+\\frac{3}{5}$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-mul-div-q7",
+        "question": "$-\\frac{2}{3}$ の逆数はどれですか。",
+        "options": [
+          "$+\\frac{3}{2}$",
+          "$+\\frac{2}{3}$",
+          "$-\\frac{3}{2}$",
+          "$-\\frac{2}{3}$"
+        ],
+        "correctIndex": 2,
+        "explanation": "逆数は分母と分子を入れかえた数で、符号はそのままです。\n$-\\frac{2}{3}$ の逆数は $-\\frac{3}{2}$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-mul-div-q8",
+        "question": "$-4$ の逆数はどれですか。",
+        "options": [
+          "$+\\frac{1}{4}$",
+          "$+4$",
+          "$-\\frac{1}{4}$",
+          "$-4$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$-4=-\\frac{4}{1}$ なので、逆数は $-\\frac{1}{4}$ です。\nかけて1になる数が逆数です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-mul-div-q9",
+        "question": "次の計算をしましょう。\n$(-3)^2$",
+        "options": [
+          "$-9$",
+          "$-6$",
+          "$+6$",
+          "$+9$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$(-3)^2=(-3)\\times(-3)=+9$ です。\n負の数を偶数回かけると正になります。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-mul-div-q10",
+        "question": "次の計算をしましょう。\n$-3^2$",
+        "options": [
+          "$+9$",
+          "$-9$",
+          "$-6$",
+          "$+6$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$-3^2$ は $3^2$ に負の符号がついた形で、$-(3\\times3)=-9$ です。\n$(-3)^2$ とちがって符号は負のままです。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-mul-div-q11",
+        "question": "次の計算をしましょう。\n$(-2)^3$",
+        "options": [
+          "$+8$",
+          "$-8$",
+          "$-6$",
+          "$+6$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$(-2)^3=(-2)\\times(-2)\\times(-2)=-8$ です。\n負の数を奇数回かけると負になります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-mul-div-q12",
+        "question": "次の計算をしましょう。\n$2\\times(-3)^2$",
+        "options": [
+          "$-18$",
+          "$-36$",
+          "$+12$",
+          "$+18$"
+        ],
+        "correctIndex": 3,
+        "explanation": "累乗を先に計算します。\n$(-3)^2=+9$ なので $2\\times9=+18$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-mul-div-q13",
+        "question": "次の計算をしましょう。\n$(-3)\\times(-4)\\times(-5)$",
+        "options": [
+          "$-60$",
+          "$+60$",
+          "$-12$",
+          "$+12$"
+        ],
+        "correctIndex": 0,
+        "explanation": "負の数の個数は3個（奇数）なので積は負になります。\n$3\\times4\\times5=60$ より $-60$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-mul-div-q14",
+        "question": "次の計算をしましょう。\n$(-2)\\times3\\times(-2)\\times(-1)$",
+        "options": [
+          "$-12$",
+          "$+12$",
+          "$-7$",
+          "$+7$"
+        ],
+        "correctIndex": 0,
+        "explanation": "負の数は3個（奇数）なので積は負になります。\n$2\\times3\\times2\\times1=12$ より $-12$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-mul-div-q15",
+        "question": "次の計算をしましょう。\n$\\left(-\\frac{1}{6}\\right)\\times(-12)$",
+        "options": [
+          "$-2$",
+          "$+\\frac{1}{2}$",
+          "$+2$",
+          "$-\\frac{1}{2}$"
+        ],
+        "correctIndex": 2,
+        "explanation": "同符号の積は正です。\n$\\frac{1}{6}\\times12=2$ なので $+2$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-mul-div-q16",
+        "question": "次の計算をしましょう。\n$2.1\\div(-3)$",
+        "options": [
+          "$+0.7$",
+          "$-0.7$",
+          "$-7$",
+          "$+7$"
+        ],
+        "correctIndex": 1,
+        "explanation": "異符号の商は負になります。\n$2.1\\div3=0.7$ なので $-0.7$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-mul-div-q17",
+        "question": "次の計算をしましょう。\n$\\left(-\\frac{8}{9}\\right)\\div\\left(-\\frac{4}{3}\\right)$",
+        "options": [
+          "$-\\frac{2}{3}$",
+          "$+\\frac{2}{3}$",
+          "$+\\frac{3}{2}$",
+          "$-\\frac{32}{27}$"
+        ],
+        "correctIndex": 1,
+        "explanation": "わり算は逆数のかけ算になおします。\n$\\left(-\\frac{8}{9}\\right)\\times\\left(-\\frac{3}{4}\\right)=+\\frac{24}{36}=+\\frac{2}{3}$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-mul-div-q18",
+        "question": "次の計算をしましょう。\n$(-6)\\times(+7)$",
+        "options": [
+          "$-42$",
+          "$+42$",
+          "$-13$",
+          "$+13$"
+        ],
+        "correctIndex": 0,
+        "explanation": "異符号の積は負の数になります。\n$(-6)\\times(+7)=-(6\\times7)=-42$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-mul-div-q19",
+        "question": "次の計算をしましょう。\n$(-9)\\times(-6)$",
+        "options": [
+          "$-54$",
+          "$+54$",
+          "$-15$",
+          "$+15$"
+        ],
+        "correctIndex": 1,
+        "explanation": "同符号の積は正の数になります。\n$(-9)\\times(-6)=+(9\\times6)=+54$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-mul-div-q20",
+        "question": "次の計算をしましょう。\n$(-56)\\div(+8)$",
+        "options": [
+          "$+7$",
+          "$+48$",
+          "$-7$",
+          "$-48$"
+        ],
+        "correctIndex": 2,
+        "explanation": "異符号の商は負の数になります。\n$(-56)\\div(+8)=-(56\\div8)=-7$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-mul-div-q21",
+        "question": "次の計算をしましょう。\n$(-72)\\div(-9)$",
+        "options": [
+          "$-8$",
+          "$-81$",
+          "$+81$",
+          "$+8$"
+        ],
+        "correctIndex": 3,
+        "explanation": "同符号の商は正の数になります。\n$(-72)\\div(-9)=+(72\\div9)=+8$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-mul-div-q22",
+        "question": "次の計算をしましょう。\n$(-18)\\div(-24)$",
+        "options": [
+          "$+\\frac{3}{4}$",
+          "$-\\frac{3}{4}$",
+          "$+\\frac{4}{3}$",
+          "$-\\frac{4}{3}$"
+        ],
+        "correctIndex": 0,
+        "explanation": "同符号の商は正の数です。\n$(-18)\\div(-24)=+\\frac{18}{24}=+\\frac{3}{4}$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-mul-div-q23",
+        "question": "$-\\frac{5}{7}$ の逆数はどれですか。",
+        "options": [
+          "$+\\frac{7}{5}$",
+          "$-\\frac{7}{5}$",
+          "$+\\frac{5}{7}$",
+          "$-\\frac{5}{7}$"
+        ],
+        "correctIndex": 1,
+        "explanation": "逆数は分母と分子を入れかえた数で、符号はそのままです。\n$-\\frac{5}{7}$ の逆数は $-\\frac{7}{5}$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-mul-div-q24",
+        "question": "次の計算をしましょう。\n$(-5)^2$",
+        "options": [
+          "$-10$",
+          "$+10$",
+          "$+25$",
+          "$-25$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$(-5)^2=(-5)\\times(-5)=+25$ です。\n負の数を偶数回かけると正になります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-mul-div-q25",
+        "question": "次の計算をしましょう。\n$-2^4$",
+        "options": [
+          "$+16$",
+          "$+8$",
+          "$-8$",
+          "$-16$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$-2^4$ は $2^4$ に負の符号がついた形で、$-(2\\times2\\times2\\times2)=-16$ です。\n$(-2)^4$ とちがって符号は負のままです。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-mul-div-q26",
+        "question": "次の計算をしましょう。\n$3\\times(-2)^3$",
+        "options": [
+          "$-24$",
+          "$+24$",
+          "$-18$",
+          "$+18$"
+        ],
+        "correctIndex": 0,
+        "explanation": "累乗を先に計算します。\n$(-2)^3=-8$ なので $3\\times(-8)=-24$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-mul-div-q27",
+        "question": "次の計算をしましょう。\n$(-2)\\times(-3)\\times(-6)$",
+        "options": [
+          "$+36$",
+          "$-36$",
+          "$+11$",
+          "$-11$"
+        ],
+        "correctIndex": 1,
+        "explanation": "負の数の個数は3個（奇数）なので積は負になります。\n$2\\times3\\times6=36$ より $-36$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-mul-div-q28",
+        "question": "次の計算をしましょう。\n$\\left(-\\frac{3}{8}\\right)\\times(-16)$",
+        "options": [
+          "$-6$",
+          "$+\\frac{3}{2}$",
+          "$+6$",
+          "$-\\frac{3}{2}$"
+        ],
+        "correctIndex": 2,
+        "explanation": "同符号の積は正です。\n$\\frac{3}{8}\\times16=6$ なので $+6$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-mul-div-q29",
+        "question": "次の計算をしましょう。\n$\\left(-\\frac{5}{6}\\right)\\div\\left(-\\frac{10}{9}\\right)$",
+        "options": [
+          "$-\\frac{3}{4}$",
+          "$+\\frac{50}{54}$",
+          "$-\\frac{4}{3}$",
+          "$+\\frac{3}{4}$"
+        ],
+        "correctIndex": 3,
+        "explanation": "わり算は逆数のかけ算になおします。\n$\\left(-\\frac{5}{6}\\right)\\times\\left(-\\frac{9}{10}\\right)=+\\frac{45}{60}=+\\frac{3}{4}$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-mul-div-q30",
+        "question": "次の計算をしましょう。\n$(-2)^4\\div(-2)^2\\times(-3)$",
+        "options": [
+          "$+12$",
+          "$-12$",
+          "$-48$",
+          "$+48$"
+        ],
+        "correctIndex": 1,
+        "explanation": "累乗を先に計算します。\n$(-2)^4=+16$、$(-2)^2=+4$ なので $16\\div4\\times(-3)=4\\times(-3)=-12$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-mul-div-q31",
+        "question": "次の計算をしましょう。\n$-3^2\\times(-2)^2$",
+        "options": [
+          "$+36$",
+          "$-12$",
+          "$+12$",
+          "$-36$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$-3^2=-(3\\times3)=-9$、$(-2)^2=+4$ です。\n$-9\\times4=-36$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-mul-div-q32",
+        "question": "次の計算をしましょう。\n$(-2)^3\\times\\left(-\\frac{1}{4}\\right)$",
+        "options": [
+          "$+2$",
+          "$-2$",
+          "$+\\frac{1}{2}$",
+          "$-\\frac{1}{2}$"
+        ],
+        "correctIndex": 0,
+        "explanation": "累乗を先に計算します。\n$(-2)^3=-8$ なので $-8\\times\\left(-\\frac{1}{4}\\right)=+\\frac{8}{4}=+2$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-mul-div-q33",
+        "question": "次の計算をしましょう。\n$-\\frac{3}{4}\\times\\left(-\\frac{8}{9}\\right)\\div\\frac{2}{3}$",
+        "options": [
+          "$-1$",
+          "$+\\frac{4}{9}$",
+          "$+1$",
+          "$-\\frac{4}{9}$"
+        ],
+        "correctIndex": 2,
+        "explanation": "わり算は逆数のかけ算になおします。\n$\\frac{3}{4}\\times\\frac{8}{9}\\times\\frac{3}{2}=\\frac{72}{72}=1$。\n負の数は2個なので積は正で $+1$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-mul-div-q34",
+        "question": "次の計算をしましょう。\n$(-2)^2\\times(-3)^2\\div(-6)$",
+        "options": [
+          "$+6$",
+          "$-36$",
+          "$+36$",
+          "$-6$"
+        ],
+        "correctIndex": 3,
+        "explanation": "累乗を先に計算します。\n$(-2)^2=+4$、$(-3)^2=+9$ なので $4\\times9\\div(-6)=36\\div(-6)=-6$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-mul-div-q35",
+        "question": "次の計算をしましょう。\n$-\\frac{4}{9}\\times\\left(-\\frac{3}{8}\\right)\\div\\left(-\\frac{5}{6}\\right)$",
+        "options": [
+          "$+\\frac{1}{5}$",
+          "$-\\frac{1}{5}$",
+          "$+\\frac{5}{6}$",
+          "$-\\frac{5}{6}$"
+        ],
+        "correctIndex": 1,
+        "explanation": "わり算は逆数のかけ算になおします。\n$\\frac{4}{9}\\times\\frac{3}{8}\\times\\frac{6}{5}=\\frac{72}{360}=\\frac{1}{5}$。\n負の数は3個なので積は負で $-\\frac{1}{5}$ です。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

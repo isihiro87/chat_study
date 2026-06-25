@@ -1,0 +1,223 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g1-literal-exp",
+  "topicId": "math-g1-lit-notation",
+  "name": "文字式の表し方",
+  "subtitle": "×や÷を省いた表し方をマスター",
+  "icon": "🔤",
+  "order": 1,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": [
+      {
+        "id": "math-g1-lit-notation-q1",
+        "question": "$a \\times 4$ を、×の記号を省いて正しく表したものはどれですか。",
+        "options": [
+          "$4a$",
+          "$a4$",
+          "$a^4$",
+          "$4+a$"
+        ],
+        "correctIndex": 0,
+        "explanation": "数と文字の積は、数を文字の前に書きます。\nだから $a \\times 4 = 4a$ です。$a4$ のように数をうしろに書いてはいけません。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-lit-notation-q2",
+        "question": "$x \\times 1$ を、文字式の表し方にしたがって表すとどうなりますか。",
+        "options": [
+          "$1x$",
+          "$x$",
+          "$x^1$",
+          "$x+1$"
+        ],
+        "correctIndex": 1,
+        "explanation": "係数の1は省いて書きます。\nだから $x \\times 1 = x$ となります。$1x$ とは書きません。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-lit-notation-q3",
+        "question": "$b \\times (-1)$ を、文字式の表し方にしたがって表すとどうなりますか。",
+        "options": [
+          "$-1b$",
+          "$1b$",
+          "$-b$",
+          "$b^{-1}$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$-1$ をかけるときは、1を省いて符号だけ残します。\nだから $b \\times (-1) = -b$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-lit-notation-q4",
+        "question": "$y \\times y \\times y$ を、累乗の形で正しく表したものはどれですか。",
+        "options": [
+          "$3y$",
+          "$y3$",
+          "$y \\times 3$",
+          "$y^3$"
+        ],
+        "correctIndex": 3,
+        "explanation": "同じ文字の積は累乗の形で表します。$y$ が3個かけられているので $y^3$ です。\n$3y$ は $y$ を3個たした $y+y+y$ のことなので、意味がちがいます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-lit-notation-q5",
+        "question": "$a \\div 5$ を、÷の記号を使わずに表したものはどれですか。",
+        "options": [
+          "$\\frac{a}{5}$",
+          "$\\frac{5}{a}$",
+          "$5a$",
+          "$a-5$"
+        ],
+        "correctIndex": 0,
+        "explanation": "÷の計算は分数の形で表します。わられる数 $a$ が分子、わる数 $5$ が分母です。\nだから $a \\div 5 = \\frac{a}{5}$ となります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-lit-notation-q6",
+        "question": "$5 \\times a \\times b$ を、文字式の表し方にしたがって表すとどうなりますか。",
+        "options": [
+          "$ab5$",
+          "$5ab$",
+          "$5+ab$",
+          "$5a^b$"
+        ],
+        "correctIndex": 1,
+        "explanation": "数を文字の前に書き、文字はふつうアルファベット順に並べます。\nだから $5 \\times a \\times b = 5ab$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-lit-notation-q7",
+        "question": "$x \\times x \\times 6$ を、文字式の表し方にしたがって表すとどうなりますか。",
+        "options": [
+          "$6x$",
+          "$x^6$",
+          "$6x^2$",
+          "$12x$"
+        ],
+        "correctIndex": 2,
+        "explanation": "同じ文字 $x$ が2個かけられているので $x^2$ となり、数 $6$ を前に書きます。\nだから $x \\times x \\times 6 = 6x^2$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-lit-notation-q8",
+        "question": "$(a+b) \\div 3$ を、÷の記号を使わずに表したものはどれですか。",
+        "options": [
+          "$\\frac{3}{a+b}$",
+          "$\\frac{a+b}{3}$",
+          "$\\frac{a}{3}+b$",
+          "$3(a+b)$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$(a+b)$全体を3でわるので、$(a+b)$をまとめて分子に書きます。\nだから $(a+b) \\div 3 = \\frac{a+b}{3}$ となります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-lit-notation-q9",
+        "question": "$a \\div 4 \\times b$ を、記号×・÷を使わずに表したものはどれですか。",
+        "options": [
+          "$\\frac{a}{4b}$",
+          "$\\frac{4b}{a}$",
+          "$\\frac{ab}{4}$",
+          "$\\frac{4}{ab}$"
+        ],
+        "correctIndex": 2,
+        "explanation": "左から順に計算します。$a \\div 4 = \\frac{a}{4}$ で、これに $b$ をかけると分子に $b$ が入ります。\nだから $\\frac{a}{4} \\times b = \\frac{ab}{4}$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-lit-notation-q10",
+        "question": "$3 \\times x - 2 \\times y$ を、文字式の表し方にしたがって表すとどうなりますか。",
+        "options": [
+          "$3x2y$",
+          "$6xy$",
+          "$x3-y2$",
+          "$3x-2y$"
+        ],
+        "correctIndex": 3,
+        "explanation": "それぞれの積で×を省きます。$3 \\times x = 3x$、$2 \\times y = 2y$ です。\nたし算・ひき算の記号は省けないので、$3x-2y$ となります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-lit-notation-q11",
+        "question": "式 $7a+5$ の項として正しいものはどれですか。",
+        "options": [
+          "$7$ と $a$ と $5$",
+          "$7a$ と $5$",
+          "$7a+5$",
+          "$7a5$"
+        ],
+        "correctIndex": 1,
+        "explanation": "式は、たし算の記号 $+$ で区切られたひとつひとつのまとまりが項です。\n$7a+5$ の項は $7a$ と $5$ の2つです。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-lit-notation-q12",
+        "question": "式 $6x-9$ で、$x$ の係数はいくつですか。",
+        "options": [
+          "$-9$",
+          "$-6$",
+          "$6$",
+          "$9$"
+        ],
+        "correctIndex": 2,
+        "explanation": "文字 $x$ にかけられている数が係数です。$6x$ は $6 \\times x$ なので、係数は $6$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-lit-notation-q13",
+        "question": "$x=4$ のとき、式 $3x-5$ の値はいくつですか。",
+        "options": [
+          "$2$",
+          "$12$",
+          "$17$",
+          "$7$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$x$ に $4$ を代入します。\n$3 \\times 4 - 5 = 12 - 5 = 7$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-lit-notation-q14",
+        "question": "$\\frac{a}{2}-b$ を、記号÷を使って表したものはどれですか。",
+        "options": [
+          "$a \\div (2-b)$",
+          "$a \\div 2 - b$",
+          "$a \\div 2 \\div b$",
+          "$2 \\div a - b$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$\\frac{a}{2}$ は $a$ を $2$ でわった形なので $a \\div 2$ です。$-b$ はそのまま残します。\nだから $\\frac{a}{2}-b = a \\div 2 - b$ となります。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-lit-notation-q15",
+        "question": "$x=-3$ のとき、式 $x^2$ の値はいくつですか。",
+        "options": [
+          "$-9$",
+          "$-6$",
+          "$9$",
+          "$6$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$x^2$ は $x \\times x$ のことです。$x$ に $-3$ を代入すると、\n$(-3) \\times (-3) = 9$ となります。負の数どうしの積は正になります。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-lit-notation-q16",
+        "question": "$a=5$、$b=-2$ のとき、式 $2a+3b$ の値はいくつですか。",
+        "options": [
+          "$4$",
+          "$16$",
+          "$1$",
+          "$-4$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$a$ に $5$、$b$ に $-2$ を代入します。\n$2 \\times 5 + 3 \\times (-2) = 10 + (-6) = 4$ です。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

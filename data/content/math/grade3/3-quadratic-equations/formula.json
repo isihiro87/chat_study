@@ -1,0 +1,14 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g3-quadratic-eq",
+  "topicId": "math-g3-quad-formula",
+  "name": "平方完成と解の公式",
+  "subtitle": "どんな二次方程式でもOK",
+  "icon": "🏆",
+  "order": 3,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": []
+  }
+}

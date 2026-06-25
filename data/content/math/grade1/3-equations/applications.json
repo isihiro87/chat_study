@@ -1,0 +1,236 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g1-equations",
+  "topicId": "math-g1-eq-apps",
+  "name": "比例式と方程式の利用",
+  "subtitle": "文章題を方程式で解こう",
+  "icon": "📝",
+  "order": 3,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": [
+      {
+        "id": "math-g1-eq-apps-q1",
+        "question": "次の比例式を解きましょう。\n$3 : 4 = 6 : x$",
+        "options": [
+          "$x = 8$",
+          "$x = 7$",
+          "$x = 9$",
+          "$x = 2$"
+        ],
+        "correctIndex": 0,
+        "explanation": "外側の積と内側の積は等しいので $3x = 4 \\times 6 = 24$。\nよって $x = 8$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-eq-apps-q2",
+        "question": "次の比例式を解きましょう。\n$x : 5 = 12 : 15$",
+        "options": [
+          "$x = 9$",
+          "$x = 4$",
+          "$x = 36$",
+          "$x = 3$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$15x = 5 \\times 12 = 60$。\nよって $x = 4$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-eq-apps-q3",
+        "question": "次の比例式を解きましょう。\n$2 : 3 = x : 21$",
+        "options": [
+          "$x = 18$",
+          "$x = 7$",
+          "$x = 14$",
+          "$x = 31$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$3x = 2 \\times 21 = 42$。\nよって $x = 14$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-eq-apps-q4",
+        "question": "次の比例式を解きましょう。\n$(x - 1) : 4 = 6 : 8$",
+        "options": [
+          "$x = 3$",
+          "$x = 5$",
+          "$x = 7$",
+          "$x = 4$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$8(x - 1) = 4 \\times 6 = 24$ より $x - 1 = 3$。\nよって $x = 4$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-eq-apps-q5",
+        "question": "1個 $80$ 円のりんごを何個か買ったところ、代金は $560$ 円でした。りんごは何個買いましたか。",
+        "options": [
+          "$7$ 個",
+          "$6$ 個",
+          "$8$ 個",
+          "$9$ 個"
+        ],
+        "correctIndex": 0,
+        "explanation": "個数を $x$ 個とすると $80x = 560$。\n$x = 7$ より $7$ 個です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-eq-apps-q6",
+        "question": "1冊 $150$ 円のノートを何冊か買い、$80$ 円のペンを1本買ったら、代金は $680$ 円でした。ノートは何冊買いましたか。",
+        "options": [
+          "$3$ 冊",
+          "$4$ 冊",
+          "$5$ 冊",
+          "$6$ 冊"
+        ],
+        "correctIndex": 1,
+        "explanation": "ノートを $x$ 冊とすると $150x + 80 = 680$。\n$150x = 600$ より $x = 4$ で、$4$ 冊です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-eq-apps-q7",
+        "question": "ある数 $x$ を $3$ 倍して $7$ をたすと、$x$ に $19$ をたした数に等しくなりました。$x$ を求めなさい。",
+        "options": [
+          "$x = 5$",
+          "$x = 12$",
+          "$x = 6$",
+          "$x = 8$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$3x + 7 = x + 19$ より $2x = 12$。\nよって $x = 6$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-eq-apps-q8",
+        "question": "連続する3つの整数の和が $36$ のとき、最も小さい整数を求めなさい。",
+        "options": [
+          "$12$",
+          "$10$",
+          "$13$",
+          "$11$"
+        ],
+        "correctIndex": 3,
+        "explanation": "最小の整数を $x$ とすると $x + (x + 1) + (x + 2) = 36$。\n$3x + 3 = 36$、$3x = 33$ より $x = 11$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-eq-apps-q9",
+        "question": "現在、父は $42$ 歳、子は $12$ 歳です。父の年齢が子の年齢の $3$ 倍になるのは何年後ですか。",
+        "options": [
+          "$3$ 年後",
+          "$2$ 年後",
+          "$5$ 年後",
+          "$6$ 年後"
+        ],
+        "correctIndex": 0,
+        "explanation": "$x$ 年後とすると $42 + x = 3(12 + x)$。\n$42 + x = 36 + 3x$、$-2x = -6$ より $x = 3$ で、$3$ 年後です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-eq-apps-q10",
+        "question": "生徒に色紙を配ります。1人 $4$ 枚ずつ配ると $8$ 枚あまり、1人 $5$ 枚ずつ配ると $3$ 枚たりません。生徒の人数を求めなさい。",
+        "options": [
+          "$10$ 人",
+          "$11$ 人",
+          "$12$ 人",
+          "$8$ 人"
+        ],
+        "correctIndex": 1,
+        "explanation": "生徒を $x$ 人とすると、色紙の枚数は $4x + 8$ と $5x - 3$ で表せます。\n$4x + 8 = 5x - 3$ より $-x = -11$、$x = 11$ で、$11$ 人です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-eq-apps-q11",
+        "question": "あるクラスで画用紙を配ります。1人 $3$ 枚ずつ配ると $5$ 枚あまり、1人 $4$ 枚ずつ配ると $7$ 枚たりません。生徒の人数を求めなさい。",
+        "options": [
+          "$11$ 人",
+          "$10$ 人",
+          "$12$ 人",
+          "$13$ 人"
+        ],
+        "correctIndex": 2,
+        "explanation": "生徒を $x$ 人とすると $3x + 5 = 4x - 7$。\n$-x = -12$ より $x = 12$ で、$12$ 人です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-eq-apps-q12",
+        "question": "兄は $1400$ 円、弟は $800$ 円持っています。2人とも同じ金額を出して同じ本を買ったところ、兄の残金が弟の残金の $2$ 倍になりました。本1冊の値段を求めなさい。",
+        "options": [
+          "$300$ 円",
+          "$250$ 円",
+          "$150$ 円",
+          "$200$ 円"
+        ],
+        "correctIndex": 3,
+        "explanation": "本の値段を $x$ 円とすると $1400 - x = 2(800 - x)$。\n$1400 - x = 1600 - 2x$、$x = 200$ で、$200$ 円です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-eq-apps-q13",
+        "question": "家から公園まで分速 $80$ m で歩くと、分速 $120$ m で走るときより $5$ 分多くかかります。家から公園までの道のりを求めなさい。",
+        "options": [
+          "$1200$ m",
+          "$800$ m",
+          "$1000$ m",
+          "$1500$ m"
+        ],
+        "correctIndex": 0,
+        "explanation": "道のりを $x$ m とすると、時間の差から $\\frac{x}{80} - \\frac{x}{120} = 5$。\n両辺に $240$ をかけて $3x - 2x = 1200$、$x = 1200$ で、$1200$ m です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-eq-apps-q14",
+        "question": "ある数 $x$ の $4$ 倍から $5$ をひくと、$x$ の $2$ 倍に $7$ をたした数に等しくなりました。$x$ を求めなさい。",
+        "options": [
+          "$x = 5$",
+          "$x = 6$",
+          "$x = 1$",
+          "$x = 12$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$4x - 5 = 2x + 7$ より $2x = 12$。\nよって $x = 6$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g1-eq-apps-q15",
+        "question": "1個 $120$ 円のりんごと1個 $80$ 円のなしを、あわせて $10$ 個買ったら代金は $1000$ 円でした。りんごは何個買いましたか。",
+        "options": [
+          "$4$ 個",
+          "$6$ 個",
+          "$5$ 個",
+          "$3$ 個"
+        ],
+        "correctIndex": 2,
+        "explanation": "りんごを $x$ 個とすると、なしは $(10 - x)$ 個。\n$120x + 80(10 - x) = 1000$、$40x + 800 = 1000$、$40x = 200$ より $x = 5$ で、$5$ 個です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g1-eq-apps-q16",
+        "question": "次の比例式を解きましょう。\n$6 : x = 4 : 10$",
+        "options": [
+          "$x = 12$",
+          "$x = 24$",
+          "$x = \\frac{12}{5}$",
+          "$x = 15$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$4x = 6 \\times 10 = 60$。\nよって $x = 15$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g1-eq-apps-q17",
+        "question": "姉と妹の所持金の比は $5 : 3$ で、姉は妹より $600$ 円多く持っています。妹の所持金を求めなさい。",
+        "options": [
+          "$900$ 円",
+          "$600$ 円",
+          "$1500$ 円",
+          "$1000$ 円"
+        ],
+        "correctIndex": 0,
+        "explanation": "妹を $x$ 円とすると姉は $x + 600$ 円で、$(x + 600) : x = 5 : 3$。\n$3(x + 600) = 5x$、$3x + 1800 = 5x$、$2x = 1800$ より $x = 900$ で、$900$ 円です。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

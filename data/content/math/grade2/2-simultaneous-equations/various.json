@@ -1,0 +1,457 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g2-simultaneous-eq",
+  "topicId": "math-g2-various-simul-eq",
+  "name": "いろいろな連立方程式",
+  "subtitle": "分数・小数・かっこ付き・A=B=C・解と文字の値",
+  "icon": "🧩",
+  "order": 4,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": [
+      {
+        "id": "math-g2-various-simul-eq-q1",
+        "question": "次の連立方程式を解きましょう。\n$\\begin{cases} 2(x+y)-y=8 \\\\ x-y=1 \\end{cases}$",
+        "options": [
+          "$x=3,\\ y=2$",
+          "$x=2,\\ y=3$",
+          "$x=3,\\ y=-2$",
+          "$x=4,\\ y=3$"
+        ],
+        "correctIndex": 0,
+        "explanation": "上の式のかっこを外すと $2x+2y-y=8$、$2x+y=8$ です。下の式 $x-y=1$ と足すと $3x=9$、$x=3$。\n$3-y=1$ より $y=2$。検算: $2(3+2)-2=8$ で成り立ちます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-various-simul-eq-q2",
+        "question": "次の連立方程式を解きましょう。\n$\\begin{cases} 3(x-1)+y=8 \\\\ x+y=5 \\end{cases}$",
+        "options": [
+          "$x=2,\\ y=3$",
+          "$x=3,\\ y=2$",
+          "$x=3,\\ y=-2$",
+          "$x=1,\\ y=4$"
+        ],
+        "correctIndex": 1,
+        "explanation": "上の式を展開すると $3x-3+y=8$、$3x+y=11$ です。下の式 $x+y=5$ を引くと $2x=6$、$x=3$。\n$3+y=5$ より $y=2$。検算: $3(3-1)+2=6+2=8$ で成り立ちます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-various-simul-eq-q3",
+        "question": "次の連立方程式を解きましょう。\n$\\begin{cases} \\frac{x}{2}+\\frac{y}{3}=3 \\\\ x+y=7 \\end{cases}$",
+        "options": [
+          "$x=3,\\ y=4$",
+          "$x=4,\\ y=-3$",
+          "$x=4,\\ y=3$",
+          "$x=2,\\ y=5$"
+        ],
+        "correctIndex": 2,
+        "explanation": "上の式に6をかけて分母をはらうと $3x+2y=18$ です。下の式を2倍した $2x+2y=14$ を引くと $x=4$。\n$4+y=7$ より $y=3$。検算: $\\frac{4}{2}+\\frac{3}{3}=2+1=3$ で成り立ちます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-various-simul-eq-q4",
+        "question": "次の連立方程式を解きましょう。\n$\\begin{cases} \\frac{x}{4}+\\frac{y}{2}=-1 \\\\ 3x-2y=20 \\end{cases}$",
+        "options": [
+          "$x=-4,\\ y=4$",
+          "$x=4,\\ y=4$",
+          "$x=2,\\ y=-7$",
+          "$x=4,\\ y=-4$"
+        ],
+        "correctIndex": 3,
+        "explanation": "上の式に4をかけると $x+2y=-4$ です。下の式 $3x-2y=20$ と足すと $4x=16$、$x=4$。\n$4+2y=-4$ より $2y=-8$、$y=-4$。検算: $3\\times4-2\\times(-4)=20$ で成り立ちます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-various-simul-eq-q5",
+        "question": "次の連立方程式を解きましょう。\n$\\begin{cases} 0.3x+0.1y=1.4 \\\\ x+y=8 \\end{cases}$",
+        "options": [
+          "$x=3,\\ y=5$",
+          "$x=5,\\ y=3$",
+          "$x=3,\\ y=-5$",
+          "$x=2,\\ y=6$"
+        ],
+        "correctIndex": 0,
+        "explanation": "上の式を10倍すると $3x+y=14$ です。下の式 $x+y=8$ を引くと $2x=6$、$x=3$。\n$3+y=8$ より $y=5$。検算: $0.3\\times3+0.1\\times5=0.9+0.5=1.4$ で成り立ちます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-various-simul-eq-q6",
+        "question": "次の連立方程式を解きましょう。\n$\\begin{cases} 0.4x-0.5y=1 \\\\ x-y=3 \\end{cases}$",
+        "options": [
+          "$x=2,\\ y=5$",
+          "$x=5,\\ y=2$",
+          "$x=5,\\ y=-2$",
+          "$x=4,\\ y=1$"
+        ],
+        "correctIndex": 1,
+        "explanation": "上の式を10倍すると $4x-5y=10$ です。下の式を5倍した $5x-5y=15$ から引くと $x=5$。\n$5-y=3$ より $y=2$。検算: $0.4\\times5-0.5\\times2=2-1=1$ で成り立ちます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-various-simul-eq-q7",
+        "question": "方程式 $2x+y=x-y=3$ を解いたときの解はどれですか。",
+        "options": [
+          "$x=-1,\\ y=2$",
+          "$x=2,\\ y=1$",
+          "$x=2,\\ y=-1$",
+          "$x=1,\\ y=-2$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$A=B=C$ の形は $\\begin{cases} 2x+y=3 \\\\ x-y=3 \\end{cases}$ と分けます。足すと $3x=6$、$x=2$。\n$2-y=3$ より $y=-1$。検算: $2\\times2+(-1)=3$、$2-(-1)=3$ で成り立ちます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-various-simul-eq-q8",
+        "question": "$A=B=C$ の形の方程式を連立方程式にするとき、正しい分け方はどれですか。",
+        "options": [
+          "$A=B$ と $A+C=0$ に分ける",
+          "$A=C$ だけの1つの式にする",
+          "$A=B=C$ を3乗して解く",
+          "$A=B$ と $B=C$（または $A=C$）の2つの式に分ける"
+        ],
+        "correctIndex": 3,
+        "explanation": "$A=B=C$ は、$A=B$、$B=C$、$A=C$ のうちどれか2つを選んで連立方程式にします。\nどの2つを選んでも同じ解になりますが、計算がらくになる組を選ぶとよいです。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-various-simul-eq-q9",
+        "question": "方程式 $2x+y=x-y=-3$ を解いたときの解はどれですか。",
+        "options": [
+          "$x=-2,\\ y=1$",
+          "$x=2,\\ y=-1$",
+          "$x=-1,\\ y=2$",
+          "$x=1,\\ y=-2$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$\\begin{cases} 2x+y=-3 \\\\ x-y=-3 \\end{cases}$ と分けます。足すと $3x=-6$、$x=-2$ です。\n$-2-y=-3$ より $y=1$。検算: $2\\times(-2)+1=-3$、$-2-1=-3$ で成り立ちます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-various-simul-eq-q10",
+        "question": "連立方程式 $\\begin{cases} ax+by=3 \\\\ 2x-y=5 \\end{cases}$ の解が $x=2,\\ y=-1$ であるとき、$a$、$b$ が満たす関係式はどれですか。",
+        "options": [
+          "$2a+b=3$",
+          "$2a-b=3$",
+          "$a-2b=3$",
+          "$a+2b=3$"
+        ],
+        "correctIndex": 1,
+        "explanation": "解 $x=2,\\ y=-1$ を上の式 $ax+by=3$ に代入すると $a\\times2+b\\times(-1)=3$、つまり $2a-b=3$ となります。\nこのように解を式に代入すると、文字 $a$、$b$ についての関係式が得られます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-various-simul-eq-q11",
+        "question": "次の連立方程式を解きましょう。\n$\\begin{cases} \\frac{x+y}{2}=3 \\\\ x-y=2 \\end{cases}$",
+        "options": [
+          "$x=2,\\ y=4$",
+          "$x=4,\\ y=-2$",
+          "$x=4,\\ y=2$",
+          "$x=3,\\ y=3$"
+        ],
+        "correctIndex": 2,
+        "explanation": "上の式に2をかけると $x+y=6$ です。下の式 $x-y=2$ と足すと $2x=8$、$x=4$。\n$4+y=6$ より $y=2$。検算: $\\frac{4+2}{2}=3$ で成り立ちます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-various-simul-eq-q12",
+        "question": "連立方程式 $\\begin{cases} 3x-4y=8a \\\\ bx-y=-7 \\end{cases}$ の解が $x=4,\\ y=-1$ であるとき、$a$ の値はどれですか。",
+        "options": [
+          "$a=1$",
+          "$a=-2$",
+          "$a=4$",
+          "$a=2$"
+        ],
+        "correctIndex": 3,
+        "explanation": "解 $x=4,\\ y=-1$ を上の式に代入すると $3\\times4-4\\times(-1)=8a$、$12+4=8a$、$16=8a$、$a=2$ です。\n解を式に代入して文字の値を求めます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-various-simul-eq-q13",
+        "question": "次の連立方程式を解きましょう。\n$\\begin{cases} 0.2x-0.3y=0.7 \\\\ y=5x-11 \\end{cases}$",
+        "options": [
+          "$x=2,\\ y=-1$",
+          "$x=-1,\\ y=2$",
+          "$x=2,\\ y=1$",
+          "$x=3,\\ y=4$"
+        ],
+        "correctIndex": 0,
+        "explanation": "上の式を10倍すると $2x-3y=7$ です。下の式 $y=5x-11$ を代入すると $2x-3(5x-11)=7$、$2x-15x+33=7$、$-13x=-26$、$x=2$。\n$y=5\\times2-11=-1$。検算: $0.2\\times2-0.3\\times(-1)=0.4+0.3=0.7$ で成り立ちます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-various-simul-eq-q14",
+        "question": "次の連立方程式を解きましょう。\n$\\begin{cases} 3(x+y)-2x=7 \\\\ x+2y=5 \\end{cases}$",
+        "options": [
+          "$x=2,\\ y=1$",
+          "$x=1,\\ y=2$",
+          "$x=1,\\ y=-2$",
+          "$x=3,\\ y=1$"
+        ],
+        "correctIndex": 1,
+        "explanation": "上の式を展開すると $3x+3y-2x=7$、$x+3y=7$ です。下の式 $x+2y=5$ を引くと $y=2$。\n$x+2\\times2=5$ より $x=1$。検算: $3(1+2)-2\\times1=9-2=7$ で成り立ちます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-various-simul-eq-q15",
+        "question": "分数をふくむ連立方程式を解くとき、最初にすると計算がらくになるのはどれですか。",
+        "options": [
+          "分子だけを2倍する",
+          "分母をそのまま足す",
+          "両辺に分母の最小公倍数をかけて分数をなくす",
+          "右辺を0にする"
+        ],
+        "correctIndex": 2,
+        "explanation": "分数をふくむ式は、両辺に分母の最小公倍数をかけて分数をなくしてから解くと計算がらくになります。\n小数の式も同様に10倍や100倍して整数にします。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-various-simul-eq-q16",
+        "question": "小数をふくむ連立方程式を整数の式になおすとき、$0.09x+0.04y=0.1$ の両辺を何倍すればよいですか。",
+        "options": [
+          "10倍して $9x+4y=10$",
+          "100倍して $9x+4y=1$",
+          "10倍して $0.9x+0.4y=1$",
+          "100倍して $9x+4y=10$"
+        ],
+        "correctIndex": 3,
+        "explanation": "係数が小数第2位まであるので、両辺を100倍すると $9x+4y=10$ と整数の式になります。\n小数をなくしてから加減法や代入法で解きます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-various-simul-eq-q17",
+        "question": "次の連立方程式を解きましょう。\n$\\begin{cases} \\frac{x}{3}+\\frac{y}{2}=4 \\\\ x+y=9 \\end{cases}$",
+        "options": [
+          "$x=3,\\ y=6$",
+          "$x=6,\\ y=3$",
+          "$x=3,\\ y=-6$",
+          "$x=4,\\ y=5$"
+        ],
+        "correctIndex": 0,
+        "explanation": "上の式に6をかけて分母をはらうと $2x+3y=24$ です。下の式を2倍した $2x+2y=18$ を引くと $y=6$。\n$x+6=9$ より $x=3$。検算: $\\frac{3}{3}+\\frac{6}{2}=1+3=4$ で成り立ちます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-various-simul-eq-q18",
+        "question": "次の連立方程式を解きましょう。\n$\\begin{cases} \\frac{x}{2}-\\frac{y}{4}=1 \\\\ x+y=8 \\end{cases}$",
+        "options": [
+          "$x=2,\\ y=4$",
+          "$x=4,\\ y=4$",
+          "$x=4,\\ y=-4$",
+          "$x=6,\\ y=2$"
+        ],
+        "correctIndex": 1,
+        "explanation": "上の式に4をかけると $2x-y=4$ です。下の式 $x+y=8$ と足すと $3x=12$、$x=4$。\n$4+y=8$ より $y=4$。検算: $\\frac{4}{2}-\\frac{4}{4}=2-1=1$ で成り立ちます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-various-simul-eq-q19",
+        "question": "次の連立方程式を解きましょう。\n$\\begin{cases} 0.2x+0.3y=1.3 \\\\ x+y=5 \\end{cases}$",
+        "options": [
+          "$x=1,\\ y=4$",
+          "$x=4,\\ y=-1$",
+          "$x=2,\\ y=3$",
+          "$x=3,\\ y=2$"
+        ],
+        "correctIndex": 2,
+        "explanation": "上の式を10倍すると $2x+3y=13$ です。下の式を2倍した $2x+2y=10$ を引くと $y=3$。\n$x+3=5$ より $x=2$。検算: $0.2\\times2+0.3\\times3=0.4+0.9=1.3$ で成り立ちます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-various-simul-eq-q20",
+        "question": "次の連立方程式を解きましょう。\n$\\begin{cases} 0.5x-0.2y=1.6 \\\\ x+y=6 \\end{cases}$",
+        "options": [
+          "$x=2,\\ y=4$",
+          "$x=4,\\ y=-2$",
+          "$x=5,\\ y=1$",
+          "$x=4,\\ y=2$"
+        ],
+        "correctIndex": 3,
+        "explanation": "上の式を10倍すると $5x-2y=16$ です。下の式を2倍した $2x+2y=12$ と足すと $7x=28$、$x=4$。\n$4+y=6$ より $y=2$。検算: $0.5\\times4-0.2\\times2=2-0.4=1.6$ で成り立ちます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-various-simul-eq-q21",
+        "question": "次の連立方程式を解きましょう。\n$\\begin{cases} 2(x+y)-3y=5 \\\\ x+y=4 \\end{cases}$",
+        "options": [
+          "$x=3,\\ y=1$",
+          "$x=1,\\ y=3$",
+          "$x=3,\\ y=-1$",
+          "$x=2,\\ y=2$"
+        ],
+        "correctIndex": 0,
+        "explanation": "上の式を展開すると $2x+2y-3y=5$、$2x-y=5$ です。下の式 $x+y=4$ と足すと $3x=9$、$x=3$。\n$3+y=4$ より $y=1$。検算: $2(3+1)-3\\times1=8-3=5$ で成り立ちます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-various-simul-eq-q22",
+        "question": "次の連立方程式を解きましょう。\n$\\begin{cases} 4(x-y)+y=-1 \\\\ x+y=5 \\end{cases}$",
+        "options": [
+          "$x=3,\\ y=2$",
+          "$x=2,\\ y=3$",
+          "$x=2,\\ y=-3$",
+          "$x=1,\\ y=4$"
+        ],
+        "correctIndex": 1,
+        "explanation": "上の式を展開すると $4x-4y+y=-1$、$4x-3y=-1$ です。下の式を3倍した $3x+3y=15$ と足すと $7x=14$、$x=2$。\n$2+y=5$ より $y=3$。検算: $4(2-3)+3=-4+3=-1$ で成り立ちます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-various-simul-eq-q23",
+        "question": "方程式 $3x-y=x+y=4$ を解いたときの解はどれですか。",
+        "options": [
+          "$x=-2,\\ y=6$",
+          "$x=2,\\ y=-2$",
+          "$x=2,\\ y=2$",
+          "$x=3,\\ y=1$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$A=B=C$ の形は $\\begin{cases} 3x-y=4 \\\\ x+y=4 \\end{cases}$ と分けます。足すと $4x=8$、$x=2$。\n$2+y=4$ より $y=2$。検算: $3\\times2-2=4$、$2+2=4$ で成り立ちます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-various-simul-eq-q24",
+        "question": "連立方程式 $\\begin{cases} ax-by=7 \\\\ x+y=2 \\end{cases}$ の解が $x=3,\\ y=-1$ であるとき、$a$、$b$ が満たす関係式はどれですか。",
+        "options": [
+          "$3a+b=7$",
+          "$3a-b=7$",
+          "$a+3b=7$",
+          "$a-3b=7$"
+        ],
+        "correctIndex": 0,
+        "explanation": "解 $x=3,\\ y=-1$ を上の式 $ax-by=7$ に代入すると $a\\times3-b\\times(-1)=7$、つまり $3a+b=7$ となります。\n解を式に代入すると、文字 $a$、$b$ についての関係式が得られます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-various-simul-eq-q25",
+        "question": "次の連立方程式を解きましょう。\n$\\begin{cases} \\frac{x-y}{3}=1 \\\\ x+y=7 \\end{cases}$",
+        "options": [
+          "$x=2,\\ y=5$",
+          "$x=5,\\ y=2$",
+          "$x=5,\\ y=-2$",
+          "$x=4,\\ y=3$"
+        ],
+        "correctIndex": 1,
+        "explanation": "上の式に3をかけると $x-y=3$ です。下の式 $x+y=7$ と足すと $2x=10$、$x=5$。\n$5+y=7$ より $y=2$。検算: $\\frac{5-2}{3}=1$ で成り立ちます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-various-simul-eq-q26",
+        "question": "次の連立方程式を解きましょう。\n$\\begin{cases} 0.3x+0.2y=-0.1 \\\\ y=2x-4 \\end{cases}$",
+        "options": [
+          "$x=2,\\ y=1$",
+          "$x=-1,\\ y=2$",
+          "$x=1,\\ y=-2$",
+          "$x=2,\\ y=4$"
+        ],
+        "correctIndex": 2,
+        "explanation": "上の式を10倍すると $3x+2y=-1$ です。下の式 $y=2x-4$ を代入すると $3x+2(2x-4)=-1$、$7x-8=-1$、$7x=7$、$x=1$。\n$y=2\\times1-4=-2$。検算: $0.3\\times1+0.2\\times(-2)=0.3-0.4=-0.1$ で成り立ちます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-various-simul-eq-q27",
+        "question": "連立方程式 $\\begin{cases} 5x+ay=11 \\\\ bx-2y=8 \\end{cases}$ の解が $x=3,\\ y=-1$ であるとき、$a$ の値はどれですか。",
+        "options": [
+          "$a=1$",
+          "$a=3$",
+          "$a=-2$",
+          "$a=4$"
+        ],
+        "correctIndex": 3,
+        "explanation": "解 $x=3,\\ y=-1$ を上の式に代入すると $5\\times3+a\\times(-1)=11$、$15-a=11$、$a=4$ です。\n解を式に代入して文字の値を求めます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-various-simul-eq-q28",
+        "question": "次の連立方程式を解きましょう。\n$\\begin{cases} 2(x+1)+y=7 \\\\ x-y=4 \\end{cases}$",
+        "options": [
+          "$x=2,\\ y=-2$",
+          "$x=-3,\\ y=1$",
+          "$x=4,\\ y=0$",
+          "$x=3,\\ y=-1$"
+        ],
+        "correctIndex": 3,
+        "explanation": "上の式を展開すると $2x+2+y=7$、$2x+y=5$ です。下の式 $x-y=4$ と足すと $3x=9$、$x=3$。\n$3-y=4$ より $y=-1$。検算: $2(3+1)+(-1)=8-1=7$ で成り立ちます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-various-simul-eq-q29",
+        "question": "次の連立方程式を解きましょう。\n$\\begin{cases} \\frac{x}{2}-\\frac{y}{3}=2 \\\\ \\frac{x}{4}+\\frac{y}{6}=2 \\end{cases}$",
+        "options": [
+          "$x=3,\\ y=6$",
+          "$x=6,\\ y=-3$",
+          "$x=6,\\ y=3$",
+          "$x=4,\\ y=3$"
+        ],
+        "correctIndex": 2,
+        "explanation": "上の式に6をかけると $3x-2y=12$、下の式に12をかけると $3x+2y=24$ です。足すと $6x=36$、$x=6$。\n$3\\times6-2y=12$ より $-2y=-6$、$y=3$。検算: $\\frac{6}{4}+\\frac{3}{6}=1.5+0.5=2$ で成り立ちます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-various-simul-eq-q30",
+        "question": "次の連立方程式を解きましょう。\n$\\begin{cases} 0.2x+0.3y=1.3 \\\\ 0.5x-0.2y=0.4 \\end{cases}$",
+        "options": [
+          "$x=3,\\ y=2$",
+          "$x=2,\\ y=-3$",
+          "$x=-2,\\ y=3$",
+          "$x=2,\\ y=3$"
+        ],
+        "correctIndex": 3,
+        "explanation": "上の式を10倍すると $2x+3y=13$、下の式を10倍すると $5x-2y=4$ です。上を2倍・下を3倍すると $4x+6y=26$、$15x-6y=12$。足すと $19x=38$、$x=2$。\n$2\\times2+3y=13$ より $3y=9$、$y=3$。検算: $0.5\\times2-0.2\\times3=1-0.6=0.4$ で成り立ちます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-various-simul-eq-q31",
+        "question": "次の連立方程式を解きましょう。\n$\\begin{cases} \\frac{x}{3}+\\frac{y}{4}=3 \\\\ \\frac{x}{2}-\\frac{y}{4}=2 \\end{cases}$",
+        "options": [
+          "$x=6,\\ y=4$",
+          "$x=4,\\ y=6$",
+          "$x=6,\\ y=-4$",
+          "$x=3,\\ y=8$"
+        ],
+        "correctIndex": 0,
+        "explanation": "上の式に12をかけると $4x+3y=36$、下の式に4をかけると $2x-y=8$ です。下の式を3倍した $6x-3y=24$ と上の式を足すと $10x=60$、$x=6$。\n$2\\times6-y=8$ より $y=4$。検算: $\\frac{6}{3}+\\frac{4}{4}=2+1=3$ で成り立ちます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-various-simul-eq-q32",
+        "question": "次の連立方程式を解きましょう。\n$\\begin{cases} 3(x-2y)+4y=10 \\\\ 2(x+y)-x=6 \\end{cases}$",
+        "options": [
+          "$x=1,\\ y=4$",
+          "$x=4,\\ y=1$",
+          "$x=4,\\ y=-1$",
+          "$x=2,\\ y=2$"
+        ],
+        "correctIndex": 1,
+        "explanation": "上の式を展開すると $3x-6y+4y=10$、$3x-2y=10$。下の式を展開すると $2x+2y-x=6$、$x+2y=6$ です。足すと $4x=16$、$x=4$。\n$4+2y=6$ より $y=1$。検算: $3(4-2)+4\\times1=6+4=10$ で成り立ちます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-various-simul-eq-q33",
+        "question": "方程式 $3x-2y=x+y=5$ を解いたときの解はどれですか。",
+        "options": [
+          "$x=2,\\ y=3$",
+          "$x=5,\\ y=0$",
+          "$x=3,\\ y=2$",
+          "$x=3,\\ y=-2$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$A=B=C$ の形は $\\begin{cases} 3x-2y=5 \\\\ x+y=5 \\end{cases}$ と分けます。下の式を2倍した $2x+2y=10$ を上の式に足すと $5x=15$、$x=3$。\n$3+y=5$ より $y=2$。検算: $3\\times3-2\\times2=9-4=5$、$3+2=5$ で成り立ちます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-various-simul-eq-q34",
+        "question": "方程式 $x+y=2x+3y=-1$ を解いたときの解はどれですか。",
+        "options": [
+          "$x=2,\\ y=-1$",
+          "$x=-1,\\ y=2$",
+          "$x=1,\\ y=-2$",
+          "$x=-2,\\ y=1$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$A=B=C$ の形は $\\begin{cases} x+y=-1 \\\\ 2x+3y=-1 \\end{cases}$ と分けます。上の式を2倍した $2x+2y=-2$ を下の式から引くと $y=1$。\n$x+1=-1$ より $x=-2$。検算: $2\\times(-2)+3\\times1=-4+3=-1$ で成り立ちます。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

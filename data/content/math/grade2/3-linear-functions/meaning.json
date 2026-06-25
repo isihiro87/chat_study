@@ -25,7 +25,7 @@
       },
       {
         "id": "math-g2-linear-func-meaning-q2",
-        "question": "一次関数 $y = ax + b$ で、$b = 0$ のとき $y$ は $x$ の何といえますか。",
+        "question": "一次関数 $y = ax + b$ で、$b = 0$ のとき、$y$ は $x$ に対してどうなりますか。",
         "options": [
           "$x$ に反比例する",
           "$x$ に比例する",

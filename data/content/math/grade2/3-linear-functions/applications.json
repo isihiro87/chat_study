@@ -1,0 +1,223 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g2-linear-func",
+  "topicId": "math-g2-linear-func-apps",
+  "name": "一次関数の利用",
+  "subtitle": "グラフを読み解く力",
+  "icon": "🚶",
+  "order": 5,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": [
+      {
+        "id": "math-g2-linear-func-apps-q1",
+        "question": "水が5L入った水そうに、毎分3Lずつ水を入れる。$x$ 分後の水の量を $y\\,\\text{L}$ とするとき、$y$ を $x$ の式で表すとどれですか。",
+        "options": [
+          "$y = 3x + 5$",
+          "$y = 5x + 3$",
+          "$y = 3x - 5$",
+          "$y = -3x + 5$"
+        ],
+        "correctIndex": 0,
+        "explanation": "はじめ5Lで毎分3L増えるから、$x$ 分後は $3x$ L増える。\nよって $y = 3x + 5$。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-linear-func-apps-q2",
+        "question": "20L入った水そうから毎分4Lずつ水をぬく。$x$ 分後の水の量を $y\\,\\text{L}$ とするとき、$y$ を $x$ の式で表すとどれですか。",
+        "options": [
+          "$y = 4x + 20$",
+          "$y = -4x + 20$",
+          "$y = -4x - 20$",
+          "$y = -20x + 4$"
+        ],
+        "correctIndex": 1,
+        "explanation": "はじめ20Lで毎分4L減るから、$x$ 分後は $4x$ L減る。\nよって $y = 20 - 4x = -4x + 20$。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-linear-func-apps-q3",
+        "question": "上の問題（$y = -4x + 20$）で、水がなくなる（$y = 0$ になる）のは何分後ですか。",
+        "options": [
+          "4分後",
+          "16分後",
+          "5分後",
+          "20分後"
+        ],
+        "correctIndex": 2,
+        "explanation": "$y = 0$ を代入すると $0 = -4x + 20$、$4x = 20$、$x = 5$。\nよって5分後に水がなくなる。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-linear-func-apps-q4",
+        "question": "家から1200m離れた駅へ、分速80mで歩く。$x$ 分歩いたときの残りの道のりを $y\\,\\text{m}$ とすると、$y$ を $x$ の式で表すとどれですか。",
+        "options": [
+          "$y = 80x + 1200$",
+          "$y = -80x - 1200$",
+          "$y = 1200x - 80$",
+          "$y = -80x + 1200$"
+        ],
+        "correctIndex": 3,
+        "explanation": "はじめの道のりは1200mで、分速80mなので $x$ 分で $80x$ m進む。残りは $1200 - 80x$。\nよって $y = -80x + 1200$。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-linear-func-apps-q5",
+        "question": "上の問題（$y = -80x + 1200$）で、駅に着く（残り0m）のは何分後ですか。",
+        "options": [
+          "15分後",
+          "12分後",
+          "80分後",
+          "10分後"
+        ],
+        "correctIndex": 0,
+        "explanation": "$y = 0$ より $0 = -80x + 1200$、$80x = 1200$、$x = 15$。\nよって15分後に駅に着く。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-linear-func-apps-q6",
+        "question": "基本料金1000円に、1分あたり20円の通話料がかかる電話プランがある。$x$ 分通話したときの料金を $y$ 円とすると、$y$ を $x$ の式で表すとどれですか。",
+        "options": [
+          "$y = 1000x + 20$",
+          "$y = 20x + 1000$",
+          "$y = 20x - 1000$",
+          "$y = 1020x$"
+        ],
+        "correctIndex": 1,
+        "explanation": "基本料金1000円に、1分20円で $x$ 分なら $20x$ 円が加わる。\nよって $y = 20x + 1000$。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-linear-func-apps-q7",
+        "question": "料金が $y = 20x + 1000$（円）で表されるプランで、$x = 50$ 分通話したときの料金はいくらですか。",
+        "options": [
+          "1050円",
+          "3000円",
+          "2000円",
+          "1500円"
+        ],
+        "correctIndex": 2,
+        "explanation": "$x = 50$ を代入すると $y = 20 \\times 50 + 1000 = 1000 + 1000 = 2000$。\nよって2000円。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-linear-func-apps-q8",
+        "question": "ろうそくに火をつけると一定の割合で短くなる。火をつける前の長さが18cmで、毎分2cmずつ短くなるとき、$x$ 分後の長さ $y\\,\\text{cm}$ を式で表すとどれですか。",
+        "options": [
+          "$y = 2x + 18$",
+          "$y = -2x - 18$",
+          "$y = -18x + 2$",
+          "$y = -2x + 18$"
+        ],
+        "correctIndex": 3,
+        "explanation": "はじめ18cmで毎分2cm短くなるから $x$ 分後は $2x$ cm短い。\nよって $y = 18 - 2x = -2x + 18$。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-linear-func-apps-q9",
+        "question": "ろうそくの長さが $y = -2x + 18$（cm）で表されるとき、長さが6cmになるのは何分後ですか。",
+        "options": [
+          "6分後",
+          "12分後",
+          "4分後",
+          "9分後"
+        ],
+        "correctIndex": 0,
+        "explanation": "$y = 6$ を代入すると $6 = -2x + 18$、$2x = 12$、$x = 6$。\nよって6分後。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-linear-func-apps-q10",
+        "question": "Aプランは料金が $y = 30x + 1500$、Bプランは $y = 50x + 1000$（円、$x$ は通話時間〔分〕）。2つのプランの料金が等しくなるのは何分のときですか。",
+        "options": [
+          "20分",
+          "25分",
+          "50分",
+          "30分"
+        ],
+        "correctIndex": 1,
+        "explanation": "料金が等しいとき $30x + 1500 = 50x + 1000$。\n$1500 - 1000 = 50x - 30x$、$500 = 20x$、$x = 25$。よって25分。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-linear-func-apps-q11",
+        "question": "上の問題で2プランが等しくなるのは25分のとき、$x > 25$（25分より長く通話する）場合に料金が安いのはどちらですか。",
+        "options": [
+          "Bプラン",
+          "どちらも同じ",
+          "Aプラン",
+          "通話時間によらずAが安い"
+        ],
+        "correctIndex": 2,
+        "explanation": "Aの傾き30、Bの傾き50。通話が長くなるほど傾きが大きいBの料金が速く増える。25分より長いときは傾きの小さいAプランの方が安い。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-linear-func-apps-q12",
+        "question": "ばねにおもりをつるすと、おもりの重さに比例してのびる。おもりがないときの長さが10cmで、$x\\,\\text{g}$ つるすと $0.5x$ cmのびるとき、ばね全体の長さ $y\\,\\text{cm}$ を式で表すとどれですか。",
+        "options": [
+          "$y = 10x + 0.5$",
+          "$y = 0.5x - 10$",
+          "$y = 10.5x$",
+          "$y = 0.5x + 10$"
+        ],
+        "correctIndex": 3,
+        "explanation": "もとの長さ10cmに、のび $0.5x$ cmが加わる。\nよって $y = 0.5x + 10$。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g2-linear-func-apps-q13",
+        "question": "ばねの長さが $y = 0.5x + 10$（cm）のとき、全体の長さが18cmになるのは何gのおもりをつるしたときですか。",
+        "options": [
+          "16g",
+          "8g",
+          "9g",
+          "14g"
+        ],
+        "correctIndex": 0,
+        "explanation": "$y = 18$ を代入すると $18 = 0.5x + 10$、$0.5x = 8$、$x = 16$。\nよって16g。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-linear-func-apps-q14",
+        "question": "兄が家を出発し、分速200mで進む。出発から $x$ 分後の進んだ道のりを $y\\,\\text{m}$ とするとき、$y$ を $x$ の式で表すとどれですか。",
+        "options": [
+          "$y = 200x + 1$",
+          "$y = 200x$",
+          "$y = x + 200$",
+          "$y = 200 - x$"
+        ],
+        "correctIndex": 1,
+        "explanation": "進んだ道のり＝速さ×時間。分速200mで $x$ 分なら $y = 200x$。\nはじめの道のりは0なので切片は0（比例）。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g2-linear-func-apps-q15",
+        "question": "30Lの水そうに、ある時点で12Lの水が入っていた。その後毎分3Lずつ入れる。$x$ 分後の水の量を $y\\,\\text{L}$ とするとき、いっぱい（30L）になるのは何分後ですか。",
+        "options": [
+          "10分後",
+          "4分後",
+          "6分後",
+          "18分後"
+        ],
+        "correctIndex": 2,
+        "explanation": "水の量は $y = 3x + 12$。$y = 30$ より $30 = 3x + 12$、$3x = 18$、$x = 6$。\nよって6分後。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g2-linear-func-apps-q16",
+        "question": "ある一次関数の利用で、傾きが表す量として最もふさわしいものはどれですか。",
+        "options": [
+          "出発したときの道のり",
+          "全部で進む道のりの合計",
+          "目的地までの残りの道のり",
+          "1分あたりに進む道のり"
+        ],
+        "correctIndex": 3,
+        "explanation": "道のりと時間の関係 $y = ax + b$ では、傾き $a$ は「$x$（時間）が1増えるときの $y$（道のり）の増加量」、つまり1分あたりに進む道のり＝速さを表す。切片 $b$ は出発時の道のり。",
+        "difficulty": "standard"
+      }
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g3-expansion-factoring",
+  "topicId": "math-g3-factoring-formulas",
+  "name": "公式を使った因数分解",
+  "subtitle": "かけて○足して△の数を探そう",
+  "icon": "🎯",
+  "order": 5,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": []
+  }
+}

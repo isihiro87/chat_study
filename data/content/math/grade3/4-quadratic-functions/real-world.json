@@ -1,0 +1,14 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g3-quadratic-func",
+  "topicId": "math-g3-quad-func-real",
+  "name": "日常への応用",
+  "subtitle": "制動距離・ふりこの長さ",
+  "icon": "🚗",
+  "order": 4,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": []
+  }
+}

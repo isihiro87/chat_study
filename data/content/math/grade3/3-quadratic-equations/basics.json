@@ -1,0 +1,14 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g3-quadratic-eq",
+  "topicId": "math-g3-quad-eq-basics",
+  "name": "二次方程式の基本",
+  "subtitle": "x²の方程式、解が2つ",
+  "icon": "📊",
+  "order": 1,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": []
+  }
+}

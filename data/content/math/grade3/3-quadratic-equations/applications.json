@@ -1,0 +1,14 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g3-quadratic-eq",
+  "topicId": "math-g3-quad-eq-apps",
+  "name": "二次方程式の利用",
+  "subtitle": "文章題と図形の問題",
+  "icon": "📋",
+  "order": 4,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": []
+  }
+}
