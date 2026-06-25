@@ -318,6 +318,12 @@ details[open] .set-head{border-bottom:1px solid var(--line);}
 .modal p{color:var(--sub); font-size:13px; margin:0 0 16px; line-height:1.7;}
 .modal input{width:100%; font-family:inherit; font-size:20px; text-align:center; padding:12px; border:2px solid var(--line); border-radius:12px; margin-bottom:16px;}
 .modal input:focus{outline:none; border-color:var(--accent);}
+/* はじめての人ガイドのステップ */
+.wl-step{display:flex; align-items:flex-start; gap:12px; padding:9px 0; border-top:1px solid var(--line);}
+.wl-step:first-of-type{border-top:none;}
+.wl-step .wl-no{flex:0 0 26px; width:26px; height:26px; border-radius:50%; background:var(--accent); color:#fff; font-weight:800; font-size:14px; display:flex; align-items:center; justify-content:center;}
+.wl-step b{font-size:15px; color:var(--ink);}
+.wl-step .wl-sub{font-size:12px; color:var(--sub); line-height:1.6;}
 
 @media (max-width:480px){
   .stats,.result-grid{grid-template-columns:repeat(2,1fr);}
@@ -355,7 +361,8 @@ details[open] .set-head{border-bottom:1px solid var(--line);}
 
     <div class="userbar">
       <div class="who">👤 <b id="hdrName">ゲスト</b> さん</div>
-      <button class="btn ghost" id="soundBtn" title="音のオン／オフ" aria-pressed="true" style="margin-left:auto;">🔊 音</button>
+      <button class="btn ghost" id="howtoBtn" title="あそびかた" style="margin-left:auto;">❓ あそびかた</button>
+      <button class="btn ghost" id="soundBtn" title="音のオン／オフ" aria-pressed="true">🔊 音</button>
       <button class="btn ghost" id="openRecordsBtn">📊 きろく＆ランキング</button>
     </div>
 
@@ -378,15 +385,15 @@ details[open] .set-head{border-bottom:1px solid var(--line);}
       </div>
 
       <div class="set-group">
-        <h3>② 答えの出し方</h3>
+        <h3>② モード</h3>
         <div class="opt-row" id="modeRow">
-          <div class="chip" data-hide="1" aria-pressed="true">少し考えてから見る<small>数秒後に表示・出る前に完答でボーナス</small></div>
-          <div class="chip" data-hide="0">最初から見る<small>こたえを見ながら練習</small></div>
+          <div class="chip" data-hide="0" aria-pressed="true">暗記モード<small>こたえを見ながら覚える</small></div>
+          <div class="chip" data-hide="1">テストモード<small>かくして力だめし・出る前に完答でボーナス</small></div>
         </div>
         <div class="opt-row" id="revealRow" style="margin-top:10px;">
           <div class="chip" data-reveal="2">2秒で表示</div>
-          <div class="chip" data-reveal="3" aria-pressed="true">3秒で表示</div>
-          <div class="chip" data-reveal="5">5秒で表示</div>
+          <div class="chip" data-reveal="3">3秒で表示</div>
+          <div class="chip" data-reveal="5" aria-pressed="true">5秒で表示</div>
           <div class="chip" data-reveal="8">8秒で表示</div>
         </div>
       </div>
@@ -412,7 +419,8 @@ details[open] .set-head{border-bottom:1px solid var(--line);}
       </summary>
       <div class="help">
         ・お題（問い）の<b>こたえ</b>を、表示されたローマ字どおりにキーボードで打ちます。<br>
-        ・「かくす」モードはこたえが隠れていて、<b>打った分だけ1文字ずつ表示</b>されます。<b>手が止まって数秒たつと漢字とローマ字が表示</b>されます（秒数は②で選べます）。<b>表示される前に最後まで打ち切れたらボーナス</b>（⚡+50）。<b>全問それができたらパーフェクト！</b><br>
+        ・<b>暗記モード</b>はこたえを見ながら打って覚えます。まずはここから！<br>
+        ・<b>テストモード</b>はこたえが隠れていて、<b>打った分だけ1文字ずつ表示</b>されます。<b>手が止まって数秒たつと漢字とローマ字が表示</b>されます（秒数は②で選べます）。<b>表示される前に最後まで打ち切れたらボーナス</b>（⚡+50）。<b>全問それができたらパーフェクト！</b><br>
         ・歴史は<b>発音どおりのローマ字</b>で打ちます（例：とうきょう＝<span class="kbd">toukyou</span>、しょうぐん＝<span class="kbd">syougun</span>）。<br>
         ・はじめての人は <b>せってい③で「運指ガイド」を表示する</b> にすると、つぎに打つキーと指を案内します（ふだんは非表示でOK）。<br>
         ・むずかしい問題は <span class="kbd">Esc</span> でスキップ、<b>⏸ポーズ</b>でひとやすみできます。<br>
@@ -480,10 +488,10 @@ details[open] .set-head{border-bottom:1px solid var(--line);}
             <div class="chip" data-count="20">20問</div>
             <div class="chip" data-count="99999">全問</div>
           </div>
-          <div class="ov-set-label">答えの出し方</div>
+          <div class="ov-set-label">モード</div>
           <div class="opt-row" id="modeRow2">
-            <div class="chip" data-hide="1">少し考える</div>
-            <div class="chip" data-hide="0">最初から見る</div>
+            <div class="chip" data-hide="0">暗記モード</div>
+            <div class="chip" data-hide="1">テストモード</div>
           </div>
           <div class="opt-row" id="revealRow2">
             <div class="chip" data-reveal="2">2秒</div>
@@ -618,6 +626,20 @@ details[open] .set-head{border-bottom:1px solid var(--line);}
     </div>
   </section>
 
+</div>
+
+<!-- ============ はじめての人ガイド（初回のみ自動表示） ============ -->
+<div class="modal" id="welcomeModal">
+  <div class="card" style="max-width:420px; text-align:left;">
+    <h2 style="text-align:center;">ようこそ！ 遊びかた 3ステップ</h2>
+    <p style="text-align:center; color:var(--sub); font-size:13px; margin:0 0 14px;">打って覚える 歴史タイピング。キーボードのあるパソコンで遊んでね。</p>
+    <div class="wl-step"><span class="wl-no">1</span><div><b>時代（単元）をえらぶ</b><br><span class="wl-sub">下のカードから、やりたい時代をクリック。</span></div></div>
+    <div class="wl-step"><span class="wl-no">2</span><div><b>まずは「暗記モード」で覚える</b><br><span class="wl-sub">こたえを見ながら打って、用語を覚えよう。</span></div></div>
+    <div class="wl-step"><span class="wl-no">3</span><div><b>「テストモード」で力だめし</b><br><span class="wl-sub">こたえを隠して、覚えたかチャレンジ！</span></div></div>
+    <p style="color:var(--bad); font-weight:700; font-size:12px; margin:12px 0 0;">⚠ はじめる前に、日本語入力（IME）を<b>半角（英数）</b>にしてね。</p>
+    <button class="btn primary" id="welcomeStartBtn" style="width:100%; padding:13px; margin-top:14px;">はじめる！</button>
+    <button class="btn ghost" id="welcomeSkipBtn" style="width:100%; padding:8px; margin-top:4px; font-size:13px;">あとで（とじる）</button>
+  </div>
 </div>
 
 <!-- ============ 名前とうろくモーダル ============ -->
@@ -878,7 +900,7 @@ function startDuePractice(){
 /* =========================================================================
    ゲーム状態・定数
    ========================================================================= */
-const cfg = { mode:'count', sec:60, count:10, hide:true, revealSec:3, sound:true, keyboard:false, groupMode:'period', subjectId:null };
+const cfg = { mode:'count', sec:60, count:10, hide:false, revealSec:5, sound:true, keyboard:false, groupMode:'period', subjectId:null };
 const S = {
   running:false, subject:null, deck:[], deckPos:0,
   score:0, combo:0, maxCombo:0, cleared:0, skipped:0, correct:0, wrong:0,
@@ -936,7 +958,7 @@ function applyCfgToUI(){
 }
 function updateSettingsSummary(){
   const el=$('settingsSummary'); if(!el) return;
-  const disp = cfg.hide ? `少し考える（${cfg.revealSec}秒）` : '最初から見る';
+  const disp = cfg.hide ? `テストモード（${cfg.revealSec}秒）` : '暗記モード';
   const kb   = cfg.keyboard ? 'ヒントあり' : 'ヒントなし';
   el.textContent = `${countLabel(cfg.count)}／${disp}／${kb}`;
 }
@@ -2626,6 +2648,21 @@ refreshUserBar();
 restoreSettingsPanel();
 // 設定（難易度・音・指ガイド・分け方）をUIに反映
 applyCfgToUI();
+
+/* ---------- はじめての人ガイド（初回のみ自動表示） ---------- */
+const WELCOME_KEY='tq_welcomed_v1';
+function openWelcome(){ $('welcomeModal').classList.add('show'); }
+function closeWelcome(){ $('welcomeModal').classList.remove('show'); LS.set(WELCOME_KEY, 1); }
+$('welcomeStartBtn').addEventListener('click', closeWelcome);
+$('welcomeSkipBtn').addEventListener('click', closeWelcome);
+$('howtoBtn').addEventListener('click', openWelcome);
+// 初回（まだ案内を見ておらず、プレイ記録も無い）のときだけ自動で表示
+try{
+  if(!LS.get(WELCOME_KEY, 0) && (getStats().plays||0)===0 && !isTypingUnsupportedDevice()){
+    openWelcome();
+  }
+}catch(e){}
+
 // 名前は「全国ランキングに登録」を押したときに初めて聞く（初回起動を妨げない）
 </script>
 </body>
