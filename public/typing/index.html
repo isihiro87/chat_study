@@ -628,6 +628,7 @@ details[open] .set-head{border-bottom:1px solid var(--line);}
     <p style="color:var(--bad); font-weight:800; font-size:13px; margin:-4px 0 6px;">⚠ 本名（ほんみょう）は入れないでね。すきなニックネームにしよう。</p>
     <p style="color:var(--sub); font-size:12px; line-height:1.7; margin:0 0 8px;">登録すると <b>ニックネームとスコア</b> だけが全国ランキングに表示されます。本名・メール・連絡先などの個人情報はあつめません。<a href="privacy.html" target="_blank" rel="noopener" style="color:var(--accent-d); font-weight:700;">プライバシーポリシー</a></p>
     <input id="nameInput" maxlength="12" autocomplete="off" placeholder="ニックネーム（12文字まで）">
+    <div id="nameNote" class="submit-note ng" style="min-height:0; display:none; text-align:left; margin-top:4px;"></div>
     <button class="btn" id="nameRerollBtn" type="button" style="width:100%; padding:9px; margin-top:6px;">🎲 べつの なまえにする</button>
     <button class="btn primary" id="nameSaveBtn" style="width:100%; padding:13px; margin-top:8px;">けってい</button>
   </div>
@@ -1822,7 +1823,40 @@ document.addEventListener('keydown', e=>{
    ========================================================================= */
 const RC = Object.assign({provider:'local', supabaseUrl:'', supabaseKey:'', table:'rankings',
   firebaseProjectId:'', firebaseApiKey:'', collection:'rankings', adminNames:[],
-  appId:'', recaptchaSiteKey:''}, window.RANKING_CONFIG||{});
+  appId:'', recaptchaSiteKey:'', adminUnlockHash:''}, window.RANKING_CONFIG||{});
+
+/* ---------- 管理人ロック解除（なりすまし防止） ----------
+   adminNames は「予約語」。一般ユーザーは設定できない（saveNameModalで弾く）。
+   管理人本人は ?admin=（コード）でアクセスすると、その端末で解除フラグが立つ。
+   平文コードはソースに無く、SHA-256 ハッシュで照合する。 */
+const ADMIN_UNLOCK_KEY='tq_admin_unlock_v1';
+function isAdminUnlocked(){ return LS.get(ADMIN_UNLOCK_KEY, 0)===1; }
+async function _sha256hex(s){
+  try{
+    const buf=await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s));
+    return [...new Uint8Array(buf)].map(b=>b.toString(16).padStart(2,'0')).join('');
+  }catch(e){ return ''; }
+}
+(async ()=>{
+  try{
+    const m=/[?&]admin=([^&]+)/.exec(location.search);
+    if(!m || !RC.adminUnlockHash) return;
+    const code=decodeURIComponent(m[1]);
+    const h=await _sha256hex(code);
+    if(h && h===String(RC.adminUnlockHash).toLowerCase()){
+      LS.set(ADMIN_UNLOCK_KEY, 1);
+      try{ alert('管理人モードをこの端末で有効にしました。予約名が使えます。'); }catch(e){}
+    }
+    // URL から admin パラメータを消す（コードが履歴/共有に残らないように）
+    try{ const u=new URL(location.href); u.searchParams.delete('admin'); history.replaceState(null,'',u.toString()); }catch(e){}
+  }catch(e){}
+})();
+// 名前が予約語（管理人名）か。未解除の端末では使用禁止にする。
+function isReservedName(name){
+  const list=Array.isArray(RC.adminNames)?RC.adminNames:[];
+  const n=(name||'').trim();
+  return n!=='' && list.some(a=>String(a).trim()===n);
+}
 // ランキングで「管理人」マークを付ける名前（ranking-config.js の adminNames で設定）
 function isAdminName(name){
   const list=Array.isArray(RC.adminNames)?RC.adminNames:[];
@@ -2222,12 +2256,21 @@ function openNameModal(cb){
   nameModalCb=cb||null;
   const p=getProfile();
   $('nameInput').value = (p&&p.name) || randomNick();
+  const note=$('nameNote'); if(note){ note.style.display='none'; note.textContent=''; }
   $('nameModal').classList.add('show');
   setTimeout(()=>{ $('nameInput').focus(); try{ $('nameInput').select(); }catch(e){} }, 60);
 }
 function saveNameModal(){
   const v=cleanName($('nameInput').value);
+  const note=$('nameNote');
   if(!v){ $('nameInput').focus(); return; }
+  // 予約語（管理人名）は、解除済み端末以外は使用不可（なりすまし防止）
+  if(isReservedName(v) && !isAdminUnlocked()){
+    if(note){ note.style.display=''; note.textContent='この名前は使えません。べつの なまえを えらんでね。'; }
+    $('nameInput').focus(); try{ $('nameInput').select(); }catch(e){}
+    return;
+  }
+  if(note){ note.style.display='none'; note.textContent=''; }
   setProfile(v);
   $('nameModal').classList.remove('show');
   refreshUserBar();

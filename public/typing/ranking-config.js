@@ -89,5 +89,12 @@ window.RANKING_CONFIG = {
   recaptchaSiteKey: '6LcpmjMtAAAAALhAVjkvkszs7IFFTOM0pdHlTm-9',   // App Check の reCAPTCHA v3 サイトキー（公開OK）
 
   // --- ランキングで「👑管理人」マークを付ける名前（自分のアカウント名を入れる。複数可） ---
+  //   これらの名前は「予約語」となり、一般ユーザーは設定できません（なりすまし防止）。
   adminNames: ['いっしー'],
+
+  // --- 管理人ロック解除コードの SHA-256 ハッシュ（平文コードはソースに置かない） ---
+  //   管理人本人は次のURLに一度アクセスすると、その端末で予約名が使えるようになります：
+  //     https://www.chatstudy.jp/typing/?admin=（コード）
+  //   コードを変えたいときは、新しいコードの SHA-256(hex) をここに入れてください。
+  adminUnlockHash: '21f4778309dd4e8d08363260a77b18b7c352c2e3b64bb073ae26e86a11635a55',
 };
