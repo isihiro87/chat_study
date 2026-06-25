@@ -131,32 +131,39 @@ details[open] .set-head{border-bottom:1px solid var(--line);}
 #play{position:relative;}
 /* プレイ画面は画面の高さいっぱいを使い、問題を中央に・空いた下半分にキーボードガイドを置く */
 #play.active{display:flex; flex-direction:column; min-height:calc(100dvh - 36px);}
-#play .stage{flex:1 1 auto;}
-.topbar{display:flex; align-items:center; gap:10px;}
+#play .stage{flex:0 0 auto;}
+.topbar{display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:10px;}
+.topbar > .btn{justify-self:start;}
 .btn{cursor:pointer; border:2px solid var(--line); background:#fff; color:var(--ink); border-radius:14px; padding:10px 16px; font-family:inherit; font-size:14px; font-weight:700; transition:.12s;}
 .btn:hover{border-color:var(--accent); color:var(--accent-d);}
 .btn.primary{background:var(--accent); color:#fff; border-color:var(--accent); box-shadow:0 4px 12px rgba(47,125,240,.3);}
 .btn.primary:hover{background:var(--accent-d); color:#fff;}
 .btn.ghost{background:transparent; border-color:transparent; color:var(--sub);}
 .btn.ghost:hover{background:var(--panel2);}
-.subj-label{margin-left:auto; text-align:right;}
-.subj-label .nm{font-size:15px; font-weight:800;}
+.subj-label{justify-self:center; text-align:center; min-width:0;}
+.subj-label .nm{font-size:16px; font-weight:800; line-height:1.2; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:60vw;}
 .subj-label .tg{font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--sub); letter-spacing:2px;}
 .stats{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:14px;}
 .stat{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:10px 8px; text-align:center; box-shadow:0 4px 12px rgba(33,50,78,.05);}
+.stat-h{display:flex; align-items:center; justify-content:center; gap:5px; margin-bottom:2px;}
+.stat .ic{font-size:15px; line-height:1;}
 .stat .k{font-size:11px; color:var(--sub); font-weight:700;}
 .stat .v{font-family:'JetBrains Mono',monospace; font-size:24px; font-weight:700; color:var(--ink);}
 #combo.hot .v{color:var(--gold);}
 .timewrap{margin-top:12px; height:14px; background:#dfe7f3; border-radius:10px; overflow:hidden;}
 #timebar{height:100%; width:100%; background:linear-gradient(90deg,var(--accent),#56c5b0); transition:width .1s linear;}
 #timebar.low{background:linear-gradient(90deg,#ffae3d,var(--bad));}
-.stage{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:30px 20px 22px; margin-top:14px; text-align:center; min-height:240px; display:flex; flex-direction:column; justify-content:center; gap:20px; box-shadow:0 8px 22px rgba(33,50,78,.07);}
+.stage{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:26px 20px 22px; margin-top:14px; text-align:center; min-height:240px; display:flex; flex-direction:column; justify-content:center; gap:14px; box-shadow:0 8px 22px rgba(33,50,78,.07);}
 .stage.shake{animation:shake .18s;}
 @keyframes shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-7px);}75%{transform:translateX(7px);}}
 /* お題は文字数に関わらず固定サイズ（長文は折り返す） */
+/* お題の上の丸バッジ */
+.ask-badge{align-self:center; width:26px; height:26px; border-radius:50%; background:#14b8a6; color:#fff; font-size:15px; font-weight:800; display:flex; align-items:center; justify-content:center; box-shadow:0 3px 8px rgba(20,184,166,.3);}
 .ask{font-size:21px; font-weight:700; line-height:1.6; color:var(--ink); max-width:30em; margin:0 auto;}
-.kana-line{font-size:42px; font-weight:700; letter-spacing:2px; line-height:1.25; display:flex; flex-wrap:wrap; justify-content:center; gap:1px 3px;}
-.roman-line{font-family:'JetBrains Mono',monospace; font-size:21px; font-weight:500; letter-spacing:1px; color:var(--sub); display:flex; flex-wrap:wrap; justify-content:center; gap:0 2px; min-height:26px;}
+/* こたえ表示エリア：入力前から枠を出して場所を分かりやすく */
+.answerbox{width:min(100%, 30em); height:120px; margin:0 auto; padding:16px 20px; background:#fff; border:2px solid var(--line); border-radius:14px; box-shadow:0 4px 14px rgba(33,50,78,.06); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; overflow:hidden;}
+.kana-line{font-size:42px; font-weight:700; letter-spacing:2px; line-height:1.25; min-height:1.25em; display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:1px 3px;}
+.roman-line{font-family:'JetBrains Mono',monospace; font-size:21px; font-weight:700; letter-spacing:1px; color:#0e9a93; display:flex; flex-wrap:wrap; justify-content:center; gap:0 2px; min-height:26px;}
 .u{transition:color .1s, transform .1s;}
 .u.done{color:var(--ok);}
 .u.cur{color:var(--accent);}
@@ -164,6 +171,8 @@ details[open] .set-head{border-bottom:1px solid var(--line);}
 .u.mask{color:#c2ccde;}
 .roman-line .typed{color:var(--accent-d); font-weight:700;}
 .roman-line .u.cur{color:var(--ink); border-bottom:3px solid var(--accent); border-radius:1px;}
+/* 次に打つ文字の位置を示す下線（用語が非表示でも出す） */
+.roman-line .caret{display:inline-block; width:1ch; height:1.1em;}
 .roman-line.bad .u.cur{color:var(--bad); border-bottom-color:var(--bad);}
 #countNum{animation:cdpop .42s ease;}
 @keyframes cdpop{0%{opacity:0; transform:scale(.5);}40%{opacity:1; transform:scale(1.15);}100%{opacity:1; transform:scale(1);}}
@@ -192,6 +201,8 @@ details[open] .set-head{border-bottom:1px solid var(--line);}
 
 /* スタート確認オーバーレイ */
 .overlay{position:absolute; inset:0; background:rgba(238,244,252,.96); backdrop-filter:blur(2px); border-radius:var(--radius); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:18px; text-align:center; padding:24px; z-index:5;}
+/* READYの中身は高さを内容に合わせたカードにまとめる */
+.overlay-card{background:#fff; border:1px solid var(--line); border-radius:var(--radius); box-shadow:0 10px 28px rgba(33,50,78,.12); padding:26px 24px; display:flex; flex-direction:column; align-items:center; gap:15px; width:min(100%,460px); max-height:calc(100% - 16px); overflow:auto;}
 .overlay h2{font-size:clamp(30px,8vw,54px); font-weight:800; margin:0; letter-spacing:2px; color:var(--accent);}
 .overlay p{color:var(--ink); font-size:15px; line-height:1.9; margin:0;}
 .ime-keyhint{font-size:14px; color:var(--ink); line-height:1.8; background:#fff; border:1px solid var(--line); border-radius:12px; padding:9px 14px; max-width:30em;}
@@ -314,6 +325,7 @@ details[open] .set-head{border-bottom:1px solid var(--line);}
   .kana-line{font-size:34px;}
   .roman-line{font-size:18px;}
   .ask{font-size:19px;}
+  .answerbox{height:100px; padding:12px 14px;}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none !important; transition:none !important;}
@@ -400,7 +412,7 @@ details[open] .set-head{border-bottom:1px solid var(--line);}
       </summary>
       <div class="help">
         ・お題（問い）の<b>こたえ</b>を、表示されたローマ字どおりにキーボードで打ちます。<br>
-        ・「かくす」モードはこたえが <b>●●●</b> で隠れ、<b>手が止まって数秒たつと漢字とローマ字が表示</b>されます（秒数は②で選べます）。<b>表示される前に最後まで打ち切れたらボーナス</b>（⚡+50）。<b>全問それができたらパーフェクト！</b><br>
+        ・「かくす」モードはこたえが隠れていて、<b>打った分だけ1文字ずつ表示</b>されます。<b>手が止まって数秒たつと漢字とローマ字が表示</b>されます（秒数は②で選べます）。<b>表示される前に最後まで打ち切れたらボーナス</b>（⚡+50）。<b>全問それができたらパーフェクト！</b><br>
         ・歴史は<b>発音どおりのローマ字</b>で打ちます（例：とうきょう＝<span class="kbd">toukyou</span>、しょうぐん＝<span class="kbd">syougun</span>）。<br>
         ・はじめての人は <b>せってい③で「運指ガイド」を表示する</b> にすると、つぎに打つキーと指を案内します（ふだんは非表示でOK）。<br>
         ・むずかしい問題は <span class="kbd">Esc</span> でスキップ、<b>⏸ポーズ</b>でひとやすみできます。<br>
@@ -421,17 +433,20 @@ details[open] .set-head{border-bottom:1px solid var(--line);}
     </div>
 
     <div class="stats">
-      <div class="stat"><div class="k" id="stTimeK">のこり秒</div><div class="v mono" id="stTime">60</div></div>
-      <div class="stat"><div class="k">スコア</div><div class="v mono" id="stScore">0</div></div>
-      <div class="stat" id="combo"><div class="k">コンボ</div><div class="v mono" id="stCombo">0</div></div>
-      <div class="stat"><div class="k">クリア</div><div class="v mono" id="stClear">0</div></div>
+      <div class="stat"><div class="stat-h"><span class="ic">📋</span><span class="k" id="stTimeK">のこり秒</span></div><div class="v mono" id="stTime">60</div></div>
+      <div class="stat"><div class="stat-h"><span class="ic">⭐</span><span class="k">スコア</span></div><div class="v mono" id="stScore">0</div></div>
+      <div class="stat" id="combo"><div class="stat-h"><span class="ic">🌱</span><span class="k">コンボ</span></div><div class="v mono" id="stCombo">0</div></div>
+      <div class="stat"><div class="stat-h"><span class="ic">🏆</span><span class="k">クリア</span></div><div class="v mono" id="stClear">0</div></div>
     </div>
     <div class="timewrap"><div id="timebar"></div></div>
 
     <div class="stage" id="stage">
+      <div class="ask-badge">？</div>
       <div class="ask" id="ask">じゅんびちゅう…</div>
-      <div class="kana-line" id="kanaLine"></div>
-      <div class="roman-line" id="romanLine"></div>
+      <div class="answerbox" id="answerBox">
+        <div class="kana-line" id="kanaLine"></div>
+        <div class="roman-line" id="romanLine"></div>
+      </div>
       <div class="hintline" id="hintLine"></div>
       <div class="playbtns">
         <button class="btn ghost" id="quitBtn">やめる</button>
@@ -446,6 +461,7 @@ details[open] .set-head{border-bottom:1px solid var(--line);}
     <!-- スタート確認オーバーレイ -->
     <div class="overlay" id="startOverlay">
       <button class="btn ghost ov-back" id="readyBackBtn">← 単元をえらぶ</button>
+      <div class="overlay-card">
       <h2>READY?</h2>
       <p>キーボードを<b>半角（英数）</b>にして、<br><span class="kbd">Enter</span> か <span class="kbd">Space</span> でスタート！</p>
       <div class="ime-keyhint" id="imeKeyHint"></div>
@@ -480,6 +496,7 @@ details[open] .set-head{border-bottom:1px solid var(--line);}
           </div>
         </div>
       </details>
+      </div>
     </div>
 
     <!-- カウントダウン -->
@@ -1482,8 +1499,8 @@ function renderGuide(){
       const shown = c.units.length ? Math.floor(term.length * c.idx / c.units.length) : 0;
       const head = term.slice(0, shown).join('');
       const rest = term.length - shown;
-      kana.innerHTML = (head ? `<span class="u">${esc(head)}</span>` : '')
-        + (rest>0 ? `<span class="u mask">${'●'.repeat(rest)}</span>` : '');
+      // 未入力ぶんは文字数を見せない（●で隠さず、打った分だけ左から公開）
+      kana.innerHTML = (head ? `<span class="u">${esc(head)}</span>` : '');
     }
   }
 
@@ -1496,17 +1513,16 @@ function renderGuide(){
       // 入力中のユニット：打った分だけ表示、残りは公開後のみ表示（前は●）
       const typed = c.buf;
       const rest = u.disp.startsWith(typed) ? u.disp.slice(typed.length) : u.disp;
-      const restHtml = revealed ? esc(rest) : `<span class="mask">${'●'.repeat(rest.length)}</span>`;
+      // 公開前は残りの文字数を見せない。ただし次に打つ文字の位置に下線（カーソル）を出す。
+      const restHtml = revealed ? esc(rest) : '<span class="caret"> </span>';
       rHtml += `<span class="u cur"><span class="typed">${esc(typed)}</span>${restHtml}</span>`;
     } else if(done){
       // 打ち終わったユニットは公開前でも表示
       rHtml += `<span class="u done">${esc(u.disp)}</span>`;
     } else if(revealed){
       rHtml += `<span class="u">${esc(u.disp)}</span>`;
-    } else {
-      // まだ打っていない・未公開のユニットは●で隠す
-      rHtml += `<span class="u mask">${'●'.repeat(u.disp.length)}</span>`;
     }
+    // まだ打っていない・未公開のユニットは何も表示しない（文字数を●で示さない）
   });
   roman.innerHTML=rHtml;
 
