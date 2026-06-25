@@ -2024,7 +2024,12 @@ function recordSession(res){
 /* ---------- ランキング（オンライン＝Supabase または Firebase / 未設定＝端末内） ---------- */
 function saveLocalBoard(entry){
   const b=LS.get(LBOARD_KEY, []);
-  b.push(Object.assign({created_at:new Date().toISOString()}, entry));
+  const ck = (entry.era||'')+'|'+(entry.mode||'')+'|'+(entry.param||0);
+  const row=Object.assign({created_at:new Date().toISOString()}, entry);
+  // 同じカテゴリの自分の記録は1件だけ＝高い方を残して上書き
+  const idx=b.findIndex(x=> ((x.era||'')+'|'+(x.mode||'')+'|'+(x.param||0))===ck);
+  if(idx>=0){ if((entry.score||0) > (b[idx].score||0)) b[idx]=row; }
+  else b.push(row);
   b.sort((x,y)=>y.score-x.score);
   LS.set(LBOARD_KEY, b.slice(0,200));
 }
@@ -2067,6 +2072,11 @@ function fbVal(f){
   return undefined;
 }
 function fbRow(doc){ const fl=(doc&&doc.fields)||{}, o={}; for(const k in fl) o[k]=fbVal(fl[k]); return o; }
+// ランキングのドキュメントID＝「プレイヤー×カテゴリ」で固定（1ユーザー1件・自己ベストで上書き）
+function rankDocId(entry){
+  const raw = getPlayerId()+'__'+(entry.subjectId||'')+'__'+(entry.mode||'')+'__'+(entry.param||0);
+  return raw.replace(/[^A-Za-z0-9_-]/g,'_').slice(0,1400);
+}
 async function fbInsert(entry){
   const fields={
     name:      {stringValue: String(entry.name||'')},
@@ -2080,8 +2090,10 @@ async function fbInsert(entry){
     rank:      {stringValue: String(entry.rank||'')},
     created_at:{timestampValue: new Date().toISOString()},
   };
-  const r=await fetch(fbBase()+'/'+RC.collection+'?key='+RC.firebaseApiKey, {
-    method:'POST', headers:Object.assign({'Content-Type':'application/json'}, await appCheckHeader()), body: JSON.stringify({fields})
+  // 固定IDに PATCH（upsert）＝同じ人の同じカテゴリは1件のまま上書き更新
+  const url=fbBase()+'/'+RC.collection+'/'+encodeURIComponent(rankDocId(entry))+'?key='+RC.firebaseApiKey;
+  const r=await fetch(url, {
+    method:'PATCH', headers:Object.assign({'Content-Type':'application/json'}, await appCheckHeader()), body: JSON.stringify({fields})
   });
   if(!r.ok) throw new Error('HTTP '+r.status);
 }

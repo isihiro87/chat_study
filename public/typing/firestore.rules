@@ -59,11 +59,16 @@ service cloud.firestore {
           && d.updatedAt is string && d.updatedAt.size() <= 40;
     }
 
-    // ---- 全国ランキング（追加専用・公開read） ----
+    // ---- 全国ランキング（1ユーザー1件・自己ベストで上書き・公開read） ----
+    //  ドキュメントIDは「プレイヤー×カテゴリ」で固定（fbInsert/rankDocId）。
+    //  同じIDに上書きするため update を許可するが、改ざん抑止のため
+    //  「正しい形」かつ「スコアが下がらない」場合のみ許可（引き下げ・荒らし防止）。
     match /rankings/{doc} {
       allow read: if true;          // リーダーボード表示に必要
-      allow update, delete: if false;
+      allow delete: if false;
       allow create: if isValidRanking(request.resource.data);
+      allow update: if isValidRanking(request.resource.data)
+                    && request.resource.data.score >= resource.data.score;
     }
 
     // ---- プレイヤーの全データ（端末ごと1ドキュメント・read不可） ----
