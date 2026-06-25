@@ -1,0 +1,13 @@
+{
+  "name": "typing-export",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "タイプでスタディ（type-study-88ced）の分析データを管理者だけが取り出すツール",
+  "scripts": {
+    "export": "node export.mjs"
+  },
+  "dependencies": {
+    "firebase-admin": "^13.0.0"
+  }
+}

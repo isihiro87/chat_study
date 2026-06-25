@@ -1,0 +1,8 @@
+# 秘密鍵・出力データ・依存はコミットしない（絶対に公開しない）
+serviceAccount.json
+*.key.json
+node_modules/
+out/
+*.csv
+*.json
+!package.json

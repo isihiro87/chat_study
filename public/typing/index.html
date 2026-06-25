@@ -264,6 +264,14 @@ details[open] .set-head{border-bottom:1px solid var(--line);}
 .userbar .who{font-size:14px; color:var(--ink);}
 .userbar .who b{color:var(--accent-d);}
 .userbar .btn{margin-left:auto; padding:9px 14px; font-size:13px;}
+/* 今日のもくひょう */
+.daily{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:11px 16px; margin-top:10px; box-shadow:0 4px 12px rgba(33,50,78,.05);}
+.daily-row{display:flex; align-items:center; gap:10px; margin-bottom:7px;}
+.daily-ttl{font-size:13px; font-weight:800; color:var(--ink);}
+.daily-streak{margin-left:auto; font-size:13px; font-weight:800; color:var(--gold);}
+.daily-bar{height:10px; background:#e6edf7; border-radius:6px; overflow:hidden;}
+.daily-fill{height:100%; width:0%; background:linear-gradient(90deg,var(--accent),#56c5b0); border-radius:6px; transition:width .4s ease;}
+.daily.done{border-color:#bfe6cf; background:linear-gradient(90deg,var(--ok-soft),var(--panel));}
 .prof-row{display:flex; align-items:center; gap:12px; flex-wrap:wrap;}
 .prof-row #recName{font-size:20px; font-weight:800; color:var(--accent-d);}
 .prof-row .btn{margin-left:auto; padding:8px 12px; font-size:13px;}
@@ -364,6 +372,14 @@ details[open] .set-head{border-bottom:1px solid var(--line);}
       <button class="btn ghost" id="howtoBtn" title="あそびかた" style="margin-left:auto;">❓ あそびかた</button>
       <button class="btn ghost" id="soundBtn" title="音のオン／オフ" aria-pressed="true">🔊 音</button>
       <button class="btn ghost" id="openRecordsBtn">📊 きろく＆ランキング</button>
+    </div>
+
+    <div class="daily" id="dailyGoal" style="display:none;">
+      <div class="daily-row">
+        <span class="daily-ttl" id="dailyText">今日のもくひょう</span>
+        <span class="daily-streak" id="dailyStreak"></span>
+      </div>
+      <div class="daily-bar"><div class="daily-fill" id="dailyFill"></div></div>
     </div>
 
     <details class="panel settings" id="settingsPanel" open>
@@ -1820,6 +1836,7 @@ function goHome(){
   clearInterval(countdownTimer); countdownTimer=null;
   $('pauseOverlay').style.display='none'; $('countdownOverlay').style.display='none';
   buildSubjectGrid();   // プレイ回数バッジを最新化
+  renderDailyGoal();
   show('title');
 }
 // いまの時代のREADY?画面にもどる（プレイは中断）
@@ -1947,7 +1964,8 @@ function setProfile(name){
 }
 function playerName(){ const p=getProfile(); return (p&&p.name) || 'ゲスト'; }
 
-function blankStats(){ return {plays:0, totalTimeSec:0, bestScore:0, lastPlayDate:'', streak:0, maxCombo:0, gotS:false, gotPerfect:false, didWeak:false, byEra:{}, weak:{}, keyStats:{}, clearedKeys:{}, masteredKeys:{}, badges:{}}; }
+function blankStats(){ return {plays:0, totalTimeSec:0, bestScore:0, lastPlayDate:'', streak:0, maxCombo:0, gotS:false, gotPerfect:false, didWeak:false, byEra:{}, weak:{}, keyStats:{}, clearedKeys:{}, masteredKeys:{}, badges:{}, todayDate:'', todayPlays:0}; }
+const DAILY_GOAL=3;   // 今日のもくひょう＝プレイ回数
 function getStats(){ return Object.assign(blankStats(), LS.get(STATS_KEY, {})); }
 
 /* ---------- 実績バッジ ---------- */
@@ -2038,6 +2056,9 @@ function recordSession(res){
     else st.streak=1;
   } else st.streak=1;
   st.lastPlayDate=t;
+  // 今日のもくひょう用：日付が変わったらリセットして当日プレイ数を加算
+  if(st.todayDate!==t){ st.todayDate=t; st.todayPlays=0; }
+  st.todayPlays=(st.todayPlays||0)+1;
   // にがて練習は時代別成績・にがて集計に混ぜない（プレイ回数/時間/連続日数だけ加算）
   if(!res.weakDrill){
     const e = st.byEra[res.subjectId] || {name:res.eraName, plays:0, bestScore:0, bestAcc:0, totalCleared:0};
@@ -2414,6 +2435,22 @@ $('transferImportBtn').addEventListener('click', ()=>{
   setTimeout(()=>location.reload(), 800);
 });
 function refreshUserBar(){ $('hdrName').textContent=playerName(); }
+// 今日のもくひょう＆連続日数バナー
+function renderDailyGoal(){
+  const el=$('dailyGoal'); if(!el) return;
+  const st=getStats();
+  const today=todayStr();
+  const done=(st.todayDate===today) ? (st.todayPlays||0) : 0;
+  const goal=DAILY_GOAL, reached=done>=goal;
+  el.style.display='';
+  el.classList.toggle('done', reached);
+  $('dailyText').textContent = reached
+    ? `🎉 今日のもくひょう たっせい！（${done}かい プレイ）`
+    : `今日のもくひょう：あと ${goal-done} かい プレイ（${done}/${goal}）`;
+  $('dailyFill').style.width = Math.min(100, Math.round(100*done/goal))+'%';
+  const streak=st.streak||0;
+  $('dailyStreak').textContent = streak>=2 ? `🔥 ${streak}日れんぞく` : '';
+}
 function syncSettingsPanelText(){
   const panel=$('settingsPanel'), label=$('settingsToggleText');
   if(label && panel) label.textContent = panel.open ? '閉じる' : '開く';
@@ -2645,6 +2682,7 @@ if(!window.HISTORY_SUBJECTS){
 }
 buildKeyboard();
 refreshUserBar();
+renderDailyGoal();
 restoreSettingsPanel();
 // 設定（難易度・音・指ガイド・分け方）をUIに反映
 applyCfgToUI();
