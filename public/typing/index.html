@@ -2176,12 +2176,26 @@ async function fbInsert(entry){
   });
   if(!r.ok) throw new Error('HTTP '+r.status);
 }
-async function fbFetch(){
-  // score 降順だけで取得（複合インデックス不要）→ カテゴリ絞り込みは端末側で行う
-  const body={ structuredQuery:{ from:[{collectionId:RC.collection}],
-    orderBy:[{field:{fieldPath:'score'}, direction:'DESCENDING'}], limit:500 } };
+async function fbFetch(filter){
+  // 規模対策：カテゴリ（単元×モード×条件）で絞り、そのカテゴリの上位100件だけ取得。
+  //  これで1回の表示で読む件数が「全体の最大500」→「そのカテゴリ最大100」に減る。
+  //  ※ 複合インデックスが必要（era,mode,param 一致 + score 降順）。未作成時はエラー→端末内表示にフォールバック。
+  const f=filter||{};
+  let structuredQuery;
+  if(f.era){
+    structuredQuery={ from:[{collectionId:RC.collection}],
+      where:{ compositeFilter:{ op:'AND', filters:[
+        {fieldFilter:{field:{fieldPath:'era'},   op:'EQUAL', value:{stringValue:String(f.era)}}},
+        {fieldFilter:{field:{fieldPath:'mode'},  op:'EQUAL', value:{stringValue:String(f.mode||'count')}}},
+        {fieldFilter:{field:{fieldPath:'param'}, op:'EQUAL', value:{integerValue:String(f.param|0)}}},
+      ]}},
+      orderBy:[{field:{fieldPath:'score'}, direction:'DESCENDING'}], limit:100 };
+  } else {
+    structuredQuery={ from:[{collectionId:RC.collection}],
+      orderBy:[{field:{fieldPath:'score'}, direction:'DESCENDING'}], limit:100 };
+  }
   const r=await fetch(fbBase()+':runQuery?key='+RC.firebaseApiKey, {
-    method:'POST', headers:Object.assign({'Content-Type':'application/json'}, await appCheckHeader()), body: JSON.stringify(body)
+    method:'POST', headers:Object.assign({'Content-Type':'application/json'}, await appCheckHeader()), body: JSON.stringify({structuredQuery})
   });
   if(!r.ok) throw new Error('HTTP '+r.status);
   const data=await r.json();
@@ -2314,6 +2328,7 @@ async function submitScore(entry){
       else if(RC.provider==='firebase') await fbInsert(entry);
       saveLocalBoard(entry);   // 自分の記録は端末にも残す
       pb[ck]=Math.max(pb[ck]||0, entry.score|0); LS.set(SUBMITTED_BEST_KEY, pb);
+      bustBoardCache();        // 登録直後は再取得して自分のスコアを反映
       return {ok:true, online:true};
     }catch(e){ saveLocalBoard(entry); return {ok:true, online:false, error:String(e)}; }
   }
@@ -2331,12 +2346,22 @@ function validateRankEntry(entry){
   if(!['time','count'].includes(entry.mode)) return {ok:false, reason:'条件が不正です。'};
   return {ok:true};
 }
+// ランキング表示のクライアントキャッシュ（カテゴリ別・短時間）。
+//  カテゴリ切替や数分内の再表示で、同じ内容を何度もサーバから読まないようにする＝読み取り削減。
+let _boardCache={};
+const BOARD_TTL_MS=180000;   // 3分
+function boardCacheKey(f){ return (f&&f.era||'')+'|'+(f&&f.mode||'')+'|'+(f&&f.param||0); }
+function bustBoardCache(){ _boardCache={}; }
 async function fetchBoard(filter){
   const pick = rows => rows.filter(r=>matchCat(r,filter)).sort((a,b)=>b.score-a.score).slice(0,100);
   if(onlineReady){
+    const ck=boardCacheKey(filter), c=_boardCache[ck];
+    if(c && (Date.now()-c.t)<BOARD_TTL_MS) return {online:true, rows:c.rows, cached:true};
     try{
-      const raw = RC.provider==='supabase' ? await sbFetch() : await fbFetch();
-      return {online:true, rows: pick(raw)};
+      const raw = RC.provider==='supabase' ? await sbFetch() : await fbFetch(filter);
+      const rows=pick(raw);
+      _boardCache[ck]={t:Date.now(), rows};
+      return {online:true, rows};
     }catch(e){ return {online:false, rows: pick(localBoard()), error:String(e)}; }
   }
   return {online:false, rows: pick(localBoard())};

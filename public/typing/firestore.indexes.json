@@ -1,0 +1,16 @@
+{
+  "_comment": "タイプでスタディ（type-study-88ced）の Firestore 複合インデックス。ランキングをカテゴリ別に取得して読み取りを減らすために必要。コンソールで初回クエリ時に出る『インデックスを作成』リンクを押すか、firebase deploy --only firestore:indexes --project type-study-88ced で反映。",
+  "indexes": [
+    {
+      "collectionGroup": "rankings",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "era", "order": "ASCENDING" },
+        { "fieldPath": "mode", "order": "ASCENDING" },
+        { "fieldPath": "param", "order": "ASCENDING" },
+        { "fieldPath": "score", "order": "DESCENDING" }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}
