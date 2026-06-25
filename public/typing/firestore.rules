@@ -78,6 +78,40 @@ service cloud.firestore {
       allow create, update: if isValidPlayer(request.resource.data);
     }
 
+    // ---- 分析用セッションログ（1プレイ1件・追記専用・read不可） ----
+    //  取り出しは Admin SDK 経由（rules を無視して読む）。
+    //  巨大化や任意データ投入を防ぐため型・サイズを軽く検証。
+    function isValidSession(d) {
+      return d.keys().hasOnly(['pid','date','subjectId','eraName','mode','param','score',
+                'rank','acc','kpm','cleared','elapsed','maxCombo','perfect','weakDrill',
+                'ua','lang','screen','referrer','items'])
+          && d.pid is string       && d.pid.size() <= 64
+          && d.date is string      && d.date.size() <= 40
+          && d.subjectId is string && d.subjectId.size() <= 64
+          && d.eraName is string   && d.eraName.size() <= 64
+          && d.mode is string      && d.mode.size() <= 32
+          && d.rank is string      && d.rank.size() <= 8
+          && d.score is int        && d.score >= 0 && d.score <= 200000
+          && d.param is int        && d.param >= 0 && d.param <= 100000
+          && d.acc   is int        && d.acc   >= 0 && d.acc   <= 100
+          && d.kpm   is int        && d.kpm   >= 0 && d.kpm   <= 2000
+          && d.cleared is int      && d.cleared >= 0 && d.cleared <= 100000
+          && d.elapsed is int      && d.elapsed >= 0 && d.elapsed <= 100000
+          && d.maxCombo is int     && d.maxCombo >= 0 && d.maxCombo <= 100000
+          && d.perfect is bool
+          && d.weakDrill is bool
+          && d.ua is string        && d.ua.size() <= 300
+          && d.lang is string      && d.lang.size() <= 16
+          && d.screen is string    && d.screen.size() <= 16
+          && d.referrer is string  && d.referrer.size() <= 200
+          && d.items is list       && d.items.size() <= 60;
+    }
+    match /sessions/{doc} {
+      allow read: if false;
+      allow update, delete: if false;
+      allow create: if isValidSession(request.resource.data);
+    }
+
     // ---- それ以外は全面拒否 ----
     match /{document=**} {
       allow read, write: if false;

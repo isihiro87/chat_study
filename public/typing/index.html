@@ -2054,6 +2054,7 @@ function recordSession(res){
   LS.set(HIST_KEY, hist.slice(0,100));
   // クラウドにも保存（オンライン設定時のみ・失敗してもプレイには影響しない）
   syncPlayerToCloud();
+  logSession(res);   // 分析用セッションログを追記（追記専用 sessions コレクション）
 }
 
 /* ---------- ランキング（オンライン＝Supabase または Firebase / 未設定＝端末内） ---------- */
@@ -2188,6 +2189,63 @@ async function syncPlayerToCloud(){
     if(!r.ok) throw new Error('HTTP '+r.status);
   }catch(e){ /* オフライン等。次回プレイ時にまるごと再アップロードされる */ }
   finally{ cloudSyncing=false; }
+}
+
+/* --- セッションログ（分析用・追記専用 sessions/{自動ID}） ---
+   1プレイ＝1ドキュメント。集計・継続率・単元別の正答率/人気・教材の弱点分析に使う。
+   read不可（rulesで封鎖）＝取り出しは Admin SDK 経由。Spark無料枠で十分（1書き込み/プレイ）。 */
+function envMeta(){
+  try{
+    return {
+      ua: String(navigator.userAgent||'').slice(0,300),
+      lang: String(navigator.language||''),
+      screen: (window.screen ? (screen.width+'x'+screen.height) : ''),
+      referrer: String(document.referrer||'').slice(0,200),
+    };
+  }catch(e){ return {}; }
+}
+async function logSession(res){
+  try{
+    if(!(onlineReady && RC.provider==='firebase')) return;
+    // 問題別の結果（教材の弱点分析用）。端末を識別しない・容量も小さく上限つき。
+    const items=[];
+    for(const c of (res.clearedItems||[])){
+      if(items.length>=60) break;
+      items.push({ t:String(c.term||c.ans||'').slice(0,40), knew:!!c.knew, missed:!!c.missed, revealed:false });
+    }
+    const clearedKeys=new Set((res.clearedItems||[]).map(c=>c.key));
+    for(const w of (res.weakItems||[])){           // 答えが出てしまった＝思い出せなかった問題
+      if(items.length>=60) break;
+      if(clearedKeys.has(w.key)) continue;
+      items.push({ t:String(w.term||w.ans||'').slice(0,40), knew:false, missed:false, revealed:true });
+    }
+    const e=envMeta();
+    const doc={
+      pid: getPlayerId(),
+      date: new Date().toISOString(),
+      subjectId: String(res.subjectId||''),
+      eraName: String(res.eraName||''),
+      mode: String(res.mode||''),
+      param: res.param|0,
+      score: res.score|0,
+      rank: String(res.rank||''),
+      acc: res.acc|0,
+      kpm: res.kpm|0,
+      cleared: res.cleared|0,
+      elapsed: Math.round(res.elapsed||0),
+      maxCombo: res.maxCombo|0,
+      perfect: !!res.perfect,
+      weakDrill: !!res.weakDrill,
+      ua: e.ua||'', lang: e.lang||'', screen: e.screen||'', referrer: e.referrer||'',
+      items: items,
+    };
+    const fields={}; for(const k in doc) fields[k]=fbEnc(doc[k]);
+    // 自動ID（POST）で追記。失敗してもプレイには影響させない。
+    await fetch(fbBase()+'/sessions?key='+RC.firebaseApiKey, {
+      method:'POST', headers:Object.assign({'Content-Type':'application/json'}, await appCheckHeader()),
+      body: JSON.stringify({fields})
+    });
+  }catch(e){ /* 失敗は無視（分析用なのでプレイ体験を優先） */ }
 }
 
 // 全国ランキングに「登録ずみの自己ベスト」をカテゴリ（単元×条件）ごとに端末記録する。
