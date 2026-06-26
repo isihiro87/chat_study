@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#eef4fc"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="0" y="0" width="1200" height="12" fill="#2f7df0"/>
+  <!-- ロゴ風アイコン -->
+  <g transform="translate(90,150)">
+    <rect width="120" height="120" rx="26" fill="#2f7df0"/>
+    <rect x="18" y="38" width="84" height="52" rx="9" fill="#ffffff"/>
+    <g fill="#2f7df0">
+      <rect x="28" y="48" width="11" height="11" rx="2.5"/>
+      <rect x="45" y="48" width="11" height="11" rx="2.5"/>
+      <rect x="62" y="48" width="11" height="11" rx="2.5"/>
+      <rect x="79" y="48" width="13" height="11" rx="2.5"/>
+      <rect x="28" y="64" width="11" height="11" rx="2.5"/>
+      <rect x="45" y="64" width="11" height="11" rx="2.5"/>
+      <rect x="62" y="64" width="11" height="11" rx="2.5"/>
+      <rect x="79" y="64" width="13" height="11" rx="2.5"/>
+      <rect x="36" y="80" width="48" height="6" rx="3"/>
+    </g>
+  </g>
+  <text x="240" y="210" font-family="'M PLUS Rounded 1c','Yu Gothic',sans-serif" font-size="78" font-weight="800" fill="#21324e">タイプでスタディ</text>
+  <text x="242" y="290" font-family="'M PLUS Rounded 1c','Yu Gothic',sans-serif" font-size="40" font-weight="700" fill="#2f7df0">打って覚える 中学歴史タイピング</text>
+  <!-- 中央の例 -->
+  <g transform="translate(90,360)">
+    <rect width="1020" height="150" rx="20" fill="#ffffff" stroke="#dbe4f1" stroke-width="2"/>
+    <text x="40" y="62" font-family="'M PLUS Rounded 1c',sans-serif" font-size="30" font-weight="700" fill="#6b7a96">Q. 鎌倉幕府を開いた人物は？</text>
+    <text x="40" y="118" font-family="'M PLUS Rounded 1c',sans-serif" font-size="46" font-weight="800" fill="#21324e">源頼朝</text>
+    <text x="240" y="116" font-family="'JetBrains Mono',monospace" font-size="34" font-weight="700" fill="#0e9a93">minamotonoyoritomo</text>
+  </g>
+  <text x="90" y="575" font-family="'M PLUS Rounded 1c',sans-serif" font-size="30" font-weight="700" fill="#6b7a96">暗記モード・テストモード・全国ランキング ／ パソコンで今すぐ無料！</text>
+</svg>
