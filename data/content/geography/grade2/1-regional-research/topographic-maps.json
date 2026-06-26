@@ -1,0 +1,159 @@
+{
+  "subjectId": "geography",
+  "eraId": "geo2-regional-research",
+  "topicId": "geo2-topographic-maps",
+  "name": "地形図の活用",
+  "subtitle": "縮尺と距離の計算・等高線・地形図の比較",
+  "icon": "🗺️",
+  "order": 2,
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "{縮尺|しゅくしゃく}",
+      "back": "実際の距離を地図上に縮めた割合のことを何という？",
+      "explanation": "2万5千分の1の地形図なら、地図上の長さは実際の25000分の1。分母が小さいほどくわしい地図になる。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "{等高線|とうこうせん}",
+      "back": "地形図で、土地の高さ（標高）が等しい地点を結んだ線を何という？",
+      "explanation": "等高線の間隔がせまい所ほど傾斜が急、広い所ほど傾斜がゆるやか。土地の起伏を表す。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "250m",
+      "back": "2万5千分の1の地形図で、地図上1cmが表す実際の距離は？",
+      "explanation": "1cm × 25000 = 25000cm = 250m。地図上の長さに縮尺の分母をかけて求める。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc4",
+      "front": "500m",
+      "back": "5万分の1の地形図で、地図上1cmが表す実際の距離は？",
+      "explanation": "1cm × 50000 = 50000cm = 500m。同じ範囲でも5万分の1の方が小さく描かれる。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc5",
+      "front": "{尾根|おね}",
+      "back": "山頂からふもとに向かって、等高線が低い方へ張り出している所を何という？",
+      "explanation": "尾根は山の高い部分が連なる線。逆に高い方へ入りこんでいる所は谷になる。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "{谷|たに}",
+      "back": "等高線が、標高の高い方へ入りこんでいる所を何という？",
+      "explanation": "谷は水が集まって流れる低い部分。山頂からふもとへ張り出していれば尾根になる。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc7",
+      "front": "10mごと",
+      "back": "2万5千分の1の地形図で、主曲線（細い等高線）が引かれる間隔は？",
+      "explanation": "2万5千分の1では主曲線は10mごと、計曲線（太い線）は50mごと。5万分の1では主曲線20m・計曲線100mごと。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc11",
+      "front": "北",
+      "back": "地形図では、ふつう地図の上はどの方位を表す？",
+      "explanation": "上が北なので、下が南、右が東、左が西になる。方位記号がなければ上を北と考える。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc12",
+      "front": "{果樹園|かじゅえん}",
+      "back": "実のなる木が点のような記号で並んで描かれている地図記号が表す土地利用は？",
+      "explanation": "田は稲を、畑はV字、果樹園は丸い実、茶畑は点3つなどで土地利用を区別する。",
+      "difficulty": "standard"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "2万5千分の1の地形図で、地図上4cmは実際には何mか？",
+        "options": ["100m", "250m", "1000m", "2000m"],
+        "correctIndex": 2,
+        "explanation": "4cm × 25000 = 100000cm = 1000m。地図上の長さに縮尺の分母をかけて単位を直す。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q2",
+        "question": "5万分の1の地形図で、地図上2cmは実際には何mか？",
+        "options": ["250m", "500m", "1000m", "2500m"],
+        "correctIndex": 2,
+        "explanation": "2cm × 50000 = 100000cm = 1000m。5万分の1では1cmが500mを表す。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q3",
+        "question": "実際の距離が1kmの2地点は、2万5千分の1の地形図上では何cmはなれて描かれるか？",
+        "options": ["2cm", "4cm", "5cm", "10cm"],
+        "correctIndex": 1,
+        "explanation": "1km = 100000cm。100000 ÷ 25000 = 4cm。実際の距離を縮尺の分母で割って求める。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q4",
+        "question": "実際の距離が2kmの2地点は、5万分の1の地形図上では何cmはなれて描かれるか？",
+        "options": ["2cm", "4cm", "5cm", "8cm"],
+        "correctIndex": 1,
+        "explanation": "2km = 200000cm。200000 ÷ 50000 = 4cm。5万分の1では1cmが500mにあたる。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q5",
+        "question": "実際の距離を地図上に縮めた割合のことを何という？",
+        "options": ["等高線", "標高", "方位", "縮尺"],
+        "correctIndex": 3,
+        "explanation": "縮尺は実際の距離を縮めた割合。2万5千分の1なら実際の25000分の1に縮めている。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "土地の高さが等しい地点を結んだ線を何という？",
+        "options": ["等高線", "尾根", "断面線", "境界線"],
+        "correctIndex": 0,
+        "explanation": "等高線は標高が等しい地点を結んだ線で、土地の起伏を表す。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q7",
+        "question": "等高線の間隔がせまい所は、どのような地形か？",
+        "options": ["傾斜がゆるやか", "平地である", "傾斜が急", "標高が低い"],
+        "correctIndex": 2,
+        "explanation": "間隔がせまいほど短い水平距離で標高が変わるので、傾斜が急になる。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q8",
+        "question": "山頂からふもとに向かって、等高線が低い方へ張り出している所を何という？",
+        "options": ["谷", "尾根", "盆地", "台地"],
+        "correctIndex": 1,
+        "explanation": "尾根は高い部分が連なる線。逆に高い方へ入りこんでいれば谷になる。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "2万5千分の1の地形図で、主曲線（細い等高線）は何mごとに引かれているか？",
+        "options": ["5mごと", "20mごと", "50mごと", "10mごと"],
+        "correctIndex": 3,
+        "explanation": "2万5千分の1では主曲線10mごと、計曲線50mごと。5万分の1では主曲線20m・計曲線100mごと。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q10",
+        "question": "地形図でふつう地図の上が表す方位はどれ？",
+        "options": ["東", "西", "南", "北"],
+        "correctIndex": 3,
+        "explanation": "地形図は上が北。したがって下が南、右が東、左が西になる。",
+        "difficulty": "basic"
+      }
+    ]
+  }
+}

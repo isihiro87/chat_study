@@ -17,7 +17,7 @@ export interface ScopeEra {
   topics: ScopeTopic[];
 }
 
-export type ScopeSubjectId = 'history' | 'english' | 'science';
+export type ScopeSubjectId = 'history' | 'english' | 'science' | 'geography';
 export type ScopeGrade = 1 | 2 | 3;
 
 export const lineScopeIndex: Record<ScopeSubjectId, Record<ScopeGrade, ScopeEra[]>> = {
@@ -642,9 +642,181 @@ export const lineScopeIndex: Record<ScopeSubjectId, Record<ScopeGrade, ScopeEra[
     ]
   },
   "english": {
-    "1": [],
-    "2": [],
-    "3": []
+    "1": [
+      {
+        "eraId": "english-grade1",
+        "eraName": "中1 英語",
+        "eraIcon": "📘",
+        "eraPeriod": "中1の英文法",
+        "topics": [
+          {
+            "name": "be動詞",
+            "subtitle": "am / is / are の使い分けをマスター",
+            "icon": "🔤"
+          },
+          {
+            "name": "一般動詞",
+            "subtitle": "like / play / study ... 動きを表すことば",
+            "icon": "🏃"
+          },
+          {
+            "name": "can（〜できる）",
+            "subtitle": "〜できる / 〜できない / 〜できますか",
+            "icon": "💪"
+          },
+          {
+            "name": "名詞",
+            "subtitle": "単数・複数 / this・that",
+            "icon": "📝"
+          },
+          {
+            "name": "疑問詞",
+            "subtitle": "what / who / where / when / how",
+            "icon": "❓"
+          },
+          {
+            "name": "名詞の応用",
+            "subtitle": "不規則複数形 / How many / these・those",
+            "icon": "📝"
+          },
+          {
+            "name": "疑問詞の応用",
+            "subtitle": "前置詞 / What+名詞 / How do you ~?",
+            "icon": "❓"
+          },
+          {
+            "name": "命令文",
+            "subtitle": "〜しなさい / 〜してください / 〜しましょう",
+            "icon": "📣"
+          },
+          {
+            "name": "三人称単数現在",
+            "subtitle": "he / she / it + 動詞s の使い方",
+            "icon": "👆"
+          },
+          {
+            "name": "代名詞",
+            "subtitle": "主格・所有格・目的格・所有代名詞と Whose / Which の使い方",
+            "icon": "👥"
+          },
+          {
+            "name": "現在進行形",
+            "subtitle": "be動詞 + 〜ing で「今〜している」",
+            "icon": "🏃"
+          },
+          {
+            "name": "感嘆文",
+            "subtitle": "How ~! / What a ~!",
+            "icon": "❗"
+          },
+          {
+            "name": "過去形と過去進行形",
+            "subtitle": "was / were / played / was playing",
+            "icon": "⏪"
+          }
+        ]
+      }
+    ],
+    "2": [
+      {
+        "eraId": "english-grade2",
+        "eraName": "中2 英語",
+        "eraIcon": "📗",
+        "eraPeriod": "中2の英文法",
+        "topics": [
+          {
+            "name": "5つの文構造",
+            "subtitle": "be going to / will / SVOO / SVOC",
+            "icon": "🏗️"
+          },
+          {
+            "name": "接続詞",
+            "subtitle": "when / if / because / that で文をつなげよう",
+            "icon": "🔗"
+          },
+          {
+            "name": "不定詞",
+            "subtitle": "to + 動詞の原形 の使い方をマスターしよう",
+            "icon": "🎯"
+          },
+          {
+            "name": "助動詞",
+            "subtitle": "can / must / have to / may / should",
+            "icon": "💪"
+          },
+          {
+            "name": "比較",
+            "subtitle": "比較級 / 最上級 / as〜as",
+            "icon": "⚖️"
+          },
+          {
+            "name": "受け身の文",
+            "subtitle": "be動詞 + 過去分詞 / by 〜",
+            "icon": "🔄"
+          }
+        ]
+      }
+    ],
+    "3": [
+      {
+        "eraId": "english-grade3",
+        "eraName": "中3 英語",
+        "eraIcon": "📕",
+        "eraPeriod": "中3の英文法",
+        "topics": [
+          {
+            "name": "現在完了",
+            "subtitle": "have/has + 過去分詞で「過去〜今」をつなぐ",
+            "icon": "⏳"
+          },
+          {
+            "name": "make・show の応用",
+            "subtitle": "make 人 〜 / show 人 that の使い方",
+            "icon": "🎭"
+          },
+          {
+            "name": "現在完了進行形",
+            "subtitle": "have been + ~ing で「ずっと〜し続けている」",
+            "icon": "⏱️"
+          },
+          {
+            "name": "不定詞（応用）",
+            "subtitle": "It is for to / want人to / let人do",
+            "icon": "🎯"
+          },
+          {
+            "name": "間接疑問文",
+            "subtitle": "疑問のことばが文の途中に入る言い方",
+            "icon": "🤔"
+          },
+          {
+            "name": "過去分詞による後置修飾",
+            "subtitle": "名詞のうしろから「〜された…」と説明を加える形",
+            "icon": "📌"
+          },
+          {
+            "name": "現在分詞による後置修飾",
+            "subtitle": "名詞のうしろから「〜している…」と説明を加える形",
+            "icon": "🏷️"
+          },
+          {
+            "name": "接触節",
+            "subtitle": "名詞 + 主語 + 動詞 でうしろから説明する形",
+            "icon": "📎"
+          },
+          {
+            "name": "関係代名詞",
+            "subtitle": "who / which / that で名詞をくわしく説明する",
+            "icon": "🔗"
+          },
+          {
+            "name": "仮定法",
+            "subtitle": "If I were ~ / I wish ~ で想像を伝えよう",
+            "icon": "💭"
+          }
+        ]
+      }
+    ]
   },
   "science": {
     "1": [
@@ -1194,5 +1366,288 @@ export const lineScopeIndex: Record<ScopeSubjectId, Record<ScopeGrade, ScopeEra[
         ]
       }
     ]
+  },
+  "geography": {
+    "1": [
+      {
+        "eraId": "geo1-world-shape",
+        "eraName": "世界の姿",
+        "eraIcon": "🌍",
+        "eraPeriod": "世界の地域構成",
+        "topics": [
+          {
+            "name": "地球の姿",
+            "subtitle": "大陸と大洋・六つの州の区分",
+            "icon": "🌏"
+          },
+          {
+            "name": "世界のさまざまな国々",
+            "subtitle": "国旗・国境・面積・人口",
+            "icon": "🏳️"
+          },
+          {
+            "name": "地球上の位置と地図",
+            "subtitle": "緯度と経度・地球儀と世界地図",
+            "icon": "🗺️"
+          }
+        ]
+      },
+      {
+        "eraId": "geo1-japan-shape",
+        "eraName": "日本の姿",
+        "eraIcon": "🗾",
+        "eraPeriod": "日本の地域構成",
+        "topics": [
+          {
+            "name": "世界の中での日本の位置",
+            "subtitle": "緯度・経度で見る日本の位置",
+            "icon": "📍"
+          },
+          {
+            "name": "時差から見た日本の位置",
+            "subtitle": "標準時子午線・時差の計算・日付変更線",
+            "icon": "⏰"
+          },
+          {
+            "name": "日本の領域の特色と領土問題",
+            "subtitle": "領土・領海・排他的経済水域・北方領土・竹島・尖閣諸島",
+            "icon": "🏝️"
+          },
+          {
+            "name": "日本の都道府県と地域区分",
+            "subtitle": "47都道府県・7地方区分・県庁所在地",
+            "icon": "🗾"
+          }
+        ]
+      },
+      {
+        "eraId": "geo1-life-environment",
+        "eraName": "人々の生活と環境",
+        "eraIcon": "🌏",
+        "eraPeriod": "世界の生活・文化",
+        "topics": [
+          {
+            "name": "世界の気候と人々の暮らし",
+            "subtitle": "寒帯・亜寒帯・温帯・乾燥帯・熱帯・高山の暮らし",
+            "icon": "🌡️"
+          },
+          {
+            "name": "世界の気候区の分類",
+            "subtitle": "五つの気候帯とさらに細かい気候区",
+            "icon": "🌦️"
+          },
+          {
+            "name": "多様な生活・文化と宗教",
+            "subtitle": "住居・衣服・食文化とキリスト教・イスラーム・仏教・ヒンドゥー教",
+            "icon": "🕌"
+          }
+        ]
+      },
+      {
+        "eraId": "geo1-world-regions",
+        "eraName": "世界の諸地域",
+        "eraIcon": "🌎",
+        "eraPeriod": "六州の地誌",
+        "topics": [
+          {
+            "name": "アジア州(1) 自然・文化・NIES",
+            "subtitle": "季節風・ヒマラヤ山脈・チベット高原・アジアNIES",
+            "icon": "🏯"
+          },
+          {
+            "name": "アジア州(2) 中国・韓国・東南アジア",
+            "subtitle": "経済特区・一人っ子政策・ASEAN・プランテーション",
+            "icon": "🏭"
+          },
+          {
+            "name": "アジア州(3) 南アジア・西アジア",
+            "subtitle": "インド・ICT産業・ヒンドゥー教・OPEC・レアメタル",
+            "icon": "💻"
+          },
+          {
+            "name": "ヨーロッパ州(1) 自然・文化",
+            "subtitle": "自然環境・地形・農業・言語",
+            "icon": "🏔️"
+          },
+          {
+            "name": "ヨーロッパ州(2) EU統合・環境",
+            "subtitle": "EU・環境対策・ルーラルツーリズム",
+            "icon": "🇪🇺"
+          },
+          {
+            "name": "ヨーロッパ州(3) 課題・ロシア",
+            "subtitle": "EU課題・ブレグジット・ロシア",
+            "icon": "🌍"
+          },
+          {
+            "name": "アフリカ州(1) 自然・歴史",
+            "subtitle": "サハラ砂漠・ナイル川・キリマンジャロ・北と南の文化",
+            "icon": "🏜️"
+          },
+          {
+            "name": "アフリカ州(2) 産業・経済",
+            "subtitle": "プランテーション・モノカルチャー経済・カカオ・ICT",
+            "icon": "🍫"
+          },
+          {
+            "name": "アフリカ州(3) 社会変化",
+            "subtitle": "国境線・民族紛争・砂漠化・ルワンダの和解",
+            "icon": "🌍"
+          },
+          {
+            "name": "北アメリカ州(1) 自然・農業",
+            "subtitle": "ロッキー山脈・適地適作・アグリビジネス",
+            "icon": "🏔️"
+          },
+          {
+            "name": "北アメリカ州(2) 工業・生活文化",
+            "subtitle": "ラストベルト・シリコンバレー・ヒスパニック",
+            "icon": "🗽"
+          },
+          {
+            "name": "南アメリカ州(1) 自然・文化",
+            "subtitle": "アマゾン・アンデス・パンパ・日系移民",
+            "icon": "🌿"
+          },
+          {
+            "name": "南アメリカ州(2) 開発・環境",
+            "subtitle": "開発と環境問題・農業・鉱産資源",
+            "icon": "🏗️"
+          },
+          {
+            "name": "オセアニア州(1) 自然・産業",
+            "subtitle": "乾燥大陸・資源輸出・貿易相手の変化",
+            "icon": "🐨"
+          },
+          {
+            "name": "オセアニア州(2) 多文化社会・環境",
+            "subtitle": "白豪主義・多文化社会・地球温暖化",
+            "icon": "🤝"
+          }
+        ]
+      }
+    ],
+    "2": [
+      {
+        "eraId": "geo2-regional-research",
+        "eraName": "地域調査・地形図",
+        "eraIcon": "🗺️",
+        "eraPeriod": "地理の調べ方",
+        "topics": [
+          {
+            "name": "地形図の活用",
+            "subtitle": "縮尺と距離の計算・等高線・地形図の比較",
+            "icon": "🗺️"
+          }
+        ]
+      },
+      {
+        "eraId": "geo2-japan-features",
+        "eraName": "日本の特色",
+        "eraIcon": "🏔️",
+        "eraPeriod": "日本の地域的特色",
+        "topics": [
+          {
+            "name": "地形から見た日本の特色",
+            "subtitle": "山地・河川・海岸・海流の特徴",
+            "icon": "⛰️"
+          },
+          {
+            "name": "気候から見た日本の特色",
+            "subtitle": "四季の変化と6つの気候区分",
+            "icon": "🌸"
+          },
+          {
+            "name": "自然災害と防災・減災",
+            "subtitle": "地震・台風・火山と防災の取り組み",
+            "icon": "🌊"
+          },
+          {
+            "name": "人口から見た日本の特色",
+            "subtitle": "過密と過疎・少子高齢化",
+            "icon": "👥"
+          },
+          {
+            "name": "資源・エネルギーから見た日本の特色",
+            "subtitle": "低い自給率と再生可能エネルギー",
+            "icon": "⚡"
+          },
+          {
+            "name": "産業・交通から見た日本の特色",
+            "subtitle": "農業・工業・サービス業と交通網",
+            "icon": "🏭"
+          },
+          {
+            "name": "地域区分の視点",
+            "subtitle": "多様な視点で地域を分ける",
+            "icon": "🗺️"
+          }
+        ]
+      },
+      {
+        "eraId": "geo2-japan-regions",
+        "eraName": "日本の諸地域",
+        "eraIcon": "🏙️",
+        "eraPeriod": "七地方の地誌",
+        "topics": [
+          {
+            "name": "九州地方",
+            "subtitle": "火山・シラス台地・促成栽培・エコタウン",
+            "icon": "🌋"
+          },
+          {
+            "name": "中国・四国地方①",
+            "subtitle": "自然環境と交通",
+            "icon": "🌊"
+          },
+          {
+            "name": "中国・四国地方②",
+            "subtitle": "産業と地域の課題",
+            "icon": "🏭"
+          },
+          {
+            "name": "近畿の自然と大阪大都市圏",
+            "subtitle": "リアス海岸・琵琶湖・古都の景観保全・阪神工業地帯",
+            "icon": "⛩️"
+          },
+          {
+            "name": "近畿の都市問題と農山村",
+            "subtitle": "ニュータウン・ポートアイランド・過疎化対策・地域おこし",
+            "icon": "🏙️"
+          },
+          {
+            "name": "中部地方①（自然と東海）",
+            "subtitle": "日本アルプス・濃尾平野・中京工業地帯・自動車産業",
+            "icon": "🚗"
+          },
+          {
+            "name": "中部地方②（中央高地と北陸）",
+            "subtitle": "抑制栽培・甲府盆地・諏訪・稲作・伝統工芸品・コンパクトシティ",
+            "icon": "🥬"
+          },
+          {
+            "name": "関東の自然と東京",
+            "subtitle": "関東平野・関東ローム層・ヒートアイランド・世界都市東京・一極集中",
+            "icon": "🏔️"
+          },
+          {
+            "name": "東京大都市圏と関東の産業",
+            "subtitle": "近郊農業・京浜工業地帯・京葉工業地域・北関東工業地域・特産品",
+            "icon": "🏭"
+          },
+          {
+            "name": "東北地方",
+            "subtitle": "奥羽山脈・やませ・リアス海岸・伝統産業・震災復興",
+            "icon": "🌾"
+          },
+          {
+            "name": "北海道地方",
+            "subtitle": "亜寒帯気候・アイヌ・大規模農業・酪農・観光",
+            "icon": "🦌"
+          }
+        ]
+      }
+    ],
+    "3": []
   }
 };

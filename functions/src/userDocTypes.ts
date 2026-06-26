@@ -147,7 +147,7 @@ export interface UserDoc {
   preferredHour?: PreferredHour;
 
   /**
-   * 毎日配信→週3配信の切替案内（登録14日目）を送った日時。
+   * 毎日配信→週3配信の切替案内（新規=登録7日目 / 既存=14日目）を送った日時。
    * `dailyQuiz` が二重送信を防ぐためのフラグ（2026-06 配信モデル）。
    */
   deliveryTransitionNotifiedAt?: Timestamp;

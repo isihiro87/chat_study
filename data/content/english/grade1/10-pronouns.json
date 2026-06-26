@@ -1,0 +1,440 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade1",
+  "topicId": "eng-pronouns",
+  "name": "代名詞",
+  "subtitle": "主格・所有格・目的格・所有代名詞と Whose / Which の使い方",
+  "icon": "👥",
+  "order": 10,
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "I",
+      "back": "(　) am a junior high school student.（私は中学生です。）",
+      "hint": "「私は」を表す主格は？",
+      "explanation": "「私は」は主格 I。be動詞は am を使うよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "He",
+      "back": "(　) is a good soccer player.（彼はサッカーが上手です。）",
+      "hint": "「彼は」を表す主格は？",
+      "explanation": "「彼は」は主格 He。三人称単数なので be動詞は is。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "We",
+      "back": "(　) are good friends.（私たちは仲のよい友だちです。）",
+      "hint": "「私たちは」を表す主格は？",
+      "explanation": "「私たちは」は主格 We。複数なので be動詞は are。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "my",
+      "back": "This is (　) desk.（これは私の机です。）",
+      "hint": "「私の」（名詞の前）は？",
+      "explanation": "「私の」は所有格 my。所有格は名詞の前に置くよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "her",
+      "back": "Look at (　) new bike.（彼女の新しい自転車を見て。）",
+      "hint": "「彼女の」（名詞の前）は？",
+      "explanation": "「彼女の」は所有格 her。後ろに名詞 bike が続くよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "your",
+      "back": "Is this (　) umbrella?（これはあなたのかさですか。）",
+      "hint": "「あなたの」（名詞の前）は？",
+      "explanation": "「あなたの」は所有格 your。後ろに名詞 umbrella が続くよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "him",
+      "back": "Do you know (　)?（あなたは彼を知っていますか。）",
+      "hint": "「彼を」を表す目的格は？",
+      "explanation": "動詞 know のあとは目的格。「彼を」は him。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc8",
+      "front": "me",
+      "back": "Please help (　).（私を手伝ってください。）",
+      "hint": "「私を」を表す目的格は？",
+      "explanation": "動詞 help のあとは目的格。「私を」は me。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc9",
+      "front": "mine",
+      "back": "This racket is (　).（このラケットは私のものです。）",
+      "hint": "「私のもの」（名詞をつけない形）は？",
+      "explanation": "「私のもの」は所有代名詞 mine。後ろに名詞は置かないよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc10",
+      "front": "Whose",
+      "back": "(　) cap is this?（これはだれのぼうしですか。）",
+      "hint": "「だれの」を表すことばは？",
+      "explanation": "「だれの」は Whose。Whose ＋ 名詞 ＋ is this? の語順だよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc11",
+      "front": "Which",
+      "back": "(　) do you want, tea or coffee?（あなたはどちらがほしいですか、紅茶ですかコーヒーですか。）",
+      "hint": "「どちら」（A or B から選ぶ）は？",
+      "explanation": "2つから選ぶときは Which。Which do you 〜, A or B? の形だよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc12",
+      "front": "They",
+      "back": "(　) live in Osaka.（彼らは大阪に住んでいます。）",
+      "hint": "「彼らは」を表す主格は？",
+      "explanation": "「彼らは」は主格 They。複数なので動詞 live に s はつけないよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "Their",
+      "back": "(　) house is near the station.（彼らの家は駅の近くです。）",
+      "hint": "「彼らの」（名詞の前）は？",
+      "explanation": "「彼らの」は所有格 Their。後ろに名詞 house が続くよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "our",
+      "back": "Mr. Sato is (　) English teacher.（サトウ先生は私たちの英語の先生です。）",
+      "hint": "「私たちの」（名詞の前）は？",
+      "explanation": "「私たちの」は所有格 our。後ろに名詞 teacher が続くよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc15",
+      "front": "us",
+      "back": "Our teacher teaches (　) science.（先生は私たちに理科を教えます。）",
+      "hint": "「私たちに」（動詞の目的語）は？",
+      "explanation": "動詞 teaches のあとは目的格。「私たちに」は us。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc16",
+      "front": "them",
+      "back": "I often visit (　).（私はよく彼らをたずねます。）",
+      "hint": "「彼らを」（動詞の目的語）は？",
+      "explanation": "動詞 visit のあとは目的格。「彼らを」は them。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc17",
+      "front": "hers",
+      "back": "The red pen is (　).（その赤いペンは彼女のものです。）",
+      "hint": "「彼女のもの」を表す所有代名詞は？",
+      "explanation": "「彼女のもの」は所有代名詞 hers。her（所有格）と区別しよう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc18",
+      "front": "theirs",
+      "back": "Those bags are (　).（あれらのかばんは彼らのものです。）",
+      "hint": "「彼らのもの」を表す所有代名詞は？",
+      "explanation": "「彼らのもの」は所有代名詞 theirs。後ろに名詞は置かないよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc19",
+      "front": "yours",
+      "back": "Is this notebook (　)?（このノートはあなたのものですか。）",
+      "hint": "「あなたのもの」を表す所有代名詞は？",
+      "explanation": "「あなたのもの」は所有代名詞 yours。your の後ろには名詞が必要だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc20",
+      "front": "his",
+      "back": "Ken plays tennis with (　) brother.（ケンは彼の兄とテニスをします。）",
+      "hint": "「彼の」（名詞の前）は？",
+      "explanation": "「彼の」は所有格 his。his brother で「彼の兄」。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc21",
+      "front": "Which",
+      "back": "(　) color do you like?（あなたはどの色が好きですか。）",
+      "hint": "「どの〜」を表すことばは？",
+      "explanation": "Which ＋ 名詞で「どの〜」を表すよ。Which color do you like?",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc22",
+      "front": "his",
+      "back": "This guitar is not mine. It is (　).（このギターは私のものではありません。彼のものです。）",
+      "hint": "「彼のもの」を表す所有代名詞は？",
+      "explanation": "his は「彼の（所有格）」と「彼のもの（所有代名詞）」の両方で使えるよ。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc23",
+      "front": "Yumi's",
+      "back": "This racket is not mine. It is (　).（このラケットは私のものではなく、ユミのものです。）",
+      "hint": "「ユミのもの」は名前のあとに何をつける？",
+      "explanation": "人名のあとに 's をつけると「〜のもの」を表す。Yumi's = ユミのもの。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc24",
+      "front": "What",
+      "back": "(　) do you want for your birthday?（あなたは誕生日に何がほしいですか。）",
+      "hint": "選択肢が示されていない「何」は？",
+      "explanation": "選択肢が決まっていないときは What を使う。Which は2つ以上の中から選ぶときだよ。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "「彼女は私の姉です。」に合う英文を選びなさい。",
+        "options": ["She is my sister.", "Her is my sister.", "Hers is my sister.", "She is mine sister."],
+        "correctIndex": 0,
+        "explanation": "主語の「彼女は」は主格 She。「私の」は所有格 my を名詞の前に置くよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "(　) に入るのは？\nThis is (　) bag.\n（これは私のかばんです。）",
+        "options": ["I", "my", "me", "mine"],
+        "correctIndex": 1,
+        "explanation": "名詞 bag の前なので所有格 my を使うよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "「私は彼を知っています。」に合う英文を選びなさい。",
+        "options": ["I know he.", "I know his.", "I know him.", "I know mine."],
+        "correctIndex": 2,
+        "explanation": "動詞 know のあとは目的格 him を使うよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "(　) に入るのは？\n(　) are good friends.\n（私たちは仲のよい友だちです。）",
+        "options": ["Us", "Our", "Mine", "We"],
+        "correctIndex": 3,
+        "explanation": "主語の「私たちは」は主格 We。複数なので be動詞は are。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "「このペンは私のものです。」に合う英文を選びなさい。",
+        "options": ["This pen is my.", "This pen is mine.", "This pen is me.", "This pen is I."],
+        "correctIndex": 1,
+        "explanation": "「私のもの」は所有代名詞 mine。my の後ろには名詞が必要だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "「これはだれのかさですか。」に合う英文を選びなさい。",
+        "options": ["Who umbrella is this?", "Whose umbrella is this?", "Whose is umbrella this?", "Who is this umbrella?"],
+        "correctIndex": 1,
+        "explanation": "「だれの」は Whose。Whose ＋ 名詞 ＋ is this? の語順だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q7",
+        "question": "(　) に入るのは？\nPlease help (　).\n（私を手伝ってください。）",
+        "options": ["me", "my", "mine", "I"],
+        "correctIndex": 0,
+        "explanation": "動詞 help のあとは目的格 me を使うよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q8",
+        "question": "Whose cap is this? への答えとして正しいものを選びなさい。",
+        "options": ["It is my.", "It is me.", "It is mine.", "It is I."],
+        "correctIndex": 2,
+        "explanation": "「私のもの」は所有代名詞 mine。my は後ろに名詞が必要だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q9",
+        "question": "「あなたはどちらが好きですか、紅茶ですかコーヒーですか。」に合う英文を選びなさい。",
+        "options": ["Which do you like, tea or coffee?", "What do you like, tea or coffee?", "Which you like, tea or coffee?", "Which are you like, tea or coffee?"],
+        "correctIndex": 0,
+        "explanation": "2つから選ぶときは Which。Which do you like, A or B? の語順だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q10",
+        "question": "(　) に入るのは？\nI like (　) very much.\n（私は彼女が大好きです。）",
+        "options": ["she", "hers", "they", "her"],
+        "correctIndex": 3,
+        "explanation": "動詞 like のあとは目的格 her を使うよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "(　) に入るのは？\n(　) house is near the station.\n（彼らの家は駅の近くです。）",
+        "options": ["They", "Their", "Them", "Theirs"],
+        "correctIndex": 1,
+        "explanation": "名詞 house の前なので所有格 Their を使うよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "「あの青い自転車は彼のものです。」に合う英文を選びなさい。",
+        "options": ["That blue bike is him.", "That blue bike is he.", "That blue bike is his.", "That blue bike is her."],
+        "correctIndex": 2,
+        "explanation": "his は「彼の」「彼のもの」の両方で使える。ここでは「彼のもの」だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q13",
+        "question": "(　) に入るのは？\nThese are (　) notebooks.\n（これらは私たちのノートです。）",
+        "options": ["ours", "our", "us", "we"],
+        "correctIndex": 1,
+        "explanation": "名詞 notebooks の前なので所有格 our。「私たちのもの」なら ours（後ろに名詞なし）。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q14",
+        "question": "「彼らは私たちを知っています。」に合う英文を選びなさい。",
+        "options": ["They know our.", "Them know we.", "Their know us.", "They know us."],
+        "correctIndex": 3,
+        "explanation": "主語は主格 They、目的語は目的格 us を使うよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q15",
+        "question": "「その白い犬は彼らのものです。」に合う英文を選びなさい。",
+        "options": ["The white dog is their.", "The white dog is theirs.", "The white dog is them.", "The white dog is they."],
+        "correctIndex": 1,
+        "explanation": "「彼らのもの」は所有代名詞 theirs。their は後ろに名詞が必要だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q16",
+        "question": "「私は彼女の本を持っていますが、それは彼女のものではありません。」に合う英文を選びなさい。",
+        "options": ["I have hers book, but it isn't her.", "I have she book, but it isn't hers.", "I have her book, but it isn't hers.", "I have her book, but it isn't she."],
+        "correctIndex": 2,
+        "explanation": "her book は「彼女の本（所有格＋名詞）」、hers は「彼女のもの（所有代名詞）」だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q17",
+        "question": "「あなたは誕生日に何がほしいですか。」に合う英文を選びなさい。",
+        "options": ["What do you want for your birthday?", "Which do you want, a book or a cap?", "Which do you want for your birthday?", "What are you want for your birthday?"],
+        "correctIndex": 0,
+        "explanation": "選択肢が決まっていないときは What。Which は A or B のように選択肢を限るときに使うよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q18",
+        "type": "reorder",
+        "question": "次の語を並べかえて「彼は私の兄です。」の英文を作ろう。",
+        "words": ["my", "he", "brother", "is"],
+        "correctOrder": [1, 3, 0, 2],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「He is my brother.」が正解。主語 He のあとに is、所有格 my のあとに名詞 brother。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q19",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私は彼女が好きです。」の英文を作ろう。",
+        "words": ["like", "her", "I"],
+        "correctOrder": [2, 0, 1],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I like her.」が正解。動詞 like のあとは目的格 her。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q20",
+        "type": "reorder",
+        "question": "次の語を並べかえて「これは私たちの教室です。」の英文を作ろう。",
+        "words": ["our", "this", "classroom", "is"],
+        "correctOrder": [1, 3, 0, 2],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「This is our classroom.」が正解。所有格 our は名詞 classroom の前に置くよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q21",
+        "type": "reorder",
+        "question": "次の語を並べかえて「これはだれの本ですか。」の英文を作ろう。",
+        "words": ["book", "this", "whose", "is"],
+        "correctOrder": [2, 0, 3, 1],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Whose book is this?」が正解。Whose ＋ 名詞 ＋ is ＋ 主語? の語順。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q22",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私たちは彼らを毎日見ます。」の英文を作ろう。",
+        "words": ["every day", "see", "them", "we"],
+        "correctOrder": [3, 1, 2, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「We see them every day.」が正解。them は目的格、every day は文末に置くよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q23",
+        "type": "reorder",
+        "question": "次の語を並べかえて「これらはだれのペンですか。」の英文を作ろう。",
+        "words": ["these", "pens", "whose", "are"],
+        "correctOrder": [2, 1, 3, 0],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Whose pens are these?」が正解。pens / these は複数なので are を使うよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q24",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私の母は私たちに英語を教えます。」の英文を作ろう。",
+        "words": ["English", "us", "teaches", "my mother"],
+        "correctOrder": [3, 2, 1, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「My mother teaches us English.」が正解。My mother は三人称単数で teaches、us は「私たちに」。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q25",
+        "type": "reorder",
+        "question": "次の語を並べかえて「彼女はどちらが好きですか、英語ですか数学ですか。」の英文を作ろう。",
+        "words": ["English or math", "she", "like", "which", "does"],
+        "correctOrder": [3, 4, 1, 2, 0],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Which does she like, English or math?」が正解。she は does、動詞は原形 like。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

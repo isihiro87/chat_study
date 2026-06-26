@@ -1,0 +1,393 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade3",
+  "topicId": "vocab-lesson5",
+  "name": "What makes a good leader? の単語",
+  "subtitle": "リーダー・非暴力・独立の語彙",
+  "icon": "🕊️",
+  "order": 5,
+  "chatId": "eng-vocab-g3-lesson5",
+  "explanation": {
+    "sections": [
+      {
+        "title": "リーダーと影響を表すことば",
+        "content": "leader、image、greatly、influence、respect など、指導者やその影響を表す語を確認します。ガンディーの物語を読むうえで欠かせない語彙です。",
+        "keyPoints": [
+          "leader は「指導者・リーダー」、image は「像・肖像・印象」。",
+          "respect は「…を尊敬する」、influence は「…に影響を与える」。",
+          "greatly は「おおいに・非常に」。動作を強める副詞。"
+        ]
+      },
+      {
+        "title": "たたかいと独立を表すことば",
+        "content": "fight、protest、violence、non-violence、independence など、人権や独立のためのたたかいを表す語をまとめます。",
+        "keyPoints": [
+          "fight は「たたかう」、protest は「抗議する」。",
+          "violence は「暴力」、non-violence は「非暴力」。non- は「〜でない」を表す。",
+          "independence は「独立」、colony は「植民地」。対になる語として覚える。"
+        ]
+      },
+      {
+        "title": "社会と制度を表すことば",
+        "content": "law、discrimination、unfair、tax、legacy など、社会の制度や不公平さを表す語を確認します。",
+        "keyPoints": [
+          "law は「法律・法」、discrimination は「差別」。",
+          "unfair は「不公平な・不当な」。fair（公平な）の反対。",
+          "legacy は「遺産」、tax は「税・税金」。"
+        ]
+      }
+    ]
+  },
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "eng-vocab-g3-l5-fc01",
+      "front": "leader",
+      "back": "指導者、リーダー",
+      "explanation": "leader は「指導者、リーダー」という意味です。a great leader で「偉大な指導者」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l5-fc02",
+      "front": "image",
+      "back": "像、肖像、印象",
+      "explanation": "image は「像、肖像、印象」という意味です。His image is printed on ... で「彼の肖像が…に印刷されている」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l5-fc03",
+      "front": "greatly",
+      "back": "おおいに、非常に",
+      "explanation": "greatly は「おおいに、非常に」という意味です。respect ... greatly で「…をおおいに尊敬する」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l5-fc04",
+      "front": "influence",
+      "back": "…に影響を与える",
+      "explanation": "influence は「…に影響を与える」という意味です。influence a lot of people で「多くの人に影響を与える」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l5-fc05",
+      "front": "respect",
+      "back": "…を尊敬する",
+      "explanation": "respect は「…を尊敬する」という動作を表します。be respected by ... で「〜に尊敬される」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l5-fc06",
+      "front": "print",
+      "back": "…を印刷する",
+      "explanation": "print は「…を印刷する」という動作を表します。be printed on ... で「〜に印刷される」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l5-fc07",
+      "front": "individual",
+      "back": "人、個人",
+      "explanation": "individual は「人、個人」という意味です。一人ひとりの人を表します。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l5-fc08",
+      "front": "internet",
+      "back": "インターネット",
+      "explanation": "internet は「インターネット」という意味です。on the internet で「インターネットで」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l5-fc09",
+      "front": "fight",
+      "back": "たたかう",
+      "explanation": "fight は「たたかう」という動作を表します。fight for human rights で「人権のためにたたかう」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l5-fc10",
+      "front": "protest",
+      "back": "抗議する",
+      "explanation": "protest は「抗議する」という動作を表します。non-violent protest で「非暴力の抗議」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l5-fc11",
+      "front": "violence",
+      "back": "暴力",
+      "explanation": "violence は「暴力」という意味です。without violence で「暴力を使わずに」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l5-fc12",
+      "front": "non-violence",
+      "back": "非暴力",
+      "explanation": "non-violence は「非暴力」という意味です。non- は「〜でない」を表すので「暴力を使わないこと」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l5-fc13",
+      "front": "non-violent",
+      "back": "非暴力の",
+      "explanation": "non-violent は「非暴力の」という意味です。non-violent march で「非暴力の行進」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l5-fc14",
+      "front": "independence",
+      "back": "独立",
+      "explanation": "independence は「独立」という意味です。work for independence で「独立のために働く」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l5-fc15",
+      "front": "tough",
+      "back": "困難な、難しい",
+      "explanation": "tough は「困難な、難しい」という意味です。きびしい状況を表します。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l5-fc16",
+      "front": "law",
+      "back": "法律、法",
+      "explanation": "law は「法律、法」という意味です。make a law で「法律を作る」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l5-fc17",
+      "front": "discrimination",
+      "back": "差別",
+      "explanation": "discrimination は「差別」という意味です。a lot of discrimination で「多くの差別」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l5-fc18",
+      "front": "unfair",
+      "back": "不公平な、不当な",
+      "explanation": "unfair は「不公平な、不当な」という意味です。fair（公平な）の反対の意味です。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l5-fc19",
+      "front": "jail",
+      "back": "刑務所",
+      "explanation": "jail は「刑務所」という意味です。be sent to jail で「刑務所に送られる」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l5-fc20",
+      "front": "lawyer",
+      "back": "弁護士",
+      "explanation": "lawyer は「弁護士」という意味です。work as a lawyer で「弁護士として働く」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l5-fc21",
+      "front": "sidewalk",
+      "back": "歩道",
+      "explanation": "sidewalk は「歩道」という意味です。人が歩くための道です。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l5-fc22",
+      "front": "accept",
+      "back": "…を受け入れる",
+      "explanation": "accept は「…を受け入れる」という動作を表します。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l5-fc23",
+      "front": "arrest",
+      "back": "…を逮捕する",
+      "explanation": "arrest は「…を逮捕する」という動作を表します。be arrested で「逮捕される」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l5-fc24",
+      "front": "freely",
+      "back": "自由に",
+      "explanation": "freely は「自由に」という意味です。go out freely で「自由に外出する」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l5-fc25",
+      "front": "effective",
+      "back": "効果的な",
+      "explanation": "effective は「効果的な」という意味です。the most effective way で「最も効果的な方法」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l5-fc26",
+      "front": "British",
+      "back": "イギリス人の、イギリスの",
+      "explanation": "British は「イギリス人の、イギリスの」を表します。the British で「イギリス人」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l5-fc27",
+      "front": "colony",
+      "back": "植民地",
+      "explanation": "colony は「植民地」という意味です。a British colony で「イギリスの植民地」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l5-fc28",
+      "front": "follower",
+      "back": "信奉者、支持者",
+      "explanation": "follower は「信奉者、支持者」という意味です。78 followers で「78人の支持者」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l5-fc29",
+      "front": "march",
+      "back": "行進",
+      "explanation": "march は「行進」という意味です。the Salt March で「塩の行進」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l5-fc30",
+      "front": "peaceful",
+      "back": "平和な",
+      "explanation": "peaceful は「平和な」という意味です。peaceful days で「平和な日々」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l5-fc31",
+      "front": "legacy",
+      "back": "遺産",
+      "explanation": "legacy は「遺産」という意味です。前の人が残したものを表します。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l5-fc32",
+      "front": "tax",
+      "back": "税、税金",
+      "explanation": "tax は「税、税金」という意味です。a heavy tax で「重い税金」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l5-fc33",
+      "front": "produce",
+      "back": "…を生産する、…を生じる",
+      "explanation": "produce は「…を生産する、…を生じる」という動作を表します。produce salt で「塩を生産する」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l5-fc34",
+      "front": "expensive",
+      "back": "高価な、費用のかかる",
+      "explanation": "expensive は「高価な、費用のかかる」という意味です。expensive salt で「高い塩」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l5-fc35",
+      "front": "kilometer",
+      "back": "キロメートル",
+      "explanation": "kilometer は「キロメートル」という意味です。距離の単位です。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l5-fc36",
+      "front": "thousand",
+      "back": "1,000（の）",
+      "explanation": "thousand は「1,000（の）」という意味です。thousands of ... で「何千もの…」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l5-fc37",
+      "front": "translator",
+      "back": "翻訳者",
+      "explanation": "translator は「翻訳者」という意味です。本などを別の言語に直す人です。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l5-fc38",
+      "front": "be born",
+      "back": "生まれる",
+      "explanation": "be born は「生まれる」というまとまりの表現です。was born in ... で「〜で生まれた」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l5-fc39",
+      "front": "stand up against",
+      "back": "〜に反対して立ち上がる",
+      "explanation": "stand up against は「〜に反対して立ち上がる」というまとまりの表現です。1語ずつ分けず、かたまりで覚えましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l5-fc40",
+      "front": "human rights",
+      "back": "人権",
+      "explanation": "human rights は「人権」というまとまりの表現です。fight for human rights で「人権のためにたたかう」となります。",
+      "difficulty": "standard"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "「非暴力」を表す語は？",
+        "options": [
+          "non-violence",
+          "independence",
+          "discrimination",
+          "follower"
+        ],
+        "correctIndex": 0,
+        "explanation": "non-violence は「非暴力」。non- は「〜でない」を表します。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q2",
+        "question": "「…を尊敬する」を表す語は？",
+        "options": [
+          "produce",
+          "respect",
+          "accept",
+          "arrest"
+        ],
+        "correctIndex": 1,
+        "explanation": "respect は「…を尊敬する」。be respected by ... で「〜に尊敬される」となります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q3",
+        "question": "unfair の意味は？",
+        "options": [
+          "効果的な",
+          "平和な",
+          "不公平な、不当な",
+          "自由に"
+        ],
+        "correctIndex": 2,
+        "explanation": "unfair は「不公平な、不当な」。fair（公平な）の反対の意味です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q4",
+        "question": "「植民地」を表す語は？",
+        "options": [
+          "legacy",
+          "march",
+          "tax",
+          "colony"
+        ],
+        "correctIndex": 3,
+        "explanation": "colony は「植民地」。a British colony で「イギリスの植民地」となります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "influence の意味は？",
+        "options": [
+          "…に影響を与える",
+          "…を逮捕する",
+          "…を生産する",
+          "…を受け入れる"
+        ],
+        "correctIndex": 0,
+        "explanation": "influence は「…に影響を与える」。influence a lot of people で「多くの人に影響を与える」となります。",
+        "difficulty": "standard"
+      }
+    ]
+  }
+}

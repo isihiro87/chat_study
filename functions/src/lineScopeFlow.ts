@@ -19,6 +19,12 @@ import {
 /** Quick Reply / postback の安全上限。 */
 export const QUICK_REPLY_LABEL_MAX = 20;
 export const POSTBACK_DATA_MAX = 300;
+/**
+ * LINE Quick Reply の items 上限は 13。これを超えると LINE が reply 全体を
+ * 400 で拒否し、ユーザーには「何も起きない（範囲設定が進められない）」状態になる。
+ * era チップ数が多い学年（例: 中3理科=11単元）でも必ずこの上限内に収める。
+ */
+export const QUICK_REPLY_ITEM_MAX = 13;
 
 /** トーク内フローで提示する Quick Reply 1 件分の抽象表現（LINE 形式は webhook 側で組む）。 */
 export interface ScopeQuickItem {
@@ -240,38 +246,41 @@ export function buildScopeQuickItems(
 ): ScopeQuickItem[] {
   const metas = getEraMetas(subject, grade);
   const selSet = new Set(sel);
-  const items: ScopeQuickItem[] = [];
 
-  for (const meta of metas) {
-    const selected = selSet.has(meta.eraId);
-    items.push({
-      label: eraChipLabel(meta, selected),
-      data: buildPickData(subject, grade, sel, meta.eraId),
-    });
-  }
+  // era チップは常に全件出す（隠すと選べない単元が生まれる）。
+  const eraItems: ScopeQuickItem[] = metas.map((meta) => ({
+    label: eraChipLabel(meta, selSet.has(meta.eraId)),
+    data: buildPickData(subject, grade, sel, meta.eraId),
+  }));
 
+  // 操作チップは優先度順に並べ、LINE の 13 件上限の残り枠ぶんだけ載せる。
+  // 「これで決定」を最優先にし、続いて 最初から / 学年ぜんぶ / 詳しく設定。
+  // era チップが多い学年（中3理科=11単元）では下位の操作チップが省かれるが、
+  // タップ＝即保存なので範囲設定自体は成立し、最初からで sel=0 に戻せば
+  // 学年ぜんぶ等も再表示される。
+  const controlItems: ScopeQuickItem[] = [];
+  controlItems.push({
+    label: `✅ これで決定（${sel.length}）`,
+    data: buildCommitData(subject, grade, sel),
+  });
   if (sel.length > 0) {
-    items.push({
+    controlItems.push({
       label: '↩ 最初から',
       data: buildResetData(subject, grade),
     });
   }
-
-  // 詳しく設定は最初のガイドから常に表示（選択ゼロでも即 /scope へ）
-  items.push({
+  controlItems.push({
+    label: '📖 学年ぜんぶでOK',
+    data: buildClearCommitData(subject, grade),
+  });
+  controlItems.push({
     label: '🔧 詳しく設定',
     url: buildDetailUrl(detailBaseUrl, sel),
   });
 
-  items.push({
-    label: `✅ これで決定（${sel.length}）`,
-    data: buildCommitData(subject, grade, sel),
-  });
-
-  items.push({
-    label: '📖 学年ぜんぶでOK',
-    data: buildClearCommitData(subject, grade),
-  });
-
-  return items;
+  const room = Math.max(0, QUICK_REPLY_ITEM_MAX - eraItems.length);
+  return [...eraItems, ...controlItems.slice(0, room)].slice(
+    0,
+    QUICK_REPLY_ITEM_MAX
+  );
 }

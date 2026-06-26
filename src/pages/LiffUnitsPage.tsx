@@ -56,6 +56,43 @@ async function loadStudyEras(
     }
     return null;
   }
+  if (subject === 'math') {
+    // 数学は flashcards 無し（quiz のみ）。grade1〜3 すべて配信。
+    if (grade === 1) {
+      const m = await import('../data/generated/line-study-math-g1.generated');
+      return m.lineStudyMathEras;
+    }
+    if (grade === 2) {
+      const m = await import('../data/generated/line-study-math-g2.generated');
+      return m.lineStudyMathEras;
+    }
+    const m = await import('../data/generated/line-study-math-g3.generated');
+    return m.lineStudyMathEras;
+  }
+  if (subject === 'geography') {
+    // 地理は grade1 / grade2 のみ（中3 はコンテンツ無し）。
+    if (grade === 1) {
+      const m = await import('../data/generated/line-study-geography-g1.generated');
+      return m.lineStudyGeographyEras;
+    }
+    if (grade === 2) {
+      const m = await import('../data/generated/line-study-geography-g2.generated');
+      return m.lineStudyGeographyEras;
+    }
+    return null;
+  }
+  if (subject === 'english') {
+    if (grade === 1) {
+      const m = await import('../data/generated/line-study-english-g1.generated');
+      return m.lineStudyEnglishEras;
+    }
+    if (grade === 2) {
+      const m = await import('../data/generated/line-study-english-g2.generated');
+      return m.lineStudyEnglishEras;
+    }
+    const m = await import('../data/generated/line-study-english-g3.generated');
+    return m.lineStudyEnglishEras;
+  }
   // history（既定）
   switch (grade) {
     case 1: {
@@ -207,7 +244,9 @@ function difficultyMatch(
 /**
  * 公式LINE のリッチメニュー「じっくり学ぶ」から開かれる LIFF ページ。
  *
- * インライン学習体験を提供（歴史、grade1/2 対応、data/content/history/01〜12）:
+ * インライン学習体験を提供（歴史・理科・数学・地理・英語に対応。教科は
+ * userDoc.subject、学年は selectedGrade で動的 import。数学は flashcards 無し＝
+ * クイズのみ、暗記カードボタンは件数0で無効表示）:
  *  - トピック一覧（時代別 + 出題範囲フィルタ + クリア回数 / 正答率の表示）
  *  - セットアップ: 枚数・問題数の指定、難易度フィルタ
  *  - 暗記カード: フリップ + わかった/わからない振り分け
@@ -281,9 +320,22 @@ export function LiffUnitsPage() {
   );
   // ユーザーの登録学年（初期値の決定に使う）。
   const userGrade: GradeNum | null = userDoc?.grade ?? null;
-  // 登録教科（study データの動的 import・進捗キーに使う）。現状 history / science。
-  const currentSubjectId: 'history' | 'science' =
-    userDoc?.subject === 'science' ? 'science' : 'history';
+  // 登録教科（study データの動的 import・進捗キーに使う）。
+  // history / science / math / geography / english に対応。
+  const currentSubjectId: 'history' | 'science' | 'math' | 'geography' | 'english' =
+    userDoc?.subject === 'science' ||
+    userDoc?.subject === 'math' ||
+    userDoc?.subject === 'geography' ||
+    userDoc?.subject === 'english'
+      ? userDoc.subject
+      : 'history';
+  const subjectLabel: string = {
+    history: '歴史',
+    science: '理科',
+    math: '数学',
+    geography: '地理',
+    english: '英語',
+  }[currentSubjectId];
   // 表示中の学年（ユーザー操作で切り替え可能）。初期 = 登録学年。
   const [selectedGrade, setSelectedGrade] = useState<GradeNum | null>(null);
   const [historyEras, setHistoryEras] = useState<StudyEra[] | null>(null);
@@ -932,7 +984,9 @@ export function LiffUnitsPage() {
             📚 じっくり学ぶ
           </h1>
           <p className="text-xs text-gray-500 text-center mt-1">
-            暗記カード＋クイズで深く覚えよう（歴史）
+            {currentSubjectId === 'math'
+              ? `クイズで力だめし（${subjectLabel}）`
+              : `暗記カード＋クイズで深く覚えよう（${subjectLabel}）`}
           </p>
         </div>
       </header>
@@ -1014,7 +1068,7 @@ export function LiffUnitsPage() {
 
         {selectedGrade !== null && historyEras !== null && historyEras.length === 0 && !erasLoading && (
           <div className="mt-8 text-center text-sm text-gray-500">
-            <p>中{selectedGrade} の歴史コンテンツは準備中です。</p>
+            <p>中{selectedGrade} の{subjectLabel}コンテンツは準備中です。</p>
             <p className="text-xs text-gray-400 mt-1">
               上のタブから他の学年に切り替えてみてください。
             </p>

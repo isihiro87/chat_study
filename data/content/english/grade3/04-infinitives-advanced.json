@@ -1,0 +1,709 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade3",
+  "topicId": "eng-infinitives-advanced",
+  "name": "不定詞（応用）",
+  "subtitle": "It is for to / want人to / let人do",
+  "icon": "🎯",
+  "order": 4,
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "for us to finish",
+      "back": "It is hard (　) the report today.（私たちにとって今日レポートを終わらせることは難しいです。）",
+      "hint": "It is ... for 人 to ~",
+      "explanation": "「It is ... for 人 to ~」で「人にとって〜することは…だ」。to の前の人は of ではなく for を使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "for me to wake up",
+      "back": "It is difficult (　) early on weekends.（私にとって週末に早く起きることは難しいです。）",
+      "hint": "for + 人 + to + 動詞の原形",
+      "explanation": "for のあとに人（me）、その後ろに to 不定詞を続けます。It は形だけの主語です。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "for her to win",
+      "back": "Is it possible (　) the game?（彼女にとってその試合に勝つことは可能ですか。）",
+      "hint": "疑問文でも for 人 to ~",
+      "explanation": "疑問文でも形は同じで、It is の it を前に出して Is it ... ? とします。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc4",
+      "front": "for him to speak",
+      "back": "It is fun (　) a foreign language.（彼にとって外国語を話すことは楽しいです。）",
+      "hint": "人は for のあとに置く",
+      "explanation": "動作をする人を for で表します。「彼が話す」ので for him となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "for you to practice",
+      "back": "Is it necessary (　) every day?（あなたにとって毎日練習することは必要ですか。）",
+      "hint": "necessary の後ろ",
+      "explanation": "necessary（必要な）のあとも「for 人 + to ~」の形をとります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "want you to come",
+      "back": "I (　) to the party.（私はあなたにパーティーに来てほしいです。）",
+      "hint": "want + 人 + to ~",
+      "explanation": "「want 人 to ~」で「人に〜してほしい」。want のあとに人、その後ろに to 不定詞を置きます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "asked me to water",
+      "back": "She (　) the plants.（彼女は私に植物に水をやるように頼みました。）",
+      "hint": "ask + 人 + to ~",
+      "explanation": "「ask 人 to ~」で「人に〜するよう頼む」。過去形は asked です。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "told us to be",
+      "back": "The teacher (　) quiet during the test.（先生は私たちにテスト中は静かにするように言いました。）",
+      "hint": "tell + 人 + to ~",
+      "explanation": "「tell 人 to ~」で「人に〜するよう言う」。過去形は told です。say はこの形で使えません。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc9",
+      "front": "told me not to be",
+      "back": "She (　) late again.（彼女は私にもう遅刻しないように言いました。）",
+      "hint": "否定は not to ~",
+      "explanation": "「〜しないように」と否定するときは to の前に not を置き、「not to ~」とします。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc10",
+      "front": "want citizens to take",
+      "back": "The government (　) action now.（政府は市民に今行動を起こしてほしいと思っています。）",
+      "hint": "want + 人 + to ~",
+      "explanation": "want のあとに人（citizens）、その後ろに to take と続けます。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc11",
+      "front": "asked him not to",
+      "back": "I (　) turn off the light.（私は彼に電気を消さないように頼みました。）",
+      "hint": "ask + 人 + not to ~",
+      "explanation": "否定の依頼は「ask 人 not to ~」。not は to の直前に置きます。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc12",
+      "front": "Let me help",
+      "back": "(　) you with your bags.（あなたのかばんを手伝わせてください。）",
+      "hint": "let + 人 + 動詞の原形",
+      "explanation": "「let 人 + 動詞の原形」で「人に〜させる」。let のあとは to をつけず原形にします。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc13",
+      "front": "let me go",
+      "back": "My parents (　) to the concert.（両親は私をコンサートに行かせてくれました。）",
+      "hint": "let の後ろは原形",
+      "explanation": "let のあとは to go ではなく原形の go を使います。「行かせてくれた」の意味です。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc14",
+      "front": "help me carry",
+      "back": "Can you (　) this heavy box?（この重い箱を運ぶのを手伝ってくれますか。）",
+      "hint": "help + 人 + 動詞の原形",
+      "explanation": "「help 人 + 動詞の原形」で「人が〜するのを手伝う」。help のあとも to なしの原形が使えます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc15",
+      "front": "helped sea otters live",
+      "back": "People (　) safely in the bay.（人々はラッコが湾で安全に暮らすのを手伝いました。）",
+      "hint": "help + 人 + 原形",
+      "explanation": "help のあとは原形 live。過去形は helped で、後ろの動詞は原形のままです。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc16",
+      "front": "helped me finish",
+      "back": "My brother (　) my homework.（兄は私が宿題を終えるのを手伝ってくれました。）",
+      "hint": "help + 人 + 原形",
+      "explanation": "help のあとに人（me）、その後ろに原形 finish を続けます。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc17",
+      "front": "don't let me stay",
+      "back": "My parents (　) up late on school nights.（両親は学校のある夜に私を夜ふかしさせてくれません。）",
+      "hint": "否定文 + let + 人 + 原形",
+      "explanation": "否定文でも let のあとは原形のまま（stay）。do not（don't）を使って表します。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc18",
+      "front": "for me to take",
+      "back": "It is easy (　) pictures with this camera.（私にとってこのカメラで写真を撮ることは簡単です。）",
+      "hint": "It is easy for 人 to ~",
+      "explanation": "「It is easy for 人 to ~」で「人にとって〜することは簡単だ」を表します。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc19",
+      "front": "want you to tell",
+      "back": "I (　) me the truth.（私はあなたに本当のことを話してほしいです。）",
+      "hint": "want + 人 + to ~",
+      "explanation": "want のあとに人（you）、その後ろに to tell と続けます。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc20",
+      "front": "let the children play",
+      "back": "Please (　) in the park.（子どもたちを公園で遊ばせてあげてください。）",
+      "hint": "let + 人 + 原形",
+      "explanation": "let のあとは to play ではなく原形 play。「遊ばせてあげる」の意味になります。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "(　) に入るのは？\nIt is important (　) to study English every day.\n（私たちにとって毎日英語を勉強することは大切です。）",
+        "options": [
+          "for us",
+          "of us",
+          "to us",
+          "with us"
+        ],
+        "correctIndex": 0,
+        "explanation": "「It is ... for 人 to ~」の形。動作をする人は of ではなく for で表すので for us が正解です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "(　) に入るのは？\nIt is difficult for him (　) early.\n（彼にとって早く起きることは難しいです。）",
+        "options": [
+          "wake up",
+          "woke up",
+          "waking up",
+          "to wake up"
+        ],
+        "correctIndex": 3,
+        "explanation": "「It is ... for 人 to ~」なので、for him のあとは to 不定詞 to wake up になります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "(　) に入るのは？\nI want you (　) to my birthday party.\n（私はあなたに私の誕生日パーティーに来てほしいです。）",
+        "options": [
+          "come",
+          "came",
+          "coming",
+          "to come"
+        ],
+        "correctIndex": 3,
+        "explanation": "「want 人 to ~」で「人に〜してほしい」。you のあとは to come です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "(　) に入るのは？\nThe teacher told us (　) quiet in the library.\n（先生は私たちに図書館では静かにするように言いました。）",
+        "options": [
+          "be",
+          "to be",
+          "being",
+          "are"
+        ],
+        "correctIndex": 1,
+        "explanation": "「tell 人 to ~」の形。us のあとは to be が入ります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "(　) に入るのは？\nLet me (　) you with the dishes.\n（お皿洗いを手伝わせてください。）",
+        "options": [
+          "to help",
+          "helps",
+          "help",
+          "helping"
+        ],
+        "correctIndex": 2,
+        "explanation": "「let 人 + 動詞の原形」なので to をつけず原形の help を使います。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "(　) に入るのは？\nMy parents let me (　) to the concert.\n（両親は私をコンサートに行かせてくれました。）",
+        "options": [
+          "went",
+          "to go",
+          "going",
+          "go"
+        ],
+        "correctIndex": 3,
+        "explanation": "let のあとは原形。to go ではなく go が正解です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "(　) に入るのは？\nCan you help me (　) this heavy box?\n（この重い箱を運ぶのを手伝ってくれますか。）",
+        "options": [
+          "carry",
+          "to carrying",
+          "carried",
+          "carries"
+        ],
+        "correctIndex": 0,
+        "explanation": "「help 人 + 動詞の原形」で carry が正解。help のあとは原形が使えます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q8",
+        "question": "(　) に入るのは？\nShe told me (　) late again.\n（彼女は私にもう遅刻しないように言いました。）",
+        "options": [
+          "to not be",
+          "not to be",
+          "don't be",
+          "not being"
+        ],
+        "correctIndex": 1,
+        "explanation": "「〜しないように」の否定は to の前に not を置き not to be とします。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q9",
+        "question": "(　) に入るのは？\nShe asked me (　) the plants every morning.\n（彼女は私に毎朝植物に水をやるように頼みました。）",
+        "options": [
+          "water",
+          "watered",
+          "watering",
+          "to water"
+        ],
+        "correctIndex": 3,
+        "explanation": "「ask 人 to ~」の形。me のあとは to water になります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "(　) に入るのは？\nIs it (　) for you to practice every day?\n（あなたにとって毎日練習することは必要ですか。）",
+        "options": [
+          "necessary",
+          "necessarily",
+          "necessity",
+          "need"
+        ],
+        "correctIndex": 0,
+        "explanation": "「Is it 形容詞 for 人 to ~?」の形。形容詞の necessary が入ります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "次のうち、英語として正しくないものはどれですか。",
+        "options": [
+          "I want you to come.",
+          "Let me go.",
+          "She said me to wait.",
+          "He helped me finish."
+        ],
+        "correctIndex": 2,
+        "explanation": "say は「say 人 to ~」の形で使えません。正しくは told me to wait です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q12",
+        "question": "(　) に入るのは？\nIt is fun for her (　) a foreign language.\n（彼女にとって外国語を話すことは楽しいです。）",
+        "options": [
+          "speaks",
+          "to speak",
+          "speaking",
+          "spoke"
+        ],
+        "correctIndex": 1,
+        "explanation": "「It is ... for 人 to ~」なので for her のあとは to speak です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q13",
+        "question": "(　) に入るのは？\nMy parents don't let me (　) up late.\n（両親は私を夜ふかしさせてくれません。）",
+        "options": [
+          "stay",
+          "to stay",
+          "stayed",
+          "staying"
+        ],
+        "correctIndex": 0,
+        "explanation": "否定文でも let のあとは原形のまま。stay が正解です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q14",
+        "question": "(　) に入るのは？\nThe government wants citizens (　) action.\n（政府は市民に行動を起こしてほしいと思っています。）",
+        "options": [
+          "take",
+          "taking",
+          "to take",
+          "took"
+        ],
+        "correctIndex": 2,
+        "explanation": "「want 人 to ~」の形。citizens のあとは to take になります。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q15",
+        "question": "(　) に入るのは？\nPeople helped the sea otters (　) safely.\n（人々はラッコが安全に暮らすのを手伝いました。）",
+        "options": [
+          "to living",
+          "lived",
+          "live",
+          "lives"
+        ],
+        "correctIndex": 2,
+        "explanation": "「help 人 + 動詞の原形」で live が正解。help のあとは原形を使えます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q16",
+        "question": "(　) に入るのは？\nIt is easy (　) me to take pictures with this camera.\n（私にとってこのカメラで写真を撮ることは簡単です。）",
+        "options": [
+          "of",
+          "to",
+          "for",
+          "with"
+        ],
+        "correctIndex": 2,
+        "explanation": "「It is ... for 人 to ~」の人の前は for を使います。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q17",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「私たちにとって英語を勉強することは大切です。」という英文を作ろう。",
+        "words": [
+          "It",
+          "is",
+          "important",
+          "for",
+          "us",
+          "to",
+          "study",
+          "English"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "It is important for us to study English. 「It is ... for 人 to ~」の語順です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q18",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「私はあなたに本当のことを話してほしいです。」という英文を作ろう。",
+        "words": [
+          "I",
+          "want",
+          "you",
+          "to",
+          "tell",
+          "me",
+          "the",
+          "truth"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "I want you to tell me the truth. 「want 人 to ~」の形です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q19",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「先生は私たちに静かにするように言いました。」という英文を作ろう。",
+        "words": [
+          "The",
+          "teacher",
+          "told",
+          "us",
+          "to",
+          "be",
+          "quiet"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "The teacher told us to be quiet. 「tell 人 to ~」の形です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q20",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「この重い箱を運ぶのを手伝ってくれますか。」という英文を作ろう。",
+        "words": [
+          "Can",
+          "you",
+          "help",
+          "me",
+          "carry",
+          "this",
+          "box"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "Can you help me carry this box? 「help 人 + 動詞の原形」の形です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q21",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「両親は私をコンサートに行かせてくれました。」という英文を作ろう。",
+        "words": [
+          "My",
+          "parents",
+          "let",
+          "me",
+          "go",
+          "to",
+          "the",
+          "concert"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "My parents let me go to the concert. 「let 人 + 動詞の原形」の形です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q22",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「彼女は私にもう遅刻しないように言いました。」という英文を作ろう。",
+        "words": [
+          "She",
+          "told",
+          "me",
+          "not",
+          "to",
+          "be",
+          "late"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "She told me not to be late. 否定は to の前に not を置きます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q23",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「彼が早く起きることは難しいです。」という英文を作ろう。",
+        "words": [
+          "It",
+          "is",
+          "difficult",
+          "for",
+          "him",
+          "to",
+          "wake",
+          "up"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "It is difficult for him to wake up. 「It is ... for 人 to ~」の語順です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q24",
+        "question": "(　) に入るのは？\nIt is fun (　) games with friends.\n（友達とゲームをすることは楽しいです。）",
+        "options": [
+          "to play",
+          "plays",
+          "played",
+          "playing"
+        ],
+        "correctIndex": 0,
+        "explanation": "for 人がなくても「It is ... to ~」の形は成り立ち、It のあとは to play になります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q25",
+        "question": "(　) に入るのは？\nMy mother asked me (　) the dishes after dinner.\n（母は私に夕食後お皿を洗うように頼みました。）",
+        "options": [
+          "wash",
+          "to wash",
+          "washing",
+          "washed"
+        ],
+        "correctIndex": 1,
+        "explanation": "「ask 人 to ~」の形。me のあとは to wash になります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q26",
+        "question": "(　) に入るのは？\nPlease let the children (　) in the park.\n（子どもたちを公園で遊ばせてあげてください。）",
+        "options": [
+          "to play",
+          "played",
+          "playing",
+          "play"
+        ],
+        "correctIndex": 3,
+        "explanation": "let のあとは原形。to play ではなく play が正解です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q27",
+        "question": "(　) に入るのは？\nMy brother has helped me (　) my homework many times.\n（兄は何度も私が宿題を終えるのを手伝ってくれました。）",
+        "options": [
+          "finished",
+          "to finishing",
+          "finish",
+          "finishes"
+        ],
+        "correctIndex": 2,
+        "explanation": "「help 人 + 動詞の原形」で finish が正解。has helped と現在完了でも後ろの動詞は原形です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q28",
+        "question": "(　) に入るのは？\nIs it possible (　) us to finish this work today?\n（私たちにとって今日この仕事を終えることは可能ですか。）",
+        "options": [
+          "of",
+          "for",
+          "to",
+          "at"
+        ],
+        "correctIndex": 1,
+        "explanation": "「It is ... for 人 to ~」の人の前は for。疑問文 Is it ...? でも同じです。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q29",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「私はあなたにこのドアを開けてほしいです。」という英文を作ろう。",
+        "words": [
+          "I",
+          "want",
+          "you",
+          "to",
+          "open",
+          "this",
+          "door"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "I want you to open this door. 「want 人 to ~」の形です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q30",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「私が手伝わせてください。」という英文を作ろう。",
+        "words": [
+          "Let",
+          "me",
+          "help",
+          "you",
+          "with",
+          "your",
+          "bags"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "Let me help you with your bags. 「let 人 + 動詞の原形」の形です。",
+        "difficulty": "standard"
+      }
+    ]
+  }
+}

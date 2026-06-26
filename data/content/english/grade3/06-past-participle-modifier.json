@@ -1,0 +1,489 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade3",
+  "topicId": "eng-past-participle-modifier",
+  "name": "過去分詞による後置修飾",
+  "subtitle": "名詞のうしろから「〜された…」と説明を加える形",
+  "icon": "📌",
+  "order": 6,
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "written",
+      "back": "write（書く）の過去分詞は？（write → wrote → (　)）",
+      "hint": "write - wrote - ???",
+      "explanation": "write → wrote → written。a book written in English のように後置修飾に使うよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "spoken",
+      "back": "speak（話す）の過去分詞は？（speak → spoke → (　)）",
+      "hint": "speak - spoke - ???",
+      "explanation": "speak → spoke → spoken。the language spoken in Japan のように使えるよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "made",
+      "back": "make（作る）の過去分詞は？（make → made → (　)）",
+      "hint": "make - made - made",
+      "explanation": "make → made → made。過去形と過去分詞が同じ形だよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "taken",
+      "back": "take（撮る・取る）の過去分詞は？（take → took → (　)）",
+      "hint": "take - took - ???",
+      "explanation": "take → took → taken。a photo taken in Kyoto のように使えるよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "built",
+      "back": "build（建てる）の過去分詞は？（build → built → (　)）",
+      "hint": "build - built - built",
+      "explanation": "build → built → built。過去形と過去分詞が同じ形だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "sold",
+      "back": "sell（売る）の過去分詞は？（sell → sold → (　)）",
+      "hint": "sell - sold - sold",
+      "explanation": "sell → sold → sold。過去形と過去分詞が同じ形だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc7",
+      "front": "a book written in English",
+      "back": "「英語で書かれた本」を英語にすると？（a book (　) in English）",
+      "hint": "「書かれた」は write の過去分詞だよ",
+      "explanation": "book のうしろに written in English を置いて説明するよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc8",
+      "front": "a language spoken in many countries",
+      "back": "「たくさんの国で話されている言語」を英語にすると？（a language (　) in many countries）",
+      "hint": "「話されている」は speak の過去分詞だよ",
+      "explanation": "language のうしろに spoken in many countries を置くよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc9",
+      "front": "a picture painted by Picasso",
+      "back": "「ピカソによって描かれた絵」を英語にすると？（a picture (　) by Picasso）",
+      "hint": "「描かれた」は paint の過去分詞。「〜によって」は by だよ",
+      "explanation": "picture のうしろに painted by Picasso を置くよ。by 〜 で「〜によって」を表せるよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc10",
+      "front": "a cake made by my mother",
+      "back": "「お母さんが作ったケーキ」を英語にすると？（a cake (　) by my mother）",
+      "hint": "「作られた」は make の過去分詞だよ",
+      "explanation": "cake のうしろに made by my mother を置くよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc11",
+      "front": "a village called Shirakawa",
+      "back": "「白川と呼ばれている村」を英語にすると？（a village (　) Shirakawa）",
+      "hint": "「〜と呼ばれている」は called を使うよ",
+      "explanation": "village のうしろに called Shirakawa を置くよ。named Shirakawa でもOK。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc12",
+      "front": "a bridge built 100 years ago",
+      "back": "「100年前に建てられた橋」を英語にすると？（a bridge (　) 100 years ago）",
+      "hint": "「建てられた」は build の過去分詞だよ",
+      "explanation": "bridge のうしろに built 100 years ago を置くよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "a photo taken in Australia",
+      "back": "「オーストラリアで撮られた写真」を英語にすると？（a photo (　) in Australia）",
+      "hint": "「撮られた」は take の過去分詞だよ",
+      "explanation": "photo のうしろに taken in Australia を置くよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "Cameras made in Japan are popular.",
+      "back": "「日本で作られたカメラは人気です。」を英語にすると？（(　) made in Japan are popular.）",
+      "hint": "複数の名詞 Cameras で始めて、うしろに made in Japan を置くよ",
+      "explanation": "Cameras（主語）のうしろに made in Japan を置き、are popular で続けるよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc15",
+      "front": " a broken cup（過去分詞が1語のときは名詞の前）",
+      "back": "過去分詞が1語だけのとき、名詞の前と後ろのどちらに置く？",
+      "hint": "1語だけなら名詞の前に置けるよ",
+      "explanation": "1語だけなら名詞の前（a broken cup）。説明がつくときは名詞のうしろ（a cup broken by the child）だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc16",
+      "front": "A famous ukiyo-e painting is printed on his T-shirt.",
+      "back": "「有名な浮世絵が彼のTシャツに印刷されている。」を英語にすると？（A famous ukiyo-e painting is (　) on his T-shirt.）",
+      "hint": "「印刷されている」は print の過去分詞 printed だよ",
+      "explanation": "ここでは受け身（is printed）の文だよ。print の過去分詞 printed を使うよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc17",
+      "front": "the first woman printed on a bill",
+      "back": "「紙幣に印刷された最初の女性」を英語にすると？（the first woman (　) on a bill）",
+      "hint": "「印刷された」は print の過去分詞だよ。bill は紙幣だよ",
+      "explanation": "woman のうしろに printed on a bill を置くよ。「肖像が紙幣に印刷された」という意味になるよ。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc18",
+      "front": "Products made in Germany are known for their quality.",
+      "back": "「ドイツで作られた製品は品質で知られています。」を英語にすると？（Products (　) in Germany are known for their quality.）",
+      "hint": "「作られた」は made。「〜で知られている」は known for だよ",
+      "explanation": "Products のうしろに made in Germany を置くよ。known for は「〜で知られている」だよ。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc19",
+      "front": "The library built by volunteers is used by children.",
+      "back": "「ボランティアによって建てられた図書館は子どもたちに使われています。」を英語にすると？（The library (　) by volunteers is used by children.）",
+      "hint": "built（建てられた）と used（使われている）の2つの過去分詞が出てくるよ",
+      "explanation": "library のうしろに built by volunteers を置いて主語の名詞句を作り、is used by children が続くよ。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc20",
+      "front": "後置修飾は名詞を説明し、受動態は文の述語になる。",
+      "back": "過去分詞の後置修飾と受動態のちがいは？",
+      "hint": "後置修飾は形容詞のはたらき、受動態は…？",
+      "explanation": "後置修飾: the car made in Germany（ドイツ製の車）/ 受動態: The car was made in Germany.（その車はドイツで作られた。）だよ。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc21",
+      "front": "I found a wallet left on the bench.",
+      "back": "「ベンチの上に置かれていた財布を見つけた。」を英語にすると？（I found a wallet (　) on the bench.）",
+      "hint": "「置かれた・残された」は leave の過去分詞 left だよ",
+      "explanation": "wallet のうしろに left on the bench を置くよ。leave → left → left だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc22",
+      "front": "a song loved by everyone",
+      "back": "「みんなに愛されている歌」を英語にすると？（a song (　) by everyone）",
+      "hint": "「愛されている」は love の過去分詞 loved だよ",
+      "explanation": "song のうしろに loved by everyone を置くよ。",
+      "difficulty": "basic"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "(　) に入るのは？\na book (　) in English\n（英語で書かれた本）",
+        "options": ["write", "writing", "wrote", "written"],
+        "correctIndex": 3,
+        "explanation": "過去分詞 + 説明がつくときは名詞のうしろに置くよ。a book written in English が正しいよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "(　) に入るのは？\nThe picture (　) by Picasso is famous.\n（ピカソが描いた絵は有名です。）",
+        "options": ["paint", "painting", "paints", "painted"],
+        "correctIndex": 3,
+        "explanation": "「描かれた」は過去分詞 painted。picture のうしろに painted by Picasso を置くよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "(　) に入るのは？\na cake (　) by my mother\n（お母さんが作ったケーキ）",
+        "options": ["make", "making", "made", "makes"],
+        "correctIndex": 2,
+        "explanation": "「作られた」は過去分詞 made。cake のうしろに made by my mother を置くよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "(　) に入るのは？\nThere is a place (　) Little India.\n（リトル・インディアと呼ばれる場所があります。）",
+        "options": [
+          "calls",
+          "calling",
+          "call",
+          "called"
+        ],
+        "correctIndex": 3,
+        "explanation": "「〜と呼ばれている場所」は called を使うよ。There is a place called Little India. が正しいよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "(　) に入るのは？\nCameras (　) in Japan are popular.\n（日本で作られたカメラは人気です。）",
+        "options": ["make", "making", "made", "makes"],
+        "correctIndex": 2,
+        "explanation": "「作られた」は過去分詞 made。Cameras のうしろに made in Japan を置くよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "speak（話す）の過去分詞はどれ？",
+        "options": [
+          "speaking",
+          "spoke",
+          "spoken",
+          "speaks"
+        ],
+        "correctIndex": 2,
+        "explanation": "speak → spoke → spoken。the language spoken in Japan のように使えるよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q7",
+        "question": "「壊された窓」を1語で説明するとき、正しいのは？",
+        "options": [
+          "a broken window",
+          "a window broken",
+          "a breaking window",
+          "a broke window"
+        ],
+        "correctIndex": 0,
+        "explanation": "過去分詞1語だけなら名詞の前に置けるよ。a broken window が正しいよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q8",
+        "question": "(　) に入るのは？\nThis is a bridge (　) 50 years ago.\n（これは50年前に建てられた橋です。）",
+        "options": ["build", "building", "built", "builds"],
+        "correctIndex": 2,
+        "explanation": "「建てられた」は build の過去分詞 built。bridge のうしろに built 50 years ago を置くよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "(　) に入るのは？\nThe language (　) in Brazil is Portuguese.\n（ブラジルで話されている言語はポルトガル語です。）",
+        "options": ["speak", "speaking", "spoke", "spoken"],
+        "correctIndex": 3,
+        "explanation": "「話されている」は speak の過去分詞 spoken。language のうしろに spoken in Brazil を置くよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "(　) に入るのは？\nI found a wallet (　) on the bench.\n（ベンチの上に置かれていた財布を見つけた。）",
+        "options": ["leave", "leaving", "leaves", "left"],
+        "correctIndex": 3,
+        "explanation": "「置かれた・残された」は leave の過去分詞 left。wallet のうしろに left on the bench を置くよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "(　) に入るのは？\nThis is a picture (　) by Mr. Hoshino.\n（これは星野先生によって描かれた絵です。）",
+        "options": ["paint", "painting", "paints", "painted"],
+        "correctIndex": 3,
+        "explanation": "「描かれた」は paint の過去分詞 painted。picture のうしろに painted by Mr. Hoshino を置くよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "(　) に入るのは？\nA famous ukiyo-e painting (　) on his T-shirt.\n（有名な浮世絵が彼のTシャツに印刷されています。）",
+        "options": [
+          "is printed",
+          "is printing",
+          "prints",
+          "printing"
+        ],
+        "correctIndex": 0,
+        "explanation": "これは受け身の文。print の過去分詞 printed を使って is printed とするよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q13",
+        "question": "(　) に入るのは？\nProducts (　) in Germany are known for their quality.\n（ドイツで作られた製品は品質で知られています。）",
+        "options": ["make", "making", "made", "makes"],
+        "correctIndex": 2,
+        "explanation": "「作られた」は make の過去分詞 made。Products のうしろに made in Germany を置くよ。known for は「〜で知られている」だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q14",
+        "question": "(　) に入るのは？\nThe library (　) by volunteers is used by local people.\n（ボランティアが建てた図書館が地域の人々に使われています。）",
+        "options": ["build", "building", "built", "builds"],
+        "correctIndex": 2,
+        "explanation": "「建てられた」は build の過去分詞 built。library のうしろに built by volunteers を置くよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q15",
+        "question": "(　) に入るのは？\nthe first woman (　) on a bill\n（初めて紙幣に印刷された女性）",
+        "options": ["print", "printing", "prints", "printed"],
+        "correctIndex": 3,
+        "explanation": "「印刷された」は print の過去分詞 printed。woman のうしろに printed on a bill を置くよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q16",
+        "question": "過去分詞1語で名詞を修飾するとき、どこに置く？",
+        "options": [
+          "文の最後に置く",
+          "動詞の前に置く",
+          "名詞のうしろに置く",
+          "名詞の前に置く"
+        ],
+        "correctIndex": 3,
+        "explanation": "過去分詞1語なら名詞の前に置ける（a broken cup）。説明がつくときは名詞のうしろ（a cup broken by the child）だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q17",
+        "type": "reorder",
+        "question": "次の語を並べかえて「これは英語で書かれた本です。」の英文を作ろう。\nThis is a book (　)(　)(　).",
+        "words": ["English", "in", "written"],
+        "correctOrder": [2, 1, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「This is a book written in English.」が正解。written（書かれた）+ in（〜で）+ English の順だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q18",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私は彼女によって書かれた手紙を見つけました。」の英文を作ろう。\nI found a letter (　)(　)(　).",
+        "words": ["her", "by", "written"],
+        "correctOrder": [2, 1, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I found a letter written by her.」が正解。written + by + her の順だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q19",
+        "type": "reorder",
+        "question": "次の語を並べかえて「日本で作られたカメラは人気です。」の英文を作ろう。\n(　)(　)(　)(　) are popular.",
+        "words": ["Japan", "in", "Cameras", "made"],
+        "correctOrder": [2, 3, 1, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Cameras made in Japan are popular.」が正解。Cameras + made + in + Japan の順だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q21",
+        "type": "reorder",
+        "question": "次の語を並べかえて「ブラジルで話されている言語はポルトガル語です。」の英文を作ろう。\nThe language (　)(　)(　) is Portuguese.",
+        "words": ["Brazil", "spoken", "in"],
+        "correctOrder": [1, 2, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「The language spoken in Brazil is Portuguese.」が正解。spoken + in + Brazil の順だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q22",
+        "type": "reorder",
+        "question": "次の語を並べかえて「ボランティアによって建てられた図書館は美しい。」の英文を作ろう。\n(　)(　)(　)(　) is beautiful.",
+        "words": ["volunteers", "The library", "built", "by"],
+        "correctOrder": [1, 2, 3, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「The library built by volunteers is beautiful.」が正解。The library + built + by + volunteers の順だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q23",
+        "type": "reorder",
+        "question": "次の語を並べかえて「100年前に建てられたその城は今も残っています。」の英文を作ろう。\n(　)(　)(　) still stands.",
+        "words": ["100 years ago", "The castle", "built"],
+        "correctOrder": [1, 2, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「The castle built 100 years ago still stands.」が正解。The castle + built + 100 years ago の順だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q24",
+        "question": "(　) に入るのは？\nThis is a book (　) in English.\n（これは英語で書かれた本です。）",
+        "options": ["write", "writing", "written", "wrote"],
+        "correctIndex": 2,
+        "explanation": "過去分詞 written が名詞 book をうしろから修飾して「書かれた本」。write-wrote-written。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q25",
+        "question": "(　) に入るのは？\nThis is a photo (　) in Kyoto.\n（これは京都で撮られた写真です。）",
+        "options": ["take", "taking", "took", "taken"],
+        "correctIndex": 3,
+        "explanation": "「撮られた」は take の過去分詞 taken。photo のうしろに taken in Kyoto を置くよ。take-took-taken。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q26",
+        "question": "(　) に入るのは？\na song (　) by everyone\n（みんなに愛されている歌）",
+        "options": ["love", "loving", "loves", "loved"],
+        "correctIndex": 3,
+        "explanation": "「愛されている」は love の過去分詞 loved。song のうしろに loved by everyone を置くよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q27",
+        "question": "(　) に入るのは？\nI have a watch (　) in Switzerland.\n（私はスイスで作られた時計を持っています。）",
+        "options": ["make", "making", "made", "makes"],
+        "correctIndex": 2,
+        "explanation": "「作られた」は make の過去分詞 made。watch のうしろに made in Switzerland を置くよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q28",
+        "question": "(　) に入るのは？\nThe shoes (　) at that store are cheap.\n（あの店で売られている靴は安い。）",
+        "options": ["sell", "selling", "sold", "sells"],
+        "correctIndex": 2,
+        "explanation": "「売られている」は sell の過去分詞 sold。shoes のうしろに sold at that store を置くよ。sell-sold-sold。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q29",
+        "question": "(　) に入るのは？\nI have a dog (　) Pochi.\n（私はポチと名づけられた犬を飼っています。）",
+        "options": ["calling", "called", "calls", "call"],
+        "correctIndex": 1,
+        "explanation": "「〜と呼ばれている・名づけられた」は called。dog のうしろに called Pochi を置くよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q30",
+        "type": "reorder",
+        "question": "次の語を並べかえて「京都で撮られた写真は美しい。」の英文を作ろう。\n(　)(　)(　)(　) is beautiful.",
+        "words": ["Kyoto", "in", "The photo", "taken"],
+        "correctOrder": [2, 3, 1, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「The photo taken in Kyoto is beautiful.」が正解。The photo + taken + in + Kyoto の順だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q31",
+        "type": "reorder",
+        "question": "次の語を並べかえて「これはみんなに愛されている歌です。」の英文を作ろう。\nThis is a song (　)(　)(　).",
+        "words": ["everyone", "loved", "by"],
+        "correctOrder": [1, 2, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「This is a song loved by everyone.」が正解。loved + by + everyone の順だよ。",
+        "difficulty": "basic"
+      }
+    ]
+  }
+}

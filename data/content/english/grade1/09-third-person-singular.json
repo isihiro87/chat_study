@@ -1,0 +1,436 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade1",
+  "topicId": "eng-third-person-singular",
+  "name": "三人称単数現在",
+  "subtitle": "he / she / it + 動詞s の使い方",
+  "icon": "👆",
+  "order": 9,
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "plays",
+      "back": "He (　) soccer.（彼はサッカーをします。）",
+      "hint": "He は1人だから動詞のおしりに何をつける？",
+      "explanation": "He は三人称単数なので play に s をつけて plays。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "play",
+      "back": "They (　) soccer.（彼らはサッカーをします。）",
+      "hint": "They は複数？単数？",
+      "explanation": "They は三人称単数ではない（複数）ので、動詞は play のまま。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "likes",
+      "back": "She (　) music.（彼女は音楽が好きです。）",
+      "hint": "She は1人だから s をつける",
+      "explanation": "She は三人称単数なので like に s をつけて likes。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "lives",
+      "back": "Fumiya (　) in Hawaii.（文也はハワイに住んでいます。）",
+      "hint": "Fumiya は he と同じあつかい",
+      "explanation": "Fumiya は三人称単数なので live に s をつけて lives。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "studies",
+      "back": "Ken (　) English.（ケンは英語を勉強します。）",
+      "hint": "study は y で終わる",
+      "explanation": "Ken は三人称単数。study は y を i にかえて es → studies。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "goes",
+      "back": "Amy (　) to school by bike.（エイミーは自転車で学校に行きます。）",
+      "hint": "go は o で終わる",
+      "explanation": "Amy は三人称単数。go は o で終わるので es をつけて goes。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc7",
+      "front": "watches",
+      "back": "Ken often (　) TV.（ケンはよくテレビを見ます。）",
+      "hint": "watch は ch で終わる",
+      "explanation": "watch は ch で終わるので es をつけて watches。often は動詞の前に置くよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "has",
+      "back": "My brother (　) a pen.（私の兄はペンを持っています。）",
+      "hint": "have は特別な変化をする",
+      "explanation": "My brother は三人称単数。have は不規則に has になるよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc9",
+      "front": "have",
+      "back": "I (　) some questions.（私はいくつか質問があります。）",
+      "hint": "主語が I のときは has？ have？",
+      "explanation": "I は三人称単数ではないので have のまま。has は he/she/it のときだけ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc10",
+      "front": "works",
+      "back": "He (　) as a tour guide.（彼はツアーガイドとして働いています。）",
+      "hint": "He は1人だから s をつける",
+      "explanation": "He は三人称単数なので work に s をつけて works。as は「〜として」の意味。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "knows",
+      "back": "She (　) a lot about Japan.（彼女は日本についてたくさん知っています。）",
+      "hint": "She は1人",
+      "explanation": "She は三人称単数なので know に s をつけて knows。a lot は「たくさん」。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "doesn't",
+      "back": "Maria (　) speak Japanese.（マリアは日本語を話しません。）",
+      "hint": "三人称単数の「〜しない」は？",
+      "explanation": "三人称単数の否定は doesn't ＋ 動詞のもとの形。speak は speaks にしないよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "don't",
+      "back": "My parents (　) want a pet.（私の両親はペットをほしがっていません。）",
+      "hint": "parents は複数",
+      "explanation": "My parents は複数なので don't を使うよ。doesn't ではないので注意。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "Does",
+      "back": "(　) your sister have a pet?（あなたのお姉さんはペットを飼っていますか。）",
+      "hint": "三人称単数の疑問文の文頭は？",
+      "explanation": "三人称単数の疑問文は Does を文頭に置き、動詞はもとの形（have）にするよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc15",
+      "front": "Do",
+      "back": "(　) you have any questions?（何か質問はありますか。）",
+      "hint": "you は三人称単数じゃない",
+      "explanation": "you は三人称単数ではないので Do を使うよ。Does ではないので注意。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc16",
+      "front": "enjoys",
+      "back": "Hina (　) life in Japan.（ヒナは日本での生活を楽しんでいます。）",
+      "hint": "Hina は she と同じあつかい",
+      "explanation": "Hina は三人称単数なので enjoy に s をつけて enjoys。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc17",
+      "front": "makes",
+      "back": "She (　) a fried egg.（彼女は目玉焼きを作ります。）",
+      "hint": "She は1人",
+      "explanation": "She は三人称単数なので make に s をつけて makes。fried egg は目玉焼き。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc18",
+      "front": "teaches",
+      "back": "Ms. Chen (　) math.（チェン先生は数学を教えます。）",
+      "hint": "teach は ch で終わる",
+      "explanation": "Ms. Chen は三人称単数。teach は ch で終わるので es をつけて teaches。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc19",
+      "front": "cries",
+      "back": "The baby sometimes (　) in the morning.（その赤ちゃんはときどき朝に泣きます。）",
+      "hint": "cry は y で終わる",
+      "explanation": "The baby は it と同じ三人称単数。cry は y を i にかえて es → cries。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc20",
+      "front": "swim",
+      "back": "His child doesn't (　) well.（彼の子供はじょうずに泳げません。）",
+      "hint": "doesn't の後ろの動詞の形は？",
+      "explanation": "doesn't の後ろは動詞のもとの形（swim）。swims にしないよ。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc21",
+      "front": "surf",
+      "back": "Does his child (　) at the beach?（彼の子供はビーチでサーフィンをしますか。）",
+      "hint": "Does の後ろの動詞の形は？",
+      "explanation": "Does を使ったら動詞はもとの形（surf）にするよ。surfs にしない。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc22",
+      "front": "usually goes",
+      "back": "He (　) to the beach on weekends.（彼はふだん週末にビーチに行きます。）",
+      "hint": "usually の位置と go の形に注意",
+      "explanation": "usually は動詞の前。He は三人称単数なので go は goes になり「usually goes」となる。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "「彼はサッカーをします。」に合う英文を選びなさい。",
+        "options": ["He play soccer.", "He playing soccer.", "He plays soccer.", "He is play soccer."],
+        "correctIndex": 2,
+        "explanation": "He が主語なので play に s をつけて plays にします。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "「彼らはネコが好きです。」に合う英文を選びなさい。",
+        "options": ["They like cats.", "They likes cats.", "They liking cats.", "They does like cats."],
+        "correctIndex": 0,
+        "explanation": "They は三人称単数ではないので、like に s はつけません。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "(　) に入るのは？\nFumiya (　) in Hawaii.\n（文也はハワイに住んでいます。）",
+        "options": ["live", "living", "lives", "is live"],
+        "correctIndex": 2,
+        "explanation": "Fumiya は三人称単数なので、live に s をつけて lives にします。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "(　) に入るのは？\nMs. Chen (　) kanji.\n（チェン先生は漢字を読みます。）",
+        "options": ["reads", "read", "reading", "is read"],
+        "correctIndex": 0,
+        "explanation": "Ms. Chen は三人称単数なので、read に s をつけて reads にします。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "(　) に入るのは？\nMy sister (　) a pen.\n（私の姉はペンを持っています。）",
+        "options": ["have", "haves", "is have", "has"],
+        "correctIndex": 3,
+        "explanation": "My sister は she と同じ三人称単数なので、have は has になります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "(　) に入るのは？\nHaruto (　) sports.\n（ハルトはスポーツを楽しみます。）",
+        "options": ["enjoy", "enjoying", "is enjoy", "enjoys"],
+        "correctIndex": 3,
+        "explanation": "Haruto は三人称単数なので、enjoy に s をつけて enjoys にします。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q7",
+        "question": "(　) に入るのは？\nAmy (　) to school by bike.\n（エイミーは自転車で学校に行きます。）",
+        "options": ["goes", "go", "gos", "going"],
+        "correctIndex": 0,
+        "explanation": "Amy は三人称単数。go は o で終わるので es をつけて goes になります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "(　) に入るのは？\nMs. Lee often (　) TV.\n（リー先生はよくテレビを見ます。）",
+        "options": ["watch", "watchs", "watches", "watching"],
+        "correctIndex": 2,
+        "explanation": "watch は ch で終わるので、es をつけて watches にします。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "「彼は水を飲みません。」に合う英文を選びなさい。",
+        "options": ["He doesn't drinks water.", "He doesn't drink water.", "He don't drink water.", "He isn't drink water."],
+        "correctIndex": 1,
+        "explanation": "doesn't の後は drink のもとの形を使います。He don't は誤りです。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "「私の両親はペットをほしがっていません。」に合う英文を選びなさい。",
+        "options": ["My parents doesn't want a pet.", "My parents don't wants a pet.", "My parents don't want a pet.", "My parents aren't want a pet."],
+        "correctIndex": 2,
+        "explanation": "My parents は複数なので don't を使い、動詞は want のままにします。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "(　) に入るのは？\n(　) your father work on Sundays?\n（あなたのお父さんは日曜日に働きますか。）",
+        "options": ["Do", "Does", "Is", "Are"],
+        "correctIndex": 1,
+        "explanation": "your father は he と同じ三人称単数なので Does を使います。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "(　) に入るのは？\n(　) you have any questions?\n（何か質問はありますか。）",
+        "options": ["Does", "Do", "Is", "Are"],
+        "correctIndex": 1,
+        "explanation": "主語が you の疑問文では Do を使います。Does は使いません。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q13",
+        "question": "正しい英文を選びなさい。",
+        "options": ["Does Amy studies math?", "Do Amy study math?", "Is Amy study math?", "Does Amy study math?"],
+        "correctIndex": 3,
+        "explanation": "Does の後は動詞のもとの形 study を使います。studies にはしません。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q14",
+        "question": "「彼女はじょうずに目玉焼きを作ります。」に合う英文を選びなさい。",
+        "options": ["She makes a fried egg well.", "She make a fried egg well.", "She is make a fried egg well.", "She making a fried egg well."],
+        "correctIndex": 0,
+        "explanation": "She は三人称単数なので make に s をつけて makes にします。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q15",
+        "question": "「彼らは放課後に本を読みますか。」に合う英文を選びなさい。",
+        "options": ["Does they read books after school?", "Do they reads books after school?", "Do they read books after school?", "Are they read books after school?"],
+        "correctIndex": 2,
+        "explanation": "They は三人称単数ではないので Do they ~? とし、動詞は read のままにします。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q16",
+        "question": "「その赤ちゃんはときどき朝に泣きます。」に合う英文を選びなさい。",
+        "options": ["The baby sometimes crys in the morning.", "The baby cries sometimes in the morning.", "The baby is sometimes cry in the morning.", "The baby sometimes cries in the morning."],
+        "correctIndex": 3,
+        "explanation": "cry は y を i にかえて cries にします。sometimes は一般動詞の前が基本です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q17",
+        "question": "「彼女は日本についてたくさん知っています。」に合う英文を選びなさい。",
+        "options": ["She know a lot about Japan.", "She knows a lot about Japan.", "She is know a lot about Japan.", "She knowing a lot about Japan."],
+        "correctIndex": 1,
+        "explanation": "She は三人称単数なので know に s をつけて knows にします。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q18",
+        "type": "reorder",
+        "question": "次の語を並べかえて「彼はサッカーをします。」の英文を作ろう。",
+        "words": ["soccer", "plays", "he"],
+        "correctOrder": [2, 1, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「He plays soccer.」が正解。He は三人称単数なので play に s をつけて plays。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q19",
+        "type": "reorder",
+        "question": "次の語を並べかえて「彼女は音楽が好きです。」の英文を作ろう。",
+        "words": ["music", "she", "likes"],
+        "correctOrder": [1, 2, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「She likes music.」が正解。She は三人称単数なので like に s をつけて likes。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q20",
+        "type": "reorder",
+        "question": "次の語を並べかえて「文也はハワイに住んでいます。」の英文を作ろう。",
+        "words": ["in", "Fumiya", "lives", "Hawaii"],
+        "correctOrder": [1, 2, 0, 3],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Fumiya lives in Hawaii.」が正解。Fumiya は三人称単数なので lives。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q21",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私の兄はペンを持っています。」の英文を作ろう。",
+        "words": ["a pen", "my brother", "has"],
+        "correctOrder": [1, 2, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「My brother has a pen.」が正解。My brother は三人称単数。have → has。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q22",
+        "type": "reorder",
+        "question": "次の語を並べかえて「彼はツアーガイドとして働いています。」の英文を作ろう。",
+        "words": ["as", "works", "he", "a tour guide"],
+        "correctOrder": [2, 1, 0, 3],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「He works as a tour guide.」が正解。work に s をつけて works。as は「〜として」。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q23",
+        "type": "reorder",
+        "question": "次の語を並べかえて「彼女は英語を話しますか。」の英文を作ろう。",
+        "words": ["English", "she", "does", "speak"],
+        "correctOrder": [2, 1, 3, 0],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Does she speak English?」が正解。Does の後は動詞のもとの形（speak）。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q24",
+        "type": "reorder",
+        "question": "次の語を並べかえて「マリアは日本語を話しません。」の英文を作ろう。",
+        "words": ["Japanese", "Maria", "speak", "doesn't"],
+        "correctOrder": [1, 3, 2, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Maria doesn't speak Japanese.」が正解。doesn't の後は動詞のもとの形（speak）。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q25",
+        "type": "reorder",
+        "question": "次の語を並べかえて「彼のお姉さんは駅の近くに住んでいますか。」の英文を作ろう。",
+        "words": ["near", "does", "his sister", "live", "the station"],
+        "correctOrder": [1, 2, 3, 0, 4],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Does his sister live near the station?」が正解。Does の後は live。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q26",
+        "type": "reorder",
+        "question": "次の語を並べかえて「彼はふだん週末にビーチに行きます。」の英文を作ろう。",
+        "words": ["to the beach", "usually", "he", "goes", "on weekends"],
+        "correctOrder": [2, 1, 3, 0, 4],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「He usually goes to the beach on weekends.」が正解。usually は goes の前。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

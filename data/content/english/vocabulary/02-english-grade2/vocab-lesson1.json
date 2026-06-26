@@ -1,0 +1,379 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade2",
+  "topicId": "vocab-lesson1",
+  "name": "What can we experience on a trip? の単語",
+  "subtitle": "旅行・未来の予定・案内の語彙",
+  "icon": "✈️",
+  "order": 1,
+  "chatId": "eng-vocab-g2-lesson1",
+  "explanation": {
+    "sections": [
+      {
+        "title": "未来の予定を表すことば",
+        "content": "be going to や will とともに使う visit、arrive、leave、stay などの動詞を確認します。空港や旅行に関する語も多く登場します。",
+        "keyPoints": [
+          "arrive は「到着する」、leave は「出発する、去る」。反対の意味で覚える。",
+          "soon は「すぐに、まもなく」。未来を表す文と相性がよい。",
+          "reservation は「予約」。make a reservation で「予約をする」。"
+        ]
+      },
+      {
+        "title": "旅行・場所のことば",
+        "content": "flight、airport、tour、guide、view など、旅行や観光地に関する語をまとめます。Singapore や Hawaii などの地名は大文字で始めます。",
+        "keyPoints": [
+          "flight は「飛行機の便、空の旅」、airport は「空港」。",
+          "golden は「金色の、すばらしい」。Golden Week のように使う。",
+          "view は「景色、ながめ」。a great view で「すばらしい景色」。"
+        ]
+      },
+      {
+        "title": "案内・呼び方のことば",
+        "content": "show、call、communicate、weigh など、人に見せたり呼んだりする動作を表す語を確認します。show AB「A に B を見せる」、call AB「A を B と呼ぶ」のかたちが大切です。",
+        "keyPoints": [
+          "show は「見せる」。show me some pictures で「私に写真を見せる」。",
+          "call は「呼ぶ」。call this area Little India で「この区域をリトル・インディアと呼ぶ」。",
+          "communicate は「意思の疎通をする」、weigh は「重さがある」。"
+        ]
+      }
+    ]
+  },
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "eng-vocab-g2-l1-fc01",
+      "front": "be going to",
+      "back": "〜するつもりだ、〜する予定だ",
+      "explanation": "be going to は「〜するつもりだ、〜する予定だ」という表現です。あとには動詞の原形がきます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l1-fc02",
+      "front": "will",
+      "back": "〜でしょう、〜するつもりだ",
+      "explanation": "will は「〜でしょう、〜するつもりだ」という意味の助動詞です。あとには動詞の原形がきます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l1-fc03",
+      "front": "visit",
+      "back": "〜を訪れる",
+      "explanation": "visit は「〜を訪れる」という動作を表します。visit Singapore で「シンガポールを訪れる」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l1-fc04",
+      "front": "arrive",
+      "back": "到着する",
+      "explanation": "arrive は「到着する」という意味です。arrive in Singapore で「シンガポールに到着する」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l1-fc05",
+      "front": "leave",
+      "back": "出発する、去る",
+      "explanation": "leave は「出発する、去る」という意味です。leave for the airport で「空港へ向けて出発する」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l1-fc06",
+      "front": "stay",
+      "back": "滞在する、とどまる",
+      "explanation": "stay は「滞在する、とどまる」という意味です。stay in Japan で「日本に滞在する」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l1-fc07",
+      "front": "soon",
+      "back": "すぐに、まもなく",
+      "explanation": "soon は「すぐに、まもなく」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l1-fc08",
+      "front": "flight",
+      "back": "飛行機の便、空の旅",
+      "explanation": "flight は「飛行機の便、空の旅」という意味です。My flight arrives at 5 p.m. のように使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l1-fc09",
+      "front": "airport",
+      "back": "空港",
+      "explanation": "airport は「空港」という意味です。meet in the airport で「空港で会う」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l1-fc10",
+      "front": "golden",
+      "back": "金色の、すばらしい",
+      "explanation": "golden は「金色の、すばらしい」という意味です。Golden Week のように使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l1-fc11",
+      "front": "reservation",
+      "back": "予約",
+      "explanation": "reservation は「予約」という意味です。make a reservation で「予約をする」になります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l1-fc12",
+      "front": "seafood",
+      "back": "シーフード、海産物",
+      "explanation": "seafood は「シーフード、海産物」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l1-fc13",
+      "front": "excited",
+      "back": "わくわくした",
+      "explanation": "excited は「わくわくした」という意味です。I'm so excited. で「私はとてもわくわくしています」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l1-fc14",
+      "front": "show",
+      "back": "〜を見せる、案内する",
+      "explanation": "show は「〜を見せる、案内する」という動作を表します。show me some pictures で「私に写真を見せる」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l1-fc15",
+      "front": "call",
+      "back": "〜を呼ぶ、〜と呼ぶ",
+      "explanation": "call は「〜を呼ぶ、〜と呼ぶ」という動作を表します。call this area Little India で「この区域をリトル・インディアと呼ぶ」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l1-fc16",
+      "front": "communicate",
+      "back": "意思の疎通をする、連絡する",
+      "explanation": "communicate は「意思の疎通をする、連絡する」という意味です。communicate in English で「英語で意思の疎通をする」になります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l1-fc17",
+      "front": "weigh",
+      "back": "〜の重さがある",
+      "explanation": "weigh は「〜の重さがある」という意味です。It weighs 70 tons. のように使います。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l1-fc18",
+      "front": "find",
+      "back": "〜を見つける、発見する",
+      "explanation": "find は「〜を見つける、発見する」という動作を表します。過去形は found です。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l1-fc19",
+      "front": "found",
+      "back": "find の過去形、見つけた",
+      "explanation": "found は find の過去形です。不規則に変化する動詞なのでそのまま覚えましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l1-fc20",
+      "front": "meter",
+      "back": "メートル",
+      "explanation": "meter は「メートル」という長さの単位です。3 meters tall で「身長3メートル」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l1-fc21",
+      "front": "ton",
+      "back": "トン",
+      "explanation": "ton は「トン」という重さの単位です。2 tons で「2トン」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l1-fc22",
+      "front": "dollar",
+      "back": "ドル",
+      "explanation": "dollar は「ドル」というお金の単位です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l1-fc23",
+      "front": "language",
+      "back": "言語、言葉",
+      "explanation": "language は「言語、言葉」という意味です。three languages で「3か国語」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l1-fc24",
+      "front": "example",
+      "back": "例、実例",
+      "explanation": "example は「例、実例」という意味です。for example で「例えば」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l1-fc25",
+      "front": "culture",
+      "back": "文化",
+      "explanation": "culture は「文化」という意味です。different cultures で「さまざまな文化」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l1-fc26",
+      "front": "area",
+      "back": "区域、場所、地域",
+      "explanation": "area は「区域、場所、地域」という意味です。this area で「この区域」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l1-fc27",
+      "front": "surprised",
+      "back": "驚いた",
+      "explanation": "surprised は「驚いた」という意味です。be surprised で「驚く」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l1-fc28",
+      "front": "wall",
+      "back": "壁",
+      "explanation": "wall は「壁」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l1-fc29",
+      "front": "painting",
+      "back": "絵、絵画",
+      "explanation": "painting は「絵、絵画」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l1-fc30",
+      "front": "mosque",
+      "back": "モスク、イスラム教の礼拝所",
+      "explanation": "mosque は「モスク、イスラム教の礼拝所」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l1-fc31",
+      "front": "view",
+      "back": "景色、ながめ",
+      "explanation": "view は「景色、ながめ」という意味です。a great view で「すばらしい景色」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l1-fc32",
+      "front": "tour",
+      "back": "旅行、ツアー、見学",
+      "explanation": "tour は「旅行、ツアー、見学」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l1-fc33",
+      "front": "gift",
+      "back": "おみやげ、贈り物",
+      "explanation": "gift は「おみやげ、贈り物」という意味です。some gifts で「いくつかのおみやげ」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l1-fc34",
+      "front": "famous",
+      "back": "有名な",
+      "explanation": "famous は「有名な」という意味です。the famous Merlion で「あの有名なマーライオン」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l1-fc35",
+      "front": "lake",
+      "back": "湖",
+      "explanation": "lake は「湖」という意味です。visit a lake で「湖を訪れる」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l1-fc36",
+      "front": "temple",
+      "back": "寺",
+      "explanation": "temple は「寺」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l1-fc37",
+      "front": "concert",
+      "back": "コンサート、演奏会",
+      "explanation": "concert は「コンサート、演奏会」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l1-fc38",
+      "front": "take a picture",
+      "back": "写真を撮る",
+      "explanation": "take a picture は「写真を撮る」という表現です。take many pictures で「写真をたくさん撮る」になります。",
+      "difficulty": "basic"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "arrive の意味は？",
+        "options": [
+          "出発する",
+          "到着する",
+          "予約する",
+          "案内する"
+        ],
+        "correctIndex": 1,
+        "explanation": "arrive は「到着する」。反対は leave「出発する」です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "「予約をする」を表すまとまりは？",
+        "options": [
+          "make a reservation",
+          "take a picture",
+          "for example",
+          "a great view"
+        ],
+        "correctIndex": 0,
+        "explanation": "reservation は「予約」。make a reservation で「予約をする」になります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q3",
+        "question": "「A を B と呼ぶ」という意味で使う動詞は？",
+        "options": [
+          "show",
+          "weigh",
+          "call",
+          "leave"
+        ],
+        "correctIndex": 2,
+        "explanation": "call AB で「A を B と呼ぶ」。call this area Little India のように使います。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "flight の意味は？",
+        "options": [
+          "空港",
+          "景色",
+          "文化",
+          "飛行機の便、空の旅"
+        ],
+        "correctIndex": 3,
+        "explanation": "flight は「飛行機の便、空の旅」。My flight arrives at 5 p.m. のように使います。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "find の過去形は？",
+        "options": [
+          "finded",
+          "found",
+          "fund",
+          "find"
+        ],
+        "correctIndex": 1,
+        "explanation": "find の過去形は found です。不規則に変化する動詞です。",
+        "difficulty": "basic"
+      }
+    ]
+  }
+}

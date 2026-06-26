@@ -1,0 +1,472 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade3",
+  "topicId": "eng-indirect-questions",
+  "name": "間接疑問文",
+  "subtitle": "疑問のことばが文の途中に入る言い方",
+  "icon": "🤔",
+  "order": 5,
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "he wants",
+      "back": "I know what (　).（私は彼が何をほしいか知っています。）",
+      "hint": "does は消して動詞だけ残す",
+      "explanation": "もとの疑問文は What does he want? です。間接疑問文では does を消し、主語 he のあとの動詞に三人称単数の s をつけて wants にします。語順は「疑問詞＋主語＋動詞」です。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "she lives",
+      "back": "Do you know where (　)?（彼女がどこに住んでいるか知っていますか。）",
+      "hint": "does は使わない",
+      "explanation": "Where does she live? を間接疑問文にすると where she lives になります。does が消えるかわりに動詞 live に s がついて lives になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "the meeting starts",
+      "back": "Could you tell me when (　)?（会議がいつ始まるか教えてもらえますか。）",
+      "hint": "主語＋動詞の語順",
+      "explanation": "When does the meeting start? を埋め込むと when the meeting starts になります。主語が the meeting（三人称単数）なので動詞は starts です。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc4",
+      "front": "she did it",
+      "back": "I don't know how (　).（私は彼女がどうやってそれをしたのか分かりません。）",
+      "hint": "過去形にする",
+      "explanation": "How did she do it? を間接疑問文にすると how she did it です。did が消えるので、動詞は過去形の did（do の過去形）になります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc5",
+      "front": "who broke",
+      "back": "Tell me (　) the window.（だれが窓を割ったのか教えて。）",
+      "hint": "疑問詞が主語",
+      "explanation": "Who broke the window? は who が主語の疑問文なので、間接疑問文にしても語順はそのままで who broke となります。do/does/did は最初から入りません。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "what happened",
+      "back": "I want to know (　) at the festival.（お祭りで何が起こったのか知りたい。）",
+      "hint": "what が主語",
+      "explanation": "What happened? は what が主語なので語順を変えず what happened のままです。主語の疑問詞のときは「主語＋動詞」を入れ替える必要がありません。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc7",
+      "front": "the bus stop is",
+      "back": "Do you know where (　)?（バス停がどこにあるか知っていますか。）",
+      "hint": "be動詞も主語のあと",
+      "explanation": "Where is the bus stop? を埋め込むと where the bus stop is になります。be動詞 is も主語 the bus stop のあとに置きます。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "old he is",
+      "back": "I wonder how (　).（私は彼が何歳なのかなと思います。）",
+      "hint": "how old のかたまり",
+      "explanation": "How old is he? を埋め込むと how old he is になります。how old をひとかたまりにして、そのあとに主語 he ＋ be動詞 is を続けます。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc9",
+      "front": "the concert is",
+      "back": "Please tell me when (　).（コンサートがいつなのか教えてください。）",
+      "hint": "be動詞 is を最後に",
+      "explanation": "When is the concert? を間接疑問文にすると when the concert is です。be動詞も「主語＋be動詞」の順に直します。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "his name is",
+      "back": "I don't know what (　).（私は彼の名前が何というのか分かりません。）",
+      "hint": "what のあとに主語",
+      "explanation": "What is his name? を埋め込むと what his name is になります。be動詞 is は主語 his name のうしろに移動します。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "I should do",
+      "back": "I'm not sure what (　) next.（私は次に何をすべきか分かりません。）",
+      "hint": "助動詞も主語の後ろ",
+      "explanation": "What should I do? を埋め込むと what I should do になります。助動詞 should があるときも「疑問詞＋主語＋助動詞＋動詞」の語順で、do/does/did は使いません。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc12",
+      "front": "he will come",
+      "back": "Do you know when (　)?（彼がいつ来るか知っていますか。）",
+      "hint": "will も主語の後ろ",
+      "explanation": "When will he come? を間接疑問文にすると when he will come です。助動詞 will も主語 he のあとに置きます。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "you have done",
+      "back": "Tell me what (　) today.（あなたが今日何をしたか教えて。）",
+      "hint": "現在完了もそのまま",
+      "explanation": "What have you done today? を埋め込むと what you have done today になります。現在完了 have done も「主語＋have＋過去分詞」の順にして have を主語のあとに置きます。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc14",
+      "front": "much water you need",
+      "back": "Tell me how (　).（あなたがどれくらいの水が必要か教えて。）",
+      "hint": "how much＋名詞のかたまり",
+      "explanation": "How much water do you need? を埋め込むと how much water you need になります。how much water をひとかたまりにし、そのあとに主語 you ＋動詞 need を続けます。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc15",
+      "front": "many people were injured",
+      "back": "I don't know how (　).（私はどれくらいの人がけがをしたか分かりません。）",
+      "hint": "how many＋名詞が主語",
+      "explanation": "How many people were injured? は how many people が主語なので、語順をそのままにして how many people were injured とします。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc16",
+      "front": "Do you know what time it is?",
+      "back": "(　)（今何時か知っていますか。）",
+      "hint": "what time のあとに it is",
+      "explanation": "What time is it? を Do you know のあとに埋め込むと、be動詞 is が主語 it のうしろに移って what time it is になります。文末は「知っていますか」なのでクエスチョンマークです。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc17",
+      "front": "I know why he was late.",
+      "back": "(　)（私は彼がなぜ遅刻したのか知っています。）",
+      "hint": "why＋主語＋be動詞",
+      "explanation": "Why was he late? を I know のあとに埋め込むと why he was late になります。be動詞の過去形 was も主語 he のあとに置きます。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc18",
+      "front": "the password is",
+      "back": "Could you tell me what (　)?（パスワードが何か教えてもらえますか。）",
+      "hint": "what のあとに主語＋is",
+      "explanation": "What is the password? を埋め込むと what the password is になります。be動詞 is は主語 the password のあとに置きます。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc19",
+      "front": "the answer was",
+      "back": "I forgot what (　).（私は答えが何だったか忘れました。）",
+      "hint": "be動詞の過去形",
+      "explanation": "What was the answer? を埋め込むと what the answer was になります。be動詞の過去形 was も主語 the answer のあとに置きます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc20",
+      "front": "she said",
+      "back": "I didn't hear what (　).（私は彼女が何と言ったか聞こえませんでした。）",
+      "hint": "過去形のまま",
+      "explanation": "What did she say? を埋め込むと what she said になります。did が消えるので動詞は過去形 said（say の過去形）になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc21",
+      "front": "who painted",
+      "back": "Do you know (　) this picture?（だれがこの絵をかいたか知っていますか。）",
+      "hint": "who が主語",
+      "explanation": "Who painted this picture? は who が主語なので語順を変えず who painted のままです。主語の疑問詞のときは並べかえ不要です。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc22",
+      "front": "he likes",
+      "back": "I want to know what kind of music (　).（彼がどんな種類の音楽を好きか知りたい。）",
+      "hint": "what kind of music のかたまり",
+      "explanation": "What kind of music does he like? を埋め込むと what kind of music he likes になります。what kind of music をかたまりにし、does を消して動詞に s をつけ likes とします。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "(　) に入るのは？\nI know what (　).\n（私は彼が何を望んでいるか知っています。）",
+        "options": ["he wants", "does he want", "he want", "want he"],
+        "correctIndex": 0,
+        "explanation": "間接疑問文では does を消し、主語 he のあとの動詞に s をつけて he wants とします。「疑問詞＋主語＋動詞」の語順です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "(　) に入るのは？\nDo you know where (　)?\n（彼女がどこに住んでいるか知っていますか。）",
+        "options": ["she lives", "does she live", "she live", "lives she"],
+        "correctIndex": 0,
+        "explanation": "Where does she live? を埋め込むと where she lives になります。does を消すかわりに動詞 live に s がついて lives になります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "(　) に入るのは？\nI don't know how (　).\n（私は彼女がどうやってそれをしたのか分かりません。）",
+        "options": ["did she do it", "she does it", "she do it", "she did it"],
+        "correctIndex": 3,
+        "explanation": "How did she do it? を埋め込むと how she did it です。did が消えるので動詞は過去形の did になり、「主語＋動詞」の語順にします。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q4",
+        "question": "(　) に入るのは？\nTell me (　) the window.\n（だれが窓を割ったのか教えて。）",
+        "options": ["did who break", "who broke", "who did break", "broke who"],
+        "correctIndex": 1,
+        "explanation": "Who broke the window? は who が主語なので語順を変えず who broke のままです。主語の疑問詞のときは do/did を入れません。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "(　) に入るのは？\nDo you know where (　)?\n（バス停がどこにあるか知っていますか。）",
+        "options": ["is the bus stop", "does the bus stop", "the bus stop does", "the bus stop is"],
+        "correctIndex": 3,
+        "explanation": "Where is the bus stop? を埋め込むと where the bus stop is になります。be動詞 is も主語のあとに置きます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "(　) に入るのは？\nI wonder how (　).\n（私は彼が何歳なのかなと思います。）",
+        "options": ["is old he", "old is he", "old he is", "he is old"],
+        "correctIndex": 2,
+        "explanation": "How old is he? を埋め込むと how old he is になります。how old をかたまりにし、そのあとに主語 he ＋ be動詞 is を続けます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q7",
+        "question": "(　) に入るのは？\nI'm not sure what (　) next.\n（私は次に何をすべきか分かりません。）",
+        "options": ["should I do", "I should do", "do I should", "I do should"],
+        "correctIndex": 1,
+        "explanation": "What should I do? を埋め込むと what I should do になります。助動詞 should も主語 I のあとに置き、do/does/did は使いません。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q8",
+        "question": "(　) に入るのは？\nDo you know when (　)?\n（彼がいつ来るか知っていますか。）",
+        "options": ["will he come", "he comes", "he will come", "does he come"],
+        "correctIndex": 2,
+        "explanation": "When will he come? を埋め込むと when he will come になります。助動詞 will も主語 he のあとに置きます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "(　) に入るのは？\nTell me what (　) today.\n（あなたが今日何をしたか教えて。）",
+        "options": ["you have done", "have you done", "you did do", "did you do"],
+        "correctIndex": 0,
+        "explanation": "What have you done today? を埋め込むと what you have done today になります。現在完了 have done も主語のあとにそのまま置きます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q10",
+        "question": "(　) に入るのは？\nTell me how (　).\n（あなたがどれくらいの水が必要か教えて。）",
+        "options": ["much water do you need", "much water you need", "much do you water need", "do you need much water"],
+        "correctIndex": 1,
+        "explanation": "How much water do you need? を埋め込むと how much water you need になります。how much water をかたまりにし、そのあとに主語 you ＋動詞 need を続けます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q11",
+        "question": "(　) に入るのは？\nI forgot what (　).\n（私は答えが何だったか忘れました。）",
+        "options": ["was the answer", "the answer was", "did the answer", "the answer did"],
+        "correctIndex": 1,
+        "explanation": "What was the answer? を埋め込むと what the answer was になります。be動詞の過去形 was も主語 the answer のあとに置きます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q12",
+        "question": "(　) に入るのは？\nI didn't hear what (　).\n（私は彼女が何と言ったか聞こえませんでした。）",
+        "options": ["did she say", "she says", "she said", "she say"],
+        "correctIndex": 2,
+        "explanation": "What did she say? を埋め込むと what she said になります。did が消えるので動詞は過去形 said になります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q13",
+        "question": "(　) に入るのは？\nCould you tell me what (　)?\n（パスワードが何か教えてもらえますか。）",
+        "options": ["is the password", "does the password", "the password does", "the password is"],
+        "correctIndex": 3,
+        "explanation": "What is the password? を埋め込むと what the password is になります。be動詞 is は主語 the password のあとに置きます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q14",
+        "question": "(　) に入るのは？\nI want to know (　) at the festival.\n（お祭りで何が起こったのか知りたい。）",
+        "options": ["what happened", "did what happen", "what did happen", "happened what"],
+        "correctIndex": 0,
+        "explanation": "What happened? は what が主語なので語順を変えず what happened のままです。主語の疑問詞のときは並べかえ不要です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q15",
+        "question": "(　) に入るのは？\nI know why (　).\n（私は彼がなぜ遅刻したのか知っています。）",
+        "options": ["was he late", "did he late", "he late was", "he was late"],
+        "correctIndex": 3,
+        "explanation": "Why was he late? を埋め込むと why he was late になります。be動詞の過去形 was も主語 he のあとに置きます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q16",
+        "question": "(　) に入るのは？\nDo you know what time (　)?\n（今何時か知っていますか。）",
+        "options": ["is it", "it is", "does it", "it does"],
+        "correctIndex": 1,
+        "explanation": "What time is it? を埋め込むと what time it is になります。be動詞 is は主語 it のあとに置きます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q17",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「私は彼が何を好きか知っています。」という英文を作ろう。",
+        "words": ["I", "know", "what", "he", "likes"],
+        "correctOrder": [0, 1, 2, 3, 4],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "I know what he likes. となります。What does he like? を埋め込み、does を消して動詞に s をつけ likes にします。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q18",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「会議がいつ始まるか教えてもらえますか。」という英文を作ろう。",
+        "words": ["Could", "you", "tell", "me", "when", "the", "meeting", "starts"],
+        "correctOrder": [0, 1, 2, 3, 4, 5, 6, 7],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "Could you tell me when the meeting starts? となります。主語 the meeting のあとに動詞 starts を置きます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q19",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「私は彼女がどこに住んでいるか知りません。」という英文を作ろう。",
+        "words": ["I", "don't", "know", "where", "she", "lives"],
+        "correctOrder": [0, 1, 2, 3, 4, 5],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "I don't know where she lives. となります。does を消して動詞 live に s をつけ lives にします。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q20",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「私は次に何をすべきか分かりません。」という英文を作ろう。",
+        "words": ["I'm", "not", "sure", "what", "I", "should", "do"],
+        "correctOrder": [0, 1, 2, 3, 4, 5, 6],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "I'm not sure what I should do. となります。助動詞 should も主語 I のあとに置きます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q21",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「だれがこの絵をかいたか知っていますか。」という英文を作ろう。",
+        "words": ["Do", "you", "know", "who", "painted", "this", "picture"],
+        "correctOrder": [0, 1, 2, 3, 4, 5, 6],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "Do you know who painted this picture? となります。who が主語なので語順を変えず who painted のままです。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q22",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「彼が何歳なのか知っていますか。」という英文を作ろう。",
+        "words": ["Do", "you", "know", "how", "old", "he", "is"],
+        "correctOrder": [0, 1, 2, 3, 4, 5, 6],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "Do you know how old he is? となります。how old をかたまりにし、主語 he ＋ be動詞 is を続けます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q23",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「私はパスワードが何か知りません。」という英文を作ろう。",
+        "words": ["I", "don't", "know", "what", "the", "password", "is"],
+        "correctOrder": [0, 1, 2, 3, 4, 5, 6],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "I don't know what the password is. となります。be動詞 is は主語 the password のあとに置きます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q24",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「お祭りで何が起こったか教えて。」という英文を作ろう。",
+        "words": ["Tell", "me", "what", "happened", "at", "the", "festival"],
+        "correctOrder": [0, 1, 2, 3, 4, 5, 6],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "Tell me what happened at the festival. となります。what が主語なので語順を変えず what happened のままです。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q25",
+        "question": "(　) に入るのは？\nTell me what (　).\n（あなたが何をほしいか教えて。）",
+        "options": ["you want", "do you want", "want you", "you wants"],
+        "correctIndex": 0,
+        "explanation": "What do you want? を Tell me のあとに埋め込むと what you want になります。do を消し、「疑問詞＋主語＋動詞」の語順にします。tell me ＋ 間接疑問のかたちです。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q26",
+        "question": "(　) に入るのは？\nShow me where (　).\n（駅がどこにあるか教えて。）",
+        "options": ["the station is", "is the station", "does the station", "the station does"],
+        "correctIndex": 0,
+        "explanation": "Where is the station? を Show me のあとに埋め込むと where the station is になります。be動詞 is は主語 the station のあとに置きます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q27",
+        "question": "(　) に入るのは？\nDo you know when (　)?\n（バスがいつ来るか知っていますか。）",
+        "options": ["the bus comes", "does the bus come", "the bus come", "comes the bus"],
+        "correctIndex": 0,
+        "explanation": "When does the bus come? を埋め込むと when the bus comes になります。does を消し、動詞に s をつけて the bus comes とします。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q28",
+        "question": "(　) に入るのは？\nPlease tell me what (　) for lunch.\n（昼食に何を作ればよいか教えて。）",
+        "options": ["I should make", "should I make", "do I make", "I make should"],
+        "correctIndex": 0,
+        "explanation": "What should I make for lunch? を埋め込むと what I should make になります。助動詞 should も主語 I のあとに置き、do/does は使いません。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q29",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「彼が何を勉強しているか教えてください。」という英文を作ろう。",
+        "words": ["Tell", "me", "what", "he", "is", "studying"],
+        "correctOrder": [0, 1, 2, 3, 4, 5],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "Tell me what he is studying. となります。What is he studying? を埋め込み、be動詞 is を主語 he のあとに置きます。tell me ＋ 間接疑問のかたちです。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q30",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「あなたがなぜ怒っているのか教えて。」という英文を作ろう。",
+        "words": ["Tell", "me", "why", "you", "are", "angry"],
+        "correctOrder": [0, 1, 2, 3, 4, 5],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "Tell me why you are angry. となります。Why are you angry? を埋め込み、be動詞 are を主語 you のあとに置きます。",
+        "difficulty": "basic"
+      }
+    ]
+  }
+}

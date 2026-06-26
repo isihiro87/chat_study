@@ -1,0 +1,408 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade1",
+  "topicId": "eng-imperatives",
+  "name": "命令文",
+  "subtitle": "〜しなさい / 〜してください / 〜しましょう",
+  "icon": "📣",
+  "order": 8,
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "Open",
+      "back": "(　) the door.（ドアを開けなさい。）",
+      "hint": "主語をつけず、動詞のもとの形ではじめるよ",
+      "explanation": "命令文は動詞の原形（Open）ではじめるよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "Close",
+      "back": "(　) the window.（窓を閉めなさい。）",
+      "hint": "「閉める」を英語で言うと？",
+      "explanation": "命令文は原形ではじめる。close は「閉める」。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "Look",
+      "back": "(　) at the blackboard.（黒板を見なさい。）",
+      "hint": "「見る」を英語で言うと？",
+      "explanation": "look at 〜 で「〜を見る」。命令文なので原形ではじめるよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "Wash",
+      "back": "(　) your hands.（手を洗いなさい。）",
+      "hint": "「洗う」を英語で言うと？",
+      "explanation": "wash は「洗う」。命令文は原形ではじめるよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "Stand",
+      "back": "(　) up.（立ちなさい。）",
+      "hint": "「立つ」を英語で言うと？",
+      "explanation": "stand up で「立ち上がる」。命令文は原形ではじめるよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "Be",
+      "back": "(　) quiet.（静かにしなさい。）",
+      "hint": "am / are / is のもとの形は？",
+      "explanation": "be動詞の命令文は原形 Be ではじめる。Be quiet. で「静かにしなさい」。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc7",
+      "front": "Be",
+      "back": "(　) kind to others.（人に親切にしなさい。）",
+      "hint": "「〜でありなさい」は be動詞の原形",
+      "explanation": "Be ＋ 形容詞 で「〜にしなさい／〜でありなさい」。kind は「親切な」。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "Be careful",
+      "back": "(　) here.（ここでは気をつけなさい。）",
+      "hint": "「注意深い」careful を使うよ",
+      "explanation": "Be careful. で「気をつけて」。be動詞の命令文も原形ではじめるよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc9",
+      "front": "Please",
+      "back": "(　) read this book.（この本を読んでください。）",
+      "hint": "丁寧な「〜してください」にすることばは？",
+      "explanation": "文の最初に Please をつけると丁寧な「〜してください」になるよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "Please",
+      "back": "Stand up, (　).（立ってください。）",
+      "hint": "文の最後に置いてカンマで区切ることばは？",
+      "explanation": "Please は文末に置いてもOK。そのときは前にカンマをつけるよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "Don't",
+      "back": "(　) run here.（ここで走ってはいけません。）",
+      "hint": "Do not の短縮形だよ",
+      "explanation": "否定の命令文は Don't（= Do not）＋ 動詞の原形で「〜してはいけません」。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "Don't be",
+      "back": "(　) late for school.（学校に遅れてはいけません。）",
+      "hint": "be動詞の否定の命令文の形は？",
+      "explanation": "be動詞でも否定は Don't be ＋ 形容詞。late は「遅れた」。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc13",
+      "front": "Don't drink",
+      "back": "(　) this water.（この水を飲んではいけません。）",
+      "hint": "「飲む」drink を使った禁止の文",
+      "explanation": "Don't ＋ 動詞の原形（drink）で禁止を表すよ。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc14",
+      "front": "Please don't",
+      "back": "(　) touch that computer.（そのコンピューターに触らないでください。）",
+      "hint": "丁寧な「〜しないでください」にするには？",
+      "explanation": "丁寧な禁止は Please don't ＋ 動詞の原形（touch）だよ。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc15",
+      "front": "Let's",
+      "back": "(　) play soccer.（サッカーをしましょう。）",
+      "hint": "相手を「〜しましょう」と誘うことばは？",
+      "explanation": "Let's ＋ 動詞の原形で「〜しましょう」と誘うよ。Let's = Let us の短縮形。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc16",
+      "front": "Let's",
+      "back": "(　) go to the library.（図書館へ行きましょう。）",
+      "hint": "「〜しましょう」+「行く」をつなげると？",
+      "explanation": "Let's go to 〜 で「〜へ行きましょう」と誘うよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc17",
+      "front": "Let's sing",
+      "back": "(　) this song together.（いっしょにこの歌を歌いましょう。）",
+      "hint": "「〜しましょう」+「歌う」は？",
+      "explanation": "Let's ＋ 動詞の原形（sing）で勧誘。together は「いっしょに」。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc18",
+      "front": "Take care",
+      "back": "(　) of yourself.（体に気をつけてね。）",
+      "hint": "「世話をする」take care of を使うよ",
+      "explanation": "Take care of yourself. は「体に気をつけて」と相手を気づかう命令文。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc19",
+      "front": "動詞の原形",
+      "back": "命令文の最初の動詞はどんな形にする？",
+      "hint": "s をつけたり、ing にしたり、to をつけたりしないよ",
+      "explanation": "命令文は主語をつけず、動詞のもとの形（原形）ではじめる。s・ing・to はつけないよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc20",
+      "front": "Let's = Let us",
+      "back": "\"Let's\" は何を短くした形？",
+      "hint": "「私たちに〜させて」がもとの意味",
+      "explanation": "Let's は Let us の短縮形で、「〜しましょう」と勧誘するときに使うよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc21",
+      "front": "Don't = Do not",
+      "back": "\"Don't\" は何を短くした形？",
+      "hint": "do と not をくっつけてみよう",
+      "explanation": "Don't は Do not の短縮形。否定の命令文で動詞の原形の前に置くよ。",
+      "difficulty": "standard"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "(　) に入るのは？\n(　) the door.\n（ドアを開けなさい。）",
+        "options": ["Open", "Opens", "Opening", "You open"],
+        "correctIndex": 0,
+        "explanation": "命令文は動詞の原形（Open）ではじめる。s・ing・主語はつけないよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "(　) に入るのは？\n(　) the window.\n（窓を閉めなさい。）",
+        "options": ["Closes", "Close", "Closing", "To close"],
+        "correctIndex": 1,
+        "explanation": "命令文は動詞の原形（Close）ではじめるよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "(　) に入るのは？\n(　) your hands.\n（手を洗いなさい。）",
+        "options": ["Washing", "To wash", "Wash", "Washes"],
+        "correctIndex": 2,
+        "explanation": "命令文は動詞の原形（Wash）ではじめるよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "(　) に入るのは？\n(　) up.\n（立ちなさい。）",
+        "options": ["Standing", "Stands", "To stand", "Stand"],
+        "correctIndex": 3,
+        "explanation": "命令文は動詞の原形（Stand）ではじめる。stand up で「立ち上がる」。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "(　) に入るのは？\n(　) at the blackboard.\n（黒板を見なさい。）",
+        "options": ["Look", "Looks", "Looking", "To look"],
+        "correctIndex": 0,
+        "explanation": "look at 〜 で「〜を見る」。命令文なので原形 Look ではじめるよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "(　) に入るのは？\n(　) quiet.\n（静かにしなさい。）",
+        "options": ["Are", "Be", "Is", "Am"],
+        "correctIndex": 1,
+        "explanation": "be動詞の命令文は原形 Be ではじめる。Be quiet. で「静かにしなさい」。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "(　) に入るのは？\n(　) kind to others.\n（人に親切にしなさい。）",
+        "options": ["Is", "Are", "Be", "Am"],
+        "correctIndex": 2,
+        "explanation": "Be ＋ 形容詞 で「〜にしなさい」。be動詞も命令文では原形 Be を使うよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "(　) に入るのは？\n(　) read this book.\n（この本を読んでください。）",
+        "options": ["Do", "Let", "Please", "Be"],
+        "correctIndex": 2,
+        "explanation": "丁寧な「〜してください」は Please ＋ 動詞の原形だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "(　) に入るのは？\nPlease (　) to me.\n（私の話を聞いてください。）",
+        "options": ["listens", "listen", "listening", "to listen"],
+        "correctIndex": 1,
+        "explanation": "Please のあとも動詞の原形（listen）を使うよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "(　) に入るのは？\n(　) run here.\n（ここで走ってはいけません。）",
+        "options": ["Please", "Let's", "Don't", "Not"],
+        "correctIndex": 2,
+        "explanation": "禁止の命令文は Don't（= Do not）＋ 動詞の原形だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "(　) に入るのは？\n(　) late for school.\n（学校に遅れてはいけません。）",
+        "options": ["Don't be", "Not be", "Be not", "No be"],
+        "correctIndex": 0,
+        "explanation": "be動詞の否定の命令文は Don't be ＋ 形容詞。「遅れてはいけません」。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q12",
+        "question": "(　) に入るのは？\n(　) play soccer.\n（サッカーをしましょう。）",
+        "options": ["Please", "Let's", "Do not", "Be"],
+        "correctIndex": 1,
+        "explanation": "「〜しましょう」と誘うときは Let's ＋ 動詞の原形だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q13",
+        "question": "(　) に入るのは？\nLet's (　) to the library.\n（図書館へ行きましょう。）",
+        "options": ["goes", "going", "go", "to go"],
+        "correctIndex": 2,
+        "explanation": "Let's のあとは動詞の原形（go）。s や ing はつけないよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q14",
+        "question": "(　) に入るのは？\nPlease (　) touch that computer.\n（そのコンピューターに触らないでください。）",
+        "options": ["don't", "not", "not do", "not to"],
+        "correctIndex": 0,
+        "explanation": "丁寧な禁止は Please don't（= do not）＋ 動詞の原形だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q15",
+        "question": "(　) に入るのは？\n(　) care of yourself.\n（体に気をつけてね。）",
+        "options": ["Takes", "Taking", "To take", "Take"],
+        "correctIndex": 3,
+        "explanation": "Take care of yourself. は気づかいを表す命令文。原形 Take ではじめるよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q16",
+        "question": "命令文について、正しい説明はどれ？",
+        "options": ["主語をつけ、動詞に s をつける", "主語をつけず、動詞のもとの形ではじめる", "動詞の前に必ず to をつける", "文のはじめに You をつける"],
+        "correctIndex": 1,
+        "explanation": "命令文は主語（You など）を省略し、動詞のもとの形（原形）ではじめるよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q17",
+        "type": "reorder",
+        "question": "次の語を並べかえて「ドアを開けなさい。」の英文を作ろう。",
+        "words": ["the door", "open"],
+        "correctOrder": [1, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Open the door.」が正解。命令文は主語なしで動詞の原形ではじめるよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q18",
+        "type": "reorder",
+        "question": "次の語を並べかえて「手を洗いなさい。」の英文を作ろう。",
+        "words": ["wash", "your hands"],
+        "correctOrder": [0, 1],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Wash your hands.」が正解。動詞の原形ではじめるよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q19",
+        "type": "reorder",
+        "question": "次の語を並べかえて「静かにしなさい。」の英文を作ろう。",
+        "words": ["quiet", "be"],
+        "correctOrder": [1, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Be quiet.」が正解。be動詞の命令文は原形 Be ＋ 形容詞。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q20",
+        "type": "reorder",
+        "question": "次の語を並べかえて「この本を読んでください。」の英文を作ろう。",
+        "words": ["read", "please", "this book"],
+        "correctOrder": [1, 0, 2],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Please read this book.」が正解。Please ＋ 動詞の原形 ＋ 目的語の順。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q21",
+        "type": "reorder",
+        "question": "次の語を並べかえて「ここで走ってはいけません。」の英文を作ろう。",
+        "words": ["run", "don't", "here"],
+        "correctOrder": [1, 0, 2],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Don't run here.」が正解。Don't ＋ 動詞の原形 ＋ here の順。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q22",
+        "type": "reorder",
+        "question": "次の語を並べかえて「英語で話しましょう。」の英文を作ろう。",
+        "words": ["speak", "let's", "English"],
+        "correctOrder": [1, 0, 2],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Let's speak English.」が正解。Let's ＋ 動詞の原形 ＋ 目的語の順。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q23",
+        "type": "reorder",
+        "question": "次の語を並べかえて「学校に遅れてはいけません。」の英文を作ろう。",
+        "words": ["late", "be", "for school", "don't"],
+        "correctOrder": [3, 1, 0, 2],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Don't be late for school.」が正解。be動詞の否定の命令文は Don't be ＋ 形容詞。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q24",
+        "type": "reorder",
+        "question": "次の語を並べかえて「そのコンピューターに触らないでください。」の英文を作ろう。",
+        "words": ["touch", "please", "don't", "that computer"],
+        "correctOrder": [1, 2, 0, 3],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Please don't touch that computer.」が正解。Please ＋ don't ＋ 動詞の原形 ＋ 目的語の順。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

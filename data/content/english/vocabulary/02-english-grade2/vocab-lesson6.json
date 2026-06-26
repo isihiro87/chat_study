@@ -1,0 +1,393 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade2",
+  "topicId": "vocab-lesson6",
+  "name": "How can we make a good presentation? の単語",
+  "subtitle": "発表・比較表現の語彙",
+  "icon": "📊",
+  "order": 6,
+  "chatId": "eng-vocab-g2-lesson6",
+  "explanation": {
+    "sections": [
+      {
+        "title": "比較を表すことば",
+        "content": "than、more、most、better、best、as ... as など、ものを比べるときの語を確認します。〈比較級＋than〉は「〜よりも…」、〈the＋最上級〉は「いちばん…」を表します。",
+        "keyPoints": [
+          "than は「〜よりも」。比較級とセットで使う。",
+          "more は「(〜より)もっと…」、most は「いちばん…、最も…」。長い語の比較で前に置く。",
+          "as ... as 〜 は「〜と同じくらい…」。間は原級（変化していない形）を入れる。"
+        ]
+      },
+      {
+        "title": "調査・発表のことば",
+        "content": "survey、graph、percent、data、conclusion、strategy など、調査結果を発表するときの語をまとめます。according to ... は「〜によると」、in conclusion は「結論として」という表現です。",
+        "keyPoints": [
+          "survey は「調査」、graph は「グラフ、図表」、percent は「パーセント」。",
+          "according to ... は「〜によると」。データの出どころを示すときに使う。",
+          "in conclusion は「結論として」。まとめを言うときに使う。"
+        ]
+      },
+      {
+        "title": "スライド・スピーチのことば",
+        "content": "slide、topic、content、comment、feedback、clear など、スライドやスピーチを説明する語を確認します。better は good / well の比較級、best は最上級です。",
+        "keyPoints": [
+          "better は good「よい」/ well「じょうずに」の比較級、best は最上級。",
+          "like ... better than 〜 は「〜より…が好き」、like ... the best は「…がいちばん好き」。",
+          "clear は「はっきりした、明確な」。副詞は clearly。"
+        ]
+      }
+    ]
+  },
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "eng-vocab-g2-l6-fc01",
+      "front": "than",
+      "back": "〜よりも",
+      "explanation": "than は「〜よりも」という意味です。比較級とセットで使います。smaller than ... のように使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l6-fc02",
+      "front": "more",
+      "back": "(〜より)もっと…",
+      "explanation": "more は「(〜より)もっと…」という意味です。比較的つづりの長い語の比較級は、前に more を置きます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l6-fc03",
+      "front": "most",
+      "back": "いちばん…、最も…",
+      "explanation": "most は「いちばん…、最も…」という意味です。比較的つづりの長い語の最上級は、前に the most を置きます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l6-fc04",
+      "front": "better",
+      "back": "よりよい、よりよく",
+      "explanation": "better は good「よい」/ well「じょうずに」の比較級です。like ... better than 〜 で「〜より…が好き」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l6-fc05",
+      "front": "best",
+      "back": "いちばんよい、いちばんよく",
+      "explanation": "best は good / well の最上級です。like ... the best で「…がいちばん好き」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l6-fc06",
+      "front": "quiz",
+      "back": "クイズ",
+      "explanation": "quiz は「クイズ」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l6-fc07",
+      "front": "trivia",
+      "back": "雑学的な知識",
+      "explanation": "trivia は「雑学的な知識」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l6-fc08",
+      "front": "court",
+      "back": "(テニス・バレーボールなどの)コート",
+      "explanation": "court は「(テニス・バレーボールなどの)コート」という意味です。tennis court で「テニスコート」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l6-fc09",
+      "front": "skill",
+      "back": "腕前、技術",
+      "explanation": "skill は「腕前、技術」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l6-fc10",
+      "front": "curling",
+      "back": "カーリング",
+      "explanation": "curling は「カーリング」という冬のスポーツの名前です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l6-fc11",
+      "front": "survey",
+      "back": "調査",
+      "explanation": "survey は「調査」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l6-fc12",
+      "front": "strategy",
+      "back": "戦略、作戦、計画、対策",
+      "explanation": "strategy は「戦略、作戦、計画、対策」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l6-fc13",
+      "front": "half",
+      "back": "半分、2分の1",
+      "explanation": "half は「半分、2分の1」という意味です。half of ... で「〜の半分」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l6-fc14",
+      "front": "such",
+      "back": "そのような、このような",
+      "explanation": "such は「そのような、このような」という意味です。such as ... で「〜のような」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l6-fc15",
+      "front": "conclusion",
+      "back": "結論、決定、結末、結び",
+      "explanation": "conclusion は「結論、決定、結末、結び」という意味です。in conclusion で「結論として」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l6-fc16",
+      "front": "graph",
+      "back": "グラフ、図表",
+      "explanation": "graph は「グラフ、図表」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l6-fc17",
+      "front": "percent",
+      "back": "パーセント",
+      "explanation": "percent は「パーセント」という意味です。80 percent で「80パーセント」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l6-fc18",
+      "front": "letter",
+      "back": "文字",
+      "explanation": "letter は「文字」という意味です。「手紙」の意味もあります。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l6-fc19",
+      "front": "topic",
+      "back": "話題、トピック",
+      "explanation": "topic は「話題、トピック」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l6-fc20",
+      "front": "spoke",
+      "back": "speak の過去形",
+      "explanation": "spoke は「speak の過去形」です。speak は不規則動詞で、過去形が spoke になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l6-fc21",
+      "front": "comment",
+      "back": "批評、コメント",
+      "explanation": "comment は「批評、コメント」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l6-fc22",
+      "front": "speaker",
+      "back": "話す人、演説者",
+      "explanation": "speaker は「話す人、演説者」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l6-fc23",
+      "front": "contact",
+      "back": "接触",
+      "explanation": "contact は「接触」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l6-fc24",
+      "front": "content",
+      "back": "中身、内容",
+      "explanation": "content は「中身、内容」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l6-fc25",
+      "front": "feedback",
+      "back": "意見、フィードバック",
+      "explanation": "feedback は「意見、フィードバック」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l6-fc26",
+      "front": "data",
+      "back": "資料、データ",
+      "explanation": "data は「資料、データ」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l6-fc27",
+      "front": "delivery",
+      "back": "話しぶり、伝え方",
+      "explanation": "delivery は「話しぶり、伝え方」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l6-fc28",
+      "front": "slide",
+      "back": "スライド",
+      "explanation": "slide は「スライド」という意味です。発表で使う画面を表します。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l6-fc29",
+      "front": "clear",
+      "back": "はっきりした、明確な",
+      "explanation": "clear は「はっきりした、明確な」という意味です。副詞は clearly（はっきりと）です。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l6-fc30",
+      "front": "goodbye",
+      "back": "さようなら",
+      "explanation": "goodbye は「さようなら」という会話表現です。短い文なので、声に出してそのまま覚えましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l6-fc31",
+      "front": "almost",
+      "back": "ほとんど",
+      "explanation": "almost は「ほとんど」という意味です。almost all で「ほとんど全ての」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l6-fc32",
+      "front": "artificial",
+      "back": "人工の",
+      "explanation": "artificial は「人工の」という意味です。artificial turf で「人工芝」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l6-fc33",
+      "front": "unique",
+      "back": "独特な",
+      "explanation": "unique は「独特な」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l6-fc34",
+      "front": "direction",
+      "back": "方向",
+      "explanation": "direction は「方向」という意味です。in the same direction で「同じ方向へ」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l6-fc35",
+      "front": "belong",
+      "back": "所属する",
+      "explanation": "belong は「所属する」という動作を表します。belong to ... で「〜に所属する」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l6-fc36",
+      "front": "than ... 比較級",
+      "back": "〜よりも…（比較級＋than）",
+      "explanation": "〈比較級＋than ...〉は「〜よりも…」という意味のまとまりです。A is smaller than B のように使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l6-fc37",
+      "front": "as ... as",
+      "back": "〜と同じくらい…",
+      "explanation": "as ... as 〜 は「〜と同じくらい…」というまとまりの表現です。間には原級（変化していない形）を入れます。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l6-fc38",
+      "front": "according to",
+      "back": "〜によると",
+      "explanation": "according to は「〜によると」というまとまりの表現です。データの出どころを示すときに使います。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l6-fc39",
+      "front": "in conclusion",
+      "back": "結論として",
+      "explanation": "in conclusion は「結論として」というまとまりの表現です。まとめを言うときに使います。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l6-fc40",
+      "front": "such as",
+      "back": "〜のような",
+      "explanation": "such as は「〜のような」というまとまりの表現です。例をあげるときに使います。",
+      "difficulty": "standard"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "「〜よりも」を表し、比較級とセットで使う語は？",
+        "options": [
+          "as",
+          "than",
+          "most",
+          "such"
+        ],
+        "correctIndex": 1,
+        "explanation": "than は「〜よりも」。比較級とセットで使います。smaller than ... のように使います。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "as ... as 〜 の意味は？",
+        "options": [
+          "〜より…",
+          "〜と同じくらい…",
+          "いちばん…",
+          "〜のような"
+        ],
+        "correctIndex": 1,
+        "explanation": "as ... as 〜 は「〜と同じくらい…」。間には原級を入れます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q3",
+        "question": "like ... the best の意味は？",
+        "options": [
+          "…より〜が好き",
+          "…と同じくらい好き",
+          "…がいちばん好き",
+          "…があまり好きでない"
+        ],
+        "correctIndex": 2,
+        "explanation": "like ... the best は「…がいちばん好き」。best は good / well の最上級です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q4",
+        "question": "according to の意味は？",
+        "options": [
+          "結論として",
+          "〜によると",
+          "〜のような",
+          "〜にかかわらず"
+        ],
+        "correctIndex": 1,
+        "explanation": "according to ... は「〜によると」。データの出どころを示すときに使います。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "conclusion の意味は？",
+        "options": [
+          "調査",
+          "結論",
+          "話題",
+          "意見"
+        ],
+        "correctIndex": 1,
+        "explanation": "conclusion は「結論、結末」。in conclusion で「結論として」となります。",
+        "difficulty": "standard"
+      }
+    ]
+  }
+}

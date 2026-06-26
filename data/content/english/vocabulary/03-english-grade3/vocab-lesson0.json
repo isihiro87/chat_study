@@ -1,0 +1,321 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade3",
+  "topicId": "vocab-lesson0",
+  "name": "Discover a New Side of Classmates の単語",
+  "subtitle": "接続詞・ミュージカル・自己紹介の語彙",
+  "icon": "🎭",
+  "order": 0,
+  "chatId": "eng-vocab-g3-lesson0",
+  "explanation": {
+    "sections": [
+      {
+        "title": "文と文をつなぐ接続詞",
+        "content": "that、because、if、when、so など、文と文をつなぐ接続詞を確認します。接続詞のあとには〈主語＋動詞〉が続きます。",
+        "keyPoints": [
+          "that は「〜ということ」。know that ... のように使い、省略できることもある。",
+          "because は「〜なので」。理由を述べるときに使う。",
+          "so は「だから」、if は「もし〜なら」、when は「〜のとき」。"
+        ]
+      },
+      {
+        "title": "ショー・ミュージカルのことば",
+        "content": "musical、actor、show、relax、exciting など、舞台やショーを話題にするときの語をまとめます。",
+        "keyPoints": [
+          "musical は「ミュージカル」、actor は「俳優」。",
+          "discover は「〜を発見する」、finally は「ついに、やっと」。",
+          "exciting は「わくわくさせる」。物事が主語のときに使う。"
+        ]
+      }
+    ]
+  },
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "eng-vocab-g3-l0-fc01",
+      "front": "that",
+      "back": "〜ということ ※接続詞",
+      "explanation": "that は「〜ということ」という意味の接続詞です。I know that ... のように、文と文をつなぎます。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l0-fc02",
+      "front": "because",
+      "back": "〜なので、〜だから",
+      "explanation": "because は「〜なので」という意味です。理由を述べるときに、そのあとに〈主語＋動詞〉を続けます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l0-fc03",
+      "front": "if",
+      "back": "もし〜なら",
+      "explanation": "if は「もし〜なら」という意味の接続詞です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l0-fc04",
+      "front": "musical",
+      "back": "ミュージカル",
+      "explanation": "musical は「ミュージカル」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l0-fc05",
+      "front": "actor",
+      "back": "俳優",
+      "explanation": "actor は「俳優」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l0-fc06",
+      "front": "discover",
+      "back": "〜を発見する",
+      "explanation": "discover は「〜を発見する」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l0-fc07",
+      "front": "finally",
+      "back": "ついに、やっと",
+      "explanation": "finally は「ついに、やっと」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l0-fc08",
+      "front": "side",
+      "back": "側、面",
+      "explanation": "side は「側、面」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l0-fc09",
+      "front": "show",
+      "back": "ショー、見せ物",
+      "explanation": "show は名詞で「ショー、見せ物」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l0-fc10",
+      "front": "exciting",
+      "back": "わくわくさせる、おもしろい",
+      "explanation": "exciting は「わくわくさせる、おもしろい」という意味です。物事が主語のときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l0-fc11",
+      "front": "relax",
+      "back": "くつろぐ、リラックスする",
+      "explanation": "relax は「くつろぐ、リラックスする」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l0-fc12",
+      "front": "fantastic",
+      "back": "すばらしい、最高の",
+      "explanation": "fantastic は「すばらしい、最高の」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l0-fc13",
+      "front": "naughty",
+      "back": "わんぱくな、いたずらな",
+      "explanation": "naughty は「わんぱくな、いたずらな」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l0-fc14",
+      "front": "cool",
+      "back": "かっこいい、すずしい",
+      "explanation": "cool は「かっこいい、すずしい」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l0-fc15",
+      "front": "singing",
+      "back": "歌うこと、歌",
+      "explanation": "singing は「歌うこと、歌」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l0-fc16",
+      "front": "dancing",
+      "back": "おどること、ダンス",
+      "explanation": "dancing は「おどること、ダンス」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l0-fc17",
+      "front": "story",
+      "back": "物語、話",
+      "explanation": "story は「物語、話」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l0-fc18",
+      "front": "colorful",
+      "back": "色彩豊かな、色あざやかな",
+      "explanation": "colorful は「色彩豊かな、色あざやかな」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l0-fc19",
+      "front": "illustration",
+      "back": "イラスト、さし絵",
+      "explanation": "illustration は「イラスト、さし絵」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l0-fc20",
+      "front": "topping",
+      "back": "トッピング、のせる具",
+      "explanation": "topping は「トッピング、のせる具」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l0-fc21",
+      "front": "favorite",
+      "back": "お気に入りの、いちばん好きな",
+      "explanation": "favorite は「お気に入りの、いちばん好きな」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l0-fc22",
+      "front": "add",
+      "back": "〜を加える、足す",
+      "explanation": "add は「〜を加える、足す」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l0-fc23",
+      "front": "enjoy",
+      "back": "〜を楽しむ",
+      "explanation": "enjoy は「〜を楽しむ」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l0-fc24",
+      "front": "listen to",
+      "back": "〜を聞く",
+      "explanation": "listen to は「〜を聞く」というまとまりの表現です。1語ずつ分けず、かたまりで覚えると使いやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l0-fc25",
+      "front": "swimming",
+      "back": "水泳、泳ぐこと",
+      "explanation": "swimming は「水泳、泳ぐこと」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l0-fc26",
+      "front": "summer",
+      "back": "夏",
+      "explanation": "summer は「夏」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l0-fc27",
+      "front": "next time",
+      "back": "次回、この次",
+      "explanation": "next time は「次回、この次」というまとまりの表現です。1語ずつ分けず、かたまりで覚えると使いやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l0-fc28",
+      "front": "weekend",
+      "back": "週末",
+      "explanation": "weekend は「週末」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l0-fc29",
+      "front": "because of",
+      "back": "〜のために、〜が原因で",
+      "explanation": "because of は「〜のために、〜が原因で」というまとまりの表現です。あとに名詞がくる点が because との違いです。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l0-fc30",
+      "front": "koala",
+      "back": "コアラ",
+      "explanation": "koala は「コアラ」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l0-fc31",
+      "front": "ninja",
+      "back": "忍者",
+      "explanation": "ninja は「忍者」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "「〜なので、〜だから」と理由を表す接続詞は？",
+        "options": [
+          "because",
+          "that",
+          "show",
+          "side"
+        ],
+        "correctIndex": 0,
+        "explanation": "because は「〜なので」。理由を述べるときに使い、あとに〈主語＋動詞〉を続けます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "discover の意味は？",
+        "options": [
+          "〜をくつろがせる",
+          "〜を発見する",
+          "〜を加える",
+          "〜を楽しむ"
+        ],
+        "correctIndex": 1,
+        "explanation": "discover は「〜を発見する」という意味の動詞です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q3",
+        "question": "「俳優」を表す英語は？",
+        "options": [
+          "musical",
+          "story",
+          "actor",
+          "topping"
+        ],
+        "correctIndex": 2,
+        "explanation": "actor は「俳優」。musical は「ミュージカル」です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "finally の意味は？",
+        "options": [
+          "色彩豊かな",
+          "わんぱくな",
+          "お気に入りの",
+          "ついに、やっと"
+        ],
+        "correctIndex": 3,
+        "explanation": "finally は「ついに、やっと」という意味です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "because of のあとにくるのは？",
+        "options": [
+          "名詞（語のまとまり）",
+          "主語＋動詞の文",
+          "命令文",
+          "疑問詞"
+        ],
+        "correctIndex": 0,
+        "explanation": "because of は「〜のために」。あとに名詞がきます。文を続ける because との違いに注意します。",
+        "difficulty": "standard"
+      }
+    ]
+  }
+}

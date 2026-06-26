@@ -1,0 +1,393 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade2",
+  "topicId": "vocab-lesson7",
+  "name": "What are World Heritage sites and their problems? の単語",
+  "subtitle": "世界遺産・受け身（受動態）の語彙",
+  "icon": "🏯",
+  "order": 7,
+  "chatId": "eng-vocab-g2-lesson7",
+  "explanation": {
+    "sections": [
+      {
+        "title": "世界遺産と選定のことば",
+        "content": "heritage、site、select、cultural、natural、conference など、世界遺産やその選定を説明する語を確認します。〈be動詞＋過去分詞〉は「〜される、〜されている」という受け身を表します。",
+        "keyPoints": [
+          "be動詞＋過去分詞で「〜される、〜されている」（受け身）。",
+          "site は「遺跡、用地」、heritage は「遺産」。World Heritage site で「世界遺産」。",
+          "select は「〜を選ぶ」、selection は「選択」。be selected as ... で「〜として選ばれる」。"
+        ]
+      },
+      {
+        "title": "自然・建造物のことば",
+        "content": "species、diversity、material、marble、architecture、pollution など、自然や建造物を説明する語をまとめます。by ... を使うと「〜によって（される）」と行為者を表せます。",
+        "keyPoints": [
+          "be loved by ... は「〜に愛されている」。by で行為者を表す。",
+          "be known for ... は「〜で知られている」、be covered with ... は「〜でおおわれている」。",
+          "species は「(生物上の)種」、diversity は「多様性」。"
+        ]
+      },
+      {
+        "title": "観光・環境のことば",
+        "content": "tourist、trail、cleanup、pollution、protect、environment など、観光や環境問題を説明する語を確認します。助動詞を使った受け身は〈助動詞＋be＋過去分詞〉となります。",
+        "keyPoints": [
+          "助動詞のある受け身は〈助動詞＋be＋過去分詞〉。must be protected で「保護されなければならない」。",
+          "protect は「〜を守る、保護する」、pollution は「汚染、公害」。",
+          "more and more ... は「ますます多くの…」。"
+        ]
+      }
+    ]
+  },
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "eng-vocab-g2-l7-fc01",
+      "front": "heritage",
+      "back": "遺産",
+      "explanation": "heritage は「遺産」という意味です。World Heritage site で「世界遺産」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l7-fc02",
+      "front": "site",
+      "back": "遺跡、用地",
+      "explanation": "site は「遺跡、用地」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l7-fc03",
+      "front": "select",
+      "back": "〜を選ぶ",
+      "explanation": "select は「〜を選ぶ」という動作を表します。be selected as ... で「〜として選ばれる」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l7-fc04",
+      "front": "selection",
+      "back": "選択",
+      "explanation": "selection は「選択」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l7-fc05",
+      "front": "cultural",
+      "back": "文化の",
+      "explanation": "cultural は「文化の」という意味です。cultural World Heritage site で「世界文化遺産」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l7-fc06",
+      "front": "natural",
+      "back": "自然の",
+      "explanation": "natural は「自然の」という意味です。natural World Heritage site で「世界自然遺産」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l7-fc07",
+      "front": "decide",
+      "back": "〜を決める",
+      "explanation": "decide は「〜を決める」という動作を表します。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l7-fc08",
+      "front": "standard",
+      "back": "基準",
+      "explanation": "standard は「基準」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l7-fc09",
+      "front": "conference",
+      "back": "会議、評議会",
+      "explanation": "conference は「会議、評議会」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l7-fc10",
+      "front": "mixed",
+      "back": "混合の",
+      "explanation": "mixed は「混合の」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l7-fc11",
+      "front": "region",
+      "back": "地方、地域",
+      "explanation": "region は「地方、地域」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l7-fc12",
+      "front": "hometown",
+      "back": "故郷",
+      "explanation": "hometown は「故郷」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l7-fc13",
+      "front": "species",
+      "back": "(生物上の)種",
+      "explanation": "species は「(生物上の)種」という意味です。単数形も複数形も species です。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l7-fc14",
+      "front": "diversity",
+      "back": "(〜の)多様性、相違(点)",
+      "explanation": "diversity は「(〜の)多様性、相違(点)」という意味です。plant diversity で「植物の多様性」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l7-fc15",
+      "front": "plant",
+      "back": "植物",
+      "explanation": "plant は「植物」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l7-fc16",
+      "front": "fantastic",
+      "back": "すばらしい、すてきな",
+      "explanation": "fantastic は「すばらしい、すてきな」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l7-fc17",
+      "front": "known",
+      "back": "know の過去分詞",
+      "explanation": "known は「know の過去分詞」です。be known for ... で「〜で知られている」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l7-fc18",
+      "front": "built",
+      "back": "build の過去分詞",
+      "explanation": "built は「build の過去分詞」です。be built で「建てられる」となります。過去形も built です。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l7-fc19",
+      "front": "wife",
+      "back": "妻",
+      "explanation": "wife は「妻」という意味です。複数形は wives となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l7-fc20",
+      "front": "protect",
+      "back": "〜を守る、保護する",
+      "explanation": "protect は「〜を守る、保護する」という動作を表します。must be protected で「保護されなければならない」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l7-fc21",
+      "front": "material",
+      "back": "原料、材料、生地",
+      "explanation": "material は「原料、材料、生地」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l7-fc22",
+      "front": "emperor",
+      "back": "皇帝",
+      "explanation": "emperor は「皇帝」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l7-fc23",
+      "front": "marble",
+      "back": "大理石",
+      "explanation": "marble は「大理石」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l7-fc24",
+      "front": "government",
+      "back": "政府",
+      "explanation": "government は「政府」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l7-fc25",
+      "front": "cover",
+      "back": "〜をおおう、包む",
+      "explanation": "cover は「〜をおおう、包む」という動作を表します。be covered with ... で「〜でおおわれている」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l7-fc26",
+      "front": "jewel",
+      "back": "宝石",
+      "explanation": "jewel は「宝石」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l7-fc27",
+      "front": "architecture",
+      "back": "建築、建築学、建築様式",
+      "explanation": "architecture は「建築、建築学、建築様式」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l7-fc28",
+      "front": "pollution",
+      "back": "汚染、公害、汚染物質",
+      "explanation": "pollution は「汚染、公害、汚染物質」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l7-fc29",
+      "front": "climb",
+      "back": "〜に[を]のぼる",
+      "explanation": "climb は「〜に[を]のぼる」という動作を表します。b は発音しません。climb Mt. Fuji で「富士山に登る」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l7-fc30",
+      "front": "seen",
+      "back": "see の過去分詞",
+      "explanation": "seen は「see の過去分詞」です。can be seen で「見られる」となります。過去形は saw です。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l7-fc31",
+      "front": "forever",
+      "back": "永久に、永遠に",
+      "explanation": "forever は「永久に、永遠に」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l7-fc32",
+      "front": "cleanup",
+      "back": "大そうじ",
+      "explanation": "cleanup は「大そうじ」という意味です。cleanup activities で「清掃活動」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l7-fc33",
+      "front": "recently",
+      "back": "最近、近ごろ",
+      "explanation": "recently は「最近、近ごろ」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l7-fc34",
+      "front": "trail",
+      "back": "山道、小道",
+      "explanation": "trail は「山道、小道」という意味です。mountain trails で「登山道」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l7-fc35",
+      "front": "sunrise",
+      "back": "日の出",
+      "explanation": "sunrise は「日の出」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l7-fc36",
+      "front": "tourist",
+      "back": "観光客、旅行者",
+      "explanation": "tourist は「観光客、旅行者」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l7-fc37",
+      "front": "amount",
+      "back": "量",
+      "explanation": "amount は「量」という意味です。a large amount of ... で「大量の〜」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l7-fc38",
+      "front": "list",
+      "back": "〜を(リストに)載せる",
+      "explanation": "list は「〜を(リストに)載せる」という動作を表します。be listed as ... で「〜としてリストに載る」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l7-fc39",
+      "front": "be known for",
+      "back": "〜で知られている",
+      "explanation": "be known for は「〜で知られている」というまとまりの表現です。Aomori is known for its apples のように使います。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l7-fc40",
+      "front": "be covered with",
+      "back": "〜でおおわれている",
+      "explanation": "be covered with は「〜でおおわれている」というまとまりの表現です。covered with snow で「雪でおおわれて」となります。",
+      "difficulty": "standard"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "「〜される、〜されている」（受け身）を表す形は？",
+        "options": [
+          "be動詞 + 過去分詞",
+          "be動詞 + ing形",
+          "have + 過去分詞",
+          "will + 動詞の原形"
+        ],
+        "correctIndex": 0,
+        "explanation": "受け身は〈be動詞＋過去分詞〉で表します。This place is selected as a World Heritage site. のように使います。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q2",
+        "question": "受け身で「〜によって」と行為者を表す語は？",
+        "options": [
+          "for",
+          "with",
+          "by",
+          "as"
+        ],
+        "correctIndex": 2,
+        "explanation": "by ... で「〜によって」と行為者を表します。is loved by many people のように使います。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q3",
+        "question": "be known for の意味は？",
+        "options": [
+          "〜でおおわれている",
+          "〜で知られている",
+          "〜によって守られる",
+          "〜として選ばれる"
+        ],
+        "correctIndex": 1,
+        "explanation": "be known for ... は「〜で知られている」。Aomori is known for its apples のように使います。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q4",
+        "question": "助動詞を使った受け身「保護されなければならない」の形は？",
+        "options": [
+          "must protect",
+          "must be protected",
+          "must protecting",
+          "must protected"
+        ],
+        "correctIndex": 1,
+        "explanation": "助動詞のある受け身は〈助動詞＋be＋過去分詞〉。must be protected で「保護されなければならない」となります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "species の意味は？",
+        "options": [
+          "遺産",
+          "(生物上の)種",
+          "基準",
+          "汚染"
+        ],
+        "correctIndex": 1,
+        "explanation": "species は「(生物上の)種」。単数形も複数形も species です。",
+        "difficulty": "standard"
+      }
+    ]
+  }
+}

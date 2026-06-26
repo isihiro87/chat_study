@@ -1,0 +1,441 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade3",
+  "topicId": "vocab-lesson2",
+  "name": "How do you choose your clothes? の単語",
+  "subtitle": "現在完了形（完了・継続）・エシカルファッションの語彙",
+  "icon": "👕",
+  "order": 2,
+  "chatId": "eng-vocab-g3-lesson2",
+  "explanation": {
+    "sections": [
+      {
+        "title": "現在完了形（完了・継続）で使う語",
+        "content": "just、already、yet、since、for など、「〜したところだ」「ずっと〜している」を表す現在完了形でよく使う語を確認します。",
+        "keyPoints": [
+          "just は「ちょうど、たった今」、already は「すでに、もう」。",
+          "yet は疑問文で「もう」、否定文で「まだ」。",
+          "since は「〜以来」、for は「〜の間」。継続の期間を表す。"
+        ]
+      },
+      {
+        "title": "服・素材・環境のことば",
+        "content": "clothing、ethical、recycle、eco-friendly、wool、leather、fur、vegan など、服や素材、環境について話すときの語をまとめます。",
+        "keyPoints": [
+          "ethical は「道徳的な、倫理的な」、eco-friendly は「環境にやさしい」。",
+          "recycle は「（商品）を再利用する」、avoid は「〜を避ける」。",
+          "wool は「羊毛」、leather は「革」、fur は「毛皮」。"
+        ]
+      },
+      {
+        "title": "労働・社会のことば",
+        "content": "worker、wage、labor、responsible、developing、condition など、働く人や社会の状況を説明する語を確認します。",
+        "keyPoints": [
+          "fair は「公平な、相当の」、wage は「賃金、給料」。",
+          "responsible は「責任がある」、prohibit は「〜を禁止する」。",
+          "developing country は「発展途上国」、moreover は「なおそのうえに」。"
+        ]
+      }
+    ]
+  },
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "eng-vocab-g3-l2-fc01",
+      "front": "just",
+      "back": "ちょうど、たった今",
+      "explanation": "just は「ちょうど、たった今」という意味です。現在完了形の完了用法でよく使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc02",
+      "front": "already",
+      "back": "すでに、もう",
+      "explanation": "already は「すでに、もう」という意味です。現在完了形の肯定文でよく使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc03",
+      "front": "yet",
+      "back": "もう、まだ ※疑問文・否定文で",
+      "explanation": "yet は疑問文で「もう（〜しましたか）」、否定文で「まだ（〜していない）」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc04",
+      "front": "since",
+      "back": "〜以来、〜してから",
+      "explanation": "since は「〜以来、〜してから」という意味です。現在完了形の継続用法で起点を表します。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc05",
+      "front": "for",
+      "back": "〜の間 ※期間",
+      "explanation": "for は期間を表すときに「〜の間」という意味になります。for five years で「5年間」です。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc06",
+      "front": "how long",
+      "back": "どのくらいの間、どれくらい長く",
+      "explanation": "how long は「どのくらいの間」というまとまりの表現です。継続の期間をたずねるときに使います。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc07",
+      "front": "clothing",
+      "back": "衣類、衣料品",
+      "explanation": "clothing は「衣類、衣料品」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc08",
+      "front": "ethical",
+      "back": "道徳的な、倫理的な",
+      "explanation": "ethical は「道徳的な、倫理的な」という意味です。ethical fashion で「エシカルファッション」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc09",
+      "front": "eco-friendly",
+      "back": "環境にやさしい",
+      "explanation": "eco-friendly は「環境にやさしい」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc10",
+      "front": "recycle",
+      "back": "（商品）を再利用する、リサイクルする",
+      "explanation": "recycle は「（商品）を再利用する、リサイクルする」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc11",
+      "front": "designer",
+      "back": "デザイナー、設計者",
+      "explanation": "designer は「デザイナー、設計者」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc12",
+      "front": "essay",
+      "back": "随筆、エッセー、（学校の）作文",
+      "explanation": "essay は「随筆、エッセー、（学校の）作文」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc13",
+      "front": "accessory",
+      "back": "アクセサリー、付属品",
+      "explanation": "accessory は「アクセサリー、付属品」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc14",
+      "front": "chemical",
+      "back": "化学物質",
+      "explanation": "chemical は「化学物質」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc15",
+      "front": "morally",
+      "back": "道徳的に、道義上",
+      "explanation": "morally は「道徳的に、道義上」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc16",
+      "front": "lead to",
+      "back": "〜につながる、〜に通じる",
+      "explanation": "lead to は「〜につながる、〜に通じる」というまとまりの表現です。1語ずつ分けず、かたまりで覚えると使いやすくなります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc17",
+      "front": "vegan",
+      "back": "完全菜食の、動物性のものを使わない",
+      "explanation": "vegan は「完全菜食の、動物性のものを使わない」という意味です。vegan leather で「動物の革を使わない素材」を表します。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc18",
+      "front": "include",
+      "back": "〜を含む、含める",
+      "explanation": "include は「〜を含む、含める」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc19",
+      "front": "leather",
+      "back": "革、なめし革、革製品",
+      "explanation": "leather は「革、なめし革、革製品」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc20",
+      "front": "avoid",
+      "back": "〜を避ける、よける",
+      "explanation": "avoid は「〜を避ける、よける」という動作を表します。後ろに動名詞（...ing）がくることが多いです。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc21",
+      "front": "fur",
+      "back": "毛皮",
+      "explanation": "fur は「毛皮」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc22",
+      "front": "negative",
+      "back": "否定的な、よくない",
+      "explanation": "negative は「否定的な、よくない」という意味です。negative impact で「悪影響」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc23",
+      "front": "wool",
+      "back": "羊毛、毛糸、毛織物",
+      "explanation": "wool は「羊毛、毛糸、毛織物」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc24",
+      "front": "animal-free",
+      "back": "動物性のものを使わない",
+      "explanation": "animal-free は「動物性のものを使わない」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc25",
+      "front": "fair",
+      "back": "公平な、相当の",
+      "explanation": "fair は「公平な、相当の」という意味です。fair wage で「公平な賃金」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc26",
+      "front": "developing",
+      "back": "発展途上の",
+      "explanation": "developing は「発展途上の」という意味です。developing country で「発展途上国」を表します。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc27",
+      "front": "worker",
+      "back": "働く人、労働者",
+      "explanation": "worker は「働く人、労働者」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc28",
+      "front": "responsible",
+      "back": "（人が）（物事に対して）責任がある",
+      "explanation": "responsible は「責任がある」という意味です。be responsible for で「〜に責任がある」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc29",
+      "front": "condition",
+      "back": "状況、状態、条件",
+      "explanation": "condition は「状況、状態、条件」という意味です。working conditions で「労働状況」を表します。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc30",
+      "front": "wage",
+      "back": "賃金、給料",
+      "explanation": "wage は「賃金、給料」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc31",
+      "front": "labor",
+      "back": "労働",
+      "explanation": "labor は「労働」という意味です。child labor で「児童労働」を表します。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc32",
+      "front": "working",
+      "back": "働いている、労働の",
+      "explanation": "working は「働いている、労働の」という意味です。working hours で「労働時間」を表します。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc33",
+      "front": "moreover",
+      "back": "なおそのうえに、さらに",
+      "explanation": "moreover は「なおそのうえに、さらに」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc34",
+      "front": "prohibit",
+      "back": "〜を禁止する",
+      "explanation": "prohibit は「〜を禁止する」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc35",
+      "front": "become",
+      "back": "〜になる",
+      "explanation": "become は「〜になる」という意味です。過去分詞は become で、現在完了形でよく使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc36",
+      "front": "introduce",
+      "back": "〜を導入する、紹介する",
+      "explanation": "introduce は「〜を導入する、紹介する」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc37",
+      "front": "impact",
+      "back": "影響、衝撃",
+      "explanation": "impact は「影響、衝撃」という意味です。have an impact on で「〜に影響を及ぼす」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc38",
+      "front": "concerned",
+      "back": "心配して、気にかけて",
+      "explanation": "concerned は「心配して、気にかけて」という意味です。be concerned about で「〜を心配する」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc39",
+      "front": "product",
+      "back": "製品、商品",
+      "explanation": "product は「製品、商品」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc40",
+      "front": "amount",
+      "back": "量、総額",
+      "explanation": "amount は「量、総額」という意味です。a smaller amount of で「より少ない量の」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc41",
+      "front": "pollution",
+      "back": "汚染、公害",
+      "explanation": "pollution は「汚染、公害」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc42",
+      "front": "carefully",
+      "back": "注意深く、慎重に",
+      "explanation": "carefully は「注意深く、慎重に」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc43",
+      "front": "protect",
+      "back": "〜を守る、保護する",
+      "explanation": "protect は「〜を守る、保護する」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc44",
+      "front": "less",
+      "back": "もっと少ない",
+      "explanation": "less は「もっと少ない」という意味で、little の比較級です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l2-fc45",
+      "front": "interview",
+      "back": "〜にインタビューする、面接する",
+      "explanation": "interview は「〜にインタビューする、面接する」という動作を表します。名詞で「インタビュー、面接」の意味もあります。",
+      "difficulty": "standard"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "疑問文で「もう」、否定文で「まだ」を表す語は？",
+        "options": [
+          "yet",
+          "just",
+          "already",
+          "since"
+        ],
+        "correctIndex": 0,
+        "explanation": "yet は疑問文で「もう」、否定文で「まだ」という意味になります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q2",
+        "question": "ethical の意味は？",
+        "options": [
+          "発展途上の",
+          "道徳的な、倫理的な",
+          "否定的な",
+          "公平な"
+        ],
+        "correctIndex": 1,
+        "explanation": "ethical は「道徳的な、倫理的な」という意味です。ethical fashion で「エシカルファッション」。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q3",
+        "question": "「賃金、給料」を表す語は？",
+        "options": [
+          "labor",
+          "worker",
+          "wage",
+          "product"
+        ],
+        "correctIndex": 2,
+        "explanation": "wage は「賃金、給料」という意味です。fair wage で「公平な賃金」。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q4",
+        "question": "avoid の意味は？",
+        "options": [
+          "〜を導入する",
+          "〜を禁止する",
+          "〜を守る",
+          "〜を避ける、よける"
+        ],
+        "correctIndex": 3,
+        "explanation": "avoid は「〜を避ける、よける」という意味の動詞です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "継続の期間をたずねる「どのくらいの間」は？",
+        "options": [
+          "how long",
+          "how many",
+          "how much",
+          "what kind"
+        ],
+        "correctIndex": 0,
+        "explanation": "how long は「どのくらいの間」。現在完了形の継続の期間をたずねるときに使います。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "wool の意味は？",
+        "options": [
+          "革、なめし革",
+          "羊毛、毛糸",
+          "毛皮",
+          "化学物質"
+        ],
+        "correctIndex": 1,
+        "explanation": "wool は「羊毛、毛糸、毛織物」という意味です。leather は「革」、fur は「毛皮」。",
+        "difficulty": "standard"
+      }
+    ]
+  }
+}

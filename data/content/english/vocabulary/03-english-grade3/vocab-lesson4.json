@@ -1,0 +1,379 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade3",
+  "topicId": "vocab-lesson4",
+  "name": "How can we help each other in a disaster? の単語",
+  "subtitle": "防災・助け合いの語彙",
+  "icon": "🆘",
+  "order": 4,
+  "chatId": "eng-vocab-g3-lesson4",
+  "explanation": {
+    "sections": [
+      {
+        "title": "災害と緊急事態のことば",
+        "content": "disaster、earthquake、tsunami、emergency、crisis など、災害や緊急時を表す語を確認します。防災の文章を読むうえで欠かせない語彙です。",
+        "keyPoints": [
+          "disaster は「災害」、emergency は「緊急事態」。in case of an emergency で「緊急時には」となる。",
+          "earthquake は「地震」、tsunami は「津波」。日本語そのままの tsunami は英語にもなっている。",
+          "crisis は「危機・難局」。times of crisis で「危機のとき」となる。"
+        ]
+      },
+      {
+        "title": "備えと支援のことば",
+        "content": "prepare、prepared、shelter、support、recommend など、災害に備えたり人を助けたりするときの語をまとめます。",
+        "keyPoints": [
+          "prepare は「備える」、prepared は「用意ができている」。be prepared for ... で「〜に備えている」。",
+          "shelter は「避難所」、extinguisher は「消火器」。",
+          "support は「…を支援する」、encourage は「…を励ます」。"
+        ]
+      },
+      {
+        "title": "助け合いと暮らしのことば",
+        "content": "exchange、apartment、ordinary、bridge、energetic など、人と人とのつながりや日常生活を表す語を確認します。",
+        "keyPoints": [
+          "exchange は「交流・やりとり」。student exchange programs で「交換留学制度」。",
+          "ordinary は「ふつうの」。in ordinary times で「平時には」。",
+          "bridge は「橋・かけ橋」。become a bridge between A and B で「AとBのかけ橋になる」。"
+        ]
+      }
+    ]
+  },
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "eng-vocab-g3-l4-fc01",
+      "front": "disaster",
+      "back": "災害",
+      "explanation": "disaster は「災害」という意味です。in a disaster で「災害時に」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l4-fc02",
+      "front": "earthquake",
+      "back": "地震",
+      "explanation": "earthquake は「地震」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l4-fc03",
+      "front": "tsunami",
+      "back": "津波",
+      "explanation": "tsunami は「津波」という意味です。日本語の「津波」がそのまま英語になった語です。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l4-fc04",
+      "front": "emergency",
+      "back": "緊急事態",
+      "explanation": "emergency は「緊急事態」という意味です。in case of an emergency で「緊急時には」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l4-fc05",
+      "front": "crisis",
+      "back": "危機、難局、(病気の)峠",
+      "explanation": "crisis は「危機、難局」という意味です。times of crisis で「危機のとき」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l4-fc06",
+      "front": "shelter",
+      "back": "避難所",
+      "explanation": "shelter は「避難所」という意味です。the local shelter で「地域の避難所」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l4-fc07",
+      "front": "extinguisher",
+      "back": "消火器",
+      "explanation": "extinguisher は「消火器」という意味です。火を消すための道具です。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l4-fc08",
+      "front": "prepare",
+      "back": "（…の）準備をする、備える",
+      "explanation": "prepare は「準備をする、備える」という動作を表します。prepare for a disaster で「災害に備える」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l4-fc09",
+      "front": "prepared",
+      "back": "用意ができている、備えた",
+      "explanation": "prepared は「用意ができている、備えた」という意味です。be prepared for ... で「〜に備えている」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l4-fc10",
+      "front": "store",
+      "back": "…を蓄える",
+      "explanation": "store は「…を蓄える」という意味です。store water で「水を蓄える」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l4-fc11",
+      "front": "kit",
+      "back": "道具一式",
+      "explanation": "kit は「道具一式」という意味です。emergency kit で「非常用持ち出しセット」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l4-fc12",
+      "front": "recommend",
+      "back": "…をすすめる、推薦する",
+      "explanation": "recommend は「…をすすめる、推薦する」という動作を表します。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l4-fc13",
+      "front": "support",
+      "back": "…を支援する、応援する",
+      "explanation": "support は「…を支援する、応援する」という動作を表します。support people in need で「困っている人を支援する」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l4-fc14",
+      "front": "encourage",
+      "back": "…を勇気づける、励ます",
+      "explanation": "encourage は「…を勇気づける、励ます」という動作を表します。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l4-fc15",
+      "front": "comfort",
+      "back": "…を慰める、元気づける",
+      "explanation": "comfort は「…を慰める、元気づける」という意味です。落ち込んでいる人をなぐさめるときに使います。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l4-fc16",
+      "front": "exchange",
+      "back": "交流、やりとり",
+      "explanation": "exchange は「交流、やりとり」という意味です。student exchange programs で「交換留学制度」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l4-fc17",
+      "front": "apartment",
+      "back": "アパート[マンション]の部屋",
+      "explanation": "apartment は「アパート[マンション]の部屋」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l4-fc18",
+      "front": "ordinary",
+      "back": "ふつうの",
+      "explanation": "ordinary は「ふつうの」という意味です。in ordinary times で「平時には」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l4-fc19",
+      "front": "bridge",
+      "back": "橋、かけ橋",
+      "explanation": "bridge は「橋、かけ橋」という意味です。become a bridge between A and B で「AとBのかけ橋になる」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l4-fc20",
+      "front": "energetic",
+      "back": "精力的な、活発な",
+      "explanation": "energetic は「精力的な、活発な」という意味です。元気いっぱいな様子を表します。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l4-fc21",
+      "front": "personality",
+      "back": "個性、性格、人柄",
+      "explanation": "personality は「個性、性格、人柄」という意味です。bright personality で「明るい性格」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l4-fc22",
+      "front": "sudden",
+      "back": "突然の、不意の",
+      "explanation": "sudden は「突然の、不意の」という意味です。the sudden news で「突然の知らせ」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l4-fc23",
+      "front": "shortly",
+      "back": "まもなく、すぐに",
+      "explanation": "shortly は「まもなく、すぐに」という意味です。shortly after ... で「〜のあとまもなく」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l4-fc24",
+      "front": "toward",
+      "back": "…のほうへ、…に向かって",
+      "explanation": "toward は「…のほうへ、…に向かって」という意味です。toward the river で「川に向かって」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l4-fc25",
+      "front": "nearby",
+      "back": "近くの",
+      "explanation": "nearby は「近くの」という意味です。a nearby safe place で「近くの安全な場所」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l4-fc26",
+      "front": "safe",
+      "back": "安全な",
+      "explanation": "safe は「安全な」という意味です。a safe place で「安全な場所」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l4-fc27",
+      "front": "several",
+      "back": "いくつかの",
+      "explanation": "several は「いくつかの」という意味です。several foreigners で「数人の外国人」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l4-fc28",
+      "front": "bicycle",
+      "back": "自転車",
+      "explanation": "bicycle は「自転車」という意味です。ride a bicycle で「自転車に乗る」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l4-fc29",
+      "front": "corner",
+      "back": "角、すみ",
+      "explanation": "corner は「角、すみ」という意味です。reading corner で「読書コーナー」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l4-fc30",
+      "front": "program",
+      "back": "プログラム、計画",
+      "explanation": "program は「プログラム、計画」という意味です。exchange programs で「交流プログラム」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l4-fc31",
+      "front": "case",
+      "back": "場合",
+      "explanation": "case は「場合」という意味です。in case of a fire で「火事の場合は」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l4-fc32",
+      "front": "news",
+      "back": "ニュース、知らせ",
+      "explanation": "news は「ニュース、知らせ」という意味です。the sudden news で「突然の知らせ」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l4-fc33",
+      "front": "smiling",
+      "back": "ほほえんでいる",
+      "explanation": "smiling は「ほほえんでいる」という意味です。the woman smiling で「ほほえんでいる女性」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l4-fc34",
+      "front": "attracted",
+      "back": "ひきつけられた",
+      "explanation": "attracted は「ひきつけられた」という意味です。be attracted to ... で「〜にひきつけられる」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l4-fc35",
+      "front": "alive",
+      "back": "生きている",
+      "explanation": "alive は「生きている」という意味です。no longer alive で「もう生きていない」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l4-fc36",
+      "front": "traffic jam",
+      "back": "交通渋滞",
+      "explanation": "traffic jam は「交通渋滞」というまとまりの表現です。1語ずつ分けず、かたまりで覚えましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l4-fc37",
+      "front": "rule",
+      "back": "規則、ルール",
+      "explanation": "rule は「規則、ルール」という意味です。make a new rule で「新しい規則を作る」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l4-fc38",
+      "front": "borrow",
+      "back": "〜を借りる",
+      "explanation": "borrow は「〜を借りる」という動作を表します。borrow books で「本を借りる」となります。",
+      "difficulty": "basic"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "「避難所」を表す語は？",
+        "options": [
+          "shelter",
+          "shortly",
+          "several",
+          "spill"
+        ],
+        "correctIndex": 0,
+        "explanation": "shelter は「避難所」。the local shelter で「地域の避難所」となります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q2",
+        "question": "be prepared for ... の意味は？",
+        "options": [
+          "〜に向かって",
+          "〜に備えている",
+          "〜を慰める",
+          "〜の近くに"
+        ],
+        "correctIndex": 1,
+        "explanation": "prepared は「用意ができている」。be prepared for ... で「〜に備えている」となります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q3",
+        "question": "「地震」を表す語は？",
+        "options": [
+          "tsunami",
+          "disaster",
+          "earthquake",
+          "crisis"
+        ],
+        "correctIndex": 2,
+        "explanation": "earthquake は「地震」。tsunami は「津波」なので区別しましょう。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q4",
+        "question": "ordinary の意味は？",
+        "options": [
+          "突然の",
+          "安全な",
+          "精力的な",
+          "ふつうの"
+        ],
+        "correctIndex": 3,
+        "explanation": "ordinary は「ふつうの」。in ordinary times で「平時には」となります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "「…を励ます、勇気づける」を表す語は？",
+        "options": [
+          "encourage",
+          "recommend",
+          "borrow",
+          "store"
+        ],
+        "correctIndex": 0,
+        "explanation": "encourage は「…を励ます、勇気づける」。落ち込んでいる人を元気づけるときに使います。",
+        "difficulty": "standard"
+      }
+    ]
+  }
+}

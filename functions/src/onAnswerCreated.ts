@@ -37,10 +37,16 @@ const FIRST_ANSWER_NUDGE_DELAY_MS = 0;
 /**
  * テスト範囲未設定ユーザーへの「範囲を設定しよう」nudge を送る最大回数。
  * 設定すると以降は送られないが、ずっと未設定のままでもしつこくならないよう
- * 最初の数回で打ち切る。1問目（first_answer）は trial 開始 flex を優先するため
- * 2問目以降の回答時にだけ送る。
+ * 最初の数回で打ち切る。実際の送信タイミングは SCOPE_SETUP_NUDGE_MILESTONES
+ * （累計回答数）で間隔をあける。
  */
 const SCOPE_SETUP_NUDGE_MAX = 3;
+/**
+ * テスト範囲未設定 nudge を送る「累計回答数」の節目。
+ * 連続（2/3/4問目）ではなく 1/5/10問目に分散させ、「毎回うるさい」印象を避ける。
+ * trial 開始 flex は廃止（TRIAL_FLOW_ENABLED=false）したので 1問目に送ってよい。
+ */
+const SCOPE_SETUP_NUDGE_MILESTONES = [1, 5, 10] as const;
 
 /**
  * 「今回の回答で新たに到達したか」を判定する。
@@ -326,8 +332,8 @@ async function maybeSendPremiumNudge(ctx: NudgeContext): Promise<void> {
 /**
  * テスト範囲が未設定のユーザーへ、回答直後に「範囲を設定しよう」nudge を送る。
  * - testScope 設定済み → 送らない（設定したら自動で止まる）
- * - 送信回数が SCOPE_SETUP_NUDGE_MAX に達していたら送らない
- * - 1問目（first_answer）は trial 開始 flex を優先するため送らない
+ * - 送信回数が SCOPE_SETUP_NUDGE_MAX に達していたら送らない（安全弁）
+ * - 累計回答数が SCOPE_SETUP_NUDGE_MILESTONES（1/5/10問目）に到達した回だけ送る
  * - プレミアム/無料を問わず未設定なら対象
  * 送信したら scopeSetupNudgeCount をインクリメントする。
  */
@@ -336,10 +342,13 @@ async function maybeSendScopeSetupNudge(ctx: NudgeContext): Promise<void> {
   if (ctx.blocked) return;
   if (ctx.hasTestScope) return;
   if (ctx.scopeSetupNudgeCount >= SCOPE_SETUP_NUDGE_MAX) return;
-  // 1問目は trial 自動開放 flex（maybeSendPremiumNudge 内）が主役なので衝突回避。
-  const isFirstAnswer =
-    ctx.prevTotalAnswered === 0 && ctx.nextTotalAnswered === 1;
-  if (isFirstAnswer) return;
+  // 連続ではなく 1/5/10問目の節目に到達した回だけ送る。
+  const milestoneHit = detectNewlyReachedMilestone(
+    ctx.prevTotalAnswered,
+    ctx.nextTotalAnswered,
+    SCOPE_SETUP_NUDGE_MILESTONES
+  );
+  if (milestoneHit === null) return;
 
   let pushed = false;
   try {

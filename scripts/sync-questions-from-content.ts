@@ -143,6 +143,39 @@ const SUBJECTS: Record<string, SubjectSyncConfig> = {
       ],
     },
   },
+  english: {
+    subjectId: 'english',
+    contentSubdir: 'english',
+    docIdPrefix: 'q-english',
+    syncSourceTag: 'content-english-v1',
+    gradeFolders: {
+      // reorder（語順並べ替え）問題は options 空なので sync 側で自動スキップされ、
+      // 4択の q〇 のみ Firestore に登録される。
+      中1: ['grade1'],
+      中2: ['grade2'],
+      中3: ['grade3'],
+    },
+  },
+  geography: {
+    subjectId: 'geography',
+    contentSubdir: 'geography',
+    docIdPrefix: 'q-geography',
+    syncSourceTag: 'content-geography-v1',
+    gradeFolders: {
+      中1: [
+        'grade1/1-world-shape',
+        'grade1/2-japan-shape',
+        'grade1/3-life-environment',
+        'grade1/4-world-regions',
+      ],
+      中2: [
+        'grade2/1-regional-research',
+        'grade2/2-japan-features',
+        'grade2/3-japan-regions',
+      ],
+      中3: [],
+    },
+  },
 };
 
 // LINE は Flex テキストで LaTeX を描画しないため、$...$ の数式を読める Unicode に変換する。

@@ -1,0 +1,393 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade2",
+  "topicId": "vocab-lesson2",
+  "name": "What is local food? の単語",
+  "subtitle": "接続詞・食べ物・依頼の語彙",
+  "icon": "🍜",
+  "order": 2,
+  "chatId": "eng-vocab-g2-lesson2",
+  "explanation": {
+    "sections": [
+      {
+        "title": "接続詞のことば",
+        "content": "when「〜のとき」、if「もし〜ならば」、because「〜だから」、that「〜ということ」など、2つの文をつなぐ接続詞を確認します。あとには〈主語＋動詞〉が続きます。",
+        "keyPoints": [
+          "when は「〜のとき」、if は「もし〜ならば」。あとに主語＋動詞が続く。",
+          "because は「〜だから」と理由を表す。Why ...? の答えにも使える。",
+          "that は「〜ということ」。I think (that) ... のように省略されることが多い。"
+        ]
+      },
+      {
+        "title": "食べ物・味のことば",
+        "content": "flavor、salt、soy sauce、topping、order など、地元の食べ物を説明する語をまとめます。ラーメンやスパゲッティの話題でよく登場します。",
+        "keyPoints": [
+          "flavor は「（特殊な）味、風味」、topping は「トッピング」。",
+          "soy sauce は「しょうゆ」、salt は「塩、食塩」。",
+          "order は「〜を注文する」、various は「いろいろな」。"
+        ]
+      },
+      {
+        "title": "許可・依頼のことば",
+        "content": "May I ...? や Could you ...? を使って、許可を求めたりていねいに依頼したりする表現を確認します。favor、traveler、resident などの語も登場します。",
+        "keyPoints": [
+          "May I ...? は「〜してもいいですか」と許可を求めるていねいな言い方。",
+          "Could you ...? は「〜してくださいませんか」とていねいに頼む言い方。",
+          "favor は「お願い、頼み」。ask a favor で「お願いをする」。"
+        ]
+      }
+    ]
+  },
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "eng-vocab-g2-l2-fc01",
+      "front": "when",
+      "back": "〜のとき ※接続詞",
+      "explanation": "when は接続詞で「〜のとき」という意味です。あとには主語＋動詞が続きます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l2-fc02",
+      "front": "if",
+      "back": "もし〜ならば",
+      "explanation": "if は「もし〜ならば」と条件を表す接続詞です。あとには主語＋動詞が続きます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l2-fc03",
+      "front": "because",
+      "back": "〜だから、〜なので",
+      "explanation": "because は「〜だから、〜なので」と理由を表す接続詞です。Why ...? の答えにも使えます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l2-fc04",
+      "front": "that",
+      "back": "〜ということ ※接続詞",
+      "explanation": "that は接続詞で「〜ということ」という意味です。I think that ... のように省略されることも多いです。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l2-fc05",
+      "front": "various",
+      "back": "いろいろな、さまざまな",
+      "explanation": "various は「いろいろな、さまざまな」という意味です。various flavors で「いろいろな味」になります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l2-fc06",
+      "front": "salt",
+      "back": "塩、食塩",
+      "explanation": "salt は「塩、食塩」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l2-fc07",
+      "front": "soy sauce",
+      "back": "しょうゆ",
+      "explanation": "soy sauce は「しょうゆ」というまとまりの表現です。1語ずつ分けず、かたまりで覚えましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l2-fc08",
+      "front": "order",
+      "back": "〜を注文する",
+      "explanation": "order は「〜を注文する」という動作を表します。order tonkotsu ramen で「豚骨ラーメンを注文する」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l2-fc09",
+      "front": "especially",
+      "back": "特に、とりわけ",
+      "explanation": "especially は「特に、とりわけ」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l2-fc10",
+      "front": "flavor",
+      "back": "（特殊な）味、風味",
+      "explanation": "flavor は「（特殊な）味、風味」という意味です。various flavors で「いろいろな味」になります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l2-fc11",
+      "front": "topping",
+      "back": "トッピング",
+      "explanation": "topping は「トッピング」という意味です。My favorite topping で「私のお気に入りのトッピング」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l2-fc12",
+      "front": "speech",
+      "back": "スピーチ、演説",
+      "explanation": "speech は「スピーチ、演説」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l2-fc13",
+      "front": "add",
+      "back": "〜に…を加える、足す",
+      "explanation": "add は「〜に…を加える、足す」という動作を表します。add some milk で「牛乳を少し加える」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l2-fc14",
+      "front": "butter",
+      "back": "バター",
+      "explanation": "butter は「バター」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l2-fc15",
+      "front": "sometime",
+      "back": "いつか、そのうち",
+      "explanation": "sometime は「いつか、そのうち」という意味です。sometimes（ときどき）と区別して覚えましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l2-fc16",
+      "front": "forget",
+      "back": "〜を忘れる",
+      "explanation": "forget は「〜を忘れる」という動作を表します。Don't forget ramen! で「ラーメンを忘れずに！」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l2-fc17",
+      "front": "kind",
+      "back": "種類",
+      "explanation": "kind は「種類」という意味です。many kinds of ramen で「多くの種類のラーメン」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l2-fc18",
+      "front": "early",
+      "back": "早く",
+      "explanation": "early は「早く」という意味です。early in the morning で「朝早く」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l2-fc19",
+      "front": "thick",
+      "back": "濃い、どろっとした",
+      "explanation": "thick は「濃い、どろっとした」という意味です。The soup is thick. で「スープが濃い」になります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l2-fc20",
+      "front": "interested",
+      "back": "興味を持っている",
+      "explanation": "interested は「興味を持っている」という意味です。be interested in ... で「〜に興味がある」になります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l2-fc21",
+      "front": "recommended",
+      "back": "おすすめの",
+      "explanation": "recommended は「おすすめの」という意味です。the recommended topping で「おすすめのトッピング」になります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l2-fc22",
+      "front": "-based",
+      "back": "〜をベースにした",
+      "explanation": "-based は「〜をベースにした」という意味です。miso-based soup で「みそをベースにしたスープ」になります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l2-fc23",
+      "front": "manufacturer",
+      "back": "製造業者、メーカー",
+      "explanation": "manufacturer は「製造業者、メーカー」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l2-fc24",
+      "front": "foreign",
+      "back": "外国の",
+      "explanation": "foreign は「外国の」という意味です。foreign countries で「外国」になります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l2-fc25",
+      "front": "climate",
+      "back": "気候",
+      "explanation": "climate は「気候」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l2-fc26",
+      "front": "reflect",
+      "back": "（物事・考えなど）を反映する",
+      "explanation": "reflect は「（物事・考えなど）を反映する」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l2-fc27",
+      "front": "sauce",
+      "back": "ソース",
+      "explanation": "sauce は「ソース」という意味です。a special tomato sauce で「特別なトマトソース」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l2-fc28",
+      "front": "chef",
+      "back": "シェフ、コック長",
+      "explanation": "chef は「シェフ、コック長」という意味です。a Japanese chef で「日本人のシェフ」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l2-fc29",
+      "front": "creativity",
+      "back": "創造性、独創性",
+      "explanation": "creativity は「創造性、独創性」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l2-fc30",
+      "front": "create",
+      "back": "〜を創造する、つくり出す",
+      "explanation": "create は「〜を創造する、つくり出す」という動作を表します。created spaghetti で「スパゲッティをつくり出した」になります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l2-fc31",
+      "front": "variation",
+      "back": "変化、変種",
+      "explanation": "variation は「変化、変種」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l2-fc32",
+      "front": "change",
+      "back": "変わる、変化する",
+      "explanation": "change は「変わる、変化する」という意味です。The weather changes a lot. のように使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l2-fc33",
+      "front": "name",
+      "back": "〜を名づける",
+      "explanation": "name は「〜を名づける」という動作を表します。named the dish Napolitan で「その料理をナポリタンと名づけた」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l2-fc34",
+      "front": "favor",
+      "back": "お願い、頼み",
+      "explanation": "favor は「お願い、頼み」という意味です。ask a favor で「お願いをする」になります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l2-fc35",
+      "front": "May I ...?",
+      "back": "〜してもいいですか",
+      "explanation": "May I ...? は「〜してもいいですか」と許可を求めるていねいな表現です。Can I ...? よりもていねいです。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l2-fc36",
+      "front": "Could you ...?",
+      "back": "〜してくださいませんか",
+      "explanation": "Could you ...? は「〜してくださいませんか」とていねいに依頼する表現です。Can you ...? よりもていねいです。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l2-fc37",
+      "front": "menu",
+      "back": "メニュー、献立",
+      "explanation": "menu は「メニュー、献立」という意味です。the English menu で「英語のメニュー」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l2-fc38",
+      "front": "traveler",
+      "back": "旅行者",
+      "explanation": "traveler は「旅行者」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l2-fc39",
+      "front": "resident",
+      "back": "住民、居住者",
+      "explanation": "resident は「住民、居住者」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l2-fc40",
+      "front": "headache",
+      "back": "頭痛",
+      "explanation": "headache は「頭痛」という意味です。have a headache で「頭が痛い」になります。",
+      "difficulty": "standard"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "「もし〜ならば」と条件を表す接続詞は？",
+        "options": [
+          "when",
+          "if",
+          "because",
+          "that"
+        ],
+        "correctIndex": 1,
+        "explanation": "if は「もし〜ならば」と条件を表す接続詞です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "because の意味は？",
+        "options": [
+          "〜のとき",
+          "〜ということ",
+          "〜だから、〜なので",
+          "もし〜ならば"
+        ],
+        "correctIndex": 2,
+        "explanation": "because は「〜だから、〜なので」と理由を表す接続詞です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "thick の意味は？",
+        "options": [
+          "濃い、どろっとした",
+          "外国の",
+          "おすすめの",
+          "いろいろな"
+        ],
+        "correctIndex": 0,
+        "explanation": "thick は「濃い、どろっとした」。The soup is thick. のように使います。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q4",
+        "question": "「お願い、頼み」を表す語は？",
+        "options": [
+          "flavor",
+          "favor",
+          "menu",
+          "chef"
+        ],
+        "correctIndex": 1,
+        "explanation": "favor は「お願い、頼み」。ask a favor で「お願いをする」になります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "「〜してもいいですか」と許可を求めるていねいな表現は？",
+        "options": [
+          "Could you ...?",
+          "Why don't you ...?",
+          "May I ...?",
+          "How about ...?"
+        ],
+        "correctIndex": 2,
+        "explanation": "May I ...? は許可を求めるていねいな表現で、Can I ...? よりもていねいです。",
+        "difficulty": "basic"
+      }
+    ]
+  }
+}

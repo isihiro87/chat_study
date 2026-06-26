@@ -1,0 +1,393 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade2",
+  "topicId": "vocab-lesson3",
+  "name": "What kind of job are you interested in? の単語",
+  "subtitle": "職業体験・不定詞・気持ちの語彙",
+  "icon": "📚",
+  "order": 3,
+  "chatId": "eng-vocab-g2-lesson3",
+  "explanation": {
+    "sections": [
+      {
+        "title": "職業体験のことば",
+        "content": "career、nursery、tag、chopstick、picture book など、保育園での職業体験に関する語を確認します。不定詞（to＋動詞の原形）と一緒によく使われます。",
+        "keyPoints": [
+          "career は「職業」、nursery は「保育所、託児所」。",
+          "tag は「名札、ふだ」、chopstick は「（食事用の）はし」。",
+          "to＋動詞の原形で「〜するために」と目的を表せる。"
+        ]
+      },
+      {
+        "title": "気持ちを表すことば",
+        "content": "glad、surprised、excited、smile など、感情を表す語をまとめます。be happy to ...「〜してうれしい」のように、不定詞で感情の原因を表せます。",
+        "keyPoints": [
+          "glad は「うれしい」、surprised は「驚いた」。",
+          "be happy[glad] to ... で「〜してうれしい」、be surprised to ... で「〜して驚く」。",
+          "smile は「ほほえむ、微笑する」、clap は「拍手する」。"
+        ]
+      },
+      {
+        "title": "学び・大切なことば",
+        "content": "important、necessary、learn、understand など、学びや大切さを表す語を確認します。It is important to ...「〜することは大切だ」のかたちが重要です。",
+        "keyPoints": [
+          "important は「重要な、大切な」、necessary は「必要な」。",
+          "learn は「学ぶ、習う」、understand は「理解する、わかる」。",
+          "It is important to ... で「〜することは大切だ」になる。"
+        ]
+      }
+    ]
+  },
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "eng-vocab-g2-l3-fc01",
+      "front": "career",
+      "back": "職業",
+      "explanation": "career は「職業」という意味です。Career Day で「職業体験の日」になります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l3-fc02",
+      "front": "nursery",
+      "back": "保育所、託児所",
+      "explanation": "nursery は「保育所、託児所」という意味です。a nursery school で「保育園」になります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l3-fc03",
+      "front": "tag",
+      "back": "名札、ふだ",
+      "explanation": "tag は「名札、ふだ」という意味です。a name tag で「名札」になります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l3-fc04",
+      "front": "chopstick",
+      "back": "（食事用の）はし",
+      "explanation": "chopstick は「（食事用の）はし」という意味です。ふつう chopsticks と複数形で使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l3-fc05",
+      "front": "picture book",
+      "back": "絵本",
+      "explanation": "picture book は「絵本」というまとまりの表現です。1語ずつ分けず、かたまりで覚えましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l3-fc06",
+      "front": "note",
+      "back": "メモ、覚え書き",
+      "explanation": "note は「メモ、覚え書き」という意味です。He left a note. で「彼はメモを残した」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l3-fc07",
+      "front": "own",
+      "back": "自分自身の、独自の",
+      "explanation": "own は「自分自身の、独自の」という意味です。your own room で「自分自身の部屋」になります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l3-fc08",
+      "front": "international",
+      "back": "国際的な",
+      "explanation": "international は「国際的な」という意味です。an international event で「国際イベント」になります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l3-fc09",
+      "front": "information",
+      "back": "情報",
+      "explanation": "information は「情報」という意味です。collect information で「情報を集める」になります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l3-fc10",
+      "front": "choose",
+      "back": "〜を選ぶ",
+      "explanation": "choose は「〜を選ぶ」という動作を表します。過去形は chose です。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l3-fc11",
+      "front": "chose",
+      "back": "choose の過去形、選んだ",
+      "explanation": "chose は choose の過去形です。不規則に変化する動詞なのでそのまま覚えましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l3-fc12",
+      "front": "colorful",
+      "back": "色彩に富んだ、カラフルな",
+      "explanation": "colorful は「色彩に富んだ、カラフルな」という意味です。colorful illustrations で「カラフルな挿絵」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l3-fc13",
+      "front": "illustration",
+      "back": "挿絵、図、イラスト",
+      "explanation": "illustration は「挿絵、図、イラスト」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l3-fc14",
+      "front": "glad",
+      "back": "うれしい",
+      "explanation": "glad は「うれしい」という意味です。be glad to ... で「〜してうれしい」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l3-fc15",
+      "front": "surprised",
+      "back": "驚いた",
+      "explanation": "surprised は「驚いた」という意味です。be surprised to ... で「〜して驚く」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l3-fc16",
+      "front": "excited",
+      "back": "わくわくした、興奮した",
+      "explanation": "excited は「わくわくした、興奮した」という意味です。be excited to ... で「〜してわくわくする」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l3-fc17",
+      "front": "smile",
+      "back": "ほほえむ、微笑する",
+      "explanation": "smile は「ほほえむ、微笑する」という意味です。The children smiled. で「子供たちはほほえんだ」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l3-fc18",
+      "front": "clap",
+      "back": "（手を）たたく、拍手する",
+      "explanation": "clap は「（手を）たたく、拍手する」という意味です。clap their hands で「拍手する」になります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l3-fc19",
+      "front": "important",
+      "back": "重要な、大切な",
+      "explanation": "important は「重要な、大切な」という意味です。It is important to ... で「〜することは大切だ」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l3-fc20",
+      "front": "necessary",
+      "back": "必要な",
+      "explanation": "necessary は「必要な」という意味です。It is necessary to ... で「〜することは必要だ」になります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l3-fc21",
+      "front": "learn",
+      "back": "〜を学ぶ、習う",
+      "explanation": "learn は「〜を学ぶ、習う」という動作を表します。learn important things で「大切なことを学ぶ」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l3-fc22",
+      "front": "understand",
+      "back": "〜を理解する、わかる",
+      "explanation": "understand は「〜を理解する、わかる」という動作を表します。understand this story で「この物語を理解する」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l3-fc23",
+      "front": "story",
+      "back": "話、物語",
+      "explanation": "story は「話、物語」という意味です。tell a story で「物語を話す」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l3-fc24",
+      "front": "sentence",
+      "back": "文",
+      "explanation": "sentence は「文」という意味です。read the sentences で「文を読む」になります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l3-fc25",
+      "front": "clearly",
+      "back": "はっきりと",
+      "explanation": "clearly は「はっきりと」という意味です。read clearly で「はっきりと読む」になります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l3-fc26",
+      "front": "loud",
+      "back": "大きな声で、騒がしい",
+      "explanation": "loud は「大きな声で、騒がしい」という意味です。a loud voice で「大きな声」になります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l3-fc27",
+      "front": "speed",
+      "back": "スピード、速度",
+      "explanation": "speed は「スピード、速度」という意味です。reading speed で「読む速さ」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l3-fc28",
+      "front": "adjust",
+      "back": "〜を調節する",
+      "explanation": "adjust は「〜を調節する」という動作を表します。adjust my reading speed で「読む速さを調節する」になります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l3-fc29",
+      "front": "sincerely",
+      "back": "心から、本気で、誠実に",
+      "explanation": "sincerely は「心から、本気で、誠実に」という意味です。手紙の結びにも使われます。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l3-fc30",
+      "front": "to study English",
+      "back": "英語を勉強するために",
+      "explanation": "to study English は「英語を勉強するために」という、目的を表す不定詞のかたまりです。to のあとは動詞の原形にします。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l3-fc31",
+      "front": "collect",
+      "back": "〜を集める",
+      "explanation": "collect は「〜を集める」という動作を表します。collect information で「情報を集める」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l3-fc32",
+      "front": "garbage",
+      "back": "ごみ",
+      "explanation": "garbage は「ごみ」という意味です。take your garbage home で「ごみを家に持ち帰る」になります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l3-fc33",
+      "front": "lie",
+      "back": "横たわる、寝そべる",
+      "explanation": "lie は「横たわる、寝そべる」という意味です。過去形は lay です。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l3-fc34",
+      "front": "tiny",
+      "back": "ごく小さい",
+      "explanation": "tiny は「ごく小さい」という意味です。small（小さい）よりさらに小さいイメージです。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l3-fc35",
+      "front": "pretty",
+      "back": "かわいい、きれいな",
+      "explanation": "pretty は「かわいい、きれいな」という意味です。pretty butterflies で「きれいなチョウ」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l3-fc36",
+      "front": "leaf",
+      "back": "（草木の）葉",
+      "explanation": "leaf は「（草木の）葉」という意味です。on the leaf で「葉っぱの上に」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l3-fc37",
+      "front": "moon",
+      "back": "月",
+      "explanation": "moon は「月」という意味です。in the moonlight で「月の光の中で」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l3-fc38",
+      "front": "caterpillar",
+      "back": "イモムシ、毛虫",
+      "explanation": "caterpillar は「イモムシ、毛虫」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l3-fc39",
+      "front": "remember",
+      "back": "〜を覚えている、思い出す",
+      "explanation": "remember は「〜を覚えている、思い出す」という動作を表します。things to remember で「覚えておくべきこと」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l3-fc40",
+      "front": "My pleasure.",
+      "back": "どういたしまして。",
+      "explanation": "My pleasure. は「どういたしまして」という会話表現です。お礼を言われたときの返事として使います。",
+      "difficulty": "basic"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "necessary の意味は？",
+        "options": [
+          "重要な",
+          "必要な",
+          "うれしい",
+          "国際的な"
+        ],
+        "correctIndex": 1,
+        "explanation": "necessary は「必要な」。It is necessary to ... で「〜することは必要だ」になります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q2",
+        "question": "「保育所、託児所」を表す語は？",
+        "options": [
+          "career",
+          "nursery",
+          "garbage",
+          "speed"
+        ],
+        "correctIndex": 1,
+        "explanation": "nursery は「保育所、託児所」。a nursery school で「保育園」になります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q3",
+        "question": "「〜してうれしい」を表すまとまりで使う形容詞は？",
+        "options": [
+          "glad",
+          "loud",
+          "tiny",
+          "thick"
+        ],
+        "correctIndex": 0,
+        "explanation": "glad は「うれしい」。be glad to ... で「〜してうれしい」になります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "understand の意味は？",
+        "options": [
+          "〜を集める",
+          "〜を選ぶ",
+          "〜を理解する、わかる",
+          "〜を調節する"
+        ],
+        "correctIndex": 2,
+        "explanation": "understand は「〜を理解する、わかる」。understand this story のように使います。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "choose の過去形は？",
+        "options": [
+          "choosed",
+          "chose",
+          "chosed",
+          "choose"
+        ],
+        "correctIndex": 1,
+        "explanation": "choose の過去形は chose です。不規則に変化する動詞です。",
+        "difficulty": "basic"
+      }
+    ]
+  }
+}

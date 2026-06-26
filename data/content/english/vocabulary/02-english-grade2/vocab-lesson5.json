@@ -1,0 +1,393 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade2",
+  "topicId": "vocab-lesson5",
+  "name": "What design is good for everyone? の単語",
+  "subtitle": "ユニバーサルデザイン・疑問詞+to の語彙",
+  "icon": "♿",
+  "order": 5,
+  "chatId": "eng-vocab-g2-lesson5",
+  "explanation": {
+    "sections": [
+      {
+        "title": "製品とユニバーサルデザインのことば",
+        "content": "product、design、universal、public、facility、accessible など、ユニバーサルデザインや公共の施設を説明する語を確認します。how to ... は「どのように〜するか、〜のしかた」という意味です。",
+        "keyPoints": [
+          "how to ... は「〜のしかた」、what to ... は「何を〜すべきか」。疑問詞のあとに to+動詞の原形が続く。",
+          "universal は「全ての人々の」、design は「デザイン」。",
+          "accessible は「出入りしやすい、利用しやすい」。"
+        ]
+      },
+      {
+        "title": "施設・人を助ける道具のことば",
+        "content": "sign、ramp、wheelchair、stair、baby、useful など、施設や人を助ける道具を説明する語をまとめます。be good at ...ing は「〜するのが得意だ」という表現です。",
+        "keyPoints": [
+          "ramp は「スロープ」、wheelchair は「車いす」、stair は「階段」。",
+          "useful は「役に立つ、有用な」。be useful for ... で「〜の役に立つ」。",
+          "I am sure that ... は「私は〜と確信している」。that のあとに〈主語＋動詞〉が続く。"
+        ]
+      },
+      {
+        "title": "発明・社会のことば",
+        "content": "professor、found、spread、barrier、remove、disabled、ability、regardless など、発明や社会を説明する語を確認します。found は「〜を創立する」、spread は「〜を広める」という意味です。",
+        "keyPoints": [
+          "regardless of ... は「〜にかかわらず」というまとまりの表現。",
+          "remove は「〜を取り除く」、barrier は「壁、障壁」。",
+          "ability は「能力、才能」、situation は「立場、状況、場面」。"
+        ]
+      }
+    ]
+  },
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "eng-vocab-g2-l5-fc01",
+      "front": "touch",
+      "back": "〜にさわる、ふれる",
+      "explanation": "touch は「〜にさわる、ふれる」という動作を表します。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l5-fc02",
+      "front": "product",
+      "back": "製品",
+      "explanation": "product は「製品」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l5-fc03",
+      "front": "bottle",
+      "back": "びん、ボトル",
+      "explanation": "bottle は「びん、ボトル」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l5-fc04",
+      "front": "public",
+      "back": "公の、公共の",
+      "explanation": "public は「公の、公共の」という意味です。public facility で「公共施設」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l5-fc05",
+      "front": "facility",
+      "back": "施設、設備",
+      "explanation": "facility は「施設、設備」という意味です。複数形は facilities となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l5-fc06",
+      "front": "universal",
+      "back": "全ての人々の、普遍的な",
+      "explanation": "universal は「全ての人々の、普遍的な」という意味です。universal design で「ユニバーサルデザイン」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l5-fc07",
+      "front": "automatic",
+      "back": "自動式の、機械的な",
+      "explanation": "automatic は「自動式の、機械的な」という意味です。automatic doors で「自動ドア」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l5-fc08",
+      "front": "fair",
+      "back": "博覧会、フェア",
+      "explanation": "fair は「博覧会、フェア」という意味です。food fair で「フードフェア」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l5-fc09",
+      "front": "design",
+      "back": "デザイン",
+      "explanation": "design は「デザイン」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l5-fc10",
+      "front": "adjustable",
+      "back": "調整できる",
+      "explanation": "adjustable は「調整できる」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l5-fc11",
+      "front": "city hall",
+      "back": "市役所",
+      "explanation": "city hall は「市役所」というまとまりの表現です。1語ずつ分けず、かたまりで覚えましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l5-fc12",
+      "front": "staff",
+      "back": "職員、従業員",
+      "explanation": "staff は「職員、従業員」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l5-fc13",
+      "front": "right-handed",
+      "back": "右利きの",
+      "explanation": "right-handed は「右利きの」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l5-fc14",
+      "front": "left-handed",
+      "back": "左利きの",
+      "explanation": "left-handed は「左利きの」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l5-fc15",
+      "front": "sign",
+      "back": "標識、看板、掲示",
+      "explanation": "sign は「標識、看板、掲示」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l5-fc16",
+      "front": "young",
+      "back": "若い、幼い",
+      "explanation": "young は「若い、幼い」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l5-fc17",
+      "front": "useful",
+      "back": "役に立つ、有用な",
+      "explanation": "useful は「役に立つ、有用な」という意味です。be useful for ... で「〜の役に立つ」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l5-fc18",
+      "front": "baby",
+      "back": "赤ん坊",
+      "explanation": "baby は「赤ん坊」という意味です。複数形は babies となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l5-fc19",
+      "front": "ramp",
+      "back": "スロープ",
+      "explanation": "ramp は「スロープ」という意味です。車いすの人などが使う、ゆるやかな坂を表します。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l5-fc20",
+      "front": "presentation",
+      "back": "発表、プレゼンテーション",
+      "explanation": "presentation は「発表、プレゼンテーション」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l5-fc21",
+      "front": "stair",
+      "back": "階段",
+      "explanation": "stair は「階段」という意味です。ふつう複数形 stairs で使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l5-fc22",
+      "front": "wheelchair",
+      "back": "車いす",
+      "explanation": "wheelchair は「車いす」という意味です。in a wheelchair で「車いすに乗って」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l5-fc23",
+      "front": "pull",
+      "back": "〜をひく、ひっぱる",
+      "explanation": "pull は「〜をひく、ひっぱる」という動作を表します。反対の意味の語は push（押す）です。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l5-fc24",
+      "front": "spread",
+      "back": "〜を広める、広がる",
+      "explanation": "spread は「〜を広める、広がる」という動作を表します。過去形・過去分詞も spread です。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l5-fc25",
+      "front": "childhood",
+      "back": "子供のころ",
+      "explanation": "childhood は「子供のころ」という意味です。in his childhood で「彼の子供のころに」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l5-fc26",
+      "front": "American",
+      "back": "アメリカの、アメリカ人の",
+      "explanation": "American は「アメリカの、アメリカ人の」を表します。名前・地名・国名などは、文の途中でも大文字で始めます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l5-fc27",
+      "front": "found",
+      "back": "〜を創立する、設立する",
+      "explanation": "found は「〜を創立する、設立する」という動作を表します。find（見つける）の過去形と形が同じなので注意します。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l5-fc28",
+      "front": "barrier",
+      "back": "壁、障壁",
+      "explanation": "barrier は「壁、障壁」という意味です。remove barriers で「壁を取り除く」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l5-fc29",
+      "front": "remove",
+      "back": "〜を取り除く",
+      "explanation": "remove は「〜を取り除く」という動作を表します。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l5-fc30",
+      "front": "center",
+      "back": "中心地、センター",
+      "explanation": "center は「中心地、センター」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l5-fc31",
+      "front": "professor",
+      "back": "教授",
+      "explanation": "professor は「教授」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l5-fc32",
+      "front": "disabled",
+      "back": "体の不自由な",
+      "explanation": "disabled は「体の不自由な」という意味です。disabled people で「体の不自由な人々」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l5-fc33",
+      "front": "ability",
+      "back": "能力、才能",
+      "explanation": "ability は「能力、才能」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l5-fc34",
+      "front": "situation",
+      "back": "立場、状況、場面",
+      "explanation": "situation は「立場、状況、場面」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l5-fc35",
+      "front": "accessible",
+      "back": "出入りしやすい、利用しやすい",
+      "explanation": "accessible は「出入りしやすい、利用しやすい」という意味です。be accessible to ... で「〜が利用しやすい」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l5-fc36",
+      "front": "regardless",
+      "back": "(〜に)かかわらず",
+      "explanation": "regardless は「(〜に)かかわらず」という意味です。regardless of ... のまとまりで覚えましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l5-fc37",
+      "front": "how to ...",
+      "back": "〜のしかた、どのように〜するか",
+      "explanation": "how to ... は「〜のしかた」という表現です。how to use で「使い方」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l5-fc38",
+      "front": "what to ...",
+      "back": "何を〜すべきか",
+      "explanation": "what to ... は「何を〜すべきか」という表現です。what to do で「何をすべきか」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l5-fc39",
+      "front": "regardless of",
+      "back": "〜にかかわらず",
+      "explanation": "regardless of は「〜にかかわらず」というまとまりの表現です。regardless of age で「年齢にかかわらず」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l5-fc40",
+      "front": "think of",
+      "back": "〜を思いつく、〜のことを考える",
+      "explanation": "think of は「〜を思いつく、〜のことを考える」というまとまりの表現です。1語ずつ分けず、かたまりで覚えましょう。",
+      "difficulty": "basic"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "how to use の意味は？",
+        "options": [
+          "使う理由",
+          "使う場所",
+          "使い方",
+          "使う時間"
+        ],
+        "correctIndex": 2,
+        "explanation": "how to ... は「〜のしかた」。how to use で「使い方」となります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "regardless of の意味は？",
+        "options": [
+          "〜のおかげで",
+          "〜にかかわらず",
+          "〜の代わりに",
+          "〜について"
+        ],
+        "correctIndex": 1,
+        "explanation": "regardless of ... は「〜にかかわらず」というまとまりの表現です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q3",
+        "question": "「車いす」を表す語は？",
+        "options": [
+          "ramp",
+          "stair",
+          "wheelchair",
+          "barrier"
+        ],
+        "correctIndex": 2,
+        "explanation": "wheelchair が「車いす」です。ramp は「スロープ」、stair は「階段」、barrier は「壁、障壁」です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "found（〜を創立する）について正しいものは？",
+        "options": [
+          "find の過去形と形が同じ",
+          "feel の過去形と形が同じ",
+          "fall の過去形と形が同じ",
+          "follow の過去形と形が同じ"
+        ],
+        "correctIndex": 0,
+        "explanation": "found は「〜を創立する」で、find（見つける）の過去形と形が同じなので注意が必要です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "remove の意味は？",
+        "options": [
+          "〜を広める",
+          "〜を取り除く",
+          "〜を続ける",
+          "〜にさわる"
+        ],
+        "correctIndex": 1,
+        "explanation": "remove は「〜を取り除く」。remove barriers で「壁を取り除く」となります。",
+        "difficulty": "standard"
+      }
+    ]
+  }
+}

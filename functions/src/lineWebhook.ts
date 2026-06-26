@@ -56,8 +56,17 @@ interface LineWebhookBody {
 type ValidGrade = '中1' | '中2' | '中3';
 const VALID_GRADES: readonly ValidGrade[] = ['中1', '中2', '中3'] as const;
 
-type ValidSubject = 'history' | 'english' | 'science' | 'math';
-const VALID_SUBJECTS: readonly ValidSubject[] = ['history', 'english', 'science', 'math'] as const;
+type ValidSubject = 'history' | 'english' | 'science' | 'math' | 'geography';
+const VALID_SUBJECTS: readonly ValidSubject[] = ['history', 'english', 'science', 'math', 'geography'] as const;
+// 地理は中1・中2のみコンテンツがある（中3には地理を出さない）。
+const SUBJECT_GRADES: Partial<Record<ValidSubject, readonly ValidGrade[]>> = {
+  geography: ['中1', '中2'],
+};
+/** その学年でその教科が選択可能か（制限が無ければ常に可）。 */
+function isSubjectAvailableForGrade(subject: ValidSubject, grade: ValidGrade): boolean {
+  const allowed = SUBJECT_GRADES[subject];
+  return !allowed || allowed.includes(grade);
+}
 
 /** 学年文字列（'中1'）→ スコープロジック用の数値（1）。不正値は null。 */
 function gradeToScopeNumber(grade: unknown): 1 | 2 | 3 | null {
@@ -71,6 +80,7 @@ const SUBJECT_LABELS: Record<ValidSubject, string> = {
   english: '英語',
   science: '理科',
   math: '数学',
+  geography: '地理',
 };
 // 教科別のヘッダー背景色。将来 math/science/geography を追加する際は
 // ValidSubject 型と SUBJECT_LABELS / SUBJECT_HEADER_COLORS を同時に更新する。
@@ -80,7 +90,7 @@ const SUBJECT_HEADER_COLORS: Record<ValidSubject, string> = {
   english: '#EC4899', // ピンク
   science: '#10B981', // 緑
   math: '#3B82F6', // 青
-  // geography: "#A16207", // 茶色（歴史と同じ社会系）
+  geography: '#0E7490', // シアン系（社会系だが歴史と区別）
 };
 
 export type ValidHour = 6 | 7 | 16 | 17 | 18 | 19 | 20 | 21;
@@ -207,18 +217,25 @@ export function buildGradeSelectMessage() {
 }
 
 // 配信中の教科を options に並べる。新教科が解放されたら追加していく。
-export function buildSubjectSelectMessage() {
+// 地理は中1・中2のみ（中3は地理コンテンツが無いので出さない）。
+export function buildSubjectSelectMessage(grade: string) {
+  const geoOK = grade === '中1' || grade === '中2';
+  const options: OnboardingSelectOption[] = [
+    { label: '歴史', data: 'type=select_subject&subject=history' },
+    { label: '理科', data: 'type=select_subject&subject=science' },
+  ];
+  if (geoOK) {
+    options.push({ label: '地理', data: 'type=select_subject&subject=geography' });
+  }
   return buildOnboardingSelectFlex({
     step: 2,
     total: 3,
     headerTitle: '教科を選ぶ',
-    bodyText:
-      '勉強したい教科を選んでね。\n※今は「歴史」「理科」が配信中です。英語・数学・地理は順次追加予定！',
+    bodyText: geoOK
+      ? '勉強したい教科を選んでね。\n※今は「歴史」「理科」「地理」が配信中です。英語・数学は順次追加予定！'
+      : '勉強したい教科を選んでね。\n※今は「歴史」「理科」が配信中です。英語・数学は順次追加予定！',
     altText: '教科を選んでください',
-    options: [
-      { label: '歴史', data: 'type=select_subject&subject=history' },
-      { label: '理科', data: 'type=select_subject&subject=science' },
-    ],
+    options,
   });
 }
 
@@ -256,22 +273,32 @@ function buildChangeLearningGradeMessage() {
 }
 
 function buildChangeLearningSubjectMessage(grade: string) {
+  const geoOK = grade === '中1' || grade === '中2';
+  const options: OnboardingSelectOption[] = [
+    {
+      label: '歴史',
+      data: `type=change_learning_subject&grade=${grade}&subject=history`,
+    },
+    {
+      label: '理科',
+      data: `type=change_learning_subject&grade=${grade}&subject=science`,
+    },
+  ];
+  if (geoOK) {
+    options.push({
+      label: '地理',
+      data: `type=change_learning_subject&grade=${grade}&subject=geography`,
+    });
+  }
   return buildOnboardingSelectFlex({
     step: 2,
     total: 2,
     headerTitle: '教科を変更',
-    bodyText: `学年は「${grade}」だね。次は教科を選んでね。\n※今は「歴史」「理科」が配信中です。`,
+    bodyText: geoOK
+      ? `学年は「${grade}」だね。次は教科を選んでね。\n※今は「歴史」「理科」「地理」が配信中です。`
+      : `学年は「${grade}」だね。次は教科を選んでね。\n※今は「歴史」「理科」が配信中です。`,
     altText: '教科を選んでください',
-    options: [
-      {
-        label: '歴史',
-        data: `type=change_learning_subject&grade=${grade}&subject=history`,
-      },
-      {
-        label: '理科',
-        data: `type=change_learning_subject&grade=${grade}&subject=science`,
-      },
-    ],
+    options,
   });
 }
 
@@ -2100,6 +2127,15 @@ async function handleChangeLearningSubject(
     );
     return;
   }
+  // 学年にコンテンツが無い教科（例: 中3の地理）は選べない。
+  if (!isSubjectAvailableForGrade(subject as ValidSubject, grade as ValidGrade)) {
+    await replyText(
+      replyToken,
+      `${grade}では「${SUBJECT_LABELS[subject as ValidSubject]}」をまだ選べません。別の教科を選んでね。`,
+      '(change_learning subject not available for grade)'
+    );
+    return;
+  }
   const { db, FieldValue } = await getDb();
   try {
     const snap = await db.doc(`users/${uid}`).get();
@@ -3435,8 +3471,14 @@ function buildLiffUnitsDeepLink(
  */
 function buildPostAnswerNextStepFlexMessage(options: {
   topicName?: string;
+  subject?: string;
 }): unknown | null {
   if (!options.topicName) return null;
+  // 数学は暗記カード（flashcards）を持たないので、「この分野を暗記」ではなく
+  // 「この分野のクイズ」を出して LIFF のクイズ setup へ誘導する。
+  const isMath = options.subject === 'math';
+  const studyKind: 'fc' | 'quiz' = isMath ? 'quiz' : 'fc';
+  const studyLabel = isMath ? '📝 この分野のクイズ' : '🃏 この分野を暗記';
   return {
     type: 'flex' as const,
     altText: 'つづけて学ぼう（暗記カード / もう一問）',
@@ -3469,10 +3511,10 @@ function buildPostAnswerNextStepFlexMessage(options: {
                 height: 'sm' as const,
                 action: {
                   type: 'uri' as const,
-                  label: '🃏 この分野を暗記',
+                  label: studyLabel,
                   uri: buildLiffUnitsDeepLink(
                     options.topicName,
-                    'fc',
+                    studyKind,
                     'post_answer',
                   ),
                 },
@@ -4712,7 +4754,7 @@ async function handleSelectGradePostback(
           type: 'text',
           text: `${grade}ですね！次は教科を選んでね。`,
         },
-        buildSubjectSelectMessage(),
+        buildSubjectSelectMessage(grade),
       ],
     });
   } catch (error) {
@@ -4766,6 +4808,28 @@ async function handleSelectSubjectPostback(
           error
         );
       }
+    }
+    return;
+  }
+
+  // 学年にコンテンツが無い教科（例: 中3の地理）は選べない。
+  const onbGrade = userData?.grade;
+  if (
+    typeof onbGrade === 'string' &&
+    VALID_GRADES.includes(onbGrade as ValidGrade) &&
+    !isSubjectAvailableForGrade(subject as ValidSubject, onbGrade as ValidGrade)
+  ) {
+    console.warn(
+      '[lineWebhook] subject not available for grade (onboarding):',
+      subject,
+      onbGrade
+    );
+    if (replyToken) {
+      await replyText(
+        replyToken,
+        'その学年ではこの教科をまだ選べません。別の教科を選んでね。',
+        '(subject not available for grade)'
+      );
     }
     return;
   }
@@ -5078,6 +5142,7 @@ async function handleAnswerPostback(
     : null;
   const nextStepFlex = buildPostAnswerNextStepFlexMessage({
     topicName: question.topic,
+    subject: question.subject,
   });
 
   // 初回回答時のトライアル案内 flex（first_answer）は、reply には積まず

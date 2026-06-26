@@ -1,0 +1,441 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade3",
+  "topicId": "vocab-lesson1",
+  "name": "What is special about Japanese pop culture? の単語",
+  "subtitle": "現在完了形（経験）・ポップカルチャー・SVOCの語彙",
+  "icon": "🎌",
+  "order": 1,
+  "chatId": "eng-vocab-g3-lesson1",
+  "explanation": {
+    "sections": [
+      {
+        "title": "現在完了形（経験）で使う語",
+        "content": "ever、never、twice、before など、「〜したことがある」という経験を表す現在完了形でよく使う語を確認します。",
+        "keyPoints": [
+          "ever は「今までに、かつて」。疑問文でよく使う。",
+          "never は「一度も〜ない」。否定の意味を含む。",
+          "twice は「2回」、before は「以前に」。回数や時を表す。"
+        ]
+      },
+      {
+        "title": "ポップカルチャーと作品のことば",
+        "content": "anime、animation、genre、fashion、regional、quality、drawing など、日本のポップカルチャーを説明する語をまとめます。",
+        "keyPoints": [
+          "genre は「ジャンル、部門」、quality は「質、品質」。",
+          "regional は「地域の、局地的な」、worldwide は「全世界の」。",
+          "drawing は「絵、図、スケッチ」、animation は「アニメーション」。"
+        ]
+      },
+      {
+        "title": "感情・伝統・つながりのことば",
+        "content": "express、influence、root、link、technique、tradition など、文化や気持ちを表す語を確認します。SVOC（make me happy）の文でも使います。",
+        "keyPoints": [
+          "express は「〜を表現する」、ignore は「〜を無視する」。",
+          "influence は「〜に影響を及ぼす」、link は「〜をつなぐ」。",
+          "root は「起源、根」、existence は「存在、生存」。"
+        ]
+      }
+    ]
+  },
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "eng-vocab-g3-l1-fc01",
+      "front": "ever",
+      "back": "今までに、かつて ※疑問文で",
+      "explanation": "ever は「今までに、かつて」という意味です。Have you ever ...? の形で経験をたずねるときによく使います。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc02",
+      "front": "never",
+      "back": "一度も〜ない、決して〜ない",
+      "explanation": "never は「一度も〜ない」という意味で、否定の意味を含みます。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc03",
+      "front": "twice",
+      "back": "2回、2度",
+      "explanation": "twice は「2回、2度」という意味です。現在完了形で回数を表すときによく使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc04",
+      "front": "before",
+      "back": "以前に",
+      "explanation": "before は「以前に」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc05",
+      "front": "anime",
+      "back": "アニメ",
+      "explanation": "anime は「アニメ」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc06",
+      "front": "animation",
+      "back": "アニメーション",
+      "explanation": "animation は「アニメーション」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc07",
+      "front": "genre",
+      "back": "ジャンル、部門、分野",
+      "explanation": "genre は「ジャンル、部門、分野」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc08",
+      "front": "fashion",
+      "back": "ファッション、流行",
+      "explanation": "fashion は「ファッション、流行」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc09",
+      "front": "regional",
+      "back": "地域の、地方の、局地的な",
+      "explanation": "regional は「地域の、地方の、局地的な」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc10",
+      "front": "quality",
+      "back": "質、品質、良質",
+      "explanation": "quality は「質、品質、良質」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc11",
+      "front": "drawing",
+      "back": "絵、図、スケッチ",
+      "explanation": "drawing は「絵、図、スケッチ」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc12",
+      "front": "drawn",
+      "back": "draw（描く）の過去分詞",
+      "explanation": "drawn は「draw（描く）の過去分詞」です。受け身や現在完了形のときに出やすい形です。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc13",
+      "front": "adult",
+      "back": "おとな、成人",
+      "explanation": "adult は「おとな、成人」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc14",
+      "front": "delicate",
+      "back": "繊細な、上品な、優美な",
+      "explanation": "delicate は「繊細な、上品な、優美な」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc15",
+      "front": "positive",
+      "back": "肯定的な、前向きな",
+      "explanation": "positive は「肯定的な、前向きな」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc16",
+      "front": "addition",
+      "back": "追加、付け加えること",
+      "explanation": "addition は「追加、付け加えること」という意味です。in addition で「そのうえ」という表現になります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc17",
+      "front": "in addition",
+      "back": "そのうえ、加えて",
+      "explanation": "in addition は「そのうえ、加えて」というまとまりの表現です。1語ずつ分けず、かたまりで覚えると使いやすくなります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc18",
+      "front": "adventure",
+      "back": "冒険、冒険心",
+      "explanation": "adventure は「冒険、冒険心」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc19",
+      "front": "worldwide",
+      "back": "全世界の、世界的な、地球上の",
+      "explanation": "worldwide は「全世界の、世界的な、地球上の」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc20",
+      "front": "harmonize",
+      "back": "〜と調和する",
+      "explanation": "harmonize は「〜と調和する」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc21",
+      "front": "taste",
+      "back": "味、味覚",
+      "explanation": "taste は「味、味覚」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc22",
+      "front": "ignore",
+      "back": "〜を無視する、見て見ぬふりをする",
+      "explanation": "ignore は「〜を無視する、見て見ぬふりをする」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc23",
+      "front": "express",
+      "back": "〜を表現する、言い表す",
+      "explanation": "express は「〜を表現する、言い表す」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc24",
+      "front": "entirely",
+      "back": "全く、すっかり",
+      "explanation": "entirely は「全く、すっかり」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc25",
+      "front": "existence",
+      "back": "存在すること、生存",
+      "explanation": "existence は「存在すること、生存」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc26",
+      "front": "movement",
+      "back": "動き、運動",
+      "explanation": "movement は「動き、運動」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc27",
+      "front": "technique",
+      "back": "手法、テクニック",
+      "explanation": "technique は「手法、テクニック」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc28",
+      "front": "influence",
+      "back": "〜に影響を及ぼす、影響",
+      "explanation": "influence は「〜に影響を及ぼす、影響」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc29",
+      "front": "scroll",
+      "back": "巻物、掛け軸",
+      "explanation": "scroll は「巻物、掛け軸」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc30",
+      "front": "root",
+      "back": "起源、根",
+      "explanation": "root は「起源、根」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc31",
+      "front": "link",
+      "back": "〜を（〜と）つなぐ、連結する",
+      "explanation": "link は「〜を（〜と）つなぐ、連結する」という動作を表します。主語のあとに置いて、何をするかを伝えるときに使います。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc32",
+      "front": "foreigner",
+      "back": "外国人",
+      "explanation": "foreigner は「外国人」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc33",
+      "front": "result",
+      "back": "結果",
+      "explanation": "result は「結果」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc34",
+      "front": "popular",
+      "back": "人気のある",
+      "explanation": "popular は「人気のある」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc35",
+      "front": "various",
+      "back": "さまざまな、いろいろな",
+      "explanation": "various は「さまざまな、いろいろな」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc36",
+      "front": "such as",
+      "back": "〜のような、例えば〜",
+      "explanation": "such as は「〜のような、例えば〜」というまとまりの表現です。具体例をあげるときに使います。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc37",
+      "front": "be surprised by",
+      "back": "〜に驚かされる",
+      "explanation": "be surprised by は「〜に驚かされる」というまとまりの表現です。受け身の形で気持ちを表します。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc38",
+      "front": "make",
+      "back": "（人）を〜の状態にする ※SVOC",
+      "explanation": "make は SVOC の文で「（人）を〜の状態にする」という意味になります。make me happy で「私を幸せにする」です。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc39",
+      "front": "performance",
+      "back": "演技、演奏、上演",
+      "explanation": "performance は「演技、演奏、上演」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc40",
+      "front": "resident",
+      "back": "住民、居住者",
+      "explanation": "resident は「住民、居住者」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc41",
+      "front": "necessary",
+      "back": "必要な",
+      "explanation": "necessary は「必要な」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc42",
+      "front": "possible",
+      "back": "可能な、ありうる",
+      "explanation": "possible は「可能な、ありうる」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc43",
+      "front": "martial arts",
+      "back": "武道、武術",
+      "explanation": "martial arts は「武道、武術」というまとまりの表現です。1語ずつ分けず、かたまりで覚えると使いやすくなります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc44",
+      "front": "be linked to",
+      "back": "〜とつながっている",
+      "explanation": "be linked to は「〜とつながっている」というまとまりの表現です。受け身の形でつながりを表します。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l1-fc45",
+      "front": "take advantage of",
+      "back": "〜を利用する、活用する",
+      "explanation": "take advantage of は「〜を利用する、活用する」というまとまりの表現です。1語ずつ分けず、かたまりで覚えると使いやすくなります。",
+      "difficulty": "standard"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "「一度も〜ない」と否定の意味を含む語は？",
+        "options": [
+          "ever",
+          "never",
+          "twice",
+          "before"
+        ],
+        "correctIndex": 1,
+        "explanation": "never は「一度も〜ない」。現在完了形の経験の否定でよく使います。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "genre の意味は？",
+        "options": [
+          "ジャンル、分野",
+          "起源、根",
+          "外国人",
+          "巻物"
+        ],
+        "correctIndex": 0,
+        "explanation": "genre は「ジャンル、部門、分野」という意味です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q3",
+        "question": "「〜を表現する、言い表す」を表す動詞は？",
+        "options": [
+          "ignore",
+          "influence",
+          "express",
+          "link"
+        ],
+        "correctIndex": 2,
+        "explanation": "express は「〜を表現する、言い表す」という意味の動詞です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q4",
+        "question": "quality の意味は？",
+        "options": [
+          "冒険、冒険心",
+          "質、品質",
+          "動き、運動",
+          "味、味覚"
+        ],
+        "correctIndex": 1,
+        "explanation": "quality は「質、品質、良質」という意味です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "take advantage of の意味は？",
+        "options": [
+          "〜を無視する",
+          "〜とつながっている",
+          "〜に驚かされる",
+          "〜を利用する、活用する"
+        ],
+        "correctIndex": 3,
+        "explanation": "take advantage of は「〜を利用する、活用する」というまとまりの表現です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "in addition の意味は？",
+        "options": [
+          "そのうえ、加えて",
+          "全く、すっかり",
+          "今までに",
+          "〜のような"
+        ],
+        "correctIndex": 0,
+        "explanation": "in addition は「そのうえ、加えて」という表現です。",
+        "difficulty": "standard"
+      }
+    ]
+  }
+}

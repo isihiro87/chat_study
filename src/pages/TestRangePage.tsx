@@ -45,10 +45,13 @@ const SUBJECT_LABEL: Record<ScopeSubjectId, string> = {
   english: '英語',
   history: '歴史',
   science: '理科',
+  geography: '地理',
 };
 
 function isScopeSubject(v: unknown): v is ScopeSubjectId {
-  return v === 'english' || v === 'history' || v === 'science';
+  return (
+    v === 'english' || v === 'history' || v === 'science' || v === 'geography'
+  );
 }
 
 interface UserContext {

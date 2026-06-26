@@ -323,6 +323,8 @@ npx tsx scripts/migrate-user-status.ts              # 実書き込み
 
 既存コマンド（設定変更 / ニックネーム / 復帰キーワード等）にマッチしない自由文・画像・音声に、サービス仕様を内蔵した Gemini チャットボットが reply で応答する。**reply 送信なので LINE の月間配信枠は消費しない**（コストは Gemini 側のみ）。
 
+> 📐 **将来構想（第2世代の高精度化）**: RAG（教材接地）・ツール実行（会話でテスト範囲設定/設定変更/成績照会）・ユーザー要約メモリ・安全/カンニング防止のガードレール・eval ループなどで精度を上げる設計と「できること一覧」を **`docs/ideas/ai-chatbot-v2-design.md`** にまとめてある（未実装の構想）。AIチャットの拡張を依頼されたらまずこれを読む。
+
 **関連ファイル**:
 - `functions/src/aiChat.ts` — オーケストレーション（レート制限 → Gemini 呼び出し → reply → 状態書き戻し）。`callGemini` は `inlineData` でマルチモーダル入力に対応。
 - `functions/src/aiChatCore.ts` — 副作用なしの純粋ロジック（レート判定・履歴トリム・JST 日付）。テストは `__tests__/aiChatCore.test.ts`。
@@ -330,7 +332,7 @@ npx tsx scripts/migrate-user-status.ts              # 実書き込み
 - `functions/src/lineWebhook.ts` の `handleMessage` → `handleMediaMessage`（画像・音声）/ `handleAiChat`（テキスト）。
 
 **コスト管理（多層）**:
-1. 全ユーザー共通 **1日20回**上限（`DAILY_LIMIT`）。超過時は API を呼ばず固定文（課金ゼロ）。
+1. 全ユーザー共通 **1日40回**上限（`DAILY_LIMIT`）。超過時は API を呼ばず固定文（課金ゼロ）。
 2. 出力トークン上限 `MAX_OUTPUT_TOKENS=500` ＋ 入力履歴ターン制限（free 3 / premium 6）。
 3. Gemini 呼び出し**成功時のみ** count を消費（エラーで枠を無駄にしない）。
 4. 月の最初の応答に AI 注意書きを1通添える（`lastDisclaimerMonth`）。
@@ -341,9 +343,18 @@ npx tsx scripts/migrate-user-status.ts              # 実書き込み
 - 画像 → `image/jpeg`。**flash-lite で確実に動作**。
 - 音声 → `audio/mp4`（LINE は m4a）。**60秒超はダウンロード前に断る**（課金ゼロ）。flash-lite の音声対応・MIME は実機検証の上で運用。NG なら full flash 系へ `GEMINI_MODEL` 切替。
 - 取得8MB上限。取得・解析失敗時はフォールバック文で webhook（200）を維持。
-- メディアもテキストと同じ**1日20回枠**で計上。履歴には base64 を残さず `[画像を送信]` / `[音声を送信]` マーカーのみ保存。
+- メディアもテキストと同じ**1日40回枠**で計上。履歴には base64 を残さず `[画像を送信]` / `[音声を送信]` マーカーのみ保存。
 
 **直近の出題問題の認識**: 問題を送る各経路（`selectAndSendQuestion` / `handleWeakReview`）で `users/{uid}.lastQuestion`（id / topic / text / choices / correctChoiceId / explanation のスナップショット）を保存し、`buildSystemPrompt` が文脈に注入する。これでユーザーが「さっきの問題」「なんで？」と聞くと AI が正解・解説込みで答えられる。**新しい問題の送信経路を増やしたら `buildLastQuestionSnapshot` の書き込みも追加する**こと（`buildQuestionMessage` を呼ぶ箇所が目印）。
+
+## 月末ふり返りレポート（AI 学習分析）
+
+その月の `answers`（解いた問題）を集計して、得意・ニガテ・頑張ったことを **Gemini で中学生向けのふり返りメッセージ**にして届ける機能。チャットボットの仕組み（`generateGeminiText` / 口調ルール）を再利用する。
+
+- **フロー**: 月末に招待 push（ボタン付き flex）→ ユーザーがタップ → postback `type=monthly_report&month=YYYY-MM` → `monthlyReport.handleMonthlyReportPostback` が当月 answers を集計（`monthlyReportCore.aggregateMonthlyReport`）→ Gemini → **reply（配信枠ゼロ）**。
+- **コスト規律**: answers はその月の範囲＋`limit(500)` の1クエリのみ。同月レポートは `users/{uid}.monthlyReport`（month / text / generatedAt）にキャッシュし、再タップ時は Gemini を呼ばない。回答数が `MIN_ANSWERS_FOR_REPORT`(5) 未満の月は AI を呼ばず案内文。
+- **関連ファイル**: `monthlyReportCore.ts`（純粋集計・テスト済み）/ `monthlyReportPrompt.ts`（システムプロンプト）/ `monthlyReport.ts`（postback ハンドラ＋招待 flex ビルダー）/ `sendMonthlyReportInvite.ts`（cron）。postback は `lineWebhook.handlePostback` で dynamic import。
+- ⚠️ **cron `sendMonthlyReportInvite` は未デプロイ（2026-06-19 時点）**。本体・index.ts export は存在するが、本番には出していない（孤児ではない＝一度も作成していない）。本番投入すると **月の最終日 JST 17:00 に「当月回答した全ユーザー」へ招待 push（配信枠を消費）**。アームする前にユーザー承認を取ること。動作確認は管理人だけに手動送信する `scripts/_send-monthly-report-invite-admin.ts` を使用。
 
 ## LIFF「じっくり学ぶ」の学習データフロー
 

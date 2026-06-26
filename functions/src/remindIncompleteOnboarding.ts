@@ -56,9 +56,13 @@ function getNextStep(data: FirebaseFirestore.DocumentData): OnboardingStep {
   return "time";
 }
 
-function getStepMessage(step: OnboardingStep): messagingApi.Message {
+function getStepMessage(
+  step: OnboardingStep,
+  grade: string
+): messagingApi.Message {
   if (step === "grade") return buildGradeSelectMessage() as messagingApi.Message;
-  if (step === "subject") return buildSubjectSelectMessage() as messagingApi.Message;
+  if (step === "subject")
+    return buildSubjectSelectMessage(grade) as messagingApi.Message;
   return buildTimeSelectMessage() as messagingApi.Message;
 }
 
@@ -185,7 +189,7 @@ export const remindIncompleteOnboarding = functions
 
       const messages: messagingApi.Message[] = [
         { type: "text", text },
-        getStepMessage(step),
+        getStepMessage(step, typeof data.grade === "string" ? data.grade : ""),
       ];
 
       try {

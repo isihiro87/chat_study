@@ -1190,6 +1190,7 @@ export const lineStudyScienceEras: StudyEra[] = [
             "difficulty": "advanced"
           },
           {
+            "id": "q23",
             "question": "次のうち、裸子植物はどれですか。",
             "options": [
               "マツ",
@@ -1199,10 +1200,10 @@ export const lineStudyScienceEras: StudyEra[] = [
             ],
             "correctIndex": 0,
             "explanation": "マツは子房がなく胚珠がむき出しの裸子植物。サクラ・アサガオ・イネは胚珠が子房に包まれた被子植物。",
-            "difficulty": "basic",
-            "id": "q23"
+            "difficulty": "basic"
           },
           {
+            "id": "q24",
             "question": "次のうち、合弁花はどれですか。",
             "options": [
               "サクラ",
@@ -1212,10 +1213,10 @@ export const lineStudyScienceEras: StudyEra[] = [
             ],
             "correctIndex": 2,
             "explanation": "アサガオは花弁が1枚につながった合弁花。サクラ・アブラナ・エンドウは花弁が1枚ずつ分かれた離弁花。",
-            "difficulty": "standard",
-            "id": "q24"
+            "difficulty": "standard"
           },
           {
+            "id": "q25",
             "question": "次のうち、離弁花はどれですか。",
             "options": [
               "サクラ",
@@ -1225,10 +1226,10 @@ export const lineStudyScienceEras: StudyEra[] = [
             ],
             "correctIndex": 0,
             "explanation": "サクラは花弁が1枚ずつ分かれた離弁花。タンポポ・ツツジ・アサガオは花弁がくっついた合弁花。",
-            "difficulty": "standard",
-            "id": "q25"
+            "difficulty": "standard"
           },
           {
+            "id": "q26",
             "question": "次のうち、単子葉類はどれですか。",
             "options": [
               "ヒマワリ",
@@ -1238,10 +1239,10 @@ export const lineStudyScienceEras: StudyEra[] = [
             ],
             "correctIndex": 2,
             "explanation": "トウモロコシは子葉1枚・平行脈・ひげ根の単子葉類。ヒマワリ・アブラナ・サクラは双子葉類。",
-            "difficulty": "standard",
-            "id": "q26"
+            "difficulty": "standard"
           },
           {
+            "id": "q27",
             "question": "次のうち、双子葉類はどれですか。",
             "options": [
               "イネ",
@@ -1251,8 +1252,7 @@ export const lineStudyScienceEras: StudyEra[] = [
             ],
             "correctIndex": 1,
             "explanation": "タンポポは子葉2枚・網状脈・主根と側根をもつ双子葉類。イネ・ユリ・ツユクサは単子葉類。",
-            "difficulty": "standard",
-            "id": "q27"
+            "difficulty": "standard"
           }
         ]
       },
@@ -1599,6 +1599,7 @@ export const lineStudyScienceEras: StudyEra[] = [
             "difficulty": "standard"
           },
           {
+            "id": "q19",
             "question": "次のうち、シダ植物はどれですか。",
             "options": [
               "ゼニゴケ",
@@ -1608,10 +1609,10 @@ export const lineStudyScienceEras: StudyEra[] = [
             ],
             "correctIndex": 2,
             "explanation": "イヌワラビは根・茎・葉の区別があり胞子でふえるシダ植物。ゼニゴケはコケ植物、マツは裸子植物、アサガオは被子植物。",
-            "difficulty": "basic",
-            "id": "q19"
+            "difficulty": "basic"
           },
           {
+            "id": "q20",
             "question": "次のうち、コケ植物はどれですか。",
             "options": [
               "スギナ",
@@ -1621,10 +1622,10 @@ export const lineStudyScienceEras: StudyEra[] = [
             ],
             "correctIndex": 3,
             "explanation": "ゼニゴケは根・茎・葉の区別がなく仮根をもつコケ植物。スギナ・ゼンマイ・イヌワラビはシダ植物。",
-            "difficulty": "standard",
-            "id": "q20"
+            "difficulty": "standard"
           },
           {
+            "id": "q21",
             "question": "次のうち、種子をつくらず胞子でふえる植物はどれですか。",
             "options": [
               "マツ",
@@ -1634,10 +1635,10 @@ export const lineStudyScienceEras: StudyEra[] = [
             ],
             "correctIndex": 2,
             "explanation": "イヌワラビはシダ植物で、種子をつくらず胞子でふえる。マツ・イネ・サクラは種子をつくる種子植物。",
-            "difficulty": "standard",
-            "id": "q21"
+            "difficulty": "standard"
           },
           {
+            "id": "q22",
             "question": "次のうち、裸子植物はどれですか。",
             "options": [
               "タンポポ",
@@ -1647,8 +1648,7 @@ export const lineStudyScienceEras: StudyEra[] = [
             ],
             "correctIndex": 3,
             "explanation": "イチョウは子房がなく胚珠がむき出しの裸子植物。タンポポ・ユリ・サクラは被子植物。",
-            "difficulty": "standard",
-            "id": "q22"
+            "difficulty": "standard"
           }
         ]
       }

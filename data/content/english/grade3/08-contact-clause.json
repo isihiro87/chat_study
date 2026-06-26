@@ -1,0 +1,493 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade3",
+  "topicId": "eng-contact-clause",
+  "name": "接触節",
+  "subtitle": "名詞 + 主語 + 動詞 でうしろから説明する形",
+  "icon": "📎",
+  "order": 8,
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "the book I bought yesterday",
+      "back": "「私がきのう買った本」を英語にすると？",
+      "hint": "名詞のうしろに「主語＋動詞」をくっつけるよ",
+      "explanation": "book のうしろに I bought yesterday をくっつけるよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "the picture I found on the internet",
+      "back": "「私がインターネットで見つけた写真」を英語にすると？",
+      "hint": "picture のうしろに「私が見つけた」をくっつけよう",
+      "explanation": "picture のうしろに I found on the internet をくっつけるよ。found は find の過去形だよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "the movie we watched",
+      "back": "「私たちが見た映画」を英語にすると？",
+      "hint": "movie のうしろに「私たちが見た」をくっつけよう",
+      "explanation": "movie のうしろに we watched をくっつけるよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "the cake she made",
+      "back": "「彼女が作ったケーキ」を英語にすると？",
+      "hint": "cake のうしろに「彼女が作った」をくっつけよう",
+      "explanation": "cake のうしろに she made をくっつけるよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "the place he visits often",
+      "back": "「彼がよく訪れる場所」を英語にすると？",
+      "hint": "place のうしろに「彼がよく訪れる」をくっつけよう",
+      "explanation": "place のうしろに he visits often をくっつけるよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "the song I heard on the radio",
+      "back": "「私がラジオで聞いた歌」を英語にすると？",
+      "hint": "song のうしろに「私がラジオで聞いた」をくっつけよう",
+      "explanation": "song のうしろに I heard on the radio をくっつけるよ。heard は hear の過去形だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc7",
+      "front": "the letter she wrote",
+      "back": "「彼女が書いた手紙」を英語にすると？",
+      "hint": "letter のうしろに「彼女が書いた」をくっつけよう",
+      "explanation": "letter のうしろに she wrote をくっつけるよ。wrote は write の過去形だよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc8",
+      "front": "the website the teacher recommended",
+      "back": "「先生がすすめたウェブサイト」を英語にすると？",
+      "hint": "website のうしろに「先生がすすめた」をくっつけよう",
+      "explanation": "website のうしろに the teacher recommended をくっつけるよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "the bag my mother gave me",
+      "back": "「お母さんがくれたカバン」を英語にすると？",
+      "hint": "bag のうしろに「お母さんがくれた」をくっつけよう",
+      "explanation": "bag のうしろに my mother gave me をくっつけるよ。gave は give の過去形だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "the picture he showed me",
+      "back": "「彼が私に見せた写真」を英語にすると？",
+      "hint": "picture のうしろに「彼が見せた」をくっつけよう",
+      "explanation": "picture のうしろに he showed me をくっつけるよ。showed は show の過去形だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "the photos she took in Kyoto",
+      "back": "「彼女が京都で撮った写真」を英語にすると？",
+      "hint": "photos のうしろに「彼女が京都で撮った」をくっつけよう",
+      "explanation": "photos のうしろに she took in Kyoto をくっつけるよ。took は take の過去形だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "The book I bought yesterday was very long.",
+      "back": "「私がきのう買った本はとても長かった。」を英語にすると？",
+      "hint": "book のうしろに I bought yesterday をくっつけよう",
+      "explanation": "接触節を使った完全文。「主語の名詞句」＋「述語」の形になるよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc15",
+      "front": "The food she cooked was very delicious.",
+      "back": "「彼女が作った料理はとてもおいしかった。」を英語にすると？",
+      "hint": "food のうしろに she cooked をくっつけよう",
+      "explanation": "food のうしろに she cooked をくっつけるよ。接触節を使った完全文だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc16",
+      "front": "Do you know the man she met?",
+      "back": "「あなたは彼女が会った男の人を知っていますか。」を英語にすると？",
+      "hint": "Do you know ... で始めて、man のうしろに she met をくっつけよう",
+      "explanation": "man のうしろに she met をくっつけるよ。接触節は疑問文でも使えるよ。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc17",
+      "front": "the snacks Tom brought",
+      "back": "「トムが持ってきたお菓子」を英語にすると？",
+      "hint": "snacks のうしろに「トムが持ってきた」をくっつけよう",
+      "explanation": "snacks のうしろに Tom brought をくっつけるよ。brought は bring の過去形だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc18",
+      "front": "「主語＋動詞」をくっつける（〜ing は使わない）",
+      "back": "接触節で名詞のうしろに置くのはどんな形？（〜ing? 主語＋動詞?）",
+      "hint": "the cake she made のように…",
+      "explanation": "接触節は「名詞＋主語＋動詞」の形。making のような〜ing形は使わないよ。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc19",
+      "front": "the country they visited last year",
+      "back": "「彼らが去年訪れた国」を英語にすると？",
+      "hint": "country のうしろに「彼らが去年訪れた」をくっつけよう",
+      "explanation": "country のうしろに they visited last year をくっつけるよ。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc20",
+      "front": "the picture my brother drew",
+      "back": "「弟が描いた絵」を英語にすると？",
+      "hint": "picture のうしろに「弟が描いた」をくっつけよう",
+      "explanation": "picture のうしろに my brother drew をくっつけるよ。drew は draw の過去形だよ。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc21",
+      "front": "the eraser I found",
+      "back": "「私が見つけた消しゴム」を英語にすると？",
+      "hint": "eraser のうしろに「私が見つけた」をくっつけよう",
+      "explanation": "eraser のうしろに I found をくっつけるよ。found は find の過去形だよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc22",
+      "front": "the cookies my mother baked",
+      "back": "「母が焼いたクッキー」を英語にすると？",
+      "hint": "cookies のうしろに「母が焼いた」をくっつけよう",
+      "explanation": "cookies のうしろに my mother baked をくっつけるよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc23",
+      "front": "the movie I watched",
+      "back": "「私が見た映画」を英語にすると？",
+      "hint": "movie のうしろに「私が見た」をくっつけよう",
+      "explanation": "movie のうしろに I watched をつけて「私が見た映画」。〈名詞＋主語＋動詞〉の接触節だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc24",
+      "front": "the song she likes",
+      "back": "「彼女が好きな歌」を英語にすると？",
+      "hint": "song のうしろに「彼女が好きな」をくっつけよう",
+      "explanation": "song のうしろに she likes をつけて「彼女が好きな歌」。〈名詞＋主語＋動詞〉の形。",
+      "difficulty": "standard"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "(　) に入るのは？\nThe book (　) yesterday was interesting.\n（私がきのう買った本はおもしろかった。）",
+        "options": ["I bought", "bought I", "I buying", "buying I"],
+        "correctIndex": 0,
+        "explanation": "接触節は名詞のうしろに「主語＋動詞」をくっつけるよ。the book I bought yesterday が正しいよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "(　) に入るのは？\nThis is a picture (　) on the internet.\n（これは私がインターネットで見つけた写真です。）",
+        "options": ["I found", "found I", "I finding", "finding I"],
+        "correctIndex": 0,
+        "explanation": "picture のうしろに I found on the internet をくっつけるよ。found は find の過去形だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "(　) に入るのは？\nThe movie (　) was exciting.\n（私たちが見た映画はワクワクした。）",
+        "options": [
+          "we watching",
+          "watched we",
+          "we watched",
+          "watching we"
+        ],
+        "correctIndex": 2,
+        "explanation": "名詞のうしろに「主語＋動詞」の順でくっつけるよ。we watched が正しいよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "(　) に入るのは？\nThe cookies (　) were delicious.\n（母が焼いたクッキーはおいしかった。）",
+        "options": ["baked my mother", "my mother baked", "my mother baking", "baking my mother"],
+        "correctIndex": 1,
+        "explanation": "cookies のうしろに my mother baked をくっつけるよ。名詞＋主語＋動詞の順番が大事だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "(　) に入るのは？\nThis is the cake (　).\n（これは彼女が作ったケーキです。）",
+        "options": [
+          "made she",
+          "she making",
+          "she made",
+          "making she"
+        ],
+        "correctIndex": 2,
+        "explanation": "接触節は「主語＋動詞」の語順。she made が正しいよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "(　) に入るのは？\nThe letter (　) was in English.\n（彼女が書いた手紙は英語でした。）",
+        "options": ["wrote she", "she writing", "she wrote", "writing she"],
+        "correctIndex": 2,
+        "explanation": "letter のうしろに she wrote をくっつけるよ。wrote は write の過去形だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q8",
+        "question": "(　) に入るのは？\nI saw the website (　).\n（先生がすすめたウェブサイトを見ました。）",
+        "options": ["recommended it", "the teacher recommending", "recommended the teacher", "the teacher recommended"],
+        "correctIndex": 3,
+        "explanation": "website のうしろに the teacher recommended をくっつけるよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "(　) に入るのは？\nThe picture (　) was beautiful.\n（彼が私に見せた写真はきれいでした。）",
+        "options": ["showed he me", "he showed me", "showed me he", "he showing me"],
+        "correctIndex": 1,
+        "explanation": "picture のうしろに he showed me をくっつけるよ。showed は show の過去形だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "(　) に入るのは？\nThe e-mail (　) this morning was from my uncle.\n（今朝届いたメール）",
+        "options": [
+          "I receiving",
+          "received I",
+          "I received",
+          "receiving I"
+        ],
+        "correctIndex": 2,
+        "explanation": "接触節は「名詞＋主語＋動詞」の語順。I received が正しいよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "(　) に入るのは？\nThe snacks (　) were delicious.\n（トムが持ってきたお菓子はおいしかった。）",
+        "options": ["brought Tom", "Tom bringing", "bringing Tom", "Tom brought"],
+        "correctIndex": 3,
+        "explanation": "snacks のうしろに Tom brought をくっつけるよ。brought は bring の過去形だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "(　) に入るのは？\nDo you know the man (　)?\n（あなたは彼女が会った男の人を知っていますか。）",
+        "options": ["met she", "she met", "she meeting", "meeting she"],
+        "correctIndex": 1,
+        "explanation": "man のうしろに she met をくっつけるよ。接触節は疑問文でも使えるよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q13",
+        "question": "(　) に入るのは？\nThe book (　) yesterday was very long.\n（私がきのう読んだ本はとても長かった。）",
+        "options": ["read I", "I read", "I reading", "reading I"],
+        "correctIndex": 1,
+        "explanation": "接触節は「名詞＋主語＋動詞」の語順。read I ではなく I read が正しいよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q14",
+        "question": "(　) に入るのは？\nThe picture (　) won first prize.\n（彼女が描いた絵が1位になった。）",
+        "options": [
+          "she painted",
+          "she painting",
+          "painted she",
+          "painting she"
+        ],
+        "correctIndex": 0,
+        "explanation": "接触節は「主語＋動詞の過去形」。she painted が正しいよ。〜ing形は使わないよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q15",
+        "question": "(　) に入るのは？\nThe country (　) last year is Australia.\n（彼らが去年訪れた国はオーストラリアです。）",
+        "options": ["visited they", "they visiting", "visiting they", "they visited"],
+        "correctIndex": 3,
+        "explanation": "country のうしろに they visited last year をくっつけるよ。接触節の完全文だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q16",
+        "question": "接触節で名詞のうしろに置くのはどんな形？",
+        "options": [
+          "主語＋動詞",
+          "動詞＋主語",
+          "〜ing（現在分詞）",
+          "to＋動詞の原形"
+        ],
+        "correctIndex": 0,
+        "explanation": "接触節は名詞のうしろに「主語＋動詞」をそのままくっつける形だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q17",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私たちが食べたピザはおいしかった。」の英文を作ろう。",
+        "words": ["ate", "the", "we", "pizza", "was", "delicious"],
+        "correctOrder": [1, 3, 2, 0, 4, 5],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「The pizza we ate was delicious.」が正解。The pizza + we ate + was delicious の順だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q18",
+        "type": "reorder",
+        "question": "次の語を並べかえて「これは私が作ったケーキです。」の英文を作ろう。",
+        "words": ["made", "the", "I", "cake", "this", "is"],
+        "correctOrder": [4, 5, 1, 3, 2, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「This is the cake I made.」が正解。名詞のうしろに「主語＋動詞」をくっつけるよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q19",
+        "type": "reorder",
+        "question": "次の語を並べかえて「彼女が私に教えてくれた話はおもしろかった。」の英文を作ろう。",
+        "words": ["told", "the", "she", "story", "me", "was", "interesting"],
+        "correctOrder": [1, 3, 2, 0, 4, 5, 6],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「The story she told me was interesting.」が正解。The story + she told me + was interesting の順だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q20",
+        "type": "reorder",
+        "question": "次の語を並べかえて「あなたがなくしたペンはこれですか。」の英文を作ろう。",
+        "words": ["this", "you", "the", "is", "pen", "lost"],
+        "correctOrder": [3, 0, 2, 4, 1, 5],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Is this the pen you lost?」が正解。Is this + the pen + you lost の順だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q21",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私が会った男の人はやさしかった。」の英文を作ろう。",
+        "words": ["met", "was", "the", "kind", "man", "I"],
+        "correctOrder": [2, 4, 5, 0, 1, 3],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「The man I met was kind.」が正解。The man + I met + was kind の順だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q22",
+        "type": "reorder",
+        "question": "次の語を並べかえて「あなたは私が撮った写真を見ましたか。」の英文を作ろう。",
+        "words": ["you", "the", "did", "I", "pictures", "see", "took"],
+        "correctOrder": [2, 0, 5, 1, 4, 3, 6],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Did you see the pictures I took?」が正解。the pictures + I took が接触節だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q23",
+        "type": "reorder",
+        "question": "次の語を並べかえて「これは私が読んだ本です。」の英文を作ろう。",
+        "words": ["I", "this", "read", "the book", "is"],
+        "correctOrder": [1, 4, 3, 0, 2],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「This is the book I read.」が正解。the book のうしろに I read をつける接触節だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q24",
+        "question": "(　) に入るのは？\nThe song (　) is famous.\n（彼が歌った歌は有名だ。）",
+        "options": ["sang he", "he sang", "he singing", "singing he"],
+        "correctIndex": 1,
+        "explanation": "接触節は名詞のうしろに「主語＋動詞」をくっつけるよ。he sang が正しいよ。sang は sing の過去形だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q25",
+        "question": "(　) に入るのは？\nThe book (　) was difficult.\n（私が読んだ本は難しかった。）",
+        "options": ["read I", "I read", "I reading", "reading I"],
+        "correctIndex": 1,
+        "explanation": "book のうしろに I read をくっつけるよ。「名詞＋主語＋動詞」の語順だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q26",
+        "question": "(　) に入るのは？\nThis is the best movie (　).\n（これは私が今まで見た中で最高の映画だ。）",
+        "options": ["I saw ever", "I have ever seen", "have I ever seen", "I have ever seeing"],
+        "correctIndex": 1,
+        "explanation": "movie のうしろに I have ever seen をくっつけるよ。接触節の中で現在完了（have＋過去分詞）を使った形だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q27",
+        "question": "(　) に入るのは？\nThe cake (　) looked delicious.\n（彼が作ったケーキはおいしそうに見えた。）",
+        "options": ["he making", "made he", "he made", "makes he"],
+        "correctIndex": 2,
+        "explanation": "cake のうしろに he made をくっつけるよ。made は make の過去形で、語順は「主語＋動詞」だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q28",
+        "question": "(　) に入るのは？\nThe pictures (　) were beautiful.\n（彼女が私に見せた写真は美しかった。）",
+        "options": ["showed me she", "she shows me", "she showing me", "she showed me"],
+        "correctIndex": 3,
+        "explanation": "pictures のうしろに she showed me をくっつけるよ。showed は show の過去形で「主語＋動詞」の順だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q29",
+        "question": "(　) に入るのは？\nI don't know the song (　).\n（私はあなたが聞いていた歌を知らない。）",
+        "options": ["you were listening to", "were you listening to", "you listening to", "to you were listening"],
+        "correctIndex": 0,
+        "explanation": "song のうしろに you were listening to をくっつけるよ。接触節の中で過去進行形（was/were＋〜ing）を使った形だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q30",
+        "type": "reorder",
+        "question": "次の語を並べかえて「彼が私にくれたカバンは新しい。」の英文を作ろう。",
+        "words": ["he", "the", "gave", "bag", "is", "me", "new"],
+        "correctOrder": [1, 3, 0, 2, 5, 4, 6],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「The bag he gave me is new.」が正解。The bag + he gave me + is new の順だよ。gave は give の過去形だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q31",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私が読みたい本はここにある。」の英文を作ろう。",
+        "words": ["want", "the", "I", "book", "to", "is", "read", "here"],
+        "correctOrder": [1, 3, 2, 0, 4, 6, 5, 7],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「The book I want to read is here.」が正解。The book のうしろに I want to read（接触節＋不定詞）をくっつけるよ。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

@@ -130,6 +130,9 @@ describe('Quick Reply / postback の上限', () => {
     ['history', 1],
     ['history', 2],
     ['history', 3],
+    ['science', 1],
+    ['science', 2],
+    ['science', 3], // 11単元の密ケース
   ];
 
   it('全選択時もラベル≤20字・data≤300字・チップ≤13件', () => {
@@ -154,6 +157,24 @@ describe('Quick Reply / postback の上限', () => {
           ).toBeLessThanOrEqual(POSTBACK_DATA_MAX);
         }
       }
+    }
+  });
+
+  it('中3理科(11単元)は sel 状態によらず ≤13件かつ era チップは全件出す', () => {
+    const eraIds = getEraMetas('science', 3).map((e) => e.eraId);
+    expect(eraIds.length).toBe(11);
+    const url = 'https://line.chatstudy.jp/scope?openExternalBrowser=1';
+    // sel=0 / 一部選択 / 全選択 のどれでも 13 件を超えない。
+    for (const sel of [[], eraIds.slice(0, 3), eraIds]) {
+      const items = buildScopeQuickItems('science', 3, sel, url);
+      expect(items.length).toBeLessThanOrEqual(13);
+      // era チップ（postback data が scope_pick かつ era= を持つ）は必ず 11 件すべて含まれる。
+      const eraChips = items.filter(
+        (i) => i.data?.includes('type=scope_pick') && i.data.includes('&era=')
+      );
+      expect(eraChips.length).toBe(11);
+      // 「これで決定」は常に残す（最優先の操作チップ）。
+      expect(items.some((i) => i.label.includes('これで決定'))).toBe(true);
     }
   });
 

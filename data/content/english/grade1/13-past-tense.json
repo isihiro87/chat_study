@@ -1,0 +1,392 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade1",
+  "topicId": "eng-past-tense",
+  "name": "過去形と過去進行形",
+  "subtitle": "was / were / played / was playing",
+  "icon": "⏪",
+  "order": 13,
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "was",
+      "back": "I (　) in Canada last winter.（私は昨年の冬、カナダにいました。）",
+      "hint": "主語 I の過去の be 動詞は？",
+      "explanation": "I の過去の be 動詞は was。last winter で過去とわかる。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "was",
+      "back": "The village (　) famous for winter sports.（その村はウィンタースポーツで有名でした。）",
+      "hint": "village は単数。過去の be 動詞は？",
+      "explanation": "The village は三人称単数なので過去形は was。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "were",
+      "back": "They (　) in Whistler Village for a week.（彼らは1週間、ウィスラー村にいました。）",
+      "hint": "they の過去の be 動詞は？",
+      "explanation": "they は複数なので過去形は were。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "were",
+      "back": "You (　) at the shrine on New Year's Day.（あなたたちは元日、神社にいました。）",
+      "hint": "you の過去の be 動詞は？",
+      "explanation": "you は単数でも複数でも過去形は were。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "wasn't",
+      "back": "It (　) cold in Vancouver yesterday.（昨日、バンクーバーは寒くありませんでした。）",
+      "hint": "it の過去の否定の短縮形は？",
+      "explanation": "it の過去の否定は wasn't（= was not）。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "stayed",
+      "back": "We (　) in Hokkaido during the summer vacation.（私たちは夏休みの間、北海道に滞在しました。）",
+      "hint": "stay の過去形は？",
+      "explanation": "stay は規則動詞。-ed をつけて stayed。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "relaxed",
+      "back": "He (　) at home with his family on Christmas Day.（彼はクリスマスの日、家族と家でくつろぎました。）",
+      "hint": "relax の過去形は？",
+      "explanation": "relax は規則動詞。-ed をつけて relaxed。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc8",
+      "front": "studied",
+      "back": "Meg (　) math last night.（メグは昨夜、数学を勉強しました。）",
+      "hint": "study の過去形は？（y のルール）",
+      "explanation": "study は y を i にかえて -ed → studied。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc9",
+      "front": "stopped",
+      "back": "The bus (　) in front of the station.（そのバスは駅の前で止まりました。）",
+      "hint": "stop の過去形は？（子音を重ねるルール）",
+      "explanation": "stop は短母音＋子音なので p を重ねて -ed → stopped。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "visited",
+      "back": "Ami (　) Vancouver during her winter vacation.（アミは冬休みの間、バンクーバーを訪れました。）",
+      "hint": "visit の過去形は？",
+      "explanation": "visit は規則動詞。-ed をつけて visited。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc11",
+      "front": "went",
+      "back": "Jenny (　) back to Canada last month.（ジェニーは先月、カナダに帰りました。）",
+      "hint": "go の過去形は？",
+      "explanation": "go は不規則動詞で過去形は went。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc12",
+      "front": "saw",
+      "back": "I (　) my favorite player in that game.（私はその試合で、お気に入りの選手を見ました。）",
+      "hint": "see の過去形は？",
+      "explanation": "see は不規則動詞で過去形は saw。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "had",
+      "back": "We (　) a great time in Kobe.（私たちは神戸でとても楽しい時を過ごしました。）",
+      "hint": "have の過去形は？",
+      "explanation": "have の過去形は had。「have a great time」で「楽しい時を過ごす」。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "made",
+      "back": "I (　) rice cakes at my grandparents' house.（私は祖父母の家でもちを作りました。）",
+      "hint": "make の過去形は？",
+      "explanation": "make は不規則動詞で過去形は made。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc15",
+      "front": "ate",
+      "back": "We (　) special soba on New Year's Eve.（私たちは大みそかに特別なそばを食べました。）",
+      "hint": "eat の過去形は？",
+      "explanation": "eat は不規則動詞で過去形は ate。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc16",
+      "front": "got",
+      "back": "Kaito (　) three gifts on his birthday.（カイトは誕生日に3つのプレゼントをもらいました。）",
+      "hint": "get の過去形は？",
+      "explanation": "get は不規則動詞で過去形は got。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc17",
+      "front": "met",
+      "back": "I (　) my friends and watched an ice hockey game.（私は友達と会って、アイスホッケーの試合を見ました。）",
+      "hint": "meet の過去形は？",
+      "explanation": "meet は不規則動詞で過去形は met。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc18",
+      "front": "didn't",
+      "back": "I (　) buy a good luck charm.（私はお守りを買いませんでした。）",
+      "hint": "一般動詞の過去の否定形は？",
+      "explanation": "過去の否定は didn't（= did not）＋ 動詞の原形。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc19",
+      "front": "Did",
+      "back": "(　) you eat rice cakes during the New Year?（あなたは正月にもちを食べましたか。）",
+      "hint": "一般動詞の過去の疑問文は何で始める？",
+      "explanation": "過去の疑問文は Did ＋ 主語 ＋ 動詞の原形 ~? の形。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc20",
+      "front": "was watching",
+      "back": "I (　) (　) TV at eight last night.（私は昨夜8時、テレビを見ていました。）",
+      "hint": "I の過去進行形は？",
+      "explanation": "過去進行形は was/were ＋ ~ing。I は was を使う。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc21",
+      "front": "were playing",
+      "back": "They (　) (　) soccer in the park then.（彼らはそのとき、公園でサッカーをしていました。）",
+      "hint": "they の過去進行形は？",
+      "explanation": "they は were ＋ ~ing。play の ~ing 形は playing。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc22",
+      "front": "was running",
+      "back": "Jun (　) (　) with his dog then.（ジュンはそのとき、イヌと走っていました。）",
+      "hint": "Jun の過去進行形は？run の ing 形に注意。",
+      "explanation": "Jun は単数なので was。run の ~ing 形は n を重ねて running。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "(　) に入るのは？\nI (　) in Canada last winter.\n（私は昨年の冬、カナダにいました。）",
+        "options": ["am", "was", "were", "is"],
+        "correctIndex": 1,
+        "explanation": "last winter があるので過去。I には was を使う。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "(　) に入るのは？\nThe students (　) in the classroom then.\n（その生徒たちはそのとき、教室にいました。）",
+        "options": ["was", "is", "were", "am"],
+        "correctIndex": 2,
+        "explanation": "The students は複数なので were。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "go の過去形を選びなさい。",
+        "options": ["went", "goes", "going", "goed"],
+        "correctIndex": 0,
+        "explanation": "go は不規則動詞で過去形は went。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "study の過去形を選びなさい。",
+        "options": ["studys", "studying", "studyed", "studied"],
+        "correctIndex": 3,
+        "explanation": "子音字＋y で終わる動詞は y を i にかえて -ed → studied。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "(　) に入るのは？\nWe (　) in Hokkaido for a week.\n（私たちは1週間、北海道に滞在しました。）",
+        "options": ["stay", "stayed", "stays", "staying"],
+        "correctIndex": 1,
+        "explanation": "stay は規則動詞で過去形は stayed。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "「彼女は昨夜、ケーキを作りました。」に合う英文を選びなさい。",
+        "options": ["She makes a cake last night.", "She making a cake last night.", "She made a cake last night.", "She make a cake last night."],
+        "correctIndex": 2,
+        "explanation": "make の過去形は made。last night があるので過去形を使う。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "(　) に入るのは？\nI (　) my friends at the station last week.\n（私は先週、駅で友達に会いました。）",
+        "options": ["meet", "met", "meets", "meeting"],
+        "correctIndex": 1,
+        "explanation": "meet は不規則動詞で過去形は met。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "「私は昨夜、テレビを見ませんでした。」に合う英文を選びなさい。",
+        "options": ["I wasn't watch TV last night.", "I don't watch TV last night.", "I didn't watched TV last night.", "I didn't watch TV last night."],
+        "correctIndex": 3,
+        "explanation": "didn't の後は動詞の原形 watch を使う。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "(　) に入るのは？\n(　) you go to Kyoto last week?\n（あなたは先週、京都へ行きましたか。）",
+        "options": ["Were", "Did", "Do", "Was"],
+        "correctIndex": 1,
+        "explanation": "一般動詞の過去の疑問文は Did を文頭に置く。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "Did you eat rice cakes? の答えとして正しいものを選びなさい。",
+        "options": ["Yes, I was.", "Yes, I did.", "Yes, I am.", "Yes, I do."],
+        "correctIndex": 1,
+        "explanation": "Did で聞かれたら did で答える。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "(　) に入るのは？\nMike (　) playing soccer at five yesterday.\n（マイクは昨日5時、サッカーをしていました。）",
+        "options": ["was", "did", "were", "is"],
+        "correctIndex": 0,
+        "explanation": "Mike は単数なので過去進行形の be 動詞は was。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "「私たちはそのとき、宿題をしていました。」に合う英文を選びなさい。",
+        "options": ["We are doing our homework then.", "We was doing our homework then.", "We were doing our homework then.", "We did doing our homework then."],
+        "correctIndex": 2,
+        "explanation": "we の過去進行形は were ＋ ~ing。do の ~ing 形は doing。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q13",
+        "question": "正しい英文を選びなさい。",
+        "options": ["He is running now, but he was walking then.", "He was running now, but he is walking then.", "He runs now, but he walks then.", "He is run now, but he was walk then."],
+        "correctIndex": 0,
+        "explanation": "now は現在進行形（is + ing）、then は過去進行形（was + ing）で時制を判断する。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q14",
+        "type": "reorder",
+        "question": "次の語を並べかえて「彼は昨年の冬、日本に滞在しました。」の英文を作ろう。",
+        "words": ["stayed", "he", "in japan", "last winter"],
+        "correctOrder": [1, 0, 2, 3],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「He stayed in Japan last winter.」が正解。stay の過去形は stayed。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q15",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私たちは先週、京都へ行きました。」の英文を作ろう。",
+        "words": ["went", "we", "to kyoto", "last week"],
+        "correctOrder": [1, 0, 2, 3],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「We went to Kyoto last week.」が正解。go の過去形は went。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q16",
+        "type": "reorder",
+        "question": "次の語を並べかえて「彼女は神社を訪れて、お守りを買いました。」の英文を作ろう。",
+        "words": ["a shrine", "visited", "and", "she", "bought a charm"],
+        "correctOrder": [3, 1, 0, 2, 4],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「She visited a shrine and bought a charm.」が正解。visit→visited、buy→bought。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q17",
+        "type": "reorder",
+        "question": "次の語を並べかえて「あなたは昨夜、家にいましたか。」の英文を作ろう。",
+        "words": ["at home", "you", "were", "last night"],
+        "correctOrder": [2, 1, 0, 3],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Were you at home last night?」が正解。疑問文は Were を主語の前に置く。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q18",
+        "type": "reorder",
+        "question": "次の語を並べかえて「あなたは日曜日に野球をしましたか。」の英文を作ろう。",
+        "words": ["play", "did", "you", "baseball", "on sunday"],
+        "correctOrder": [1, 2, 0, 3, 4],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Did you play baseball on Sunday?」が正解。Did の後は動詞の原形 play。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q19",
+        "type": "reorder",
+        "question": "次の語を並べかえて「彼らは昨夜、夕食を作りませんでした。」の英文を作ろう。",
+        "words": ["dinner", "make", "they", "didn't", "last night"],
+        "correctOrder": [2, 3, 1, 0, 4],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「They didn't make dinner last night.」が正解。didn't の後は原形 make。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q20",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私はそのとき、サッカーをしていました。」の英文を作ろう。",
+        "words": ["was", "soccer", "playing", "i", "then"],
+        "correctOrder": [3, 0, 2, 1, 4],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I was playing soccer then.」が正解。was ＋ playing の過去進行形。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q21",
+        "type": "reorder",
+        "question": "次の語を並べかえて「あなたは昨夜8時、何をしていましたか。」の英文を作ろう。",
+        "words": ["you", "doing", "were", "what", "at eight last night"],
+        "correctOrder": [3, 2, 0, 1, 4],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「What were you doing at eight last night?」が正解。疑問詞＋were＋主語＋ing の語順。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

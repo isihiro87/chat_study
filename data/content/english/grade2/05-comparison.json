@@ -1,0 +1,660 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade2",
+  "topicId": "eng-comparison",
+  "name": "比較",
+  "subtitle": "比較級 / 最上級 / as〜as",
+  "icon": "⚖️",
+  "order": 5,
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "older",
+      "back": "old の比較級は？",
+      "hint": "短いことばは -er",
+      "explanation": "短いことばの比較級は -er をつけるよ。old → older",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "fastest",
+      "back": "fast の最上級は？",
+      "hint": "短いことばは -est",
+      "explanation": "短いことばの最上級は -est をつけるよ。fast → fastest",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "more useful",
+      "back": "Smartphones are (　) than maps.（スマホは地図より役に立つ。）",
+      "hint": "useful は長いことば",
+      "explanation": "長いことばの比較級は前に more をつけるよ。more useful",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "most exciting",
+      "back": "This is the (　) game of all.（これはすべての中でいちばんわくわくする試合だ。）",
+      "hint": "exciting は長いことば",
+      "explanation": "長いことばの最上級は前に most をつけるよ。most exciting",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "bigger",
+      "back": "This room is (　) than mine.（この部屋は私の部屋より大きい。）",
+      "hint": "つづりに注意！",
+      "explanation": "big → bigger。最後の文字 g を重ねて er をつけるよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "hotter",
+      "back": "hot の比較級は？",
+      "hint": "つづりに注意！",
+      "explanation": "hot → hotter。最後の文字 t を重ねて er をつけるよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc7",
+      "front": "happier",
+      "back": "happy の比較級は？",
+      "hint": "y で終わるとき",
+      "explanation": "happy → happier。y を i にかえて er をつけるよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "easiest",
+      "back": "easy の最上級は？",
+      "hint": "y で終わるとき",
+      "explanation": "easy → easiest。y を i にかえて est をつけるよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc9",
+      "front": "larger",
+      "back": "large の比較級は？",
+      "hint": "e で終わるとき",
+      "explanation": "large → larger。e で終わるときは r だけつけるよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc10",
+      "front": "nicest",
+      "back": "nice の最上級は？",
+      "hint": "e で終わるとき",
+      "explanation": "nice → nicest。e で終わるときは st だけつけるよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc11",
+      "front": "better",
+      "back": "good の比較級は？",
+      "hint": "とくべつな形",
+      "explanation": "good → better → best。不規則変化だから覚えよう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "best",
+      "back": "She is the (　) tennis player in our school.（彼女は学校でいちばんテニスが上手な選手だ。）",
+      "hint": "good の最上級は？",
+      "explanation": "good → best。better → best のセットで覚えよう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "worse",
+      "back": "bad の比較級は？",
+      "hint": "とくべつな形",
+      "explanation": "bad → worse → worst。不規則変化だから覚えよう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "worst",
+      "back": "bad の最上級は？",
+      "hint": "worse の次は？",
+      "explanation": "bad → worse → worst。セットで覚えよう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc15",
+      "front": "more",
+      "back": "many / much の比較級は？",
+      "hint": "とくべつな形",
+      "explanation": "many / much → more → most。不規則変化だから覚えよう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc16",
+      "front": "than",
+      "back": "She is taller (　) her sister.（彼女は妹より背が高い。）",
+      "hint": "「〜より」を表すことば",
+      "explanation": "「〜より」は than。比較級 + than 〜 の形だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc17",
+      "front": "in",
+      "back": "He is the youngest (　) his family.（彼は家族でいちばん年下だ。）",
+      "hint": "場所・範囲を表すとき",
+      "explanation": "場所・範囲には in を使うよ。in his family",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc18",
+      "front": "of",
+      "back": "She runs the fastest (　) the five.（彼女は5人の中でいちばん速く走る。）",
+      "hint": "数のグループを表すとき",
+      "explanation": "数のグループには of を使うよ。of the five",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc19",
+      "front": "as kind as",
+      "back": "Ken is (　) Tom.（ケンはトムと同じくらい親切だ。）",
+      "hint": "「同じくらい〜」は？",
+      "explanation": "「同じくらい〜だ」は as〜as で表すよ。as kind as",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc20",
+      "front": "not as long as",
+      "back": "This river is (　) that one.（この川はあの川ほど長くない。）",
+      "hint": "「〜ほど…でない」は？",
+      "explanation": "「〜ほど…でない」は not as〜as で表すよ。not as long as",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc21",
+      "front": "I like spring better than fall.",
+      "back": "「私は秋より春が好きです。」を英語で？",
+      "hint": "like B better than A",
+      "explanation": "「AよりBが好き」は like B better than A。好きなほうを先に言うよ。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc22",
+      "front": "Which is bigger, Japan or Italy?",
+      "back": "「日本とイタリア、どちらが大きいですか。」を英語で？",
+      "hint": "Which is + 比較級, A or B?",
+      "explanation": "2つを比べて「どちらが〜？」は Which is + 比較級, A or B? だよ。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "(　) に入るのは？\nMike is (　) than Ken.\n（マイクはケンより背が高い。）",
+        "options": ["taller", "tall", "tallest", "more tall"],
+        "correctIndex": 0,
+        "explanation": "「〜より背が高い」は比較級。短いことばだから -er をつけて taller。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "(　) に入るのは？\nThis movie is (　) than that one.\n（この映画はあの映画よりおもしろい。）",
+        "options": ["interesting", "more interesting", "interestinger", "most interesting"],
+        "correctIndex": 1,
+        "explanation": "interesting は長いことばだから、前に more をつけて比較級にするよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "(　) に入るのは？\nShe is the (　) girl in her class.\n（彼女はクラスでいちばん背が高い女の子だ。）",
+        "options": ["taller", "tall", "tallest", "more tall"],
+        "correctIndex": 2,
+        "explanation": "「いちばん〜」は最上級。短いことばだから -est をつけて tallest。前に the もわすれずに。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "good の比較級・最上級の正しい組み合わせは？",
+        "options": ["gooder — goodest", "more good — most good", "weller — wellest", "better — best"],
+        "correctIndex": 3,
+        "explanation": "good → better → best。不規則変化だからセットで覚えよう。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "(　) に入るのは？\nThis bag is (　) than that one.\n（このかばんはあのかばんより大きい。）",
+        "options": ["biger", "bigger", "more big", "biggest"],
+        "correctIndex": 1,
+        "explanation": "big → bigger。最後の文字 g を重ねて er をつけるよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "bad の比較級・最上級の正しい組み合わせは？",
+        "options": ["badder — baddest", "bader — badest", "worse — worst", "more bad — most bad"],
+        "correctIndex": 2,
+        "explanation": "bad → worse → worst。不規則変化だからセットで覚えよう。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "(　) に入るのは？\nHe is the strongest (　) the three.\n（彼は3人の中でいちばん強い。）",
+        "options": ["of", "in", "than", "at"],
+        "correctIndex": 0,
+        "explanation": "数のグループ（the three = 3人）には of を使うよ。場所には in、数には of。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "(　) に入るのは？\nMt. Fuji is the highest mountain (　) Japan.\n（富士山は日本でいちばん高い山です。）",
+        "options": ["of", "than", "at", "in"],
+        "correctIndex": 3,
+        "explanation": "場所・範囲（Japan）には in を使うよ。in Japan =「日本で」。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q9",
+        "question": "(　) に入るのは？\nYuki sings (　) than her sister.\n（ユキは妹より上手に歌う。）",
+        "options": ["better", "well", "good", "best"],
+        "correctIndex": 0,
+        "explanation": "well（上手に）の比較級は better。good と同じ不規則変化をするよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q10",
+        "question": "(　) に入るのは？\nKen is (　) Tom.\n（ケンはトムほど背が高くない。）",
+        "options": ["as not tall as", "not as tall as", "not taller as", "more tall than"],
+        "correctIndex": 1,
+        "explanation": "「〜ほど…でない」は not as〜as の形。Ken is not as tall as Tom.",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "easy の比較級として正しいのは？",
+        "options": ["easyer", "more easy", "easier", "easiest"],
+        "correctIndex": 2,
+        "explanation": "easy → easier。y を i にかえて er をつけるよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q12",
+        "question": "(　) に入るのは？\nThis lake is the (　) in our town.\n（この湖は町でいちばん大きい。）",
+        "options": ["large", "larger", "largest", "most large"],
+        "correctIndex": 2,
+        "explanation": "「いちばん〜」は最上級。large の最上級は largest。e で終わるので st だけつけるよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q13",
+        "question": "(　) に入るのは？\nWhich do you like (　), tea or coffee?\n（紅茶とコーヒー、どちらが好きですか。）",
+        "options": ["good", "well", "better", "best"],
+        "correctIndex": 2,
+        "explanation": "2つを比べて「どちらが好き？」は like 〜 better。比較級を使うよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q14",
+        "question": "(　) に入るのは？\nSoccer is (　) in our class.\n（サッカーはクラスでいちばん人気がある。）",
+        "options": ["popular", "more popular", "most popular", "the most popular"],
+        "correctIndex": 3,
+        "explanation": "「いちばん〜」は最上級。popular は長いことばだから the most popular の形にするよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q15",
+        "question": "busy の比較級として正しいのは？",
+        "options": ["busyer", "busier", "more busy", "bussier"],
+        "correctIndex": 1,
+        "explanation": "busy → busier。y を i にかえて er をつけるよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q16",
+        "question": "(　) に入るのは？\nHe is (　) the best players in the world.\n（彼は世界でいちばんすぐれた選手の一人だ。）",
+        "options": ["one", "some of", "one of", "the one"],
+        "correctIndex": 2,
+        "explanation": "「いちばん〜な…の一人」は one of the + 最上級 + 複数名詞 の形だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q17",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「彼女はマイクより速く走ります。」という英文を作ろう。",
+        "words": ["mike", "faster", "she", "than", "runs"],
+        "correctOrder": [2, 4, 1, 3, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「She runs faster than Mike.」が正解。比較級 + than 〜 =「〜より…だ」の形だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q18",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「この本はあの本よりおもしろい。」という英文を作ろう。",
+        "words": ["more", "interesting", "is", "this", "book", "than", "that one"],
+        "correctOrder": [3, 4, 2, 0, 1, 5, 6],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「This book is more interesting than that one.」が正解。長いことばは more をつけるよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q19",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「彼は私と同じくらい速く泳ぎます。」という英文を作ろう。",
+        "words": ["as", "fast", "swims", "he", "as", "me"],
+        "correctOrder": [3, 2, 0, 1, 4, 5],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「He swims as fast as me.」が正解。as〜as =「同じくらい〜」のあいだに副詞を入れるよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q20",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「ユキはチームでいちばん上手に歌います。」という英文を作ろう。",
+        "words": ["the", "sings", "yuki", "best", "in", "her team"],
+        "correctOrder": [2, 1, 0, 3, 4, 5],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Yuki sings the best in her team.」が正解。well の最上級は best。the + 最上級だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q21",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「犬とねこ、どちらが好きですか。」という英文を作ろう。",
+        "words": ["like", "you", "which", "do", "better"],
+        "correctOrder": [2, 3, 1, 0, 4],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Which do you like better, dogs or cats?」の前半。Which do you like better, A or B? の形だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q22",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「だれがチームでいちばん背が高いですか。」という英文を作ろう。",
+        "words": ["the tallest", "who", "is", "in", "the team"],
+        "correctOrder": [1, 2, 0, 3, 4],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Who is the tallest in the team?」が正解。Who is the + 最上級 in 〜? の形だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q23",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「だんだん寒くなっている。」という英文を作ろう。",
+        "words": ["colder", "is", "it", "and", "getting", "colder"],
+        "correctOrder": [2, 1, 4, 0, 3, 5],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「It is getting colder and colder.」が正解。比較級 + and + 比較級 =「だんだん〜」だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q24",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「この問題はあの問題ほど難しくない。」という英文を作ろう。",
+        "words": ["as", "not", "this", "difficult", "that one", "as", "is"],
+        "correctOrder": [2, 6, 1, 0, 3, 5, 4],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「This is not as difficult as that one.」が正解。not as〜as =「〜ほど…でない」だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q25",
+        "question": "(　) に入るのは？\nThis car is (　) than that bus.\n（この車はあのバスより速い。）",
+        "options": ["fast", "faster", "fastest", "more fast"],
+        "correctIndex": 1,
+        "explanation": "「〜より速い」は比較級。短いことばだから -er をつけて faster。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q26",
+        "question": "(　) に入るのは？\nThis is the (　) flower in the garden.\n（これは庭でいちばん美しい花だ。）",
+        "options": ["beautiful", "more beautiful", "most beautiful", "beautifuler"],
+        "correctIndex": 2,
+        "explanation": "beautiful は長いことばだから、最上級は前に most をつけて the most beautiful。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q27",
+        "question": "(　) に入るのは？\nToday is (　) than yesterday.\n（今日は昨日より暑い。）",
+        "options": ["hoter", "hotter", "more hot", "hottest"],
+        "correctIndex": 1,
+        "explanation": "hot → hotter。最後の文字 t を重ねて er をつけるよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q28",
+        "question": "(　) に入るのは？\nHe is the (　) person in his family.\n（彼は家族でいちばん幸せな人だ。）",
+        "options": ["happyest", "happier", "happiest", "most happy"],
+        "correctIndex": 2,
+        "explanation": "happy → happiest。y を i にかえて est をつけるよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q29",
+        "question": "(　) に入るのは？\nThis is the best song (　) all.\n（これはすべての中でいちばんいい歌だ。）",
+        "options": ["in", "of", "than", "at"],
+        "correctIndex": 1,
+        "explanation": "数のグループや「すべての中で」には of を使うよ。of all =「すべての中で」。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q30",
+        "question": "(　) に入るのは？\nShe is the smartest student (　) our school.\n（彼女は学校でいちばん賢い生徒だ。）",
+        "options": ["of", "at", "in", "than"],
+        "correctIndex": 2,
+        "explanation": "場所・範囲（our school）には in を使うよ。in our school =「学校で」。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q31",
+        "question": "(　) に入るのは？\nI can speak English (　) than my brother.\n（私は兄より上手に英語を話せる。）",
+        "options": ["good", "well", "better", "best"],
+        "correctIndex": 2,
+        "explanation": "well（上手に）の比較級は better。good と同じ不規則変化をするよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q32",
+        "question": "(　) に入るのは？\nMy bag is (　) yours.\n（私のかばんはあなたのほど重くない。）",
+        "options": ["not as heavy as", "as heavy not as", "not heavier as", "heavier than"],
+        "correctIndex": 0,
+        "explanation": "「〜ほど…でない」は not as〜as の形。My bag is not as heavy as yours.",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q33",
+        "question": "(　) に入るのは？\nHe is (　) his father.\n（彼は父親と同じくらい背が高い。）",
+        "options": ["taller than", "as tall as", "as taller as", "the tallest"],
+        "correctIndex": 1,
+        "explanation": "「同じくらい〜」は as〜as。あいだには原級（もとの形）の tall を入れるよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q34",
+        "question": "(　) に入るのは？\nMath is (　) than English for me.\n（私には数学は英語より難しい。）",
+        "options": ["difficult", "difficulter", "more difficult", "most difficult"],
+        "correctIndex": 2,
+        "explanation": "difficult は長いことばだから、比較級は前に more をつけて more difficult。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q35",
+        "question": "(　) に入るのは？\nMy sister is two years (　) than me.\n（姉は私より2歳年上だ。）",
+        "options": ["old", "older", "oldest", "more old"],
+        "correctIndex": 1,
+        "explanation": "「〜より年上」は比較級。短いことばだから -er をつけて older。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q36",
+        "question": "(　) に入るのは？\nHis cold is (　) than yesterday.\n（彼のかぜは昨日より悪い。）",
+        "options": ["bad", "worse", "worst", "badder"],
+        "correctIndex": 1,
+        "explanation": "bad の比較級は worse。bad → worse → worst の不規則変化だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q37",
+        "question": "(　) に入るのは？\nI like summer (　) than winter.\n（私は冬より夏が好きだ。）",
+        "options": ["good", "well", "better", "best"],
+        "correctIndex": 2,
+        "explanation": "「AよりBが好き」は like B better than A。like 〜 better の形だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q38",
+        "question": "(　) に入るのは？\nI like math the (　) of all subjects.\n（私はすべての教科の中で数学がいちばん好きだ。）",
+        "options": ["good", "well", "better", "best"],
+        "correctIndex": 3,
+        "explanation": "「いちばん好き」は like 〜 the best。最上級を使うよ。of all subjects =「すべての教科の中で」。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q39",
+        "question": "(　) に入るのは？\n(　) is bigger, the sun or the moon?\n（太陽と月では、どちらが大きいですか。）",
+        "options": ["What", "Which", "Who", "Where"],
+        "correctIndex": 1,
+        "explanation": "2つを比べて「どちらが〜？」は Which is + 比較級, A or B? の形だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q40",
+        "question": "(　) に入るのは？\nHealth is (　) than money.\n（健康はお金より大切だ。）",
+        "options": ["important", "importanter", "more important", "most important"],
+        "correctIndex": 2,
+        "explanation": "important は長いことばだから、比較級は前に more をつけて more important。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q41",
+        "question": "(　) に入るのは？\nYou should get up (　) than usual tomorrow.\n（明日はいつもより早く起きるべきだ。）",
+        "options": ["early", "earlyer", "earlier", "more early"],
+        "correctIndex": 2,
+        "explanation": "early → earlier。y を i にかえて er をつけるよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q42",
+        "type": "reorder",
+        "question": "次の語を並べかえて「この問題はあの問題よりやさしい。」の英文を作ろう。",
+        "words": ["easier", "this", "than", "is", "question", "that one"],
+        "correctOrder": [1, 4, 3, 0, 2, 5],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「This question is easier than that one.」が正解。easy → easier。比較級 + than の形だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q43",
+        "type": "reorder",
+        "question": "次の語を並べかえて「トムは4人の中でいちばん年下だ。」の英文を作ろう。",
+        "words": ["the", "youngest", "tom", "of", "the four", "is"],
+        "correctOrder": [2, 5, 0, 1, 3, 4],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Tom is the youngest of the four.」が正解。数のグループには of を使うよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q44",
+        "type": "reorder",
+        "question": "次の語を並べかえて「サッカーは野球より人気がある。」の英文を作ろう。",
+        "words": ["more", "popular", "soccer", "baseball", "than", "is"],
+        "correctOrder": [2, 5, 0, 1, 4, 3],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Soccer is more popular than baseball.」が正解。popular は長いことばだから more をつけるよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q45",
+        "type": "reorder",
+        "question": "次の語を並べかえて「これはすべての中でいちばんおもしろい本だ。」の英文を作ろう。",
+        "words": ["most", "interesting", "this", "the", "of", "book", "is", "all"],
+        "correctOrder": [2, 6, 3, 0, 1, 5, 4, 7],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「This is the most interesting book of all.」が正解。長いことばの最上級は the most。of all =「すべての中で」。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q46",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私は母と同じくらい早く起きる。」の英文を作ろう。",
+        "words": ["as", "early", "i", "up", "get", "as", "my mother"],
+        "correctOrder": [2, 4, 3, 0, 1, 5, 6],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I get up as early as my mother.」が正解。as〜as のあいだには原級 early を入れるよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q47",
+        "type": "reorder",
+        "question": "次の語を並べかえて「だれがクラスでいちばん速く走りますか。」の英文を作ろう。",
+        "words": ["the fastest", "who", "in", "runs", "your class"],
+        "correctOrder": [1, 3, 0, 2, 4],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Who runs the fastest in your class?」が正解。Who + 動詞 + the + 最上級 の形だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q48",
+        "type": "reorder",
+        "question": "次の語を並べかえて「英語は数学ほど難しくない。」の英文を作ろう。",
+        "words": ["as", "not", "english", "difficult", "math", "as", "is"],
+        "correctOrder": [2, 6, 1, 0, 3, 5, 4],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「English is not as difficult as math.」が正解。not as〜as =「〜ほど…でない」だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q49",
+        "type": "reorder",
+        "question": "次の語を並べかえて「日本でどの都市がいちばん大きいですか。」の英文を作ろう。",
+        "words": ["the largest", "which", "is", "in", "japan", "city"],
+        "correctOrder": [1, 5, 2, 0, 3, 4],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Which city is the largest in Japan?」が正解。Which + 名詞 + is the + 最上級 の形だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q50",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私はサッカーはテニスよりわくわくすると思う。」の英文を作ろう。",
+        "words": ["more", "exciting", "soccer", "than", "tennis", "is", "i think"],
+        "correctOrder": [6, 2, 5, 0, 1, 3, 4],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I think soccer is more exciting than tennis.」が正解。I think のあとに〈主語 + 比較級〉を続けるよ。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

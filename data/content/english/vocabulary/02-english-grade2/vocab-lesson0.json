@@ -1,0 +1,323 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade2",
+  "topicId": "vocab-lesson0",
+  "name": "My Spring Vacation の単語",
+  "subtitle": "春休み・過去の出来事・食べ物の語彙",
+  "icon": "🌸",
+  "order": 0,
+  "chatId": "eng-vocab-g2-lesson0",
+  "explanation": {
+    "sections": [
+      {
+        "title": "過去の出来事を表す動詞",
+        "content": "went、was、enjoyed、had など、春休みの出来事を伝える過去形の語を確認します。一般動詞の過去形は ed をつけるのが基本ですが、go→went、see→saw、have→had のように不規則に変化する動詞もあります。",
+        "keyPoints": [
+          "go の過去形は went、see の過去形は saw、have の過去形は had。",
+          "be 動詞の過去形は am / is が was、are が were。",
+          "study は y を i にかえて studied、enjoy はそのまま enjoyed。"
+        ]
+      },
+      {
+        "title": "あいさつ・会話のことば",
+        "content": "experience、same、by the way など、休みの感想を伝えたりやりとりしたりする語をまとめます。how was ...? は「〜はどうでしたか」と過去のことをたずねる表現です。",
+        "keyPoints": [
+          "experience は「経験、体験」。It was a great experience. のように使う。",
+          "same は「同じ、同一の」。the same のかたちで使うことが多い。",
+          "by the way は「ところで」と話題を変えるときの表現。"
+        ]
+      },
+      {
+        "title": "食べ物のことば",
+        "content": "ramen、noodle、instant など、食べ物に関する語を確認します。instant noodles で「即席めん」という意味になります。",
+        "keyPoints": [
+          "ramen は「ラーメン」、noodle は「めん、ヌードル」。",
+          "instant は「即席の、すぐの」。instant ramen で「即席ラーメン」。",
+          "actually は「実は、本当は」。文の最初に置いて使うことが多い。"
+        ]
+      }
+    ]
+  },
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "eng-vocab-g2-l0-fc01",
+      "front": "went",
+      "back": "go の過去形、行った",
+      "explanation": "went は go の過去形です。I went to Sapporo. のように使います。不規則に変化する動詞なのでそのまま覚えましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l0-fc02",
+      "front": "was",
+      "back": "am・is の過去形、〜だった",
+      "explanation": "was は am・is の過去形です。It was a great experience. のように使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l0-fc03",
+      "front": "were",
+      "back": "are の過去形、〜だった",
+      "explanation": "were は are の過去形です。主語が you や複数のときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l0-fc04",
+      "front": "saw",
+      "back": "see の過去形、見た",
+      "explanation": "saw は see の過去形です。不規則に変化する動詞なのでそのまま覚えましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l0-fc05",
+      "front": "had",
+      "back": "have の過去形、持っていた",
+      "explanation": "had は have の過去形です。I had a great time. のように使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l0-fc06",
+      "front": "enjoyed",
+      "back": "enjoy の過去形、楽しんだ",
+      "explanation": "enjoyed は enjoy の過去形です。enjoy は y の前が母音なので、そのまま ed をつけます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l0-fc07",
+      "front": "studied",
+      "back": "study の過去形、勉強した",
+      "explanation": "studied は study の過去形です。y を i にかえて ed をつけます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l0-fc08",
+      "front": "experience",
+      "back": "経験、体験",
+      "explanation": "experience は「経験、体験」という意味です。It was a great experience. のように使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l0-fc09",
+      "front": "same",
+      "back": "同じ、同一の",
+      "explanation": "same は「同じ、同一の」という意味です。the same club のように the と一緒に使うことが多いです。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l0-fc10",
+      "front": "actually",
+      "back": "実は、本当は",
+      "explanation": "actually は「実は、本当は」という意味です。文の最初に置いて使うことが多いです。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l0-fc11",
+      "front": "by the way",
+      "back": "ところで",
+      "explanation": "by the way は「ところで」という、話題を変えるときの表現です。1語ずつ分けず、かたまりで覚えましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l0-fc12",
+      "front": "ramen",
+      "back": "ラーメン",
+      "explanation": "ramen は「ラーメン」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l0-fc13",
+      "front": "noodle",
+      "back": "めん、ヌードル",
+      "explanation": "noodle は「めん、ヌードル」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l0-fc14",
+      "front": "instant",
+      "back": "即席の、即座の",
+      "explanation": "instant は「即席の、即座の」という意味です。instant noodles で「即席めん」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l0-fc15",
+      "front": "vacation",
+      "back": "休暇、休み",
+      "explanation": "vacation は「休暇、休み」という意味です。spring vacation で「春休み」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l0-fc16",
+      "front": "spring",
+      "back": "春",
+      "explanation": "spring は「春」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l0-fc17",
+      "front": "summer",
+      "back": "夏",
+      "explanation": "summer は「夏」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l0-fc18",
+      "front": "winter",
+      "back": "冬",
+      "explanation": "winter は「冬」という意味です。every winter で「毎年冬に」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l0-fc19",
+      "front": "ski",
+      "back": "スキーをする",
+      "explanation": "ski は「スキーをする」という意味です。go skiing で「スキーをしに行く」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l0-fc20",
+      "front": "surf",
+      "back": "サーフィンをする",
+      "explanation": "surf は「サーフィンをする」という意味です。go surfing で「サーフィンをしに行く」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l0-fc21",
+      "front": "weekend",
+      "back": "週末",
+      "explanation": "weekend は「週末」という意味です。last weekend で「先週末」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l0-fc22",
+      "front": "every",
+      "back": "毎〜、すべての",
+      "explanation": "every は「毎〜、すべての」という意味です。every Sunday で「毎週日曜日に」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l0-fc23",
+      "front": "last",
+      "back": "この前の、最後の",
+      "explanation": "last は「この前の、最後の」という意味です。last year で「昨年」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l0-fc24",
+      "front": "practice game",
+      "back": "練習試合",
+      "explanation": "practice game は「練習試合」というまとまりの表現です。かたまりで覚えると意味を取りやすくなります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l0-fc25",
+      "front": "great",
+      "back": "すばらしい、すごい",
+      "explanation": "great は「すばらしい、すごい」という意味です。a great experience で「すばらしい経験」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l0-fc26",
+      "front": "club",
+      "back": "クラブ、部",
+      "explanation": "club は「クラブ、部」という意味です。the same club で「同じクラブ」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l0-fc27",
+      "front": "first time",
+      "back": "はじめて",
+      "explanation": "first time は「はじめて」という表現です。for the first time で「はじめて」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l0-fc28",
+      "front": "good at",
+      "back": "〜が得意で",
+      "explanation": "good at は「〜が得意で」という表現です。be good at ...ing で「〜するのが得意だ」になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l0-fc29",
+      "front": "excuse",
+      "back": "言い訳",
+      "explanation": "excuse は「言い訳」という意味です。a funny excuse で「おかしな言い訳」になります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l0-fc30",
+      "front": "sushi",
+      "back": "すし",
+      "explanation": "sushi は「すし」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "go の過去形は？",
+        "options": [
+          "went",
+          "saw",
+          "had",
+          "was"
+        ],
+        "correctIndex": 0,
+        "explanation": "go の過去形は went です。不規則に変化する動詞です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "experience の意味は？",
+        "options": [
+          "休暇",
+          "経験、体験",
+          "言い訳",
+          "練習試合"
+        ],
+        "correctIndex": 1,
+        "explanation": "experience は「経験、体験」。It was a great experience. のように使います。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "「即席めん」を表すまとまりは？",
+        "options": [
+          "spring vacation",
+          "practice game",
+          "instant noodles",
+          "by the way"
+        ],
+        "correctIndex": 2,
+        "explanation": "instant は「即席の」。instant noodles で「即席めん」になります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "「ところで」と話題を変えるときの表現は？",
+        "options": [
+          "by the way",
+          "first time",
+          "good at",
+          "every day"
+        ],
+        "correctIndex": 0,
+        "explanation": "by the way は「ところで」。話題を変えるときに使います。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "study の過去形は？",
+        "options": [
+          "studyed",
+          "studied",
+          "studed",
+          "study"
+        ],
+        "correctIndex": 1,
+        "explanation": "study は y を i にかえて studied になります。",
+        "difficulty": "basic"
+      }
+    ]
+  }
+}

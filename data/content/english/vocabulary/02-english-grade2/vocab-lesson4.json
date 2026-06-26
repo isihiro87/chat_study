@@ -1,0 +1,372 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade2",
+  "topicId": "vocab-lesson4",
+  "name": "What is important in a homestay? の単語",
+  "subtitle": "ホームステイ・義務・動名詞の語彙",
+  "icon": "🏠",
+  "order": 4,
+  "chatId": "eng-vocab-g2-lesson4",
+  "explanation": {
+    "sections": [
+      {
+        "title": "ホームステイと規則のことば",
+        "content": "rule、follow、guest、host、member、homestay など、ホームステイや家のルールを説明するときの語を確認します。have to ... は「〜しなければならない」という義務を表します。",
+        "keyPoints": [
+          "have to ... は「〜しなければならない」。don't have to ... は「〜しなくてよい」。",
+          "follow は「〜に従う、〜を守る」。follow the rules で「規則を守る」。",
+          "be a member of ... は「〜の一員である」というまとまりの表現。"
+        ]
+      },
+      {
+        "title": "must を使った義務・禁止のことば",
+        "content": "must、mustn't、shower、limit、advice など、義務や禁止を表すときの語を確認します。must は「〜しなければならない」、must not（mustn't）は「〜してはいけない」という禁止を表します。",
+        "keyPoints": [
+          "must は「〜しなければならない」。must not は「〜してはいけない」という禁止。",
+          "mustn't は must not の短縮形。",
+          "advice は「忠告、助言」。動詞 advise とつづりを区別する。"
+        ]
+      },
+      {
+        "title": "動名詞・気持ちを表すことば",
+        "content": "enjoy ...ing、finish、feeling、careful、elderly、couple など、動名詞や人の気持ちを説明する語をまとめます。enjoy、finish などのあとの動詞は ...ing 形（動名詞）にします。",
+        "keyPoints": [
+          "enjoy ...ing は「〜して楽しむ」。後ろは動詞の ing 形にする。",
+          "look forward to ...ing は「〜するのを楽しみに待つ」。",
+          "elderly は「年配の」、couple は「夫婦、2人組」。"
+        ]
+      }
+    ]
+  },
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "eng-vocab-g2-l4-fc01",
+      "front": "rule",
+      "back": "規則、ルール",
+      "explanation": "rule は「規則、ルール」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l4-fc02",
+      "front": "follow",
+      "back": "〜に従う、〜を守る",
+      "explanation": "follow は「〜に従う、〜を守る」という動作を表します。follow the rules で「規則を守る」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l4-fc03",
+      "front": "guest",
+      "back": "客、泊まり客",
+      "explanation": "guest は「客、泊まり客」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l4-fc04",
+      "front": "host",
+      "back": "(客をもてなす)主人、ホスト",
+      "explanation": "host は「(客をもてなす)主人、ホスト」という意味です。host family で「ホストファミリー」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l4-fc05",
+      "front": "member",
+      "back": "一員、メンバー",
+      "explanation": "member は「一員、メンバー」という意味です。be a member of ... で「〜の一員である」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l4-fc06",
+      "front": "advice",
+      "back": "忠告、助言",
+      "explanation": "advice は「忠告、助言」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l4-fc07",
+      "front": "homestay",
+      "back": "ホームステイ",
+      "explanation": "homestay は「ホームステイ」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l4-fc08",
+      "front": "perfect",
+      "back": "完全な、完ぺきな、最適な",
+      "explanation": "perfect は「完全な、完ぺきな、最適な」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l4-fc09",
+      "front": "must",
+      "back": "〜しなければならない",
+      "explanation": "must は「〜しなければならない」という意味の助動詞です。後ろの動詞は原形にします。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l4-fc10",
+      "front": "mustn’t",
+      "back": "must not の短縮形、〜してはいけない",
+      "explanation": "mustn’t は must not を短くした形で「〜してはいけない」という禁止を表します。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l4-fc11",
+      "front": "shower",
+      "back": "シャワー",
+      "explanation": "shower は「シャワー」という意味です。take a shower で「シャワーを浴びる」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l4-fc12",
+      "front": "limit",
+      "back": "限界、限度、制限",
+      "explanation": "limit は「限界、限度、制限」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l4-fc13",
+      "front": "hurt",
+      "back": "〜を傷つける",
+      "explanation": "hurt は「〜を傷つける」という動作を表します。hurt someone's feelings で「人の気持ちを傷つける」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l4-fc14",
+      "front": "feeling",
+      "back": "感情、気持ち",
+      "explanation": "feeling は「感情、気持ち」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l4-fc15",
+      "front": "finish",
+      "back": "〜を終える",
+      "explanation": "finish は「〜を終える」という動作を表します。あとに動詞を続けるときは ...ing 形（動名詞）にします。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l4-fc16",
+      "front": "should",
+      "back": "〜すべきである",
+      "explanation": "should は「〜すべきである」という意味の助動詞です。後ろの動詞は原形にします。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l4-fc17",
+      "front": "nothing",
+      "back": "何も〜ない",
+      "explanation": "nothing は「何も〜ない」という意味です。have nothing to do で「することが何もない」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l4-fc18",
+      "front": "couple",
+      "back": "夫婦、2人組",
+      "explanation": "couple は「夫婦、2人組」という意味です。an elderly couple で「年配の夫婦」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l4-fc19",
+      "front": "elderly",
+      "back": "年配の",
+      "explanation": "elderly は「年配の」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l4-fc20",
+      "front": "plate",
+      "back": "(浅い)取り皿",
+      "explanation": "plate は「(浅い)取り皿」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l4-fc21",
+      "front": "living room",
+      "back": "居間、リビングルーム",
+      "explanation": "living room は「居間、リビングルーム」というまとまりの表現です。1語ずつ分けず、かたまりで覚えましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l4-fc22",
+      "front": "continue",
+      "back": "〜を続ける",
+      "explanation": "continue は「〜を続ける」という動作を表します。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l4-fc23",
+      "front": "feel",
+      "back": "〜と感じる、気持ちがする",
+      "explanation": "feel は「〜と感じる、気持ちがする」という動作を表します。過去形は felt です。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l4-fc24",
+      "front": "felt",
+      "back": "feel の過去形",
+      "explanation": "felt は「feel の過去形」です。feel は不規則動詞で、過去形が felt になります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l4-fc25",
+      "front": "explain",
+      "back": "〜を説明する",
+      "explanation": "explain は「〜を説明する」という動作を表します。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l4-fc26",
+      "front": "careful",
+      "back": "注意深い",
+      "explanation": "careful は「注意深い」という意味です。be careful で「気をつける」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l4-fc27",
+      "front": "carefully",
+      "back": "注意深く",
+      "explanation": "carefully は「注意深く」という意味の副詞です。動作のしかたを説明するときに使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l4-fc28",
+      "front": "end",
+      "back": "終わり、最後",
+      "explanation": "end は「終わり、最後」という意味です。in the end で「結局、最後には」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l4-fc29",
+      "front": "answer",
+      "back": "〜に答える",
+      "explanation": "answer は「〜に答える」という動作を表します。answer the question で「質問に答える」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l4-fc30",
+      "front": "enter",
+      "back": "(場所)に入る",
+      "explanation": "enter は「(場所)に入る」という動作を表します。enter a house で「家に入る」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l4-fc31",
+      "front": "precious",
+      "back": "貴重な、大切な",
+      "explanation": "precious は「貴重な、大切な」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l4-fc32",
+      "front": "couldn’t",
+      "back": "could not の短縮形、〜できなかった",
+      "explanation": "couldn’t は could not を短くした形で「〜できなかった」という意味です。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l4-fc33",
+      "front": "enjoy ...ing",
+      "back": "〜して楽しむ",
+      "explanation": "enjoy ...ing は「〜して楽しむ」という表現です。... の部分に動詞の ing 形を入れます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l4-fc34",
+      "front": "look forward to ...ing",
+      "back": "〜するのを楽しみに待つ",
+      "explanation": "look forward to ...ing は「〜するのを楽しみに待つ」というまとまりの表現です。to のあとは ing 形にします。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l4-fc35",
+      "front": "be good at ...ing",
+      "back": "〜するのが得意だ",
+      "explanation": "be good at ...ing は「〜するのが得意だ」というまとまりの表現です。at のあとは ing 形にします。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g2-l4-fc36",
+      "front": "take care of",
+      "back": "〜の世話をする",
+      "explanation": "take care of は「〜の世話をする」というまとまりの表現です。1語ずつ分けず、かたまりで覚えましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g2-l4-fc37",
+      "front": "take off",
+      "back": "〜を脱ぐ",
+      "explanation": "take off は「〜を脱ぐ」というまとまりの表現です。take off your shoes で「くつを脱ぐ」となります。",
+      "difficulty": "basic"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "「〜しなくてよい」を表す形は？",
+        "options": [
+          "don't have to ...",
+          "must not ...",
+          "have to ...",
+          "should ..."
+        ],
+        "correctIndex": 0,
+        "explanation": "don't have to ... は「〜しなくてよい」。must not ... は「〜してはいけない」という禁止なので意味が違います。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q2",
+        "question": "must not と同じ意味の禁止を表す語は？",
+        "options": [
+          "don't have to",
+          "had to",
+          "mustn't",
+          "want to"
+        ],
+        "correctIndex": 2,
+        "explanation": "mustn't は must not の短縮形で「〜してはいけない」という禁止を表します。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "follow the rules の意味は？",
+        "options": [
+          "規則を作る",
+          "規則を守る",
+          "規則を変える",
+          "規則を読む"
+        ],
+        "correctIndex": 1,
+        "explanation": "follow は「〜に従う、〜を守る」。follow the rules で「規則を守る」となります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "enjoy のあとに動詞を続けるときの形は？",
+        "options": [
+          "to + 動詞の原形",
+          "動詞の原形",
+          "動詞の ...ing 形",
+          "動詞の過去形"
+        ],
+        "correctIndex": 2,
+        "explanation": "enjoy のあとの動詞は ...ing 形（動名詞）にします。enjoy reading のように使います。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "elderly の意味は？",
+        "options": [
+          "若い",
+          "貴重な",
+          "年配の",
+          "親しみやすい"
+        ],
+        "correctIndex": 2,
+        "explanation": "elderly は「年配の」という意味です。an elderly couple で「年配の夫婦」となります。",
+        "difficulty": "standard"
+      }
+    ]
+  }
+}

@@ -1,0 +1,365 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade3",
+  "topicId": "vocab-lesson6",
+  "name": "What does it mean to be a global citizen? の単語",
+  "subtitle": "国際社会・寄付・貿易の語彙",
+  "icon": "🌏",
+  "order": 6,
+  "chatId": "eng-vocab-g3-lesson6",
+  "explanation": {
+    "sections": [
+      {
+        "title": "海外・支援を表すことば",
+        "content": "overseas、donate、supply、unused、backpack など、海外への支援活動に関わる語を確認します。地球市民の文章を読むうえで欠かせない語彙です。",
+        "keyPoints": [
+          "overseas は「外国に[へ・で]・海外に」。go overseas で「海外へ行く」。",
+          "donate は「…を寄付する」、unused は「未使用の」。",
+          "supply は「必需品・供給」。school supplies で「学用品」。"
+        ]
+      },
+      {
+        "title": "貿易・つながりを表すことば",
+        "content": "trade、import、depend、relationship、connect など、国と国とのつながりや貿易を表す語をまとめます。",
+        "keyPoints": [
+          "trade は「貿易」、import は「…を輸入する」。",
+          "depend on ... で「〜に頼る・依存する」。",
+          "relationship は「関係・結びつき」、connect は「…を結びつける・つなぐ」。"
+        ]
+      },
+      {
+        "title": "世界・社会を表すことば",
+        "content": "globe、border、service、illiterate、citizen など、地球規模の社会を表す語を確認します。",
+        "keyPoints": [
+          "globe は「地球」、border は「国境」。",
+          "illiterate は「読み書きのできない」。教育の問題を表す語。",
+          "beyond は「〜をこえたところに[へ]」。beyond our borders で「国境をこえて」。"
+        ]
+      }
+    ]
+  },
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "eng-vocab-g3-l6-fc01",
+      "front": "overseas",
+      "back": "外国に[へ、で]、海外に[へ、で]",
+      "explanation": "overseas は「外国に[へ、で]、海外に[へ、で]」という意味です。go overseas で「海外へ行く」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l6-fc02",
+      "front": "donate",
+      "back": "…を寄付する",
+      "explanation": "donate は「…を寄付する」という動作を表します。donate clothes で「衣類を寄付する」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l6-fc03",
+      "front": "supply",
+      "back": "必需品、供給",
+      "explanation": "supply は「必需品、供給」という意味です。school supplies で「学用品」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l6-fc04",
+      "front": "unused",
+      "back": "未使用の",
+      "explanation": "unused は「未使用の」という意味です。un- は「〜でない」を表すので「使われていない」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l6-fc05",
+      "front": "backpack",
+      "back": "バックパック、リュック",
+      "explanation": "backpack は「バックパック、リュック」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l6-fc06",
+      "front": "trade",
+      "back": "貿易",
+      "explanation": "trade は「貿易」という意味です。foreign trade で「外国との貿易」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l6-fc07",
+      "front": "import",
+      "back": "…を輸入する",
+      "explanation": "import は「…を輸入する」という動作を表します。import chicken で「鶏肉を輸入する」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l6-fc08",
+      "front": "depend",
+      "back": "依存する、頼る",
+      "explanation": "depend は「依存する、頼る」という意味です。depend on ... で「〜に頼る」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l6-fc09",
+      "front": "relationship",
+      "back": "関係、結びつき",
+      "explanation": "relationship は「関係、結びつき」という意味です。relationships with other countries で「他国との関係」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l6-fc10",
+      "front": "connect",
+      "back": "…を結びつける、つなぐ",
+      "explanation": "connect は「…を結びつける、つなぐ」という動作を表します。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l6-fc11",
+      "front": "globe",
+      "back": "地球",
+      "explanation": "globe は「地球」という意味です。世界全体を表すときに使います。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l6-fc12",
+      "front": "border",
+      "back": "国境",
+      "explanation": "border は「国境」という意味です。beyond our borders で「国境をこえて」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l6-fc13",
+      "front": "service",
+      "back": "サービス、公的事業",
+      "explanation": "service は「サービス、公的事業」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l6-fc14",
+      "front": "illiterate",
+      "back": "読み書きのできない",
+      "explanation": "illiterate は「読み書きのできない」という意味です。教育を受けられない状況を表します。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l6-fc15",
+      "front": "citizen",
+      "back": "市民",
+      "explanation": "citizen は「市民」という意味です。a global citizen で「地球市民」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l6-fc16",
+      "front": "beyond",
+      "back": "〜をこえたところに[へ]",
+      "explanation": "beyond は「〜をこえたところに[へ]」という意味です。beyond our borders で「国境をこえて」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l6-fc17",
+      "front": "surround",
+      "back": "…を囲む",
+      "explanation": "surround は「…を囲む」という動作を表します。be surrounded by ... で「〜に囲まれている」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l6-fc18",
+      "front": "survival",
+      "back": "存続、生き残ること",
+      "explanation": "survival は「存続、生き残ること」という意味です。for its survival で「存続のために」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l6-fc19",
+      "front": "daily",
+      "back": "日常の",
+      "explanation": "daily は「日常の」という意味です。daily lives で「日常生活」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l6-fc20",
+      "front": "quite",
+      "back": "かなり、相当",
+      "explanation": "quite は「かなり、相当」という意味です。quite expensive で「かなり高い」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l6-fc21",
+      "front": "import (noun)",
+      "back": "輸入品",
+      "explanation": "import は名詞で「輸入品」という意味にもなります。imported goods で「輸入された品」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l6-fc22",
+      "front": "Asian",
+      "back": "アジア（人）の",
+      "explanation": "Asian は「アジア（人）の」を表します。文の途中でも大文字で始めます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l6-fc23",
+      "front": "fact",
+      "back": "現実、事実",
+      "explanation": "fact は「現実、事実」という意味です。in fact で「実際に」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l6-fc24",
+      "front": "exception",
+      "back": "例外",
+      "explanation": "exception は「例外」という意味です。no exception で「例外ではない」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l6-fc25",
+      "front": "son",
+      "back": "息子",
+      "explanation": "son は「息子」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l6-fc26",
+      "front": "daughter",
+      "back": "娘",
+      "explanation": "daughter は「娘」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l6-fc27",
+      "front": "air",
+      "back": "空気、空中",
+      "explanation": "air は「空気、空中」という意味です。in the open air で「屋外で」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l6-fc28",
+      "front": "imagine",
+      "back": "…を想像する",
+      "explanation": "imagine は「…を想像する」という動作を表します。Imagine your life without school. で「学校のない生活を想像してみて」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l6-fc29",
+      "front": "ready",
+      "back": "用意ができて",
+      "explanation": "ready は「用意ができて」という意味です。be ready for ... で「〜の用意ができている」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l6-fc30",
+      "front": "definitely",
+      "back": "もちろん、確かに",
+      "explanation": "definitely は「もちろん、確かに」という意味です。強い同意を表すときに使います。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l6-fc31",
+      "front": "Afghanistan",
+      "back": "アフガニスタン",
+      "explanation": "Afghanistan は「アフガニスタン」を表します。国名なので文の途中でも大文字で始めます。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l6-fc32",
+      "front": "Brazil",
+      "back": "ブラジル",
+      "explanation": "Brazil は「ブラジル」を表します。国名なので文の途中でも大文字で始めます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l6-fc33",
+      "front": "Thailand",
+      "back": "タイ",
+      "explanation": "Thailand は「タイ」を表します。国名なので文の途中でも大文字で始めます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l6-fc34",
+      "front": "coat",
+      "back": "上着、コート",
+      "explanation": "coat は「上着、コート」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l6-fc35",
+      "front": "in the open air",
+      "back": "屋外で",
+      "explanation": "in the open air は「屋外で」というまとまりの表現です。1語ずつ分けず、かたまりで覚えましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l6-fc36",
+      "front": "one-third",
+      "back": "3分の1",
+      "explanation": "one-third は「3分の1」という意味です。分数を表すときに使います。",
+      "difficulty": "standard"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "「…を寄付する」を表す語は？",
+        "options": [
+          "donate",
+          "import",
+          "surround",
+          "connect"
+        ],
+        "correctIndex": 0,
+        "explanation": "donate は「…を寄付する」。donate clothes で「衣類を寄付する」となります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q2",
+        "question": "depend on ... の意味は？",
+        "options": [
+          "〜を囲む",
+          "〜に頼る、依存する",
+          "〜を想像する",
+          "〜をこえて"
+        ],
+        "correctIndex": 1,
+        "explanation": "depend は「依存する、頼る」。depend on ... で「〜に頼る」となります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q3",
+        "question": "「国境」を表す語は？",
+        "options": [
+          "globe",
+          "trade",
+          "border",
+          "supply"
+        ],
+        "correctIndex": 2,
+        "explanation": "border は「国境」。beyond our borders で「国境をこえて」となります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q4",
+        "question": "overseas の意味は？",
+        "options": [
+          "日常の",
+          "未使用の",
+          "読み書きのできない",
+          "外国に[へ、で]、海外に"
+        ],
+        "correctIndex": 3,
+        "explanation": "overseas は「外国に[へ、で]、海外に」。go overseas で「海外へ行く」となります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "illiterate の意味は？",
+        "options": [
+          "読み書きのできない",
+          "用意ができて",
+          "かなり、相当",
+          "もちろん、確かに"
+        ],
+        "correctIndex": 0,
+        "explanation": "illiterate は「読み書きのできない」。教育を受けられない状況を表します。",
+        "difficulty": "standard"
+      }
+    ]
+  }
+}

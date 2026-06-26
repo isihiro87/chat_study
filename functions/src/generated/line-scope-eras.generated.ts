@@ -13,7 +13,7 @@ export interface EraMeta {
   topics: string[];
 }
 
-export type ScopeSubjectId = 'history' | 'english' | 'science';
+export type ScopeSubjectId = 'history' | 'english' | 'science' | 'geography';
 export type ScopeGrade = 1 | 2 | 3;
 
 export const lineScopeEras: Record<ScopeSubjectId, Record<ScopeGrade, EraMeta[]>> = {
@@ -289,9 +289,68 @@ export const lineScopeEras: Record<ScopeSubjectId, Record<ScopeGrade, EraMeta[]>
     ]
   },
   "english": {
-    "1": [],
-    "2": [],
-    "3": []
+    "1": [
+      {
+        "eraId": "english-grade1",
+        "eraName": "中1 英語",
+        "shortName": "中1英語",
+        "whenLabel": "中1 通年",
+        "keyTerms": "be動詞・一般動詞・三単現・過去形",
+        "topics": [
+          "be動詞",
+          "一般動詞",
+          "can（〜できる）",
+          "名詞",
+          "疑問詞",
+          "名詞の応用",
+          "疑問詞の応用",
+          "命令文",
+          "三人称単数現在",
+          "代名詞",
+          "現在進行形",
+          "感嘆文",
+          "過去形と過去進行形"
+        ]
+      }
+    ],
+    "2": [
+      {
+        "eraId": "english-grade2",
+        "eraName": "中2 英語",
+        "shortName": "中2英語",
+        "whenLabel": "中2 通年",
+        "keyTerms": "不定詞・助動詞・比較・受け身",
+        "topics": [
+          "5つの文構造",
+          "接続詞",
+          "不定詞",
+          "助動詞",
+          "比較",
+          "受け身の文"
+        ]
+      }
+    ],
+    "3": [
+      {
+        "eraId": "english-grade3",
+        "eraName": "中3 英語",
+        "shortName": "中3英語",
+        "whenLabel": "中3 通年",
+        "keyTerms": "現在完了・後置修飾・関係代名詞・仮定法",
+        "topics": [
+          "現在完了",
+          "make・show の応用",
+          "現在完了進行形",
+          "不定詞（応用）",
+          "間接疑問文",
+          "過去分詞による後置修飾",
+          "現在分詞による後置修飾",
+          "接触節",
+          "関係代名詞",
+          "仮定法"
+        ]
+      }
+    ]
   },
   "science": {
     "1": [
@@ -608,5 +667,119 @@ export const lineScopeEras: Record<ScopeSubjectId, Record<ScopeGrade, EraMeta[]>
         ]
       }
     ]
+  },
+  "geography": {
+    "1": [
+      {
+        "eraId": "geo1-world-shape",
+        "eraName": "世界の姿",
+        "shortName": "世界の姿",
+        "whenLabel": "中1 4〜5月ごろ",
+        "keyTerms": "六大陸・三大洋・緯度経度・地図",
+        "topics": [
+          "地球の姿",
+          "世界のさまざまな国々",
+          "地球上の位置と地図"
+        ]
+      },
+      {
+        "eraId": "geo1-japan-shape",
+        "eraName": "日本の姿",
+        "shortName": "日本の姿",
+        "whenLabel": "中1 5〜6月ごろ",
+        "keyTerms": "標準時・時差・領土・都道府県",
+        "topics": [
+          "世界の中での日本の位置",
+          "時差から見た日本の位置",
+          "日本の領域の特色と領土問題",
+          "日本の都道府県と地域区分"
+        ]
+      },
+      {
+        "eraId": "geo1-life-environment",
+        "eraName": "人々の生活と環境",
+        "shortName": "生活と環境",
+        "whenLabel": "中1 6〜7月ごろ",
+        "keyTerms": "気候帯・宗教・衣食住",
+        "topics": [
+          "世界の気候と人々の暮らし",
+          "世界の気候区の分類",
+          "多様な生活・文化と宗教"
+        ]
+      },
+      {
+        "eraId": "geo1-world-regions",
+        "eraName": "世界の諸地域",
+        "shortName": "世界の諸地域",
+        "whenLabel": "中1 9〜2月ごろ",
+        "keyTerms": "アジア・ヨーロッパ・アフリカ・南北アメリカ・オセアニア",
+        "topics": [
+          "アジア州(1) 自然・文化・NIES",
+          "アジア州(2) 中国・韓国・東南アジア",
+          "アジア州(3) 南アジア・西アジア",
+          "ヨーロッパ州(1) 自然・文化",
+          "ヨーロッパ州(2) EU統合・環境",
+          "ヨーロッパ州(3) 課題・ロシア",
+          "アフリカ州(1) 自然・歴史",
+          "アフリカ州(2) 産業・経済",
+          "アフリカ州(3) 社会変化",
+          "北アメリカ州(1) 自然・農業",
+          "北アメリカ州(2) 工業・生活文化",
+          "南アメリカ州(1) 自然・文化",
+          "南アメリカ州(2) 開発・環境",
+          "オセアニア州(1) 自然・産業",
+          "オセアニア州(2) 多文化社会・環境"
+        ]
+      }
+    ],
+    "2": [
+      {
+        "eraId": "geo2-regional-research",
+        "eraName": "地域調査・地形図",
+        "shortName": "地形図の活用",
+        "whenLabel": "中2 4月ごろ",
+        "keyTerms": "縮尺・等高線・地図記号",
+        "topics": [
+          "地形図の活用"
+        ]
+      },
+      {
+        "eraId": "geo2-japan-features",
+        "eraName": "日本の特色",
+        "shortName": "日本の特色",
+        "whenLabel": "中2 4〜7月ごろ",
+        "keyTerms": "地形・気候・人口・資源・産業",
+        "topics": [
+          "地形から見た日本の特色",
+          "気候から見た日本の特色",
+          "自然災害と防災・減災",
+          "人口から見た日本の特色",
+          "資源・エネルギーから見た日本の特色",
+          "産業・交通から見た日本の特色",
+          "地域区分の視点"
+        ]
+      },
+      {
+        "eraId": "geo2-japan-regions",
+        "eraName": "日本の諸地域",
+        "shortName": "日本の諸地域",
+        "whenLabel": "中2 9〜2月ごろ",
+        "keyTerms": "九州・中四国・近畿・中部・関東・東北・北海道",
+        "topics": [
+          "九州地方",
+          "中国・四国地方①",
+          "中国・四国地方②",
+          "近畿の自然と大阪大都市圏",
+          "近畿の都市問題と農山村",
+          "中部地方①（自然と東海）",
+          "中部地方②（中央高地と北陸）",
+          "関東の自然と東京",
+          "東京大都市圏と関東の産業",
+          "東北地方",
+          "北海道地方"
+        ]
+      }
+    ],
+    "3": []
   }
 };

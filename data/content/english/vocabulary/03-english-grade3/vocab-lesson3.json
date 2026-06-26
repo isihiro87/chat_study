@@ -1,0 +1,393 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade3",
+  "topicId": "vocab-lesson3",
+  "name": "How can we save animals? の単語",
+  "subtitle": "絶滅危惧・環境保護の語彙",
+  "icon": "🐾",
+  "order": 3,
+  "chatId": "eng-vocab-g3-lesson3",
+  "explanation": {
+    "sections": [
+      {
+        "title": "絶滅と危機を表すことば",
+        "content": "extinction、endangered、danger、survive など、動物が絶滅の危機にさらされている状況を表す語を確認します。環境問題を読み解くうえで欠かせない語彙です。",
+        "keyPoints": [
+          "extinction は「絶滅」、endangered は「絶滅の危機にさらされた」。形がにている2語を区別する。",
+          "in danger of extinction で「絶滅の危機にさらされて」というまとまり。",
+          "survive は「生き残る」。habitat（生息地）とセットで覚える。"
+        ]
+      },
+      {
+        "title": "動物への脅威を表すことば",
+        "content": "hunting、overhunting、oil spill、climate change など、動物の数が減る原因となるものを表す語をまとめます。",
+        "keyPoints": [
+          "hunting は「狩り」、overhunting は「乱獲」。over- は「〜しすぎ」の意味。",
+          "spill は「こぼれ・流出」。oil spill で「石油流出」。",
+          "population は「人口・個体数」。動物の数にも使う。"
+        ]
+      },
+      {
+        "title": "生態系と保護のことば",
+        "content": "ecosystem、native、protect、habitat、human being など、生態系や保護活動に関わる語を確認します。",
+        "keyPoints": [
+          "native は「固有の・原産の」。be native to ... で「〜に固有である」。",
+          "ecosystem は「生態系」。be part of the ecosystem で「生態系の一部」。",
+          "human being は「人間（全体）」というまとまりの表現。"
+        ]
+      }
+    ]
+  },
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "eng-vocab-g3-l3-fc01",
+      "front": "extinction",
+      "back": "絶滅",
+      "explanation": "extinction は「絶滅」という意味です。in danger of extinction で「絶滅の危機にさらされて」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l3-fc02",
+      "front": "endangered",
+      "back": "絶滅の危機にさらされた",
+      "explanation": "endangered は「絶滅の危機にさらされた」という意味です。endangered animals で「絶滅危惧種の動物たち」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l3-fc03",
+      "front": "danger",
+      "back": "危険、危険性",
+      "explanation": "danger は「危険、危険性」という意味です。in danger で「危機にさらされて」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l3-fc04",
+      "front": "survive",
+      "back": "生き残る",
+      "explanation": "survive は「生き残る」という意味です。きびしい状況の中で生き続けることを表します。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l3-fc05",
+      "front": "challenge",
+      "back": "難問、課題",
+      "explanation": "challenge は「難問、課題」という意味です。face a lot of challenges で「多くの難問に直面する」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l3-fc06",
+      "front": "trouble",
+      "back": "困難、面倒、迷惑",
+      "explanation": "trouble は「困難、面倒、迷惑」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l3-fc07",
+      "front": "human",
+      "back": "人間の、人間的な",
+      "explanation": "human は「人間の、人間的な」という意味です。human activities で「人間の活動」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l3-fc08",
+      "front": "human being",
+      "back": "人間（全体）",
+      "explanation": "human being は「人間（全体）」というまとまりの表現です。1語ずつ分けず、かたまりで覚えましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l3-fc09",
+      "front": "hunting",
+      "back": "狩り、さがし求めること",
+      "explanation": "hunting は「狩り、さがし求めること」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l3-fc10",
+      "front": "overhunting",
+      "back": "乱獲",
+      "explanation": "overhunting は「乱獲」という意味です。over- は「〜しすぎ」を表すので「狩りをしすぎること」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l3-fc11",
+      "front": "oil",
+      "back": "石油、油",
+      "explanation": "oil は「石油、油」という意味です。oil spill で「石油流出」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l3-fc12",
+      "front": "spill",
+      "back": "こぼれ、流出",
+      "explanation": "spill は「こぼれ、流出」という意味です。oil spill で「石油流出」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l3-fc13",
+      "front": "population",
+      "back": "人口、個体数",
+      "explanation": "population は「人口、個体数」という意味です。動物の数を表すときにも使います。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l3-fc14",
+      "front": "shock",
+      "back": "…に衝撃をあたえる",
+      "explanation": "shock は「…に衝撃をあたえる」という意味です。be shocked で「衝撃を受ける」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l3-fc15",
+      "front": "rapidly",
+      "back": "速く、急速に",
+      "explanation": "rapidly は「速く、急速に」という意味です。decrease rapidly で「急速に減る」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l3-fc16",
+      "front": "safely",
+      "back": "安全に",
+      "explanation": "safely は「安全に」という意味です。live safely で「安全に生きる」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l3-fc17",
+      "front": "beginning",
+      "back": "最初の部分、初め",
+      "explanation": "beginning は「最初の部分、初め」という意味です。the beginning of the 20th century で「20世紀初頭」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l3-fc18",
+      "front": "century",
+      "back": "世紀、100年",
+      "explanation": "century は「世紀、100年」という意味です。the 20th century で「20世紀」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l3-fc19",
+      "front": "killer whale",
+      "back": "シャチ",
+      "explanation": "killer whale は「シャチ」というまとまりの表現です。1語ずつ分けず、かたまりで覚えましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l3-fc20",
+      "front": "sea otter",
+      "back": "ラッコ",
+      "explanation": "sea otter は「ラッコ」というまとまりの表現です。1語ずつ分けず、かたまりで覚えましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l3-fc21",
+      "front": "cheetah",
+      "back": "チーター",
+      "explanation": "cheetah は「チーター」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l3-fc22",
+      "front": "article",
+      "back": "記事",
+      "explanation": "article は「記事」という意味です。write an article で「記事を書く」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l3-fc23",
+      "front": "ecosystem",
+      "back": "生態系",
+      "explanation": "ecosystem は「生態系」という意味です。part of the ecosystem で「生態系の一部」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l3-fc24",
+      "front": "native",
+      "back": "固有の、原産の",
+      "explanation": "native は「固有の、原産の」という意味です。be native to ... で「〜に固有である」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l3-fc25",
+      "front": "logging",
+      "back": "伐採",
+      "explanation": "logging は「伐採」という意味です。森林を切ることを表します。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l3-fc26",
+      "front": "citizen",
+      "back": "市民",
+      "explanation": "citizen は「市民」という意味です。local citizens で「地元市民」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l3-fc27",
+      "front": "critically",
+      "back": "危機的に、危険な状態で",
+      "explanation": "critically は「危機的に、危険な状態で」という意味です。critically endangered で「絶滅寸前の」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l3-fc28",
+      "front": "traffic accident",
+      "back": "交通事故",
+      "explanation": "traffic accident は「交通事故」というまとまりの表現です。1語ずつ分けず、かたまりで覚えましょう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l3-fc29",
+      "front": "relate",
+      "back": "…を（〜に）関係させる",
+      "explanation": "relate は「…を関係させる」という意味です。be related to ... で「〜に関係している」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l3-fc30",
+      "front": "categorize",
+      "back": "…を分類する、類別する",
+      "explanation": "categorize は「…を分類する、類別する」という意味です。be categorized as ... で「〜として分類される」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l3-fc31",
+      "front": "action",
+      "back": "アクション、行動",
+      "explanation": "action は「アクション、行動」という意味です。take action で「行動を起こす」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l3-fc32",
+      "front": "research",
+      "back": "研究、調査",
+      "explanation": "research は「研究、調査」という意味です。日本語を見て英語を言う練習と、英語を見て意味を言う練習の両方をしましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l3-fc33",
+      "front": "habitat",
+      "back": "生息地",
+      "explanation": "habitat は「生息地」という意味です。動物がふだん暮らす場所のことです。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l3-fc34",
+      "front": "protect",
+      "back": "〜を守る、保護する",
+      "explanation": "protect は「〜を守る、保護する」という動作を表します。protect animals で「動物を守る」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l3-fc35",
+      "front": "spread",
+      "back": "〜を広げる、広まる",
+      "explanation": "spread は「〜を広げる、広まる」という意味です。spread peace で「平和を広める」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l3-fc36",
+      "front": "World Heritage site",
+      "back": "世界遺産",
+      "explanation": "World Heritage site は「世界遺産」というまとまりの表現です。1語ずつ分けず、かたまりで覚えましょう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l3-fc37",
+      "front": "condition",
+      "back": "状態、状況、条件",
+      "explanation": "condition は「状態、状況、条件」という意味です。these conditions で「これらの状況」となります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "eng-vocab-g3-l3-fc38",
+      "front": "necessary",
+      "back": "必要な",
+      "explanation": "necessary は「必要な」という意味です。It is necessary to ... で「…することが必要だ」となります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l3-fc39",
+      "front": "decrease",
+      "back": "減る、減少する",
+      "explanation": "decrease は「減る、減少する」という意味です。数や量が少なくなることを表します。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "eng-vocab-g3-l3-fc40",
+      "front": "kiwi",
+      "back": "キーウィ ※鳥",
+      "explanation": "kiwi は「キーウィ」という鳥を表します。ニュージーランド固有の鳥です。",
+      "difficulty": "standard"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "「絶滅」を表す語は？",
+        "options": [
+          "extinction",
+          "ecosystem",
+          "action",
+          "condition"
+        ],
+        "correctIndex": 0,
+        "explanation": "extinction は「絶滅」。in danger of extinction で「絶滅の危機にさらされて」となります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q2",
+        "question": "endangered の意味は？",
+        "options": [
+          "危険がなく安全に保たれた",
+          "絶滅の危機にさらされた",
+          "その地域だけに固有の",
+          "暮らしに役立って便利な"
+        ],
+        "correctIndex": 1,
+        "explanation": "endangered は「絶滅の危機にさらされた」。endangered animals で「絶滅危惧種」となります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q3",
+        "question": "「乱獲」を表す語は？",
+        "options": [
+          "logging",
+          "spill",
+          "overhunting",
+          "research"
+        ],
+        "correctIndex": 2,
+        "explanation": "overhunting は「乱獲」。over- は「〜しすぎ」を表します。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q4",
+        "question": "「生き残る」を表す語は？",
+        "options": [
+          "protect",
+          "decrease",
+          "categorize",
+          "survive"
+        ],
+        "correctIndex": 3,
+        "explanation": "survive は「生き残る」。きびしい状況で生き続けることを表します。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "be native to ... の意味は？",
+        "options": [
+          "〜に固有である",
+          "〜を保護する",
+          "〜に関係する",
+          "〜を分類する"
+        ],
+        "correctIndex": 0,
+        "explanation": "native は「固有の」。be native to ... で「〜に固有である」となります。",
+        "difficulty": "standard"
+      }
+    ]
+  }
+}

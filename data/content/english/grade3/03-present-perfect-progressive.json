@@ -1,0 +1,468 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade3",
+  "topicId": "eng-present-perfect-progressive",
+  "name": "現在完了進行形",
+  "subtitle": "have been + ~ing で「ずっと〜し続けている」",
+  "icon": "⏱️",
+  "order": 3,
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "have been practicing",
+      "back": "I (　) the guitar for three hours.（私は3時間ずっとギターを練習し続けています。）",
+      "hint": "have + been + ~ing",
+      "explanation": "現在完了進行形は〈have/has + been + ~ing〉で、過去に始まった動作が今もずっと続いていることを表します。practice は practicing と綴ります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "has been running",
+      "back": "She (　) since this morning.（彼女は今朝からずっと走り続けています。）",
+      "hint": "主語が she なので has",
+      "explanation": "主語が三人称単数（she）のときは has been ~ing になります。run は n を重ねて running と綴ります。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "have been waiting",
+      "back": "They (　) for the bus for thirty minutes.（彼らは30分間ずっとバスを待ち続けています。）",
+      "hint": "for + 期間",
+      "explanation": "for は「〜の間」と期間の長さを表します。動作（wait）の継続なので進行形を使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "has been raining",
+      "back": "It (　) since yesterday.（昨日からずっと雨が降り続けています。）",
+      "hint": "天候の it",
+      "explanation": "天候を表す it も三人称単数なので has been ~ing。since は「〜から（起点）」を表します。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "have been talking",
+      "back": "We (　) on the phone for an hour.（私たちは1時間ずっと電話で話し続けています。）",
+      "hint": "we → have",
+      "explanation": "主語が we なので have been ~ing。1時間という期間は for で表します。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "since",
+      "back": "He has been sleeping (　) ten o'clock.（彼は10時からずっと眠り続けています。）",
+      "hint": "起点を表す語",
+      "explanation": "ten o'clock のように「ある時点（起点）」を示すときは since を使います。期間の長さなら for です。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "for",
+      "back": "Tom has been working (　) five hours.（トムは5時間ずっと働き続けています。）",
+      "hint": "期間の長さ",
+      "explanation": "five hours のように「どれくらいの間か」を示すときは for を使います。起点なら since です。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc8",
+      "front": "have been swimming",
+      "back": "The children (　) for two hours.（その子どもたちは2時間ずっと泳ぎ続けています。）",
+      "hint": "swim の ~ing 形に注意",
+      "explanation": "children は複数なので have。swim は m を重ねて swimming と綴ります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc9",
+      "front": "has been getting",
+      "back": "It (　) colder since last week.（先週からずっと寒くなり続けています。）",
+      "hint": "get の ~ing 形",
+      "explanation": "get は t を重ねて getting と綴ります。状態の変化が続いていることを表しています。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "has been dancing",
+      "back": "Aya (　) since the party started.（アヤはパーティーが始まってからずっと踊り続けています。）",
+      "hint": "dance の ~ing 形",
+      "explanation": "dance は e をとって dancing と綴ります。Aya は三人称単数なので has です。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "How long have you been",
+      "back": "(　) studying English?（あなたはどれくらいの間ずっと英語を勉強し続けているのですか。）",
+      "hint": "「どれくらいの間」のたずね方",
+      "explanation": "継続している期間をたずねるときは How long have/has + 主語 + been ~ing? の形を使います。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "Yes, I have",
+      "back": "Have you been painting all day? — (　).（一日中ずっと絵をかき続けているのですか。— はい、そうです。）",
+      "hint": "Have you ~ への答え",
+      "explanation": "Have you been ~ing? には Yes, I have. / No, I haven't. で答えます。be 動詞ではなく have を使います。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "haven't been listening",
+      "back": "I (　) to music for a long time.（私は長い間ずっと音楽を聞いていません。）",
+      "hint": "have not の短縮",
+      "explanation": "否定文は have/has の後に not を置きます。haven't been ~ing で「ずっと〜していない」を表します。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "hasn't been snowing",
+      "back": "It (　) since December.（12月からずっと雪が降っていません。）",
+      "hint": "has not の短縮",
+      "explanation": "天候の it は has を使うので、否定は hasn't been ~ing になります。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc15",
+      "front": "have lived",
+      "back": "I (　) in Osaka for five years.（私は5年間ずっと大阪に住んでいます。）",
+      "hint": "live は状態を表す動詞",
+      "explanation": "live（住んでいる）は状態を表す動詞なので進行形にせず、ふつうの現在完了 have lived を使います。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc16",
+      "front": "has known",
+      "back": "She (　) him for ten years.（彼女は10年間ずっと彼を知っています。）",
+      "hint": "know は状態動詞",
+      "explanation": "know（知っている）は状態動詞なので進行形にしません。has known と現在完了で表します。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc17",
+      "front": "has been interested",
+      "back": "Lucy (　) in art since she was a child.（ルーシーは子どものころからずっと美術に興味があります。）",
+      "hint": "be interested は状態",
+      "explanation": "be interested in（〜に興味がある）は状態を表すので、be 動詞の現在完了 has been を使い、進行形にはしません。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc18",
+      "front": "has already finished",
+      "back": "Ken (　) his homework.（ケンはもう宿題を終えました。）",
+      "hint": "「完了」は進行形にしない",
+      "explanation": "「すでに終えた」という完了は動作の継続ではないので、進行形ではなくふつうの現在完了 has finished を使います。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc19",
+      "front": "washed",
+      "back": "I (　) my car yesterday.（私は昨日、車を洗いました。）",
+      "hint": "yesterday に注目",
+      "explanation": "yesterday のように過去のある時点で終わった動作は過去形で表します。現在完了進行形は使えません。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc20",
+      "front": "I have been reading this book for two days.",
+      "back": "(　)（私は2日間ずっとこの本を読み続けています。）",
+      "hint": "have been ~ing で文を作る",
+      "explanation": "「ずっと読み続けている」という動作の継続は現在完了進行形 have been reading で表し、期間は for two days とします。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc21",
+      "front": "How long has it been raining?",
+      "back": "(　)（どれくらいの間ずっと雨が降り続けているのですか。）",
+      "hint": "How long で始める疑問文",
+      "explanation": "継続期間をたずねる疑問文は How long has it been ~ing? の語順になります。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc22",
+      "front": "They have been cleaning the room since noon.",
+      "back": "(　)（彼らは正午からずっと部屋を掃除し続けています。）",
+      "hint": "since + 起点 を使う",
+      "explanation": "正午という起点は since noon で表し、動作の継続を have been cleaning で表します。",
+      "difficulty": "standard"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "(　) に入るのは？\nI (　) for two hours.\n（私は2時間ずっと勉強し続けています。）",
+        "options": ["have been studying", "am studying", "studied", "has been studying"],
+        "correctIndex": 0,
+        "explanation": "動作の継続は〈have/has + been + ~ing〉。主語が I なので have been studying。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "(　) に入るのは？\nShe (　) since this morning.\n（彼女は今朝からずっと走り続けています。）",
+        "options": ["have been running", "has been running", "is running", "ran"],
+        "correctIndex": 1,
+        "explanation": "主語が she（三人称単数）なので has been running。run は running と綴ります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "(　) に入るのは？\nThey have been waiting (　) thirty minutes.\n（彼らは30分間ずっと待ち続けています。）",
+        "options": ["since", "in", "at", "for"],
+        "correctIndex": 3,
+        "explanation": "thirty minutes は期間の長さなので for を使います。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "(　) に入るのは？\nIt has been raining (　) yesterday.\n（昨日からずっと雨が降り続けています。）",
+        "options": ["for", "since", "from", "in"],
+        "correctIndex": 1,
+        "explanation": "yesterday は起点を表すので since を使います。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "swim を現在完了進行形で使うときの正しい形はどれですか。",
+        "options": ["have been swiming", "have been swam", "have been swimming", "have been swim"],
+        "correctIndex": 2,
+        "explanation": "swim は m を重ねて swimming と綴ります。have been swimming が正しい形です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "(　) に入るのは？\n(　) you been swimming?\n（あなたはどれくらいの間ずっと泳いでいるのですか。）",
+        "options": ["How long have", "How long are", "How long did", "How long has"],
+        "correctIndex": 0,
+        "explanation": "継続期間をたずねるときは How long have you been ~ing? の形。主語が you なので have。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "(　) に入るのは？\nHave you been drawing all day? — Yes, I (　).\n（一日中ずっと絵をかき続けているのですか。— はい。）",
+        "options": ["do", "am", "have", "was"],
+        "correctIndex": 2,
+        "explanation": "Have you been ~ing? には have で答えるよ。Yes, I have. / No, I haven't.。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "(　) に入るのは？\nI (　) to music for a long time.\n（私は長い間ずっと音楽を聞いていません。）",
+        "options": ["am not listening", "didn't listen", "haven't been listening", "wasn't listening"],
+        "correctIndex": 2,
+        "explanation": "否定の継続は haven't been ~ing。「ずっと〜していない」を表します。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "(　) に入るのは？\nI (　) in Osaka for five years.\n（私は5年間ずっと大阪に住んでいます。）",
+        "options": ["have been living", "have lived", "am living", "lived"],
+        "correctIndex": 1,
+        "explanation": "live は状態を表す動詞なので進行形にせず、ふつうの現在完了 have lived を使います。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q10",
+        "question": "(　) に入るのは？\nShe (　) him for ten years.\n（彼女は10年間ずっと彼を知っています。）",
+        "options": ["has been knowing", "is knowing", "has known", "knew"],
+        "correctIndex": 2,
+        "explanation": "know は状態動詞なので進行形にしません。has known が正しい形です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q11",
+        "question": "(　) に入るのは？\nKen (　) his homework.\n（ケンはもう宿題を終えました。）",
+        "options": ["has already finished", "has been finishing", "is finishing", "finishs"],
+        "correctIndex": 0,
+        "explanation": "「すでに終えた」は完了であり継続ではないので、進行形ではなく has already finished を使います。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q12",
+        "question": "(　) に入るのは？\nI (　) my car yesterday.\n（私は昨日、車を洗いました。）",
+        "options": ["have been washing", "have washed", "am washing", "washed"],
+        "correctIndex": 3,
+        "explanation": "yesterday で終わった過去の動作は過去形 washed で表します。現在完了進行形は使えません。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q13",
+        "question": "(　) に入るのは？\nHe (　) tennis since 3 p.m.\n（彼は3時からずっとテニスをし続けています。）",
+        "options": ["have been playing", "has been playing", "is playing", "played"],
+        "correctIndex": 1,
+        "explanation": "主語が he なので has been playing。3 p.m. は起点なので since を使います。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q14",
+        "question": "(　) に入るのは？\nLucy (　) in art since she was a child.\n（ルーシーは子どものころからずっと美術に興味があります。）",
+        "options": ["is interested", "has been interested", "has been interesting", "was interested"],
+        "correctIndex": 1,
+        "explanation": "be interested in は状態を表すので、be 動詞の現在完了 has been interested を使い、進行形にはしません。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q15",
+        "question": "(　) に入るのは？\nWe (　) for an hour.\n（私たちは1時間ずっと歩き続けています。）",
+        "options": ["has been walking", "are walking", "walked", "have been walking"],
+        "correctIndex": 3,
+        "explanation": "主語が we なので have been walking。an hour は期間なので for を使います。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q16",
+        "question": "(　) に入るのは？\nIt (　) since yesterday.\n（昨日からずっと雪が降っていません。）",
+        "options": ["hasn't been snowing", "isn't snowing", "didn't snow", "haven't been snowing"],
+        "correctIndex": 0,
+        "explanation": "天候の it は has を使うので、否定の継続は hasn't been snowing になります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q17",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「私は2時間ずっと本を読み続けています。」という英文を作ろう。",
+        "words": ["I", "have", "been", "reading", "for", "two", "hours"],
+        "correctOrder": [0, 1, 2, 3, 4, 5, 6],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "I have been reading for two hours. 動作の継続は have been ~ing、期間は for two hours で表します。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q18",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「彼女は今朝からずっと働き続けています。」という英文を作ろう。",
+        "words": ["she", "has", "been", "working", "since", "this", "morning"],
+        "correctOrder": [0, 1, 2, 3, 4, 5, 6],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "She has been working since this morning. 三人称単数は has、起点は since this morning。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q19",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「あなたはどれくらいの間ずっとギターを練習しているのですか。」という英文を作ろう。",
+        "words": ["how", "long", "have", "you", "been", "practicing", "the", "guitar"],
+        "correctOrder": [0, 1, 2, 3, 4, 5, 6, 7],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "How long have you been practicing the guitar? 継続期間は How long have you been ~ing? でたずねます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q20",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「昨日からずっと雨が降り続けています。」という英文を作ろう。",
+        "words": ["it", "has", "been", "raining", "since", "yesterday"],
+        "correctOrder": [0, 1, 2, 3, 4, 5],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "It has been raining since yesterday. 天候の it は has、起点は since yesterday で表します。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q21",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「私は長い間ずっと電話で話していません。」という英文を作ろう。",
+        "words": ["I", "haven't", "been", "talking", "on", "the", "phone"],
+        "correctOrder": [0, 1, 2, 3, 4, 5, 6],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "I haven't been talking on the phone. 否定の継続は haven't been ~ing で表します。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q22",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「私たちは5年間ずっとここに住んでいます。」という英文を作ろう。",
+        "words": ["we", "have", "lived", "here", "for", "five", "years"],
+        "correctOrder": [0, 1, 2, 3, 4, 5, 6],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "We have lived here for five years. live は状態動詞なので進行形にせず have lived を使います。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q23",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「彼らは30分間ずっとバスを待ち続けています。」という英文を作ろう。",
+        "words": ["they", "have", "been", "waiting", "for", "the", "bus"],
+        "correctOrder": [0, 1, 2, 3, 4, 5, 6],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "They have been waiting for the bus. 動作の継続は have been waiting で表します。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q24",
+        "question": "(　) に入るのは？\nTom (　) the piano for three hours.\n（トムは3時間ずっとピアノをひき続けています。）",
+        "options": ["have been playing", "has been playing", "is playing", "played"],
+        "correctIndex": 1,
+        "explanation": "主語が Tom（三人称単数）なので has been playing。three hours は期間なので for を使います。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q25",
+        "question": "(　) に入るのは？\nThe baby (　) since midnight.\n（赤ちゃんは真夜中からずっと眠り続けています。）",
+        "options": ["have been sleeping", "is sleeping", "has been sleeping", "slept"],
+        "correctIndex": 2,
+        "explanation": "The baby は三人称単数なので has been sleeping。midnight は起点なので since を使います。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q26",
+        "question": "(　) に入るのは？\nMy brother has been using the computer (　) one o'clock.\n（兄は1時からずっとコンピューターを使い続けています。）",
+        "options": ["for", "since", "in", "at"],
+        "correctIndex": 1,
+        "explanation": "one o'clock は「ある時点（起点）」を示すので since を使います。期間の長さなら for です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q27",
+        "question": "(　) に入るのは？\nHow long (　) Emma been cooking?\n（エマはどれくらいの間ずっと料理をしているのですか。）",
+        "options": ["have", "is", "has", "did"],
+        "correctIndex": 2,
+        "explanation": "継続期間をたずねる How long ~ been ~ing? の文。主語が Emma（三人称単数）なので has。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q28",
+        "question": "(　) に入るのは？\nWe (　) Mr. Sato for many years.\n（私たちは長年ずっと佐藤先生を知っています。）",
+        "options": ["have been knowing", "are knowing", "have known", "knew"],
+        "correctIndex": 2,
+        "explanation": "know は状態動詞なので進行形にしません。have known と現在完了で表します。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q29",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「彼は1時間ずっとサッカーをし続けています。」という英文を作ろう。",
+        "words": ["he", "has", "been", "playing", "soccer", "for", "an", "hour"],
+        "correctOrder": [0, 1, 2, 3, 4, 5, 6, 7],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "He has been playing soccer for an hour. 三人称単数は has、期間は for an hour で表します。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q30",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「あなたはどれくらいの間ずっと英語を勉強しているのですか。」という英文を作ろう。",
+        "words": ["how", "long", "have", "you", "been", "studying", "English"],
+        "correctOrder": [0, 1, 2, 3, 4, 5, 6],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "How long have you been studying English? 継続期間は How long have you been ~ing? でたずねます。",
+        "difficulty": "standard"
+      }
+    ]
+  }
+}

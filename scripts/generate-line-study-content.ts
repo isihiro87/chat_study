@@ -1,6 +1,7 @@
 /**
- * data/content/{history,science}/ を学年別に読み、LIFF「じっくり学ぶ」用の
- * 学習データを TS モジュールにバンドルする。
+ * data/content/{history,science,math,geography,english}/ を学年別に読み、
+ * LIFF「じっくり学ぶ」用の学習データを TS モジュールにバンドルする。
+ * （数学は flashcards を持たず quiz のみ。数学だけ LaTeX を Unicode 化する。）
  *
  * 使い方:
  *   npx tsx scripts/generate-line-study-content.ts
@@ -27,6 +28,47 @@ const __dirname = dirname(__filename);
 const REPO_ROOT = resolve(__dirname, '..');
 const CONTENT_DIR = join(REPO_ROOT, 'data', 'content');
 const OUT_DIR = join(REPO_ROOT, 'src', 'data', 'generated');
+
+// LIFF はプレーンテキスト描画（katex 非搭載の slim ビルド）なので、数学の $...$ 数式を
+// 読める Unicode に変換する。sync-questions-from-content.ts と同じロジック。
+const SUP: Record<string, string> = { '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴', '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹' };
+function latexToPlain(s: string): string {
+  if (typeof s !== 'string') return s;
+  return s
+    .replace(/\\begin\{cases\}([\s\S]+?)\\end\{cases\}/g, (_m, inner: string) =>
+      inner.split(/\\\\/).map((x) => x.trim()).filter(Boolean).join('，  ')
+    )
+    .replace(/\$([^$]+)\$/g, (_m, x: string) => x)
+    .replace(/\\d?frac\{([^{}]+)\}\{([^{}]+)\}/g, (_m, a: string, b: string) => {
+      const par = (x: string) => (/[+\-]/.test(x.slice(1)) ? `(${x})` : x);
+      return `${par(a.trim())}/${par(b.trim())}`;
+    })
+    .replace(/\\sqrt\{([^{}]+)\}/g, '√$1')
+    .replace(/\\sqrt/g, '√')
+    .replace(/\\pi/g, 'π')
+    .replace(/\\times/g, '×')
+    .replace(/\\div/g, '÷')
+    .replace(/\\pm/g, '±')
+    .replace(/\\cdot/g, '・')
+    .replace(/\\leqq|\\leq/g, '≦')
+    .replace(/\\geqq|\\geq/g, '≧')
+    .replace(/\\neq/g, '≠')
+    .replace(/\\equiv/g, '≡')
+    .replace(/\\sim/g, '∼')
+    .replace(/\\parallel/g, '∥')
+    .replace(/\\ell/g, 'ℓ')
+    .replace(/\\text\{([^{}]*)\}/g, '$1')
+    .replace(/\\angle\s*/g, '∠')
+    .replace(/\\triangle\s*/g, '△')
+    .replace(/\^\{(\d+)\}/g, (_m, d: string) => d.split('').map((c) => SUP[c] ?? c).join(''))
+    .replace(/\^(\d)/g, (_m, d: string) => SUP[d] ?? d)
+    .replace(/\\left|\\right/g, '')
+    .replace(/\\,|\\;|\\ /g, ' ')
+    .replace(/\\\\/g, ' ')
+    .replace(/\\/g, '')
+    .replace(/[ \t]+/g, ' ')
+    .trim();
+}
 
 interface SubjectConfig {
   subjectId: string; // data/content/<subjectId>
@@ -96,6 +138,72 @@ const SUBJECTS: SubjectConfig[] = [
       ],
     },
   },
+  {
+    // 数学は flashcards を持たない（quiz のみ）。「この分野を暗記」のカードは
+    // 空になるが、「四択クイズ」は出せる（fc 以外＝クイズも作る方針）。
+    subjectId: 'math',
+    exportVar: 'lineStudyMathEras',
+    outPrefix: 'line-study-math',
+    label: 'math',
+    gradeFolders: {
+      1: [
+        'grade1/1-positive-negative',
+        'grade1/2-literal-expressions',
+        'grade1/3-equations',
+        'grade1/4-functions',
+        'grade1/5-plane-figures',
+        'grade1/6-space-figures',
+        'grade1/7-data',
+      ],
+      2: [
+        'grade2/1-expressions',
+        'grade2/2-simultaneous-equations',
+        'grade2/3-linear-functions',
+        'grade2/4-parallel-congruence',
+        'grade2/5-triangles-quadrilaterals',
+        'grade2/6-probability',
+        'grade2/7-data',
+      ],
+      3: [
+        'grade3/1-expansion-factoring',
+        'grade3/2-square-roots',
+        'grade3/3-quadratic-equations',
+        'grade3/4-quadratic-functions',
+      ],
+    },
+  },
+  {
+    subjectId: 'geography',
+    exportVar: 'lineStudyGeographyEras',
+    outPrefix: 'line-study-geography',
+    label: 'geography',
+    gradeFolders: {
+      1: [
+        'grade1/1-world-shape',
+        'grade1/2-japan-shape',
+        'grade1/3-life-environment',
+        'grade1/4-world-regions',
+      ],
+      2: [
+        'grade2/1-regional-research',
+        'grade2/2-japan-features',
+        'grade2/3-japan-regions',
+      ],
+      3: [],
+    },
+  },
+  {
+    // 英語は各学年フォルダ直下に topic JSON が並ぶ（1 学年 = 1 era）。
+    subjectId: 'english',
+    exportVar: 'lineStudyEnglishEras',
+    outPrefix: 'line-study-english',
+    label: 'english',
+    gradeFolders: {
+      1: ['grade1'],
+      2: ['grade2'],
+      3: ['grade3'],
+    },
+  },
 ];
 
 const ERA_DISPLAY_NAMES: Record<string, { name: string; icon: string; period: string }> = {
@@ -151,6 +259,40 @@ const ERA_DISPLAY_NAMES: Record<string, { name: string; icon: string; period: st
   'sci3-celestial-motion': { name: '天体の動き', icon: '🌏', period: '地学分野' },
   'sci3-moon-venus': { name: '月と金星の見え方', icon: '🌙', period: '地学分野' },
   'sci3-solar-universe': { name: '太陽系と宇宙', icon: '🌌', period: '地学分野' },
+  // math grade 1（フォルダ＝単元）
+  'math-g1-pos-neg': { name: '正負の数', icon: '➖', period: '中1 数と式' },
+  'math-g1-literal-exp': { name: '文字と式', icon: '🔤', period: '中1 数と式' },
+  'math-g1-equations': { name: '方程式', icon: '⚖️', period: '中1 数と式' },
+  'math-g1-functions': { name: '比例と反比例', icon: '📈', period: '中1 関数' },
+  'math-g1-plane': { name: '平面図形', icon: '📐', period: '中1 図形' },
+  'math-g1-space': { name: '空間図形', icon: '🧊', period: '中1 図形' },
+  'math-g1-data': { name: 'データの活用', icon: '📊', period: '中1 データ' },
+  // math grade 2
+  'math-g2-expressions': { name: '式の計算', icon: '🔣', period: '中2 数と式' },
+  'math-g2-simultaneous-eq': { name: '連立方程式', icon: '⚖️', period: '中2 数と式' },
+  'math-g2-linear-func': { name: '一次関数', icon: '📈', period: '中2 関数' },
+  'math-g2-parallel': { name: '平行と合同', icon: '📐', period: '中2 図形' },
+  'math-g2-shapes': { name: '三角形と四角形', icon: '🔺', period: '中2 図形' },
+  'math-g2-probability': { name: '確率', icon: '🎲', period: '中2 データ' },
+  'math-g2-data': { name: '箱ひげ図とデータの活用', icon: '📦', period: '中2 データ' },
+  // math grade 3
+  'math-g3-expansion-factoring': { name: '展開と因数分解', icon: '✖️', period: '中3 数と式' },
+  'math-g3-square-roots': { name: '平方根', icon: '√', period: '中3 数と式' },
+  'math-g3-quadratic-eq': { name: '二次方程式', icon: '⚖️', period: '中3 数と式' },
+  'math-g3-quadratic-func': { name: '二次関数', icon: '📈', period: '中3 関数' },
+  // geography grade 1（generate-line-scope-index.ts と表示名を揃える）
+  'geo1-world-shape': { name: '世界の姿', icon: '🌍', period: '世界の地域構成' },
+  'geo1-japan-shape': { name: '日本の姿', icon: '🗾', period: '日本の地域構成' },
+  'geo1-life-environment': { name: '人々の生活と環境', icon: '🌏', period: '世界の生活・文化' },
+  'geo1-world-regions': { name: '世界の諸地域', icon: '🌎', period: '六州の地誌' },
+  // geography grade 2
+  'geo2-regional-research': { name: '地域調査・地形図', icon: '🗺️', period: '地理の調べ方' },
+  'geo2-japan-features': { name: '日本の特色', icon: '🏔️', period: '日本の地域的特色' },
+  'geo2-japan-regions': { name: '日本の諸地域', icon: '🏙️', period: '七地方の地誌' },
+  // english（1 学年 = 1 era）
+  'english-grade1': { name: '中1 英語', icon: '📘', period: '中1 文法・単語' },
+  'english-grade2': { name: '中2 英語', icon: '📗', period: '中2 文法' },
+  'english-grade3': { name: '中3 英語', icon: '📕', period: '中3 文法' },
 };
 
 interface RawFlashcard {
@@ -204,7 +346,8 @@ interface OutEra {
 // （1 フォルダに複数 era が混在しうる＝理科の細分化に対応）。
 function loadFolderTopics(
   srcDir: string,
-  folder: string
+  folder: string,
+  conv: (s: string) => string
 ): (OutTopic & { eraId: string })[] {
   const dir = join(srcDir, folder);
   let files: string[] = [];
@@ -224,8 +367,34 @@ function loadFolderTopics(
       subtitle: data.subtitle ?? '',
       icon: data.icon ?? '',
       order: data.order ?? 0,
-      flashcards: data.flashcards ?? [],
-      quiz: data.quiz?.questions ?? [],
+      // 既知フィールドのみ明示的に取り出す（英語の hint、数学の image など、
+      // StudyFlashcard / StudyQuizQuestion 型に無い余分なフィールドを落とす）。
+      flashcards: (data.flashcards ?? []).map((fc) => ({
+        id: fc.id,
+        front: conv(fc.front),
+        back: conv(fc.back),
+        ...(fc.explanation ? { explanation: conv(fc.explanation) } : {}),
+        ...(fc.difficulty ? { difficulty: fc.difficulty } : {}),
+      })),
+      // 語順並べ替え（reorder: options 空・correctIndex -1）など 4 択でない問題は
+      // LIFF クイズプレイヤーが扱えないので除外。sync-questions-from-content.ts の
+      // 妥当性チェックと揃える（Firestore 出題と同じ問題集合になる）。
+      quiz: (data.quiz?.questions ?? [])
+        .filter(
+          (q) =>
+            Array.isArray(q.options) &&
+            q.options.length === 4 &&
+            typeof q.correctIndex === 'number' &&
+            q.correctIndex >= 0,
+        )
+        .map((q) => ({
+          id: q.id,
+          question: conv(q.question),
+          options: q.options.map(conv),
+          correctIndex: q.correctIndex,
+          ...(q.explanation ? { explanation: conv(q.explanation) } : {}),
+          ...(q.difficulty ? { difficulty: q.difficulty } : {}),
+        })),
     });
   }
   topics.sort((a, b) => a.order - b.order);
@@ -275,8 +444,10 @@ function emitGrade(cfg: SubjectConfig, grade: number, folders: string[]) {
   // フォルダ番号＝ワークの章順、topic.order＝章内の節順なので、ワーク（PDF）順になる。
   const byEra = new Map<string, OutTopic[]>();
   const eraOrder: string[] = [];
+  // 数学のみ LaTeX を LINE 表示用 Unicode に変換（他教科は素通し）。
+  const conv = cfg.subjectId === 'math' ? latexToPlain : (x: string) => x;
   for (const folder of folders) {
-    for (const t of loadFolderTopics(srcDir, folder)) {
+    for (const t of loadFolderTopics(srcDir, folder, conv)) {
       const { eraId, ...topic } = t;
       if (!byEra.has(eraId)) {
         byEra.set(eraId, []);

@@ -1,0 +1,408 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade1",
+  "topicId": "eng-be-verbs",
+  "name": "be動詞",
+  "subtitle": "am / is / are の使い分けをマスター",
+  "icon": "🔤",
+  "order": 1,
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "am",
+      "back": "I (　) a junior high school student.（私は中学生です。）",
+      "hint": "主語が I のときのbe動詞は？",
+      "explanation": "I のときのbe動詞はいつも am。I am a junior high school student.",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "are",
+      "back": "You (　) a good tennis player.（あなたはじょうずなテニス選手です。）",
+      "hint": "主語が you のときのbe動詞は？",
+      "explanation": "you のbe動詞は are。1人でも2人以上でも you は are を使うよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "is",
+      "back": "This (　) my desk.（これは私の机です。）",
+      "hint": "this（これ）は1つを指すよ。be動詞は？",
+      "explanation": "this は1つのものを指すから is。This is my desk.",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "is",
+      "back": "Ms. Brown (　) from Australia.（ブラウン先生はオーストラリア出身です。）",
+      "hint": "Ms. Brown は1人だね。be動詞は？",
+      "explanation": "人名（1人）の主語は is。Ms. Brown is from Australia.",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "are",
+      "back": "We (　) classmates.（私たちはクラスメートです。）",
+      "hint": "we（私たち）は2人以上だよ。be動詞は？",
+      "explanation": "we は2人以上だから are。We are classmates.",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "are",
+      "back": "They (　) good friends.（彼らは仲のよい友達です。）",
+      "hint": "they（彼ら）は2人以上だよ。be動詞は？",
+      "explanation": "they は2人以上なので are。They are good friends.",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "am not",
+      "back": "I (　) a baseball fan.（私は野球のファンではありません。）",
+      "hint": "I のbe動詞のあとに not をつけると？",
+      "explanation": "I のbe動詞は am。否定は am のうしろに not をつけて am not。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "is not",
+      "back": "He (　) in the music club.（彼は音楽部に入っていません。）",
+      "hint": "he のbe動詞 is を否定にすると？",
+      "explanation": "he は1人なので is。否定は is not で「〜ではない」。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc9",
+      "front": "are not",
+      "back": "You (　) late today.（あなたは今日おくれていません。）",
+      "hint": "you のbe動詞 are を否定にすると？",
+      "explanation": "you のbe動詞は are。否定は are not だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "Is",
+      "back": "(　) that your bike?（あれはあなたの自転車ですか？）",
+      "hint": "that のbe動詞は is。疑問文では先頭に？",
+      "explanation": "that のbe動詞は is。疑問文では Is を文の最初に出すよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "Are",
+      "back": "(　) you hungry now?（あなたは今おなかがすいていますか？）",
+      "hint": "you の疑問文の先頭にくるbe動詞は？",
+      "explanation": "you のbe動詞は are。疑問文では Are を文の最初に出すよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "Is",
+      "back": "(　) she a new student?（彼女は新しい生徒ですか？）",
+      "hint": "she のbe動詞 is を文の先頭へ。",
+      "explanation": "she のbe動詞は is。「〜ですか？」だから Is を先頭に出すよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "Yes, I am.",
+      "back": "Are you a soccer fan?（あなたはサッカーのファンですか？）\nに「はい」で答えると？",
+      "hint": "「あなたは〜？」には I で答えるよ。",
+      "explanation": "you について聞かれたら I で答える。Yes, I am. が正解。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "No, she isn't.",
+      "back": "Is she your sister?（彼女はあなたのお姉さんですか？）\nに「いいえ」で答えると？",
+      "hint": "she には she で答えるよ。短縮形は？",
+      "explanation": "she について聞かれたら she で答える。No, she isn't.（= No, she is not.）。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc15",
+      "front": "isn't",
+      "back": "is not をみじかく言うと？",
+      "hint": "is と not をくっつけよう。",
+      "explanation": "is not の短縮形は isn't。アポストロフィを忘れずに。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc16",
+      "front": "aren't",
+      "back": "are not をみじかく言うと？",
+      "hint": "are と not をくっつけよう。",
+      "explanation": "are not の短縮形は aren't だよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc17",
+      "front": "I'm",
+      "back": "I am をみじかく言うと？",
+      "hint": "I と am をくっつけて 'm にするよ。",
+      "explanation": "I am の短縮形は I'm。'm は am のみじかい形だよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc18",
+      "front": "It's",
+      "back": "It is をみじかく言うと？",
+      "hint": "It と is をくっつけて 's にするよ。",
+      "explanation": "It is の短縮形は It's。's は is のみじかい形だよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc19",
+      "front": "They're",
+      "back": "They are をみじかく言うと？",
+      "hint": "They と are をくっつけて 're にするよ。",
+      "explanation": "They are の短縮形は They're。're は are のみじかい形だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc20",
+      "front": "an",
+      "back": "I am (　) English teacher.（私は英語の先生です。）",
+      "hint": "English は母音の音ではじまるよ。a / an どっち？",
+      "explanation": "English は母音の音ではじまるので a ではなく an。I am an English teacher.",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc21",
+      "front": "is not",
+      "back": "My father (　) at home now.（私の父は今家にいません。）",
+      "hint": "father（1人）のbe動詞を否定に。",
+      "explanation": "father は1人なので is。否定は is not。be動詞は「〜にいる」も表すよ。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc22",
+      "front": "Yes, they are.",
+      "back": "Are they in the gym?（彼らは体育館にいますか？）\nに「はい」で答えると？",
+      "hint": "they には they で答えるよ。",
+      "explanation": "they について聞かれたら they で答える。Yes, they are. が正解。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "(　) に入るのは？\nI (　) a student.\n（私は学生です。）",
+        "options": ["is", "are", "am", "be"],
+        "correctIndex": 2,
+        "explanation": "主語が I のときのbe動詞は am。I am a student.",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "(　) に入るのは？\nYou (　) my friend.\n（あなたは私の友達です。）",
+        "options": ["are", "am", "is", "be"],
+        "correctIndex": 0,
+        "explanation": "主語が you のときのbe動詞は are。You are my friend.",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "(　) に入るのは？\nThis (　) a pencil.\n（これはえんぴつです。）",
+        "options": ["am", "are", "is", "be"],
+        "correctIndex": 2,
+        "explanation": "this は1つのものを指すからbe動詞は is。This is a pencil.",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "(　) に入るのは？\nShe (　) kind.\n（彼女は親切です。）",
+        "options": ["am", "is", "are", "be"],
+        "correctIndex": 1,
+        "explanation": "she は1人なのでbe動詞は is。She is kind.",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "(　) に入るのは？\nWe (　) in the same class.\n（私たちは同じクラスです。）",
+        "options": ["is", "am", "be", "are"],
+        "correctIndex": 3,
+        "explanation": "we は2人以上なのでbe動詞は are。We are in the same class.",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "(　) に入るのは？\nI (　) Takuya.\n（私はタクヤではありません。）",
+        "options": ["are not", "am not", "is not", "be not"],
+        "correctIndex": 1,
+        "explanation": "I のbe動詞は am。否定は am のうしろに not をつけて am not。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "(　) に入るのは？\nHe (　) a doctor.\n（彼は医者ではありません。）",
+        "options": ["is not", "am not", "are not", "be not"],
+        "correctIndex": 0,
+        "explanation": "he のbe動詞は is。否定は is not で「〜ではない」を表すよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "(　) に入るのは？\n(　) you twelve years old?\n（あなたは12歳ですか？）",
+        "options": ["Is", "Am", "Are", "Be"],
+        "correctIndex": 2,
+        "explanation": "you のbe動詞は are。疑問文では Are を文の最初に出すよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "(　) に入るのは？\n(　) that a school?\n（あれは学校ですか？）",
+        "options": ["Are", "Am", "Be", "Is"],
+        "correctIndex": 3,
+        "explanation": "that のbe動詞は is。疑問文では Is を文の最初に出すよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "(　) に入るのは？\nAre you a baseball fan? — Yes, (　)\n（はい、そうです。）",
+        "options": ["I am.", "you are.", "he is.", "it is."],
+        "correctIndex": 0,
+        "explanation": "「あなたは〜？」と聞かれたら I で答える。Yes, I am. が正解。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "(　) に入るのは？\nIs she a teacher? — No, (　)\n（いいえ、ちがいます。）",
+        "options": ["I'm not.", "she isn't.", "you aren't.", "he isn't."],
+        "correctIndex": 1,
+        "explanation": "she について聞かれたら she で答える。No, she isn't. が正解。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "(　) に入るのは？\nI am (　) English teacher.\n（私は英語の先生です。）",
+        "options": ["a", "an", "the", "is"],
+        "correctIndex": 1,
+        "explanation": "English は母音の音ではじまるので a ではなく an を使うよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q13",
+        "question": "「\"They're\" を短縮しない形に直すと？」",
+        "options": ["They is", "They are", "They am", "They be"],
+        "correctIndex": 1,
+        "explanation": "'re は are の短縮形。They're = They are だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q14",
+        "question": "(　) に入るのは？\nMy parents (　) busy today.\n（私の両親は今日いそがしいです。）",
+        "options": ["are", "is", "am", "be"],
+        "correctIndex": 0,
+        "explanation": "parents（両親）は2人以上なのでbe動詞は are。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q15",
+        "question": "(　) に入るのは？\n(　) he from Canada?\n（彼はカナダ出身ですか？）",
+        "options": ["Am", "Is", "Are", "Be"],
+        "correctIndex": 1,
+        "explanation": "he のbe動詞は is。疑問文では Is を文の最初に出すよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q16",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私はユミです。」の英文を作ろう。",
+        "words": ["Yumi", "I", "am"],
+        "correctOrder": [1, 2, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I am Yumi.」が正解。I（私は）+ am（です）+ Yumi の順番だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q17",
+        "type": "reorder",
+        "question": "次の語を並べかえて「これは本です。」の英文を作ろう。",
+        "words": ["book", "is", "this", "a"],
+        "correctOrder": [2, 1, 3, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「This is a book.」が正解。This + is + a book の順番だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q18",
+        "type": "reorder",
+        "question": "次の語を並べかえて「あなたは生徒ですか？」の英文を作ろう。",
+        "words": ["student", "you", "a", "are"],
+        "correctOrder": [3, 1, 2, 0],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Are you a student?」が正解。疑問文ではbe動詞 are を文の最初に出すよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q19",
+        "type": "reorder",
+        "question": "次の語を並べかえて「彼女は私の友達です。」の英文を作ろう。",
+        "words": ["my", "is", "she", "friend"],
+        "correctOrder": [2, 1, 0, 3],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「She is my friend.」が正解。She + is + my friend の順番だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q20",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私は10歳ではありません。」の英文を作ろう。",
+        "words": ["not", "ten", "I", "am"],
+        "correctOrder": [2, 3, 0, 1],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I am not ten.」が正解。be動詞 am のうしろに not をつけるよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q21",
+        "type": "reorder",
+        "question": "次の語を並べかえて「あれは私の自転車ではありません。」の英文を作ろう。",
+        "words": ["not", "is", "my", "bike", "that"],
+        "correctOrder": [4, 1, 0, 2, 3],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「That is not my bike.」が正解。be動詞 is のうしろに not をつけるよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q22",
+        "type": "reorder",
+        "question": "次の語を並べかえて「彼は新しい先生ですか？」の英文を作ろう。",
+        "words": ["he", "new", "teacher", "a", "is"],
+        "correctOrder": [4, 0, 3, 1, 2],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Is he a new teacher?」が正解。疑問文では Is を文の最初に出すよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q23",
+        "type": "reorder",
+        "question": "次の語を並べかえて「彼女は東京出身ではありません。」の英文を作ろう。",
+        "words": ["not", "Tokyo", "from", "she", "is"],
+        "correctOrder": [3, 4, 0, 2, 1],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「She is not from Tokyo.」が正解。be動詞 is のうしろに not をつけて from Tokyo と続けるよ。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

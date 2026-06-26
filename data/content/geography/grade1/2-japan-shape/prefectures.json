@@ -1,0 +1,212 @@
+{
+  "subjectId": "geography",
+  "eraId": "geo1-japan-shape",
+  "topicId": "geo1-prefectures",
+  "name": "日本の都道府県と地域区分",
+  "subtitle": "47都道府県・7地方区分・県庁所在地",
+  "icon": "🗾",
+  "order": 4,
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "47",
+      "back": "現在の日本の都道府県の数はいくつか？",
+      "explanation": "1都1道2府43県の47都道府県。明治時代の廃藩置県をきっかけに整えられた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "{廃藩置県|はいはんちけん}",
+      "back": "1871年に藩を廃止して府や県を置いた、明治時代の改革を何というか？",
+      "explanation": "江戸時代の地方行政の単位「藩」が廃止され、府・県が置かれた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc3",
+      "front": "{都道府県|とどうふけん}",
+      "back": "日本で地方の政治を行う基本単位を何というか？",
+      "explanation": "現在は1都1道2府43県の47都道府県。1871年の廃藩置県をきっかけに始まった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "{県庁所在地|けんちょうしょざいち}",
+      "back": "都道府県庁が置かれ、政治の中心的な機関が集まっている都市を何というか？",
+      "explanation": "県名と異なる名前の県庁所在地もある。例：宮城県→仙台市。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "7地方区分",
+      "back": "北海道・東北・関東・中部・近畿・中国四国・九州の区分を何というか？",
+      "explanation": "地理的な位置や歴史的なまとまりで区分されている。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "仙台市",
+      "back": "宮城県の県庁所在地は？",
+      "explanation": "県名と県庁所在地名が異なる例。宮城県の県庁所在地は仙台市。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc7",
+      "front": "{宇都宮|うつのみや}市",
+      "back": "栃木県の県庁所在地は？",
+      "explanation": "県名と異なる県庁所在地の例。栃木県の県庁所在地は宇都宮市。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "名古屋市",
+      "back": "愛知県の県庁所在地は？",
+      "explanation": "県名と異なる県庁所在地の例。愛知県の県庁所在地は名古屋市。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc9",
+      "front": "神戸市",
+      "back": "兵庫県の県庁所在地は？",
+      "explanation": "県名と異なる県庁所在地の例。兵庫県の県庁所在地は神戸市。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "中部地方",
+      "back": "7地方区分のうち、最も県の数が多い地方は？",
+      "explanation": "中部地方は9県で、7地方区分の中で最も県の数が多い。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc11",
+      "front": "{藩|はん}",
+      "back": "江戸時代に地方行政の単位として使われていた区分を漢字1字で何というか？",
+      "explanation": "1871年の廃藩置県で藩が廃止され、府・県が置かれた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "1都1道2府43県",
+      "back": "47都道府県の内わけは、何都・何道・何府・何県か？",
+      "explanation": "東京都・北海道・大阪府・京都府と、43の県からなる。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "現在の日本の都道府県の数はいくつですか。",
+        "options": ["43", "45", "47", "50"],
+        "correctIndex": 2,
+        "explanation": "1都1道2府43県の47都道府県。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "1871年に藩を廃止して府や県を置いた明治時代の改革を何といいますか。",
+        "options": ["廃藩置県", "版籍奉還", "地租改正", "学制"],
+        "correctIndex": 0,
+        "explanation": "廃藩置県により、江戸時代の藩が廃止され、府・県が置かれた。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q3",
+        "question": "宮城県の県庁所在地はどこですか。",
+        "options": ["宮城市", "盛岡市", "福島市", "仙台市"],
+        "correctIndex": 3,
+        "explanation": "宮城県の県庁所在地は仙台市。県名と県庁所在地名が異なる例。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q4",
+        "question": "7地方区分のうち、最も県の数が多い地方はどれですか。",
+        "options": ["関東地方", "近畿地方", "中部地方", "九州地方"],
+        "correctIndex": 2,
+        "explanation": "中部地方は9県で、7地方区分の中で最も県の数が多い。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q5",
+        "question": "愛知県の県庁所在地はどこですか。",
+        "options": ["豊田市", "名古屋市", "岐阜市", "静岡市"],
+        "correctIndex": 1,
+        "explanation": "愛知県の県庁所在地は名古屋市。県名と県庁所在地名が異なる例。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "日本で地方の政治を行う基本単位を何といいますか。",
+        "options": ["市町村", "地方", "藩", "都道府県"],
+        "correctIndex": 3,
+        "explanation": "都道府県が地方の政治を行う基本単位。1871年の廃藩置県をきっかけに始まった。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q7",
+        "question": "栃木県の県庁所在地はどこですか。",
+        "options": ["栃木市", "宇都宮市", "前橋市", "水戸市"],
+        "correctIndex": 1,
+        "explanation": "栃木県の県庁所在地は宇都宮市。県名と県庁所在地名が異なる例。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "江戸時代に使われていた地方行政の単位を漢字1字で何といいますか。",
+        "options": ["国", "藩", "府", "郡"],
+        "correctIndex": 1,
+        "explanation": "江戸時代は藩が地方行政の単位だった。1871年の廃藩置県で廃止された。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "7地方区分にふくまれないものはどれですか。",
+        "options": ["東北地方", "中部地方", "北陸地方", "九州地方"],
+        "correctIndex": 2,
+        "explanation": "7地方区分は北海道・東北・関東・中部・近畿・中国四国・九州。北陸は中部地方の一部。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q10",
+        "question": "兵庫県の県庁所在地はどこですか。",
+        "options": ["兵庫市", "姫路市", "神戸市", "明石市"],
+        "correctIndex": 2,
+        "explanation": "兵庫県の県庁所在地は神戸市。県名と県庁所在地名が異なる例。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "47都道府県の内わけとして正しいものはどれですか。",
+        "options": ["1都1道2府43県", "2都1道1府43県", "1都2道1府43県", "1都1道3府42県"],
+        "correctIndex": 0,
+        "explanation": "東京都・北海道・大阪府・京都府と、43の県からなる。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q12",
+        "question": "都道府県の県境のもとになっているものとして適切でないものはどれですか。",
+        "options": ["山脈", "河川", "旧藩の領域", "経線・緯線"],
+        "correctIndex": 3,
+        "explanation": "県境は山脈・河川などの自然地形や旧藩の領域がもとになっている。経線・緯線は国境の例。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q13",
+        "question": "県名と県庁所在地名が同じである県はどれですか。",
+        "options": ["宮城県", "福岡県", "愛知県", "兵庫県"],
+        "correctIndex": 1,
+        "explanation": "福岡県の県庁所在地は福岡市で、県名と一致する。宮城県は仙台市、愛知県は名古屋市、兵庫県は神戸市で異なる。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q14",
+        "question": "県名と県庁所在地名が異なる県はおよそいくつありますか。",
+        "options": ["8", "18", "28", "38"],
+        "correctIndex": 1,
+        "explanation": "宮城県→仙台市、愛知県→名古屋市など、県名と県庁所在地名が異なる県は18ある。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

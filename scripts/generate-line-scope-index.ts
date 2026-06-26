@@ -27,7 +27,7 @@ const REPO_ROOT = resolve(__dirname, '..');
 const CONTENT_DIR = join(REPO_ROOT, 'data', 'content');
 const OUT_DIR = join(REPO_ROOT, 'src', 'data', 'generated');
 
-type SubjectId = 'history' | 'english' | 'science';
+type SubjectId = 'history' | 'english' | 'science' | 'geography';
 type Grade = 1 | 2 | 3;
 
 // data/content/<subject>/<folder> の学年マップ。
@@ -61,9 +61,9 @@ const GRADE_FOLDERS: Record<SubjectId, Record<Grade, string[]>> = {
     ],
   },
   english: {
-    1: ['01-english-grade1'],
-    2: [],
-    3: [],
+    1: ['grade1'],
+    2: ['grade2'],
+    3: ['grade3'],
   },
   science: {
     1: [
@@ -84,6 +84,20 @@ const GRADE_FOLDERS: Record<SubjectId, Record<Grade, string[]>> = {
       'grade3/3-physics',
       'grade3/4-earth',
     ],
+  },
+  geography: {
+    1: [
+      'grade1/1-world-shape',
+      'grade1/2-japan-shape',
+      'grade1/3-life-environment',
+      'grade1/4-world-regions',
+    ],
+    2: [
+      'grade2/1-regional-research',
+      'grade2/2-japan-features',
+      'grade2/3-japan-regions',
+    ],
+    3: [],
   },
 };
 
@@ -114,8 +128,10 @@ const ERA_DISPLAY_NAMES: Record<
   'postwar-japan': { name: '戦後の日本', icon: '🕊️', period: '1945年〜1952年' },
   'cold-war-era': { name: '冷戦と日本の成長', icon: '🌐', period: '1950年代〜1970年代' },
   'modern-world': { name: '現代の世界と日本', icon: '🌏', period: '1989年〜現在' },
-  // english grade 1
-  'english-grade1': { name: '中1 英語の単語', icon: '📘', period: '教科書レッスンの単語' },
+  // english（学年ごとに 1 era。data/content/english/grade{1,2,3} の文法トピック）
+  'english-grade1': { name: '中1 英語', icon: '📘', period: '中1の英文法' },
+  'english-grade2': { name: '中2 英語', icon: '📗', period: '中2の英文法' },
+  'english-grade3': { name: '中3 英語', icon: '📕', period: '中3の英文法' },
   // science grade 1（ワークの章・節順に細分化）
   'sci1-plant': { name: '植物の観察と分類', icon: '🌱', period: '生物分野' },
   'sci1-animal': { name: '動物の分類', icon: '🐟', period: '生物分野' },
@@ -146,6 +162,15 @@ const ERA_DISPLAY_NAMES: Record<
   'sci3-celestial-motion': { name: '天体の動き', icon: '🌏', period: '地学分野' },
   'sci3-moon-venus': { name: '月と金星の見え方', icon: '🌙', period: '地学分野' },
   'sci3-solar-universe': { name: '太陽系と宇宙', icon: '🌌', period: '地学分野' },
+  // geography grade 1
+  'geo1-world-shape': { name: '世界の姿', icon: '🌍', period: '世界の地域構成' },
+  'geo1-japan-shape': { name: '日本の姿', icon: '🗾', period: '日本の地域構成' },
+  'geo1-life-environment': { name: '人々の生活と環境', icon: '🌏', period: '世界の生活・文化' },
+  'geo1-world-regions': { name: '世界の諸地域', icon: '🌎', period: '六州の地誌' },
+  // geography grade 2
+  'geo2-regional-research': { name: '地域調査・地形図', icon: '🗺️', period: '地理の調べ方' },
+  'geo2-japan-features': { name: '日本の特色', icon: '🏔️', period: '日本の地域的特色' },
+  'geo2-japan-regions': { name: '日本の諸地域', icon: '🏙️', period: '七地方の地誌' },
 };
 
 // grade×eraId -> 公式LINE トーク内 範囲設定フロー用の補助メタ。
@@ -179,8 +204,10 @@ const ERA_HINTS: Record<
   'postwar-japan': { shortName: '戦後の日本', whenLabel: '中3 9〜10月ごろ', keyTerms: '占領・日本国憲法・民主化' },
   'cold-war-era': { shortName: '冷戦と成長', whenLabel: '中3 10〜11月ごろ', keyTerms: '冷戦・高度経済成長・東京五輪' },
   'modern-world': { shortName: '現代の世界', whenLabel: '中3 11〜12月ごろ', keyTerms: '冷戦終結・平成・現代の課題' },
-  // english grade 1
-  'english-grade1': { shortName: '中1英単語', whenLabel: '中1 通年', keyTerms: '教科書レッスンの単語' },
+  // english（学年ごとに 1 era）
+  'english-grade1': { shortName: '中1英語', whenLabel: '中1 通年', keyTerms: 'be動詞・一般動詞・三単現・過去形' },
+  'english-grade2': { shortName: '中2英語', whenLabel: '中2 通年', keyTerms: '不定詞・助動詞・比較・受け身' },
+  'english-grade3': { shortName: '中3英語', whenLabel: '中3 通年', keyTerms: '現在完了・後置修飾・関係代名詞・仮定法' },
   // science grade 1（ワークの章・節順に細分化）
   'sci1-plant': { shortName: '植物の観察と分類', whenLabel: '中1 4〜6月ごろ', keyTerms: '観察・顕微鏡・花のつくり・植物の分類' },
   'sci1-animal': { shortName: '動物の分類', whenLabel: '中1 6〜7月ごろ', keyTerms: '脊椎動物・無脊椎動物' },
@@ -211,6 +238,15 @@ const ERA_HINTS: Record<
   'sci3-celestial-motion': { shortName: '天体の動き', whenLabel: '中3 12〜1月ごろ', keyTerms: '日周運動・年周運動・地軸・季節の変化' },
   'sci3-moon-venus': { shortName: '月と金星', whenLabel: '中3 1〜2月ごろ', keyTerms: '月の満ち欠け・日食月食・金星の見え方' },
   'sci3-solar-universe': { shortName: '太陽系と宇宙', whenLabel: '中3 2〜3月ごろ', keyTerms: '惑星・太陽・銀河系・恒星・天文単位' },
+  // geography grade 1
+  'geo1-world-shape': { shortName: '世界の姿', whenLabel: '中1 4〜5月ごろ', keyTerms: '六大陸・三大洋・緯度経度・地図' },
+  'geo1-japan-shape': { shortName: '日本の姿', whenLabel: '中1 5〜6月ごろ', keyTerms: '標準時・時差・領土・都道府県' },
+  'geo1-life-environment': { shortName: '生活と環境', whenLabel: '中1 6〜7月ごろ', keyTerms: '気候帯・宗教・衣食住' },
+  'geo1-world-regions': { shortName: '世界の諸地域', whenLabel: '中1 9〜2月ごろ', keyTerms: 'アジア・ヨーロッパ・アフリカ・南北アメリカ・オセアニア' },
+  // geography grade 2
+  'geo2-regional-research': { shortName: '地形図の活用', whenLabel: '中2 4月ごろ', keyTerms: '縮尺・等高線・地図記号' },
+  'geo2-japan-features': { shortName: '日本の特色', whenLabel: '中2 4〜7月ごろ', keyTerms: '地形・気候・人口・資源・産業' },
+  'geo2-japan-regions': { shortName: '日本の諸地域', whenLabel: '中2 9〜2月ごろ', keyTerms: '九州・中四国・近畿・中部・関東・東北・北海道' },
 };
 
 interface RawTopic {
@@ -309,6 +345,7 @@ const index: Record<SubjectId, Record<Grade, ScopeEra[]>> = {
   history: buildSubject('history'),
   english: buildSubject('english'),
   science: buildSubject('science'),
+  geography: buildSubject('geography'),
 };
 
 // --- functions 側（公式LINE トーク内 範囲設定フロー）用スリムマップ ---
@@ -347,6 +384,7 @@ const eraMetaIndex: Record<SubjectId, Record<Grade, EraMeta[]>> = {
   history: buildSubjectEraMetas('history'),
   english: buildSubjectEraMetas('english'),
   science: buildSubjectEraMetas('science'),
+  geography: buildSubjectEraMetas('geography'),
 };
 
 const banner =
@@ -369,7 +407,7 @@ export interface ScopeEra {
   topics: ScopeTopic[];
 }
 
-export type ScopeSubjectId = 'history' | 'english' | 'science';
+export type ScopeSubjectId = 'history' | 'english' | 'science' | 'geography';
 export type ScopeGrade = 1 | 2 | 3;
 
 `;
@@ -402,7 +440,7 @@ const eraTypes = `export interface EraMeta {
   topics: string[];
 }
 
-export type ScopeSubjectId = 'history' | 'english' | 'science';
+export type ScopeSubjectId = 'history' | 'english' | 'science' | 'geography';
 export type ScopeGrade = 1 | 2 | 3;
 
 `;
@@ -417,7 +455,7 @@ const eraOutPath = join(FUNCTIONS_OUT_DIR, 'line-scope-eras.generated.ts');
 writeFileSync(eraOutPath, eraBanner + eraTypes + eraBody, 'utf-8');
 
 // サマリ出力
-for (const subject of ['history', 'english', 'science'] as SubjectId[]) {
+for (const subject of ['history', 'english', 'science', 'geography'] as SubjectId[]) {
   for (const grade of [1, 2, 3] as Grade[]) {
     const eras = index[subject][grade];
     const topicCount = eras.reduce((n, e) => n + e.topics.length, 0);

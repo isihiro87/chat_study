@@ -1,0 +1,676 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade2",
+  "topicId": "eng-modal-verbs",
+  "name": "助動詞",
+  "subtitle": "can / must / have to / may / should",
+  "icon": "💪",
+  "order": 4,
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "can run",
+      "back": "I (　) fast.（私は速く走ることができます。）",
+      "hint": "「〜できる」を表す助動詞は？",
+      "explanation": "can = 〜できる。I can run fast. 助動詞のうしろは動詞の原形だよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "must clean",
+      "back": "You (　) your room.（あなたは部屋をそうじしなければなりません。）",
+      "hint": "「〜しなければならない」を表す助動詞は？",
+      "explanation": "must = 〜しなければならない。You must clean your room.",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "have to study",
+      "back": "I (　) tonight.（私は今夜勉強しなければなりません。）",
+      "hint": "must とほぼ同じ意味の表現は？",
+      "explanation": "have to = 〜しなければならない。must とほぼ同じ意味で使えるよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "may use",
+      "back": "You (　) my pen.（私のペンを使ってもいいですよ。）",
+      "hint": "「〜してもよい」（許可）は？",
+      "explanation": "may = 〜してもよい（許可）。You may use my pen.",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "should rest",
+      "back": "You (　) today.（あなたは今日休んだほうがいいよ。）",
+      "hint": "「〜したほうがいい」は？",
+      "explanation": "should = 〜すべき・〜したほうがいい。You should rest today.",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "can cook",
+      "back": "He (　) curry.（彼はカレーを作ることができます。）",
+      "hint": "「〜できる」を表す助動詞は？",
+      "explanation": "can = 〜できる。He can cook curry. 主語が He でも can はそのままだよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "must wear",
+      "back": "You (　) a helmet.（あなたはヘルメットをかぶらなければなりません。）",
+      "hint": "「〜しなければならない」は？",
+      "explanation": "must = 〜しなければならない。You must wear a helmet.",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc8",
+      "front": "can't see",
+      "back": "I (　) the stars tonight.（私は今夜星を見ることができません。）",
+      "hint": "can の否定は？",
+      "explanation": "can't = 〜できない。I can't see the stars tonight.",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc9",
+      "front": "should call",
+      "back": "You (　) your mother.（あなたはお母さんに電話したほうがいいよ。）",
+      "hint": "「〜したほうがいい」は？",
+      "explanation": "should = 〜したほうがいい。You should call your mother.",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc10",
+      "front": "open",
+      "back": "May I (　) the window?（窓を開けてもいいですか？）",
+      "hint": "助動詞のうしろの動詞はもとの形（何もつけない形）！",
+      "explanation": "助動詞のうしろは、いつでも動詞の原形だよ。opens ではなく open！",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc11",
+      "front": "may snow",
+      "back": "It (　) tonight.（今夜雪が降るかもしれない。）",
+      "hint": "「〜かもしれない」は？",
+      "explanation": "may = 〜かもしれない（推量）。It may snow tonight.",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "must not touch",
+      "back": "You (　) this.（これにさわってはいけません。）",
+      "hint": "「〜してはいけない」は must + not で？",
+      "explanation": "must not = 〜してはいけない（禁止）。You must not touch this.",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "don't have to hurry",
+      "back": "You (　).（あなたは急がなくてもよい。）",
+      "hint": "「〜しなくてもよい」は？",
+      "explanation": "don't have to = 〜しなくてもよい。must not（禁止）とは意味がちがうよ！",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "walk",
+      "back": "She can (　) to school.（彼女は歩いて学校に行くことができます。）",
+      "hint": "助動詞のうしろの動詞はもとの形！",
+      "explanation": "助動詞のうしろは原形。walks ではなく walk だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc15",
+      "front": "has to leave",
+      "back": "She (　) now.（彼女は今出発しなければなりません。）",
+      "hint": "She のときは have to ではなくて？",
+      "explanation": "She / He / It のときは have to → has to にかわるよ。She has to leave now.",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc16",
+      "front": "doesn't have to wait",
+      "back": "He (　).（彼は待たなくてもよい。）",
+      "hint": "He のとき、「〜しなくてもよい」は？",
+      "explanation": "He / She / It のときは don't have to → doesn't have to にかわるよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc17",
+      "front": "shouldn't eat",
+      "back": "You (　) too much candy.（あめを食べすぎないほうがいいよ。）",
+      "hint": "「〜しないほうがいい」は should の否定で？",
+      "explanation": "shouldn't = 〜しないほうがいい。You shouldn't eat too much candy.",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc18",
+      "front": "No, you don't have to.",
+      "back": "\"Must I come early?\"\n— \"(　)\"（いいえ、しなくてもいいよ。）",
+      "hint": "Must I 〜? の「いいえ」は No, you must not. ではないよ！",
+      "explanation": "Must I 〜? に「いいえ」で答えるときは No, you don't have to. を使う。No, you must not. は「してはいけない」の意味になるよ。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc19",
+      "front": "Can",
+      "back": "(　) you ride a bike?（あなたは自転車に乗れますか？）",
+      "hint": "「〜できますか？」と聞くには can を文の最初に？",
+      "explanation": "助動詞の疑問文は、助動詞を文のいちばん最初にもってくるよ。Can you ride a bike?",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc20",
+      "front": "Should",
+      "back": "(　) I take an umbrella?（かさを持っていくべきですか？）",
+      "hint": "「〜すべきですか？」は should を文の最初に？",
+      "explanation": "助動詞の疑問文は、助動詞を文のいちばん最初にもってくるよ。Should I take an umbrella?",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc21",
+      "front": "May",
+      "back": "(　) I ask a question?（質問してもいいですか？）",
+      "hint": "「〜してもいいですか？」とていねいにたずねる助動詞は？",
+      "explanation": "May I 〜? で「〜してもいいですか？」とていねいにたずねられるよ。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "(　) に入るのは？\nYou (　) clean your room.\n（あなたは部屋をそうじしなければなりません。）",
+        "options": ["must", "can", "may", "are"],
+        "correctIndex": 0,
+        "explanation": "「〜しなければならない」は must だよ。You must clean your room.",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "(　) に入るのは？\nHe can (　) tennis.\n（彼はテニスをすることができます。）",
+        "options": ["plays", "playing", "play", "played"],
+        "correctIndex": 2,
+        "explanation": "助動詞のうしろの動詞は、いつでももとの形（原形）だよ。plays ではなく play！",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "(　) に入るのは？\nI (　) speak English.\n（私は英語を話すことができます。）",
+        "options": ["must", "should", "can", "have"],
+        "correctIndex": 2,
+        "explanation": "「〜できる」は can だよ。I can speak English.",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "(　) に入るのは？\nYou (　) sit here.\n（ここに座ってもいいですよ。）",
+        "options": ["must", "may", "are", "do"],
+        "correctIndex": 1,
+        "explanation": "「〜してもよい」（許可）は may だよ。You may sit here.",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "(　) に入るのは？\nYou (　) wash your hands.\n（手を洗わなければなりません。）",
+        "options": ["can", "may", "should", "must"],
+        "correctIndex": 3,
+        "explanation": "「〜しなければならない」は must だよ。You must wash your hands.",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "(　) に入るのは？\nIt (　) rain this afternoon.\n（今日の午後、雨が降るかもしれない。）",
+        "options": ["can", "may", "must", "should"],
+        "correctIndex": 1,
+        "explanation": "「〜かもしれない」（推量）は may だよ。It may rain this afternoon.",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "「You don't have to wait.」の意味として正しいのは？",
+        "options": [
+          "待たなくてもいいよ。",
+          "待ってはいけません。",
+          "待つことができます。",
+          "待つべきです。"
+        ],
+        "correctIndex": 0,
+        "explanation": "don't have to = 〜しなくてもよい。must not（〜してはいけない）とは意味がちがうよ！",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "(　) に入るのは？\nShe (　) leave now.\n（彼女は今出発しなければなりません。）",
+        "options": ["have to", "has to", "must to", "having to"],
+        "correctIndex": 1,
+        "explanation": "主語が She（三人称単数）のときは have to → has to にかわるよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "(　) に入るのは？\nYou (　) take a rest.\n（あなたは休んだほうがいいよ。）",
+        "options": ["must", "can", "should", "may"],
+        "correctIndex": 2,
+        "explanation": "「〜したほうがいい」は should だよ。You should take a rest.",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "「Must I clean it now?」に「いいえ、しなくてもいいよ」と答えるとき、正しいのは？",
+        "options": [
+          "No, you must not.",
+          "No, you don't have to.",
+          "No, you can't.",
+          "No, you shouldn't."
+        ],
+        "correctIndex": 1,
+        "explanation": "Must I 〜? に「いいえ」で答えるときは No, you don't have to. を使うよ。No, you must not. は「してはいけない」の意味になるよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "(　) に入るのは？\nHe (　) work today.\n（彼は今日働かなくてもよい。）",
+        "options": [
+          "don't have to",
+          "must not",
+          "doesn't have to",
+          "hasn't to"
+        ],
+        "correctIndex": 2,
+        "explanation": "主語が He なので doesn't have to を使うよ。「〜しなくてもよい」は don't / doesn't have to。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "次のうち、「禁止（〜してはいけない）」の意味を表す文はどれ？",
+        "options": [
+          "You don't have to go.",
+          "You may go.",
+          "You should go.",
+          "You must not go."
+        ],
+        "correctIndex": 3,
+        "explanation": "must not = 〜してはいけない（禁止）。don't have to は「しなくてもよい」（不要）で、意味がちがうよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q13",
+        "question": "(　) に入るのは？\nShe must (　) hard.\n（彼女は一生懸命練習しなければなりません。）",
+        "options": ["practices", "practicing", "to practice", "practice"],
+        "correctIndex": 3,
+        "explanation": "助動詞のうしろは、いつでも動詞の原形だよ。to をつけたり、-s をつけたりしないよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q14",
+        "question": "(　) に入るのは？\n(　) I open the window?\n（窓を開けてもいいですか？）",
+        "options": ["May", "Should", "Must", "Do"],
+        "correctIndex": 0,
+        "explanation": "「〜してもいいですか？」とていねいにたずねるときは May I 〜? を使うよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q15",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「あなたはここでさわってはいけません。」という英文を作ろう。",
+        "words": ["touch", "not", "must", "you", "here"],
+        "correctOrder": [3, 2, 1, 0, 4],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「You must not touch here.」が正解。must not =「〜してはいけない」。助動詞のうしろに not をつけて禁止を表すよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q16",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「窓を開けてくれますか？」という英文を作ろう。",
+        "words": ["open", "you", "can", "the window"],
+        "correctOrder": [2, 1, 0, 3],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Can you open the window?」が正解。助動詞の疑問文は、助動詞を文のいちばん最初にもってくるよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q17",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「私は今宿題をしなければなりません。」という英文を作ろう。",
+        "words": ["have", "I", "my homework", "to", "do"],
+        "correctOrder": [1, 0, 3, 4, 2],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I have to do my homework.」が正解。have to =「〜しなければならない」。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q18",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「私はあなたの自転車を使ってもいいですか？」という英文を作ろう。",
+        "words": ["I", "may", "your bike", "use"],
+        "correctOrder": [1, 0, 3, 2],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「May I use your bike?」が正解。May I 〜? で「〜してもいいですか？」とていねいにたずねられるよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q19",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「あなたは野菜を食べたほうがいいよ。」という英文を作ろう。",
+        "words": ["should", "vegetables", "you", "eat"],
+        "correctOrder": [2, 0, 3, 1],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「You should eat vegetables.」が正解。should =「〜したほうがいい」。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q20",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「彼女は今出発しなければなりません。」という英文を作ろう。",
+        "words": ["has", "she", "now", "to", "leave"],
+        "correctOrder": [1, 0, 3, 4, 2],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「She has to leave now.」が正解。主語が She のときは have to → has to にかわるよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q21",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「あなたは早く寝るべきです。」という英文を作ろう。",
+        "words": ["early", "go to bed", "should", "you"],
+        "correctOrder": [3, 2, 1, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「You should go to bed early.」が正解。should =「〜すべき」。助動詞のうしろの動詞はもとの形だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q22",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「あなたは明日来なくてもよい。」という英文を作ろう。",
+        "words": ["have to", "you", "come", "don't", "tomorrow"],
+        "correctOrder": [1, 3, 0, 2, 4],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「You don't have to come tomorrow.」が正解。don't have to =「〜しなくてもよい」。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q23",
+        "question": "(　) に入るのは？\nI enjoy (　) soccer.\n（私はサッカーをすることを楽しみます。）",
+        "options": ["play", "plays", "playing", "to play"],
+        "correctIndex": 2,
+        "explanation": "enjoy のうしろの動詞は ~ing の形（動名詞）にするよ。enjoy playing =「〜することを楽しむ」。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q24",
+        "question": "(　) に入るのは？\nShe finished (　) her homework.\n（彼女は宿題をし終えました。）",
+        "options": ["do", "doing", "did", "to do"],
+        "correctIndex": 1,
+        "explanation": "finish のうしろの動詞は ~ing の形（動名詞）にするよ。finish doing =「〜し終える」。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q25",
+        "question": "(　) に入るのは？\nPlease stop (　).\n（おしゃべりをやめてください。）",
+        "options": ["talk", "to talk", "talking", "talked"],
+        "correctIndex": 2,
+        "explanation": "stop のうしろの動詞は ~ing の形（動名詞）にするよ。stop talking =「話すのをやめる」。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q26",
+        "question": "(　) に入るのは？\nHe is good at (　).\n（彼は歌うことが得意です。）",
+        "options": ["sing", "sings", "singing", "sang"],
+        "correctIndex": 2,
+        "explanation": "前置詞 at のうしろの動詞は ~ing の形（動名詞）にするよ。be good at ~ing =「〜が得意だ」。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q27",
+        "question": "(　) に入るのは？\n(　) is fun.\n（泳ぐことは楽しい。）",
+        "options": ["Swim", "Swims", "Swimming", "Swam"],
+        "correctIndex": 2,
+        "explanation": "動詞を主語にするときは ~ing の形（動名詞）にするよ。Swimming is fun. =「泳ぐことは楽しい」。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q28",
+        "question": "(　) に入るのは？\nYou (　) be quiet in the library.\n（図書館では静かにしなければなりません。）",
+        "options": ["must", "may", "can", "are"],
+        "correctIndex": 0,
+        "explanation": "「〜しなければならない」は must だよ。You must be quiet in the library.",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q29",
+        "question": "(　) に入るのは？\nYou (　) be late for school.\n（学校に遅れてはいけません。）",
+        "options": ["must not", "don't have to", "may", "should"],
+        "correctIndex": 0,
+        "explanation": "「〜してはいけない」（禁止）は must not だよ。You must not be late for school.",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q30",
+        "question": "(　) に入るのは？\nI had to (　) home early yesterday.\n（私は昨日早く家に帰らなければならなかった。）",
+        "options": ["go", "went", "going", "goes"],
+        "correctIndex": 0,
+        "explanation": "had to のうしろも動詞の原形だよ。had to go =「行かなければならなかった」（過去）。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q31",
+        "question": "(　) に入るのは？\n(　) you swim fast?\n（あなたは速く泳げますか？）",
+        "options": ["Can", "Must", "May", "Should"],
+        "correctIndex": 0,
+        "explanation": "「〜できますか？」は Can を文の最初にもってくるよ。Can you swim fast?",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q32",
+        "question": "(　) に入るのは？\nMy brother (　) ride a unicycle.\n（兄は一輪車に乗ることができます。）",
+        "options": ["can", "has", "is", "does"],
+        "correctIndex": 0,
+        "explanation": "「〜できる」は can だよ。主語が My brother でも can はそのまま。My brother can ride a unicycle.",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q33",
+        "question": "(　) に入るのは？\nYou (　) eat too much.\n（食べすぎないほうがいいよ。）",
+        "options": ["shouldn't", "must", "may", "can"],
+        "correctIndex": 0,
+        "explanation": "「〜しないほうがいい」は shouldn't（should not）だよ。You shouldn't eat too much.",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q34",
+        "question": "(　) に入るのは？\nThat (　) be true.\n（それは本当かもしれない。）",
+        "options": ["may", "should", "has", "is"],
+        "correctIndex": 0,
+        "explanation": "「〜かもしれない」（推量）は may だよ。That may be true.",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q35",
+        "question": "(　) に入るのは？\nTom (　) to wear a uniform.\n（トムは制服を着なければなりません。）",
+        "options": ["have", "has", "must", "is"],
+        "correctIndex": 1,
+        "explanation": "主語が Tom（三人称単数）のときは have to → has to にかわるよ。Tom has to wear a uniform.",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q36",
+        "question": "(　) に入るのは？\nI'm good at (　) pictures.\n（私は絵を描くのが得意です。）",
+        "options": ["draw", "draws", "drawing", "drew"],
+        "correctIndex": 2,
+        "explanation": "前置詞 at のうしろの動詞は ~ing の形（動名詞）にするよ。be good at drawing =「描くのが得意だ」。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q37",
+        "question": "(　) に入るのは？\nDid you finish (　) the book?\n（その本を読み終えましたか？）",
+        "options": ["read", "reads", "reading", "to read"],
+        "correctIndex": 2,
+        "explanation": "finish のうしろの動詞は ~ing の形（動名詞）にするよ。finish reading =「読み終える」。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q38",
+        "question": "(　) に入るのは？\nWe enjoyed (　) in the park.\n（私たちは公園で走ることを楽しみました。）",
+        "options": ["run", "ran", "running", "to run"],
+        "correctIndex": 2,
+        "explanation": "enjoy のうしろの動詞は ~ing の形（動名詞）にするよ。enjoyed running =「走ることを楽しんだ」。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q39",
+        "question": "(　) に入るのは？\nYou (　) worry.\n（あなたは心配しなくてもいいよ。）",
+        "options": ["don't have to", "must not", "can't", "shouldn't"],
+        "correctIndex": 0,
+        "explanation": "「〜しなくてもよい」は don't have to だよ。You don't have to worry. 禁止の must not とはちがうよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q40",
+        "question": "(　) に入るのは？\n(　) I use your dictionary?\n（あなたの辞書を使ってもいいですか？）",
+        "options": ["May", "Must", "Do", "Are"],
+        "correctIndex": 0,
+        "explanation": "「〜してもいいですか？」とていねいにたずねるときは May I 〜? を使うよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q41",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私は音楽を聞くのが好きです。」の英文を作ろう。",
+        "words": ["I", "listening", "like", "to music"],
+        "correctOrder": [0, 2, 1, 3],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I like listening to music.」が正解。like のうしろの動詞は ~ing の形（動名詞）にできるよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q42",
+        "type": "reorder",
+        "question": "次の語を並べかえて「彼は泳ぐのが得意です。」の英文を作ろう。",
+        "words": ["good", "he", "swimming", "is", "at"],
+        "correctOrder": [1, 3, 0, 4, 2],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「He is good at swimming.」が正解。be good at ~ing =「〜が得意だ」。前置詞 at のうしろは ~ing。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q43",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私は宿題を終えなければなりません。」の英文を作ろう。",
+        "words": ["finish", "I", "my homework", "must"],
+        "correctOrder": [1, 3, 0, 2],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I must finish my homework.」が正解。must のうしろは動詞の原形 finish だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q44",
+        "type": "reorder",
+        "question": "次の語を並べかえて「話すのをやめてください。」の英文を作ろう。",
+        "words": ["stop", "please", "talking"],
+        "correctOrder": [1, 0, 2],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Please stop talking.」が正解。stop のうしろの動詞は ~ing の形（動名詞）にするよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q45",
+        "type": "reorder",
+        "question": "次の語を並べかえて「ここで写真をとってもいいですか？」の英文を作ろう。",
+        "words": ["take", "I", "may", "pictures", "here"],
+        "correctOrder": [2, 1, 0, 3, 4],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「May I take pictures here?」が正解。May I 〜? で「〜してもいいですか？」とていねいにたずねられるよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q46",
+        "type": "reorder",
+        "question": "次の語を並べかえて「あなたは医者に診てもらったほうがいいよ。」の英文を作ろう。",
+        "words": ["see", "you", "a doctor", "should"],
+        "correctOrder": [1, 3, 0, 2],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「You should see a doctor.」が正解。should =「〜したほうがいい」。うしろは動詞の原形 see。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q47",
+        "type": "reorder",
+        "question": "次の語を並べかえて「絵を描くことは楽しい。」の英文を作ろう。",
+        "words": ["is", "drawing", "fun", "pictures"],
+        "correctOrder": [1, 3, 0, 2],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Drawing pictures is fun.」が正解。動詞を主語にするときは ~ing の形（動名詞）にするよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q48",
+        "type": "reorder",
+        "question": "次の語を並べかえて「彼女は昨日早く起きなければならなかった。」の英文を作ろう。",
+        "words": ["had", "she", "early", "to", "get up", "yesterday"],
+        "correctOrder": [1, 0, 3, 4, 2, 5],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「She had to get up early yesterday.」が正解。had to =「〜しなければならなかった」（過去）。うしろは原形 get up。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q49",
+        "type": "reorder",
+        "question": "次の語を並べかえて「あなたはここで走ってはいけません。」の英文を作ろう。",
+        "words": ["run", "must", "you", "here", "not"],
+        "correctOrder": [2, 1, 4, 0, 3],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「You must not run here.」が正解。must not =「〜してはいけない」。助動詞のうしろに not をつけて禁止を表すよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q50",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私たちは映画を見ることを楽しみました。」の英文を作ろう。",
+        "words": ["watching", "we", "the movie", "enjoyed"],
+        "correctOrder": [1, 3, 0, 2],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「We enjoyed watching the movie.」が正解。enjoy のうしろの動詞は ~ing の形（動名詞）にするよ。",
+        "difficulty": "standard"
+      }
+    ]
+  }
+}
