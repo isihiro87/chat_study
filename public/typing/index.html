@@ -306,6 +306,17 @@ details[open] .set-head{border-bottom:1px solid var(--line);}
 .result-btns{display:flex; flex-wrap:wrap; gap:10px; margin-top:18px;}
 .result-btns .btn{flex:1 1 40%; padding:15px;}
 .foot{text-align:center; color:var(--sub); font-size:11px; margin-top:18px;}
+/* SEO・紹介テキスト */
+.about{margin-top:16px;}
+.about h2{font-size:17px; margin:0 0 10px; color:var(--ink);}
+.about h3{font-size:14px; font-weight:800; color:var(--accent-d); margin:16px 0 6px;}
+.about p{font-size:13px; line-height:1.9; color:var(--ink); margin:0 0 8px;}
+.about ul{margin:4px 0 8px; padding-left:1.3em;}
+.about li{font-size:13px; line-height:1.8; color:var(--ink);}
+.about-units{columns:2; column-gap:24px;}
+.about-units li{break-inside:avoid; margin-bottom:4px;}
+.about-note{color:var(--sub); font-size:12px; margin-top:10px;}
+@media (max-width:480px){ .about-units{columns:1;} }
 
 /* ---------- ユーザーバー / きろく / ランキング ---------- */
 .userbar{display:flex; align-items:center; gap:10px; margin-top:12px; flex-wrap:wrap;}
@@ -491,6 +502,48 @@ details[open] .set-head{border-bottom:1px solid var(--line);}
         ・はじめる前に <b>日本語入力（IME）を半角（オフ）</b>にしてね。
       </div>
     </details>
+
+    <!-- SEO・紹介テキスト（ユーザー向け説明＋単元一覧。検索エンジンにも内容を伝える） -->
+    <section class="about panel" aria-label="タイプでスタディとは">
+      <h2>タイプでスタディとは？ 〜中学歴史を打って覚える無料タイピングゲーム〜</h2>
+      <p><b>タイプでスタディ</b>は、中学の<b>歴史（社会）</b>の重要用語を、<b>タイピング</b>しながら楽しく暗記・復習できる<b>無料</b>の学習ゲームです。用語を発音どおりのローマ字で入力するので、歴史の知識とタイピングの両方が同時に身につきます。テスト前の復習や、毎日の勉強の習慣づけにぴったりです。</p>
+      <h3>2つのモードで「覚える→ためす」</h3>
+      <ul>
+        <li><b>暗記モード</b>：こたえを見ながら打って、用語をしっかり覚えます。まずはここから。</li>
+        <li><b>テストモード</b>：こたえを隠して入力し、覚えられたかを力だめし。制限時間内に打ち切るとボーナス！</li>
+      </ul>
+      <h3>続けたくなる仕組み</h3>
+      <ul>
+        <li><b>全国ランキング</b>でほかの人とスコアを競える</li>
+        <li><b>連続プレイ日数</b>や<b>バッジ</b>、<b>「今日のもくひょう」</b>で毎日コツコツ</li>
+        <li>まちがえた問題は<b>にがて練習</b>で重点復習</li>
+      </ul>
+      <h3>学べる時代（単元一覧）</h3>
+      <p>古代から現代まで、中学歴史の流れを全19単元・約1,150問でカバーしています。</p>
+      <ul class="about-units" id="aboutUnits">
+        <li>歴史の基礎（時期や年代の表し方）</li>
+        <li>古代の世界（古代文明・中国文明・ギリシャ／ローマ・人類の出現・三大宗教）</li>
+        <li>日本のあけぼの（旧石器・縄文・弥生・古墳と大和政権）</li>
+        <li>律令国家・奈良（飛鳥文化・大化の改新・天平文化・平安京・摂関政治・国風文化）</li>
+        <li>鎌倉時代（武士の成長・院政と平氏・鎌倉幕府・鎌倉文化と新しい仏教）</li>
+        <li>室町・中世（モンゴル帝国・元寇・室町幕府・北山／東山文化・能楽）</li>
+        <li>戦国・安土桃山（ヨーロッパの変革・大航海時代・南蛮貿易・信長と秀吉の天下統一・桃山文化）</li>
+        <li>江戸時代（江戸幕府・鎖国・三大改革・産業と文化・身分制度・琉球とアイヌ）</li>
+        <li>世界の近代（イギリス／フランス革命・アメリカ独立・産業革命・欧米のアジア侵略）</li>
+        <li>幕末（開国と不平等条約・江戸幕府の滅亡）</li>
+        <li>明治維新（大日本帝国憲法・自由民権運動・富国強兵・文明開化・三大改革）</li>
+        <li>明治の発展（日清・日露戦争・産業革命・条約改正・韓国併合・明治の文化）</li>
+        <li>第一次世界大戦（大戦の勃発・二十一か条の要求・ロシア革命とソ連）</li>
+        <li>大正デモクラシー（大衆文化・政治の変革・社会運動）</li>
+        <li>昭和の恐慌（世界恐慌・ファシズム・満州事変・日中戦争）</li>
+        <li>第二次世界大戦（大戦の勃発・太平洋戦争・総動員・終戦）</li>
+        <li>戦後の日本（占領と民主化・日本国憲法）</li>
+        <li>冷戦の時代（冷戦・高度経済成長・日本の独立回復・戦後の文化）</li>
+        <li>現代の世界（冷戦の終結・平成の日本・現代の課題）</li>
+      </ul>
+      <p class="about-note">※ タイピング練習のため、キーボードのある<b>パソコン</b>でご利用ください（スマホ・タブレット非対応）。歴史以外の教科は順次追加予定です。</p>
+    </section>
+
     <div class="foot">© タイプでスタディ ／ 問題内容は marutto-study の歴史教材より（原本は読み取りのみ）<br>
       <span style="font-size:11px;">記録は おもに この端末内に保存されます。全国ランキングに登録したときだけ、ニックネームとスコアがサーバーに送信されます（本名・連絡先などはあつめません）。</span><br>
       <a href="privacy.html" style="font-size:12px; color:var(--accent-d); font-weight:700;">プライバシーポリシー</a></div>
