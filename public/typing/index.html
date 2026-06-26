@@ -213,11 +213,12 @@ details[open] .set-head{border-bottom:1px solid var(--line);}
 .kana-line{font-size:42px; font-weight:700; letter-spacing:2px; line-height:1.25; min-height:1.25em; display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:1px 3px;}
 .roman-line{font-family:'JetBrains Mono',monospace; font-size:21px; font-weight:700; letter-spacing:1px; color:#0e9a93; display:flex; flex-wrap:wrap; justify-content:center; gap:0 2px; min-height:26px;}
 .u{transition:color .1s, transform .1s;}
-.u.done{color:var(--ok);}
+.u.done{color:#a7b2c4;}   /* 入力済みのユニットは灰色（未入力との区別） */
 .u.cur{color:var(--accent);}
 .kana-line .u.cur{transform:translateY(-2px);}
+.kana-line .u.done{color:var(--ok);}   /* 漢字行は従来どおり緑（達成感） */
 .u.mask{color:#c2ccde;}
-.roman-line .typed{color:var(--accent-d); font-weight:700;}
+.roman-line .typed{color:#a7b2c4; font-weight:500;}   /* 打った文字は灰色＝未入力（ティール）と区別 */
 .roman-line .u.cur{color:var(--ink); border-bottom:3px solid var(--accent); border-radius:1px;}
 /* 次に打つ文字の位置を示す下線（用語が非表示でも出す） */
 .roman-line .caret{display:inline-block; width:1ch; height:1.1em;}
@@ -590,10 +591,10 @@ details[open] .set-head{border-bottom:1px solid var(--line);}
       <button class="btn ghost ov-back" id="readyBackBtn">← 単元をえらぶ</button>
       <div class="overlay-card">
       <h2>READY?</h2>
-      <p>キーボードを<b>半角（英数）</b>にして、<br><span class="kbd">Enter</span> か <span class="kbd">Space</span> でスタート！</p>
+      <p>キーボードを<b>半角（英数）</b>にして、<br>まず<b>英字キーを1つ</b>押す → <b>✓半角OK</b>が出たら <span class="kbd">Enter</span>／<span class="kbd">Space</span> でスタート！</p>
       <div class="ime-keyhint" id="imeKeyHint"></div>
       <div class="ime-status" id="imeStatus"></div>
-      <div class="ready-startkey">▶ <span class="kbd">Enter</span> または <span class="kbd">Space</span> でスタート</div>
+      <div class="ready-startkey">▶ 英字キーで半角チェック → <span class="kbd">Enter</span> でスタート</div>
 
       <details class="overlay-settings" id="overlaySettings">
         <summary>⚙ 設定を変える</summary>
@@ -1465,7 +1466,7 @@ function openStartOverlay(){
   $('startOverlay').style.display='flex';
   imeArmed=false; imeFlagged=false;
   $('imeKeyHint').innerHTML = imeKeyHintHtml();
-  setImeStatus('','');
+  setImeStatus('英字キーを1つ押して 半角を確認してね','');
   const ov=$('overlaySettings'); if(ov) ov.open=false;   // 既定は閉じてREADYをすっきり
   applyCfgToUI();                                         // READY側のチップを現在設定に同期
   imeInput.value='';
@@ -1499,15 +1500,18 @@ imeInput.addEventListener('beforeinput', e=>{
 imeInput.addEventListener('keydown', e=>{
   if(S.running){ if(e.key==='Escape'){ e.preventDefault(); backToReady(); } return; }   // EscでREADY画面に戻る
   if(!screens.play.classList.contains('active')) return;  // 開始オーバーレイ以外では無視
-  // Enter（優先）でもスペースでも開始。
-  // ⚠ 過去に全角を検知した imeFlagged の「残り」では判定しない（全角→半角に戻しても
-  //   反応しなくなる不具合の原因）。キー押下「その瞬間」に IME がオンか（変換中＝
-  //   isComposing / keyCode 229）だけで判定し、半角なら必ず開始する。
+  // Enter／Spaceで開始。ただし「半角だと確認できた（英字キーを打って✓が出た）」ときだけ。
+  // ⚠ IMEがオン（全角）のまま空の状態でEnterを押すと isComposing も立たず誤って始まるため、
+  //   半角の積極的な確認（imeArmed）を必須にして、全角では絶対に始まらないようにする。
   if(e.key==='Enter' || e.key===' '){
     e.preventDefault();
-    const imeOn = e.isComposing || e.keyCode===229 || e.which===229;
-    if(imeOn){ imeFlagged=true; imeArmed=false; setImeStatus('⚠ まず半角（英数）にしてね','ng'); }
-    else { imeFlagged=false; imeArmed=true; beginPlay(); }
+    const imeOn = e.isComposing || e.keyCode===229 || e.which===229 || imeFlagged;
+    if(imeOn || !imeArmed){
+      if(imeOn){ imeFlagged=true; imeArmed=false; }
+      setImeStatus('⚠ 半角（英数）にして、英字キーを1つ押してね（✓が出たらスタート）','ng');
+    } else {
+      beginPlay();
+    }
   }
 });
 
@@ -1873,12 +1877,17 @@ function endGame(){
   });
   // ランキング登録に使う情報（カテゴリ＝単元×条件ごとに分かれる）
   lastResult = { name:playerName(), score:S.score, subjectId:cfg.subjectId, era:S.subject.name,
-                 mode:cfg.mode, param, acc, kpm, rank };
+                 mode:cfg.mode, param, acc, kpm, rank, hide:cfg.hide };
   renderNewBadges();
-  // 登録ボタンを毎回リセット（にがて練習はランキング対象外。登録はクリックした時だけ）
+  // 登録ボタンを毎回リセット。ランキング対象は「テストモード」だけ（暗記・にがては対象外）
   const sb=$('submitScoreBtn');
   $('submitNote').textContent=''; $('submitNote').className='submit-note';
   if(isWeak){ sb.style.display='none'; }
+  else if(!cfg.hide){   // 暗記モードはこたえを見られるためランキング対象外
+    sb.style.display='none';
+    $('submitNote').className='submit-note';
+    $('submitNote').textContent='💡 全国ランキングは「テストモード」だけが対象です。テストモードでチャレンジしよう！';
+  }
   else { sb.style.display=''; sb.disabled=false; sb.textContent='🏆 全国ランキングに登録'; }
   // リザルトの「にがて」ボタン：この回にまちがえた問題だけ（無ければ非表示）
   lastSessionWeak = [...S.review.values()];
@@ -2596,6 +2605,7 @@ function restoreSettingsPanel(){
 let lastResult=null;
 $('submitScoreBtn').addEventListener('click', ()=>{
   if(!lastResult) return;
+  if(!lastResult.hide) return;   // 念のため：テストモード以外は登録不可
   if(!getProfile()){ openNameModal(doSubmit); return; }
   doSubmit();
 });
