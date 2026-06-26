@@ -1,0 +1,376 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade1",
+  "topicId": "eng-question-words",
+  "name": "疑問詞",
+  "subtitle": "what / who / where / when / how",
+  "icon": "❓",
+  "order": 5,
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "What",
+      "back": "(　) is this?（これは何ですか？）",
+      "hint": "「何」を表す疑問詞は？",
+      "explanation": "「何」は what。疑問詞は文のいちばん最初に置くよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "Who",
+      "back": "(　) is that boy?（あの少年はだれですか？）",
+      "hint": "「だれ」を表す疑問詞は？",
+      "explanation": "「だれ」は who。Who is that boy? で「あの少年はだれ？」だよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "Where",
+      "back": "(　) is the station?（駅はどこですか？）",
+      "hint": "「どこ」を表す疑問詞は？",
+      "explanation": "「どこ」は where。場所をたずねるときに使うよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "When",
+      "back": "(　) is your birthday?（あなたの誕生日はいつですか？）",
+      "hint": "「いつ」を表す疑問詞は？",
+      "explanation": "「いつ」は when。時をたずねるときに使うよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "How",
+      "back": "(　) are you today?（今日は調子はどうですか？）",
+      "hint": "「どう・どのくらい」を表す疑問詞は？",
+      "explanation": "「どう」は how。様子や手段をたずねるときに使うよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "What",
+      "back": "「何」を英語で言うと？",
+      "hint": "wh ではじまる疑問詞だよ。",
+      "explanation": "What は「何」。What is this?（これは何ですか？）",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "Who",
+      "back": "「だれ」を英語で言うと？",
+      "hint": "wh ではじまる疑問詞だよ。",
+      "explanation": "Who は「だれ」。Who is she?（彼女はだれですか？）",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc8",
+      "front": "Where",
+      "back": "「どこ」を英語で言うと？",
+      "hint": "wh ではじまる疑問詞だよ。",
+      "explanation": "Where は「どこ」。Where is the park?（公園はどこですか？）",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc9",
+      "front": "When",
+      "back": "「いつ」を英語で言うと？",
+      "hint": "wh ではじまる疑問詞だよ。",
+      "explanation": "When は「いつ」。When is the test?（テストはいつですか？）",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc10",
+      "front": "It is a pen.",
+      "back": "What is this?（これは何ですか？）\nへの答えを「ペン」で言うと？",
+      "hint": "this には it を主語にして答えるよ。",
+      "explanation": "What 〜? には Yes / No ではなく具体的に答える。It is a pen.（それはペンです。）",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "She is Yuki.",
+      "back": "Who is she?（彼女はだれですか？）\nへの答えを「ユキ」で言うと？",
+      "hint": "she について she を主語にして答えるよ。",
+      "explanation": "Who 〜? には名前などで具体的に答える。She is Yuki.（彼女はユキです。）",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "What",
+      "back": "(　) is your favorite subject?（あなたの好きな教科は何ですか？）",
+      "hint": "「何」を表す疑問詞は？",
+      "explanation": "favorite は「お気に入りの」。What is your favorite 〜? で「好きな〜は何？」と聞けるよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "Who",
+      "back": "(　) is your favorite singer?（あなたの好きな歌手はだれですか？）",
+      "hint": "「だれ」を表す疑問詞は？",
+      "explanation": "Who is your favorite 〜? で「あなたの好きな〜はだれ？」と聞けるよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "How old",
+      "back": "(　) (　) are you?（あなたは何歳ですか？）",
+      "hint": "「何歳」を表す2語は？",
+      "explanation": "how は他の語とくっつくと意味がかわるよ。how old で「何歳」をたずねるよ。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc16",
+      "front": "How much",
+      "back": "(　) (　) is this cap?（このぼうしはいくらですか？）",
+      "hint": "「いくら」（ねだん）を表す2語は？",
+      "explanation": "how much で「いくら」とねだんをたずねるよ。How much is this cap?",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc17",
+      "front": "Where",
+      "back": "(　) are my shoes?（私のくつはどこにありますか？）",
+      "hint": "「どこ」を表す疑問詞は？",
+      "explanation": "shoes は複数だからbe動詞は are。Where are my shoes? だよ。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc18",
+      "front": "Where",
+      "back": "(　) is my cap?（私のぼうしはどこにありますか？）",
+      "hint": "「どこ」を表す疑問詞は？",
+      "explanation": "場所をたずねるときは Where。Where is my cap? だよ。",
+      "difficulty": "basic"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "(　) に入るのは？\n(　) is this?\n（これは何ですか？）",
+        "options": ["Who", "What", "Where", "When"],
+        "correctIndex": 1,
+        "explanation": "「何」をたずねるときは What を使うよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "(　) に入るのは？\n(　) is that boy?\n（あの少年はだれですか？）",
+        "options": ["Who", "What", "Where", "How"],
+        "correctIndex": 0,
+        "explanation": "「だれ」をたずねるときは Who を使うよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "(　) に入るのは？\n(　) is the station?\n（駅はどこですか？）",
+        "options": ["What", "When", "Where", "Who"],
+        "correctIndex": 2,
+        "explanation": "「どこ」（場所）は Where でたずねるよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "(　) に入るのは？\n(　) is your birthday?\n（あなたの誕生日はいつですか？）",
+        "options": ["Where", "How", "Who", "When"],
+        "correctIndex": 3,
+        "explanation": "誕生日は時のことなので When でたずねるよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "(　) に入るのは？\n(　) are you today?\n（今日は調子はどうですか？）",
+        "options": ["How", "What", "Who", "Where"],
+        "correctIndex": 0,
+        "explanation": "様子をたずねるときは How を使うよ。How are you?",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "(　) に入るのは？\n(　) is he?\n（彼はだれですか？）",
+        "options": ["What", "Who", "How", "Where"],
+        "correctIndex": 1,
+        "explanation": "「だれ」をたずねるときは Who を使うよ。he のbe動詞は is。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q7",
+        "question": "(　) に入るのは？\n(　) is your favorite subject?\n（あなたの好きな教科は何ですか？）",
+        "options": ["Who", "When", "How", "What"],
+        "correctIndex": 3,
+        "explanation": "「何」をたずねるときは What。What is your favorite 〜?",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "(　) に入るのは？\n(　) is your favorite singer?\n（あなたの好きな歌手はだれですか？）",
+        "options": ["What", "Where", "When", "Who"],
+        "correctIndex": 3,
+        "explanation": "「だれ」をたずねるときは Who を使うよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "(　) に入るのは？\n(　) is the library?\n（図書館はどこですか？）",
+        "options": ["When", "Who", "Where", "What"],
+        "correctIndex": 2,
+        "explanation": "「どこ」は Where でたずねるよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "「What is this? への答えとして正しいものは？」",
+        "options": ["Yes, it is.", "It is a pen.", "No, it isn't.", "She is Yuki."],
+        "correctIndex": 1,
+        "explanation": "What 〜? には Yes / No ではなく具体的に答える。It is a pen. が正解。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "(　)(　) に入るのは？\n(　) (　) are you?\n（あなたは何歳ですか？）",
+        "options": ["How old", "How many", "What time", "How much"],
+        "correctIndex": 0,
+        "explanation": "年れいをたずねるときは how old を使うよ。How old are you?",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q12",
+        "question": "(　)(　) に入るのは？\n(　) (　) is this cap?\n（このぼうしはいくらですか？）",
+        "options": ["How old", "How many", "How much", "What time"],
+        "correctIndex": 2,
+        "explanation": "ねだんをたずねるときは how much を使うよ。How much is this cap?",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q13",
+        "question": "(　) に入るのは？\n(　) are my shoes?\n（私のくつはどこにありますか？）",
+        "options": ["Where", "What", "Who", "When"],
+        "correctIndex": 0,
+        "explanation": "場所をたずねるときは Where。shoes は複数なのでbe動詞は are だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q14",
+        "type": "reorder",
+        "question": "次の語を並べかえて「これは何ですか？」の英文を作ろう。",
+        "words": ["this", "is", "what"],
+        "correctOrder": [2, 1, 0],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「What is this?」が正解。疑問詞 What を文のいちばん最初に置くよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q15",
+        "type": "reorder",
+        "question": "次の語を並べかえて「あなたはだれですか？」の英文を作ろう。",
+        "words": ["are", "you", "who"],
+        "correctOrder": [2, 0, 1],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Who are you?」が正解。疑問詞 Who を文のいちばん最初に置くよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q16",
+        "type": "reorder",
+        "question": "次の語を並べかえて「駅はどこですか？」の英文を作ろう。",
+        "words": ["the station", "where", "is"],
+        "correctOrder": [1, 2, 0],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Where is the station?」が正解。Where + is + 主語? の順番だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q17",
+        "type": "reorder",
+        "question": "次の語を並べかえて「彼はだれですか？」の英文を作ろう。",
+        "words": ["he", "is", "who"],
+        "correctOrder": [2, 1, 0],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Who is he?」が正解。Who + is + he? の順番だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q18",
+        "type": "reorder",
+        "question": "次の語を並べかえて「あなたの誕生日はいつですか？」の英文を作ろう。",
+        "words": ["your birthday", "when", "is"],
+        "correctOrder": [1, 2, 0],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「When is your birthday?」が正解。When + is + 主語? の順番だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q19",
+        "type": "reorder",
+        "question": "次の語を並べかえて「あの人はだれですか？」の英文を作ろう。",
+        "words": ["that", "who", "is"],
+        "correctOrder": [1, 2, 0],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Who is that?」が正解。疑問詞 Who を文のいちばん最初に置くよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q20",
+        "type": "reorder",
+        "question": "次の語を並べかえて「公園はどこですか？」の英文を作ろう。",
+        "words": ["is", "where", "the park"],
+        "correctOrder": [1, 0, 2],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Where is the park?」が正解。Where + is + 主語? の順番だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q21",
+        "type": "reorder",
+        "question": "次の語を並べかえて「あなたの好きな色は何ですか？」の英文を作ろう。",
+        "words": ["your", "favorite color", "is", "what"],
+        "correctOrder": [3, 2, 0, 1],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「What is your favorite color?」が正解。What + is + your + favorite color? の順番だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q22",
+        "type": "reorder",
+        "question": "次の語を並べかえて「あなたは何歳ですか？」の英文を作ろう。",
+        "words": ["you", "old", "are", "how"],
+        "correctOrder": [3, 1, 2, 0],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「How old are you?」が正解。年れいは how old でたずねるよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q23",
+        "type": "reorder",
+        "question": "次の語を並べかえて「あなたの好きな先生はだれですか？」の英文を作ろう。",
+        "words": ["your favorite teacher", "is", "who"],
+        "correctOrder": [2, 1, 0],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Who is your favorite teacher?」が正解。Who + is + 主語? の順番だよ。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

@@ -1,0 +1,384 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade1",
+  "topicId": "eng-nouns",
+  "name": "名詞",
+  "subtitle": "単数・複数 / this・that",
+  "icon": "📝",
+  "order": 4,
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "a",
+      "back": "This is (　) book.（これは本です。）",
+      "hint": "book は子音の音ではじまるよ。",
+      "explanation": "book は子音（b）ではじまるから a。This is a book.",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "a",
+      "back": "I have (　) dog.（私は犬を1匹飼っています。）",
+      "hint": "dog は子音の音ではじまるよ。",
+      "explanation": "dog は子音（d）ではじまるから a。I have a dog.",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "an",
+      "back": "That is (　) apple.（あれはりんごです。）",
+      "hint": "apple は a の音ではじまるよ。a / an どっち？",
+      "explanation": "apple は母音（a）の音ではじまるから an。母音の音の前は an を使うよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "an",
+      "back": "This is (　) egg.（これは卵です。）",
+      "hint": "egg は e の音ではじまるよ。",
+      "explanation": "egg は母音（e）の音ではじまるから an egg。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "an",
+      "back": "I have (　) orange.（私はオレンジを1つ持っています。）",
+      "hint": "orange は o の音ではじまるよ。",
+      "explanation": "orange は母音（o）の音ではじまるから an orange。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "pens",
+      "back": "I have two (　).（私はペンを2本持っています。）",
+      "hint": "2本以上のとき、名詞のおしりに？",
+      "explanation": "2本以上のときはおしりに s をつけるよ。pen → pens。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc7",
+      "front": "books",
+      "back": "I have three (　).（私は本を3冊持っています。）",
+      "hint": "3冊以上のとき、名詞のおしりに？",
+      "explanation": "3冊以上のときはおしりに s をつけるよ。book → books。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "cats",
+      "back": "I like (　).（私はネコが好きです。）",
+      "hint": "「ネコが好き」は一般のネコを指すよ。",
+      "explanation": "「〜が好き」と一般的なものを指すときは複数形にするよ。cat → cats。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc9",
+      "front": "boxes",
+      "back": "I have two (　).（私は箱を2つ持っています。）",
+      "hint": "x で終わる box の複数形は？",
+      "explanation": "x で終わる名詞は es をつけるよ。box → boxes。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "cities",
+      "back": "I know two big (　) in Japan.（私は日本の大きな都市を2つ知っています。）",
+      "hint": "y で終わる city の複数形は？",
+      "explanation": "y で終わる名詞は y を i にかえて es。city → cities。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc11",
+      "front": "my",
+      "back": "This is (　) bag.（これは私のかばんです。）",
+      "hint": "「私の」を英語で言うと？",
+      "explanation": "「私の」は my。my のあとは a / an はつけないよ。This is my bag.",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "This",
+      "back": "(　) is a pen.（これはペンです。）",
+      "hint": "近くのものを指すことばは？",
+      "explanation": "近くのものは this を使うよ。This is a pen.",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc13",
+      "front": "That",
+      "back": "(　) is a school.（あれは学校です。）",
+      "hint": "遠くのものを指すことばは？",
+      "explanation": "遠くのものは that を使うよ。That is a school.",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc14",
+      "front": "it",
+      "back": "Is this a cat? — Yes, (　) is.（これはネコですか？ — はい、そうです。）",
+      "hint": "this / that に答えるときは何を使う？",
+      "explanation": "this や that の質問に答えるときは it を使うよ。Yes, it is.",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc17",
+      "front": "classes",
+      "back": "We have six (　) today.（私たちは今日6時間授業があります。）",
+      "hint": "s で終わる class の複数形は？",
+      "explanation": "s で終わる名詞は es をつけるよ。class → classes。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc18",
+      "front": "brothers",
+      "back": "I have two (　).（私は兄弟が2人います。）",
+      "hint": "2人以上のとき、名詞のおしりに？",
+      "explanation": "2人以上のときはおしりに s をつけるよ。brother → brothers。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc19",
+      "front": "cups",
+      "back": "I have three (　).（私はカップを3つ持っています。）",
+      "hint": "3つ以上のとき名詞のおしりに？",
+      "explanation": "3つ以上のときはおしりに s をつけるよ。cup → cups。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc20",
+      "front": "an",
+      "back": "This is (　) umbrella.（これはかさです。）",
+      "hint": "umbrella は母音の音ではじまるよ。a / an どっち？",
+      "explanation": "umbrella は母音（u）の音ではじまるから an。This is an umbrella.",
+      "difficulty": "standard"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "(　) に入るのは？\nThis is (　).\n（これは本です。）",
+        "options": ["a book", "books", "an book", "book a"],
+        "correctIndex": 0,
+        "explanation": "book は1冊で子音（b）ではじまるから a book。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "(　) に入るのは？\nI have (　).\n（私は犬を1匹飼っています。）",
+        "options": ["an dog", "a dog", "dogs", "dog a"],
+        "correctIndex": 1,
+        "explanation": "dog は1匹で子音（d）ではじまるから a dog。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "(　) に入るのは？\nThat is (　).\n（あれはりんごです。）",
+        "options": ["a apple", "apples", "an apple", "apple an"],
+        "correctIndex": 2,
+        "explanation": "apple は母音（a）の音ではじまるから an apple。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "(　) に入るのは？\nThis is (　).\n（これは卵です。）",
+        "options": ["an egg", "a egg", "egg a", "eggs"],
+        "correctIndex": 0,
+        "explanation": "egg は母音（e）の音ではじまるから an egg。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "(　) に入るのは？\nI have two (　).\n（私はペンを2本持っています。）",
+        "options": ["pen", "penes", "pens", "a pen"],
+        "correctIndex": 2,
+        "explanation": "2本以上のときはおしりに s をつけるよ。pen → pens。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "(　) に入るのは？\nI like (　).\n（私はネコが好きです。）",
+        "options": ["a cat", "cat", "cats", "an cat"],
+        "correctIndex": 2,
+        "explanation": "「〜が好き」と一般的なものを指すときは複数形（cats）にするよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "(　) に入るのは？\nI have two (　).\n（私は箱を2つ持っています。）",
+        "options": ["box", "boxs", "boxes", "a box"],
+        "correctIndex": 2,
+        "explanation": "x で終わる名詞は es をつけるよ。box → boxes。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "(　) に入るのは？\nThis is my (　).\n（これは私のかばんです。）",
+        "options": ["bags", "bag", "a bag", "an bag"],
+        "correctIndex": 1,
+        "explanation": "my（私の）のあとは a / an はつけないよ。1つだから単数形 bag のまま。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "(　) に入るのは？\n(　) is a school.\n（あれは学校です。）",
+        "options": ["That", "It", "These", "Those"],
+        "correctIndex": 0,
+        "explanation": "遠くのものを1つ指すときは that。That is a school.",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q10",
+        "question": "(　) に入るのは？\nIs this a cat? — Yes, (　) is.\n（はい、そうです。）",
+        "options": ["this", "that", "it", "he"],
+        "correctIndex": 2,
+        "explanation": "this / that の質問に答えるときは it を使うよ。Yes, it is.",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "(　) に入るのは？\nI have three (　).\n（私は本を3冊持っています。）",
+        "options": ["book", "bookes", "a book", "books"],
+        "correctIndex": 3,
+        "explanation": "3冊以上のときは s をつけるよ。book → books。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q14",
+        "question": "(　) に入るのは？\nI know two big (　) in Japan.\n（私は日本の大きな都市を2つ知っています。）",
+        "options": ["citys", "cities", "city", "a city"],
+        "correctIndex": 1,
+        "explanation": "y で終わる名詞は y を i にかえて es。city → cities。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q15",
+        "question": "(　) に入るのは？\nWe have six (　) today.\n（私たちは今日6時間授業があります。）",
+        "options": ["class", "classs", "a class", "classes"],
+        "correctIndex": 3,
+        "explanation": "s で終わる名詞は es をつけるよ。class → classes。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q16",
+        "type": "reorder",
+        "question": "次の語を並べかえて「これは本です。」の英文を作ろう。",
+        "words": ["is", "a", "this", "book"],
+        "correctOrder": [2, 0, 1, 3],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「This is a book.」が正解。This + is + a book の順番だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q17",
+        "type": "reorder",
+        "question": "次の語を並べかえて「あれはりんごです。」の英文を作ろう。",
+        "words": ["apple", "an", "is", "that"],
+        "correctOrder": [3, 2, 1, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「That is an apple.」が正解。apple は母音の音ではじまるから an。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q18",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私は犬を1匹飼っています。」の英文を作ろう。",
+        "words": ["dog", "have", "a", "I"],
+        "correctOrder": [3, 1, 2, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I have a dog.」が正解。I + have + a dog の順番だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q19",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私は2本のペンを持っています。」の英文を作ろう。",
+        "words": ["two", "I", "pens", "have"],
+        "correctOrder": [1, 3, 0, 2],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I have two pens.」が正解。two のあとは複数形 pens だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q20",
+        "type": "reorder",
+        "question": "次の語を並べかえて「これは私のかばんです。」の英文を作ろう。",
+        "words": ["my", "this", "bag", "is"],
+        "correctOrder": [1, 3, 0, 2],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「This is my bag.」が正解。my のあとは a / an はつけないよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q21",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私はネコが好きです。」の英文を作ろう。",
+        "words": ["cats", "like", "I"],
+        "correctOrder": [2, 1, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I like cats.」が正解。一般的なものを指すときは複数形 cats にするよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q22",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私は本を3冊持っています。」の英文を作ろう。",
+        "words": ["have", "three", "I", "books"],
+        "correctOrder": [2, 0, 1, 3],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I have three books.」が正解。three のあとは複数形 books だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q25",
+        "question": "(　) に入るのは？\nThis is (　) orange.\n（これはオレンジです。）",
+        "options": ["a", "an", "the", "two"],
+        "correctIndex": 1,
+        "explanation": "orange は母音（o）の音ではじまるから an orange。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q26",
+        "question": "(　) に入るのは？\nI have four (　).\n（私はりんごを4つ持っています。）",
+        "options": ["apple", "an apple", "apples", "a apple"],
+        "correctIndex": 2,
+        "explanation": "4つ以上のときは複数形。apple → apples。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q27",
+        "question": "(　) に入るのは？\n(　) is my pen.\n（これは私のペンです。）",
+        "options": ["This", "It", "These", "Those"],
+        "correctIndex": 0,
+        "explanation": "近くのもの1つを指すときは this。This is my pen.",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q28",
+        "type": "reorder",
+        "question": "次の語を並べかえて「あれはネコです。」の英文を作ろう。",
+        "words": ["a", "that", "cat", "is"],
+        "correctOrder": [1, 3, 0, 2],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「That is a cat.」が正解。That + is + a cat の順番だよ。",
+        "difficulty": "basic"
+      }
+    ]
+  }
+}

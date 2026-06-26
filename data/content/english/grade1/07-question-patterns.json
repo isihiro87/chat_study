@@ -1,0 +1,428 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade1",
+  "topicId": "eng-question-patterns",
+  "name": "疑問詞の応用",
+  "subtitle": "前置詞 / What+名詞 / How do you ~?",
+  "icon": "❓",
+  "order": 7,
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "How",
+      "back": "(　) do you come to school?（あなたはどのように学校へ来ますか？）",
+      "hint": "「どのように」（手段・方法）を表す疑問詞は？",
+      "explanation": "How do you 〜? で「あなたはどうやって〜しますか？」と手段をたずねるよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "When",
+      "back": "(　) do you play tennis?（あなたはいつテニスをしますか？）",
+      "hint": "「いつ」を表す疑問詞は？",
+      "explanation": "When do you 〜? で「あなたはいつ〜しますか？」とたずねるよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "Where",
+      "back": "(　) do you play soccer?（あなたはどこでサッカーをしますか？）",
+      "hint": "「どこで」を表す疑問詞は？",
+      "explanation": "Where do you 〜? で「あなたはどこで〜しますか？」とたずねるよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "What",
+      "back": "(　) do you read?（あなたは何を読みますか？）",
+      "hint": "「何を」を表す疑問詞は？",
+      "explanation": "What do you 〜? で「あなたは何を〜しますか？」とたずねるよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "Why",
+      "back": "(　) do you like English?（あなたはなぜ英語が好きなのですか？）",
+      "hint": "「なぜ」を表す疑問詞は？",
+      "explanation": "Why do you 〜? で理由をたずねるよ。答えるときは Because 〜.（〜だから）。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "Because",
+      "back": "Why do you like math? — (　) it is fun.（楽しいからです。）",
+      "hint": "理由を答えるときに使う語は？",
+      "explanation": "Why 〜? には Because 〜.（〜だから）で理由を答えるよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc7",
+      "front": "by",
+      "back": "I go to school (　) bus.（私はバスで学校へ行きます。）",
+      "hint": "交通手段を表す前置詞は？",
+      "explanation": "交通手段は by を使うよ。by bus（バスで）, by bike（自転車で）など。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "on foot",
+      "back": "I go to school (　) (　).（私は歩いて学校へ行きます。）",
+      "hint": "「歩いて」を表す2語は？",
+      "explanation": "「歩いて」は on foot。by walk とは言わないので注意しよう。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc9",
+      "front": "in",
+      "back": "The cat is (　) the box.（ネコは箱の中にいます。）",
+      "hint": "「〜の中に」を表す前置詞は？",
+      "explanation": "「〜の中に」は in。in the box（箱の中に）, in Tokyo（東京に）。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "on",
+      "back": "The book is (　) the desk.（本は机の上にあります。）",
+      "hint": "「〜の上に」を表す前置詞は？",
+      "explanation": "「〜の上に」は on。on the desk（机の上に）, on Sunday（日曜日に）。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "under",
+      "back": "The ball is (　) the chair.（ボールはいすの下にあります。）",
+      "hint": "「〜の下に」を表す前置詞は？",
+      "explanation": "「〜の下に」は under。under the chair（いすの下に）。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "near",
+      "back": "My house is (　) the station.（私の家は駅の近くにあります。）",
+      "hint": "「〜の近くに」を表す前置詞は？",
+      "explanation": "「〜の近くに」は near。near the station（駅の近くに）。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "at",
+      "back": "I get up (　) six.（私は6時に起きます。）",
+      "hint": "時こくを表す前置詞は？",
+      "explanation": "時こくには at を使うよ。at six（6時に）, at school（学校で）。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "What time",
+      "back": "(　) (　) is it now?（今何時ですか？）",
+      "hint": "「何時」を表す2語は？",
+      "explanation": "時こくをたずねるときは what time。What time is it now? と聞くよ。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc17",
+      "front": "What",
+      "back": "(　) do you do after school?（あなたは放課後に何をしますか？）",
+      "hint": "「何を」を表す疑問詞は？",
+      "explanation": "What do you do 〜? で「〜で何をしますか？」。do が2回出てくるよ（疑問詞用と動詞用）。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc18",
+      "front": "do",
+      "back": "Where (　) they play baseball?（彼らはどこで野球をしますか？）",
+      "hint": "they（複数）が主語のとき、文の中で使う語は？",
+      "explanation": "they は複数なので do を使うよ。Where do they play baseball?",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc19",
+      "front": "What",
+      "back": "(　) do you study on Sunday?（あなたは日曜日に何を勉強しますか？）",
+      "hint": "「何を」を表す疑問詞は？",
+      "explanation": "What do you 〜? で「あなたは何を〜しますか？」とたずねるよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc20",
+      "front": "in",
+      "back": "I live (　) Osaka.（私は大阪に住んでいます。）",
+      "hint": "都市の前に置く前置詞は？",
+      "explanation": "都市・町には in を使うよ。in Osaka（大阪に）, in Japan（日本に）。",
+      "difficulty": "standard"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "(　) に入るのは？\n(　) do you come to school?\n（あなたはどのように学校へ来ますか？）",
+        "options": ["What", "How", "Who", "When"],
+        "correctIndex": 1,
+        "explanation": "「どのように」（手段・方法）は How でたずねるよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "(　) に入るのは？\n(　) do you play tennis?\n（あなたはいつテニスをしますか？）",
+        "options": ["When", "Who", "Where", "What"],
+        "correctIndex": 0,
+        "explanation": "「いつ」（時）は When でたずねるよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "(　) に入るのは？\n(　) do you play soccer?\n（あなたはどこでサッカーをしますか？）",
+        "options": ["Who", "Where", "When", "What"],
+        "correctIndex": 1,
+        "explanation": "「どこで」は Where でたずねるよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "(　) に入るのは？\n(　) do you read?\n（あなたは何を読みますか？）",
+        "options": ["Where", "When", "How", "What"],
+        "correctIndex": 3,
+        "explanation": "「何を」は What でたずねるよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "(　) に入るのは？\n(　) do you like English?\n（あなたはなぜ英語が好きなのですか？）",
+        "options": ["Why", "Where", "Who", "When"],
+        "correctIndex": 0,
+        "explanation": "「なぜ」（理由）は Why でたずねるよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "(　) に入るのは？\nWhy do you like math? — (　) it is fun.\n（楽しいからです。）",
+        "options": ["So", "But", "Because", "And"],
+        "correctIndex": 2,
+        "explanation": "Why 〜? には Because 〜.（〜だから）で理由を答えるよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "(　) に入るのは？\nI go to school (　) bus.\n（私はバスで学校へ行きます。）",
+        "options": ["in", "by", "on", "at"],
+        "correctIndex": 1,
+        "explanation": "交通手段は by を使うよ。by bus（バスで）。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "(　) に入るのは？\nThe cat is (　) the box.\n（ネコは箱の中にいます。）",
+        "options": ["in", "on", "under", "by"],
+        "correctIndex": 0,
+        "explanation": "「〜の中に」は in。in the box（箱の中に）。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "(　) に入るのは？\nThe book is (　) the desk.\n（本は机の上にあります。）",
+        "options": ["in", "under", "on", "near"],
+        "correctIndex": 2,
+        "explanation": "「〜の上に」は on。on the desk（机の上に）。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "(　) に入るのは？\nI get up (　) six.\n（私は6時に起きます。）",
+        "options": ["on", "in", "by", "at"],
+        "correctIndex": 3,
+        "explanation": "時こくには at を使うよ。at six（6時に）。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "(　) に入るのは？\nThe ball is (　) the chair.\n（ボールはいすの下にあります。）",
+        "options": ["under", "on", "in", "at"],
+        "correctIndex": 0,
+        "explanation": "「〜の下に」は under。under the chair（いすの下に）。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "(　) に入るのは？\nI go to school (　).\n（私は歩いて学校へ行きます。）",
+        "options": ["by walk", "by foot", "on foot", "in foot"],
+        "correctIndex": 2,
+        "explanation": "「歩いて」は on foot。by walk とは言わないよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q13",
+        "question": "(　) に入るのは？\n(　) do you do after school?\n（あなたは放課後に何をしますか？）",
+        "options": ["Who", "Where", "When", "What"],
+        "correctIndex": 3,
+        "explanation": "「何を」は What。What do you do 〜? で「〜で何をしますか？」。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q16",
+        "question": "(　)(　) に入るのは？\n(　) (　) is it now?\n（今何時ですか？）",
+        "options": ["How many", "What time", "How much", "How old"],
+        "correctIndex": 1,
+        "explanation": "時こくをたずねるときは what time。What time is it now?",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q17",
+        "type": "reorder",
+        "question": "次の語を並べかえて「あなたはどのように学校へ来ますか？」の英文を作ろう。",
+        "words": ["come", "how", "do", "to school", "you"],
+        "correctOrder": [1, 2, 4, 0, 3],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「How do you come to school?」が正解。How + do + you + 動詞 + 場所? の順番だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q18",
+        "type": "reorder",
+        "question": "次の語を並べかえて「あなたはいつテニスをしますか？」の英文を作ろう。",
+        "words": ["do", "when", "play", "tennis", "you"],
+        "correctOrder": [1, 0, 4, 2, 3],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「When do you play tennis?」が正解。When + do + you + 動詞 + 目的語? の順番だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q19",
+        "type": "reorder",
+        "question": "次の語を並べかえて「あなたは何を読みますか？」の英文を作ろう。",
+        "words": ["read", "what", "do", "you"],
+        "correctOrder": [1, 2, 3, 0],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「What do you read?」が正解。What + do + you + 動詞? の順番だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q20",
+        "type": "reorder",
+        "question": "次の語を並べかえて「あなたはどこでサッカーをしますか？」の英文を作ろう。",
+        "words": ["soccer", "where", "do", "play", "you"],
+        "correctOrder": [1, 2, 4, 3, 0],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Where do you play soccer?」が正解。Where + do + you + 動詞 + 目的語? の順番だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q21",
+        "type": "reorder",
+        "question": "次の語を並べかえて「あなたはどこに住んでいますか？」の英文を作ろう。",
+        "words": ["live", "do", "where", "you"],
+        "correctOrder": [2, 1, 3, 0],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Where do you live?」が正解。Where + do + you + live? の順番だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q22",
+        "type": "reorder",
+        "question": "次の語を並べかえて「あなたはどのように英語を勉強しますか？」の英文を作ろう。",
+        "words": ["English", "study", "how", "you", "do"],
+        "correctOrder": [2, 4, 3, 1, 0],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「How do you study English?」が正解。How + do + you + 動詞 + 目的語? の順番だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q23",
+        "type": "reorder",
+        "question": "次の語を並べかえて「あなたはいつ友達に会いますか？」の英文を作ろう。",
+        "words": ["meet", "when", "your friends", "do", "you"],
+        "correctOrder": [1, 3, 4, 0, 2],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「When do you meet your friends?」が正解。When + do + you + meet + your friends? の順番だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q24",
+        "type": "reorder",
+        "question": "次の語を並べかえて「あなたは放課後に何をしますか？」の英文を作ろう。",
+        "words": ["do", "after school", "what", "you", "do"],
+        "correctOrder": [2, 0, 3, 4, 1],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「What do you do after school?」が正解。do が2回出てくるよ（疑問詞の do と動詞の do）。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q25",
+        "type": "reorder",
+        "question": "次の語を並べかえて「あなたはなぜその歌を好きなのですか？」の英文を作ろう。",
+        "words": ["that song", "why", "you", "like", "do"],
+        "correctOrder": [1, 4, 2, 3, 0],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Why do you like that song?」が正解。Why + do + you + like + that song? の順番だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q28",
+        "type": "reorder",
+        "question": "次の語を並べかえて「彼らはどこで野球をしますか？」の英文を作ろう。",
+        "words": ["play", "where", "they", "baseball", "do"],
+        "correctOrder": [1, 4, 2, 0, 3],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Where do they play baseball?」が正解。they は複数だから do を使うよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q29",
+        "question": "(　) に入るのは？\n(　) do you go to bed?\n（あなたはいつ寝ますか？）",
+        "options": ["What", "When", "Who", "Where"],
+        "correctIndex": 1,
+        "explanation": "「いつ」（時）は When でたずねるよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q30",
+        "question": "(　) に入るのは？\nThe pen is (　) the bag.\n（ペンはかばんの中にあります。）",
+        "options": ["on", "in", "under", "at"],
+        "correctIndex": 1,
+        "explanation": "「〜の中に」は in。in the bag（かばんの中に）。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q31",
+        "question": "(　) に入るのは？\n(　) do you like summer?\n（あなたはなぜ夏が好きなのですか？）",
+        "options": ["Why", "When", "Where", "How"],
+        "correctIndex": 0,
+        "explanation": "「なぜ」（理由）は Why でたずねるよ。答えるときは Because 〜.。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q32",
+        "type": "reorder",
+        "question": "次の語を並べかえて「あなたはどこで本を読みますか？」の英文を作ろう。",
+        "words": ["read", "where", "you", "books", "do"],
+        "correctOrder": [1, 4, 2, 0, 3],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Where do you read books?」が正解。Where + do + you + 動詞 + 目的語? の順番だよ。",
+        "difficulty": "standard"
+      }
+    ]
+  }
+}

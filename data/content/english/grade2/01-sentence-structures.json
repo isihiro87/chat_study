@@ -1,0 +1,651 @@
+{
+  "subjectId": "english", "eraId": "english-grade2", "topicId": "eng-sentence-structures",
+  "name": "5つの文構造", "subtitle": "be going to / will / SVOO / SVOC", "icon": "🏗️", "order": 1,
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "am going to visit",
+      "back": "I (　) (　) (　) (　) Kyoto next Sunday.（私は次の日曜日に京都を訪れる予定です。）",
+      "hint": "前からの予定は be going to + 動詞の原形",
+      "explanation": "主語が I なので am going to + visit になるよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "is going to eat",
+      "back": "Ken (　) (　) (　) (　) ramen for lunch.（ケンは昼ごはんにラーメンを食べるつもりです。）",
+      "hint": "主語が三人称単数のときの be は？",
+      "explanation": "Ken は三人称単数なので is going to + eat だよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "Are you going to",
+      "back": "(　) (　) (　) (　) go skiing this winter?（あなたはこの冬スキーに行くつもりですか。）",
+      "hint": "be going to の疑問文は be を主語の前に出す",
+      "explanation": "Are you going to ...? で「〜するつもりですか」とたずねるよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "is not going to",
+      "back": "She (　) (　) (　) (　) join the festival.（彼女はお祭りに参加しない予定です。）",
+      "hint": "be going to の否定は be のあとに not",
+      "explanation": "She is not (isn't) going to で「〜しないつもり」になるよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "will carry",
+      "back": "I (　) (　) your bag.（私があなたのかばんを運びましょう。）",
+      "hint": "その場で決めた意志は will",
+      "explanation": "will + 動詞の原形で「〜しましょう」。今決めた意志を表すよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "will begin",
+      "back": "The festival (　) (　) at seven o'clock.（お祭りは7時に始まるでしょう。）",
+      "hint": "予測は will を使うよ",
+      "explanation": "will + 動詞の原形で「〜するでしょう」。予測を表すよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "won't",
+      "back": "It (　) snow in Osaka tomorrow.（明日大阪では雪は降らないでしょう。）",
+      "hint": "will not の短縮形は？",
+      "explanation": "will not の短縮形は won't。「〜しないでしょう」の意味だよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc8",
+      "front": "Will you close",
+      "back": "(　) (　) (　) the door?（ドアを閉めてくれますか。）",
+      "hint": "Will you ...? は依頼の意味にもなる",
+      "explanation": "Will you ...? で「〜してくれますか」という丁寧なお願いになるよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc9",
+      "front": "be going to",
+      "back": "前から計画していた予定を言うとき、\nbe going to と will のどちらを使う？",
+      "hint": "以前からの計画には…",
+      "explanation": "be going to は前からの予定・計画を表すときに使うよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "will",
+      "back": "今この場で「〜しよう」と決めたとき、\nbe going to と will のどちらを使う？",
+      "hint": "その場の判断・意志には…",
+      "explanation": "will はその場で決めた意志を表すときに使うよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "show you",
+      "back": "I will (　) (　) some pictures of Kyoto.（あなたに京都の写真を見せましょう。）",
+      "hint": "SVOO: 動詞 + 人 + もの",
+      "explanation": "show + 人 + もの で「〜に〜を見せる」。SVOO の形だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "teaches us",
+      "back": "Mr. Sato (　) (　) math.（佐藤先生は私たちに数学を教えています。）",
+      "hint": "teach + 人 + もの",
+      "explanation": "teach は SVOO でよく使う動詞。主語が三人称単数なので teaches だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "bought me",
+      "back": "My father (　) (　) a new bike.（父は私に新しい自転車を買ってくれました。）",
+      "hint": "buy + 人 + もの の過去形",
+      "explanation": "buy の過去形は bought。buy + 人 + もの で SVOO だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "call him Taku",
+      "back": "We (　) (　) (　).（私たちは彼をタクと呼びます。）",
+      "hint": "call + A + B で「AをBと呼ぶ」",
+      "explanation": "him = Taku が成り立つから SVOC だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc15",
+      "front": "named the cat Mike",
+      "back": "They (　) (　) (　) (　).（彼らはそのネコをミケと名付けました。）",
+      "hint": "name + A + B で「AをBと名付ける」",
+      "explanation": "name A B も SVOC。the cat = Mike が成り立つよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc16",
+      "front": "SVO",
+      "back": "I visited the museum.（私は博物館を訪れました。）\nこの文の形は？",
+      "hint": "I = the museum になる？",
+      "explanation": "I ≠ the museum。目的語が1つだから SVO だよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc17",
+      "front": "SVC",
+      "back": "The ramen looks delicious.（そのラーメンはおいしそうに見える。）\nこの文の形は？",
+      "hint": "The ramen = delicious になる？",
+      "explanation": "look は「〜に見える」のとき SVC。ramen = delicious が成り立つよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc18",
+      "front": "SVOC",
+      "back": "The trip made us happy.（その旅行は私たちを幸せにした。）\nこの文の形は？",
+      "hint": "us = happy になる？",
+      "explanation": "us = happy が成り立つから SVOC。make は「〜にする」の意味だよ。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc19",
+      "front": "to me",
+      "back": "He showed me the photos. を書きかえると\nHe showed the photos (　) (　).",
+      "hint": "show は to と for のどっち？",
+      "explanation": "show は to を使う。He showed the photos to me. になるよ。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc20",
+      "front": "for me",
+      "back": "My mother cooked me dinner. を書きかえると\nMy mother cooked dinner (　) (　).",
+      "hint": "cook は to と for のどっち？",
+      "explanation": "cook は for を使う。buy / make / cook → for だよ。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc21",
+      "front": "Will you",
+      "back": "「窓を開けてくれますか。」と依頼するとき、\n文の最初に来る2語は？\n(　) (　) open the window?",
+      "hint": "依頼の will の疑問文",
+      "explanation": "Will you ...? で「〜してくれますか」という依頼の表現になるよ。",
+      "difficulty": "standard"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "(　) に入るのは？\nI (　) going to visit Kyoto next week.\n（私は来週京都を訪れる予定です。）",
+        "options": ["am", "is", "are", "was"],
+        "correctIndex": 0,
+        "explanation": "主語が I のときの be 動詞は am だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "(　) に入るのは？\nKen (　) going to eat ramen for lunch.\n（ケンは昼ごはんにラーメンを食べるつもりです。）",
+        "options": ["is", "are", "am", "were"],
+        "correctIndex": 0,
+        "explanation": "Ken は三人称単数なので is を使うよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "(　) に入るのは？\nThe festival (　) begin at seven.\n（お祭りは7時に始まるでしょう。）",
+        "options": ["is going", "going to", "will", "does"],
+        "correctIndex": 2,
+        "explanation": "予測を表す「〜するでしょう」は will だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "「will not」の短縮形はどれ？",
+        "options": ["willn't", "wouldn't", "don't", "won't"],
+        "correctIndex": 3,
+        "explanation": "will not の短縮形は won't だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "重そうな荷物を見て「私が運びましょう。」とその場で言うとき正しいのは？",
+        "options": ["I'll carry it.", "I'm going to carry it.", "I carried it.", "I can carry it."],
+        "correctIndex": 0,
+        "explanation": "今この場で決めた意志は will（I'll）を使うよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "(　) に入るのは？\nI'm (　) go to Osaka next week.\n（来週大阪に行く予定です。）",
+        "options": ["going to", "will to", "going", "go to"],
+        "correctIndex": 0,
+        "explanation": "前からの計画・予定には be going to を使うよ。be + going to + 動詞の原形だね。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "(　) に入るのは？\nMr. Sato (　) us math.\n（佐藤先生は私たちに数学を教えています。）",
+        "options": ["says", "speaks", "teaches", "tells"],
+        "correctIndex": 2,
+        "explanation": "teach + 人 + もの で「〜に〜を教える」。SVOO の形だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "(　) に入るのは？\nWe (　) him Taku.\n（私たちは彼をタクと呼びます。）",
+        "options": ["say", "call", "tell", "speak"],
+        "correctIndex": 1,
+        "explanation": "call A B で「AをBと呼ぶ」。SVOC の形だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "「I visited the museum.（私は博物館を訪れました。）」はどの形？",
+        "options": ["SV", "SVO", "SVC", "SVOO"],
+        "correctIndex": 1,
+        "explanation": "I ≠ the museum。目的語が1つだから SVO だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q10",
+        "question": "「The ramen looks delicious.（そのラーメンはおいしそうに見える。）」はどの形？",
+        "options": ["SVO", "SVOO", "SVC", "SVOC"],
+        "correctIndex": 2,
+        "explanation": "ramen = delicious が成り立つから SVC だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "「My father bought me a bike.（父は私に自転車を買ってくれた。）」はどの形？",
+        "options": ["SVC", "SVO", "SVOC", "SVOO"],
+        "correctIndex": 3,
+        "explanation": "me ≠ a bike。「〜に」「〜を」が並んでいるから SVOO だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "「They named the cat Mike.（彼らはそのネコをミケと名付けた。）」はどの形？",
+        "options": ["SVO", "SVOO", "SVC", "SVOC"],
+        "correctIndex": 3,
+        "explanation": "the cat = Mike が成り立つから SVOC だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q13",
+        "question": "「The trip made us happy.（その旅行は私たちを幸せにした。）」はどの形？",
+        "options": ["SVOO", "SVO", "SVOC", "SVC"],
+        "correctIndex": 2,
+        "explanation": "us = happy が成り立つから SVOC。make は「〜にする」だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q14",
+        "question": "(　) に入るのは？\nHe showed the photos (　) me.\n（彼は私にその写真を見せてくれました。）",
+        "options": ["to", "for", "at", "with"],
+        "correctIndex": 0,
+        "explanation": "show は to を使う。「動詞 + もの + to + 人」の形に書きかえるよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q15",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「私たちは明日、博物館を訪れるつもりです。」という英文を作ろう。",
+        "words": ["visit", "are", "we", "to", "going", "the museum"],
+        "correctOrder": [2, 1, 4, 3, 0, 5],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「We are going to visit the museum.」が正解。be going to + 動詞の原形だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q16",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「お祭りはまもなく始まるでしょう。」という英文を作ろう。",
+        "words": ["will", "the festival", "soon", "begin"],
+        "correctOrder": [1, 0, 3, 2],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「The festival will begin soon.」が正解。will + 動詞の原形だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q17",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「父は私に新しい自転車を買ってくれました。」という英文を作ろう。",
+        "words": ["a", "me", "my father", "bike", "bought"],
+        "correctOrder": [2, 4, 1, 0, 3],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「My father bought me a bike.」が正解。SVOO の形だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q18",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「私たちは彼をタクと呼びます。」という英文を作ろう。",
+        "words": ["Taku", "call", "we", "him"],
+        "correctOrder": [2, 1, 3, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「We call him Taku.」が正解。call A B（SVOC）の形だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q19",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「あなたはこの冬、スキーに行くつもりですか。」という英文を作ろう。",
+        "words": ["are", "skiing", "you", "to", "going", "go"],
+        "correctOrder": [0, 2, 4, 3, 5, 1],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Are you going to go skiing?」が正解。be going to の疑問文だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q20",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「彼らはそのネコをミケと名付けました。」という英文を作ろう。",
+        "words": ["the cat", "named", "they", "Mike"],
+        "correctOrder": [2, 1, 0, 3],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「They named the cat Mike.」が正解。name A B（SVOC）の形だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q21",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「私はあなたに京都の写真を見せましょう。」という英文を作ろう。",
+        "words": ["show", "I", "the photos", "will", "you"],
+        "correctOrder": [1, 3, 0, 4, 2],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I will show you the photos.」が正解。will + SVOO の形だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q22",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「ドアを閉めてくれますか。」という英文を作ろう。",
+        "words": ["close", "will", "the door", "you"],
+        "correctOrder": [1, 3, 0, 2],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Will you close the door?」が正解。Will you ...? は依頼の表現だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q23",
+        "question": "(　) に入るのは？\nWe (　) going to watch a movie tonight.\n（私たちは今夜映画を見るつもりです。）",
+        "options": ["are", "is", "am", "was"],
+        "correctIndex": 0,
+        "explanation": "主語が We（複数）のときの be 動詞は are だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q24",
+        "question": "(　) に入るのは？\nShe (　) going to study English after dinner.\n（彼女は夕食後に英語を勉強するつもりです。）",
+        "options": ["is", "are", "am", "were"],
+        "correctIndex": 0,
+        "explanation": "She は三人称単数なので is going to を使うよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q25",
+        "question": "(　) に入るのは？\nThey are going to (　) soccer in the park.\n（彼らは公園でサッカーをするつもりです。）",
+        "options": ["plays", "play", "played", "playing"],
+        "correctIndex": 1,
+        "explanation": "be going to のあとは動詞の原形。play が正しいよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q26",
+        "question": "(　) に入るのは？\n(　) you going to make dinner tonight?\n（あなたは今夜夕食を作るつもりですか。）",
+        "options": ["Are", "Is", "Do", "Will"],
+        "correctIndex": 0,
+        "explanation": "be going to の疑問文は be を主語の前に出すよ。主語が you なので Are だね。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q27",
+        "question": "(　) に入るのは？\nI (　) help you with your homework.\n（あなたの宿題を手伝いましょう。）",
+        "options": ["will", "am", "do", "was"],
+        "correctIndex": 0,
+        "explanation": "今この場で決めた意志は will + 動詞の原形で表すよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q28",
+        "question": "(　) に入るのは？\nIt (　) be cold tomorrow.\n（明日は寒くなるでしょう。）",
+        "options": ["will", "is", "does", "was"],
+        "correctIndex": 0,
+        "explanation": "未来の予測は will + 動詞の原形。will be で「〜になるでしょう」だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q29",
+        "question": "(　) に入るのは？\nHe (　) come to the party tomorrow.\n（彼は明日パーティーに来ないでしょう。）",
+        "options": ["won't", "doesn't", "isn't", "wasn't"],
+        "correctIndex": 0,
+        "explanation": "「〜しないでしょう」は will not の短縮形 won't を使うよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q30",
+        "question": "(　) に入るのは？\nMy mother (　) me a nice present.\n（母は私に素敵なプレゼントをくれました。）",
+        "options": ["gave", "made", "said", "took"],
+        "correctIndex": 0,
+        "explanation": "give + 人 + もの で「〜に〜をあげる」。give の過去形は gave だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q31",
+        "question": "(　) に入るのは？\nCan you (　) me the way to the station?\n（駅への道を教えてくれますか。）",
+        "options": ["tell", "say", "speak", "talk"],
+        "correctIndex": 0,
+        "explanation": "tell + 人 + もの で「〜に〜を教える・伝える」。SVOO の形だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q32",
+        "question": "(　) に入るのは？\nI will (　) you a postcard from Okinawa.\n（沖縄から絵はがきを送りましょう。）",
+        "options": ["send", "arrive", "go", "come"],
+        "correctIndex": 0,
+        "explanation": "send + 人 + もの で「〜に〜を送る」。SVOO の形だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q33",
+        "question": "(　) に入るのは？\nMy grandmother (　) me a sweater.\n（祖母は私にセーターを買ってくれました。）",
+        "options": ["bought", "cooked", "named", "called"],
+        "correctIndex": 0,
+        "explanation": "buy + 人 + もの で「〜に〜を買ってあげる」。buy の過去形は bought だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q34",
+        "question": "(　) に入るのは？\nMr. Brown (　) us English.\n（ブラウン先生は私たちに英語を教えています。）",
+        "options": ["teaches", "studies", "learns", "says"],
+        "correctIndex": 0,
+        "explanation": "teach + 人 + もの で「〜に〜を教える」。主語が三人称単数なので teaches だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q35",
+        "question": "(　) に入るのは？\nI'll (　) you my new camera.\n（私の新しいカメラをあなたに見せましょう。）",
+        "options": ["show", "look", "see", "watch"],
+        "correctIndex": 0,
+        "explanation": "show + 人 + もの で「〜に〜を見せる」。SVOO の形だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q36",
+        "question": "(　) に入るのは？\nThe book made me (　).\n（その本は私を幸せにした。）",
+        "options": ["happy", "happily", "happiness", "luckily"],
+        "correctIndex": 0,
+        "explanation": "make A B で「AをBにする」。me = happy が成り立つ SVOC だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q37",
+        "question": "「She gave me a book.」を書きかえると？\nShe gave a book (　) me.",
+        "options": ["to", "for", "at", "with"],
+        "correctIndex": 0,
+        "explanation": "give は to を使う。「動詞 + もの + to + 人」の形だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q38",
+        "question": "「He bought her flowers.」を書きかえると？\nHe bought flowers (　) her.",
+        "options": ["for", "to", "at", "of"],
+        "correctIndex": 0,
+        "explanation": "buy は for を使う。buy / make / cook → for だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q39",
+        "question": "「We call the dog Pochi.（私たちはその犬をポチと呼びます。）」はどの形？",
+        "options": ["SVO", "SVOO", "SVC", "SVOC"],
+        "correctIndex": 3,
+        "explanation": "the dog = Pochi が成り立つから SVOC だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q40",
+        "question": "「She gave him a watch.（彼女は彼に腕時計をあげた。）」はどの形？",
+        "options": ["SVO", "SVC", "SVOO", "SVOC"],
+        "correctIndex": 2,
+        "explanation": "him ≠ a watch。「〜に」「〜を」が並んでいるから SVOO だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q41",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私は来週、祖母を訪ねるつもりです。」の英文を作ろう。",
+        "words": ["going", "I", "visit", "am", "my grandmother", "to", "next week"],
+        "correctOrder": [1, 3, 0, 5, 2, 4, 6],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I am going to visit my grandmother next week.」が正解。be going to + 動詞の原形だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q42",
+        "type": "reorder",
+        "question": "次の語を並べかえて「彼女は今夜、夕食を作る予定です。」の英文を作ろう。",
+        "words": ["cook", "is", "she", "dinner", "to", "going", "tonight"],
+        "correctOrder": [2, 1, 5, 4, 0, 3, 6],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「She is going to cook dinner tonight.」が正解。主語が三人称単数なので is going to だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q43",
+        "type": "reorder",
+        "question": "次の語を並べかえて「明日は晴れるでしょう。」の英文を作ろう。",
+        "words": ["be", "will", "it", "sunny", "tomorrow"],
+        "correctOrder": [2, 1, 0, 3, 4],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「It will be sunny tomorrow.」が正解。will + 動詞の原形（be）だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q44",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私が窓を開けましょう。」の英文を作ろう。",
+        "words": ["open", "will", "I", "the window"],
+        "correctOrder": [2, 1, 0, 3],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I will open the window.」が正解。その場で決めた意志は will だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q45",
+        "type": "reorder",
+        "question": "次の語を並べかえて「彼は私にその写真を見せてくれました。」の英文を作ろう。",
+        "words": ["me", "showed", "he", "the picture"],
+        "correctOrder": [2, 1, 0, 3],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「He showed me the picture.」が正解。show + 人 + もの（SVOO）だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q46",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私の姉は私に英語を教えてくれます。」の英文を作ろう。",
+        "words": ["English", "teaches", "my sister", "me"],
+        "correctOrder": [2, 1, 3, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「My sister teaches me English.」が正解。teach + 人 + もの（SVOO）だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q47",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私たちはその赤ちゃんをハナと名付けました。」の英文を作ろう。",
+        "words": ["the baby", "named", "Hana", "we"],
+        "correctOrder": [3, 1, 0, 2],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「We named the baby Hana.」が正解。name A B（SVOC）の形だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q48",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私はあなたに手紙を送りましょう。」の英文を作ろう。",
+        "words": ["send", "you", "I", "will", "a letter"],
+        "correctOrder": [2, 3, 0, 1, 4],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I will send you a letter.」が正解。will + SVOO の形だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q49",
+        "type": "reorder",
+        "question": "次の語を並べかえて「彼は私にその本をくれました。」の英文を作ろう。",
+        "words": ["to", "the book", "gave", "he", "me"],
+        "correctOrder": [3, 2, 1, 0, 4],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「He gave the book to me.」が正解。give は to を使う「動詞 + もの + to + 人」の形だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q50",
+        "type": "reorder",
+        "question": "次の語を並べかえて「あなたはこの夏、どこに行くつもりですか。」の英文を作ろう。",
+        "words": ["are", "going", "you", "where", "this summer", "to", "go"],
+        "correctOrder": [3, 0, 2, 1, 5, 6, 4],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Where are you going to go this summer?」が正解。疑問詞 where + be going to の疑問文だよ。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

@@ -1,0 +1,464 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade3",
+  "topicId": "eng-present-perfect",
+  "name": "現在完了",
+  "subtitle": "have/has + 過去分詞で「過去〜今」をつなぐ",
+  "icon": "⏳",
+  "order": 1,
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "have worked",
+      "back": "I (　) at this museum for three years.（私は3年間この博物館で働いています。）",
+      "hint": "for ～ → 継続",
+      "explanation": "継続用法。「(ずっと)～している」は have/has + 過去分詞。for three years（3年間）のように期間を表すときに使う。主語 I なので have を使う。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "has lived",
+      "back": "My aunt (　) abroad since 2018.（おばは2018年からずっと外国に住んでいます。）",
+      "hint": "主語が3人称単数",
+      "explanation": "継続用法。主語 My aunt は3人称単数なので has を使う。since 2018 は「2018年から(今まで)」と起点を表す。live の過去分詞は lived。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "since",
+      "back": "We have known each other (　) last spring.（私たちは去年の春からお互いを知っています。）",
+      "hint": "起点 or 期間",
+      "explanation": "last spring（去年の春）は「いつから」という起点なので since を使う。for は「3年間」のような期間の長さに使う。know の過去分詞は known。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc4",
+      "front": "for",
+      "back": "They have been good friends (　) ten years.（彼らは10年間ずっと仲のよい友達です。）",
+      "hint": "期間の長さ",
+      "explanation": "ten years（10年間）は期間の長さなので for を使う。be の過去分詞は been。継続用法で「ずっと～だ」を表す。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc5",
+      "front": "has studied",
+      "back": "He (　) French since last April.（彼は去年の4月からフランス語を勉強しています。）",
+      "hint": "study → 過去分詞",
+      "explanation": "継続用法。主語 He は3人称単数なので has。study の過去分詞は studied（y を i にかえて ed）。since last April は起点を表す。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "have visited",
+      "back": "I (　) Kyoto twice.（私は京都を2回訪れたことがあります。）",
+      "hint": "twice → 経験",
+      "explanation": "経験用法。「～したことがある」。twice（2回）のように回数を表す語があるときは経験を表す。visit の過去分詞は visited。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "ever",
+      "back": "Have you (　) ridden a horse?（あなたは今までに馬に乗ったことがありますか。）",
+      "hint": "経験をたずねる",
+      "explanation": "経験をたずねる疑問文で「今までに」は ever を入れる。ride の過去分詞は ridden。Have you ever + 過去分詞 ～? の形。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "never",
+      "back": "I have (　) eaten natto.（私は一度も納豆を食べたことがありません。）",
+      "hint": "一度も～ない",
+      "explanation": "経験の否定「一度も～ない」は never を使う。have not の代わりに have never + 過去分詞。eat の過去分詞は eaten。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc9",
+      "front": "have been",
+      "back": "I (　) to Okinawa once.（私は一度沖縄へ行ったことがあります。）",
+      "hint": "行ったことがある",
+      "explanation": "経験用法。「～へ行ったことがある」は have been to ～。have gone to は「行ってしまって今ここにいない」という結果を表すので区別する。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "has gone",
+      "back": "My brother (　) to America.（兄はアメリカへ行ってしまいました。今ここにいません。）",
+      "hint": "今ここにいない",
+      "explanation": "結果用法。has gone to ～ は「～へ行ってしまって今ここにいない」。経験の has been to（行ったことがある）と意味が違うので注意。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc11",
+      "front": "How many times",
+      "back": "(　) have you climbed Mt. Fuji?（あなたは何回富士山に登ったことがありますか。）",
+      "hint": "回数をたずねる",
+      "explanation": "経験の回数をたずねるときは How many times ～? を使う。climb の過去分詞は climbed。答えるときは Three times. などと回数で答える。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc12",
+      "front": "have just finished",
+      "back": "I (　) my homework.（私はちょうど宿題を終えたところです。）",
+      "hint": "just → 完了",
+      "explanation": "完了用法。「ちょうど～したところだ」は have just + 過去分詞。just は have と過去分詞の間に置く。finish の過去分詞は finished。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc13",
+      "front": "already",
+      "back": "She has (　) read this novel.（彼女はもうこの小説を読んでしまいました。）",
+      "hint": "肯定文で「もう」",
+      "explanation": "完了用法。肯定文で「もう・すでに」は already を使い、have/has と過去分詞の間に置く。read の過去分詞は read（形は同じだが発音は「レッド」）。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "yet",
+      "back": "I have not washed the dishes (　).（私はまだ皿を洗っていません。）",
+      "hint": "否定文で「まだ」",
+      "explanation": "完了用法。否定文で「まだ(～ない)」は yet を文末に置く。wash の過去分詞は washed。疑問文の文末では yet は「もう」の意味になる。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc15",
+      "front": "has just arrived",
+      "back": "The train (　).（電車はちょうど到着したところです。）",
+      "hint": "just + 完了",
+      "explanation": "完了用法。「ちょうど到着したところだ」。主語 The train は3人称単数なので has。arrive の過去分詞は arrived。just は has と過去分詞の間。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc16",
+      "front": "haven't",
+      "back": "Have you written the report? — No, I (　).（レポートを書きましたか。― いいえ、書いていません。）",
+      "hint": "have not の短縮",
+      "explanation": "現在完了の疑問文には have/has で答える。No のときは I haven't（= have not の短縮形）。write の過去分詞は written。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc17",
+      "front": "Have",
+      "back": "(　) you ever driven a car?（あなたは今までに車を運転したことがありますか。）",
+      "hint": "疑問文の文頭",
+      "explanation": "現在完了の疑問文は Have/Has を主語の前に出す。主語 you なので Have。drive の過去分詞は driven。経験をたずねる ever とともに使う。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc18",
+      "front": "spoken",
+      "back": "I have never (　) to a foreigner.（私は一度も外国人と話したことがありません。）",
+      "hint": "speak の過去分詞",
+      "explanation": "speak の過去分詞は spoken。speak - spoke - spoken と変化する。have never + 過去分詞 で「一度も～したことがない」。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc19",
+      "front": "seen",
+      "back": "Have you ever (　) a panda?（あなたは今までにパンダを見たことがありますか。）",
+      "hint": "see の過去分詞",
+      "explanation": "see の過去分詞は seen。see - saw - seen と変化する。経験をたずねる疑問文 Have you ever + 過去分詞 ～? の形。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc20",
+      "front": "done",
+      "back": "He has already (　) his homework.（彼はもう宿題を終えてしまいました。）",
+      "hint": "do の過去分詞",
+      "explanation": "do の過去分詞は done。do - did - done と変化する。完了用法の肯定文で already は has と過去分詞の間に置く。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc21",
+      "front": "visited",
+      "back": "I (　) the museum last summer.（私はこの前の夏その博物館を訪れました。）",
+      "hint": "last summer → 過去形",
+      "explanation": "last summer（この前の夏）のようにはっきり過去を表す語があるときは現在完了ではなく過去形を使う。have visited とは言えない点に注意。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "(　) に入るのは？\nI (　) in this town since I was born.\n（私は生まれてからずっとこの町に住んでいます。）",
+        "options": ["have lived", "live", "lived", "living"],
+        "correctIndex": 0,
+        "explanation": "since I was born（生まれてから今まで）なので継続を表す現在完了 have lived が正しい。live の過去分詞は lived。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "(　) に入るのは？\nShe (　) English for six years.\n（彼女は6年間ずっと英語を勉強しています。）",
+        "options": ["studies", "is studying", "has studied", "study"],
+        "correctIndex": 2,
+        "explanation": "for six years（6年間）という期間があり「ずっと勉強している」という継続。主語 She は3人称単数なので has studied。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "(　) に入るのは？\nWe have been friends (　) a long time.\n（私たちは長い間ずっと友達です。）",
+        "options": ["since", "for", "in", "at"],
+        "correctIndex": 1,
+        "explanation": "a long time（長い間）は期間の長さなので for を使う。since は last year のような起点に使う。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q4",
+        "question": "(　) に入るのは？\nHe has known her (　) 2020.\n（彼は2020年から彼女を知っています。）",
+        "options": ["since", "from", "for", "during"],
+        "correctIndex": 0,
+        "explanation": "2020（2020年から今まで）は起点なので since を使う。for は期間の長さに使う。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "(　) に入るのは？\nHave you (　) read this novel?\n（あなたは今までにこの小説を読んだことがありますか。）",
+        "options": ["ever", "never", "yet", "just"],
+        "correctIndex": 0,
+        "explanation": "経験をたずねる疑問文で「今までに」は ever を使う。have/has と過去分詞の間に入れる。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "(　) に入るのは？\nI have (　) eaten such a delicious cake.\n（私はこんなにおいしいケーキを一度も食べたことがありません。）",
+        "options": ["ever", "yet", "already", "never"],
+        "correctIndex": 3,
+        "explanation": "「一度も～ない」という経験の否定は never。have never + 過去分詞で表す。eat の過去分詞は eaten。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "「沖縄へ行ったことがある」を表す英語はどれ？",
+        "options": ["have been to Okinawa", "have gone to Okinawa", "go to Okinawa", "went to Okinawa"],
+        "correctIndex": 0,
+        "explanation": "「～へ行ったことがある」（経験）は have been to ～。have gone to ～ は「行ってしまって今いない」という結果を表すので意味が異なる。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q8",
+        "question": "(　) に入るのは？\nMy father (　) to Canada, so he is not here now.\n（父はカナダへ行ってしまったので、今ここにいません。）",
+        "options": ["has been", "has visited", "has lived", "has gone"],
+        "correctIndex": 3,
+        "explanation": "「行ってしまって今ここにいない」という結果には has gone to ～ を使う。has been to は「行ったことがある」で今いる場合に使う。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q9",
+        "question": "(　) に入るのは？\n(　) have you climbed Mt. Fuji? — Twice.\n（あなたは何回富士山に登ったことがありますか。― 2回です。）",
+        "options": ["How long", "How old", "How many times", "How much"],
+        "correctIndex": 2,
+        "explanation": "Twice（2回）と回数で答えているので、回数をたずねる How many times ～? を使う。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "(　) に入るのは？\nThe bus has (　) arrived at the station.\n（バスはちょうど駅に到着したところです。）",
+        "options": ["just", "ever", "yet", "since"],
+        "correctIndex": 0,
+        "explanation": "「ちょうど到着したところだ」という完了は just を使い、has と過去分詞の間に置く。arrive の過去分詞は arrived。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q11",
+        "question": "(　) に入るのは？\nShe has (　) finished the dishes.\n（彼女はもう皿洗いを終えてしまいました。）",
+        "options": ["yet", "already", "ever", "never"],
+        "correctIndex": 1,
+        "explanation": "肯定文で「もう・すでに」を表すのは already。完了用法で has と過去分詞の間に置く。finish の過去分詞は finished。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "(　) に入るのは？\nI have not written the letter (　).\n（私はまだ手紙を書いていません。）",
+        "options": ["already", "just", "yet", "ever"],
+        "correctIndex": 2,
+        "explanation": "否定文で「まだ(～ない)」は yet を文末に置く。write の過去分詞は written。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q13",
+        "question": "(　) に入るのは？\nHave you done your homework? — No, I (　).\n（宿題は終わりましたか。― いいえ、終わっていません。）",
+        "options": ["have", "haven't", "don't", "didn't"],
+        "correctIndex": 1,
+        "explanation": "現在完了の疑問文には have/has で答える。No のときは I haven't（have not の短縮形）。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q14",
+        "question": "(　) に入るのは？\nI (　) this museum last weekend.\n（私は先週末この博物館を訪れました。）",
+        "options": ["have visited", "visit", "has visited", "visited"],
+        "correctIndex": 3,
+        "explanation": "last weekend（先週末）ははっきり過去を表す語なので、現在完了ではなく過去形 visited を使う。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q15",
+        "question": "speak の過去分詞として正しいものはどれ？",
+        "options": ["speaked", "spoke", "spoken", "speaking"],
+        "correctIndex": 2,
+        "explanation": "speak の変化は speak - spoke - spoken。過去分詞は spoken。現在完了では have/has spoken の形で使う。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q16",
+        "question": "次の単語を正しい順番にならべて、\n「私は3年間この町に住んでいます。」という英文を作ろう。",
+        "type": "reorder",
+        "words": ["I", "have", "lived", "in", "this", "town", "for", "three", "years"],
+        "correctOrder": [0, 1, 2, 3, 4, 5, 6, 7, 8],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "継続用法。I have lived in this town for three years. の語順。for three years で「3年間」という期間を表す。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q17",
+        "question": "次の単語を正しい順番にならべて、\n「あなたは今までに馬に乗ったことがありますか。」という英文を作ろう。",
+        "type": "reorder",
+        "words": ["Have", "you", "ever", "ridden", "a", "horse"],
+        "correctOrder": [0, 1, 2, 3, 4, 5],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "経験をたずねる疑問文。Have you ever ridden a horse? の語順。ride の過去分詞は ridden。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q18",
+        "question": "次の単語を正しい順番にならべて、\n「私は一度も納豆を食べたことがありません。」という英文を作ろう。",
+        "type": "reorder",
+        "words": ["I", "have", "never", "eaten", "natto"],
+        "correctOrder": [0, 1, 2, 3, 4],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "経験の否定。I have never eaten natto. の語順。have never + 過去分詞で「一度も～したことがない」。eat の過去分詞は eaten。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q19",
+        "question": "次の単語を正しい順番にならべて、\n「彼女はちょうど宿題を終えたところです。」という英文を作ろう。",
+        "type": "reorder",
+        "words": ["She", "has", "just", "finished", "her", "homework"],
+        "correctOrder": [0, 1, 2, 3, 4, 5],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "完了用法。She has just finished her homework. の語順。just は has と過去分詞 finished の間に置く。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q20",
+        "question": "次の単語を正しい順番にならべて、\n「私はまだ皿を洗っていません。」という英文を作ろう。",
+        "type": "reorder",
+        "words": ["I", "have", "not", "washed", "the", "dishes", "yet"],
+        "correctOrder": [0, 1, 2, 3, 4, 5, 6],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "完了の否定文。I have not washed the dishes yet. の語順。否定文で「まだ」は yet を文末に置く。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q21",
+        "question": "次の単語を正しい順番にならべて、\n「あなたは何回京都へ行ったことがありますか。」という英文を作ろう。",
+        "type": "reorder",
+        "words": ["How", "many", "times", "have", "you", "been", "to", "Kyoto"],
+        "correctOrder": [0, 1, 2, 3, 4, 5, 6, 7],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "経験の回数をたずねる文。How many times have you been to Kyoto? の語順。have been to ～ で「～へ行ったことがある」。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q22",
+        "question": "次の単語を正しい順番にならべて、\n「彼はすでにこの小説を読んでしまいました。」という英文を作ろう。",
+        "type": "reorder",
+        "words": ["He", "has", "already", "read", "this", "novel"],
+        "correctOrder": [0, 1, 2, 3, 4, 5],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "完了用法。He has already read this novel. の語順。肯定文で「すでに」は already を has と過去分詞の間に置く。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q23",
+        "question": "次の単語を正しい順番にならべて、\n「私のおじは2015年から外国に住んでいます。」という英文を作ろう。",
+        "type": "reorder",
+        "words": ["My", "uncle", "has", "lived", "abroad", "since", "2015"],
+        "correctOrder": [0, 1, 2, 3, 4, 5, 6],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "継続用法。My uncle has lived abroad since 2015. の語順。since 2015 で「2015年から今まで」という起点を表す。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q24",
+        "question": "(　) に入るのは？\nHow long have you (　) here? — For two hours.\n（あなたはどのくらいの間ここにいますか。― 2時間です。）",
+        "options": ["be", "being", "been", "are"],
+        "correctIndex": 2,
+        "explanation": "How long ～? は継続の期間をたずねる。be の過去分詞は been で、have been here で「ずっとここにいる」を表す。For two hours（2時間）と期間で答える。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q25",
+        "question": "(　) に入るのは？\nMy sister has (　) to Australia, so she is not here now.\n（姉はオーストラリアへ行ってしまったので、今ここにいません。）",
+        "options": ["been", "gone", "went", "going"],
+        "correctIndex": 1,
+        "explanation": "「行ってしまって今ここにいない」という結果には has gone to ～ を使う。has been to は「行ったことがある」で今いる場合なので意味が異なる。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q26",
+        "question": "(　) に入るのは？\nI have known him (　) we were children.\n（私は子どものころから彼を知っています。）",
+        "options": ["for", "since", "when", "that"],
+        "correctIndex": 1,
+        "explanation": "継続用法。we were children（私たちが子どもだったとき）という起点を表す文が続くので since を使う。since は後ろに語句だけでなく〈主語＋動詞〉を続けることもできる。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q27",
+        "question": "(　) に入るのは？\n(　) you ever seen a koala?\n（あなたは今までにコアラを見たことがありますか。）",
+        "options": ["Do", "Have", "Has", "Did"],
+        "correctIndex": 1,
+        "explanation": "経験をたずねる現在完了の疑問文。主語 you なので Have を文頭に出す。see の過去分詞は seen。Have you ever + 過去分詞 ～? の形。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q28",
+        "question": "(　) に入るのは？\nThis song (　) all over the world.\n（この歌は世界中で愛されています。）",
+        "options": ["loves", "is loved", "loved", "loving"],
+        "correctIndex": 1,
+        "explanation": "「～される」という受け身は be動詞 + 過去分詞。主語 This song は3人称単数で現在の文なので is loved。love の過去分詞は loved。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q29",
+        "question": "次の単語を正しい順番にならべて、\n「私は一度その映画を見たことがあります。」という英文を作ろう。",
+        "type": "reorder",
+        "words": ["I", "have", "seen", "the", "movie", "once"],
+        "correctOrder": [0, 1, 2, 3, 4, 5],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "経験用法。I have seen the movie once. の語順。once（一度）は回数を表し経験を示す。see の過去分詞は seen。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q30",
+        "question": "次の単語を正しい順番にならべて、\n「あなたはどのくらいの間東京に住んでいますか。」という英文を作ろう。",
+        "type": "reorder",
+        "words": ["How", "long", "have", "you", "lived", "in", "Tokyo"],
+        "correctOrder": [0, 1, 2, 3, 4, 5, 6],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "継続の期間をたずねる文。How long have you lived in Tokyo? の語順。How long ～? で「どのくらいの間～」を表す。live の過去分詞は lived。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

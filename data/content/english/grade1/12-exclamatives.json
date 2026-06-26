@@ -1,0 +1,348 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade1",
+  "topicId": "eng-exclamatives",
+  "name": "感嘆文",
+  "subtitle": "How ~! / What a ~!",
+  "icon": "❗",
+  "order": 12,
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "How",
+      "back": "(　) big!（なんて大きいのでしょう！）",
+      "hint": "形容詞だけを強める感嘆文の最初の語は？",
+      "explanation": "形容詞を1語強めるときは How + 形容詞！ の形にする。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "How",
+      "back": "(　) beautiful!（なんて美しいのでしょう！）",
+      "hint": "名詞をともなわず形容詞だけを強める形は？",
+      "explanation": "How + 形容詞！ で気持ちを強く表す。文末は「!」。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "How",
+      "back": "(　) fast!（なんて速いのでしょう！）",
+      "hint": "副詞 fast を強めるときも使う語は？",
+      "explanation": "How は形容詞だけでなく副詞も強められる。How fast! の形。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "What",
+      "back": "(　) a nice bag!（なんてすてきなかばんでしょう！）",
+      "hint": "名詞 bag をふくむ感嘆文の最初の語は？",
+      "explanation": "名詞があるときは What + a/an + 形容詞 + 名詞！ の形を使う。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "a",
+      "back": "What (　) nice pen!（なんてすてきなペンでしょう！）",
+      "hint": "nice は子音 n で始まる。a と an どちら？",
+      "explanation": "nice は子音の音で始まるので a を使う。a nice pen。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "an",
+      "back": "What (　) interesting book!（なんておもしろい本でしょう！）",
+      "hint": "interesting は母音 i で始まる。a と an どちら？",
+      "explanation": "interesting は母音の音で始まるので an を使う。an interesting book。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "an",
+      "back": "What (　) old house this is!（これはなんて古い家でしょう！）",
+      "hint": "old は母音 o で始まる。a と an どちら？",
+      "explanation": "old は母音の音で始まるので an を使う。What an old house this is!",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "is",
+      "back": "How cute this dog (　)!（この犬はなんてかわいいのでしょう！）",
+      "hint": "this dog は単数。最後につく be動詞は？",
+      "explanation": "How + 形容詞 + 主語 + be動詞！ の形。this dog は単数なので is。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc9",
+      "front": "How",
+      "back": "(　) beautiful that flower is!（その花はなんて美しいのでしょう！）",
+      "hint": "形容詞を強めて主語と be動詞を後ろにつける形は？",
+      "explanation": "How + 形容詞 + 主語 + be動詞！。that flower は単数なので is。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "What",
+      "back": "(　) a good tennis player he is!（彼はなんて上手なテニス選手でしょう！）",
+      "hint": "名詞 tennis player をふくむ感嘆文の最初の語は？",
+      "explanation": "What + a + 形容詞 + 名詞 + 主語 + be動詞！。後ろに he is をつけて完成。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "is",
+      "back": "What a tall building it (　)!（なんて高い建物でしょう！）",
+      "hint": "it に合う be動詞は？",
+      "explanation": "What a 形容詞 名詞 + 主語 + be動詞！。it は単数なので is を使う。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "How",
+      "back": "(　) kind she is!（彼女はなんて親切なのでしょう！）",
+      "hint": "形容詞 kind を強める語は？",
+      "explanation": "How + 形容詞 + 主語 + be動詞！。she は単数なので is がつづく。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "What",
+      "back": "(　) an exciting game!（なんてわくわくする試合でしょう！）",
+      "hint": "an exciting game という名詞のまとまりがあるよ。最初の語は？",
+      "explanation": "名詞があるので What を使う。exciting は母音の音で始まるので an。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "are",
+      "back": "What cute cats these (　)!（これらはなんてかわいい猫たちでしょう！）",
+      "hint": "these は複数。be動詞は？ また cats は複数なので a/an はつけない。",
+      "explanation": "cats は複数なので a/an なし。these は複数なので are を使う。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc15",
+      "front": "a",
+      "back": "What (　) wonderful singer she is!（彼女はなんてすばらしい歌手でしょう！）",
+      "hint": "wonderful は子音 w で始まる。a と an どちら？",
+      "explanation": "wonderful は子音の音で始まるので a を使う。singer は単数名詞。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc16",
+      "front": "How",
+      "back": "(　) well he sings!（彼はなんて上手に歌うのでしょう！）",
+      "hint": "副詞 well を強める語は？",
+      "explanation": "How は副詞も強められる。How + 副詞 + 主語 + 動詞！ の形。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc17",
+      "front": "are",
+      "back": "What beautiful flowers these (　)!（これらはなんて美しい花たちでしょう！）",
+      "hint": "flowers は複数名詞。these に合う be動詞は？",
+      "explanation": "複数名詞 flowers には a/an をつけない。these は複数なので are。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc18",
+      "front": "What",
+      "back": "(　) a fast runner he is!（彼はなんて速い走者でしょう！）",
+      "hint": "名詞 runner があるよ。How と What どちら？",
+      "explanation": "形容詞だけでなく名詞 runner があるので What を使う。fast runner は子音始まりで a。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "「なんて大きいのでしょう。」に合う英文を選びなさい。",
+        "options": ["How big!", "What big!", "What a big!", "How a big!"],
+        "correctIndex": 0,
+        "explanation": "形容詞だけを強めるときは How + 形容詞！。名詞がないので What や a は使わない。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "「なんてすてきなペンでしょう。」に合う英文を選びなさい。",
+        "options": ["How a nice pen!", "What a nice pen!", "How nice pen!", "What nice!"],
+        "correctIndex": 1,
+        "explanation": "名詞 pen があるので What + a + 形容詞 + 名詞！ の形にする。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "(　) に入るのは？\n(　) an interesting story!\n（なんておもしろい話でしょう！）",
+        "options": ["Is", "This", "What", "How"],
+        "correctIndex": 2,
+        "explanation": "an interesting story という名詞のまとまりがあるので What を使う。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "(　) に入るのは？\n(　) fast he runs!\n（彼はなんて速く走るのでしょう！）",
+        "options": ["What", "Such", "Why", "How"],
+        "correctIndex": 3,
+        "explanation": "副詞 fast を強めているので How を使う。How + 副詞 + 主語 + 動詞！。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "(　) に入るのは？\nWhat (　) old house this is!\n（これはなんて古い家でしょう！）",
+        "options": ["an", "a", "the", "is"],
+        "correctIndex": 0,
+        "explanation": "old は母音の音で始まるので an を使う。What an old house this is!",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "「この車はなんて古いのでしょう。」に合う英文を選びなさい。",
+        "options": ["What old this car is!", "How old this car is!", "How an old car is!", "What an old this car is!"],
+        "correctIndex": 1,
+        "explanation": "形容詞 old を強めているので How old this car is!。後ろに主語 + be動詞がつづく。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "「これはなんて美しい絵でしょう。」に合う英文を選びなさい。",
+        "options": ["How beautiful picture this is!", "How a beautiful picture this is!", "What a beautiful picture this is!", "What beautiful this picture is!"],
+        "correctIndex": 2,
+        "explanation": "名詞 picture があるので What + a + 形容詞 + 名詞 + 主語 + be動詞！。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "(　) に入るのは？\nHow cute this dog (　)!\n（この犬はなんてかわいいのでしょう！）",
+        "options": ["are", "be", "is", "does"],
+        "correctIndex": 2,
+        "explanation": "this dog は単数なので be動詞は is。How cute this dog is!",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "(　) に入るのは？\nWhat a good tennis player (　) is!\n（彼はなんて上手なテニス選手でしょう！）",
+        "options": ["he", "they", "these", "you"],
+        "correctIndex": 0,
+        "explanation": "be動詞が is で player が単数なので、主語は単数の he が合う。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "(　) に入るのは？\n(　) a wonderful singer she is!\n（彼女はなんてすばらしい歌手でしょう！）",
+        "options": ["How", "What", "Why", "Such"],
+        "correctIndex": 1,
+        "explanation": "名詞 singer をふくむまとまりがあるので What を使う。How は形容詞・副詞のみを強める。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "(　) に入るのは？\nWhat (　) wonderful singer she is!\n（彼女はなんてすばらしい歌手でしょう！）",
+        "options": ["an", "a", "the", "is"],
+        "correctIndex": 1,
+        "explanation": "wonderful は子音の音で始まるので a を使う。a wonderful singer。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "「これらはなんてかわいい犬たちでしょう。」に合う英文を選びなさい。",
+        "options": ["What cute dog these are!", "What a cute dogs these are!", "How cute dogs these are!", "What cute dogs these are!"],
+        "correctIndex": 3,
+        "explanation": "dogs は複数名詞なので a/an はつけない。What + 形容詞 + 複数名詞 + 主語 + be動詞！。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q13",
+        "question": "(　) に入るのは？\nWhat beautiful flowers these (　)!\n（これらはなんて美しい花たちでしょう！）",
+        "options": ["is", "am", "are", "be"],
+        "correctIndex": 2,
+        "explanation": "these は複数なので be動詞は are。flowers も複数なので a/an はつけない。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q14",
+        "type": "reorder",
+        "question": "次の語を並べかえて「なんて小さいのでしょう。」の英文を作ろう。",
+        "words": ["small", "how"],
+        "correctOrder": [1, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「How small」が正解。How + 形容詞！ の語順。実際の文末は「!」だが、ここでは「.」と表示される。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q15",
+        "type": "reorder",
+        "question": "次の語を並べかえて「なんてよい考えでしょう。」の英文を作ろう。",
+        "words": ["a", "idea", "good", "what"],
+        "correctOrder": [3, 0, 2, 1],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「What a good idea」が正解。What + a + 形容詞 + 名詞！ の語順。実際の文末は「!」。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q16",
+        "type": "reorder",
+        "question": "次の語を並べかえて「なんて速いのでしょう。」の英文を作ろう。",
+        "words": ["fast", "how"],
+        "correctOrder": [1, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「How fast」が正解。副詞 fast を How で強める。実際の文末は「!」。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q17",
+        "type": "reorder",
+        "question": "次の語を並べかえて「この花はなんて美しいのでしょう。」の英文を作ろう。",
+        "words": ["beautiful", "is", "this flower", "how"],
+        "correctOrder": [3, 0, 2, 1],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「How beautiful this flower is」が正解。How + 形容詞 + 主語 + be動詞！ の語順。実際の文末は「!」。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q18",
+        "type": "reorder",
+        "question": "次の語を並べかえて「これはなんておもしろい映画でしょう。」の英文を作ろう。",
+        "words": ["movie", "this", "interesting", "what", "an", "is"],
+        "correctOrder": [3, 4, 2, 0, 1, 5],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「What an interesting movie this is」が正解。interesting は母音始まりなので an を使う。実際の文末は「!」。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q19",
+        "type": "reorder",
+        "question": "次の語を並べかえて「彼はなんて親切な先生でしょう。」の英文を作ろう。",
+        "words": ["teacher", "kind", "he", "what", "a", "is"],
+        "correctOrder": [3, 4, 1, 0, 2, 5],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「What a kind teacher he is」が正解。teacher は単数名詞なので a kind teacher。実際の文末は「!」。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q20",
+        "type": "reorder",
+        "question": "次の語を並べかえて「これらはなんて美しい鳥たちでしょう。」の英文を作ろう。",
+        "words": ["birds", "beautiful", "these", "what", "are"],
+        "correctOrder": [3, 1, 0, 2, 4],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「What beautiful birds these are」が正解。birds は複数名詞なので a/an を使わない。these は複数なので are。実際の文末は「!」。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

@@ -1,0 +1,456 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade3",
+  "topicId": "eng-make-show",
+  "name": "make・show の応用",
+  "subtitle": "make 人 〜 / show 人 that の使い方",
+  "icon": "🎭",
+  "order": 2,
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "surprised",
+      "back": "The result made me (　).（その結果は私を驚かせました。）",
+      "hint": "感情を表す形容詞",
+      "explanation": "make + O + 形容詞で「O を〜の状態にする」。補語には形容詞 surprised を置きます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "proud",
+      "back": "The award made her (　).（その賞は彼女を誇らしい気持ちにさせました。）",
+      "hint": "「誇らしい」",
+      "explanation": "make her proud で「彼女を誇らしくさせる」。目的語が her（目的格）である点に注意します。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "sleepy",
+      "back": "The warm room made us (　).（暖かい部屋は私たちを眠くさせました。）",
+      "hint": "「眠い」",
+      "explanation": "make us sleepy。we ではなく目的格の us を使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "hungry",
+      "back": "The long walk made them (　).（長い散歩は彼らを空腹にさせました。）",
+      "hint": "「空腹の」",
+      "explanation": "make them hungry。they ではなく目的格 them を使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "comfortable",
+      "back": "This new chair makes me (　).（この新しいいすは私を快適にしてくれます。）",
+      "hint": "主語が三人称単数",
+      "explanation": "主語 This new chair は三人称単数なので makes。補語は形容詞 comfortable です。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "famous",
+      "back": "The song made him (　).（その歌は彼を有名にしました。）",
+      "hint": "「有名な」",
+      "explanation": "make him famous で「彼を有名にする」。過去の出来事なので made を使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "made",
+      "back": "His words (　) me angry yesterday.（彼の言葉は昨日私を怒らせました。）",
+      "hint": "yesterday に注目",
+      "explanation": "yesterday があるので過去形 made。make の過去形は made です。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc8",
+      "front": "makes",
+      "back": "Jogging every morning (　) me tired.（毎朝のジョギングは私を疲れさせます。）",
+      "hint": "Jogging は三人称単数扱い",
+      "explanation": "動名詞の主語 Jogging は三人称単数扱いなので makes。補語は形容詞 tired です。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc9",
+      "front": "cry",
+      "back": "The sad movie made me (　).（その悲しい映画は私を泣かせました。）",
+      "hint": "make + O + 原形動詞",
+      "explanation": "make + O + 原形動詞で「O に〜させる」。to は付けず動詞の原形 cry を置きます。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "laugh",
+      "back": "Her joke made us (　).（彼女の冗談は私たちを笑わせました。）",
+      "hint": "原形動詞が入る",
+      "explanation": "make us laugh で「私たちを笑わせる」。補語の位置に原形動詞 laugh を置きます。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "showed",
+      "back": "He (　) me that the story was true.（彼は私にその話が本当だと示しました。）",
+      "hint": "show の過去形",
+      "explanation": "show + 人 + that + 文で「人に〜と示す」。過去形は showed です。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "told",
+      "back": "She (　) me that she was busy then.（彼女は私に、そのとき忙しいと言いました。）",
+      "hint": "tell の過去形",
+      "explanation": "tell + 人 + that + 文で「人に〜と伝える」。tell の過去形は told です。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "that",
+      "back": "The teacher told us (　) English is useful.（先生は私たちに、英語は役に立つと言いました。）",
+      "hint": "接続詞が入る",
+      "explanation": "tell + 人 + that + 文の接続詞 that。後ろに〈主語+動詞〉の文が続きます。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "shows",
+      "back": "This graph (　) us that sales are growing.（このグラフは私たちに、売上が伸びていると示しています。）",
+      "hint": "主語が三人称単数",
+      "explanation": "主語 This graph は三人称単数なので shows。show + 人 + that + 文の形です。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc15",
+      "front": "us",
+      "back": "The email showed (　) that the meeting was canceled.（そのメールは私たちに、会議が中止されたことを示しました。）",
+      "hint": "目的格を選ぶ",
+      "explanation": "show のあとの「人」は目的格。we ではなく us を使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc16",
+      "front": "The news made me happy.",
+      "back": "(　)（そのニュースは私をうれしくさせました。）",
+      "hint": "make + 目的格 + 形容詞",
+      "explanation": "make me happy で「私をうれしくさせる」。過去の出来事なので made を使います。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc17",
+      "front": "The experiment showed the students that ice melts.",
+      "back": "(　)（その実験は生徒たちに、氷がとけることを示しました。）",
+      "hint": "show + 人 + that + 文",
+      "explanation": "show the students that ... で「生徒たちに〜と示す」。人の部分には名詞も置けます。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc18",
+      "front": "His speech made the audience excited.",
+      "back": "(　)（彼のスピーチは聴衆を興奮させました。）",
+      "hint": "make + O + 形容詞",
+      "explanation": "make the audience excited で「聴衆を興奮させる」。補語は形容詞 excited です。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc19",
+      "front": "excited",
+      "back": "The final game made us (　).（その決勝戦は私たちを興奮させました。）",
+      "hint": "「興奮した」",
+      "explanation": "make us excited。補語には副詞ではなく形容詞 excited を置きます。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc20",
+      "front": "happy",
+      "back": "This music makes me (　).（この音楽は私を幸せな気持ちにします。）",
+      "hint": "補語は形容詞",
+      "explanation": "make me happy で「私を幸せにする」。happily（副詞）は使えません。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "(　) に入るのは？\nThe result made me (　).\n（その結果は私を驚かせました。）",
+        "options": ["surprised", "surprise", "surprisingly", "to surprise"],
+        "correctIndex": 0,
+        "explanation": "make + O + 形容詞の形。補語には形容詞 surprised が入ります。副詞 surprisingly や to不定詞は不可です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "(　) に入るのは？\nThe warm soup made (　) sleepy.\n（温かいスープは私たちを眠くさせました。）",
+        "options": ["we", "they", "us", "he"],
+        "correctIndex": 2,
+        "explanation": "make のあとの「人」は目的格。主格の we / they / he は不可で、目的格 us が正しいです。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "(　) に入るのは？\nHis words (　) me angry last night.\n（彼の言葉は昨夜私を怒らせました。）",
+        "options": ["make", "makes", "making", "made"],
+        "correctIndex": 3,
+        "explanation": "last night があるので過去形 made。make の過去形は made です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "(　) に入るのは？\nJogging (　) me hungry every day.\n（ジョギングは毎日私を空腹にさせます。）",
+        "options": ["make", "made", "makes", "making"],
+        "correctIndex": 2,
+        "explanation": "動名詞 Jogging は三人称単数扱いで、every day から現在の習慣なので makes が正しいです。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "(　) に入るのは？\nThe sad story made her (　).\n（その悲しい話は彼女を泣かせました。）",
+        "options": ["cry", "cried", "to cry", "crying"],
+        "correctIndex": 0,
+        "explanation": "make + O + 原形動詞で「O に〜させる」。to は付けず原形 cry を置きます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "(　) に入るのは？\nHe (　) me that the news was true.\n（彼は私にそのニュースが本当だと示しました。）",
+        "options": ["said", "talked", "showed", "spoke"],
+        "correctIndex": 2,
+        "explanation": "show + 人 + that + 文で「人に〜と示す」。said / talked / spoke はこの〈人 + that〉の形を直接とれません。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "(　) に入るのは？\nShe told me (　) she was busy.\n（彼女は私に、忙しいと言いました。）",
+        "options": ["that", "what", "which", "who"],
+        "correctIndex": 0,
+        "explanation": "tell + 人 + that + 文の接続詞 that。後ろに〈主語+動詞〉の文が続きます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "(　) に入るのは？\nThis graph (　) us that prices are rising.\n（このグラフは私たちに、物価が上がっていると示しています。）",
+        "options": ["show", "shows", "showed", "showing"],
+        "correctIndex": 1,
+        "explanation": "主語 This graph は三人称単数で、現在の事実を述べているので shows が正しいです。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "(　) に入るのは？\nThe email showed (　) that the plan changed.\n（そのメールは私たちに、計画が変わったと示しました。）",
+        "options": ["we", "they", "she", "us"],
+        "correctIndex": 3,
+        "explanation": "show のあとの「人」は目的格。主格は不可で、目的格 us が正しいです。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q10",
+        "question": "(　) に入るのは？\nThe award made him (　).\n（その賞は彼を誇らしい気持ちにさせました。）",
+        "options": ["proudly", "proud", "pride", "to proud"],
+        "correctIndex": 1,
+        "explanation": "make + O + 形容詞の形。補語には形容詞 proud が入ります。副詞 proudly は使えません。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q11",
+        "question": "(　) に入るのは？\nThe teacher (　) us that English is important.\n（先生は私たちに、英語は大切だと言いました。）",
+        "options": ["told", "said", "spoke", "talked"],
+        "correctIndex": 0,
+        "explanation": "tell + 人 + that + 文の過去形 told。said / spoke / talked は〈人 + that〉の形をとれません。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "(　) に入るのは？\nThis new bed makes me (　).\n（この新しいベッドは私を快適にしてくれます。）",
+        "options": ["comfortably", "comfort", "comfortable", "to comfort"],
+        "correctIndex": 2,
+        "explanation": "make + O + 形容詞の形。補語には形容詞 comfortable が入ります。副詞 comfortably は不可です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q13",
+        "question": "(　) に入るのは？\nThe long lesson made (　) tired.\n（その長い授業は私たちを疲れさせました。）",
+        "options": ["we", "they", "he", "us"],
+        "correctIndex": 3,
+        "explanation": "make のあとの「人」は目的格 us。主格 we / they / he は使えません。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q14",
+        "question": "(　) に入るのは？\nThe experiment showed the students (　) water boils at 100°C.\n（その実験は生徒たちに、水は100℃で沸騰すると示しました。）",
+        "options": ["what", "that", "which", "who"],
+        "correctIndex": 1,
+        "explanation": "show + 人 + that + 文の接続詞 that。後ろに〈主語+動詞〉の完全な文が続きます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q15",
+        "question": "(　) に入るのは？\nHer joke made (　) laugh.\n（彼女の冗談は私たちを笑わせました。）",
+        "options": ["us", "we", "they", "I"],
+        "correctIndex": 0,
+        "explanation": "make + O + 原形動詞の形で、O は目的格 us。we / they / I は主格なので不可です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q16",
+        "question": "次の単語を正しい順番にならべて、\n「そのニュースは彼女を悲しくさせました。」という英文を作ろう。",
+        "type": "reorder",
+        "words": ["The", "news", "made", "her", "sad"],
+        "correctOrder": [0, 1, 2, 3, 4],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "The news made her sad. make + 目的格 her + 形容詞 sad の語順です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q17",
+        "question": "次の単語を正しい順番にならべて、\n「その映画は私たちを興奮させました。」という英文を作ろう。",
+        "type": "reorder",
+        "words": ["The", "movie", "made", "us", "excited"],
+        "correctOrder": [0, 1, 2, 3, 4],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "The movie made us excited. 目的格 us のあとに形容詞 excited を置きます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q18",
+        "question": "次の単語を正しい順番にならべて、\n「彼のスピーチは彼らを眠くさせました。」という英文を作ろう。",
+        "type": "reorder",
+        "words": ["His", "speech", "made", "them", "sleepy"],
+        "correctOrder": [0, 1, 2, 3, 4],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "His speech made them sleepy. them（目的格）+ sleepy（形容詞）の順です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q19",
+        "question": "次の単語を正しい順番にならべて、\n「その本は私を泣かせました。」という英文を作ろう。",
+        "type": "reorder",
+        "words": ["The", "book", "made", "me", "cry"],
+        "correctOrder": [0, 1, 2, 3, 4],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "The book made me cry. make + O + 原形動詞で、cry は原形のままです。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q20",
+        "question": "次の単語を正しい順番にならべて、\n「彼は私にそれが本当だと示しました。」という英文を作ろう。",
+        "type": "reorder",
+        "words": ["He", "showed", "me", "that", "it", "was", "true"],
+        "correctOrder": [0, 1, 2, 3, 4, 5, 6],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "He showed me that it was true. show + 人 me + that + 文（it was true）の語順です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q21",
+        "question": "次の単語を正しい順番にならべて、\n「先生は私たちに、英語は大切だと言いました。」という英文を作ろう。",
+        "type": "reorder",
+        "words": ["The", "teacher", "told", "us", "that", "English", "is", "important"],
+        "correctOrder": [0, 1, 2, 3, 4, 5, 6, 7],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "The teacher told us that English is important. tell + 人 us + that + 文の語順です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q22",
+        "question": "次の単語を正しい順番にならべて、\n「このグラフは私たちに、売上が伸びていると示しています。」という英文を作ろう。",
+        "type": "reorder",
+        "words": ["This", "graph", "shows", "us", "that", "sales", "are", "growing"],
+        "correctOrder": [0, 1, 2, 3, 4, 5, 6, 7],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "This graph shows us that sales are growing. 三単現 shows + 人 us + that + 文の語順です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q23",
+        "question": "次の単語を正しい順番にならべて、\n「その結果は彼を有名にしました。」という英文を作ろう。",
+        "type": "reorder",
+        "words": ["The", "result", "made", "him", "famous"],
+        "correctOrder": [0, 1, 2, 3, 4],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "The result made him famous. make + 目的格 him + 形容詞 famous の語順です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q24",
+        "question": "(　) に入るのは？\nThe comedian made everyone (　).\n（そのコメディアンはみんなを笑わせました。）",
+        "options": ["laugh", "laughed", "to laugh", "laughing"],
+        "correctIndex": 0,
+        "explanation": "make + O + 原形動詞で「O に〜させる」。to は付けず原形 laugh を置きます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q25",
+        "question": "(　) に入るのは？\nMy father taught me (　) hard work is important.\n（父は私に、努力が大切だと教えてくれました。）",
+        "options": ["what", "that", "which", "who"],
+        "correctIndex": 1,
+        "explanation": "teach + 人 + that + 文の接続詞 that。後ろに〈主語+動詞〉の完全な文が続きます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q26",
+        "question": "(　) に入るのは？\nYour visit has made us very (　).\n（あなたの訪問は私たちをとても幸せにしてくれました。）",
+        "options": ["happily", "happy", "happiness", "to happy"],
+        "correctIndex": 1,
+        "explanation": "has made は現在完了で、make + O + 形容詞の形。補語には形容詞 happy が入ります。副詞 happily は不可です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q27",
+        "question": "(　) に入るのは？\nHe (　) me that he would be late.\n（彼は私に、遅れるだろうと言いました。）",
+        "options": ["said", "told", "spoke", "talked"],
+        "correctIndex": 1,
+        "explanation": "tell + 人 + that + 文の過去形 told。said / spoke / talked は〈人 + that〉の形を直接とれません。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q28",
+        "question": "(　) に入るのは？\nThese photos show (　) that the trip was fun.\n（これらの写真は私たちに、旅行が楽しかったと示しています。）",
+        "options": ["we", "us", "they", "I"],
+        "correctIndex": 1,
+        "explanation": "show のあとの「人」は目的格。主格の we / they / I は不可で、目的格 us が正しいです。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q29",
+        "question": "次の単語を正しい順番にならべて、\n「彼女の手紙は私を幸せにしました。」という英文を作ろう。",
+        "type": "reorder",
+        "words": ["Her", "letter", "made", "me", "happy"],
+        "correctOrder": [0, 1, 2, 3, 4],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "Her letter made me happy. make + 目的格 me + 形容詞 happy の語順です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q30",
+        "question": "次の単語を正しい順番にならべて、\n「その経験は私に、努力が大切だと教えてくれました。」という英文を作ろう。",
+        "type": "reorder",
+        "words": ["The", "experience", "taught", "me", "that", "effort", "is", "important"],
+        "correctOrder": [0, 1, 2, 3, 4, 5, 6, 7],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "The experience taught me that effort is important. teach + 人 me + that + 文の語順です。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

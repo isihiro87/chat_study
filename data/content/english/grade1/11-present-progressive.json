@@ -1,0 +1,428 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade1",
+  "topicId": "eng-present-progressive",
+  "name": "現在進行形",
+  "subtitle": "be動詞 + 〜ing で「今〜している」",
+  "icon": "🏃",
+  "order": 11,
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "am",
+      "back": "I (　) watching TV now.（私は今、テレビを見ています。）",
+      "hint": "主語が I のときの be動詞は？",
+      "explanation": "主語が I のときの be動詞は am。be動詞 + ing で「今〜している」を表す。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "is",
+      "back": "He (　) reading a book now.（彼は今、本を読んでいます。）",
+      "hint": "he のときの be動詞は？",
+      "explanation": "主語が he のときの be動詞は is。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "are",
+      "back": "We (　) playing soccer now.（私たちは今、サッカーをしています。）",
+      "hint": "we のときの be動詞は？",
+      "explanation": "主語が we のときの be動詞は are。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "watching",
+      "back": "I am (　) TV now.（私は今、テレビを見ています。）",
+      "hint": "watch をそのまま ing にすると？",
+      "explanation": "watch はそのまま ing をつけて watching。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "reading",
+      "back": "She is (　) a comic book now.（彼女は今、マンガを読んでいます。）",
+      "hint": "read の ing形は？",
+      "explanation": "read はそのまま ing をつけて reading。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "eating",
+      "back": "She is (　) lunch now.（彼女は今、昼食を食べています。）",
+      "hint": "eat の ing形は？",
+      "explanation": "eat はそのまま ing をつけて eating。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "playing",
+      "back": "They are (　) baseball now.（彼らは今、野球をしています。）",
+      "hint": "play の ing形は？",
+      "explanation": "play はそのまま ing をつけて playing。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc8",
+      "front": "studying",
+      "back": "I am (　) English now.（私は今、英語を勉強しています。）",
+      "hint": "study はそのまま ing をつける動詞。",
+      "explanation": "study はそのまま ing をつけて studying。語尾の y はそのまま残す。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc9",
+      "front": "making",
+      "back": "She is (　) a cake now.（彼女は今、ケーキを作っています。）",
+      "hint": "e で終わる動詞 make の ing形は？",
+      "explanation": "make は語尾の e をとって making。e で終わる動詞は e を取って ing。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "writing",
+      "back": "I am (　) a letter now.（私は今、手紙を書いています。）",
+      "hint": "e で終わる動詞 write の ing形は？",
+      "explanation": "write は語尾の e をとって writing。e で終わる動詞は e を取って ing。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "using",
+      "back": "She is (　) her notebook now.（彼女は今、ノートを使っています。）",
+      "hint": "e で終わる動詞 use の ing形は？",
+      "explanation": "use は語尾の e をとって using。e で終わる動詞は e を取って ing。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "running",
+      "back": "The dog is (　) now.（その犬は今、走っています。）",
+      "hint": "run の ing形は？（子音を重ねるルール）",
+      "explanation": "run は短い母音 + 子音で終わるので n を重ねて running。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "swimming",
+      "back": "They are (　) in the sea now.（彼らは今、海で泳いでいます。）",
+      "hint": "swim の ing形は？（子音を重ねるルール）",
+      "explanation": "swim は短い母音 + 子音で終わるので m を重ねて swimming。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "is not",
+      "back": "She (　) playing the piano now.（彼女は今、ピアノを弾いていません。）",
+      "hint": "否定文は be動詞のうしろに何をつける？",
+      "explanation": "否定文は be動詞 + not + ing。is not は isn't と短くできる。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc15",
+      "front": "are not",
+      "back": "We (　) doing our homework now.（私たちは今、宿題をしていません。）",
+      "hint": "we の否定文では be動詞 + 何？",
+      "explanation": "否定文は be動詞 + not + ing。are not は aren't と短くできる。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc16",
+      "front": "Are",
+      "back": "(　) you studying English now? — Yes, I am.（あなたは今、英語を勉強していますか。— はい、しています。）",
+      "hint": "疑問文では何を文頭に置く？",
+      "explanation": "疑問文は be動詞を主語の前に出す。you には are を使う。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc17",
+      "front": "Is",
+      "back": "(　) he cooking dinner now? — Yes, he is.（彼は今、夕食を作っていますか。— はい、作っています。）",
+      "hint": "he の疑問文では何を文頭に？",
+      "explanation": "he には is。疑問文は Is を文頭に出す。答えは Yes, he is.",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc18",
+      "front": "plays",
+      "back": "He (　) tennis every day.（彼は毎日、テニスをします。）",
+      "hint": "every day はふだんの習慣。動詞は何形？",
+      "explanation": "every day はふだんのことなので現在形。He は三人称単数なので plays。進行形にしない。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc19",
+      "front": "is playing",
+      "back": "He (　) (　) tennis now.（彼は今、テニスをしています。）",
+      "hint": "now は今していること。be動詞 + ing は？",
+      "explanation": "now は今していることなので現在進行形。He には is、play は playing で is playing。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc20",
+      "front": "are",
+      "back": "What (　) they reading now?（彼らは今、何を読んでいますか。）",
+      "hint": "they のときの be動詞は？",
+      "explanation": "What + be動詞 + 主語 + ing? の語順。they には are。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc21",
+      "front": "Where",
+      "back": "(　) is your brother running now?（あなたのお兄さんは今、どこで走っていますか。）",
+      "hint": "「どこ」を表す疑問詞は？",
+      "explanation": "Where + is + 主語 + ing? の語順。「どこで〜していますか」と場所をたずねる。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc22",
+      "front": "going",
+      "back": "The students are (　) to school now.（その生徒たちは今、学校へ行っています。）",
+      "hint": "go の ing形は？",
+      "explanation": "go はそのまま ing をつけて going。students は複数なので are。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "「私は今、夕食を食べています。」に合う英文を選びなさい。",
+        "options": ["I eating dinner now.", "I eats dinner now.", "I am eating dinner now.", "I am eat dinner now."],
+        "correctIndex": 2,
+        "explanation": "現在進行形は be動詞 + 動詞ing。I には am、eat の ing形は eating。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "(　) に入るのは？\nMy sister is (　) a picture now.\n（私の姉は今、絵をかいています。）",
+        "options": ["drawing", "draw", "draws", "drew"],
+        "correctIndex": 0,
+        "explanation": "is のあとは動詞の ing形。draw → drawing。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "(　) に入るのは？\nWe (　) playing soccer now.\n（私たちは今、サッカーをしています。）",
+        "options": ["am", "is", "are", "be"],
+        "correctIndex": 2,
+        "explanation": "主語が we のときの be動詞は are。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "(　) に入るのは？\nHe (　) reading a book now.\n（彼は今、本を読んでいます。）",
+        "options": ["are", "is", "am", "do"],
+        "correctIndex": 1,
+        "explanation": "主語が he のときの be動詞は is。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "run の ing形として正しいものを選びなさい。",
+        "options": ["runing", "rune", "runying", "running"],
+        "correctIndex": 3,
+        "explanation": "run は短い母音 + 子音で終わるので n を重ねて running。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "use の ing形として正しいものを選びなさい。",
+        "options": ["useing", "using", "uses", "ussing"],
+        "correctIndex": 1,
+        "explanation": "use は語尾の e をとって using。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q7",
+        "question": "「彼は今、テレビを見ていません。」に合う英文を選びなさい。",
+        "options": ["He isn't watching TV now.", "He doesn't watching TV now.", "He isn't watch TV now.", "He not watching TV now."],
+        "correctIndex": 0,
+        "explanation": "現在進行形の否定文は be動詞 + not + ing。isn't は is not の短縮形。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "(　) に入るのは？\n(　) you studying Japanese now?\n（あなたは今、日本語を勉強していますか。）",
+        "options": ["Do", "Are", "Is", "Does"],
+        "correctIndex": 1,
+        "explanation": "現在進行形の疑問文は be動詞を前に出す。you には are。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "(　) に入るのは？\nAre they making lunch now? — Yes, (　).\n（彼らは今、昼食を作っていますか。— はい、作っています。）",
+        "options": ["they do", "they is", "they are", "they can"],
+        "correctIndex": 2,
+        "explanation": "Are they 〜? には Yes, they are. と答える。疑問文と答えの be動詞をそろえる。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "(　) に入るのは？\nWhat (　) your father doing now?\n（あなたのお父さんは今、何をしていますか。）",
+        "options": ["are", "do", "is", "does"],
+        "correctIndex": 2,
+        "explanation": "your father は he と同じ扱いなので is を使う。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "(　) に入るのは？\nShe is (　) a cake now.\n（彼女は今、ケーキを作っています。）",
+        "options": ["making", "makes", "make", "maked"],
+        "correctIndex": 0,
+        "explanation": "is のあとは ing形。make は e をとって making。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "(　) に入るのは？\nThey are (　) in the sea now.\n（彼らは今、海で泳いでいます。）",
+        "options": ["swims", "swim", "swimming", "swiming"],
+        "correctIndex": 2,
+        "explanation": "swim は短い母音 + 子音なので m を重ねて swimming。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q13",
+        "question": "「彼は学生です。」に合う英文を選びなさい。",
+        "options": ["He is studying.", "He is a student.", "He does a student.", "He are a student."],
+        "correctIndex": 1,
+        "explanation": "これは「今〜している」ではなく be動詞の文。is + 名詞 の形にする。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q14",
+        "question": "(　) に入るのは？\nWhere are they (　) soccer now?\n（彼らは今、どこでサッカーをしていますか。）",
+        "options": ["play", "plays", "playing", "played"],
+        "correctIndex": 2,
+        "explanation": "疑問詞があっても現在進行形は are + ing。play → playing。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q15",
+        "question": "(　) に入るのは？\nShe (　) English every day.\n（彼女は毎日、英語を勉強します。）",
+        "options": ["is studying", "studies", "study", "studying"],
+        "correctIndex": 1,
+        "explanation": "every day はふだんのことなので現在形。She が主語なので studies。進行形にしない。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q16",
+        "question": "次の英文のうち正しいものを選びなさい。",
+        "options": ["Ken is plays tennis now.", "Ken plays tennis now.", "Ken playing tennis now.", "Ken is playing tennis now."],
+        "correctIndex": 3,
+        "explanation": "now があるので現在進行形 is + playing。進行形では plays のように s をつけない。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q17",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私は今、水を飲んでいます。」の英文を作ろう。",
+        "words": ["am", "drinking", "i", "water", "now"],
+        "correctOrder": [2, 0, 1, 3, 4],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I am drinking water now.」が正解。I am + ing の語順。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q18",
+        "type": "reorder",
+        "question": "次の語を並べかえて「彼女は今、ケーキを作っています。」の英文を作ろう。",
+        "words": ["making", "now", "cake", "she", "is", "a"],
+        "correctOrder": [3, 4, 0, 5, 2, 1],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「She is making a cake now.」が正解。make は e をとって making。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q19",
+        "type": "reorder",
+        "question": "次の語を並べかえて「彼らは今、走っています。」の英文を作ろう。",
+        "words": ["running", "are", "they", "now"],
+        "correctOrder": [2, 1, 0, 3],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「They are running now.」が正解。run は n を重ねて running。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q20",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私たちは今、英語を勉強しています。」の英文を作ろう。",
+        "words": ["studying", "english", "are", "we", "now"],
+        "correctOrder": [3, 2, 0, 1, 4],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「We are studying English now.」が正解。we には are、study は studying。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q21",
+        "type": "reorder",
+        "question": "次の語を並べかえて「あなたは今、英語を書いていますか。」の英文を作ろう。",
+        "words": ["you", "writing", "english", "are", "now"],
+        "correctOrder": [3, 0, 1, 2, 4],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Are you writing English now?」が正解。疑問文は Are you + ing 〜? の語順。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q22",
+        "type": "reorder",
+        "question": "次の語を並べかえて「彼は今、昼食を食べていません。」の英文を作ろう。",
+        "words": ["isn't", "he", "lunch", "eating", "now"],
+        "correctOrder": [1, 0, 3, 2, 4],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「He isn't eating lunch now.」が正解。否定文は be動詞 + not + ing。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q23",
+        "type": "reorder",
+        "question": "次の語を並べかえて「彼女は今、何を読んでいますか。」の英文を作ろう。",
+        "words": ["is", "reading", "what", "she", "now"],
+        "correctOrder": [2, 0, 3, 1, 4],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「What is she reading now?」が正解。What + is + 主語 + ing の語順。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q24",
+        "type": "reorder",
+        "question": "次の語を並べかえて「彼は毎日、数学を勉強します。」の英文を作ろう。",
+        "words": ["math", "studies", "he", "every day"],
+        "correctOrder": [2, 1, 0, 3],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「He studies math every day.」が正解。every day はふだんのことなので現在形。he が主語なので studies。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q25",
+        "type": "reorder",
+        "question": "次の語を並べかえて「その生徒たちは今、学校へ行っていますか。」の英文を作ろう。",
+        "words": ["going", "the students", "to school", "are", "now"],
+        "correctOrder": [3, 1, 0, 2, 4],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Are the students going to school now?」が正解。疑問文では are を主語の前に出す。go は going。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

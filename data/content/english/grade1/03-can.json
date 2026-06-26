@@ -1,0 +1,272 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade1",
+  "topicId": "eng-can",
+  "name": "can（〜できる）",
+  "subtitle": "〜できる / 〜できない / 〜できますか",
+  "icon": "💪",
+  "order": 3,
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "can",
+      "back": "I (　) swim fast.（私は速く泳げます。）",
+      "hint": "「〜できる」を表す語は？",
+      "explanation": "「〜できる」は can。can のあとの動詞はもとの形（原形）を使うよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "swim",
+      "back": "I can (　) fast.（私は速く泳げます。）",
+      "hint": "can のあとの動詞はどんな形？",
+      "explanation": "can のあとの動詞はいつも原形。swims や swimming にはしないよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "can",
+      "back": "He (　) play the guitar.（彼はギターをひけます。）",
+      "hint": "主語が he でも「〜できる」は？",
+      "explanation": "can は主語が he / she でも形がかわらないよ。s はつけない。He can play 〜。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "can",
+      "back": "She (　) speak English.（彼女は英語を話せます。）",
+      "hint": "主語が she のときの「〜できる」は？",
+      "explanation": "she が主語でも can はそのまま。あとの動詞も原形（speak）を使うよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "cannot",
+      "back": "I (　) ski.（私はスキーができません。）",
+      "hint": "「〜できない」を表す語は？",
+      "explanation": "「〜できない」は cannot。can と not をつなげて1語で書くよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "can't",
+      "back": "I (　) read this kanji.（私はこの漢字が読めません。）",
+      "hint": "cannot をみじかく言うと？",
+      "explanation": "cannot の短縮形は can't。あとの動詞は原形（read）だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc7",
+      "front": "can't",
+      "back": "He (　) play the piano.（彼はピアノがひけません。）",
+      "hint": "主語が he でも「〜できない」の短縮形は？",
+      "explanation": "he が主語でも can't はそのまま。あとの動詞も原形（play）だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "Can",
+      "back": "(　) you cook curry?（あなたはカレーを作れますか？）",
+      "hint": "「〜できますか？」の文の最初にくる語は？",
+      "explanation": "「〜できますか？」は Can を文の最初に置くよ。Can you cook curry?",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc9",
+      "front": "Can",
+      "back": "(　) he run fast?（彼は速く走れますか？）",
+      "hint": "主語が he でも「〜できますか？」の先頭は？",
+      "explanation": "he でも疑問文は Can を先頭に置くよ。be動詞や do を使わず Can ではじめるよ。Can he run fast?",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "Yes, I can.",
+      "back": "Can you ski?（あなたはスキーができますか？）\nに「はい」で答えると？",
+      "hint": "Can で聞かれたら can で答えるよ。",
+      "explanation": "Can you 〜? には Yes, I can. / No, I can't. で答えるよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "No, I can't.",
+      "back": "Can you swim?（あなたは泳げますか？）\nに「いいえ」で答えると？",
+      "hint": "「いいえ」は can の短縮形を使うよ。",
+      "explanation": "「いいえ」は No, I can't.（= No, I cannot.）だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "cook",
+      "back": "Can you (　) breakfast?（あなたは朝ごはんを作れますか？）",
+      "hint": "Can のあとの動詞はどんな形？",
+      "explanation": "Can のあとの動詞は原形（cook）。cooks にはしないよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "play",
+      "back": "Can she (　) tennis?（彼女はテニスができますか？）",
+      "hint": "Can she のあとの動詞の形は？",
+      "explanation": "Can のあとは主語が she でも原形（play）。plays にはしないよ。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc14",
+      "front": "can",
+      "back": "They (　) sing well.（彼らはじょうずに歌えます。）",
+      "hint": "主語が they のときの「〜できる」は？",
+      "explanation": "can は主語が何でも形がかわらないよ。They can sing well.",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "(　) に入るのは？\nI (　) swim fast.\n（私は速く泳げます。）",
+        "options": ["am", "can", "do", "is"],
+        "correctIndex": 1,
+        "explanation": "「〜できる」は can。あとの動詞は原形（swim）を使うよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "(　) に入るのは？\nI can (　) fast.\n（私は速く泳げます。）",
+        "options": ["swims", "swimming", "swim", "to swim"],
+        "correctIndex": 2,
+        "explanation": "can のあとの動詞は原形。swim を使うよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "(　) に入るのは？\nHe (　) play the guitar.\n（彼はギターをひけます。）",
+        "options": ["cans", "can", "do", "is"],
+        "correctIndex": 1,
+        "explanation": "can は主語が he でも形がかわらない。cans とは言わないよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q4",
+        "question": "(　) に入るのは？\nShe (　) speak English.\n（彼女は英語を話せます。）",
+        "options": ["can", "cans", "is", "do"],
+        "correctIndex": 0,
+        "explanation": "she が主語でも can はそのまま。あとの動詞も原形（speak）だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "(　) に入るのは？\nI (　) ski.\n（私はスキーができません。）",
+        "options": ["don't", "cannot", "am not", "isn't"],
+        "correctIndex": 1,
+        "explanation": "「〜できない」は cannot。あとの動詞は原形（ski）だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "(　) に入るのは？\n(　) you cook curry?\n（あなたはカレーを作れますか？）",
+        "options": ["Do", "Are", "Can", "Is"],
+        "correctIndex": 2,
+        "explanation": "「〜できますか？」は Can を文の最初に置くよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q7",
+        "question": "(　) に入るのは？\n(　) he run fast?\n（彼は速く走れますか？）",
+        "options": ["Are", "Is", "Do", "Can"],
+        "correctIndex": 3,
+        "explanation": "he でも「〜できますか？」は Can を先頭に置くよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "(　) に入るのは？\nCan you ski? — Yes, (　)\n（はい、できます。）",
+        "options": ["I can.", "I do.", "I am.", "you can."],
+        "correctIndex": 0,
+        "explanation": "Can で聞かれたら can で答える。Yes, I can. が正解。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "(　) に入るのは？\nCan you swim? — No, (　)\n（いいえ、できません。）",
+        "options": ["I don't.", "I'm not.", "I can't.", "you can't."],
+        "correctIndex": 2,
+        "explanation": "「いいえ」は No, I can't.（= No, I cannot.）だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "(　) に入るのは？\nCan you (　) breakfast?\n（あなたは朝ごはんを作れますか？）",
+        "options": ["cook", "cooks", "cooking", "to cook"],
+        "correctIndex": 0,
+        "explanation": "Can のあとの動詞は原形（cook）だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "(　) に入るのは？\nCan she (　) tennis?\n（彼女はテニスができますか？）",
+        "options": ["plays", "play", "playing", "to play"],
+        "correctIndex": 1,
+        "explanation": "Can のあとは主語が she でも原形（play）。plays にはしないよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q12",
+        "question": "次のうち、文として正しいものはどれ？",
+        "options": ["He cans swim.", "He can swims.", "He can swim.", "He is can swim."],
+        "correctIndex": 2,
+        "explanation": "can は形がかわらず、あとの動詞は原形。正しくは He can swim. だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q13",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私は速く泳げます。」の英文を作ろう。",
+        "words": ["swim", "I", "fast", "can"],
+        "correctOrder": [1, 3, 0, 2],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I can swim fast.」が正解。can のあとの動詞は原形だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q14",
+        "type": "reorder",
+        "question": "次の語を並べかえて「あなたはピアノをひけますか？」の英文を作ろう。",
+        "words": ["play", "you", "the piano", "can"],
+        "correctOrder": [3, 1, 0, 2],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Can you play the piano?」が正解。疑問文は Can を文の最初に置くよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q15",
+        "type": "reorder",
+        "question": "次の語を並べかえて「彼は速く走れません。」の英文を作ろう。",
+        "words": ["run", "can't", "he", "fast"],
+        "correctOrder": [2, 1, 0, 3],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「He can't run fast.」が正解。he でも can't はそのまま、あとの動詞は原形 run。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q16",
+        "type": "reorder",
+        "question": "次の語を並べかえて「彼女は英語を話せます。」の英文を作ろう。",
+        "words": ["English", "can", "she", "speak"],
+        "correctOrder": [2, 1, 3, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「She can speak English.」が正解。she でも can はそのまま、あとの動詞は原形 speak。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

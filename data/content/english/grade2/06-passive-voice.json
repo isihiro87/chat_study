@@ -1,0 +1,670 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade2",
+  "topicId": "eng-passive-voice",
+  "name": "受け身の文",
+  "subtitle": "be動詞 + 過去分詞 / by 〜",
+  "icon": "🔄",
+  "order": 6,
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "is used",
+      "back": "This room (　) every day.（この部屋は毎日使われています。）",
+      "hint": "「使われている」は受け身。be動詞 + 過去分詞だよ。",
+      "explanation": "受け身は be動詞 + 過去分詞。use の過去分詞は used。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "is spoken",
+      "back": "English (　) all over the world.（英語は世界中で話されています。）",
+      "hint": "speak の過去分詞を使った受け身だよ。",
+      "explanation": "speak → spoken。English is spoken =「英語が話されている」。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "is loved",
+      "back": "This anime (　) by many children.（このアニメは多くの子どもに愛されています。）",
+      "hint": "love の過去分詞は ed をつけるだけ。",
+      "explanation": "love → loved。is loved =「愛されている」。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "is played",
+      "back": "Soccer (　) in many countries.（サッカーは多くの国でプレーされています。）",
+      "hint": "play の過去分詞を使うよ。",
+      "explanation": "play → played。is played =「プレーされている」。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "by",
+      "back": "This letter was written (　) my father.（この手紙は父によって書かれました。）",
+      "hint": "「〜によって」を表す前置詞は？",
+      "explanation": "by 〜 =「〜によって」。だれがしたかを言うときに使うよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "written",
+      "back": "write の過去分詞は？",
+      "hint": "write - wrote - ???",
+      "explanation": "write → wrote → written。不規則動詞だよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "made",
+      "back": "make の過去分詞は？",
+      "hint": "make - made - ???",
+      "explanation": "make → made → made。過去形と同じ形だよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc8",
+      "front": "spoken",
+      "back": "speak の過去分詞は？",
+      "hint": "speak - spoke - ???",
+      "explanation": "speak → spoke → spoken。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc9",
+      "front": "read",
+      "back": "read の過去分詞は？（形は同じだけど発音がちがうよ）",
+      "hint": "read - read - ???（つづりは同じ）",
+      "explanation": "read → read → read。つづりは同じで「レッド」と読むよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc10",
+      "front": "is made",
+      "back": "This box (　) of paper.（この箱は紙で作られています。）",
+      "hint": "make の過去分詞を使った受け身だよ。",
+      "explanation": "is made of 〜 =「〜で作られている」（材料が見えるとき）。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc11",
+      "front": "was built",
+      "back": "This bridge (　) ten years ago.（この橋は10年前に建てられました。）",
+      "hint": "過去の受け身。build の過去分詞は？",
+      "explanation": "build → built。過去の受け身は was/were + 過去分詞。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "were taken",
+      "back": "These photos (　) in Kyoto.（これらの写真は京都で撮られました。）",
+      "hint": "These photos は複数で、過去のことだよ。",
+      "explanation": "複数だから were。take → taken。were taken。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "is not used",
+      "back": "This computer (　) now.（このコンピュータは今使われていません。）",
+      "hint": "受け身の否定文。be動詞のうしろに not。",
+      "explanation": "受け身の否定文は be動詞 + not + 過去分詞。is not used。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "Is",
+      "back": "(　) French spoken in this country?（この国ではフランス語が話されていますか？）",
+      "hint": "受け身の疑問文。be動詞を文頭に。",
+      "explanation": "受け身の疑問文は be動詞を文のいちばん最初に。Is French spoken ...?",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc15",
+      "front": "was invited",
+      "back": "She (　) to the party.（彼女はパーティーに招待されました。）",
+      "hint": "過去の受け身で、主語は She。",
+      "explanation": "She だから was。invite → invited。was invited。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc16",
+      "front": "given",
+      "back": "give の過去分詞は？",
+      "hint": "give - gave - ???",
+      "explanation": "give → gave → given。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc17",
+      "front": "taken",
+      "back": "take の過去分詞は？",
+      "hint": "take - took - ???",
+      "explanation": "take → took → taken。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc18",
+      "front": "seen",
+      "back": "see の過去分詞は？",
+      "hint": "see - saw - ???",
+      "explanation": "see → saw → seen。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc19",
+      "front": "eaten",
+      "back": "eat の過去分詞は？",
+      "hint": "eat - ate - ???",
+      "explanation": "eat → ate → eaten。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc20",
+      "front": "is called",
+      "back": "This sport (　) kendo.（このスポーツは剣道と呼ばれています。）",
+      "hint": "「〜と呼ばれている」は受け身。call の過去分詞は？",
+      "explanation": "be called 〜 =「〜と呼ばれている」。call → called。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc21",
+      "front": "is made",
+      "back": "Cheese (　) from milk.（チーズは牛乳から作られます。）",
+      "hint": "原料が変化して見えないときは made from。",
+      "explanation": "be made from 〜 =「〜から作られる」（原料が変化して見えないとき）。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc22",
+      "front": "Was",
+      "back": "(　) this picture painted by him?（この絵は彼によって描かれましたか？）",
+      "hint": "過去の受け身の疑問文。be動詞を文頭に。",
+      "explanation": "過去の受け身の疑問文は Was/Were + 主語 + 過去分詞 ...?",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "(　) に入るのは？\nEnglish (　) in many countries.\n（英語は多くの国で話されています。）",
+        "options": ["is spoken", "speaks", "spoken", "is speaking"],
+        "correctIndex": 0,
+        "explanation": "「話されている」は受け身。be動詞 + 過去分詞で is spoken だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "(　) に入るのは？\nThis book (　) by many students.\n（この本は多くの生徒に読まれています。）",
+        "options": ["reads", "is read", "read", "reading"],
+        "correctIndex": 1,
+        "explanation": "受け身は be動詞 + 過去分詞。read の過去分詞は read（形は同じ）。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "(　) に入るのは？\nThis song was written (　) her.\n（この歌は彼女によって書かれました。）",
+        "options": ["to", "for", "by", "of"],
+        "correctIndex": 2,
+        "explanation": "「〜によって」は by。written by her =「彼女によって書かれた」。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "speak の過去分詞として正しいのは？",
+        "options": ["speaked", "spoke", "spoken", "speaking"],
+        "correctIndex": 2,
+        "explanation": "speak → spoke → spoken。speak は不規則動詞だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "make の過去分詞として正しいのは？",
+        "options": ["made", "maked", "making", "maken"],
+        "correctIndex": 0,
+        "explanation": "make → made → made。過去形と過去分詞が同じ形だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "write の過去分詞として正しいのは？",
+        "options": ["writed", "wrote", "writing", "written"],
+        "correctIndex": 3,
+        "explanation": "write → wrote → written。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q7",
+        "question": "(　) に入るのは？\nThis temple (　) in 1300.\n（この寺は1300年に建てられました。）",
+        "options": ["was built", "is built", "built", "was building"],
+        "correctIndex": 0,
+        "explanation": "1300年のことだから過去の受け身。was + 過去分詞で was built。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "(　) に入るのは？\nThese pictures (　) last week.\n（これらの写真は先週撮られました。）",
+        "options": ["was taken", "is taken", "were taken", "are taken"],
+        "correctIndex": 2,
+        "explanation": "主語が複数で過去のことだから were taken。take → taken。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "「Is this room used every day?」に「はい」で答えるとき、正しいのは？",
+        "options": ["Yes, it does.", "Yes, it is.", "Yes, it was.", "Yes, it uses."],
+        "correctIndex": 1,
+        "explanation": "Is で聞かれたら is で答えるよ。Yes, it is.",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "「This song is not loved by people.」の意味として正しいのは？",
+        "options": [
+          "この歌は人々に愛されています。",
+          "この歌は人々を愛していません。",
+          "この歌は人々に愛されていません。",
+          "この歌は人々に愛されました。"
+        ],
+        "correctIndex": 2,
+        "explanation": "受け身の否定文。is not loved =「愛されていない」。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "(　) に入るのは？\nThis app (　) by many people.\n（このアプリは多くの人に使われています。）",
+        "options": ["is used", "uses", "used", "is using"],
+        "correctIndex": 0,
+        "explanation": "受け身は be動詞 + 過去分詞 + by 〜。use → used で is used by many people。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "give の過去分詞として正しいのは？",
+        "options": ["gived", "given", "gave", "giving"],
+        "correctIndex": 1,
+        "explanation": "give → gave → given。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q13",
+        "question": "(　) に入るのは？\nThis dish (　) sushi.\n（この料理はすしと呼ばれています。）",
+        "options": ["calls", "is calling", "called", "is called"],
+        "correctIndex": 3,
+        "explanation": "「〜と呼ばれている」は受け身の be called。is called。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q14",
+        "question": "(　) に入るのは？\nThis desk is made (　) wood.\n（この机は木で作られています。）",
+        "options": ["from", "in", "by", "of"],
+        "correctIndex": 3,
+        "explanation": "材料が見てわかるときは of。木が見えるから is made of wood。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q15",
+        "question": "(　) に入るのは？\nButter is made (　) milk.\n（バターは牛乳から作られます。）",
+        "options": ["of", "from", "by", "with"],
+        "correctIndex": 1,
+        "explanation": "原料が変化して見えないときは from。牛乳がバターに変わるから is made from milk。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q16",
+        "question": "「His car was made 20 years ago.」の下線部（20 years ago）をたずねる疑問文は？",
+        "options": [
+          "Where was his car made?",
+          "What was his car made?",
+          "When was his car made?",
+          "Who was his car made?"
+        ],
+        "correctIndex": 2,
+        "explanation": "「20年前に」は「いつ」をたずねているから When。When was his car made?",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q17",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「英語はここで話されています。」という英文を作ろう。",
+        "words": ["here", "is", "spoken", "english"],
+        "correctOrder": [3, 1, 2, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「English is spoken here.」が正解。受け身は be動詞 + 過去分詞だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q18",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「この本は多くの人に読まれています。」という英文を作ろう。",
+        "words": ["read", "is", "this", "by", "book", "many", "people"],
+        "correctOrder": [2, 4, 1, 0, 3, 5, 6],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「This book is read by many people.」が正解。be動詞 + 過去分詞 + by 〜の形だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q19",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「そのケーキは彼によって作られました。」という英文を作ろう。",
+        "words": ["him", "made", "was", "the", "by", "cake"],
+        "correctOrder": [3, 5, 2, 1, 4, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「The cake was made by him.」が正解。過去の受け身は was/were + 過去分詞だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q20",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「フランス語はここでは話されていません。」という英文を作ろう。",
+        "words": ["not", "french", "spoken", "is", "here"],
+        "correctOrder": [1, 3, 0, 2, 4],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「French is not spoken here.」が正解。受け身の否定文は be動詞 + not + 過去分詞。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q21",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「この部屋は毎日使われていますか？」という英文を作ろう。",
+        "words": ["used", "this", "is", "room", "every", "day"],
+        "correctOrder": [2, 1, 3, 0, 4, 5],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Is this room used every day?」が正解。受け身の疑問文は be動詞を文頭に。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q22",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「この寺はいつ建てられましたか？」という英文を作ろう。",
+        "words": ["built", "this", "when", "was", "temple"],
+        "correctOrder": [2, 3, 1, 4, 0],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「When was this temple built?」が正解。疑問詞 + was + 主語 + 過去分詞の語順だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q23",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「このいすは木で作られています。」という英文を作ろう。",
+        "words": ["of", "this", "made", "is", "chair", "wood"],
+        "correctOrder": [1, 4, 3, 2, 0, 5],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「This chair is made of wood.」が正解。be made of 〜 =「〜で作られている」。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q24",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「この料理はすしと呼ばれています。」という英文を作ろう。",
+        "words": ["called", "this", "is", "dish", "sushi"],
+        "correctOrder": [1, 3, 2, 0, 4],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「This dish is called sushi.」が正解。be called 〜 =「〜と呼ばれている」。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q25",
+        "question": "(　) に入るのは？\nThis window (　) by the boy.\n（この窓はその男の子によって割られました。）",
+        "options": ["was broken", "broke", "is breaking", "breaks"],
+        "correctIndex": 0,
+        "explanation": "過去の受け身は was/were + 過去分詞。break → broken で was broken。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q26",
+        "question": "(　) に入るのは？\nThis letter will (　) tomorrow.\n（この手紙は明日送られるでしょう。）",
+        "options": ["be sent", "sent", "is sent", "sends"],
+        "correctIndex": 0,
+        "explanation": "助動詞のある受け身は 助動詞 + be + 過去分詞。send → sent で will be sent。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q27",
+        "question": "(　) に入るのは？\nThis problem can (　) easily.\n（この問題は簡単に解かれることができます。）",
+        "options": ["be solved", "solved", "is solved", "solving"],
+        "correctIndex": 0,
+        "explanation": "can のあとは be + 過去分詞。solve → solved で can be solved。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q28",
+        "question": "(　) に入るのは？\nThis homework must (　) by Friday.\n（この宿題は金曜日までに終えられなければなりません。）",
+        "options": ["be finished", "finished", "is finished", "finish"],
+        "correctIndex": 0,
+        "explanation": "must のあとは be + 過去分詞。finish → finished で must be finished。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q29",
+        "question": "buy の過去分詞として正しいのは？",
+        "options": ["buyed", "bought", "buying", "buy"],
+        "correctIndex": 1,
+        "explanation": "buy → bought → bought。過去形と過去分詞が同じ形だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q30",
+        "question": "catch の過去分詞として正しいのは？",
+        "options": ["catched", "caught", "catching", "catch"],
+        "correctIndex": 1,
+        "explanation": "catch → caught → caught。不規則動詞だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q31",
+        "question": "(　) に入るのは？\nThese cars (　) in Japan.\n（これらの車は日本で作られています。）",
+        "options": ["is made", "are made", "made", "makes"],
+        "correctIndex": 1,
+        "explanation": "主語が複数だから are。make → made で are made。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q32",
+        "question": "(　) に入るのは？\nThis room (　) yesterday.\n（この部屋は昨日掃除されませんでした。）",
+        "options": ["was not cleaned", "is not cleaned", "did not clean", "not cleaned"],
+        "correctIndex": 0,
+        "explanation": "過去の受け身の否定文は was/were + not + 過去分詞。was not cleaned。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q33",
+        "question": "(　) に入るのは？\nThis book is (　) than that one.\n（この本はあの本より人気があります。）",
+        "options": ["more popular", "popular", "most popular", "popularer"],
+        "correctIndex": 0,
+        "explanation": "popular は長い形容詞なので比較級は more popular。than 〜 とセットで使うよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q34",
+        "question": "(　) に入るのは？\nI want (　) English well.\n（私は英語を上手に話したいです。）",
+        "options": ["to speak", "speak", "speaking", "spoke"],
+        "correctIndex": 0,
+        "explanation": "want to + 動詞の原形 =「〜したい」。to speak が正解。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q35",
+        "question": "(　) に入るのは？\nThe door (　) when I arrived.\n（私が着いたとき、ドアは閉められていました。）",
+        "options": ["was closed", "closed", "is closed", "closes"],
+        "correctIndex": 0,
+        "explanation": "過去のことだから was + 過去分詞。close → closed で was closed。when は「〜のとき」の接続詞。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q36",
+        "question": "(　) に入るのは？\nWas this picture (　) by your sister?\n（この絵はあなたのお姉さんによって描かれましたか？）",
+        "options": ["painted", "paint", "painting", "paints"],
+        "correctIndex": 0,
+        "explanation": "過去の受け身の疑問文。Was + 主語 + 過去分詞。paint → painted。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q37",
+        "question": "(　) に入るのは？\n(　) these books used in class?\n（これらの本は授業で使われていますか？）",
+        "options": ["Are", "Is", "Do", "Was"],
+        "correctIndex": 0,
+        "explanation": "受け身の疑問文で主語が複数・現在だから Are を文頭に。Are these books used ...?",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q38",
+        "question": "find の過去分詞として正しいのは？",
+        "options": ["finded", "found", "finding", "find"],
+        "correctIndex": 1,
+        "explanation": "find → found → found。過去形と過去分詞が同じ形だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q39",
+        "question": "(　) に入るのは？\nThe bridge will (　) next year.\n（その橋は来年建てられるでしょう。）",
+        "options": ["be built", "built", "is built", "build"],
+        "correctIndex": 0,
+        "explanation": "will のあとは be + 過去分詞。build → built で will be built。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q40",
+        "question": "(　) に入るのは？\nStars (　) at night.\n（星は夜に見られます。）",
+        "options": ["are seen", "is seen", "see", "seen"],
+        "correctIndex": 0,
+        "explanation": "主語 Stars は複数だから are。see → seen で are seen。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q41",
+        "question": "(　) に入るのは？\nThis singer (　) by many people.\n（この歌手は多くの人に愛されています。）",
+        "options": ["is loved", "loves", "loved", "is loving"],
+        "correctIndex": 0,
+        "explanation": "受け身は be動詞 + 過去分詞 + by 〜。love → loved で is loved by many people。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q42",
+        "type": "reorder",
+        "question": "次の語を並べかえて「これらの手紙はトムによって書かれました。」の英文を作ろう。",
+        "words": ["written", "these", "were", "by", "letters", "Tom"],
+        "correctOrder": [1, 4, 2, 0, 3, 5],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「These letters were written by Tom.」が正解。複数・過去だから were + 過去分詞。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q43",
+        "type": "reorder",
+        "question": "次の語を並べかえて「この車はみんなに使われることができます。」の英文を作ろう。",
+        "words": ["can", "this", "used", "be", "car", "everyone", "by"],
+        "correctOrder": [1, 4, 0, 3, 2, 6, 5],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「This car can be used by everyone.」が正解。助動詞 + be + 過去分詞の形だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q44",
+        "type": "reorder",
+        "question": "次の語を並べかえて「この歌はパーティーで歌われるでしょう。」の英文を作ろう。",
+        "words": ["will", "this", "sung", "be", "song", "at", "the", "party"],
+        "correctOrder": [1, 4, 0, 3, 2, 5, 6, 7],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「This song will be sung at the party.」が正解。sing → sung、will be + 過去分詞。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q45",
+        "type": "reorder",
+        "question": "次の語を並べかえて「英語は毎日勉強されなければなりません。」の英文を作ろう。",
+        "words": ["be", "english", "studied", "must", "every", "day"],
+        "correctOrder": [1, 3, 0, 2, 4, 5],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「English must be studied every day.」が正解。must be + 過去分詞の形だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q46",
+        "type": "reorder",
+        "question": "次の語を並べかえて「この部屋は昨日掃除されませんでした。」の英文を作ろう。",
+        "words": ["not", "this", "cleaned", "was", "room", "yesterday"],
+        "correctOrder": [1, 4, 3, 0, 2, 5],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「This room was not cleaned yesterday.」が正解。過去の受け身の否定は was + not + 過去分詞。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q47",
+        "type": "reorder",
+        "question": "次の語を並べかえて「これらの写真は沖縄で撮られましたか？」の英文を作ろう。",
+        "words": ["taken", "these", "were", "pictures", "in", "Okinawa"],
+        "correctOrder": [2, 1, 3, 0, 4, 5],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Were these pictures taken in Okinawa?」が正解。複数・過去の受け身の疑問文は Were を文頭に。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q48",
+        "type": "reorder",
+        "question": "次の語を並べかえて「この物語は多くの人に知られています。」の英文を作ろう。",
+        "words": ["known", "this", "to", "is", "story", "many", "people"],
+        "correctOrder": [1, 4, 3, 0, 2, 5, 6],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「This story is known to many people.」が正解。be known to 〜 =「〜に知られている」。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q49",
+        "type": "reorder",
+        "question": "次の語を並べかえて「その窓は彼によって割られました。」の英文を作ろう。",
+        "words": ["broken", "the", "by", "was", "window", "him"],
+        "correctOrder": [1, 4, 3, 0, 2, 5],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「The window was broken by him.」が正解。break → broken、過去の受け身。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q50",
+        "type": "reorder",
+        "question": "次の語を並べかえて「これらの花はみんなに愛されています。」の英文を作ろう。",
+        "words": ["loved", "these", "are", "by", "flowers", "everyone"],
+        "correctOrder": [1, 4, 2, 0, 3, 5],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「These flowers are loved by everyone.」が正解。複数・現在だから are + 過去分詞。",
+        "difficulty": "standard"
+      }
+    ]
+  }
+}

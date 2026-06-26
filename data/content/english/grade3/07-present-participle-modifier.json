@@ -1,0 +1,484 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade3",
+  "topicId": "eng-present-participle-modifier",
+  "name": "現在分詞による後置修飾",
+  "subtitle": "名詞のうしろから「〜している…」と説明を加える形",
+  "icon": "🏷️",
+  "order": 7,
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "running",
+      "back": "run（走る）の〜ing形は？（つづりに注意！）",
+      "hint": "短母音＋子音で終わる動詞は子音を重ねるよ",
+      "explanation": "run は短母音＋n で終わるから n を重ねて running。swimming や sitting も同じパターンだよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "smiling",
+      "back": "smile（微笑む）の〜ing形は？（つづりに注意！）",
+      "hint": "e で終わる動詞は e を取って〜ing をつけるよ",
+      "explanation": "smile は e で終わるから e を取って smiling。using や riding も同じパターンだよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "the boy running in the park",
+      "back": "「公園で走っている男の子」を英語にすると？",
+      "hint": "「走っている」は run の〜ing形だよ",
+      "explanation": "boy のうしろに running in the park を置いて説明するよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "the girl playing the piano",
+      "back": "「ピアノを弾いている女の子」を英語にすると？",
+      "hint": "「弾いている」は play の〜ing形だよ",
+      "explanation": "girl のうしろに playing the piano を置くよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "the man standing over there",
+      "back": "「あそこに立っている男の人」を英語にすると？",
+      "hint": "「立っている」は stand の〜ing形だよ",
+      "explanation": "man のうしろに standing over there を置くよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "the cat sleeping on the sofa",
+      "back": "「ソファで寝ている猫」を英語にすると？",
+      "hint": "「寝ている」は sleep の〜ing形だよ",
+      "explanation": "cat のうしろに sleeping on the sofa を置くよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "the woman talking on the phone",
+      "back": "「電話で話している女の人」を英語にすると？",
+      "hint": "「話している」は talk の〜ing形だよ",
+      "explanation": "woman のうしろに talking on the phone を置くよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "the girl with short hair",
+      "back": "「短い髪の女の子」を英語にすると？（〜ingではなく前置詞 with を使う形）",
+      "hint": "「〜を持った」は with で表せるよ",
+      "explanation": "girl のうしろに with short hair を置くよ。前置詞 with でも名詞をうしろから説明できるよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc9",
+      "front": "the boy using a computer",
+      "back": "「コンピューターを使っている少年」を英語にすると？",
+      "hint": "「使っている」は use の〜ing形 using（e を取る）だよ",
+      "explanation": "boy のうしろに using a computer を置くよ。use の〜ing形は e を取って using だよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc10",
+      "front": "the boy riding a bicycle",
+      "back": "「自転車に乗っている少年」を英語にすると？",
+      "hint": "「乗っている」は ride の〜ing形 riding だよ",
+      "explanation": "boy のうしろに riding a bicycle を置くよ。ride は e を取って riding だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "The boys reading books are my sons.",
+      "back": "「本を読んでいる少年たちは私の息子です。」を英語にすると？",
+      "hint": "boys のうしろに reading books を置くよ",
+      "explanation": "The boys reading books が主語で、are my sons が述語だよ。〜ing が名詞を後置修飾しているよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "Look at the bird flying in the sky.",
+      "back": "「空を飛んでいる鳥を見てごらん。」を英語にすると？",
+      "hint": "「飛んでいる」は fly の〜ing形 flying だよ",
+      "explanation": "bird のうしろに flying in the sky を置くよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "Who is the boy running over there?",
+      "back": "「あそこを走っている男の子はだれですか。」を英語にすると？",
+      "hint": "疑問詞 Who で始めて、名詞のうしろに〜ingを置くよ",
+      "explanation": "Who is the boy ...? の形。the boy のうしろに running over there を置くよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "The man playing the guitar is my music teacher.",
+      "back": "「ギターを弾いている男の人は私の音楽の先生です。」\n→ 2文に分けると？",
+      "hint": "後置修飾を分けて2つの文に直してみよう",
+      "explanation": "The man is my music teacher. + He is playing the guitar. の2文に分けられるよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc15",
+      "front": "the children swimming in the pool",
+      "back": "「プールで泳いでいる子どもたち」を英語にすると？",
+      "hint": "「泳いでいる」は swim の〜ing形 swimming だよ",
+      "explanation": "children のうしろに swimming in the pool を置くよ。swim は m を重ねて swimming だよ。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc16",
+      "front": "〜ing（現在分詞）",
+      "back": "名詞が「自分で動いている」とき、\n使うのは 〜ing？過去分詞？",
+      "hint": "「〜している」を表す形は…？",
+      "explanation": "自分で動いている → 〜ing（現在分詞）。誰かにされた → 過去分詞だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc17",
+      "front": "過去分詞（spoken）",
+      "back": "the language (　) in Australia（オーストラリアで話されている言語）\n→ 〜ing と過去分詞のどっち？",
+      "hint": "言語は「話されている」もの（受け身）だよ",
+      "explanation": "言語は「話されている」ものだから過去分詞 spoken を使うよ。自分で話すわけではないからね。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc18",
+      "front": "a sleeping cat（現在分詞が1語なら名詞の前）",
+      "back": "現在分詞が1語のとき、名詞のどこに置ける？",
+      "hint": "1語なら前に置けるよ",
+      "explanation": "現在分詞が1語のときは名詞の前でもOK（a sleeping cat）。句になったら必ず名詞のうしろに置くよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc19",
+      "front": "the woman reading a book in the picture",
+      "back": "「写真の中で本を読んでいる女の人」を英語にすると？",
+      "hint": "「読んでいる」は read の〜ing形 reading だよ",
+      "explanation": "woman のうしろに reading a book in the picture を置くよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc20",
+      "front": "the children playing soccer in the park",
+      "back": "「公園でサッカーをしている子どもたち」を英語にすると？",
+      "hint": "「している」は play の〜ing形 playing だよ",
+      "explanation": "children のうしろに playing soccer in the park を置くよ。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc21",
+      "front": "the woman drinking coffee",
+      "back": "「コーヒーを飲んでいる女の人」を英語にすると？",
+      "hint": "「飲んでいる」は drink の〜ing形 drinking だよ",
+      "explanation": "woman のうしろに drinking coffee を置くよ。女の人が自分で飲んでいるから〜ing だよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc22",
+      "front": "the teacher walking in the hallway",
+      "back": "「廊下を歩いている先生」を英語にすると？",
+      "hint": "「歩いている」は walk の〜ing形 walking だよ",
+      "explanation": "teacher のうしろに walking in the hallway を置くよ。",
+      "difficulty": "basic"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "(　) に入るのは？\nThe girl (　) the piano is Yuki.\n（ピアノを弾いている女の子はユキです。）",
+        "options": ["play", "plays", "played", "playing"],
+        "correctIndex": 3,
+        "explanation": "「弾いている」は〜ing形 playing。girl のうしろに playing the piano を置くよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "(　) に入るのは？\nthe man (　) over there\n（あそこに立っている男の人）",
+        "options": ["stand", "stands", "stood", "standing"],
+        "correctIndex": 3,
+        "explanation": "「立っている」は〜ing形 standing。man のうしろに standing over there を置くよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "(　) に入るのは？\nLook at the cat (　) on the sofa.\n（ソファで寝ている猫を見て。）",
+        "options": ["sleep", "sleeps", "slept", "sleeping"],
+        "correctIndex": 3,
+        "explanation": "猫は自分で寝ているから〜ing形。cat のうしろに sleeping on the sofa を置くよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "(　) に入るのは？\nthe boy (　) a computer\n（コンピューターを使っている少年）",
+        "options": [
+          "use",
+          "used",
+          "using",
+          "uses"
+        ],
+        "correctIndex": 2,
+        "explanation": "「使っている」＝自分で動いているから〜ing形 using。use の〜ing形は e を取って using だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "(　) に入るのは？\nthe woman (　) coffee\n（コーヒーを飲んでいる女の人）",
+        "options": ["drink", "drinks", "drank", "drinking"],
+        "correctIndex": 3,
+        "explanation": "〜ing + 説明 は名詞のうしろに置くよ。the woman drinking coffee が正しいよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "(　) に入るのは？\nthe boy (　) a bicycle\n（自転車に乗っている少年）",
+        "options": ["ride", "rides", "rode", "riding"],
+        "correctIndex": 3,
+        "explanation": "自分で乗っている → 〜ing。boy のうしろに riding a bicycle を置くよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q7",
+        "question": "(　) に入るのは？\nthe window (　) by the ball\n（ボールで壊された窓）",
+        "options": ["break", "breaks", "breaking", "broken"],
+        "correctIndex": 3,
+        "explanation": "窓は「壊された」もの（受け身）だから過去分詞 broken を使うよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "次のうち、〜ing（現在分詞）を使うべき表現はどれ？",
+        "options": [
+          "公園で走っている男の子",
+          "彼女に歌われた歌",
+          "英語で書かれた本",
+          "お母さんに作られたケーキ"
+        ],
+        "correctIndex": 0,
+        "explanation": "「走っている」は自分で動いているから〜ing。ほかは全部「〜された」だから過去分詞を使うよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "(　) に入るのは？\nThe man (　) the guitar is my music teacher.\n（ギターを弾いている男の人は私の音楽の先生です。）",
+        "options": ["play", "plays", "played", "playing"],
+        "correctIndex": 3,
+        "explanation": "playing the guitar を the man のうしろに置くよ。is は使わないよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "(　) に入るのは？\nLook at the woman (　) a book in the picture.\n（写真の中で本を読んでいる女の人を見てください。）",
+        "options": ["read", "reads", "to read", "reading"],
+        "correctIndex": 3,
+        "explanation": "「読んでいる」は〜ing形 reading。woman のうしろに reading a book in the picture を置くよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "(　) に入るのは？\nThe teacher (　) in the hallway is Mr. Tanaka.\n（廊下を歩いている先生は田中先生です。）",
+        "options": ["walk", "walks", "walked", "walking"],
+        "correctIndex": 3,
+        "explanation": "teacher のうしろに walking in the hallway を置くよ。〜ing + 説明 は名詞のうしろだよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "(　) に入るのは？\nthe girl (　) short hair\n（短い髪のその女の子）",
+        "options": ["with", "has", "of", "in"],
+        "correctIndex": 0,
+        "explanation": "girl のうしろに with short hair を置くよ。前置詞 with でも名詞をうしろから説明できるよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q13",
+        "question": "(　) に入るのは？\nDo you know the language (　) in Australia?\n（あなたはオーストラリアで話されている言語を知っていますか。）",
+        "options": [
+          "speaking",
+          "spoke",
+          "spoken",
+          "speak"
+        ],
+        "correctIndex": 2,
+        "explanation": "言語は「話されている」もの（受け身）だから過去分詞 spoken を使うよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q14",
+        "question": "(　) に入るのは？\nWho is the woman (　) to by that boy?\n（あの少年に話しかけられた女の人はだれですか。）",
+        "options": ["speak", "speaking", "spoke", "spoken"],
+        "correctIndex": 3,
+        "explanation": "女の人は「話しかけられた」もの（受け身）だから過去分詞 spoken。be spoken to by 〜 で「〜に話しかけられる」だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q15",
+        "question": "(　) に入るのは？\nThe boys (　) books are my sons.\n（本を読んでいる少年たちは私の息子です。）",
+        "options": ["read", "reads", "to read", "reading"],
+        "correctIndex": 3,
+        "explanation": "boys のうしろに reading books を置くよ。少年たちが自分で読んでいるから〜ing だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q16",
+        "question": "現在分詞が1語だけのとき、名詞との位置関係で正しいのは？",
+        "options": [
+          "必ず名詞のうしろに置く",
+          "名詞の前に置いてもよい",
+          "必ず文末に置く",
+          "動詞のうしろに置く"
+        ],
+        "correctIndex": 1,
+        "explanation": "現在分詞が1語のときは名詞の前でもOK（a sleeping cat）。2語以上の句なら名詞のうしろに置くよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q17",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私はピアノをひいている女の子を知っています。」の英文を作ろう。\nI know the girl (　)(　)(　).",
+        "words": ["piano", "playing", "the"],
+        "correctOrder": [1, 2, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I know the girl playing the piano.」が正解。playing + the + piano の順だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q18",
+        "type": "reorder",
+        "question": "次の語を並べかえて「ソファの上でねている猫は私のです。」の英文を作ろう。\nThe cat (　)(　)(　)(　) is mine.",
+        "words": ["the", "on", "sleeping", "sofa"],
+        "correctOrder": [2, 1, 0, 3],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「The cat sleeping on the sofa is mine.」が正解。sleeping + on + the + sofa の順だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q19",
+        "type": "reorder",
+        "question": "次の語を並べかえて「空を飛んでいる鳥を見てごらん。」の英文を作ろう。\nLook at the bird (　)(　)(　)(　).",
+        "words": ["the", "in", "flying", "sky"],
+        "correctOrder": [2, 1, 0, 3],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Look at the bird flying in the sky.」が正解。flying + in + the + sky の順だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q20",
+        "type": "reorder",
+        "question": "次の語を並べかえて「ステージで歌っている少女はエミです。」の英文を作ろう。\nThe girl (　)(　)(　)(　) is Emi.",
+        "words": ["the", "on", "singing", "stage"],
+        "correctOrder": [2, 1, 0, 3],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「The girl singing on the stage is Emi.」が正解。singing + on + the + stage の順だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q21",
+        "type": "reorder",
+        "question": "次の語を並べかえて「あなたはギターを弾いている男の人を知っていますか。」の英文を作ろう。\nDo you know (　)(　)(　)(　)(　)?",
+        "words": ["the", "man", "playing", "the", "guitar"],
+        "correctOrder": [0, 1, 2, 3, 4],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Do you know the man playing the guitar?」が正解。the man のうしろに playing the guitar を置くよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q22",
+        "type": "reorder",
+        "question": "次の語を並べかえて「公園でサッカーをしている子どもたちは楽しそうです。」の英文を作ろう。\nThe children (　)(　)(　)(　)(　) look happy.",
+        "words": ["in", "the", "soccer", "playing", "park"],
+        "correctOrder": [3, 2, 0, 1, 4],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「The children playing soccer in the park look happy.」が正解。playing soccer in the park が the children を後置修飾するよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q23",
+        "question": "(　) に入るのは？\nThe dog (　) in the garden is mine.\n（庭で走っている犬は私のです。）",
+        "options": ["run", "runs", "ran", "running"],
+        "correctIndex": 3,
+        "explanation": "犬が自分で走っているから〜ing形 running。run は n を重ねて running だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q24",
+        "question": "(　) に入るのは？\nDo you know the woman (　) over there?\n（あなたはあそこで笑っている女の人を知っていますか。）",
+        "options": ["smile", "smiled", "smiling", "smiles"],
+        "correctIndex": 2,
+        "explanation": "「笑っている」は〜ing形 smiling。smile は e を取って smiling だよ。woman のうしろに smiling over there を置くよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q25",
+        "question": "(　) に入るのは？\nThe students (　) English in the room are my classmates.\n（部屋で英語を勉強している生徒たちは私のクラスメートです。）",
+        "options": ["study", "studied", "studying", "studies"],
+        "correctIndex": 2,
+        "explanation": "生徒たちが自分で勉強しているから〜ing形 studying。students のうしろに studying English in the room を置くよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q26",
+        "question": "(　) に入るのは？\nLook at the boys (　) over there.\n（向こうで泳いでいる男の子たちを見て。）",
+        "options": ["swim", "swims", "swam", "swimming"],
+        "correctIndex": 3,
+        "explanation": "「泳いでいる」は〜ing形 swimming。boys のうしろに swimming over there を置くよ。swim は m を重ねて swimming だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q27",
+        "question": "(　) に入るのは？\nI have a friend (　) in America.\n（私にはアメリカに住んでいる友達がいます。）",
+        "options": ["live", "lived", "living", "lives"],
+        "correctIndex": 2,
+        "explanation": "「住んでいる」は〜ing形 living。friend のうしろに living in America を置くよ。live は e を取って living だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q28",
+        "question": "(　) に入るのは？\nThe man (　) by the window is my father.\n（窓のそばに座っている男の人は私の父です。）",
+        "options": ["sit", "sits", "sat", "sitting"],
+        "correctIndex": 3,
+        "explanation": "「座っている」は〜ing形 sitting。man のうしろに sitting by the window を置くよ。sit は t を重ねて sitting だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q29",
+        "type": "reorder",
+        "question": "次の語を並べかえて「あそこで踊っている女の子は私の妹です。」の英文を作ろう。\nThe girl (　)(　)(　) is my sister.",
+        "words": ["over", "dancing", "there"],
+        "correctOrder": [1, 0, 2],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「The girl dancing over there is my sister.」が正解。dancing + over + there の順だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q30",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私は木の下で眠っている赤ちゃんを見ました。」の英文を作ろう。\nI saw the baby (　)(　)(　)(　).",
+        "words": ["the", "under", "sleeping", "tree"],
+        "correctOrder": [2, 1, 0, 3],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I saw the baby sleeping under the tree.」が正解。sleeping + under + the + tree の順だよ。baby のうしろに sleeping を置いて後置修飾するよ。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

@@ -1,0 +1,686 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade2",
+  "topicId": "eng-infinitives",
+  "name": "不定詞",
+  "subtitle": "to + 動詞の原形 の使い方をマスターしよう",
+  "icon": "🎯",
+  "order": 3,
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "to swim",
+      "back": "I want (　) in the sea.（私は海で泳ぎたいです。）",
+      "hint": "want のうしろは to + 動詞の原形",
+      "explanation": "want to swim =「泳ぎたい」。名詞的用法だよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "to watch",
+      "back": "I like (　) movies.（私は映画を見るのが好きです。）",
+      "hint": "like のうしろは to + 動詞の原形",
+      "explanation": "like to watch =「見るのが好き」。名詞的用法だよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "to be",
+      "back": "She wants (　) a singer.（彼女は歌手になりたいです。）",
+      "hint": "「なる」の動詞の原形は be",
+      "explanation": "want to be =「〜になりたい」。be も動詞の原形だよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "to call",
+      "back": "I need (　) my friend.（私は友だちに電話する必要があります。）",
+      "hint": "need のうしろは to + 動詞の原形",
+      "explanation": "need to call =「電話する必要がある」。名詞的用法だよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "to see",
+      "back": "I hope (　) you again.（また会えたらいいなと思います。）",
+      "hint": "hope のうしろは to + 動詞の原形",
+      "explanation": "hope to see =「会いたいと思う」。名詞的用法だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "to buy",
+      "back": "I went to the store (　) some bread.（私はパンを買うために店へ行きました。）",
+      "hint": "「なんのために店へ行った？」の答え",
+      "explanation": "to buy =「買うために」。目的を表す副詞的用法だよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "to catch",
+      "back": "He ran (　) the train.（彼は電車に間に合うように走りました。）",
+      "hint": "「なんのために走った？」の答え",
+      "explanation": "to catch =「間に合うために」。目的を表す副詞的用法だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "to read",
+      "back": "I have a book (　).（私には読むための本があります。）",
+      "hint": "book を後ろから説明しているよ",
+      "explanation": "a book to read =「読むための本」。形容詞的用法だよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc9",
+      "front": "to drink",
+      "back": "I want something (　).（私は何か飲むものがほしいです。）",
+      "hint": "something を後ろから説明しているよ",
+      "explanation": "something to drink =「飲むもの」。形容詞的用法だよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc10",
+      "front": "to visit",
+      "back": "There are many places (　) in Kyoto.（京都には訪れるべき場所がたくさんあります。）",
+      "hint": "places を後ろから説明しているよ",
+      "explanation": "places to visit =「訪れるべき場所」。形容詞的用法だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "to hear",
+      "back": "I am happy (　) the news.（私はその知らせを聞いてうれしいです。）",
+      "hint": "うれしい原因を表す to + 動詞の原形",
+      "explanation": "happy to hear =「聞いてうれしい」。感情の原因を表す副詞的用法だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "to see",
+      "back": "I was surprised (　) so many stars.（私はとても多くの星を見て驚きました。）",
+      "hint": "驚いた原因は何かな？",
+      "explanation": "surprised to see =「見て驚いた」。感情の原因を表す副詞的用法だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "to meet",
+      "back": "We were glad (　) you.（私たちはあなたに会えてうれしかったです。）",
+      "hint": "glad のうしろに原因をつけよう",
+      "explanation": "glad to meet =「会えてうれしい」。感情の原因を表す副詞的用法だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "It is fun to play",
+      "back": "「テニスをすることは楽しいです。」を英語で？（It is ... to 構文で）",
+      "hint": "It is + 形容詞 + to + 動詞の原形",
+      "explanation": "It is fun to play tennis. It は形式主語で、to play が本当の主語だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc15",
+      "front": "It, to",
+      "back": "(　) is easy (　) ride a bike.（自転車に乗ることは簡単です。）",
+      "hint": "It is ... to 構文を使おう",
+      "explanation": "It is easy to ride =「乗ることは簡単」。It は形式主語だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc16",
+      "front": "It is difficult to answer",
+      "back": "「この質問に答えることは難しいです。」を英語で？（It is ... to 構文で）",
+      "hint": "It is + difficult + to + 動詞の原形",
+      "explanation": "It is difficult to answer this question. だよ。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc23",
+      "front": "sure that",
+      "back": "I am (　) she will win.（私は彼女が勝つと確信しています。）",
+      "hint": "「〜と確信している」は I am sure that",
+      "explanation": "I am sure that 〜 =「〜だと確信している」。that のあとに文が続くよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc24",
+      "front": "glad that",
+      "back": "I am (　) you came today.（あなたが今日来てくれてうれしいです。）",
+      "hint": "「〜でうれしい」は I am glad that",
+      "explanation": "I am glad that 〜 =「〜でうれしい」。that のあとに文が続くよ。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc25",
+      "front": "to be",
+      "back": "I want (　)(　) a teacher.（私は先生になりたいです。）",
+      "hint": "「〜になりたい」= want + 不定詞",
+      "explanation": "want to + 動詞の原形で「〜したい」。to be で「〜になること」を表すよ（名詞的用法）。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc26",
+      "front": "to see",
+      "back": "I am happy (　)(　) you.（私はあなたに会えてうれしいです。）",
+      "hint": "感情の原因「〜して」= to + 原形",
+      "explanation": "be happy to + 動詞の原形で「〜してうれしい」（副詞的用法・感情の原因）。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc27",
+      "front": "to drink",
+      "back": "I want something (　)(　).（私は何か飲み物がほしいです。）",
+      "hint": "something のうしろに不定詞をつけるよ",
+      "explanation": "形容詞的用法。something to drink で「飲むための何か＝飲み物」。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc28",
+      "front": "to study",
+      "back": "I go to the library (　)(　).（私は勉強するために図書館へ行きます。）",
+      "hint": "目的「〜するために」= to + 原形",
+      "explanation": "副詞的用法（目的）。to study で「勉強するために」を表すよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc29",
+      "front": "to read",
+      "back": "I have a lot of books (　)(　).（私は読むべき本がたくさんあります。）",
+      "hint": "books のうしろに不定詞をつけるよ",
+      "explanation": "形容詞的用法。books to read で「読むための本」。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc30",
+      "front": "It is",
+      "back": "(　)(　) fun to play soccer.（サッカーをするのは楽しいです。）",
+      "hint": "「〜することは…だ」の文の最初は？",
+      "explanation": "It is ... to + 動詞の原形。It は形式主語で、to play 〜 をさすよ（名詞的用法）。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "(　) に入るのは？\nI want (　) a nurse.\n（私は看護師になりたいです。）",
+        "options": ["be", "to be", "being", "to being"],
+        "correctIndex": 1,
+        "explanation": "want のうしろは to + 動詞の原形。want to be =「〜になりたい」だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "(　) に入るのは？\nShe likes (　) the piano.\n（彼女はピアノをひくのが好きです。）",
+        "options": ["play to", "to play", "to playing", "play"],
+        "correctIndex": 1,
+        "explanation": "like のうしろは to + 動詞の原形。like to play =「ひくのが好き」だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "(　) に入るのは？\nI want something (　).\n（私は何か食べるものがほしいです。）",
+        "options": ["eat", "eating", "to eat", "to eating"],
+        "correctIndex": 2,
+        "explanation": "something to eat =「食べるもの」。前の語を説明する形容詞的用法だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "(　) に入るのは？\nI was glad (　) the good news.\n（私はそのよい知らせを聞いてうれしかったです。）",
+        "options": ["hear", "hearing", "heard", "to hear"],
+        "correctIndex": 3,
+        "explanation": "glad to hear =「聞いてうれしい」。感情の原因を表す副詞的用法だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "(　) に入るのは？\nHe went to the park (　) soccer.\n（彼はサッカーをするために公園へ行きました。）",
+        "options": ["to play", "play", "playing", "played"],
+        "correctIndex": 0,
+        "explanation": "to play =「するために」。目的を表す副詞的用法だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "「I went to the library to study.」の to study はどの使い方？",
+        "options": ["〜すること", "〜するために", "〜するための", "〜して"],
+        "correctIndex": 1,
+        "explanation": "「なんのために図書館へ行った？」→「勉強するために」。目的を表す副詞的用法だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q7",
+        "question": "「I have a lot of work to do today.」の to do はどの使い方？",
+        "options": ["〜すること", "〜するために", "〜して", "〜するための"],
+        "correctIndex": 3,
+        "explanation": "「どんな仕事？」→「するための仕事」。前の名詞を説明する形容詞的用法だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "(　) に入るのは？\n(　) is fun (　) cook with friends.\n（友だちと料理するのは楽しいです。）",
+        "options": ["This, to", "That, for", "It, to", "It, for"],
+        "correctIndex": 2,
+        "explanation": "It is ... to 構文。It は形式主語で、to cook が本当の主語だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "「She opened the door to let in fresh air.」の to let はどの使い方？",
+        "options": ["名詞的用法", "形容詞的用法", "副詞的用法（感情の原因）", "副詞的用法（目的）"],
+        "correctIndex": 3,
+        "explanation": "「なんのためにドアを開けた？」→「新しい空気を入れるために」。目的を表す副詞的用法だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q14",
+        "question": "(　) に入るのは？\nI am sure (　) he will pass the test.\n（私は彼がテストに合格すると確信しています。）",
+        "options": ["to", "what", "that", "if"],
+        "correctIndex": 2,
+        "explanation": "I am sure that 〜 =「〜だと確信している」。that のあとに文が続くよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q15",
+        "question": "「I'm glad that you enjoyed the party.」の意味として正しいのは？",
+        "options": [
+          "あなたがパーティーを楽しんでくれてうれしいです。",
+          "あなたにパーティーを楽しんでほしいです。",
+          "あなたがパーティーに来なくて残念です。",
+          "あなたがパーティーを楽しんだか確かめたいです。"
+        ],
+        "correctIndex": 0,
+        "explanation": "I'm glad that 〜 =「〜でうれしい」。enjoyed the party =「パーティーを楽しんだ」だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q16",
+        "question": "次の文のまちがいはどれ？\n「I hope see you soon.」",
+        "options": [
+          "I → My",
+          "hope → hopes",
+          "see → to see",
+          "soon → soonly"
+        ],
+        "correctIndex": 2,
+        "explanation": "hope のうしろは to + 動詞の原形。hope to see が正しいよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q17",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「私は医者になりたいです。」という英文を作ろう。",
+        "words": ["a", "to", "want", "i", "doctor", "be"],
+        "correctOrder": [3, 2, 1, 5, 0, 4],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I want to be a doctor.」が正解。want to be =「〜になりたい」だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q18",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「私は何か飲むものがほしいです。」という英文を作ろう。",
+        "words": ["to", "something", "drink", "i", "want"],
+        "correctOrder": [3, 4, 1, 0, 2],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I want something to drink.」が正解。something to drink で形容詞的用法だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q19",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「彼女はバスに乗るために走りました。」という英文を作ろう。",
+        "words": ["to", "the bus", "catch", "ran", "she"],
+        "correctOrder": [4, 3, 0, 2, 1],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「She ran to catch the bus.」が正解。to catch =「乗るために」目的を表す副詞的用法だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q20",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「私はその知らせを聞いてうれしかったです。」という英文を作ろう。",
+        "words": ["happy", "was", "hear", "i", "to", "the news"],
+        "correctOrder": [3, 1, 0, 4, 2, 5],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I was happy to hear the news.」が正解。happy to hear で感情の原因を表すよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q21",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「英語を話すことはおもしろいです。」という英文を作ろう。",
+        "words": ["is", "to", "english", "interesting", "it", "speak"],
+        "correctOrder": [4, 0, 3, 1, 5, 2],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「It is interesting to speak English.」が正解。It is ... to 構文だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q24",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「彼が来ると確信しています。」という英文を作ろう。",
+        "words": ["that", "sure", "will", "i", "come", "am", "he"],
+        "correctOrder": [3, 5, 1, 0, 6, 2, 4],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I am sure that he will come.」が正解。I am sure that =「〜と確信している」だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q26",
+        "question": "(　) に入るのは？\nI want (　) English.\n（私は英語を勉強したいです。）",
+        "options": ["study", "to study", "studying", "studied"],
+        "correctIndex": 1,
+        "explanation": "want to + 動詞の原形で「〜したい」。to study が正解だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q27",
+        "question": "(　) に入るのは？\nI am glad (　) you.\n（私はあなたに会えてうれしいです。）",
+        "options": ["meet", "met", "to meet", "meeting"],
+        "correctIndex": 2,
+        "explanation": "be glad to + 原形で「〜してうれしい」（感情の原因）。to meet が正解。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q28",
+        "question": "(　) に入るのは？\nWe have homework (　).\n（私たちはやるべき宿題があります。）",
+        "options": ["do", "to do", "doing", "for do"],
+        "correctIndex": 1,
+        "explanation": "形容詞的用法。homework to do で「やるべき宿題」。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q29",
+        "question": "(　) に入るのは？\nI use the Internet (　) information.\n（私は情報を得るためにインターネットを使います。）",
+        "options": ["get", "to get", "getting", "got"],
+        "correctIndex": 1,
+        "explanation": "副詞的用法（目的）。to get で「得るために」を表すよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q30",
+        "question": "(　) に入るのは？\n(　) is important to help others.\n（他人を助けることは大切です。）",
+        "options": ["This", "That", "It", "He"],
+        "correctIndex": 2,
+        "explanation": "It is ... to 〜 の形。形式主語の It を使うよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q31",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私はピアノをひきたいです。」の英文を作ろう。",
+        "words": ["play", "to", "the piano", "I", "want"],
+        "correctOrder": [3, 4, 1, 0, 2],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I want to play the piano.」が正解。want to + 動詞の原形だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q32",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私には会うべき友達がいます。」の英文を作ろう。",
+        "words": ["to", "a friend", "I", "meet", "have"],
+        "correctOrder": [2, 4, 1, 0, 3],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I have a friend to meet.」が正解。a friend to meet で「会うべき友達」（形容詞的用法）。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q33",
+        "question": "(　) に入るのは？\nI hope (　) you again next year.\n（また来年あなたに会えたらいいなと思います。）",
+        "options": ["see", "seeing", "to see", "saw"],
+        "correctIndex": 2,
+        "explanation": "hope to + 動詞の原形で「〜したいと思う」。to see が正解だよ（名詞的用法）。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q34",
+        "question": "(　) に入るのは？\nI need (　) some milk.\n（私は牛乳を買う必要があります。）",
+        "options": ["buy", "to buy", "buying", "bought"],
+        "correctIndex": 1,
+        "explanation": "need to + 動詞の原形で「〜する必要がある」。to buy が正解だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q35",
+        "question": "(　) に入るのは？\nShe tried (　) the door.\n（彼女はドアを開けようとしました。）",
+        "options": ["open", "to open", "opening", "opened"],
+        "correctIndex": 1,
+        "explanation": "try to + 動詞の原形で「〜しようとする」。to open が正解だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q36",
+        "question": "(　) に入るのは？\nHe went to America (　) English.\n（彼は英語を学ぶためにアメリカへ行きました。）",
+        "options": ["learn", "learned", "to learn", "learning"],
+        "correctIndex": 2,
+        "explanation": "to learn =「学ぶために」。目的を表す副詞的用法だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q37",
+        "question": "(　) に入るのは？\nI have many things (　) today.\n（私は今日するべきことがたくさんあります。）",
+        "options": ["do", "to do", "doing", "did"],
+        "correctIndex": 1,
+        "explanation": "things to do =「するべきこと」。前の名詞を説明する形容詞的用法だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q38",
+        "question": "(　) に入るのは？\nWe were surprised (　) the news.\n（私たちはその知らせを聞いて驚きました。）",
+        "options": ["hear", "to hear", "hearing", "heard"],
+        "correctIndex": 1,
+        "explanation": "surprised to hear =「聞いて驚いた」。感情の原因を表す副詞的用法だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q39",
+        "question": "(　) に入るのは？\n(　) is easy (　) swim in the sea.\n（海で泳ぐことは簡単です。）",
+        "options": ["This, to", "It, to", "It, for", "That, to"],
+        "correctIndex": 1,
+        "explanation": "It is ... to 構文。It は形式主語で、to swim が本当の主語だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q40",
+        "question": "(　) に入るのは？\nDo you have anything (　)?\n（あなたは何か食べるものを持っていますか。）",
+        "options": ["eat", "to eat", "eating", "ate"],
+        "correctIndex": 1,
+        "explanation": "anything to eat =「食べるもの」。前の語を説明する形容詞的用法だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q41",
+        "question": "(　) に入るのは？\nI like (　) books in my free time.\n（私はひまな時間に本を読むのが好きです。）",
+        "options": ["read", "to read", "to reading", "reads"],
+        "correctIndex": 1,
+        "explanation": "like to + 動詞の原形で「〜するのが好き」。to read が正解だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q42",
+        "question": "(　) に入るのは？\nShe wants (　) a doctor in the future.\n（彼女は将来医者になりたいです。）",
+        "options": ["be", "to be", "being", "is"],
+        "correctIndex": 1,
+        "explanation": "want to be =「〜になりたい」。be も動詞の原形だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q43",
+        "question": "(　) に入るのは？\nHe will go to the shop (　) a present.\n（彼はプレゼントを買うために店へ行くでしょう。）",
+        "options": ["buy", "to buy", "buys", "buying"],
+        "correctIndex": 1,
+        "explanation": "to buy =「買うために」。目的を表す副詞的用法だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q44",
+        "question": "(　) に入るのは？\nI am happy (　) you a present.\n（私はあなたにプレゼントをあげられてうれしいです。）",
+        "options": ["give", "to give", "giving", "gave"],
+        "correctIndex": 1,
+        "explanation": "happy to give =「あげてうれしい」。感情の原因を表す副詞的用法だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q45",
+        "question": "(　) に入るのは？\nThere are many places (　) in this city.\n（この街には訪れるべき場所がたくさんあります。）",
+        "options": ["visit", "to visit", "visiting", "visited"],
+        "correctIndex": 1,
+        "explanation": "places to visit =「訪れるべき場所」。形容詞的用法だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q46",
+        "question": "(　) に入るのは？\n(　) is important (　) eat breakfast every day.\n（毎日朝食を食べることは大切です。）",
+        "options": ["It, to", "This, to", "It, for", "That, for"],
+        "correctIndex": 0,
+        "explanation": "It is ... to 構文。It は形式主語で、to eat が本当の主語だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q47",
+        "question": "「I bought a new pen to write a letter.」の to write はどの使い方？",
+        "options": ["名詞的用法", "副詞的用法（目的）", "形容詞的用法", "副詞的用法（感情の原因）"],
+        "correctIndex": 1,
+        "explanation": "「なんのためにペンを買った？」→「手紙を書くために」。目的を表す副詞的用法だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q48",
+        "question": "「I have no time to watch TV.」の to watch はどの使い方？",
+        "options": ["名詞的用法", "副詞的用法（目的）", "形容詞的用法", "副詞的用法（感情の原因）"],
+        "correctIndex": 2,
+        "explanation": "「どんな時間？」→「テレビを見るための時間」。前の名詞を説明する形容詞的用法だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q49",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私は英語を勉強したいです。」の英文を作ろう。",
+        "words": ["to", "English", "study", "I", "want"],
+        "correctOrder": [3, 4, 0, 2, 1],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I want to study English.」が正解。want to + 動詞の原形だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q50",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私は何か読むものがほしいです。」の英文を作ろう。",
+        "words": ["something", "to", "read", "I", "want"],
+        "correctOrder": [3, 4, 0, 1, 2],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I want something to read.」が正解。something to read で形容詞的用法だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q51",
+        "type": "reorder",
+        "question": "次の語を並べかえて「彼は水を飲むために立ち止まりました。」の英文を作ろう。",
+        "words": ["to", "water", "drink", "stopped", "He"],
+        "correctOrder": [4, 3, 0, 2, 1],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「He stopped to drink water.」が正解。to drink =「飲むために」目的を表す副詞的用法だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q52",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私たちはあなたに会えてうれしいです。」の英文を作ろう。",
+        "words": ["happy", "to", "see", "We", "are", "you"],
+        "correctOrder": [3, 4, 0, 1, 2, 5],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「We are happy to see you.」が正解。happy to see で感情の原因を表すよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q53",
+        "type": "reorder",
+        "question": "次の語を並べかえて「サッカーをすることは楽しいです。」の英文を作ろう。",
+        "words": ["is", "fun", "to", "play", "It", "soccer"],
+        "correctOrder": [4, 0, 1, 2, 3, 5],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「It is fun to play soccer.」が正解。It is ... to 構文だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q54",
+        "type": "reorder",
+        "question": "次の語を並べかえて「彼女は先生になりたがっています。」の英文を作ろう。",
+        "words": ["to", "be", "wants", "a teacher", "She"],
+        "correctOrder": [4, 2, 0, 1, 3],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「She wants to be a teacher.」が正解。want to be =「〜になりたい」だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q55",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私には今日やるべき宿題があります。」の英文を作ろう。",
+        "words": ["to", "homework", "do", "I", "have", "today"],
+        "correctOrder": [3, 4, 1, 0, 2, 5],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I have homework to do today.」が正解。homework to do で形容詞的用法だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q56",
+        "type": "reorder",
+        "question": "次の語を並べかえて「彼はその手紙を読んで驚きました。」の英文を作ろう。",
+        "words": ["surprised", "to", "read", "He", "was", "the letter"],
+        "correctOrder": [3, 4, 0, 1, 2, 5],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「He was surprised to read the letter.」が正解。surprised to read で感情の原因を表すよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q57",
+        "type": "reorder",
+        "question": "次の語を並べかえて「英語を学ぶことは大切です。」の英文を作ろう。",
+        "words": ["important", "to", "learn", "It", "is", "English"],
+        "correctOrder": [3, 4, 0, 1, 2, 5],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「It is important to learn English.」が正解。It is ... to 構文だよ。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

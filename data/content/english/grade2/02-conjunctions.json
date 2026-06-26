@@ -1,0 +1,654 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade2",
+  "topicId": "eng-conjunctions",
+  "name": "接続詞",
+  "subtitle": "when / if / because / that で文をつなげよう",
+  "icon": "🔗",
+  "order": 2,
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "When",
+      "back": "(　) I entered the shop, the cook was making ramen.（私が店に入ったとき、料理人はラーメンを作っていました。）",
+      "hint": "「〜するとき」を表す接続詞は？",
+      "explanation": "when =「〜するとき」。文頭にあるからカンマがつくよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "when",
+      "back": "I was eating instant noodles (　) my brother came home.（弟が帰ってきたとき、私はインスタントラーメンを食べていました。）",
+      "hint": "「〜したとき」を表す接続詞は？文の後ろにあるよ",
+      "explanation": "when が文中にあるからカンマはいらないよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "If",
+      "back": "(　) you are hungry, let's get some ramen.（もしお腹がすいたら、ラーメンを食べに行こう。）",
+      "hint": "「もし〜なら」を表す接続詞は？",
+      "explanation": "if =「もし〜なら」。条件を表す接続詞だよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "because",
+      "back": "I was late (　) I missed the train.（電車に乗り遅れたので、遅刻しました。）",
+      "hint": "「〜なので」と理由を表す接続詞は？",
+      "explanation": "because =「〜なので」。理由を表すよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "that",
+      "back": "I think (　) this soup is delicious.（このスープはおいしいと思います。）",
+      "hint": "think の後ろで「〜ということ」を表す接続詞は？",
+      "explanation": "that =「〜ということ」。think の後ろにつけて文をつなぐよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "rains",
+      "back": "If it (　) tomorrow, I will stay home.（もし明日雨が降ったら、家にいます。）",
+      "hint": "if の後ろでは will を使わないよ！現在形で…",
+      "explanation": "if の後ろは未来のことでも現在形。will rain ではなく rains！",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "When",
+      "back": "(　) I was a child, I lived near a ramen restaurant.（子どものとき、ラーメン店の近くに住んでいました。）",
+      "hint": "「〜のとき」を表す接続詞だよ",
+      "explanation": "When I was a child で「子どものとき」。過去の話にも使えるよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc8",
+      "front": "because",
+      "back": "I like this ramen (　) the soup is rich.（スープが濃厚なので、このラーメンが好きです。）",
+      "hint": "理由を表す接続詞は？",
+      "explanation": "because =「〜なので」。好きな理由を説明しているよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc9",
+      "front": "that",
+      "back": "I know (　) she likes salt ramen.（彼女が塩ラーメンを好きだと知っています。）",
+      "hint": "know の後ろで「〜ということ」を表す接続詞は？",
+      "explanation": "that =「〜ということ」。know の後ろでも使うよ。省略もできるよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "if",
+      "back": "I will help you (　) you need me.（もし必要なら、手伝うよ。）",
+      "hint": "「もし〜なら」を表す接続詞は？文の後ろにあるよ",
+      "explanation": "if が文中にあるからカンマはいらないよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "is",
+      "back": "If it (　) sunny tomorrow, we will go out.（もし明日晴れたら、出かけます。）",
+      "hint": "if の後ろでは will を使わないよ！現在形で…",
+      "explanation": "if の後ろは未来でも現在形。will be ではなく is を使うよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "hope",
+      "back": "I (　) that you will like miso ramen.（あなたが味噌ラーメンを気に入ってくれるといいなと思います。）",
+      "hint": "「望む」を英語で？that とセットで使うよ",
+      "explanation": "hope + that で「〜だといいなと思う」。that は省略もOK。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "believe",
+      "back": "I (　) that he can win the cooking contest.（私は彼が料理コンテストで勝てると信じています。）",
+      "hint": "「信じる」を英語で？",
+      "explanation": "believe + that で「〜だと信じる」。think/know/hope/believe と that がセット。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "because",
+      "back": "She didn't come (　) she had a cold.（彼女は風邪をひいたので、来ませんでした。）",
+      "hint": "理由を表す接続詞は？",
+      "explanation": "because =「〜なので」。欠席の理由を説明しているよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc15",
+      "front": "I don't think",
+      "back": "(　)(　)(　) that this curry is too spicy.（私はこのカレーが辛すぎるとは思いません。）",
+      "hint": "英語では think を否定する方が自然だよ",
+      "explanation": "英語では I don't think that... の形で否定する方が自然だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc16",
+      "front": "カンマあり",
+      "back": "When I get home, I cook dinner.\n接続詞が文頭にあるとき、カンマは必要？不要？",
+      "hint": "文の最初に接続詞を置くときは…",
+      "explanation": "接続詞が文頭にくるときはカンマをつけるよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc17",
+      "front": "カンマなし",
+      "back": "I cook dinner when I get home.\n接続詞が文中にあるとき、カンマは必要？不要？",
+      "hint": "接続詞が文の後ろにあるときは…",
+      "explanation": "接続詞が文中（後ろ）にくるときはカンマは不要だよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc18",
+      "front": "because と so は同時に使えない",
+      "back": "❌ Because I was tired, so I went to bed.\nこの文のまちがいは？",
+      "hint": "理由を表す語が2つ重なっている…",
+      "explanation": "because と so はどちらも理由を表すので同時には使えない。どちらか1つだけ！",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc19",
+      "front": "I went to bed early because I was tired.",
+      "back": "「疲れていたので、早く寝ました。」\nを英語にすると？",
+      "hint": "理由 = because。「早く寝る」= go to bed early",
+      "explanation": "because I was tired で「疲れていたので」。文中の because にカンマは不要だよ。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc20",
+      "front": "I think that Japanese food is healthy.",
+      "back": "「私は日本食は健康的だと思います。」\nを英語にすると？",
+      "hint": "think + that + 文。that の後ろには主語+動詞がくるよ",
+      "explanation": "that の後ろに Japanese food is healthy という文が続くよ。that は省略してもOK。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "(　) に入るのは？\n(　) I came home, my mother was cooking dinner.\n（私が家に帰ったとき、母は夕食を作っていました。）",
+        "options": ["When", "Because", "If", "That"],
+        "correctIndex": 0,
+        "explanation": "「家に帰ったとき」→「〜のとき」= when だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "(　) に入るのは？\nI stayed home (　) it was raining.\n（雨が降っていたので、私は家にいました。）",
+        "options": ["when", "if", "because", "that"],
+        "correctIndex": 2,
+        "explanation": "「雨が降っていたので」→ 理由 = because だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "(　) に入るのは？\n(　) you are free, let's eat ramen together.\n（もし暇なら、一緒にラーメンを食べよう。）",
+        "options": ["When", "If", "That", "Because"],
+        "correctIndex": 1,
+        "explanation": "「もし暇なら」→ 条件 = if だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "(　) に入るのは？\nI think (　) English is interesting.\n（私は英語はおもしろいと思います。）",
+        "options": ["if", "that", "when", "because"],
+        "correctIndex": 1,
+        "explanation": "think の後ろで「〜ということ」= that だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "(　) に入るのは？\nIf it (　) tomorrow, we will cancel the trip.\n（もし明日雨が降ったら、私たちは旅行を中止します。）",
+        "options": ["rains", "will rain", "rained", "raining"],
+        "correctIndex": 0,
+        "explanation": "if の後ろは未来でも will を使わず現在形。だから rains！",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "(　) に入るのは？\nIf it (　) tomorrow, I will stay home.\n（もし明日雪が降ったら、家にいます。）",
+        "options": ["snows", "will snow", "snowed", "is snowing"],
+        "correctIndex": 0,
+        "explanation": "if の後ろは未来でも現在形。snows が正しいよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "(　) に入るのは？\nI (　) think that this soup is too hot.\n（このスープは辛すぎるとは思いません。）",
+        "options": ["don't", "not", "am not", "no"],
+        "correctIndex": 0,
+        "explanation": "英語では I don't think that... の形で think を否定するのが自然だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "(　) に入るのは？\nI hope (　) you will visit our shop.\n（あなたが私たちの店に来てくれるといいなと思います。）",
+        "options": ["when", "if", "because", "that"],
+        "correctIndex": 3,
+        "explanation": "hope の後ろで「〜ということ」= that。「来てくれるといいな」だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "(　) に入るのは？\nWhen I got home (　) I made dinner.\n（家に帰ったとき、夕食を作りました。）",
+        "options": ["カンマをつける", "カンマは不要", "and を入れる", "so を入れる"],
+        "correctIndex": 0,
+        "explanation": "接続詞が文頭のときはカンマをつける。文中のときはカンマ不要だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "次の英文のまちがいはどれ？\n「Because I was tired, so I went to bed.」",
+        "options": [
+          "Because を When にすべき",
+          "was を am にすべき",
+          "so を削除すべき",
+          "bed を house にすべき"
+        ],
+        "correctIndex": 2,
+        "explanation": "because と so は同時に使えない。どちらか1つだけ！",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "(　) に入るのは？\nI (　) that this restaurant is famous.\n（私はこのレストランが有名だと知っています。）",
+        "options": ["know", "because", "when", "if"],
+        "correctIndex": 0,
+        "explanation": "that の前に置く動詞は think/know/hope/believe。ここは「〜と知っている」= know。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q12",
+        "question": "(　) に入るのは？\nShe was happy (　) she got a present.\n（彼女はプレゼントをもらったのでうれしかったです。）",
+        "options": ["when", "if", "because", "that"],
+        "correctIndex": 2,
+        "explanation": "「プレゼントをもらったので」= because。文頭でも文中でも使えるよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q13",
+        "question": "次の文のまちがいを正すと？\n「If it will be sunny tomorrow, we will go out.」",
+        "options": [
+          "will be → is",
+          "will go → go",
+          "sunny → sun",
+          "tomorrow → today"
+        ],
+        "correctIndex": 0,
+        "explanation": "if の後ろでは will を使わない。will be → is に直すよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q14",
+        "question": "(　) に入るのは？\n(　) you finish your homework, you can play games.\n（もし宿題を終えたら、ゲームをしてもいいよ。）",
+        "options": ["When", "Because", "That", "If"],
+        "correctIndex": 3,
+        "explanation": "「もし宿題を終えたら」→ 条件 = if だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q15",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「私は暇なとき、よくマンガを読みます。」という英文を作ろう。",
+        "words": ["when", "i", "i", "read", "manga", "am", "free", "often"],
+        "correctOrder": [0, 1, 5, 6, 2, 7, 3, 4],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「When I am free, I often read manga.」が正解。when + 主語 + 動詞 の順番だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q16",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「もし明日晴れたら、ラーメンを食べに行こう。」という英文を作ろう。\nIf it (　)(　)(　), let's get some ramen.",
+        "words": ["sunny", "is", "tomorrow"],
+        "correctOrder": [1, 0, 2],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「If it is sunny tomorrow」が正解。if の後ろは will を使わず現在形だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q17",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「私はそのニュースを聞いたときうれしかった。」という英文を完成させよう。\nI was happy (　)(　)(　) the news.",
+        "words": ["heard", "when", "i"],
+        "correctOrder": [1, 2, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「when I heard」が正解。when + 主語 + 動詞 の順番だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q18",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「私は彼が親切だと思います。」という英文を完成させよう。\nI think (　)(　)(　)(　).",
+        "words": ["is", "he", "kind", "that"],
+        "correctOrder": [3, 1, 0, 2],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「that he is kind」が正解。that + 主語 + 動詞 + 補語 の順番だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q19",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「私はこのラーメンが好きです。なぜならスープが濃厚だからです。」という英文を作ろう。",
+        "words": ["this ramen", "i", "the soup", "like", "because", "is", "rich"],
+        "correctOrder": [1, 3, 0, 4, 2, 5, 6],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I like this ramen because the soup is rich.」が正解。because の前にカンマはいらないよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q20",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「私は彼女がいそがしいと知っています。」という英文を完成させよう。\nI know (　)(　)(　)(　).",
+        "words": ["is", "that", "she", "busy"],
+        "correctOrder": [1, 2, 0, 3],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「that she is busy」が正解。that + 主語 + 動詞 + 形容詞 の順番だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q21",
+        "type": "reorder",
+        "question": "次の単語を正しい順番にならべて、\n「雨が降っていたので、家にいました。」という英文を作ろう。",
+        "words": ["stayed", "i", "it", "because", "home", "was", "raining"],
+        "correctOrder": [1, 0, 4, 3, 2, 5, 6],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I stayed home because it was raining.」が正解。because の前にカンマはいらないよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q23",
+        "question": "(　) に入るのは？\n(　) it rains tomorrow, I will stay home.\n（もし明日雨が降ったら、私は家にいます。）",
+        "options": ["When", "If", "Because", "That"],
+        "correctIndex": 1,
+        "explanation": "「もし〜ならば」は接続詞 if。条件を表すよ。if のあとは未来のことでも現在形を使うよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q24",
+        "question": "(　) に入るのは？\n(　) I was a child, I liked soccer very much.\n（子どものとき、私はサッカーが大好きでした。）",
+        "options": ["When", "Because", "If", "That"],
+        "correctIndex": 0,
+        "explanation": "「子どものとき」→「〜のとき」= when。過去の話にも使えるよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q25",
+        "question": "(　) に入るのは？\nI will call you (　) I arrive at the station.\n（駅に着いたら電話します。）",
+        "options": ["when", "that", "because", "if"],
+        "correctIndex": 0,
+        "explanation": "「駅に着いたら」→「〜のとき」= when。時を表す文では未来でも現在形 arrive を使うよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q26",
+        "question": "(　) に入るのは？\nHe didn't go to school (　) he was sick.\n（病気だったので、彼は学校へ行きませんでした。）",
+        "options": ["when", "if", "because", "that"],
+        "correctIndex": 2,
+        "explanation": "「病気だったので」→ 理由 = because だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q27",
+        "question": "(　) に入るのは？\n(　) you are tired, you can rest here.\n（疲れているなら、ここで休んでいいよ。）",
+        "options": ["When", "If", "That", "Because"],
+        "correctIndex": 1,
+        "explanation": "「疲れているなら」→ 条件 = if だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q28",
+        "question": "(　) に入るのは？\nI believe (　) you will pass the test.\n（あなたはテストに合格すると信じています。）",
+        "options": ["if", "that", "when", "because"],
+        "correctIndex": 1,
+        "explanation": "believe の後ろで「〜ということ」= that。that は省略してもOKだよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q29",
+        "question": "(　) に入るのは？\nWhen she (　) home, I will tell her the news.\n（彼女が帰宅したら、そのニュースを伝えます。）",
+        "options": ["comes", "will come", "came", "coming"],
+        "correctIndex": 0,
+        "explanation": "when の後ろは未来のことでも現在形。will come ではなく comes だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q30",
+        "question": "(　) に入るのは？\nI hope (　) it will be sunny tomorrow.\n（明日晴れるといいなと思います。）",
+        "options": ["when", "if", "because", "that"],
+        "correctIndex": 3,
+        "explanation": "hope の後ろで「〜ということ」= that。「晴れるといいな」だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q31",
+        "question": "(　) に入るのは？\nWhen he (　), I will help him.\n（彼が来たら、手伝います。）",
+        "options": ["comes", "will come", "came", "is coming"],
+        "correctIndex": 0,
+        "explanation": "時を表す when の後ろは未来でも現在形。comes が正しいよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q32",
+        "question": "(　) に入るのは？\nWe were surprised (　) we heard the news.\n（その知らせを聞いたとき、私たちは驚きました。）",
+        "options": ["when", "if", "that", "because"],
+        "correctIndex": 0,
+        "explanation": "「聞いたとき」→「〜のとき」= when だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q33",
+        "question": "(　) に入るのは？\n(　) you don't hurry, you will miss the bus.\n（急がないと、バスに乗り遅れるよ。）",
+        "options": ["When", "Because", "If", "That"],
+        "correctIndex": 2,
+        "explanation": "「急がないと（=もし急がなければ）」→ 条件 = if だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q34",
+        "question": "(　) に入るのは？\nI think (　) this book is interesting.\n（私はこの本はおもしろいと思います。）",
+        "options": ["if", "that", "when", "because"],
+        "correctIndex": 1,
+        "explanation": "think の後ろで「〜ということ」= that。省略してもOKだよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q35",
+        "question": "(　) に入るのは？\nI'll give you my umbrella (　) it rains.\n（雨が降ったら私の傘をあげるよ。）",
+        "options": ["that", "if", "when", "because"],
+        "correctIndex": 1,
+        "explanation": "「雨が降ったら」→ 条件 = if。if の後ろは未来でも現在形 rains だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q36",
+        "question": "(　) に入るのは？\nI (　) think that this question is difficult.\n（私はこの問題は難しいとは思いません。）",
+        "options": ["don't", "not", "am not", "no"],
+        "correctIndex": 0,
+        "explanation": "英語では I don't think that... の形で think を否定するのが自然だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q37",
+        "question": "(　) に入るのは？\nShe was glad (　) her son became a doctor.\n（息子が医者になったので、彼女は喜びました。）",
+        "options": ["when", "if", "because", "that"],
+        "correctIndex": 2,
+        "explanation": "「医者になったので」→ 理由 = because だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q38",
+        "question": "(　) に入るのは？\n(　) the bell rang, the students went home.\n（ベルが鳴ったとき、生徒たちは帰宅しました。）",
+        "options": ["When", "Because", "If", "That"],
+        "correctIndex": 0,
+        "explanation": "「ベルが鳴ったとき」→「〜のとき」= when だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q39",
+        "question": "(　) に入るのは？\nIf you (　) busy tomorrow, please tell me.\n（もし明日忙しかったら、教えてください。）",
+        "options": ["are", "will be", "were", "being"],
+        "correctIndex": 0,
+        "explanation": "if の後ろは未来でも現在形。will be ではなく are だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q40",
+        "question": "(　) に入るのは？\nI know (　) he is a good teacher.\n（彼がよい先生だと知っています。）",
+        "options": ["if", "when", "that", "because"],
+        "correctIndex": 2,
+        "explanation": "know の後ろで「〜ということ」= that。省略してもOKだよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q41",
+        "question": "次の文を正しくするには？\nBecause it was cold, so I wore a coat.\n（寒かったので、コートを着ました。）",
+        "options": ["so を消す", "Because を消す", "wore を消す", "cold を消す"],
+        "correctIndex": 0,
+        "explanation": "because と so は同時に使えない。so を消して because だけにするのが正しいよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q42",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私が起きたとき、雨が降っていました。」の英文を作ろう。",
+        "words": ["was", "when", "up", "i", "raining", "got", "it"],
+        "correctOrder": [1, 3, 5, 2, 6, 0, 4],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「When I got up, it was raining.」が正解。when + 主語 + 動詞 の順番だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q43",
+        "type": "reorder",
+        "question": "次の語を並べかえて「もし暇なら、私の家に来て。」の英文を作ろう。\n(　)(　)(　)(　), come to my house.",
+        "words": ["free", "if", "you", "are"],
+        "correctOrder": [1, 2, 3, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「If you are free」が正解。if + 主語 + 動詞 の順番だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q44",
+        "type": "reorder",
+        "question": "次の語を並べかえて「試合に勝ったので、彼はうれしかったです。」の英文を作ろう。",
+        "words": ["because", "he", "happy", "was", "he", "won", "the game"],
+        "correctOrder": [1, 3, 2, 0, 4, 5, 6],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「He was happy because he won the game.」が正解。because の前にカンマはいらないよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q45",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私は彼は正直だと思います。」の英文を作ろう。\nI think (　)(　)(　)(　).",
+        "words": ["honest", "that", "is", "he"],
+        "correctOrder": [1, 3, 2, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「that he is honest」が正解。that + 主語 + 動詞 + 補語 の順番だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q46",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私はあなたが必要なとき、手伝います。」の英文を作ろう。\nI will help you (　)(　)(　)(　).",
+        "words": ["need", "when", "me", "you"],
+        "correctOrder": [1, 3, 0, 2],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「when you need me」が正解。when + 主語 + 動詞 の順番だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q47",
+        "type": "reorder",
+        "question": "次の語を並べかえて「もし暑かったら、私は窓を開けます。」の英文を作ろう。\n(　)(　)(　)(　), I will open the window.",
+        "words": ["is", "if", "hot", "it"],
+        "correctOrder": [1, 3, 0, 2],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「If it is hot」が正解。if の後ろは未来でも現在形 is を使うよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q48",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私は彼女が音楽を好きだと知っています。」の英文を作ろう。",
+        "words": ["likes", "i", "that", "she", "know", "music"],
+        "correctOrder": [1, 4, 2, 3, 0, 5],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I know that she likes music.」が正解。know + that + 主語 + 動詞 の順番だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q49",
+        "type": "reorder",
+        "question": "次の語を並べかえて「雨だったので、私たちはサッカーをしませんでした。」の英文を作ろう。",
+        "words": ["because", "play", "we", "soccer", "it", "didn't", "rainy", "was"],
+        "correctOrder": [2, 5, 1, 3, 0, 4, 7, 6],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「We didn't play soccer because it was rainy.」が正解。because の前にカンマはいらないよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q50",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私はこれが簡単だとは思いません。」の英文を作ろう。\nI don't think (　)(　)(　)(　).",
+        "words": ["this", "that", "easy", "is"],
+        "correctOrder": [1, 0, 3, 2],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I don't think that this is easy.」が正解。英語では think を否定して don't think that... とするよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q51",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私は暇なとき、あなたに電話します。」の英文を作ろう。",
+        "words": ["free", "when", "am", "i", "i", "call", "will", "you"],
+        "correctOrder": [1, 3, 2, 0, 4, 6, 5, 7],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「When I am free, I will call you.」が正解。when + 主語 + 動詞 の順番。時を表す文では未来でも現在形 am を使うよ。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

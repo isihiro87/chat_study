@@ -1,0 +1,499 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade3",
+  "topicId": "eng-subjunctive",
+  "name": "仮定法",
+  "subtitle": "If I were ~ / I wish ~ で想像を伝えよう",
+  "icon": "💭",
+  "order": 10,
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "were",
+      "back": "仮定法で be動詞はぜんぶ何になる？",
+      "hint": "I were, he were, she were... ぜんぶ同じ形！",
+      "explanation": "仮定法では be動詞は主語に関係なく全部 were にするよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "could",
+      "back": "仮定法で can を過去の形にすると？",
+      "hint": "can → ???（「〜できた」の形と同じ）",
+      "explanation": "can の過去の形は could だよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "had",
+      "back": "仮定法で have を過去の形にすると？",
+      "hint": "have → ???",
+      "explanation": "have の過去の形は had。If I had ~ のように使うよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "would",
+      "back": "仮定法で「〜するのに」を表す言葉は？",
+      "hint": "「もし〜だったら、〜するのに」の「するのに」は？",
+      "explanation": "would + 動詞の原形で「〜するのに」を表すよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "If I were you, I would ask my friends for help.",
+      "back": "「もし私があなたなら、友達に助けを求めるでしょう。」を英語にすると？",
+      "hint": "仮定法では be動詞は全部 were だよ",
+      "explanation": "If I were 〜, I would 〜. の形。be動詞は were、「するでしょう」は would + 動詞だよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "I wish I could go to school.",
+      "back": "「学校に行くことができたらいいのになあ。」を英語にすると？",
+      "hint": "can go → ??? go",
+      "explanation": "I wish のうしろは過去の形。can → could にするよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "I wish I had pens and notebooks.",
+      "back": "「ノートやペンを持っていればいいのになあ。」を英語にすると？",
+      "hint": "have → ???",
+      "explanation": "have → had。I wish I had pens and notebooks. だよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc8",
+      "front": "If I had a school backpack, I would donate it.",
+      "back": "「もしランドセルがあれば、寄付するのに。」を英語にすると？（donate = 寄付する）",
+      "hint": "have → had / 「〜するのに」= would + 動詞",
+      "explanation": "have → had、「するのに」は would + 動詞。If I had ~, I would donate it. だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc9",
+      "front": "I wish there were no nuclear weapons.",
+      "back": "「核兵器がなければいいのに。」を英語にすると？（nuclear weapons = 核兵器）",
+      "hint": "there are → there ???",
+      "explanation": "be動詞は仮定法では全部 were。there were no ~ で「〜がなければ」だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "If we had a car, we would go to more places.",
+      "back": "「もし車があれば、もっと色々な場所に行くのに。」を英語にすると？",
+      "hint": "If we ??? a car, we ??? go ...",
+      "explanation": "have → had、「行くのに」は would go。主語が we のときも同じ形だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "If I had more time, I would travel all around Japan.",
+      "back": "「もしもっと時間があれば、日本中を旅するのに。」を英語にすると？",
+      "hint": "have → had / 「旅するのに」= would travel",
+      "explanation": "have → had、「旅するのに」は would travel。If I had ~, I would ~. の形だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "I wish I were taller.",
+      "back": "「もっと背が高ければいいのに。」を英語にすると？",
+      "hint": "I wish のうしろ、be動詞は？",
+      "explanation": "仮定法では be動詞は全部 were。I wish I were taller. だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "If I knew the answer, I would tell you.",
+      "back": "「もし答えを知っていたら、教えるのに。」を英語にすると？",
+      "hint": "know の過去の形は？",
+      "explanation": "know → knew。If I knew 〜, I would tell 〜. の形だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "If I lived in Hawaii, I would surf every day.",
+      "back": "「もしハワイに住んでいたら、毎日サーフィンするのに。」を英語にすると？",
+      "hint": "live → ???",
+      "explanation": "live → lived。一般動詞も過去の形にするのが仮定法のルールだよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc15",
+      "front": "I wish I were good at math.",
+      "back": "現実: I'm not good at math.（数学が得意じゃない。）\n→ I wish を使って仮定法にすると？",
+      "hint": "am not → ??? にして否定を外す",
+      "explanation": "現実が否定文のとき、否定を外して I wish I were good at math. にするよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc16",
+      "front": "I wish I knew her phone number.",
+      "back": "現実: I don't know her phone number.（彼女の電話番号を知らない。）\n→ I wish を使って仮定法にすると？",
+      "hint": "don't know → ??? にして否定を外す",
+      "explanation": "don't know → knew にして否定を外す。I wish I knew her phone number. だよ。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc17",
+      "front": "If there were no forests, many species would disappear.",
+      "back": "「もし森がなければ、多くの種が消滅するでしょう。」を英語にすると？（species = 種、disappear = 消滅する）",
+      "hint": "there are → there ??? / 「消滅するでしょう」= would disappear",
+      "explanation": "be動詞は were、「消滅するでしょう」は would disappear。If there were no ~, ~ would ~. の形だよ。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc18",
+      "front": "If she were here, she would help us.",
+      "back": "「もし彼女がここにいたら、助けてくれるのに。」を英語にすると？",
+      "hint": "she のときも be動詞は were だよ",
+      "explanation": "仮定法では主語に関係なく be動詞は全部 were だよ。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc19",
+      "front": "If I were rich, I would donate a lot of money.",
+      "back": "「もし私が裕福なら、たくさんのお金を寄付するのに。」を英語にすると？",
+      "hint": "be動詞は were / 「寄付するのに」= would donate",
+      "explanation": "be動詞は were、「寄付するのに」は would donate。rich のような形容詞でも If I were ~ の形だよ。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc20",
+      "front": "I wish I could play the piano.",
+      "back": "「ピアノが弾けたらいいのに。」を英語にすると？",
+      "hint": "can play → ??? play",
+      "explanation": "can → could にするよ。I wish I could play the piano. だね。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc21",
+      "front": "I wish I had a brother.",
+      "back": "現実: I don't have a brother.（兄弟がいない。）\n→ I wish を使って仮定法にすると？",
+      "hint": "don't have → ??? にして否定を外す",
+      "explanation": "don't have → had にして否定を外す。I wish I had a brother. だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc22",
+      "front": "I wish I could speak English well.",
+      "back": "「英語を上手に話せたらいいのに。」を英語にすると？",
+      "hint": "can speak → ??? speak",
+      "explanation": "can → could。I wish I could speak English well. だよ。",
+      "difficulty": "basic"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "(　) に入るのは？\nIf I (　) you, I would study harder.\n（もし私があなただったら、もっと勉強するのに。）",
+        "options": ["am", "was", "were", "are"],
+        "correctIndex": 2,
+        "explanation": "仮定法では be動詞は全部 were。「〜するのに」は would + 動詞だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "(　) に入るのは？\nI wish I (　) go to school.\n（学校に行けたらいいのになあ。）",
+        "options": ["can", "could", "will", "go"],
+        "correctIndex": 1,
+        "explanation": "I wish のうしろは過去の形にするよ。can → could だね。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "(　) に入るのは？\nIf I (　) a cat, I would sleep all day.\n（もし私が猫だったら、一日中寝るのに。）",
+        "options": ["am", "was", "were", "are"],
+        "correctIndex": 2,
+        "explanation": "仮定法では be動詞は主語に関係なく全部 were にするよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "(　) に入るのは？\nI wish I (　) play the piano.\n（ピアノが弾けたらいいのに。）",
+        "options": ["can", "could", "will", "am"],
+        "correctIndex": 1,
+        "explanation": "「〜できたらいいのに」は I wish I could ~。can → could にするよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "(　) に入るのは？\nI wish I (　) pens and notebooks.\n（ノートやペンを持っていればいいのになあ。）",
+        "options": ["have", "has", "had", "having"],
+        "correctIndex": 2,
+        "explanation": "have → had。I wish のうしろも仮定法で過去の形にするよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "(　) に入るのは？\n「もし私が鳥だったら、飛んでいくのに。」If I (　) a bird, I would fly.\n（もし私が鳥だったら、飛んでいくのに。）",
+        "options": [
+          "am",
+          "was",
+          "were",
+          "be"
+        ],
+        "correctIndex": 2,
+        "explanation": "仮定法では be動詞は主語に関係なく全部 were だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q7",
+        "question": "(　) に入るのは？\n「もし今日暇だったら、買い物に行くのに。」If I were free today, I (　) go shopping.\n（もし今日暇だったら、買い物に行くのに。）",
+        "options": [
+          "will",
+          "would",
+          "can",
+          "am going to"
+        ],
+        "correctIndex": 1,
+        "explanation": "仮定法の「〜するのに」は would + 動詞の原形だよ。will は使わないよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q8",
+        "question": "(　) に入るのは？\n「もしたくさんお金があったら、家を買うのに。」If I (　) a lot of money, I would buy a house.\n（もしたくさんお金があったら、家を買うのに。）",
+        "options": [
+          "have",
+          "has",
+          "had",
+          "having"
+        ],
+        "correctIndex": 2,
+        "explanation": "仮定法では過去の形を使うよ。have → had だね。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "(　) に入るのは？\nI wish I (　) taller.\n（もっと背が高ければいいのに。）",
+        "options": [
+          "am",
+          "is",
+          "was",
+          "were"
+        ],
+        "correctIndex": 3,
+        "explanation": "I wish のうしろも仮定法。be動詞は全部 were だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "(　) に入るのは？\n「もしランドセルがあれば、寄付するのに。」If I (　) a school backpack, I would donate it.\n（もしランドセルがあれば、寄付するのに。）",
+        "options": [
+          "have",
+          "had",
+          "has",
+          "having"
+        ],
+        "correctIndex": 1,
+        "explanation": "仮定法では have → had にするよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "(　) に入るのは？\n「もしハワイに住んでいたら、毎日サーフィンするのに。」If I (　) in Hawaii, I would surf every day.\n（もしハワイに住んでいたら、毎日サーフィンするのに。）",
+        "options": [
+          "live",
+          "lives",
+          "living",
+          "lived"
+        ],
+        "correctIndex": 3,
+        "explanation": "一般動詞も仮定法では過去形にするよ。live → lived だね。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "(　) に入るのは？\nI wish I (　) good at math.\n（数学が得意ならいいのに。）",
+        "options": ["am", "was", "were", "be"],
+        "correctIndex": 2,
+        "explanation": "am not → were にして否定を外す。仮定法では be動詞は全部 were だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q13",
+        "question": "(　) に入るのは？\nI wish we (　) help you.\n（あなたを助けられたらいいのに。）",
+        "options": ["can", "could", "will", "help"],
+        "correctIndex": 1,
+        "explanation": "can't → could にして否定を外す。I wish we could help you. だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q14",
+        "question": "(　) に入るのは？\nI wish I (　) her phone number.\n（彼女の電話番号を知っていればいいのに。）",
+        "options": ["know", "knew", "known", "knows"],
+        "correctIndex": 1,
+        "explanation": "don't know → knew にして否定を外す。know の過去形は knew だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q15",
+        "question": "(　) に入るのは？\n「もし森がなければ、多くの種が消滅するでしょう。」If there (　) no forests, many species would disappear.\n（もし森がなければ、多くの種が消滅するでしょう。）",
+        "options": [
+          "are",
+          "is",
+          "were",
+          "be"
+        ],
+        "correctIndex": 2,
+        "explanation": "仮定法では be動詞は全部 were。there were no ~ で「〜がなければ」だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q16",
+        "question": "(　) に入るのは？\nI wish my town (　) a river.\n（私の町に川があればいいのに。）",
+        "options": ["have", "has", "had", "having"],
+        "correctIndex": 2,
+        "explanation": "does not have → had にして否定を外す。主語が my town でも同じルールだよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q17",
+        "type": "reorder",
+        "question": "次の語を並べかえて「ピアノが弾けたらいいのに。」の英文を作ろう。\nI wish (　)(　)(　)(　)(　).",
+        "words": ["could", "I", "play", "the", "piano"],
+        "correctOrder": [1, 0, 2, 3, 4],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I wish I could play the piano.」が正解。I + could + play the piano の順だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q18",
+        "type": "reorder",
+        "question": "次の語を並べかえて「核兵器がなければいいのに。」の英文を作ろう。\nI wish (　)(　)(　)(　)(　).",
+        "words": ["there", "were", "no", "nuclear", "weapons"],
+        "correctOrder": [0, 1, 2, 3, 4],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I wish there were no nuclear weapons.」が正解。there were no ~ で「〜がなければ」だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q19",
+        "type": "reorder",
+        "question": "次の語を並べかえて「もし私があなたなら、勉強するのに。」の英文を作ろう。\n(　)(　)(　)(　), I would study.",
+        "words": ["were", "you", "I", "if"],
+        "correctOrder": [3, 2, 0, 1],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「If I were you, I would study.」が正解。If + I + were + you の順だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q20",
+        "type": "reorder",
+        "question": "次の語を並べかえて「もし答えを知っていたら、教えるのに。」の英文を作ろう。\nIf (　)(　)(　)(　), I would tell you.",
+        "words": ["knew", "the", "I", "answer"],
+        "correctOrder": [2, 0, 1, 3],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「If I knew the answer, I would tell you.」が正解。know → knew が仮定法のポイントだよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q21",
+        "type": "reorder",
+        "question": "次の語を並べかえて「もし私がランドセルを持っていたら、寄付するのに。」の英文を作ろう。\nIf (　)(　)(　)(　)(　), I would donate it.",
+        "words": ["a", "had", "school", "I", "backpack"],
+        "correctOrder": [3, 1, 0, 2, 4],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「If I had a school backpack, I would donate it.」が正解。I + had + a school backpack の順だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q22",
+        "type": "reorder",
+        "question": "次の語を並べかえて「もし車があれば、もっと色々な場所に行くのに。」の英文を作ろう。\nIf (　)(　)(　)(　), we would go to more places.",
+        "words": ["a", "had", "we", "car"],
+        "correctOrder": [2, 1, 0, 3],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「If we had a car, we would go to more places.」が正解。we + had + a + car の順だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q23",
+        "question": "(　) に入るのは？\nI wish I (　) speak English well.\n（英語が上手に話せたらいいのに。）",
+        "options": ["can", "could", "will", "speak"],
+        "correctIndex": 1,
+        "explanation": "「〜できたらいいのに」は I wish I could ~。can → could にするよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q24",
+        "question": "(　) に入るのは？\n「もし彼女がここにいたら、私たちを助けてくれるのに。」If she (　) here, she would help us.\n（もし彼女がここにいたら、私たちを助けてくれるのに。）",
+        "options": ["is", "was", "were", "are"],
+        "correctIndex": 2,
+        "explanation": "仮定法では主語に関係なく be動詞は全部 were。she のときも were だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q25",
+        "question": "(　) に入るのは？\n「もしもっと時間があれば、日本中を旅するのに。」If I had more time, I (　) travel all around Japan.\n（もしもっと時間があれば、日本中を旅するのに。）",
+        "options": ["will", "would", "can", "am going to"],
+        "correctIndex": 1,
+        "explanation": "仮定法の「〜するのに」は would + 動詞の原形だよ。will は使わないよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q26",
+        "question": "(　) に入るのは？\nI wish I (　) the answer.\n（答えを知っていればいいのに。）",
+        "options": ["know", "knew", "known", "knows"],
+        "correctIndex": 1,
+        "explanation": "I wish のうしろは過去の形。know の過去形は knew だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q27",
+        "question": "(　) に入るのは？\nI wish I (　) a brother.\n（兄弟がいればいいのに。）",
+        "options": ["have", "has", "had", "having"],
+        "correctIndex": 2,
+        "explanation": "don't have → had にして否定を外す。I wish I had a brother. だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q28",
+        "question": "(　) に入るのは？\n「もし私が裕福なら、たくさんのお金を寄付するのに。」If I were rich, I would (　) a lot of money.\n（もし私が裕福なら、たくさんのお金を寄付するのに。）",
+        "options": ["donate", "donated", "donates", "donating"],
+        "correctIndex": 0,
+        "explanation": "would のうしろは動詞の原形。would donate になるよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q29",
+        "type": "reorder",
+        "question": "次の語を並べかえて「もし今暇だったら、買い物に行くのに。」の英文を作ろう。\nIf (　)(　)(　)(　), I would go shopping.",
+        "words": ["were", "I", "free", "now"],
+        "correctOrder": [1, 0, 2, 3],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「If I were free now, I would go shopping.」が正解。be動詞は were にするよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q30",
+        "type": "reorder",
+        "question": "次の語を並べかえて「もしハワイに住んでいたら、毎日サーフィンするのに。」の英文を作ろう。\nIf (　)(　)(　)(　), I would surf every day.",
+        "words": ["lived", "I", "Hawaii", "in"],
+        "correctOrder": [1, 0, 3, 2],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「If I lived in Hawaii, I would surf every day.」が正解。一般動詞も過去形 lived にするよ。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

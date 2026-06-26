@@ -1,0 +1,464 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade1",
+  "topicId": "eng-general-verbs",
+  "name": "一般動詞",
+  "subtitle": "like / play / study ... 動きを表すことば",
+  "icon": "🏃",
+  "order": 2,
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "play",
+      "back": "I (　) basketball after school.（私は放課後にバスケットボールをします。）",
+      "hint": "スポーツを「する」を表す動詞は？",
+      "explanation": "スポーツに使う「する」は play。I のときは動詞はそのままの形だよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "like",
+      "back": "I (　) science.（私は理科が好きです。）",
+      "hint": "「好き」を表す動詞は？",
+      "explanation": "「好き」は like。一般動詞なのでbe動詞といっしょには使わないよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "have",
+      "back": "I (　) two cats.（私はネコを2匹飼っています。）",
+      "hint": "「持っている・飼っている」を表す動詞は？",
+      "explanation": "have は「持っている」「飼っている」。ペットを飼っているときも have を使うよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "study",
+      "back": "I (　) English every day.（私は毎日英語を勉強します。）",
+      "hint": "「勉強する」を表す動詞は？",
+      "explanation": "「勉強する」は study。every day（毎日）は文の最後に置くよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "watch",
+      "back": "I (　) TV after dinner.（私は夕食後にテレビを見ます。）",
+      "hint": "テレビを「見る」を表す動詞は？",
+      "explanation": "テレビや試合を「見る」は watch。after dinner は「夕食後に」。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc11",
+      "front": "do not",
+      "back": "I (　) (　) eat natto.（私は納豆を食べません。）",
+      "hint": "I の「〜しない」で使う2語は？",
+      "explanation": "I の否定は do not（短縮形は don't）+ 動詞のもとの形だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "don't",
+      "back": "do not をみじかく言うと？",
+      "hint": "do と not をくっつけよう。",
+      "explanation": "do not の短縮形は don't。アポストロフィを忘れずに。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc15",
+      "front": "Do",
+      "back": "(　) you like music?（あなたは音楽が好きですか？）",
+      "hint": "you の一般動詞の疑問文で先頭にくる語は？",
+      "explanation": "you の「〜しますか？」は Do を文の最初に置くよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc17",
+      "front": "Yes, I do.",
+      "back": "Do you play the piano?（あなたはピアノをひきますか？）\nに「はい」で答えると？",
+      "hint": "Do で聞かれたら do で答えるよ。",
+      "explanation": "Do で聞かれたら do で答える。「あなたは〜？」には I で答えるので Yes, I do.。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc22",
+      "front": "do not have",
+      "back": "I (　) (　) (　) a smartphone.（私はスマートフォンを持っていません。）",
+      "hint": "「〜しない」+「持っている」をつなげると？",
+      "explanation": "do not（don't）+ have（もとの形）。「持っていない」は do not have だよ。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc24",
+      "front": "I like tennis.",
+      "back": "I am like tennis. ← 正しい？ まちがいなら直そう。",
+      "hint": "be動詞と一般動詞はいっしょに使える？",
+      "explanation": "be動詞 am と一般動詞 like はいっしょに使えない。正しくは I like tennis.。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc25",
+      "front": "like",
+      "back": "I (　) dogs.（私は犬が好きです。）",
+      "hint": "「好き」を表す動詞は？",
+      "explanation": "「好き」は like。I のときは動詞はそのままの形だよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc26",
+      "front": "want",
+      "back": "I (　) a new bike.（私は新しい自転車がほしいです。）",
+      "hint": "「ほしい」を表す動詞は？",
+      "explanation": "「ほしい」は want。一般動詞だよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc27",
+      "front": "speak",
+      "back": "We (　) English at school.（私たちは学校で英語を話します。）",
+      "hint": "「話す」を表す動詞は？",
+      "explanation": "「話す」は speak。we のときも動詞はそのままの形だよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc28",
+      "front": "read",
+      "back": "They (　) books every day.（彼らは毎日本を読みます。）",
+      "hint": "「読む」を表す動詞は？",
+      "explanation": "「読む」は read。they のときも動詞はそのままの形だよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc29",
+      "front": "eat",
+      "back": "I (　) rice for breakfast.（私は朝ごはんにごはんを食べます。）",
+      "hint": "「食べる」を表す動詞は？",
+      "explanation": "「食べる」は eat。for breakfast は「朝ごはんに」。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc30",
+      "front": "do not like",
+      "back": "I (　)(　)(　) natto.（私は納豆が好きではありません。）",
+      "hint": "I の「〜しない」で使う語は？",
+      "explanation": "I の否定は do not（don't）+ 動詞のもとの形だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc31",
+      "front": "don't",
+      "back": "We (　) watch TV in the morning.（私たちは朝テレビを見ません。）",
+      "hint": "we の「〜しない」の短縮形は？",
+      "explanation": "we / they の否定も do not（don't）+ もとの形を使うよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc32",
+      "front": "Do",
+      "back": "(　) you have a pen?（あなたはペンを持っていますか？）",
+      "hint": "you の疑問文で先頭にくる語は？",
+      "explanation": "you の「〜しますか？」は Do を文の最初に置くよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc33",
+      "front": "Do",
+      "back": "(　) they live in Tokyo?（彼らは東京に住んでいますか？）",
+      "hint": "they の疑問文で先頭にくる語は？",
+      "explanation": "they の疑問文も Do を文の最初に置くよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc34",
+      "front": "Yes, I do.",
+      "back": "Do you like music?（音楽が好きですか？）\nに「はい」で答えると？",
+      "hint": "Do で聞かれたら do で答えるよ。",
+      "explanation": "「あなたは〜？」には I で答えるので Yes, I do.。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc35",
+      "front": "No, I don't.",
+      "back": "Do you play tennis?（テニスをしますか？）\nに「いいえ」で答えると？",
+      "hint": "「いいえ」は do の短縮形を使うよ。",
+      "explanation": "「いいえ」は No, I don't.（= do not）だよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc36",
+      "front": "study",
+      "back": "I (　) math every night.（私は毎晩数学を勉強します。）",
+      "hint": "「勉強する」を表す動詞は？",
+      "explanation": "「勉強する」は study。every night は文の最後に置くよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc37",
+      "front": "use",
+      "back": "We (　) computers in class.（私たちは授業でコンピューターを使います。）",
+      "hint": "「使う」を表す動詞は？",
+      "explanation": "「使う」は use。we のときも動詞はそのままの形だよ。",
+      "difficulty": "standard"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "(　) に入るのは？\nI (　) tennis.\n（私はテニスをします。）",
+        "options": ["watch", "play", "eat", "am"],
+        "correctIndex": 1,
+        "explanation": "「する」は一般動詞 play。I のときは動詞はそのままの形だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "(　) に入るのは？\nI (　) English.\n（私は英語が好きです。）",
+        "options": ["speak", "study", "like", "am"],
+        "correctIndex": 2,
+        "explanation": "「好き」は一般動詞 like。be動詞といっしょに使ってはいけないよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "(　) に入るのは？\nI (　) breakfast every morning.\n（私は毎朝朝ごはんを食べます。）",
+        "options": ["eat", "cook", "drink", "am"],
+        "correctIndex": 0,
+        "explanation": "「食べる」は eat。I のときは動詞はそのままの形だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "(　) に入るのは？\nI (　) two dogs.\n（私は犬を2匹飼っています。）",
+        "options": ["want", "see", "am", "have"],
+        "correctIndex": 3,
+        "explanation": "「飼っている」は have。ペットを飼うときも have を使うよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q8",
+        "question": "(　) に入るのは？\nI (　) TV.\n（私はテレビを見ません。）",
+        "options": ["am not watch", "do not watch", "is not watch", "are not watch"],
+        "correctIndex": 1,
+        "explanation": "I の「〜しない」は do not（don't）+ 動詞のもとの形だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "(　) に入るのは？\n(　) you like music?\n（あなたは音楽が好きですか？）",
+        "options": ["Are", "Is", "Am", "Do"],
+        "correctIndex": 3,
+        "explanation": "一般動詞の「〜しますか？」は Do を文の最初に置くよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q12",
+        "question": "(　) に入るのは？\nDo you play the piano? — Yes, (　)\n（はい、ひきます。）",
+        "options": ["I do.", "I am.", "I don't.", "you do."],
+        "correctIndex": 0,
+        "explanation": "Do で聞かれたら do で答える。「あなたは〜？」には I で答えるので Yes, I do.。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q17",
+        "question": "(　) に入るのは？\nI (　) a smartphone.\n（私はスマートフォンを持っていません。）",
+        "options": ["do not have", "am not have", "have not", "is not have"],
+        "correctIndex": 0,
+        "explanation": "I の「〜しない」は do not（don't）+ have（もとの形）だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q18",
+        "question": "次のうち、文として正しいものはどれ？",
+        "options": ["I am like tennis.", "I am play tennis.", "I like tennis.", "I is like tennis."],
+        "correctIndex": 2,
+        "explanation": "be動詞と一般動詞はいっしょに使えない。正しくは I like tennis.（一般動詞だけ）。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q19",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私はサッカーをします。」の英文を作ろう。",
+        "words": ["soccer", "play", "I"],
+        "correctOrder": [2, 1, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I play soccer.」が正解。I + play + soccer の順番だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q20",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私は音楽が好きです。」の英文を作ろう。",
+        "words": ["music", "I", "like"],
+        "correctOrder": [1, 2, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I like music.」が正解。I + like + music の順番だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q21",
+        "type": "reorder",
+        "question": "次の語を並べかえて「あなたは犬を飼っていますか？」の英文を作ろう。",
+        "words": ["have", "you", "a dog", "do"],
+        "correctOrder": [3, 1, 0, 2],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Do you have a dog?」が正解。Do + you + have + a dog の順番だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q22",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私はピアノをひきません。」の英文を作ろう。",
+        "words": ["the piano", "not", "play", "do", "I"],
+        "correctOrder": [4, 3, 1, 2, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I do not play the piano.」が正解。do not + 動詞のもとの形。楽器の前には the をつけるよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q23",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私は毎日英語を勉強します。」の英文を作ろう。",
+        "words": ["English", "study", "I", "every day"],
+        "correctOrder": [2, 1, 0, 3],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I study English every day.」が正解。every day は文の最後に置くよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q24",
+        "type": "reorder",
+        "question": "次の語を並べかえて「あなたはピアノをひきますか？」の英文を作ろう。",
+        "words": ["play", "you", "the piano", "do"],
+        "correctOrder": [3, 1, 0, 2],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Do you play the piano?」が正解。Do + you + play + the piano の順番だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q27",
+        "type": "reorder",
+        "question": "次の語を並べかえて「あなたは放課後にサッカーをしますか？」の英文を作ろう。",
+        "words": ["after school", "soccer", "you", "play", "do"],
+        "correctOrder": [4, 2, 3, 1, 0],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Do you play soccer after school?」が正解。after school は文の最後に置くよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q28",
+        "question": "(　) に入るのは？\nI (　) soccer.\n（私はサッカーをします。）",
+        "options": ["watch", "play", "eat", "read"],
+        "correctIndex": 1,
+        "explanation": "「する」は一般動詞 play。I のときは動詞はそのままの形だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q29",
+        "question": "(　) に入るのは？\nWe (　) English.\n（私たちは英語を勉強します。）",
+        "options": ["study", "play", "eat", "drink"],
+        "correctIndex": 0,
+        "explanation": "「勉強する」は study。we のときも動詞はそのままの形だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q30",
+        "question": "(　) に入るのは？\nThey (　) breakfast every day.\n（彼らは毎日朝ごはんを食べます。）",
+        "options": ["eat", "read", "speak", "use"],
+        "correctIndex": 0,
+        "explanation": "「食べる」は eat。they のときも動詞はそのままの形だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q31",
+        "question": "(　) に入るのは？\nI (　) a dog.\n（私は犬を飼っていません。）",
+        "options": ["do not have", "am not have", "is not have", "be not have"],
+        "correctIndex": 0,
+        "explanation": "I の「〜しない」は do not（don't）+ have（もとの形）だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q32",
+        "question": "(　) に入るのは？\nWe (　) TV at night.\n（私たちは夜テレビを見ません。）",
+        "options": ["do not watch", "are not watch", "am not watch", "is not watch"],
+        "correctIndex": 0,
+        "explanation": "we の「〜しない」は do not（don't）+ 動詞のもとの形だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q33",
+        "question": "(　) に入るのは？\n(　) you like dogs?\n（あなたは犬が好きですか？）",
+        "options": ["Are", "Is", "Do", "Am"],
+        "correctIndex": 2,
+        "explanation": "一般動詞の「〜しますか？」は Do を文の最初に置くよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q34",
+        "question": "(　) に入るのは？\n(　) they play baseball?\n（彼らは野球をしますか？）",
+        "options": ["Do", "Is", "Are", "Am"],
+        "correctIndex": 0,
+        "explanation": "they の一般動詞の疑問文も Do を文の最初に置くよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q35",
+        "question": "(　) に入るのは？\nDo you have a bike? — Yes, (　)\n（はい、持っています。）",
+        "options": ["I do.", "I am.", "you do.", "I have."],
+        "correctIndex": 0,
+        "explanation": "Do で聞かれたら do で答える。「あなたは〜？」には I で答えるので Yes, I do.。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q36",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私は本を読みます。」の英文を作ろう。",
+        "words": ["books", "read", "I"],
+        "correctOrder": [2, 1, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I read books.」が正解。I + read + books の順番だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q37",
+        "type": "reorder",
+        "question": "次の語を並べかえて「あなたは音楽が好きですか？」の英文を作ろう。",
+        "words": ["music", "you", "like", "do"],
+        "correctOrder": [3, 1, 2, 0],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Do you like music?」が正解。Do + you + 動詞 + 目的語? の順番だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q38",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私たちは英語を話しません。」の英文を作ろう。",
+        "words": ["English", "not", "speak", "do", "we"],
+        "correctOrder": [4, 3, 1, 2, 0],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「We do not speak English.」が正解。do not + 動詞のもとの形だよ。",
+        "difficulty": "standard"
+      }
+    ]
+  }
+}

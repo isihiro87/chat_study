@@ -1,0 +1,428 @@
+{
+  "subjectId": "english",
+  "eraId": "english-grade1",
+  "topicId": "eng-nouns-advanced",
+  "name": "名詞の応用",
+  "subtitle": "不規則複数形 / How many / these・those",
+  "icon": "📝",
+  "order": 6,
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "children",
+      "back": "I see some (　) in the park.（私は公園で子どもたちを何人か見ます。）",
+      "hint": "child の複数形は？",
+      "explanation": "child の複数形は不規則変化で children。s や es はつけないよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "men",
+      "back": "Three (　) are on the bench.（3人の男性がベンチにいます。）",
+      "hint": "man の複数形は？",
+      "explanation": "man の複数形は不規則変化で men。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "women",
+      "back": "I see two (　) near the station.（私は駅の近くで2人の女性を見ます。）",
+      "hint": "woman の複数形は？",
+      "explanation": "woman の複数形は不規則変化で women。発音も変わるよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "teeth",
+      "back": "I brush my (　) every day.（私は毎日歯をみがきます。）",
+      "hint": "tooth の複数形は？",
+      "explanation": "tooth の複数形は不規則変化で teeth。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc5",
+      "front": "feet",
+      "back": "My (　) are cold.（私の足はつめたいです。）",
+      "hint": "foot の複数形は？",
+      "explanation": "foot の複数形は不規則変化で feet。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "fish",
+      "back": "I see many (　) in the river.（私は川でたくさんの魚を見ます。）",
+      "hint": "fish の複数形は単数形と同じ？",
+      "explanation": "fish は単数形も複数形も同じ形だよ。many fish。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "leaves",
+      "back": "Many (　) fall in autumn.（秋にはたくさんの葉が落ちます。）",
+      "hint": "leaf の複数形は？",
+      "explanation": "leaf は f を v にかえて es。leaf → leaves。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc9",
+      "front": "How many",
+      "back": "(　) (　) books do you have?（あなたは本を何冊持っていますか？）",
+      "hint": "「いくつ」と数をたずねる2語は？",
+      "explanation": "数をたずねるときは How many + 複数形を使うよ。How many books 〜?",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "How many",
+      "back": "(　) (　) caps do you have?（あなたはぼうしをいくつ持っていますか？）",
+      "hint": "「いくつ」と数をたずねる2語は？",
+      "explanation": "How many + 複数形 + do you have? で数をたずねるよ。cap → caps。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc11",
+      "front": "These",
+      "back": "(　) are my pens.（これらは私のペンです。）",
+      "hint": "this の複数形で「これら」を表すことばは？",
+      "explanation": "this の複数形は these。複数だからbe動詞は are を使うよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc12",
+      "front": "Those",
+      "back": "(　) are cats.（あれらはネコです。）",
+      "hint": "that の複数形で「あれら」を表すことばは？",
+      "explanation": "that の複数形は those。複数だからbe動詞は are を使うよ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc13",
+      "front": "they",
+      "back": "Are those your books? — Yes, (　) are.（はい、そうです。）",
+      "hint": "these / those に答えるときは何を使う？",
+      "explanation": "these / those の質問に答えるときは it ではなく they を使うよ。Yes, they are.",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "some",
+      "back": "I have (　) notebooks.（私はノートを何冊か持っています。）",
+      "hint": "肯定文で「いくつかの」を表すことばは？",
+      "explanation": "肯定文では some を使うよ。I have some notebooks.",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc15",
+      "front": "any",
+      "back": "Do you have (　) questions?（あなたは何か質問がありますか？）",
+      "hint": "疑問文で「いくつかの」を表すことばは？",
+      "explanation": "疑問文では any を使うよ。Do you have any questions?",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc16",
+      "front": "any",
+      "back": "I do not have (　) money.（私はお金をまったく持っていません。）",
+      "hint": "否定文で「まったく〜ない」を表すことばは？",
+      "explanation": "否定文では any を使うよ。not + any で「まったく〜ない」。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc17",
+      "front": "some",
+      "back": "I want (　) water.（私は水をいくらかほしいです。）",
+      "hint": "数えられない名詞でも肯定文なら？",
+      "explanation": "肯定文では some。water は数えられない名詞でも some はつけられるよ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc18",
+      "front": "milk",
+      "back": "I put some (　) in the glass.（私はコップにミルクを少し入れます。）",
+      "hint": "「ミルク」は数えられる？",
+      "explanation": "milk は数えられない名詞なので s はつけないし a / an もつけないよ。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc19",
+      "front": "sandwiches",
+      "back": "We make some (　) for lunch.（私たちは昼食にサンドイッチをいくつか作ります。）",
+      "hint": "ch で終わる sandwich の複数形は？",
+      "explanation": "ch で終わる名詞は es をつけるよ。sandwich → sandwiches。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc20",
+      "front": "dictionaries",
+      "back": "I do not have any English (　).（私は英語の辞書を1冊も持っていません。）",
+      "hint": "y で終わる dictionary の複数形は？",
+      "explanation": "y で終わる名詞は y を i にかえて es。dictionary → dictionaries。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc21",
+      "front": "mice",
+      "back": "I see two (　) in the kitchen.（私は台所で2匹のネズミを見ます。）",
+      "hint": "mouse の複数形は？",
+      "explanation": "mouse の複数形は不規則変化で mice。",
+      "difficulty": "standard"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "(　) に入るのは？\nI see some (　) in the park.\n（私は公園で子どもたちを何人か見ます。）",
+        "options": ["childs", "children", "childes", "child"],
+        "correctIndex": 1,
+        "explanation": "child の複数形は不規則変化で children。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "(　) に入るのは？\nThree (　) are on the bench.\n（3人の男性がベンチにいます。）",
+        "options": ["mans", "man", "men", "mens"],
+        "correctIndex": 2,
+        "explanation": "man の複数形は不規則変化で men。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "(　) に入るのは？\nI see two (　) near the station.\n（私は駅の近くで2人の女性を見ます。）",
+        "options": ["women", "womans", "woman", "womens"],
+        "correctIndex": 0,
+        "explanation": "woman の複数形は不規則変化で women。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "(　) に入るのは？\nI brush my (　) every day.\n（私は毎日歯をみがきます。）",
+        "options": ["tooths", "tooth", "toothes", "teeth"],
+        "correctIndex": 3,
+        "explanation": "tooth の複数形は不規則変化で teeth。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "(　) に入るのは？\nI see many (　) in the river.\n（私は川でたくさんの魚を見ます。）",
+        "options": ["fish", "fishs", "fishes", "a fish"],
+        "correctIndex": 0,
+        "explanation": "fish は単数形も複数形も同じ形だよ。many fish。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "(　) に入るのは？\nI use two (　) in the kitchen.\n（私は台所でナイフを2本使います。）",
+        "options": ["knifes", "knife", "knives", "a knife"],
+        "correctIndex": 2,
+        "explanation": "knife は f を v にかえて es。knife → knives。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "(　) に入るのは？\nHow many (　) do you have?\n（あなたは消しゴムをいくつ持っていますか？）",
+        "options": ["eraser", "an eraser", "eraseres", "erasers"],
+        "correctIndex": 3,
+        "explanation": "How many のあとは複数形。eraser → erasers。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "(　) に入るのは？\n(　) are my pens.\n（これらは私のペンです。）",
+        "options": ["These", "This", "It", "That"],
+        "correctIndex": 0,
+        "explanation": "this の複数形は these。複数だからbe動詞は are を使うよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q9",
+        "question": "(　) に入るのは？\nAre those your books? — Yes, (　) are.\n（はい、そうです。）",
+        "options": ["it", "this", "they", "that"],
+        "correctIndex": 2,
+        "explanation": "these / those の質問に答えるときは they を使うよ。Yes, they are.",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "(　) に入るのは？\nI have (　) notebooks.\n（私はノートを何冊か持っています。）",
+        "options": ["any", "a", "some", "an"],
+        "correctIndex": 2,
+        "explanation": "肯定文では some を使うよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q11",
+        "question": "(　) に入るのは？\nDo you have (　) questions?\n（あなたは何か質問がありますか？）",
+        "options": ["some", "a", "any", "an"],
+        "correctIndex": 2,
+        "explanation": "疑問文では any を使うよ。Do you have any questions?",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q12",
+        "question": "(　) に入るのは？\nI do not have (　) money.\n（私はお金をまったく持っていません。）",
+        "options": ["some", "any", "a", "an"],
+        "correctIndex": 1,
+        "explanation": "否定文では any を使うよ。not + any で「まったく〜ない」。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q13",
+        "question": "(　) に入るのは？\nI want (　) water.\n（私は水をいくらかほしいです。）",
+        "options": ["some", "a", "an", "many"],
+        "correctIndex": 0,
+        "explanation": "肯定文では some。water は数えられない名詞でも some はつけられるよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q14",
+        "question": "(　) に入るのは？\nI put some (　) in the glass.\n（私はコップにミルクを少し入れます。）",
+        "options": ["milks", "milk", "a milk", "an milk"],
+        "correctIndex": 1,
+        "explanation": "milk は数えられない名詞だから複数形にしないし a / an もつけないよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q15",
+        "question": "(　) に入るのは？\nWe make some (　) for lunch.\n（私たちは昼食にサンドイッチをいくつか作ります。）",
+        "options": ["sandwich", "sandwichs", "sandwiches", "a sandwich"],
+        "correctIndex": 2,
+        "explanation": "ch で終わる名詞は es をつけるよ。sandwich → sandwiches。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q16",
+        "question": "(　) に入るのは？\nI do not have any English (　).\n（私は英語の辞書を1冊も持っていません。）",
+        "options": ["dictionaries", "dictionary", "dictionarys", "a dictionary"],
+        "correctIndex": 0,
+        "explanation": "y で終わる名詞は y を i にかえて es。dictionary → dictionaries。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q17",
+        "question": "(　) に入るのは？\nMany (　) fall in autumn.\n（秋にはたくさんの葉が落ちます。）",
+        "options": ["leafs", "leaf", "leafes", "leaves"],
+        "correctIndex": 3,
+        "explanation": "leaf は f を v にかえて es。leaf → leaves。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q18",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私は何冊かのノートを持っています。」の英文を作ろう。",
+        "words": ["some", "notebooks", "I", "have"],
+        "correctOrder": [2, 3, 0, 1],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I have some notebooks.」が正解。I + have + some + notebooks の順番だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q19",
+        "type": "reorder",
+        "question": "次の語を並べかえて「あなたは何か質問がありますか？」の英文を作ろう。",
+        "words": ["have", "questions", "do", "any", "you"],
+        "correctOrder": [2, 4, 0, 3, 1],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「Do you have any questions?」が正解。疑問文では any を使うよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q20",
+        "type": "reorder",
+        "question": "次の語を並べかえて「これらは私のペンです。」の英文を作ろう。",
+        "words": ["my", "these", "pens", "are"],
+        "correctOrder": [1, 3, 0, 2],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「These are my pens.」が正解。these は複数だからbe動詞は are だよ。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q21",
+        "type": "reorder",
+        "question": "次の語を並べかえて「あなたは消しゴムをいくつ持っていますか？」の英文を作ろう。",
+        "words": ["many", "do", "erasers", "how", "have", "you"],
+        "correctOrder": [3, 0, 2, 1, 5, 4],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「How many erasers do you have?」が正解。How many + 複数形 + do you have? の形だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q22",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私は公園で子どもたちを何人か見ます。」の英文を作ろう。",
+        "words": ["see", "some", "I", "children", "in the park"],
+        "correctOrder": [2, 0, 1, 3, 4],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I see some children in the park.」が正解。children は child の不規則複数形だよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q24",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私はお金をまったく持っていません。」の英文を作ろう。",
+        "words": ["do", "any", "I", "not", "money", "have"],
+        "correctOrder": [2, 0, 3, 5, 1, 4],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I do not have any money.」が正解。否定文では any を使うよ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q25",
+        "type": "reorder",
+        "question": "次の語を並べかえて「あなたは辞書を何冊持っていますか？」の英文を作ろう。",
+        "words": ["dictionaries", "how", "do", "many", "you", "have"],
+        "correctOrder": [1, 3, 0, 2, 4, 5],
+        "punctuation": "?",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「How many dictionaries do you have?」が正解。How many + 複数形 + do you have? の順番だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q26",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私たちは昼食にサンドイッチをいくつか作ります。」の英文を作ろう。",
+        "words": ["sandwiches", "make", "some", "we", "for lunch"],
+        "correctOrder": [3, 1, 2, 0, 4],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「We make some sandwiches for lunch.」が正解。sandwich の複数形は sandwiches だよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q27",
+        "type": "reorder",
+        "question": "次の語を並べかえて「私はコップにミルクを少し入れます。」の英文を作ろう。",
+        "words": ["put", "some", "I", "milk", "in the glass"],
+        "correctOrder": [2, 0, 1, 3, 4],
+        "punctuation": ".",
+        "options": [],
+        "correctIndex": -1,
+        "explanation": "「I put some milk in the glass.」が正解。milk は数えられないので s はつけないよ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q28",
+        "question": "(　) に入るのは？\nI have some (　).\n（私は何冊かのノートを持っています。）",
+        "options": ["notebook", "a notebook", "notebooks", "an notebook"],
+        "correctIndex": 2,
+        "explanation": "some のあとは複数形。notebook → notebooks。",
+        "difficulty": "standard"
+      }
+    ]
+  }
+}
