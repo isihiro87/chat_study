@@ -591,10 +591,10 @@ details[open] .set-head{border-bottom:1px solid var(--line);}
       <button class="btn ghost ov-back" id="readyBackBtn">← 単元をえらぶ</button>
       <div class="overlay-card">
       <h2>READY?</h2>
-      <p>キーボードを<b>半角（英数）</b>にして、<br><span class="kbd">Enter</span> か <span class="kbd">Space</span> でスタート！</p>
+      <p>キーボードを<b>半角（英数）</b>にして、<br><span class="kbd">スペースキー</span> でスタート！</p>
       <div class="ime-keyhint" id="imeKeyHint"></div>
       <div class="ime-status" id="imeStatus"></div>
-      <div class="ready-startkey">▶ <span class="kbd">Enter</span> または <span class="kbd">Space</span> でスタート</div>
+      <div class="ready-startkey">▶ <span class="kbd">スペースキー</span> でスタート</div>
 
       <details class="overlay-settings" id="overlaySettings">
         <summary>⚙ 設定を変える</summary>
@@ -1492,25 +1492,27 @@ imeInput.addEventListener('beforeinput', e=>{
     imeFlagged=true; imeArmed=false; setImeStatus('⚠ 日本語入力がオンです。半角（英数）にしてね','ng'); e.preventDefault(); return;
   }
   const d=e.data||'';
-  if(d===' '){ e.preventDefault(); imeInput.value=''; return; }   // スタートは keydown 側で処理
+  // 半角スペースが入力イベントで届いた＝確実に半角。これを開始トリガーにする
+  //（全角のときは Space を押すと変換(insertComposition)になり上で弾かれる）
+  if(d===' '){ e.preventDefault(); imeInput.value=''; if(!S.running){ imeArmed=true; imeFlagged=false; beginPlay(); } return; }
   if(d && hasFullwidth(d)){ imeFlagged=true; imeArmed=false; setImeStatus('⚠ 日本語入力がオンです。半角（英数）にしてね','ng'); }
-  else if(d){ imeFlagged=false; imeArmed=true; setImeStatus('✓ 半角OK！ Enter か Space でスタート','ok'); }
+  else if(d){ imeFlagged=false; imeArmed=true; setImeStatus('✓ 半角OK！ スペースキー でスタート','ok'); }
   e.preventDefault(); imeInput.value='';
 });
 imeInput.addEventListener('keydown', e=>{
   if(S.running){ if(e.key==='Escape'){ e.preventDefault(); backToReady(); } return; }   // EscでREADY画面に戻る
   if(!screens.play.classList.contains('active')) return;  // 開始オーバーレイ以外では無視
-  // Enter／Spaceで開始。ただし「半角だと確認できた（英字キーを打って✓が出た）」ときだけ。
-  // ⚠ IMEがオン（全角）のまま空の状態でEnterを押すと isComposing も立たず誤って始まるため、
-  //   半角の積極的な確認（imeArmed）を必須にして、全角では絶対に始まらないようにする。
-  if(e.key==='Enter' || e.key===' '){
+  // スタートは「半角スペース」で行う（beforeinput 側で確実に半角判定して開始）。
+  // Space は preventDefault せず beforeinput に流す。Enter は半角が確認できている
+  // （imeArmed=半角文字/スペースが入力イベントで届いた）ときだけ開始し、全角では始めない。
+  if(e.key==='Enter'){
     e.preventDefault();
     const imeOn = e.isComposing || e.keyCode===229 || e.which===229 || imeFlagged;
-    if(imeOn){
-      imeFlagged=true; imeArmed=false;
-      setImeStatus('⚠ 日本語入力がオンです。半角（英数）にしてね','ng');
-    } else {
+    if(!imeOn && imeArmed){
       beginPlay();
+    } else {
+      if(imeOn){ imeFlagged=true; imeArmed=false; }
+      setImeStatus('⚠ スペースキー でスタートしてね（全角のままでは始まりません）','ng');
     }
   }
 });
