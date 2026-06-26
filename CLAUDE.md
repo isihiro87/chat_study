@@ -287,22 +287,25 @@ Instagram 投稿の特定キーワードコメントに対する DM 自動送信
 | status | 判定（最終回答日からの JST 暦日） | 配信内容 |
 |---|---|---|
 | `active` | 0〜3日 | 通常の毎日1問配信 + マイルストーンナッジ |
-| `at-risk` | 4〜7日 | 通常配信停止、**Day 3 Win-back** のみ（JST 19:00） |
-| `dormant` | 8〜14日 | 通常配信停止、**Day 7 Win-back** のみ。streak リセット |
-| `churned` | 15日以上 | **Day 14 Win-back（最終）** 送信後は完全静観 |
+| `at-risk` | 4〜7日 | 通常配信停止、Win-back（**4日目=day3 / 6日目=day5**）のみ（JST 19:00） |
+| `dormant` | 8〜14日 | 通常配信停止、Win-back（**8日目=day7 / 11日目=day10**）のみ。streak リセット |
+| `churned` | 15日以上 | **15日目=day14 Win-back（最終）** 送信後は完全静観 |
 
 ※ プレミアム会員（有効期限内）は常に `active`。trial 切れ後は free と同じ判定。
+
+**Win-back の送信タイミング（2026-06 改修）**: `sendWinbackMessages`（JST 19:00 cron）は **status クエリ（at-risk/dormant/churned）で対象を絞り、最終回答からの経過日数（JST 暦日）が `WINBACK_SCHEDULE` に一致する日だけ送る**。スケジュールは **4 / 6 / 8 / 11 / 15 日目**（touchpoint: day3 / day5 / day7 / day10 / day14）。以前は「status が変わった当日（statusChangedAt==today）」のみ送信で生涯 3 回（day4/8/15）だったが、効いているワンタップ復帰 CTA を **churned 化(15日)の前に厚く当てる**ため、回復可能な at-risk / dormant ウィンドウ内に追撃（day5 / day10）を足して計 5 回にした。**status のしきい値（3/7/14, `userStatus.ts`）は据え置き＝毎日配信が止まるタイミングは不変**（休眠除外と Win-back の連動は変えていない）。day5 / day10 のバリエーションは `winbackVariations.ts` の `DAY_5_/DAY_10_WINBACK_VARIATIONS`。
 
 **復帰トリガー**: ① 復帰キーワード経路 — ユーザーが「再開」「久しぶり」「もう一度」等の幅広い復帰キーワードを送ると `keywordMatcher.detectRestartIntent` が検知、`isEligibleForRestartWelcome`（最終回答から8日以上）を満たせば status を `active` に戻して即座に「おかえり」 reply + 1 問送信。② ワンタップCTA経路（2026-06-15 追加）— Win-back メッセージの quickReply「今日の1問に挑戦」（postback `type=restart&src=winback`）→ `handleRestartPostback` → `handleRestartIntent(source='winback_cta')`。**明示タップは誤爆リスクがないため8日ゲートをバイパス**し、Day-3=at-risk(4〜7日)の受信者も1タップで復帰できる。実復帰の主経路はキーワード入力より②の「直接もう一度解く」（計測で確認）。
 
 **復帰・状態遷移の計測（2026-06-15 修正）**: `restart_intent_detected`（context: `previousStatus` / `source`）を `handleRestartIntent` で、`status_transition`（context: `from` / `to`）を `recalculateUserStatuses` cron で `logServerFunnelEvent` する。以前はどちらも型定義のみで**未記録**だったため、ファネル上は復帰0件に見えていた（実際は Win-back 受信者の約28%が再回答＝機能していた。実復帰率は `winback_sent` の送信時刻と `users.lastAnsweredAt` の結合で算出）。Win-back 効果の定点指標は `scripts/report-funnel-stats.ts` の「Win-back 効果」セクションで確認（restart の source 別 / 回復遷移 `*→active` の from 別 UU）。
 
-**Win-back バリエーション**: 各タッチポイントで 10 種以上を Firestore 履歴（過去 90 日）と照合して重複回避（`functions/src/winbackVariations.ts`）。
+**Win-back バリエーション**: メインの day3 / day7 / day14 は各 10 種以上、追撃の day5 / day10 は各 6 種。Firestore 履歴（過去 90 日）と照合して touchpoint ごとに重複回避（`functions/src/winbackVariations.ts`）。
 
-**価格ロック**（D-3 セールスコピー対応）:
-- 体験中の登録 → 月¥680 永続ロック（`users.lockedMonthlyPrice = 680`、`premiumApplications.lockedPrice = 680`）
-- 体験後の登録 → 月¥980
-- Day 7 Win-back で trial 経験者には ¥680 価格ロックを再オープン（生涯 1 回・3日以内に登録すれば ¥680）
+**⚠️ プレミアム/トライアルは廃止済み（2026-06）**: 全機能無料化（コミット `da2ab58`）。trial 付与は `TRIAL_FLOW_ENABLED`/`TRIAL_GRANT_ENABLED=false` で停止済みだったが、**reply 経路のプレミアム訴求 CTA と Stripe Checkout が残置**していたため、廃止後もユーザーを申込・課金へ導き得た。2026-06 にこれらを `PREMIUM_FLOW_ENABLED=false` で無効化:
+- webhook（`lineWebhook.ts`）の訴求接点 4 つ: 「もう1問」ナッジ flex（既配信時）/ 使い方 flex CTA / 成績・記録 flex CTA / `premium_info` postback。フラグ false で全て出さない。
+- 課金: `createStripeCheckoutSession`（`PREMIUM_FLOW_ENABLED=false` で 410 を返しバックストップ）。
+- 旧 trial drip/reminder/expire cron は `index.ts` から export 撤去済み（dormant 残置・本体は未削除）。
+- 再開する場合は各 `PREMIUM_FLOW_ENABLED` を true に戻す。`winbackVariations.ts` 等に残る価格ロック（¥680/¥980）文言・`createStripeCheckoutSession` 本体は撤去せず温存。
 
 **送信枠モニタリング**: `deliveryStats/{YYYY-MM}` collection に push 種別ごとの月次カウントを記録。`monthlyDeliveryReport` cron が毎月 1 日 09:00 JST に前月分を Cloud Logging へ出力（仮上限 30,000 通の 80% 超過時は WARNING）。
 

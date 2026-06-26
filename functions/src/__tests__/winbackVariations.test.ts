@@ -3,7 +3,9 @@
 import { describe, it, expect } from "vitest";
 import {
   DAY_3_WINBACK_VARIATIONS,
+  DAY_5_WINBACK_VARIATIONS,
   DAY_7_WINBACK_VARIATIONS,
+  DAY_10_WINBACK_VARIATIONS,
   DAY_14_WINBACK_VARIATIONS,
   getVariationsFor,
 } from "../winbackVariations";
@@ -25,9 +27,16 @@ describe("winbackVariations - 件数とユニーク性", () => {
     expect(DAY_14_WINBACK_VARIATIONS.length).toBeGreaterThanOrEqual(10);
   });
 
+  it("Day 5 / Day 10 追撃タッチは複数バリエーションを持つ", () => {
+    expect(DAY_5_WINBACK_VARIATIONS.length).toBeGreaterThanOrEqual(3);
+    expect(DAY_10_WINBACK_VARIATIONS.length).toBeGreaterThanOrEqual(3);
+  });
+
   it.each([
     ["day3", DAY_3_WINBACK_VARIATIONS],
+    ["day5", DAY_5_WINBACK_VARIATIONS],
     ["day7", DAY_7_WINBACK_VARIATIONS],
+    ["day10", DAY_10_WINBACK_VARIATIONS],
     ["day14", DAY_14_WINBACK_VARIATIONS],
   ])("%s: variationId がユニーク", (_label, variations) => {
     const ids = variations.map((v) => v.id);
@@ -39,7 +48,9 @@ describe("winbackVariations - 件数とユニーク性", () => {
 describe("winbackVariations - body 関数の動作", () => {
   it.each([
     ["day3", DAY_3_WINBACK_VARIATIONS],
+    ["day5", DAY_5_WINBACK_VARIATIONS],
     ["day7", DAY_7_WINBACK_VARIATIONS],
+    ["day10", DAY_10_WINBACK_VARIATIONS],
     ["day14", DAY_14_WINBACK_VARIATIONS],
   ])("%s: 全 body が空文字を返さない（nickname なし）", (_label, variations) => {
     for (const v of variations) {
@@ -64,7 +75,9 @@ describe("winbackVariations - body 関数の動作", () => {
 
   it("getVariationsFor が touchpoint に対応した配列を返す", () => {
     expect(getVariationsFor("day3")).toBe(DAY_3_WINBACK_VARIATIONS);
+    expect(getVariationsFor("day5")).toBe(DAY_5_WINBACK_VARIATIONS);
     expect(getVariationsFor("day7")).toBe(DAY_7_WINBACK_VARIATIONS);
+    expect(getVariationsFor("day10")).toBe(DAY_10_WINBACK_VARIATIONS);
     expect(getVariationsFor("day14")).toBe(DAY_14_WINBACK_VARIATIONS);
   });
 });

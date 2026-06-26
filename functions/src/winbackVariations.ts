@@ -121,6 +121,52 @@ export const DAY_3_WINBACK_VARIATIONS: WinbackVariation[] = [
 ];
 
 // =====================================================
+// Day 5 Win-back（at-risk 中の追撃・6日目。day3 を送ったが戻ってこない層へ）
+//   2026-06 追加: 回復可能ウィンドウ内のタッチ数を増やし、churned 化前に拾う。
+//   トーンは day3 より一歩踏み込むが、まだ軽く・前向きに保つ。
+// =====================================================
+export const DAY_5_WINBACK_VARIATIONS: WinbackVariation[] = [
+  {
+    id: "day5-v01",
+    tone: "gentle",
+    body: () => `また少し空いちゃったね。1問だけ、今日のうちにどう？`,
+  },
+  {
+    id: "day5-v02",
+    tone: "empathetic",
+    body: () =>
+      `ここ数日おつかれさま。気が向いたタイミングで1問だけでも大丈夫だよ。`,
+  },
+  {
+    id: "day5-v03",
+    tone: "milestone-loss",
+    body: (c) => {
+      const weak = c.weakReviewCount ?? 0;
+      if (weak > 0) {
+        return `間違えたままの問題が${weak}問あるよ。今日1問だけ復習しておかない？`;
+      }
+      return `今日1問やっておくと、明日からまたリズムが戻しやすいよ。`;
+    },
+  },
+  {
+    id: "day5-v04",
+    tone: "social-proof",
+    body: () =>
+      `1問だけ戻ってきた人の多くが、そのまま続けられてるよ。あなたもどう？`,
+  },
+  {
+    id: "day5-v05",
+    tone: "gentle",
+    body: () => `むずかしく考えなくて大丈夫。サクッと1問だけいこう！`,
+  },
+  {
+    id: "day5-v06",
+    tone: "empathetic",
+    body: () => `忙しいよね。1問だけなら30秒。気楽に戻ってきてね。`,
+  },
+];
+
+// =====================================================
 // Day 7 Win-back（dormant 移行直後・「久しぶり、戻ってこない？」+ インセンティブ）
 // =====================================================
 export const DAY_7_WINBACK_VARIATIONS: WinbackVariation[] = [
@@ -204,6 +250,51 @@ export const DAY_7_WINBACK_VARIATIONS: WinbackVariation[] = [
 ];
 
 // =====================================================
+// Day 10 Win-back（dormant 中の追撃・11日目。day7 後・churned 化(15日)の手前で拾う）
+//   2026-06 追加。「まだ間に合う」ニュアンスで最後のひと押し（最終通知は day14）。
+// =====================================================
+export const DAY_10_WINBACK_VARIATIONS: WinbackVariation[] = [
+  {
+    id: "day10-v01",
+    tone: "empathetic",
+    body: () => `しばらく空いたけど、また1問から気軽に再開できるよ。`,
+  },
+  {
+    id: "day10-v02",
+    tone: "milestone-loss",
+    body: () =>
+      `今ならまだ、いつもの調子に戻しやすいタイミング。1問だけどう？`,
+  },
+  {
+    id: "day10-v03",
+    tone: "gentle",
+    body: () => `ブランクは気にしなくて大丈夫。今日1問だけ、また始めよう。`,
+  },
+  {
+    id: "day10-v04",
+    tone: "social-proof",
+    body: () =>
+      `10日ぶりくらいに戻ってきた人もたくさんいるよ。1問だけならすぐ終わる！`,
+  },
+  {
+    id: "day10-v05",
+    tone: "milestone-loss",
+    body: (c) => {
+      const weak = c.weakReviewCount ?? 0;
+      if (weak > 0) {
+        return `苦手のまま残ってる問題が${weak}問。1問だけでも今日つぶしておかない？`;
+      }
+      return `今日1問やれば、また積み上げをやり直せるよ。`;
+    },
+  },
+  {
+    id: "day10-v06",
+    tone: "empathetic",
+    body: () => `無理しなくていいからね。戻りたくなったら1問だけどうぞ。`,
+  },
+];
+
+// =====================================================
 // Day 14 Win-back（churned 移行直後・最終通知・passive-aggressive 含む）
 // =====================================================
 export const DAY_14_WINBACK_VARIATIONS: WinbackVariation[] = [
@@ -282,8 +373,12 @@ export function getVariationsFor(
   switch (touchpoint) {
     case "day3":
       return DAY_3_WINBACK_VARIATIONS;
+    case "day5":
+      return DAY_5_WINBACK_VARIATIONS;
     case "day7":
       return DAY_7_WINBACK_VARIATIONS;
+    case "day10":
+      return DAY_10_WINBACK_VARIATIONS;
     case "day14":
       return DAY_14_WINBACK_VARIATIONS;
   }

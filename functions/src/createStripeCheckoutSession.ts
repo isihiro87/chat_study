@@ -15,6 +15,14 @@ interface StripeCheckoutSessionResponse {
   };
 }
 
+/**
+ * プレミアム課金導線の有効フラグ。
+ * 2026-06 にプレミアム/トライアルを廃止（全機能無料化）。導線（webhook の訴求 CTA・
+ * LIFF premium ページ）は止めたが、この onRequest 自体が生きていると廃止後も
+ * 決済が成立し得るため、バックストップとして無効化する。再開時は true に戻す。
+ */
+const PREMIUM_FLOW_ENABLED = false;
+
 const TRIAL_PRICE_YEN = 680;
 const NORMAL_PRICE_YEN = 980;
 /**
@@ -72,6 +80,15 @@ export const createStripeCheckoutSession = functions
     }
     if (req.method !== 'POST') {
       res.status(405).json({ error: 'Method not allowed' });
+      return;
+    }
+
+    // プレミアム廃止中は決済を受け付けない（バックストップ）。
+    if (!PREMIUM_FLOW_ENABLED) {
+      console.warn(
+        '[createStripeCheckoutSession] premium flow disabled; rejecting request'
+      );
+      res.status(410).json({ error: 'Premium subscription is no longer available' });
       return;
     }
 

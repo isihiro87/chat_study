@@ -1,18 +1,24 @@
 /**
  * Win-back メッセージ送信 cron。
  *
- * 設計（requirements.md §B）:
+ * 設計:
  *   - 毎日 JST 19:00 に発火
- *   - 「今日 statusChangedAt が更新されたユーザー」を抽出
- *   - status に応じて Day 3 / Day 7 / Day 14 Win-back を送信
+ *   - status が at-risk / dormant / churned のユーザーを抽出
+ *   - **最終回答からの経過日数（JST 暦日）** が WINBACK_SCHEDULE に一致する日に送信
  *   - winbackSelector で 90日重複回避ロジックを通してバリエーション選択
  *   - 送信後 winbackHistory / lastWinbackAt 更新、deliveryStats 加算
  *
+ * 2026-06 改修（回復ウィンドウ内のタッチ数を増やす）:
+ *   - 以前は「今日 statusChangedAt が変わった人」だけに送っていたため、
+ *     1 ユーザーが受け取る Win-back は day4 / day8 / day15 の生涯 3 回だけだった。
+ *   - 効いている CTA（ワンタップ復帰）を churned 化(15日)の前に厚く当てるため、
+ *     回復可能な at-risk(4-7日) と dormant(8-14日) のウィンドウ内に追撃を追加し、
+ *     day4 / **day6** / day8 / **day11** / day15 の 5 回に増やした。
+ *   - しきい値（status の 3/7/14）は据え置き＝毎日配信の停止タイミングは不変。
+ *
  * 注意:
- *   - 同日内で複数回 statusChangedAt が更新される可能性は低いが、
- *     winbackHistory に既に同日の entry があればスキップする
- *   - 「再開」キーワードで active に戻ったユーザーには Win-back を送らない
- *     （shouldSendWinback が active → null を返すのでこちらでは送信対象にならない）
+ *   - winbackHistory に既に同日・同 touchpoint の entry があればスキップ（重複防止）
+ *   - 「再開」キーワード等で active に戻ったユーザーは status クエリに入らないので対象外
  */
 
 import * as functions from "firebase-functions/v1";
@@ -21,6 +27,7 @@ import { getLineClient } from "./lineWebhook";
 import { logServerFunnelEvent } from "./funnelEvent";
 import { recordPushDelivery } from "./deliveryStats";
 import { selectNextWinbackVariation } from "./winbackSelector";
+import { daysBetweenJst, getJstDateString } from "./userStatus";
 import type {
   UserStatus,
   WinbackTouchpoint,
@@ -28,18 +35,25 @@ import type {
   WinbackHistoryEntry,
 } from "./userDocTypes";
 
-const DAY_MS = 24 * 60 * 60 * 1000;
+/**
+ * 最終回答からの経過日数（JST 暦日）→ 送信する touchpoint の対応表。
+ * status クエリ（at-risk=4-7 / dormant=8-14 / churned=15+）が全ての日をカバーする。
+ *   4 日 → day3  (at-risk 入り)
+ *   6 日 → day5  (at-risk 中の追撃)
+ *   8 日 → day7  (dormant 入り)
+ *  11 日 → day10 (dormant 中の追撃)
+ *  15 日 → day14 (churned 入り・最終)
+ */
+const WINBACK_SCHEDULE: Record<number, WinbackTouchpoint> = {
+  4: "day3",
+  6: "day5",
+  8: "day7",
+  11: "day10",
+  15: "day14",
+};
 
-function getJstDateString(date: Date): string {
-  const jst = new Date(date.getTime() + 9 * 60 * 60 * 1000);
-  return jst.toISOString().slice(0, 10);
-}
-
-function statusToTouchpoint(status: UserStatus): WinbackTouchpoint | null {
-  if (status === "at-risk") return "day3";
-  if (status === "dormant") return "day7";
-  if (status === "churned") return "day14";
-  return null;
+function touchpointForDays(days: number): WinbackTouchpoint | null {
+  return WINBACK_SCHEDULE[days] ?? null;
 }
 
 interface SendStats {
@@ -83,7 +97,7 @@ export const sendWinbackMessages = functions
       skipped: 0,
       failed: 0,
       blockedSkipped: 0,
-      byTouchpoint: { day3: 0, day7: 0, day14: 0 },
+      byTouchpoint: { day3: 0, day5: 0, day7: 0, day10: 0, day14: 0 },
       priceLockReopened: 0,
     };
 
@@ -109,25 +123,25 @@ export const sendWinbackMessages = functions
           continue;
         }
 
-        const statusChangedAtRaw = data.statusChangedAt as
+        // 最終回答からの経過日数（JST 暦日）でスケジュール判定する。
+        // status 再計算（JST 02:00）と同じ daysBetweenJst を使い、判定を一致させる。
+        const lastAnsweredAtRaw = data.lastAnsweredAt as
           | { toDate?: () => Date }
           | undefined;
-        const statusChangedDate =
-          statusChangedAtRaw && typeof statusChangedAtRaw.toDate === "function"
-            ? statusChangedAtRaw.toDate()
+        const lastAnsweredDate =
+          lastAnsweredAtRaw && typeof lastAnsweredAtRaw.toDate === "function"
+            ? lastAnsweredAtRaw.toDate()
             : null;
-        if (!statusChangedDate) {
+        if (!lastAnsweredDate) {
+          // 未回答ユーザーは computeStatus 上 active 扱いなので通常ここには来ない。
           stats.skipped++;
           continue;
         }
 
-        // 今日 status 変化したものだけ対象
-        if (getJstDateString(statusChangedDate) !== todayJst) {
-          stats.skipped++;
-          continue;
-        }
+        const daysSinceLastAnswer = daysBetweenJst(lastAnsweredDate, now);
 
-        const touchpoint = statusToTouchpoint(status);
+        // 経過日数が送信スケジュールの当日でなければスキップ（追撃も含め所定の日だけ送る）
+        const touchpoint = touchpointForDays(daysSinceLastAnswer);
         if (!touchpoint) {
           stats.skipped++;
           continue;
@@ -169,19 +183,6 @@ export const sendWinbackMessages = functions
           variationId: h.variationId,
           sentAt: h.sentAt.toDate(),
         }));
-
-        const lastAnsweredAtRaw = data.lastAnsweredAt as
-          | { toDate?: () => Date }
-          | undefined;
-        const daysSinceLastAnswer = lastAnsweredAtRaw?.toDate
-          ? Math.floor(
-              (now.getTime() - lastAnsweredAtRaw.toDate().getTime()) / DAY_MS
-            )
-          : touchpoint === "day3"
-            ? 4
-            : touchpoint === "day7"
-              ? 8
-              : 15;
 
         const variation = selectNextWinbackVariation({
           touchpoint,
@@ -279,7 +280,8 @@ export const sendWinbackMessages = functions
       `[sendWinbackMessages] done: processed=${stats.totalProcessed}, ` +
         `sent=${stats.sent}, skipped=${stats.skipped}, failed=${stats.failed}, ` +
         `blockedSkipped=${stats.blockedSkipped}, ` +
-        `day3=${stats.byTouchpoint.day3}, day7=${stats.byTouchpoint.day7}, ` +
+        `day3=${stats.byTouchpoint.day3}, day5=${stats.byTouchpoint.day5}, ` +
+        `day7=${stats.byTouchpoint.day7}, day10=${stats.byTouchpoint.day10}, ` +
         `day14=${stats.byTouchpoint.day14}, priceLockReopened=${stats.priceLockReopened}, ` +
         `elapsed=${elapsed}ms`
     );

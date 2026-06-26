@@ -14,8 +14,16 @@ import type { Timestamp } from "firebase-admin/firestore";
 /** ユーザーの活性状態。最終回答日からの経過日数で算出される。 */
 export type UserStatus = "active" | "at-risk" | "dormant" | "churned";
 
-/** Win-back メッセージのタッチポイント */
-export type WinbackTouchpoint = "day3" | "day7" | "day14";
+/**
+ * Win-back メッセージのタッチポイント。
+ * 値は「最終回答からの経過日数の目安」を表す（命名は -1 オフセット）。
+ * - day3  → 最終回答から 4 日目に送信（at-risk 入り）
+ * - day5  → 6 日目（at-risk 中の追撃。2026-06 追加）
+ * - day7  → 8 日目（dormant 入り）
+ * - day10 → 11 日目（dormant 中の追撃。2026-06 追加）
+ * - day14 → 15 日目（churned 入り・最終）
+ */
+export type WinbackTouchpoint = "day3" | "day5" | "day7" | "day10" | "day14";
 
 /** ロック可能な月額価格 */
 export type LockedMonthlyPrice = 680 | 980;
@@ -72,7 +80,9 @@ export interface OnboardingReminderHistory {
 /** Win-back 送信履歴（タッチポイント別） */
 export interface WinbackHistory {
   day3?: WinbackHistoryEntry[];
+  day5?: WinbackHistoryEntry[];
   day7?: WinbackHistoryEntry[];
+  day10?: WinbackHistoryEntry[];
   day14?: WinbackHistoryEntry[];
 }
 

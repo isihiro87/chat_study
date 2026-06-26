@@ -565,6 +565,17 @@ export function getUserPlan(
 }
 
 /**
+ * プレミアム課金導線の有効フラグ。
+ *
+ * 2026-06 にプレミアム/トライアルを廃止（全機能無料化、コミット da2ab58）。
+ * trial 付与は `TRIAL_FLOW_ENABLED=false` 等で停止済みだったが、reply 経路の
+ * プレミアム訴求 CTA（「もう1問」ナッジ / 使い方 / 成績・記録 / premium_info postback）と
+ * Stripe Checkout は残っており、廃止後もユーザーを申込・課金へ導き得た。
+ * このフラグを false にして全ての訴求接点を止める。再開する場合は true に戻す。
+ */
+export const PREMIUM_FLOW_ENABLED = false;
+
+/**
  * プレミアム機能の解放対象学年か。現在は中1/中2/中3 全てを解放。
  * 将来また学年を絞りたくなったら、ここを `false` にした学年だけが
  * 各 LINE 接点で `PREMIUM_NOT_YET_AVAILABLE_TEXT` のフォールバックに流れる。
@@ -1399,7 +1410,12 @@ async function handlePostback(event: LineEvent): Promise<void> {
   }
 
   if (type === 'premium_info') {
-    await handlePremiumInfoPostback(replyToken, uid, params.get('source'));
+    // プレミアム廃止中（PREMIUM_FLOW_ENABLED=false）は何もしない。
+    // 現行 default リッチメニューにプレミアムボタンは無く、この postback は
+    // 残置の旧メニュー/旧 flex からのタップに限られるため、訴求 flex は返さない。
+    if (PREMIUM_FLOW_ENABLED) {
+      await handlePremiumInfoPostback(replyToken, uid, params.get('source'));
+    }
     return;
   }
 
@@ -1418,8 +1434,11 @@ async function handleHelpPostback(
     const data = userSnap.data();
     // free かつプレミアム対応学年のときだけ訴求 CTA を出す。
     // premium ユーザーには訴求不要、対応外学年（将来再導入する場合）には出さない。
+    // プレミアム廃止中（PREMIUM_FLOW_ENABLED=false）は常に出さない。
     showPremiumCta =
-      getUserPlan(data) === 'free' && isPremiumEligibleGrade(data?.grade);
+      PREMIUM_FLOW_ENABLED &&
+      getUserPlan(data) === 'free' &&
+      isPremiumEligibleGrade(data?.grade);
   } catch (error) {
     console.warn('[lineWebhook] handleHelp grade read failed:', error);
   }
@@ -1441,12 +1460,16 @@ async function handleStreakPostback(
 
   // ユーザーの plan と学年を取って flex に渡し、premium CTA の出し分けに使う
   let plan: UserPlan = 'free';
-  let gradePremiumEligible = true;
+  // プレミアム廃止中はデフォルト false（read 失敗時も CTA を出さない）。
+  let gradePremiumEligible = PREMIUM_FLOW_ENABLED;
   try {
     const userSnap = await db.doc(`users/${uid}`).get();
     const data = userSnap.data();
     plan = getUserPlan(data);
-    gradePremiumEligible = isPremiumEligibleGrade(data?.grade);
+    // プレミアム廃止中（PREMIUM_FLOW_ENABLED=false）は成績・記録 flex の
+    // プレミアム CTA を出さない（gradePremiumEligible=false に倒す）。
+    gradePremiumEligible =
+      PREMIUM_FLOW_ENABLED && isPremiumEligibleGrade(data?.grade);
   } catch (error) {
     console.warn(
       '[lineWebhook] handleStreak user fetch failed (treat as free):',
@@ -5291,7 +5314,8 @@ export async function selectAndSendQuestion(
       // 初回セットアップ直後（isInitialSetup）はオンボーディング体験を優先して flex は送らない。
       const plan = getUserPlan(userData);
       const gradeEligible = isPremiumEligibleGrade(userData.grade);
-      if (!isInitialSetup && plan === 'free' && gradeEligible) {
+      // プレミアム廃止中（PREMIUM_FLOW_ENABLED=false）はナッジ flex を送らず通常文のみ。
+      if (PREMIUM_FLOW_ENABLED && !isInitialSetup && plan === 'free' && gradeEligible) {
         try {
           const client = await getLineClient();
           await client.replyMessage({
