@@ -16,14 +16,14 @@
 <meta property="og:title" content="タイプでスタディ｜中学歴史を打って覚える無料タイピングゲーム">
 <meta property="og:description" content="中学の歴史用語を、タイピングしながら楽しく暗記＆復習。暗記モードとテストモード、全国ランキングつき。パソコンで今すぐ無料！">
 <meta property="og:url" content="https://www.chatstudy.jp/typing/">
-<meta property="og:image" content="https://www.chatstudy.jp/typing/og-image.png">
+<meta property="og:image" content="https://www.chatstudy.jp/typing/og-image.png?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="ja_JP">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="タイプでスタディ｜中学歴史を打って覚える無料タイピングゲーム">
 <meta name="twitter:description" content="中学の歴史用語を、タイピングしながら楽しく暗記＆復習。暗記/テストモード・全国ランキングつき。パソコンで今すぐ無料！">
-<meta name="twitter:image" content="https://www.chatstudy.jp/typing/og-image.png">
+<meta name="twitter:image" content="https://www.chatstudy.jp/typing/og-image.png?v=2">
 <!-- 構造化データ（検索結果のリッチ表示用） -->
 <script type="application/ld+json">
 {
@@ -591,10 +591,10 @@ details[open] .set-head{border-bottom:1px solid var(--line);}
       <button class="btn ghost ov-back" id="readyBackBtn">← 単元をえらぶ</button>
       <div class="overlay-card">
       <h2>READY?</h2>
-      <p>キーボードを<b>半角（英数）</b>にして、<br>まず<b>英字キーを1つ</b>押す → <b>✓半角OK</b>が出たら <span class="kbd">Enter</span>／<span class="kbd">Space</span> でスタート！</p>
+      <p>キーボードを<b>半角（英数）</b>にして、<br><span class="kbd">Enter</span> か <span class="kbd">Space</span> でスタート！</p>
       <div class="ime-keyhint" id="imeKeyHint"></div>
       <div class="ime-status" id="imeStatus"></div>
-      <div class="ready-startkey">▶ 英字キーで半角チェック → <span class="kbd">Enter</span> でスタート</div>
+      <div class="ready-startkey">▶ <span class="kbd">Enter</span> または <span class="kbd">Space</span> でスタート</div>
 
       <details class="overlay-settings" id="overlaySettings">
         <summary>⚙ 設定を変える</summary>
@@ -1466,7 +1466,7 @@ function openStartOverlay(){
   $('startOverlay').style.display='flex';
   imeArmed=false; imeFlagged=false;
   $('imeKeyHint').innerHTML = imeKeyHintHtml();
-  setImeStatus('英字キーを1つ押して 半角を確認してね','');
+  setImeStatus('','');
   const ov=$('overlaySettings'); if(ov) ov.open=false;   // 既定は閉じてREADYをすっきり
   applyCfgToUI();                                         // READY側のチップを現在設定に同期
   imeInput.value='';
@@ -1506,9 +1506,9 @@ imeInput.addEventListener('keydown', e=>{
   if(e.key==='Enter' || e.key===' '){
     e.preventDefault();
     const imeOn = e.isComposing || e.keyCode===229 || e.which===229 || imeFlagged;
-    if(imeOn || !imeArmed){
-      if(imeOn){ imeFlagged=true; imeArmed=false; }
-      setImeStatus('⚠ 半角（英数）にして、英字キーを1つ押してね（✓が出たらスタート）','ng');
+    if(imeOn){
+      imeFlagged=true; imeArmed=false;
+      setImeStatus('⚠ 日本語入力がオンです。半角（英数）にしてね','ng');
     } else {
       beginPlay();
     }
