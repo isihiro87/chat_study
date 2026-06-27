@@ -26,6 +26,7 @@ import {
 import { recordPushDelivery } from './deliveryStats';
 import type { PushType } from './deliveryStatsTypes';
 import type { LastQuestionSnapshot } from './userDocTypes';
+import { QUESTION_INDEX } from './generated/line-question-index.generated';
 
 interface LineEvent {
   type: string;
@@ -5304,6 +5305,47 @@ async function getGradeQuestionDocs(
   return snap.docs;
 }
 
+/**
+ * 出題候補の選択を「subject×grade を全件 read」する旧経路で行うフォールバック。
+ * 通常はビルド時生成の QUESTION_INDEX を使い 1 件だけ read するが、index が未生成
+ * （新規 subject 追加直後など）や index と Firestore の不整合時に、無言の未配信を
+ * 防ぐための安全網としてのみ使う。挙動は従来の selectAndSendQuestion の選択ロジックと同一。
+ */
+async function selectQuestionByFullScan(
+  db: FirebaseFirestore.Firestore,
+  subject: ValidSubject,
+  grade: ValidGrade,
+  testScopeTopics: string[],
+  recentIds: string[],
+  uid: string
+): Promise<{ id: string; question: Question } | null> {
+  const questionDocs = await getGradeQuestionDocs(db, subject, grade);
+  if (questionDocs.length === 0) return null;
+
+  const scopedDocs =
+    testScopeTopics.length > 0
+      ? questionDocs.filter((d) => {
+          const topic = d.get('topic');
+          return typeof topic === 'string' && testScopeTopics.includes(topic);
+        })
+      : questionDocs;
+
+  let effectiveDocs = scopedDocs;
+  if (testScopeTopics.length > 0 && scopedDocs.length === 0) {
+    console.warn(
+      '[lineWebhook] selectQuestionByFullScan: testScope に合致する問題が0件 → 全範囲にフォールバック',
+      uid,
+      testScopeTopics
+    );
+    effectiveDocs = questionDocs;
+  }
+
+  const candidates = effectiveDocs.filter((d) => !recentIds.includes(d.id));
+  const pool = candidates.length > 0 ? candidates : effectiveDocs;
+  const picked = pool[Math.floor(Math.random() * pool.length)];
+  return { id: picked.id, question: picked.data() as Question };
+}
+
 export async function selectAndSendQuestion(
   uid: string,
   options: SendOptions = {}
@@ -5425,65 +5467,94 @@ export async function selectAndSendQuestion(
       )
     : [];
 
-  // 問題プールは subject×grade 単位でインメモリ TTL キャッシュする（getGradeQuestionDocs）。
-  // 出題のたびに全件 read していた最ホットパスの Firestore read を削減する。
-  const questionDocs = await getGradeQuestionDocs(db, subject, grade);
+  // 出題候補はビルド時生成の ID インデックス（QUESTION_INDEX）からメモリ上で選び、
+  // 選んだ 1 件だけ Firestore から取得する。これで「出題のたびに subject×grade を
+  // 全件 read（1 回 約200〜660 read）」していた最ホットパスの read を 1 出題あたり
+  // 約 1 read に削減する（出題は 1 日 3,000 回超）。CLAUDE.md「読み取りコスト規律」規則6b。
+  const indexEntries = QUESTION_INDEX[`${subject}-${grade}`] ?? [];
 
-  if (questionDocs.length === 0) {
-    console.warn(
-      '[lineWebhook] selectAndSendQuestion: no questions',
-      subject,
-      grade
-    );
-    if (replyToken) {
-      try {
-        const client = await getLineClient();
-        await client.replyMessage({
-          replyToken,
-          messages: [
-            { type: 'text', text: '準備中です。少しお待ちください。' },
-          ],
-        });
-      } catch (error) {
-        console.error(
-          '[lineWebhook] selectAndSendQuestion empty reply failed:',
-          error
-        );
-      }
+  let pickedId: string | undefined;
+  if (indexEntries.length > 0) {
+    // 出題範囲が設定されていれば topic で絞り込む（メモリ操作・read ゼロ）。
+    const scoped =
+      testScopeTopics.length > 0
+        ? indexEntries.filter((e) => testScopeTopics.includes(e[1]))
+        : indexEntries;
+
+    // 範囲設定済みでも合致する問題が 0 件の場合は、無言の未配信を防ぐため
+    // 全範囲にフォールバックして必ず 1 問配信する（単元名が questions と一致しない等の
+    // 安全網。ユーザーの testScope 設定自体は変更しない）。
+    let effective = scoped;
+    if (testScopeTopics.length > 0 && scoped.length === 0) {
+      console.warn(
+        '[lineWebhook] selectAndSendQuestion: testScope に合致する問題が0件 → 全範囲にフォールバック',
+        uid,
+        testScopeTopics
+      );
+      effective = indexEntries;
     }
-    return;
+
+    const candidates = effective.filter((e) => !recentIds.includes(e[0]));
+    const pool = candidates.length > 0 ? candidates : effective;
+    pickedId = pool[Math.floor(Math.random() * pool.length)][0];
   }
 
-  // 出題範囲が設定されていれば topic で絞り込む
-  const scopedDocs =
-    testScopeTopics.length > 0
-      ? questionDocs.filter((d) => {
-          const topic = d.get('topic');
-          return typeof topic === 'string' && testScopeTopics.includes(topic);
-        })
-      : questionDocs;
+  let question: Question | undefined;
+  if (pickedId) {
+    const pickedSnap = await db.doc(`questions/${pickedId}`).get();
+    if (pickedSnap.exists) {
+      question = pickedSnap.data() as Question;
+    } else {
+      // index が古く実体が消えている → 下のフルスキャンにフォールバック。
+      console.warn(
+        '[lineWebhook] selectAndSendQuestion: index の問題が Firestore に不在 → 全件フォールバック',
+        pickedId
+      );
+      pickedId = undefined;
+    }
+  }
 
-  // 範囲設定済みでも合致する問題が 0 件の場合は、無言の未配信を防ぐため
-  // 全範囲にフォールバックして必ず 1 問配信する（範囲の単元名が questions と
-  // 一致しない等のケースの安全網。ユーザーの testScope 設定自体は変更しない）。
-  let effectiveDocs = scopedDocs;
-  if (testScopeTopics.length > 0 && scopedDocs.length === 0) {
-    console.warn(
-      '[lineWebhook] selectAndSendQuestion: testScope に合致する問題が0件 → 全範囲にフォールバック',
-      uid,
-      testScopeTopics
+  // index が空（未生成 / 新規 subject）または上記不整合時は旧フルスキャン経路で選ぶ。
+  if (!pickedId || !question) {
+    const fallback = await selectQuestionByFullScan(
+      db,
+      subject,
+      grade,
+      testScopeTopics,
+      recentIds,
+      uid
     );
-    effectiveDocs = questionDocs;
+    if (!fallback) {
+      console.warn(
+        '[lineWebhook] selectAndSendQuestion: no questions',
+        subject,
+        grade
+      );
+      if (replyToken) {
+        try {
+          const client = await getLineClient();
+          await client.replyMessage({
+            replyToken,
+            messages: [
+              { type: 'text', text: '準備中です。少しお待ちください。' },
+            ],
+          });
+        } catch (error) {
+          console.error(
+            '[lineWebhook] selectAndSendQuestion empty reply failed:',
+            error
+          );
+        }
+      }
+      return;
+    }
+    pickedId = fallback.id;
+    question = fallback.question;
   }
-
-  const candidates = effectiveDocs.filter((d) => !recentIds.includes(d.id));
-  const pool = candidates.length > 0 ? candidates : effectiveDocs;
-  const picked = pool[Math.floor(Math.random() * pool.length)];
-  const question = picked.data() as Question;
 
   const updatedRecent = [
-    ...recentIds.filter((id) => id !== picked.id),
-    picked.id,
+    ...recentIds.filter((id) => id !== pickedId),
+    pickedId,
   ].slice(-RECENT_QUESTION_LIMIT);
   try {
     await db.doc(`users/${uid}`).set(
@@ -5491,7 +5562,7 @@ export async function selectAndSendQuestion(
         recentQuestionIds: updatedRecent,
         lastQuestionDeliveredAt: FieldValue.serverTimestamp(),
         // AI チャットボットが「さっきの問題」に答えられるよう最後の問題を保存。
-        lastQuestion: buildLastQuestionSnapshot(picked.id, question),
+        lastQuestion: buildLastQuestionSnapshot(pickedId, question),
         // 回答時に answers.source へ転記する配信経路（追加学習量の計測用）。
         lastQuestionSource: source,
         // 同じ問題が再出題された場合に「すでに回答済み」ブロックが発生しないよう、
@@ -5535,7 +5606,7 @@ export async function selectAndSendQuestion(
   // 従来通り text + flex の 2 通構成を維持する。
   const embedIntroIntoCard = !replyToken && Boolean(resolvedIntroText);
   const questionMessage = buildQuestionMessage(
-    picked.id,
+    pickedId,
     question,
     embedIntroIntoCard ? resolvedIntroText : undefined
   );

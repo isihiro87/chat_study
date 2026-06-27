@@ -379,11 +379,14 @@ data/content/history/{folder}/{topic}.json   ← source of truth
 （範囲設定ページ `TestRangePage`〔ルート `/scope`〕は `data/content` 由来の `line-scope-index.generated.ts` を単元候補に使うので、ここで保存される topic.name は `questions.topic` と一致する。**単元を追加・編集したら scope index も再生成する**。）:
 
 ```bash
-# JSON を編集したら 3 つ実行
+# JSON を編集したら 4 つ実行（順序重要: sync の後に question-index）
 npx tsx scripts/generate-line-study-content.ts          # LIFF「じっくり学ぶ」用 generated TS を更新
 npx tsx scripts/generate-line-scope-index.ts            # 出題範囲設定ページの単元候補を更新
 npx tsx scripts/sync-questions-from-content.ts          # Firestore questions に反映（要 gcloud ADC）
+npx tsx scripts/generate-line-question-index.ts         # 出題用 ID インデックス（read 削減）を再生成。sync の後に実行（要 gcloud ADC）
 ```
+
+> ⚠️ **出題の read 削減（2026-06-27）**: webhook の出題（`selectAndSendQuestion`）は従来「出題のたびに `questions` を subject×grade で全件 read（1 回 約200〜660 read）」していた（read 課金=レガシー "App Engine" SKU の主因。1 日 20〜50万 read）。現在はビルド時生成の **`functions/src/generated/line-question-index.generated.ts`（`QUESTION_INDEX`= subject×grade 別の `[id, topic]` 一覧）** からメモリで候補を絞り、**選んだ 1 件だけ `doc().get()`** する（1 出題 約1 read）。このインデックスは **ライブ Firestore `questions` から生成**するので、必ず `sync-questions-from-content.ts` の後に `generate-line-question-index.ts` を実行すること。index が未生成/不整合のときは旧フルスキャンに自動フォールバックして必ず 1 問配信する（`selectQuestionByFullScan`）。
 
 短い指示でリクエスト可能:
 - 「問題を Firestore に同期して」「クイズを反映」「sync-questions」 → `sync-line-questions` スキルが起動

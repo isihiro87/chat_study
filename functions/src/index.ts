@@ -11,7 +11,9 @@ if (getApps().length === 0) {
 
 export { lineWebhook } from './lineWebhook';
 export { instagramWebhook } from './instagramWebhook';
-export { relaunchDispatcher } from './relaunchDispatcher';
+// relaunchDispatcher は 2026-06-01 限定の一度きり再起動キャンペーン用で、
+// 以降は 2分おき cron が即 return する空打ちだった（無駄起動 約2.2万回/月 +
+// Cloud Scheduler ジョブ1個）。2026-06-27 に export 撤去＋関数削除でコスト削減。
 export {
   dailyQuiz06,
   dailyQuiz07,
