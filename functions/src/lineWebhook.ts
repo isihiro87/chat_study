@@ -227,13 +227,14 @@ export function buildSubjectSelectMessage(grade: string) {
   if (geoOK) {
     options.push({ label: '地理', data: 'type=select_subject&subject=geography' });
   }
+  options.push({ label: '英語', data: 'type=select_subject&subject=english' });
   return buildOnboardingSelectFlex({
     step: 2,
     total: 3,
     headerTitle: '教科を選ぶ',
     bodyText: geoOK
-      ? '勉強したい教科を選んでね。\n※今は「歴史」「理科」「地理」が配信中です。英語・数学は順次追加予定！'
-      : '勉強したい教科を選んでね。\n※今は「歴史」「理科」が配信中です。英語・数学は順次追加予定！',
+      ? '勉強したい教科を選んでね。\n※今は「歴史」「理科」「地理」「英語」が配信中です。数学は順次追加予定！'
+      : '勉強したい教科を選んでね。\n※今は「歴史」「理科」「英語」が配信中です。数学は順次追加予定！',
     altText: '教科を選んでください',
     options,
   });
@@ -290,13 +291,17 @@ function buildChangeLearningSubjectMessage(grade: string) {
       data: `type=change_learning_subject&grade=${grade}&subject=geography`,
     });
   }
+  options.push({
+    label: '英語',
+    data: `type=change_learning_subject&grade=${grade}&subject=english`,
+  });
   return buildOnboardingSelectFlex({
     step: 2,
     total: 2,
     headerTitle: '教科を変更',
     bodyText: geoOK
-      ? `学年は「${grade}」だね。次は教科を選んでね。\n※今は「歴史」「理科」「地理」が配信中です。`
-      : `学年は「${grade}」だね。次は教科を選んでね。\n※今は「歴史」「理科」が配信中です。`,
+      ? `学年は「${grade}」だね。次は教科を選んでね。\n※今は「歴史」「理科」「地理」「英語」が配信中です。`
+      : `学年は「${grade}」だね。次は教科を選んでね。\n※今は「歴史」「理科」「英語」が配信中です。`,
     altText: '教科を選んでください',
     options,
   });

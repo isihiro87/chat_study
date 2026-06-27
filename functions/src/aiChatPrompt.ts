@@ -27,7 +27,7 @@ const SUBJECT_AVAILABILITY: Array<{
   status: "live" | "coming";
 }> = [
   { key: "history", label: "歴史", status: "live" },
-  { key: "english", label: "英語", status: "coming" },
+  { key: "english", label: "英語", status: "live" },
   { key: "math", label: "数学", status: "coming" },
   { key: "science", label: "理科", status: "live" },
   { key: "geography", label: "地理", status: "live" },
