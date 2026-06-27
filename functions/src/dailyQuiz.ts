@@ -3,7 +3,7 @@ import { selectAndSendQuestion, getLineClient } from "./lineWebhook";
 import { daysBetweenJst } from "./userStatus";
 import { recordPushDelivery } from "./deliveryStats";
 
-type ValidHour = 6 | 7 | 16 | 17 | 18 | 19 | 20 | 21;
+type ValidHour = 6 | 7 | 16 | 18 | 20;
 type UserDocSnap = FirebaseFirestore.QueryDocumentSnapshot;
 
 /**
@@ -279,16 +279,6 @@ export const dailyQuiz16 = functions
   .timeZone("Asia/Tokyo")
   .onRun(() => runDailyQuiz(16));
 
-export const dailyQuiz17 = functions
-  .region("asia-northeast1")
-  // メモリ超過クラッシュ対策（2026-06-25）: デフォルト 256MiB では人数の多い枠で
-  // selectAndSendQuestion の並列処理がメモリを超過し途中クラッシュ＝一部ユーザー
-  // 未配信になっていた。512MB へ引き上げ（DELIVERY_CHUNK_SIZE の逐次化と併用）。
-  .runWith({ memory: "512MB" })
-  .pubsub.schedule("0 17 * * *")
-  .timeZone("Asia/Tokyo")
-  .onRun(() => runDailyQuiz(17));
-
 export const dailyQuiz18 = functions
   .region("asia-northeast1")
   // メモリ超過クラッシュ対策（2026-06-25）: デフォルト 256MiB では人数の多い枠で
@@ -299,16 +289,6 @@ export const dailyQuiz18 = functions
   .timeZone("Asia/Tokyo")
   .onRun(() => runDailyQuiz(18));
 
-export const dailyQuiz19 = functions
-  .region("asia-northeast1")
-  // メモリ超過クラッシュ対策（2026-06-25）: デフォルト 256MiB では人数の多い枠で
-  // selectAndSendQuestion の並列処理がメモリを超過し途中クラッシュ＝一部ユーザー
-  // 未配信になっていた。512MB へ引き上げ（DELIVERY_CHUNK_SIZE の逐次化と併用）。
-  .runWith({ memory: "512MB" })
-  .pubsub.schedule("0 19 * * *")
-  .timeZone("Asia/Tokyo")
-  .onRun(() => runDailyQuiz(19));
-
 export const dailyQuiz20 = functions
   .region("asia-northeast1")
   // メモリ超過クラッシュ対策（2026-06-25）: デフォルト 256MiB では人数の多い枠で
@@ -318,13 +298,3 @@ export const dailyQuiz20 = functions
   .pubsub.schedule("0 20 * * *")
   .timeZone("Asia/Tokyo")
   .onRun(() => runDailyQuiz(20));
-
-export const dailyQuiz21 = functions
-  .region("asia-northeast1")
-  // メモリ超過クラッシュ対策（2026-06-25）: デフォルト 256MiB では人数の多い枠で
-  // selectAndSendQuestion の並列処理がメモリを超過し途中クラッシュ＝一部ユーザー
-  // 未配信になっていた。512MB へ引き上げ（DELIVERY_CHUNK_SIZE の逐次化と併用）。
-  .runWith({ memory: "512MB" })
-  .pubsub.schedule("0 21 * * *")
-  .timeZone("Asia/Tokyo")
-  .onRun(() => runDailyQuiz(21));

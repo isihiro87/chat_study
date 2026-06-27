@@ -14,15 +14,13 @@ export { instagramWebhook } from './instagramWebhook';
 // relaunchDispatcher は 2026-06-01 限定の一度きり再起動キャンペーン用で、
 // 以降は 2分おき cron が即 return する空打ちだった（無駄起動 約2.2万回/月 +
 // Cloud Scheduler ジョブ1個）。2026-06-27 に export 撤去＋関数削除でコスト削減。
+// 配信時間は 6/7/16/18/20 時の 5 枠のみ（17/19/21 時は利用ほぼ 0 で 2026-06-27 に廃止）。
 export {
   dailyQuiz06,
   dailyQuiz07,
   dailyQuiz16,
-  dailyQuiz17,
   dailyQuiz18,
-  dailyQuiz19,
   dailyQuiz20,
-  dailyQuiz21,
 } from './dailyQuiz';
 export { onAnswerCreated } from './onAnswerCreated';
 export { onPremiumApplicationCreated } from './onPremiumApplicationCreated';

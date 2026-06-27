@@ -94,17 +94,17 @@ const SUBJECT_HEADER_COLORS: Record<ValidSubject, string> = {
   geography: '#0E7490', // シアン系（社会系だが歴史と区別）
 };
 
-export type ValidHour = 6 | 7 | 16 | 17 | 18 | 19 | 20 | 21;
-export const VALID_HOURS: readonly ValidHour[] = [6, 7, 16, 17, 18, 19, 20, 21] as const;
+// 配信時間はオンボの buildTimeSelectMessage が提示する 5 枠のみ（6/7/16/18/20）。
+// 17/19/21 はどの UI からも選べず利用者ほぼ 0 だったため、専用 dailyQuiz cron を
+// 廃止して枠を整理した（2026-06-27。19 時の唯一の利用者は 20 時へ移行済み）。
+export type ValidHour = 6 | 7 | 16 | 18 | 20;
+export const VALID_HOURS: readonly ValidHour[] = [6, 7, 16, 18, 20] as const;
 export const HOUR_LABELS: Record<ValidHour, string> = {
   6: '朝6時',
   7: '朝7時',
   16: '夕方4時',
-  17: '夕方5時',
   18: '夕方6時',
-  19: '夜7時',
   20: '夜8時',
-  21: '夜9時',
 };
 
 interface Question {
@@ -2589,7 +2589,7 @@ function buildHelpFlexMessage(opts: { showPremiumCta: boolean } = { showPremiumC
         },
         {
           type: 'text' as const,
-          text: '朝6時 / 朝7時 / 夕方5時 / 夜7時 から選べます。',
+          text: '朝6時 / 朝7時 / 夕方4時 / 夕方6時 / 夜8時 から選べます。',
           wrap: true,
           size: 'xs' as const,
           color: '#6B7280',
