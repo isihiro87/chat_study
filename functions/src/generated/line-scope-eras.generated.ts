@@ -291,62 +291,296 @@ export const lineScopeEras: Record<ScopeSubjectId, Record<ScopeGrade, EraMeta[]>
   "english": {
     "1": [
       {
-        "eraId": "english-grade1",
-        "eraName": "中1 英語",
-        "shortName": "中1英語",
-        "whenLabel": "中1 通年",
-        "keyTerms": "be動詞・一般動詞・三単現・過去形",
+        "eraId": "eng-be-verbs",
+        "eraName": "be動詞",
+        "shortName": "be動詞",
+        "whenLabel": "中1 4〜5月ごろ",
+        "keyTerms": "am・is・are・I am〜・You are〜",
         "topics": [
-          "be動詞",
-          "一般動詞",
-          "can（〜できる）",
-          "名詞",
-          "疑問詞",
-          "名詞の応用",
-          "疑問詞の応用",
-          "命令文",
-          "三人称単数現在",
-          "代名詞",
-          "現在進行形",
-          "感嘆文",
+          "be動詞"
+        ]
+      },
+      {
+        "eraId": "eng-general-verbs",
+        "eraName": "一般動詞",
+        "shortName": "一般動詞",
+        "whenLabel": "中1 5〜6月ごろ",
+        "keyTerms": "play・like・have・do not〜",
+        "topics": [
+          "一般動詞"
+        ]
+      },
+      {
+        "eraId": "eng-can",
+        "eraName": "can（〜できる）",
+        "shortName": "can（〜できる）",
+        "whenLabel": "中1 6月ごろ",
+        "keyTerms": "can・can't・Can you〜?",
+        "topics": [
+          "can（〜できる）"
+        ]
+      },
+      {
+        "eraId": "eng-nouns",
+        "eraName": "名詞",
+        "shortName": "名詞",
+        "whenLabel": "中1 6〜7月ごろ",
+        "keyTerms": "複数形・a/an・the",
+        "topics": [
+          "名詞"
+        ]
+      },
+      {
+        "eraId": "eng-question-words",
+        "eraName": "疑問詞",
+        "shortName": "疑問詞",
+        "whenLabel": "中1 7〜9月ごろ",
+        "keyTerms": "what・who・when・where・how",
+        "topics": [
+          "疑問詞"
+        ]
+      },
+      {
+        "eraId": "eng-nouns-advanced",
+        "eraName": "名詞の応用",
+        "shortName": "名詞の応用",
+        "whenLabel": "中1 9月ごろ",
+        "keyTerms": "数えられない名詞・some・any",
+        "topics": [
+          "名詞の応用"
+        ]
+      },
+      {
+        "eraId": "eng-question-patterns",
+        "eraName": "疑問詞の応用",
+        "shortName": "疑問詞の応用",
+        "whenLabel": "中1 9〜10月ごろ",
+        "keyTerms": "How many〜?・What time〜?・whose",
+        "topics": [
+          "疑問詞の応用"
+        ]
+      },
+      {
+        "eraId": "eng-imperatives",
+        "eraName": "命令文",
+        "shortName": "命令文",
+        "whenLabel": "中1 10月ごろ",
+        "keyTerms": "Be〜・Don't〜・Let's〜",
+        "topics": [
+          "命令文"
+        ]
+      },
+      {
+        "eraId": "eng-third-person-singular",
+        "eraName": "三人称単数現在",
+        "shortName": "三人称単数現在",
+        "whenLabel": "中1 10〜11月ごろ",
+        "keyTerms": "plays・goes・does・doesn't",
+        "topics": [
+          "三人称単数現在"
+        ]
+      },
+      {
+        "eraId": "eng-pronouns",
+        "eraName": "代名詞",
+        "shortName": "代名詞",
+        "whenLabel": "中1 11月ごろ",
+        "keyTerms": "I-my-me-mine・him・her・us",
+        "topics": [
+          "代名詞"
+        ]
+      },
+      {
+        "eraId": "eng-present-progressive",
+        "eraName": "現在進行形",
+        "shortName": "現在進行形",
+        "whenLabel": "中1 12〜1月ごろ",
+        "keyTerms": "be動詞＋〜ing・playing",
+        "topics": [
+          "現在進行形"
+        ]
+      },
+      {
+        "eraId": "eng-exclamatives",
+        "eraName": "感嘆文",
+        "shortName": "感嘆文",
+        "whenLabel": "中1 1月ごろ",
+        "keyTerms": "What a〜!・How〜!",
+        "topics": [
+          "感嘆文"
+        ]
+      },
+      {
+        "eraId": "eng-past-tense",
+        "eraName": "過去形と過去進行形",
+        "shortName": "過去形と過去進行形",
+        "whenLabel": "中1 1〜3月ごろ",
+        "keyTerms": "過去形・ed・was/were・〜ing",
+        "topics": [
           "過去形と過去進行形"
         ]
       }
     ],
     "2": [
       {
-        "eraId": "english-grade2",
-        "eraName": "中2 英語",
-        "shortName": "中2英語",
-        "whenLabel": "中2 通年",
-        "keyTerms": "不定詞・助動詞・比較・受け身",
+        "eraId": "eng-sentence-structures",
+        "eraName": "5つの文構造",
+        "shortName": "5つの文構造",
+        "whenLabel": "中2 4〜5月ごろ",
+        "keyTerms": "be going to・will・SVOO・SVOC",
         "topics": [
-          "5つの文構造",
-          "接続詞",
-          "不定詞",
-          "助動詞",
-          "比較",
+          "5つの文構造"
+        ]
+      },
+      {
+        "eraId": "eng-conjunctions",
+        "eraName": "接続詞",
+        "shortName": "接続詞",
+        "whenLabel": "中2 5〜6月ごろ",
+        "keyTerms": "when・if・because・that",
+        "topics": [
+          "接続詞"
+        ]
+      },
+      {
+        "eraId": "eng-infinitives",
+        "eraName": "不定詞",
+        "shortName": "不定詞",
+        "whenLabel": "中2 6〜7月ごろ",
+        "keyTerms": "to＋動詞・名詞/副詞/形容詞的用法",
+        "topics": [
+          "不定詞"
+        ]
+      },
+      {
+        "eraId": "eng-modal-verbs",
+        "eraName": "助動詞",
+        "shortName": "助動詞",
+        "whenLabel": "中2 9〜10月ごろ",
+        "keyTerms": "must・have to・should・may",
+        "topics": [
+          "助動詞"
+        ]
+      },
+      {
+        "eraId": "eng-comparison",
+        "eraName": "比較",
+        "shortName": "比較",
+        "whenLabel": "中2 11〜12月ごろ",
+        "keyTerms": "比較級・最上級・er/est・as〜as",
+        "topics": [
+          "比較"
+        ]
+      },
+      {
+        "eraId": "eng-passive-voice",
+        "eraName": "受け身の文",
+        "shortName": "受け身の文",
+        "whenLabel": "中2 1〜2月ごろ",
+        "keyTerms": "be＋過去分詞・by〜",
+        "topics": [
           "受け身の文"
         ]
       }
     ],
     "3": [
       {
-        "eraId": "english-grade3",
-        "eraName": "中3 英語",
-        "shortName": "中3英語",
-        "whenLabel": "中3 通年",
-        "keyTerms": "現在完了・後置修飾・関係代名詞・仮定法",
+        "eraId": "eng-present-perfect",
+        "eraName": "現在完了",
+        "shortName": "現在完了",
+        "whenLabel": "中3 4〜5月ごろ",
+        "keyTerms": "have＋過去分詞・継続/経験/完了",
         "topics": [
-          "現在完了",
-          "make・show の応用",
-          "現在完了進行形",
-          "不定詞（応用）",
-          "間接疑問文",
-          "過去分詞による後置修飾",
-          "現在分詞による後置修飾",
-          "接触節",
-          "関係代名詞",
+          "現在完了"
+        ]
+      },
+      {
+        "eraId": "eng-make-show",
+        "eraName": "make・show の応用",
+        "shortName": "make・showの応用",
+        "whenLabel": "中3 5月ごろ",
+        "keyTerms": "make A B・show 人 物・SVOO/SVOC",
+        "topics": [
+          "make・show の応用"
+        ]
+      },
+      {
+        "eraId": "eng-present-perfect-progressive",
+        "eraName": "現在完了進行形",
+        "shortName": "現在完了進行形",
+        "whenLabel": "中3 5〜6月ごろ",
+        "keyTerms": "have been〜ing",
+        "topics": [
+          "現在完了進行形"
+        ]
+      },
+      {
+        "eraId": "eng-infinitives-advanced",
+        "eraName": "不定詞（応用）",
+        "shortName": "不定詞（応用）",
+        "whenLabel": "中3 6〜7月ごろ",
+        "keyTerms": "it for to・疑問詞＋to・want 人 to",
+        "topics": [
+          "不定詞（応用）"
+        ]
+      },
+      {
+        "eraId": "eng-indirect-questions",
+        "eraName": "間接疑問文",
+        "shortName": "間接疑問文",
+        "whenLabel": "中3 9月ごろ",
+        "keyTerms": "I know what〜・語順",
+        "topics": [
+          "間接疑問文"
+        ]
+      },
+      {
+        "eraId": "eng-past-participle-modifier",
+        "eraName": "過去分詞による後置修飾",
+        "shortName": "過去分詞の後置修飾",
+        "whenLabel": "中3 9〜10月ごろ",
+        "keyTerms": "過去分詞＋名詞修飾・made in〜",
+        "topics": [
+          "過去分詞による後置修飾"
+        ]
+      },
+      {
+        "eraId": "eng-present-participle-modifier",
+        "eraName": "現在分詞による後置修飾",
+        "shortName": "現在分詞の後置修飾",
+        "whenLabel": "中3 10月ごろ",
+        "keyTerms": "〜ing＋名詞修飾・running boy",
+        "topics": [
+          "現在分詞による後置修飾"
+        ]
+      },
+      {
+        "eraId": "eng-contact-clause",
+        "eraName": "接触節",
+        "shortName": "接触節",
+        "whenLabel": "中3 10〜11月ごろ",
+        "keyTerms": "名詞＋主語＋動詞（省略）",
+        "topics": [
+          "接触節"
+        ]
+      },
+      {
+        "eraId": "eng-relative-pronouns",
+        "eraName": "関係代名詞",
+        "shortName": "関係代名詞",
+        "whenLabel": "中3 11〜12月ごろ",
+        "keyTerms": "who・which・that・先行詞",
+        "topics": [
+          "関係代名詞"
+        ]
+      },
+      {
+        "eraId": "eng-subjunctive",
+        "eraName": "仮定法",
+        "shortName": "仮定法",
+        "whenLabel": "中3 1〜2月ごろ",
+        "keyTerms": "If I were〜・I wish〜",
+        "topics": [
           "仮定法"
         ]
       }
@@ -708,25 +942,70 @@ export const lineScopeEras: Record<ScopeSubjectId, Record<ScopeGrade, EraMeta[]>
         ]
       },
       {
-        "eraId": "geo1-world-regions",
-        "eraName": "世界の諸地域",
-        "shortName": "世界の諸地域",
-        "whenLabel": "中1 9〜2月ごろ",
-        "keyTerms": "アジア・ヨーロッパ・アフリカ・南北アメリカ・オセアニア",
+        "eraId": "geo1-asia",
+        "eraName": "アジア州",
+        "shortName": "アジア州",
+        "whenLabel": "中1 9〜10月ごろ",
+        "keyTerms": "季節風・稲作・中国・ASEAN・石油",
         "topics": [
           "アジア州(1) 自然・文化・NIES",
           "アジア州(2) 中国・韓国・東南アジア",
-          "アジア州(3) 南アジア・西アジア",
+          "アジア州(3) 南アジア・西アジア"
+        ]
+      },
+      {
+        "eraId": "geo1-europe",
+        "eraName": "ヨーロッパ州",
+        "shortName": "ヨーロッパ州",
+        "whenLabel": "中1 10〜11月ごろ",
+        "keyTerms": "EU・偏西風・混合農業・キリスト教",
+        "topics": [
           "ヨーロッパ州(1) 自然・文化",
           "ヨーロッパ州(2) EU統合・環境",
-          "ヨーロッパ州(3) 課題・ロシア",
+          "ヨーロッパ州(3) 課題・ロシア"
+        ]
+      },
+      {
+        "eraId": "geo1-africa",
+        "eraName": "アフリカ州",
+        "shortName": "アフリカ州",
+        "whenLabel": "中1 11月ごろ",
+        "keyTerms": "サハラ・モノカルチャー・レアメタル",
+        "topics": [
           "アフリカ州(1) 自然・歴史",
           "アフリカ州(2) 産業・経済",
-          "アフリカ州(3) 社会変化",
+          "アフリカ州(3) 社会変化"
+        ]
+      },
+      {
+        "eraId": "geo1-north-america",
+        "eraName": "北アメリカ州",
+        "shortName": "北アメリカ州",
+        "whenLabel": "中1 12月ごろ",
+        "keyTerms": "適地適作・企業的農業・シリコンバレー",
+        "topics": [
           "北アメリカ州(1) 自然・農業",
-          "北アメリカ州(2) 工業・生活文化",
+          "北アメリカ州(2) 工業・生活文化"
+        ]
+      },
+      {
+        "eraId": "geo1-south-america",
+        "eraName": "南アメリカ州",
+        "shortName": "南アメリカ州",
+        "whenLabel": "中1 1月ごろ",
+        "keyTerms": "アマゾン・熱帯雨林・バイオ燃料",
+        "topics": [
           "南アメリカ州(1) 自然・文化",
-          "南アメリカ州(2) 開発・環境",
+          "南アメリカ州(2) 開発・環境"
+        ]
+      },
+      {
+        "eraId": "geo1-oceania",
+        "eraName": "オセアニア州",
+        "shortName": "オセアニア州",
+        "whenLabel": "中1 1〜2月ごろ",
+        "keyTerms": "アボリジニ・羊・鉱産資源・多文化",
+        "topics": [
           "オセアニア州(1) 自然・産業",
           "オセアニア州(2) 多文化社会・環境"
         ]
@@ -760,22 +1039,76 @@ export const lineScopeEras: Record<ScopeSubjectId, Record<ScopeGrade, EraMeta[]>
         ]
       },
       {
-        "eraId": "geo2-japan-regions",
-        "eraName": "日本の諸地域",
-        "shortName": "日本の諸地域",
-        "whenLabel": "中2 9〜2月ごろ",
-        "keyTerms": "九州・中四国・近畿・中部・関東・東北・北海道",
+        "eraId": "geo2-kyushu",
+        "eraName": "九州地方",
+        "shortName": "九州地方",
+        "whenLabel": "中2 9〜10月ごろ",
+        "keyTerms": "火山・シラス台地・畜産・北九州",
         "topics": [
-          "九州地方",
+          "九州地方"
+        ]
+      },
+      {
+        "eraId": "geo2-chugoku-shikoku",
+        "eraName": "中国・四国地方",
+        "shortName": "中国・四国地方",
+        "whenLabel": "中2 10月ごろ",
+        "keyTerms": "瀬戸内・連絡橋・過疎",
+        "topics": [
           "中国・四国地方①",
-          "中国・四国地方②",
+          "中国・四国地方②"
+        ]
+      },
+      {
+        "eraId": "geo2-kinki",
+        "eraName": "近畿地方",
+        "shortName": "近畿地方",
+        "whenLabel": "中2 11月ごろ",
+        "keyTerms": "大阪大都市圏・阪神工業・古都",
+        "topics": [
           "近畿の自然と大阪大都市圏",
-          "近畿の都市問題と農山村",
+          "近畿の都市問題と農山村"
+        ]
+      },
+      {
+        "eraId": "geo2-chubu",
+        "eraName": "中部地方",
+        "shortName": "中部地方",
+        "whenLabel": "中2 11〜12月ごろ",
+        "keyTerms": "中京工業・東海・中央高地・北陸",
+        "topics": [
           "中部地方①（自然と東海）",
-          "中部地方②（中央高地と北陸）",
+          "中部地方②（中央高地と北陸）"
+        ]
+      },
+      {
+        "eraId": "geo2-kanto",
+        "eraName": "関東地方",
+        "shortName": "関東地方",
+        "whenLabel": "中2 12〜1月ごろ",
+        "keyTerms": "東京大都市圏・京浜工業・近郊農業",
+        "topics": [
           "関東の自然と東京",
-          "東京大都市圏と関東の産業",
-          "東北地方",
+          "東京大都市圏と関東の産業"
+        ]
+      },
+      {
+        "eraId": "geo2-tohoku",
+        "eraName": "東北地方",
+        "shortName": "東北地方",
+        "whenLabel": "中2 1〜2月ごろ",
+        "keyTerms": "やませ・稲作・伝統産業・祭り",
+        "topics": [
+          "東北地方"
+        ]
+      },
+      {
+        "eraId": "geo2-hokkaido",
+        "eraName": "北海道地方",
+        "shortName": "北海道地方",
+        "whenLabel": "中2 2月ごろ",
+        "keyTerms": "冷帯・酪農・客土・観光",
+        "topics": [
           "北海道地方"
         ]
       }

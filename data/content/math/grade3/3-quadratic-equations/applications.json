@@ -9,6 +9,267 @@
   "videos": [],
   "flashcards": [],
   "quiz": {
-    "questions": []
+    "questions": [
+      {
+        "id": "math-g3-quad-eq-apps-q1",
+        "question": "連続する2つの自然数があり、その積が 132 である。この2つの数を求めなさい。",
+        "options": [
+          "10 と 11",
+          "12 と 13",
+          "11 と 12",
+          "11 と 13"
+        ],
+        "correctIndex": 2,
+        "explanation": "小さい方を $n$ とすると $n(n+1)=132$。$n^2+n-132=0$、$(n-11)(n+12)=0$\n自然数なので $n=11$、よって 11 と 12。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-quad-eq-apps-q2",
+        "question": "連続する2つの自然数について、それぞれを2乗した数の和が 85 である。この2つの数を求めなさい。",
+        "options": [
+          "5 と 6",
+          "8 と 9",
+          "7 と 8",
+          "6 と 7"
+        ],
+        "correctIndex": 3,
+        "explanation": "小さい方を $n$ とすると $n^2+(n+1)^2=85$。$2n^2+2n-84=0$、$n^2+n-42=0$、$(n-6)(n+7)=0$\n自然数なので $n=6$、よって 6 と 7。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-quad-eq-apps-q3",
+        "question": "ある自然数を2乗すると、もとの数の3倍より 40 大きくなる。この自然数を求めなさい。",
+        "options": [
+          "5",
+          "8",
+          "-5",
+          "13"
+        ],
+        "correctIndex": 1,
+        "explanation": "$x^2=3x+40$、$x^2-3x-40=0$、$(x-8)(x+5)=0$ より $x=8,\\ -5$\n自然数なので $x=8$。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-quad-eq-apps-q4",
+        "question": "連続する3つの自然数について、それぞれを2乗した数の和が 110 である。真ん中の数を求めなさい。",
+        "options": [
+          "10",
+          "5",
+          "6",
+          "7"
+        ],
+        "correctIndex": 2,
+        "explanation": "真ん中を $n$ とすると $(n-1)^2+n^2+(n+1)^2=110$。$3n^2+2=110$、$n^2=36$\n自然数なので $n=6$。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-eq-apps-q5",
+        "question": "ある正の数があり、その数を2乗した数は、もとの数より 42 大きい。もとの数を $x$ とするとき、正しい方程式はどれですか。",
+        "options": [
+          "$x^2 = x + 42$",
+          "$x^2 = x - 42$",
+          "$2x = x + 42$",
+          "$x^2 + 42 = x$"
+        ],
+        "correctIndex": 0,
+        "explanation": "「2乗した数」は $x^2$、「もとの数より 42 大きい」は $x+42$\nよって $x^2=x+42$ と立式する。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-eq-apps-q6",
+        "question": "二次方程式 $x^2-2x-15=0$ を解くと $x=-3,\\ 5$ となった。この $x$ が長方形の横の長さ（cm）を表すとき、適する解はどれですか。",
+        "options": [
+          "$x=-3$",
+          "$x=-3,\\ 5$ の両方",
+          "$x=5$",
+          "適する解はない"
+        ],
+        "correctIndex": 2,
+        "explanation": "$x^2-2x-15=0$、$(x+3)(x-5)=0$ より $x=-3,\\ 5$\n長さは正の数なので、負の $-3$ は適さず $x=5$。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-quad-eq-apps-q7",
+        "question": "横が縦より 3cm 長い長方形があり、面積は 40cm² である。縦の長さを求めなさい。",
+        "options": [
+          "8cm",
+          "4cm",
+          "-8cm",
+          "5cm"
+        ],
+        "correctIndex": 3,
+        "explanation": "縦を $x$ とすると $x(x+3)=40$。$x^2+3x-40=0$、$(x+8)(x-5)=0$ より $x=5,\\ -8$\n長さは正なので $x=5$、縦は 5cm。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-eq-apps-q8",
+        "question": "縦が横より 2cm 長い長方形の面積が 48cm² である。横の長さを求めなさい。",
+        "options": [
+          "8cm",
+          "6cm",
+          "-8cm",
+          "4cm"
+        ],
+        "correctIndex": 1,
+        "explanation": "横を $x$ とすると $x(x+2)=48$。$x^2+2x-48=0$、$(x+8)(x-6)=0$ より $x=6,\\ -8$\n長さは正なので、横は 6cm。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-eq-apps-q9",
+        "question": "縦 8m、横 12m の長方形の土地に、はばが等しい道を縦と横に1本ずつ作る。残りの土地を1つに集めると面積が 60m² になった。道のはばを求めなさい。",
+        "options": [
+          "6m",
+          "2m",
+          "4m",
+          "18m"
+        ],
+        "correctIndex": 1,
+        "explanation": "はばを $x$ とすると、残りを集めると $(8-x)(12-x)=60$。$x^2-20x+36=0$、$(x-2)(x-18)=0$ より $x=2,\\ 18$\nはばは縦 8m より短いので $x=2$、2m。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-eq-apps-q10",
+        "question": "ある道幅の問題で $x^2-20x+36=0$ を解くと $x=2,\\ 18$ が得られた。道は縦 8m、横 12m の土地の中に作るものとする。道のはばとして適する解と、その理由の組として正しいものはどれですか。",
+        "options": [
+          "$x=18$。大きいほうの解を選ぶから",
+          "$x=2,\\ 18$ の両方。どちらも正の数だから",
+          "$x=2$。はばは縦 8m より短いはずだから",
+          "$x=18$。正の数ならどちらでもよいから"
+        ],
+        "correctIndex": 2,
+        "explanation": "道は土地の中に作るので、はばは縦 8m より小さくなければならない\nよって $x=18$ は適さず、$x=2$ が適する解。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-eq-apps-q11",
+        "question": "横が縦の2倍である長方形の面積が 72cm² である。縦の長さを求めなさい。",
+        "options": [
+          "6cm",
+          "36cm",
+          "12cm",
+          "8cm"
+        ],
+        "correctIndex": 0,
+        "explanation": "縦を $x$ とすると $x\\times 2x=72$。$2x^2=72$、$x^2=36$\n長さは正なので $x=6$、縦は 6cm。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-quad-eq-apps-q12",
+        "question": "1辺が 6cm の正方形 ABCD で、点Pは頂点Aを出発して辺AB上を毎秒1cmでBまで動く。点Qは点Pと同時に頂点Bを出発して辺BC上を毎秒1cmでCまで動く。三角形PBQの面積が 4cm² になるのは出発してから何秒後ですか。",
+        "options": [
+          "2秒後と4秒後",
+          "2秒後",
+          "4秒後",
+          "1秒後と5秒後"
+        ],
+        "correctIndex": 0,
+        "explanation": "$x$ 秒後、$PB=6-x$、$BQ=x$。$\\frac{1}{2}(6-x)x=4$\n$x^2-6x+8=0$、$(x-2)(x-4)=0$ より、$0<x<6$ を満たす $x=2,\\ 4$ のどちらも適する。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-quad-eq-apps-q13",
+        "question": "物を落とすとき、落ち始めてから $x$ 秒間に落ちる距離は $5x^2$ m で表される。80m 落ちるのは落ち始めてから何秒後ですか。",
+        "options": [
+          "16秒後",
+          "8秒後",
+          "40秒後",
+          "4秒後"
+        ],
+        "correctIndex": 3,
+        "explanation": "$5x^2=80$、$x^2=16$、$x=\\pm 4$\n時間は正なので $x=4$、4秒後。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-quad-eq-apps-q14",
+        "question": "ある数と、その数に 4 を加えた数との積が 96 になる。この正の数を求めなさい。",
+        "options": [
+          "12",
+          "6",
+          "-12",
+          "8"
+        ],
+        "correctIndex": 3,
+        "explanation": "$x(x+4)=96$、$x^2+4x-96=0$、$(x+12)(x-8)=0$ より $x=8,\\ -12$\n正の数なので $x=8$。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-quad-eq-apps-q15",
+        "question": "縦と横の長さの和が 13cm、面積が 40cm² の長方形がある。縦と横の長さを求めなさい。",
+        "options": [
+          "5cm と 8cm",
+          "4cm と 10cm",
+          "6cm と 7cm",
+          "3cm と 10cm"
+        ],
+        "correctIndex": 0,
+        "explanation": "一方を $x$ とすると他方は $13-x$。$x(13-x)=40$、$x^2-13x+40=0$、$(x-5)(x-8)=0$\nよって 5cm と 8cm。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-eq-apps-q16",
+        "question": "1辺が 12cm の正方形の厚紙の四すみから合同な正方形を切り取り、折り曲げてふたのない箱を作る。底面が1辺 8cm の正方形になるようにするには、四すみから切り取る正方形の1辺を何 cm にすればよいですか。",
+        "options": [
+          "10cm",
+          "4cm",
+          "1cm",
+          "2cm"
+        ],
+        "correctIndex": 3,
+        "explanation": "切り取る正方形の1辺を $x$ とすると、底面の1辺は $12-2x$。$(12-2x)^2=64$、$12-2x=8$\n$0<x<6$ より $x=2$、2cm。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-quad-eq-apps-q17",
+        "question": "連続する3つの自然数があり、いちばん小さい数といちばん大きい数の積が、真ん中の数の 6 倍より 15 大きい。真ん中の数を求めなさい。",
+        "options": [
+          "6",
+          "8",
+          "7",
+          "9"
+        ],
+        "correctIndex": 1,
+        "explanation": "真ん中を $n$ とすると $(n-1)(n+1)=6n+15$。$n^2-1=6n+15$、$n^2-6n-16=0$、$(n-8)(n+2)=0$ より $n=8,\\ -2$\n自然数なので $n=8$。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-quad-eq-apps-q18",
+        "question": "縦が横より 5cm 長い長方形の面積が 84cm² である。横の長さを $x$ cm とするとき、正しい方程式はどれですか。",
+        "options": [
+          "$x(x+5)=84$",
+          "$x(x-5)=84$",
+          "$x+(x+5)=84$",
+          "$2x+5=84$"
+        ],
+        "correctIndex": 0,
+        "explanation": "横が $x$、縦が $x+5$ なので、面積は $x(x+5)$\nこれが 84 だから $x(x+5)=84$ と立式する。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-quad-eq-apps-q19",
+        "question": "ある正の数を2乗した数は、その数を5倍して6を引いた数に等しい。この数を求めなさい。",
+        "options": [
+          "1 と 6",
+          "2 と 3",
+          "2",
+          "3"
+        ],
+        "correctIndex": 1,
+        "explanation": "$x^2=5x-6$、$x^2-5x+6=0$、$(x-2)(x-3)=0$ より $x=2,\\ 3$\nどちらも正の数なので、2 と 3 の両方が適する。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-eq-apps-q20",
+        "question": "ある正方形の1辺の長さを求めるために二次方程式を解いたところ、$x=-4,\\ 6$ となった。適する解と、その理由の組として正しいものはどれですか。",
+        "options": [
+          "$x=-4$。小さいほうの解を選ぶから",
+          "$x=-4,\\ 6$ の両方。解は2つとも答えになるから",
+          "$x=6$。長さは正なので負の解は適さないから",
+          "$x=6$。大きいほうの解を選ぶから"
+        ],
+        "correctIndex": 2,
+        "explanation": "正方形の1辺の長さは正の数でなければならない\nよって負の解 $-4$ は適さず、$x=6$ が適する解。",
+        "difficulty": "advanced"
+      }
+    ]
   }
 }

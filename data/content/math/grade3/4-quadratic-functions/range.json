@@ -12,87 +12,539 @@
     "questions": [
       {
         "id": "math-g3-quad-func-range-q1",
-        "question": "下のグラフ（$y=x^2$）で、$x$ の変域が $-2 \\leqq x \\leqq 1$ のときの $y$ の変域を求めましょう。",
-        "options": ["$0 \\leqq y \\leqq 4$", "$1 \\leqq y \\leqq 4$", "$-2 \\leqq y \\leqq 1$", "$0 \\leqq y \\leqq 1$"],
-        "correctIndex": 0,
-        "explanation": "変域 $-2 \\leqq x \\leqq 1$ は $x=0$ をふくむので、最小値は頂点の $y=0$ です。最大値は原点から遠い $x=-2$ のとき $y=(-2)^2=4$。よって $0 \\leqq y \\leqq 4$ です。",
-        "difficulty": "standard",
+        "question": "下のグラフは関数 $y=x^2$ のグラフです。$x$ の変域が $-2 \\leqq x \\leqq 1$ のときの $y$ の変域を求めましょう。",
         "image": {
           "kind": "coordinate",
-          "range": 6,
-          "parabolas": [{ "a": 1 }],
-          "points": [{ "x": -2, "y": 4, "label": "(-2, 4)" }]
-        }
+          "range": 5,
+          "parabolas": [
+            {
+              "a": 1
+            }
+          ],
+          "points": [
+            {
+              "x": -2,
+              "y": 4,
+              "label": "(-2, 4)",
+              "open": false
+            },
+            {
+              "x": 1,
+              "y": 1,
+              "label": "(1, 1)",
+              "open": false
+            }
+          ]
+        },
+        "options": [
+          "$1 \\leqq y \\leqq 4$",
+          "$0 \\leqq y \\leqq 4$",
+          "$-2 \\leqq y \\leqq 4$",
+          "$0 \\leqq y \\leqq 1$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$x$ の変域が $0$ をまたぐので、最小値は頂点の $y=0$。最大値は絶対値が大きい $x=-2$ で $y=(-2)^2=4$。\nよって $0 \\leqq y \\leqq 4$。両端だけで考えると $0$ を含み忘れるので注意。",
+        "difficulty": "basic"
       },
       {
         "id": "math-g3-quad-func-range-q2",
-        "question": "下のグラフ（$y=\\frac{1}{2}x^2$）で、$x$ の変域が $2 \\leqq x \\leqq 4$ のときの $y$ の変域を求めましょう。",
-        "options": ["$0 \\leqq y \\leqq 8$", "$2 \\leqq y \\leqq 8$", "$2 \\leqq y \\leqq 4$", "$0 \\leqq y \\leqq 4$"],
-        "correctIndex": 1,
-        "explanation": "変域 $2 \\leqq x \\leqq 4$ は $x=0$ をふくみません。$y=\\frac{1}{2}x^2$ では $x$ が大きいほど $y$ も大きいので、$x=2$ で最小 $y=\\frac{1}{2}\\times4=2$、$x=4$ で最大 $y=\\frac{1}{2}\\times16=8$。よって $2 \\leqq y \\leqq 8$ です。",
-        "difficulty": "standard",
+        "question": "下のグラフは関数 $y=\\frac{1}{2}x^2$ のグラフです。$x$ の変域が $2 \\leqq x \\leqq 4$ のときの $y$ の変域を求めましょう。",
         "image": {
           "kind": "coordinate",
-          "range": 8,
-          "parabolas": [{ "a": 0.5 }],
-          "points": [{ "x": 4, "y": 8, "label": "(4, 8)" }]
-        }
+          "range": 10,
+          "parabolas": [
+            {
+              "a": 0.5
+            }
+          ],
+          "points": [
+            {
+              "x": 2,
+              "y": 2,
+              "label": "(2, 2)",
+              "open": false
+            },
+            {
+              "x": 4,
+              "y": 8,
+              "label": "(4, 8)",
+              "open": false
+            }
+          ]
+        },
+        "options": [
+          "$4 \\leqq y \\leqq 16$",
+          "$0 \\leqq y \\leqq 8$",
+          "$2 \\leqq y \\leqq 8$",
+          "$1 \\leqq y \\leqq 4$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$x$ の変域は $0$ をまたがず単調に増える区間。$x=2$ で $y=\\frac{1}{2}\\times2^2=2$、$x=4$ で $y=\\frac{1}{2}\\times4^2=8$。\nよって $2 \\leqq y \\leqq 8$。係数 $\\frac{1}{2}$ を忘れると $4 \\leqq y \\leqq 16$ になる。",
+        "difficulty": "basic"
       },
       {
         "id": "math-g3-quad-func-range-q3",
-        "question": "下のグラフ（$y=-x^2$）で、$x$ の変域が $-1 \\leqq x \\leqq 2$ のときの $y$ の変域を求めましょう。",
-        "options": ["$-4 \\leqq y \\leqq -1$", "$0 \\leqq y \\leqq 4$", "$-4 \\leqq y \\leqq 0$", "$-1 \\leqq y \\leqq 4$"],
-        "correctIndex": 2,
-        "explanation": "$a<0$ なので上に最大、下に最小です。変域 $-1 \\leqq x \\leqq 2$ は $x=0$ をふくむので、最大値は頂点の $y=0$。最小値は原点から遠い $x=2$ のとき $y=-(2)^2=-4$。よって $-4 \\leqq y \\leqq 0$ です。",
-        "difficulty": "hard",
+        "question": "下のグラフは関数 $y=-x^2$ のグラフです。$x$ の変域が $-1 \\leqq x \\leqq 2$ のときの $y$ の変域を求めましょう。",
         "image": {
           "kind": "coordinate",
-          "range": 6,
-          "parabolas": [{ "a": -1 }],
-          "points": [{ "x": 2, "y": -4, "label": "(2, -4)" }]
-        }
+          "range": 5,
+          "parabolas": [
+            {
+              "a": -1
+            }
+          ],
+          "points": [
+            {
+              "x": -1,
+              "y": -1,
+              "label": "(-1, -1)",
+              "open": false
+            },
+            {
+              "x": 2,
+              "y": -4,
+              "label": "(2, -4)",
+              "open": false
+            }
+          ]
+        },
+        "options": [
+          "$-4 \\leqq y \\leqq -1$",
+          "$0 \\leqq y \\leqq 4$",
+          "$-1 \\leqq y \\leqq 4$",
+          "$-4 \\leqq y \\leqq 0$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$a<0$ で $x$ の変域が $0$ をまたぐので、最大値は頂点の $y=0$。最小値は絶対値が大きい $x=2$ で $y=-2^2=-4$。\nよって $-4 \\leqq y \\leqq 0$。両端だけだと $0$ を含み忘れる。",
+        "difficulty": "basic"
       },
       {
         "id": "math-g3-quad-func-range-q4",
-        "question": "下のグラフ（$y=2x^2$）で、$x$ の変域が $-1 \\leqq x \\leqq 1$ のときの $y$ の変域を求めましょう。",
-        "options": ["$-2 \\leqq y \\leqq 2$", "$2 \\leqq y \\leqq 2$", "$1 \\leqq y \\leqq 2$", "$0 \\leqq y \\leqq 2$"],
+        "question": "関数 $y=2x^2$ で、$x$ の変域が $1 \\leqq x \\leqq 3$ のときの $y$ の変域を求めましょう。",
+        "options": [
+          "$1 \\leqq y \\leqq 9$",
+          "$0 \\leqq y \\leqq 18$",
+          "$2 \\leqq y \\leqq 9$",
+          "$2 \\leqq y \\leqq 18$"
+        ],
         "correctIndex": 3,
-        "explanation": "変域 $-1 \\leqq x \\leqq 1$ は $x=0$ をふくむので、最小値は頂点の $y=0$ です。最大値は $x=\\pm1$ のとき $y=2\\times1^2=2$。よって $0 \\leqq y \\leqq 2$ です。",
-        "difficulty": "standard",
-        "image": {
-          "kind": "coordinate",
-          "range": 6,
-          "parabolas": [{ "a": 2 }],
-          "points": [{ "x": 1, "y": 2, "label": "(1, 2)" }]
-        }
+        "explanation": "$x$ の変域は $0$ をまたがない区間。$x=1$ で $y=2\\times1^2=2$、$x=3$ で $y=2\\times3^2=18$。\nよって $2 \\leqq y \\leqq 18$。係数 $2$ を忘れると $1 \\leqq y \\leqq 9$ になる。",
+        "difficulty": "basic"
       },
       {
         "id": "math-g3-quad-func-range-q5",
-        "question": "下のグラフ（$y=\\frac{1}{2}x^2$）で、$x$ の変域が $-4 \\leqq x \\leqq 2$ のときの $y$ の変域を求めましょう。",
-        "options": ["$0 \\leqq y \\leqq 8$", "$2 \\leqq y \\leqq 8$", "$0 \\leqq y \\leqq 2$", "$-4 \\leqq y \\leqq 2$"],
-        "correctIndex": 0,
-        "explanation": "変域 $-4 \\leqq x \\leqq 2$ は $x=0$ をふくむので、最小値は頂点の $y=0$ です。最大値は原点から遠い $x=-4$ のとき $y=\\frac{1}{2}\\times(-4)^2=\\frac{1}{2}\\times16=8$。よって $0 \\leqq y \\leqq 8$ です。",
-        "difficulty": "hard",
+        "question": "下のグラフは関数 $y=x^2$ のグラフです。$x$ の変域が $-3 \\leqq x \\leqq 2$ のときの $y$ の変域を求めましょう。",
         "image": {
           "kind": "coordinate",
-          "range": 8,
-          "parabolas": [{ "a": 0.5 }],
-          "points": [{ "x": -4, "y": 8, "label": "(-4, 8)" }]
-        }
+          "range": 10,
+          "parabolas": [
+            {
+              "a": 1
+            }
+          ],
+          "points": [
+            {
+              "x": -3,
+              "y": 9,
+              "label": "(-3, 9)",
+              "open": false
+            },
+            {
+              "x": 2,
+              "y": 4,
+              "label": "(2, 4)",
+              "open": false
+            }
+          ]
+        },
+        "options": [
+          "$0 \\leqq y \\leqq 9$",
+          "$4 \\leqq y \\leqq 9$",
+          "$0 \\leqq y \\leqq 4$",
+          "$-3 \\leqq y \\leqq 9$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$x$ の変域が $0$ をまたぐので、最小値は $y=0$。最大値は絶対値が大きい $x=-3$ で $y=(-3)^2=9$。\nよって $0 \\leqq y \\leqq 9$。$x=2$ を最大と思うと $0 \\leqq y \\leqq 4$ と誤る。",
+        "difficulty": "basic"
       },
       {
         "id": "math-g3-quad-func-range-q6",
-        "question": "下のグラフ（$y=-\\frac{1}{2}x^2$）で、$x$ の変域が $2 \\leqq x \\leqq 4$ のときの $y$ の変域を求めましょう。",
-        "options": ["$-8 \\leqq y \\leqq 0$", "$-8 \\leqq y \\leqq -2$", "$2 \\leqq y \\leqq 8$", "$-2 \\leqq y \\leqq 8$"],
-        "correctIndex": 1,
-        "explanation": "変域 $2 \\leqq x \\leqq 4$ は $x=0$ をふくみません。$a<0$ で $x>0$ の範囲では $x$ が大きいほど $y$ は小さくなります。$x=2$ で最大 $y=-\\frac{1}{2}\\times4=-2$、$x=4$ で最小 $y=-\\frac{1}{2}\\times16=-8$。よって $-8 \\leqq y \\leqq -2$ です。",
-        "difficulty": "hard",
+        "question": "下のグラフは関数 $y=-2x^2$ のグラフです。$x$ の変域が $-2 \\leqq x \\leqq 1$ のときの $y$ の変域を求めましょう。",
         "image": {
           "kind": "coordinate",
-          "range": 8,
-          "parabolas": [{ "a": -0.5 }],
-          "points": [{ "x": 4, "y": -8, "label": "(4, -8)" }]
-        }
+          "range": 10,
+          "parabolas": [
+            {
+              "a": -2
+            }
+          ],
+          "points": [
+            {
+              "x": -2,
+              "y": -8,
+              "label": "(-2, -8)",
+              "open": false
+            },
+            {
+              "x": 1,
+              "y": -2,
+              "label": "(1, -2)",
+              "open": false
+            }
+          ]
+        },
+        "options": [
+          "$-8 \\leqq y \\leqq -2$",
+          "$0 \\leqq y \\leqq 8$",
+          "$-8 \\leqq y \\leqq 0$",
+          "$-2 \\leqq y \\leqq 8$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$a<0$ で $x$ の変域が $0$ をまたぐので、最大値は $y=0$。最小値は絶対値が大きい $x=-2$ で $y=-2\\times(-2)^2=-8$。\nよって $-8 \\leqq y \\leqq 0$。両端だけだと $0$ を含み忘れる。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-func-range-q7",
+        "question": "下のグラフは関数 $y=\\frac{1}{3}x^2$ のグラフです。$x$ の変域が $-3 \\leqq x \\leqq 3$ のときの $y$ の変域を求めましょう。",
+        "image": {
+          "kind": "coordinate",
+          "range": 5,
+          "parabolas": [
+            {
+              "a": 0.3333
+            }
+          ],
+          "points": [
+            {
+              "x": -3,
+              "y": 3,
+              "label": "(-3, 3)",
+              "open": false
+            },
+            {
+              "x": 3,
+              "y": 3,
+              "label": "(3, 3)",
+              "open": false
+            }
+          ]
+        },
+        "options": [
+          "$0 \\leqq y \\leqq 3$",
+          "$-3 \\leqq y \\leqq 3$",
+          "$0 \\leqq y \\leqq 9$",
+          "$0 \\leqq y \\leqq 1$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$x$ の変域が $0$ をまたぐので、最小値は $y=0$。最大値は $x=\\pm3$ で $y=\\frac{1}{3}\\times3^2=3$。\nよって $0 \\leqq y \\leqq 3$。係数 $\\frac{1}{3}$ を忘れると $0 \\leqq y \\leqq 9$ になる。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-quad-func-range-q8",
+        "question": "関数 $y=x^2$ で、$x$ の変域が $2 \\leqq x \\leqq 5$ のときの $y$ の変域を求めましょう。",
+        "options": [
+          "$0 \\leqq y \\leqq 25$",
+          "$2 \\leqq y \\leqq 5$",
+          "$4 \\leqq y \\leqq 25$",
+          "$4 \\leqq y \\leqq 10$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$x$ の変域は $0$ をまたがない区間。$x=2$ で $y=2^2=4$、$x=5$ で $y=5^2=25$。\nよって $4 \\leqq y \\leqq 25$。$0$ をまたがないので最小値に $0$ は入らない。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-quad-func-range-q9",
+        "question": "関数 $y=-x^2$ で、$x$ の変域が $1 \\leqq x \\leqq 4$ のときの $y$ の変域を求めましょう。",
+        "options": [
+          "$-16 \\leqq y \\leqq 0$",
+          "$-16 \\leqq y \\leqq -1$",
+          "$1 \\leqq y \\leqq 16$",
+          "$-1 \\leqq y \\leqq 16$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$x$ の変域は $0$ をまたがない。$x=1$ で $y=-1^2=-1$、$x=4$ で $y=-4^2=-16$。$a<0$ なので $x$ が大きいほど $y$ は小さい。\nよって $-16 \\leqq y \\leqq -1$。$0$ をまたがないので $0$ は入らない。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-func-range-q10",
+        "question": "下のグラフは関数 $y=\\frac{1}{2}x^2$ のグラフです。$x$ の変域が $-4 \\leqq x \\leqq 2$ のときの $y$ の変域を求めましょう。",
+        "image": {
+          "kind": "coordinate",
+          "range": 10,
+          "parabolas": [
+            {
+              "a": 0.5
+            }
+          ],
+          "points": [
+            {
+              "x": -4,
+              "y": 8,
+              "label": "(-4, 8)",
+              "open": false
+            },
+            {
+              "x": 2,
+              "y": 2,
+              "label": "(2, 2)",
+              "open": false
+            }
+          ]
+        },
+        "options": [
+          "$2 \\leqq y \\leqq 8$",
+          "$0 \\leqq y \\leqq 8$",
+          "$0 \\leqq y \\leqq 2$",
+          "$-4 \\leqq y \\leqq 8$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$x$ の変域が $0$ をまたぐので、最小値は $y=0$。最大値は絶対値が大きい $x=-4$ で $y=\\frac{1}{2}\\times(-4)^2=8$。\nよって $0 \\leqq y \\leqq 8$。$x=2$ を最大と思うと誤る。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-func-range-q11",
+        "question": "下のグラフは関数 $y=3x^2$ のグラフです。$x$ の変域が $-1 \\leqq x \\leqq 2$ のときの $y$ の変域を求めましょう。",
+        "image": {
+          "kind": "coordinate",
+          "range": 12,
+          "parabolas": [
+            {
+              "a": 3
+            }
+          ],
+          "points": [
+            {
+              "x": -1,
+              "y": 3,
+              "label": "(-1, 3)",
+              "open": false
+            },
+            {
+              "x": 2,
+              "y": 12,
+              "label": "(2, 12)",
+              "open": false
+            }
+          ]
+        },
+        "options": [
+          "$3 \\leqq y \\leqq 12$",
+          "$-1 \\leqq y \\leqq 12$",
+          "$0 \\leqq y \\leqq 3$",
+          "$0 \\leqq y \\leqq 12$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$x$ の変域が $0$ をまたぐので、最小値は $y=0$。最大値は絶対値が大きい $x=2$ で $y=3\\times2^2=12$。\nよって $0 \\leqq y \\leqq 12$。両端 $x=-1,\\ 2$ だけで考えると $0$ を含み忘れる。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-func-range-q12",
+        "question": "下のグラフは関数 $y=-\\frac{1}{2}x^2$ のグラフです。$x$ の変域が $-2 \\leqq x \\leqq 4$ のときの $y$ の変域を求めましょう。",
+        "image": {
+          "kind": "coordinate",
+          "range": 10,
+          "parabolas": [
+            {
+              "a": -0.5
+            }
+          ],
+          "points": [
+            {
+              "x": -2,
+              "y": -2,
+              "label": "(-2, -2)",
+              "open": false
+            },
+            {
+              "x": 4,
+              "y": -8,
+              "label": "(4, -8)",
+              "open": false
+            }
+          ]
+        },
+        "options": [
+          "$-8 \\leqq y \\leqq -2$",
+          "$0 \\leqq y \\leqq 8$",
+          "$-8 \\leqq y \\leqq 0$",
+          "$-2 \\leqq y \\leqq 8$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$a<0$ で $x$ の変域が $0$ をまたぐので、最大値は $y=0$。最小値は絶対値が大きい $x=4$ で $y=-\\frac{1}{2}\\times4^2=-8$。\nよって $-8 \\leqq y \\leqq 0$。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-func-range-q13",
+        "question": "関数 $y=2x^2$ で、$x$ の変域が $-3 \\leqq x \\leqq 1$ のときの $y$ の変域を求めましょう。",
+        "options": [
+          "$-3 \\leqq y \\leqq 18$",
+          "$2 \\leqq y \\leqq 18$",
+          "$0 \\leqq y \\leqq 2$",
+          "$0 \\leqq y \\leqq 18$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$x$ の変域が $0$ をまたぐので、最小値は $y=0$。最大値は絶対値が大きい $x=-3$ で $y=2\\times(-3)^2=18$。\nよって $0 \\leqq y \\leqq 18$。両端だけだと $0$ を含み忘れる。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-func-range-q14",
+        "question": "関数 $y=ax^2$（$a>0$）で、$x$ の変域が $-2 \\leqq x \\leqq 3$ のとき $y$ の変域が $0 \\leqq y \\leqq 18$ でした。$a$ の値を求めましょう。",
+        "options": [
+          "$a=2$",
+          "$a=9$",
+          "$a=6$",
+          "$a=\\frac{9}{2}$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$x$ の変域が $0$ をまたぎ $a>0$ なので最小値 $0$ は頂点。最大値 $18$ は絶対値が大きい $x=3$ でとる。$a\\times3^2=18$ より $9a=18$、$a=2$。\n$x=3$ を $2$ 乗せず $3a=18$ とすると $a=6$ と誤る。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-quad-func-range-q15",
+        "question": "関数 $y=ax^2$（$a<0$）で、$x$ の変域が $-1 \\leqq x \\leqq 2$ のとき $y$ の変域が $-8 \\leqq y \\leqq 0$ でした。$a$ の値を求めましょう。",
+        "options": [
+          "$a=8$",
+          "$a=-8$",
+          "$a=-2$",
+          "$a=-4$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$x$ の変域が $0$ をまたぎ $a<0$ なので最大値 $0$ は頂点。最小値 $-8$ は絶対値が大きい $x=2$ でとる。$a\\times2^2=-8$ より $4a=-8$、$a=-2$。\n$x=2$ を $2$ 乗せず $2a=-8$ とすると $a=-4$ と誤る。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-quad-func-range-q16",
+        "question": "下のグラフは関数 $y=\\frac{1}{4}x^2$ のグラフです。$x$ の変域が $-6 \\leqq x \\leqq 4$ のときの $y$ の変域を求めましょう。",
+        "image": {
+          "kind": "coordinate",
+          "range": 10,
+          "parabolas": [
+            {
+              "a": 0.25
+            }
+          ],
+          "points": [
+            {
+              "x": -6,
+              "y": 9,
+              "label": "(-6, 9)",
+              "open": false
+            },
+            {
+              "x": 4,
+              "y": 4,
+              "label": "(4, 4)",
+              "open": false
+            }
+          ]
+        },
+        "options": [
+          "$4 \\leqq y \\leqq 9$",
+          "$0 \\leqq y \\leqq 9$",
+          "$-6 \\leqq y \\leqq 9$",
+          "$0 \\leqq y \\leqq 4$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$x$ の変域が $0$ をまたぐので、最小値は $y=0$。最大値は絶対値が大きい $x=-6$ で $y=\\frac{1}{4}\\times(-6)^2=9$。\nよって $0 \\leqq y \\leqq 9$。$x=4$ を最大と思うと $0 \\leqq y \\leqq 4$ と誤る。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-func-range-q17",
+        "question": "関数 $y=ax^2$（$a>0$）で、$x$ の変域が $0$ をまたいでいるとき、$y$ の最小値はどれですか。",
+        "options": [
+          "$a$ と同じ値",
+          "$x$ の左端での値",
+          "$x$ の右端での値",
+          "$y=0$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$a>0$ のグラフは下に開く放物線で、頂点 $(0,\\ 0)$ が最も低い点。$x$ の変域が $0$ を含むので、最小値は頂点の $y=0$。\n端の値は最大値を決めるときに使う。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-func-range-q18",
+        "question": "下のグラフは関数 $y=-3x^2$ のグラフです。$x$ の変域が $-1 \\leqq x \\leqq 2$ のときの $y$ の変域を求めましょう。",
+        "image": {
+          "kind": "coordinate",
+          "range": 12,
+          "parabolas": [
+            {
+              "a": -3
+            }
+          ],
+          "points": [
+            {
+              "x": -1,
+              "y": -3,
+              "label": "(-1, -3)",
+              "open": false
+            },
+            {
+              "x": 2,
+              "y": -12,
+              "label": "(2, -12)",
+              "open": false
+            }
+          ]
+        },
+        "options": [
+          "$-12 \\leqq y \\leqq 0$",
+          "$-3 \\leqq y \\leqq 12$",
+          "$0 \\leqq y \\leqq 12$",
+          "$-12 \\leqq y \\leqq -3$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$a<0$ で $x$ の変域が $0$ をまたぐので、最大値は $y=0$。最小値は絶対値が大きい $x=2$ で $y=-3\\times2^2=-12$。\nよって $-12 \\leqq y \\leqq 0$。両端だけだと $0$ を含み忘れる。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-quad-func-range-q19",
+        "question": "下のグラフは関数 $y=x^2$ のグラフです。$x$ の変域が $-4 \\leqq x \\leqq -1$ のときの $y$ の変域を求めましょう。",
+        "image": {
+          "kind": "coordinate",
+          "range": 16,
+          "parabolas": [
+            {
+              "a": 1
+            }
+          ],
+          "points": [
+            {
+              "x": -4,
+              "y": 16,
+              "label": "(-4, 16)",
+              "open": false
+            },
+            {
+              "x": -1,
+              "y": 1,
+              "label": "(-1, 1)",
+              "open": false
+            }
+          ]
+        },
+        "options": [
+          "$1 \\leqq y \\leqq 16$",
+          "$-16 \\leqq y \\leqq -1$",
+          "$0 \\leqq y \\leqq 16$",
+          "$1 \\leqq y \\leqq 4$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$x$ の変域は両端とも負で $0$ をまたがない。$x=-4$ で $y=(-4)^2=16$、$x=-1$ で $y=(-1)^2=1$。\nよって $1 \\leqq y \\leqq 16$。$0$ をまたがないので $0$ は入らない。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-func-range-q20",
+        "question": "関数 $y=-x^2$ で $y$ の変域が $-9 \\leqq y \\leqq 0$ となるような $x$ の変域はどれですか。",
+        "options": [
+          "$-2 \\leqq x \\leqq 2$",
+          "$-3 \\leqq x \\leqq 2$",
+          "$-3 \\leqq x \\leqq -1$",
+          "$1 \\leqq x \\leqq 3$"
+        ],
+        "correctIndex": 1,
+        "explanation": "最大値 $0$ をとるので $x$ の変域は $0$ をまたぐ。最小値 $-9$ は $-x^2=-9$ すなわち $x^2=9$、$|x|=3$ のとき。$0$ を含み絶対値の最大が $3$ になるのは $-3 \\leqq x \\leqq 2$。\n$-2 \\leqq x \\leqq 2$ では最小値が $-4$、$1 \\leqq x \\leqq 3$ は $0$ をまたがず最大値が $0$ にならない。",
+        "difficulty": "advanced"
       }
     ]
   }

@@ -1,0 +1,649 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g3-pythagorean",
+  "topicId": "math-g3-pythagorean-meaning",
+  "name": "三平方の定理",
+  "subtitle": "直角三角形の3辺の関係",
+  "icon": "📐",
+  "order": 1,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": [
+      {
+        "id": "math-g3-pythagorean-meaning-q1",
+        "question": "下の図の直角三角形で、残りの辺（斜辺）の長さを求めなさい。",
+        "image": {
+          "kind": "triangle",
+          "angles": [
+            90,
+            53,
+            37
+          ],
+          "vertexNames": [
+            "A",
+            "B",
+            "C"
+          ],
+          "angleLabels": [
+            "90°",
+            null,
+            null
+          ],
+          "sideLabels": [
+            {
+              "between": [
+                "A",
+                "B"
+              ],
+              "text": "3cm"
+            },
+            {
+              "between": [
+                "A",
+                "C"
+              ],
+              "text": "4cm"
+            }
+          ]
+        },
+        "options": [
+          "$7$ cm",
+          "$5$ cm",
+          "$\\sqrt{7}$ cm",
+          "$25$ cm"
+        ],
+        "correctIndex": 1,
+        "explanation": "$3^2+4^2 = 9+16 = 25$、$\\sqrt{25}=5$\n斜辺の長さは2辺を2乗して足した数の平方根です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-pythagorean-meaning-q2",
+        "question": "下の図の直角三角形で、残りの辺（斜辺）の長さを求めなさい。",
+        "image": {
+          "kind": "triangle",
+          "angles": [
+            90,
+            53,
+            37
+          ],
+          "vertexNames": [
+            "A",
+            "B",
+            "C"
+          ],
+          "angleLabels": [
+            "90°",
+            null,
+            null
+          ],
+          "sideLabels": [
+            {
+              "between": [
+                "A",
+                "B"
+              ],
+              "text": "6cm"
+            },
+            {
+              "between": [
+                "A",
+                "C"
+              ],
+              "text": "8cm"
+            }
+          ]
+        },
+        "options": [
+          "$14$ cm",
+          "$100$ cm",
+          "$\\sqrt{14}$ cm",
+          "$10$ cm"
+        ],
+        "correctIndex": 3,
+        "explanation": "$6^2+8^2 = 36+64 = 100$、$\\sqrt{100}=10$\n2辺をそのまま足すのではなく、それぞれ2乗してから足します。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-pythagorean-meaning-q3",
+        "question": "下の図の直角三角形で、残りの辺（斜辺）の長さを求めなさい。",
+        "image": {
+          "kind": "triangle",
+          "angles": [
+            90,
+            67,
+            23
+          ],
+          "vertexNames": [
+            "A",
+            "B",
+            "C"
+          ],
+          "angleLabels": [
+            "90°",
+            null,
+            null
+          ],
+          "sideLabels": [
+            {
+              "between": [
+                "A",
+                "B"
+              ],
+              "text": "5cm"
+            },
+            {
+              "between": [
+                "A",
+                "C"
+              ],
+              "text": "12cm"
+            }
+          ]
+        },
+        "options": [
+          "$13$ cm",
+          "$\\sqrt{17}$ cm",
+          "$17$ cm",
+          "$169$ cm"
+        ],
+        "correctIndex": 0,
+        "explanation": "$5^2+12^2 = 25+144 = 169$、$\\sqrt{169}=13$\n最後に平方根をとるのを忘れないようにします。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-pythagorean-meaning-q4",
+        "question": "下の図の直角三角形で、残りの辺（斜辺）の長さを求めなさい。",
+        "image": {
+          "kind": "triangle",
+          "angles": [
+            90,
+            45,
+            45
+          ],
+          "vertexNames": [
+            "A",
+            "B",
+            "C"
+          ],
+          "angleLabels": [
+            "90°",
+            null,
+            null
+          ],
+          "sideLabels": [
+            {
+              "between": [
+                "A",
+                "B"
+              ],
+              "text": "1cm"
+            },
+            {
+              "between": [
+                "A",
+                "C"
+              ],
+              "text": "1cm"
+            }
+          ]
+        },
+        "options": [
+          "$2$ cm",
+          "$1$ cm",
+          "$\\sqrt{2}$ cm",
+          "$2\\sqrt{2}$ cm"
+        ],
+        "correctIndex": 2,
+        "explanation": "$1^2+1^2 = 1+1 = 2$、$\\sqrt{2}$\n$\\sqrt{2}$ はこれ以上簡単にできないのでそのままにします。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-pythagorean-meaning-q5",
+        "question": "縦 $3$ cm、横 $4$ cm の長方形の対角線の長さを求めなさい。",
+        "options": [
+          "$7$ cm",
+          "$\\sqrt{7}$ cm",
+          "$5$ cm",
+          "$12$ cm"
+        ],
+        "correctIndex": 2,
+        "explanation": "$3^2+4^2 = 9+16 = 25$、$\\sqrt{25}=5$\n対角線は縦と横を直角をはさむ2辺とする直角三角形の斜辺です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-pythagorean-meaning-q6",
+        "question": "下の図の直角三角形で、残りの辺（斜辺）の長さを求めなさい。",
+        "image": {
+          "kind": "triangle",
+          "angles": [
+            90,
+            56,
+            34
+          ],
+          "vertexNames": [
+            "A",
+            "B",
+            "C"
+          ],
+          "angleLabels": [
+            "90°",
+            null,
+            null
+          ],
+          "sideLabels": [
+            {
+              "between": [
+                "A",
+                "B"
+              ],
+              "text": "2cm"
+            },
+            {
+              "between": [
+                "A",
+                "C"
+              ],
+              "text": "3cm"
+            }
+          ]
+        },
+        "options": [
+          "$5$ cm",
+          "$\\sqrt{13}$ cm",
+          "$13$ cm",
+          "$\\sqrt{5}$ cm"
+        ],
+        "correctIndex": 1,
+        "explanation": "$2^2+3^2 = 4+9 = 13$、$\\sqrt{13}$\n$13$ は平方数ではないので根号がそのまま残ります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-pythagorean-meaning-q7",
+        "question": "下の図の直角三角形で、残りの辺（斜辺）の長さを求めなさい。",
+        "image": {
+          "kind": "triangle",
+          "angles": [
+            90,
+            45,
+            45
+          ],
+          "vertexNames": [
+            "A",
+            "B",
+            "C"
+          ],
+          "angleLabels": [
+            "90°",
+            null,
+            null
+          ],
+          "sideLabels": [
+            {
+              "between": [
+                "A",
+                "B"
+              ],
+              "text": "2cm"
+            },
+            {
+              "between": [
+                "A",
+                "C"
+              ],
+              "text": "2cm"
+            }
+          ]
+        },
+        "options": [
+          "$4$ cm",
+          "$2$ cm",
+          "$2\\sqrt{2}$ cm",
+          "$4\\sqrt{2}$ cm"
+        ],
+        "correctIndex": 2,
+        "explanation": "$2^2+2^2 = 4+4 = 8$、$\\sqrt{8}=2\\sqrt{2}$\n$\\sqrt{8}=\\sqrt{4 \\times 2}=2\\sqrt{2}$ と簡単にします。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-pythagorean-meaning-q8",
+        "question": "下の図の直角三角形で、残りの辺の長さを求めなさい。",
+        "image": {
+          "kind": "triangle",
+          "angles": [
+            90,
+            53,
+            37
+          ],
+          "vertexNames": [
+            "A",
+            "B",
+            "C"
+          ],
+          "angleLabels": [
+            "90°",
+            null,
+            null
+          ],
+          "sideLabels": [
+            {
+              "between": [
+                "A",
+                "B"
+              ],
+              "text": "3cm"
+            },
+            {
+              "between": [
+                "B",
+                "C"
+              ],
+              "text": "5cm"
+            }
+          ]
+        },
+        "options": [
+          "$\\sqrt{34}$ cm",
+          "$4$ cm",
+          "$8$ cm",
+          "$2$ cm"
+        ],
+        "correctIndex": 1,
+        "explanation": "$5^2-3^2 = 25-9 = 16$、$\\sqrt{16}=4$\n斜辺がわかっているときは2乗の差をとります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-pythagorean-meaning-q9",
+        "question": "下の図の直角三角形で、残りの辺の長さを求めなさい。",
+        "image": {
+          "kind": "triangle",
+          "angles": [
+            90,
+            67,
+            23
+          ],
+          "vertexNames": [
+            "A",
+            "B",
+            "C"
+          ],
+          "angleLabels": [
+            "90°",
+            null,
+            null
+          ],
+          "sideLabels": [
+            {
+              "between": [
+                "A",
+                "B"
+              ],
+              "text": "5cm"
+            },
+            {
+              "between": [
+                "B",
+                "C"
+              ],
+              "text": "13cm"
+            }
+          ]
+        },
+        "options": [
+          "$18$ cm",
+          "$\\sqrt{194}$ cm",
+          "$8$ cm",
+          "$12$ cm"
+        ],
+        "correctIndex": 3,
+        "explanation": "$13^2-5^2 = 169-25 = 144$、$\\sqrt{144}=12$\n斜辺の2乗から残りの辺の2乗を引きます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-pythagorean-meaning-q10",
+        "question": "下の図の直角三角形で、残りの辺の長さを求めなさい。",
+        "image": {
+          "kind": "triangle",
+          "angles": [
+            90,
+            53,
+            37
+          ],
+          "vertexNames": [
+            "A",
+            "B",
+            "C"
+          ],
+          "angleLabels": [
+            "90°",
+            null,
+            null
+          ],
+          "sideLabels": [
+            {
+              "between": [
+                "A",
+                "B"
+              ],
+              "text": "6cm"
+            },
+            {
+              "between": [
+                "B",
+                "C"
+              ],
+              "text": "10cm"
+            }
+          ]
+        },
+        "options": [
+          "$\\sqrt{136}$ cm",
+          "$16$ cm",
+          "$8$ cm",
+          "$4$ cm"
+        ],
+        "correctIndex": 2,
+        "explanation": "$10^2-6^2 = 100-36 = 64$、$\\sqrt{64}=8$\n足すのではなく引くことに注意します。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-pythagorean-meaning-q11",
+        "question": "下の図の直角三角形で、残りの辺（斜辺）の長さを求めなさい。",
+        "image": {
+          "kind": "triangle",
+          "angles": [
+            90,
+            63,
+            27
+          ],
+          "vertexNames": [
+            "A",
+            "B",
+            "C"
+          ],
+          "angleLabels": [
+            "90°",
+            null,
+            null
+          ],
+          "sideLabels": [
+            {
+              "between": [
+                "A",
+                "B"
+              ],
+              "text": "1cm"
+            },
+            {
+              "between": [
+                "A",
+                "C"
+              ],
+              "text": "2cm"
+            }
+          ]
+        },
+        "options": [
+          "$\\sqrt{5}$ cm",
+          "$\\sqrt{3}$ cm",
+          "$3$ cm",
+          "$5$ cm"
+        ],
+        "correctIndex": 0,
+        "explanation": "$1^2+2^2 = 1+4 = 5$、$\\sqrt{5}$\n$5$ は平方数ではないので $\\sqrt{5}$ のままにします。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-pythagorean-meaning-q12",
+        "question": "下の図の直角三角形で、残りの辺（斜辺）の長さを求めなさい。",
+        "image": {
+          "kind": "triangle",
+          "angles": [
+            90,
+            62,
+            28
+          ],
+          "vertexNames": [
+            "A",
+            "B",
+            "C"
+          ],
+          "angleLabels": [
+            "90°",
+            null,
+            null
+          ],
+          "sideLabels": [
+            {
+              "between": [
+                "A",
+                "B"
+              ],
+              "text": "8cm"
+            },
+            {
+              "between": [
+                "A",
+                "C"
+              ],
+              "text": "15cm"
+            }
+          ]
+        },
+        "options": [
+          "$17$ cm",
+          "$23$ cm",
+          "$\\sqrt{23}$ cm",
+          "$289$ cm"
+        ],
+        "correctIndex": 0,
+        "explanation": "$8^2+15^2 = 64+225 = 289$、$\\sqrt{289}=17$\n2辺の2乗の和の平方根が斜辺です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-pythagorean-meaning-q13",
+        "question": "縦 $5$ cm、横 $12$ cm の長方形の対角線の長さを求めなさい。",
+        "options": [
+          "$17$ cm",
+          "$60$ cm",
+          "$13$ cm",
+          "$\\sqrt{17}$ cm"
+        ],
+        "correctIndex": 2,
+        "explanation": "$5^2+12^2 = 25+144 = 169$、$\\sqrt{169}=13$\n対角線は縦・横を直角をはさむ2辺とする直角三角形の斜辺です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-pythagorean-meaning-q14",
+        "question": "1辺の長さが $1$ cm の正方形の対角線の長さを求めなさい。",
+        "options": [
+          "$1$ cm",
+          "$2$ cm",
+          "$2\\sqrt{2}$ cm",
+          "$\\sqrt{2}$ cm"
+        ],
+        "correctIndex": 3,
+        "explanation": "$1^2+1^2 = 1+1 = 2$、$\\sqrt{2}$\n対角線は正方形を2つに分けてできる直角三角形の斜辺です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-pythagorean-meaning-q15",
+        "question": "直角をはさむ2辺の長さが $1$ cm と $\\sqrt{3}$ cm の直角三角形の、斜辺の長さを求めなさい。",
+        "options": [
+          "$1+\\sqrt{3}$ cm",
+          "$2$ cm",
+          "$4$ cm",
+          "$\\sqrt{3}$ cm"
+        ],
+        "correctIndex": 1,
+        "explanation": "$1^2+(\\sqrt{3})^2 = 1+3 = 4$、$\\sqrt{4}=2$\n$(\\sqrt{3})^2=3$ となることを使います。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-pythagorean-meaning-q16",
+        "question": "直角をはさむ2辺の長さが $3$ cm と $\\sqrt{7}$ cm の直角三角形の、斜辺の長さを求めなさい。",
+        "options": [
+          "$3+\\sqrt{7}$ cm",
+          "$4$ cm",
+          "$16$ cm",
+          "$\\sqrt{2}$ cm"
+        ],
+        "correctIndex": 1,
+        "explanation": "$3^2+(\\sqrt{7})^2 = 9+7 = 16$、$\\sqrt{16}=4$\n$(\\sqrt{7})^2=7$ を使い、最後に平方根をとります。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-pythagorean-meaning-q17",
+        "question": "斜辺の長さが $17$ cm、直角をはさむ1辺の長さが $8$ cm の直角三角形の、もう1つの辺の長さを求めなさい。",
+        "options": [
+          "$25$ cm",
+          "$\\sqrt{353}$ cm",
+          "$9$ cm",
+          "$15$ cm"
+        ],
+        "correctIndex": 3,
+        "explanation": "$17^2-8^2 = 289-64 = 225$、$\\sqrt{225}=15$\n斜辺の2乗から残りの辺の2乗を引きます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-pythagorean-meaning-q18",
+        "question": "次の3辺の組のうち、直角三角形になるものを選びなさい。",
+        "options": [
+          "$3$ cm, $4$ cm, $5$ cm",
+          "$2$ cm, $3$ cm, $4$ cm",
+          "$4$ cm, $5$ cm, $6$ cm",
+          "$3$ cm, $5$ cm, $6$ cm"
+        ],
+        "correctIndex": 0,
+        "explanation": "$3^2+4^2 = 9+16 = 25 = 5^2$\n最も長い辺の2乗が他の2辺の2乗の和に等しいので直角三角形です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-pythagorean-meaning-q19",
+        "question": "3辺の長さが $5$ cm, $6$ cm, $7$ cm の三角形は直角三角形ですか。",
+        "options": [
+          "直角三角形である",
+          "二等辺三角形である",
+          "正三角形である",
+          "直角三角形ではない"
+        ],
+        "correctIndex": 3,
+        "explanation": "$5^2+6^2 = 25+36 = 61$、$7^2 = 49$\n$61 \\ne 49$ なので直角三角形ではありません。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-pythagorean-meaning-q20",
+        "question": "次の3辺の組のうち、直角三角形になるものを選びなさい。",
+        "options": [
+          "$7$ cm, $24$ cm, $25$ cm",
+          "$6$ cm, $24$ cm, $25$ cm",
+          "$7$ cm, $24$ cm, $26$ cm",
+          "$8$ cm, $24$ cm, $25$ cm"
+        ],
+        "correctIndex": 0,
+        "explanation": "$7^2+24^2 = 49+576 = 625 = 25^2$\n他の組は2辺の2乗の和が最も長い辺の2乗と等しくなりません。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

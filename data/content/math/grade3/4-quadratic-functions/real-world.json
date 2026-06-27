@@ -9,6 +9,267 @@
   "videos": [],
   "flashcards": [],
   "quiz": {
-    "questions": []
+    "questions": [
+      {
+        "id": "math-g3-quad-func-real-q1",
+        "question": "自動車の制動距離 $y$ m は、速さ $x$ km/h について $y=\\frac{1}{100}x^2$ で表されます。$x=40$ のときの制動距離を求めなさい。",
+        "options": [
+          "$0.4$ m",
+          "$16$ m",
+          "$1600$ m",
+          "$0.8$ m"
+        ],
+        "correctIndex": 1,
+        "explanation": "$y=\\frac{1}{100}\\times 40^2=\\frac{1600}{100}=16$\n$40$ を2乗してから $\\frac{1}{100}$ をかけます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-quad-func-real-q2",
+        "question": "自動車の制動距離 $y$ m は、速さ $x$ km/h について $y=\\frac{1}{100}x^2$ で表されます。$x=20$ のときの制動距離を求めなさい。",
+        "options": [
+          "$2$ m",
+          "$0.2$ m",
+          "$400$ m",
+          "$4$ m"
+        ],
+        "correctIndex": 3,
+        "explanation": "$y=\\frac{1}{100}\\times 20^2=\\frac{400}{100}=4$\n速さを2乗してから $\\frac{1}{100}$ をかけます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-quad-func-real-q3",
+        "question": "自動車の制動距離 $y$ m は、速さ $x$ km/h について $y=\\frac{1}{100}x^2$ で表されます。速さが2倍になると、制動距離は何倍になりますか。",
+        "options": [
+          "$4$ 倍",
+          "$8$ 倍",
+          "$16$ 倍",
+          "$2$ 倍"
+        ],
+        "correctIndex": 0,
+        "explanation": "$x$ が2倍になると $y$ は $2^2=4$ 倍になります。\n$y$ は $x$ の2乗に比例するので、速さに比例して2倍にはなりません。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-func-real-q4",
+        "question": "自動車の制動距離 $y$ m は、速さ $x$ km/h について $y=\\frac{1}{100}x^2$ で表されます。$x=30$ のときの制動距離を求めなさい。",
+        "options": [
+          "$3$ m",
+          "$0.3$ m",
+          "$9$ m",
+          "$900$ m"
+        ],
+        "correctIndex": 2,
+        "explanation": "$y=\\frac{1}{100}\\times 30^2=\\frac{900}{100}=9$\n$30$ を2乗してから $\\frac{1}{100}$ をかけます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-quad-func-real-q5",
+        "question": "自動車の制動距離 $y$ m は、速さ $x$ km/h について $y=\\frac{1}{100}x^2$ で表されます。制動距離が $25$ m のときの速さを求めなさい。",
+        "options": [
+          "$5$ km/h",
+          "$250$ km/h",
+          "$50$ km/h",
+          "$2500$ km/h"
+        ],
+        "correctIndex": 2,
+        "explanation": "$\\frac{1}{100}x^2=25$ より $x^2=2500$、$x>0$ だから $x=50$\n$x$ は速さなので正の値をとります。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-quad-func-real-q6",
+        "question": "周期が $x$ 秒のふりこの長さ $y$ m は、$y=\\frac{1}{4}x^2$ で表されます。周期が $2$ 秒のときのふりこの長さを求めなさい。",
+        "options": [
+          "$0.5$ m",
+          "$1$ m",
+          "$4$ m",
+          "$2$ m"
+        ],
+        "correctIndex": 1,
+        "explanation": "$y=\\frac{1}{4}\\times 2^2=\\frac{4}{4}=1$\n$2$ を2乗してから $\\frac{1}{4}$ をかけます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-quad-func-real-q7",
+        "question": "周期が $x$ 秒のふりこの長さ $y$ m は、$y=\\frac{1}{4}x^2$ で表されます。周期が $4$ 秒のときのふりこの長さを求めなさい。",
+        "options": [
+          "$8$ m",
+          "$4$ m",
+          "$16$ m",
+          "$2$ m"
+        ],
+        "correctIndex": 1,
+        "explanation": "$y=\\frac{1}{4}\\times 4^2=\\frac{16}{4}=4$\n$4$ を2乗してから $\\frac{1}{4}$ をかけます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-quad-func-real-q8",
+        "question": "周期が $x$ 秒のふりこの長さ $y$ m は、$y=\\frac{1}{4}x^2$ で表されます。周期が2倍になると、ふりこの長さは何倍になりますか。",
+        "options": [
+          "$8$ 倍",
+          "$2$ 倍",
+          "$4$ 倍",
+          "$\\sqrt{2}$ 倍"
+        ],
+        "correctIndex": 2,
+        "explanation": "$x$ が2倍になると $y$ は $2^2=4$ 倍になります。\n$y$ は $x$ の2乗に比例するので、周期に比例して2倍にはなりません。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-func-real-q9",
+        "question": "周期が $x$ 秒のふりこの長さ $y$ m は、$y=\\frac{1}{4}x^2$ で表されます。長さが $9$ m のふりこの周期を求めなさい。",
+        "options": [
+          "$36$ 秒",
+          "$3$ 秒",
+          "$18$ 秒",
+          "$6$ 秒"
+        ],
+        "correctIndex": 3,
+        "explanation": "$\\frac{1}{4}x^2=9$ より $x^2=36$、$x>0$ だから $x=6$\n$x$ は周期なので正の値をとります。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-quad-func-real-q10",
+        "question": "ものを落とすとき、$x$ 秒間に落ちる距離 $y$ m は、$y=5x^2$ で表されます。$x=2$ のときに落ちる距離を求めなさい。",
+        "options": [
+          "$20$ m",
+          "$10$ m",
+          "$40$ m",
+          "$25$ m"
+        ],
+        "correctIndex": 0,
+        "explanation": "$y=5\\times 2^2=5\\times 4=20$\n$2$ を2乗してから $5$ をかけます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-quad-func-real-q11",
+        "question": "ものを落とすとき、$x$ 秒間に落ちる距離 $y$ m は、$y=5x^2$ で表されます。$x=3$ のときに落ちる距離を求めなさい。",
+        "options": [
+          "$30$ m",
+          "$15$ m",
+          "$90$ m",
+          "$45$ m"
+        ],
+        "correctIndex": 3,
+        "explanation": "$y=5\\times 3^2=5\\times 9=45$\n$3$ を2乗してから $5$ をかけます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-quad-func-real-q12",
+        "question": "ものを落とすとき、$x$ 秒間に落ちる距離 $y$ m は、$y=5x^2$ で表されます。落ちる時間が3倍になると、落ちる距離は何倍になりますか。",
+        "options": [
+          "$3$ 倍",
+          "$6$ 倍",
+          "$27$ 倍",
+          "$9$ 倍"
+        ],
+        "correctIndex": 3,
+        "explanation": "$x$ が3倍になると $y$ は $3^2=9$ 倍になります。\n$y$ は $x$ の2乗に比例するので、時間に比例して3倍にはなりません。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-func-real-q13",
+        "question": "ものを落とすとき、$x$ 秒間に落ちる距離 $y$ m は、$y=5x^2$ で表されます。$4$ 秒間に落ちる距離を求めなさい。",
+        "options": [
+          "$20$ m",
+          "$80$ m",
+          "$160$ m",
+          "$40$ m"
+        ],
+        "correctIndex": 1,
+        "explanation": "$y=5\\times 4^2=5\\times 16=80$\n$4$ を2乗してから $5$ をかけます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-func-real-q14",
+        "question": "ものを落とすとき、$x$ 秒間に落ちる距離 $y$ m は、$y=5x^2$ で表されます。$125$ m 落ちるのにかかる時間を求めなさい。",
+        "options": [
+          "$5$ 秒",
+          "$2.5$ 秒",
+          "$25$ 秒",
+          "$12.5$ 秒"
+        ],
+        "correctIndex": 0,
+        "explanation": "$5x^2=125$ より $x^2=25$、$x>0$ だから $x=5$\n$x$ は時間なので正の値をとります。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-quad-func-real-q15",
+        "question": "点 P が動いてできる図形の面積 $y$ cm² は、時間 $x$ 秒について $y=2x^2$ で表されます。$x=3$ のときの面積を求めなさい。",
+        "options": [
+          "$12$ cm²",
+          "$6$ cm²",
+          "$36$ cm²",
+          "$18$ cm²"
+        ],
+        "correctIndex": 3,
+        "explanation": "$y=2\\times 3^2=2\\times 9=18$\n$3$ を2乗してから $2$ をかけます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-func-real-q16",
+        "question": "面積 $y$ cm² は $x$ の2乗に比例し、$x=2$ のとき $y=12$ です。比例定数を求めなさい。",
+        "options": [
+          "$3$",
+          "$4$",
+          "$2$",
+          "$6$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$y=ax^2$ に代入して $12=a\\times 2^2=4a$、よって $a=3$\n$x=2$ を2乗した $4$ で $12$ をわります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-func-real-q17",
+        "question": "面積 $y$ cm² は $x$ の2乗に比例し、$x=2$ のとき $y=12$ です。$x=5$ のときの面積を求めなさい。",
+        "options": [
+          "$15$",
+          "$75$",
+          "$30$",
+          "$90$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$12=a\\times 2^2$ より $a=3$、$y=3\\times 5^2=3\\times 25=75$\nまず比例定数 $a=3$ を求めてから $x=5$ を代入します。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-quad-func-real-q18",
+        "question": "関数 $y=3x^2$ について、$x=2$ のときの $y$ の値を求めなさい。",
+        "options": [
+          "$12$",
+          "$18$",
+          "$9$",
+          "$6$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$y=3\\times 2^2=3\\times 4=12$\n$2$ を2乗してから $3$ をかけます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-quad-func-real-q19",
+        "question": "関数 $y=ax^2$ について、$x=1$ のとき $y=4$ です。$x=3$ のときの $y$ の値を求めなさい。",
+        "options": [
+          "$12$",
+          "$9$",
+          "$36$",
+          "$18$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$4=a\\times 1^2$ より $a=4$、$y=4\\times 3^2=4\\times 9=36$\nまず比例定数 $a=4$ を求めてから $x=3$ を代入します。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-func-real-q20",
+        "question": "自動車の制動距離 $y$ m は、速さ $x$ km/h について $y=\\frac{1}{100}x^2$ で表されます。$x=60$ のときの制動距離を求めなさい。",
+        "options": [
+          "$3.6$ m",
+          "$0.6$ m",
+          "$36$ m",
+          "$3600$ m"
+        ],
+        "correctIndex": 2,
+        "explanation": "$y=\\frac{1}{100}\\times 60^2=\\frac{3600}{100}=36$\n$60$ を2乗してから $\\frac{1}{100}$ をかけます。",
+        "difficulty": "standard"
+      }
+    ]
   }
 }

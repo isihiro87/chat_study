@@ -86,6 +86,18 @@ function angleArc(v: [number, number], p1: [number, number], p2: [number, number
   const path = `<path d="M${s[0].toFixed(1)},${s[1].toFixed(1)} A${r},${r} 0 ${large} ${sweep} ${e[0].toFixed(1)},${e[1].toFixed(1)}" fill="none" stroke="${COL_ANGLE}" stroke-width="2"/>`;
   return { path, mid };
 }
+// 直角マーク（頂点 v、両隣 p1,p2 方向の小さな四角）。90°の角は弧でなくこれで示す
+function rightAngleMark(v: [number, number], p1: [number, number], p2: [number, number], d = 15): string {
+  const u = (p: [number, number]): [number, number] => {
+    const dx = p[0] - v[0], dy = p[1] - v[1], len = Math.hypot(dx, dy) || 1;
+    return [dx / len, dy / len];
+  };
+  const u1 = u(p1), u2 = u(p2);
+  const a: [number, number] = [v[0] + u1[0] * d, v[1] + u1[1] * d];
+  const c: [number, number] = [v[0] + (u1[0] + u2[0]) * d, v[1] + (u1[1] + u2[1]) * d];
+  const b: [number, number] = [v[0] + u2[0] * d, v[1] + u2[1] * d];
+  return `<polyline points="${a[0].toFixed(1)},${a[1].toFixed(1)} ${c[0].toFixed(1)},${c[1].toFixed(1)} ${b[0].toFixed(1)},${b[1].toFixed(1)}" fill="none" stroke="${COL_ANGLE}" stroke-width="2"/>`;
+}
 
 // ---------- triangle ----------
 function buildTriangle(img: any): string {
@@ -134,11 +146,16 @@ function buildTriangle(img: any): string {
   const order = ['A', 'B', 'C'];
   const neighbor: Record<string, [string, string]> = { A: ['B', 'C'], B: ['A', 'C'], C: ['A', 'B'] };
   order.forEach((k, i) => {
+    const v = P[k], n = neighbor[k];
+    const ang = (img.angles as number[])[i];
+    // 90°の角は弧＋「90°」ラベルではなく直角マーク（小さな四角）で示す（ラベル有無に関わらず）
+    if (Math.round(ang) === 90) {
+      parts.push(rightAngleMark(v, P[n[0]], P[n[1]]));
+      return;
+    }
     const lab = labels && labels[i];
     if (!lab) return;
-    const v = P[k], n = neighbor[k];
     // 狭い角ほど弧を大きめに（小さく見えるのを防ぐ）
-    const ang = (img.angles as number[])[i];
     const arcR = ang < 45 ? 34 : ang < 70 ? 30 : 26;
     const arc = angleArc(v, P[n[0]], P[n[1]], arcR);
     parts.push(arc.path);
@@ -207,19 +224,24 @@ function buildSector(img: any): string {
   const large = a > 180 ? 1 : 0;
   const parts: string[] = [];
   parts.push(`<path d="M${O[0]},${O[1]} L${p1[0].toFixed(1)},${p1[1].toFixed(1)} A${R},${R} 0 ${large} 0 ${p2[0].toFixed(1)},${p2[1].toFixed(1)} Z" fill="${COL_FILL}" stroke="${COL_SHAPE}" stroke-width="2.5" stroke-linejoin="round"/>`);
-  // 中心角の弧（少し大きめにして見やすく・上限つき）
-  const r2 = Math.min(42, R * 0.3);
-  const a1: [number, number] = [O[0] + r2 * Math.cos(rad(s0)), O[1] - r2 * Math.sin(rad(s0))];
-  const a2: [number, number] = [O[0] + r2 * Math.cos(rad(s0 + a)), O[1] - r2 * Math.sin(rad(s0 + a))];
-  parts.push(`<path d="M${a1[0].toFixed(1)},${a1[1].toFixed(1)} A${r2},${r2} 0 ${large} 0 ${a2[0].toFixed(1)},${a2[1].toFixed(1)}" fill="none" stroke="${COL_ANGLE}" stroke-width="2"/>`);
-  if (img.angleLabel) {
-    // 中心角が狭いと「真上＝くさびの内側」に置くと重なるので、外側（左ななめ下）へ出す
-    if (a < 70) {
-      const dir = s0 + a + 26; // 左側の半径よりさらに外側
-      const rr = r2 + 26;
-      parts.push(svgText(O[0] + rr * Math.cos(rad(dir)), O[1] - rr * Math.sin(rad(dir)), img.angleLabel, { fill: COL_ANGLE, weight: 'bold', size: 16 }));
-    } else {
-      parts.push(svgText(O[0], O[1] - (r2 + 18), img.angleLabel, { fill: COL_ANGLE, weight: 'bold', size: 16 }));
+  // 中心角が90°なら弧＋「90°」ラベルではなく直角マーク（小さな四角）で示す
+  if (Math.round(a) === 90) {
+    parts.push(rightAngleMark(O, p1, p2, 18));
+  } else {
+    // 中心角の弧（少し大きめにして見やすく・上限つき）
+    const r2 = Math.min(42, R * 0.3);
+    const a1: [number, number] = [O[0] + r2 * Math.cos(rad(s0)), O[1] - r2 * Math.sin(rad(s0))];
+    const a2: [number, number] = [O[0] + r2 * Math.cos(rad(s0 + a)), O[1] - r2 * Math.sin(rad(s0 + a))];
+    parts.push(`<path d="M${a1[0].toFixed(1)},${a1[1].toFixed(1)} A${r2},${r2} 0 ${large} 0 ${a2[0].toFixed(1)},${a2[1].toFixed(1)}" fill="none" stroke="${COL_ANGLE}" stroke-width="2"/>`);
+    if (img.angleLabel) {
+      // 中心角が狭いと「真上＝くさびの内側」に置くと重なるので、外側（左ななめ下）へ出す
+      if (a < 70) {
+        const dir = s0 + a + 26; // 左側の半径よりさらに外側
+        const rr = r2 + 26;
+        parts.push(svgText(O[0] + rr * Math.cos(rad(dir)), O[1] - rr * Math.sin(rad(dir)), img.angleLabel, { fill: COL_ANGLE, weight: 'bold', size: 16 }));
+      } else {
+        parts.push(svgText(O[0], O[1] - (r2 + 18), img.angleLabel, { fill: COL_ANGLE, weight: 'bold', size: 16 }));
+      }
     }
   }
   if (img.radiusLabel) {

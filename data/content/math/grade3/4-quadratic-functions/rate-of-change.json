@@ -12,105 +12,470 @@
     "questions": [
       {
         "id": "math-g3-rate-of-change-q1",
-        "question": "下のグラフは関数 $y=\\frac{1}{2}x^2$ のグラフです。$x$ が $2$ から $4$ まで増えるときの変化の割合を求めましょう。",
-        "options": ["$3$", "$6$", "$\\frac{1}{2}$", "$2$"],
+        "question": "下のグラフは $y=x^2$ のグラフです。$x$ が $1$ から $3$ まで増えるときの変化の割合を求めなさい。",
+        "options": [
+          "$4$",
+          "$8$",
+          "$2$",
+          "$5$"
+        ],
         "correctIndex": 0,
-        "explanation": "変化の割合 $=\\dfrac{y\\text{の増加量}}{x\\text{の増加量}}$ です。$x=2$ のとき $y=\\frac{1}{2}\\times2^2=2$、$x=4$ のとき $y=\\frac{1}{2}\\times4^2=8$。よって変化の割合 $=\\dfrac{8-2}{4-2}=\\dfrac{6}{2}=3$。公式 $a(p+q)=\\frac{1}{2}(2+4)=3$ でも確認できます。",
-        "difficulty": "standard",
+        "explanation": "$y$ の増加量 $=9-1=8$、$x$ の増加量 $=3-1=2$\n変化の割合 $=\\dfrac{8}{2}=4$。",
         "image": {
           "kind": "coordinate",
-          "range": 9,
-          "parabolas": [{ "a": 0.5 }],
+          "range": 10,
+          "parabolas": [
+            {
+              "a": 1
+            }
+          ],
           "points": [
-            { "x": 2, "y": 2 },
-            { "x": 4, "y": 8 }
+            {
+              "x": 1,
+              "y": 1,
+              "label": "(1, 1)",
+              "open": false
+            },
+            {
+              "x": 3,
+              "y": 9,
+              "label": "(3, 9)",
+              "open": false
+            }
           ]
-        }
+        },
+        "difficulty": "basic"
       },
       {
         "id": "math-g3-rate-of-change-q2",
-        "question": "下のグラフは関数 $y=x^2$ のグラフです。$x$ が $1$ から $3$ まで増えるときの変化の割合を求めましょう。",
-        "options": ["$3$", "$8$", "$4$", "$5$"],
+        "question": "下のグラフは $y=\\frac{1}{2}x^2$ のグラフです。$x$ が $2$ から $4$ まで増えるときの変化の割合を求めなさい。",
+        "options": [
+          "$6$",
+          "$4$",
+          "$3$",
+          "$1$"
+        ],
         "correctIndex": 2,
-        "explanation": "$x=1$ のとき $y=1^2=1$、$x=3$ のとき $y=3^2=9$。よって変化の割合 $=\\dfrac{9-1}{3-1}=\\dfrac{8}{2}=4$。公式 $a(p+q)=1\\times(1+3)=4$ と一致します。",
-        "difficulty": "standard",
+        "explanation": "$y$ の増加量 $=8-2=6$、$x$ の増加量 $=4-2=2$\n変化の割合 $=\\dfrac{6}{2}=3$。",
         "image": {
           "kind": "coordinate",
           "range": 10,
-          "parabolas": [{ "a": 1 }],
+          "parabolas": [
+            {
+              "a": 0.5
+            }
+          ],
           "points": [
-            { "x": 1, "y": 1 },
-            { "x": 3, "y": 9 }
+            {
+              "x": 2,
+              "y": 2,
+              "label": "(2, 2)",
+              "open": false
+            },
+            {
+              "x": 4,
+              "y": 8,
+              "label": "(4, 8)",
+              "open": false
+            }
           ]
-        }
+        },
+        "difficulty": "basic"
       },
       {
         "id": "math-g3-rate-of-change-q3",
-        "question": "下のグラフは関数 $y=2x^2$ のグラフです。$x$ が $-1$ から $2$ まで増えるときの変化の割合を求めましょう。",
-        "options": ["$6$", "$2$", "$-2$", "$3$"],
-        "correctIndex": 1,
-        "explanation": "$x=-1$ のとき $y=2\\times(-1)^2=2$、$x=2$ のとき $y=2\\times2^2=8$。よって変化の割合 $=\\dfrac{8-2}{2-(-1)}=\\dfrac{6}{3}=2$。公式 $a(p+q)=2\\times(-1+2)=2$ と一致します。原点をまたぐ区間でも求め方は同じです。",
-        "difficulty": "standard",
-        "image": {
-          "kind": "coordinate",
-          "range": 9,
-          "parabolas": [{ "a": 2 }],
-          "points": [
-            { "x": -1, "y": 2 },
-            { "x": 2, "y": 8 }
-          ]
-        }
-      },
-      {
-        "id": "math-g3-rate-of-change-q4",
-        "question": "下のグラフは関数 $y=-x^2$ のグラフです。$x$ が $1$ から $3$ まで増えるときの変化の割合を求めましょう。",
-        "options": ["$4$", "$-8$", "$-2$", "$-4$"],
+        "question": "下のグラフは $y=2x^2$ のグラフです。$x$ が $-1$ から $2$ まで増えるときの変化の割合を求めなさい。",
+        "options": [
+          "$6$",
+          "$1$",
+          "$3$",
+          "$2$"
+        ],
         "correctIndex": 3,
-        "explanation": "$x=1$ のとき $y=-1^2=-1$、$x=3$ のとき $y=-3^2=-9$。よって変化の割合 $=\\dfrac{-9-(-1)}{3-1}=\\dfrac{-8}{2}=-4$。公式 $a(p+q)=-1\\times(1+3)=-4$ と一致します。$a<0$ なので変化の割合は負になります。",
-        "difficulty": "standard",
+        "explanation": "$y$ の増加量 $=8-2=6$、$x$ の増加量 $=2-(-1)=3$\n変化の割合 $=\\dfrac{6}{3}=2$。",
         "image": {
           "kind": "coordinate",
           "range": 10,
-          "parabolas": [{ "a": -1 }],
+          "parabolas": [
+            {
+              "a": 2
+            }
+          ],
           "points": [
-            { "x": 1, "y": -1 },
-            { "x": 3, "y": -9 }
+            {
+              "x": -1,
+              "y": 2,
+              "label": "(-1, 2)",
+              "open": false
+            },
+            {
+              "x": 2,
+              "y": 8,
+              "label": "(2, 8)",
+              "open": false
+            }
           ]
-        }
+        },
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-rate-of-change-q4",
+        "question": "下のグラフは $y=-x^2$ のグラフです。$x$ が $1$ から $3$ まで増えるときの変化の割合を求めなさい。",
+        "options": [
+          "$4$",
+          "$-8$",
+          "$8$",
+          "$-4$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$y$ の増加量 $=-9-(-1)=-8$、$x$ の増加量 $=3-1=2$\n変化の割合 $=\\dfrac{-8}{2}=-4$。",
+        "image": {
+          "kind": "coordinate",
+          "range": 10,
+          "parabolas": [
+            {
+              "a": -1
+            }
+          ],
+          "points": [
+            {
+              "x": 1,
+              "y": -1,
+              "label": "(1, -1)",
+              "open": false
+            },
+            {
+              "x": 3,
+              "y": -9,
+              "label": "(3, -9)",
+              "open": false
+            }
+          ]
+        },
+        "difficulty": "basic"
       },
       {
         "id": "math-g3-rate-of-change-q5",
-        "question": "下のグラフは関数 $y=\\frac{1}{2}x^2$ のグラフです。$x$ が $-4$ から $-2$ まで増えるときの変化の割合を求めましょう。",
-        "options": ["$3$", "$-3$", "$-6$", "$-\\frac{1}{2}$"],
+        "question": "下のグラフは $y=3x^2$ のグラフです。$x$ が $0$ から $2$ まで増えるときの変化の割合を求めなさい。",
+        "options": [
+          "$12$",
+          "$6$",
+          "$2$",
+          "$3$"
+        ],
         "correctIndex": 1,
-        "explanation": "$x=-4$ のとき $y=\\frac{1}{2}\\times(-4)^2=8$、$x=-2$ のとき $y=\\frac{1}{2}\\times(-2)^2=2$。よって変化の割合 $=\\dfrac{2-8}{-2-(-4)}=\\dfrac{-6}{2}=-3$。公式 $a(p+q)=\\frac{1}{2}(-4+(-2))=-3$ と一致します。負の区間では $y$ が減っていくので変化の割合は負です。",
-        "difficulty": "standard",
+        "explanation": "$y$ の増加量 $=12-0=12$、$x$ の増加量 $=2-0=2$\n変化の割合 $=\\dfrac{12}{2}=6$。",
         "image": {
           "kind": "coordinate",
-          "range": 9,
-          "parabolas": [{ "a": 0.5 }],
+          "range": 13,
+          "parabolas": [
+            {
+              "a": 3
+            }
+          ],
           "points": [
-            { "x": -4, "y": 8 },
-            { "x": -2, "y": 2 }
+            {
+              "x": 0,
+              "y": 0,
+              "label": "(0, 0)",
+              "open": false
+            },
+            {
+              "x": 2,
+              "y": 12,
+              "label": "(2, 12)",
+              "open": false
+            }
           ]
-        }
+        },
+        "difficulty": "basic"
       },
       {
         "id": "math-g3-rate-of-change-q6",
-        "question": "下のグラフは関数 $y=-\\frac{1}{2}x^2$ のグラフです。$x$ が $-2$ から $4$ まで増えるときの変化の割合を求めましょう。",
-        "options": ["$1$", "$-3$", "$-1$", "$-2$"],
+        "question": "二次関数 $y=ax^2$ の変化の割合について、正しいものを選びなさい。",
+        "options": [
+          "どんな範囲でもつねに一定である",
+          "つねに $a$ に等しい",
+          "$x$ の値の範囲によって変わる",
+          "つねに $0$ である"
+        ],
         "correctIndex": 2,
-        "explanation": "$x=-2$ のとき $y=-\\frac{1}{2}\\times(-2)^2=-2$、$x=4$ のとき $y=-\\frac{1}{2}\\times4^2=-8$。よって変化の割合 $=\\dfrac{-8-(-2)}{4-(-2)}=\\dfrac{-6}{6}=-1$。公式 $a(p+q)=-\\frac{1}{2}(-2+4)=-1$ と一致します。",
-        "difficulty": "standard",
+        "explanation": "$x$ が $p$ から $q$ まで変わるときの変化の割合は $a(p+q)$ で表される。\nこの値は $p$、$q$ によって変わるので、一次関数と違い一定ではない。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-rate-of-change-q7",
+        "question": "下のグラフは $y=\\frac{1}{4}x^2$ のグラフです。$x$ が $2$ から $6$ まで増えるときの変化の割合を求めなさい。",
+        "options": [
+          "$2$",
+          "$1$",
+          "$8$",
+          "$4$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$y$ の増加量 $=9-1=8$、$x$ の増加量 $=6-2=4$\n変化の割合 $=\\dfrac{8}{4}=2$。",
         "image": {
           "kind": "coordinate",
-          "range": 9,
-          "parabolas": [{ "a": -0.5 }],
+          "range": 10,
+          "parabolas": [
+            {
+              "a": 0.25
+            }
+          ],
           "points": [
-            { "x": -2, "y": -2 },
-            { "x": 4, "y": -8 }
+            {
+              "x": 2,
+              "y": 1,
+              "label": "(2, 1)",
+              "open": false
+            },
+            {
+              "x": 6,
+              "y": 9,
+              "label": "(6, 9)",
+              "open": false
+            }
           ]
-        }
+        },
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-rate-of-change-q8",
+        "question": "関数 $y=-2x^2$ で、$x$ の値が $1$ から $4$ まで増加するときの変化の割合を求めなさい。",
+        "options": [
+          "$10$",
+          "$-30$",
+          "$-10$",
+          "$-5$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$y$ の増加量 $=-32-(-2)=-30$、$x$ の増加量 $=4-1=3$\n変化の割合 $=\\dfrac{-30}{3}=-10$。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-rate-of-change-q9",
+        "question": "下のグラフは $y=\\frac{1}{3}x^2$ のグラフです。$x$ が $-3$ から $3$ まで増えるときの変化の割合を求めなさい。",
+        "options": [
+          "$-2$",
+          "$2$",
+          "$0$",
+          "$6$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$y$ の増加量 $=3-3=0$、$x$ の増加量 $=3-(-3)=6$\n変化の割合 $=\\dfrac{0}{6}=0$。$a(p+q)=\\frac{1}{3}(-3+3)=0$ とも一致する。",
+        "image": {
+          "kind": "coordinate",
+          "range": 6,
+          "parabolas": [
+            {
+              "a": 0.3333
+            }
+          ],
+          "points": [
+            {
+              "x": -3,
+              "y": 3,
+              "label": "(-3, 3)",
+              "open": false
+            },
+            {
+              "x": 3,
+              "y": 3,
+              "label": "(3, 3)",
+              "open": false
+            }
+          ]
+        },
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-rate-of-change-q10",
+        "question": "関数 $y=ax^2$ で、$x$ の値が $p$ から $q$ まで増加するときの変化の割合を表す式を選びなさい。",
+        "options": [
+          "$a(p+q)$",
+          "$a(q-p)$",
+          "$p+q$",
+          "$aq^2-ap^2$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$y$ の増加量 $=aq^2-ap^2=a(q+p)(q-p)$、$x$ の増加量 $=q-p$\n割ると $\\dfrac{a(q+p)(q-p)}{q-p}=a(p+q)$。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-rate-of-change-q11",
+        "question": "下のグラフは $y=-3x^2$ のグラフです。$x$ が $-2$ から $1$ まで増えるときの変化の割合を求めなさい。",
+        "options": [
+          "$3$",
+          "$9$",
+          "$-3$",
+          "$-1$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$y$ の増加量 $=-3-(-12)=9$、$x$ の増加量 $=1-(-2)=3$\n変化の割合 $=\\dfrac{9}{3}=3$。",
+        "image": {
+          "kind": "coordinate",
+          "range": 13,
+          "parabolas": [
+            {
+              "a": -3
+            }
+          ],
+          "points": [
+            {
+              "x": -2,
+              "y": -12,
+              "label": "(-2, -12)",
+              "open": false
+            },
+            {
+              "x": 1,
+              "y": -3,
+              "label": "(1, -3)",
+              "open": false
+            }
+          ]
+        },
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-rate-of-change-q12",
+        "question": "下のグラフは $y=\\frac{1}{2}x^2$ のグラフです。$x$ が $-4$ から $-2$ まで増えるときの変化の割合を求めなさい。",
+        "options": [
+          "$3$",
+          "$-6$",
+          "$1$",
+          "$-3$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$y$ の増加量 $=2-8=-6$、$x$ の増加量 $=-2-(-4)=2$\n変化の割合 $=\\dfrac{-6}{2}=-3$。",
+        "image": {
+          "kind": "coordinate",
+          "range": 10,
+          "parabolas": [
+            {
+              "a": 0.5
+            }
+          ],
+          "points": [
+            {
+              "x": -4,
+              "y": 8,
+              "label": "(-4, 8)",
+              "open": false
+            },
+            {
+              "x": -2,
+              "y": 2,
+              "label": "(-2, 2)",
+              "open": false
+            }
+          ]
+        },
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-rate-of-change-q13",
+        "question": "関数 $y=x^2$ で、$x$ の値が $a$ から $a+1$ まで増加するときの変化の割合を、$a$ を使って表しなさい。",
+        "options": [
+          "$2a$",
+          "$2a+1$",
+          "$a+1$",
+          "$a^2+1$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$y=x^2$ の変化の割合は $1 \\times (p+q)=p+q$。\n$p=a$、$q=a+1$ だから $a+(a+1)=2a+1$。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-rate-of-change-q14",
+        "question": "一次関数と二次関数 $y=ax^2$ の変化の割合の違いとして、正しいものを選びなさい。",
+        "options": [
+          "どちらも変化の割合は一定である",
+          "一次関数は一定だが、二次関数 $y=ax^2$ は一定ではない",
+          "二次関数 $y=ax^2$ は一定だが、一次関数は一定ではない",
+          "どちらも一定ではない"
+        ],
+        "correctIndex": 1,
+        "explanation": "一次関数 $y=ax+b$ の変化の割合はつねに傾き $a$ で一定。\n二次関数 $y=ax^2$ の変化の割合は $a(p+q)$ で、範囲によって変わるので一定ではない。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-rate-of-change-q15",
+        "question": "関数 $y=x^2$ で、$x$ が $0$ から $2$ まで増加するときの変化の割合と、$x$ が $2$ から $4$ まで増加するときの変化の割合について、正しいものを選びなさい。",
+        "options": [
+          "後者（$2$ から $4$）の方が大きい",
+          "前者（$0$ から $2$）の方が大きい",
+          "どちらも $2$ で等しい",
+          "どちらも $4$ で等しい"
+        ],
+        "correctIndex": 0,
+        "explanation": "$0$ から $2$ は $1(0+2)=2$、$2$ から $4$ は $1(2+4)=6$。\n$6>2$ なので後者の方が大きい。範囲がちがうと値も変わる。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-rate-of-change-q16",
+        "question": "関数 $y=ax^2$ で、$x$ の値が $1$ から $3$ まで増加するときの変化の割合が $8$ でした。$a$ の値を求めなさい。",
+        "options": [
+          "$a = 4$",
+          "$a = 2$",
+          "$a = 1$",
+          "$a = \\frac{1}{2}$"
+        ],
+        "correctIndex": 1,
+        "explanation": "変化の割合 $=a(1+3)=4a$。\n$4a=8$ より $a=2$。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-rate-of-change-q17",
+        "question": "関数 $y=x^2$ で、$x$ の値が $a$ から $a+2$ まで増加するときの変化の割合が $8$ でした。$a$ の値を求めなさい。",
+        "options": [
+          "$a = 4$",
+          "$a = 3$",
+          "$a = 6$",
+          "$a = 8$"
+        ],
+        "correctIndex": 1,
+        "explanation": "変化の割合 $=1 \\times (a+(a+2))=2a+2$。\n$2a+2=8$ より $a=3$。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-rate-of-change-q18",
+        "question": "ボールがころがり始めてから $x$ 秒間に進む距離 $y$ m が $y=2x^2$ で表されます。ころがり始めて $2$ 秒後から $4$ 秒後までの平均の速さを求めなさい。",
+        "options": [
+          "毎秒 $24$ m",
+          "毎秒 $16$ m",
+          "毎秒 $6$ m",
+          "毎秒 $12$ m"
+        ],
+        "correctIndex": 3,
+        "explanation": "進んだ距離 $=2 \\times 4^2 - 2 \\times 2^2=32-8=24$ m、時間 $=4-2=2$ 秒\n平均の速さ $=\\dfrac{24}{2}=12$（毎秒 $12$ m）。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-rate-of-change-q19",
+        "question": "物体が $x$ 秒間に進む距離 $y$ m が $y=4x^2$ で表されます。$1$ 秒後から $3$ 秒後までの平均の速さを求めなさい。",
+        "options": [
+          "毎秒 $32$ m",
+          "毎秒 $4$ m",
+          "毎秒 $16$ m",
+          "毎秒 $8$ m"
+        ],
+        "correctIndex": 2,
+        "explanation": "進んだ距離 $=4 \\times 3^2 - 4 \\times 1^2=36-4=32$ m、時間 $=3-1=2$ 秒\n平均の速さ $=\\dfrac{32}{2}=16$（毎秒 $16$ m）。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-rate-of-change-q20",
+        "question": "関数 $y=-2x^2$ で、$x$ の値が $-3$ から $-1$ まで増加するときの変化の割合を求めなさい。",
+        "options": [
+          "$-8$",
+          "$16$",
+          "$-4$",
+          "$8$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$y$ の増加量 $=-2-(-18)=16$、$x$ の増加量 $=-1-(-3)=2$\n変化の割合 $=\\dfrac{16}{2}=8$。",
+        "difficulty": "advanced"
       }
     ]
   }

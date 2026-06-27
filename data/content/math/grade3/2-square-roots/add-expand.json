@@ -9,6 +9,267 @@
   "videos": [],
   "flashcards": [],
   "quiz": {
-    "questions": []
+    "questions": [
+      {
+        "id": "math-g3-sqrt-add-expand-q1",
+        "question": "次の計算をしましょう。\n$2\\sqrt{3}+5\\sqrt{3}$",
+        "options": [
+          "$10\\sqrt{3}$",
+          "$7\\sqrt{3}$",
+          "$7\\sqrt{6}$",
+          "$7$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$2\\sqrt{3}+5\\sqrt{3}=(2+5)\\sqrt{3}=7\\sqrt{3}$\n√の中が同じなので係数だけをたす。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-sqrt-add-expand-q2",
+        "question": "次の計算をしましょう。\n$6\\sqrt{5}-2\\sqrt{5}$",
+        "options": [
+          "$4\\sqrt{5}$",
+          "$4$",
+          "$8\\sqrt{5}$",
+          "$\\sqrt{5}$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$6\\sqrt{5}-2\\sqrt{5}=(6-2)\\sqrt{5}=4\\sqrt{5}$\n√5を1つのまとまりとみて係数をひく。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-sqrt-add-expand-q3",
+        "question": "次の計算をしましょう。\n$\\sqrt{8}+\\sqrt{18}$",
+        "options": [
+          "$\\sqrt{26}$",
+          "$5\\sqrt{2}$",
+          "$6\\sqrt{2}$",
+          "$5\\sqrt{6}$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$\\sqrt{8}=2\\sqrt{2},\\ \\sqrt{18}=3\\sqrt{2}$ より $2\\sqrt{2}+3\\sqrt{2}=5\\sqrt{2}$\nまず $a\\sqrt{b}$ の形にそろえてからまとめる。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-sqrt-add-expand-q4",
+        "question": "次の計算をしましょう。\n$\\sqrt{12}-\\sqrt{3}$",
+        "options": [
+          "$3$",
+          "$\\sqrt{12}-\\sqrt{3}$",
+          "$2\\sqrt{3}$",
+          "$\\sqrt{3}$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$\\sqrt{12}=2\\sqrt{3}$ より $2\\sqrt{3}-\\sqrt{3}=\\sqrt{3}$\n√の中の数どうしを引いて $\\sqrt{9}$ としてはいけない。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-sqrt-add-expand-q5",
+        "question": "次の計算をしましょう。\n$\\sqrt{2}(\\sqrt{6}+1)$",
+        "options": [
+          "$\\sqrt{6}+\\sqrt{2}$",
+          "$2\\sqrt{3}+\\sqrt{2}$",
+          "$2\\sqrt{3}$",
+          "$\\sqrt{8}+\\sqrt{2}$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$\\sqrt{2}\\times\\sqrt{6}+\\sqrt{2}\\times1=\\sqrt{12}+\\sqrt{2}=2\\sqrt{3}+\\sqrt{2}$\n分配法則でそれぞれにかける。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-sqrt-add-expand-q6",
+        "question": "次の計算をしましょう。\n$(\\sqrt{3}+1)(\\sqrt{3}-2)$",
+        "options": [
+          "$1+\\sqrt{3}$",
+          "$1-\\sqrt{3}$",
+          "$-1-\\sqrt{3}$",
+          "$5-\\sqrt{3}$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$3-2\\sqrt{3}+\\sqrt{3}-2=1-\\sqrt{3}$\n展開して定数項と√の項をそれぞれまとめる。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-sqrt-add-expand-q7",
+        "question": "次の計算をしましょう。\n$(\\sqrt{5}+2)^2$",
+        "options": [
+          "$9$",
+          "$9+2\\sqrt{5}$",
+          "$5+4\\sqrt{5}$",
+          "$9+4\\sqrt{5}$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$(\\sqrt{5})^2+2\\times\\sqrt{5}\\times2+2^2=5+4\\sqrt{5}+4=9+4\\sqrt{5}$\n中央項 $2\\times\\sqrt{5}\\times2=4\\sqrt{5}$ を忘れない。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-sqrt-add-expand-q8",
+        "question": "次の計算をしましょう。\n$(\\sqrt{7}+\\sqrt{3})(\\sqrt{7}-\\sqrt{3})$",
+        "options": [
+          "$10$",
+          "$\\sqrt{10}$",
+          "$4$",
+          "$2$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$(\\sqrt{7})^2-(\\sqrt{3})^2=7-3=4$\n和と差の積なので $a^2-b^2$ の形になる。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-sqrt-add-expand-q9",
+        "question": "次の計算をしましょう。\n$3\\sqrt{2}+\\sqrt{2}$",
+        "options": [
+          "$4$",
+          "$3\\sqrt{2}$",
+          "$3\\sqrt{4}$",
+          "$4\\sqrt{2}$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$3\\sqrt{2}+1\\sqrt{2}=(3+1)\\sqrt{2}=4\\sqrt{2}$\n$\\sqrt{2}$ は $1\\sqrt{2}$ とみて係数をたす。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-sqrt-add-expand-q10",
+        "question": "次の計算をしましょう。\n$\\sqrt{27}-\\sqrt{12}$",
+        "options": [
+          "$\\sqrt{3}$",
+          "$\\sqrt{15}$",
+          "$5\\sqrt{3}$",
+          "$\\sqrt{39}$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$\\sqrt{27}=3\\sqrt{3},\\ \\sqrt{12}=2\\sqrt{3}$ より $3\\sqrt{3}-2\\sqrt{3}=\\sqrt{3}$\n中の数を引いて $\\sqrt{15}$ としない。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-sqrt-add-expand-q11",
+        "question": "次の計算をしましょう。\n$\\sqrt{50}+\\sqrt{8}$",
+        "options": [
+          "$\\sqrt{58}$",
+          "$10\\sqrt{2}$",
+          "$7\\sqrt{2}$",
+          "$7\\sqrt{4}$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$\\sqrt{50}=5\\sqrt{2},\\ \\sqrt{8}=2\\sqrt{2}$ より $5\\sqrt{2}+2\\sqrt{2}=7\\sqrt{2}$\nそろえてから係数をたす。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-sqrt-add-expand-q12",
+        "question": "次の計算をしましょう。\n$\\sqrt{20}-\\sqrt{5}$",
+        "options": [
+          "$\\sqrt{15}$",
+          "$2\\sqrt{5}$",
+          "$3\\sqrt{5}$",
+          "$\\sqrt{5}$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$\\sqrt{20}=2\\sqrt{5}$ より $2\\sqrt{5}-\\sqrt{5}=\\sqrt{5}$\n係数 $2-1=1$ で $\\sqrt{5}$ が残る。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-sqrt-add-expand-q13",
+        "question": "次の計算をしましょう。\n$\\sqrt{3}(\\sqrt{3}+2)$",
+        "options": [
+          "$5$",
+          "$3\\sqrt{3}$",
+          "$3+2\\sqrt{3}$",
+          "$2\\sqrt{3}$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$\\sqrt{3}\\times\\sqrt{3}+\\sqrt{3}\\times2=3+2\\sqrt{3}$\n$\\sqrt{3}\\times\\sqrt{3}=3$ になる点に注意。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-sqrt-add-expand-q14",
+        "question": "次の計算をしましょう。\n$(\\sqrt{2}+3)(\\sqrt{2}+1)$",
+        "options": [
+          "$5+3\\sqrt{2}$",
+          "$2+4\\sqrt{2}$",
+          "$5+4\\sqrt{2}$",
+          "$5+\\sqrt{2}$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$2+\\sqrt{2}+3\\sqrt{2}+3=5+4\\sqrt{2}$\n4つの積をすべて出してからまとめる。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-sqrt-add-expand-q15",
+        "question": "次の計算をしましょう。\n$(\\sqrt{6}-\\sqrt{2})^2$",
+        "options": [
+          "$8-4\\sqrt{3}$",
+          "$8+4\\sqrt{3}$",
+          "$8$",
+          "$4-4\\sqrt{3}$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$(\\sqrt{6})^2-2\\times\\sqrt{6}\\times\\sqrt{2}+(\\sqrt{2})^2=6-2\\sqrt{12}+2=8-4\\sqrt{3}$\n中央項は $-2\\sqrt{12}=-4\\sqrt{3}$。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-sqrt-add-expand-q16",
+        "question": "次の計算をしましょう。\n$(\\sqrt{5}+\\sqrt{3})(\\sqrt{5}-\\sqrt{3})$",
+        "options": [
+          "$8$",
+          "$2$",
+          "$2\\sqrt{15}$",
+          "$\\sqrt{2}$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$(\\sqrt{5})^2-(\\sqrt{3})^2=5-3=2$\n和と差の積は $a^2-b^2$。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-sqrt-add-expand-q17",
+        "question": "次の計算をしましょう。\n$\\sqrt{18}-\\sqrt{8}+\\sqrt{2}$",
+        "options": [
+          "$2\\sqrt{2}$",
+          "$4\\sqrt{2}$",
+          "$\\sqrt{2}$",
+          "$6\\sqrt{2}$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$3\\sqrt{2}-2\\sqrt{2}+\\sqrt{2}=2\\sqrt{2}$\nすべて $a\\sqrt{2}$ にそろえ、係数を $3-2+1$ で計算する。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-sqrt-add-expand-q18",
+        "question": "次の計算をしましょう。\n$(2\\sqrt{3}+1)(2\\sqrt{3}-1)$",
+        "options": [
+          "$5$",
+          "$11\\sqrt{3}$",
+          "$13$",
+          "$11$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$(2\\sqrt{3})^2-1^2=4\\times3-1=12-1=11$\n$(2\\sqrt{3})^2=4\\times3=12$ とすること。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-sqrt-add-expand-q19",
+        "question": "次の計算をしましょう。\n$\\sqrt{3}(2\\sqrt{6}-\\sqrt{3})$",
+        "options": [
+          "$6\\sqrt{2}-3$",
+          "$6\\sqrt{2}+3$",
+          "$2\\sqrt{18}-\\sqrt{3}$",
+          "$2\\sqrt{2}-3$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$\\sqrt{3}\\times2\\sqrt{6}-\\sqrt{3}\\times\\sqrt{3}=2\\sqrt{18}-3=6\\sqrt{2}-3$\n$\\sqrt{3}\\times\\sqrt{3}=3$ で符号は $-$。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-sqrt-add-expand-q20",
+        "question": "次の計算をしましょう。\n$(\\sqrt{7}-2)^2$",
+        "options": [
+          "$11$",
+          "$3-4\\sqrt{7}$",
+          "$11-4\\sqrt{7}$",
+          "$11+4\\sqrt{7}$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$(\\sqrt{7})^2-2\\times\\sqrt{7}\\times2+2^2=7-4\\sqrt{7}+4=11-4\\sqrt{7}$\n定数項は $7+4=11$、中央項は $-4\\sqrt{7}$。",
+        "difficulty": "advanced"
+      }
+    ]
   }
 }

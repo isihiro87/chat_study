@@ -9,6 +9,267 @@
   "videos": [],
   "flashcards": [],
   "quiz": {
-    "questions": []
+    "questions": [
+      {
+        "id": "math-g3-expansion-basics-q1",
+        "question": "次の計算をしましょう。\n$2x(x+3)$",
+        "options": [
+          "$2x^2+3x$",
+          "$2x^2+6x$",
+          "$2x^2+6$",
+          "$2x^2+3$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$2x \\times x = 2x^2$、$2x \\times 3 = 6x$\nかっこの中の各項に $2x$ を分配します。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-expansion-basics-q2",
+        "question": "次の計算をしましょう。\n$-3a(2a-1)$",
+        "options": [
+          "$-6a^2-3a$",
+          "$-6a^2-1$",
+          "$-6a^2+3a$",
+          "$6a^2+3a$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$-3a \\times 2a = -6a^2$、$-3a \\times (-1) = +3a$\n負の数どうしの積は正になることに注意します。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-expansion-basics-q3",
+        "question": "次の計算をしましょう。\n$(x+4)\\times 5x$",
+        "options": [
+          "$5x^2+4x$",
+          "$5x^2+20x$",
+          "$5x^2+20$",
+          "$x^2+20x$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$x \\times 5x = 5x^2$、$4 \\times 5x = 20x$\nどちらの項にも $5x$ を掛けます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-expansion-basics-q4",
+        "question": "次の計算をしましょう。\n$(2x-3y)\\times(-4x)$",
+        "options": [
+          "$-8x^2+12xy$",
+          "$8x^2-12xy$",
+          "$-8x^2+12y$",
+          "$-8x^2-12xy$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$2x \\times (-4x) = -8x^2$、$-3y \\times (-4x) = +12xy$\n後ろの項は負どうしの積で正になります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-expansion-basics-q5",
+        "question": "次の計算をしましょう。\n$x(x-5)+2x$",
+        "options": [
+          "$x^2-3$",
+          "$x^2-7x$",
+          "$x^2-3x$",
+          "$x^2-5x+2$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$x(x-5)=x^2-5x$、$-5x+2x=-3x$\nかっこを外してから同類項 $-5x$ と $2x$ をまとめます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-expansion-basics-q6",
+        "question": "次の計算をしましょう。\n$3a(a+2)$",
+        "options": [
+          "$3a^2+2a$",
+          "$3a+6a$",
+          "$3a^2+6$",
+          "$3a^2+6a$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$3a \\times a = 3a^2$、$3a \\times 2 = 6a$\n定数 $2$ にも $3a$ を掛けます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-expansion-basics-q7",
+        "question": "次の計算をしましょう。\n$-2x(3x-4)$",
+        "options": [
+          "$-6x^2-8x$",
+          "$-6x^2+8x$",
+          "$-5x^2+8x$",
+          "$-6x^2+8$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$-2x \\times 3x = -6x^2$、$-2x \\times (-4) = +8x$\n係数は掛け算で $-2 \\times 3 = -6$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-expansion-basics-q8",
+        "question": "次の計算をしましょう。\n$4y(2y+3)$",
+        "options": [
+          "$8y^2+3y$",
+          "$8y^2+12$",
+          "$6y^2+12y$",
+          "$8y^2+12y$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$4y \\times 2y = 8y^2$、$4y \\times 3 = 12y$\n係数どうしを掛けて $4 \\times 2 = 8$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-expansion-basics-q9",
+        "question": "次の計算をしましょう。\n$(3a-2)\\times 2a$",
+        "options": [
+          "$6a^2-2a$",
+          "$6a^2-4a$",
+          "$6a^2-4$",
+          "$5a^2-4a$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$3a \\times 2a = 6a^2$、$-2 \\times 2a = -4a$\n$-2$ にも $2a$ を掛けます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-expansion-basics-q10",
+        "question": "次の計算をしましょう。\n$-a(a-b)$",
+        "options": [
+          "$-a^2-ab$",
+          "$-a^2+ab$",
+          "$a^2-ab$",
+          "$-a^2+b$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$-a \\times a = -a^2$、$-a \\times (-b) = +ab$\n後ろの項は負どうしの積で $+ab$ になります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-expansion-basics-q11",
+        "question": "次の計算をしましょう。\n$5x(x-2y)$",
+        "options": [
+          "$5x^2-10xy$",
+          "$5x^2-10y$",
+          "$5x^2-2xy$",
+          "$5x^2+10xy$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$5x \\times x = 5x^2$、$5x \\times (-2y) = -10xy$\n$-2y$ にも $5x$ を掛けるので $x$ が残ります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-expansion-basics-q12",
+        "question": "次の計算をしましょう。\n$(x+1)\\times(-3x)$",
+        "options": [
+          "$-3x^2-3x$",
+          "$-3x^2-3$",
+          "$3x^2-3x$",
+          "$-3x^2+3x$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$x \\times (-3x) = -3x^2$、$1 \\times (-3x) = -3x$\nどちらの項にも $-3x$ を掛けます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-expansion-basics-q13",
+        "question": "次の計算をしましょう。\n$2a(3a-b+2)$",
+        "options": [
+          "$6a^2-2ab+2$",
+          "$6a^2-b+4a$",
+          "$6a^2-2ab+4a$",
+          "$6a^2-2ab+4$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$2a \\times 3a = 6a^2$、$2a \\times (-b) = -2ab$、$2a \\times 2 = 4a$\n3つの項すべてに $2a$ を分配します。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-expansion-basics-q14",
+        "question": "次の計算をしましょう。\n$-4x(x^2-2x)$",
+        "options": [
+          "$-4x^3-8x^2$",
+          "$4x^3-8x^2$",
+          "$-4x^2+8x^2$",
+          "$-4x^3+8x^2$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$-4x \\times x^2 = -4x^3$、$-4x \\times (-2x) = +8x^2$\n$x \\times x^2 = x^3$ と指数の足し算に注意します。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-expansion-basics-q15",
+        "question": "次の計算をしましょう。\n$x(2x+3)+x(x-1)$",
+        "options": [
+          "$3x^2+4x$",
+          "$2x^2+2x$",
+          "$3x^2+3x$",
+          "$3x^2+2x$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$x(2x+3)=2x^2+3x$、$x(x-1)=x^2-x$\nまとめると $2x^2+x^2=3x^2$、$3x-x=2x$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-expansion-basics-q16",
+        "question": "次の計算をしましょう。\n$3x(x-2)-2x(x+1)$",
+        "options": [
+          "$x^2-4x$",
+          "$5x^2-8x$",
+          "$x^2-8x$",
+          "$x^2-8$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$3x(x-2)=3x^2-6x$、$-2x(x+1)=-2x^2-2x$\nまとめると $3x^2-2x^2=x^2$、$-6x-2x=-8x$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-expansion-basics-q17",
+        "question": "次の計算をしましょう。\n$\\frac{1}{2}x(4x-6)$",
+        "options": [
+          "$2x^2-3x$",
+          "$2x^2-6x$",
+          "$2x^2-3$",
+          "$4x^2-3x$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$\\frac{1}{2}x \\times 4x = 2x^2$、$\\frac{1}{2}x \\times (-6) = -3x$\nどちらの項にも $\\frac{1}{2}x$ を掛けます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-expansion-basics-q18",
+        "question": "次の計算をしましょう。\n$-2a(a-3)+5a$",
+        "options": [
+          "$-2a^2+a$",
+          "$2a^2+11a$",
+          "$-2a^2-11a$",
+          "$-2a^2+11a$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$-2a(a-3)=-2a^2+6a$、$6a+5a=11a$\n$-2a \\times (-3)=+6a$ となり、$5a$ と同類項をまとめます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-expansion-basics-q19",
+        "question": "次の計算をしましょう。\n$-3y(2y-5)$",
+        "options": [
+          "$-6y^2-15y$",
+          "$-6y^2+5y$",
+          "$-6y^2+15y$",
+          "$6y^2+15y$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$-3y \\times 2y = -6y^2$、$-3y \\times (-5) = +15y$\n$-5$ にも $-3y$ を掛けて正になります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-expansion-basics-q20",
+        "question": "次の計算をしましょう。\n$2x(x+y-3)$",
+        "options": [
+          "$2x^2+2xy-6x$",
+          "$2x^2+2xy-3$",
+          "$2x^2+xy-6x$",
+          "$2x^2+2y-6x$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$2x \\times x = 2x^2$、$2x \\times y = 2xy$、$2x \\times (-3) = -6x$\n3つの項すべてに $2x$ を分配します。",
+        "difficulty": "advanced"
+      }
+    ]
   }
 }

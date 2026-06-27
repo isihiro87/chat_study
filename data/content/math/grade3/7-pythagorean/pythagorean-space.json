@@ -1,0 +1,317 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g3-pythagorean",
+  "topicId": "math-g3-pythagorean-space",
+  "name": "空間図形への利用",
+  "subtitle": "直方体の対角線・錐の高さ",
+  "icon": "🧊",
+  "order": 3,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": [
+      {
+        "id": "math-g3-pythagorean-space-q1",
+        "question": "下の図の直方体の対角線の長さを求めなさい。",
+        "image": {
+          "kind": "rect-prism",
+          "w": "4cm",
+          "d": "3cm",
+          "h": "12cm"
+        },
+        "options": [
+          "$19$ cm",
+          "$5$ cm",
+          "$13$ cm",
+          "$\\sqrt{19}$ cm"
+        ],
+        "correctIndex": 2,
+        "explanation": "$\\sqrt{3^2+4^2+12^2} = \\sqrt{9+16+144} = \\sqrt{169} = 13$\n直方体の対角線は縦・横・高さの3つを2乗して足し、平方根をとる。2辺だけで止めない。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-pythagorean-space-q2",
+        "question": "下の図の直方体の対角線の長さを求めなさい。",
+        "image": {
+          "kind": "rect-prism",
+          "w": "2cm",
+          "d": "1cm",
+          "h": "2cm"
+        },
+        "options": [
+          "$\\sqrt{5}$ cm",
+          "$3$ cm",
+          "$5$ cm",
+          "$2\\sqrt{2}$ cm"
+        ],
+        "correctIndex": 1,
+        "explanation": "$\\sqrt{1^2+2^2+2^2} = \\sqrt{1+4+4} = \\sqrt{9} = 3$\n3辺すべての2乗の和の平方根が対角線になる。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-pythagorean-space-q3",
+        "question": "下の図の直方体の対角線の長さを求めなさい。",
+        "image": {
+          "kind": "rect-prism",
+          "w": "3cm",
+          "d": "2cm",
+          "h": "6cm"
+        },
+        "options": [
+          "$7$ cm",
+          "$11$ cm",
+          "$\\sqrt{13}$ cm",
+          "$\\sqrt{11}$ cm"
+        ],
+        "correctIndex": 0,
+        "explanation": "$\\sqrt{2^2+3^2+6^2} = \\sqrt{4+9+36} = \\sqrt{49} = 7$\n縦・横・高さ3つを2乗して足し、平方根をとる。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-pythagorean-space-q4",
+        "question": "下の図の立方体の対角線の長さを求めなさい。",
+        "image": {
+          "kind": "rect-prism",
+          "w": "4cm",
+          "d": "4cm",
+          "h": "4cm"
+        },
+        "options": [
+          "$4\\sqrt{2}$ cm",
+          "$4$ cm",
+          "$4\\sqrt{3}$ cm",
+          "$12$ cm"
+        ],
+        "correctIndex": 2,
+        "explanation": "$\\sqrt{4^2+4^2+4^2} = \\sqrt{48} = 4\\sqrt{3}$\n1辺 $a$ の立方体の対角線は $a\\sqrt{3}$。面の対角線 $a\\sqrt{2}$ と取り違えない。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-pythagorean-space-q5",
+        "question": "下の図の立方体の対角線の長さを求めなさい。",
+        "image": {
+          "kind": "rect-prism",
+          "w": "2cm",
+          "d": "2cm",
+          "h": "2cm"
+        },
+        "options": [
+          "$2\\sqrt{2}$ cm",
+          "$2\\sqrt{3}$ cm",
+          "$6$ cm",
+          "$\\sqrt{6}$ cm"
+        ],
+        "correctIndex": 1,
+        "explanation": "$\\sqrt{2^2+2^2+2^2} = \\sqrt{12} = 2\\sqrt{3}$\n立方体の対角線は1辺の $\\sqrt{3}$ 倍になる。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-pythagorean-space-q6",
+        "question": "1辺が $3$ cm の立方体について、1つの面（正方形）の対角線の長さを求めなさい。",
+        "options": [
+          "$3\\sqrt{2}$ cm",
+          "$3\\sqrt{3}$ cm",
+          "$6$ cm",
+          "$\\sqrt{6}$ cm"
+        ],
+        "correctIndex": 0,
+        "explanation": "$\\sqrt{3^2+3^2} = \\sqrt{18} = 3\\sqrt{2}$\n1つの面（正方形）の対角線は1辺の $\\sqrt{2}$ 倍。立体の対角線 $3\\sqrt{3}$ と区別する。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-pythagorean-space-q7",
+        "question": "立方体の対角線の長さが $6\\sqrt{3}$ cm のとき、この立方体の1辺の長さを求めなさい。",
+        "options": [
+          "$6\\sqrt{3}$ cm",
+          "$2\\sqrt{3}$ cm",
+          "$6$ cm",
+          "$18$ cm"
+        ],
+        "correctIndex": 2,
+        "explanation": "$a\\sqrt{3} = 6\\sqrt{3}$ より $a = 6$\n立方体の対角線は1辺の $\\sqrt{3}$ 倍なので、$6\\sqrt{3}$ のときの1辺は6。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-pythagorean-space-q8",
+        "question": "底面が1辺 $4$ cm の正方形である正四角錐があり、頂点と底面の頂点を結ぶ側辺の長さが $6$ cm です。この正四角錐の高さを求めなさい。",
+        "options": [
+          "$2\\sqrt{5}$ cm",
+          "$2$ cm",
+          "$2\\sqrt{2}$ cm",
+          "$2\\sqrt{7}$ cm"
+        ],
+        "correctIndex": 3,
+        "explanation": "底面の対角線は $4\\sqrt{2}$、中心から底面の頂点までは $2\\sqrt{2}$。$h = \\sqrt{6^2-(2\\sqrt{2})^2} = \\sqrt{36-8} = \\sqrt{28} = 2\\sqrt{7}$\n高さは側辺と「底面の対角線の半分」で直角三角形をつくって求める。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-pythagorean-space-q9",
+        "question": "底面の半径が $3$ cm、母線の長さが $5$ cm の円錐の高さを求めなさい。",
+        "options": [
+          "$4$ cm",
+          "$\\sqrt{34}$ cm",
+          "$8$ cm",
+          "$2$ cm"
+        ],
+        "correctIndex": 0,
+        "explanation": "$\\sqrt{5^2-3^2} = \\sqrt{25-9} = \\sqrt{16} = 4$\n母線が斜辺なので、高さ＝√(母線²−半径²)。足し算にしない。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-pythagorean-space-q10",
+        "question": "底面の半径が $5$ cm、母線の長さが $13$ cm の円錐の高さを求めなさい。",
+        "options": [
+          "$\\sqrt{194}$ cm",
+          "$12$ cm",
+          "$18$ cm",
+          "$8$ cm"
+        ],
+        "correctIndex": 1,
+        "explanation": "$\\sqrt{13^2-5^2} = \\sqrt{169-25} = \\sqrt{144} = 12$\n母線が斜辺なので、母線²から半径²を引いて平方根をとる。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-pythagorean-space-q11",
+        "question": "底面の半径が $6$ cm、高さが $8$ cm の円錐の母線の長さを求めなさい。",
+        "options": [
+          "$2\\sqrt{7}$ cm",
+          "$14$ cm",
+          "$\\sqrt{14}$ cm",
+          "$10$ cm"
+        ],
+        "correctIndex": 3,
+        "explanation": "$\\sqrt{6^2+8^2} = \\sqrt{36+64} = \\sqrt{100} = 10$\n母線は斜辺だから、半径²と高さ²を足して平方根をとる。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-pythagorean-space-q12",
+        "question": "高さが $2\\sqrt{3}$ cm、母線の長さが $4$ cm の円錐の底面の半径を求めなさい。",
+        "options": [
+          "$2\\sqrt{7}$ cm",
+          "$\\sqrt{13}$ cm",
+          "$1$ cm",
+          "$2$ cm"
+        ],
+        "correctIndex": 3,
+        "explanation": "$\\sqrt{4^2-(2\\sqrt{3})^2} = \\sqrt{16-12} = \\sqrt{4} = 2$\n半径＝√(母線²−高さ²)。母線が斜辺であることに注意する。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-pythagorean-space-q13",
+        "question": "下の図の直方体の対角線の長さを求めなさい。",
+        "image": {
+          "kind": "rect-prism",
+          "w": "4cm",
+          "d": "3cm",
+          "h": "5cm"
+        },
+        "options": [
+          "$5$ cm",
+          "$5\\sqrt{2}$ cm",
+          "$\\sqrt{41}$ cm",
+          "$12$ cm"
+        ],
+        "correctIndex": 1,
+        "explanation": "$\\sqrt{3^2+4^2+5^2} = \\sqrt{9+16+25} = \\sqrt{50} = 5\\sqrt{2}$\n3辺を2乗して足し、$\\sqrt{50}$ を $5\\sqrt{2}$ と既約化する。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-pythagorean-space-q14",
+        "question": "縦 $4$ cm、横 $8$ cm、高さ $5$ cm の直方体があります。ある頂点 A から、横 $8$ cm の側面と横 $4$ cm の側面の2つの面の表面上だけを通って、A から最も遠い頂点まで進みます。この最短の道のりを展開図で考えて求めなさい。",
+        "options": [
+          "$\\sqrt{105}$ cm",
+          "$17$ cm",
+          "$13$ cm",
+          "$\\sqrt{89}$ cm"
+        ],
+        "correctIndex": 2,
+        "explanation": "2つの側面を展開すると、横 $8+4=12$、縦 $5$ の直角三角形になる。$\\sqrt{12^2+5^2} = \\sqrt{144+25} = \\sqrt{169} = 13$\n表面を進む最短は2面を開いた平面上の直線。立体の対角線（$\\sqrt{105}$）ではない。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-pythagorean-space-q15",
+        "question": "立方体の対角線の長さが $9$ cm のとき、この立方体の1辺の長さを求めなさい。",
+        "options": [
+          "$3$ cm",
+          "$9\\sqrt{3}$ cm",
+          "$3\\sqrt{3}$ cm",
+          "$\\frac{9}{2}$ cm"
+        ],
+        "correctIndex": 2,
+        "explanation": "$a\\sqrt{3} = 9$ より $a = \\frac{9}{\\sqrt{3}} = 3\\sqrt{3}$\n対角線 $a\\sqrt{3}$ が9なので、$\\sqrt{3}$ で割って分母を有理化する。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-pythagorean-space-q16",
+        "question": "底面の半径が $3$ cm、母線の長さが $5$ cm の円錐の体積を求めなさい。",
+        "options": [
+          "$12\\pi$ cm³",
+          "$36\\pi$ cm³",
+          "$4\\pi$ cm³",
+          "$15\\pi$ cm³"
+        ],
+        "correctIndex": 0,
+        "explanation": "高さは $\\sqrt{5^2-3^2}=4$。$V = \\frac{1}{3}\\times\\pi\\times3^2\\times4 = 12\\pi$\n体積には母線5ではなく、求めた高さ4を使う。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-pythagorean-space-q17",
+        "question": "底面が1辺 $6$ cm の正方形で、高さが $4$ cm の正四角錐があります。頂点と底面の頂点を結ぶ側辺の長さを求めなさい。",
+        "options": [
+          "$10$ cm",
+          "$2\\sqrt{13}$ cm",
+          "$2\\sqrt{5}$ cm",
+          "$\\sqrt{34}$ cm"
+        ],
+        "correctIndex": 3,
+        "explanation": "底面の対角線の半分は $3\\sqrt{2}$。側辺 $= \\sqrt{4^2+(3\\sqrt{2})^2} = \\sqrt{16+18} = \\sqrt{34}$\n高さと「底面の対角線の半分」で直角三角形をつくる。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-pythagorean-space-q18",
+        "question": "下の図の直方体の対角線の長さを求めなさい。",
+        "image": {
+          "kind": "rect-prism",
+          "w": "6cm",
+          "d": "6cm",
+          "h": "3cm"
+        },
+        "options": [
+          "$6\\sqrt{2}$ cm",
+          "$9$ cm",
+          "$3\\sqrt{5}$ cm",
+          "$15$ cm"
+        ],
+        "correctIndex": 1,
+        "explanation": "$\\sqrt{6^2+6^2+3^2} = \\sqrt{36+36+9} = \\sqrt{81} = 9$\n3辺を2乗して足し、平方根をとる。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-pythagorean-space-q19",
+        "question": "縦 $2$ cm、横 $3$ cm の直方体の対角線の長さが $\\sqrt{29}$ cm のとき、この直方体の高さを求めなさい。",
+        "options": [
+          "$4$ cm",
+          "$\\sqrt{14}$ cm",
+          "$16$ cm",
+          "$2$ cm"
+        ],
+        "correctIndex": 0,
+        "explanation": "$2^2+3^2+h^2 = 29$ より $h^2 = 29-13 = 16$、$h = 4$\n（対角線）²＝縦²+横²+高さ² の関係から高さを逆算する。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-pythagorean-space-q20",
+        "question": "底面の半径が $4$ cm、高さが $3$ cm の円錐の側面積を求めなさい。",
+        "options": [
+          "$12\\pi$ cm²",
+          "$16\\pi$ cm²",
+          "$40\\pi$ cm²",
+          "$20\\pi$ cm²"
+        ],
+        "correctIndex": 3,
+        "explanation": "母線は $\\sqrt{4^2+3^2}=5$。側面積 $= \\pi\\times4\\times5 = 20\\pi$\n円錐の側面積は π×半径×母線。高さ3ではなく母線5を使う。",
+        "difficulty": "standard"
+      }
+    ]
+  }
+}

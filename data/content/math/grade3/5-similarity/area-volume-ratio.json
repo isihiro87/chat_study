@@ -1,0 +1,288 @@
+{
+  "subjectId": "math",
+  "eraId": "math-g3-similarity",
+  "topicId": "math-g3-area-volume-ratio",
+  "name": "相似比と面積比・体積比",
+  "subtitle": "相似比の2乗・3乗",
+  "icon": "🧊",
+  "order": 4,
+  "videos": [],
+  "flashcards": [],
+  "quiz": {
+    "questions": [
+      {
+        "id": "math-g3-area-volume-ratio-q1",
+        "question": "相似比が $2:3$ である2つの図形の面積比を求めなさい。",
+        "options": [
+          "$9:4$",
+          "$2:3$",
+          "$8:27$",
+          "$4:9$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$2^2 : 3^2 = 4 : 9$\n相似比が $m:n$ のとき、面積比は $m^2:n^2$ になります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-area-volume-ratio-q2",
+        "question": "相似比が $1:2$ である2つの図形の面積比を求めなさい。",
+        "options": [
+          "$1:4$",
+          "$1:2$",
+          "$1:8$",
+          "$1:16$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$1^2 : 2^2 = 1 : 4$\n面積比は相似比をそれぞれ2乗します。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-area-volume-ratio-q3",
+        "question": "相似比が $3:4$ である2つの図形の面積比を求めなさい。",
+        "options": [
+          "$3:4$",
+          "$27:64$",
+          "$9:16$",
+          "$16:9$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$3^2 : 4^2 = 9 : 16$\n面積比は相似比の2乗の比です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-area-volume-ratio-q4",
+        "question": "相似比が $4:5$ である2つの相似な図形の面積比を求めなさい。",
+        "options": [
+          "$4:5$",
+          "$16:25$",
+          "$25:16$",
+          "$64:125$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$4^2 : 5^2 = 16 : 25$\n相似比を2乗すると面積比になります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-area-volume-ratio-q5",
+        "question": "相似比が $2:3$ である2つの立体の体積比を求めなさい。",
+        "options": [
+          "$8:27$",
+          "$4:9$",
+          "$2:3$",
+          "$27:8$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$2^3 : 3^3 = 8 : 27$\n相似比が $m:n$ のとき、体積比は $m^3:n^3$ になります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-area-volume-ratio-q6",
+        "question": "相似比が $1:2$ である2つの立体の体積比を求めなさい。",
+        "options": [
+          "$1:4$",
+          "$1:6$",
+          "$1:2$",
+          "$1:8$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$1^3 : 2^3 = 1 : 8$\n体積比は相似比をそれぞれ3乗します。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-area-volume-ratio-q7",
+        "question": "相似比が $1:3$ である2つの立体の体積比を求めなさい。",
+        "options": [
+          "$1:9$",
+          "$1:27$",
+          "$1:3$",
+          "$1:6$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$1^3 : 3^3 = 1 : 27$\n体積比は相似比の3乗の比です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-area-volume-ratio-q8",
+        "question": "相似比が $2:5$ である2つの相似な立体の体積比を求めなさい。",
+        "options": [
+          "$4:25$",
+          "$8:125$",
+          "$125:8$",
+          "$2:5$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$2^3 : 5^3 = 8 : 125$\n相似比を3乗すると体積比になります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-area-volume-ratio-q9",
+        "question": "相似な2つの図形の面積比が $9:25$ のとき、相似比を求めなさい。",
+        "options": [
+          "$3:5$",
+          "$9:25$",
+          "$81:625$",
+          "$5:3$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$9 : 25 = 3^2 : 5^2$ なので相似比は $3:5$\n面積比は相似比の2乗なので、それぞれの平方根をとります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-area-volume-ratio-q10",
+        "question": "相似な2つの図形の面積比が $4:49$ のとき、相似比を求めなさい。",
+        "options": [
+          "$4:49$",
+          "$7:2$",
+          "$2:7$",
+          "$16:2401$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$4 : 49 = 2^2 : 7^2$ なので相似比は $2:7$\n面積比から相似比を求めるには平方根をとります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-area-volume-ratio-q11",
+        "question": "相似な2つの図形の面積比が $16:81$ のとき、相似比を求めなさい。",
+        "options": [
+          "$16:81$",
+          "$4:9$",
+          "$8:9$",
+          "$9:4$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$16 : 81 = 4^2 : 9^2$ なので相似比は $4:9$\n面積比の各項の平方根が相似比です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-area-volume-ratio-q12",
+        "question": "相似な2つの立体の体積比が $8:27$ のとき、相似比を求めなさい。",
+        "options": [
+          "$4:9$",
+          "$8:27$",
+          "$2:3$",
+          "$3:2$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$8 : 27 = 2^3 : 3^3$ なので相似比は $2:3$\n体積比は相似比の3乗なので、それぞれの立方根をとります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-area-volume-ratio-q13",
+        "question": "相似な2つの立体の体積比が $1:64$ のとき、相似比を求めなさい。",
+        "options": [
+          "$4:1$",
+          "$1:8$",
+          "$1:64$",
+          "$1:4$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$1 : 64 = 1^3 : 4^3$ なので相似比は $1:4$\n体積比から相似比を求めるには立方根をとります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-area-volume-ratio-q14",
+        "question": "相似な2つの立体の体積比が $27:125$ のとき、相似比を求めなさい。",
+        "options": [
+          "$9:25$",
+          "$5:3$",
+          "$27:125$",
+          "$3:5$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$27 : 125 = 3^3 : 5^3$ なので相似比は $3:5$\n体積比の各項の立方根が相似比です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-area-volume-ratio-q15",
+        "question": "相似な2つの立体の相似比が $1:2$ で、小さい方の体積が $5$ cm³ のとき、大きい方の体積を求めなさい。",
+        "options": [
+          "$40$ cm³",
+          "$20$ cm³",
+          "$10$ cm³",
+          "$80$ cm³"
+        ],
+        "correctIndex": 0,
+        "explanation": "体積比 $1^3:2^3 = 1:8$、$5 \\times 8 = 40$\n相似比 $1:2$ の立体の体積比は $1:8$ なので、小さい方の8倍です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-area-volume-ratio-q16",
+        "question": "相似な2つの図形の相似比が $2:3$ で、小さい方の面積が $8$ cm² のとき、大きい方の面積を求めなさい。",
+        "options": [
+          "$12$ cm²",
+          "$18$ cm²",
+          "$24$ cm²",
+          "$27$ cm²"
+        ],
+        "correctIndex": 1,
+        "explanation": "面積比 $2^2:3^2 = 4:9$、$8 \\div 4 \\times 9 = 18$\n面積比 $4:9$ で小さい方が $8$ cm² だから、大きい方は $18$ cm²。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-area-volume-ratio-q17",
+        "question": "相似な2つの立体の相似比が $1:3$ で、小さい方の体積が $4$ cm³ のとき、大きい方の体積を求めなさい。",
+        "options": [
+          "$108$ cm³",
+          "$12$ cm³",
+          "$36$ cm³",
+          "$27$ cm³"
+        ],
+        "correctIndex": 0,
+        "explanation": "体積比 $1^3:3^3 = 1:27$、$4 \\times 27 = 108$\n相似比 $1:3$ の体積比は $1:27$ なので、小さい方の27倍です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-area-volume-ratio-q18",
+        "question": "相似な2つの立体の相似比が $2:3$ で、大きい方の体積が $54$ cm³ のとき、小さい方の体積を求めなさい。",
+        "options": [
+          "$36$ cm³",
+          "$24$ cm³",
+          "$16$ cm³",
+          "$8$ cm³"
+        ],
+        "correctIndex": 2,
+        "explanation": "体積比 $2^3:3^3 = 8:27$、$54 \\div 27 \\times 8 = 16$\n大きい方が $54$ cm³ なので、体積比 $8:27$ を使って小さい方を求めます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-area-volume-ratio-q19",
+        "question": "相似な2つの三角形の相似比が $2:5$ で、小さい方の面積が $8$ cm² のとき、大きい方の面積を求めなさい。",
+        "options": [
+          "$20$ cm²",
+          "$40$ cm²",
+          "$125$ cm²",
+          "$50$ cm²"
+        ],
+        "correctIndex": 3,
+        "explanation": "面積比 $2^2:5^2 = 4:25$、$8 \\div 4 \\times 25 = 50$\n相似な三角形の面積比は相似比の2乗 $4:25$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-area-volume-ratio-q20",
+        "question": "相似比が $1:2$ である大小2つの円錐がある。小さい円錐の表面積が $15$ cm² のとき、大きい円錐の表面積を求めなさい。",
+        "options": [
+          "$30$ cm²",
+          "$120$ cm²",
+          "$60$ cm²",
+          "$45$ cm²"
+        ],
+        "correctIndex": 2,
+        "explanation": "面積比 $1^2:2^2 = 1:4$、$15 \\times 4 = 60$\n相似比 $1:2$ の円錐の表面積比は $1:4$ なので、4倍になります。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-area-volume-ratio-q21",
+        "question": "相似な2つの直方体の表面積の比が $25:36$ のとき、体積比を求めなさい。",
+        "options": [
+          "$125:216$",
+          "$25:36$",
+          "$5:6$",
+          "$625:1296$"
+        ],
+        "correctIndex": 0,
+        "explanation": "面積比 $25:36 = 5^2:6^2$ より相似比 $5:6$、体積比 $5^3:6^3 = 125:216$\n表面積比から相似比を求め、それを3乗して体積比にします。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

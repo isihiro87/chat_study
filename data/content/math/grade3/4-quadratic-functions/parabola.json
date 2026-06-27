@@ -12,115 +12,428 @@
     "questions": [
       {
         "id": "math-g3-quad-func-parabola-q1",
-        "question": "下のグラフは $y=ax^2$ のグラフです。$a$ の値を求めましょう。",
-        "options": ["$a=\\frac{1}{2}$", "$a=2$", "$a=1$", "$a=\\frac{1}{4}$"],
-        "correctIndex": 0,
-        "explanation": "グラフは点 $(2,\\ 2)$ を通っています。$y=ax^2$ に代入すると $2=a\\times2^2=4a$ なので、$a=\\frac{2}{4}=\\frac{1}{2}$ です。",
-        "difficulty": "basic",
+        "question": "下のグラフは $y=ax^2$ のグラフで、点 $(2,\\ 8)$ を通ります。$a$ の値を求めなさい。",
+        "options": [
+          "$a = 16$",
+          "$a = 4$",
+          "$a = \\frac{1}{2}$",
+          "$a = 2$"
+        ],
+        "correctIndex": 3,
         "image": {
           "kind": "coordinate",
-          "range": 6,
-          "parabolas": [{ "a": 0.5 }],
-          "points": [{ "x": 2, "y": 2, "label": "(2, 2)" }]
-        }
+          "range": 10,
+          "parabolas": [
+            {
+              "a": 2
+            }
+          ],
+          "points": [
+            {
+              "x": 2,
+              "y": 8,
+              "label": "(2, 8)",
+              "open": false
+            }
+          ]
+        },
+        "explanation": "$a = \\frac{8}{2^2} = \\frac{8}{4} = 2$\n点の座標を式に代入し、$x$ を2乗してから割る。",
+        "difficulty": "basic"
       },
       {
         "id": "math-g3-quad-func-parabola-q2",
-        "question": "下のグラフは $y=ax^2$ のグラフです。$a$ の値を求めましょう。",
-        "options": ["$a=1$", "$a=2$", "$a=\\frac{1}{2}$", "$a=4$"],
-        "correctIndex": 1,
-        "explanation": "グラフは点 $(1,\\ 2)$ を通っています。$y=ax^2$ に代入すると $2=a\\times1^2=a$ なので、$a=2$ です。$a>1$ なので幅のせまい放物線になります。",
-        "difficulty": "basic",
+        "question": "下のグラフは $y=ax^2$ のグラフで、点 $(3,\\ -18)$ を通ります。$a$ の値を求めなさい。",
+        "options": [
+          "$a = 2$",
+          "$a = -6$",
+          "$a = -2$",
+          "$a = -\\frac{1}{2}$"
+        ],
+        "correctIndex": 2,
         "image": {
           "kind": "coordinate",
-          "range": 6,
-          "parabolas": [{ "a": 2 }],
-          "points": [{ "x": 1, "y": 2, "label": "(1, 2)" }]
-        }
+          "range": 20,
+          "parabolas": [
+            {
+              "a": -2
+            }
+          ],
+          "points": [
+            {
+              "x": 3,
+              "y": -18,
+              "label": "(3, -18)",
+              "open": false
+            }
+          ]
+        },
+        "explanation": "$a = \\frac{-18}{3^2} = \\frac{-18}{9} = -2$\n$y$ が負なので $a$ も負になる。",
+        "difficulty": "basic"
       },
       {
         "id": "math-g3-quad-func-parabola-q3",
-        "question": "下のグラフは $y=ax^2$ のグラフです。$a$ の値を求めましょう。",
-        "options": ["$a=\\frac{1}{2}$", "$a=-2$", "$a=-\\frac{1}{2}$", "$a=-1$"],
-        "correctIndex": 2,
-        "explanation": "下に開いた放物線なので $a<0$ です。グラフは点 $(-2,\\ -2)$ を通っているので、$-2=a\\times(-2)^2=4a$ より $a=\\frac{-2}{4}=-\\frac{1}{2}$ です。",
-        "difficulty": "standard",
+        "question": "下のグラフは $y=ax^2$ のグラフで、点 $(4,\\ 8)$ を通ります。$a$ の値を求めなさい。",
+        "options": [
+          "$a = 2$",
+          "$a = \\frac{1}{4}$",
+          "$a = 32$",
+          "$a = \\frac{1}{2}$"
+        ],
+        "correctIndex": 3,
         "image": {
           "kind": "coordinate",
-          "range": 6,
-          "parabolas": [{ "a": -0.5 }],
-          "points": [{ "x": -2, "y": -2, "label": "(-2, -2)" }]
-        }
+          "range": 10,
+          "parabolas": [
+            {
+              "a": 0.5
+            }
+          ],
+          "points": [
+            {
+              "x": 4,
+              "y": 8,
+              "label": "(4, 8)",
+              "open": false
+            }
+          ]
+        },
+        "explanation": "$a = \\frac{8}{4^2} = \\frac{8}{16} = \\frac{1}{2}$\n約分して既約分数にする。",
+        "difficulty": "standard"
       },
       {
         "id": "math-g3-quad-func-parabola-q4",
-        "question": "下のグラフが表す式を求めましょう。",
-        "options": ["$y=3x^2$", "$y=-3x$", "$y=3x$", "$y=-3x^2$"],
-        "correctIndex": 3,
-        "explanation": "下に開いた放物線なので $y=ax^2$ で $a<0$ です。グラフは点 $(1,\\ -3)$ を通るので $-3=a\\times1^2=a$ より $a=-3$。よって $y=-3x^2$ です。",
-        "difficulty": "standard",
-        "image": {
-          "kind": "coordinate",
-          "range": 6,
-          "parabolas": [{ "a": -3 }],
-          "points": [{ "x": 1, "y": -3, "label": "(1, -3)" }]
-        }
+        "question": "関数 $y=2x^2$ について、$x=3$ のときの $y$ の値を求めなさい。",
+        "options": [
+          "$6$",
+          "$18$",
+          "$36$",
+          "$12$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$y = 2 \\times 3^2 = 2 \\times 9 = 18$\n先に $x$ を2乗してから係数をかける。",
+        "difficulty": "basic"
       },
       {
         "id": "math-g3-quad-func-parabola-q5",
-        "question": "下のグラフが表す式を求めましょう。",
-        "options": ["$y=\\frac{1}{4}x^2$", "$y=\\frac{1}{2}x^2$", "$y=4x^2$", "$y=\\frac{1}{4}x$"],
-        "correctIndex": 0,
-        "explanation": "上に開いた幅の広い放物線です。グラフは点 $(2,\\ 1)$ を通るので、$y=ax^2$ に代入して $1=a\\times2^2=4a$ より $a=\\frac{1}{4}$。よって $y=\\frac{1}{4}x^2$ です。",
-        "difficulty": "standard",
-        "image": {
-          "kind": "coordinate",
-          "range": 6,
-          "parabolas": [{ "a": 0.25 }],
-          "points": [{ "x": 2, "y": 1, "label": "(2, 1)" }]
-        }
+        "question": "関数 $y=2x^2$ について、$x=-4$ のときの $y$ の値を求めなさい。",
+        "options": [
+          "$-32$",
+          "$32$",
+          "$16$",
+          "$-8$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$y = 2 \\times (-4)^2 = 2 \\times 16 = 32$\n$x$ を2乗するので、負の数でも $y$ は正になる。",
+        "difficulty": "basic"
       },
       {
         "id": "math-g3-quad-func-parabola-q6",
-        "question": "下のグラフ（$y=\\frac{1}{2}x^2$）が通る点はどれですか。",
-        "options": ["$(2,\\ 4)$", "$(4,\\ 8)$", "$(3,\\ 3)$", "$(2,\\ 1)$"],
-        "correctIndex": 1,
-        "explanation": "$y=\\frac{1}{2}x^2$ に各点を代入して確かめます。$x=4$ のとき $y=\\frac{1}{2}\\times4^2=\\frac{1}{2}\\times16=8$ なので、点 $(4,\\ 8)$ を通ります。",
-        "difficulty": "standard",
-        "image": {
-          "kind": "coordinate",
-          "range": 8,
-          "parabolas": [{ "a": 0.5 }],
-          "points": [{ "x": 4, "y": 8, "label": "(4, 8)" }]
-        }
+        "question": "関数 $y=-3x^2$ について、$x=2$ のときの $y$ の値を求めなさい。",
+        "options": [
+          "$-12$",
+          "$-36$",
+          "$12$",
+          "$-6$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$y = -3 \\times 2^2 = -3 \\times 4 = -12$\n係数は最後にかける。",
+        "difficulty": "standard"
       },
       {
         "id": "math-g3-quad-func-parabola-q7",
-        "question": "下のグラフは $y=ax^2$ のグラフです。$a$ の値を求めましょう。",
-        "options": ["$a=3$", "$a=\\frac{1}{2}$", "$a=\\frac{1}{3}$", "$a=1$"],
-        "correctIndex": 2,
-        "explanation": "グラフは点 $(3,\\ 3)$ を通っています。$y=ax^2$ に代入すると $3=a\\times3^2=9a$ なので、$a=\\frac{3}{9}=\\frac{1}{3}$ です。",
-        "difficulty": "standard",
-        "image": {
-          "kind": "coordinate",
-          "range": 6,
-          "parabolas": [{ "a": 0.3333333333333333 }],
-          "points": [{ "x": 3, "y": 3, "label": "(3, 3)" }]
-        }
+        "question": "関数 $y=\\frac{1}{2}x^2$ について、$x=-6$ のときの $y$ の値を求めなさい。",
+        "options": [
+          "$18$",
+          "$-3$",
+          "$-18$",
+          "$36$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$y = \\frac{1}{2} \\times (-6)^2 = \\frac{1}{2} \\times 36 = 18$\n2乗してから $\\frac{1}{2}$ をかける。",
+        "difficulty": "standard"
       },
       {
         "id": "math-g3-quad-func-parabola-q8",
-        "question": "下のグラフ（$y=-x^2$）が通る点はどれですか。",
-        "options": ["$(2,\\ 4)$", "$(2,\\ 2)$", "$(-2,\\ 4)$", "$(2,\\ -4)$"],
-        "correctIndex": 3,
-        "explanation": "$y=-x^2$ に代入して確かめます。$x=2$ のとき $y=-(2)^2=-4$ なので、点 $(2,\\ -4)$ を通ります。下に開いた放物線なので $y$ の値は負になります。",
-        "difficulty": "basic",
+        "question": "下のグラフは $y=\\frac{1}{2}x^2$ のグラフです。このグラフ上にある点はどれですか。",
+        "options": [
+          "$(2,\\ 4)$",
+          "$(3,\\ 9)$",
+          "$(4,\\ 8)$",
+          "$(6,\\ 3)$"
+        ],
+        "correctIndex": 2,
         "image": {
           "kind": "coordinate",
-          "range": 6,
-          "parabolas": [{ "a": -1 }],
-          "points": [{ "x": 2, "y": -4, "label": "(2, -4)" }]
-        }
+          "range": 10,
+          "parabolas": [
+            {
+              "a": 0.5
+            }
+          ],
+          "points": [
+            {
+              "x": 2,
+              "y": 4,
+              "label": "(2, 4)",
+              "open": false
+            },
+            {
+              "x": 3,
+              "y": 9,
+              "label": "(3, 9)",
+              "open": false
+            },
+            {
+              "x": 6,
+              "y": 3,
+              "label": "(6, 3)",
+              "open": false
+            },
+            {
+              "x": 4,
+              "y": 8,
+              "label": "(4, 8)",
+              "open": false
+            }
+          ]
+        },
+        "explanation": "$y = \\frac{1}{2} \\times 4^2 = \\frac{1}{2} \\times 16 = 8$\n各点の $x$ を代入し、$y$ と一致するか確かめる。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-func-parabola-q9",
+        "question": "下のグラフは $y=3x^2$ のグラフです。このグラフ上にある点はどれですか。",
+        "options": [
+          "$(2,\\ 6)$",
+          "$(-2,\\ 12)$",
+          "$(1,\\ 9)$",
+          "$(3,\\ 9)$"
+        ],
+        "correctIndex": 1,
+        "image": {
+          "kind": "coordinate",
+          "range": 14,
+          "parabolas": [
+            {
+              "a": 3
+            }
+          ],
+          "points": [
+            {
+              "x": -2,
+              "y": 12,
+              "label": "(-2, 12)",
+              "open": false
+            },
+            {
+              "x": 2,
+              "y": 6,
+              "label": "(2, 6)",
+              "open": false
+            },
+            {
+              "x": 1,
+              "y": 9,
+              "label": "(1, 9)",
+              "open": false
+            },
+            {
+              "x": 3,
+              "y": 9,
+              "label": "(3, 9)",
+              "open": false
+            }
+          ]
+        },
+        "explanation": "$y = 3 \\times (-2)^2 = 3 \\times 4 = 12$\n$x$ を代入して $y$ と合う点を選ぶ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-func-parabola-q10",
+        "question": "下の図の点 $(3,\\ 9)$ と $y$ 軸について対称な点の座標を求めなさい。",
+        "options": [
+          "$(3,\\ -9)$",
+          "$(-3,\\ -9)$",
+          "$(-3,\\ 9)$",
+          "$(9,\\ 3)$"
+        ],
+        "correctIndex": 2,
+        "image": {
+          "kind": "coordinate",
+          "range": 10,
+          "points": [
+            {
+              "x": 3,
+              "y": 9,
+              "label": "(3, 9)",
+              "open": false
+            }
+          ]
+        },
+        "explanation": "$y$ 軸対称では $x$ の符号だけ変える。\n$(3,\\ 9) \\rightarrow (-3,\\ 9)$",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-quad-func-parabola-q11",
+        "question": "関数 $y=ax^2$ のグラフ（放物線）は、何について線対称ですか。",
+        "options": [
+          "$x$ 軸",
+          "原点",
+          "直線 $y=x$",
+          "$y$ 軸"
+        ],
+        "correctIndex": 3,
+        "explanation": "放物線 $y=ax^2$ は $y$ 軸（直線 $x=0$）について左右対称になる。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-func-parabola-q12",
+        "question": "関数 $y=ax^2$ のグラフが、$a$ の値に関係なく必ず通る点はどれですか。",
+        "options": [
+          "$(1,\\ 1)$",
+          "$(0,\\ 1)$",
+          "$(0,\\ 0)$",
+          "$(1,\\ 0)$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$x=0$ のとき $y = a \\times 0^2 = 0$\nどんな $a$ でも原点 $(0,\\ 0)$ を通る。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-quad-func-parabola-q13",
+        "question": "関数 $y=ax^2$ のグラフが上に開く（下に凸の）形になるのは、$a$ がどんなときですか。",
+        "options": [
+          "$a$ が整数のとき",
+          "$a<0$ のとき",
+          "$a=0$ のとき",
+          "$a>0$ のとき"
+        ],
+        "correctIndex": 3,
+        "explanation": "$a>0$ のとき上に開き、$a<0$ のとき下に開く。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-func-parabola-q14",
+        "question": "次の関数のうち、グラフが下に開く（上に凸の）ものはどれですか。",
+        "options": [
+          "$y=-\\frac{1}{2}x^2$",
+          "$y=3x^2$",
+          "$y=x^2$",
+          "$y=5x^2$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$a<0$ のときグラフは下に開く。$a=-\\frac{1}{2}<0$ なので下に開く。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-func-parabola-q15",
+        "question": "次の関数のうち、グラフの開き方が最も大きい（最も横に広がる）ものはどれですか。",
+        "options": [
+          "$y=\\frac{1}{3}x^2$",
+          "$y=3x^2$",
+          "$y=2x^2$",
+          "$y=x^2$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$a$ の絶対値が小さいほど開き方が大きい。$\\frac{1}{3}$ が最小なので最も広がる。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-quad-func-parabola-q16",
+        "question": "次の関数のうち、グラフの開き方が最も小さい（最もとがっている）ものはどれですか。",
+        "options": [
+          "$y=\\frac{1}{2}x^2$",
+          "$y=-4x^2$",
+          "$y=-3x^2$",
+          "$y=2x^2$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$a$ の絶対値が大きいほど開き方が小さい。$|-4|=4$ が最大なので最もとがる。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-quad-func-parabola-q17",
+        "question": "下のグラフは $y=ax^2$ のグラフで、点 $(2,\\ -2)$ を通ります。$a$ の値を求めなさい。",
+        "options": [
+          "$a = -\\frac{1}{2}$",
+          "$a = -2$",
+          "$a = \\frac{1}{2}$",
+          "$a = -1$"
+        ],
+        "correctIndex": 0,
+        "image": {
+          "kind": "coordinate",
+          "range": 10,
+          "parabolas": [
+            {
+              "a": -0.5
+            }
+          ],
+          "points": [
+            {
+              "x": 2,
+              "y": -2,
+              "label": "(2, -2)",
+              "open": false
+            }
+          ]
+        },
+        "explanation": "$a = \\frac{-2}{2^2} = \\frac{-2}{4} = -\\frac{1}{2}$\n約分して既約分数にする。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-quad-func-parabola-q18",
+        "question": "関数 $y=ax^2$ のグラフが点 $(-3,\\ 6)$ を通るとき、$a$ の値を求めなさい。",
+        "options": [
+          "$a = \\frac{3}{2}$",
+          "$a = \\frac{2}{3}$",
+          "$a = -\\frac{2}{3}$",
+          "$a = 2$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$a = \\frac{6}{(-3)^2} = \\frac{6}{9} = \\frac{2}{3}$\n$x$ を2乗すると正になる。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-quad-func-parabola-q19",
+        "question": "下のグラフは $y=2x^2$ のグラフです。$y=8$ となる $x$ の値をすべて求めなさい。",
+        "options": [
+          "$x = 2$",
+          "$x = 4$",
+          "$x = \\pm 4$",
+          "$x = \\pm 2$"
+        ],
+        "correctIndex": 3,
+        "image": {
+          "kind": "coordinate",
+          "range": 10,
+          "parabolas": [
+            {
+              "a": 2
+            }
+          ],
+          "lines": [
+            {
+              "a": 0,
+              "b": 8
+            }
+          ]
+        },
+        "explanation": "$2x^2 = 8$, $x^2 = 4$, $x = \\pm 2$\n2乗して4になる数は正負の2つある。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-func-parabola-q20",
+        "question": "関数 $y=x^2$ のグラフ上にある点はどれですか。",
+        "options": [
+          "$(2,\\ 2)$",
+          "$(3,\\ 6)$",
+          "$(-5,\\ 25)$",
+          "$(-4,\\ -16)$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$y = (-5)^2 = 25$\n$x$ を2乗した値が $y$ になる点を選ぶ。",
+        "difficulty": "basic"
       }
     ]
   }

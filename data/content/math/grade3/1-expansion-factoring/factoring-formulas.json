@@ -9,6 +9,280 @@
   "videos": [],
   "flashcards": [],
   "quiz": {
-    "questions": []
+    "questions": [
+      {
+        "id": "math-g3-factoring-formulas-q1",
+        "question": "次の式を因数分解しましょう。\n$x^2+7x+12$",
+        "options": [
+          "$(x+2)(x+6)$",
+          "$(x+3)(x+4)$",
+          "$(x-3)(x-4)$",
+          "$(x+1)(x+12)$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$x^2+7x+12=(x+3)(x+4)$\nかけて $12$、足して $7$ になる $2$ 数は $3$ と $4$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-factoring-formulas-q2",
+        "question": "次の式を因数分解しましょう。\n$x^2-5x+6$",
+        "options": [
+          "$(x-2)(x-3)$",
+          "$(x+2)(x+3)$",
+          "$(x-1)(x-6)$",
+          "$(x-2)(x+3)$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$x^2-5x+6=(x-2)(x-3)$\nかけて $6$、足して $-5$ になる $2$ 数は $-2$ と $-3$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-factoring-formulas-q3",
+        "question": "次の式を因数分解しましょう。\n$x^2+x-6$",
+        "options": [
+          "$(x+3)(x-2)$",
+          "$(x+6)(x-1)$",
+          "$(x-3)(x+2)$",
+          "$(x+2)(x+3)$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$x^2+x-6=(x+3)(x-2)$\nかけて $-6$、足して $1$ になる $2$ 数は $3$ と $-2$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-factoring-formulas-q4",
+        "question": "次の式を因数分解しましょう。\n$x^2+8x+16$",
+        "options": [
+          "$(x+8)^2$",
+          "$(x+4)^2$",
+          "$(x+2)(x+8)$",
+          "$(x-4)^2$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$x^2+8x+16=(x+4)^2$\n$16=4^2$、$8=2\\times4$ なので $(x+4)^2$ になります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-factoring-formulas-q5",
+        "question": "次の式を因数分解しましょう。\n$x^2-49$",
+        "options": [
+          "$(x+7)(x-7)$",
+          "$(x-7)^2$",
+          "$(x+7)^2$",
+          "$(x+1)(x-49)$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$x^2-49=(x+7)(x-7)$\n$49=7^2$ で、$a^2-b^2=(a+b)(a-b)$ を使います。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-factoring-formulas-q6",
+        "question": "次の式を因数分解しましょう。\n$x^2-9x+20$",
+        "options": [
+          "$(x+4)(x+5)$",
+          "$(x-2)(x-10)$",
+          "$(x-4)(x-5)$",
+          "$(x-1)(x-20)$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$x^2-9x+20=(x-4)(x-5)$\nかけて $20$、足して $-9$ になる $2$ 数は $-4$ と $-5$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-factoring-formulas-q7",
+        "question": "次の式を因数分解しましょう。\n$x^2-2x-15$",
+        "options": [
+          "$(x+5)(x-3)$",
+          "$(x+5)(x+3)$",
+          "$(x-5)(x-3)$",
+          "$(x-5)(x+3)$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$x^2-2x-15=(x-5)(x+3)$\nかけて $-15$、足して $-2$ になる $2$ 数は $-5$ と $3$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-factoring-formulas-q8",
+        "question": "次の式を因数分解しましょう。\n$x^2+9x+18$",
+        "options": [
+          "$(x+2)(x+9)$",
+          "$(x+1)(x+18)$",
+          "$(x-3)(x-6)$",
+          "$(x+3)(x+6)$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$x^2+9x+18=(x+3)(x+6)$\nかけて $18$、足して $9$ になる $2$ 数は $3$ と $6$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-factoring-formulas-q9",
+        "question": "次の式を因数分解しましょう。\n$x^2-x-12$",
+        "options": [
+          "$(x-4)(x+3)$",
+          "$(x+4)(x-3)$",
+          "$(x-6)(x+2)$",
+          "$(x-4)(x-3)$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$x^2-x-12=(x-4)(x+3)$\nかけて $-12$、足して $-1$ になる $2$ 数は $-4$ と $3$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-factoring-formulas-q10",
+        "question": "次の式を因数分解しましょう。\n$x^2+10x+25$",
+        "options": [
+          "$(x-5)^2$",
+          "$(x+5)(x+10)$",
+          "$(x+5)^2$",
+          "$(x+1)(x+25)$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$x^2+10x+25=(x+5)^2$\n$25=5^2$、$10=2\\times5$ なので $(x+5)^2$ になります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-factoring-formulas-q11",
+        "question": "次の式を因数分解しましょう。\n$x^2-12x+36$",
+        "options": [
+          "$(x+6)^2$",
+          "$(x-6)^2$",
+          "$(x-4)(x-9)$",
+          "$(x-2)(x-18)$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$x^2-12x+36=(x-6)^2$\n$36=6^2$、$12=2\\times6$ なので $(x-6)^2$ になります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-factoring-formulas-q12",
+        "question": "次の式を因数分解しましょう。\n$x^2-64$",
+        "options": [
+          "$(x+8)^2$",
+          "$(x-8)^2$",
+          "$(x+8)(x-8)$",
+          "$(x+4)(x-16)$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$x^2-64=(x+8)(x-8)$\n$64=8^2$ で、$a^2-b^2=(a+b)(a-b)$ を使います。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-factoring-formulas-q13",
+        "question": "次の式を因数分解しましょう。\n$x^2+2x-8$",
+        "options": [
+          "$(x+4)(x-2)$",
+          "$(x-4)(x+2)$",
+          "$(x+8)(x-1)$",
+          "$(x-4)(x-2)$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$x^2+2x-8=(x+4)(x-2)$\nかけて $-8$、足して $2$ になる $2$ 数は $4$ と $-2$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-factoring-formulas-q14",
+        "question": "次の式を因数分解しましょう。\n$x^2-13x+40$",
+        "options": [
+          "$(x+5)(x+8)$",
+          "$(x-5)(x-8)$",
+          "$(x-4)(x-10)$",
+          "$(x-2)(x-20)$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$x^2-13x+40=(x-5)(x-8)$\nかけて $40$、足して $-13$ になる $2$ 数は $-5$ と $-8$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-factoring-formulas-q15",
+        "question": "次の式を因数分解しましょう。\n$x^2+3x-10$",
+        "options": [
+          "$(x-5)(x+2)$",
+          "$(x+10)(x-1)$",
+          "$(x-5)(x-2)$",
+          "$(x+5)(x-2)$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$x^2+3x-10=(x+5)(x-2)$\nかけて $-10$、足して $3$ になる $2$ 数は $5$ と $-2$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-factoring-formulas-q16",
+        "question": "次の式を因数分解しましょう。\n$x^2-100$",
+        "options": [
+          "$(x-10)^2$",
+          "$(x+10)^2$",
+          "$(x+5)(x-20)$",
+          "$(x+10)(x-10)$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$x^2-100=(x+10)(x-10)$\n$100=10^2$ で、$a^2-b^2=(a+b)(a-b)$ を使います。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-factoring-formulas-q17",
+        "question": "次の式を因数分解しましょう。\n$x^2+11x+24$",
+        "options": [
+          "$(x+2)(x+12)$",
+          "$(x+4)(x+6)$",
+          "$(x+3)(x+8)$",
+          "$(x+1)(x+24)$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$x^2+11x+24=(x+3)(x+8)$\nかけて $24$、足して $11$ になる $2$ 数は $3$ と $8$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-factoring-formulas-q18",
+        "question": "次の式を因数分解しましょう。\n$x^2-7x-18$",
+        "options": [
+          "$(x+9)(x-2)$",
+          "$(x-6)(x+3)$",
+          "$(x-9)(x+2)$",
+          "$(x-9)(x-2)$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$x^2-7x-18=(x-9)(x+2)$\nかけて $-18$、足して $-7$ になる $2$ 数は $-9$ と $2$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-factoring-formulas-q19",
+        "question": "次の式を因数分解しましょう。\n$x^2+5x-24$",
+        "options": [
+          "$(x-8)(x+3)$",
+          "$(x+8)(x-3)$",
+          "$(x+6)(x-4)$",
+          "$(x-8)(x-3)$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$x^2+5x-24=(x+8)(x-3)$\nかけて $-24$、足して $5$ になる $2$ 数は $8$ と $-3$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-factoring-formulas-q20",
+        "question": "次の式を因数分解しましょう。\n$x^2-14x+49$",
+        "options": [
+          "$(x+7)^2$",
+          "$(x+7)(x-7)$",
+          "$(x-1)(x-49)$",
+          "$(x-7)^2$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$x^2-14x+49=(x-7)^2$\n$49=7^2$、$14=2\\times7$ なので $(x-7)^2$ になります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-factoring-formulas-q21",
+        "question": "次の式を因数分解しましょう。\n$x^2-3x-40$",
+        "options": [
+          "$(x-8)(x+5)$",
+          "$(x+8)(x-5)$",
+          "$(x-10)(x+4)$",
+          "$(x-8)(x-5)$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$x^2-3x-40=(x-8)(x+5)$\nかけて $-40$、足して $-3$ になる $2$ 数は $-8$ と $5$ です。",
+        "difficulty": "advanced"
+      }
+    ]
   }
 }

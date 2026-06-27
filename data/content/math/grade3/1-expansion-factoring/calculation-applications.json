@@ -9,6 +9,280 @@
   "videos": [],
   "flashcards": [],
   "quiz": {
-    "questions": []
+    "questions": [
+      {
+        "id": "math-g3-calc-applications-q1",
+        "question": "$98^2$ を、展開の公式を使って工夫して計算しましょう。",
+        "options": [
+          "$9600$",
+          "$9996$",
+          "$9604$",
+          "$9804$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$98^2=(100-2)^2=100^2-2\\times100\\times2+2^2$\n$=10000-400+4=9604$。$(a-b)^2$ の公式を使うと暗算しやすくなります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-calc-applications-q2",
+        "question": "$103\\times97$ を、展開の公式を使って工夫して計算しましょう。",
+        "options": [
+          "$9991$",
+          "$10009$",
+          "$9997$",
+          "$10003$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$103\\times97=(100+3)(100-3)=100^2-3^2$\n$=10000-9=9991$。和と差の積 $(a+b)(a-b)=a^2-b^2$ を利用します。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-calc-applications-q3",
+        "question": "$52^2-48^2$ を、因数分解を使って工夫して計算しましょう。",
+        "options": [
+          "$16$",
+          "$400$",
+          "$200$",
+          "$100$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$52^2-48^2=(52+48)(52-48)=100\\times4=400$。$a^2-b^2=(a+b)(a-b)$ で因数分解してから計算します。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-calc-applications-q4",
+        "question": "$63^2-37^2$ を、因数分解を使って工夫して計算しましょう。",
+        "options": [
+          "$26$",
+          "$676$",
+          "$1300$",
+          "$2600$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$63^2-37^2=(63+37)(63-37)=100\\times26=2600$。和 $100$ と差 $26$ をかけるだけで求められます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-calc-applications-q5",
+        "question": "$101^2$ を、展開の公式を使って工夫して計算しましょう。",
+        "options": [
+          "$10001$",
+          "$10101$",
+          "$10201$",
+          "$10002$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$101^2=(100+1)^2=100^2+2\\times100\\times1+1^2$\n$=10000+200+1=10201$。まん中の項 $2\\times100\\times1=200$ を忘れないようにします。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-calc-applications-q6",
+        "question": "$48\\times52$ を、展開の公式を使って工夫して計算しましょう。",
+        "options": [
+          "$2504$",
+          "$2500$",
+          "$2596$",
+          "$2496$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$48\\times52=(50-2)(50+2)=50^2-2^2$\n$=2500-4=2496$。和と差の積に直すと簡単です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-calc-applications-q7",
+        "question": "$x=7$ のとき、$x^2-6x+9$ の値を求めましょう。",
+        "options": [
+          "$100$",
+          "$16$",
+          "$4$",
+          "$58$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$x^2-6x+9=(x-3)^2$ と因数分解してから代入すると\n$(7-3)^2=4^2=16$。先に因数分解すると計算がらくになります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-calc-applications-q8",
+        "question": "$x=53$、$y=47$ のとき、$x^2-y^2$ の値を求めましょう。",
+        "options": [
+          "$6$",
+          "$36$",
+          "$100$",
+          "$600$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$x^2-y^2=(x+y)(x-y)=(53+47)(53-47)$\n$=100\\times6=600$。先に因数分解してから代入します。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-calc-applications-q9",
+        "question": "$a=2+\\sqrt{3}$、$b=2-\\sqrt{3}$ のとき、$a^2-b^2$ の値を求めましょう。",
+        "options": [
+          "$4\\sqrt{3}$",
+          "$4$",
+          "$2\\sqrt{3}$",
+          "$8\\sqrt{3}$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$a^2-b^2=(a+b)(a-b)$ で、$a+b=4$、$a-b=2\\sqrt{3}$ だから\n$4\\times2\\sqrt{3}=8\\sqrt{3}$。先に因数分解すると平方根の計算が減ります。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-calc-applications-q10",
+        "question": "$x=2+\\sqrt{5}$、$y=2-\\sqrt{5}$ のとき、$xy$ の値を求めましょう。",
+        "options": [
+          "$-1$",
+          "$9$",
+          "$-9$",
+          "$1$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$xy=(2+\\sqrt{5})(2-\\sqrt{5})=2^2-(\\sqrt{5})^2$\n$=4-5=-1$。和と差の積の公式を使います。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-calc-applications-q11",
+        "question": "$x=2+\\sqrt{5}$、$y=2-\\sqrt{5}$ のとき、$x^2+y^2$ の値を求めましょう。",
+        "options": [
+          "$9$",
+          "$18$",
+          "$14$",
+          "$8$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$x+y=4$、$xy=-1$ だから $x^2+y^2=(x+y)^2-2xy$\n$=4^2-2\\times(-1)=16+2=18$。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-calc-applications-q12",
+        "question": "$x=18$ のとき、$x^2+4x+4$ の値を求めましょう。",
+        "options": [
+          "$400$",
+          "$324$",
+          "$484$",
+          "$256$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$x^2+4x+4=(x+2)^2$ と因数分解してから代入すると\n$(18+2)^2=20^2=400$。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-calc-applications-q13",
+        "question": "連続する2つの整数があります。小さい方を整数 $n$ で表すとき、大きい方を表す式はどれですか。",
+        "options": [
+          "$n+2$",
+          "$n-1$",
+          "$2n$",
+          "$n+1$"
+        ],
+        "correctIndex": 3,
+        "explanation": "連続する整数は $1$ ずつ大きくなるので、小さい方が $n$ なら大きい方は $n+1$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-calc-applications-q14",
+        "question": "$n$ を整数とするとき、偶数を表す式として正しいものはどれですか。",
+        "options": [
+          "$2n+1$",
+          "$n+2$",
+          "$2n$",
+          "$n^2$"
+        ],
+        "correctIndex": 2,
+        "explanation": "偶数は $2$ の倍数だから、整数 $n$ を使って $2n$ と表せます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-calc-applications-q15",
+        "question": "$n$ を整数とするとき、奇数を表す式として正しいものはどれですか。",
+        "options": [
+          "$2n$",
+          "$3n$",
+          "$2n+1$",
+          "$n+1$"
+        ],
+        "correctIndex": 2,
+        "explanation": "奇数は偶数 $2n$ より $1$ 大きい数なので、$2n+1$ と表せます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-calc-applications-q16",
+        "question": "連続する2つの奇数の和について、小さい方を $2n+1$、大きい方を $2n+3$ とします。この和はどんな数になりますか。",
+        "options": [
+          "$4$ の倍数",
+          "奇数",
+          "$2$ の倍数だが $4$ の倍数ではない数",
+          "$3$ の倍数"
+        ],
+        "correctIndex": 0,
+        "explanation": "$(2n+1)+(2n+3)=4n+4=4(n+1)$。$n+1$ は整数だから、この和はつねに $4$ の倍数になります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-calc-applications-q17",
+        "question": "連続する3つの整数の和が3の倍数になることを示します。最も小さい整数を $n$ とするとき、3つの整数の和を表す式はどれですか。",
+        "options": [
+          "$3n$",
+          "$3n+3$",
+          "$3n+1$",
+          "$3n+2$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$n+(n+1)+(n+2)=3n+3=3(n+1)$。$n+1$ は整数だから和は $3$ の倍数です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-calc-applications-q18",
+        "question": "連続する3つの整数の和が3の倍数になることを、まん中の整数を $n$ とおいて示します。このとき3つの整数の和を表す式はどれですか。",
+        "options": [
+          "$3n$",
+          "$3n+3$",
+          "$3n-3$",
+          "$3n+1$"
+        ],
+        "correctIndex": 0,
+        "explanation": "まん中を $n$ とすると3つは $n-1$、$n$、$n+1$ で、和は $(n-1)+n+(n+1)=3n$。よって $3$ の倍数です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-calc-applications-q19",
+        "question": "連続する2つの整数のうち、大きい方の2乗から小さい方の2乗をひいた差について調べます。小さい方を $n$ とするとき、この差はどんな数といえますか。",
+        "options": [
+          "偶数になる",
+          "もとの2つの整数の和に等しい",
+          "$3$ の倍数になる",
+          "$4$ の倍数になる"
+        ],
+        "correctIndex": 1,
+        "explanation": "$(n+1)^2-n^2=2n+1$。これは $n+(n+1)$ と等しいので、もとの2つの整数の和になります。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-calc-applications-q20",
+        "question": "2けたの自然数と、その十の位と一の位を入れかえた数の和を考えます。十の位を $a$、一の位を $b$ とするとき、2つの数の和を表す式はどれですか。",
+        "options": [
+          "$11(a+b)$",
+          "$11a+b$",
+          "$10a+b$",
+          "$9(a-b)$"
+        ],
+        "correctIndex": 0,
+        "explanation": "もとの数は $10a+b$、入れかえた数は $10b+a$ だから\n$(10a+b)+(10b+a)=11a+11b=11(a+b)$。$11$ の倍数になります。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-calc-applications-q21",
+        "question": "2けたの自然数から、その十の位と一の位を入れかえた数をひいた差を考えます。十の位を $a$、一の位を $b$ とするとき、その差を表す式はどれですか。",
+        "options": [
+          "$11(a+b)$",
+          "$9(a+b)$",
+          "$9(a-b)$",
+          "$a-b$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$(10a+b)-(10b+a)=9a-9b=9(a-b)$。$a-b$ は整数だから、この差は $9$ の倍数になります。",
+        "difficulty": "advanced"
+      }
+    ]
   }
 }

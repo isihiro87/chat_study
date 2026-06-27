@@ -9,6 +9,267 @@
   "videos": [],
   "flashcards": [],
   "quiz": {
-    "questions": []
+    "questions": [
+      {
+        "id": "math-g3-quad-eq-factoring-q1",
+        "question": "次の方程式を解きましょう。\n$x^2 + 5x + 6 = 0$",
+        "options": [
+          "$x = -2, -3$",
+          "$x = 2, 3$",
+          "$x = -1, -6$",
+          "$x = -2$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$(x+2)(x+3)=0$\n$x=-2, -3$\nかけて $6$、たして $5$ になる $2$ と $3$ で因数分解する。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-quad-eq-factoring-q2",
+        "question": "次の方程式を解きましょう。\n$x^2 - 7x + 12 = 0$",
+        "options": [
+          "$x = -3, -4$",
+          "$x = 3, 4$",
+          "$x = 2, 6$",
+          "$x = 3$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$(x-3)(x-4)=0$\n$x=3, 4$\nかけて $12$、たして $-7$ になる $-3$ と $-4$ を使う。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-quad-eq-factoring-q3",
+        "question": "次の方程式を解きましょう。\n$x^2 - 9 = 0$",
+        "options": [
+          "$x = 3$",
+          "$x = \\pm 3$",
+          "$x = \\pm 9$",
+          "$x = -3$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$(x+3)(x-3)=0$\n$x=\\pm 3$\n$x^2 - 9 = x^2 - 3^2$ と見て平方の差で因数分解する。負の解も忘れない。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-quad-eq-factoring-q4",
+        "question": "次の方程式を解きましょう。\n$x^2 + 6x = 0$",
+        "options": [
+          "$x = 0, 6$",
+          "$x = -6$",
+          "$x = 6$",
+          "$x = 0, -6$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$x(x+6)=0$\n$x=0, -6$\n共通因数 $x$ でくくる。$x=0$ の解を落とさない。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-quad-eq-factoring-q5",
+        "question": "次の方程式を解きましょう。\n$x^2 - 5x + 6 = 0$",
+        "options": [
+          "$x = -2, -3$",
+          "$x = 2, 3$",
+          "$x = 1, 6$",
+          "$x = 3$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$(x-2)(x-3)=0$\n$x=2, 3$\nかけて $6$、たして $-5$ になる $-2$ と $-3$ を使う。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-quad-eq-factoring-q6",
+        "question": "次の方程式を解きましょう。\n$x^2 - 3x = 0$",
+        "options": [
+          "$x = 0, 3$",
+          "$x = 3$",
+          "$x = 0, -3$",
+          "$x = -3$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$x(x-3)=0$\n$x=0, 3$\n共通因数 $x$ でくくる。$x=0$ も解になる。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-quad-eq-factoring-q7",
+        "question": "次の方程式を解きましょう。\n$(x+1)(x-4) = 0$",
+        "options": [
+          "$x = 1, -4$",
+          "$x = 1, 4$",
+          "$x = -1, 4$",
+          "$x = -1$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$x+1=0$ または $x-4=0$\n$x=-1, 4$\n$AB=0$ なら $A=0$ または $B=0$。それぞれ符号を逆にして解く。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-quad-eq-factoring-q8",
+        "question": "次の方程式を解きましょう。\n$x^2 - 16 = 0$",
+        "options": [
+          "$x = 4$",
+          "$x = \\pm 16$",
+          "$x = -4$",
+          "$x = \\pm 4$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$(x+4)(x-4)=0$\n$x=\\pm 4$\n$x^2 - 16 = x^2 - 4^2$ と見て平方の差で因数分解する。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-quad-eq-factoring-q9",
+        "question": "次の方程式を解きましょう。\n$x^2 + x - 12 = 0$",
+        "options": [
+          "$x = 4, -3$",
+          "$x = -4, 3$",
+          "$x = 4, 3$",
+          "$x = 3$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$(x+4)(x-3)=0$\n$x=-4, 3$\nかけて $-12$、たして $1$ になる $4$ と $-3$ を使う。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-eq-factoring-q10",
+        "question": "次の方程式を解きましょう。\n$x^2 + 8x + 15 = 0$",
+        "options": [
+          "$x = 3, 5$",
+          "$x = -1, -15$",
+          "$x = -3, -5$",
+          "$x = -5$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$(x+3)(x+5)=0$\n$x=-3, -5$\nかけて $15$、たして $8$ になる $3$ と $5$ を使う。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-eq-factoring-q11",
+        "question": "次の方程式を解きましょう。\n$x^2 - 2x - 15 = 0$",
+        "options": [
+          "$x = -5, 3$",
+          "$x = 5, 3$",
+          "$x = -5$",
+          "$x = 5, -3$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$(x-5)(x+3)=0$\n$x=5, -3$\nかけて $-15$、たして $-2$ になる $-5$ と $3$ を使う。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-eq-factoring-q12",
+        "question": "次の方程式を解きましょう。\n$x^2 - 10x + 25 = 0$",
+        "options": [
+          "$x = 5, -5$",
+          "$x = -5$",
+          "$x = \\pm 5$",
+          "$x = 5$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$(x-5)^2=0$\n$x=5$\nかけて $25$、たして $-10$ になる $-5$ が重なるので、解は $1$ つ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-eq-factoring-q13",
+        "question": "次の方程式を解きましょう。\n$x^2 + 7x + 10 = 0$",
+        "options": [
+          "$x = -2, -5$",
+          "$x = 2, 5$",
+          "$x = -1, -10$",
+          "$x = -5$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$(x+2)(x+5)=0$\n$x=-2, -5$\nかけて $10$、たして $7$ になる $2$ と $5$ を使う。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-eq-factoring-q14",
+        "question": "次の方程式を解きましょう。\n$x^2 + 2x - 8 = 0$",
+        "options": [
+          "$x = -4, 2$",
+          "$x = 4, -2$",
+          "$x = -4, -2$",
+          "$x = 2$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$(x+4)(x-2)=0$\n$x=-4, 2$\nかけて $-8$、たして $2$ になる $4$ と $-2$ を使う。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-eq-factoring-q15",
+        "question": "次の方程式を解きましょう。\n$x^2 - x - 20 = 0$",
+        "options": [
+          "$x = -5, 4$",
+          "$x = 5, 4$",
+          "$x = 5, -4$",
+          "$x = -4$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$(x-5)(x+4)=0$\n$x=5, -4$\nかけて $-20$、たして $-1$ になる $-5$ と $4$ を使う。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-eq-factoring-q16",
+        "question": "次の方程式を解きましょう。\n$x^2 - 8x + 16 = 0$",
+        "options": [
+          "$x = 4, -4$",
+          "$x = \\pm 4$",
+          "$x = 4$",
+          "$x = -4$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$(x-4)^2=0$\n$x=4$\nかけて $16$、たして $-8$ になる $-4$ が重なるので、解は $1$ つ。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-eq-factoring-q17",
+        "question": "次の方程式を解きましょう。\n$2x^2 - 8x = 0$",
+        "options": [
+          "$x = 0, 4$",
+          "$x = 4$",
+          "$x = 0, -4$",
+          "$x = 0, 2$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$2x(x-4)=0$\n$x=0, 4$\n共通因数 $2x$ でくくる。$x=0$ の解を落とさない。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-quad-eq-factoring-q18",
+        "question": "次の方程式を解きましょう。\n$x^2 + 12x + 36 = 0$",
+        "options": [
+          "$x = 6$",
+          "$x = 6, -6$",
+          "$x = \\pm 6$",
+          "$x = -6$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$(x+6)^2=0$\n$x=-6$\nかけて $36$、たして $12$ になる $6$ が重なるので、解は $1$ つ。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-quad-eq-factoring-q19",
+        "question": "次の方程式を解きましょう。\n$3x^2 - 27 = 0$",
+        "options": [
+          "$x = \\pm 9$",
+          "$x = \\pm 3$",
+          "$x = 3$",
+          "$x = \\pm 27$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$x^2 - 9 = 0$、$(x+3)(x-3)=0$\n$x=\\pm 3$\n両辺を $3$ でわってから平方の差で因数分解する。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-quad-eq-factoring-q20",
+        "question": "次の方程式を解きましょう。\n$2x^2 + 10x = 0$",
+        "options": [
+          "$x = 0, 5$",
+          "$x = -5$",
+          "$x = 0, -5$",
+          "$x = 0, -10$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$2x(x+5)=0$\n$x=0, -5$\n共通因数 $2x$ でくくる。$x=0$ も解になる。",
+        "difficulty": "advanced"
+      }
+    ]
   }
 }

@@ -644,71 +644,167 @@ export const lineScopeIndex: Record<ScopeSubjectId, Record<ScopeGrade, ScopeEra[
   "english": {
     "1": [
       {
-        "eraId": "english-grade1",
-        "eraName": "中1 英語",
-        "eraIcon": "📘",
+        "eraId": "eng-be-verbs",
+        "eraName": "be動詞",
+        "eraIcon": "🔤",
         "eraPeriod": "中1の英文法",
         "topics": [
           {
             "name": "be動詞",
             "subtitle": "am / is / are の使い分けをマスター",
             "icon": "🔤"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "eng-general-verbs",
+        "eraName": "一般動詞",
+        "eraIcon": "🏃",
+        "eraPeriod": "中1の英文法",
+        "topics": [
           {
             "name": "一般動詞",
             "subtitle": "like / play / study ... 動きを表すことば",
             "icon": "🏃"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "eng-can",
+        "eraName": "can（〜できる）",
+        "eraIcon": "💪",
+        "eraPeriod": "中1の英文法",
+        "topics": [
           {
             "name": "can（〜できる）",
             "subtitle": "〜できる / 〜できない / 〜できますか",
             "icon": "💪"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "eng-nouns",
+        "eraName": "名詞",
+        "eraIcon": "📝",
+        "eraPeriod": "中1の英文法",
+        "topics": [
           {
             "name": "名詞",
             "subtitle": "単数・複数 / this・that",
             "icon": "📝"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "eng-question-words",
+        "eraName": "疑問詞",
+        "eraIcon": "❓",
+        "eraPeriod": "中1の英文法",
+        "topics": [
           {
             "name": "疑問詞",
             "subtitle": "what / who / where / when / how",
             "icon": "❓"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "eng-nouns-advanced",
+        "eraName": "名詞の応用",
+        "eraIcon": "📝",
+        "eraPeriod": "中1の英文法",
+        "topics": [
           {
             "name": "名詞の応用",
             "subtitle": "不規則複数形 / How many / these・those",
             "icon": "📝"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "eng-question-patterns",
+        "eraName": "疑問詞の応用",
+        "eraIcon": "❓",
+        "eraPeriod": "中1の英文法",
+        "topics": [
           {
             "name": "疑問詞の応用",
             "subtitle": "前置詞 / What+名詞 / How do you ~?",
             "icon": "❓"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "eng-imperatives",
+        "eraName": "命令文",
+        "eraIcon": "📣",
+        "eraPeriod": "中1の英文法",
+        "topics": [
           {
             "name": "命令文",
             "subtitle": "〜しなさい / 〜してください / 〜しましょう",
             "icon": "📣"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "eng-third-person-singular",
+        "eraName": "三人称単数現在",
+        "eraIcon": "👆",
+        "eraPeriod": "中1の英文法",
+        "topics": [
           {
             "name": "三人称単数現在",
             "subtitle": "he / she / it + 動詞s の使い方",
             "icon": "👆"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "eng-pronouns",
+        "eraName": "代名詞",
+        "eraIcon": "👥",
+        "eraPeriod": "中1の英文法",
+        "topics": [
           {
             "name": "代名詞",
             "subtitle": "主格・所有格・目的格・所有代名詞と Whose / Which の使い方",
             "icon": "👥"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "eng-present-progressive",
+        "eraName": "現在進行形",
+        "eraIcon": "🏃",
+        "eraPeriod": "中1の英文法",
+        "topics": [
           {
             "name": "現在進行形",
             "subtitle": "be動詞 + 〜ing で「今〜している」",
             "icon": "🏃"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "eng-exclamatives",
+        "eraName": "感嘆文",
+        "eraIcon": "❗",
+        "eraPeriod": "中1の英文法",
+        "topics": [
           {
             "name": "感嘆文",
             "subtitle": "How ~! / What a ~!",
             "icon": "❗"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "eng-past-tense",
+        "eraName": "過去形と過去進行形",
+        "eraIcon": "⏪",
+        "eraPeriod": "中1の英文法",
+        "topics": [
           {
             "name": "過去形と過去進行形",
             "subtitle": "was / were / played / was playing",
@@ -719,36 +815,76 @@ export const lineScopeIndex: Record<ScopeSubjectId, Record<ScopeGrade, ScopeEra[
     ],
     "2": [
       {
-        "eraId": "english-grade2",
-        "eraName": "中2 英語",
-        "eraIcon": "📗",
+        "eraId": "eng-sentence-structures",
+        "eraName": "5つの文構造",
+        "eraIcon": "🏗️",
         "eraPeriod": "中2の英文法",
         "topics": [
           {
             "name": "5つの文構造",
             "subtitle": "be going to / will / SVOO / SVOC",
             "icon": "🏗️"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "eng-conjunctions",
+        "eraName": "接続詞",
+        "eraIcon": "🔗",
+        "eraPeriod": "中2の英文法",
+        "topics": [
           {
             "name": "接続詞",
             "subtitle": "when / if / because / that で文をつなげよう",
             "icon": "🔗"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "eng-infinitives",
+        "eraName": "不定詞",
+        "eraIcon": "🎯",
+        "eraPeriod": "中2の英文法",
+        "topics": [
           {
             "name": "不定詞",
             "subtitle": "to + 動詞の原形 の使い方をマスターしよう",
             "icon": "🎯"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "eng-modal-verbs",
+        "eraName": "助動詞",
+        "eraIcon": "💪",
+        "eraPeriod": "中2の英文法",
+        "topics": [
           {
             "name": "助動詞",
             "subtitle": "can / must / have to / may / should",
             "icon": "💪"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "eng-comparison",
+        "eraName": "比較",
+        "eraIcon": "⚖️",
+        "eraPeriod": "中2の英文法",
+        "topics": [
           {
             "name": "比較",
             "subtitle": "比較級 / 最上級 / as〜as",
             "icon": "⚖️"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "eng-passive-voice",
+        "eraName": "受け身の文",
+        "eraIcon": "🔄",
+        "eraPeriod": "中2の英文法",
+        "topics": [
           {
             "name": "受け身の文",
             "subtitle": "be動詞 + 過去分詞 / by 〜",
@@ -759,56 +895,128 @@ export const lineScopeIndex: Record<ScopeSubjectId, Record<ScopeGrade, ScopeEra[
     ],
     "3": [
       {
-        "eraId": "english-grade3",
-        "eraName": "中3 英語",
-        "eraIcon": "📕",
+        "eraId": "eng-present-perfect",
+        "eraName": "現在完了",
+        "eraIcon": "⏳",
         "eraPeriod": "中3の英文法",
         "topics": [
           {
             "name": "現在完了",
             "subtitle": "have/has + 過去分詞で「過去〜今」をつなぐ",
             "icon": "⏳"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "eng-make-show",
+        "eraName": "make・show の応用",
+        "eraIcon": "🎭",
+        "eraPeriod": "中3の英文法",
+        "topics": [
           {
             "name": "make・show の応用",
             "subtitle": "make 人 〜 / show 人 that の使い方",
             "icon": "🎭"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "eng-present-perfect-progressive",
+        "eraName": "現在完了進行形",
+        "eraIcon": "⏱️",
+        "eraPeriod": "中3の英文法",
+        "topics": [
           {
             "name": "現在完了進行形",
             "subtitle": "have been + ~ing で「ずっと〜し続けている」",
             "icon": "⏱️"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "eng-infinitives-advanced",
+        "eraName": "不定詞（応用）",
+        "eraIcon": "🎯",
+        "eraPeriod": "中3の英文法",
+        "topics": [
           {
             "name": "不定詞（応用）",
             "subtitle": "It is for to / want人to / let人do",
             "icon": "🎯"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "eng-indirect-questions",
+        "eraName": "間接疑問文",
+        "eraIcon": "🤔",
+        "eraPeriod": "中3の英文法",
+        "topics": [
           {
             "name": "間接疑問文",
             "subtitle": "疑問のことばが文の途中に入る言い方",
             "icon": "🤔"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "eng-past-participle-modifier",
+        "eraName": "過去分詞による後置修飾",
+        "eraIcon": "📌",
+        "eraPeriod": "中3の英文法",
+        "topics": [
           {
             "name": "過去分詞による後置修飾",
             "subtitle": "名詞のうしろから「〜された…」と説明を加える形",
             "icon": "📌"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "eng-present-participle-modifier",
+        "eraName": "現在分詞による後置修飾",
+        "eraIcon": "🏷️",
+        "eraPeriod": "中3の英文法",
+        "topics": [
           {
             "name": "現在分詞による後置修飾",
             "subtitle": "名詞のうしろから「〜している…」と説明を加える形",
             "icon": "🏷️"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "eng-contact-clause",
+        "eraName": "接触節",
+        "eraIcon": "📎",
+        "eraPeriod": "中3の英文法",
+        "topics": [
           {
             "name": "接触節",
             "subtitle": "名詞 + 主語 + 動詞 でうしろから説明する形",
             "icon": "📎"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "eng-relative-pronouns",
+        "eraName": "関係代名詞",
+        "eraIcon": "🔗",
+        "eraPeriod": "中3の英文法",
+        "topics": [
           {
             "name": "関係代名詞",
             "subtitle": "who / which / that で名詞をくわしく説明する",
             "icon": "🔗"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "eng-subjunctive",
+        "eraName": "仮定法",
+        "eraIcon": "💭",
+        "eraPeriod": "中3の英文法",
+        "topics": [
           {
             "name": "仮定法",
             "subtitle": "If I were ~ / I wish ~ で想像を伝えよう",
@@ -1444,10 +1652,10 @@ export const lineScopeIndex: Record<ScopeSubjectId, Record<ScopeGrade, ScopeEra[
         ]
       },
       {
-        "eraId": "geo1-world-regions",
-        "eraName": "世界の諸地域",
-        "eraIcon": "🌎",
-        "eraPeriod": "六州の地誌",
+        "eraId": "geo1-asia",
+        "eraName": "アジア州",
+        "eraIcon": "🌏",
+        "eraPeriod": "世界の諸地域",
         "topics": [
           {
             "name": "アジア州(1) 自然・文化・NIES",
@@ -1463,7 +1671,15 @@ export const lineScopeIndex: Record<ScopeSubjectId, Record<ScopeGrade, ScopeEra[
             "name": "アジア州(3) 南アジア・西アジア",
             "subtitle": "インド・ICT産業・ヒンドゥー教・OPEC・レアメタル",
             "icon": "💻"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "geo1-europe",
+        "eraName": "ヨーロッパ州",
+        "eraIcon": "🏰",
+        "eraPeriod": "世界の諸地域",
+        "topics": [
           {
             "name": "ヨーロッパ州(1) 自然・文化",
             "subtitle": "自然環境・地形・農業・言語",
@@ -1478,7 +1694,15 @@ export const lineScopeIndex: Record<ScopeSubjectId, Record<ScopeGrade, ScopeEra[
             "name": "ヨーロッパ州(3) 課題・ロシア",
             "subtitle": "EU課題・ブレグジット・ロシア",
             "icon": "🌍"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "geo1-africa",
+        "eraName": "アフリカ州",
+        "eraIcon": "🦁",
+        "eraPeriod": "世界の諸地域",
+        "topics": [
           {
             "name": "アフリカ州(1) 自然・歴史",
             "subtitle": "サハラ砂漠・ナイル川・キリマンジャロ・北と南の文化",
@@ -1493,7 +1717,15 @@ export const lineScopeIndex: Record<ScopeSubjectId, Record<ScopeGrade, ScopeEra[
             "name": "アフリカ州(3) 社会変化",
             "subtitle": "国境線・民族紛争・砂漠化・ルワンダの和解",
             "icon": "🌍"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "geo1-north-america",
+        "eraName": "北アメリカ州",
+        "eraIcon": "🗽",
+        "eraPeriod": "世界の諸地域",
+        "topics": [
           {
             "name": "北アメリカ州(1) 自然・農業",
             "subtitle": "ロッキー山脈・適地適作・アグリビジネス",
@@ -1503,7 +1735,15 @@ export const lineScopeIndex: Record<ScopeSubjectId, Record<ScopeGrade, ScopeEra[
             "name": "北アメリカ州(2) 工業・生活文化",
             "subtitle": "ラストベルト・シリコンバレー・ヒスパニック",
             "icon": "🗽"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "geo1-south-america",
+        "eraName": "南アメリカ州",
+        "eraIcon": "🌴",
+        "eraPeriod": "世界の諸地域",
+        "topics": [
           {
             "name": "南アメリカ州(1) 自然・文化",
             "subtitle": "アマゾン・アンデス・パンパ・日系移民",
@@ -1513,7 +1753,15 @@ export const lineScopeIndex: Record<ScopeSubjectId, Record<ScopeGrade, ScopeEra[
             "name": "南アメリカ州(2) 開発・環境",
             "subtitle": "開発と環境問題・農業・鉱産資源",
             "icon": "🏗️"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "geo1-oceania",
+        "eraName": "オセアニア州",
+        "eraIcon": "🐨",
+        "eraPeriod": "世界の諸地域",
+        "topics": [
           {
             "name": "オセアニア州(1) 自然・産業",
             "subtitle": "乾燥大陸・資源輸出・貿易相手の変化",
@@ -1585,16 +1833,24 @@ export const lineScopeIndex: Record<ScopeSubjectId, Record<ScopeGrade, ScopeEra[
         ]
       },
       {
-        "eraId": "geo2-japan-regions",
-        "eraName": "日本の諸地域",
-        "eraIcon": "🏙️",
-        "eraPeriod": "七地方の地誌",
+        "eraId": "geo2-kyushu",
+        "eraName": "九州地方",
+        "eraIcon": "♨️",
+        "eraPeriod": "日本の諸地域",
         "topics": [
           {
             "name": "九州地方",
             "subtitle": "火山・シラス台地・促成栽培・エコタウン",
             "icon": "🌋"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "geo2-chugoku-shikoku",
+        "eraName": "中国・四国地方",
+        "eraIcon": "🌉",
+        "eraPeriod": "日本の諸地域",
+        "topics": [
           {
             "name": "中国・四国地方①",
             "subtitle": "自然環境と交通",
@@ -1604,7 +1860,15 @@ export const lineScopeIndex: Record<ScopeSubjectId, Record<ScopeGrade, ScopeEra[
             "name": "中国・四国地方②",
             "subtitle": "産業と地域の課題",
             "icon": "🏭"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "geo2-kinki",
+        "eraName": "近畿地方",
+        "eraIcon": "🦌",
+        "eraPeriod": "日本の諸地域",
+        "topics": [
           {
             "name": "近畿の自然と大阪大都市圏",
             "subtitle": "リアス海岸・琵琶湖・古都の景観保全・阪神工業地帯",
@@ -1614,7 +1878,15 @@ export const lineScopeIndex: Record<ScopeSubjectId, Record<ScopeGrade, ScopeEra[
             "name": "近畿の都市問題と農山村",
             "subtitle": "ニュータウン・ポートアイランド・過疎化対策・地域おこし",
             "icon": "🏙️"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "geo2-chubu",
+        "eraName": "中部地方",
+        "eraIcon": "🗻",
+        "eraPeriod": "日本の諸地域",
+        "topics": [
           {
             "name": "中部地方①（自然と東海）",
             "subtitle": "日本アルプス・濃尾平野・中京工業地帯・自動車産業",
@@ -1624,7 +1896,15 @@ export const lineScopeIndex: Record<ScopeSubjectId, Record<ScopeGrade, ScopeEra[
             "name": "中部地方②（中央高地と北陸）",
             "subtitle": "抑制栽培・甲府盆地・諏訪・稲作・伝統工芸品・コンパクトシティ",
             "icon": "🥬"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "geo2-kanto",
+        "eraName": "関東地方",
+        "eraIcon": "🗼",
+        "eraPeriod": "日本の諸地域",
+        "topics": [
           {
             "name": "関東の自然と東京",
             "subtitle": "関東平野・関東ローム層・ヒートアイランド・世界都市東京・一極集中",
@@ -1634,12 +1914,28 @@ export const lineScopeIndex: Record<ScopeSubjectId, Record<ScopeGrade, ScopeEra[
             "name": "東京大都市圏と関東の産業",
             "subtitle": "近郊農業・京浜工業地帯・京葉工業地域・北関東工業地域・特産品",
             "icon": "🏭"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "geo2-tohoku",
+        "eraName": "東北地方",
+        "eraIcon": "🍎",
+        "eraPeriod": "日本の諸地域",
+        "topics": [
           {
             "name": "東北地方",
             "subtitle": "奥羽山脈・やませ・リアス海岸・伝統産業・震災復興",
             "icon": "🌾"
-          },
+          }
+        ]
+      },
+      {
+        "eraId": "geo2-hokkaido",
+        "eraName": "北海道地方",
+        "eraIcon": "❄️",
+        "eraPeriod": "日本の諸地域",
+        "topics": [
           {
             "name": "北海道地方",
             "subtitle": "亜寒帯気候・アイヌ・大規模農業・酪農・観光",

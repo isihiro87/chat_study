@@ -44,8 +44,8 @@ export function getEraMetas(subject: string, grade: number): EraMeta[] {
 }
 
 /**
- * トーク内の時代選択フローが使えるか。
- * 時代が 2 つ以上ある教科のみ（英語=1カテゴリ等は /scope ページへフォールバック）。
+ * トーク内の単元（歴史は時代）選択フローが使えるか。
+ * 単元が 2 つ以上ある教科・学年のみ（0〜1 個なら /scope ページへフォールバック）。
  */
 export function supportsEraFlow(subject: string, grade: number): boolean {
   return getEraMetas(subject, grade).length >= 2;

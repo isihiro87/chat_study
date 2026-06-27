@@ -9,6 +9,267 @@
   "videos": [],
   "flashcards": [],
   "quiz": {
-    "questions": []
+    "questions": [
+      {
+        "id": "math-g3-expansion-formulas-q1",
+        "question": "次の計算をしましょう。\n$(x+3)(x+5)$",
+        "options": [
+          "$x^2+15x+8$",
+          "$x^2+8x+15$",
+          "$x^2+8x+8$",
+          "$x^2+2x+15$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$(x+3)(x+5)=x^2+(3+5)x+3\\times5=x^2+8x+15$\n和 $3+5=8$ が $x$ の係数、積 $3\\times5=15$ が定数項です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-expansion-formulas-q2",
+        "question": "次の計算をしましょう。\n$(x+4)^2$",
+        "options": [
+          "$x^2+4x+16$",
+          "$x^2+16$",
+          "$x^2+8x+16$",
+          "$x^2+8x+8$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$(x+4)^2=x^2+2\\times4\\times x+4^2=x^2+8x+16$\n中央の項は $4$ を $2$ 倍した $8x$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-expansion-formulas-q3",
+        "question": "次の計算をしましょう。\n$(x-6)^2$",
+        "options": [
+          "$x^2-6x+36$",
+          "$x^2+12x+36$",
+          "$x^2-12x+36$",
+          "$x^2-12x-36$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$(x-6)^2=x^2-2\\times6\\times x+6^2=x^2-12x+36$\n中央の項だけが負で、定数項 $36$ は正になります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-expansion-formulas-q4",
+        "question": "次の計算をしましょう。\n$(x+7)(x-7)$",
+        "options": [
+          "$x^2-49$",
+          "$x^2-14x-49$",
+          "$x^2-14x+49$",
+          "$x^2+49$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$(x+7)(x-7)=x^2-7^2=x^2-49$\n和と差の積なので $x$ の項は消え、$x^2-49$ になります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-expansion-formulas-q5",
+        "question": "次の計算をしましょう。\n$(x+2)(x+6)$",
+        "options": [
+          "$x^2+8x+12$",
+          "$x^2+12x+8$",
+          "$x^2+8x+8$",
+          "$x^2+8x+16$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$(x+2)(x+6)=x^2+(2+6)x+2\\times6=x^2+8x+12$\n和 $2+6=8$、積 $2\\times6=12$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-expansion-formulas-q6",
+        "question": "次の計算をしましょう。\n$(x-3)(x-8)$",
+        "options": [
+          "$x^2+11x+24$",
+          "$x^2-11x-24$",
+          "$x^2-11x+24$",
+          "$x^2-24x+11$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$(x-3)(x-8)=x^2+(-3-8)x+(-3)\\times(-8)=x^2-11x+24$\n負どうしの積 $24$ は正になります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-expansion-formulas-q7",
+        "question": "次の計算をしましょう。\n$(x+5)(x-2)$",
+        "options": [
+          "$x^2-3x-10$",
+          "$x^2+3x-10$",
+          "$x^2+3x+10$",
+          "$x^2+7x-10$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$(x+5)(x-2)=x^2+(5-2)x+5\\times(-2)=x^2+3x-10$\n和 $5-2=3$、積 $5\\times(-2)=-10$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-expansion-formulas-q8",
+        "question": "次の計算をしましょう。\n$(x-9)(x+4)$",
+        "options": [
+          "$x^2+5x-36$",
+          "$x^2-5x+36$",
+          "$x^2-5x-36$",
+          "$x^2-13x-36$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$(x-9)(x+4)=x^2+(-9+4)x+(-9)\\times4=x^2-5x-36$\n和 $-9+4=-5$、積 $-36$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-expansion-formulas-q9",
+        "question": "次の計算をしましょう。\n$(x+10)^2$",
+        "options": [
+          "$x^2+20x+100$",
+          "$x^2+10x+100$",
+          "$x^2+20x+10$",
+          "$x^2+100$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$(x+10)^2=x^2+2\\times10\\times x+10^2=x^2+20x+100$\n中央は $10$ の $2$ 倍 $20x$、定数項は $10^2=100$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-expansion-formulas-q10",
+        "question": "次の計算をしましょう。\n$(x-1)^2$",
+        "options": [
+          "$x^2-2x+1$",
+          "$x^2-x+1$",
+          "$x^2-2x-1$",
+          "$x^2+2x+1$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$(x-1)^2=x^2-2\\times1\\times x+1^2=x^2-2x+1$\n中央の項は $1$ の $2$ 倍で $-2x$ になります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-expansion-formulas-q11",
+        "question": "次の計算をしましょう。\n$(x+8)(x-8)$",
+        "options": [
+          "$x^2+64$",
+          "$x^2-16x-64$",
+          "$x^2-16x+64$",
+          "$x^2-64$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$(x+8)(x-8)=x^2-8^2=x^2-64$\n和と差の積なので $x$ の項は消えます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-expansion-formulas-q12",
+        "question": "次の計算をしましょう。\n$(2x+3)^2$",
+        "options": [
+          "$4x^2+9$",
+          "$4x^2+6x+9$",
+          "$2x^2+12x+9$",
+          "$4x^2+12x+9$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$(2x+3)^2=(2x)^2+2\\times3\\times2x+3^2=4x^2+12x+9$\n先頭は $2x$ を $2$ 乗して $4x^2$、中央は $2\\times3\\times2x=12x$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-expansion-formulas-q13",
+        "question": "次の計算をしましょう。\n$(3x-1)(3x+1)$",
+        "options": [
+          "$9x^2+1$",
+          "$9x^2-1$",
+          "$9x^2-6x-1$",
+          "$3x^2-1$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$(3x-1)(3x+1)=(3x)^2-1^2=9x^2-1$\n$3x$ を $2$ 乗して $9x^2$、和と差の積なので $x$ の項は消えます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-expansion-formulas-q14",
+        "question": "次の計算をしましょう。\n$(2x-5)^2$",
+        "options": [
+          "$4x^2-20x+25$",
+          "$4x^2-10x+25$",
+          "$4x^2-20x-25$",
+          "$2x^2-20x+25$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$(2x-5)^2=(2x)^2-2\\times5\\times2x+5^2=4x^2-20x+25$\n中央は $2\\times5\\times2x=20x$ で符号は負です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-expansion-formulas-q15",
+        "question": "次の計算をしましょう。\n$(5x+2)(5x-2)$",
+        "options": [
+          "$25x^2+4$",
+          "$5x^2-4$",
+          "$25x^2-20x-4$",
+          "$25x^2-4$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$(5x+2)(5x-2)=(5x)^2-2^2=25x^2-4$\n$5x$ を $2$ 乗して $25x^2$、$2^2=4$ を引きます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-expansion-formulas-q16",
+        "question": "次の計算をしましょう。\n$(3a+4)^2$",
+        "options": [
+          "$9a^2+12a+16$",
+          "$9a^2+24a+16$",
+          "$3a^2+24a+16$",
+          "$9a^2+24a+8$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$(3a+4)^2=(3a)^2+2\\times4\\times3a+4^2=9a^2+24a+16$\n中央は $2\\times4\\times3a=24a$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-expansion-formulas-q17",
+        "question": "次の計算をしましょう。\n$(4x-3)(4x+3)$",
+        "options": [
+          "$16x^2+9$",
+          "$16x^2-9$",
+          "$16x^2-24x-9$",
+          "$4x^2-9$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$(4x-3)(4x+3)=(4x)^2-3^2=16x^2-9$\n$4x$ を $2$ 乗して $16x^2$、和と差の積なので $x$ の項は消えます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-expansion-formulas-q18",
+        "question": "次の計算をしましょう。\n$(x+2y)^2$",
+        "options": [
+          "$x^2+2xy+4y^2$",
+          "$x^2+4y^2$",
+          "$x^2+4xy+2y^2$",
+          "$x^2+4xy+4y^2$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$(x+2y)^2=x^2+2\\times2y\\times x+(2y)^2=x^2+4xy+4y^2$\n中央は $2\\times2y\\times x=4xy$、末項は $(2y)^2=4y^2$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-expansion-formulas-q19",
+        "question": "次の計算をしましょう。\n$(2x+3)(2x-7)$",
+        "options": [
+          "$4x^2+8x-21$",
+          "$4x^2-8x+21$",
+          "$4x^2-8x-21$",
+          "$4x^2-4x-21$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$(2x+3)(2x-7)=(2x)^2+(3-7)\\times2x+3\\times(-7)=4x^2-8x-21$\n$2x$ をひとまとまりと見て、和 $3-7=-4$ を $2x$ にかけ $-8x$、積は $-21$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-expansion-formulas-q20",
+        "question": "次の計算をしましょう。\n$(x-4y)(x+4y)$",
+        "options": [
+          "$x^2+16y^2$",
+          "$x^2-8y^2$",
+          "$x^2-16y$",
+          "$x^2-16y^2$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$(x-4y)(x+4y)=x^2-(4y)^2=x^2-16y^2$\n和と差の積で、$(4y)^2=16y^2$ を引きます。",
+        "difficulty": "advanced"
+      }
+    ]
   }
 }

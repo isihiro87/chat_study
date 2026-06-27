@@ -170,7 +170,21 @@ const ERA_DISPLAY_NAMES: Record<
   // geography grade 2
   'geo2-regional-research': { name: '地域調査・地形図', icon: '🗺️', period: '地理の調べ方' },
   'geo2-japan-features': { name: '日本の特色', icon: '🏔️', period: '日本の地域的特色' },
-  'geo2-japan-regions': { name: '日本の諸地域', icon: '🏙️', period: '七地方の地誌' },
+  // 「日本の諸地域」は地方ごとに分割（geo2-japan-regions 自体は使わない）
+  'geo2-kyushu': { name: '九州地方', icon: '♨️', period: '日本の諸地域' },
+  'geo2-chugoku-shikoku': { name: '中国・四国地方', icon: '🌉', period: '日本の諸地域' },
+  'geo2-kinki': { name: '近畿地方', icon: '🦌', period: '日本の諸地域' },
+  'geo2-chubu': { name: '中部地方', icon: '🗻', period: '日本の諸地域' },
+  'geo2-kanto': { name: '関東地方', icon: '🗼', period: '日本の諸地域' },
+  'geo2-tohoku': { name: '東北地方', icon: '🍎', period: '日本の諸地域' },
+  'geo2-hokkaido': { name: '北海道地方', icon: '❄️', period: '日本の諸地域' },
+  // 「世界の諸地域」は州ごとに分割（geo1-world-regions 自体は使わない）
+  'geo1-asia': { name: 'アジア州', icon: '🌏', period: '世界の諸地域' },
+  'geo1-europe': { name: 'ヨーロッパ州', icon: '🏰', period: '世界の諸地域' },
+  'geo1-africa': { name: 'アフリカ州', icon: '🦁', period: '世界の諸地域' },
+  'geo1-north-america': { name: '北アメリカ州', icon: '🗽', period: '世界の諸地域' },
+  'geo1-south-america': { name: '南アメリカ州', icon: '🌴', period: '世界の諸地域' },
+  'geo1-oceania': { name: 'オセアニア州', icon: '🐨', period: '世界の諸地域' },
 };
 
 // grade×eraId -> 公式LINE トーク内 範囲設定フロー用の補助メタ。
@@ -204,10 +218,51 @@ const ERA_HINTS: Record<
   'postwar-japan': { shortName: '戦後の日本', whenLabel: '中3 9〜10月ごろ', keyTerms: '占領・日本国憲法・民主化' },
   'cold-war-era': { shortName: '冷戦と成長', whenLabel: '中3 10〜11月ごろ', keyTerms: '冷戦・高度経済成長・東京五輪' },
   'modern-world': { shortName: '現代の世界', whenLabel: '中3 11〜12月ごろ', keyTerms: '冷戦終結・平成・現代の課題' },
-  // english（学年ごとに 1 era）
-  'english-grade1': { shortName: '中1英語', whenLabel: '中1 通年', keyTerms: 'be動詞・一般動詞・三単現・過去形' },
-  'english-grade2': { shortName: '中2英語', whenLabel: '中2 通年', keyTerms: '不定詞・助動詞・比較・受け身' },
-  'english-grade3': { shortName: '中3英語', whenLabel: '中3 通年', keyTerms: '現在完了・後置修飾・関係代名詞・仮定法' },
+  // english（文法トピックごとに 1 単元。topicId で引く）
+  'eng-be-verbs': { shortName: 'be動詞', whenLabel: '中1 4〜5月ごろ', keyTerms: 'am・is・are・I am〜・You are〜' },
+  'eng-general-verbs': { shortName: '一般動詞', whenLabel: '中1 5〜6月ごろ', keyTerms: 'play・like・have・do not〜' },
+  'eng-can': { shortName: 'can（〜できる）', whenLabel: '中1 6月ごろ', keyTerms: 'can・can\'t・Can you〜?' },
+  'eng-nouns': { shortName: '名詞', whenLabel: '中1 6〜7月ごろ', keyTerms: '複数形・a/an・the' },
+  'eng-question-words': { shortName: '疑問詞', whenLabel: '中1 7〜9月ごろ', keyTerms: 'what・who・when・where・how' },
+  'eng-nouns-advanced': { shortName: '名詞の応用', whenLabel: '中1 9月ごろ', keyTerms: '数えられない名詞・some・any' },
+  'eng-question-patterns': { shortName: '疑問詞の応用', whenLabel: '中1 9〜10月ごろ', keyTerms: 'How many〜?・What time〜?・whose' },
+  'eng-imperatives': { shortName: '命令文', whenLabel: '中1 10月ごろ', keyTerms: 'Be〜・Don\'t〜・Let\'s〜' },
+  'eng-third-person-singular': { shortName: '三人称単数現在', whenLabel: '中1 10〜11月ごろ', keyTerms: 'plays・goes・does・doesn\'t' },
+  'eng-pronouns': { shortName: '代名詞', whenLabel: '中1 11月ごろ', keyTerms: 'I-my-me-mine・him・her・us' },
+  'eng-present-progressive': { shortName: '現在進行形', whenLabel: '中1 12〜1月ごろ', keyTerms: 'be動詞＋〜ing・playing' },
+  'eng-exclamatives': { shortName: '感嘆文', whenLabel: '中1 1月ごろ', keyTerms: 'What a〜!・How〜!' },
+  'eng-past-tense': { shortName: '過去形と過去進行形', whenLabel: '中1 1〜3月ごろ', keyTerms: '過去形・ed・was/were・〜ing' },
+  'eng-sentence-structures': { shortName: '5つの文構造', whenLabel: '中2 4〜5月ごろ', keyTerms: 'be going to・will・SVOO・SVOC' },
+  'eng-conjunctions': { shortName: '接続詞', whenLabel: '中2 5〜6月ごろ', keyTerms: 'when・if・because・that' },
+  'eng-infinitives': { shortName: '不定詞', whenLabel: '中2 6〜7月ごろ', keyTerms: 'to＋動詞・名詞/副詞/形容詞的用法' },
+  'eng-modal-verbs': { shortName: '助動詞', whenLabel: '中2 9〜10月ごろ', keyTerms: 'must・have to・should・may' },
+  'eng-comparison': { shortName: '比較', whenLabel: '中2 11〜12月ごろ', keyTerms: '比較級・最上級・er/est・as〜as' },
+  'eng-passive-voice': { shortName: '受け身の文', whenLabel: '中2 1〜2月ごろ', keyTerms: 'be＋過去分詞・by〜' },
+  'eng-present-perfect': { shortName: '現在完了', whenLabel: '中3 4〜5月ごろ', keyTerms: 'have＋過去分詞・継続/経験/完了' },
+  'eng-make-show': { shortName: 'make・showの応用', whenLabel: '中3 5月ごろ', keyTerms: 'make A B・show 人 物・SVOO/SVOC' },
+  'eng-present-perfect-progressive': { shortName: '現在完了進行形', whenLabel: '中3 5〜6月ごろ', keyTerms: 'have been〜ing' },
+  'eng-infinitives-advanced': { shortName: '不定詞（応用）', whenLabel: '中3 6〜7月ごろ', keyTerms: 'it for to・疑問詞＋to・want 人 to' },
+  'eng-indirect-questions': { shortName: '間接疑問文', whenLabel: '中3 9月ごろ', keyTerms: 'I know what〜・語順' },
+  'eng-past-participle-modifier': { shortName: '過去分詞の後置修飾', whenLabel: '中3 9〜10月ごろ', keyTerms: '過去分詞＋名詞修飾・made in〜' },
+  'eng-present-participle-modifier': { shortName: '現在分詞の後置修飾', whenLabel: '中3 10月ごろ', keyTerms: '〜ing＋名詞修飾・running boy' },
+  'eng-contact-clause': { shortName: '接触節', whenLabel: '中3 10〜11月ごろ', keyTerms: '名詞＋主語＋動詞（省略）' },
+  'eng-relative-pronouns': { shortName: '関係代名詞', whenLabel: '中3 11〜12月ごろ', keyTerms: 'who・which・that・先行詞' },
+  'eng-subjunctive': { shortName: '仮定法', whenLabel: '中3 1〜2月ごろ', keyTerms: 'If I were〜・I wish〜' },
+  // geography「世界の諸地域」（州ごと）
+  'geo1-asia': { shortName: 'アジア州', whenLabel: '中1 9〜10月ごろ', keyTerms: '季節風・稲作・中国・ASEAN・石油' },
+  'geo1-europe': { shortName: 'ヨーロッパ州', whenLabel: '中1 10〜11月ごろ', keyTerms: 'EU・偏西風・混合農業・キリスト教' },
+  'geo1-africa': { shortName: 'アフリカ州', whenLabel: '中1 11月ごろ', keyTerms: 'サハラ・モノカルチャー・レアメタル' },
+  'geo1-north-america': { shortName: '北アメリカ州', whenLabel: '中1 12月ごろ', keyTerms: '適地適作・企業的農業・シリコンバレー' },
+  'geo1-south-america': { shortName: '南アメリカ州', whenLabel: '中1 1月ごろ', keyTerms: 'アマゾン・熱帯雨林・バイオ燃料' },
+  'geo1-oceania': { shortName: 'オセアニア州', whenLabel: '中1 1〜2月ごろ', keyTerms: 'アボリジニ・羊・鉱産資源・多文化' },
+  // geography「日本の諸地域」（地方ごと）
+  'geo2-kyushu': { shortName: '九州地方', whenLabel: '中2 9〜10月ごろ', keyTerms: '火山・シラス台地・畜産・北九州' },
+  'geo2-chugoku-shikoku': { shortName: '中国・四国地方', whenLabel: '中2 10月ごろ', keyTerms: '瀬戸内・連絡橋・過疎' },
+  'geo2-kinki': { shortName: '近畿地方', whenLabel: '中2 11月ごろ', keyTerms: '大阪大都市圏・阪神工業・古都' },
+  'geo2-chubu': { shortName: '中部地方', whenLabel: '中2 11〜12月ごろ', keyTerms: '中京工業・東海・中央高地・北陸' },
+  'geo2-kanto': { shortName: '関東地方', whenLabel: '中2 12〜1月ごろ', keyTerms: '東京大都市圏・京浜工業・近郊農業' },
+  'geo2-tohoku': { shortName: '東北地方', whenLabel: '中2 1〜2月ごろ', keyTerms: 'やませ・稲作・伝統産業・祭り' },
+  'geo2-hokkaido': { shortName: '北海道地方', whenLabel: '中2 2月ごろ', keyTerms: '冷帯・酪農・客土・観光' },
   // science grade 1（ワークの章・節順に細分化）
   'sci1-plant': { shortName: '植物の観察と分類', whenLabel: '中1 4〜6月ごろ', keyTerms: '観察・顕微鏡・花のつくり・植物の分類' },
   'sci1-animal': { shortName: '動物の分類', whenLabel: '中1 6〜7月ごろ', keyTerms: '脊椎動物・無脊椎動物' },
@@ -278,7 +333,7 @@ interface ScopeEra {
 function loadFolderTopics(
   subject: SubjectId,
   folder: string
-): (ScopeTopic & { eraId: string; order: number })[] {
+): (ScopeTopic & { eraId: string; topicId: string; order: number })[] {
   const dir = join(CONTENT_DIR, subject, folder);
   let files: string[] = [];
   try {
@@ -286,11 +341,16 @@ function loadFolderTopics(
   } catch {
     return [];
   }
-  const topics: (ScopeTopic & { eraId: string; order: number })[] = [];
+  const topics: (ScopeTopic & {
+    eraId: string;
+    topicId: string;
+    order: number;
+  })[] = [];
   for (const file of files) {
     const data = JSON.parse(readFileSync(join(dir, file), 'utf-8')) as RawTopic;
     topics.push({
       eraId: data.eraId,
+      topicId: data.topicId,
       name: data.name,
       subtitle: data.subtitle ?? '',
       icon: data.icon ?? '',
@@ -299,6 +359,40 @@ function loadFolderTopics(
   }
   topics.sort((a, b) => a.order - b.order);
   return topics;
+}
+
+// 範囲設定の「単元」分け方。歴史は時代(eraId)、英語は文法トピックごと(topicId)、
+// 地理の「世界の諸地域」は州ごと・「日本の諸地域」は地方ごとに分ける。
+// それ以外（理科・地理の他フォルダ）は従来どおり eraId 単位。
+function geoWorldUnit(topicId: string): string | null {
+  if (topicId.startsWith('geo1-asia')) return 'geo1-asia';
+  if (topicId.startsWith('geo1-europe')) return 'geo1-europe';
+  if (topicId.startsWith('geo1-af')) return 'geo1-africa';
+  if (topicId.startsWith('geo1-na')) return 'geo1-north-america';
+  if (topicId.startsWith('geo1-sa')) return 'geo1-south-america';
+  if (topicId.startsWith('geo1-oc')) return 'geo1-oceania';
+  return null;
+}
+function geoJapanUnit(topicId: string): string | null {
+  if (topicId.startsWith('geo2-kyushu')) return 'geo2-kyushu';
+  if (topicId.startsWith('geo2-cs')) return 'geo2-chugoku-shikoku';
+  if (topicId.startsWith('geo2-kn')) return 'geo2-kinki';
+  if (topicId.startsWith('geo2-cb')) return 'geo2-chubu';
+  if (topicId.startsWith('geo2-kanto')) return 'geo2-kanto';
+  if (topicId.startsWith('geo2-tohoku')) return 'geo2-tohoku';
+  if (topicId.startsWith('geo2-hokkaido')) return 'geo2-hokkaido';
+  return null;
+}
+function deriveUnitId(
+  subject: SubjectId,
+  t: { eraId: string; topicId: string }
+): string {
+  if (subject === 'english') return t.topicId; // 文法トピック＝単元
+  if (subject === 'geography') {
+    if (t.eraId === 'geo1-world-regions') return geoWorldUnit(t.topicId) ?? t.eraId;
+    if (t.eraId === 'geo2-japan-regions') return geoJapanUnit(t.topicId) ?? t.eraId;
+  }
+  return t.eraId;
 }
 
 // 単元（era）の並びは「フォルダ順 × フォルダ内 order 順」での eraId 初出順。
@@ -311,19 +405,22 @@ function buildSubject(subject: SubjectId): Record<Grade, ScopeEra[]> {
     const eraOrder: string[] = [];
     for (const folder of GRADE_FOLDERS[subject][gradeKey]) {
       for (const t of loadFolderTopics(subject, folder)) {
-        if (!byEra.has(t.eraId)) {
-          byEra.set(t.eraId, []);
-          eraOrder.push(t.eraId);
+        const unitId = deriveUnitId(subject, t);
+        if (!byEra.has(unitId)) {
+          byEra.set(unitId, []);
+          eraOrder.push(unitId);
         }
-        byEra.get(t.eraId)!.push(t);
+        byEra.get(unitId)!.push(t);
       }
     }
     out[gradeKey] = eraOrder.map((eraId) => {
       const topics = byEra.get(eraId)!;
+      // 明示マップ優先。未登録（英語の文法トピック等）は代表 topic から表示名を作る。
+      const rep = topics[0];
       const meta = ERA_DISPLAY_NAMES[eraId] ?? {
-        name: eraId,
-        icon: '📚',
-        period: '',
+        name: rep?.name ?? eraId,
+        icon: rep?.icon || '📚',
+        period: subject === 'english' ? `中${gradeKey}の英文法` : '',
       };
       return {
         eraId,

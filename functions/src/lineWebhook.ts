@@ -1595,6 +1595,8 @@ function toLineQuickReply(items: ScopeQuickItem[]): messagingApi.QuickReply {
  */
 function buildScopeGuideFlex(subject: string, grade: number) {
   const metas = getEraMetas(subject, grade);
+  // 「時代」は歴史だけ。他教科は「単元」と表記する。
+  const unitNoun = subject === 'history' ? '時代' : '単元';
   // 早見表（タップ不可の参考リスト）。チェックボックスに見えないよう、ボタン風の
   // マーカー（▫️ 等）は使わず、グレーの本文テキストとして表示する。
   const eraRows = metas.flatMap((m) => [
@@ -1688,7 +1690,7 @@ function buildScopeGuideFlex(subject: string, grade: number) {
             layout: 'vertical' as const,
             spacing: 'sm' as const,
             contents: [
-              step('①', 'この画面のいちばん下に出るボタンをタップ → 習った時代を選ぶ（タップした瞬間に保存）'),
+              step('①', `この画面のいちばん下に出るボタンをタップ → 習った${unitNoun}を選ぶ（タップした瞬間に保存）`),
               step('②', 'いくつでも選べるよ。もう一度タップで取り消しもOK'),
               step('③', '終わったら「これで決定」をタップ'),
             ],
@@ -1699,7 +1701,7 @@ function buildScopeGuideFlex(subject: string, grade: number) {
           },
           {
             type: 'text' as const,
-            text: '📖 時代の早見表（どれを習ったかの確認用）',
+            text: `📖 ${unitNoun}の早見表（どれを習ったかの確認用）`,
             size: 'xs' as const,
             weight: 'bold' as const,
             color: '#111827',

@@ -9,6 +9,280 @@
   "videos": [],
   "flashcards": [],
   "quiz": {
-    "questions": []
+    "questions": [
+      {
+        "id": "math-g3-sqrt-mul-div-q1",
+        "question": "次の計算をしましょう。\n$\\sqrt{2}\\times\\sqrt{3}$",
+        "options": [
+          "$\\sqrt{5}$",
+          "$\\sqrt{6}$",
+          "$6$",
+          "$2\\sqrt{3}$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$\\sqrt{2}\\times\\sqrt{3}=\\sqrt{2\\times3}=\\sqrt{6}$\n根号の中の数どうしをかけます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-sqrt-mul-div-q2",
+        "question": "次の計算をしましょう。\n$\\sqrt{3}\\times\\sqrt{5}$",
+        "options": [
+          "$\\sqrt{8}$",
+          "$\\sqrt{15}$",
+          "$15$",
+          "$3\\sqrt{5}$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$\\sqrt{3}\\times\\sqrt{5}=\\sqrt{3\\times5}=\\sqrt{15}$\n中の数をたすのではなく、かけます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-sqrt-mul-div-q3",
+        "question": "次の計算をしましょう。\n$\\sqrt{2}\\times\\sqrt{8}$",
+        "options": [
+          "$\\sqrt{10}$",
+          "$2\\sqrt{2}$",
+          "$4$",
+          "$16$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$\\sqrt{2}\\times\\sqrt{8}=\\sqrt{16}=4$\n中の数をかけてから、根号を外せるか確かめます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-sqrt-mul-div-q4",
+        "question": "次の計算をしましょう。\n$\\sqrt{6}\\times\\sqrt{6}$",
+        "options": [
+          "$6$",
+          "$\\sqrt{6}$",
+          "$36$",
+          "$2\\sqrt{6}$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$\\sqrt{6}\\times\\sqrt{6}=\\sqrt{36}=6$\n同じ数の積は、その数になります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-sqrt-mul-div-q5",
+        "question": "次の数を $a\\sqrt{b}$ の形にしましょう。\n$\\sqrt{12}$",
+        "options": [
+          "$3\\sqrt{2}$",
+          "$4\\sqrt{3}$",
+          "$2\\sqrt{3}$",
+          "$2\\sqrt{6}$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$\\sqrt{12}=\\sqrt{4\\times3}=2\\sqrt{3}$\n中を（平方数）×（数）に分け、平方数を根号の外に出します。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-sqrt-mul-div-q6",
+        "question": "次の数を $a\\sqrt{b}$ の形にしましょう。\n$\\sqrt{50}$",
+        "options": [
+          "$2\\sqrt{5}$",
+          "$25\\sqrt{2}$",
+          "$10\\sqrt{5}$",
+          "$5\\sqrt{2}$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$\\sqrt{50}=\\sqrt{25\\times2}=5\\sqrt{2}$\n$\\sqrt{25}=5$ を外に出します。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-sqrt-mul-div-q7",
+        "question": "次の数を $a\\sqrt{b}$ の形にしましょう。\n$\\sqrt{18}$",
+        "options": [
+          "$2\\sqrt{3}$",
+          "$9\\sqrt{2}$",
+          "$3\\sqrt{2}$",
+          "$3\\sqrt{6}$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$\\sqrt{18}=\\sqrt{9\\times2}=3\\sqrt{2}$\n$\\sqrt{9}=3$ を外に出します。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-sqrt-mul-div-q8",
+        "question": "次の数を $a\\sqrt{b}$ の形にしましょう。\n$\\sqrt{45}$",
+        "options": [
+          "$5\\sqrt{3}$",
+          "$3\\sqrt{5}$",
+          "$9\\sqrt{5}$",
+          "$3\\sqrt{15}$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$\\sqrt{45}=\\sqrt{9\\times5}=3\\sqrt{5}$\n$\\sqrt{9}=3$ を外に出します。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-sqrt-mul-div-q9",
+        "question": "次の数を $a\\sqrt{b}$ の形にしましょう。\n$\\sqrt{72}$",
+        "options": [
+          "$8\\sqrt{3}$",
+          "$6\\sqrt{3}$",
+          "$2\\sqrt{6}$",
+          "$6\\sqrt{2}$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$\\sqrt{72}=\\sqrt{36\\times2}=6\\sqrt{2}$\n中の最大の平方数 $36$ を見つけて外に出します。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-sqrt-mul-div-q10",
+        "question": "次の計算をしましょう。\n$\\sqrt{8}\\div\\sqrt{2}$",
+        "options": [
+          "$4$",
+          "$\\sqrt{2}$",
+          "$\\sqrt{6}$",
+          "$2$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$\\sqrt{8}\\div\\sqrt{2}=\\sqrt{\\frac{8}{2}}=\\sqrt{4}=2$\n中の数どうしを割ります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-sqrt-mul-div-q11",
+        "question": "次の計算をしましょう。\n$\\sqrt{18}\\div\\sqrt{2}$",
+        "options": [
+          "$9$",
+          "$\\sqrt{3}$",
+          "$3$",
+          "$6$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$\\sqrt{18}\\div\\sqrt{2}=\\sqrt{\\frac{18}{2}}=\\sqrt{9}=3$\n中の数を割ってから、根号を外します。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-sqrt-mul-div-q12",
+        "question": "次の計算をしましょう。\n$\\sqrt{2}\\div\\sqrt{8}$",
+        "options": [
+          "$\\frac{1}{2}$",
+          "$2$",
+          "$\\frac{1}{4}$",
+          "$\\sqrt{\\frac{1}{2}}$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$\\sqrt{2}\\div\\sqrt{8}=\\sqrt{\\frac{2}{8}}=\\sqrt{\\frac{1}{4}}=\\frac{1}{2}$\n割る順序に注意し、最後に根号を外します。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-sqrt-mul-div-q13",
+        "question": "次の計算をしましょう。\n$3\\sqrt{2}\\times2\\sqrt{5}$",
+        "options": [
+          "$5\\sqrt{10}$",
+          "$6\\sqrt{10}$",
+          "$6\\sqrt{7}$",
+          "$5\\sqrt{7}$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$3\\sqrt{2}\\times2\\sqrt{5}=(3\\times2)\\sqrt{2\\times5}=6\\sqrt{10}$\n係数どうし、根号の中どうしをそれぞれかけます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-sqrt-mul-div-q14",
+        "question": "次の計算をしましょう。\n$2\\sqrt{3}\\times4\\sqrt{3}$",
+        "options": [
+          "$24$",
+          "$8\\sqrt{6}$",
+          "$8\\sqrt{3}$",
+          "$6\\sqrt{3}$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$2\\sqrt{3}\\times4\\sqrt{3}=8\\sqrt{9}=8\\times3=24$\n係数と中をそれぞれかけ、$\\sqrt{9}=3$ を外します。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-sqrt-mul-div-q15",
+        "question": "次の計算をしましょう。\n$\\sqrt{20}\\times\\sqrt{5}$",
+        "options": [
+          "$10$",
+          "$100$",
+          "$5\\sqrt{5}$",
+          "$\\sqrt{25}$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$\\sqrt{20}\\times\\sqrt{5}=\\sqrt{100}=10$\n中の数をかけてから根号を外します。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-sqrt-mul-div-q16",
+        "question": "次の計算をしましょう。\n$\\sqrt{6}\\times\\sqrt{8}$",
+        "options": [
+          "$2\\sqrt{14}$",
+          "$\\sqrt{14}$",
+          "$4\\sqrt{3}$",
+          "$8\\sqrt{3}$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$\\sqrt{6}\\times\\sqrt{8}=\\sqrt{48}=\\sqrt{16\\times3}=4\\sqrt{3}$\n中をかけたあと、$\\sqrt{48}$ を簡単にします。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-sqrt-mul-div-q17",
+        "question": "次の計算をしましょう。\n$2\\sqrt{6}\\times3\\sqrt{2}$",
+        "options": [
+          "$6\\sqrt{3}$",
+          "$12\\sqrt{3}$",
+          "$12\\sqrt{6}$",
+          "$24\\sqrt{3}$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$2\\sqrt{6}\\times3\\sqrt{2}=6\\sqrt{12}=6\\times2\\sqrt{3}=12\\sqrt{3}$\n係数と中をかけたあと、$\\sqrt{12}=2\\sqrt{3}$ を簡単にします。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-sqrt-mul-div-q18",
+        "question": "次の計算をしましょう。\n$\\sqrt{54}\\div\\sqrt{6}$",
+        "options": [
+          "$48$",
+          "$9$",
+          "$\\sqrt{3}$",
+          "$3$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$\\sqrt{54}\\div\\sqrt{6}=\\sqrt{\\frac{54}{6}}=\\sqrt{9}=3$\n中の数を割ってから、根号を外します。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-sqrt-mul-div-q19",
+        "question": "次の計算をしましょう。\n$6\\sqrt{10}\\div2\\sqrt{5}$",
+        "options": [
+          "$3\\sqrt{2}$",
+          "$4\\sqrt{2}$",
+          "$3\\sqrt{15}$",
+          "$3\\sqrt{5}$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$6\\sqrt{10}\\div2\\sqrt{5}=\\frac{6}{2}\\sqrt{\\frac{10}{5}}=3\\sqrt{2}$\n係数どうし、中の数どうしをそれぞれ割ります。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-sqrt-mul-div-q20",
+        "question": "次の計算をしましょう。\n$\\sqrt{48}\\div\\sqrt{3}$",
+        "options": [
+          "$2\\sqrt{3}$",
+          "$\\sqrt{45}$",
+          "$16$",
+          "$4$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$\\sqrt{48}\\div\\sqrt{3}=\\sqrt{\\frac{48}{3}}=\\sqrt{16}=4$\n中の数を割ってから、根号を外します。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-sqrt-mul-div-q21",
+        "question": "次の数を $a\\sqrt{b}$ の形にしましょう。\n$\\sqrt{24}$",
+        "options": [
+          "$4\\sqrt{6}$",
+          "$2\\sqrt{6}$",
+          "$6\\sqrt{2}$",
+          "$2\\sqrt{12}$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$\\sqrt{24}=\\sqrt{4\\times6}=2\\sqrt{6}$\n$\\sqrt{4}=2$ を外に出します。",
+        "difficulty": "standard"
+      }
+    ]
   }
 }

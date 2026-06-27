@@ -9,6 +9,267 @@
   "videos": [],
   "flashcards": [],
   "quiz": {
-    "questions": []
+    "questions": [
+      {
+        "id": "math-g3-sqrt-meaning-q1",
+        "question": "$9$ の平方根をすべて求めなさい。",
+        "options": [
+          "$3$",
+          "$81$",
+          "$\\pm 3$",
+          "$\\pm 81$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$3^2 = 9$、$(-3)^2 = 9$\n2乗して $9$ になる数は正と負の2つあるので $\\pm 3$。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-sqrt-meaning-q2",
+        "question": "正の数の平方根について、正しく述べているものはどれですか。",
+        "options": [
+          "正の数が1つだけある",
+          "負の数が1つだけある",
+          "平方根は存在しない",
+          "正と負の2つがある"
+        ],
+        "correctIndex": 3,
+        "explanation": "2乗して同じ正の数になる数は、正と負で対になっている。\nだから正の数の平方根は、絶対値が等しい正と負の2つある。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-sqrt-meaning-q3",
+        "question": "次の値を求めましょう。\n$\\sqrt{36}$",
+        "options": [
+          "$1296$",
+          "$\\pm 6$",
+          "$18$",
+          "$6$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$\\sqrt{36} = 6$\n根号 $\\sqrt{\\ }$ は平方根のうち正のほうを表すので $6$。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-sqrt-meaning-q4",
+        "question": "次の値を求めましょう。\n$(\\sqrt{7})^2$",
+        "options": [
+          "$7$",
+          "$\\sqrt{49}$",
+          "$49$",
+          "$14$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$(\\sqrt{7})^2 = 7$\n$\\sqrt{7}$ は2乗すると $7$ になる数なので、2乗するとそのまま $7$ に戻る。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-sqrt-meaning-q5",
+        "question": "次の値を求めましょう。\n$\\sqrt{(-4)^2}$",
+        "options": [
+          "$-4$",
+          "$4$",
+          "$16$",
+          "$\\pm 4$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$(-4)^2 = 16$、$\\sqrt{16} = 4$\nまず2乗して $16$ にしてから根号をとるので、答えは正の $4$。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-sqrt-meaning-q6",
+        "question": "次の値を求めましょう。\n$\\sqrt{100}$",
+        "options": [
+          "$50$",
+          "$10$",
+          "$\\pm 10$",
+          "$10000$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$10^2 = 100$ なので $\\sqrt{100} = 10$\n根号は正のほうを表すので $10$。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-sqrt-meaning-q7",
+        "question": "次の値を求めましょう。\n$\\sqrt{0.49}$",
+        "options": [
+          "$0.7$",
+          "$\\pm 0.7$",
+          "$0.24$",
+          "$0.07$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$0.7^2 = 0.49$ なので $\\sqrt{0.49} = 0.7$\n根号は正のほうを表すので $0.7$。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-sqrt-meaning-q8",
+        "question": "$\\sqrt{10}$ と $3$ の大小として正しいものはどれですか。",
+        "options": [
+          "$\\sqrt{10} = 3$",
+          "$\\sqrt{10} < 3$",
+          "$\\sqrt{10} > 3$",
+          "比べられない"
+        ],
+        "correctIndex": 2,
+        "explanation": "$3 = \\sqrt{9}$ で、$9 < 10$\n根号の中が大きいほど値も大きいので $\\sqrt{10} > 3$。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-sqrt-meaning-q9",
+        "question": "$2\\sqrt{3}$ と $\\sqrt{13}$ の大小として正しいものはどれですか。",
+        "options": [
+          "$2\\sqrt{3} > \\sqrt{13}$",
+          "$2\\sqrt{3} = \\sqrt{13}$",
+          "$2\\sqrt{3} < \\sqrt{13}$",
+          "比べられない"
+        ],
+        "correctIndex": 2,
+        "explanation": "$(2\\sqrt{3})^2 = 12$、$(\\sqrt{13})^2 = 13$ で $12 < 13$\n両方を2乗して比べると $2\\sqrt{3} < \\sqrt{13}$。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-sqrt-meaning-q10",
+        "question": "$\\sqrt{5}$ と $\\sqrt{7}$ の大小として正しいものはどれですか。",
+        "options": [
+          "$\\sqrt{5} < \\sqrt{7}$",
+          "$\\sqrt{5} = \\sqrt{7}$",
+          "$\\sqrt{5} > \\sqrt{7}$",
+          "比べられない"
+        ],
+        "correctIndex": 0,
+        "explanation": "根号の中を比べると $5 < 7$\n中が大きいほど値も大きいので $\\sqrt{5} < \\sqrt{7}$。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-sqrt-meaning-q11",
+        "question": "$4$ と $\\sqrt{15}$ の大小として正しいものはどれですか。",
+        "options": [
+          "比べられない",
+          "$4 < \\sqrt{15}$",
+          "$4 = \\sqrt{15}$",
+          "$4 > \\sqrt{15}$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$4 = \\sqrt{16}$ で、$16 > 15$\n根号の中が大きいほど値も大きいので $4 > \\sqrt{15}$。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-sqrt-meaning-q12",
+        "question": "$3\\sqrt{2}$ と $2\\sqrt{5}$ の大小として正しいものはどれですか。",
+        "options": [
+          "$3\\sqrt{2} > 2\\sqrt{5}$",
+          "$3\\sqrt{2} = 2\\sqrt{5}$",
+          "比べられない",
+          "$3\\sqrt{2} < 2\\sqrt{5}$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$(3\\sqrt{2})^2 = 18$、$(2\\sqrt{5})^2 = 20$ で $18 < 20$\n両方を2乗して比べると $3\\sqrt{2} < 2\\sqrt{5}$。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-sqrt-meaning-q13",
+        "question": "$\\sqrt{2}$ の近似値として最も適切なものはどれですか。",
+        "options": [
+          "$2.23$",
+          "$1.73$",
+          "$1.41$",
+          "$1.0$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$1.41^2 = 1.9881$ で $2$ に近い。\n$\\sqrt{2} = 1.4142\\cdots$ なので、最も近いのは $1.41$。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-sqrt-meaning-q14",
+        "question": "$\\sqrt{3}$ の近似値として最も適切なものはどれですか。",
+        "options": [
+          "$1.41$",
+          "$1.73$",
+          "$1.5$",
+          "$3.0$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$1.73^2 = 2.9929$ で $3$ に近い。\n$\\sqrt{3} = 1.7320\\cdots$ なので、最も近いのは $1.73$。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-sqrt-meaning-q15",
+        "question": "次の数のうち、無理数はどれですか。",
+        "options": [
+          "$\\sqrt{9}$",
+          "$\\sqrt{5}$",
+          "$0.5$",
+          "$\\frac{2}{3}$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$\\sqrt{9} = 3$、$0.5$、$\\frac{2}{3}$ は分数で表せる有理数。\n$\\sqrt{5}$ は分数で表せず、無理数。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-sqrt-meaning-q16",
+        "question": "次の数のうち、有理数はどれですか。",
+        "options": [
+          "$\\sqrt{16}$",
+          "$\\sqrt{7}$",
+          "$\\sqrt{2}$",
+          "$\\pi$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$\\sqrt{16} = 4$ で整数だから有理数。\n$\\sqrt{2}$、$\\sqrt{7}$、$\\pi$ は分数で表せない無理数。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-sqrt-meaning-q17",
+        "question": "$\\sqrt{16}$ について正しく述べているものはどれですか。",
+        "options": [
+          "$\\pm 4$ に等しい",
+          "無理数である",
+          "$4$ に等しい",
+          "値が定まらない"
+        ],
+        "correctIndex": 2,
+        "explanation": "$\\sqrt{16} = 4$ で、根号は正のほうを表すので $\\pm 4$ ではない。\n$4$ は整数なので有理数。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-sqrt-meaning-q18",
+        "question": "$a^2 = 7$ を満たす数 $a$ を求めなさい。",
+        "options": [
+          "$7$",
+          "$\\sqrt{7}$",
+          "$\\pm 7$",
+          "$\\pm\\sqrt{7}$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$a$ は $7$ の平方根で、正と負の2つある。\nよって $a = \\pm\\sqrt{7}$。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-sqrt-meaning-q19",
+        "question": "$x^2 = 11$ を満たす数 $x$ を求めなさい。",
+        "options": [
+          "$x = \\pm\\sqrt{11}$",
+          "$x = 11$",
+          "$x = \\sqrt{11}$",
+          "$x = \\pm 11$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$x$ は $11$ の平方根で、正と負の2つある。\nよって $x = \\pm\\sqrt{11}$。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-sqrt-meaning-q20",
+        "question": "面積が $121\\ \\text{cm}^2$ の正方形の1辺の長さを求めなさい。",
+        "options": [
+          "$\\pm 11\\ \\text{cm}$",
+          "$11\\ \\text{cm}$",
+          "$60.5\\ \\text{cm}$",
+          "$\\sqrt{11}\\ \\text{cm}$"
+        ],
+        "correctIndex": 1,
+        "explanation": "1辺を $x$ とすると $x^2 = 121$。$11^2 = 121$ より $x = \\sqrt{121} = 11$。\n長さは正の数なので $11\\ \\text{cm}$。",
+        "difficulty": "standard"
+      }
+    ]
   }
 }

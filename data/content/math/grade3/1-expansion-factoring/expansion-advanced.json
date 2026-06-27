@@ -3,12 +3,273 @@
   "eraId": "math-g3-expansion-factoring",
   "topicId": "math-g3-expansion-advanced",
   "name": "展開の応用",
-  "subtitle": "置き換え・式を簡単にする・式のおきかえ",
+  "subtitle": "置き換え・式を簡単にする",
   "icon": "🚀",
   "order": 3,
   "videos": [],
   "flashcards": [],
   "quiz": {
-    "questions": []
+    "questions": [
+      {
+        "id": "math-g3-expansion-advanced-q1",
+        "question": "次の計算をしましょう。\n$(a+b)(x+y)$",
+        "options": [
+          "$ax+by$",
+          "$ax+ay+bx+by$",
+          "$ab+xy$",
+          "$ax+ay+bx$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$(a+b)(x+y)=ax+ay+bx+by$\nそれぞれの項をもれなくかけ合わせます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-expansion-advanced-q2",
+        "question": "次の計算をしましょう。\n$(x+2)(x+y+1)$",
+        "options": [
+          "$x^2+xy+3x+2y+2$",
+          "$x^2+xy+x+2y+2$",
+          "$x^2+xy+3x+2y$",
+          "$x^2+xy+2x+2y+2$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$(x+2)(x+y+1)=x^2+xy+x+2x+2y+2=x^2+xy+3x+2y+2$\n$x$ と $2x$ をまとめます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-expansion-advanced-q3",
+        "question": "次の計算をしましょう。\n$(a+3)(a+b-2)$",
+        "options": [
+          "$a^2+ab-a+3b-6$",
+          "$a^2+ab+5a+3b-6$",
+          "$a^2+ab+a+3b+6$",
+          "$a^2+ab+a+3b-6$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$(a+3)(a+b-2)=a^2+ab-2a+3a+3b-6=a^2+ab+a+3b-6$\n$-2a+3a=a$ になります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-expansion-advanced-q4",
+        "question": "次の計算をしましょう。\n$(x-2)(x^2+x-1)$",
+        "options": [
+          "$x^3+x^2-3x+2$",
+          "$x^3-x^2-x+2$",
+          "$x^3-x^2-3x-2$",
+          "$x^3-x^2-3x+2$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$(x-2)(x^2+x-1)=x^3+x^2-x-2x^2-2x+2=x^3-x^2-3x+2$\n同類項 $x^2-2x^2$、$-x-2x$ をまとめます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-expansion-advanced-q5",
+        "question": "次の計算をしましょう。\n$(x+y+1)(x+y-2)$",
+        "options": [
+          "$x^2+y^2-x-y-2$",
+          "$x^2+2xy+y^2-x-y-2$",
+          "$x^2+2xy+y^2+x+y-2$",
+          "$x^2+2xy+y^2-x-y+2$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$x+y=A$ とおくと $(A+1)(A-2)=A^2-A-2=(x+y)^2-(x+y)-2=x^2+2xy+y^2-x-y-2$\n$(x+y)^2$ の $2xy$ を忘れないようにします。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-expansion-advanced-q6",
+        "question": "次の計算をしましょう。\n$(a-b+3)(a-b-5)$",
+        "options": [
+          "$a^2-2ab+b^2-2a-2b-15$",
+          "$a^2-2ab+b^2-2a+2b+15$",
+          "$a^2+b^2-2a+2b-15$",
+          "$a^2-2ab+b^2-2a+2b-15$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$a-b=M$ とおくと $(M+3)(M-5)=M^2-2M-15=(a-b)^2-2(a-b)-15=a^2-2ab+b^2-2a+2b-15$\n$-2(a-b)=-2a+2b$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-expansion-advanced-q7",
+        "question": "次の計算をしましょう。\n$(x+y+4)^2$",
+        "options": [
+          "$x^2+y^2+8x+8y+16$",
+          "$x^2+2xy+y^2+8x+8y+16$",
+          "$x^2+2xy+y^2+4x+4y+16$",
+          "$x^2+2xy+y^2+8x+8y+8$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$x+y=A$ とおくと $(A+4)^2=A^2+8A+16=(x+y)^2+8(x+y)+16=x^2+2xy+y^2+8x+8y+16$\n$8A=8x+8y$ に戻します。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-expansion-advanced-q8",
+        "question": "次の計算をしましょう。\n$(a+b-c)(a-b+c)$",
+        "options": [
+          "$a^2-b^2-2bc-c^2$",
+          "$a^2-b^2+2bc+c^2$",
+          "$a^2-b^2+2bc-c^2$",
+          "$a^2+b^2-2bc-c^2$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$(a+b-c)(a-b+c)=\\{a+(b-c)\\}\\{a-(b-c)\\}=a^2-(b-c)^2=a^2-b^2+2bc-c^2$\n$b-c$ を1つのまとまりとみて和と差の積を使います。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-expansion-advanced-q9",
+        "question": "次の計算をしましょう。\n$(x+2)(x-2)(x+3)$",
+        "options": [
+          "$x^3+3x^2+4x-12$",
+          "$x^3+3x^2-4x+12$",
+          "$x^3+3x^2-4x-12$",
+          "$x^3-3x^2-4x-12$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$(x+2)(x-2)(x+3)=(x^2-4)(x+3)=x^3+3x^2-4x-12$\nまず和と差の積で $x^2-4$ にします。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-expansion-advanced-q10",
+        "question": "次の計算をしましょう。\n$(x+1)(x-1)(x^2+1)$",
+        "options": [
+          "$x^4+1$",
+          "$x^4-1$",
+          "$x^4-x^2-1$",
+          "$x^4-2x^2-1$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$(x+1)(x-1)(x^2+1)=(x^2-1)(x^2+1)=x^4-1$\n和と差の積を2回続けて使います。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-expansion-advanced-q11",
+        "question": "次の計算をしましょう。\n$(a+2)(a-2)(a^2+4)$",
+        "options": [
+          "$a^4-16$",
+          "$a^4-8$",
+          "$a^4+16$",
+          "$a^4-8a^2-16$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$(a+2)(a-2)(a^2+4)=(a^2-4)(a^2+4)=a^4-16$\n和と差の積を2回使います。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-expansion-advanced-q12",
+        "question": "次の計算をしましょう。\n$(2x+3)(2x-3)$",
+        "options": [
+          "$4x^2+9$",
+          "$2x^2-9$",
+          "$4x^2-9$",
+          "$4x^2-36$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$(2x+3)(2x-3)=(2x)^2-3^2=4x^2-9$\n和と差の積です。$(2x)^2=4x^2$。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-expansion-advanced-q13",
+        "question": "次の計算をしましょう。\n$(x+3)^2-(x-2)(x+5)$",
+        "options": [
+          "$3x-19$",
+          "$3x-1$",
+          "$9x+19$",
+          "$3x+19$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$(x+3)^2-(x-2)(x+5)=(x^2+6x+9)-(x^2+3x-10)=3x+19$\nひく式の $-10$ にも符号を分配します。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-expansion-advanced-q14",
+        "question": "次の計算をしましょう。\n$(x+4)(x-4)-(x-3)^2$",
+        "options": [
+          "$6x-25$",
+          "$6x-7$",
+          "$-6x-25$",
+          "$6x+25$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$(x+4)(x-4)-(x-3)^2=(x^2-16)-(x^2-6x+9)=6x-25$\nひく式の $+9$ の符号に注意します。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-expansion-advanced-q15",
+        "question": "次の計算をしましょう。\n$(2x-1)^2-(x+2)(4x-1)$",
+        "options": [
+          "$-11x-1$",
+          "$11x+3$",
+          "$-11x+3$",
+          "$-3x+3$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$(2x-1)^2-(x+2)(4x-1)=(4x^2-4x+1)-(4x^2+7x-2)=-11x+3$\nひく式全体の符号を変えます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-expansion-advanced-q16",
+        "question": "次の計算をしましょう。\n$(x+5)(x-2)-(x-1)(x+3)$",
+        "options": [
+          "$x-13$",
+          "$5x-7$",
+          "$x+7$",
+          "$x-7$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$(x+5)(x-2)-(x-1)(x+3)=(x^2+3x-10)-(x^2+2x-3)=x-7$\nひく式の $-3$ も符号が変わり $+3$ になります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-expansion-advanced-q17",
+        "question": "次の計算をしましょう。\n$(x+1)^2+(x-1)^2$",
+        "options": [
+          "$2x^2$",
+          "$2x^2+2$",
+          "$2x^2+4x+2$",
+          "$2x^2+2x+2$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$(x+1)^2+(x-1)^2=(x^2+2x+1)+(x^2-2x+1)=2x^2+2$\n$+2x$ と $-2x$ が消えます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-expansion-advanced-q18",
+        "question": "次の計算をしましょう。\n$(x+2)^2-(x-2)^2$",
+        "options": [
+          "$8x$",
+          "$0$",
+          "$16x$",
+          "$-8x$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$(x+2)^2-(x-2)^2=(x^2+4x+4)-(x^2-4x+4)=8x$\n$x^2$ と定数が消え、$4x+4x=8x$ が残ります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-expansion-advanced-q19",
+        "question": "次の計算をしましょう。\n$(x+y+1)(x-y+1)$",
+        "options": [
+          "$x^2+1-y^2$",
+          "$x^2+2x+1+y^2$",
+          "$x^2+2x+1-y^2$",
+          "$x^2-2x+1-y^2$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$(x+y+1)(x-y+1)=\\{(x+1)+y\\}\\{(x+1)-y\\}=(x+1)^2-y^2=x^2+2x+1-y^2$\n$x+1$ をまとまりとみて和と差の積を使います。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-expansion-advanced-q20",
+        "question": "次の計算をしましょう。\n$(2a+b-1)(2a+b+1)$",
+        "options": [
+          "$4a^2+4ab+b^2-1$",
+          "$2a^2+4ab+b^2-1$",
+          "$4a^2+4ab+b^2+1$",
+          "$4a^2+b^2-1$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$(2a+b-1)(2a+b+1)=(2a+b)^2-1=4a^2+4ab+b^2-1$\n$2a+b$ をまとまりとみます。$(2a+b)^2=4a^2+4ab+b^2$。",
+        "difficulty": "standard"
+      }
+    ]
   }
 }

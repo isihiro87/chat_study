@@ -9,6 +9,267 @@
   "videos": [],
   "flashcards": [],
   "quiz": {
-    "questions": []
+    "questions": [
+      {
+        "id": "math-g3-quad-formula-q1",
+        "question": "次の方程式を解きましょう。\n$x^2+3x+1=0$",
+        "options": [
+          "$x=\\frac{3\\pm\\sqrt{5}}{2}$",
+          "$x=\\frac{-3\\pm\\sqrt{5}}{2}$",
+          "$x=\\frac{-3\\pm\\sqrt{13}}{2}$",
+          "$x=-\\frac{3}{2}\\pm\\sqrt{5}$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$a=1,\\ b=3,\\ c=1$ を解の公式に代入すると $x=\\frac{-3\\pm\\sqrt{9-4}}{2}=\\frac{-3\\pm\\sqrt{5}}{2}$\n$\\sqrt{}$ の中は $b^2-4ac=5$ になります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-quad-formula-q2",
+        "question": "次の方程式を解きましょう。\n$x^2-5x+2=0$",
+        "options": [
+          "$x=\\frac{-5\\pm\\sqrt{17}}{2}$",
+          "$x=\\frac{5}{2}\\pm\\sqrt{17}$",
+          "$x=\\frac{5\\pm\\sqrt{17}}{2}$",
+          "$x=\\frac{5\\pm\\sqrt{33}}{2}$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$a=1,\\ b=-5,\\ c=2$ を代入すると $x=\\frac{5\\pm\\sqrt{25-8}}{2}=\\frac{5\\pm\\sqrt{17}}{2}$\n$-b=-(-5)=5$ なので分子の先頭は $+5$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-quad-formula-q3",
+        "question": "次の方程式を解きましょう。\n$2x^2+3x-1=0$",
+        "options": [
+          "$x=\\frac{3\\pm\\sqrt{17}}{4}$",
+          "$x=\\frac{-3\\pm\\sqrt{17}}{2}$",
+          "$x=-\\frac{3}{4}\\pm\\sqrt{17}$",
+          "$x=\\frac{-3\\pm\\sqrt{17}}{4}$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$a=2,\\ b=3,\\ c=-1$ を代入すると $x=\\frac{-3\\pm\\sqrt{9+8}}{4}=\\frac{-3\\pm\\sqrt{17}}{4}$\n分母は $2a=4$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-formula-q4",
+        "question": "次の方程式を解きましょう。\n$3x^2-2x-1=0$",
+        "options": [
+          "$x=1,\\ -\\frac{1}{3}$",
+          "$x=2,\\ -\\frac{2}{3}$",
+          "$x=6,\\ -2$",
+          "$x=-1,\\ \\frac{1}{3}$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$a=3,\\ b=-2,\\ c=-1$ を代入すると $x=\\frac{2\\pm\\sqrt{4+12}}{6}=\\frac{2\\pm4}{6}$\nよって $x=1,\\ -\\frac{1}{3}$ となります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-formula-q5",
+        "question": "次の方程式を解きましょう。\n$x^2+2x-4=0$",
+        "options": [
+          "$x=1\\pm\\sqrt{5}$",
+          "$x=-1\\pm\\sqrt{5}$",
+          "$x=-1\\pm2\\sqrt{5}$",
+          "$x=-2\\pm2\\sqrt{5}$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$x=\\frac{-2\\pm\\sqrt{4+16}}{2}=\\frac{-2\\pm2\\sqrt{5}}{2}=-1\\pm\\sqrt{5}$\n分子の $-2$ と $2\\sqrt{5}$ を両方 $2$ で割ります。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-quad-formula-q6",
+        "question": "次の方程式を解きましょう。\n$x^2-4x+1=0$",
+        "options": [
+          "$x=2\\pm\\sqrt{3}$",
+          "$x=-2\\pm\\sqrt{3}$",
+          "$x=2\\pm\\sqrt{5}$",
+          "$x=2\\pm2\\sqrt{3}$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$x=\\frac{4\\pm\\sqrt{16-4}}{2}=\\frac{4\\pm2\\sqrt{3}}{2}=2\\pm\\sqrt{3}$\n$\\sqrt{12}=2\\sqrt{3}$ にしてから約分します。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-quad-formula-q7",
+        "question": "次の方程式を解きましょう。\n$x^2+6x=1$",
+        "options": [
+          "$x=3\\pm\\sqrt{10}$",
+          "$x=-6\\pm\\sqrt{10}$",
+          "$x=-3\\pm\\sqrt{10}$",
+          "$x=-2,\\ -4$"
+        ],
+        "correctIndex": 2,
+        "explanation": "両辺に $9$ を加えて $(x+3)^2=10$\nよって $x+3=\\pm\\sqrt{10}$ から $x=-3\\pm\\sqrt{10}$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-quad-formula-q8",
+        "question": "次の方程式を解きましょう。\n$x^2+4x-3=0$",
+        "options": [
+          "$x=2\\pm\\sqrt{7}$",
+          "$x=-4\\pm\\sqrt{7}$",
+          "$x=-2\\pm\\sqrt{3}$",
+          "$x=-2\\pm\\sqrt{7}$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$x^2+4x=3$ の両辺に $4$ を加えて $(x+2)^2=7$\nよって $x+2=\\pm\\sqrt{7}$ から $x=-2\\pm\\sqrt{7}$ です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-quad-formula-q9",
+        "question": "次の方程式を解きましょう。\n$x^2-2x-2=0$",
+        "options": [
+          "$x=-1\\pm\\sqrt{3}$",
+          "$x=1\\pm\\sqrt{3}$",
+          "$x=1\\pm\\sqrt{2}$",
+          "$x=2\\pm\\sqrt{3}$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$x^2-2x=2$ の両辺に $1$ を加えて $(x-1)^2=3$\nよって $x-1=\\pm\\sqrt{3}$ から $x=1\\pm\\sqrt{3}$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-formula-q10",
+        "question": "$2x^2-3x+1=0$ の $b^2-4ac$ の値を求めなさい。",
+        "options": [
+          "$17$",
+          "$5$",
+          "$9$",
+          "$1$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$a=2,\\ b=-3,\\ c=1$ より $b^2-4ac=(-3)^2-4\\times2\\times1=9-8=1$\n$4ac=8$ を引くのを忘れないようにします。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-formula-q11",
+        "question": "$x^2+5x+3=0$ の $b^2-4ac$ の値を求めなさい。",
+        "options": [
+          "$37$",
+          "$13$",
+          "$25$",
+          "$-13$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$a=1,\\ b=5,\\ c=3$ より $b^2-4ac=5^2-4\\times1\\times3=25-12=13$\n$b^2$ から $4ac$ を引きます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-quad-formula-q12",
+        "question": "次の方程式を解きましょう。\n$x^2+x-3=0$",
+        "options": [
+          "$x=\\frac{1\\pm\\sqrt{13}}{2}$",
+          "$x=-\\frac{1}{2}\\pm\\sqrt{13}$",
+          "$x=-1\\pm\\sqrt{13}$",
+          "$x=\\frac{-1\\pm\\sqrt{13}}{2}$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$a=1,\\ b=1,\\ c=-3$ を代入すると $x=\\frac{-1\\pm\\sqrt{1+12}}{2}=\\frac{-1\\pm\\sqrt{13}}{2}$\n分母 $2a=2$ で分子全体を割ります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-formula-q13",
+        "question": "次の方程式を解きましょう。\n$x^2-3x+1=0$",
+        "options": [
+          "$x=\\frac{3\\pm\\sqrt{13}}{2}$",
+          "$x=\\frac{-3\\pm\\sqrt{5}}{2}$",
+          "$x=\\frac{3}{2}\\pm\\sqrt{5}$",
+          "$x=\\frac{3\\pm\\sqrt{5}}{2}$"
+        ],
+        "correctIndex": 3,
+        "explanation": "$a=1,\\ b=-3,\\ c=1$ を代入すると $x=\\frac{3\\pm\\sqrt{9-4}}{2}=\\frac{3\\pm\\sqrt{5}}{2}$\n$-b=3$ なので分子の先頭は $+3$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-quad-formula-q14",
+        "question": "次の方程式を解きましょう。\n$2x^2-5x+1=0$",
+        "options": [
+          "$x=\\frac{5\\pm\\sqrt{17}}{4}$",
+          "$x=\\frac{-5\\pm\\sqrt{17}}{4}$",
+          "$x=\\frac{5\\pm\\sqrt{17}}{2}$",
+          "$x=\\frac{5\\pm\\sqrt{33}}{4}$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$a=2,\\ b=-5,\\ c=1$ を代入すると $x=\\frac{5\\pm\\sqrt{25-8}}{4}=\\frac{5\\pm\\sqrt{17}}{4}$\n分母は $2a=4$ です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-formula-q15",
+        "question": "次の方程式を解きましょう。\n$3x^2+4x-1=0$",
+        "options": [
+          "$x=\\frac{-2\\pm\\sqrt{7}}{3}$",
+          "$x=\\frac{-4\\pm2\\sqrt{7}}{3}$",
+          "$x=\\frac{2\\pm\\sqrt{7}}{3}$",
+          "$x=-\\frac{1}{3},\\ -1$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$x=\\frac{-4\\pm\\sqrt{16+12}}{6}=\\frac{-4\\pm2\\sqrt{7}}{6}=\\frac{-2\\pm\\sqrt{7}}{3}$\n分子と分母を $2$ で約分します。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-quad-formula-q16",
+        "question": "次の方程式を解きましょう。\n$x^2+x-1=0$",
+        "options": [
+          "$x=\\frac{1\\pm\\sqrt{5}}{2}$",
+          "$x=\\frac{-1\\pm\\sqrt{5}}{2}$",
+          "$x=-1\\pm\\sqrt{5}$",
+          "$x=-\\frac{1}{2}\\pm\\sqrt{5}$"
+        ],
+        "correctIndex": 1,
+        "explanation": "$a=1,\\ b=1,\\ c=-1$ を代入すると $x=\\frac{-1\\pm\\sqrt{1+4}}{2}=\\frac{-1\\pm\\sqrt{5}}{2}$\n分母 $2a=2$ で分子全体を割ります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-quad-formula-q17",
+        "question": "次の方程式を解きましょう。\n$x^2-6x+2=0$",
+        "options": [
+          "$x=3\\pm2\\sqrt{7}$",
+          "$x=-3\\pm\\sqrt{7}$",
+          "$x=3\\pm\\sqrt{7}$",
+          "$x=3\\pm\\sqrt{11}$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$x=\\frac{6\\pm\\sqrt{36-8}}{2}=\\frac{6\\pm2\\sqrt{7}}{2}=3\\pm\\sqrt{7}$\n$\\sqrt{28}=2\\sqrt{7}$ にしてから約分します。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-quad-formula-q18",
+        "question": "次の方程式を解きましょう。\n$x^2+5x+2=0$",
+        "options": [
+          "$x=\\frac{-5\\pm\\sqrt{17}}{2}$",
+          "$x=\\frac{5\\pm\\sqrt{17}}{2}$",
+          "$x=-\\frac{5}{2}\\pm\\sqrt{17}$",
+          "$x=\\frac{-5\\pm\\sqrt{33}}{2}$"
+        ],
+        "correctIndex": 0,
+        "explanation": "$a=1,\\ b=5,\\ c=2$ を代入すると $x=\\frac{-5\\pm\\sqrt{25-8}}{2}=\\frac{-5\\pm\\sqrt{17}}{2}$\n$-b=-5$ なので分子の先頭は $-5$ です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-quad-formula-q19",
+        "question": "次の方程式を解きましょう。\n$x^2-8x+5=0$",
+        "options": [
+          "$x=-4\\pm\\sqrt{11}$",
+          "$x=4\\pm2\\sqrt{11}$",
+          "$x=4\\pm\\sqrt{11}$",
+          "$x=4\\pm\\sqrt{21}$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$x=\\frac{8\\pm\\sqrt{64-20}}{2}=\\frac{8\\pm2\\sqrt{11}}{2}=4\\pm\\sqrt{11}$\n$\\sqrt{44}=2\\sqrt{11}$ にしてから約分します。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-quad-formula-q20",
+        "question": "次の方程式を解きましょう。\n$2x^2-7x+3=0$",
+        "options": [
+          "$x=-3,\\ -\\frac{1}{2}$",
+          "$x=6,\\ 1$",
+          "$x=3,\\ \\frac{1}{2}$",
+          "$x=12,\\ 2$"
+        ],
+        "correctIndex": 2,
+        "explanation": "$x=\\frac{7\\pm\\sqrt{49-24}}{4}=\\frac{7\\pm5}{4}$\nよって $x=3,\\ \\frac{1}{2}$ となります。",
+        "difficulty": "standard"
+      }
+    ]
   }
 }
