@@ -19,8 +19,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,svg,webp,woff,woff2}'],
-        // 静的同梱した /typing（外部タイピングアプリ）はSWのSPAフォールバックで奪わない
-        navigateFallbackDenylist: [/^\/typing\//],
+        // 静的同梱した /typing（外部タイピングアプリ）と、/mubista（Firebase Hosting へ
+        // プロキシする外部の授業動画アプリ「ムビスタ」）はSWのSPAフォールバックで奪わない
+        navigateFallbackDenylist: [/^\/typing\//, /^\/mubista\//],
         maximumFileSizeToCacheInBytes: 3 * 1024 * 1024, // 3MB
         runtimeCaching: [
           {
