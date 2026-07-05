@@ -49,6 +49,14 @@
   ],
   "rewrites": [
     {
+      "source": "/mubista",
+      "destination": "https://mubista.web.app/"
+    },
+    {
+      "source": "/mubista/",
+      "destination": "https://mubista.web.app/"
+    },
+    {
       "source": "/mubista/:path*",
       "destination": "https://mubista.web.app/:path*"
     },
