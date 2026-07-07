@@ -34,6 +34,9 @@ export { createStripeCheckoutSession } from './createStripeCheckoutSession';
 export { cancelStripeSubscription } from './cancelStripeSubscription';
 export { submitContactForm } from './submitContactForm';
 
+// ムビスタ（授業動画アプリ）学習イベントの受け口（users/{uid}.mubista へ集約）
+export { recordMubistaProgress } from './recordMubistaProgress';
+
 // 休眠ユーザー除外システム + Win-back（§B, §C）
 export { recalculateUserStatuses } from './recalculateUserStatuses';
 export { sendWinbackMessages } from './sendWinbackMessages';

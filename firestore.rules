@@ -19,7 +19,10 @@ service cloud.firestore {
         'stripeCustomerId',
         'stripeSubscriptionId',
         'paidStartedAt',
-        'paidEndedAt'
+        'paidEndedAt',
+        // ムビスタ学習記録は recordMubistaProgress（Admin SDK）経由のみ書き込み可。
+        // クライアント（Web/LIFF）からの直接書き込みは禁止。
+        'mubista'
       ]);
     }
 

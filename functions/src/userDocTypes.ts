@@ -9,10 +9,10 @@
  * 拡張されるため、古いドキュメントには新フィールドが存在しないことが多い）。
  */
 
-import type { Timestamp } from "firebase-admin/firestore";
+import type { Timestamp } from 'firebase-admin/firestore';
 
 /** ユーザーの活性状態。最終回答日からの経過日数で算出される。 */
-export type UserStatus = "active" | "at-risk" | "dormant" | "churned";
+export type UserStatus = 'active' | 'at-risk' | 'dormant' | 'churned';
 
 /**
  * Win-back メッセージのタッチポイント。
@@ -23,16 +23,19 @@ export type UserStatus = "active" | "at-risk" | "dormant" | "churned";
  * - day10 → 11 日目（dormant 中の追撃。2026-06 追加）
  * - day14 → 15 日目（churned 入り・最終）
  */
-export type WinbackTouchpoint = "day3" | "day5" | "day7" | "day10" | "day14";
+export type WinbackTouchpoint = 'day3' | 'day5' | 'day7' | 'day10' | 'day14';
 
 /** ロック可能な月額価格 */
 export type LockedMonthlyPrice = 680 | 980;
 
+/** 範囲設定ナッジの A/B バリアント（文言別の設定転換を計測するため）。 */
+export type ScopeNudgeVariant = 'A' | 'B';
+
 /** プラン種別（既存） */
-export type Plan = "free" | "premium";
+export type Plan = 'free' | 'premium';
 
 /** プランのソース（既存） */
-export type PlanSource = "trial" | "paid" | "trial_expired" | null;
+export type PlanSource = 'trial' | 'paid' | 'trial_expired' | null;
 
 /** 配信時刻（既存。テスト範囲は要件上 6/7/16/17/18/19/20/21 だが旧 18/20 も互換維持） */
 export type PreferredHour = 6 | 7 | 16 | 17 | 18 | 19 | 20 | 21;
@@ -88,7 +91,7 @@ export interface WinbackHistory {
 
 /** フォールバック AI チャットの 1 ターン（user / model）。 */
 export interface AiChatTurn {
-  role: "user" | "model";
+  role: 'user' | 'model';
   text: string;
 }
 
@@ -142,8 +145,8 @@ export interface UserDoc {
   lineUserId?: string;
   displayName?: string;
   nickname?: string | null;
-  grade?: "中1" | "中2" | "中3";
-  subject?: "history" | "english";
+  grade?: '中1' | '中2' | '中3';
+  subject?: 'history' | 'english';
   preferredHour?: PreferredHour;
 
   /**
@@ -158,7 +161,7 @@ export interface UserDoc {
   premiumUntil?: Timestamp;
   trialStartedAt?: Timestamp;
   trialExpiredAt?: Timestamp;
-  richMenuType?: "free" | "trial" | "premium";
+  richMenuType?: 'free' | 'trial' | 'premium';
 
   // === 活性状態（新規・休眠ユーザー除外システム用） ===
 
@@ -182,6 +185,20 @@ export interface UserDoc {
 
   /** 再フォロー（follow 受信）日時 */
   unblockedAt?: Timestamp;
+
+  /**
+   * ユーザー自身による配信一時停止フラグ（設定メニューの「配信をおやすみ」）。
+   * true の間は cron 由来 push（dailyQuiz / 週3 / 移行案内 / Win-back）を送らない。
+   * reply 系（1問解く / 苦手復習 / AIチャット / 範囲設定）は停止中も使える。
+   * 解除は resume_delivery postback または復帰キーワード（handleRestartIntent）。
+   */
+  deliveryPaused?: boolean;
+
+  /** 配信一時停止した日時 */
+  deliveryPausedAt?: Timestamp;
+
+  /** 配信を再開した日時 */
+  deliveryResumedAt?: Timestamp;
 
   /** 最終回答日時。`onAnswerCreated` で更新される。 */
   lastAnsweredAt?: Timestamp;
@@ -224,18 +241,36 @@ export interface UserDoc {
 
   // === Onboarding 関連（新規拡張） ===
 
-  /** Onboarding 状態（既存） */
+  /**
+   * Onboarding 状態（既存）。
+   * ⚠️ 完了は `"complete"`（webhook / remindIncompleteOnboarding の実書き込み）。
+   * かつて型が `"completed"` になっていて実体と不一致だった（集計スクリプトが
+   * 完了 0% と誤表示していた原因）。実データに合わせて `"complete"` を正とする。
+   */
   onboardingState?:
-    | "started"
-    | "awaiting_name"
-    | "awaiting_grade"
-    | "awaiting_subject"
-    | "awaiting_hour"
-    | "reminded"
-    | "completed";
+    | 'started'
+    | 'awaiting_name'
+    | 'awaiting_grade'
+    | 'awaiting_subject'
+    | 'awaiting_hour'
+    | 'reminded'
+    | 'complete';
 
   /** Onboarding 未完了リマインダー送信履歴（Day 1/3/7） */
   onboardingReminderAt?: OnboardingReminderHistory;
+
+  // === テスト範囲設定ナッジ（回答後 push） ===
+
+  /** 範囲設定ナッジを送った累計回数（SCOPE_SETUP_NUDGE_MAX で打ち切り）。 */
+  scopeSetupNudgeCount?: number;
+
+  /** 最後に範囲設定ナッジを送った日時。 */
+  lastScopeSetupNudgeAt?: Timestamp;
+
+  /**
+   * 範囲設定ナッジの A/B バリアント（uid 固定）。文言別の設定転換を計測する。
+   */
+  scopeSetupNudgeVariant?: ScopeNudgeVariant;
 
   // === プレミアム申込フォーム離脱検知（新規） ===
 
@@ -266,10 +301,57 @@ export interface UserDoc {
    */
   lastQuestion?: LastQuestionSnapshot;
 
+  // === ムビスタ（授業動画アプリ）連携（新規 2026-07） ===
+
+  /**
+   * 動画学習アプリ「ムビスタ」（chatstudy.jp/mubista）での学習記録。
+   * `recordMubistaProgress` Function 経由でのみ書き込む（クライアント直書き禁止）。
+   * `buildSystemPrompt` が「スタ先生」の文脈として要約注入する（同一AI体験）。
+   * 統合設計: docs/ideas/mubista-line-shared-brain.md
+   */
+  mubista?: MubistaProgress;
+
   // === メタ ===
   createdAt?: Timestamp;
   updatedAt?: Timestamp;
   lastRichMenuUpdatedAt?: Timestamp;
+}
+
+/** ムビスタでの単元ごとの学習サマリ（read 規律のため 1 フィールドに集約）。 */
+export interface MubistaUnit {
+  /** 単元の表示名（例「鎌倉幕府の成立」） */
+  title: string;
+  /** 視聴進捗 0..1（最大到達率を保持＝下がらない） */
+  progress: number;
+  /** 直近視聴日時 */
+  viewedAt: Timestamp;
+  /** 直近セッションのクイズ集計 */
+  quiz?: {
+    asked: number;
+    correct: number;
+    /** 間違えた概念（重複排除・最大 8 件） */
+    wrongConcepts: string[];
+  };
+}
+
+/** 横断の「直近まちがえた概念」（LINE 声かけ用）。 */
+export interface MubistaWrong {
+  unit: string;
+  concept: string;
+  at: Timestamp;
+}
+
+/** `users/{uid}.mubista` の全体。 */
+export interface MubistaProgress {
+  lastViewedAt: Timestamp;
+  /** 直近に見た単元 id */
+  lastUnit: string;
+  /** 単元 id → サマリ（最大 40 件・古い viewedAt から間引き） */
+  units: Record<string, MubistaUnit>;
+  /** 横断・最大 10 件・新しい順 */
+  recentWrong: MubistaWrong[];
+  /** ムビスタAIとの会話の軽い要約（任意・フェーズ4） */
+  aiSummary?: string;
 }
 
 /**
