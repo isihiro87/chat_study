@@ -36,6 +36,8 @@ export { submitContactForm } from './submitContactForm';
 
 // ムビスタ（授業動画アプリ）学習イベントの受け口（users/{uid}.mubista へ集約）
 export { recordMubistaProgress } from './recordMubistaProgress';
+// ムビスタ連携: LINE の link トークンを長命 session に交換する
+export { redeemMubistaSession } from './redeemMubistaSession';
 
 // 休眠ユーザー除外システム + Win-back（§B, §C）
 export { recalculateUserStatuses } from './recalculateUserStatuses';

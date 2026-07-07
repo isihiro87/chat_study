@@ -19,10 +19,13 @@ import {
   type MubistaProgressCore,
   type MubistaUnitCore,
 } from './mubistaProgressCore';
+import { verifyMubistaToken } from './mubistaSessionCore';
 import type { MubistaProgress, MubistaUnit } from './userDocTypes';
 
 /** dev の uid 直指定を許可するか（本番は未設定＝false）。 */
 const ALLOW_DEV_UID = process.env.ALLOW_DEV_UID === 'true';
+/** 連携セッショントークンの署名検証キー。 */
+const SECRET = process.env.MUBISTA_LINK_SECRET || '';
 
 /** 1 uid あたりの短時間レート制限（インメモリ・インスタンス再利用で効く）。 */
 const RATE_WINDOW_MS = 10_000;
@@ -105,15 +108,18 @@ export function fromCore(
 
 /**
  * リクエストから uid を解決する。
- * - フェーズ2: `session`（署名トークン）→ uid（未実装）。
- * - フェーズ1: dev のみ `devUid`。
+ * - `session`（署名トークン・フェーズ2）を検証して uid を返す（本線）。
+ * - dev のみ `devUid` 直指定（ALLOW_DEV_UID=true 時）。
  * 解決できなければ null（呼び出し側で 204 no-op）。
  */
 function resolveUid(body: Record<string, unknown>): string | null {
+  if (SECRET) {
+    const p = verifyMubistaToken(body.session, SECRET, Date.now(), 'session');
+    if (p) return p.uid;
+  }
   if (ALLOW_DEV_UID && typeof body.devUid === 'string' && body.devUid) {
     return body.devUid.slice(0, 128);
   }
-  // TODO(phase2): session を検証して uid を返す。
   return null;
 }
 

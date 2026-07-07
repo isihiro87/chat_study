@@ -1,6 +1,7 @@
 // deploy-bust: 2026-05-25 intro-merge
 import * as functions from 'firebase-functions/v1';
 import type { messagingApi } from '@line/bot-sdk';
+import { makeLinkToken } from './mubistaSessionCore';
 import {
   getCorrectFeedback,
   getIncorrectFeedback,
@@ -10,7 +11,11 @@ import {
   getAlreadyDeliveredText,
   isDayStreakMilestone,
 } from './messageVariations';
-import { nextStreakState, type StreakState } from './streakState';
+import {
+  nextStreakState,
+  displayStreakDays,
+  type StreakState,
+} from './streakState';
 import {
   supportsEraFlow,
   parseSel,
@@ -21,11 +26,13 @@ import {
   buildCommitText,
   buildScopeQuickItems,
   getEraMetas,
+  computeScopeAfterNotLearned,
+  type NotLearnedMode,
   type ScopeQuickItem,
 } from './lineScopeFlow';
 import { recordPushDelivery } from './deliveryStats';
 import type { PushType } from './deliveryStatsTypes';
-import type { LastQuestionSnapshot } from './userDocTypes';
+import type { LastQuestionSnapshot, ScopeNudgeVariant } from './userDocTypes';
 import { QUESTION_INDEX } from './generated/line-question-index.generated';
 
 interface LineEvent {
@@ -58,13 +65,22 @@ type ValidGrade = '中1' | '中2' | '中3';
 const VALID_GRADES: readonly ValidGrade[] = ['中1', '中2', '中3'] as const;
 
 type ValidSubject = 'history' | 'english' | 'science' | 'math' | 'geography';
-const VALID_SUBJECTS: readonly ValidSubject[] = ['history', 'english', 'science', 'math', 'geography'] as const;
+const VALID_SUBJECTS: readonly ValidSubject[] = [
+  'history',
+  'english',
+  'science',
+  'math',
+  'geography',
+] as const;
 // 地理は中1・中2のみコンテンツがある（中3には地理を出さない）。
 const SUBJECT_GRADES: Partial<Record<ValidSubject, readonly ValidGrade[]>> = {
   geography: ['中1', '中2'],
 };
 /** その学年でその教科が選択可能か（制限が無ければ常に可）。 */
-function isSubjectAvailableForGrade(subject: ValidSubject, grade: ValidGrade): boolean {
+function isSubjectAvailableForGrade(
+  subject: ValidSubject,
+  grade: ValidGrade
+): boolean {
   const allowed = SUBJECT_GRADES[subject];
   return !allowed || allowed.includes(grade);
 }
@@ -118,9 +134,17 @@ interface Question {
   imageUrl?: string; // 図つき問題（数学のグラフ/図形/統計など）。あれば問題文の下に表示
   // 数学ハイブリッドカード: 日本語=テキスト / 数式=画像 / 選択肢=全MathJax画像
   renderMode?: string; // 'math-hybrid' のとき下記 parts でカードを組む
-  questionParts?: Array<{ t: 'text'; s: string } | { t: 'img'; u: string; w: number; h: number }>;
+  questionParts?: Array<
+    { t: 'text'; s: string } | { t: 'img'; u: string; w: number; h: number }
+  >;
   // 選択肢: 文章は {t:'text'} のテキスト、数式は {t:'img'} の MathJax 画像（混在可）
-  choiceParts?: Array<{ t?: string; s?: string; u?: string; w?: number; h?: number }>;
+  choiceParts?: Array<{
+    t?: string;
+    s?: string;
+    u?: string;
+    w?: number;
+    h?: number;
+  }>;
   explanationImage?: { u: string; w: number; h: number }; // 解説のMathJax画像（数式入りのみ）
 }
 
@@ -226,7 +250,10 @@ export function buildSubjectSelectMessage(grade: string) {
     { label: '理科', data: 'type=select_subject&subject=science' },
   ];
   if (geoOK) {
-    options.push({ label: '地理', data: 'type=select_subject&subject=geography' });
+    options.push({
+      label: '地理',
+      data: 'type=select_subject&subject=geography',
+    });
   }
   options.push({ label: '英語', data: 'type=select_subject&subject=english' });
   return buildOnboardingSelectFlex({
@@ -251,9 +278,13 @@ function remainingLearningChanges(
   data: Record<string, unknown> | undefined
 ): number {
   const date =
-    typeof data?.learningChangeDate === 'string' ? data.learningChangeDate : null;
+    typeof data?.learningChangeDate === 'string'
+      ? data.learningChangeDate
+      : null;
   const count =
-    typeof data?.learningChangeCount === 'number' ? data.learningChangeCount : 0;
+    typeof data?.learningChangeCount === 'number'
+      ? data.learningChangeCount
+      : 0;
   const todayCount = date === getJstDateString(new Date()) ? count : 0;
   return Math.max(0, LEARNING_CHANGE_DAILY_LIMIT - todayCount);
 }
@@ -659,6 +690,66 @@ const TEST_RANGE_SCOPE_URL =
   'https://line.chatstudy.jp/scope?openExternalBrowser=1';
 const LIFF_UNITS_URL =
   process.env.LIFF_UNITS_URL ?? 'https://liff.line.me/2009587166-LjyCza2c';
+// 授業動画アプリ「ムビスタ」。?lt=<link token> を付けて本人連携する。
+const MUBISTA_BASE_URL =
+  process.env.MUBISTA_URL ?? 'https://chatstudy.jp/mubista/';
+
+/** 「ムビスタ」「動画で学びたい」等、授業動画アプリを開きたい意図か。 */
+function isMubistaIntent(text: string): boolean {
+  const t = text.replace(/\s/g, '');
+  if (!t) return false;
+  // 「動画」単体は誤爆しやすいので「動画で/動画を/授業動画」等に限定。
+  return (
+    /ムビスタ|むびすた/.test(t) ||
+    /(授業|授業の)?動画(で|を|が|みたい|見たい|学び|学習)/.test(t)
+  );
+}
+
+/** ムビスタへの本人リンク（署名 link トークン付き）を作る。 */
+function buildMubistaLinkUrl(uid: string): string | null {
+  const secret = process.env.MUBISTA_LINK_SECRET || '';
+  if (!secret) return null;
+  const lt = makeLinkToken(uid, secret, Date.now());
+  const sep = MUBISTA_BASE_URL.includes('?') ? '&' : '?';
+  return `${MUBISTA_BASE_URL}${sep}lt=${encodeURIComponent(lt)}`;
+}
+
+/** 「ムビスタで学ぼう」flex を reply で送る（配信枠ゼロ）。 */
+async function handleOpenMubista(
+  uid: string,
+  replyToken: string | undefined
+): Promise<void> {
+  if (!replyToken) return;
+  const url = buildMubistaLinkUrl(uid);
+  const client = await getLineClient();
+  if (!url) {
+    await client.replyMessage({
+      replyToken,
+      messages: [
+        {
+          type: 'text',
+          text: 'ごめんね、いまムビスタの準備中みたい。少し待ってからまた試してね。',
+        },
+      ],
+    });
+    return;
+  }
+  await client.replyMessage({
+    replyToken,
+    messages: [
+      {
+        type: 'template',
+        altText: 'ムビスタ（授業動画）を開く',
+        template: {
+          type: 'buttons',
+          title: 'ムビスタで学ぼう',
+          text: '動画とスタ先生で、見て・聞いて学べるよ。このボタンから開くと、あなた専用として続きが記録されるよ。',
+          actions: [{ type: 'uri', label: 'ムビスタを開く', uri: url }],
+        },
+      },
+    ],
+  });
+}
 
 function withLiffSource(url: string, source: string): string {
   try {
@@ -737,6 +828,28 @@ export const lineWebhook = functions
     res.json({ ok: true });
   });
 
+/**
+ * トーク画面に「考え中…」のローディングアニメーションを表示する
+ * （Messaging API の chat loading）。bot の返信が届くと自動で消えるので、
+ * 処理ラグ（コールドスタート後の Firestore read / Gemini 呼び出しなど）の間
+ * 「受け付けたよ」が視覚的に伝わる。1:1 トークのみ対応・失敗しても本処理は止めない。
+ * loadingSeconds は 5〜60 の 5 の倍数（上限まで返信が無ければ自動で消える）。
+ */
+async function showThinkingIndicator(
+  event: LineEvent,
+  loadingSeconds: number
+): Promise<void> {
+  const userId = event.source?.userId;
+  if (!userId || event.source?.type !== 'user') return;
+  try {
+    const client = await getLineClient();
+    await client.showLoadingAnimation({ chatId: userId, loadingSeconds });
+  } catch (error) {
+    // 表示演出なので失敗は警告のみ（本処理を止めない）
+    console.warn('[lineWebhook] showLoadingAnimation failed:', error);
+  }
+}
+
 async function dispatchEvent(event: LineEvent): Promise<void> {
   try {
     switch (event.type) {
@@ -747,9 +860,13 @@ async function dispatchEvent(event: LineEvent): Promise<void> {
         await handleUnfollow(event);
         return;
       case 'postback':
+        // ボタン系は数秒で返るので短め（返信到着で自動的に消える）
+        await showThinkingIndicator(event, 10);
         await handlePostback(event);
         return;
       case 'message':
+        // 自由文・画像・音声は AI（Gemini）が絡み最長 10 数秒かかるため長め
+        await showThinkingIndicator(event, 20);
         await handleMessage(event);
         return;
       default:
@@ -797,6 +914,15 @@ async function handleMessage(event: LineEvent): Promise<void> {
     return;
   }
 
+  // 「ムビスタ」「動画で学びたい」等 → 授業動画アプリ「ムビスタ」への本人リンクを送る
+  if (isMubistaIntent(text)) {
+    const uidForLink = buildUid(event);
+    if (uidForLink) {
+      await handleOpenMubista(uidForLink, replyToken);
+      return;
+    }
+  }
+
   const uid = buildUid(event);
   let userData: Record<string, unknown> | undefined;
   if (uid) {
@@ -816,9 +942,12 @@ async function handleMessage(event: LineEvent): Promise<void> {
       // 含むメッセージ（「また明日」「ごめん」等）を送っても誤爆させず、
       // そのまま下の AI チャットボットに自然に応答させる。
       const { detectRestartIntent } = await import('./keywordMatcher');
+      // 配信一時停止中（deliveryPaused）のユーザーは、直近に回答していても
+      // 「再開」で配信を戻したい明確な意図があるため、8日ゲートをバイパスする。
       if (
         detectRestartIntent(text) &&
-        (await isEligibleForRestartWelcome(userData))
+        (userData?.deliveryPaused === true ||
+          (await isEligibleForRestartWelcome(userData)))
       ) {
         await handleRestartIntent(
           uid,
@@ -965,13 +1094,13 @@ async function handleMediaMessage(
   // 早期レート上限ガード: 1日上限に達していれば、コンテンツのダウンロードも
   // Gemini 呼び出しもせず固定文で断る（上限判定に必要な上の 1 read のみで完結）。
   try {
-    const { getDailyLimit, getJstDate, evaluateRateLimit } = await import(
-      './aiChatCore'
-    );
+    const { getDailyLimit, getJstDate, evaluateRateLimit } =
+      await import('./aiChatCore');
     const { LIMIT_REACHED_TEXT } = await import('./aiChat');
     const plan = getUserPlan(userData);
-    const aiChat = (userData as { aiChat?: Parameters<typeof evaluateRateLimit>[0] })
-      ?.aiChat;
+    const aiChat = (
+      userData as { aiChat?: Parameters<typeof evaluateRateLimit>[0] }
+    )?.aiChat;
     const { limited } = evaluateRateLimit(
       aiChat,
       getJstDate(new Date()),
@@ -1044,7 +1173,9 @@ async function handleStickerMessage(event: LineEvent): Promise<void> {
   const replyToken = event.replyToken;
   const uid = buildUid(event);
   if (!message || !replyToken || !uid) {
-    console.warn('[lineWebhook] handleStickerMessage: missing message/token/uid');
+    console.warn(
+      '[lineWebhook] handleStickerMessage: missing message/token/uid'
+    );
     return;
   }
 
@@ -1103,7 +1234,13 @@ async function handleRestartPostback(
   } catch (error) {
     console.warn('[lineWebhook] restart postback status read failed:', error);
   }
-  await handleRestartIntent(uid, replyToken, event, previousStatus, 'winback_cta');
+  await handleRestartIntent(
+    uid,
+    replyToken,
+    event,
+    previousStatus,
+    'winback_cta'
+  );
 }
 
 async function handleRestartIntent(
@@ -1135,10 +1272,31 @@ async function handleRestartIntent(
       {
         status: 'active',
         statusChangedAt: FieldValue.serverTimestamp(),
+        // 復帰の意思表示なので、配信一時停止（設定メニューの「おやすみ」）も解除する。
+        deliveryPaused: false,
         updatedAt: FieldValue.serverTimestamp(),
       },
       { merge: true }
     );
+    // status_transition→active の定点指標を埋める（previousStatus が active 以外＝
+    // 実際に休眠から戻ったときだけ記録）。onAnswerCreated の自然復帰と合わせて
+    // 「回復遷移」を可視化する。夜間 cron はここで既に active に戻った後に走るため
+    // この経路でしか回復遷移を観測できない。
+    if (previousStatus && previousStatus !== 'active') {
+      try {
+        const { logServerFunnelEvent } = await import('./funnelEvent');
+        await logServerFunnelEvent('status_transition', uid, {
+          from: previousStatus,
+          to: 'active',
+          source,
+        });
+      } catch (error) {
+        console.warn(
+          '[lineWebhook] restart status_transition log failed:',
+          error
+        );
+      }
+    }
   } catch (error) {
     console.error('[lineWebhook] restart intent status reset failed:', error);
   }
@@ -1156,7 +1314,10 @@ async function handleRestartIntent(
   }
 
   try {
-    await selectAndSendQuestion(uid, { pushType: 'restartWelcome', source: 'restart' });
+    await selectAndSendQuestion(uid, {
+      pushType: 'restartWelcome',
+      source: 'restart',
+    });
   } catch (error) {
     console.error('[lineWebhook] restart selectAndSendQuestion failed:', error);
   }
@@ -1164,7 +1325,6 @@ async function handleRestartIntent(
   // 抑制不能な引数だが lint で unused 警告にならないように参照
   void event;
 }
-
 
 async function handleSettingsChange(
   event: LineEvent,
@@ -1249,6 +1409,181 @@ function buildUid(event: LineEvent): string | null {
   return `line:${userId}`;
 }
 
+// ── 友だち追加直後の「おためし1問」 ─────────────────────────────
+//
+// ブロックの46%が登録48h以内・無回答層のブロック率28.7%（KPI実測）への対策。
+// オンボ完了（学年・教科・時刻の登録）を待たずに、follow の最初の reply で
+// 学年不問の1問をタップ体験させ、「解ける→解説が届く→楽しい」を先に作る。
+// Firestore の questions / answers / stats には一切触れない自己完結の静的問題
+// （postback data に選択肢 index を載せるだけ）なので、学習記録を汚さない。
+
+const SAMPLE_QUESTION = {
+  text: '江戸幕府を開いた人物はだれ？',
+  choices: ['徳川家康', '織田信長', '豊臣秀吉', '源頼朝'],
+  correctIndex: 0,
+  explanation:
+    '1603年、徳川家康が征夷大将軍になって江戸幕府を開いたよ。ここから約260年つづく「江戸時代」の始まり！',
+} as const;
+
+function buildSampleQuestionFlex() {
+  return {
+    type: 'flex' as const,
+    altText: `おためし1問: ${SAMPLE_QUESTION.text}`,
+    contents: {
+      type: 'bubble' as const,
+      size: 'kilo' as const,
+      header: {
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        backgroundColor: '#F59E0B',
+        paddingAll: '14px',
+        contents: [
+          {
+            type: 'text' as const,
+            text: '🎁 おためし1問チャレンジ',
+            color: '#FFFFFF',
+            weight: 'bold' as const,
+            size: 'md' as const,
+          },
+        ],
+      },
+      body: {
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        paddingAll: '20px',
+        contents: [
+          {
+            type: 'text' as const,
+            text: SAMPLE_QUESTION.text,
+            wrap: true,
+            weight: 'bold' as const,
+            size: 'lg' as const,
+            color: '#111827',
+          },
+        ],
+      },
+      footer: {
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        spacing: 'sm' as const,
+        paddingAll: '16px',
+        contents: SAMPLE_QUESTION.choices.map((choice, i) => ({
+          type: 'box' as const,
+          layout: 'horizontal' as const,
+          paddingAll: '10px',
+          cornerRadius: 'md' as const,
+          backgroundColor: '#FFFFFF',
+          borderColor: '#E5E7EB',
+          borderWidth: '1px',
+          action: {
+            type: 'postback' as const,
+            label: choice,
+            data: `type=sample_answer&c=${i}`,
+            displayText: choice,
+          },
+          contents: [
+            {
+              type: 'text' as const,
+              text: String.fromCharCode(65 + i),
+              flex: 0,
+              size: 'sm' as const,
+              weight: 'bold' as const,
+              color: '#F59E0B',
+              gravity: 'top' as const,
+            },
+            {
+              type: 'text' as const,
+              text: choice,
+              flex: 1,
+              wrap: true,
+              size: 'sm' as const,
+              color: '#111827',
+              margin: 'md' as const,
+            },
+          ],
+        })),
+      },
+    },
+  };
+}
+
+/**
+ * おためし1問の回答。正誤＋解説＋「毎日こんな1問が届くよ」を返し、
+ * オンボ未完了ならそのまま学年選択 flex を再提示して登録に接続する。
+ * 何度タップしても同じように応える（状態を持たない・冪等）。
+ */
+async function handleSampleAnswerPostback(
+  uid: string,
+  replyToken: string | undefined,
+  params: URLSearchParams
+): Promise<void> {
+  if (!replyToken) return;
+  const choiceRaw = Number(params.get('c'));
+  const choice =
+    Number.isInteger(choiceRaw) &&
+    choiceRaw >= 0 &&
+    choiceRaw < SAMPLE_QUESTION.choices.length
+      ? choiceRaw
+      : null;
+  if (choice === null) {
+    await replyText(
+      replyToken,
+      'もう一度選択肢を選んでみてね。',
+      '(sample_answer: bad choice)'
+    );
+    return;
+  }
+  const isCorrect = choice === SAMPLE_QUESTION.correctIndex;
+
+  try {
+    const { logServerFunnelEvent } = await import('./funnelEvent');
+    await logServerFunnelEvent('sample_question_answered', uid, {
+      correct: isCorrect,
+    });
+  } catch (error) {
+    console.warn('[lineWebhook] sample_question_answered log failed:', error);
+  }
+
+  // オンボ完了済みかどうかで後続の案内を変える（1 read）。
+  let setupComplete = false;
+  try {
+    const { db } = await getDb();
+    const snap = await db.doc(`users/${uid}`).get();
+    setupComplete = isInitialSetupComplete(snap.data());
+  } catch (error) {
+    console.warn('[lineWebhook] sample_answer user read failed:', error);
+  }
+
+  const feedback = isCorrect
+    ? '⭕ せいかい！すごい、その調子！🎉'
+    : `❌ おしい！正解は「${SAMPLE_QUESTION.choices[SAMPLE_QUESTION.correctIndex]}」だよ。`;
+  const body =
+    `${feedback}\n\n📖 ${SAMPLE_QUESTION.explanation}\n\n` +
+    `こんなふうに、毎日1問がこのLINEに届いて、答えるとすぐ解説が読めるよ📚`;
+
+  try {
+    const client = await getLineClient();
+    const messages: messagingApi.Message[] = setupComplete
+      ? [
+          {
+            type: 'text',
+            text: `${body}\n\nメニューの「1問解く」から、本番の問題にも挑戦してみてね！`,
+          },
+        ]
+      : [
+          { type: 'text', text: body },
+          {
+            type: 'text',
+            text: 'きみに合った問題を届けるために、まずは学年を教えてね👇',
+          },
+          buildGradeSelectMessage() as unknown as messagingApi.Message,
+        ];
+    await client.replyMessage({ replyToken, messages });
+  } catch (error) {
+    console.error('[lineWebhook] sample_answer reply failed:', error);
+  }
+}
+
 async function handleFollow(event: LineEvent): Promise<void> {
   const uid = buildUid(event);
   if (!uid) return;
@@ -1284,6 +1619,10 @@ async function handleFollow(event: LineEvent): Promise<void> {
     return;
   }
 
+  // 最初の reply に「おためし1問」を同梱する（P0-3）。ブロックの46%が登録48h
+  // 以内・無回答層ほどブロックしやすい実測に対し、登録より先に成功体験を作る。
+  // おためしに答えても学年選択 flex から通常オンボへ続く（sample_answer 側でも
+  // 未完了なら学年選択を再提示するので、どちらの順でタップしても詰まらない）。
   try {
     const client = await getLineClient();
     await client.replyMessage({
@@ -1291,8 +1630,12 @@ async function handleFollow(event: LineEvent): Promise<void> {
       messages: [
         {
           type: 'text',
-          text: 'はじめまして！公式LINEに登録してくれてありがとうございます😊\n\n早速だけど、3つだけ質問させてください。すぐに終わります！\n\nまずは、学年を教えてね。\n（保護者の方は、お子様の学年を教えてください）',
+          text:
+            'はじめまして！公式LINEに登録してくれてありがとうございます😊\n\n' +
+            'まずは、ためしにこんな1問をどうぞ👇（選択肢をタップするだけ！）\n\n' +
+            'そのあと、学年・教科・配信時刻の3つだけ教えてね。すぐ終わります！\n（保護者の方は、お子様の情報を選んでください）',
         },
+        buildSampleQuestionFlex() as unknown as messagingApi.Message,
         buildGradeSelectMessage(),
       ],
     });
@@ -1328,7 +1671,10 @@ async function handleUnfollow(event: LineEvent): Promise<void> {
     );
     console.log(`[lineWebhook] handleUnfollow: marked blocked uid=${uid}`);
   } catch (error) {
-    console.error('[lineWebhook] handleUnfollow firestore write failed:', error);
+    console.error(
+      '[lineWebhook] handleUnfollow firestore write failed:',
+      error
+    );
   }
 }
 
@@ -1371,6 +1717,11 @@ async function handlePostback(event: LineEvent): Promise<void> {
     return;
   }
 
+  if (type === 'open_mubista') {
+    await handleOpenMubista(uid, replyToken);
+    return;
+  }
+
   if (type === 'weak_review') {
     await handleWeakReviewPostback(uid, replyToken);
     return;
@@ -1387,12 +1738,22 @@ async function handlePostback(event: LineEvent): Promise<void> {
   }
 
   if (type === 'settings_menu') {
-    await handleSettingsMenuPostback(replyToken);
+    await handleSettingsMenuPostback(uid, replyToken);
     return;
   }
 
   if (type === 'settings_guide') {
-    await handleSettingsGuidePostback(replyToken);
+    await handleSettingsGuidePostback(uid, replyToken);
+    return;
+  }
+
+  if (type === 'pause_delivery') {
+    await handlePauseDeliveryPostback(uid, replyToken);
+    return;
+  }
+
+  if (type === 'resume_delivery') {
+    await handleResumeDeliveryPostback(uid, replyToken);
     return;
   }
 
@@ -1439,6 +1800,21 @@ async function handlePostback(event: LineEvent): Promise<void> {
 
   if (type === 'scope_commit') {
     await handleScopeCommitPostback(uid, replyToken, params);
+    return;
+  }
+
+  if (type === 'sample_answer') {
+    await handleSampleAnswerPostback(uid, replyToken, params);
+    return;
+  }
+
+  if (type === 'not_learned') {
+    await handleNotLearnedPostback(uid, replyToken, params);
+    return;
+  }
+
+  if (type === 'not_learned_apply') {
+    await handleNotLearnedApplyPostback(uid, replyToken, params);
     return;
   }
 
@@ -1491,10 +1867,15 @@ async function handleStreakPostback(
   if (!replyToken) return;
   const { db } = await getDb();
 
-  // ユーザーの plan と学年を取って flex に渡し、premium CTA の出し分けに使う
+  // ユーザーの plan と学年を取って flex に渡し、premium CTA の出し分けに使う。
+  // streak 表示は `users.stats`（onAnswerCreated が transaction で維持する真値）
+  // から組み立てる。以前は answers を limit(500) で再計算していたが、
+  // ①週1おやすみ免除（streakState）と表示が食い違う ②1タップ500 read かかる
+  // ため stats 真値化した（2026-07）。
   let plan: UserPlan = 'free';
   // プレミアム廃止中はデフォルト false（read 失敗時も CTA を出さない）。
   let gradePremiumEligible = PREMIUM_FLOW_ENABLED;
+  let userStats: Record<string, unknown> | undefined;
   try {
     const userSnap = await db.doc(`users/${uid}`).get();
     const data = userSnap.data();
@@ -1503,34 +1884,18 @@ async function handleStreakPostback(
     // プレミアム CTA を出さない（gradePremiumEligible=false に倒す）。
     gradePremiumEligible =
       PREMIUM_FLOW_ENABLED && isPremiumEligibleGrade(data?.grade);
+    userStats = data?.stats as Record<string, unknown> | undefined;
   } catch (error) {
-    console.warn(
-      '[lineWebhook] handleStreak user fetch failed (treat as free):',
-      error
-    );
-  }
-
-  // 直近500件の回答履歴から streak を計算（typically 1問/日 ペースなので500件 ≒ 1.5年分）
-  let answers: FirebaseFirestore.QueryDocumentSnapshot[] = [];
-  try {
-    const snap = await db
-      .collection('answers')
-      .where('uid', '==', uid)
-      .orderBy('answeredAt', 'desc')
-      .limit(500)
-      .get();
-    answers = snap.docs;
-  } catch (error) {
-    console.error('[lineWebhook] handleStreak query failed:', error);
+    console.error('[lineWebhook] handleStreak user fetch failed:', error);
     await replyText(
       replyToken,
       '記録の取得に失敗しました。少し時間を置いて試してください。',
-      '(streak query error)'
+      '(streak fetch error)'
     );
     return;
   }
 
-  const stats = computeStreakStats(answers);
+  const stats = computeStreakStatsFromUserStats(userStats);
   const flex = buildStreakFlexMessage(stats, plan, gradePremiumEligible);
   try {
     const client = await getLineClient();
@@ -1541,10 +1906,11 @@ async function handleStreakPostback(
 }
 
 async function handleSettingsMenuPostback(
+  uid: string,
   replyToken: string | undefined
 ): Promise<void> {
   if (!replyToken) return;
-  const flex = buildSettingsMenuFlexMessage();
+  const flex = buildSettingsMenuFlexMessage(await isDeliveryPaused(uid));
   try {
     const client = await getLineClient();
     await client.replyMessage({ replyToken, messages: [flex] });
@@ -1612,6 +1978,8 @@ function buildScopeGuideFlex(subject: string, grade: number) {
       ? [
           {
             type: 'text' as const,
+            // 行頭の全角スペースは意図的（LINE flex 上で用語リストを字下げ表示）
+            // eslint-disable-next-line no-irregular-whitespace
             text: `　${m.keyTerms}`,
             wrap: true,
             size: 'xs' as const,
@@ -1690,7 +2058,10 @@ function buildScopeGuideFlex(subject: string, grade: number) {
             layout: 'vertical' as const,
             spacing: 'sm' as const,
             contents: [
-              step('①', `この画面のいちばん下に出るボタンをタップ → 習った${unitNoun}を選ぶ（タップした瞬間に保存）`),
+              step(
+                '①',
+                `この画面のいちばん下に出るボタンをタップ → 習った${unitNoun}を選ぶ（タップした瞬間に保存）`
+              ),
               step('②', 'いくつでも選べるよ。もう一度タップで取り消しもOK'),
               step('③', '終わったら「これで決定」をタップ'),
             ],
@@ -1858,9 +2229,14 @@ async function handleScopePickPostback(
   if (!replyToken) return;
   const subject = params.get('s') ?? '';
   const gradeRaw = Number(params.get('g'));
-  const grade = gradeRaw === 1 || gradeRaw === 2 || gradeRaw === 3 ? gradeRaw : null;
+  const grade =
+    gradeRaw === 1 || gradeRaw === 2 || gradeRaw === 3 ? gradeRaw : null;
   if (!subject || grade === null || getEraMetas(subject, grade).length === 0) {
-    await replyText(replyToken, 'もう一度、範囲設定からやり直してね。', '(scope_pick: bad params)');
+    await replyText(
+      replyToken,
+      'もう一度、範囲設定からやり直してね。',
+      '(scope_pick: bad params)'
+    );
     return;
   }
 
@@ -1877,7 +2253,11 @@ async function handleScopePickPostback(
     sel = toggleEra(subject, grade, prevSel, eraId);
     const meta = getEraMetas(subject, grade).find((e) => e.eraId === eraId);
     const eraName = meta?.shortName ?? '';
-    confirmText = buildPickConfirmText(had ? 'remove' : 'add', eraName, sel.length);
+    confirmText = buildPickConfirmText(
+      had ? 'remove' : 'add',
+      eraName,
+      sel.length
+    );
   }
 
   // タップした瞬間に保存（決定不要）。lastSource='line_inline' で push トリガを抑止。
@@ -1895,7 +2275,11 @@ async function handleScopePickPostback(
     );
   } catch (error) {
     console.error('[lineWebhook] handleScopePick write failed:', error);
-    await replyText(replyToken, '保存に失敗しちゃった。もう一度タップしてね。', '(scope_pick: write failed)');
+    await replyText(
+      replyToken,
+      '保存に失敗しちゃった。もう一度タップしてね。',
+      '(scope_pick: write failed)'
+    );
     return;
   }
 
@@ -1972,9 +2356,14 @@ async function handleScopeCommitPostback(
   if (!replyToken) return;
   const subject = params.get('s') ?? '';
   const gradeRaw = Number(params.get('g'));
-  const grade = gradeRaw === 1 || gradeRaw === 2 || gradeRaw === 3 ? gradeRaw : null;
+  const grade =
+    gradeRaw === 1 || gradeRaw === 2 || gradeRaw === 3 ? gradeRaw : null;
   if (!subject || grade === null) {
-    await replyText(replyToken, 'もう一度、範囲設定からやり直してね。', '(scope_commit: bad params)');
+    await replyText(
+      replyToken,
+      'もう一度、範囲設定からやり直してね。',
+      '(scope_commit: bad params)'
+    );
     return;
   }
 
@@ -2001,7 +2390,11 @@ async function handleScopeCommitPostback(
     );
   } catch (error) {
     console.error('[lineWebhook] handleScopeCommit write failed:', error);
-    await replyText(replyToken, '保存に失敗しちゃった。もう一度試してね。', '(scope_commit: write failed)');
+    await replyText(
+      replyToken,
+      '保存に失敗しちゃった。もう一度試してね。',
+      '(scope_commit: write failed)'
+    );
     return;
   }
 
@@ -2018,7 +2411,10 @@ async function handleScopeCommitPostback(
       });
       return;
     } catch (error) {
-      console.error('[lineWebhook] handleScopeCommit first-question failed:', error);
+      console.error(
+        '[lineWebhook] handleScopeCommit first-question failed:',
+        error
+      );
       // フォールバック: 確認文だけでも返す
     }
   }
@@ -2042,16 +2438,501 @@ async function handleScopeCommitPostback(
   await replyText(replyToken, confirmText, '(scope_commit)');
 }
 
+// ── 「まだ習ってない」ワンタップ出題除外 ─────────────────────────────
+//
+// 問題カード footer の「まだ習ってない」→ 除外モード選択（Quick Reply）→
+// testScope を topic（細かい範囲）単位で更新して、その場で代わりの1問を出す。
+// 全て reply（配信枠ゼロ）。範囲計算は lineScopeFlow.computeScopeAfterNotLearned（純粋・テスト済み）。
+
+/** 範囲設定への誘導チップ付きフォールバック reply。 */
+async function replyWithScopeStartChip(
+  replyToken: string,
+  text: string,
+  logContext: string
+): Promise<void> {
+  try {
+    const client = await getLineClient();
+    await client.replyMessage({
+      replyToken,
+      messages: [
+        {
+          type: 'text',
+          text,
+          quickReply: {
+            items: [
+              {
+                type: 'action' as const,
+                action: {
+                  type: 'postback' as const,
+                  label: '🎯 範囲を設定する',
+                  data: 'type=scope_start',
+                  displayText: '範囲を設定する',
+                },
+              },
+            ],
+          },
+        },
+      ],
+    });
+  } catch (error) {
+    console.error(`[lineWebhook] ${logContext} reply failed:`, error);
+  }
+}
+
+/**
+ * 「まだ習ってない」タップ（1段目）: 除外のしかたを Quick Reply で選ばせる。
+ * 理科は「以降」が同一単元（era）内に限定されるため、チップ文言を変える。
+ */
+async function handleNotLearnedPostback(
+  uid: string,
+  replyToken: string | undefined,
+  params: URLSearchParams
+): Promise<void> {
+  if (!replyToken) return;
+  const topic = params.get('t') ?? '';
+  if (!topic) {
+    await replyText(
+      replyToken,
+      'もう一度、問題のボタンから試してみてね。',
+      '(not_learned: no topic)'
+    );
+    return;
+  }
+
+  try {
+    const { logServerFunnelEvent } = await import('./funnelEvent');
+    await logServerFunnelEvent('not_learned_tap', uid, { topic });
+  } catch (error) {
+    console.warn('[lineWebhook] not_learned_tap log failed:', error);
+  }
+
+  let subject: string | undefined;
+  let grade: number | null = null;
+  try {
+    const { db } = await getDb();
+    const snap = await db.doc(`users/${uid}`).get();
+    const data = snap.data();
+    subject = typeof data?.subject === 'string' ? data.subject : undefined;
+    grade = gradeToScopeNumber(data?.grade);
+  } catch (error) {
+    console.error('[lineWebhook] not_learned user read failed:', error);
+  }
+
+  const topicKnown =
+    subject !== undefined &&
+    grade !== null &&
+    getEraMetas(subject, grade).some((m) => m.topics.includes(topic));
+  if (!topicKnown) {
+    await replyWithScopeStartChip(
+      replyToken,
+      'ごめんね、その範囲をうまく特定できなかった…。「範囲を設定する」から、習ったところを選び直してもらえる？',
+      'not_learned fallback'
+    );
+    return;
+  }
+
+  const isScience = subject === 'science';
+  const afterLabel = isScience
+    ? 'この単元の続きも外す'
+    : 'ここから先ぜんぶ外す';
+  const afterDesc = isScience
+    ? `同じ単元の中の「${topic}」から先をまとめて外すよ`
+    : `「${topic}」から先の範囲をまとめて外すよ`;
+  const enc = encodeURIComponent(topic);
+
+  // 2択は Quick Reply チップではなく flex のボタンで出す（チップは PC 版 LINE で
+  // 表示されず、スマホでも次の発言で消えて見落としやすいため）。
+  try {
+    const client = await getLineClient();
+    await client.replyMessage({
+      replyToken,
+      messages: [
+        {
+          type: 'flex',
+          altText: 'まだ習ってない範囲をどうするか選んでね',
+          contents: {
+            type: 'bubble' as const,
+            size: 'kilo' as const,
+            body: {
+              type: 'box' as const,
+              layout: 'vertical' as const,
+              paddingAll: '16px',
+              spacing: 'sm' as const,
+              contents: [
+                {
+                  type: 'text' as const,
+                  text: `「${topic}」はまだ習ってないんだね。教えてくれてありがとう！どうする？`,
+                  wrap: true,
+                  size: 'sm' as const,
+                  color: '#111827',
+                },
+                {
+                  type: 'text' as const,
+                  text: `🔹 この範囲だけ外す → この範囲だけ出題されなくなるよ\n🔹 ${afterLabel} → ${afterDesc}`,
+                  wrap: true,
+                  size: 'xs' as const,
+                  color: '#6B7280',
+                  margin: 'md' as const,
+                },
+                {
+                  type: 'text' as const,
+                  text: '外した範囲は、メニューの「出題範囲設定」でいつでも戻せるよ。',
+                  wrap: true,
+                  size: 'xs' as const,
+                  color: '#9CA3AF',
+                  margin: 'md' as const,
+                },
+              ],
+            },
+            footer: {
+              type: 'box' as const,
+              layout: 'vertical' as const,
+              spacing: 'sm' as const,
+              paddingAll: '16px',
+              contents: [
+                {
+                  type: 'button' as const,
+                  style: 'primary' as const,
+                  color: '#F59E0B',
+                  height: 'sm' as const,
+                  action: {
+                    type: 'postback' as const,
+                    label: 'この範囲だけ外す',
+                    data: `type=not_learned_apply&mode=single&t=${enc}`,
+                    displayText: 'この範囲だけ外す',
+                  },
+                },
+                {
+                  type: 'button' as const,
+                  style: 'secondary' as const,
+                  height: 'sm' as const,
+                  action: {
+                    type: 'postback' as const,
+                    label: afterLabel,
+                    data: `type=not_learned_apply&mode=after&t=${enc}`,
+                    displayText: afterLabel,
+                  },
+                },
+              ],
+            },
+          },
+        } as unknown as messagingApi.Message,
+      ],
+    });
+  } catch (error) {
+    console.error('[lineWebhook] not_learned reply failed:', error);
+  }
+}
+
+/**
+ * 「まだ習ってない」適用（2段目）: testScope を更新し、その場で代わりの1問を reply。
+ * 未設定ユーザーは「全 topic − 除外分」を新規スコープとして保存（実質の範囲設定代行）。
+ */
+async function handleNotLearnedApplyPostback(
+  uid: string,
+  replyToken: string | undefined,
+  params: URLSearchParams
+): Promise<void> {
+  if (!replyToken) return;
+  const topic = params.get('t') ?? '';
+  const mode: NotLearnedMode =
+    params.get('mode') === 'after' ? 'after' : 'single';
+  if (!topic) {
+    await replyText(
+      replyToken,
+      'もう一度、問題のボタンから試してみてね。',
+      '(not_learned_apply: no topic)'
+    );
+    return;
+  }
+
+  const { db, FieldValue } = await getDb();
+  let subject: string | undefined;
+  let grade: number | null = null;
+  let currentTopics: string[] | null = null;
+  try {
+    const snap = await db.doc(`users/${uid}`).get();
+    const data = snap.data();
+    subject = typeof data?.subject === 'string' ? data.subject : undefined;
+    grade = gradeToScopeNumber(data?.grade);
+    const rawTopics = data?.testScope?.topics;
+    currentTopics = Array.isArray(rawTopics)
+      ? (rawTopics as unknown[]).filter(
+          (t): t is string => typeof t === 'string'
+        )
+      : null;
+  } catch (error) {
+    console.error('[lineWebhook] not_learned_apply user read failed:', error);
+  }
+
+  if (subject === undefined || grade === null) {
+    await replyText(
+      replyToken,
+      'さきに学年と教科を設定してね。メニューから登録できるよ。',
+      '(not_learned_apply: missing grade/subject)'
+    );
+    return;
+  }
+
+  const result = computeScopeAfterNotLearned({
+    subject,
+    grade,
+    topic,
+    currentTopics,
+    mode,
+  });
+  if (!result) {
+    await replyWithScopeStartChip(
+      replyToken,
+      'ごめんね、その範囲をうまく特定できなかった…。「範囲を設定する」から、習ったところを選び直してもらえる？',
+      'not_learned_apply fallback'
+    );
+    return;
+  }
+  if (result.topics.length === 0) {
+    // 全部外れると出題できなくなるため保存しない（範囲設定への誘導のみ）。
+    await replyWithScopeStartChip(
+      replyToken,
+      'そこを外すと、出題できる範囲がなくなっちゃうみたい…。「範囲を設定する」から、習ったところを選んでもらえる？',
+      'not_learned_apply empty'
+    );
+    return;
+  }
+
+  try {
+    await db.doc(`users/${uid}`).set(
+      {
+        testScope: {
+          topics: result.topics,
+          updatedAt: FieldValue.serverTimestamp(),
+          // push トリガ（onTestScopeSaved/FirstSet）を抑止して二重送信を防ぐ。
+          lastSource: 'line_inline',
+        },
+      },
+      { merge: true }
+    );
+  } catch (error) {
+    console.error('[lineWebhook] not_learned_apply write failed:', error);
+    await replyText(
+      replyToken,
+      '保存に失敗しちゃった。もう一度試してね。',
+      '(not_learned_apply: write failed)'
+    );
+    return;
+  }
+
+  try {
+    const { logServerFunnelEvent } = await import('./funnelEvent');
+    await logServerFunnelEvent('not_learned_applied', uid, {
+      topic,
+      mode,
+      excludedCount: result.excluded.length,
+      hadScope: currentTopics !== null && currentTopics.length > 0,
+    });
+  } catch (error) {
+    console.warn('[lineWebhook] not_learned_applied log failed:', error);
+  }
+
+  const scopeNote =
+    mode === 'single'
+      ? `「${topic}」は出題から外したよ👌`
+      : subject === 'science'
+        ? `同じ単元の「${topic}」から先（${result.excluded.length}この範囲）は出題しないようにしたよ👌`
+        : `「${topic}」から先（${result.excluded.length}この範囲）は出題しないようにしたよ👌`;
+  const confirmText = `OK！${scopeNote}\n習ったら、メニューの「出題範囲設定」でいつでも戻せるからね。\n\n代わりにこの1問はどうかな👇`;
+
+  try {
+    await selectAndSendQuestion(uid, {
+      replyToken,
+      prependMessages: [{ type: 'text', text: confirmText }],
+      bypassDailyLimit: true,
+      source: 'extra',
+    });
+  } catch (error) {
+    console.error('[lineWebhook] not_learned_apply question failed:', error);
+    // フォールバック: 確認文だけでも返す
+    await replyText(
+      replyToken,
+      confirmText.replace('\n\n代わりにこの1問はどうかな👇', ''),
+      '(not_learned_apply: question failed)'
+    );
+  }
+}
+
 async function handleSettingsGuidePostback(
+  uid: string,
   replyToken: string | undefined
 ): Promise<void> {
   if (!replyToken) return;
-  const flex = buildSettingsGuideFlexMessage();
+  const flex = buildSettingsGuideFlexMessage(await isDeliveryPaused(uid));
   try {
     const client = await getLineClient();
     await client.replyMessage({ replyToken, messages: [flex] });
   } catch (error) {
     console.error('[lineWebhook] handleSettingsGuide reply failed:', error);
+  }
+}
+
+/**
+ * 配信一時停止中か。設定メニューの「配信をおやすみ / 再開」ボタンの出し分けに使う
+ * （メニュータップ時のみの 1 read）。読み取り失敗時は false（停止ボタンを出す）。
+ */
+async function isDeliveryPaused(uid: string): Promise<boolean> {
+  try {
+    const { db } = await getDb();
+    const snap = await db.doc(`users/${uid}`).get();
+    return snap.data()?.deliveryPaused === true;
+  } catch (error) {
+    console.warn('[lineWebhook] isDeliveryPaused read failed:', error);
+    return false;
+  }
+}
+
+/**
+ * 配信の一時停止（設定メニューの「🔕 配信をおやすみ」）。
+ * cron 由来 push（毎日/週3配信・Win-back）を止める。reply 系機能は使えるままなので、
+ * その旨と再開手段（ボタン / 「再開」キーワード）を必ず案内する。
+ * すでに停止中でも同じ確認を返すだけ（冪等）。
+ */
+async function handlePauseDeliveryPostback(
+  uid: string,
+  replyToken: string | undefined
+): Promise<void> {
+  if (!replyToken) return;
+  try {
+    const { db, FieldValue } = await getDb();
+    await db.doc(`users/${uid}`).set(
+      {
+        deliveryPaused: true,
+        deliveryPausedAt: FieldValue.serverTimestamp(),
+        updatedAt: FieldValue.serverTimestamp(),
+      },
+      { merge: true }
+    );
+  } catch (error) {
+    console.error('[lineWebhook] pause_delivery write failed:', error);
+    await replyText(
+      replyToken,
+      'ごめんね、設定の保存に失敗しちゃった💦 少し時間を置いてもう一度試してみてね。',
+      '(pause_delivery write error)'
+    );
+    return;
+  }
+
+  try {
+    const { logServerFunnelEvent } = await import('./funnelEvent');
+    await logServerFunnelEvent('delivery_paused', uid, {});
+  } catch (error) {
+    console.warn('[lineWebhook] pause_delivery funnel log failed:', error);
+  }
+
+  try {
+    const client = await getLineClient();
+    await client.replyMessage({
+      replyToken,
+      messages: [
+        {
+          type: 'text',
+          text:
+            '配信をおやすみするね🌙 明日からの問題配信をストップしたよ。\n\n' +
+            'おやすみ中も、メニューの「1問解く」「苦手を復習」やAIへの質問はいつでも使えるよ。\n\n' +
+            'また届けてほしくなったら、下のボタンを押すか「再開」と送ってね。いつでも待ってるよ！',
+          quickReply: {
+            items: [
+              {
+                type: 'action' as const,
+                action: {
+                  type: 'postback' as const,
+                  label: '▶️ 配信を再開する',
+                  data: 'type=resume_delivery',
+                  displayText: '配信を再開する',
+                },
+              },
+              {
+                type: 'action' as const,
+                action: {
+                  type: 'postback' as const,
+                  label: '✏️ 1問解く',
+                  data: 'type=extra_question&src=pause_confirm',
+                  displayText: '1問解く',
+                },
+              },
+            ],
+          },
+        },
+      ],
+    });
+  } catch (error) {
+    console.error('[lineWebhook] pause_delivery reply failed:', error);
+  }
+}
+
+/**
+ * 配信の再開（停止確認 Quick Reply / 設定メニューの「▶️ 配信を再開」）。
+ * status も active に戻し、翌日以降の dailyQuiz 対象に復帰させる。
+ */
+async function handleResumeDeliveryPostback(
+  uid: string,
+  replyToken: string | undefined
+): Promise<void> {
+  if (!replyToken) return;
+  try {
+    const { db, FieldValue } = await getDb();
+    await db.doc(`users/${uid}`).set(
+      {
+        deliveryPaused: false,
+        deliveryResumedAt: FieldValue.serverTimestamp(),
+        status: 'active',
+        statusChangedAt: FieldValue.serverTimestamp(),
+        updatedAt: FieldValue.serverTimestamp(),
+      },
+      { merge: true }
+    );
+  } catch (error) {
+    console.error('[lineWebhook] resume_delivery write failed:', error);
+    await replyText(
+      replyToken,
+      'ごめんね、設定の保存に失敗しちゃった💦 少し時間を置いてもう一度試してみてね。',
+      '(resume_delivery write error)'
+    );
+    return;
+  }
+
+  try {
+    const { logServerFunnelEvent } = await import('./funnelEvent');
+    await logServerFunnelEvent('delivery_resumed', uid, {});
+  } catch (error) {
+    console.warn('[lineWebhook] resume_delivery funnel log failed:', error);
+  }
+
+  try {
+    const client = await getLineClient();
+    await client.replyMessage({
+      replyToken,
+      messages: [
+        {
+          type: 'text',
+          text:
+            'おかえり！配信を再開したよ🎉 明日からまたいつもの時間に1問届けるね。\n\n' +
+            '待ちきれなかったら、下のボタンで今すぐ解けるよ👇',
+          quickReply: {
+            items: [
+              {
+                type: 'action' as const,
+                action: {
+                  type: 'postback' as const,
+                  label: '✏️ 今すぐ1問解く',
+                  data: 'type=extra_question&src=resume_confirm',
+                  displayText: '今すぐ1問解く',
+                },
+              },
+            ],
+          },
+        },
+      ],
+    });
+  } catch (error) {
+    console.error('[lineWebhook] resume_delivery reply failed:', error);
   }
 }
 
@@ -2083,7 +2964,10 @@ async function handleChangeLearningStart(
     await client.replyMessage({
       replyToken,
       messages: [
-        { type: 'text', text: '学年・教科を変更するよ。まずは学年を選んでね。' },
+        {
+          type: 'text',
+          text: '学年・教科を変更するよ。まずは学年を選んでね。',
+        },
         buildChangeLearningGradeMessage(),
       ],
     });
@@ -2099,7 +2983,11 @@ async function handleChangeLearningGrade(
   if (!replyToken) return;
   const grade = params.get('grade');
   if (!grade || !VALID_GRADES.includes(grade as ValidGrade)) {
-    await replyText(replyToken, 'もう一度、学年を選んでね。', '(change_learning bad grade)');
+    await replyText(
+      replyToken,
+      'もう一度、学年を選んでね。',
+      '(change_learning bad grade)'
+    );
     return;
   }
   // ここではまだ保存しない（教科選択まで確定させず、中断時に部分変更を残さない）。
@@ -2136,7 +3024,9 @@ async function handleChangeLearningSubject(
     return;
   }
   // 学年にコンテンツが無い教科（例: 中3の地理）は選べない。
-  if (!isSubjectAvailableForGrade(subject as ValidSubject, grade as ValidGrade)) {
+  if (
+    !isSubjectAvailableForGrade(subject as ValidSubject, grade as ValidGrade)
+  ) {
     await replyText(
       replyToken,
       `${grade}では「${SUBJECT_LABELS[subject as ValidSubject]}」をまだ選べません。別の教科を選んでね。`,
@@ -2150,9 +3040,13 @@ async function handleChangeLearningSubject(
     const data = snap.data();
     const today = getJstDateString(new Date());
     const prevDate =
-      typeof data?.learningChangeDate === 'string' ? data.learningChangeDate : null;
+      typeof data?.learningChangeDate === 'string'
+        ? data.learningChangeDate
+        : null;
     const prevCount =
-      typeof data?.learningChangeCount === 'number' ? data.learningChangeCount : 0;
+      typeof data?.learningChangeCount === 'number'
+        ? data.learningChangeCount
+        : 0;
     const todayCount = prevDate === today ? prevCount : 0;
     if (todayCount >= LEARNING_CHANGE_DAILY_LIMIT) {
       await replyText(
@@ -2377,41 +3271,48 @@ interface StreakStats {
   answeredToday: boolean;
 }
 
-function computeStreakStats(
-  answers: FirebaseFirestore.QueryDocumentSnapshot[]
+/**
+ * `users.stats`（onAnswerCreated が transaction で維持する真値）から連続記録 flex 用の
+ * StreakStats を組み立てる。連続日数は displayStreakDays（週1おやすみ免除込みの
+ * 「まだ切れていない」判定）を使い、回答フィードバックの streak と表示を一致させる。
+ * 旧実装（answers limit(500) 再計算）は免除と食い違い、1タップ 500 read かかるため廃止。
+ */
+function computeStreakStatsFromUserStats(
+  userStats: Record<string, unknown> | undefined
 ): StreakStats {
-  const totalAnswered = answers.length;
-  const totalCorrect = answers.filter(
-    (d) => d.get('isCorrect') === true
-  ).length;
+  const totalAnswered =
+    typeof userStats?.totalAnswered === 'number' ? userStats.totalAnswered : 0;
+  const totalCorrect =
+    typeof userStats?.totalCorrect === 'number' ? userStats.totalCorrect : 0;
   const accuracyPercent =
     totalAnswered > 0 ? Math.round((totalCorrect / totalAnswered) * 100) : 0;
 
-  const answeredDates = new Set<string>();
-  for (const doc of answers) {
-    const ts = doc.get('answeredAt') as { toDate?: () => Date } | undefined;
-    const date =
-      ts && typeof ts.toDate === 'function' ? ts.toDate() : undefined;
-    const jst = getJstDateString(date);
-    if (jst !== null) answeredDates.add(jst);
-  }
+  const streakRaw =
+    (userStats?.streak as Record<string, unknown> | undefined) ?? undefined;
+  const prevStreak: StreakState | null =
+    streakRaw &&
+    typeof streakRaw.current === 'number' &&
+    typeof streakRaw.lastStudyDate === 'string'
+      ? {
+          current: streakRaw.current,
+          longest:
+            typeof streakRaw.longest === 'number'
+              ? streakRaw.longest
+              : streakRaw.current,
+          lastStudyDate: streakRaw.lastStudyDate,
+          ...(typeof streakRaw.lastForgivenDateJst === 'string'
+            ? { lastForgivenDateJst: streakRaw.lastForgivenDateJst }
+            : {}),
+        }
+      : null;
 
-  // 連続日数: 今日 or 昨日から遡って連続している日数を数える
   const todayJst = getJstDateString(new Date()) ?? '';
-  const answeredToday = answeredDates.has(todayJst);
-  let streakDays = 0;
-  let cursor = answeredToday ? todayJst : shiftJstDate(todayJst, -1);
-  while (cursor && answeredDates.has(cursor)) {
-    streakDays += 1;
-    cursor = shiftJstDate(cursor, -1);
-  }
-
   return {
-    streakDays,
+    streakDays: displayStreakDays(prevStreak, todayJst),
     totalAnswered,
     totalCorrect,
     accuracyPercent,
-    answeredToday,
+    answeredToday: prevStreak?.lastStudyDate === todayJst,
   };
 }
 
@@ -2424,6 +3325,8 @@ interface AnswerStreaks {
   isMilestoneDay: boolean;
   /** 今回の回答を含めた累計問題数 */
   totalAnswered: number;
+  /** 今回の回答で「週1おやすみ免除」が発動して streak がつながったか */
+  usedForgiveness: boolean;
 }
 
 /**
@@ -2438,7 +3341,8 @@ function computeAnswerStreaksFromStats(
   prevStats: Record<string, unknown> | undefined,
   currentIsCorrect: boolean
 ): AnswerStreaks {
-  const prevStreakRaw = (prevStats?.streak as Record<string, unknown> | undefined) ?? undefined;
+  const prevStreakRaw =
+    (prevStats?.streak as Record<string, unknown> | undefined) ?? undefined;
   const prevStreak: StreakState | null =
     prevStreakRaw &&
     typeof prevStreakRaw.current === 'number' &&
@@ -2450,6 +3354,9 @@ function computeAnswerStreaksFromStats(
               ? prevStreakRaw.longest
               : prevStreakRaw.current,
           lastStudyDate: prevStreakRaw.lastStudyDate,
+          ...(typeof prevStreakRaw.lastForgivenDateJst === 'string'
+            ? { lastForgivenDateJst: prevStreakRaw.lastForgivenDateJst }
+            : {}),
         }
       : null;
 
@@ -2459,6 +3366,11 @@ function computeAnswerStreaksFromStats(
   const todayAlreadyAnswered = prevStreak?.lastStudyDate === todayJst;
   const isMilestoneDay =
     !todayAlreadyAnswered && isDayStreakMilestone(dayStreak);
+  // 今回の回答で免除が発動したか（lastForgivenDateJst が今日付で新規/更新された）
+  const usedForgiveness =
+    !todayAlreadyAnswered &&
+    nextStreak.lastForgivenDateJst === todayJst &&
+    prevStreak?.lastForgivenDateJst !== todayJst;
 
   const prevCorrectStreak =
     typeof prevStats?.correctStreak === 'number' ? prevStats.correctStreak : 0;
@@ -2468,7 +3380,13 @@ function computeAnswerStreaksFromStats(
     typeof prevStats?.totalAnswered === 'number' ? prevStats.totalAnswered : 0;
   const totalAnswered = prevTotalAnswered + 1;
 
-  return { correctStreak, dayStreak, isMilestoneDay, totalAnswered };
+  return {
+    correctStreak,
+    dayStreak,
+    isMilestoneDay,
+    totalAnswered,
+    usedForgiveness,
+  };
 }
 
 /** JST 日付文字列同士の差分日数（to - from） */
@@ -2563,7 +3481,9 @@ function shiftJstDate(jstDate: string, days: number): string {
   return `${yy}-${mm}-${dd}`;
 }
 
-function buildHelpFlexMessage(opts: { showPremiumCta: boolean } = { showPremiumCta: true }) {
+function buildHelpFlexMessage(
+  opts: { showPremiumCta: boolean } = { showPremiumCta: true }
+) {
   const bodyContents = [
     {
       type: 'text' as const,
@@ -2902,7 +3822,7 @@ function buildStreakFlexMessage(
   };
 }
 
-function buildSettingsMenuFlexMessage() {
+function buildSettingsMenuFlexMessage(deliveryPaused: boolean) {
   return {
     type: 'flex' as const,
     altText: '設定・サポート',
@@ -2974,6 +3894,7 @@ function buildSettingsMenuFlexMessage() {
               uri: CONTACT_URL,
             },
           },
+          buildDeliveryPauseToggleButton(deliveryPaused),
         ],
       },
     },
@@ -2985,7 +3906,48 @@ function buildSettingsMenuFlexMessage() {
  * その単元から届くよ」と促す nudge flex。`onAnswerCreated` から push される。
  * 設定画面が開けないケース向けに LINE アプリ再起動の案内も添える。
  */
-export function buildScopeSetupNudgeFlexMessage() {
+// ScopeNudgeVariant の定義は userDocTypes.ts（型の正本）。ここでは import して使う。
+export type { ScopeNudgeVariant };
+
+/**
+ * uid から安定的に A/B バリアントを割り当てる。
+ * Math.random を使わず uid ハッシュで固定するので、同一ユーザーは何回ナッジを
+ * 受けても常に同じ文言を見る＝「どちらの文言が設定に結びつくか」を
+ * scopeSetupNudgeVariant × 範囲設定有無のクロスでクリーンに計測できる。
+ */
+export function pickScopeNudgeVariant(uid: string): ScopeNudgeVariant {
+  let h = 0;
+  for (let i = 0; i < uid.length; i++) {
+    h = (h * 31 + uid.charCodeAt(i)) | 0;
+  }
+  return Math.abs(h) % 2 === 0 ? 'A' : 'B';
+}
+
+/**
+ * テスト範囲未設定ユーザーへの「範囲を設定しよう」ナッジ flex。
+ *
+ * 2026-07 見直し:
+ *   - 旧「LINE アプリを完全に終了して開き直して」注記を削除。scope_start は
+ *     トーク内 Quick Reply で完結し、アプリ再起動は不要（注記は LIFF 時代の名残で
+ *     不要な摩擦になっていた）。
+ *   - 便益をテスト対策直結の文言に、かつ「タップだけ・あとで変更OK」で心理的
+ *     ハードルを下げる。
+ *   - A/B 2 バリアント（variant）で効き目を比較できるようにした。
+ */
+export function buildScopeSetupNudgeFlexMessage(
+  variant: ScopeNudgeVariant = 'A'
+) {
+  // A: 便益直球（テスト対策の効率）。B: ムダ削減・手間の低さを前面に。
+  const copy =
+    variant === 'B'
+      ? {
+          header: '🎯 ムダな問題、減らせるよ',
+          body: 'テスト範囲を教えてくれたら、まだ習ってない単元は出さないよ。毎日の1問が“出るところ”だけになって、ムダなく進められる。',
+        }
+      : {
+          header: '🎯 テスト範囲を設定しよう',
+          body: '定期テストの範囲を教えてくれたら、その単元だけを毎日1問お届け。テスト前の総復習がぐっとラクになるよ👍',
+        };
   return {
     type: 'flex' as const,
     altText: 'テスト範囲を設定すると、毎日の1問がその単元から届きます',
@@ -3000,7 +3962,7 @@ export function buildScopeSetupNudgeFlexMessage() {
         contents: [
           {
             type: 'text' as const,
-            text: '🎯 テスト範囲を設定しよう',
+            text: copy.header,
             color: '#FFFFFF',
             weight: 'bold' as const,
             size: 'md' as const,
@@ -3015,25 +3977,17 @@ export function buildScopeSetupNudgeFlexMessage() {
         contents: [
           {
             type: 'text' as const,
-            text: '今は学年ぜんぶから出題しているよ。テスト範囲を設定すると、習った単元だけから毎日の1問が届いてテスト対策の効率がぐっと上がる👍',
+            text: copy.body,
             wrap: true,
             size: 'sm' as const,
             color: '#111827',
           },
           {
             type: 'text' as const,
-            text: '下のボタンから、出題してほしい単元にチェックを入れてね。',
+            text: 'タップで選ぶだけ・あとから変更OK。30秒でできるよ。',
             wrap: true,
             size: 'xs' as const,
             color: '#6B7280',
-            margin: 'sm' as const,
-          },
-          {
-            type: 'text' as const,
-            text: '※ 設定画面が表示されない場合は、LINE アプリを完全に終了してから開き直してください。\n（ホームに戻るだけでは更新されません。アプリ切替画面から LINE を上にスワイプ）',
-            wrap: true,
-            size: 'xxs' as const,
-            color: '#9CA3AF',
             margin: 'md' as const,
           },
         ],
@@ -3062,7 +4016,25 @@ export function buildScopeSetupNudgeFlexMessage() {
   };
 }
 
-function buildSettingsGuideFlexMessage() {
+/**
+ * 配信一時停止/再開の切替ボタン（設定メニュー footer 用）。
+ * deliveryPaused の状態で「🔕 おやすみ」↔「▶️ 再開」を出し分ける。
+ */
+function buildDeliveryPauseToggleButton(deliveryPaused: boolean) {
+  return {
+    type: 'button' as const,
+    style: 'secondary' as const,
+    height: 'sm' as const,
+    action: {
+      type: 'postback' as const,
+      label: deliveryPaused ? '▶️ 配信を再開する' : '🔕 配信をおやすみする',
+      data: deliveryPaused ? 'type=resume_delivery' : 'type=pause_delivery',
+      displayText: deliveryPaused ? '配信を再開する' : '配信をおやすみする',
+    },
+  };
+}
+
+function buildSettingsGuideFlexMessage(deliveryPaused: boolean) {
   return {
     type: 'flex' as const,
     altText: '設定・サポート',
@@ -3138,6 +4110,7 @@ function buildSettingsGuideFlexMessage() {
               uri: LIFF_SETTINGS_URL,
             },
           },
+          buildDeliveryPauseToggleButton(deliveryPaused),
         ],
       },
     },
@@ -3152,7 +4125,9 @@ function buildReportSummaryFlexMessage(
     streakLongest: number;
     lastStudyDate: string;
   } | null,
-  plan: UserPlan = 'premium'
+  // プレミアム廃止（PREMIUM_FLOW_ENABLED=false）で CTA 出し分けに使わなくなったが、
+  // 再開時に戻せるようシグネチャは維持する。
+  _plan: UserPlan = 'premium'
 ) {
   const accuracy =
     stats && stats.totalAnswered > 0
@@ -3523,7 +4498,7 @@ function buildPostAnswerNextStepFlexMessage(options: {
                   uri: buildLiffUnitsDeepLink(
                     options.topicName,
                     studyKind,
-                    'post_answer',
+                    'post_answer'
                   ),
                 },
               },
@@ -3617,19 +4592,15 @@ const NUDGE_COPY: Record<PremiumNudgeReason, NudgeCopy> = {
   onboarding: {
     headerEmoji: '✨',
     headerText: '1日1問といわず、もっと解きたい',
-    leadText:
-      `追加で解く・苦手復習・暗記カード・四択クイズが、7日間だけ気軽に試せるよ。カード登録なしで始められます。`,
+    leadText: `追加で解く・苦手復習・暗記カード・四択クイズが、7日間だけ気軽に試せるよ。カード登録なしで始められます。`,
   },
 };
-
 
 /**
  * プレミアム機能の段階的な誘導 flex。初回 `追加で解く` の直後など、
  * 次のステップを優しく提案するために使う。
  */
-export function buildNextStepGuideFlex(
-  step: 'jikkuri' | 'weak_review'
-) {
+export function buildNextStepGuideFlex(step: 'jikkuri' | 'weak_review') {
   if (step === 'jikkuri') {
     return {
       type: 'flex' as const,
@@ -3794,7 +4765,8 @@ export function buildPriceLockPitchFlex(opts?: {
   const source = opts?.source ?? 'price_lock_pitch';
   return {
     type: 'flex' as const,
-    altText: '今登録すれば、ずっと月¥680のまま！1週間後の通常価格(月¥980)に上がらず続けられます。',
+    altText:
+      '今登録すれば、ずっと月¥680のまま！1週間後の通常価格(月¥980)に上がらず続けられます。',
     contents: {
       type: 'bubble' as const,
       size: 'kilo' as const,
@@ -3945,7 +4917,8 @@ export function buildTrialStartedFlexMessage() {
 
   return {
     type: 'flex' as const,
-    altText: '7日間お試し開始！まずは「追加で解く」を試してみよう - チャットでスタディ',
+    altText:
+      '7日間お試し開始！まずは「追加で解く」を試してみよう - チャットでスタディ',
     contents: {
       type: 'bubble' as const,
       size: 'mega' as const,
@@ -4498,15 +5471,14 @@ async function handleExtraQuestionPostback(
   const isFirstExtraQuestion = !userData?.firstExtraQuestionAt;
   if (isFirstExtraQuestion) {
     try {
-      await db.doc(`users/${uid}`).set(
-        { firstExtraQuestionAt: FieldValue.serverTimestamp() },
-        { merge: true }
-      );
+      await db
+        .doc(`users/${uid}`)
+        .set(
+          { firstExtraQuestionAt: FieldValue.serverTimestamp() },
+          { merge: true }
+        );
     } catch (error) {
-      console.error(
-        '[lineWebhook] firstExtraQuestionAt write failed:',
-        error
-      );
+      console.error('[lineWebhook] firstExtraQuestionAt write failed:', error);
     }
   }
 
@@ -5017,6 +5989,27 @@ async function handleSelectTimePostback(
         ...buildScopeGuideFlex(storedSubject, scopeGrade),
         quickReply: toLineQuickReply(scopeItems),
       } as unknown as messagingApi.Message);
+    } else if (summaryFlex) {
+      // 時代フロー非対応（英語など時代1個 / 対応外学年）にも、オンボ完了の
+      // 同じ reply で /scope ページへの範囲設定導線を出す。従来はサマリー flex の
+      // ボタンから scope_start → fallback と2段必要で、新規初日の範囲設定率が
+      // 最も低い層（英語）に導線が届いていなかった。
+      replyMessages.push({
+        type: 'text',
+        text: '📝 テスト範囲を設定すると、毎日の1問が習った単元から届くよ。下のボタンから設定してね。',
+        quickReply: {
+          items: [
+            {
+              type: 'action' as const,
+              action: {
+                type: 'uri' as const,
+                label: '🔧 範囲を設定する',
+                uri: TEST_RANGE_SCOPE_URL,
+              },
+            },
+          ],
+        },
+      } as unknown as messagingApi.Message);
     }
 
     await client.replyMessage({ replyToken, messages: replyMessages });
@@ -5101,13 +6094,19 @@ async function handleAnswerPostback(
   // transaction で維持）を真値として参照する。直近 answers の limit クエリで
   // 再計算する旧実装は値が頭打ちになるため廃止。
   const prevStats =
-    (currentUserData?.stats as Record<string, unknown> | undefined) ?? undefined;
-  const { correctStreak, dayStreak, isMilestoneDay } =
+    (currentUserData?.stats as Record<string, unknown> | undefined) ??
+    undefined;
+  const { correctStreak, dayStreak, isMilestoneDay, usedForgiveness } =
     computeAnswerStreaksFromStats(prevStats, isCorrect);
 
-  const feedbackBody = isCorrect
+  const feedbackBase = isCorrect
     ? getCorrectFeedback({ correctStreak, dayStreak, isMilestoneDay })
     : getIncorrectFeedback({ correctLabel });
+  // 週1おやすみ免除で streak がつながったときは、その旨をひとこと添える
+  // （「1日休んだのにゼロに戻らない」ことを本人に伝えて安心・継続につなげる）。
+  const feedbackBody = usedForgiveness
+    ? `${feedbackBase}\n\n🎟️ 1日あいたけど、週1回の「おやすみOK」で連続${dayStreak}日はつながってるよ！`
+    : feedbackBase;
   // 旧版は「⭕正解+励まし」と「📖解説」を 2 通の text に分けて送っていたが、
   // ユーザー体感が冗長なため 1 通に統合（2026-05-31）。
   // 数学ハイブリッドで解説画像があるときは、解説を MathJax 画像で別 flex 表示する。
@@ -5132,7 +6131,13 @@ async function handleAnswerPostback(
             layout: 'vertical' as const,
             paddingAll: '16px',
             contents: [
-              { type: 'text' as const, text: '📖 解説', weight: 'bold' as const, size: 'sm' as const, color: '#6B7280' },
+              {
+                type: 'text' as const,
+                text: '📖 解説',
+                weight: 'bold' as const,
+                size: 'sm' as const,
+                color: '#6B7280',
+              },
               {
                 type: 'image' as const,
                 url: question.explanationImage!.u,
@@ -5159,9 +6164,7 @@ async function handleAnswerPostback(
 
   try {
     const client = await getLineClient();
-    const replyMessages: LineMessage[] = [
-      { type: 'text', text: combinedText },
-    ];
+    const replyMessages: LineMessage[] = [{ type: 'text', text: combinedText }];
     if (explanationFlex) {
       replyMessages.push(explanationFlex as unknown as LineMessage);
     }
@@ -5429,7 +6432,12 @@ export async function selectAndSendQuestion(
       const plan = getUserPlan(userData);
       const gradeEligible = isPremiumEligibleGrade(userData.grade);
       // プレミアム廃止中（PREMIUM_FLOW_ENABLED=false）はナッジ flex を送らず通常文のみ。
-      if (PREMIUM_FLOW_ENABLED && !isInitialSetup && plan === 'free' && gradeEligible) {
+      if (
+        PREMIUM_FLOW_ENABLED &&
+        !isInitialSetup &&
+        plan === 'free' &&
+        gradeEligible
+      ) {
         try {
           const client = await getLineClient();
           await client.replyMessage({
@@ -5681,55 +6689,201 @@ function buildMathHybridMessage(
   const headerColor = SUBJECT_HEADER_COLORS[q.subject];
   const body: messagingApi.FlexComponent[] = [];
   if (introText) {
-    body.push({ type: 'text', text: introText, wrap: true, size: 'sm', color: '#6B7280' });
+    body.push({
+      type: 'text',
+      text: introText,
+      wrap: true,
+      size: 'sm',
+      color: '#6B7280',
+    });
     body.push({ type: 'separator', margin: 'md', color: '#E5E7EB' });
   }
   (q.questionParts ?? []).forEach((p, idx) => {
     const margin = idx > 0 || introText ? ('md' as const) : undefined;
     if (p.t === 'text') {
-      body.push({ type: 'text', text: p.s, wrap: true, weight: 'bold', size: 'lg', color: '#111827', ...(margin ? { margin } : {}) });
+      body.push({
+        type: 'text',
+        text: p.s,
+        wrap: true,
+        weight: 'bold',
+        size: 'lg',
+        color: '#111827',
+        ...(margin ? { margin } : {}),
+      });
     } else {
-      body.push({ type: 'image', url: p.u, size: `${Math.min(MATH_FORMULA_CAP, Math.round(MATH_FORMULA_SCALE * p.w))}px`, aspectRatio: `${p.w}:${p.h}`, aspectMode: 'fit', align: 'start', backgroundColor: '#FFFFFF', ...(margin ? { margin } : {}) });
+      body.push({
+        type: 'image',
+        url: p.u,
+        size: `${Math.min(MATH_FORMULA_CAP, Math.round(MATH_FORMULA_SCALE * p.w))}px`,
+        aspectRatio: `${p.w}:${p.h}`,
+        aspectMode: 'fit',
+        align: 'start',
+        backgroundColor: '#FFFFFF',
+        ...(margin ? { margin } : {}),
+      });
     }
   });
   // 図つき問題は図も表示
   if (typeof q.imageUrl === 'string' && q.imageUrl.startsWith('https://')) {
-    body.push({ type: 'image', url: q.imageUrl, size: 'full', aspectRatio: '1:1', aspectMode: 'fit', margin: 'lg', backgroundColor: '#FAF9F7' });
+    body.push({
+      type: 'image',
+      url: q.imageUrl,
+      size: 'full',
+      aspectRatio: '1:1',
+      aspectMode: 'fit',
+      margin: 'lg',
+      backgroundColor: '#FAF9F7',
+    });
   }
-  const footer: messagingApi.FlexComponent[] = (q.choiceParts ?? []).map((c, i) => {
-    // 文章選択肢はテキスト、数式選択肢は MathJax 画像
-    const inner: messagingApi.FlexComponent =
-      c.t === 'text' || (!c.u && typeof c.s === 'string')
-        ? { type: 'text', text: c.s ?? q.choices[i], wrap: true, size: 'sm', color: '#111827', margin: 'md', gravity: 'center' }
-        : { type: 'image', url: c.u as string, size: `${Math.min(MATH_CHOICE_CAP, Math.round(MATH_CHOICE_SCALE * (c.w ?? 100)))}px`, aspectRatio: `${c.w}:${c.h}`, aspectMode: 'fit', align: 'start', gravity: 'center', margin: 'md', backgroundColor: '#FFFFFF' };
-    return {
-      type: 'box' as const,
-      layout: 'horizontal' as const,
-      paddingAll: '10px',
-      cornerRadius: 'md' as const,
-      spacing: 'sm' as const,
-      backgroundColor: '#FFFFFF',
-      borderColor: '#E5E7EB',
-      borderWidth: '1px',
-      alignItems: 'center' as const,
-      action: { type: 'postback' as const, label: `${String.fromCharCode(65 + i)}`, data: `type=answer&questionId=${questionId}&choice=${i}`, displayText: q.choices[i] },
-      contents: [
-        { type: 'text' as const, text: String.fromCharCode(65 + i), flex: 0, size: 'sm' as const, weight: 'bold' as const, color: '#F59E0B', gravity: 'center' as const },
-        inner,
-      ],
-    };
-  });
+  const footer: messagingApi.FlexComponent[] = (q.choiceParts ?? []).map(
+    (c, i) => {
+      // 文章選択肢はテキスト、数式選択肢は MathJax 画像
+      const inner: messagingApi.FlexComponent =
+        c.t === 'text' || (!c.u && typeof c.s === 'string')
+          ? {
+              type: 'text',
+              text: c.s ?? q.choices[i],
+              wrap: true,
+              size: 'sm',
+              color: '#111827',
+              margin: 'md',
+              gravity: 'center',
+            }
+          : {
+              type: 'image',
+              url: c.u as string,
+              size: `${Math.min(MATH_CHOICE_CAP, Math.round(MATH_CHOICE_SCALE * (c.w ?? 100)))}px`,
+              aspectRatio: `${c.w}:${c.h}`,
+              aspectMode: 'fit',
+              align: 'start',
+              gravity: 'center',
+              margin: 'md',
+              backgroundColor: '#FFFFFF',
+            };
+      return {
+        type: 'box' as const,
+        layout: 'horizontal' as const,
+        paddingAll: '10px',
+        cornerRadius: 'md' as const,
+        spacing: 'sm' as const,
+        backgroundColor: '#FFFFFF',
+        borderColor: '#E5E7EB',
+        borderWidth: '1px',
+        alignItems: 'center' as const,
+        action: {
+          type: 'postback' as const,
+          label: `${String.fromCharCode(65 + i)}`,
+          data: `type=answer&questionId=${questionId}&choice=${i}`,
+          displayText: q.choices[i],
+        },
+        contents: [
+          {
+            type: 'text' as const,
+            text: String.fromCharCode(65 + i),
+            flex: 0,
+            size: 'sm' as const,
+            weight: 'bold' as const,
+            color: '#F59E0B',
+            gravity: 'center' as const,
+          },
+          inner,
+        ],
+      };
+    }
+  );
   return {
     type: 'flex' as const,
     altText: `${subjectLabel}｜${q.grade}: ${q.text.slice(0, 40)}`,
     contents: {
       type: 'bubble' as const,
       size: 'kilo' as const,
-      header: { type: 'box' as const, layout: 'vertical' as const, backgroundColor: headerColor, paddingAll: '14px', contents: [{ type: 'text' as const, text: `${subjectLabel}｜${q.grade}`, color: '#FFFFFF', weight: 'bold' as const, size: 'md' as const }] },
-      body: { type: 'box' as const, layout: 'vertical' as const, paddingAll: '20px', contents: body },
-      footer: { type: 'box' as const, layout: 'vertical' as const, spacing: 'sm' as const, paddingAll: '16px', contents: footer },
+      header: {
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        backgroundColor: headerColor,
+        paddingAll: '14px',
+        contents: [
+          {
+            type: 'text' as const,
+            text: `${subjectLabel}｜${q.grade}`,
+            color: '#FFFFFF',
+            weight: 'bold' as const,
+            size: 'md' as const,
+          },
+        ],
+      },
+      body: {
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        paddingAll: '20px',
+        contents: body,
+      },
+      footer: {
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        spacing: 'sm' as const,
+        paddingAll: '16px',
+        contents: footer,
+      },
     },
   };
+}
+
+/**
+ * 問題カード footer 末尾の「まだ習ってない」リンク（控えめなグレー1行）。
+ * タップで postback type=not_learned（除外モード選択へ）。
+ * 数学は scope eras 未生成（トーク内範囲フロー非対応）のため出さない。
+ * 数学ハイブリッドカード（buildMathHybridMessage）にも付けない（公開時に追従）。
+ */
+function buildNotLearnedFooterLink(q: Question): messagingApi.FlexComponent[] {
+  if (q.subject === 'math') return [];
+  if (typeof q.topic !== 'string' || q.topic.length === 0) return [];
+  return [
+    {
+      // 選択肢カードと同じボタン風の枠線ボックスにして「タップできる」ことを
+      // 視覚的に示す。左に空のチェックボックス（□）を実描画（文字だと機種により
+      // 豆腐になるため、枠線 box で描く）。
+      type: 'box' as const,
+      layout: 'horizontal' as const,
+      margin: 'md' as const,
+      paddingAll: '10px',
+      cornerRadius: 'md' as const,
+      backgroundColor: '#FFFFFF',
+      borderColor: '#E5E7EB',
+      borderWidth: '1px',
+      justifyContent: 'center' as const,
+      alignItems: 'center' as const,
+      action: {
+        type: 'postback' as const,
+        label: 'まだ習ってない',
+        data: `type=not_learned&t=${encodeURIComponent(q.topic)}`,
+        displayText: 'この範囲はまだ習ってない',
+      },
+      contents: [
+        {
+          type: 'box' as const,
+          layout: 'vertical' as const,
+          width: '16px',
+          height: '16px',
+          cornerRadius: 'sm' as const,
+          borderColor: '#9CA3AF',
+          borderWidth: '2px',
+          backgroundColor: '#FFFFFF',
+          flex: 0,
+          contents: [{ type: 'filler' as const }],
+        },
+        {
+          type: 'text' as const,
+          text: 'この範囲はまだ習ってない',
+          size: 'xs' as const,
+          color: '#6B7280',
+          flex: 0,
+          margin: 'sm' as const,
+          gravity: 'center' as const,
+        },
+      ],
+    } as messagingApi.FlexComponent,
+  ];
 }
 
 function buildQuestionMessage(
@@ -5738,7 +6892,12 @@ function buildQuestionMessage(
   introText?: string
 ) {
   // 数学はハイブリッドカード（parts があるとき）
-  if (q.renderMode === 'math-hybrid' && Array.isArray(q.questionParts) && Array.isArray(q.choiceParts) && q.choiceParts.length > 0) {
+  if (
+    q.renderMode === 'math-hybrid' &&
+    Array.isArray(q.questionParts) &&
+    Array.isArray(q.choiceParts) &&
+    q.choiceParts.length > 0
+  ) {
     return buildMathHybridMessage(questionId, q, introText);
   }
   const subjectLabel = SUBJECT_LABELS[q.subject];
@@ -5816,41 +6975,44 @@ function buildQuestionMessage(
         // box + action のカード型タップ要素で構成。Flex の button は label を
         // 1 行で省略表示してしまうため、長い選択肢が読めなくなる。
         // text に wrap: true を付けて複数行表示できるようにする。
-        contents: q.choices.map((choice, i) => ({
-          type: 'box' as const,
-          layout: 'horizontal' as const,
-          paddingAll: '10px',
-          cornerRadius: 'md' as const,
-          backgroundColor: '#FFFFFF',
-          borderColor: '#E5E7EB',
-          borderWidth: '1px',
-          action: {
-            type: 'postback' as const,
-            label: choice.slice(0, 40),
-            data: `type=answer&questionId=${questionId}&choice=${i}`,
-            displayText: choice,
-          },
-          contents: [
-            {
-              type: 'text' as const,
-              text: String.fromCharCode(65 + i),
-              flex: 0,
-              size: 'sm' as const,
-              weight: 'bold' as const,
-              color: '#F59E0B',
-              gravity: 'top' as const,
+        contents: [
+          ...q.choices.map((choice, i) => ({
+            type: 'box' as const,
+            layout: 'horizontal' as const,
+            paddingAll: '10px',
+            cornerRadius: 'md' as const,
+            backgroundColor: '#FFFFFF',
+            borderColor: '#E5E7EB',
+            borderWidth: '1px',
+            action: {
+              type: 'postback' as const,
+              label: choice.slice(0, 40),
+              data: `type=answer&questionId=${questionId}&choice=${i}`,
+              displayText: choice,
             },
-            {
-              type: 'text' as const,
-              text: choice,
-              flex: 1,
-              wrap: true,
-              size: 'sm' as const,
-              color: '#111827',
-              margin: 'md' as const,
-            },
-          ],
-        })),
+            contents: [
+              {
+                type: 'text' as const,
+                text: String.fromCharCode(65 + i),
+                flex: 0,
+                size: 'sm' as const,
+                weight: 'bold' as const,
+                color: '#F59E0B',
+                gravity: 'top' as const,
+              },
+              {
+                type: 'text' as const,
+                text: choice,
+                flex: 1,
+                wrap: true,
+                size: 'sm' as const,
+                color: '#111827',
+                margin: 'md' as const,
+              },
+            ],
+          })),
+          ...buildNotLearnedFooterLink(q),
+        ],
       },
       styles: {
         header: { separator: false },
