@@ -14,6 +14,7 @@
  */
 
 import type { UserDoc } from './userDocTypes';
+import { summarizeMubistaForPrompt } from './mubistaPromptCore';
 
 /**
  * 教科の提供状況。教科を追加・公開したらここを更新する（唯一の編集ポイント）。
@@ -200,7 +201,47 @@ export function buildSystemPrompt(userData: UserDoc | undefined): string {
 
   const context = `\n\n# 今話している相手の情報（参考）\n- 学年: ${grade}\n- 登録教科: ${subject}${pausedNote}\nこの情報を踏まえて、相手に合わせた言葉づかい・難易度で答えてね。ただし学年や教科が未設定なら、それを責めずに自然に進める。`;
 
-  return SERVICE_KNOWLEDGE + context + buildLastQuestionContext(userData);
+  return (
+    SERVICE_KNOWLEDGE +
+    context +
+    buildLastQuestionContext(userData) +
+    buildMubistaContext(userData)
+  );
+}
+
+/**
+ * ムビスタ（動画アプリ）での学習記録を文脈として差し込む（`users/{uid}.mubista`）。
+ * user doc は既に取得済みなので追加 read なし。記録が無ければ空文字。
+ * Firestore の Timestamp をミリ秒へ変換して純粋ロジック（mubistaPromptCore）へ渡す。
+ */
+function buildMubistaContext(userData: UserDoc | undefined): string {
+  const m = userData?.mubista;
+  if (!m) return '';
+  const units: Record<
+    string,
+    { title?: string; progress?: number; viewedAtMs?: number }
+  > = {};
+  for (const [id, u] of Object.entries(m.units ?? {})) {
+    units[id] = {
+      title: u.title,
+      progress: u.progress,
+      viewedAtMs: u.viewedAt?.toMillis?.() ?? 0,
+    };
+  }
+  return (
+    summarizeMubistaForPrompt(
+      {
+        lastUnit: m.lastUnit,
+        lastViewedAtMs: m.lastViewedAt?.toMillis?.() ?? 0,
+        units,
+        recentWrong: (m.recentWrong ?? []).map((w) => ({
+          unit: w.unit,
+          concept: w.concept,
+        })),
+      },
+      Date.now()
+    ) ?? ''
+  );
 }
 
 /**
