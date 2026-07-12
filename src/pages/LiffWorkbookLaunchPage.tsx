@@ -16,6 +16,8 @@ const LIFF_ID = import.meta.env.VITE_LIFF_ID_UNITS as string | undefined;
 const LAUNCH_URL =
   'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/workbookLaunch';
 const FRIEND_ADD_URL = 'https://lin.ee/wxDOngU';
+// 公式LINEのトークを開くディープリンク（oaMessage はメッセージ空でもトークが開く）
+const OA_TALK_URL = 'https://line.me/R/oaMessage/%40824cebif/?';
 
 type Status = 'sending' | 'sent' | 'unknown' | 'need_friend' | 'error';
 
@@ -71,10 +73,15 @@ export default function LiffWorkbookLaunchPage() {
         });
         if (res.ok) {
           setStatus('sent');
-          // LINE 内ブラウザならトークへ自動で戻す
+          // 公式LINEのトークへ自動で移動する（LINE内ならディープリンクが
+          // ネイティブに解決される）。移動できなかった環境向けに、少し待って
+          // からウィンドウを閉じるフォールバックも仕掛ける。
           setTimeout(() => {
-            if (liff.isInClient()) liff.closeWindow();
-          }, 1500);
+            window.location.href = OA_TALK_URL;
+            setTimeout(() => {
+              if (liff.isInClient()) liff.closeWindow();
+            }, 1500);
+          }, 1200);
         } else if (res.status === 404) {
           setStatus('unknown');
         } else if (res.status === 424) {
@@ -109,10 +116,15 @@ export default function LiffWorkbookLaunchPage() {
             <p className="font-bold text-stone-800 text-lg mb-2">
               トークに送ったよ！🎉
             </p>
-            <p className="text-sm text-stone-500">
-              LINEのトークに戻って、さっそく挑戦しよう。
-              この画面は自動で閉じます。
+            <p className="text-sm text-stone-500 mb-4">
+              このままトークに移動します。さっそく挑戦しよう！
             </p>
+            <a
+              href={OA_TALK_URL}
+              className="inline-block rounded-lg bg-amber-500 px-6 py-3 font-bold text-white"
+            >
+              トークを開く
+            </a>
           </>
         )}
         {status === 'need_friend' && (
