@@ -11,6 +11,25 @@ import { LineApp } from './line/App.line';
 import { readCachedGrade, readCachedPlan } from './utils/liffStudyCache';
 import './styles/index.css';
 
+// ─── liff.state の先行リダイレクト ───────────────────────────────────
+//
+// LINE アプリ内で `https://liff.line.me/{id}/wb?t=...` を開くと、LINE は
+// まず LIFF エンドポイント（/liff/units）を `?liff.state=%2Fwb%3Ft%3D...`
+// 付きで開く。liff.init() の SDK 側処理を待つと、その間 LiffUnitsPage
+// （じっくり学ぶ）が表示されてしまい、React Router も SDK の
+// history.replaceState に追従しない。ここで **React マウント前に**
+// liff.state を検出して目的のパスへ即リダイレクトする（外部ブラウザ経由の
+// 直接パス連結アクセスには liff.state が付かないので影響しない）。
+{
+  const liffState = new URLSearchParams(window.location.search).get(
+    'liff.state'
+  );
+  if (liffState && liffState.startsWith('/')) {
+    const base = window.location.pathname.replace(/\/$/, '');
+    window.location.replace(base + liffState);
+  }
+}
+
 // ─── 起動直後の prefetch（fire-and-forget）────────────────────────────
 //
 // LIFF 版の初期表示ウォーターフォール（HTML → React → LiffUnitsPage マウント →
@@ -47,11 +66,17 @@ function shouldPrefetchStudyChunk(): boolean {
 if (shouldPrefetchStudyChunk()) {
   const cachedGrade = readCachedGrade(null);
   if (cachedGrade === 1) {
-    void import('./data/generated/line-study-history-g1.generated').catch(() => undefined);
+    void import('./data/generated/line-study-history-g1.generated').catch(
+      () => undefined
+    );
   } else if (cachedGrade === 2) {
-    void import('./data/generated/line-study-history-g2.generated').catch(() => undefined);
+    void import('./data/generated/line-study-history-g2.generated').catch(
+      () => undefined
+    );
   } else if (cachedGrade === 3) {
-    void import('./data/generated/line-study-history-g3.generated').catch(() => undefined);
+    void import('./data/generated/line-study-history-g3.generated').catch(
+      () => undefined
+    );
   }
 }
 
