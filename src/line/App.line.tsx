@@ -36,6 +36,9 @@ const WelcomePage = lazyWithRetry(() =>
 const LiffUnitsPage = lazyWithRetry(() =>
   import('../pages/LiffUnitsPage').then((m) => ({ default: m.LiffUnitsPage }))
 );
+const LiffWorkbookLaunchPage = lazyWithRetry(
+  () => import('../pages/LiffWorkbookLaunchPage')
+);
 const TestRangePage = lazyWithRetry(() =>
   import('../pages/TestRangePage').then((m) => ({
     default: m.TestRangePage,
@@ -100,6 +103,8 @@ function LineAuthGuard() {
         <Route path="/welcome" element={<WelcomePage />} />
         <Route path="/auth/line/callback" element={<LineCallbackPage />} />
         <Route path="/liff/units" element={<LiffUnitsPage />} />
+        {/* QR即出題: 印刷ワークの QR（units LIFF にパス連結）→ ワーク開始カードを push */}
+        <Route path="/liff/units/wb" element={<LiffWorkbookLaunchPage />} />
         {/* 出題範囲設定: LIFF を廃止し通常ブラウザページ /scope へ置き換え。
             旧 LIFF endpoint(/liff/scope) に来た場合も /scope へリダイレクト。 */}
         <Route path="/scope" element={<TestRangePage />} />

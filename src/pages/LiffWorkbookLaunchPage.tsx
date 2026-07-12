@@ -1,0 +1,139 @@
+/**
+ * QR即出題の LIFF ページ（/liff/units/wb?t=単元名）。
+ *
+ * 印刷ワークの QR は `https://liff.line.me/{VITE_LIFF_ID_UNITS}/wb?t=単元名` を指す。
+ * LIFF は units の endpoint（/liff/units）にパスを連結してこのページを開くので、
+ * units の LIFF アプリをそのまま流用でき、LINE Developers Console での追加登録は不要。
+ *
+ * 動き: liff.init → IDトークン取得 → Cloud Function `workbookLaunch` に POST →
+ * サーバーがトークへ「ワーク開始カード」を push → このページは自動で閉じる。
+ * 生徒は QR を読むだけで送信操作なしに問題が始まる。
+ */
+import { useEffect, useState } from 'react';
+import liff from '@line/liff';
+
+const LIFF_ID = import.meta.env.VITE_LIFF_ID_UNITS as string | undefined;
+const LAUNCH_URL =
+  'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/workbookLaunch';
+const FRIEND_ADD_URL = 'https://lin.ee/wxDOngU';
+
+type Status = 'sending' | 'sent' | 'unknown' | 'need_friend' | 'error';
+
+export default function LiffWorkbookLaunchPage() {
+  const [status, setStatus] = useState<Status>('sending');
+  const [topic, setTopic] = useState('');
+
+  useEffect(() => {
+    (async () => {
+      const t =
+        new URLSearchParams(window.location.search).get('t')?.trim() ?? '';
+      setTopic(t);
+      if (!t || !LIFF_ID) {
+        setStatus('error');
+        return;
+      }
+      try {
+        await liff.init({ liffId: LIFF_ID });
+        if (!liff.isLoggedIn()) {
+          liff.login({ redirectUri: window.location.href });
+          return;
+        }
+        const idToken = liff.getIDToken();
+        if (!idToken) {
+          setStatus('error');
+          return;
+        }
+        const res = await fetch(LAUNCH_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ idToken, topic: t }),
+        });
+        if (res.ok) {
+          setStatus('sent');
+          // LINE 内ブラウザならトークへ自動で戻す
+          setTimeout(() => {
+            if (liff.isInClient()) liff.closeWindow();
+          }, 1500);
+        } else if (res.status === 404) {
+          setStatus('unknown');
+        } else if (res.status === 424) {
+          setStatus('need_friend');
+        } else {
+          setStatus('error');
+        }
+      } catch (e) {
+        console.error('workbook launch failed:', e);
+        setStatus('error');
+      }
+    })();
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-[#FAF9F7] flex items-center justify-center p-6">
+      <div className="w-full max-w-sm rounded-2xl bg-white border border-stone-200 shadow-sm p-8 text-center">
+        <div className="text-5xl mb-4">📖</div>
+        {status === 'sending' && (
+          <>
+            <p className="font-bold text-stone-800 text-lg mb-2">
+              問題を準備中…
+            </p>
+            <p className="text-sm text-stone-500">
+              {topic ? `「${topic}」` : 'ワーク'}の問題をトークに送っています。
+              そのままお待ちください。
+            </p>
+          </>
+        )}
+        {status === 'sent' && (
+          <>
+            <p className="font-bold text-stone-800 text-lg mb-2">
+              トークに送ったよ！🎉
+            </p>
+            <p className="text-sm text-stone-500">
+              LINEのトークに戻って、さっそく挑戦しよう。
+              この画面は自動で閉じます。
+            </p>
+          </>
+        )}
+        {status === 'need_friend' && (
+          <>
+            <p className="font-bold text-stone-800 text-lg mb-2">
+              まずは友だち追加してね
+            </p>
+            <p className="text-sm text-stone-500 mb-4">
+              公式LINE「チャットでスタディ」を友だち追加すると、
+              QRコードから問題を解けるようになるよ。
+            </p>
+            <a
+              href={FRIEND_ADD_URL}
+              className="inline-block rounded-lg bg-amber-500 px-6 py-3 font-bold text-white"
+            >
+              友だち追加する
+            </a>
+          </>
+        )}
+        {status === 'unknown' && (
+          <>
+            <p className="font-bold text-stone-800 text-lg mb-2">
+              単元が見つかりませんでした
+            </p>
+            <p className="text-sm text-stone-500">
+              QRコードが古い可能性があります。トークに「ワーク 単元名」と
+              送っても始められるよ。
+            </p>
+          </>
+        )}
+        {status === 'error' && (
+          <>
+            <p className="font-bold text-stone-800 text-lg mb-2">
+              うまく開けませんでした
+            </p>
+            <p className="text-sm text-stone-500">
+              時間をおいてもう一度QRコードを読み取るか、トークに 「ワーク
+              単元名」と送ってください。
+            </p>
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
