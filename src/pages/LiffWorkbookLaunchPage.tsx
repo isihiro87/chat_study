@@ -19,20 +19,41 @@ const FRIEND_ADD_URL = 'https://lin.ee/wxDOngU';
 
 type Status = 'sending' | 'sent' | 'unknown' | 'need_friend' | 'error';
 
+/**
+ * URL からワークの単元名を取り出す。
+ * - 外部ブラウザ経由: /liff/units/wb?t=単元名 （直接 t パラメータ）
+ * - LINE アプリ内: /liff/units?liff.state=%2Fwb%3Ft%3D単元名
+ *   （LIFF はエンドポイントを liff.state 付きで開く。リダイレクトはせず、
+ *     ここで liff.state の中身から t を取り出す。ログイン処理は SDK に任せる）
+ */
+export function getWorkbookLaunchTopic(): string {
+  const params = new URLSearchParams(window.location.search);
+  const direct = params.get('t');
+  if (direct && window.location.pathname.includes('/wb')) {
+    return direct.trim();
+  }
+  const state = params.get('liff.state');
+  if (state && state.startsWith('/wb')) {
+    const q = state.includes('?') ? state.slice(state.indexOf('?') + 1) : '';
+    return new URLSearchParams(q).get('t')?.trim() ?? '';
+  }
+  return '';
+}
+
 export default function LiffWorkbookLaunchPage() {
   const [status, setStatus] = useState<Status>('sending');
   const [topic, setTopic] = useState('');
 
   useEffect(() => {
     (async () => {
-      const t =
-        new URLSearchParams(window.location.search).get('t')?.trim() ?? '';
+      const t = getWorkbookLaunchTopic();
       setTopic(t);
       if (!t || !LIFF_ID) {
         setStatus('error');
         return;
       }
       try {
+        // liff.state 付きの URL のまま init する（SDK がログイン・state 処理を行う）。
         await liff.init({ liffId: LIFF_ID });
         if (!liff.isLoggedIn()) {
           liff.login({ redirectUri: window.location.href });

@@ -39,6 +39,12 @@ const LiffUnitsPage = lazyWithRetry(() =>
 const LiffWorkbookLaunchPage = lazyWithRetry(
   () => import('../pages/LiffWorkbookLaunchPage')
 );
+
+/** QR即出題の起動URLか（LINE内: /liff/units?liff.state=%2Fwb%3Ft%3D...） */
+function isWorkbookLaunchUrl(): boolean {
+  const state = new URLSearchParams(window.location.search).get('liff.state');
+  return !!state && state.startsWith('/wb');
+}
 const TestRangePage = lazyWithRetry(() =>
   import('../pages/TestRangePage').then((m) => ({
     default: m.TestRangePage,
@@ -102,8 +108,20 @@ function LineAuthGuard() {
       <Routes>
         <Route path="/welcome" element={<WelcomePage />} />
         <Route path="/auth/line/callback" element={<LineCallbackPage />} />
-        <Route path="/liff/units" element={<LiffUnitsPage />} />
-        {/* QR即出題: 印刷ワークの QR（units LIFF にパス連結）→ ワーク開始カードを push */}
+        {/* QR即出題: LINE アプリ内では LIFF がエンドポイント(/liff/units)を
+            liff.state=/wb?t=... 付きで開くため、liff.state を見てワーク起動画面へ
+            振り分ける（リダイレクトはしない＝ログイン用パラメータを壊さない）。 */}
+        <Route
+          path="/liff/units"
+          element={
+            isWorkbookLaunchUrl() ? (
+              <LiffWorkbookLaunchPage />
+            ) : (
+              <LiffUnitsPage />
+            )
+          }
+        />
+        {/* 外部ブラウザはパス連結で直接ここに来る */}
         <Route path="/liff/units/wb" element={<LiffWorkbookLaunchPage />} />
         {/* 出題範囲設定: LIFF を廃止し通常ブラウザページ /scope へ置き換え。
             旧 LIFF endpoint(/liff/scope) に来た場合も /scope へリダイレクト。 */}
