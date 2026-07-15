@@ -1884,9 +1884,19 @@ interface RefSessionData {
   askedCount?: number;
   askedQuestions?: string[];
   lastQuestion?: string;
+  correct?: number;
 }
 
 const REF_END_RE = /^(おわり|終わり|おわる|やめる|終了|stop|ストップ)$/i;
+// 理解度チェックは全 REF_CHECK_TOTAL 問で1セット（無限に続かず自然に終われる）。
+const REF_CHECK_TOTAL = 5;
+
+/** 理解度チェックの成績に応じた、しめの一言。 */
+function refCheckClosing(correct: number, total: number): string {
+  if (correct >= total) return '全問正解！完ぺきだね、すごい🎉';
+  if (correct >= Math.ceil(total * 0.6)) return 'よくがんばったね！この調子👏';
+  return 'おつかれさま！まちがえた所は参考書で見直すと、もっと力がつくよ💪';
+}
 
 /**
  * 参考書QR即開始: LIFF /ref 経由で「AI先生と深める」メニュー（質問／理解度チェック）
@@ -1998,12 +2008,13 @@ async function handleReferenceLevelPostback(
     askedCount: 1,
     askedQuestions: [question],
     lastQuestion: question,
+    correct: 0,
   };
   await db.doc(`users/${uid}`).set({ refSession: session }, { merge: true });
   await replyText(
     replyToken,
-    `✅ 理解度チェック（${REF_LEVEL_LABEL[level]}）スタート！\n\n` +
-      `【第1問】\n${question}\n\n答えを送ってね。（おわるときは「おわり」）`,
+    `✅ 理解度チェック（${REF_LEVEL_LABEL[level]}）スタート！ぜんぶで${REF_CHECK_TOTAL}問だよ。\n\n` +
+      `【第1問 / 全${REF_CHECK_TOTAL}問】\n${question}\n\n答えを送ってね。（とちゅうでやめるときは「おわり」）`,
     '(ref_level)'
   );
 }
@@ -2095,7 +2106,29 @@ async function handleReferenceTextInput(
       return true;
     }
 
-    const nextCount = (session.askedCount ?? 1) + 1;
+    // いま答えた問題の正誤を集計（採点文の🟢＝正解）。
+    const answeredNo = session.askedCount ?? 1;
+    const correct = (session.correct ?? 0) + (/🟢/.test(grade) ? 1 : 0);
+
+    // 規定問数に達したらセットを終了する（次の問題は出さない）。
+    if (answeredNo >= REF_CHECK_TOTAL) {
+      await db
+        .doc(`users/${uid}`)
+        .set({ refSession: FieldValue.delete() }, { merge: true });
+      await replyText(
+        replyToken,
+        `${grade}\n\n━━━━━\n🎉 理解度チェックおわり！\n` +
+          `全${REF_CHECK_TOTAL}問中 ${correct}問 正解だったよ。\n` +
+          `${refCheckClosing(correct, REF_CHECK_TOTAL)}\n\n` +
+          `また「${topic.name}」を確かめたくなったら、参考書のQRからいつでも呼んでね😊`,
+        '(ref_check_done)'
+      );
+      return true;
+    }
+
+    // まだ途中 → 次の問題を作る。
+    const nextCount = answeredNo + 1;
+    const isLast = nextCount >= REF_CHECK_TOTAL;
     let next: string | null = null;
     try {
       next = (
@@ -2123,20 +2156,31 @@ async function handleReferenceTextInput(
             askedCount: nextCount,
             askedQuestions: asked,
             lastQuestion: next,
+            correct,
           },
         },
         { merge: true }
       );
+      const heading = isLast
+        ? `【第${nextCount}問 / 全${REF_CHECK_TOTAL}問・ラスト！】`
+        : `【第${nextCount}問 / 全${REF_CHECK_TOTAL}問】`;
       await replyText(
         replyToken,
-        `${grade}\n\n━━━━━\n【第${nextCount}問】\n${next}\n\n（おわるときは「おわり」）`,
+        `${grade}\n\n━━━━━\n${heading}\n${next}\n\n（とちゅうでやめるときは「おわり」）`,
         '(ref_check_reply)'
       );
     } else {
+      // 次が作れなければ、その場でセットを締める（宙ぶらりんにしない）。
+      await db
+        .doc(`users/${uid}`)
+        .set({ refSession: FieldValue.delete() }, { merge: true });
       await replyText(
         replyToken,
-        `${grade}\n\n（次の問題が作れなかったよ。「おわり」で終了できるよ）`,
-        '(ref_check_reply)'
+        `${grade}\n\n━━━━━\n🎉 理解度チェックおわり！\n` +
+          `ここまでで ${correct}問 正解だったよ。\n` +
+          `${refCheckClosing(correct, answeredNo)}\n\n` +
+          `また参考書のQRからいつでも挑戦してね😊`,
+        '(ref_check_done)'
       );
     }
     return true;
