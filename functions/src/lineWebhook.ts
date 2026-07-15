@@ -32,8 +32,31 @@ import {
 } from './lineScopeFlow';
 import { recordPushDelivery } from './deliveryStats';
 import type { PushType } from './deliveryStatsTypes';
+import {
+  resolveReferenceTopic,
+  REF_LEVEL_LABEL,
+  type RefLevel,
+} from './referenceTopic';
+import {
+  buildReferenceMenuFlex,
+  buildRefLevelFlex,
+  refAskSystemPrompt,
+  refCheckQuestionPrompt,
+  refCheckGradePrompt,
+} from './referencePrompt';
 import type { LastQuestionSnapshot, ScopeNudgeVariant } from './userDocTypes';
 import { QUESTION_INDEX } from './generated/line-question-index.generated';
+import {
+  WORKBOOK_PREFIX_RE,
+  parseWorkbookText,
+  resolveWorkbookTopic,
+  getTopicQuestionIds,
+  getWorkbookInput,
+  findWorkbookInputQuestion,
+  judgeTermAnswer,
+  type WorkbookKind,
+} from './workbookTopic';
+import { WORKBOOK_QUESTION_INDEX } from './generated/workbook-question-index.generated';
 
 interface LineEvent {
   type: string;
@@ -743,7 +766,7 @@ async function handleOpenMubista(
         template: {
           type: 'buttons',
           title: 'ムビスタで学ぼう',
-          text: '動画とスタ先生で、見て・聞いて学べるよ。このボタンから開くと、あなた専用として続きが記録されるよ。',
+          text: '動画とAIの先生で、見て・聞いて学べるよ。このボタンから開くと、あなた専用として続きが記録されるよ。',
           actions: [{ type: 'uri', label: 'ムビスタを開く', uri: url }],
         },
       },
@@ -898,6 +921,16 @@ async function handleMessage(event: LineEvent): Promise<void> {
     return;
   }
 
+  // 動画は AI が視聴できない（マルチモーダル未対応）。無言スルーだと送ってくれた
+  // 子に何も返らないので、定型文で受け止める。reply 送信なので配信枠は消費しない。
+  if (messageType === 'video') {
+    const replyToken = event.replyToken;
+    if (replyToken) {
+      await replyText(replyToken, VIDEO_UNSUPPORTED_TEXT, '(video)');
+    }
+    return;
+  }
+
   if (messageType !== 'text') {
     console.warn(
       '[lineWebhook] handleMessage: non-text message type:',
@@ -923,6 +956,21 @@ async function handleMessage(event: LineEvent): Promise<void> {
     }
   }
 
+  // 印刷ワークの QR コード経由:「ワーク {単元名}」→ その単元の問題を1問出題する。
+  // 単元名が QUESTION_INDEX で解決できないとき（「ワークのやり方教えて」等の自然文）は
+  // 何もせず下の AI チャットボットへフォールスルーさせる。
+  if (WORKBOOK_PREFIX_RE.test(text)) {
+    const uidForWorkbook = buildUid(event);
+    if (uidForWorkbook && replyToken) {
+      const handled = await handleWorkbookQuestion(
+        uidForWorkbook,
+        replyToken,
+        text
+      );
+      if (handled) return;
+    }
+  }
+
   const uid = buildUid(event);
   let userData: Record<string, unknown> | undefined;
   if (uid) {
@@ -930,6 +978,34 @@ async function handleMessage(event: LineEvent): Promise<void> {
       const { db } = await getDb();
       const snap = await db.doc(`users/${uid}`).get();
       userData = snap.data();
+
+      // ワーク入力演習（一問一答/記述）の解答待ちなら、このテキストを解答として
+      // 採点する（userData は取得済みなので追加 read なし）。
+      const wbSessionData = userData?.workbookSession as
+        | WorkbookSessionData
+        | undefined;
+      if (wbSessionData?.awaiting?.qid && replyToken) {
+        const consumed = await handleWorkbookTextAnswer(
+          uid,
+          replyToken,
+          text,
+          wbSessionData,
+          (userData?.workbookStats as WorkbookStatsData | undefined) ?? {}
+        );
+        if (consumed) return;
+      }
+
+      // 参考書AI対話（質問／理解度チェック）中の入力を捕捉（追加 read なし）。
+      const refSessionData = userData?.refSession as RefSessionData | undefined;
+      if (refSessionData?.awaiting && replyToken) {
+        const consumed = await handleReferenceTextInput(
+          uid,
+          replyToken,
+          text,
+          refSessionData
+        );
+        if (consumed) return;
+      }
 
       // 休眠ユーザー除外システム（§C-3）対応:
       // 「再開」「またやりたい」「久しぶり」等の復帰キーワードを検知したら、
@@ -982,6 +1058,2769 @@ async function handleMessage(event: LineEvent): Promise<void> {
   );
 }
 
+/**
+ * 印刷ワークの QR コード経由の入口。「ワーク {単元名}」を解決できたら
+ * 出題モード（上から順 / ランダム）の選択 quickReply を reply で返す。
+ * 解決できなければ false を返し、呼び出し元は AI チャットへフォールスルーする。
+ * この段階では Firestore を一切読まない（QUESTION_INDEX のメモリ検索のみ）。
+ */
+async function handleWorkbookQuestion(
+  uid: string,
+  replyToken: string,
+  text: string
+): Promise<boolean> {
+  const topicName = parseWorkbookText(text);
+  if (!topicName) return false;
+
+  // 「ワーク成績」→ 進捗・苦手ダッシュボード
+  if (topicName === '成績' || topicName === 'せいせき') {
+    await handleWorkbookStatsPostback(uid, replyToken);
+    return true;
+  }
+
+  const location = resolveWorkbookTopic(topicName, WORKBOOK_QUESTION_INDEX);
+  if (!location) return false;
+
+  // ワーク利用者にはタブ付きリッチメニュー（毎日クイズ⇄ワーク問題集）を出す。
+  // 失敗（環境変数未設定等）は無視して演習は続行する。
+  // ⚠️ 仮画像（コード生成版）が不評だったため、Codex 製の本デザイン画像への
+  //    差し替えとユーザー承認が済むまで自動リンクは停止中（2026-07-12）。
+  if (WORKBOOK_RICHMENU_ENABLED) {
+    void linkWorkbookMenuIfEligible(uid);
+  }
+
+  const total = getTopicQuestionIds(topicName, WORKBOOK_QUESTION_INDEX).length;
+  const input = getWorkbookInput(topicName);
+  console.log(
+    `[lineWebhook] workbook start: uid=${uid} topic=${topicName} (${location.subject}-${location.grade}, 4択${total}問/入力${input.terms.length}問/記述${input.written.length}問)`
+  );
+
+  // 存在する形式だけボタンを出す。1形式のみ（年表チェック等）は種類選択を
+  // スキップして出題順の選択へ直行する。
+  const availableKinds: WorkbookKind[] = [];
+  if (total > 0) availableKinds.push('choice');
+  if (input.terms.length > 0) availableKinds.push('term');
+  if (input.written.length > 0) availableKinds.push('written');
+  if (availableKinds.length === 0) return false;
+  if (availableKinds.length === 1) {
+    await handleWorkbookKindPostback(
+      uid,
+      replyToken,
+      new URLSearchParams({ k: availableKinds[0], t: topicName })
+    );
+    return true;
+  }
+
+  const kindSelectFlex = buildWorkbookKindSelectFlex(topicName);
+  if (!kindSelectFlex) return false;
+  try {
+    const client = await getLineClient();
+    await client.replyMessage({
+      replyToken,
+      messages: [kindSelectFlex] as unknown as messagingApi.Message[],
+    });
+  } catch (error) {
+    console.error('[lineWebhook] workbook kind reply failed:', error);
+  }
+  return true;
+}
+
+/**
+ * 種類選択カード（存在する形式のボタンだけ・すべて同格のボタン）。
+ * テキスト経由（handleWorkbookQuestion）と QR即出題の push（pushWorkbookStart）で共用。
+ * 単元が解決できない・問題が1問もないときは null。
+ */
+export function buildWorkbookKindSelectFlex(
+  topicName: string
+): LineMessage | null {
+  if (!resolveWorkbookTopic(topicName, WORKBOOK_QUESTION_INDEX)) return null;
+  const total = getTopicQuestionIds(topicName, WORKBOOK_QUESTION_INDEX).length;
+  const input = getWorkbookInput(topicName);
+  const kindData = (k: WorkbookKind) =>
+    new URLSearchParams({ type: 'wb_kind', k, t: topicName }).toString();
+
+  const buttonDefs: Array<{
+    label: string;
+    data: string;
+    displayText: string;
+  }> = [];
+  if (total > 0) {
+    buttonDefs.push({
+      label: `✅ 4択（全${total}問）`,
+      data: kindData('choice'),
+      displayText: '4択問題に挑戦！',
+    });
+  }
+  if (input.terms.length > 0) {
+    buttonDefs.push({
+      label: `🔤 入力（全${input.terms.length}問）`,
+      data: kindData('term'),
+      displayText: '入力問題に挑戦！',
+    });
+  }
+  if (input.written.length > 0) {
+    buttonDefs.push({
+      label: `✍️ 記述・AI採点（全${input.written.length}問）`,
+      data: kindData('written'),
+      displayText: '記述問題に挑戦！',
+    });
+  }
+  if (buttonDefs.length === 0) return null;
+
+  return {
+    type: 'flex',
+    altText: `ワーク「${topicName}」どの問題に挑戦する？`,
+    contents: {
+      type: 'bubble',
+      size: 'kilo',
+      header: {
+        type: 'box',
+        layout: 'vertical',
+        backgroundColor: '#F59E0B',
+        paddingAll: '12px',
+        contents: [
+          {
+            type: 'text',
+            text: '📖 ワークでスタディ',
+            color: '#FFFFFF',
+            weight: 'bold',
+            size: 'sm',
+          },
+        ],
+      },
+      body: {
+        type: 'box',
+        layout: 'vertical',
+        paddingAll: '16px',
+        spacing: 'sm',
+        contents: [
+          {
+            type: 'text',
+            text: topicName,
+            weight: 'bold',
+            size: 'md',
+            wrap: true,
+            color: '#111827',
+          },
+          {
+            type: 'text',
+            text: 'どの問題に挑戦する？',
+            size: 'sm',
+            wrap: true,
+            color: '#6B7280',
+          },
+        ],
+      },
+      footer: {
+        type: 'box',
+        layout: 'vertical',
+        spacing: 'sm',
+        paddingAll: '12px',
+        // 3形式は同格（どれかを強調しない・すべて同じ見た目のボタン）
+        contents: buttonDefs.map((b) => ({
+          type: 'button',
+          style: 'secondary',
+          height: 'sm',
+          action: {
+            type: 'postback',
+            label: b.label,
+            data: b.data,
+            displayText: b.displayText,
+          },
+        })),
+      },
+    },
+  } as LineMessage;
+}
+
+/**
+ * QR即出題: LIFF ページ（/liff/units/wb）経由で「ワーク開始カード」を push する。
+ * reply ではなく push のため配信枠を消費する（ユーザー了承済み・deliveryStats に記録）。
+ * 友だち未登録などで push できないときは 'push_failed' を返す。
+ */
+export async function pushWorkbookStart(
+  lineUserId: string,
+  topicName: string
+): Promise<'ok' | 'unknown_topic' | 'push_failed'> {
+  const flex = buildWorkbookKindSelectFlex(topicName);
+  if (!flex) return 'unknown_topic';
+  if (WORKBOOK_RICHMENU_ENABLED) {
+    void linkWorkbookMenuIfEligible(`line:${lineUserId}`);
+  }
+  try {
+    const client = await getLineClient();
+    await client.pushMessage({
+      to: lineUserId,
+      messages: [flex] as unknown as messagingApi.Message[],
+    });
+    await recordPushDelivery('other');
+    return 'ok';
+  } catch (error) {
+    console.error('[lineWebhook] pushWorkbookStart failed:', error);
+    return 'push_failed';
+  }
+}
+
+/**
+ * postback: type=wb_kind&k=...&t=... — 問題の種類選択後。
+ * 4択・一問一答は出題順の選択カードを返し、記述（2問）はすぐ開始する。
+ */
+async function handleWorkbookKindPostback(
+  uid: string,
+  replyToken: string | undefined,
+  params: URLSearchParams
+): Promise<void> {
+  const k = (params.get('k') ?? 'choice') as WorkbookKind;
+  const topicName = params.get('t') ?? '';
+  if (!replyToken) return;
+
+  if (k === 'written') {
+    await sendWorkbookQuestion(uid, replyToken, topicName, 'written', 'seq', 0);
+    return;
+  }
+
+  const startData = (mode: 'seq' | 'rand') =>
+    new URLSearchParams({
+      type: 'wb_start',
+      k,
+      m: mode,
+      t: topicName,
+    }).toString();
+
+  const kindTotal =
+    k === 'term'
+      ? getWorkbookInput(topicName).terms.length
+      : getTopicQuestionIds(topicName, WORKBOOK_QUESTION_INDEX).length;
+  const kindLabel = k === 'term' ? '入力問題' : '4択問題';
+
+  // 出題順の選択もメッセージ内のボタン（flex）で表示する。
+  const modeSelectFlex = {
+    type: 'flex' as const,
+    altText: `ワーク「${topicName}」（全${kindTotal}問）どの順番で解く？`,
+    contents: {
+      type: 'bubble' as const,
+      size: 'kilo' as const,
+      header: {
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        backgroundColor: '#F59E0B',
+        paddingAll: '12px',
+        contents: [
+          {
+            type: 'text' as const,
+            text: '📖 ワークでスタディ',
+            color: '#FFFFFF',
+            weight: 'bold' as const,
+            size: 'sm' as const,
+          },
+        ],
+      },
+      body: {
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        paddingAll: '16px',
+        spacing: 'sm' as const,
+        contents: [
+          {
+            type: 'text' as const,
+            text: topicName,
+            weight: 'bold' as const,
+            size: 'md' as const,
+            wrap: true,
+            color: '#111827',
+          },
+          {
+            type: 'text' as const,
+            text: `${kindLabel}が全${kindTotal}問あるよ。どの順番で解く？\n💡 2周目以降はランダムがおすすめ！`,
+            size: 'sm' as const,
+            wrap: true,
+            color: '#6B7280',
+          },
+        ],
+      },
+      footer: {
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        spacing: 'sm' as const,
+        paddingAll: '12px',
+        // 2つの順番は同格（どちらかを強調しない）
+        contents: [
+          {
+            type: 'button' as const,
+            style: 'secondary' as const,
+            height: 'sm' as const,
+            action: {
+              type: 'postback' as const,
+              label: '📖 上から順に解く',
+              data: startData('seq'),
+              displayText: '上から順に解く',
+            },
+          },
+          {
+            type: 'button' as const,
+            style: 'secondary' as const,
+            height: 'sm' as const,
+            action: {
+              type: 'postback' as const,
+              label: '🎲 ランダムに解く',
+              data: startData('rand'),
+              displayText: 'ランダムに解く',
+            },
+          },
+        ],
+      },
+    },
+  };
+
+  try {
+    const client = await getLineClient();
+    await client.replyMessage({
+      replyToken,
+      messages: [modeSelectFlex] as unknown as messagingApi.Message[],
+    });
+  } catch (error) {
+    console.error('[lineWebhook] workbook mode reply failed:', error);
+  }
+}
+
+/** ワーク演習モード。retry は「間違えた問題だけやり直す」 */
+type WorkbookMode = 'seq' | 'rand' | 'retry';
+
+function parseWorkbookMode(raw: string | null): WorkbookMode {
+  return raw === 'rand' ? 'rand' : raw === 'retry' ? 'retry' : 'seq';
+}
+
+/** postback の list=1,3,8 形式（紙面の問題番号）をパースする */
+function parseWorkbookList(raw: string | null): number[] {
+  if (!raw) return [];
+  return raw
+    .split(',')
+    .map((s) => Number(s))
+    .filter((n) => Number.isInteger(n) && n >= 1);
+}
+
+/**
+ * ワークの1問を送る共通処理。seq/retry は index 指定、rand はランダム。
+ * 送信と同じ write に `workbookSession` を相乗りさせ、回答後の
+ * 「▶ 次の問題」ボタン（handleAnswerPostback）が状態を引き継げるようにする。
+ * retryList は「間違えた問題だけやり直す」の対象（紙面の問題番号）。
+ * kind: choice=4択（Firestore のワーク専用問題）/ term・written=入力問題（メモリバンク）。
+ */
+async function sendWorkbookQuestion(
+  uid: string,
+  replyToken: string | undefined,
+  topicName: string,
+  kind: WorkbookKind,
+  mode: WorkbookMode,
+  index: number,
+  retryList: number[] = []
+): Promise<void> {
+  const location = resolveWorkbookTopic(topicName, WORKBOOK_QUESTION_INDEX);
+  if (!location) {
+    if (replyToken) {
+      await replyText(
+        replyToken,
+        'ごめんね、この単元の問題が見つからなかったよ💦',
+        '(workbook topic not found)'
+      );
+    }
+    return;
+  }
+
+  if (kind === 'term' || kind === 'written') {
+    await sendWorkbookInputQuestion(
+      uid,
+      replyToken,
+      topicName,
+      kind,
+      mode,
+      index,
+      retryList
+    );
+    return;
+  }
+
+  const allIds = getTopicQuestionIds(topicName, WORKBOOK_QUESTION_INDEX);
+
+  // 出題順: seq=紙面の順、rand=開始時にシャッフルした並びを list に固定して
+  // **1周で各問題が必ず1回ずつ**出る、retry=指定された問題番号のみ。
+  let positions = retryList;
+  if (mode === 'rand' && index === 0 && positions.length === 0) {
+    positions = shuffledIndices(allIds.length).map((i) => i + 1);
+  }
+  const ids =
+    positions.length > 0
+      ? positions.map((n) => allIds[n - 1]).filter((id) => !!id)
+      : allIds;
+  if (ids.length === 0) {
+    if (replyToken) {
+      await replyText(
+        replyToken,
+        'ごめんね、この単元の問題が見つからなかったよ💦',
+        '(workbook empty ids)'
+      );
+    }
+    return;
+  }
+
+  // 最後まで解き切ったら結果カード（正答数・間違えた問題・やり直しボタン）。
+  if (index >= ids.length) {
+    await sendWorkbookCompletion(
+      uid,
+      replyToken,
+      topicName,
+      ids.length,
+      'choice'
+    );
+    return;
+  }
+
+  const questionNoText =
+    mode === 'retry'
+      ? `やり直し 第${index + 1}問（全${ids.length}問）`
+      : `第${index + 1}問（全${ids.length}問）`;
+
+  const { FieldValue } = await getDb();
+
+  // 出題はワーク専用問題（紙面の C 実戦問題と同一、q-wb-*）のみ。
+  // 毎日配信プール（QUESTION_INDEX）とは完全に分離する。
+  await selectAndSendQuestion(uid, {
+    replyToken,
+    introText: `📖 ワーク「${topicName}」 ${questionNoText}！`,
+    bypassDailyLimit: true,
+    source: 'workbook',
+    subjectOverride: location.subject as ValidSubject,
+    gradeOverride: location.grade as ValidGrade,
+    cardVariant: 'workbook',
+    questionIdOverride: ids[index],
+    extraUserFields: {
+      workbookSession: {
+        topic: topicName,
+        kind: 'choice',
+        mode,
+        index: index + 1,
+        ...(positions.length > 0
+          ? { list: positions }
+          : index === 0
+            ? { list: FieldValue.delete() }
+            : {}),
+        // 演習開始時（1問目送信時）は結果カウンタをリセットする。
+        // 2問目以降は merge により correct / wrong が積み上がる。
+        ...(index === 0 ? { correct: 0, wrong: [] } : {}),
+      },
+    },
+  });
+}
+
+/** 入力問題（用語入力 / 記述）の問題カード flex を組み立てる。 */
+function buildWorkbookInputQuestionFlex(
+  topicName: string,
+  kind: 'term' | 'written',
+  entry: { id: string; q: string },
+  heading: string,
+  keywords: readonly string[] = []
+): LineMessage {
+  const bodyContents: Record<string, unknown>[] = [
+    {
+      type: 'text',
+      text: `📖 ワーク「${topicName}」 ${heading}！`,
+      size: 'sm',
+      color: '#6B7280',
+      wrap: true,
+    },
+    { type: 'separator', margin: 'md', color: '#E5E7EB' },
+    {
+      type: 'text',
+      text: entry.q,
+      wrap: true,
+      weight: 'bold',
+      size: 'lg',
+      color: '#111827',
+      margin: 'md',
+    },
+  ];
+  if (kind === 'written' && keywords.length > 0) {
+    bodyContents.push({
+      type: 'text',
+      text: `指定語句: ${keywords.join('・')}`,
+      size: 'sm',
+      color: '#B45309',
+      wrap: true,
+      margin: 'md',
+    });
+  }
+  bodyContents.push({
+    type: 'text',
+    text:
+      kind === 'term'
+        ? '⌨️ 答えの用語をトークに入力して送ってね（ひらがなでもOK）'
+        : '⌨️ 答えの文章をトークに入力して送ってね。AIが採点するよ🤖',
+    size: 'xs',
+    color: '#9CA3AF',
+    wrap: true,
+    margin: 'lg',
+  });
+
+  return {
+    type: 'flex',
+    // 通知/プレビュー帯は「表示名: altText」形式で表示名が長い分、
+    // 問題文を先頭にして読める情報量を最大化する。
+    altText: `Q. ${entry.q.slice(0, 60)}`,
+    contents: {
+      type: 'bubble',
+      size: 'kilo',
+      header: {
+        type: 'box',
+        layout: 'vertical',
+        backgroundColor: '#F59E0B',
+        paddingAll: '12px',
+        contents: [
+          {
+            type: 'text',
+            text: kind === 'term' ? '🔤 入力問題' : '✍️ 記述問題（AI採点）',
+            color: '#FFFFFF',
+            weight: 'bold',
+            size: 'sm',
+          },
+        ],
+      },
+      body: {
+        type: 'box',
+        layout: 'vertical',
+        paddingAll: '16px',
+        contents: bodyContents,
+      },
+      footer: {
+        type: 'box',
+        layout: 'vertical',
+        spacing: 'sm',
+        paddingAll: '12px',
+        contents: [
+          {
+            type: 'box',
+            layout: 'horizontal',
+            paddingAll: '10px',
+            cornerRadius: 'md',
+            backgroundColor: '#FFFFFF',
+            borderColor: '#E5E7EB',
+            borderWidth: '1px',
+            justifyContent: 'center',
+            action: {
+              type: 'postback',
+              label: 'わからない',
+              data: `type=wb_iskip&questionId=${entry.id}`,
+              displayText: 'わからない…答えを見る',
+            },
+            contents: [
+              {
+                type: 'text',
+                text: '🤔 わからない…答えを見る',
+                size: 'xs',
+                color: '#6B7280',
+                flex: 0,
+                gravity: 'center',
+              },
+            ],
+          },
+        ],
+      },
+    },
+  } as LineMessage;
+}
+
+/**
+ * 入力問題（一問一答=用語入力 / 記述=AI採点）の1問を送る。
+ * 問題はメモリバンク（WORKBOOK_INPUT_INDEX）から取り、Firestore read はユーザー分のみ。
+ * `workbookSession.awaiting` に問題IDを保存し、次のテキストメッセージを解答として扱う。
+ * rand は開始時に並びをシャッフルして list に固定する（全問を1周する）。
+ */
+async function sendWorkbookInputQuestion(
+  uid: string,
+  replyToken: string | undefined,
+  topicName: string,
+  kind: 'term' | 'written',
+  mode: WorkbookMode,
+  index: number,
+  retryList: number[] = []
+): Promise<void> {
+  const input = getWorkbookInput(topicName);
+  const entries = kind === 'term' ? input.terms : input.written;
+  if (entries.length === 0) {
+    if (replyToken) {
+      await replyText(
+        replyToken,
+        'ごめんね、この単元にはまだこの形式の問題がないよ💦',
+        '(workbook input empty)'
+      );
+    }
+    return;
+  }
+
+  // 出題順: seq=1..N、rand=開始時にシャッフルした並びを list に固定、retry=指定された問題番号。
+  let list = retryList;
+  if (mode === 'rand' && index === 0 && list.length === 0) {
+    list = shuffledIndices(entries.length).map((i) => i + 1);
+  }
+  const positions =
+    list.length > 0
+      ? list.filter((n) => n >= 1 && n <= entries.length)
+      : entries.map((_, i) => i + 1);
+
+  if (index >= positions.length) {
+    await sendWorkbookCompletion(
+      uid,
+      replyToken,
+      topicName,
+      positions.length,
+      kind
+    );
+    return;
+  }
+
+  const pos = positions[index];
+  const entry = entries[pos - 1];
+  const qid = entry.id;
+  const isRetry = mode === 'retry';
+  const heading = `${isRetry ? 'やり直し ' : ''}第${index + 1}問（全${positions.length}問）`;
+  const questionFlex = buildWorkbookInputQuestionFlex(
+    topicName,
+    kind,
+    entry,
+    heading,
+    kind === 'written'
+      ? ((entry as { keywords?: readonly string[] }).keywords ?? [])
+      : []
+  );
+
+  try {
+    const { db, FieldValue } = await getDb();
+    await db.doc(`users/${uid}`).set(
+      {
+        workbookSession: {
+          topic: topicName,
+          kind,
+          mode,
+          index: index + 1,
+          awaiting: { qid },
+          ...(list.length > 0
+            ? { list }
+            : index === 0
+              ? { list: FieldValue.delete() }
+              : {}),
+          ...(index === 0 ? { correct: 0, wrong: [] } : {}),
+        },
+        updatedAt: FieldValue.serverTimestamp(),
+      },
+      { merge: true }
+    );
+  } catch (error) {
+    console.error('[lineWebhook] workbook input session write failed:', error);
+  }
+
+  if (replyToken) {
+    try {
+      const client = await getLineClient();
+      await client.replyMessage({
+        replyToken,
+        messages: [questionFlex] as unknown as messagingApi.Message[],
+      });
+    } catch (error) {
+      console.error('[lineWebhook] workbook input reply failed:', error);
+    }
+  }
+}
+
+/**
+ * 回答直後に「次の問題」を同じ reply に同梱するための準備。
+ * メッセージと、users/{uid} へ相乗りさせるフィールドを返す（送信はしない）。
+ * status: question=次の問題あり / completion=全問終了（結果カードへ） / none=用意できず
+ */
+interface WorkbookNextPayload {
+  status: 'question' | 'completion' | 'none';
+  messages: LineMessage[];
+  /** workbookSession に merge するフィールド（index 前進・次の awaiting 等） */
+  sessionFields: Record<string, unknown>;
+  /** users ドキュメント直下に merge するフィールド（lastQuestion スナップショット等） */
+  topFields: Record<string, unknown>;
+  total: number;
+}
+
+async function prepareWorkbookNextQuestion(
+  db: FirebaseFirestore.Firestore,
+  topicName: string,
+  kind: WorkbookKind,
+  mode: WorkbookMode,
+  nextIndex: number,
+  list: number[]
+): Promise<WorkbookNextPayload> {
+  const empty: WorkbookNextPayload = {
+    status: 'none',
+    messages: [],
+    sessionFields: {},
+    topFields: {},
+    total: 0,
+  };
+
+  if (kind === 'choice') {
+    const allIds = getTopicQuestionIds(topicName, WORKBOOK_QUESTION_INDEX);
+    if (allIds.length === 0) return empty;
+    const positions =
+      list.length > 0
+        ? list.filter((n) => n >= 1 && n <= allIds.length)
+        : allIds.map((_, i) => i + 1);
+    if (nextIndex >= positions.length) {
+      return { ...empty, status: 'completion', total: positions.length };
+    }
+    const qid = allIds[positions[nextIndex] - 1];
+    const snap = await db.doc(`questions/${qid}`).get();
+    if (!snap.exists) return empty;
+    const q = snap.data() as Question;
+    const heading =
+      mode === 'retry'
+        ? `やり直し 第${nextIndex + 1}問（全${positions.length}問）`
+        : `第${nextIndex + 1}問（全${positions.length}問）`;
+    const message = buildQuestionMessage(
+      qid,
+      q,
+      `📖 ワーク「${topicName}」 ${heading}！`,
+      'workbook'
+    );
+    return {
+      status: 'question',
+      messages: [message as unknown as LineMessage],
+      sessionFields: {
+        topic: topicName,
+        kind,
+        mode,
+        index: nextIndex + 1,
+        ...(list.length > 0 ? { list } : {}),
+      },
+      topFields: {
+        lastQuestion: buildLastQuestionSnapshot(qid, q),
+        lastQuestionSource: 'workbook',
+      },
+      total: positions.length,
+    };
+  }
+
+  const input = getWorkbookInput(topicName);
+  const entries = kind === 'term' ? input.terms : input.written;
+  if (entries.length === 0) return empty;
+  const positions =
+    list.length > 0
+      ? list.filter((n) => n >= 1 && n <= entries.length)
+      : entries.map((_, i) => i + 1);
+  if (nextIndex >= positions.length) {
+    return { ...empty, status: 'completion', total: positions.length };
+  }
+  const entry = entries[positions[nextIndex] - 1];
+  const heading =
+    mode === 'retry'
+      ? `やり直し 第${nextIndex + 1}問（全${positions.length}問）`
+      : `第${nextIndex + 1}問（全${positions.length}問）`;
+  const flex = buildWorkbookInputQuestionFlex(
+    topicName,
+    kind,
+    entry,
+    heading,
+    kind === 'written'
+      ? ((entry as { keywords?: readonly string[] }).keywords ?? [])
+      : []
+  );
+  return {
+    status: 'question',
+    messages: [flex],
+    sessionFields: {
+      topic: topicName,
+      kind,
+      mode,
+      index: nextIndex + 1,
+      awaiting: { qid: entry.id },
+      ...(list.length > 0 ? { list } : {}),
+    },
+    topFields: {},
+    total: positions.length,
+  };
+}
+
+/** ワーク入力演習を途中でやめる言葉（解答と誤判定しないよう先に拾う） */
+const WORKBOOK_QUIT_WORDS = new Set([
+  'やめる',
+  'やめたい',
+  'おわる',
+  'おわり',
+  '終わる',
+  '終わり',
+  'ストップ',
+  '中断',
+]);
+
+interface WorkbookSessionData {
+  topic?: string;
+  kind?: string;
+  mode?: string;
+  index?: number;
+  list?: number[];
+  correct?: number;
+  wrong?: Array<{ n?: number; text?: string }>;
+  awaiting?: { qid?: string };
+  lastInput?: {
+    qid?: string;
+    text?: string;
+    answerDocId?: string;
+    wrongN?: number;
+    wrongText?: string;
+  };
+}
+
+// ===== 参考書AI対話（QR→質問／理解度チェック）=====
+// 状態は users/{uid}.refSession に相乗り merge write（別コレクションを作らない）。
+interface RefSessionData {
+  topicKey?: string;
+  mode?: 'ask' | 'check';
+  level?: RefLevel;
+  awaiting?: boolean;
+  history?: Array<{ role: 'user' | 'model'; text: string }>;
+  askedCount?: number;
+  askedQuestions?: string[];
+  lastQuestion?: string;
+}
+
+const REF_END_RE = /^(おわり|終わり|おわる|やめる|終了|stop|ストップ)$/i;
+
+/**
+ * 参考書QR即開始: LIFF /ref 経由で「AI先生と深める」メニュー（質問／理解度チェック）
+ * を push する。reply ではなく push なので配信枠を消費（QR起点＝ユーザー操作の直後）。
+ */
+export async function pushReferenceStart(
+  lineUserId: string,
+  topicKey: string
+): Promise<'ok' | 'unknown_topic' | 'push_failed'> {
+  const topic = resolveReferenceTopic(topicKey);
+  if (!topic) return 'unknown_topic';
+  try {
+    const client = await getLineClient();
+    await client.pushMessage({
+      to: lineUserId,
+      messages: [
+        buildReferenceMenuFlex(topicKey, topic),
+      ] as unknown as messagingApi.Message[],
+    });
+    await recordPushDelivery('other');
+    return 'ok';
+  } catch (error) {
+    console.error('[lineWebhook] pushReferenceStart failed:', error);
+    return 'push_failed';
+  }
+}
+
+/** postback: type=ref_ask&t=... — 質問モードに入り、質問を促す（reply）。 */
+async function handleReferenceAskPostback(
+  uid: string,
+  replyToken: string | undefined,
+  params: URLSearchParams
+): Promise<void> {
+  const topicKey = params.get('t') ?? '';
+  const topic = resolveReferenceTopic(topicKey);
+  if (!topic || !replyToken) return;
+  const { db } = await getDb();
+  const session: RefSessionData = {
+    topicKey,
+    mode: 'ask',
+    awaiting: true,
+    history: [],
+  };
+  await db.doc(`users/${uid}`).set({ refSession: session }, { merge: true });
+  await replyText(
+    replyToken,
+    `📖「${topic.name}」について、わからないことを何でも聞いてね！\n` +
+      'AI先生が、この単元の内容にそってやさしく答えるよ。\n\n' +
+      '（おわるときは「おわり」と送ってね）',
+    '(ref_ask)'
+  );
+}
+
+/** postback: type=ref_check&t=... — 難易度選択カードを返す（reply）。 */
+async function handleReferenceCheckPostback(
+  _uid: string,
+  replyToken: string | undefined,
+  params: URLSearchParams
+): Promise<void> {
+  const topicKey = params.get('t') ?? '';
+  const topic = resolveReferenceTopic(topicKey);
+  if (!topic || !replyToken) return;
+  const client = await getLineClient();
+  await client.replyMessage({
+    replyToken,
+    messages: [
+      buildRefLevelFlex(topicKey, topic),
+    ] as unknown as messagingApi.Message[],
+  });
+}
+
+/** postback: type=ref_level&t=...&level=... — 出題開始（reply）。 */
+async function handleReferenceLevelPostback(
+  uid: string,
+  replyToken: string | undefined,
+  params: URLSearchParams
+): Promise<void> {
+  const topicKey = params.get('t') ?? '';
+  const level = (params.get('level') ?? 'normal') as RefLevel;
+  const topic = resolveReferenceTopic(topicKey);
+  if (!topic || !replyToken) return;
+
+  let question: string;
+  try {
+    const { generateGeminiText } = await import('./aiChat');
+    question = (
+      await generateGeminiText(
+        refCheckQuestionPrompt(topic, level, 1, []),
+        'では、1問目をお願いします。',
+        300
+      )
+    ).trim();
+  } catch (error) {
+    console.error('[lineWebhook] ref question gen failed:', error);
+    await replyText(
+      replyToken,
+      'ごめんね、いま問題を作れなかったみたい。もう一度ためしてね。',
+      '(ref_level_err)'
+    );
+    return;
+  }
+
+  const { db } = await getDb();
+  const session: RefSessionData = {
+    topicKey,
+    mode: 'check',
+    level,
+    awaiting: true,
+    askedCount: 1,
+    askedQuestions: [question],
+    lastQuestion: question,
+  };
+  await db.doc(`users/${uid}`).set({ refSession: session }, { merge: true });
+  await replyText(
+    replyToken,
+    `✅ 理解度チェック（${REF_LEVEL_LABEL[level]}）スタート！\n\n` +
+      `【第1問】\n${question}\n\n答えを送ってね。（おわるときは「おわり」）`,
+    '(ref_level)'
+  );
+}
+
+/**
+ * 参考書対話中のテキスト（質問への回答 / チェックの答え）を処理。
+ * handleMessage で userData 取得済みのため追加 read はなし。消費したら true。
+ */
+async function handleReferenceTextInput(
+  uid: string,
+  replyToken: string,
+  text: string,
+  session: RefSessionData
+): Promise<boolean> {
+  const topic = session.topicKey
+    ? resolveReferenceTopic(session.topicKey)
+    : null;
+  if (!topic) return false;
+  const { db, FieldValue } = await getDb();
+
+  // 終了ワードでセッションを閉じる。
+  if (REF_END_RE.test(text.trim())) {
+    await db
+      .doc(`users/${uid}`)
+      .set({ refSession: FieldValue.delete() }, { merge: true });
+    await replyText(
+      replyToken,
+      `おつかれさま！「${topic.name}」の学習はここまで。またいつでも聞いてね😊`,
+      '(ref_end)'
+    );
+    return true;
+  }
+
+  const { generateGeminiText } = await import('./aiChat');
+
+  if (session.mode === 'ask') {
+    const hist = (session.history ?? [])
+      .slice(-4)
+      .map((h) => `${h.role === 'user' ? '生徒' : 'AI先生'}: ${h.text}`)
+      .join('\n');
+    const userText = hist
+      ? `これまでのやり取り:\n${hist}\n\n生徒の質問: ${text}`
+      : text;
+    let answer: string;
+    try {
+      answer = (
+        await generateGeminiText(refAskSystemPrompt(topic), userText, 500)
+      ).trim();
+    } catch (error) {
+      console.error('[lineWebhook] ref ask gen failed:', error);
+      await replyText(
+        replyToken,
+        'ごめんね、いまうまく答えられなかった。もう一度きいてくれる？',
+        '(ref_ask_err)'
+      );
+      return true;
+    }
+    const history = [
+      ...(session.history ?? []),
+      { role: 'user' as const, text },
+      { role: 'model' as const, text: answer },
+    ].slice(-8);
+    await db
+      .doc(`users/${uid}`)
+      .set({ refSession: { ...session, history } }, { merge: true });
+    await replyText(replyToken, answer, '(ref_ask_reply)');
+    return true;
+  }
+
+  if (session.mode === 'check') {
+    const level = (session.level ?? 'normal') as RefLevel;
+    const question = session.lastQuestion ?? '';
+    let grade: string;
+    try {
+      grade = (
+        await generateGeminiText(
+          refCheckGradePrompt(topic, level, question),
+          `生徒の答え: ${text}`,
+          500
+        )
+      ).trim();
+    } catch (error) {
+      console.error('[lineWebhook] ref grade gen failed:', error);
+      await replyText(
+        replyToken,
+        'ごめんね、いま採点できなかった。もう一度答えてくれる？',
+        '(ref_check_err)'
+      );
+      return true;
+    }
+
+    const nextCount = (session.askedCount ?? 1) + 1;
+    let next: string | null = null;
+    try {
+      next = (
+        await generateGeminiText(
+          refCheckQuestionPrompt(
+            topic,
+            level,
+            nextCount,
+            session.askedQuestions ?? []
+          ),
+          `では、${nextCount}問目をお願いします。`,
+          300
+        )
+      ).trim();
+    } catch (error) {
+      console.error('[lineWebhook] ref next gen failed:', error);
+    }
+
+    if (next) {
+      const asked = [...(session.askedQuestions ?? []), next].slice(-12);
+      await db.doc(`users/${uid}`).set(
+        {
+          refSession: {
+            ...session,
+            askedCount: nextCount,
+            askedQuestions: asked,
+            lastQuestion: next,
+          },
+        },
+        { merge: true }
+      );
+      await replyText(
+        replyToken,
+        `${grade}\n\n━━━━━\n【第${nextCount}問】\n${next}\n\n（おわるときは「おわり」）`,
+        '(ref_check_reply)'
+      );
+    } else {
+      await replyText(
+        replyToken,
+        `${grade}\n\n（次の問題が作れなかったよ。「おわり」で終了できるよ）`,
+        '(ref_check_reply)'
+      );
+    }
+    return true;
+  }
+
+  return false;
+}
+
+/**
+ * ワーク入力問題（一問一答 / 記述）への解答テキストを処理する。
+ * handleMessage で userData 取得済みのため追加 read はなし。
+ * 消費した（=AIチャットへ流さない）場合 true を返す。
+ */
+async function handleWorkbookTextAnswer(
+  uid: string,
+  replyToken: string,
+  text: string,
+  session: WorkbookSessionData,
+  stats: WorkbookStatsData = {}
+): Promise<boolean> {
+  const prevXp = stats.xp ?? 0;
+  const qid = session.awaiting?.qid;
+  if (!qid) return false;
+  const lookup = findWorkbookInputQuestion(qid);
+  const { db, FieldValue } = await getDb();
+
+  // 「やめる」等は解答ではなく中断として扱う。
+  if (WORKBOOK_QUIT_WORDS.has(text.trim())) {
+    try {
+      await db
+        .doc(`users/${uid}`)
+        .set({ workbookSession: FieldValue.delete() }, { merge: true });
+    } catch (error) {
+      console.error('[lineWebhook] workbook quit cleanup failed:', error);
+    }
+    await replyText(
+      replyToken,
+      'おつかれさま！✨ 続きはまたワークのQRコードからいつでも解けるよ📖',
+      '(workbook quit)'
+    );
+    return true;
+  }
+
+  if (!lookup) {
+    // バンク不整合（デプロイ差し替え等）。セッションを解いて通常応答に戻す。
+    try {
+      await db
+        .doc(`users/${uid}`)
+        .set(
+          { workbookSession: { awaiting: FieldValue.delete() } },
+          { merge: true }
+        );
+    } catch {
+      /* noop */
+    }
+    return false;
+  }
+
+  const location = resolveWorkbookTopic(
+    lookup.topicName,
+    WORKBOOK_QUESTION_INDEX
+  );
+  const userAnswer = text.trim().slice(0, 300);
+
+  let isCorrect = false;
+  let bodyText = '';
+  let aiVerdict: string | undefined;
+  let aiScore: number | undefined;
+  let aiComment: string | undefined;
+
+  if (lookup.kind === 'term' && lookup.term) {
+    const t = lookup.term;
+    isCorrect = judgeTermAnswer(userAnswer, t);
+    const answerLine =
+      t.reading && t.reading !== t.a ? `${t.a}（${t.reading}）` : t.a;
+    bodyText = isCorrect
+      ? `「${answerLine}」\n\n📖 ${t.expl}`
+      : `正解は「${answerLine}」\n\n📖 ${t.expl}`;
+  } else if (lookup.kind === 'written' && lookup.written) {
+    const w = lookup.written;
+    const graded = await gradeWrittenAnswer(
+      w.q,
+      [...w.keywords],
+      w.model,
+      userAnswer
+    );
+    aiVerdict = graded.verdict;
+    aiComment = graded.comment;
+    aiScore = graded.score;
+    isCorrect = graded.verdict === 'correct';
+    bodyText =
+      `🤖 AI採点: ${graded.score}／10点\n${graded.comment}\n\n` +
+      (graded.criteria ? `📏 採点のポイント\n${graded.criteria}\n\n` : '') +
+      `📖 模範解答\n${w.model}`;
+  } else {
+    return false;
+  }
+
+  // 回答記録（answers）— 毎日配信と同じコレクションに残す。
+  let answerDocId: string | undefined;
+  try {
+    const ref = await db.collection('answers').add({
+      uid,
+      questionId: qid,
+      choice: null,
+      userAnswer,
+      isCorrect,
+      ...(aiVerdict
+        ? { aiVerdict, aiScore: aiScore ?? null, aiComment: aiComment ?? null }
+        : {}),
+      subject: location?.subject ?? 'history',
+      grade: location?.grade ?? null,
+      topic: lookup.topicName,
+      source: 'workbook',
+      answeredAt: FieldValue.serverTimestamp(),
+    });
+    answerDocId = ref.id;
+  } catch (error) {
+    console.error('[lineWebhook] workbook input answers write failed:', error);
+  }
+
+  // セッション更新（結果カウンタ・再採点用の直近解答）＋統計/XPの蓄積
+  const xpResult =
+    lookup.kind === 'written'
+      ? aiVerdict === 'correct'
+        ? 'correct'
+        : aiVerdict === 'partial'
+          ? 'partial'
+          : 'wrong'
+      : isCorrect
+        ? 'correct'
+        : 'wrong';
+  const xpGain = workbookXpGain(lookup.kind, xpResult);
+  const wrongEntry = {
+    n: lookup.n,
+    text:
+      lookup.kind === 'term'
+        ? (lookup.term?.q ?? '')
+        : (lookup.written?.q ?? ''),
+  };
+
+  // 次の問題を同じ reply に同梱する（タップ不要で演習が進む）。
+  const wbMode = parseWorkbookMode((session.mode as string) ?? null);
+  const wbList = Array.isArray(session.list)
+    ? session.list.filter((n) => Number.isInteger(n))
+    : [];
+  const nextIndex = Number.isInteger(session.index)
+    ? (session.index as number)
+    : 0;
+  const next = await prepareWorkbookNextQuestion(
+    db,
+    lookup.topicName,
+    lookup.kind,
+    wbMode,
+    nextIndex,
+    wbList
+  );
+
+  // 全問終了なら結果カード（◯／◯問正解・バッジ）を同梱。
+  let completionFlex: LineMessage | null = null;
+  if (next.status === 'completion') {
+    completionFlex = await buildWorkbookCompletionFlex(
+      uid,
+      lookup.topicName,
+      next.total,
+      lookup.kind,
+      {
+        correct: (session.correct ?? 0) + (isCorrect ? 1 : 0),
+        wrong: isCorrect
+          ? [...(session.wrong ?? [])]
+          : [...(session.wrong ?? []), wrongEntry],
+        stats: { ...stats, xp: prevXp + xpGain },
+      }
+    );
+  }
+
+  try {
+    await db.doc(`users/${uid}`).set(
+      {
+        workbookSession: {
+          awaiting: FieldValue.delete(),
+          correct: FieldValue.increment(isCorrect ? 1 : 0),
+          ...(isCorrect ? {} : { wrong: FieldValue.arrayUnion(wrongEntry) }),
+          lastInput: {
+            qid,
+            text: userAnswer.slice(0, 100),
+            answerDocId: answerDocId ?? null,
+            wrongN: wrongEntry.n,
+            wrongText: wrongEntry.text,
+          },
+          // 次の問題の状態（index 前進・次の awaiting 等）。completion 時は空。
+          ...next.sessionFields,
+        },
+        ...buildWorkbookStatsUpdate(
+          FieldValue,
+          lookup.topicName,
+          lookup.kind,
+          xpGain,
+          isCorrect
+        ),
+        ...next.topFields,
+        lastAnsweredQuestionId: qid,
+        updatedAt: FieldValue.serverTimestamp(),
+      },
+      { merge: true }
+    );
+  } catch (error) {
+    console.error('[lineWebhook] workbook input session update failed:', error);
+  }
+
+  // 返信: 結果カード＋（次の問題 or 完走カード）を1回で送る。
+  const sessionForCard = { ...session };
+  const flex = buildWorkbookAnswerFlexMessage(bodyText, sessionForCard, {
+    regrade: lookup.kind === 'term' && !isCorrect,
+    xpLine: workbookXpLine(prevXp, xpGain),
+    levelUp: workbookLevelUp(prevXp, xpGain),
+    autoNext: true,
+    verdict:
+      xpResult === 'correct'
+        ? 'correct'
+        : xpResult === 'partial'
+          ? 'partial'
+          : 'wrong',
+  });
+  const replyMessages: LineMessage[] = [
+    flex,
+    ...next.messages,
+    ...(completionFlex ? [completionFlex] : []),
+  ];
+  try {
+    const client = await getLineClient();
+    await client.replyMessage({
+      replyToken,
+      messages: replyMessages as unknown as messagingApi.Message[],
+    });
+  } catch (error) {
+    console.error('[lineWebhook] workbook input answer reply failed:', error);
+  }
+  return true;
+}
+
+/**
+ * 記述問題の Gemini 採点。10点満点のスコア・フィードバック・採点基準を JSON で返させる。
+ * verdict はスコアから導出（8点以上=correct / 4〜7点=partial / 3点以下=incorrect）。
+ * 失敗時は partial・5点扱い（採点不能で不正解にしない・正解にもしない中間）。
+ */
+async function gradeWrittenAnswer(
+  question: string,
+  keywords: string[],
+  model: string,
+  userAnswer: string
+): Promise<{
+  verdict: 'correct' | 'partial' | 'incorrect';
+  score: number;
+  comment: string;
+  criteria: string;
+}> {
+  const system =
+    'あなたは中学社会（歴史）の記述問題の採点者です。模範解答に照らして生徒の答案を10点満点で採点し、必ずJSONだけを返してください。\n' +
+    '採点の考え方:\n' +
+    '- 模範解答と同じ趣旨が過不足なく書けていれば9〜10点（表現の違いは減点しない）\n' +
+    '- 指定語句がある場合、使っていない語句1つにつき2点減点\n' +
+    '- 方向は合っているが説明不足・あいまいなら4〜7点\n' +
+    '- 内容が誤っている・問いに答えていないなら0〜3点\n' +
+    '出力形式: {"score":0〜10の整数,"comment":"生徒への短いフィードバック（60字以内・励ます口調・改善ポイントを具体的に）","criteria":"この問題で点をもらうために書くべきポイント（60字以内）"}';
+  const user =
+    `【問題】${question}\n` +
+    (keywords.length > 0 ? `【指定語句】${keywords.join('・')}\n` : '') +
+    `【模範解答】${model}\n【生徒の答案】${userAnswer}`;
+  try {
+    const { generateGeminiText } = await import('./aiChat');
+    const raw = await generateGeminiText(system, user, 400);
+    const m = /\{[\s\S]*\}/.exec(raw);
+    if (m) {
+      const parsed = JSON.parse(m[0]) as {
+        score?: number;
+        comment?: string;
+        criteria?: string;
+      };
+      const score = Math.max(
+        0,
+        Math.min(10, Math.round(Number(parsed.score ?? 5)))
+      );
+      const verdict =
+        score >= 8 ? 'correct' : score >= 4 ? 'partial' : 'incorrect';
+      return {
+        verdict,
+        score,
+        comment:
+          (parsed.comment ?? '').slice(0, 120) ||
+          '採点したよ！模範解答と見比べてみてね。',
+        criteria: (parsed.criteria ?? '').slice(0, 120),
+      };
+    }
+  } catch (error) {
+    console.error('[lineWebhook] gradeWrittenAnswer failed:', error);
+  }
+  return {
+    verdict: 'partial',
+    score: 5,
+    comment: 'AI採点がうまくいかなかったから、模範解答と見比べてみてね🙏',
+    criteria: '',
+  };
+}
+
+/**
+ * postback: type=wb_iskip&questionId=... — 入力問題の「わからない」。
+ * 答えと解説（記述は模範解答）を見せ、不正解として記録して次に進めるようにする。
+ */
+async function handleWorkbookInputSkipPostback(
+  uid: string,
+  replyToken: string | undefined,
+  params: URLSearchParams
+): Promise<void> {
+  const qid = params.get('questionId');
+  if (!qid || !replyToken) return;
+  const lookup = findWorkbookInputQuestion(qid);
+  if (!lookup) {
+    await replyText(
+      replyToken,
+      '問題が見つかりませんでした。',
+      '(wb_iskip not found)'
+    );
+    return;
+  }
+
+  const { db, FieldValue } = await getDb();
+  let session: WorkbookSessionData = {};
+  let statsFromRead: WorkbookStatsData = {};
+  try {
+    const snap = await db.doc(`users/${uid}`).get();
+    const data = snap.data();
+    session = (data?.workbookSession as WorkbookSessionData) ?? {};
+    statsFromRead = (data?.workbookStats as WorkbookStatsData) ?? {};
+    if (data?.lastAnsweredQuestionId === qid) {
+      await replyText(
+        replyToken,
+        'その問題はもう答えを見てるよ😊 このまま続きをどうぞ！',
+        '(wb_iskip duplicate)'
+      );
+      return;
+    }
+  } catch (error) {
+    console.error('[lineWebhook] wb_iskip user read failed:', error);
+  }
+
+  const location = resolveWorkbookTopic(
+    lookup.topicName,
+    WORKBOOK_QUESTION_INDEX
+  );
+  let bodyText: string;
+  if (lookup.kind === 'term' && lookup.term) {
+    const t = lookup.term;
+    const answerLine =
+      t.reading && t.reading !== t.a ? `${t.a}（${t.reading}）` : t.a;
+    bodyText = `🤔 わからなくてもOK！\n正解は「${answerLine}」\n\n📖 ${t.expl}`;
+  } else if (lookup.written) {
+    bodyText = `🤔 わからなくてもOK！\n\n📖 模範解答\n${lookup.written.model}`;
+  } else {
+    return;
+  }
+
+  try {
+    await db.collection('answers').add({
+      uid,
+      questionId: qid,
+      choice: null,
+      isCorrect: false,
+      idk: true,
+      subject: location?.subject ?? 'history',
+      grade: location?.grade ?? null,
+      topic: lookup.topicName,
+      source: 'workbook',
+      answeredAt: FieldValue.serverTimestamp(),
+    });
+  } catch (error) {
+    console.error('[lineWebhook] wb_iskip answers write failed:', error);
+  }
+
+  const wrongEntry = {
+    n: lookup.n,
+    text:
+      lookup.kind === 'term'
+        ? (lookup.term?.q ?? '')
+        : (lookup.written?.q ?? ''),
+  };
+
+  // 次の問題（または完走カード）を同じ reply に同梱する。
+  const skipStats = statsFromRead;
+  const skipGain = workbookXpGain(lookup.kind, 'skip');
+  const wbMode = parseWorkbookMode((session.mode as string) ?? null);
+  const wbList = Array.isArray(session.list)
+    ? session.list.filter((n) => Number.isInteger(n))
+    : [];
+  const nextIndex = Number.isInteger(session.index)
+    ? (session.index as number)
+    : 0;
+  const next = await prepareWorkbookNextQuestion(
+    db,
+    lookup.topicName,
+    lookup.kind,
+    wbMode,
+    nextIndex,
+    wbList
+  );
+  let completionFlex: LineMessage | null = null;
+  if (next.status === 'completion') {
+    completionFlex = await buildWorkbookCompletionFlex(
+      uid,
+      lookup.topicName,
+      next.total,
+      lookup.kind,
+      {
+        correct: session.correct ?? 0,
+        wrong: [...(session.wrong ?? []), wrongEntry],
+        stats: { ...skipStats, xp: (skipStats.xp ?? 0) + skipGain },
+      }
+    );
+  }
+
+  try {
+    await db.doc(`users/${uid}`).set(
+      {
+        workbookSession: {
+          awaiting: FieldValue.delete(),
+          wrong: FieldValue.arrayUnion(wrongEntry),
+          ...next.sessionFields,
+        },
+        ...buildWorkbookStatsUpdate(
+          FieldValue,
+          lookup.topicName,
+          lookup.kind,
+          skipGain,
+          false
+        ),
+        ...next.topFields,
+        lastAnsweredQuestionId: qid,
+        updatedAt: FieldValue.serverTimestamp(),
+      },
+      { merge: true }
+    );
+  } catch (error) {
+    console.error('[lineWebhook] wb_iskip session update failed:', error);
+  }
+
+  const flex = buildWorkbookAnswerFlexMessage(bodyText, session, {
+    autoNext: true,
+    verdict: 'skip',
+  });
+  try {
+    const client = await getLineClient();
+    await client.replyMessage({
+      replyToken,
+      messages: [
+        flex,
+        ...next.messages,
+        ...(completionFlex ? [completionFlex] : []),
+      ] as unknown as messagingApi.Message[],
+    });
+  } catch (error) {
+    console.error('[lineWebhook] wb_iskip reply failed:', error);
+  }
+}
+
+/**
+ * postback: type=wb_regrade — 用語入力の「これも正解では？」再採点。
+ * 別解・表記ゆれの可能性を Gemini に判定させ、正解なら answers を訂正し
+ * セッションの結果カウンタも直す。
+ */
+async function handleWorkbookRegradePostback(
+  uid: string,
+  replyToken: string | undefined
+): Promise<void> {
+  if (!replyToken) return;
+  const { db, FieldValue } = await getDb();
+
+  let session: WorkbookSessionData = {};
+  try {
+    const snap = await db.doc(`users/${uid}`).get();
+    session = (snap.data()?.workbookSession as WorkbookSessionData) ?? {};
+  } catch (error) {
+    console.error('[lineWebhook] wb_regrade read failed:', error);
+  }
+  const li = session.lastInput;
+  const lookup = li?.qid ? findWorkbookInputQuestion(li.qid) : undefined;
+  if (!li?.text || !lookup?.term) {
+    await replyText(
+      replyToken,
+      'ごめんね、再採点する解答が見つからなかったよ💦',
+      '(wb_regrade no input)'
+    );
+    return;
+  }
+
+  const t = lookup.term;
+  const system =
+    'あなたは中学歴史の用語問題の採点者です。想定正答と生徒の答えを比べ、別解・表記ゆれ・同義の表現として正解と認められるか判定し、必ずJSONだけを返してください。\n' +
+    '認める例: 漢字/かなの違い、送りがな、正式名称と通称、同一人物の別表記。認めない例: 別の用語、あいまいすぎる答え。\n' +
+    '出力形式: {"accept":true|false,"reason":"短い理由（40字以内）"}';
+  const user = `【問題】${t.q}\n【想定正答】${t.a}（${t.reading}）\n【生徒の答え】${li.text}`;
+
+  let accept = false;
+  let reason = '';
+  try {
+    const { generateGeminiText } = await import('./aiChat');
+    const raw = await generateGeminiText(system, user, 200);
+    const m = /\{[\s\S]*\}/.exec(raw);
+    if (m) {
+      const parsed = JSON.parse(m[0]) as { accept?: boolean; reason?: string };
+      accept = parsed.accept === true;
+      reason = (parsed.reason ?? '').slice(0, 80);
+    }
+  } catch (error) {
+    console.error('[lineWebhook] wb_regrade gemini failed:', error);
+    await replyText(
+      replyToken,
+      'ごめんね、再採点がうまくいかなかったよ💦 もう一度「再採点」を押してみてね。',
+      '(wb_regrade ai error)'
+    );
+    return;
+  }
+
+  if (accept) {
+    // answers の訂正＋セッション結果カウンタの修正
+    try {
+      if (li.answerDocId) {
+        await db
+          .doc(`answers/${li.answerDocId}`)
+          .set({ isCorrect: true, regraded: true }, { merge: true });
+      }
+      await db.doc(`users/${uid}`).set(
+        {
+          workbookSession: {
+            correct: FieldValue.increment(1),
+            ...(Number.isInteger(li.wrongN)
+              ? {
+                  wrong: FieldValue.arrayRemove({
+                    n: li.wrongN,
+                    text: li.wrongText ?? '',
+                  }),
+                }
+              : {}),
+            lastInput: FieldValue.delete(),
+          },
+          // 再採点で正解に昇格した分の XP・正答数を補填（t は回答時に加算済み）
+          workbookStats: {
+            xp: FieldValue.increment(12),
+            correct: FieldValue.increment(1),
+            byTopic: {
+              [lookup.topicName]: {
+                term: { c: FieldValue.increment(1) },
+              },
+            },
+          },
+          updatedAt: FieldValue.serverTimestamp(),
+        },
+        { merge: true }
+      );
+    } catch (error) {
+      console.error('[lineWebhook] wb_regrade correction failed:', error);
+    }
+    const fixedSession: WorkbookSessionData = {
+      ...session,
+      correct: (session.correct ?? 0) + 1,
+    };
+    const flex = buildWorkbookAnswerFlexMessage(
+      `🙌 ごめんね、再採点したら…正解だったよ！\n${reason}\n記録も正解に直しておいたよ✏️`,
+      fixedSession
+    );
+    try {
+      const client = await getLineClient();
+      await client.replyMessage({
+        replyToken,
+        messages: [flex] as unknown as messagingApi.Message[],
+      });
+    } catch (error) {
+      console.error('[lineWebhook] wb_regrade reply failed:', error);
+    }
+  } else {
+    const flex = buildWorkbookAnswerFlexMessage(
+      `🧐 再採点したけど、やっぱり今回は❌かな。\n${reason}\n「${t.a}」で覚えておこう！`,
+      session
+    );
+    try {
+      const client = await getLineClient();
+      await client.replyMessage({
+        replyToken,
+        messages: [flex] as unknown as messagingApi.Message[],
+      });
+    } catch (error) {
+      console.error('[lineWebhook] wb_regrade reply failed:', error);
+    }
+  }
+}
+
+/**
+ * ワーク演習の完走カード。「◯／◯問正解」＋間違えた問題リスト＋
+ * 「🔁 もう一度」「✍️ 間違えた問題だけ」ボタン（全問正解時は正解おめでとうのみ）。
+ * セッション結果は users/{uid}.workbookSession から読む（1 read）。
+ */
+async function buildWorkbookCompletionFlex(
+  uid: string,
+  topicName: string,
+  total: number,
+  kind: WorkbookKind,
+  finals?: {
+    correct: number;
+    wrong: Array<{ n?: number; text?: string }>;
+    stats: WorkbookStatsData;
+  }
+): Promise<LineMessage> {
+  let correct = 0;
+  let wrong: Array<{ n?: number; text?: string }> = [];
+  let stats: WorkbookStatsData = {};
+  const { db, FieldValue } = await getDb();
+  if (finals) {
+    // 回答直後の同梱経路: 最新の結果を呼び出し元から受け取る（追加 read なし）
+    ({ correct, wrong, stats } = finals);
+  } else {
+    try {
+      const snap = await db.doc(`users/${uid}`).get();
+      const session = snap.data()?.workbookSession as
+        | { correct?: number; wrong?: Array<{ n?: number; text?: string }> }
+        | undefined;
+      if (typeof session?.correct === 'number') correct = session.correct;
+      if (Array.isArray(session?.wrong)) wrong = session.wrong;
+      stats = (snap.data()?.workbookStats as WorkbookStatsData) ?? {};
+    } catch (error) {
+      console.error('[lineWebhook] workbook completion read failed:', error);
+    }
+  }
+
+  const allCorrect = wrong.length === 0 && correct >= total;
+
+  // 全問正解 → パーフェクトバッジ（単元×形式）＋ボーナスXP
+  const badgeId = `${kind}:${topicName}`;
+  const isNewBadge =
+    allCorrect &&
+    !(Array.isArray(stats.badges) && stats.badges.includes(badgeId));
+  if (isNewBadge) {
+    try {
+      await db.doc(`users/${uid}`).set(
+        {
+          workbookStats: {
+            badges: FieldValue.arrayUnion(badgeId),
+            xp: FieldValue.increment(50),
+          },
+        },
+        { merge: true }
+      );
+    } catch (error) {
+      console.error('[lineWebhook] workbook badge write failed:', error);
+    }
+  }
+  const xpNow = (stats.xp ?? 0) + (isNewBadge ? 50 : 0);
+  const { level, next } = workbookLevel(xpNow);
+  const bodyContents: Record<string, unknown>[] = [
+    {
+      type: 'text',
+      text: allCorrect
+        ? '🏆 全問正解！すごい！！'
+        : '🎉 最後まで解き切ったね！',
+      weight: 'bold',
+      size: 'md',
+      color: '#111827',
+      wrap: true,
+    },
+    {
+      type: 'text',
+      text: `結果: ${correct}／${total}問 正解`,
+      weight: 'bold',
+      size: 'lg',
+      color: '#B45309',
+      margin: 'md',
+    },
+    ...(isNewBadge
+      ? [
+          {
+            type: 'text',
+            text: `🏅 パーフェクトバッジ獲得！ ＋50XP（${badgeCount(stats) + 1}個目）`,
+            wrap: true,
+            size: 'sm',
+            weight: 'bold',
+            color: '#B45309',
+            margin: 'md',
+          },
+        ]
+      : []),
+    {
+      type: 'text',
+      text: `⚡ Lv.${level} ・ ${xpNow}XP（あと${Math.max(0, next - xpNow)}XPでLv.${level + 1}）`,
+      wrap: true,
+      size: 'xs',
+      color: '#6B7280',
+      margin: 'sm',
+    },
+  ];
+
+  if (!allCorrect && wrong.length > 0) {
+    bodyContents.push({
+      type: 'separator',
+      margin: 'lg',
+      color: '#E5E7EB',
+    });
+    bodyContents.push({
+      type: 'text',
+      text: '📝 まちがえた問題（復習しよう）',
+      size: 'sm',
+      weight: 'bold',
+      color: '#6B7280',
+      margin: 'lg',
+    });
+    for (const w of wrong.slice(0, 8)) {
+      bodyContents.push({
+        type: 'text',
+        text: `(${w.n ?? '?'}) ${w.text ?? ''}`,
+        size: 'xs',
+        color: '#374151',
+        wrap: true,
+        margin: 'sm',
+      });
+    }
+  }
+
+  const footerContents: Record<string, unknown>[] = [];
+  if (!allCorrect && wrong.length > 0) {
+    const list = wrong
+      .map((w) => w.n)
+      .filter((n): n is number => Number.isInteger(n))
+      .join(',');
+    footerContents.push({
+      type: 'button',
+      style: 'primary',
+      color: '#F59E0B',
+      height: 'sm',
+      action: {
+        type: 'postback',
+        label: '✍️ まちがえた問題だけやり直す',
+        data: new URLSearchParams({
+          type: 'wb_start',
+          k: kind,
+          m: 'retry',
+          t: topicName,
+          list,
+        }).toString(),
+        displayText: 'まちがえた問題だけやり直す',
+      },
+    });
+  }
+  footerContents.push({
+    type: 'button',
+    style: allCorrect ? 'primary' : 'secondary',
+    ...(allCorrect ? { color: '#F59E0B' } : {}),
+    height: 'sm',
+    action: {
+      type: 'postback',
+      label: '🔁 もう一度はじめから',
+      data: new URLSearchParams({
+        type: 'wb_start',
+        k: kind,
+        m: 'seq',
+        t: topicName,
+      }).toString(),
+      displayText: 'もう一度はじめから',
+    },
+  });
+
+  // 他の形式への切り替え（4択 ⇄ 一問一答 ⇄ 記述）— 結果画面から1タップで移れる。
+  const KIND_LABELS: Record<WorkbookKind, string> = {
+    choice: '✅ 4択問題',
+    term: '🔤 入力問題',
+    written: '✍️ 記述問題',
+  };
+  for (const other of ['choice', 'term', 'written'] as WorkbookKind[]) {
+    if (other === kind) continue;
+    footerContents.push({
+      type: 'button',
+      style: 'secondary',
+      height: 'sm',
+      action: {
+        type: 'postback',
+        label: `${KIND_LABELS[other]}に挑戦する`,
+        data: new URLSearchParams({
+          type: 'wb_kind',
+          k: other,
+          t: topicName,
+        }).toString(),
+        displayText: `${KIND_LABELS[other].slice(2)}に挑戦！`,
+      },
+    });
+  }
+  footerContents.push({
+    type: 'button',
+    style: 'secondary',
+    height: 'sm',
+    action: {
+      type: 'postback',
+      label: '📊 ワークの成績を見る',
+      data: 'type=wb_stats',
+      displayText: 'ワークの成績を見る',
+    },
+  });
+
+  const flex = {
+    type: 'flex',
+    altText: `結果: ${correct}／${total}問正解`,
+    contents: {
+      type: 'bubble',
+      size: 'kilo',
+      header: {
+        type: 'box',
+        layout: 'vertical',
+        backgroundColor: '#F59E0B',
+        paddingAll: '12px',
+        contents: [
+          {
+            type: 'text',
+            text: `📖 ワーク「${topicName}」おわり`,
+            color: '#FFFFFF',
+            weight: 'bold',
+            size: 'sm',
+            wrap: true,
+          },
+        ],
+      },
+      body: {
+        type: 'box',
+        layout: 'vertical',
+        paddingAll: '16px',
+        contents: bodyContents,
+      },
+      footer: {
+        type: 'box',
+        layout: 'vertical',
+        spacing: 'sm',
+        paddingAll: '12px',
+        contents: footerContents,
+      },
+    },
+  };
+
+  return flex as LineMessage;
+}
+
+/** ワーク完走カードを reply で送る（wb_next 旧経路・wb_start 直後の完走用） */
+async function sendWorkbookCompletion(
+  uid: string,
+  replyToken: string | undefined,
+  topicName: string,
+  total: number,
+  kind: WorkbookKind
+): Promise<void> {
+  if (!replyToken) return;
+  const flex = await buildWorkbookCompletionFlex(uid, topicName, total, kind);
+  try {
+    const client = await getLineClient();
+    await client.replyMessage({
+      replyToken,
+      messages: [flex] as unknown as messagingApi.Message[],
+    });
+  } catch (error) {
+    console.error('[lineWebhook] workbook completion reply failed:', error);
+  }
+}
+
+function parseWorkbookKind(raw: string | null): WorkbookKind {
+  return raw === 'term' ? 'term' : raw === 'written' ? 'written' : 'choice';
+}
+
+/** postback: type=wb_start&k=...&m={seq|rand|retry}&t={単元名}[&list=1,3] — ワーク演習の開始 */
+async function handleWorkbookStartPostback(
+  uid: string,
+  replyToken: string | undefined,
+  params: URLSearchParams
+): Promise<void> {
+  const kind = parseWorkbookKind(params.get('k'));
+  const mode = parseWorkbookMode(params.get('m'));
+  const topicName = params.get('t') ?? '';
+  const list = parseWorkbookList(params.get('list'));
+  await sendWorkbookQuestion(uid, replyToken, topicName, kind, mode, 0, list);
+}
+
+/** postback: type=wb_next&k=...&m=...&t=...&i=N[&list=1,3] — ワークの次の問題 */
+async function handleWorkbookNextPostback(
+  uid: string,
+  replyToken: string | undefined,
+  params: URLSearchParams
+): Promise<void> {
+  const kind = parseWorkbookKind(params.get('k'));
+  const mode = parseWorkbookMode(params.get('m'));
+  const topicName = params.get('t') ?? '';
+  const index = Number(params.get('i') ?? '0');
+  const list = parseWorkbookList(params.get('list'));
+  await sendWorkbookQuestion(
+    uid,
+    replyToken,
+    topicName,
+    kind,
+    mode,
+    Number.isInteger(index) && index >= 0 ? index : 0,
+    list
+  );
+}
+
+/**
+ * ワーク演習の正誤・解説メッセージ本体。本文（正誤＋解説）と
+ * 「▶ 次の問題」「✅ 今日はここまで」ボタンを 1 つの flex カードにまとめる。
+ * quickReply（画面下のチップ）はトークを遡ると消えるため、カード内ボタンにする。
+ * 回答後（handleAnswerPostback）と「わからない」後（handleWorkbookIdkPostback）で共用。
+ */
+function buildWorkbookAnswerFlexMessage(
+  bodyText: string,
+  session: {
+    topic?: string;
+    kind?: string;
+    mode?: string;
+    index?: number;
+    list?: number[];
+  },
+  opts?: {
+    regrade?: boolean;
+    xpLine?: string;
+    levelUp?: { from: number; to: number };
+    /** true のとき「▶ 次の問題」ボタンを出さない（次の問題を同じ reply に同梱する） */
+    autoNext?: boolean;
+    /** 正誤バナー（解答と次の問題が連続配信されるため、結果をひと目で判別できるようにする） */
+    verdict?: 'correct' | 'partial' | 'wrong' | 'skip';
+  }
+): LineMessage {
+  const VERDICT_BANNER: Record<string, { text: string; bg: string }> = {
+    correct: { text: '⭕ 正解！', bg: '#16A34A' },
+    partial: { text: '🔺 おしい！', bg: '#F59E0B' },
+    wrong: { text: '❌ 不正解…', bg: '#DC2626' },
+    skip: { text: '🤔 答えをチェック', bg: '#78716C' },
+  };
+  const banner = opts?.verdict ? VERDICT_BANNER[opts.verdict] : undefined;
+  const kind: WorkbookKind =
+    session.kind === 'term' || session.kind === 'written'
+      ? session.kind
+      : 'choice';
+  const mode =
+    session.mode === 'rand'
+      ? 'rand'
+      : session.mode === 'retry'
+        ? 'retry'
+        : 'seq';
+  const solved = Number.isInteger(session.index)
+    ? (session.index as number)
+    : 0;
+  const sessionList = Array.isArray(session.list)
+    ? session.list.filter((n) => Number.isInteger(n))
+    : [];
+  const nextData = new URLSearchParams({
+    type: 'wb_next',
+    k: kind,
+    m: mode,
+    t: session.topic ?? '',
+    i: String(solved),
+    ...(sessionList.length > 0 ? { list: sessionList.join(',') } : {}),
+  }).toString();
+
+  // 進捗表示（あと何問）: 固定の並び（seq/retry/入力問題のrand）は残り数、
+  // 4択のランダム（エンドレス）は挑戦数を出す。
+  const input = getWorkbookInput(session.topic ?? '');
+  const baseTotal =
+    kind === 'term'
+      ? input.terms.length
+      : kind === 'written'
+        ? input.written.length
+        : getTopicQuestionIds(session.topic ?? '', WORKBOOK_QUESTION_INDEX)
+            .length;
+  const total = sessionList.length > 0 ? sessionList.length : baseTotal;
+  const remaining = Math.max(0, total - solved);
+  const progressText =
+    remaining > 0
+      ? `📊 ${solved}／${total}問 ・ あと${remaining}問！`
+      : `🏁 これで全${total}問！`;
+  const nextLabel = remaining === 0 ? '🎉 結果を見る' : '▶ 次の問題';
+
+  return {
+    type: 'flex',
+    altText: (banner ? banner.text + ' ' : '') + bodyText.slice(0, 60),
+    contents: {
+      type: 'bubble',
+      size: 'kilo',
+      ...(banner
+        ? {
+            header: {
+              type: 'box',
+              layout: 'vertical',
+              backgroundColor: banner.bg,
+              paddingAll: '14px',
+              contents: [
+                {
+                  type: 'text',
+                  text: banner.text,
+                  color: '#FFFFFF',
+                  weight: 'bold',
+                  size: 'xl',
+                  align: 'center',
+                },
+              ],
+            },
+          }
+        : {}),
+      body: {
+        type: 'box',
+        layout: 'vertical',
+        paddingAll: '16px',
+        contents: [
+          // レベルアップ演出（金色バナー）— XP がしきい値を越えた回答の直後だけ出る
+          ...(opts?.levelUp
+            ? [
+                {
+                  type: 'box',
+                  layout: 'vertical',
+                  backgroundColor: '#FDE68A',
+                  cornerRadius: 'md',
+                  paddingAll: '12px',
+                  margin: 'none',
+                  contents: [
+                    {
+                      type: 'text',
+                      text: '🎊 レベルアップ！ 🎊',
+                      weight: 'bold',
+                      size: 'lg',
+                      color: '#92400E',
+                      align: 'center',
+                    },
+                    {
+                      type: 'text',
+                      text: `✨ Lv.${opts.levelUp.from} → Lv.${opts.levelUp.to} ✨`,
+                      weight: 'bold',
+                      size: 'xl',
+                      color: '#B45309',
+                      align: 'center',
+                      margin: 'sm',
+                    },
+                    {
+                      type: 'text',
+                      text: 'この調子でどんどん強くなろう💪',
+                      size: 'xs',
+                      color: '#92400E',
+                      align: 'center',
+                      margin: 'sm',
+                    },
+                  ],
+                },
+                { type: 'separator', margin: 'lg', color: '#E5E7EB' },
+              ]
+            : []),
+          {
+            type: 'text',
+            text: bodyText,
+            wrap: true,
+            size: 'sm',
+            color: '#111827',
+            ...(opts?.levelUp ? { margin: 'lg' } : {}),
+          },
+          {
+            type: 'separator',
+            margin: 'lg',
+            color: '#E5E7EB',
+          },
+          {
+            type: 'text',
+            text: progressText,
+            wrap: true,
+            size: 'sm',
+            weight: 'bold',
+            color: '#B45309',
+            margin: 'lg',
+          },
+          ...(opts?.xpLine
+            ? [
+                {
+                  type: 'text',
+                  text: opts.xpLine,
+                  wrap: true,
+                  size: 'xs',
+                  color: '#6B7280',
+                  margin: 'sm',
+                },
+              ]
+            : []),
+        ],
+      },
+      ...(() => {
+        const buttons: Record<string, unknown>[] = [];
+        if (!opts?.autoNext) {
+          buttons.push({
+            type: 'button',
+            style: 'primary',
+            color: '#F59E0B',
+            height: 'sm',
+            action: {
+              type: 'postback',
+              label: nextLabel,
+              data: nextData,
+              displayText: '次の問題！',
+            },
+          });
+        }
+        // 用語入力の不正解時のみ: 別解の可能性を AI に再採点してもらうボタン
+        if (opts?.regrade) {
+          buttons.push({
+            type: 'button',
+            style: 'secondary',
+            height: 'sm',
+            action: {
+              type: 'postback',
+              label: '🙋 これも正解では？（再採点）',
+              data: 'type=wb_regrade',
+              displayText: 'これも正解では？',
+            },
+          });
+        }
+        return buttons.length > 0
+          ? {
+              footer: {
+                type: 'box',
+                layout: 'vertical',
+                spacing: 'sm',
+                paddingAll: '12px',
+                contents: buttons,
+              },
+              styles: {
+                footer: { separator: true, separatorColor: '#E5E7EB' },
+              },
+            }
+          : {};
+      })(),
+    },
+  } as LineMessage;
+}
+
+/**
+ * postback: type=wb_idk&questionId=... — ワーク問題の「わからない」。
+ * 答えと解説を見せ、**不正解として answers に記録**して（苦手復習の対象になる）、
+ * 次の問題（または完走カード）を同じ reply に同梱して演習を続けられるようにする。
+ */
+async function handleWorkbookIdkPostback(
+  uid: string,
+  replyToken: string | undefined,
+  params: URLSearchParams
+): Promise<void> {
+  const questionId = params.get('questionId');
+  if (!questionId || !replyToken) return;
+
+  const { db, FieldValue } = await getDb();
+
+  let currentUserData: Record<string, unknown> | undefined;
+  try {
+    const userSnap = await db.doc(`users/${uid}`).get();
+    currentUserData = userSnap.data();
+    if (currentUserData?.lastAnsweredQuestionId === questionId) {
+      await replyText(
+        replyToken,
+        'その問題はもう答えを見てるよ😊 このまま続きをどうぞ！',
+        '(wb_idk duplicate)'
+      );
+      return;
+    }
+  } catch (error) {
+    console.error('[lineWebhook] wb_idk user read failed:', error);
+  }
+
+  let question: Question | undefined;
+  try {
+    const snap = await db.doc(`questions/${questionId}`).get();
+    if (snap.exists) question = snap.data() as Question;
+  } catch (error) {
+    console.error('[lineWebhook] wb_idk question read failed:', error);
+  }
+  if (!question) {
+    await replyText(
+      replyToken,
+      '問題が見つかりませんでした。',
+      '(wb_idk not found)'
+    );
+    return;
+  }
+
+  const correctLabel = question.choices[question.correctChoiceId];
+  const text =
+    '🤔 わからなくてもOK！まちがえながら覚えていくのが勉強だよ。\n\n' +
+    `正解は「${correctLabel}」` +
+    '\n\n📖 解説\n' +
+    question.explanation;
+
+  const wbSession = currentUserData?.workbookSession as
+    | WorkbookSessionData
+    | undefined;
+  const isWb = !!wbSession && typeof wbSession.topic === 'string';
+  const wbWrongEntry = {
+    n: workbookQuestionNo(questionId),
+    text: question.text.slice(0, 60),
+  };
+  const skipStats =
+    (currentUserData?.workbookStats as WorkbookStatsData | undefined) ?? {};
+  const skipGain = workbookXpGain('choice', 'skip');
+
+  // 次の問題（または完走カード）を同じ reply に同梱する。
+  let next: WorkbookNextPayload | null = null;
+  let completionFlex: LineMessage | null = null;
+  if (isWb) {
+    const wbMode = parseWorkbookMode((wbSession!.mode as string) ?? null);
+    const wbList = Array.isArray(wbSession!.list)
+      ? wbSession!.list.filter((n) => Number.isInteger(n))
+      : [];
+    const nextIndex = Number.isInteger(wbSession!.index)
+      ? (wbSession!.index as number)
+      : 0;
+    next = await prepareWorkbookNextQuestion(
+      db,
+      wbSession!.topic as string,
+      'choice',
+      wbMode,
+      nextIndex,
+      wbList
+    );
+    if (next.status === 'completion') {
+      completionFlex = await buildWorkbookCompletionFlex(
+        uid,
+        wbSession!.topic as string,
+        next.total,
+        'choice',
+        {
+          correct: wbSession!.correct ?? 0,
+          wrong: [...(wbSession!.wrong ?? []), wbWrongEntry],
+          stats: { ...skipStats, xp: (skipStats.xp ?? 0) + skipGain },
+        }
+      );
+    }
+  }
+
+  try {
+    const client = await getLineClient();
+    const messages: LineMessage[] = isWb
+      ? [
+          buildWorkbookAnswerFlexMessage(text, wbSession!, {
+            autoNext: true,
+            verdict: 'skip',
+          }),
+          ...(next?.messages ?? []),
+          ...(completionFlex ? [completionFlex] : []),
+        ]
+      : [{ type: 'text', text }];
+    await client.replyMessage({
+      replyToken,
+      messages: messages as unknown as messagingApi.Message[],
+    });
+  } catch (error) {
+    console.error('[lineWebhook] wb_idk reply failed:', error);
+  }
+
+  // 「わからない」も学習記録として残す（不正解扱い・choice なし）。
+  // answers に残ることで苦手復習・成績集計の対象になる。
+  try {
+    await db.collection('answers').add({
+      uid,
+      questionId,
+      choice: null,
+      isCorrect: false,
+      idk: true,
+      subject: question.subject ?? null,
+      grade: question.grade ?? null,
+      topic: question.topic ?? null,
+      source: 'workbook',
+      answeredAt: FieldValue.serverTimestamp(),
+    });
+  } catch (error) {
+    console.error('[lineWebhook] wb_idk answers write failed:', error);
+  }
+
+  try {
+    await db.doc(`users/${uid}`).set(
+      {
+        lastAnsweredQuestionId: questionId,
+        updatedAt: FieldValue.serverTimestamp(),
+        // 「わからない」も間違えた問題として完走カードの復習リストに積み、
+        // 次の問題の状態（index 前進等）も相乗りさせる。
+        ...(isWb
+          ? {
+              workbookSession: {
+                wrong: FieldValue.arrayUnion(wbWrongEntry),
+                ...(next?.sessionFields ?? {}),
+              },
+              ...buildWorkbookStatsUpdate(
+                FieldValue,
+                wbSession!.topic as string,
+                'choice',
+                skipGain,
+                false
+              ),
+              ...(next?.topFields ?? {}),
+            }
+          : {}),
+      },
+      { merge: true }
+    );
+  } catch (error) {
+    console.error('[lineWebhook] wb_idk lastAnswered update failed:', error);
+  }
+}
+
+/**
+ * postback: type=wb_stats（またはテキスト「ワーク成績」）— 進捗・苦手ダッシュボード。
+ * データは回答時に蓄積済みの users.workbookStats を使う（1 read のみ・answers はスキャンしない）。
+ */
+async function handleWorkbookStatsPostback(
+  uid: string,
+  replyToken: string | undefined
+): Promise<void> {
+  if (!replyToken) return;
+
+  let stats: WorkbookStatsData = {};
+  try {
+    const { db } = await getDb();
+    const snap = await db.doc(`users/${uid}`).get();
+    stats = (snap.data()?.workbookStats as WorkbookStatsData) ?? {};
+  } catch (error) {
+    console.error('[lineWebhook] wb_stats read failed:', error);
+  }
+
+  const total = stats.total ?? 0;
+  if (total === 0) {
+    await replyText(
+      replyToken,
+      'まだワークの記録がないよ📖 ワークのQRコードから問題を解くと、ここに成績がたまっていくよ！',
+      '(wb_stats empty)'
+    );
+    return;
+  }
+
+  const xp = stats.xp ?? 0;
+  const correct = stats.correct ?? 0;
+  const { level, next } = workbookLevel(xp);
+  const acc = Math.round((correct / total) * 100);
+
+  // 形式別の集計と、単元別の成績（byTopic はメモリ集計・read なし）
+  const KIND_JP: Record<string, string> = {
+    choice: '4択',
+    term: '入力',
+    written: '記述',
+  };
+  const byKind: Record<string, { t: number; c: number }> = {};
+  const topicRows: Array<{ topic: string; t: number; c: number }> = [];
+  for (const [topic, kinds] of Object.entries(stats.byTopic ?? {})) {
+    let tt = 0;
+    let tc = 0;
+    for (const [k, v] of Object.entries(kinds)) {
+      const t = v.t ?? 0;
+      const c = v.c ?? 0;
+      (byKind[k] ??= { t: 0, c: 0 }).t += t;
+      byKind[k].c += c;
+      tt += t;
+      tc += c;
+    }
+    if (tt > 0) topicRows.push({ topic, t: tt, c: tc });
+  }
+  // 苦手 = 5問以上解いて正答率60%未満（低い順に最大3件）
+  const weak = topicRows
+    .filter((r) => r.t >= 5 && r.c / r.t < 0.6)
+    .sort((a, b) => a.c / a.t - b.c / b.t)
+    .slice(0, 3);
+  // よく解いている単元 上位3
+  const top = [...topicRows].sort((a, b) => b.t - a.t).slice(0, 3);
+
+  const bodyContents: Record<string, unknown>[] = [
+    {
+      type: 'text',
+      text: `⚡ Lv.${level} ${xp}XP`,
+      weight: 'bold',
+      size: 'xl',
+      color: '#B45309',
+    },
+    // XPバー（現レベル帯の進み具合）
+    (() => {
+      const prevThreshold = 50 * (level - 1) * (level - 1);
+      const ratio = Math.min(
+        100,
+        Math.max(
+          4,
+          Math.round(((xp - prevThreshold) / (next - prevThreshold)) * 100)
+        )
+      );
+      return {
+        type: 'box',
+        layout: 'vertical',
+        backgroundColor: '#F3F4F6',
+        cornerRadius: 'md',
+        height: '10px',
+        margin: 'sm',
+        contents: [
+          {
+            type: 'box',
+            layout: 'vertical',
+            backgroundColor: '#F59E0B',
+            cornerRadius: 'md',
+            width: `${ratio}%`,
+            height: '10px',
+            contents: [{ type: 'filler' }],
+          },
+        ],
+      };
+    })(),
+    {
+      type: 'text',
+      text: `あと${Math.max(0, next - xp)}XPでLv.${level + 1} 🏅 バッジ ${badgeCount(stats)}個`,
+      size: 'xs',
+      color: '#6B7280',
+      margin: 'sm',
+    },
+    { type: 'separator', margin: 'lg', color: '#E5E7EB' },
+    {
+      type: 'text',
+      text: `📈 これまでに ${total}問 ・ 正答率 ${acc}%`,
+      size: 'sm',
+      weight: 'bold',
+      color: '#111827',
+      margin: 'lg',
+      wrap: true,
+    },
+    ...Object.entries(byKind).map(([k, v]) => ({
+      type: 'text',
+      text: `・${KIND_JP[k] ?? k}: ${v.c}／${v.t}問（${Math.round((v.c / v.t) * 100)}%）`,
+      size: 'xs',
+      color: '#374151',
+      margin: 'sm',
+    })),
+  ];
+
+  if (top.length > 0) {
+    bodyContents.push({ type: 'separator', margin: 'lg', color: '#E5E7EB' });
+    bodyContents.push({
+      type: 'text',
+      text: '📚 よく解いている単元',
+      size: 'sm',
+      weight: 'bold',
+      color: '#111827',
+      margin: 'lg',
+    });
+    for (const r of top) {
+      bodyContents.push({
+        type: 'text',
+        text: `・${r.topic}: ${r.c}／${r.t}問（${Math.round((r.c / r.t) * 100)}%）`,
+        size: 'xs',
+        color: '#374151',
+        wrap: true,
+        margin: 'sm',
+      });
+    }
+  }
+
+  if (weak.length > 0) {
+    bodyContents.push({ type: 'separator', margin: 'lg', color: '#E5E7EB' });
+    bodyContents.push({
+      type: 'text',
+      text: '💪 ニガテな単元（正答率60%未満）',
+      size: 'sm',
+      weight: 'bold',
+      color: '#B45309',
+      margin: 'lg',
+    });
+    for (const r of weak) {
+      bodyContents.push({
+        type: 'text',
+        text: `・${r.topic}: ${Math.round((r.c / r.t) * 100)}%`,
+        size: 'xs',
+        color: '#374151',
+        wrap: true,
+        margin: 'sm',
+      });
+    }
+  }
+
+  // 苦手単元にすぐ挑戦できるボタン（最大2つ）
+  const footerContents: Record<string, unknown>[] = weak
+    .slice(0, 2)
+    .map((r) => ({
+      type: 'button',
+      style: 'primary',
+      color: '#F59E0B',
+      height: 'sm',
+      action: {
+        type: 'postback',
+        label: `💪 「${r.topic.slice(0, 10)}」に再挑戦`,
+        data: new URLSearchParams({
+          type: 'wb_kind',
+          k: 'choice',
+          t: r.topic,
+        }).toString(),
+        displayText: `${r.topic}に再挑戦！`,
+      },
+    }));
+
+  const flex = {
+    type: 'flex',
+    altText: `📊 ワーク成績: Lv.${level} ・ 正答率${acc}%`,
+    contents: {
+      type: 'bubble',
+      size: 'kilo',
+      header: {
+        type: 'box',
+        layout: 'vertical',
+        backgroundColor: '#F59E0B',
+        paddingAll: '12px',
+        contents: [
+          {
+            type: 'text',
+            text: '📊 ワークのせいせき',
+            color: '#FFFFFF',
+            weight: 'bold',
+            size: 'sm',
+          },
+        ],
+      },
+      body: {
+        type: 'box',
+        layout: 'vertical',
+        paddingAll: '16px',
+        contents: bodyContents,
+      },
+      ...(footerContents.length > 0
+        ? {
+            footer: {
+              type: 'box',
+              layout: 'vertical',
+              spacing: 'sm',
+              paddingAll: '12px',
+              contents: footerContents,
+            },
+          }
+        : {}),
+    },
+  };
+
+  try {
+    const client = await getLineClient();
+    await client.replyMessage({
+      replyToken,
+      messages: [flex] as unknown as messagingApi.Message[],
+    });
+  } catch (error) {
+    console.error('[lineWebhook] wb_stats reply failed:', error);
+  }
+}
+
+/**
+ * ワーク用タブ付きリッチメニューの自動リンクを有効にするか。
+ * Codex 製の本デザイン画像に差し替えてユーザー承認が取れたら true に戻す。
+ */
+const WORKBOOK_RICHMENU_ENABLED = false;
+
+/**
+ * ワーク利用者にタブ付きリッチメニュー（workbook）をリンクする。
+ * premium / trial のメニューは奪わない。すでに workbook なら何もしない。
+ * fire-and-forget 前提（失敗は warn のみ・演習フローを止めない）。
+ */
+async function linkWorkbookMenuIfEligible(uid: string): Promise<void> {
+  try {
+    const { db, FieldValue } = await getDb();
+    const snap = await db.doc(`users/${uid}`).get();
+    const data = snap.data();
+    const current = data?.richMenuType;
+    if (
+      current === 'workbook' ||
+      current === 'premium' ||
+      current === 'trial'
+    ) {
+      return;
+    }
+    const lineUserId =
+      typeof data?.lineUserId === 'string'
+        ? data.lineUserId
+        : uid.startsWith('line:')
+          ? uid.slice('line:'.length)
+          : '';
+    if (!lineUserId) return;
+    const { linkRichMenuForUser } = await import('./lineRichMenu');
+    await linkRichMenuForUser(lineUserId, 'workbook');
+    await db.doc(`users/${uid}`).set(
+      {
+        richMenuType: 'workbook',
+        lastRichMenuUpdatedAt: FieldValue.serverTimestamp(),
+      },
+      { merge: true }
+    );
+    console.log(`[lineWebhook] workbook richmenu linked: ${uid}`);
+  } catch (error) {
+    console.warn(
+      '[lineWebhook] workbook menu link skipped:',
+      (error as Error).message
+    );
+  }
+}
+
+/** postback: type=wb_recent — 前回解いていた単元の種類選択カードを出す（リッチメニュー用） */
+async function handleWorkbookRecentPostback(
+  uid: string,
+  replyToken: string | undefined
+): Promise<void> {
+  if (!replyToken) return;
+  let topic: string | undefined;
+  try {
+    const { db } = await getDb();
+    const snap = await db.doc(`users/${uid}`).get();
+    const session = snap.data()?.workbookSession as
+      | WorkbookSessionData
+      | undefined;
+    topic = session?.topic;
+  } catch (error) {
+    console.error('[lineWebhook] wb_recent read failed:', error);
+  }
+  if (!topic) {
+    await replyText(
+      replyToken,
+      'まだ解いた単元がないよ📖 ワークのQRコードを読み取るか、「ワーク 単元名」と送って始めよう！',
+      '(wb_recent empty)'
+    );
+    return;
+  }
+  await handleWorkbookQuestion(uid, replyToken, `ワーク ${topic}`);
+}
+
+/** postback: type=wb_weak — いちばんニガテな単元にすぐ再挑戦（リッチメニュー用） */
+async function handleWorkbookWeakPostback(
+  uid: string,
+  replyToken: string | undefined
+): Promise<void> {
+  if (!replyToken) return;
+  let stats: WorkbookStatsData = {};
+  try {
+    const { db } = await getDb();
+    const snap = await db.doc(`users/${uid}`).get();
+    stats = (snap.data()?.workbookStats as WorkbookStatsData) ?? {};
+  } catch (error) {
+    console.error('[lineWebhook] wb_weak read failed:', error);
+  }
+  const rows: Array<{ topic: string; acc: number; t: number }> = [];
+  for (const [topic, kinds] of Object.entries(stats.byTopic ?? {})) {
+    let t = 0;
+    let c = 0;
+    for (const v of Object.values(kinds)) {
+      t += v.t ?? 0;
+      c += v.c ?? 0;
+    }
+    if (t >= 5) rows.push({ topic, acc: c / t, t });
+  }
+  const weak = rows.filter((r) => r.acc < 0.6).sort((a, b) => a.acc - b.acc);
+  if (weak.length === 0) {
+    await replyText(
+      replyToken,
+      '🎉 いまのところ大きなニガテはないよ！この調子💪\n（5問以上解いた単元の正答率が60%を切るとここに出るよ）',
+      '(wb_weak empty)'
+    );
+    return;
+  }
+  await handleWorkbookQuestion(uid, replyToken, `ワーク ${weak[0].topic}`);
+}
+
+/** postback: type=wb_end — ワーク演習を切り上げる */
+async function handleWorkbookEndPostback(
+  uid: string,
+  replyToken: string | undefined
+): Promise<void> {
+  try {
+    const { db, FieldValue } = await getDb();
+    await db
+      .doc(`users/${uid}`)
+      .set({ workbookSession: FieldValue.delete() }, { merge: true });
+  } catch (error) {
+    console.error('[lineWebhook] workbook end cleanup failed:', error);
+  }
+  if (replyToken) {
+    await replyText(
+      replyToken,
+      'おつかれさま！✨ 今日もよくがんばったね。続きはまたワークのQRコードからいつでも解けるよ📖',
+      '(workbook end)'
+    );
+  }
+}
+
 // ── 画像・音声メッセージ → AI チャットボット（マルチモーダル） ─────────────
 //
 // LINE の image / audio メッセージは実体がイベントに載らないため、messageId で
@@ -997,6 +3836,15 @@ const AUDIO_TOO_LONG_TEXT =
   'ごめんね、聞き取れる音声は60秒までなんだ🎤 もう少し短く録音して送ってくれる？';
 const MEDIA_ERROR_TEXT =
   'ごめんね、送ってくれたファイルをうまく読み取れなかったみたい💦 もう一度試してみてね。';
+/**
+ * 動画メッセージへの定型返信。動画は AI が視聴できないため、写真/テキストへの
+ * 誘導と、どうしても見てほしいときは運営（夫婦）が確認する旨を伝える。
+ * reply 送信なので配信枠は消費しない。
+ */
+const VIDEO_UNSUPPORTED_TEXT =
+  '動画ありがとう🎥 ごめんね、先生（AI）は動画を見ることができないんだ💦 ' +
+  'もし問題でわからないところなら、写真かテキストで送ってくれたらすぐ答えられるよ😊 ' +
+  'それでもどうしても動画を見てほしいときは、運営の夫婦がちゃんと確認するから、その旨をメッセージで送ってね！';
 
 /**
  * LINE のメッセージコンテンツ（画像・音声の実体）を取得して base64 で返す。
@@ -1704,6 +4552,92 @@ async function handlePostback(event: LineEvent): Promise<void> {
 
   if (type === 'answer') {
     await handleAnswerPostback(uid, replyToken, params);
+    return;
+  }
+
+  if (type === 'wb_start') {
+    await handleWorkbookStartPostback(uid, replyToken, params);
+    return;
+  }
+
+  if (type === 'wb_next') {
+    await handleWorkbookNextPostback(uid, replyToken, params);
+    return;
+  }
+
+  if (type === 'wb_end') {
+    await handleWorkbookEndPostback(uid, replyToken);
+    return;
+  }
+
+  if (type === 'wb_idk') {
+    await handleWorkbookIdkPostback(uid, replyToken, params);
+    return;
+  }
+
+  if (type === 'wb_kind') {
+    await handleWorkbookKindPostback(uid, replyToken, params);
+    return;
+  }
+
+  if (type === 'wb_iskip') {
+    await handleWorkbookInputSkipPostback(uid, replyToken, params);
+    return;
+  }
+
+  if (type === 'wb_regrade') {
+    await handleWorkbookRegradePostback(uid, replyToken);
+    return;
+  }
+
+  if (type === 'wb_stats') {
+    await handleWorkbookStatsPostback(uid, replyToken);
+    return;
+  }
+
+  if (type === 'wb_recent') {
+    await handleWorkbookRecentPostback(uid, replyToken);
+    return;
+  }
+
+  if (type === 'wb_weak') {
+    await handleWorkbookWeakPostback(uid, replyToken);
+    return;
+  }
+
+  if (type === 'wb_help') {
+    if (replyToken) {
+      await replyText(
+        replyToken,
+        '📖 ワーク問題集の使い方\n\n' +
+          '① 紙のワークにあるQRコードをスマホで読み取る（またはPDFのリンクをタップ）\n' +
+          '② 問題カードが自動でトークに届く\n' +
+          '③ 4択・入力・記述からえらんで挑戦！\n\n' +
+          '💡 直接「ワーク 大化の改新」のように送ってもOK\n' +
+          '💡「ワーク成績」でレベルやニガテを確認できるよ',
+        '(wb_help)'
+      );
+    }
+    return;
+  }
+
+  if (type === 'ref_ask') {
+    await handleReferenceAskPostback(uid, replyToken, params);
+    return;
+  }
+
+  if (type === 'ref_check') {
+    await handleReferenceCheckPostback(uid, replyToken, params);
+    return;
+  }
+
+  if (type === 'ref_level') {
+    await handleReferenceLevelPostback(uid, replyToken, params);
+    return;
+  }
+
+  if (type === 'rm_switch') {
+    // リッチメニューのタブ切替はクライアント側で完結する。応答不要。
     return;
   }
 
@@ -6153,18 +9087,90 @@ async function handleAnswerPostback(
         },
       }
     : null;
-  const nextStepFlex = buildPostAnswerNextStepFlexMessage({
-    topicName: question.topic,
-    subject: question.subject,
-  });
+  // ワークの連続出題セッション中は、次に進む quickReply を優先し
+  // 通常の nextStep 提案カードは出さない（演習のテンポを止めない）。
+  const wbSession =
+    currentUserData?.lastQuestionSource === 'workbook'
+      ? (currentUserData?.workbookSession as WorkbookSessionData | undefined)
+      : undefined;
+  const isWorkbookAnswer = !!wbSession && typeof wbSession.topic === 'string';
+
+  const nextStepFlex = isWorkbookAnswer
+    ? null
+    : buildPostAnswerNextStepFlexMessage({
+        topicName: question.topic,
+        subject: question.subject,
+      });
 
   // 初回回答時のトライアル案内 flex（first_answer）は、reply には積まず
   // `onAnswerCreated` が解説直後に即 push する設計。
   // ここでは nextStep のみ reply に積む。
 
+  // ワーク演習中: 次の問題（または完走カード）を同じ reply に同梱する。
+  const wbKind: WorkbookKind =
+    wbSession?.kind === 'term' || wbSession?.kind === 'written'
+      ? wbSession.kind
+      : 'choice';
+  const wbStats =
+    (currentUserData?.workbookStats as WorkbookStatsData | undefined) ?? {};
+  const wbGain = workbookXpGain(wbKind, isCorrect ? 'correct' : 'wrong');
+  const wbWrongEntry = {
+    n: workbookQuestionNo(questionId),
+    text: question.text.slice(0, 60),
+  };
+  let wbNext: WorkbookNextPayload | null = null;
+  let wbCompletionFlex: LineMessage | null = null;
+  if (isWorkbookAnswer) {
+    const wbMode = parseWorkbookMode((wbSession!.mode as string) ?? null);
+    const wbList = Array.isArray(wbSession!.list)
+      ? wbSession!.list.filter((n) => Number.isInteger(n))
+      : [];
+    const nextIndex = Number.isInteger(wbSession!.index)
+      ? (wbSession!.index as number)
+      : 0;
+    wbNext = await prepareWorkbookNextQuestion(
+      db,
+      wbSession!.topic as string,
+      wbKind,
+      wbMode,
+      nextIndex,
+      wbList
+    );
+    if (wbNext.status === 'completion') {
+      wbCompletionFlex = await buildWorkbookCompletionFlex(
+        uid,
+        wbSession!.topic as string,
+        wbNext.total,
+        wbKind,
+        {
+          correct: (wbSession!.correct ?? 0) + (isCorrect ? 1 : 0),
+          wrong: isCorrect
+            ? [...(wbSession!.wrong ?? [])]
+            : [...(wbSession!.wrong ?? []), wbWrongEntry],
+          stats: { ...wbStats, xp: (wbStats.xp ?? 0) + wbGain },
+        }
+      );
+    }
+  }
+
   try {
     const client = await getLineClient();
-    const replyMessages: LineMessage[] = [{ type: 'text', text: combinedText }];
+    const prevXp = (wbStats.xp ?? 0) as number;
+    // ワーク経路は正誤を色付きバナーで出すため、本文は見出しなしの
+    // フィードバック＋解説のみにする（4択は解説画像なしの通常カードのみ）。
+    const wbBodyText = feedbackBody + '\n\n📖 解説\n' + question.explanation;
+    const replyMessages: LineMessage[] = isWorkbookAnswer
+      ? [
+          buildWorkbookAnswerFlexMessage(wbBodyText, wbSession!, {
+            xpLine: workbookXpLine(prevXp, wbGain),
+            levelUp: workbookLevelUp(prevXp, wbGain),
+            autoNext: true,
+            verdict: isCorrect ? 'correct' : 'wrong',
+          }),
+          ...(wbNext?.messages ?? []),
+          ...(wbCompletionFlex ? [wbCompletionFlex] : []),
+        ]
+      : [{ type: 'text', text: combinedText }];
     if (explanationFlex) {
       replyMessages.push(explanationFlex as unknown as LineMessage);
     }
@@ -6211,6 +9217,27 @@ async function handleAnswerPostback(
       {
         lastAnsweredQuestionId: questionId,
         updatedAt: FieldValue.serverTimestamp(),
+        // ワーク演習中は完走カード（◯／◯問正解・間違えた問題リスト）用に
+        // セッションへ結果を積み上げ、次の問題の状態（index 前進等）も相乗りさせる。
+        ...(isWorkbookAnswer
+          ? {
+              workbookSession: {
+                correct: FieldValue.increment(isCorrect ? 1 : 0),
+                ...(isCorrect
+                  ? {}
+                  : { wrong: FieldValue.arrayUnion(wbWrongEntry) }),
+                ...(wbNext?.sessionFields ?? {}),
+              },
+              ...buildWorkbookStatsUpdate(
+                FieldValue,
+                wbSession!.topic as string,
+                wbKind,
+                wbGain,
+                isCorrect
+              ),
+              ...(wbNext?.topFields ?? {}),
+            }
+          : {}),
       },
       { merge: true }
     );
@@ -6220,6 +9247,92 @@ async function handleAnswerPostback(
       error
     );
   }
+}
+
+/** ワーク問題ID（q-wb-history-{topicId}-{n}）から紙面の問題番号 n を取り出す */
+function workbookQuestionNo(questionId: string): number {
+  const m = /-(\d+)$/.exec(questionId);
+  return m ? Number(m[1]) : 0;
+}
+
+// ── ワークのゲーミフィケーション（XP・レベル・バッジ） ────────────
+// 統計は回答時の既存 write に相乗りして users/{uid}.workbookStats に蓄積する
+// （追加 read/write ゼロ）。ダッシュボード表示は users 1 read のみ。
+
+/** 回答1問あたりの獲得XP */
+function workbookXpGain(
+  kind: WorkbookKind,
+  result: 'correct' | 'partial' | 'wrong' | 'skip'
+): number {
+  if (result === 'skip') return 1;
+  const table: Record<WorkbookKind, Record<string, number>> = {
+    choice: { correct: 10, partial: 2, wrong: 2 },
+    term: { correct: 15, partial: 3, wrong: 3 },
+    written: { correct: 25, partial: 10, wrong: 5 },
+  };
+  return table[kind][result];
+}
+
+/** XP → レベル（Lv1開始・次のレベルまでの必要XPは徐々に増える） */
+function workbookLevel(xp: number): { level: number; next: number } {
+  const level = Math.floor(Math.sqrt(Math.max(0, xp) / 50)) + 1;
+  return { level, next: 50 * level * level };
+}
+
+/**
+ * users/{uid}.workbookStats への増分（既存の merge set に spread して相乗りさせる）。
+ */
+function buildWorkbookStatsUpdate(
+  FieldValue: typeof import('firebase-admin/firestore').FieldValue,
+  topic: string,
+  kind: WorkbookKind,
+  xpGain: number,
+  isCorrect: boolean
+): Record<string, unknown> {
+  return {
+    workbookStats: {
+      xp: FieldValue.increment(xpGain),
+      total: FieldValue.increment(1),
+      correct: FieldValue.increment(isCorrect ? 1 : 0),
+      byTopic: {
+        [topic]: {
+          [kind]: {
+            t: FieldValue.increment(1),
+            c: FieldValue.increment(isCorrect ? 1 : 0),
+          },
+        },
+      },
+    },
+  };
+}
+
+interface WorkbookStatsData {
+  xp?: number;
+  total?: number;
+  correct?: number;
+  byTopic?: Record<string, Record<string, { t?: number; c?: number }>>;
+  badges?: string[];
+}
+
+function badgeCount(stats: WorkbookStatsData): number {
+  return Array.isArray(stats.badges) ? stats.badges.length : 0;
+}
+
+/** この回答でレベルが上がったか（上がったら演出用に from/to を返す） */
+function workbookLevelUp(
+  prevXp: number,
+  gain: number
+): { from: number; to: number } | undefined {
+  const from = workbookLevel(prevXp).level;
+  const to = workbookLevel(prevXp + gain).level;
+  return to > from ? { from, to } : undefined;
+}
+
+/** 解説カードに出すXP行（例: ⚡ +15XP ・ Lv.3（あと120XPでLv.4）） */
+function workbookXpLine(prevXp: number, gain: number): string {
+  const total = prevXp + gain;
+  const { level, next } = workbookLevel(total);
+  return `⚡ +${gain}XP ・ Lv.${level}（あと${Math.max(0, next - total)}XPでLv.${level + 1}）`;
 }
 
 async function replyText(
@@ -6259,6 +9372,40 @@ interface SendOptions {
    * 既定は 'daily'（毎日配信 push）。
    */
   source?: AnswerSource;
+  /**
+   * 出題単元の固定（印刷ワークの QR 経由出題用）。指定時は testScope の
+   * 代わりにこの単元だけから出題する。ユーザーの testScope は変更しない。
+   */
+  topicOverride?: string[];
+  /**
+   * 出題候補を引く subject×grade の上書き（印刷ワークの QR 経由出題用）。
+   * 冊子は学年をまたいで使われるため、ユーザーの設定学年・教科と
+   * 単元の属する学年・教科が違っても出題できるようにする。
+   */
+  subjectOverride?: ValidSubject;
+  gradeOverride?: ValidGrade;
+  /**
+   * 出題する問題 ID の直接指定（ワークの「上から順」モード用）。
+   * 指定時は候補選択をスキップしてこの 1 件だけ読む。実体が無ければ
+   * 通常の選択ロジックにフォールバックする。
+   */
+  questionIdOverride?: string;
+  /**
+   * 出題時の users/{uid} merge set に相乗りさせる追加フィールド
+   * （ワークの連続出題セッション `workbookSession` 等）。追加 write なしで
+   * セッション状態を保存するために使う。
+   */
+  extraUserFields?: Record<string, unknown>;
+  /**
+   * 出題候補 ID の直接指定（ワークの「ランダム」モード用）。
+   * QUESTION_INDEX を使わずこの中から選ぶ（recentQuestionIds は除外）。
+   */
+  candidateIdsOverride?: string[];
+  /**
+   * 問題カードの見た目バリエーション。'workbook' は
+   * 「まだ習ってない」リンクの代わりに「わからない」ボタンを表示する。
+   */
+  cardVariant?: 'workbook';
 }
 
 /** answers.source / lastQuestionSource に記録する出題経路。 */
@@ -6268,6 +9415,7 @@ export type AnswerSource =
   | 'weak_review'
   | 'restart'
   | 'onboarding'
+  | 'workbook'
   | 'manual';
 
 const RECENT_QUESTION_LIMIT = 10;
@@ -6324,7 +9472,12 @@ async function selectQuestionByFullScan(
   recentIds: string[],
   uid: string
 ): Promise<{ id: string; question: Question } | null> {
-  const questionDocs = await getGradeQuestionDocs(db, subject, grade);
+  // 印刷ワーク専用問題（q-wb-*）は毎日配信/追加/苦手復習の候補から除外する
+  // （ワーク経路は questionIdOverride / candidateIdsOverride で直接指定するため
+  //   このフルスキャン安全網に来ることはない）。
+  const questionDocs = (await getGradeQuestionDocs(db, subject, grade)).filter(
+    (d) => !d.id.startsWith('q-wb-')
+  );
   if (questionDocs.length === 0) return null;
 
   const scopedDocs =
@@ -6365,6 +9518,13 @@ export async function selectAndSendQuestion(
     appendMessages,
     pushType = 'dailyQuiz',
     source = 'daily',
+    topicOverride,
+    subjectOverride,
+    gradeOverride,
+    questionIdOverride,
+    extraUserFields,
+    candidateIdsOverride,
+    cardVariant,
   } = options;
   const { db, FieldValue } = await getDb();
 
@@ -6385,8 +9545,9 @@ export async function selectAndSendQuestion(
     return;
   }
 
-  const grade = userData.grade as ValidGrade | undefined;
-  const subject = userData.subject as ValidSubject | undefined;
+  const grade = gradeOverride ?? (userData.grade as ValidGrade | undefined);
+  const subject =
+    subjectOverride ?? (userData.subject as ValidSubject | undefined);
   if (!grade || !subject) {
     console.warn(
       '[lineWebhook] selectAndSendQuestion: missing grade/subject',
@@ -6471,11 +9632,14 @@ export async function selectAndSendQuestion(
   // 登録後フロー: 配信時間設定 → 出題範囲設定 → onTestScopeFirstSet が当関数を呼ぶ。
   // この時点で testScope は LIFF で直前に保存されたものなので、初回でも必ず尊重する。
   // testScope 未設定（範囲設定をスキップしたユーザー等）の場合のみ全範囲から出題。
-  const testScopeTopics: string[] = Array.isArray(userData.testScope?.topics)
-    ? (userData.testScope.topics as unknown[]).filter(
-        (t): t is string => typeof t === 'string'
-      )
-    : [];
+  // 印刷ワークの QR 経由（topicOverride）は testScope より優先して単元を固定する。
+  const testScopeTopics: string[] =
+    topicOverride ??
+    (Array.isArray(userData.testScope?.topics)
+      ? (userData.testScope.topics as unknown[]).filter(
+          (t): t is string => typeof t === 'string'
+        )
+      : []);
 
   // 出題候補はビルド時生成の ID インデックス（QUESTION_INDEX）からメモリ上で選び、
   // 選んだ 1 件だけ Firestore から取得する。これで「出題のたびに subject×grade を
@@ -6484,7 +9648,15 @@ export async function selectAndSendQuestion(
   const indexEntries = QUESTION_INDEX[`${subject}-${grade}`] ?? [];
 
   let pickedId: string | undefined;
-  if (indexEntries.length > 0) {
+  // ワークの「上から順」モードは出題する問題 ID が決まっているため選択をスキップ。
+  if (questionIdOverride) {
+    pickedId = questionIdOverride;
+  } else if (candidateIdsOverride && candidateIdsOverride.length > 0) {
+    // ワークの「ランダム」モード: 専用候補の中から最近出題を避けて選ぶ。
+    const fresh = candidateIdsOverride.filter((id) => !recentIds.includes(id));
+    const pool = fresh.length > 0 ? fresh : candidateIdsOverride;
+    pickedId = pool[Math.floor(Math.random() * pool.length)];
+  } else if (indexEntries.length > 0) {
     // 出題範囲が設定されていれば topic で絞り込む（メモリ操作・read ゼロ）。
     const scoped =
       testScopeTopics.length > 0
@@ -6579,6 +9751,8 @@ export async function selectAndSendQuestion(
         // 新しい問題を送るタイミングで前回の回答済みフラグを必ずクリアする。
         lastAnsweredQuestionId: FieldValue.delete(),
         updatedAt: FieldValue.serverTimestamp(),
+        // ワークの連続出題セッション等、呼び出し元が相乗りさせたいフィールド。
+        ...(extraUserFields ?? {}),
       },
       { merge: true }
     );
@@ -6618,7 +9792,8 @@ export async function selectAndSendQuestion(
   const questionMessage = buildQuestionMessage(
     pickedId,
     question,
-    embedIntroIntoCard ? resolvedIntroText : undefined
+    embedIntroIntoCard ? resolvedIntroText : undefined,
+    cardVariant
   );
 
   if (resolvedIntroText && !embedIntroIntoCard) {
@@ -6793,7 +9968,7 @@ function buildMathHybridMessage(
   );
   return {
     type: 'flex' as const,
-    altText: `${subjectLabel}｜${q.grade}: ${q.text.slice(0, 40)}`,
+    altText: `Q. ${q.text.slice(0, 60)}`,
     contents: {
       type: 'bubble' as const,
       size: 'kilo' as const,
@@ -6886,10 +10061,64 @@ function buildNotLearnedFooterLink(q: Question): messagingApi.FlexComponent[] {
   ];
 }
 
+/**
+ * 0..n-1 をシャッフルした配列（Fisher–Yates）。
+ * ワーク出題カードで選択肢の表示順をランダムにするために使う。
+ */
+function shuffledIndices(n: number): number[] {
+  const arr = Array.from({ length: n }, (_, i) => i);
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+/**
+ * ワーク出題カード用の「わからない」ボタン。
+ * ワークは単元学習の直後に解く前提なので「まだ習ってない」（範囲除外）は出さず、
+ * 代わりに降参して答え・解説を見るためのボタンを置く（postback type=wb_idk）。
+ */
+function buildWorkbookIdkFooterLink(
+  questionId: string
+): messagingApi.FlexComponent[] {
+  return [
+    {
+      type: 'box' as const,
+      layout: 'horizontal' as const,
+      margin: 'md' as const,
+      paddingAll: '10px',
+      cornerRadius: 'md' as const,
+      backgroundColor: '#FFFFFF',
+      borderColor: '#E5E7EB',
+      borderWidth: '1px',
+      justifyContent: 'center' as const,
+      alignItems: 'center' as const,
+      action: {
+        type: 'postback' as const,
+        label: 'わからない',
+        data: `type=wb_idk&questionId=${questionId}`,
+        displayText: 'わからない…答えを見る',
+      },
+      contents: [
+        {
+          type: 'text' as const,
+          text: '🤔 わからない…答えを見る',
+          size: 'xs' as const,
+          color: '#6B7280',
+          flex: 0,
+          gravity: 'center' as const,
+        },
+      ],
+    } as messagingApi.FlexComponent,
+  ];
+}
+
 function buildQuestionMessage(
   questionId: string,
   q: Question,
-  introText?: string
+  introText?: string,
+  cardVariant?: 'workbook'
 ) {
   // 数学はハイブリッドカード（parts があるとき）
   if (
@@ -6941,7 +10170,7 @@ function buildQuestionMessage(
   }
   return {
     type: 'flex' as const,
-    altText: `${subjectLabel}｜${q.grade}: ${q.text.slice(0, 40)}`,
+    altText: `Q. ${q.text.slice(0, 60)}`,
     contents: {
       type: 'bubble' as const,
       size: 'kilo' as const,
@@ -6975,8 +10204,15 @@ function buildQuestionMessage(
         // box + action のカード型タップ要素で構成。Flex の button は label を
         // 1 行で省略表示してしまうため、長い選択肢が読めなくなる。
         // text に wrap: true を付けて複数行表示できるようにする。
+        //
+        // ワーク出題は選択肢の表示順を毎回シャッフルする（紙面や前回の位置で
+        // 覚えてしまわないように）。postback には元の choice index を載せるので、
+        // 回答判定（choice === correctChoiceId）は表示順に関係なく正しく動く。
         contents: [
-          ...q.choices.map((choice, i) => ({
+          ...(cardVariant === 'workbook'
+            ? shuffledIndices(q.choices.length)
+            : q.choices.map((_, i) => i)
+          ).map((orig, pos) => ({
             type: 'box' as const,
             layout: 'horizontal' as const,
             paddingAll: '10px',
@@ -6986,14 +10222,14 @@ function buildQuestionMessage(
             borderWidth: '1px',
             action: {
               type: 'postback' as const,
-              label: choice.slice(0, 40),
-              data: `type=answer&questionId=${questionId}&choice=${i}`,
-              displayText: choice,
+              label: q.choices[orig].slice(0, 40),
+              data: `type=answer&questionId=${questionId}&choice=${orig}`,
+              displayText: q.choices[orig],
             },
             contents: [
               {
                 type: 'text' as const,
-                text: String.fromCharCode(65 + i),
+                text: String.fromCharCode(65 + pos),
                 flex: 0,
                 size: 'sm' as const,
                 weight: 'bold' as const,
@@ -7002,7 +10238,7 @@ function buildQuestionMessage(
               },
               {
                 type: 'text' as const,
-                text: choice,
+                text: q.choices[orig],
                 flex: 1,
                 wrap: true,
                 size: 'sm' as const,
@@ -7011,7 +10247,9 @@ function buildQuestionMessage(
               },
             ],
           })),
-          ...buildNotLearnedFooterLink(q),
+          ...(cardVariant === 'workbook'
+            ? buildWorkbookIdkFooterLink(questionId)
+            : buildNotLearnedFooterLink(q)),
         ],
       },
       styles: {

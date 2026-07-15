@@ -281,3 +281,146 @@ export const createLiffFirebaseToken = functions
       res.status(500).json({ error: 'Internal server error' });
     }
   });
+
+/**
+ * QR即出題: 印刷ワークの QR（LIFF /liff/units/wb?t=単元名）から呼ばれ、
+ * LIFF の ID トークンを検証してその単元の「ワーク開始カード」をトークへ push する。
+ * 生徒は QR を読むだけで送信操作なしに問題を始められる（push のため配信枠を消費）。
+ *
+ * レスポンス: 200 ok / 404 unknown topic / 424 push失敗（友だち未登録など） / 401 token不正
+ */
+export const workbookLaunch = functions
+  .region('asia-northeast1')
+  .https.onRequest(async (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
+    res.set('Access-Control-Allow-Methods', 'POST, OPTIONS');
+    res.set('Access-Control-Allow-Headers', 'Content-Type');
+    if (req.method === 'OPTIONS') {
+      res.status(204).send('');
+      return;
+    }
+    if (req.method !== 'POST') {
+      res.status(405).json({ error: 'Method not allowed' });
+      return;
+    }
+
+    const { idToken, topic } = req.body ?? {};
+    if (
+      typeof idToken !== 'string' ||
+      !idToken ||
+      typeof topic !== 'string' ||
+      !topic
+    ) {
+      res.status(400).json({ error: 'idToken and topic are required' });
+      return;
+    }
+
+    try {
+      const verifyRes = await fetch('https://api.line.me/oauth2/v2.1/verify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          id_token: idToken,
+          client_id: LINE_LOGIN_CHANNEL_ID,
+        }),
+      });
+      if (!verifyRes.ok) {
+        console.error('workbookLaunch verify failed:', await verifyRes.text());
+        res.status(401).json({ error: 'Invalid LIFF id_token' });
+        return;
+      }
+      const payload = (await verifyRes.json()) as LineIdTokenPayload;
+      const userId = payload.sub;
+      if (!userId) {
+        res.status(401).json({ error: 'userId missing in token' });
+        return;
+      }
+
+      const { pushWorkbookStart } = await import('./lineWebhook');
+      const result = await pushWorkbookStart(userId, topic.slice(0, 60));
+      if (result === 'unknown_topic') {
+        res.status(404).json({ error: 'unknown topic' });
+        return;
+      }
+      if (result === 'push_failed') {
+        // 友だち未登録などで push できない。クライアントは友だち追加へ誘導する。
+        res.status(424).json({ error: 'push failed (not a friend?)' });
+        return;
+      }
+      res.json({ ok: true });
+    } catch (error) {
+      console.error('workbookLaunch error:', error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+
+/**
+ * 参考書QR即開始: 参考書の QR（LIFF /liff/units/ref?t=章番号-topicId）から呼ばれ、
+ * LIFF の ID トークンを検証して「AI先生と深める」メニュー（質問／理解度チェック）を
+ * トークへ push する。生徒は QR を読むだけで LINE 上のAI学習を始められる。
+ *
+ * レスポンス: 200 ok / 404 unknown topic / 424 push失敗 / 401 token不正
+ */
+export const referenceLaunch = functions
+  .region('asia-northeast1')
+  .https.onRequest(async (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
+    res.set('Access-Control-Allow-Methods', 'POST, OPTIONS');
+    res.set('Access-Control-Allow-Headers', 'Content-Type');
+    if (req.method === 'OPTIONS') {
+      res.status(204).send('');
+      return;
+    }
+    if (req.method !== 'POST') {
+      res.status(405).json({ error: 'Method not allowed' });
+      return;
+    }
+
+    const { idToken, topic } = req.body ?? {};
+    if (
+      typeof idToken !== 'string' ||
+      !idToken ||
+      typeof topic !== 'string' ||
+      !topic
+    ) {
+      res.status(400).json({ error: 'idToken and topic are required' });
+      return;
+    }
+
+    try {
+      const verifyRes = await fetch('https://api.line.me/oauth2/v2.1/verify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          id_token: idToken,
+          client_id: LINE_LOGIN_CHANNEL_ID,
+        }),
+      });
+      if (!verifyRes.ok) {
+        console.error('referenceLaunch verify failed:', await verifyRes.text());
+        res.status(401).json({ error: 'Invalid LIFF id_token' });
+        return;
+      }
+      const payload = (await verifyRes.json()) as LineIdTokenPayload;
+      const userId = payload.sub;
+      if (!userId) {
+        res.status(401).json({ error: 'userId missing in token' });
+        return;
+      }
+
+      const { pushReferenceStart } = await import('./lineWebhook');
+      const result = await pushReferenceStart(userId, topic.slice(0, 60));
+      if (result === 'unknown_topic') {
+        res.status(404).json({ error: 'unknown topic' });
+        return;
+      }
+      if (result === 'push_failed') {
+        res.status(424).json({ error: 'push failed (not a friend?)' });
+        return;
+      }
+      res.json({ ok: true });
+    } catch (error) {
+      console.error('referenceLaunch error:', error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  });

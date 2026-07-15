@@ -39,11 +39,20 @@ const LiffUnitsPage = lazyWithRetry(() =>
 const LiffWorkbookLaunchPage = lazyWithRetry(
   () => import('../pages/LiffWorkbookLaunchPage')
 );
+const LiffReferenceLaunchPage = lazyWithRetry(
+  () => import('../pages/LiffReferenceLaunchPage')
+);
 
 /** QR即出題の起動URLか（LINE内: /liff/units?liff.state=%2Fwb%3Ft%3D...） */
 function isWorkbookLaunchUrl(): boolean {
   const state = new URLSearchParams(window.location.search).get('liff.state');
   return !!state && state.startsWith('/wb');
+}
+
+/** 参考書QRの起動URLか（LINE内: /liff/units?liff.state=%2Fref%3Ft%3D...） */
+function isReferenceLaunchUrl(): boolean {
+  const state = new URLSearchParams(window.location.search).get('liff.state');
+  return !!state && state.startsWith('/ref');
 }
 const TestRangePage = lazyWithRetry(() =>
   import('../pages/TestRangePage').then((m) => ({
@@ -116,6 +125,8 @@ function LineAuthGuard() {
           element={
             isWorkbookLaunchUrl() ? (
               <LiffWorkbookLaunchPage />
+            ) : isReferenceLaunchUrl() ? (
+              <LiffReferenceLaunchPage />
             ) : (
               <LiffUnitsPage />
             )
@@ -123,6 +134,7 @@ function LineAuthGuard() {
         />
         {/* 外部ブラウザはパス連結で直接ここに来る */}
         <Route path="/liff/units/wb" element={<LiffWorkbookLaunchPage />} />
+        <Route path="/liff/units/ref" element={<LiffReferenceLaunchPage />} />
         {/* 出題範囲設定: LIFF を廃止し通常ブラウザページ /scope へ置き換え。
             旧 LIFF endpoint(/liff/scope) に来た場合も /scope へリダイレクト。 */}
         <Route path="/scope" element={<TestRangePage />} />
