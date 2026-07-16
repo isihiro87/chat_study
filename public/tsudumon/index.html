@@ -1260,8 +1260,9 @@ footer a:hover{color:#fff}
 
 <script>
 (function(){
-  // Vercel等にデプロイしたAPIのパス。file://で直接開いたときはローカルdevサーバーに向ける
-  var API_URL = location.protocol === 'file:' ? 'http://localhost:3300/api/chat' : '/api/chat';
+  // Vercel等にデプロイしたAPIのパス（trailingSlash設定に合わせて末尾スラッシュ付き）。
+  // file://で直接開いたときはローカルdevサーバーに向ける
+  var API_URL = location.protocol === 'file:' ? 'http://localhost:3300/api/chat' : '/api/chat/';
   var MAX_AI_TURNS_PER_DAY = 10;        // 1人（このブラウザ）あたりの1日のAI回答上限。サーバー側でも別途 15回/日・全体300回/日 を強制
   var LINE_URL = 'https://lin.ee/wxDOngU';
 
