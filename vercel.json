@@ -38,7 +38,16 @@
       ]
     },
     {
-      "source": "/((?!assets/|favicon\\.ico|mubista|sitemap\\.xml|robots\\.txt).*)",
+      "source": "/tsudumon/img/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    },
+    {
+      "source": "/((?!assets/|favicon\\.ico|mubista|tsudumon/img/|sitemap\\.xml|robots\\.txt).*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -61,7 +70,7 @@
       "destination": "https://mubista.web.app/:path*"
     },
     {
-      "source": "/((?!assets/|typing|mubista|sitemap\\.xml|robots\\.txt).*)",
+      "source": "/((?!assets/|typing|tsudumon|mubista|api/|sitemap\\.xml|robots\\.txt).*)",
       "destination": "/index.html"
     }
   ]
