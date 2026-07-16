@@ -534,6 +534,30 @@ h2 .accent{color:var(--brand);background:linear-gradient(transparent 68%,#ffdfae
 }
 .price-main .yen small{font-size:20px;font-weight:700}
 .price-main .tax{font-size:13px;color:var(--muted)}
+
+/* ---------- plan table ---------- */
+.plan-scroll{overflow-x:auto;margin-bottom:16px}
+.plan-table{width:100%;border-collapse:collapse;min-width:420px}
+.plan-table th,.plan-table td{border:1px solid var(--border);padding:13px 10px;text-align:center;vertical-align:middle}
+.plan-table thead th{
+  background:#fbf4e7;font-family:"Zen Maru Gothic",sans-serif;
+  font-weight:700;font-size:13.5px;color:var(--brand-deep);letter-spacing:.06em;
+}
+.plan-table .pt-name{text-align:left;font-weight:700;font-size:14px;line-height:1.45}
+.plan-table td.pt-name small{display:block;font-weight:500;font-size:12px;color:var(--muted);margin-top:2px}
+.plan-table .price{font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:19px;white-space:nowrap}
+.plan-table .price small{font-size:12px;font-weight:700}
+.plan-table tr.hit{background:var(--brand-pale)}
+.plan-table tr.hit .price{color:var(--brand-deep);font-size:21px}
+.plan-table tr.hit .pt-name{color:var(--brand-deep)}
+.plan-note{font-size:12.5px;color:var(--muted);margin-bottom:22px;line-height:1.8}
+.plan-note b{color:var(--brand-deep)}
+@media(max-width:560px){
+  .plan-table th,.plan-table td{padding:11px 7px}
+  .plan-table .pt-name{font-size:13px}
+  .plan-table .price{font-size:17px}
+  .plan-table tr.hit .price{font-size:19px}
+}
 .price-note{font-size:12.5px;color:var(--muted);text-align:center;margin-top:18px}
 .price-cta{display:flex;flex-direction:column;gap:12px;align-items:center;margin-top:26px}
 .price-cta .btn{width:100%;max-width:400px;padding:18px 20px;font-size:17px}
@@ -760,9 +784,10 @@ footer a:hover{color:#fff}
     {"@type": "Question", "name": "プリンタがなくても使えますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい。PDFはスマホ・タブレット・PCでそのまま開けるので、画面で紙面を見ながらノートに答えを書く使い方なら印刷不要です。印刷したい場合も、コンビニのマルチコピー機が使えます（A4・1枚10円程度〜）。"}},
     {"@type": "Question", "name": "どの教科書を使っていても大丈夫ですか？", "acceptedAnswer": {"@type": "Answer", "text": "特定の教科書に合わせた教材ではなく、中学の歴史で共通して学ぶ標準的な内容で構成しています。どの教科書をお使いでも、定期テスト・実力テスト対策としてお使いいただけます。"}},
     {"@type": "Question", "name": "対象学年を教えてください。", "acceptedAnswer": {"@type": "Answer", "text": "中学1年〜3年生です。冊子は学年別に分かれていますが、学年をさかのぼった復習や先取りにも使えます。公式LINEの出題も学年をまたいで対応しています。"}},
-    {"@type": "Question", "name": "公式LINEの利用に月額料金はかかりますか？", "acceptedAnswer": {"@type": "Answer", "text": "かかりません。問題演習・AI採点・学習記録はすべて追加料金なしでご利用いただけます。必要なのはLINEアプリと通信環境だけです。"}},
+    {"@type": "Question", "name": "公式LINEの利用に月額料金はかかりますか？", "acceptedAnswer": {"@type": "Answer", "text": "ご利用期間中はかかりません。問題演習・AI採点・AI先生への質問・学習記録まで、すべてプラン料金に含まれています。期間終了後も続けたい場合のみ、月額330円（税込）で公式LINEのサービスを継続できます（任意）。"}},
+    {"@type": "Question", "name": "利用期間が終わったら、教材は使えなくなりますか？", "acceptedAnswer": {"@type": "Answer", "text": "ダウンロードいただいたPDF（問題集・参考書）は、期間が終わってもそのままずっとお使いいただけます。終了するのは公式LINEでのAI採点・質問などのサービス部分だけで、必要な場合は月額330円（税込）で継続できます。"}},
     {"@type": "Question", "name": "きょうだいで一緒に使えますか？", "acceptedAnswer": {"@type": "Answer", "text": "ご購入いただいたご家庭内でのご利用・印刷は何度でも可能です。PDFにはご購入者のお名前が入っており、ご家庭の外への配布・共有はご遠慮いただいています。"}},
-    {"@type": "Question", "name": "購入後、教材はどうやって受け取れますか？", "acceptedAnswer": {"@type": "Answer", "text": "お支払いの確認後、お名前入りのPDF一式（問題集19冊＋参考書19冊＋使い方ガイド）をダウンロードリンクでお届けします。"}}
+    {"@type": "Question", "name": "購入後、教材はどうやって受け取れますか？", "acceptedAnswer": {"@type": "Answer", "text": "お支払いの確認後、お名前入りのPDF一式（ご購入プラン分の問題集・参考書＋使い方ガイド。3学年セットの場合は問題集19冊＋参考書19冊）をダウンロードリンクでお届けします。"}}
   ]
 }
 </script>
@@ -922,7 +947,7 @@ footer a:hover{color:#fff}
 <section class="alt" id="contents">
   <div class="inner">
     <div class="sec-label rv">紙面の内容</div>
-    <h2 class="rv">市販ワークの「いいとこ取り」。<br>1冊で要点整理から<span class="nb">テスト対策まで。</span></h2>
+    <h2 class="rv">市販ワークの<span class="nb">「いいとこ取り」。</span><br>1冊で要点整理から<span class="nb">テスト対策まで。</span></h2>
     <p class="sec-lead rv">定番の紙面構成を1冊にまとめました。どの単元も同じ流れで進むので、勉強のリズムがつくりやすくなっています。</p>
 
     <div class="parts rv-group">
@@ -931,7 +956,7 @@ footer a:hover{color:#fff}
       <div class="part"><span class="tag">B 一問一答</span><h3>基礎用語を14問ずつ</h3><p>チェックボックスつきで、できるまで何周でも。基礎固めの定番です。</p></div>
       <div class="part"><span class="tag">C 実戦問題</span><h3>テスト形式の4択問題</h3><p>定期テストと同じ選択形式。まぎらわしい選択肢で理解度を確かめます。</p></div>
       <div class="part"><span class="tag">D 記述問題</span><h3>理由・しくみを書く練習</h3><p>「なぜ？」を自分の言葉で説明。指定語句つきで、差がつく記述対策を。</p></div>
-      <div class="part"><span class="tag">E 資料問題</span><h3>写真・図で解く資料問題</h3><p>入試や実力テストで問われる資料の読み取りも、単元ごとに練習できます。</p></div>
+      <div class="part"><span class="tag">E 資料問題</span><h3>写真・図で解く資料問題</h3><p>入試や実力テストで問われる、写真や資料の読み取り問題。一部単元に収録し、順次拡充しています。</p></div>
     </div>
 
     <div class="pages rv-group">
@@ -1069,28 +1094,46 @@ footer a:hover{color:#fff}
   <div class="inner">
     <div class="sec-label rv" style="justify-content:center">セット内容と価格</div>
     <h2 class="rv" style="text-align:center">つづくから、<br>教材代がむだになりません。</h2>
-    <p class="sec-lead rv" style="text-align:center;margin-left:auto;margin-right:auto">どんな教材も、続いてこそ力になります。つづもんは「つづく仕組み」ごと、歴史の全範囲・38冊511ページをまとめてお届けします。</p>
+    <p class="sec-lead rv" style="text-align:center;margin-left:auto;margin-right:auto">どんな教材も、続いてこそ力になります。つづもんは「つづく仕組み」ごとお届けします。必要な学年だけでも、3学年まとめてでも。</p>
 
     <div class="compare rv-group">
       <div class="comp"><div class="cn">個別指導塾</div><div class="cv">月 2〜3万円</div><div class="cs">週1〜2回・移動あり</div></div>
       <div class="comp"><div class="cn">通信教育</div><div class="cv">月 5,000円〜</div><div class="cs">続けるほど費用が増える</div></div>
-      <div class="comp hit"><div class="cn">つづもん</div><div class="cv">2,980円</div><div class="cs">買い切り・月額なし・LINE採点込み</div></div>
+      <div class="comp hit"><div class="cn">つづもん</div><div class="cv">年 2,980円〜</div><div class="cs">3学年セット・AI採点/質問し放題込み</div></div>
     </div>
     <p class="compare-note rv">※ 塾・通信教育の金額は一般的な相場の目安です。</p>
 
     <div class="price-box rv">
-      <div class="price-head">つづもん　中学歴史フルセット</div>
+      <div class="price-head">つづもん　中学歴史　<span class="nb">料金プラン</span></div>
       <div class="price-body">
         <ul class="price-items">
-          <li><span>歴史 問題集（中1〜中3の全範囲・全19単元）</span><span class="vol">全19冊・304ページ</span></li>
-          <li><span>歴史 参考書（読んで楽しい解説書）</span><span class="vol">全19冊・207ページ</span></li>
-          <li><span>公式LINEでの問題演習・AI採点・学習記録</span><span class="vol">追加料金なし</span></li>
+          <li><span>歴史 問題集＋読んで楽しい参考書（お名前入りPDF）</span><span class="vol">3学年セット＝全38冊511ページ</span></li>
+          <li><span>公式LINEでの問題演習・AI採点・学習記録</span><span class="vol">期間中 使い放題</span></li>
+          <li><span>質問し放題のAI先生</span><span class="vol">期間中 使い放題</span></li>
         </ul>
-        <!-- TODO: 価格は仮です。確定したら書き換えてください -->
-        <div class="price-main">
-          <div class="yen"><small>¥</small>2,980<small>（税込）</small></div>
-          <div class="tax">買い切り・月額なし／PDFダウンロード形式（1冊あたり約78円）</div>
+        <!-- TODO: 価格はすべて仮です。確定したら この表・特商法・チャットFAQ・api/chat.js を書き換えてください -->
+        <div class="plan-scroll">
+          <table class="plan-table">
+            <thead>
+              <tr><th class="pt-name">プラン</th><th>1年</th><th>2年</th><th>3年</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="pt-name">学年別<small>中1・中2・中3 いずれか1学年分</small></td>
+                <td><span class="price">1,480<small>円</small></span></td>
+                <td><span class="price">1,980<small>円</small></span></td>
+                <td><span class="price">2,480<small>円</small></span></td>
+              </tr>
+              <tr class="hit">
+                <td class="pt-name">3学年セット<small>中1〜中3の全範囲・いちばん人気</small></td>
+                <td><span class="price">2,980<small>円</small></span></td>
+                <td><span class="price">3,980<small>円</small></span></td>
+                <td><span class="price">4,980<small>円</small></span></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+        <p class="plan-note">価格はすべて税込。期間は「公式LINEのAI採点・質問などが使い放題の期間」です。<br><b>ダウンロードしたPDFは、期間が終わってもずっとお使いいただけます。</b>LINEのサービスだけ、月額330円（税込）で継続できます（任意・いつでも解約OK）。</p>
         <div class="price-cta">
           <!-- TODO: 購入ページのURLが決まったら href を差し替えてください -->
           <a class="btn btn-line" href="https://lin.ee/wxDOngU" target="_blank" rel="noopener">
@@ -1156,7 +1199,11 @@ footer a:hover{color:#fff}
       </details>
       <details>
         <summary>公式LINEの利用に月額料金はかかりますか？</summary>
-        <div class="a">かかりません。問題演習・AI採点・学習記録はすべて追加料金なしでご利用いただけます。必要なのはLINEアプリと通信環境だけです。</div>
+        <div class="a">ご利用期間中はかかりません。問題演習・AI採点・AI先生への質問・学習記録まで、すべてプラン料金に含まれています。期間終了後も続けたい場合のみ、月額330円（税込）で公式LINEのサービスを継続できます（任意・いつでもやめられます）。</div>
+      </details>
+      <details>
+        <summary>利用期間が終わったら、教材は使えなくなりますか？</summary>
+        <div class="a">ダウンロードいただいたPDF（問題集・参考書）は、期間が終わってもそのままずっとお使いいただけます。終了するのは公式LINEでのAI採点・質問などのサービス部分だけで、必要な場合は月額330円（税込）で継続できます。</div>
       </details>
       <details>
         <summary>きょうだいで一緒に使えますか？</summary>
@@ -1164,7 +1211,7 @@ footer a:hover{color:#fff}
       </details>
       <details>
         <summary>購入後、教材はどうやって受け取れますか？</summary>
-        <div class="a">お支払いの確認後、お名前入りのPDF一式（問題集19冊＋参考書19冊＋使い方ガイド）をダウンロードリンクでお届けします。<span class="ph">【お届け方法・日数の詳細が決まりましたらこちらに記載してください】</span></div>
+        <div class="a">お支払いの確認後、お名前入りのPDF一式（ご購入プラン分の問題集・参考書＋使い方ガイド。3学年セットの場合は問題集19冊＋参考書19冊）をダウンロードリンクでお届けします。<span class="ph">【お届け方法・日数の詳細が決まりましたらこちらに記載してください】</span></div>
       </details>
     </div>
   </div>
@@ -1233,14 +1280,14 @@ footer a:hover{color:#fff}
   } catch(e){}
 
   var faq = [
-    {k:['価格','料金','いくら','値段','高い'], a:'つづもんは 2,980円（税込）の買い切りです。月額はかからず、LINEでのAI採点・解説・学習記録もすべて込みです。中学歴史の問題集19冊＋参考書19冊（全38冊・511ページ）が届きます。'},
+    {k:['価格','料金','いくら','値段','高い'], a:'料金は利用期間つきのプラン制です（すべて税込）。\n・学年別（中1〜中3のいずれか1学年）：1年 1,480円／2年 1,980円／3年 2,480円\n・3学年セット（全38冊511ページ）：1年 2,980円／2年 3,980円／3年 4,980円\n期間中はLINEでのAI採点・解説・質問し放題込み。ダウンロードしたPDFは期間後もずっと使えます。'},
     {k:['無料','体験','お試し','ためす','試せ'], a:'はい、公式LINEを友だち追加すると、その場で1単元まるごと無料で体験できます。お子さまに合うかどうか、購入前にゆっくり確かめてくださいね。\n' + LINE_URL},
     {k:['学年','何年生','対象','中学','小学','高校'], a:'対象は中学1〜3年生です。冊子は学年別に分かれていますが、さかのぼり復習や先取りにも使えます。小学生の歴史好きのお子さまや、高校受験前の総復習にもお使いいただけます。'},
     {k:['印刷','プリンタ','プリンター','コンビニ'], a:'プリンタがなくても大丈夫です。スマホやタブレットで紙面を表示して、ノートに解く使い方ができます。印刷したい場合はコンビニのマルチコピー機も使えます（A4・1枚10円程度〜）。'},
-    {k:['月額','追加料金','サブスク','毎月'], a:'月額や追加料金はありません。2,980円の買い切りで、公式LINEでの問題演習・AI採点・学習記録もずっと追加料金なしで使えます。'},
+    {k:['月額','追加料金','サブスク','毎月'], a:'ご利用期間中の追加料金はありません（AI採点・質問・学習記録まで全部プラン料金に込み）。期間が終わったあとも続けたい場合だけ、月額330円（税込）で公式LINEのサービスを継続できます（任意・いつでも解約OK）。PDFは期間後もそのまま使えます。'},
     {k:['教科書','学校','テスト対策'], a:'特定の教科書に合わせた教材ではなく、中学歴史で共通して学ぶ標準的な内容で構成しています。どの教科書でも定期テスト・実力テスト対策に使えます。'},
     {k:['兄弟','姉妹','きょうだい','家族','共有'], a:'ご家庭内でのご利用・印刷は何度でもOKです。きょうだいで一緒にお使いいただけます（ご家庭の外への配布・共有はご遠慮いただいています）。'},
-    {k:['受け取','ダウンロード','届','購入方法','買い方'], a:'公式LINEのメニューから購入すると、お支払い確認後に、お名前入りのPDF一式（問題集19冊＋参考書19冊＋使い方ガイド）をダウンロードリンクでお届けします。'},
+    {k:['受け取','ダウンロード','届','購入方法','買い方'], a:'公式LINEのメニューから購入すると、お支払い確認後に、お名前入りのPDF一式（ご購入プラン分の問題集・参考書＋使い方ガイド）をダウンロードリンクでお届けします。'},
     {k:['数学','英語','理科','国語','他の教科'], a:'現在は中学歴史のみの販売です。他教科も準備を進めていますので、公式LINEに登録いただけると、出た際にお知らせできます。'},
     {k:['続','飽き','三日坊主','やる気','サボ'], a:'続かないのはお子さまの意志の問題ではなく、仕組みの問題だと考えています。つづもんは「すぐ丸がつく」「1単元15分」「がんばりが数字で見える」仕組みで続きやすくしていますが、相性もあるので、まずは無料体験で様子を見ていただくのが安心です。'}
   ];
