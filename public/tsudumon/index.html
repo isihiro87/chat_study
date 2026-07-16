@@ -223,6 +223,12 @@ section{padding:84px 0}
 }
 .sec-label::before{content:"";width:34px;height:3px;border-radius:2px;background:var(--brand)}
 h2{font-size:clamp(24px,3.4vw,34px);font-weight:900;line-height:1.5;letter-spacing:.02em;margin-bottom:18px}
+/* スマホのみ文節で改行（PCは従来どおり） */
+.nb{display:inline}
+@media(max-width:760px){
+  h1,h2,h3,.worry-turn p,.reason-close,.hero .lead,.sec-lead{word-break:auto-phrase}
+  .nb{display:inline-block}
+}
 h2 .accent{color:var(--brand);background:linear-gradient(transparent 68%,#ffdfae 68%)}
 .sec-lead{color:#5d4f3d;max-width:40em;margin-bottom:44px}
 .alt{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
@@ -808,7 +814,7 @@ footer a:hover{color:#fff}
 <!-- ============ WORRIES ============ -->
 <section>
   <div class="inner">
-    <h2 class="rv" style="text-align:center">買ったワーク、<br>また「最初の3ページ」で止まっていませんか。</h2>
+    <h2 class="rv" style="text-align:center">買ったワーク、<br>また「最初の3ページ」で<span class="nb">止まっていませんか。</span></h2>
     <div class="worries rv-group">
       <div class="worry"><span class="check">✓</span>問題集を買っても、最初の3ページで止まってしまう</div>
       <div class="worry"><span class="check">✓</span>「あとで丸つけする」と言ったまま、解きっぱなしになっている</div>
@@ -821,7 +827,7 @@ footer a:hover{color:#fff}
       <div class="arrow rv">▼</div>
       <div class="turn-box rv">
         <img src="img/voice-student.jpg" alt="スマホの採点を見ながら楽しそうに勉強する中学生のイラスト">
-        <p>続かないのは、お子さまの意志が弱いからではありません。<span class="accent">「つづく仕組み」</span>がなかっただけ。
+        <p>続かないのは、<span class="nb">お子さまの意志が</span><span class="nb">弱いからではありません。</span><span class="nb"><span class="accent">「つづく仕組み」</span>が</span><span class="nb">なかっただけ。</span>
         <span class="small">つづもんは、教材そのものに「つづく仕組み」を組み込んだ問題集です。いつも手にしているスマホを、勉強の味方に変えます。</span></p>
       </div>
     </div>
@@ -872,7 +878,7 @@ footer a:hover{color:#fff}
 <section id="about">
   <div class="inner">
     <div class="sec-label rv">使い方はかんたん</div>
-    <h2 class="rv">使い方は2通り。どちらも「できるまで」AIがつきあいます。</h2>
+    <h2 class="rv">使い方は2通り。<span class="nb">どちらも「できるまで」</span><span class="nb">AIがつきあいます。</span></h2>
     <p class="sec-lead rv">いつものLINEでサクッと派も、紙でじっくり派も。同じ公式LINEにつながって、AIがその場で丸つけします。</p>
     <div class="routes rv-group">
       <div class="step">
@@ -916,7 +922,7 @@ footer a:hover{color:#fff}
 <section class="alt" id="contents">
   <div class="inner">
     <div class="sec-label rv">紙面の内容</div>
-    <h2 class="rv">市販ワークの「いいとこ取り」。<br>1冊で要点整理からテスト対策まで。</h2>
+    <h2 class="rv">市販ワークの「いいとこ取り」。<br>1冊で要点整理から<span class="nb">テスト対策まで。</span></h2>
     <p class="sec-lead rv">定番の紙面構成を1冊にまとめました。どの単元も同じ流れで進むので、勉強のリズムがつくりやすくなっています。</p>
 
     <div class="parts rv-group">
@@ -944,7 +950,7 @@ footer a:hover{color:#fff}
 <section id="line">
   <div class="inner">
     <div class="sec-label rv">公式LINEとの連動</div>
-    <h2 class="rv">丸つけ・解説・ニガテ管理は、AIにおまかせ。</h2>
+    <h2 class="rv"><span class="nb">丸つけ・解説・ニガテ管理は、</span><span class="nb">AIにおまかせ。</span></h2>
     <p class="sec-lead rv">「丸つけしない」「解説を読まない」——紙の問題集の弱点を、公式LINEが引き受けます。追加料金はかかりません。</p>
     <div class="line-sec">
       <div class="phone">
@@ -972,7 +978,7 @@ footer a:hover{color:#fff}
     </div>
 
     <div class="ai-good rv">
-      <h3>採点だけじゃない。<span class="accent">質問し放題のAI先生</span>がついてきます。</h3>
+      <h3>採点だけじゃない。<span class="nb"><span class="accent">質問し放題のAI先生</span>が</span><span class="nb">ついてきます。</span></h3>
       <div class="ai-grid rv-group">
         <div class="ai-item"><span class="em">🌙</span><div><b>24時間、いつでも質問できる</b><p>「これも正解かなぁ…？」と迷ったら、トークで聞くだけ。夜の勉強中でもすぐ答えが返ります。</p></div></div>
         <div class="ai-item"><span class="em">🙋</span><div><b>何度聞いても、嫌な顔をしない</b><p>先生や親には聞きづらい「いまさらの質問」も、AIになら気をつかわずに聞けます。</p></div></div>
@@ -985,7 +991,7 @@ footer a:hover{color:#fff}
     </div>
 
     <div class="cta-banner rv">
-      <h3>ここまでの流れ、ぜんぶ<span style="color:var(--maru)">無料</span>で体験できます</h3>
+      <h3>ここまでの流れ、<span class="nb">ぜんぶ<span style="color:var(--maru)">無料</span>で</span><span class="nb">体験できます</span></h3>
       <p>友だち追加すると、その場でサンプル問題が解けます。お子さまのスマホでどうぞ。</p>
       <a class="btn btn-line" href="https://lin.ee/wxDOngU" target="_blank" rel="noopener"><svg class="line-ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.5C6.2 2.5 1.5 6.3 1.5 11c0 4.2 3.7 7.7 8.7 8.4.34.07.8.22.92.51.1.26.07.67.03.94l-.15.9c-.05.27-.21 1.04.91.57 1.12-.48 6.05-3.56 8.25-6.1 1.52-1.66 2.34-3.34 2.34-5.22 0-4.7-4.7-8.5-10.5-8.5z"/><text x="12" y="13.4" text-anchor="middle" font-size="6" font-weight="900" font-family="Arial,Helvetica,sans-serif" fill="#06c755">LINE</text></svg>無料で1単元ためしてみる</a>
       <div class="cta-micro"><span>登録30秒</span><span>購入は体験のあとで</span><span>いつでもブロックできます</span></div>
@@ -1000,7 +1006,7 @@ footer a:hover{color:#fff}
       <img src="img/page-ref.png" alt="読んで楽しい参考書の紙面。先生キャラクターが語りかける構成" loading="lazy" class="rv">
       <div>
         <div class="sec-label rv">セットの参考書</div>
-        <h2 class="rv">「読める」参考書つき。<br>歴史ぎらいでも、まず読み物として楽しめる。</h2>
+        <h2 class="rv">「読める」参考書つき。<br>歴史ぎらいでも、<span class="nb">まず読み物として</span><span class="nb">楽しめる。</span></h2>
         <p class="sec-lead rv" style="margin-bottom:0">問題を解く前に読む、全19冊分の参考書もセット。教科書が苦手な子のために、文字を詰め込まず「語りかける」紙面にしました。</p>
         <ul class="ref-points rv-group">
           <li>先生キャラクターが吹き出しで語りかける、会話調の解説</li>
@@ -1019,7 +1025,7 @@ footer a:hover{color:#fff}
     <div class="parent-sec">
       <div>
         <div class="sec-label rv">保護者の方へ</div>
-        <h2 class="rv">「ちゃんとやってる？」と聞かなくても、がんばりが見える。</h2>
+        <h2 class="rv"><span class="nb">「ちゃんとやってる？」と</span><span class="nb">聞かなくても、</span><span class="nb">がんばりが見える。</span></h2>
         <p class="sec-lead rv" style="margin-bottom:18px">丸つけ・解説・記録をAIが引き受けるので、保護者の方が横について教える必要はありません。それでも、お子さまの学習のようすはきちんと残ります。</p>
         <div class="parent-points rv-group">
           <div class="feature"><div class="ic">👀</div><div><h3>学習記録が残る</h3><p>いつ・どの単元を・どれだけ正解したかが公式LINEに記録され、「がんばってるね」と声をかけるきっかけになります。</p></div></div>
