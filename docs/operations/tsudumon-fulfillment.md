@@ -74,14 +74,23 @@ npx tsx scripts/manage-tsudumon.ts set-zip --code TZM-XXXX-XXXX --zip path\to\ne
   （ホットパスで license doc を読まない設計のため）。即時停止したい場合は
   該当ユーザーの `tsudumon` フィールドを削除する。
 
-## デプロイ（初回）
+## デプロイ状況（2026-07-18 デプロイ・本番検証済み）
+
+- `lineWebhook` / `tsudumonDownload` / `firestore:rules` は 2026-07-18 デプロイ済み。
+  Vercel（/tsudumon/dl rewrite）も main push で反映済み。
+- Storage バケット **`chatstudy-63477-tsudumon`** を作成し Firebase Storage に
+  リンク済み（プロジェクトにデフォルトバケットは無い。scripts はこのバケットを既定で使う）。
+- 本番シミュレーション済み: 未購入ゲート / コード登録 / 登録後の出題 / 学年外ゲート /
+  無料体験単元 / 2台目登録 / DLリダイレクト / DL回数上限 / 不正コード404 の全分岐を確認。
+
+再デプロイするとき:
 
 ```bash
 cd functions && npm run build && cd ..
 FUNCTIONS_DISCOVERY_TIMEOUT=600 firebase deploy --only functions:lineWebhook,functions:tsudumonDownload
 firebase deploy --only firestore:rules
-# Vercel（/tsudumon/dl rewrite）は main への push で自動デプロイ
 ```
 
-前提: Firebase コンソールで **Storage を有効化**しておく（バケットは
-`chatstudy-63477.firebasestorage.app` または `.appspot.com`。scripts は両方試す）。
+> ⚠️ このリポジトリの functions は **未コミットの生成ファイル・WIP を含む作業ツリーから
+> デプロイする運用**（HEAD 単体ではビルドできない）。デプロイ前に `npm run typecheck` と
+> `npx vitest run functions/src/__tests__` が通ることを確認する。

@@ -28,22 +28,31 @@ import { basename } from 'node:path';
 import { existsSync } from 'node:fs';
 
 const FIREBASE_PROJECT_ID = 'chatstudy-63477';
+// つづもん納品専用バケット（2026-07-18 作成・Firebase Storage にリンク済み）。
+// プロジェクトにデフォルトバケットは無いため、この専用バケットを最優先で使う。
 const DEFAULT_BUCKETS = [
+  `${FIREBASE_PROJECT_ID}-tsudumon`,
   `${FIREBASE_PROJECT_ID}.firebasestorage.app`,
   `${FIREBASE_PROJECT_ID}.appspot.com`,
 ];
 const DL_BASE = 'https://www.chatstudy.jp/tsudumon/dl';
 const LINE_BASIC_ID = '@824cebif';
 
-import {
+// functions/ は CJS（"type":"module" なし）のため、ESM の named import だと
+// Node の named-export 検出に失敗することがある。createRequire で確実に読む。
+import { createRequire } from 'node:module';
+const requireCjs = createRequire(import.meta.url);
+const {
   generateTsudumonCode,
   parseTsudumonPlan,
   extractTsudumonCode,
   TSUDUMON_PLAN_LABEL,
   TSUDUMON_DEFAULT_DL_LIMIT,
   TSUDUMON_DEFAULT_MAX_ACTIVATIONS,
-  type TsudumonPlan,
-} from '../functions/src/tsudumonCore';
+} = requireCjs(
+  '../functions/src/tsudumonCore'
+) as typeof import('../functions/src/tsudumonCore');
+type TsudumonPlan = import('../functions/src/tsudumonCore').TsudumonPlan;
 
 function arg(name: string): string | null {
   const i = process.argv.indexOf(`--${name}`);
