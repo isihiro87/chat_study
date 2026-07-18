@@ -58,6 +58,14 @@
   ],
   "rewrites": [
     {
+      "source": "/tsudumon/dl",
+      "destination": "https://asia-northeast1-chatstudy-63477.cloudfunctions.net/tsudumonDownload"
+    },
+    {
+      "source": "/tsudumon/dl/",
+      "destination": "https://asia-northeast1-chatstudy-63477.cloudfunctions.net/tsudumonDownload"
+    },
+    {
       "source": "/mubista",
       "destination": "https://mubista.web.app/"
     },

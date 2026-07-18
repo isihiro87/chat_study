@@ -162,5 +162,11 @@ service cloud.firestore {
     match /igDmEvents/{eventId} {
       allow read: if isAdmin();
     }
+
+    // つづもん（PDF問題集）のライセンス。発行は scripts/manage-tsudumon.ts、
+    // 登録・DLカウントは Cloud Functions（admin SDK）のみ。クライアント書き込み不可。
+    match /tsudumonLicenses/{code} {
+      allow read: if isAdmin();
+    }
   }
 }

@@ -57,6 +57,18 @@ import {
   type WorkbookKind,
 } from './workbookTopic';
 import { WORKBOOK_QUESTION_INDEX } from './generated/workbook-question-index.generated';
+import {
+  extractTsudumonCode,
+  evaluateTsudumonAccess,
+  readTsudumonEntitlement,
+  computeTsudumonExpiresAtMs,
+  TSUDUMON_PLAN_LABEL,
+  TSUDUMON_FREE_WORKBOOK_TOPICS,
+  TSUDUMON_FREE_REFERENCE_KEYS,
+  TSUDUMON_DEFAULT_MAX_ACTIVATIONS,
+  type TsudumonPlan,
+  type TsudumonAccessResult,
+} from './tsudumonCore';
 
 interface LineEvent {
   type: string;
@@ -956,6 +968,17 @@ async function handleMessage(event: LineEvent): Promise<void> {
     }
   }
 
+  // つづもんライセンスコード（TZM-XXXX-XXXX）→ 購入者登録。
+  // 納品メールのコードをそのまま（または「つづもん登録 TZM-…」で）送ると登録される。
+  const tsudumonCode = extractTsudumonCode(text);
+  if (tsudumonCode) {
+    const uidForTsudumon = buildUid(event);
+    if (uidForTsudumon && replyToken) {
+      await handleTsudumonActivation(uidForTsudumon, replyToken, tsudumonCode);
+      return;
+    }
+  }
+
   // 印刷ワークの QR コード経由:「ワーク {単元名}」→ その単元の問題を1問出題する。
   // 単元名が QUESTION_INDEX で解決できないとき（「ワークのやり方教えて」等の自然文）は
   // 何もせず下の AI チャットボットへフォールスルーさせる。
@@ -1058,6 +1081,216 @@ async function handleMessage(event: LineEvent): Promise<void> {
   );
 }
 
+// ── つづもんライセンス（購入者ゲート）─────────────────────────────
+// 設計: .steering/20260718-tsudumon-license/
+// ライセンスの正本は tsudumonLicenses/{code}。登録時に users/{uid}.tsudumon へ
+// スナップショットを書き、以後のゲート判定は user doc 1 read だけで行う。
+
+/** 緊急時の全開放スイッチ。env TSUDUMON_GATE_ENABLED=false でゲートを無効化。 */
+const TSUDUMON_GATE_ENABLED = process.env.TSUDUMON_GATE_ENABLED !== 'false';
+
+const TSUDUMON_LP_URL = 'https://www.chatstudy.jp/tsudumon/';
+
+interface TsudumonGateCheck {
+  result: TsudumonAccessResult;
+  /** 登録済みプランの表示名（未登録なら null）。wrong_grade の案内文に使う。 */
+  planLabel: string | null;
+}
+
+/**
+ * つづもん購入者ゲートの判定。user doc を 1 read して判定する。
+ * **フローの入口（handleWorkbookQuestion / pushWorkbookStart / pushReferenceStart）
+ * でのみ呼ぶこと**。継続 postback（wb_next 等）では呼ばない（read 規律）。
+ * 判定自体に失敗したときは利用を止めない（正規購入者を巻き込まない側に倒す）。
+ */
+async function checkTsudumonAccess(
+  uid: string,
+  grade: string | null
+): Promise<TsudumonGateCheck> {
+  if (!TSUDUMON_GATE_ENABLED) return { result: 'ok', planLabel: null };
+  try {
+    const { db } = await getDb();
+    const snap = await db.doc(`users/${uid}`).get();
+    const raw = snap.data()?.tsudumon;
+    const ent = readTsudumonEntitlement(raw);
+    return {
+      result: evaluateTsudumonAccess(raw, grade, Date.now()),
+      planLabel: ent ? TSUDUMON_PLAN_LABEL[ent.plan] : null,
+    };
+  } catch (error) {
+    console.error('[lineWebhook] tsudumon access check failed:', error);
+    return { result: 'ok', planLabel: null };
+  }
+}
+
+/** ゲートで止めたときの案内文。売り込まず、次にできることを1つずつ示す。 */
+function buildTsudumonGateText(
+  check: TsudumonGateCheck,
+  grade: string | null
+): string {
+  if (check.result === 'expired') {
+    return (
+      'つづもんのご利用期間が終了しています🙏\n' +
+      'ダウンロード済みのPDF教材は、これからもそのままお使いいただけます。\n\n' +
+      'LINEでの問題演習・AI採点・AI先生を続けたい場合は、月額プランでの継続をご案内できます。' +
+      'このトークに「継続希望」と送ってください。'
+    );
+  }
+  if (check.result === 'wrong_grade') {
+    const gradeLabel = grade ?? 'この学年';
+    return (
+      `この単元（${gradeLabel}）は、いまのご購入プラン（${check.planLabel ?? '登録済みプラン'}）の対象外です🙏\n\n` +
+      `${gradeLabel}の単元は、${gradeLabel}セットまたは3学年セットでご利用いただけます。` +
+      '追加購入やプラン変更のご相談は、このトークにそのままメッセージを送ってください。'
+    );
+  }
+  return (
+    'この単元は、つづもん（問題集）をご購入の方向けの機能です🙏\n\n' +
+    '✅ ご購入済みの方\n' +
+    '納品のご案内に記載のライセンスコード（TZM-〇〇〇〇-〇〇〇〇）を、このトークにそのまま送ってください。' +
+    'ごきょうだいのスマホでも同じコードで登録できます。\n\n' +
+    '🎁 はじめての方\n' +
+    '「ワーク 律令国家と奈良時代」と送ると、1単元まるごと無料で体験できます。\n' +
+    `くわしくは → ${TSUDUMON_LP_URL}`
+  );
+}
+
+/**
+ * ライセンスコード受信 → 登録。transaction で
+ * ①コード実在・active ②登録アカウント数上限 ③期限 を検証し、
+ * license 側（activatedUids / firstActivatedAt / expiresAt）と
+ * user 側（users/{uid}.tsudumon スナップショット）を同時に書く。
+ * 登録済み uid の再送はエラーにせず「登録済み」として成功応答（機種変更・確認用）。
+ */
+async function handleTsudumonActivation(
+  uid: string,
+  replyToken: string,
+  code: string
+): Promise<void> {
+  type Outcome =
+    | { kind: 'ok'; plan: TsudumonPlan; expiresMs: number; already: boolean }
+    | { kind: 'not_found' }
+    | { kind: 'revoked' }
+    | { kind: 'expired' }
+    | { kind: 'max'; max: number };
+
+  let outcome: Outcome;
+  try {
+    const { db, FieldValue } = await getDb();
+    const { Timestamp } = await import('firebase-admin/firestore');
+    const licRef = db.doc(`tsudumonLicenses/${code}`);
+    const userRef = db.doc(`users/${uid}`);
+
+    outcome = await db.runTransaction(async (tx): Promise<Outcome> => {
+      const snap = await tx.get(licRef);
+      if (!snap.exists) return { kind: 'not_found' };
+      const lic = snap.data() as Record<string, unknown>;
+      if (lic.status !== 'active') return { kind: 'revoked' };
+
+      const activated: string[] = Array.isArray(lic.activatedUids)
+        ? (lic.activatedUids as string[])
+        : [];
+      const max =
+        typeof lic.maxActivations === 'number'
+          ? lic.maxActivations
+          : TSUDUMON_DEFAULT_MAX_ACTIVATIONS;
+      const already = activated.includes(uid);
+      if (!already && activated.length >= max) return { kind: 'max', max };
+
+      const nowMs = Date.now();
+      const toMillis = (v: unknown): number | null => {
+        const t = v as { toMillis?: () => number } | null | undefined;
+        return t && typeof t.toMillis === 'function' ? t.toMillis() : null;
+      };
+      const years = typeof lic.years === 'number' ? lic.years : 1;
+      const firstMs = toMillis(lic.firstActivatedAt) ?? nowMs;
+      const expiresMs =
+        toMillis(lic.expiresAt) ?? computeTsudumonExpiresAtMs(firstMs, years);
+      if (nowMs >= expiresMs) return { kind: 'expired' };
+
+      const plan = lic.plan as TsudumonPlan;
+      tx.set(
+        licRef,
+        {
+          firstActivatedAt:
+            lic.firstActivatedAt ?? Timestamp.fromMillis(firstMs),
+          expiresAt: lic.expiresAt ?? Timestamp.fromMillis(expiresMs),
+          activatedUids: FieldValue.arrayUnion(uid),
+          lastActivatedAt: Timestamp.fromMillis(nowMs),
+        },
+        { merge: true }
+      );
+      tx.set(
+        userRef,
+        {
+          tsudumon: {
+            code,
+            plan,
+            years,
+            activatedAt: Timestamp.fromMillis(nowMs),
+            expiresAt: Timestamp.fromMillis(expiresMs),
+          },
+        },
+        { merge: true }
+      );
+      return { kind: 'ok', plan, expiresMs, already };
+    });
+  } catch (error) {
+    console.error('[lineWebhook] tsudumon activation failed:', error);
+    await replyText(
+      replyToken,
+      'すみません、登録処理でエラーが起きました。少し時間をおいてもう一度コードを送ってみてください。解決しないときは、このままメッセージでお知らせください。',
+      '(tsudumon activation error)'
+    );
+    return;
+  }
+
+  console.log(
+    `[lineWebhook] tsudumon activation: uid=${uid} code=${code} → ${outcome.kind}`
+  );
+
+  if (outcome.kind === 'ok') {
+    const dateLabel =
+      getJstDateString(new Date(outcome.expiresMs)) ?? '期限情報なし';
+    const head = outcome.already
+      ? '✅ このアカウントは登録済みです！そのままお使いいただけます。'
+      : '✅ ライセンス登録が完了しました！';
+    await replyText(
+      replyToken,
+      `${head}\n` +
+        `プラン: ${TSUDUMON_PLAN_LABEL[outcome.plan]}／有効期限: ${dateLabel} まで\n\n` +
+        '使い方はかんたん：\n' +
+        '📖 冊子・PDFの各単元にあるQRコードを読む\n' +
+        '✏️ その単元の問題がこのトークに届く → 解けばAIがすぐ丸つけ\n' +
+        '❓ 参考書のQRからは、AI先生に質問や理解度チェックもできるよ\n\n' +
+        'さっそくQRコードを読んで、1問解いてみよう！',
+      '(tsudumon activation ok)'
+    );
+    return;
+  }
+
+  const failText: Record<Exclude<Outcome['kind'], 'ok'>, string> = {
+    not_found:
+      'このコードが見つかりませんでした🙏\n' +
+      '納品のご案内に記載のコード（TZM-〇〇〇〇-〇〇〇〇）を、コピー＆ペーストでもう一度送ってみてください。\n' +
+      'それでも登録できないときは、このままメッセージでお知らせください。すぐに確認します。',
+    revoked:
+      'このコードは現在ご利用いただけない状態です🙏\n' +
+      'お心当たりがない場合は、このままメッセージでお問い合わせください。確認してご連絡します。',
+    expired:
+      'このコードのご利用期間は終了しています🙏\n' +
+      'ダウンロード済みのPDF教材はそのままお使いいただけます。LINEでの演習・AI採点を続けたい場合は、このトークに「継続希望」と送ってください。',
+    max:
+      'このコードは、登録できるアカウント数の上限に達しています🙏\n' +
+      'ご家族での追加利用のご相談は、このままメッセージでお知らせください。',
+  };
+  await replyText(
+    replyToken,
+    failText[outcome.kind],
+    `(tsudumon activation ${outcome.kind})`
+  );
+}
+
 /**
  * 印刷ワークの QR コード経由の入口。「ワーク {単元名}」を解決できたら
  * 出題モード（上から順 / ランダム）の選択 quickReply を reply で返す。
@@ -1080,6 +1313,20 @@ async function handleWorkbookQuestion(
 
   const location = resolveWorkbookTopic(topicName, WORKBOOK_QUESTION_INDEX);
   if (!location) return false;
+
+  // 購入者ゲート: 無料体験単元以外は、ライセンス登録（学年・期間）を確認する。
+  // ここ（フロー入口）だけで user doc を 1 read。継続 postback では読まない。
+  if (!TSUDUMON_FREE_WORKBOOK_TOPICS.includes(topicName)) {
+    const gate = await checkTsudumonAccess(uid, location.grade);
+    if (gate.result !== 'ok') {
+      await replyText(
+        replyToken,
+        buildTsudumonGateText(gate, location.grade),
+        `(tsudumon gate wb ${gate.result})`
+      );
+      return true;
+    }
+  }
 
   // ワーク利用者にはタブ付きリッチメニュー（毎日クイズ⇄ワーク問題集）を出す。
   // 失敗（環境変数未設定等）は無視して演習は続行する。
@@ -1244,6 +1491,36 @@ export async function pushWorkbookStart(
 ): Promise<'ok' | 'unknown_topic' | 'push_failed'> {
   const flex = buildWorkbookKindSelectFlex(topicName);
   if (!flex) return 'unknown_topic';
+
+  // 購入者ゲート（LIFF 起点）。無料体験単元以外はライセンスを確認し、
+  // 未登録・期限切れ等は問題カードの代わりに案内文を push する。
+  if (!TSUDUMON_FREE_WORKBOOK_TOPICS.includes(topicName)) {
+    const location = resolveWorkbookTopic(topicName, WORKBOOK_QUESTION_INDEX);
+    const gate = await checkTsudumonAccess(
+      `line:${lineUserId}`,
+      location?.grade ?? null
+    );
+    if (gate.result !== 'ok') {
+      try {
+        const client = await getLineClient();
+        await client.pushMessage({
+          to: lineUserId,
+          messages: [
+            {
+              type: 'text',
+              text: buildTsudumonGateText(gate, location?.grade ?? null),
+            },
+          ],
+        });
+        await recordPushDelivery('other');
+        return 'ok';
+      } catch (error) {
+        console.error('[lineWebhook] tsudumon gate push failed:', error);
+        return 'push_failed';
+      }
+    }
+  }
+
   if (WORKBOOK_RICHMENU_ENABLED) {
     void linkWorkbookMenuIfEligible(`line:${lineUserId}`);
   }
@@ -1908,6 +2185,27 @@ export async function pushReferenceStart(
 ): Promise<'ok' | 'unknown_topic' | 'push_failed'> {
   const topic = resolveReferenceTopic(topicKey);
   if (!topic) return 'unknown_topic';
+
+  // 購入者ゲート（参考書QR起点）。無料体験単元以外はライセンスを確認する。
+  if (!TSUDUMON_FREE_REFERENCE_KEYS.includes(topicKey)) {
+    const gate = await checkTsudumonAccess(`line:${lineUserId}`, topic.grade);
+    if (gate.result !== 'ok') {
+      try {
+        const client = await getLineClient();
+        await client.pushMessage({
+          to: lineUserId,
+          messages: [
+            { type: 'text', text: buildTsudumonGateText(gate, topic.grade) },
+          ],
+        });
+        await recordPushDelivery('other');
+        return 'ok';
+      } catch (error) {
+        console.error('[lineWebhook] tsudumon ref gate push failed:', error);
+        return 'push_failed';
+      }
+    }
+  }
   try {
     const client = await getLineClient();
     await client.pushMessage({

@@ -34,6 +34,9 @@ export { createStripeCheckoutSession } from './createStripeCheckoutSession';
 export { cancelStripeSubscription } from './cancelStripeSubscription';
 export { submitContactForm } from './submitContactForm';
 
+// つづもん納品zipのダウンロード口（回数制限つき・/tsudumon/dl から rewrite）
+export { tsudumonDownload } from './tsudumonDownload';
+
 // ムビスタ（授業動画アプリ）学習イベントの受け口（users/{uid}.mubista へ集約）
 export { recordMubistaProgress } from './recordMubistaProgress';
 // ムビスタ連携: LINE の link トークンを長命 session に交換する

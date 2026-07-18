@@ -163,6 +163,22 @@ export interface UserDoc {
   trialExpiredAt?: Timestamp;
   richMenuType?: 'free' | 'trial' | 'premium';
 
+  /**
+   * つづもん（PDF問題集＋参考書）のライセンス登録状態。
+   * ライセンスコード（TZM-XXXX-XXXX）を LINE で送ると
+   * `handleTsudumonActivation` が書き込む。ワーク演習・参考書AI先生の
+   * ゲート判定は `tsudumonCore.evaluateTsudumonAccess` がこのスナップショット
+   * だけで行う（license doc はホットパスで読まない）。
+   * 正本は tsudumonLicenses/{code}（revoke 等はそちらを更新→再登録で反映）。
+   */
+  tsudumon?: {
+    code: string;
+    plan: '中1' | '中2' | '中3' | 'set';
+    years: number;
+    activatedAt: Timestamp;
+    expiresAt: Timestamp;
+  };
+
   // === 活性状態（新規・休眠ユーザー除外システム用） ===
 
   /**
