@@ -47,7 +47,16 @@
       ]
     },
     {
-      "source": "/((?!assets/|favicon\\.ico|mubista|tsudumon/img/|sitemap\\.xml|robots\\.txt).*)",
+      "source": "/tsudumon/ref/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=600"
+        }
+      ]
+    },
+    {
+      "source": "/((?!assets/|favicon\\.ico|mubista|tsudumon/img/|tsudumon/ref/|sitemap\\.xml|robots\\.txt).*)",
       "headers": [
         {
           "key": "Cache-Control",
