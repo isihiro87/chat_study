@@ -5,34 +5,55 @@
 <style>
   :root { --brand:#b45309; --deep:#7c2d12; --amber:#f59e0b; --cream:#fffdf8; --line:#fde68a; }
   * { margin:0; padding:0; box-sizing:border-box; }
-  html { scroll-behavior:smooth; scroll-padding-top:56px; }
+  html { -webkit-text-size-adjust:100%; }
   body { font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;
-         font-size:16px; line-height:1.95; color:#1c1917; background:var(--cream); }
-  .wrap { max-width:640px; margin:0 auto; padding:0 16px 48px; }
+         font-size:16px; line-height:1.95; color:#1c1917; background:var(--cream);
+         padding-bottom:86px; }
+  .wrap { max-width:640px; margin:0 auto; padding:0 16px 24px; }
 
   .mark { background:linear-gradient(transparent 55%, var(--line) 55%); font-weight:bold; padding:0 1px; }
 
-  /* sticky ヘッダー */
-  .bar { position:sticky; top:0; z-index:10; background:rgba(255,253,248,.94);
+  /* ── 上部: タイトル＋単元タブ＋進捗バー ── */
+  .bar { position:sticky; top:0; z-index:10; background:rgba(255,253,248,.96);
          backdrop-filter:blur(6px); border-bottom:1px solid #f0e6d2; }
-  .bar-in { max-width:640px; margin:0 auto; padding:10px 16px; display:flex;
-            align-items:center; gap:10px; }
-  .bar-title { font-weight:bold; color:var(--deep); font-size:15px; flex:1;
+  .bar-in { max-width:640px; margin:0 auto; padding:8px 16px 0; }
+  .bar-row { display:flex; align-items:center; gap:8px; }
+  .bar-title { font-weight:bold; color:var(--deep); font-size:14px; flex:1;
                white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .bar a.to-toc { flex:none; font-size:13px; font-weight:bold; color:var(--brand);
-                  text-decoration:none; border:1.5px solid var(--line); background:#fffbeb;
-                  border-radius:16px; padding:4px 12px; }
+  .bar-step { flex:none; font-size:12px; font-weight:bold; color:var(--brand); }
+  .tabs { display:flex; gap:6px; overflow-x:auto; padding:8px 0;
+          scrollbar-width:none; -webkit-overflow-scrolling:touch; }
+  .tabs::-webkit-scrollbar { display:none; }
+  .tab { flex:none; width:36px; height:36px; border-radius:50%; border:1.5px solid var(--line);
+         background:#fffbeb; color:var(--brand); font-size:15px; font-weight:bold;
+         display:inline-flex; align-items:center; justify-content:center; cursor:pointer; }
+  .tab.done { background:#fef3c7; }
+  .tab.done::after { content:""; }
+  .tab.on { background:var(--brand); border-color:var(--brand); color:#fff;
+            box-shadow:0 2px 6px rgba(180,83,9,.35); }
+  .pbar { height:3px; background:#f5ecd8; border-radius:2px; overflow:hidden; margin:0 0 0; }
+  .pfill { height:100%; width:0; background:linear-gradient(90deg,var(--amber),#fbbf24);
+           border-radius:2px; transition:width .25s ease; }
 
-  /* 表紙 */
-  .top { text-align:center; padding:28px 0 8px; }
+  /* ── ビュー / ステップ ── */
+  .view { display:none; }
+  .view.on { display:block; }
+  .step { display:none; }
+  .step.on { display:block; animation:in .28s ease; }
+  @keyframes in { from { opacity:0; transform:translateX(24px); } to { opacity:1; transform:none; } }
+  .step.on.back { animation:inb .28s ease; }
+  @keyframes inb { from { opacity:0; transform:translateX(-24px); } to { opacity:1; transform:none; } }
+
+  /* ホーム */
+  .top { text-align:center; padding:26px 0 6px; }
   .badge { display:inline-block; background:var(--brand); color:#fff; font-weight:bold;
            padding:4px 16px; border-radius:20px; font-size:13px; }
   .webtag { background:rgba(255,255,255,.25); border-radius:10px; padding:1px 8px;
             font-size:11px; margin-left:4px; }
-  .top h1 { font-size:30px; color:var(--deep); margin-top:12px; line-height:1.4; }
+  .top h1 { font-size:29px; color:var(--deep); margin-top:12px; line-height:1.4; }
   .sub { color:#92400e; font-size:14px; margin-top:2px; }
   .cover-navi { display:flex; align-items:center; gap:12px; justify-content:center;
-                margin:20px auto 4px; max-width:420px; text-align:left; }
+                margin:18px auto 4px; max-width:420px; text-align:left; }
   .navi { width:56px; height:56px; border-radius:50%; object-fit:cover; flex:none;
           box-shadow:0 1px 4px rgba(0,0,0,.15); }
   .navi-emoji { background:#fef3c7; display:flex; align-items:center; justify-content:center; font-size:30px; }
@@ -40,26 +61,37 @@
             padding:8px 14px; font-size:13px; font-weight:bold; color:var(--deep); }
   .bubble::before { content:""; position:absolute; left:-12px; top:50%; transform:translateY(-50%);
                     border:6px solid transparent; border-right-color:var(--amber); }
-
-  /* 目次 */
-  .toc { margin:20px 0 8px; background:#fff; border:2px solid var(--line); border-radius:14px;
+  .resume { display:block; width:100%; margin:16px 0 0; background:var(--brand); color:#fff;
+            border:none; border-radius:14px; padding:13px; font-size:15px; font-weight:bold;
+            cursor:pointer; box-shadow:0 3px 8px rgba(180,83,9,.3); }
+  .resume span { font-weight:normal; font-size:12px; opacity:.9; margin-left:8px; }
+  .toc { margin:16px 0 8px; background:#fff; border:2px solid var(--line); border-radius:14px;
          padding:14px; }
-  .toc-h { font-weight:bold; color:var(--deep); margin-bottom:8px; font-size:15px; }
-  .toc-item { display:flex; align-items:center; gap:10px; padding:9px 6px; text-decoration:none;
-              color:#44403c; font-weight:bold; font-size:15px; border-top:1px solid #faf1dc; }
+  .toc-h { font-weight:bold; color:var(--deep); margin-bottom:6px; font-size:15px; }
+  .toc-item { display:flex; align-items:center; gap:10px; width:100%; padding:11px 6px;
+              background:none; border:none; border-top:1px solid #faf1dc; cursor:pointer;
+              color:#44403c; font-weight:bold; font-size:15px; text-align:left;
+              font-family:inherit; line-height:1.5; }
   .toc-item:first-of-type { border-top:none; }
   .toc-no { flex:none; width:24px; height:24px; border-radius:50%; background:var(--amber);
             color:#fff; display:inline-flex; align-items:center; justify-content:center;
             font-size:13px; }
+  .toc-name { flex:1; }
+  .toc-state { flex:none; font-size:11px; font-weight:bold; }
+  .toc-state.done { color:#16a34a; }
+  .toc-state.doing { color:var(--brand); background:#fffbeb; border:1px solid var(--line);
+                     border-radius:10px; padding:1px 8px; }
 
-  /* 単元 */
-  .topic { margin-top:36px; }
-  .tband { display:flex; align-items:center; gap:10px; margin-bottom:14px; }
-  .tno { flex:none; width:38px; height:38px; border-radius:50%; background:var(--brand); color:#fff;
-         display:inline-flex; align-items:center; justify-content:center; font-size:19px;
+  /* 単元ヘッダー */
+  .tband { display:flex; align-items:center; gap:10px; margin:18px 0 14px; }
+  .tno { flex:none; width:34px; height:34px; border-radius:50%; background:var(--brand); color:#fff;
+         display:inline-flex; align-items:center; justify-content:center; font-size:17px;
          font-weight:bold; box-shadow:0 2px 4px rgba(180,83,9,.3); }
-  .tband h2 { font-size:22px; color:var(--deep); border-bottom:3px solid var(--line);
+  .tband h2 { font-size:20px; color:var(--deep); border-bottom:3px solid var(--line);
               padding-bottom:2px; flex:1; line-height:1.4; }
+
+  .hook { display:flex; align-items:center; gap:12px; margin-bottom:14px; }
+  .hook .bubble { font-weight:normal; font-size:13.5px; line-height:1.8; }
 
   .overview { background:linear-gradient(135deg,#fffbeb,#fff3d8); border:2px solid #fcd34d;
               border-radius:14px; padding:14px; margin-bottom:14px; }
@@ -72,31 +104,32 @@
   .ov-num { flex:none; width:22px; height:22px; border-radius:50%; background:var(--amber); color:#fff;
             display:inline-flex; align-items:center; justify-content:center; font-size:12px; }
 
-  .hero { margin:0 0 16px; }
+  .hero { margin:0 0 8px; }
   .hero img { width:100%; border-radius:14px; display:block; }
   .hero figcaption { font-size:12px; color:#a8a29e; text-align:center; margin-top:4px; }
 
-  .sec { margin-bottom:22px; }
-  .sec h3 { font-size:18px; color:var(--deep); display:flex; align-items:center; gap:8px; line-height:1.5; }
+  /* 節 */
+  .step h3 { font-size:18px; color:var(--deep); display:flex; align-items:center; gap:8px; line-height:1.5; }
   .sec-no { flex:none; width:22px; height:22px; border-radius:50%; background:var(--brand); color:#fff;
             display:inline-flex; align-items:center; justify-content:center; font-size:12px; }
   .sec-lead { font-size:13px; color:var(--brand); font-weight:bold; margin:2px 0 4px 30px; }
-  .sec p { margin-top:8px; text-align:justify; }
+  .step p { margin-top:8px; text-align:justify; }
   .point { background:#fff9c4; border-left:6px solid #fbbf24; border-radius:8px;
-           padding:10px 12px; margin-top:10px; font-size:14px; line-height:1.8; }
+           padding:10px 12px; margin-top:12px; font-size:14px; line-height:1.8; }
   .ptag { font-weight:bold; color:var(--brand); }
   .ptxt { color:#44403c; margin-top:2px; }
   .tip { background:#fffbeb; border-radius:10px; padding:10px 12px; font-size:13.5px;
          color:#44403c; line-height:1.8; }
-  .words { display:flex; flex-direction:column; gap:6px; margin-top:10px; }
+  .words { display:flex; flex-direction:column; gap:6px; margin-top:12px; }
   .word { background:#fff; border:1px solid #f0e6d2; border-radius:10px; padding:8px 12px;
           font-size:13.5px; line-height:1.7; }
   .w-term { font-weight:bold; color:var(--brand); margin-right:8px; }
   .w-rd { font-weight:normal; font-size:11px; color:#b8b0a6; margin-left:4px; }
   .w-desc { color:#57534e; }
 
-  .terms { margin-top:20px; }
-  .terms-h { font-size:17px; font-weight:bold; color:var(--deep); margin-bottom:10px; }
+  /* 重要語チェック */
+  .terms-h { font-size:18px; font-weight:bold; color:var(--deep); margin-bottom:10px; }
+  .terms-sub { font-size:12px; font-weight:normal; color:#a8a29e; margin-left:8px; }
   .tgrid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
   @media (max-width:400px) { .tgrid { grid-template-columns:1fr; } }
   .tcard { background:#fff; border:1.5px solid var(--line); border-radius:10px; padding:10px; }
@@ -104,7 +137,8 @@
   .tc-rd { display:block; font-weight:normal; font-size:11px; color:#b8b0a6; }
   .tc-desc { font-size:13px; color:#44403c; line-height:1.7; margin-top:4px; }
 
-  .sum30 { margin-top:20px; border:2px solid var(--amber); border-radius:14px; overflow:hidden;
+  /* まとめ・完了 */
+  .sum30 { border:2px solid var(--amber); border-radius:14px; overflow:hidden;
            box-shadow:0 2px 8px rgba(245,158,11,.14); }
   .sum30-h { background:linear-gradient(90deg,#d97706,var(--amber)); color:#fff; font-weight:bold;
              font-size:15px; padding:8px 14px; display:flex; align-items:center; gap:8px; }
@@ -113,8 +147,8 @@
   .sum30-body { padding:14px 16px; font-size:15px; font-weight:bold; color:#44403c; line-height:2.0;
                 background:#fffdf5; }
   .sum30-body .mark { background:none; color:#c2410c; padding:0; }
-
-  .ai-btn { display:flex; align-items:center; gap:12px; margin-top:18px; text-decoration:none;
+  .done { text-align:center; font-size:16px; font-weight:bold; color:var(--deep); margin:18px 0 10px; }
+  .ai-btn { display:flex; align-items:center; gap:12px; text-decoration:none;
             background:#06c755; color:#fff; border-radius:14px; padding:13px 16px;
             box-shadow:0 3px 8px rgba(6,199,85,.3); }
   .ai-ico { font-size:24px; flex:none; }
@@ -122,64 +156,84 @@
   .ai-sub { display:block; font-weight:normal; font-size:12px; opacity:.9; }
   .ai-arrow { font-size:22px; opacity:.8; }
 
-  .tnav { display:flex; justify-content:space-between; margin-top:16px; }
-  .tnav-btn { font-size:13px; font-weight:bold; color:var(--brand); text-decoration:none;
-              border:1.5px solid var(--line); background:#fffbeb; border-radius:16px; padding:6px 14px; }
-
-  .foot { text-align:center; margin-top:44px; color:#a8a29e; font-size:13px; }
+  .foot { text-align:center; margin-top:36px; color:#a8a29e; font-size:13px; }
   .foot-note { margin-top:4px; font-size:12px; }
+
+  /* ── 下部ナビ ── */
+  .navbar { position:fixed; left:0; right:0; bottom:0; z-index:10;
+            background:rgba(255,253,248,.97); border-top:1px solid #f0e6d2;
+            padding:10px 16px calc(10px + env(safe-area-inset-bottom)); }
+  .navbar-in { max-width:640px; margin:0 auto; display:flex; align-items:center; gap:10px; }
+  .nb { border:none; border-radius:14px; padding:12px 0; font-size:15px; font-weight:bold;
+        cursor:pointer; font-family:inherit; }
+  .nb-prev { flex:1; background:#fff; color:var(--brand); border:1.5px solid var(--line); }
+  .nb-next { flex:2; background:var(--brand); color:#fff; box-shadow:0 3px 8px rgba(180,83,9,.3); }
+  .nav-label { position:absolute; left:-9999px; }
 </style></head><body>
 <div class="bar"><div class="bar-in">
-  <div class="bar-title">歴史 ④ 古代の国家</div>
-  <a class="to-toc" href="#toc">目次</a>
+  <div class="bar-row">
+    <div class="bar-title">歴史 ④ 古代の国家</div>
+    <div class="bar-step" id="barStep"></div>
+  </div>
+  <nav class="tabs" id="tabs"><button class="tab tab-home" data-go="0" aria-label="目次">🏠</button><button class="tab" data-go="1" aria-label="聖徳太子と飛鳥文化">1</button><button class="tab" data-go="2" aria-label="大化の改新">2</button><button class="tab" data-go="3" aria-label="律令国家と奈良時代">3</button><button class="tab" data-go="4" aria-label="班田収授法と税制度">4</button><button class="tab" data-go="5" aria-label="天平文化">5</button><button class="tab" data-go="6" aria-label="平安京と新しい仏教">6</button><button class="tab" data-go="7" aria-label="摂関政治">7</button><button class="tab" data-go="8" aria-label="国風文化">8</button></nav>
+  <div class="pbar"><div class="pfill" id="pfill"></div></div>
 </div></div>
-<div class="wrap">
+<main class="wrap" id="views">
 
-<header class="top" id="top">
-  <div class="badge">歴史 ④　参考書 <span class="webtag">Web版</span></div>
-  <h1>古代の国家</h1>
-  <div class="sub">飛鳥時代 〜 平安時代</div>
-  <div class="cover-navi"><img class="navi" src="img/navi-teacher.webp" alt="">
-    <div class="bubble">こんにちは！先生といっしょに、楽しく歴史を見ていこう！</div>
-  </div>
-</header>
-<nav class="toc" id="toc">
-  <div class="toc-h">📚 この本の単元</div>
-  <a class="toc-item" href="#t1"><span class="toc-no">1</span>聖徳太子と飛鳥文化</a><a class="toc-item" href="#t2"><span class="toc-no">2</span>大化の改新</a><a class="toc-item" href="#t3"><span class="toc-no">3</span>律令国家と奈良時代</a><a class="toc-item" href="#t4"><span class="toc-no">4</span>班田収授法と税制度</a><a class="toc-item" href="#t5"><span class="toc-no">5</span>天平文化</a><a class="toc-item" href="#t6"><span class="toc-no">6</span>平安京と新しい仏教</a><a class="toc-item" href="#t7"><span class="toc-no">7</span>摂関政治</a><a class="toc-item" href="#t8"><span class="toc-no">8</span>国風文化</a>
-</nav>
-<article class="topic" id="t1">
+<section class="view home" data-t="0">
+  <header class="top">
+    <div class="badge">歴史 ④　参考書 <span class="webtag">Web版</span></div>
+    <h1>古代の国家</h1>
+    <div class="sub">飛鳥時代 〜 平安時代</div>
+    <div class="cover-navi"><img class="navi" src="img/navi-teacher.webp" alt="">
+      <div class="bubble">こんにちは！タブか下の単元をえらんで、1ページずつ読み進めよう！</div>
+    </div>
+  </header>
+  <button class="resume" id="resumeBtn" hidden>▶ つづきから読む<span id="resumeWhere"></span></button>
+  <nav class="toc">
+    <div class="toc-h">📚 この本の単元</div>
+    <button class="toc-item" data-go="1"><span class="toc-no">1</span><span class="toc-name">聖徳太子と飛鳥文化</span><span class="toc-state" data-state-t="1"></span></button><button class="toc-item" data-go="2"><span class="toc-no">2</span><span class="toc-name">大化の改新</span><span class="toc-state" data-state-t="2"></span></button><button class="toc-item" data-go="3"><span class="toc-no">3</span><span class="toc-name">律令国家と奈良時代</span><span class="toc-state" data-state-t="3"></span></button><button class="toc-item" data-go="4"><span class="toc-no">4</span><span class="toc-name">班田収授法と税制度</span><span class="toc-state" data-state-t="4"></span></button><button class="toc-item" data-go="5"><span class="toc-no">5</span><span class="toc-name">天平文化</span><span class="toc-state" data-state-t="5"></span></button><button class="toc-item" data-go="6"><span class="toc-no">6</span><span class="toc-name">平安京と新しい仏教</span><span class="toc-state" data-state-t="6"></span></button><button class="toc-item" data-go="7"><span class="toc-no">7</span><span class="toc-name">摂関政治</span><span class="toc-state" data-state-t="7"></span></button><button class="toc-item" data-go="8"><span class="toc-no">8</span><span class="toc-name">国風文化</span><span class="toc-state" data-state-t="8"></span></button>
+  </nav>
+  <footer class="foot">
+    <div>つづもん 参考書 Web版</div>
+    <div class="foot-note">紙やタブレットでじっくり派には、ダウンロード済みのPDF版もどうぞ。</div>
+  </footer>
+</section>
+<section class="view" data-t="1">
   <div class="tband"><span class="tno">1</span><h2>聖徳太子と飛鳥文化</h2></div>
-  <div class="overview">
-    <div class="ov-h">🎯 この単元でわかること</div>
-    <ul class="ov-list"><li><span class="ov-num">1</span><span>聖徳太子が行った政治の改革（冠位十二階・十七条の憲法）</span></li><li><span class="ov-num">2</span><span>遣隋使を送って隋と対等な国交を目指したこと</span></li><li><span class="ov-num">3</span><span>法隆寺に代表される飛鳥文化のとくちょう</span></li></ul>
-  </div>
-  <figure class="hero"><img src="img/hist04-shotoku.webp" alt="" loading="lazy"></figure>
   
-  <section class="sec">
-    <h3><span class="sec-no">1</span>聖徳太子の政治改革</h3>
-    <div class="sec-lead">天皇中心の政治をめざし、役人の仕組みを整えたよ。</div>
-    <p>6世紀末、<span class="mark">聖徳太子</span>は<span class="mark">推古天皇</span>の摂政になって、蘇我馬子と力を合わせながら天皇中心の政治を目指したんだ。603年には、家柄ではなく才能や功績で役人の位を決める<span class="mark">冠位十二階</span>を定めて、能力のある人をどんどん役人に登用できるようにしたよ。604年には、役人の心構えを示す<span class="mark">十七条の憲法</span>をつくり、「和を以て貴しとなす」という言葉で人々の協調を説いて、仏教を大切にすることも求めたんだ。この二つの改革は、どちらも豪族の力を抑えて天皇のもとに国をまとめようとするねらいがあったんだよ。</p>
-    <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">冠位十二階と十七条の憲法で、天皇中心の政治をめざしたよ。</div></div>
-    <div class="words"><div class="word"><span class="w-term">聖徳太子<span class="w-rd">しょうとくたいし</span></span><span class="w-desc">推古天皇の摂政となり、天皇中心の政治を目指した人物。冠位十二階・十七条の憲法・遣隋使を進めた。</span></div><div class="word"><span class="w-term">推古天皇<span class="w-rd">すいこてんのう</span></span><span class="w-desc">日本初の女性天皇。593年から聖徳太子を摂政として政治を任せた。</span></div><div class="word"><span class="w-term">冠位十二階<span class="w-rd">かんいじゅうにかい</span></span><span class="w-desc">家柄にとらわれず、才能や功績で役人を取り立てる制度。冠の色で位を示した。</span></div><div class="word"><span class="w-term">十七条の憲法<span class="w-rd">じゅうしちじょうのけんぽう</span></span><span class="w-desc">役人の心構えを示した法。「和を以て貴しとなす」で始まる。</span></div></div>
-  </section>
-  <section class="sec">
-    <h3><span class="sec-no">2</span>遣隋使と対等外交</h3>
-    <div class="sec-lead">隋の制度や文化を学び、対等な国交を結んだよ。</div>
-    <p>聖徳太子は607年、<span class="mark">小野妹子</span>を<span class="mark">遣隋使</span>として中国の隋に送ったんだ。目的は、進んだ制度や文化を学ぶことだけじゃなく、対等な立場で国交を結ぶことでもあったんだよ。妹子が持っていった手紙には「日出づる処の天子」という言葉が使われていて、隋の皇帝と同じ「天子」として日本を位置づけようとする姿勢が表れているんだ。この交流を通じて、日本は中国の政治のしくみや仏教文化を吸収して、のちの律令国家づくりの土台を築いていったんだね。</p>
-    <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">遣隋使は「隋の制度を学ぶ」「対等な国交」が目的だよ。</div></div>
-    <div class="words"><div class="word"><span class="w-term">遣隋使<span class="w-rd">けんずいし</span></span><span class="w-desc">隋の制度や文化を学び、対等な国交を目指して派遣された使節。</span></div><div class="word"><span class="w-term">小野妹子<span class="w-rd">おののいもこ</span></span><span class="w-desc">607年に遣隋使として隋に派遣された人物。</span></div></div>
-  </section>
-  <section class="sec">
-    <h3><span class="sec-no">3</span>飛鳥文化の誕生</h3>
-    <div class="sec-lead">仏教を中心に、日本最初の文化が生まれたよ。</div>
-    <p>6世紀に百済から伝わった仏教は、受け入れに賛成した蘇我氏と反対した物部氏の争いを経て、蘇我氏が勝利したことで本格的に広まっていったんだ。聖徳太子と蘇我馬子は力を合わせて仏教を保護し、聖徳太子が建てたと伝えられる<span class="mark">法隆寺</span>は、現存する世界最古の木造建築として知られているんだよ。法隆寺金堂の釈迦三尊像などとともに、日本で最初の仏教文化である<span class="mark">飛鳥文化</span>を代表する存在になったんだね。</p>
-    <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">飛鳥文化は法隆寺に代表される、日本初の仏教文化だよ。</div></div>
-    <div class="words"><div class="word"><span class="w-term">法隆寺<span class="w-rd">ほうりゅうじ</span></span><span class="w-desc">聖徳太子が建てたと伝えられる、現存する世界最古の木造建築。</span></div><div class="word"><span class="w-term">飛鳥文化<span class="w-rd">あすかぶんか</span></span><span class="w-desc">法隆寺に代表される、日本で最初の仏教文化。</span></div></div>
-  </section>
-  
-  <div class="terms">
-    <div class="terms-h">📖 重要語チェック</div>
-    <div class="tgrid"><div class="tcard">
+    <div class="step" data-label="この単元でわかること">
+      <div class="hook"><img class="navi" src="img/navi-teacher.webp" alt=""><div class="bubble">天皇を中心にした国づくりが、この時代に始まったんだ。小さな国だった日本が、大陸の国々と肩を並べようとした一歩を見てみよう。</div></div>
+      <div class="overview">
+        <div class="ov-h">🎯 この単元でわかること</div>
+        <ul class="ov-list"><li><span class="ov-num">1</span><span>聖徳太子が行った政治の改革（冠位十二階・十七条の憲法）</span></li><li><span class="ov-num">2</span><span>遣隋使を送って隋と対等な国交を目指したこと</span></li><li><span class="ov-num">3</span><span>法隆寺に代表される飛鳥文化のとくちょう</span></li></ul>
+      </div>
+      <figure class="hero"><img src="img/hist04-shotoku.webp" alt="" loading="lazy"></figure>
+    </div>
+    <div class="step" data-label="聖徳太子の政治改革">
+      <h3><span class="sec-no">1</span>聖徳太子の政治改革</h3>
+      <div class="sec-lead">天皇中心の政治をめざし、役人の仕組みを整えたよ。</div>
+      <p>6世紀末、<span class="mark">聖徳太子</span>は<span class="mark">推古天皇</span>の摂政になって、蘇我馬子と力を合わせながら天皇中心の政治を目指したんだ。603年には、家柄ではなく才能や功績で役人の位を決める<span class="mark">冠位十二階</span>を定めて、能力のある人をどんどん役人に登用できるようにしたよ。604年には、役人の心構えを示す<span class="mark">十七条の憲法</span>をつくり、「和を以て貴しとなす」という言葉で人々の協調を説いて、仏教を大切にすることも求めたんだ。この二つの改革は、どちらも豪族の力を抑えて天皇のもとに国をまとめようとするねらいがあったんだよ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">冠位十二階と十七条の憲法で、天皇中心の政治をめざしたよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">聖徳太子<span class="w-rd">しょうとくたいし</span></span><span class="w-desc">推古天皇の摂政となり、天皇中心の政治を目指した人物。冠位十二階・十七条の憲法・遣隋使を進めた。</span></div><div class="word"><span class="w-term">推古天皇<span class="w-rd">すいこてんのう</span></span><span class="w-desc">日本初の女性天皇。593年から聖徳太子を摂政として政治を任せた。</span></div><div class="word"><span class="w-term">冠位十二階<span class="w-rd">かんいじゅうにかい</span></span><span class="w-desc">家柄にとらわれず、才能や功績で役人を取り立てる制度。冠の色で位を示した。</span></div><div class="word"><span class="w-term">十七条の憲法<span class="w-rd">じゅうしちじょうのけんぽう</span></span><span class="w-desc">役人の心構えを示した法。「和を以て貴しとなす」で始まる。</span></div></div>
+    </div>
+    <div class="step" data-label="遣隋使と対等外交">
+      <h3><span class="sec-no">2</span>遣隋使と対等外交</h3>
+      <div class="sec-lead">隋の制度や文化を学び、対等な国交を結んだよ。</div>
+      <p>聖徳太子は607年、<span class="mark">小野妹子</span>を<span class="mark">遣隋使</span>として中国の隋に送ったんだ。目的は、進んだ制度や文化を学ぶことだけじゃなく、対等な立場で国交を結ぶことでもあったんだよ。妹子が持っていった手紙には「日出づる処の天子」という言葉が使われていて、隋の皇帝と同じ「天子」として日本を位置づけようとする姿勢が表れているんだ。この交流を通じて、日本は中国の政治のしくみや仏教文化を吸収して、のちの律令国家づくりの土台を築いていったんだね。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">遣隋使は「隋の制度を学ぶ」「対等な国交」が目的だよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">遣隋使<span class="w-rd">けんずいし</span></span><span class="w-desc">隋の制度や文化を学び、対等な国交を目指して派遣された使節。</span></div><div class="word"><span class="w-term">小野妹子<span class="w-rd">おののいもこ</span></span><span class="w-desc">607年に遣隋使として隋に派遣された人物。</span></div></div>
+    </div>
+    <div class="step" data-label="飛鳥文化の誕生">
+      <h3><span class="sec-no">3</span>飛鳥文化の誕生</h3>
+      <div class="sec-lead">仏教を中心に、日本最初の文化が生まれたよ。</div>
+      <p>6世紀に百済から伝わった仏教は、受け入れに賛成した蘇我氏と反対した物部氏の争いを経て、蘇我氏が勝利したことで本格的に広まっていったんだ。聖徳太子と蘇我馬子は力を合わせて仏教を保護し、聖徳太子が建てたと伝えられる<span class="mark">法隆寺</span>は、現存する世界最古の木造建築として知られているんだよ。法隆寺金堂の釈迦三尊像などとともに、日本で最初の仏教文化である<span class="mark">飛鳥文化</span>を代表する存在になったんだね。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">飛鳥文化は法隆寺に代表される、日本初の仏教文化だよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">法隆寺<span class="w-rd">ほうりゅうじ</span></span><span class="w-desc">聖徳太子が建てたと伝えられる、現存する世界最古の木造建築。</span></div><div class="word"><span class="w-term">飛鳥文化<span class="w-rd">あすかぶんか</span></span><span class="w-desc">法隆寺に代表される、日本で最初の仏教文化。</span></div></div>
+    </div>
+    <div class="step" data-label="重要語チェック">
+      <div class="terms-h">📖 重要語チェック<span class="terms-sub">大切な言葉をおさえよう！</span></div>
+      <div class="tgrid"><div class="tcard">
       <div class="tc-term">聖徳太子<span class="tc-rd">しょうとくたいし</span></div>
       <div class="tc-desc">推古天皇の摂政となり、天皇中心の政治を目指した人物。冠位十二階・十七条の憲法・遣隋使を進めた。</div>
     </div><div class="tcard">
@@ -204,52 +258,56 @@
       <div class="tc-term">飛鳥文化<span class="tc-rd">あすかぶんか</span></div>
       <div class="tc-desc">法隆寺に代表される、日本で最初の仏教文化。</div>
     </div></div>
-  </div>
-  
-  <div class="sum30">
-    <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-    <div class="sum30-body"><span class="mark">聖徳太子</span>は、天皇中心の政治を目指して<span class="mark">冠位十二階</span>と<span class="mark">十七条の憲法</span>を定め、<span class="mark">遣隋使</span>を送って隋と対等な交流を築いたよ。このころ栄えた<span class="mark">飛鳥文化</span>は、<span class="mark">法隆寺</span>に代表される日本最初の仏教文化なんだ。</div>
-  </div>
-  <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=04-shotoku-asuka" target="_blank" rel="noopener">
-    <span class="ai-ico">🤖</span>
-    <span class="ai-main">この単元をAI先生と深める<span class="ai-sub">質問する ／ 理解度チェック（LINEが開きます）</span></span>
-    <span class="ai-arrow">›</span>
-  </a>
-  <div class="tnav"><span></span><a class="tnav-btn" href="#t2">次の単元 →</a></div>
-</article>
-<article class="topic" id="t2">
+    </div>
+    <div class="step" data-label="30秒まとめ">
+      
+      <div class="sum30">
+        <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
+        <div class="sum30-body"><span class="mark">聖徳太子</span>は、天皇中心の政治を目指して<span class="mark">冠位十二階</span>と<span class="mark">十七条の憲法</span>を定め、<span class="mark">遣隋使</span>を送って隋と対等な交流を築いたよ。このころ栄えた<span class="mark">飛鳥文化</span>は、<span class="mark">法隆寺</span>に代表される日本最初の仏教文化なんだ。</div>
+      </div>
+      <div class="done">🎉 この単元はこれで完了！</div>
+      <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=04-shotoku-asuka" target="_blank" rel="noopener">
+        <span class="ai-ico">🤖</span>
+        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます（無料）</span></span>
+        <span class="ai-arrow">›</span>
+      </a>
+    </div>
+</section>
+<section class="view" data-t="2">
   <div class="tband"><span class="tno">2</span><h2>大化の改新</h2></div>
-  <div class="overview">
-    <div class="ov-h">🎯 この単元でわかること</div>
-    <ul class="ov-list"><li><span class="ov-num">1</span><span>中大兄皇子・中臣鎌足が行った大化の改新と公地公民の方針</span></li><li><span class="ov-num">2</span><span>白村江の戦いの敗北と、そのあとの九州防衛の強化</span></li><li><span class="ov-num">3</span><span>壬申の乱に勝利した天武天皇による律令国家づくり</span></li></ul>
-  </div>
-  <figure class="hero"><img src="img/hist04-taika.webp" alt="" loading="lazy"></figure>
   
-  <section class="sec">
-    <h3><span class="sec-no">1</span>大化の改新</h3>
-    <div class="sec-lead">蘇我氏を倒し、公地公民の方針を示したよ。</div>
-    <p>6世紀末以降、蘇我氏は天皇をしのぐほどの力を持つようになっていたんだ。645年、<span class="mark">中大兄皇子</span>は<span class="mark">中臣鎌足</span>と力を合わせて蘇我蝦夷・入鹿をたおし、<span class="mark">大化の改新</span>と呼ばれる政治改革を始めたよ。このとき、土地と人民は豪族のものではなく国家(天皇)が直接支配するという<span class="mark">公地公民</span>の方針が示されて、全国を国・郡・里に分けて治めるしくみづくりが進められたんだ。中臣鎌足はのちに天智天皇から藤原の姓をもらって、藤原氏の祖となったんだね。</p>
-    <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">公地公民は、土地と人民を豪族でなく国家が治める方針だよ。</div></div>
-    <div class="words"><div class="word"><span class="w-term">大化の改新<span class="w-rd">たいかのかいしん</span></span><span class="w-desc">645年、中大兄皇子と中臣鎌足が蘇我氏を倒して始めた政治改革。</span></div><div class="word"><span class="w-term">中大兄皇子<span class="w-rd">なかのおおえのおうじ</span></span><span class="w-desc">大化の改新を主導し、のちに天智天皇として即位した人物。</span></div><div class="word"><span class="w-term">中臣鎌足<span class="w-rd">なかとみのかまたり</span></span><span class="w-desc">大化の改新に協力し、のちに藤原の姓を賜り藤原氏の祖となった人物。</span></div><div class="word"><span class="w-term">公地公民<span class="w-rd">こうちこうみん</span></span><span class="w-desc">土地と人民を国家(天皇)が直接支配するという方針。</span></div></div>
-  </section>
-  <section class="sec">
-    <h3><span class="sec-no">2</span>白村江の戦いと防衛の強化</h3>
-    <div class="sec-lead">白村江での敗戦を機に、九州の防衛を固めたよ。</div>
-    <p>663年、日本は友好関係にあった百済の復興を助けようと朝鮮半島に出兵したけれど、<span class="mark">白村江の戦い</span>で唐・新羅の連合軍に大敗してしまったんだ。この敗戦をきっかけに、日本は唐・新羅の侵攻に備えて九州の防衛を強化し、大宰府を守る水城を築いて、東国の兵士を九州に送る防人の制度を整えたよ。中大兄皇子はのちに即位して天智天皇となり、天皇中心の国づくりをさらに急いだんだね。</p>
-    <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">白村江の戦いに敗れたあと、九州の防衛が強められたんだよ。</div></div>
-    <div class="words"><div class="word"><span class="w-term">白村江の戦い<span class="w-rd">はくすきのえのたたかい</span></span><span class="w-desc">663年、百済救援のため出兵した日本が唐・新羅の連合軍に敗れた戦い。</span></div></div>
-  </section>
-  <section class="sec">
-    <h3><span class="sec-no">3</span>壬申の乱と天武天皇</h3>
-    <div class="sec-lead">皇位争いに勝った天武天皇が国づくりを進めたよ。</div>
-    <p>天智天皇が亡くなった672年、皇位をめぐって天皇の弟である大海人皇子と、天皇の子である大友皇子が争う<span class="mark">壬申の乱</span>が起こったんだ。勝利した大海人皇子は<span class="mark">天武天皇</span>として即位し、天皇の力をさらに強めながら律令国家づくりを進めたよ。その後を継いだ持統天皇は694年、唐の都をモデルにした日本初の本格的な都・藤原京を造営し、律令国家の完成へと歩みを進めたんだね。</p>
-    <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">壬申の乱に勝った天武天皇が、律令国家の基礎を整えたよ。</div></div>
-    <div class="words"><div class="word"><span class="w-term">壬申の乱<span class="w-rd">じんしんのらん</span></span><span class="w-desc">672年に起きた皇位継承をめぐる争い。大海人皇子が勝利した。</span></div><div class="word"><span class="w-term">天武天皇<span class="w-rd">てんむてんのう</span></span><span class="w-desc">壬申の乱に勝利して即位し、律令国家の基礎を整えた天皇。</span></div></div>
-  </section>
-  
-  <div class="terms">
-    <div class="terms-h">📖 重要語チェック</div>
-    <div class="tgrid"><div class="tcard">
+    <div class="step" data-label="この単元でわかること">
+      <div class="hook"><img class="navi" src="img/navi-teacher.webp" alt=""><div class="bubble">天皇をしのぐほどの力を持った豪族を倒し、国のしくみをまるごと作り直そうとした大事件があったんだ。</div></div>
+      <div class="overview">
+        <div class="ov-h">🎯 この単元でわかること</div>
+        <ul class="ov-list"><li><span class="ov-num">1</span><span>中大兄皇子・中臣鎌足が行った大化の改新と公地公民の方針</span></li><li><span class="ov-num">2</span><span>白村江の戦いの敗北と、そのあとの九州防衛の強化</span></li><li><span class="ov-num">3</span><span>壬申の乱に勝利した天武天皇による律令国家づくり</span></li></ul>
+      </div>
+      <figure class="hero"><img src="img/hist04-taika.webp" alt="" loading="lazy"></figure>
+    </div>
+    <div class="step" data-label="大化の改新">
+      <h3><span class="sec-no">1</span>大化の改新</h3>
+      <div class="sec-lead">蘇我氏を倒し、公地公民の方針を示したよ。</div>
+      <p>6世紀末以降、蘇我氏は天皇をしのぐほどの力を持つようになっていたんだ。645年、<span class="mark">中大兄皇子</span>は<span class="mark">中臣鎌足</span>と力を合わせて蘇我蝦夷・入鹿をたおし、<span class="mark">大化の改新</span>と呼ばれる政治改革を始めたよ。このとき、土地と人民は豪族のものではなく国家(天皇)が直接支配するという<span class="mark">公地公民</span>の方針が示されて、全国を国・郡・里に分けて治めるしくみづくりが進められたんだ。中臣鎌足はのちに天智天皇から藤原の姓をもらって、藤原氏の祖となったんだね。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">公地公民は、土地と人民を豪族でなく国家が治める方針だよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">大化の改新<span class="w-rd">たいかのかいしん</span></span><span class="w-desc">645年、中大兄皇子と中臣鎌足が蘇我氏を倒して始めた政治改革。</span></div><div class="word"><span class="w-term">中大兄皇子<span class="w-rd">なかのおおえのおうじ</span></span><span class="w-desc">大化の改新を主導し、のちに天智天皇として即位した人物。</span></div><div class="word"><span class="w-term">中臣鎌足<span class="w-rd">なかとみのかまたり</span></span><span class="w-desc">大化の改新に協力し、のちに藤原の姓を賜り藤原氏の祖となった人物。</span></div><div class="word"><span class="w-term">公地公民<span class="w-rd">こうちこうみん</span></span><span class="w-desc">土地と人民を国家(天皇)が直接支配するという方針。</span></div></div>
+    </div>
+    <div class="step" data-label="白村江の戦いと防衛の強化">
+      <h3><span class="sec-no">2</span>白村江の戦いと防衛の強化</h3>
+      <div class="sec-lead">白村江での敗戦を機に、九州の防衛を固めたよ。</div>
+      <p>663年、日本は友好関係にあった百済の復興を助けようと朝鮮半島に出兵したけれど、<span class="mark">白村江の戦い</span>で唐・新羅の連合軍に大敗してしまったんだ。この敗戦をきっかけに、日本は唐・新羅の侵攻に備えて九州の防衛を強化し、大宰府を守る水城を築いて、東国の兵士を九州に送る防人の制度を整えたよ。中大兄皇子はのちに即位して天智天皇となり、天皇中心の国づくりをさらに急いだんだね。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">白村江の戦いに敗れたあと、九州の防衛が強められたんだよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">白村江の戦い<span class="w-rd">はくすきのえのたたかい</span></span><span class="w-desc">663年、百済救援のため出兵した日本が唐・新羅の連合軍に敗れた戦い。</span></div></div>
+    </div>
+    <div class="step" data-label="壬申の乱と天武天皇">
+      <h3><span class="sec-no">3</span>壬申の乱と天武天皇</h3>
+      <div class="sec-lead">皇位争いに勝った天武天皇が国づくりを進めたよ。</div>
+      <p>天智天皇が亡くなった672年、皇位をめぐって天皇の弟である大海人皇子と、天皇の子である大友皇子が争う<span class="mark">壬申の乱</span>が起こったんだ。勝利した大海人皇子は<span class="mark">天武天皇</span>として即位し、天皇の力をさらに強めながら律令国家づくりを進めたよ。その後を継いだ持統天皇は694年、唐の都をモデルにした日本初の本格的な都・藤原京を造営し、律令国家の完成へと歩みを進めたんだね。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">壬申の乱に勝った天武天皇が、律令国家の基礎を整えたよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">壬申の乱<span class="w-rd">じんしんのらん</span></span><span class="w-desc">672年に起きた皇位継承をめぐる争い。大海人皇子が勝利した。</span></div><div class="word"><span class="w-term">天武天皇<span class="w-rd">てんむてんのう</span></span><span class="w-desc">壬申の乱に勝利して即位し、律令国家の基礎を整えた天皇。</span></div></div>
+    </div>
+    <div class="step" data-label="重要語チェック">
+      <div class="terms-h">📖 重要語チェック<span class="terms-sub">大切な言葉をおさえよう！</span></div>
+      <div class="tgrid"><div class="tcard">
       <div class="tc-term">大化の改新<span class="tc-rd">たいかのかいしん</span></div>
       <div class="tc-desc">645年、中大兄皇子と中臣鎌足が蘇我氏を倒して始めた政治改革。</div>
     </div><div class="tcard">
@@ -271,45 +329,49 @@
       <div class="tc-term">天武天皇<span class="tc-rd">てんむてんのう</span></div>
       <div class="tc-desc">壬申の乱に勝利して即位し、律令国家の基礎を整えた天皇。</div>
     </div></div>
-  </div>
-  
-  <div class="sum30">
-    <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-    <div class="sum30-body">645年、<span class="mark">中大兄皇子</span>と<span class="mark">中臣鎌足</span>は蘇我氏を倒して<span class="mark">大化の改新</span>を始め、天皇中心の政治を目指したんだ。<span class="mark">白村江の戦い</span>の敗北を経て、<span class="mark">壬申の乱</span>に勝利した<span class="mark">天武天皇</span>のもとで律令国家づくりが本格化していったよ。</div>
-  </div>
-  <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=04-taika-reform" target="_blank" rel="noopener">
-    <span class="ai-ico">🤖</span>
-    <span class="ai-main">この単元をAI先生と深める<span class="ai-sub">質問する ／ 理解度チェック（LINEが開きます）</span></span>
-    <span class="ai-arrow">›</span>
-  </a>
-  <div class="tnav"><a class="tnav-btn" href="#t1">← 前の単元</a><a class="tnav-btn" href="#t3">次の単元 →</a></div>
-</article>
-<article class="topic" id="t3">
+    </div>
+    <div class="step" data-label="30秒まとめ">
+      
+      <div class="sum30">
+        <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
+        <div class="sum30-body">645年、<span class="mark">中大兄皇子</span>と<span class="mark">中臣鎌足</span>は蘇我氏を倒して<span class="mark">大化の改新</span>を始め、天皇中心の政治を目指したんだ。<span class="mark">白村江の戦い</span>の敗北を経て、<span class="mark">壬申の乱</span>に勝利した<span class="mark">天武天皇</span>のもとで律令国家づくりが本格化していったよ。</div>
+      </div>
+      <div class="done">🎉 この単元はこれで完了！</div>
+      <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=04-taika-reform" target="_blank" rel="noopener">
+        <span class="ai-ico">🤖</span>
+        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます（無料）</span></span>
+        <span class="ai-arrow">›</span>
+      </a>
+    </div>
+</section>
+<section class="view" data-t="3">
   <div class="tband"><span class="tno">3</span><h2>律令国家と奈良時代</h2></div>
-  <div class="overview">
-    <div class="ov-h">🎯 この単元でわかること</div>
-    <ul class="ov-list"><li><span class="ov-num">1</span><span>刑罰の律と政治の令からなる大宝律令と国のしくみ</span></li><li><span class="ov-num">2</span><span>唐の長安をモデルにした奈良時代の都・平城京の誕生</span></li></ul>
-  </div>
-  <figure class="hero"><img src="img/hist04-nara.webp" alt="" loading="lazy"></figure>
   
-  <section class="sec">
-    <h3><span class="sec-no">1</span>大宝律令と国のしくみ</h3>
-    <div class="sec-lead">唐にならい、大宝律令で国のしくみを整えたよ。</div>
-    <p>701年、唐の制度を手本にした<span class="mark">大宝律令</span>が完成して、日本は律令国家としての体制を整えたんだ。刑罰についての決まりである<span class="mark">律</span>と、政治のしくみについての決まりである<span class="mark">令</span>を合わせて律令と呼ぶんだよ。中央には政治を担当する<span class="mark">太政官</span>と祭りを担当する神祇官の二官が置かれて、地方には都から<span class="mark">国司</span>が派遣されて政治を監督し、その下で地元の有力者が郡司として実務を担ったんだ。九州には外交と防衛を担う大宰府も置かれたんだね。</p>
-    <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">律は刑罰、令は政治の決まりで、合わせて律令というよ。</div></div>
-    <div class="words"><div class="word"><span class="w-term">大宝律令<span class="w-rd">たいほうりつりょう</span></span><span class="w-desc">701年に完成した、唐の制度を手本にした法律。律令国家の体制を整えた。</span></div><div class="word"><span class="w-term">律<span class="w-rd">りつ</span></span><span class="w-desc">律令のうち、刑罰についての決まり。</span></div><div class="word"><span class="w-term">令<span class="w-rd">りょう</span></span><span class="w-desc">律令のうち、政治のしくみについての決まり。</span></div><div class="word"><span class="w-term">太政官<span class="w-rd">だいじょうかん</span></span><span class="w-desc">律令国家で政治を担当した中央の最高機関。</span></div><div class="word"><span class="w-term">国司<span class="w-rd">こくし</span></span><span class="w-desc">都から地方の国に派遣され、政治を監督した役人。</span></div></div>
-  </section>
-  <section class="sec">
-    <h3><span class="sec-no">2</span>平城京の誕生</h3>
-    <div class="sec-lead">唐の長安をモデルに、平城京がつくられたよ。</div>
-    <p>710年、唐の都・長安をモデルにした<span class="mark">平城京</span>が奈良につくられて、都が移されたんだ。都の中央を南北に貫く朱雀大路を境に東西に区画されて、碁盤の目のような都市計画がとられたんだよ。このころ、唐の貨幣を手本にした<span class="mark">和同開珎</span>も発行されて、都を中心に貨幣による経済のしくみも整えられていったんだね。平城京を中心としたこの約80年間を奈良時代というんだ。</p>
-    <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">平城京は、唐の都・長安をモデルにした奈良時代の都だよ。</div></div>
-    <div class="words"><div class="word"><span class="w-term">平城京<span class="w-rd">へいじょうきょう</span></span><span class="w-desc">710年に奈良につくられた、唐の長安をモデルにした都。</span></div><div class="word"><span class="w-term">和同開珎<span class="w-rd">わどうかいちん</span></span><span class="w-desc">唐の貨幣を手本に発行された、奈良時代の貨幣。</span></div></div>
-  </section>
-  
-  <div class="terms">
-    <div class="terms-h">📖 重要語チェック</div>
-    <div class="tgrid"><div class="tcard">
+    <div class="step" data-label="この単元でわかること">
+      <div class="hook"><img class="navi" src="img/navi-teacher.webp" alt=""><div class="bubble">中国にならった本格的な法律と、碁盤の目のような大きな都を持つ国へ、日本が大きく近づいた時代だよ。</div></div>
+      <div class="overview">
+        <div class="ov-h">🎯 この単元でわかること</div>
+        <ul class="ov-list"><li><span class="ov-num">1</span><span>刑罰の律と政治の令からなる大宝律令と国のしくみ</span></li><li><span class="ov-num">2</span><span>唐の長安をモデルにした奈良時代の都・平城京の誕生</span></li></ul>
+      </div>
+      <figure class="hero"><img src="img/hist04-nara.webp" alt="" loading="lazy"></figure>
+    </div>
+    <div class="step" data-label="大宝律令と国のしくみ">
+      <h3><span class="sec-no">1</span>大宝律令と国のしくみ</h3>
+      <div class="sec-lead">唐にならい、大宝律令で国のしくみを整えたよ。</div>
+      <p>701年、唐の制度を手本にした<span class="mark">大宝律令</span>が完成して、日本は律令国家としての体制を整えたんだ。刑罰についての決まりである<span class="mark">律</span>と、政治のしくみについての決まりである<span class="mark">令</span>を合わせて律令と呼ぶんだよ。中央には政治を担当する<span class="mark">太政官</span>と祭りを担当する神祇官の二官が置かれて、地方には都から<span class="mark">国司</span>が派遣されて政治を監督し、その下で地元の有力者が郡司として実務を担ったんだ。九州には外交と防衛を担う大宰府も置かれたんだね。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">律は刑罰、令は政治の決まりで、合わせて律令というよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">大宝律令<span class="w-rd">たいほうりつりょう</span></span><span class="w-desc">701年に完成した、唐の制度を手本にした法律。律令国家の体制を整えた。</span></div><div class="word"><span class="w-term">律<span class="w-rd">りつ</span></span><span class="w-desc">律令のうち、刑罰についての決まり。</span></div><div class="word"><span class="w-term">令<span class="w-rd">りょう</span></span><span class="w-desc">律令のうち、政治のしくみについての決まり。</span></div><div class="word"><span class="w-term">太政官<span class="w-rd">だいじょうかん</span></span><span class="w-desc">律令国家で政治を担当した中央の最高機関。</span></div><div class="word"><span class="w-term">国司<span class="w-rd">こくし</span></span><span class="w-desc">都から地方の国に派遣され、政治を監督した役人。</span></div></div>
+    </div>
+    <div class="step" data-label="平城京の誕生">
+      <h3><span class="sec-no">2</span>平城京の誕生</h3>
+      <div class="sec-lead">唐の長安をモデルに、平城京がつくられたよ。</div>
+      <p>710年、唐の都・長安をモデルにした<span class="mark">平城京</span>が奈良につくられて、都が移されたんだ。都の中央を南北に貫く朱雀大路を境に東西に区画されて、碁盤の目のような都市計画がとられたんだよ。このころ、唐の貨幣を手本にした<span class="mark">和同開珎</span>も発行されて、都を中心に貨幣による経済のしくみも整えられていったんだね。平城京を中心としたこの約80年間を奈良時代というんだ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">平城京は、唐の都・長安をモデルにした奈良時代の都だよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">平城京<span class="w-rd">へいじょうきょう</span></span><span class="w-desc">710年に奈良につくられた、唐の長安をモデルにした都。</span></div><div class="word"><span class="w-term">和同開珎<span class="w-rd">わどうかいちん</span></span><span class="w-desc">唐の貨幣を手本に発行された、奈良時代の貨幣。</span></div></div>
+    </div>
+    <div class="step" data-label="重要語チェック">
+      <div class="terms-h">📖 重要語チェック<span class="terms-sub">大切な言葉をおさえよう！</span></div>
+      <div class="tgrid"><div class="tcard">
       <div class="tc-term">大宝律令<span class="tc-rd">たいほうりつりょう</span></div>
       <div class="tc-desc">701年に完成した、唐の制度を手本にした法律。律令国家の体制を整えた。</div>
     </div><div class="tcard">
@@ -331,52 +393,56 @@
       <div class="tc-term">和同開珎<span class="tc-rd">わどうかいちん</span></div>
       <div class="tc-desc">唐の貨幣を手本に発行された、奈良時代の貨幣。</div>
     </div></div>
-  </div>
-  
-  <div class="sum30">
-    <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-    <div class="sum30-body">701年に<span class="mark">大宝律令</span>が完成して<span class="mark">律令国家</span>の体制が整い、710年には唐の長安を手本にした<span class="mark">平城京</span>に都が移されたんだ。この平城京を中心とした時代を<span class="mark">奈良時代</span>というんだよ。</div>
-  </div>
-  <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=04-ritsuryo-nara" target="_blank" rel="noopener">
-    <span class="ai-ico">🤖</span>
-    <span class="ai-main">この単元をAI先生と深める<span class="ai-sub">質問する ／ 理解度チェック（LINEが開きます）</span></span>
-    <span class="ai-arrow">›</span>
-  </a>
-  <div class="tnav"><a class="tnav-btn" href="#t2">← 前の単元</a><a class="tnav-btn" href="#t4">次の単元 →</a></div>
-</article>
-<article class="topic" id="t4">
+    </div>
+    <div class="step" data-label="30秒まとめ">
+      
+      <div class="sum30">
+        <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
+        <div class="sum30-body">701年に<span class="mark">大宝律令</span>が完成して<span class="mark">律令国家</span>の体制が整い、710年には唐の長安を手本にした<span class="mark">平城京</span>に都が移されたんだ。この平城京を中心とした時代を<span class="mark">奈良時代</span>というんだよ。</div>
+      </div>
+      <div class="done">🎉 この単元はこれで完了！</div>
+      <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=04-ritsuryo-nara" target="_blank" rel="noopener">
+        <span class="ai-ico">🤖</span>
+        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます（無料）</span></span>
+        <span class="ai-arrow">›</span>
+      </a>
+    </div>
+</section>
+<section class="view" data-t="4">
   <div class="tband"><span class="tno">4</span><h2>班田収授法と税制度</h2></div>
-  <div class="overview">
-    <div class="ov-h">🎯 この単元でわかること</div>
-    <ul class="ov-list"><li><span class="ov-num">1</span><span>6歳以上に口分田を与える班田収授法のしくみ</span></li><li><span class="ov-num">2</span><span>租・調・庸などの税と防人などの兵役の重い負担</span></li><li><span class="ov-num">3</span><span>墾田永年私財法をきっかけに荘園が生まれたこと</span></li></ul>
-  </div>
-  <figure class="hero"><img src="img/hist04-handen.webp" alt="" loading="lazy"></figure>
   
-  <section class="sec">
-    <h3><span class="sec-no">1</span>班田収授法と口分田</h3>
-    <div class="sec-lead">6歳以上に口分田を与える制度が始まったよ。</div>
-    <p>律令国家は6年ごとに作られる戸籍にもとづいて、6歳以上のすべての人々に<span class="mark">口分田</span>を与え、亡くなると国に返させる<span class="mark">班田収授法</span>を実施したんだ。これは、土地と人民を国家が直接支配するという公地公民の原則を、実際の土地制度として実現したものなんだよ。人々はこの口分田を耕して暮らしを立てる代わりに、国に対してさまざまな税や労役の義務を負うことになったんだね。</p>
-    <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">班田収授法は、6歳以上に口分田を与え、死ねば返させる制度だよ。</div></div>
-    <div class="words"><div class="word"><span class="w-term">班田収授法<span class="w-rd">はんでんしゅうじゅほう</span></span><span class="w-desc">戸籍にもとづき6歳以上の男女に口分田を与え、死ねば国に返させた制度。</span></div><div class="word"><span class="w-term">口分田<span class="w-rd">くぶんでん</span></span><span class="w-desc">班田収授法によって人々に与えられた田。</span></div></div>
-  </section>
-  <section class="sec">
-    <h3><span class="sec-no">2</span>重い税と兵役の負担</h3>
-    <div class="sec-lead">租・調・庸の税と防人の兵役が課されたよ。</div>
-    <p>人々には、口分田の収穫量の約3%を稲で納める<span class="mark">租</span>、布や地方の特産物を都に納める<span class="mark">調</span>、都での労役の代わりに布を納める<span class="mark">庸</span>などの税が課されたんだ。調・庸を都まで運ぶ費用は農民自身の負担で、これが大きな重荷になったんだよ。さらに、九州北部の守りにつく<span class="mark">防人</span>は主に東国の農民から選ばれ、旅費も自分で用意して約3年間も任務にあたるなど、人々の生活を圧迫する要因になったんだね。</p>
-    <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">租・調・庸という税と、九州を守る防人の兵役が課されたよ。</div></div>
-    <div class="words"><div class="word"><span class="w-term">租<span class="w-rd">そ</span></span><span class="w-desc">口分田の収穫量の約3%を稲で納める税。</span></div><div class="word"><span class="w-term">調<span class="w-rd">ちょう</span></span><span class="w-desc">布や各地の特産物を都へ納める税。</span></div><div class="word"><span class="w-term">庸<span class="w-rd">よう</span></span><span class="w-desc">都での労役の代わりに布を納める税。</span></div><div class="word"><span class="w-term">防人<span class="w-rd">さきもり</span></span><span class="w-desc">九州北部の守りについた兵士。おもに東国の農民から選ばれた。</span></div></div>
-  </section>
-  <section class="sec">
-    <h3><span class="sec-no">3</span>荘園の始まり</h3>
-    <div class="sec-lead">墾田永年私財法により荘園が生まれたよ。</div>
-    <p>人口が増えると口分田が足りなくなり、朝廷は723年に開墾地を3代まで私有できる三世一身法を出したけれど効果はあまりなく、743年には開墾地の永久私有を認める<span class="mark">墾田永年私財法</span>が出されたんだ。これをきっかけに、貴族や寺社は開墾を進めて私有地である<span class="mark">荘園</span>を広げていき、土地と人民を国家が直接支配するという公地公民の原則は次第にくずれていくことになったんだよ。</p>
-    <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">墾田永年私財法によって、荘園という私有地が生まれたんだよ。</div></div>
-    <div class="words"><div class="word"><span class="w-term">墾田永年私財法<span class="w-rd">こんでんえいねんしざいほう</span></span><span class="w-desc">743年に出された、開墾地の永久私有を認める法。</span></div><div class="word"><span class="w-term">荘園<span class="w-rd">しょうえん</span></span><span class="w-desc">貴族や寺社が開墾や寄進によって広げた私有地。</span></div></div>
-  </section>
-  
-  <div class="terms">
-    <div class="terms-h">📖 重要語チェック</div>
-    <div class="tgrid"><div class="tcard">
+    <div class="step" data-label="この単元でわかること">
+      <div class="hook"><img class="navi" src="img/navi-teacher.webp" alt=""><div class="bubble">土地をもらえる代わりに、人々は重い税や兵役の義務も背負うことになったんだ。</div></div>
+      <div class="overview">
+        <div class="ov-h">🎯 この単元でわかること</div>
+        <ul class="ov-list"><li><span class="ov-num">1</span><span>6歳以上に口分田を与える班田収授法のしくみ</span></li><li><span class="ov-num">2</span><span>租・調・庸などの税と防人などの兵役の重い負担</span></li><li><span class="ov-num">3</span><span>墾田永年私財法をきっかけに荘園が生まれたこと</span></li></ul>
+      </div>
+      <figure class="hero"><img src="img/hist04-handen.webp" alt="" loading="lazy"></figure>
+    </div>
+    <div class="step" data-label="班田収授法と口分田">
+      <h3><span class="sec-no">1</span>班田収授法と口分田</h3>
+      <div class="sec-lead">6歳以上に口分田を与える制度が始まったよ。</div>
+      <p>律令国家は6年ごとに作られる戸籍にもとづいて、6歳以上のすべての人々に<span class="mark">口分田</span>を与え、亡くなると国に返させる<span class="mark">班田収授法</span>を実施したんだ。これは、土地と人民を国家が直接支配するという公地公民の原則を、実際の土地制度として実現したものなんだよ。人々はこの口分田を耕して暮らしを立てる代わりに、国に対してさまざまな税や労役の義務を負うことになったんだね。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">班田収授法は、6歳以上に口分田を与え、死ねば返させる制度だよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">班田収授法<span class="w-rd">はんでんしゅうじゅほう</span></span><span class="w-desc">戸籍にもとづき6歳以上の男女に口分田を与え、死ねば国に返させた制度。</span></div><div class="word"><span class="w-term">口分田<span class="w-rd">くぶんでん</span></span><span class="w-desc">班田収授法によって人々に与えられた田。</span></div></div>
+    </div>
+    <div class="step" data-label="重い税と兵役の負担">
+      <h3><span class="sec-no">2</span>重い税と兵役の負担</h3>
+      <div class="sec-lead">租・調・庸の税と防人の兵役が課されたよ。</div>
+      <p>人々には、口分田の収穫量の約3%を稲で納める<span class="mark">租</span>、布や地方の特産物を都に納める<span class="mark">調</span>、都での労役の代わりに布を納める<span class="mark">庸</span>などの税が課されたんだ。調・庸を都まで運ぶ費用は農民自身の負担で、これが大きな重荷になったんだよ。さらに、九州北部の守りにつく<span class="mark">防人</span>は主に東国の農民から選ばれ、旅費も自分で用意して約3年間も任務にあたるなど、人々の生活を圧迫する要因になったんだね。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">租・調・庸という税と、九州を守る防人の兵役が課されたよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">租<span class="w-rd">そ</span></span><span class="w-desc">口分田の収穫量の約3%を稲で納める税。</span></div><div class="word"><span class="w-term">調<span class="w-rd">ちょう</span></span><span class="w-desc">布や各地の特産物を都へ納める税。</span></div><div class="word"><span class="w-term">庸<span class="w-rd">よう</span></span><span class="w-desc">都での労役の代わりに布を納める税。</span></div><div class="word"><span class="w-term">防人<span class="w-rd">さきもり</span></span><span class="w-desc">九州北部の守りについた兵士。おもに東国の農民から選ばれた。</span></div></div>
+    </div>
+    <div class="step" data-label="荘園の始まり">
+      <h3><span class="sec-no">3</span>荘園の始まり</h3>
+      <div class="sec-lead">墾田永年私財法により荘園が生まれたよ。</div>
+      <p>人口が増えると口分田が足りなくなり、朝廷は723年に開墾地を3代まで私有できる三世一身法を出したけれど効果はあまりなく、743年には開墾地の永久私有を認める<span class="mark">墾田永年私財法</span>が出されたんだ。これをきっかけに、貴族や寺社は開墾を進めて私有地である<span class="mark">荘園</span>を広げていき、土地と人民を国家が直接支配するという公地公民の原則は次第にくずれていくことになったんだよ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">墾田永年私財法によって、荘園という私有地が生まれたんだよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">墾田永年私財法<span class="w-rd">こんでんえいねんしざいほう</span></span><span class="w-desc">743年に出された、開墾地の永久私有を認める法。</span></div><div class="word"><span class="w-term">荘園<span class="w-rd">しょうえん</span></span><span class="w-desc">貴族や寺社が開墾や寄進によって広げた私有地。</span></div></div>
+    </div>
+    <div class="step" data-label="重要語チェック">
+      <div class="terms-h">📖 重要語チェック<span class="terms-sub">大切な言葉をおさえよう！</span></div>
+      <div class="tgrid"><div class="tcard">
       <div class="tc-term">班田収授法<span class="tc-rd">はんでんしゅうじゅほう</span></div>
       <div class="tc-desc">戸籍にもとづき6歳以上の男女に口分田を与え、死ねば国に返させた制度。</div>
     </div><div class="tcard">
@@ -401,52 +467,56 @@
       <div class="tc-term">荘園<span class="tc-rd">しょうえん</span></div>
       <div class="tc-desc">貴族や寺社が開墾や寄進によって広げた私有地。</div>
     </div></div>
-  </div>
-  
-  <div class="sum30">
-    <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-    <div class="sum30-body">律令国家は<span class="mark">班田収授法</span>で口分田を与える代わりに、<span class="mark">租・調・庸</span>などの重い税や<span class="mark">防人</span>などの兵役を課したんだ。人口が増えて口分田が不足すると<span class="mark">墾田永年私財法</span>が出され、それが<span class="mark">荘園</span>が生まれるきっかけとなったんだよ。</div>
-  </div>
-  <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=04-handen-tax" target="_blank" rel="noopener">
-    <span class="ai-ico">🤖</span>
-    <span class="ai-main">この単元をAI先生と深める<span class="ai-sub">質問する ／ 理解度チェック（LINEが開きます）</span></span>
-    <span class="ai-arrow">›</span>
-  </a>
-  <div class="tnav"><a class="tnav-btn" href="#t3">← 前の単元</a><a class="tnav-btn" href="#t5">次の単元 →</a></div>
-</article>
-<article class="topic" id="t5">
+    </div>
+    <div class="step" data-label="30秒まとめ">
+      
+      <div class="sum30">
+        <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
+        <div class="sum30-body">律令国家は<span class="mark">班田収授法</span>で口分田を与える代わりに、<span class="mark">租・調・庸</span>などの重い税や<span class="mark">防人</span>などの兵役を課したんだ。人口が増えて口分田が不足すると<span class="mark">墾田永年私財法</span>が出され、それが<span class="mark">荘園</span>が生まれるきっかけとなったんだよ。</div>
+      </div>
+      <div class="done">🎉 この単元はこれで完了！</div>
+      <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=04-handen-tax" target="_blank" rel="noopener">
+        <span class="ai-ico">🤖</span>
+        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます（無料）</span></span>
+        <span class="ai-arrow">›</span>
+      </a>
+    </div>
+</section>
+<section class="view" data-t="5">
   <div class="tband"><span class="tno">5</span><h2>天平文化</h2></div>
-  <div class="overview">
-    <div class="ov-h">🎯 この単元でわかること</div>
-    <ul class="ov-list"><li><span class="ov-num">1</span><span>聖武天皇が仏教の力で国を守ろうとした鎮護国家の考え方</span></li><li><span class="ov-num">2</span><span>正倉院や鑑真の来日にみる国際色豊かな天平文化</span></li><li><span class="ov-num">3</span><span>古事記・日本書紀・万葉集という奈良時代の書物</span></li></ul>
-  </div>
-  <figure class="hero"><img src="img/hist04-daibutsu.webp" alt="" loading="lazy"><figcaption>天平文化の象徴・東大寺の大仏</figcaption></figure>
   
-  <section class="sec">
-    <h3><span class="sec-no">1</span>聖武天皇と鎮護国家</h3>
-    <div class="sec-lead">仏教の力で国を守ろうと大仏を造らせたよ。</div>
-    <p>奈良時代、疫病や災害が続いて社会が不安定になると、<span class="mark">聖武天皇</span>は仏教の力で国を守り安定させようとする鎮護国家の考えにもとづいて、国ごとに国分寺・国分尼寺を建てさせ、都には<span class="mark">東大寺</span>を建てて大仏(盧舎那仏)をつくらせたんだ。大仏づくりには、民間で布教していた僧の行基も協力して、多くの人々の力を集めて完成させたんだよ。</p>
-    <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">聖武天皇は仏教の力にたよって、国分寺や大仏を造らせたよ。</div></div>
-    <div class="words"><div class="word"><span class="w-term">聖武天皇<span class="w-rd">しょうむてんのう</span></span><span class="w-desc">仏教の力で国を守ろうと、国分寺や東大寺の大仏を造らせた天皇。</span></div><div class="word"><span class="w-term">東大寺<span class="w-rd">とうだいじ</span></span><span class="w-desc">聖武天皇が建立し、大仏(盧舎那仏)が安置された寺。</span></div><div class="word"><span class="w-term">国分寺<span class="w-rd">こくぶんじ</span></span><span class="w-desc">仏教の力で国を守るため、聖武天皇が国ごとに建てさせた寺。</span></div></div>
-  </section>
-  <section class="sec">
-    <h3><span class="sec-no">2</span>国際色豊かな天平文化</h3>
-    <div class="sec-lead">唐の影響を受けた国際色豊かな文化が栄えたよ。</div>
-    <p>このころ、唐や<span class="mark">シルクロード</span>を通じて西アジアなどの文物も伝わって、国際色豊かな仏教文化である<span class="mark">天平文化</span>が栄えたんだ。聖武天皇ゆかりの品々は東大寺の<span class="mark">正倉院</span>に納められていて、三角形の木材を組み上げる校倉造という建築様式がとられているんだよ。唐の高僧<span class="mark">鑑真</span>は、正式な戒律を日本に伝えようと来日を試みたけれど、5度の失敗と失明という苦難を乗り越えて、6度目でついに来日を果たし、唐招提寺を開いたんだ。すごいよね。</p>
-    <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">天平文化は聖武天皇のころ栄えた、国際色豊かな仏教文化だよ。</div></div>
-    <div class="words"><div class="word"><span class="w-term">天平文化<span class="w-rd">てんぴょうぶんか</span></span><span class="w-desc">聖武天皇のころ栄えた、唐の影響を強く受けた国際色豊かな仏教文化。</span></div><div class="word"><span class="w-term">正倉院<span class="w-rd">しょうそういん</span></span><span class="w-desc">聖武天皇の遺品などが納められた東大寺の宝物庫。</span></div><div class="word"><span class="w-term">鑑真<span class="w-rd">がんじん</span></span><span class="w-desc">何度も渡航に失敗しながら来日し、正式な戒律を伝えた唐の僧。</span></div></div>
-  </section>
-  <section class="sec">
-    <h3><span class="sec-no">3</span>奈良時代の書物</h3>
-    <div class="sec-lead">万葉集など奈良時代の書物がまとめられたよ。</div>
-    <p>奈良時代には国の成り立ちを記す歴史書として、神話や伝承をもとにした「古事記」と、国家の正史としてまとめられた「日本書紀」が完成したんだ。また、天皇から農民・防人まで幅広い身分の人々の歌約4500首を集めた日本最古の和歌集「<span class="mark">万葉集</span>」もまとめられて、当時の人々の暮らしや心情を今に伝えてくれているんだよ。</p>
-    <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">万葉集は、天皇から農民まで集めた日本最古の和歌集だよ。</div></div>
-    <div class="words"><div class="word"><span class="w-term">万葉集<span class="w-rd">まんようしゅう</span></span><span class="w-desc">天皇から農民まで幅広い身分の歌を収めた、日本最古の和歌集。</span></div></div>
-  </section>
-  
-  <div class="terms">
-    <div class="terms-h">📖 重要語チェック</div>
-    <div class="tgrid"><div class="tcard">
+    <div class="step" data-label="この単元でわかること">
+      <div class="hook"><img class="navi" src="img/navi-teacher.webp" alt=""><div class="bubble">仏教の力にすがって国を守ろうとした天皇の願いが、国際色豊かな文化を生んだんだ。</div></div>
+      <div class="overview">
+        <div class="ov-h">🎯 この単元でわかること</div>
+        <ul class="ov-list"><li><span class="ov-num">1</span><span>聖武天皇が仏教の力で国を守ろうとした鎮護国家の考え方</span></li><li><span class="ov-num">2</span><span>正倉院や鑑真の来日にみる国際色豊かな天平文化</span></li><li><span class="ov-num">3</span><span>古事記・日本書紀・万葉集という奈良時代の書物</span></li></ul>
+      </div>
+      <figure class="hero"><img src="img/hist04-daibutsu.webp" alt="" loading="lazy"><figcaption>天平文化の象徴・東大寺の大仏</figcaption></figure>
+    </div>
+    <div class="step" data-label="聖武天皇と鎮護国家">
+      <h3><span class="sec-no">1</span>聖武天皇と鎮護国家</h3>
+      <div class="sec-lead">仏教の力で国を守ろうと大仏を造らせたよ。</div>
+      <p>奈良時代、疫病や災害が続いて社会が不安定になると、<span class="mark">聖武天皇</span>は仏教の力で国を守り安定させようとする鎮護国家の考えにもとづいて、国ごとに国分寺・国分尼寺を建てさせ、都には<span class="mark">東大寺</span>を建てて大仏(盧舎那仏)をつくらせたんだ。大仏づくりには、民間で布教していた僧の行基も協力して、多くの人々の力を集めて完成させたんだよ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">聖武天皇は仏教の力にたよって、国分寺や大仏を造らせたよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">聖武天皇<span class="w-rd">しょうむてんのう</span></span><span class="w-desc">仏教の力で国を守ろうと、国分寺や東大寺の大仏を造らせた天皇。</span></div><div class="word"><span class="w-term">東大寺<span class="w-rd">とうだいじ</span></span><span class="w-desc">聖武天皇が建立し、大仏(盧舎那仏)が安置された寺。</span></div><div class="word"><span class="w-term">国分寺<span class="w-rd">こくぶんじ</span></span><span class="w-desc">仏教の力で国を守るため、聖武天皇が国ごとに建てさせた寺。</span></div></div>
+    </div>
+    <div class="step" data-label="国際色豊かな天平文化">
+      <h3><span class="sec-no">2</span>国際色豊かな天平文化</h3>
+      <div class="sec-lead">唐の影響を受けた国際色豊かな文化が栄えたよ。</div>
+      <p>このころ、唐や<span class="mark">シルクロード</span>を通じて西アジアなどの文物も伝わって、国際色豊かな仏教文化である<span class="mark">天平文化</span>が栄えたんだ。聖武天皇ゆかりの品々は東大寺の<span class="mark">正倉院</span>に納められていて、三角形の木材を組み上げる校倉造という建築様式がとられているんだよ。唐の高僧<span class="mark">鑑真</span>は、正式な戒律を日本に伝えようと来日を試みたけれど、5度の失敗と失明という苦難を乗り越えて、6度目でついに来日を果たし、唐招提寺を開いたんだ。すごいよね。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">天平文化は聖武天皇のころ栄えた、国際色豊かな仏教文化だよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">天平文化<span class="w-rd">てんぴょうぶんか</span></span><span class="w-desc">聖武天皇のころ栄えた、唐の影響を強く受けた国際色豊かな仏教文化。</span></div><div class="word"><span class="w-term">正倉院<span class="w-rd">しょうそういん</span></span><span class="w-desc">聖武天皇の遺品などが納められた東大寺の宝物庫。</span></div><div class="word"><span class="w-term">鑑真<span class="w-rd">がんじん</span></span><span class="w-desc">何度も渡航に失敗しながら来日し、正式な戒律を伝えた唐の僧。</span></div></div>
+    </div>
+    <div class="step" data-label="奈良時代の書物">
+      <h3><span class="sec-no">3</span>奈良時代の書物</h3>
+      <div class="sec-lead">万葉集など奈良時代の書物がまとめられたよ。</div>
+      <p>奈良時代には国の成り立ちを記す歴史書として、神話や伝承をもとにした「古事記」と、国家の正史としてまとめられた「日本書紀」が完成したんだ。また、天皇から農民・防人まで幅広い身分の人々の歌約4500首を集めた日本最古の和歌集「<span class="mark">万葉集</span>」もまとめられて、当時の人々の暮らしや心情を今に伝えてくれているんだよ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">万葉集は、天皇から農民まで集めた日本最古の和歌集だよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">万葉集<span class="w-rd">まんようしゅう</span></span><span class="w-desc">天皇から農民まで幅広い身分の歌を収めた、日本最古の和歌集。</span></div></div>
+    </div>
+    <div class="step" data-label="重要語チェック">
+      <div class="terms-h">📖 重要語チェック<span class="terms-sub">大切な言葉をおさえよう！</span></div>
+      <div class="tgrid"><div class="tcard">
       <div class="tc-term">聖武天皇<span class="tc-rd">しょうむてんのう</span></div>
       <div class="tc-desc">仏教の力で国を守ろうと、国分寺や東大寺の大仏を造らせた天皇。</div>
     </div><div class="tcard">
@@ -468,52 +538,56 @@
       <div class="tc-term">国分寺<span class="tc-rd">こくぶんじ</span></div>
       <div class="tc-desc">仏教の力で国を守るため、聖武天皇が国ごとに建てさせた寺。</div>
     </div></div>
-  </div>
-  
-  <div class="sum30">
-    <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-    <div class="sum30-body"><span class="mark">聖武天皇</span>は仏教の力で国を守ろうと<span class="mark">東大寺</span>の大仏や国分寺を造らせ、このころ国際色豊かな<span class="mark">天平文化</span>が栄えたんだ。<span class="mark">正倉院</span>の宝物や<span class="mark">万葉集</span>は、当時の国際的な交流と人々の暮らしを今に伝えてくれているんだよ。</div>
-  </div>
-  <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=04-tenpyo-culture" target="_blank" rel="noopener">
-    <span class="ai-ico">🤖</span>
-    <span class="ai-main">この単元をAI先生と深める<span class="ai-sub">質問する ／ 理解度チェック（LINEが開きます）</span></span>
-    <span class="ai-arrow">›</span>
-  </a>
-  <div class="tnav"><a class="tnav-btn" href="#t4">← 前の単元</a><a class="tnav-btn" href="#t6">次の単元 →</a></div>
-</article>
-<article class="topic" id="t6">
+    </div>
+    <div class="step" data-label="30秒まとめ">
+      
+      <div class="sum30">
+        <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
+        <div class="sum30-body"><span class="mark">聖武天皇</span>は仏教の力で国を守ろうと<span class="mark">東大寺</span>の大仏や国分寺を造らせ、このころ国際色豊かな<span class="mark">天平文化</span>が栄えたんだ。<span class="mark">正倉院</span>の宝物や<span class="mark">万葉集</span>は、当時の国際的な交流と人々の暮らしを今に伝えてくれているんだよ。</div>
+      </div>
+      <div class="done">🎉 この単元はこれで完了！</div>
+      <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=04-tenpyo-culture" target="_blank" rel="noopener">
+        <span class="ai-ico">🤖</span>
+        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます（無料）</span></span>
+        <span class="ai-arrow">›</span>
+      </a>
+    </div>
+</section>
+<section class="view" data-t="6">
   <div class="tband"><span class="tno">6</span><h2>平安京と新しい仏教</h2></div>
-  <div class="overview">
-    <div class="ov-h">🎯 この単元でわかること</div>
-    <ul class="ov-list"><li><span class="ov-num">1</span><span>桓武天皇が律令政治を立て直すために行った平安京への遷都</span></li><li><span class="ov-num">2</span><span>坂上田村麻呂による東北地方の蝦夷の平定</span></li><li><span class="ov-num">3</span><span>最澄の天台宗と空海の真言宗という新しい山岳仏教</span></li></ul>
-  </div>
-  <figure class="hero"><img src="img/hist04-heian-capital.webp" alt="" loading="lazy"><figcaption>平安京と新しい仏教</figcaption></figure>
   
-  <section class="sec">
-    <h3><span class="sec-no">1</span>桓武天皇と平安京への遷都</h3>
-    <div class="sec-lead">律令政治の立て直しへ、平安京に都を移したよ。</div>
-    <p>奈良時代の後半になると、都の大寺院が政治に口を出すなど問題が目立つようになったんだ。<span class="mark">桓武天皇</span>は律令政治を立て直そうと、784年にまず長岡京へ都を移し、さらに794年には<span class="mark">平安京</span>へ遷都したよ。これ以降、鎌倉幕府が成立するまでの約400年間を平安時代というんだね。</p>
-    <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">桓武天皇は律令政治を立て直すため、平安京に都を移したよ。</div></div>
-    <div class="words"><div class="word"><span class="w-term">桓武天皇<span class="w-rd">かんむてんのう</span></span><span class="w-desc">律令政治を立て直すため、平安京に都を移した天皇。</span></div><div class="word"><span class="w-term">平安京<span class="w-rd">へいあんきょう</span></span><span class="w-desc">794年に桓武天皇が移した都。約400年間日本の都となった。</span></div></div>
-  </section>
-  <section class="sec">
-    <h3><span class="sec-no">2</span>坂上田村麻呂と東北平定</h3>
-    <div class="sec-lead">征夷大将軍が東北の蝦夷を平定したよ。</div>
-    <p>桓武天皇は、東北地方に住み朝廷の支配に従わなかった蝦夷を平定しようと、<span class="mark">坂上田村麻呂</span>を<span class="mark">征夷大将軍</span>に任命して東北へ派遣したんだ。坂上田村麻呂は激しく抵抗した蝦夷の指導者アテルイを降伏させて、朝廷の東北支配を大きく前進させたんだよ。「征夷」とは蝦夷を征伐するという意味なんだね。</p>
-    <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">坂上田村麻呂は征夷大将軍として、東北の蝦夷を平定したよ。</div></div>
-    <div class="words"><div class="word"><span class="w-term">坂上田村麻呂<span class="w-rd">さかのうえのたむらまろ</span></span><span class="w-desc">征夷大将軍として東北の蝦夷を平定した人物。</span></div><div class="word"><span class="w-term">征夷大将軍<span class="w-rd">せいいたいしょうぐん</span></span><span class="w-desc">東北の蝦夷を征討するために任命された役職。</span></div></div>
-  </section>
-  <section class="sec">
-    <h3><span class="sec-no">3</span>最澄と空海の新しい仏教</h3>
-    <div class="sec-lead">最澄と空海が山奥で学ぶ新しい仏教を開いたよ。</div>
-    <p>9世紀初め、唐に渡って仏教を学んだ<span class="mark">最澄</span>は、帰国後に比叡山延暦寺を建てて<span class="mark">天台宗</span>を開いたんだ。同じころ唐で密教を学んだ<span class="mark">空海</span>は、高野山金剛峯寺を建てて<span class="mark">真言宗</span>を開いたよ。二人が開いた仏教は、都の大寺院を中心とした奈良時代の仏教とは違って、山奥での修行と学問を重んじる山岳仏教という新しい特徴を持っていたんだね。</p>
-    <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">最澄は天台宗、空海は真言宗という山岳仏教を開いたよ。</div></div>
-    <div class="words"><div class="word"><span class="w-term">最澄<span class="w-rd">さいちょう</span></span><span class="w-desc">唐から帰国後、比叡山延暦寺に天台宗を開いた僧。</span></div><div class="word"><span class="w-term">天台宗<span class="w-rd">てんだいしゅう</span></span><span class="w-desc">最澄が比叡山延暦寺で開いた仏教の宗派。</span></div><div class="word"><span class="w-term">空海<span class="w-rd">くうかい</span></span><span class="w-desc">唐で密教を学び、高野山金剛峯寺に真言宗を開いた僧。</span></div><div class="word"><span class="w-term">真言宗<span class="w-rd">しんごんしゅう</span></span><span class="w-desc">空海が高野山金剛峯寺で開いた密教の宗派。</span></div></div>
-  </section>
-  
-  <div class="terms">
-    <div class="terms-h">📖 重要語チェック</div>
-    <div class="tgrid"><div class="tcard">
+    <div class="step" data-label="この単元でわかること">
+      <div class="hook"><img class="navi" src="img/navi-teacher.webp" alt=""><div class="bubble">都を移し、東北を平定し、新しい仏教を迎え入れる。桓武天皇の時代に、平安の世が幕を開けたんだ。</div></div>
+      <div class="overview">
+        <div class="ov-h">🎯 この単元でわかること</div>
+        <ul class="ov-list"><li><span class="ov-num">1</span><span>桓武天皇が律令政治を立て直すために行った平安京への遷都</span></li><li><span class="ov-num">2</span><span>坂上田村麻呂による東北地方の蝦夷の平定</span></li><li><span class="ov-num">3</span><span>最澄の天台宗と空海の真言宗という新しい山岳仏教</span></li></ul>
+      </div>
+      <figure class="hero"><img src="img/hist04-heian-capital.webp" alt="" loading="lazy"><figcaption>平安京と新しい仏教</figcaption></figure>
+    </div>
+    <div class="step" data-label="桓武天皇と平安京への遷都">
+      <h3><span class="sec-no">1</span>桓武天皇と平安京への遷都</h3>
+      <div class="sec-lead">律令政治の立て直しへ、平安京に都を移したよ。</div>
+      <p>奈良時代の後半になると、都の大寺院が政治に口を出すなど問題が目立つようになったんだ。<span class="mark">桓武天皇</span>は律令政治を立て直そうと、784年にまず長岡京へ都を移し、さらに794年には<span class="mark">平安京</span>へ遷都したよ。これ以降、鎌倉幕府が成立するまでの約400年間を平安時代というんだね。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">桓武天皇は律令政治を立て直すため、平安京に都を移したよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">桓武天皇<span class="w-rd">かんむてんのう</span></span><span class="w-desc">律令政治を立て直すため、平安京に都を移した天皇。</span></div><div class="word"><span class="w-term">平安京<span class="w-rd">へいあんきょう</span></span><span class="w-desc">794年に桓武天皇が移した都。約400年間日本の都となった。</span></div></div>
+    </div>
+    <div class="step" data-label="坂上田村麻呂と東北平定">
+      <h3><span class="sec-no">2</span>坂上田村麻呂と東北平定</h3>
+      <div class="sec-lead">征夷大将軍が東北の蝦夷を平定したよ。</div>
+      <p>桓武天皇は、東北地方に住み朝廷の支配に従わなかった蝦夷を平定しようと、<span class="mark">坂上田村麻呂</span>を<span class="mark">征夷大将軍</span>に任命して東北へ派遣したんだ。坂上田村麻呂は激しく抵抗した蝦夷の指導者アテルイを降伏させて、朝廷の東北支配を大きく前進させたんだよ。「征夷」とは蝦夷を征伐するという意味なんだね。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">坂上田村麻呂は征夷大将軍として、東北の蝦夷を平定したよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">坂上田村麻呂<span class="w-rd">さかのうえのたむらまろ</span></span><span class="w-desc">征夷大将軍として東北の蝦夷を平定した人物。</span></div><div class="word"><span class="w-term">征夷大将軍<span class="w-rd">せいいたいしょうぐん</span></span><span class="w-desc">東北の蝦夷を征討するために任命された役職。</span></div></div>
+    </div>
+    <div class="step" data-label="最澄と空海の新しい仏教">
+      <h3><span class="sec-no">3</span>最澄と空海の新しい仏教</h3>
+      <div class="sec-lead">最澄と空海が山奥で学ぶ新しい仏教を開いたよ。</div>
+      <p>9世紀初め、唐に渡って仏教を学んだ<span class="mark">最澄</span>は、帰国後に比叡山延暦寺を建てて<span class="mark">天台宗</span>を開いたんだ。同じころ唐で密教を学んだ<span class="mark">空海</span>は、高野山金剛峯寺を建てて<span class="mark">真言宗</span>を開いたよ。二人が開いた仏教は、都の大寺院を中心とした奈良時代の仏教とは違って、山奥での修行と学問を重んじる山岳仏教という新しい特徴を持っていたんだね。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">最澄は天台宗、空海は真言宗という山岳仏教を開いたよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">最澄<span class="w-rd">さいちょう</span></span><span class="w-desc">唐から帰国後、比叡山延暦寺に天台宗を開いた僧。</span></div><div class="word"><span class="w-term">天台宗<span class="w-rd">てんだいしゅう</span></span><span class="w-desc">最澄が比叡山延暦寺で開いた仏教の宗派。</span></div><div class="word"><span class="w-term">空海<span class="w-rd">くうかい</span></span><span class="w-desc">唐で密教を学び、高野山金剛峯寺に真言宗を開いた僧。</span></div><div class="word"><span class="w-term">真言宗<span class="w-rd">しんごんしゅう</span></span><span class="w-desc">空海が高野山金剛峯寺で開いた密教の宗派。</span></div></div>
+    </div>
+    <div class="step" data-label="重要語チェック">
+      <div class="terms-h">📖 重要語チェック<span class="terms-sub">大切な言葉をおさえよう！</span></div>
+      <div class="tgrid"><div class="tcard">
       <div class="tc-term">桓武天皇<span class="tc-rd">かんむてんのう</span></div>
       <div class="tc-desc">律令政治を立て直すため、平安京に都を移した天皇。</div>
     </div><div class="tcard">
@@ -538,52 +612,56 @@
       <div class="tc-term">真言宗<span class="tc-rd">しんごんしゅう</span></div>
       <div class="tc-desc">空海が高野山金剛峯寺で開いた密教の宗派。</div>
     </div></div>
-  </div>
-  
-  <div class="sum30">
-    <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-    <div class="sum30-body"><span class="mark">桓武天皇</span>は律令政治の立て直しのため<span class="mark">平安京</span>に都を移し、<span class="mark">坂上田村麻呂</span>に東北の蝦夷を平定させたんだ。同じころ、<span class="mark">最澄</span>・<span class="mark">空海</span>が唐から新しい仏教を伝え、山奥で修行する山岳仏教が広まっていったよ。</div>
-  </div>
-  <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=04-heian-capital" target="_blank" rel="noopener">
-    <span class="ai-ico">🤖</span>
-    <span class="ai-main">この単元をAI先生と深める<span class="ai-sub">質問する ／ 理解度チェック（LINEが開きます）</span></span>
-    <span class="ai-arrow">›</span>
-  </a>
-  <div class="tnav"><a class="tnav-btn" href="#t5">← 前の単元</a><a class="tnav-btn" href="#t7">次の単元 →</a></div>
-</article>
-<article class="topic" id="t7">
+    </div>
+    <div class="step" data-label="30秒まとめ">
+      
+      <div class="sum30">
+        <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
+        <div class="sum30-body"><span class="mark">桓武天皇</span>は律令政治の立て直しのため<span class="mark">平安京</span>に都を移し、<span class="mark">坂上田村麻呂</span>に東北の蝦夷を平定させたんだ。同じころ、<span class="mark">最澄</span>・<span class="mark">空海</span>が唐から新しい仏教を伝え、山奥で修行する山岳仏教が広まっていったよ。</div>
+      </div>
+      <div class="done">🎉 この単元はこれで完了！</div>
+      <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=04-heian-capital" target="_blank" rel="noopener">
+        <span class="ai-ico">🤖</span>
+        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます（無料）</span></span>
+        <span class="ai-arrow">›</span>
+      </a>
+    </div>
+</section>
+<section class="view" data-t="7">
   <div class="tband"><span class="tno">7</span><h2>摂関政治</h2></div>
-  <div class="overview">
-    <div class="ov-h">🎯 この単元でわかること</div>
-    <ul class="ov-list"><li><span class="ov-num">1</span><span>藤原氏が外戚として実権を握った摂関政治のしくみ</span></li><li><span class="ov-num">2</span><span>藤原道長・頼通のころに全盛期を迎えた摂関政治</span></li><li><span class="ov-num">3</span><span>摂関政治から上皇が実権を握る院政へ移り変わったこと</span></li></ul>
-  </div>
-  <figure class="hero"><img src="img/hist04-sekkan-politics.webp" alt="" loading="lazy"><figcaption>摂関政治</figcaption></figure>
   
-  <section class="sec">
-    <h3><span class="sec-no">1</span>藤原氏と摂関政治のしくみ</h3>
-    <div class="sec-lead">娘を天皇の后にして、摂政・関白の実権を握ったよ。</div>
-    <p><span class="mark">藤原氏</span>は、自分の娘を天皇のきさきにして、生まれた子を天皇に立てることで、天皇の<span class="mark">外戚</span>(母方の親戚)という立場を手に入れたんだ。そして天皇が幼いときには<span class="mark">摂政</span>、成人したのちには<span class="mark">関白</span>という職について、政治の実権を握ったんだよ。このような藤原氏中心の政治を<span class="mark">摂関政治</span>というんだね。</p>
-    <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">藤原氏は、娘を天皇の后にして摂政・関白の実権を握ったよ。</div></div>
-    <div class="words"><div class="word"><span class="w-term">摂関政治<span class="w-rd">せっかんせいじ</span></span><span class="w-desc">藤原氏が娘を天皇の后にし、摂政・関白として実権を握った政治。</span></div><div class="word"><span class="w-term">摂政<span class="w-rd">せっしょう</span></span><span class="w-desc">天皇が幼いときなどに代わって政治を行う役職。</span></div><div class="word"><span class="w-term">関白<span class="w-rd">かんぱく</span></span><span class="w-desc">成人した天皇を補佐して政治を行う役職。</span></div><div class="word"><span class="w-term">外戚<span class="w-rd">がいせき</span></span><span class="w-desc">天皇の母方の親戚のこと。藤原氏はこの立場を利用した。</span></div></div>
-  </section>
-  <section class="sec">
-    <h3><span class="sec-no">2</span>藤原道長と頼通の全盛期</h3>
-    <div class="sec-lead">藤原道長・頼通の時代に全盛期を迎えたよ。</div>
-    <p>摂関政治は11世紀前半、<span class="mark">藤原道長</span>とその子<span class="mark">藤原頼通</span>のときに最も栄えたんだ。道長は4人の娘を次々に天皇の后として、「この世をば わが世とぞ思ふ 望月の 欠けたることも なしと思へば」という歌で、欠けることのない満月にたとえて自らの栄華を表したんだよ。頼通は1053年、宇治に阿弥陀堂である<span class="mark">平等院鳳凰堂</span>を建てているんだね。</p>
-    <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">摂関政治は、藤原道長・頼通の時代に全盛期を迎えたんだよ。</div></div>
-    <div class="words"><div class="word"><span class="w-term">藤原道長<span class="w-rd">ふじわらのみちなが</span></span><span class="w-desc">摂関政治の全盛期を築いた人物。望月の歌で知られる。</span></div><div class="word"><span class="w-term">藤原頼通<span class="w-rd">ふじわらのよりみち</span></span><span class="w-desc">藤原道長の子で、平等院鳳凰堂を建立した人物。</span></div><div class="word"><span class="w-term">平等院鳳凰堂<span class="w-rd">びょうどういんほうおうどう</span></span><span class="w-desc">1053年に藤原頼通が宇治に建てた阿弥陀堂。</span></div></div>
-  </section>
-  <section class="sec">
-    <h3><span class="sec-no">3</span>摂関政治から院政へ</h3>
-    <div class="sec-lead">力を失った摂関政治に代わり院政が始まったよ。</div>
-    <p>頼通に天皇の后となる娘が生まれなかったこともあって、摂関政治は次第に力を失っていったんだ。11世紀末になると、退位した天皇である上皇が実権を握る<span class="mark">院政</span>が白河上皇のもとで本格的に始まったよ。摂関政治は天皇の外戚である藤原氏の政治だったのに対して、院政は天皇の父や祖父にあたる上皇自身が実権を握る政治だという違いがあるんだね。</p>
-    <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">摂関政治は藤原氏、院政は上皇が実権を握る政治だよ。</div></div>
-    <div class="words"><div class="word"><span class="w-term">院政<span class="w-rd">いんせい</span></span><span class="w-desc">退位した天皇(上皇)が実権を握って行う政治。</span></div></div>
-  </section>
-  
-  <div class="terms">
-    <div class="terms-h">📖 重要語チェック</div>
-    <div class="tgrid"><div class="tcard">
+    <div class="step" data-label="この単元でわかること">
+      <div class="hook"><img class="navi" src="img/navi-teacher.webp" alt=""><div class="bubble">天皇の親戚という立場を使って、一つの一族が政治を思うままに動かした時代があったんだ。</div></div>
+      <div class="overview">
+        <div class="ov-h">🎯 この単元でわかること</div>
+        <ul class="ov-list"><li><span class="ov-num">1</span><span>藤原氏が外戚として実権を握った摂関政治のしくみ</span></li><li><span class="ov-num">2</span><span>藤原道長・頼通のころに全盛期を迎えた摂関政治</span></li><li><span class="ov-num">3</span><span>摂関政治から上皇が実権を握る院政へ移り変わったこと</span></li></ul>
+      </div>
+      <figure class="hero"><img src="img/hist04-sekkan-politics.webp" alt="" loading="lazy"><figcaption>摂関政治</figcaption></figure>
+    </div>
+    <div class="step" data-label="藤原氏と摂関政治のしくみ">
+      <h3><span class="sec-no">1</span>藤原氏と摂関政治のしくみ</h3>
+      <div class="sec-lead">娘を天皇の后にして、摂政・関白の実権を握ったよ。</div>
+      <p><span class="mark">藤原氏</span>は、自分の娘を天皇のきさきにして、生まれた子を天皇に立てることで、天皇の<span class="mark">外戚</span>(母方の親戚)という立場を手に入れたんだ。そして天皇が幼いときには<span class="mark">摂政</span>、成人したのちには<span class="mark">関白</span>という職について、政治の実権を握ったんだよ。このような藤原氏中心の政治を<span class="mark">摂関政治</span>というんだね。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">藤原氏は、娘を天皇の后にして摂政・関白の実権を握ったよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">摂関政治<span class="w-rd">せっかんせいじ</span></span><span class="w-desc">藤原氏が娘を天皇の后にし、摂政・関白として実権を握った政治。</span></div><div class="word"><span class="w-term">摂政<span class="w-rd">せっしょう</span></span><span class="w-desc">天皇が幼いときなどに代わって政治を行う役職。</span></div><div class="word"><span class="w-term">関白<span class="w-rd">かんぱく</span></span><span class="w-desc">成人した天皇を補佐して政治を行う役職。</span></div><div class="word"><span class="w-term">外戚<span class="w-rd">がいせき</span></span><span class="w-desc">天皇の母方の親戚のこと。藤原氏はこの立場を利用した。</span></div></div>
+    </div>
+    <div class="step" data-label="藤原道長と頼通の全盛期">
+      <h3><span class="sec-no">2</span>藤原道長と頼通の全盛期</h3>
+      <div class="sec-lead">藤原道長・頼通の時代に全盛期を迎えたよ。</div>
+      <p>摂関政治は11世紀前半、<span class="mark">藤原道長</span>とその子<span class="mark">藤原頼通</span>のときに最も栄えたんだ。道長は4人の娘を次々に天皇の后として、「この世をば わが世とぞ思ふ 望月の 欠けたることも なしと思へば」という歌で、欠けることのない満月にたとえて自らの栄華を表したんだよ。頼通は1053年、宇治に阿弥陀堂である<span class="mark">平等院鳳凰堂</span>を建てているんだね。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">摂関政治は、藤原道長・頼通の時代に全盛期を迎えたんだよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">藤原道長<span class="w-rd">ふじわらのみちなが</span></span><span class="w-desc">摂関政治の全盛期を築いた人物。望月の歌で知られる。</span></div><div class="word"><span class="w-term">藤原頼通<span class="w-rd">ふじわらのよりみち</span></span><span class="w-desc">藤原道長の子で、平等院鳳凰堂を建立した人物。</span></div><div class="word"><span class="w-term">平等院鳳凰堂<span class="w-rd">びょうどういんほうおうどう</span></span><span class="w-desc">1053年に藤原頼通が宇治に建てた阿弥陀堂。</span></div></div>
+    </div>
+    <div class="step" data-label="摂関政治から院政へ">
+      <h3><span class="sec-no">3</span>摂関政治から院政へ</h3>
+      <div class="sec-lead">力を失った摂関政治に代わり院政が始まったよ。</div>
+      <p>頼通に天皇の后となる娘が生まれなかったこともあって、摂関政治は次第に力を失っていったんだ。11世紀末になると、退位した天皇である上皇が実権を握る<span class="mark">院政</span>が白河上皇のもとで本格的に始まったよ。摂関政治は天皇の外戚である藤原氏の政治だったのに対して、院政は天皇の父や祖父にあたる上皇自身が実権を握る政治だという違いがあるんだね。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">摂関政治は藤原氏、院政は上皇が実権を握る政治だよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">院政<span class="w-rd">いんせい</span></span><span class="w-desc">退位した天皇(上皇)が実権を握って行う政治。</span></div></div>
+    </div>
+    <div class="step" data-label="重要語チェック">
+      <div class="terms-h">📖 重要語チェック<span class="terms-sub">大切な言葉をおさえよう！</span></div>
+      <div class="tgrid"><div class="tcard">
       <div class="tc-term">摂関政治<span class="tc-rd">せっかんせいじ</span></div>
       <div class="tc-desc">藤原氏が娘を天皇の后にし、摂政・関白として実権を握った政治。</div>
     </div><div class="tcard">
@@ -608,52 +686,56 @@
       <div class="tc-term">院政<span class="tc-rd">いんせい</span></div>
       <div class="tc-desc">退位した天皇(上皇)が実権を握って行う政治。</div>
     </div></div>
-  </div>
-  
-  <div class="sum30">
-    <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-    <div class="sum30-body"><span class="mark">藤原氏</span>は娘を天皇の后にする<span class="mark">外戚</span>の立場を利用して、摂政・関白として<span class="mark">摂関政治</span>を行ったんだ。11世紀の<span class="mark">藤原道長</span>・<span class="mark">藤原頼通</span>のとき全盛期を迎えたけれど、その後は上皇が実権を握る<span class="mark">院政</span>へと移っていったんだよ。</div>
-  </div>
-  <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=04-sekkan-politics" target="_blank" rel="noopener">
-    <span class="ai-ico">🤖</span>
-    <span class="ai-main">この単元をAI先生と深める<span class="ai-sub">質問する ／ 理解度チェック（LINEが開きます）</span></span>
-    <span class="ai-arrow">›</span>
-  </a>
-  <div class="tnav"><a class="tnav-btn" href="#t6">← 前の単元</a><a class="tnav-btn" href="#t8">次の単元 →</a></div>
-</article>
-<article class="topic" id="t8">
+    </div>
+    <div class="step" data-label="30秒まとめ">
+      
+      <div class="sum30">
+        <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
+        <div class="sum30-body"><span class="mark">藤原氏</span>は娘を天皇の后にする<span class="mark">外戚</span>の立場を利用して、摂政・関白として<span class="mark">摂関政治</span>を行ったんだ。11世紀の<span class="mark">藤原道長</span>・<span class="mark">藤原頼通</span>のとき全盛期を迎えたけれど、その後は上皇が実権を握る<span class="mark">院政</span>へと移っていったんだよ。</div>
+      </div>
+      <div class="done">🎉 この単元はこれで完了！</div>
+      <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=04-sekkan-politics" target="_blank" rel="noopener">
+        <span class="ai-ico">🤖</span>
+        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます（無料）</span></span>
+        <span class="ai-arrow">›</span>
+      </a>
+    </div>
+</section>
+<section class="view" data-t="8">
   <div class="tband"><span class="tno">8</span><h2>国風文化</h2></div>
-  <div class="overview">
-    <div class="ov-h">🎯 この単元でわかること</div>
-    <ul class="ov-list"><li><span class="ov-num">1</span><span>遣唐使の停止をきっかけに発展した国風文化</span></li><li><span class="ov-num">2</span><span>かな文字で書かれた源氏物語・枕草子などの女性文学</span></li><li><span class="ov-num">3</span><span>寝殿造の貴族のくらしと、極楽浄土を願う浄土信仰</span></li></ul>
-  </div>
-  <figure class="hero"><img src="img/hist04-byodoin.webp" alt="" loading="lazy"><figcaption>国風文化と浄土信仰・平等院鳳凰堂</figcaption></figure>
   
-  <section class="sec">
-    <h3><span class="sec-no">1</span>遣唐使の停止と国風文化</h3>
-    <div class="sec-lead">遣唐使が停止され、日本独自の文化が育ったよ。</div>
-    <p>9世紀末、唐がおとろえて航海の危険も増えたことから、<span class="mark">菅原道真</span>の意見によって894年、<span class="mark">遣唐使</span>が停止されたんだ。これをきっかけに、それまで学んできた唐の文化をふまえながらも、日本の風土や生活に合った独自の<span class="mark">国風文化</span>が10〜11世紀ごろに栄えるようになったんだよ。</p>
-    <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">菅原道真の意見で遣唐使が停止され、国風文化が発展したよ。</div></div>
-    <div class="words"><div class="word"><span class="w-term">国風文化<span class="w-rd">こくふうぶんか</span></span><span class="w-desc">唐の文化をふまえながら、日本の風土や生活に合わせて発達した文化。</span></div><div class="word"><span class="w-term">菅原道真<span class="w-rd">すがわらのみちざね</span></span><span class="w-desc">894年、遣唐使の停止を意見した人物。</span></div><div class="word"><span class="w-term">遣唐使<span class="w-rd">けんとうし</span></span><span class="w-desc">唐に制度や文化を学ぶために派遣された使節。894年に停止された。</span></div></div>
-  </section>
-  <section class="sec">
-    <h3><span class="sec-no">2</span>かな文字と女性の文学</h3>
-    <div class="sec-lead">かな文字が生まれ、女性による文学が花開いたよ。</div>
-    <p>このころ、漢字をもとにした<span class="mark">仮名文字</span>(ひらがな・カタカナ)がつくられて、日本語の細やかな感情を書き表しやすくなったんだ。これによって宮廷に仕える女性による文学が花開き、<span class="mark">紫式部</span>は貴族社会を描いた長編物語「<span class="mark">源氏物語</span>」を、<span class="mark">清少納言</span>は宮中の暮らしをするどい感性でつづった随筆「<span class="mark">枕草子</span>」を著したんだよ。紀貫之らは天皇の命令による最初の勅撰和歌集「古今和歌集」もまとめているんだね。</p>
-    <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">紫式部は源氏物語、清少納言は枕草子をかな文字で書いたよ。</div></div>
-    <div class="words"><div class="word"><span class="w-term">仮名文字<span class="w-rd">かなもじ</span></span><span class="w-desc">漢字をもとに作られた、日本語を書き表すための文字。</span></div><div class="word"><span class="w-term">紫式部<span class="w-rd">むらさきしきぶ</span></span><span class="w-desc">長編物語『源氏物語』を書いた女性。</span></div><div class="word"><span class="w-term">源氏物語<span class="w-rd">げんじものがたり</span></span><span class="w-desc">紫式部が書いた、貴族社会を描いた長編物語。</span></div><div class="word"><span class="w-term">清少納言<span class="w-rd">せいしょうなごん</span></span><span class="w-desc">随筆『枕草子』を書いた女性。</span></div><div class="word"><span class="w-term">枕草子<span class="w-rd">まくらのそうし</span></span><span class="w-desc">清少納言が宮中の暮らしをつづった随筆。</span></div></div>
-  </section>
-  <section class="sec">
-    <h3><span class="sec-no">3</span>貴族のくらしと浄土信仰</h3>
-    <div class="sec-lead">阿弥陀仏にすがる浄土信仰が広まったよ。</div>
-    <p>貴族の住宅は、中央に寝殿を置いて渡り廊下で建物を結ぶ<span class="mark">寝殿造</span>という様式で建てられて、日本の風景や生活を描いた大和絵も発達したんだ。また、仏教の教えが衰えるという末法思想を背景に、阿弥陀仏にすがって極楽浄土への生まれ変わりを願う<span class="mark">浄土信仰</span>も広まり、藤原頼通が建てた平等院鳳凰堂はその代表なんだよ。</p>
-    <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">浄土信仰は、阿弥陀仏にすがり極楽浄土を願う信仰だよ。</div></div>
-    
-  </section>
-  
-  <div class="terms">
-    <div class="terms-h">📖 重要語チェック</div>
-    <div class="tgrid"><div class="tcard">
+    <div class="step" data-label="この単元でわかること">
+      <div class="hook"><img class="navi" src="img/navi-teacher.webp" alt=""><div class="bubble">中国のお手本から少し離れ、日本らしい感性で書かれた文学が花開いた時代だよ。</div></div>
+      <div class="overview">
+        <div class="ov-h">🎯 この単元でわかること</div>
+        <ul class="ov-list"><li><span class="ov-num">1</span><span>遣唐使の停止をきっかけに発展した国風文化</span></li><li><span class="ov-num">2</span><span>かな文字で書かれた源氏物語・枕草子などの女性文学</span></li><li><span class="ov-num">3</span><span>寝殿造の貴族のくらしと、極楽浄土を願う浄土信仰</span></li></ul>
+      </div>
+      <figure class="hero"><img src="img/hist04-byodoin.webp" alt="" loading="lazy"><figcaption>国風文化と浄土信仰・平等院鳳凰堂</figcaption></figure>
+    </div>
+    <div class="step" data-label="遣唐使の停止と国風文化">
+      <h3><span class="sec-no">1</span>遣唐使の停止と国風文化</h3>
+      <div class="sec-lead">遣唐使が停止され、日本独自の文化が育ったよ。</div>
+      <p>9世紀末、唐がおとろえて航海の危険も増えたことから、<span class="mark">菅原道真</span>の意見によって894年、<span class="mark">遣唐使</span>が停止されたんだ。これをきっかけに、それまで学んできた唐の文化をふまえながらも、日本の風土や生活に合った独自の<span class="mark">国風文化</span>が10〜11世紀ごろに栄えるようになったんだよ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">菅原道真の意見で遣唐使が停止され、国風文化が発展したよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">国風文化<span class="w-rd">こくふうぶんか</span></span><span class="w-desc">唐の文化をふまえながら、日本の風土や生活に合わせて発達した文化。</span></div><div class="word"><span class="w-term">菅原道真<span class="w-rd">すがわらのみちざね</span></span><span class="w-desc">894年、遣唐使の停止を意見した人物。</span></div><div class="word"><span class="w-term">遣唐使<span class="w-rd">けんとうし</span></span><span class="w-desc">唐に制度や文化を学ぶために派遣された使節。894年に停止された。</span></div></div>
+    </div>
+    <div class="step" data-label="かな文字と女性の文学">
+      <h3><span class="sec-no">2</span>かな文字と女性の文学</h3>
+      <div class="sec-lead">かな文字が生まれ、女性による文学が花開いたよ。</div>
+      <p>このころ、漢字をもとにした<span class="mark">仮名文字</span>(ひらがな・カタカナ)がつくられて、日本語の細やかな感情を書き表しやすくなったんだ。これによって宮廷に仕える女性による文学が花開き、<span class="mark">紫式部</span>は貴族社会を描いた長編物語「<span class="mark">源氏物語</span>」を、<span class="mark">清少納言</span>は宮中の暮らしをするどい感性でつづった随筆「<span class="mark">枕草子</span>」を著したんだよ。紀貫之らは天皇の命令による最初の勅撰和歌集「古今和歌集」もまとめているんだね。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">紫式部は源氏物語、清少納言は枕草子をかな文字で書いたよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">仮名文字<span class="w-rd">かなもじ</span></span><span class="w-desc">漢字をもとに作られた、日本語を書き表すための文字。</span></div><div class="word"><span class="w-term">紫式部<span class="w-rd">むらさきしきぶ</span></span><span class="w-desc">長編物語『源氏物語』を書いた女性。</span></div><div class="word"><span class="w-term">源氏物語<span class="w-rd">げんじものがたり</span></span><span class="w-desc">紫式部が書いた、貴族社会を描いた長編物語。</span></div><div class="word"><span class="w-term">清少納言<span class="w-rd">せいしょうなごん</span></span><span class="w-desc">随筆『枕草子』を書いた女性。</span></div><div class="word"><span class="w-term">枕草子<span class="w-rd">まくらのそうし</span></span><span class="w-desc">清少納言が宮中の暮らしをつづった随筆。</span></div></div>
+    </div>
+    <div class="step" data-label="貴族のくらしと浄土信仰">
+      <h3><span class="sec-no">3</span>貴族のくらしと浄土信仰</h3>
+      <div class="sec-lead">阿弥陀仏にすがる浄土信仰が広まったよ。</div>
+      <p>貴族の住宅は、中央に寝殿を置いて渡り廊下で建物を結ぶ<span class="mark">寝殿造</span>という様式で建てられて、日本の風景や生活を描いた大和絵も発達したんだ。また、仏教の教えが衰えるという末法思想を背景に、阿弥陀仏にすがって極楽浄土への生まれ変わりを願う<span class="mark">浄土信仰</span>も広まり、藤原頼通が建てた平等院鳳凰堂はその代表なんだよ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">浄土信仰は、阿弥陀仏にすがり極楽浄土を願う信仰だよ。</div></div>
+      
+    </div>
+    <div class="step" data-label="重要語チェック">
+      <div class="terms-h">📖 重要語チェック<span class="terms-sub">大切な言葉をおさえよう！</span></div>
+      <div class="tgrid"><div class="tcard">
       <div class="tc-term">国風文化<span class="tc-rd">こくふうぶんか</span></div>
       <div class="tc-desc">唐の文化をふまえながら、日本の風土や生活に合わせて発達した文化。</div>
     </div><div class="tcard">
@@ -678,22 +760,166 @@
       <div class="tc-term">枕草子<span class="tc-rd">まくらのそうし</span></div>
       <div class="tc-desc">清少納言が宮中の暮らしをつづった随筆。</div>
     </div></div>
-  </div>
-  
-  <div class="sum30">
-    <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-    <div class="sum30-body">894年に<span class="mark">遣唐使</span>が停止されると、日本独自の<span class="mark">国風文化</span>が栄えたんだ。かな文字によって<span class="mark">紫式部</span>・<span class="mark">清少納言</span>らの女性文学が花開き、寝殿造や<span class="mark">浄土信仰</span>など貴族の暮らしと信仰にも独自の文化が広がっていったんだよ。</div>
-  </div>
-  <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=04-kokufu-culture" target="_blank" rel="noopener">
-    <span class="ai-ico">🤖</span>
-    <span class="ai-main">この単元をAI先生と深める<span class="ai-sub">質問する ／ 理解度チェック（LINEが開きます）</span></span>
-    <span class="ai-arrow">›</span>
-  </a>
-  <div class="tnav"><a class="tnav-btn" href="#t7">← 前の単元</a><a class="tnav-btn" href="#top">↑ 目次へ</a></div>
-</article>
-<footer class="foot">
-  <div>つづもん 参考書 Web版</div>
-  <div class="foot-note">紙やタブレットでじっくり派には、ダウンロード済みのPDF版もどうぞ。</div>
-</footer>
-</div>
+    </div>
+    <div class="step" data-label="30秒まとめ">
+      
+      <div class="sum30">
+        <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
+        <div class="sum30-body">894年に<span class="mark">遣唐使</span>が停止されると、日本独自の<span class="mark">国風文化</span>が栄えたんだ。かな文字によって<span class="mark">紫式部</span>・<span class="mark">清少納言</span>らの女性文学が花開き、寝殿造や<span class="mark">浄土信仰</span>など貴族の暮らしと信仰にも独自の文化が広がっていったんだよ。</div>
+      </div>
+      <div class="done">🎉 この単元はこれで完了！</div>
+      <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=04-kokufu-culture" target="_blank" rel="noopener">
+        <span class="ai-ico">🤖</span>
+        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます（無料）</span></span>
+        <span class="ai-arrow">›</span>
+      </a>
+    </div>
+</section>
+</main>
+<div class="navbar" id="navbar" hidden><div class="navbar-in">
+  <button class="nb nb-prev" id="btnPrev">← まえへ</button>
+  <button class="nb nb-next" id="btnNext">つぎへ →</button>
+</div></div>
+<script>
+(function () {
+  var KEY = 'tzmref-04';
+  var views = [].slice.call(document.querySelectorAll('.view'));
+  var tabs = [].slice.call(document.querySelectorAll('.tab'));
+  var N = views.length - 1; // 単元数
+  var state = { t: 0, s: 0 };
+  var lastDir = 1;
+
+  function store() {
+    try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; }
+  }
+  function save(obj) {
+    try { localStorage.setItem(KEY, JSON.stringify(obj)); } catch (e) {}
+  }
+  function stepsOf(t) { return views[t].querySelectorAll('.step'); }
+
+  function render() {
+    var t = state.t, s = state.s;
+    views.forEach(function (v, i) { v.classList.toggle('on', i === t); });
+    tabs.forEach(function (b) {
+      var bt = +b.dataset.go;
+      b.classList.toggle('on', bt === t);
+      b.classList.toggle('done', bt > 0 && store()['d' + bt] === 1);
+    });
+    var tabEl = tabs[t];
+    if (tabEl && tabEl.scrollIntoView) {
+      tabEl.scrollIntoView({ block: 'nearest', inline: 'center' });
+    }
+    var navbar = document.getElementById('navbar');
+    var barStep = document.getElementById('barStep');
+    var pfill = document.getElementById('pfill');
+    if (t === 0) {
+      navbar.hidden = true;
+      barStep.textContent = '';
+      pfill.style.width = '0';
+      renderHome();
+    } else {
+      var steps = stepsOf(t);
+      [].forEach.call(steps, function (el, i) {
+        el.classList.toggle('on', i === s);
+        el.classList.toggle('back', lastDir < 0);
+      });
+      navbar.hidden = false;
+      barStep.textContent = (s + 1) + ' / ' + steps.length;
+      pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
+      var prev = document.getElementById('btnPrev');
+      var next = document.getElementById('btnNext');
+      prev.textContent = s === 0 ? '🏠 目次' : '← まえへ';
+      if (s < steps.length - 1) {
+        next.textContent = 'つぎへ →';
+      } else {
+        next.textContent = t < N ? '次の単元へ →' : '🏠 目次にもどる';
+      }
+      // 進捗保存
+      var st = store();
+      st.last = { t: t, s: s };
+      if (s === steps.length - 1) st['d' + t] = 1;
+      save(st);
+    }
+    window.scrollTo(0, 0);
+    var h = '#t' + t + (t > 0 && s > 0 ? 's' + s : '');
+    if (location.hash !== h) history.replaceState(null, '', t === 0 ? '#' : h);
+  }
+
+  function renderHome() {
+    var st = store();
+    [].forEach.call(document.querySelectorAll('.toc-state'), function (el) {
+      var t = +el.dataset.stateT;
+      el.className = 'toc-state';
+      if (st['d' + t] === 1) { el.classList.add('done'); el.textContent = '✓ 読んだ'; }
+      else if (st.last && st.last.t === t && st.last.s > 0) {
+        el.classList.add('doing'); el.textContent = 'つづき';
+      } else { el.textContent = ''; }
+    });
+    var btn = document.getElementById('resumeBtn');
+    if (st.last && st.last.t > 0) {
+      btn.hidden = false;
+      var name = views[st.last.t].querySelector('.tband h2').textContent;
+      document.getElementById('resumeWhere').textContent =
+        name + '（' + (st.last.s + 1) + 'ページ目）';
+      btn.onclick = function () { go(st.last.t, st.last.s, 1); };
+    } else {
+      btn.hidden = true;
+    }
+  }
+
+  function go(t, s, dir) {
+    lastDir = dir || 1;
+    state.t = Math.max(0, Math.min(N, t));
+    state.s = Math.max(0, s || 0);
+    if (state.t > 0) {
+      state.s = Math.min(state.s, stepsOf(state.t).length - 1);
+    } else {
+      state.s = 0;
+    }
+    render();
+  }
+
+  function next() {
+    var t = state.t, s = state.s;
+    if (t === 0) return;
+    if (s < stepsOf(t).length - 1) go(t, s + 1, 1);
+    else if (t < N) go(t + 1, 0, 1);
+    else go(0, 0, 1);
+  }
+  function prev() {
+    var t = state.t, s = state.s;
+    if (t === 0) return;
+    if (s > 0) go(t, s - 1, -1);
+    else go(0, 0, -1);
+  }
+
+  document.getElementById('btnNext').addEventListener('click', next);
+  document.getElementById('btnPrev').addEventListener('click', prev);
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-go]');
+    if (b) go(+b.dataset.go, 0, 1);
+  });
+
+  // 左右スワイプでページ送り（縦スクロールと誤爆しないよう横優位のみ）
+  var tx = 0, ty = 0;
+  document.addEventListener('touchstart', function (e) {
+    tx = e.changedTouches[0].clientX; ty = e.changedTouches[0].clientY;
+  }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    var dx = e.changedTouches[0].clientX - tx;
+    var dy = e.changedTouches[0].clientY - ty;
+    if (Math.abs(dx) > 64 && Math.abs(dy) < 48 && state.t > 0) {
+      if (dx < 0) next(); else prev();
+    }
+  }, { passive: true });
+
+  // ハッシュ直リンク（#t3s2）
+  function fromHash() {
+    var m = /#t(\d+)(?:s(\d+))?/.exec(location.hash);
+    if (m) go(+m[1], +(m[2] || 0), 1); else go(0, 0, 1);
+  }
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
+})();
+</script>
 </body></html>
