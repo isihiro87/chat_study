@@ -35,16 +35,30 @@
            transition:width .25s ease; }
 
   .view { display:none; }
-  .view.on { display:block; }
+  .view.on { display:block; position:relative; animation:vfade .18s ease; }
+  @keyframes vfade { from { opacity:.6; } to { opacity:1; } }
   .step { display:none; }
-  /* ページをめくるアニメーション（参考書Web版と共通）。
-     めくった紙が「手前に浮いた状態からパタンと寝る」動き（奥からではなく手前から）。 */
-  .step.on { display:block; animation:page .32s ease-out; transform-origin:left center; }
-  @keyframes page { from { opacity:0; transform:perspective(1000px) rotateY(-38deg); }
-                    to { opacity:1; transform:none; } }
-  .step.on.back { animation:pageb .32s ease-out; transform-origin:right center; }
-  @keyframes pageb { from { opacity:0; transform:perspective(1000px) rotateY(38deg); }
-                     to { opacity:1; transform:none; } }
+  .step.on { display:block; }
+  /* 本物っぽいページめくり（2枚重ね・参考書Web版と共通）:
+     進む = 今のページ自体が左とじに沿って手前にめくれて去り、下から次のページが現れる。
+     戻る = 前のページが手前からめくり戻されて上に着地する。 */
+  .step.turn-out { display:block; position:absolute; top:0; left:0; width:100%; z-index:3;
+                   pointer-events:none; background:var(--cream); transform-origin:left center;
+                   animation:turnOut .45s cubic-bezier(.55,.06,.68,.19) forwards; }
+  @keyframes turnOut {
+    0%   { transform:perspective(1200px) rotateY(0); opacity:1; }
+    75%  { opacity:1; }
+    100% { transform:perspective(1200px) rotateY(-88deg); opacity:0; } }
+  .step.turn-out::after { content:""; position:absolute; inset:0; pointer-events:none;
+                          background:linear-gradient(to right, transparent 55%, rgba(124,45,18,.12)); }
+  .step.on.turn-in { position:relative; z-index:3; background:var(--cream);
+                     transform-origin:left center;
+                     animation:turnIn .45s cubic-bezier(.22,.72,.32,1); }
+  @keyframes turnIn {
+    from { transform:perspective(1200px) rotateY(-88deg); }
+    to   { transform:perspective(1200px) rotateY(0); } }
+  .step.turn-under { display:block; position:absolute; top:0; left:0; width:100%; z-index:1;
+                     pointer-events:none; }
 
   /* ── ホーム ── */
   .top { text-align:center; padding:26px 0 6px; }
@@ -75,6 +89,17 @@
   .toc-state.done { color:var(--ok); }
   .toc-state.doing { color:var(--brand); background:#fffbeb; border:1px solid var(--line);
                      border-radius:10px; padding:1px 8px; }
+
+  /* ── マスコット ── */
+  .wchar { flex:none; object-fit:contain; }
+  .home-cheer { display:flex; align-items:center; justify-content:center; gap:8px; margin-top:12px; }
+  .home-cheer .wchar { height:58px; }
+  .sp-bubble { position:relative; display:inline-block; background:#fffbeb; border:1.5px solid #f0b558;
+               border-radius:12px; padding:5px 12px; font-size:13px; font-weight:bold; color:#92400e; }
+  .sp-bubble.sp-taill::before { content:""; position:absolute; left:-7px; top:50%; transform:translateY(-50%);
+               border:5px solid transparent; border-right-color:#f0b558; }
+  .tchar { height:38px; margin-left:auto; }
+  .done-char { height:52px; vertical-align:middle; margin-right:6px; }
 
   /* ── 単元 ── */
   .tband { display:flex; align-items:center; gap:10px; margin:18px 0 14px; }
@@ -260,6 +285,7 @@
     <div class="badge">歴史 ④　問題集 <span class="webtag">Web版</span></div>
     <h1>古代の国家</h1>
     <div class="sub">飛鳥時代 〜 平安時代</div>
+    <div class="home-cheer"><img class="wchar" src="img/characters_char_manabi_sm.png" alt=""><span class="sp-bubble sp-taill">いっしょに がんばろう！</span></div>
     <div class="howto home-howto">タブか下のリストから選んで、1問ずつ解いていこう！<br>
     要点まとめ → 一問一答 → 4択 → 記述の順で力がつくよ。</div>
   </header>
@@ -285,7 +311,7 @@
   </div>
 </section>
 <section class="view" data-t="2">
-  <div class="tband"><span class="tno">1</span><h2>聖徳太子と飛鳥文化</h2></div>
+  <div class="tband"><span class="tno">1</span><h2>聖徳太子と飛鳥文化</h2><img class="wchar tchar" src="img/characters_char_pencil_sm.png" alt=""></div>
   
     <div class="step" data-label="A 要点まとめ">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
@@ -596,7 +622,7 @@
       <div class="s-q"><span class="qa-no">(3)</span>写真は法隆寺金堂の本尊である仏像で、飛鳥文化を代表する作品である。この仏像を何というか。<button class="blank s-blank" type="button"><span class="ba">釈迦三尊像</span><span class="bl" style="width:8em"></span><span class="tap-hint">タップで答え</span></button></div>
     </div>
     <div class="step done-step" data-label="結果">
-      <div class="done">🎉 「聖徳太子と飛鳥文化」おつかれさま！</div>
+      <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「聖徳太子と飛鳥文化」おつかれさま！</span></div>
       <div class="score-box" data-score></div>
       <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E8%81%96%E5%BE%B3%E5%A4%AA%E5%AD%90%E3%81%A8%E9%A3%9B%E9%B3%A5%E6%96%87%E5%8C%96" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
       <a class="big-btn ref-btn" href="../../ref/04/index.html#t1">📖 参考書でおさらいする</a>
@@ -604,7 +630,7 @@
     </div>
 </section>
 <section class="view" data-t="3">
-  <div class="tband"><span class="tno">2</span><h2>大化の改新</h2></div>
+  <div class="tband"><span class="tno">2</span><h2>大化の改新</h2><img class="wchar tchar" src="img/characters_manabi_think_sm.png" alt=""></div>
   
     <div class="step" data-label="A 要点まとめ">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
@@ -905,7 +931,7 @@
       </div>
     </div>
     <div class="step done-step" data-label="結果">
-      <div class="done">🎉 「大化の改新」おつかれさま！</div>
+      <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「大化の改新」おつかれさま！</span></div>
       <div class="score-box" data-score></div>
       <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%A4%A7%E5%8C%96%E3%81%AE%E6%94%B9%E6%96%B0" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
       <a class="big-btn ref-btn" href="../../ref/04/index.html#t2">📖 参考書でおさらいする</a>
@@ -913,7 +939,7 @@
     </div>
 </section>
 <section class="view" data-t="4">
-  <div class="tband"><span class="tno">3</span><h2>律令国家と奈良時代</h2></div>
+  <div class="tband"><span class="tno">3</span><h2>律令国家と奈良時代</h2><img class="wchar tchar" src="img/characters_char_neko_sm.png" alt=""></div>
   
     <div class="step" data-label="A 要点まとめ">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
@@ -1219,7 +1245,7 @@
       <div class="s-q"><span class="qa-no">(1)</span>図中の①の太政官の下に置かれ、実際の政務を分担した8つの役所をまとめて何というか。<button class="blank s-blank" type="button"><span class="ba">八省</span><span class="bl" style="width:8em"></span><span class="tap-hint">タップで答え</span></button></div><div class="s-q"><span class="qa-no">(2)</span>この図のように、律令にもとづいて政治を行うしくみを整えた国家を何というか。<button class="blank s-blank" type="button"><span class="ba">律令国家</span><span class="bl" style="width:8em"></span><span class="tap-hint">タップで答え</span></button></div>
     </div>
     <div class="step done-step" data-label="結果">
-      <div class="done">🎉 「律令国家と奈良時代」おつかれさま！</div>
+      <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「律令国家と奈良時代」おつかれさま！</span></div>
       <div class="score-box" data-score></div>
       <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%BE%8B%E4%BB%A4%E5%9B%BD%E5%AE%B6%E3%81%A8%E5%A5%88%E8%89%AF%E6%99%82%E4%BB%A3" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
       <a class="big-btn ref-btn" href="../../ref/04/index.html#t3">📖 参考書でおさらいする</a>
@@ -1227,7 +1253,7 @@
     </div>
 </section>
 <section class="view" data-t="5">
-  <div class="tband"><span class="tno">4</span><h2>班田収授法と税制度</h2></div>
+  <div class="tband"><span class="tno">4</span><h2>班田収授法と税制度</h2><img class="wchar tchar" src="img/characters_char_owl_sm.png" alt=""></div>
   
     <div class="step" data-label="A 要点まとめ">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
@@ -1517,7 +1543,7 @@
       <div class="s-q"><span class="qa-no">(1)</span>図のように、戸籍に登録された6歳以上の人々に口分田を与え、死ぬと国に返させた土地の制度を何というか。<button class="blank s-blank" type="button"><span class="ba">班田収授法</span><span class="bl" style="width:8em"></span><span class="tap-hint">タップで答え</span></button></div><div class="s-q"><span class="qa-no">(2)</span>図中の②の、口分田を与えられた人々が国に納めた、稲による税を何というか。<button class="blank s-blank" type="button"><span class="ba">租</span><span class="bl" style="width:8em"></span><span class="tap-hint">タップで答え</span></button></div>
     </div>
     <div class="step done-step" data-label="結果">
-      <div class="done">🎉 「班田収授法と税制度」おつかれさま！</div>
+      <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「班田収授法と税制度」おつかれさま！</span></div>
       <div class="score-box" data-score></div>
       <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E7%8F%AD%E7%94%B0%E5%8F%8E%E6%8E%88%E6%B3%95%E3%81%A8%E7%A8%8E%E5%88%B6%E5%BA%A6" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
       <a class="big-btn ref-btn" href="../../ref/04/index.html#t4">📖 参考書でおさらいする</a>
@@ -1525,7 +1551,7 @@
     </div>
 </section>
 <section class="view" data-t="6">
-  <div class="tband"><span class="tno">5</span><h2>天平文化</h2></div>
+  <div class="tband"><span class="tno">5</span><h2>天平文化</h2><img class="wchar tchar" src="img/characters_manabi_ok_sm.png" alt=""></div>
   
     <div class="step" data-label="A 要点まとめ">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
@@ -1820,7 +1846,7 @@
       <div class="s-q"><span class="qa-no">(3)</span>写真は、聖武天皇の遺品などが納められた東大寺の宝物庫である。この建物を何というか。<button class="blank s-blank" type="button"><span class="ba">正倉院</span><span class="bl" style="width:8em"></span><span class="tap-hint">タップで答え</span></button></div><div class="s-q"><span class="qa-no">(4)</span>この建物に用いられている、三角形の木材を組み上げた建築様式を何というか。<button class="blank s-blank" type="button"><span class="ba">校倉造</span><span class="bl" style="width:8em"></span><span class="tap-hint">タップで答え</span></button></div>
     </div>
     <div class="step done-step" data-label="結果">
-      <div class="done">🎉 「天平文化」おつかれさま！</div>
+      <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「天平文化」おつかれさま！</span></div>
       <div class="score-box" data-score></div>
       <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%A4%A9%E5%B9%B3%E6%96%87%E5%8C%96" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
       <a class="big-btn ref-btn" href="../../ref/04/index.html#t5">📖 参考書でおさらいする</a>
@@ -1828,7 +1854,7 @@
     </div>
 </section>
 <section class="view" data-t="7">
-  <div class="tband"><span class="tno">6</span><h2>平安京と新しい仏教</h2></div>
+  <div class="tband"><span class="tno">6</span><h2>平安京と新しい仏教</h2><img class="wchar tchar" src="img/characters_manabi_point_sm.png" alt=""></div>
   
     <div class="step" data-label="A 要点まとめ">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
@@ -2113,7 +2139,7 @@
       </div>
     </div>
     <div class="step done-step" data-label="結果">
-      <div class="done">🎉 「平安京と新しい仏教」おつかれさま！</div>
+      <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「平安京と新しい仏教」おつかれさま！</span></div>
       <div class="score-box" data-score></div>
       <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%B9%B3%E5%AE%89%E4%BA%AC%E3%81%A8%E6%96%B0%E3%81%97%E3%81%84%E4%BB%8F%E6%95%99" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
       <a class="big-btn ref-btn" href="../../ref/04/index.html#t6">📖 参考書でおさらいする</a>
@@ -2121,7 +2147,7 @@
     </div>
 </section>
 <section class="view" data-t="8">
-  <div class="tband"><span class="tno">7</span><h2>摂関政治</h2></div>
+  <div class="tband"><span class="tno">7</span><h2>摂関政治</h2><img class="wchar tchar" src="img/characters_char_pencil_sm.png" alt=""></div>
   
     <div class="step" data-label="A 要点まとめ">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
@@ -2406,7 +2432,7 @@
       </div>
     </div>
     <div class="step done-step" data-label="結果">
-      <div class="done">🎉 「摂関政治」おつかれさま！</div>
+      <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「摂関政治」おつかれさま！</span></div>
       <div class="score-box" data-score></div>
       <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E6%91%82%E9%96%A2%E6%94%BF%E6%B2%BB" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
       <a class="big-btn ref-btn" href="../../ref/04/index.html#t7">📖 参考書でおさらいする</a>
@@ -2414,7 +2440,7 @@
     </div>
 </section>
 <section class="view" data-t="9">
-  <div class="tband"><span class="tno">8</span><h2>国風文化</h2></div>
+  <div class="tband"><span class="tno">8</span><h2>国風文化</h2><img class="wchar tchar" src="img/characters_manabi_think_sm.png" alt=""></div>
   
     <div class="step" data-label="A 要点まとめ">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
@@ -2709,7 +2735,7 @@
       <div class="m-item" data-a="資料1"><div class="m-text"><span class="qa-no">(1)</span>聖徳太子のころに栄えた、日本で最初の仏教文化を代表する寺院。</div><div class="m-btns"><button class="mopt" type="button" data-l="資料1">資料1</button><button class="mopt" type="button" data-l="資料2">資料2</button><button class="mopt" type="button" data-l="資料3">資料3</button></div></div><div class="m-item" data-a="資料2"><div class="m-text"><span class="qa-no">(2)</span>聖武天皇が仏教の力で国を守ろうとしてつくらせた大仏。</div><div class="m-btns"><button class="mopt" type="button" data-l="資料1">資料1</button><button class="mopt" type="button" data-l="資料2">資料2</button><button class="mopt" type="button" data-l="資料3">資料3</button></div></div><div class="m-item" data-a="資料3"><div class="m-text"><span class="qa-no">(3)</span>藤原頼通が極楽浄土への生まれ変わりを願って建てた阿弥陀堂。</div><div class="m-btns"><button class="mopt" type="button" data-l="資料1">資料1</button><button class="mopt" type="button" data-l="資料2">資料2</button><button class="mopt" type="button" data-l="資料3">資料3</button></div></div>
     </div>
     <div class="step done-step" data-label="結果">
-      <div class="done">🎉 「国風文化」おつかれさま！</div>
+      <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「国風文化」おつかれさま！</span></div>
       <div class="score-box" data-score></div>
       <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%9B%BD%E9%A2%A8%E6%96%87%E5%8C%96" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
       <a class="big-btn ref-btn" href="../../ref/04/index.html#t8">📖 参考書でおさらいする</a>
@@ -2733,6 +2759,7 @@
   var N = views.length - 1;
   var state = { t: 0, s: 0 };
   var lastDir = 1;
+  var rendered = null; // 直前に表示していた {t, s}（ページめくり演出用）
 
   function store() {
     try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; }
@@ -2776,10 +2803,28 @@
       renderHome();
     } else {
       var steps = stepsOf(t);
+      // 同じ単元内のページ送りだけ「めくり」演出（古いページと新しいページを重ねる）
+      var animFrom = rendered && rendered.t === t && rendered.s !== s ? rendered.s : null;
       [].forEach.call(steps, function (el, i) {
+        el.classList.remove('turn-out', 'turn-in', 'turn-under');
         el.classList.toggle('on', i === s);
-        el.classList.toggle('back', lastDir < 0);
       });
+      if (animFrom !== null && steps[animFrom] && steps[s]) {
+        var oldEl = steps[animFrom], newEl = steps[s];
+        var clear = function () {
+          oldEl.classList.remove('turn-out', 'turn-under');
+          newEl.classList.remove('turn-in');
+        };
+        if (lastDir > 0) {
+          oldEl.classList.add('turn-out');      // 今のページがめくれて去る
+          oldEl.addEventListener('animationend', clear, { once: true });
+        } else {
+          oldEl.classList.add('turn-under');    // 下に敷いたまま
+          newEl.classList.add('turn-in');       // 前のページがめくり戻ってくる
+          newEl.addEventListener('animationend', clear, { once: true });
+        }
+        setTimeout(clear, 700); // アニメ未発火時の保険
+      }
       navbar.hidden = false;
       barStep.textContent = (s + 1) + ' / ' + steps.length;
       pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
@@ -2796,6 +2841,7 @@
     window.scrollTo(0, 0);
     var h = '#t' + t + (t > 0 && s > 0 ? 's' + s : '');
     if (location.hash !== h) history.replaceState(null, '', t === 0 ? '#' : h);
+    rendered = { t: t, s: s };
   }
 
   function renderHome() {
