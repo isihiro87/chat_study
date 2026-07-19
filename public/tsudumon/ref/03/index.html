@@ -1,0 +1,1220 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>歴史 ③ 日本の始まり｜つづもん参考書</title>
+<style>
+  :root { --brand:#b45309; --deep:#7c2d12; --amber:#f59e0b; --cream:#fffdf8; --line:#fde68a; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { -webkit-text-size-adjust:100%; }
+  body { font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;
+         font-size:16px; line-height:1.95; color:#1c1917; background:var(--cream);
+         padding-bottom:86px; }
+  .wrap { max-width:640px; margin:0 auto; padding:0 16px 24px; }
+
+  .mark { background:linear-gradient(transparent 55%, var(--line) 55%); font-weight:bold; padding:0 1px; }
+
+  /* ── 上部: タイトル＋単元タブ＋進捗バー ── */
+  .bar { position:sticky; top:0; z-index:10; background:rgba(255,253,248,.96);
+         backdrop-filter:blur(6px); border-bottom:1px solid #f0e6d2; }
+  .bar-in { max-width:640px; margin:0 auto; padding:8px 16px 0; }
+  .bar-row { display:flex; align-items:center; gap:8px; }
+  .bar-title { font-weight:bold; color:var(--deep); font-size:14px; flex:1;
+               white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .bar-step { flex:none; font-size:12px; font-weight:bold; color:var(--brand); }
+  .tabs { display:flex; gap:6px; overflow-x:auto; padding:8px 0;
+          scrollbar-width:none; -webkit-overflow-scrolling:touch; }
+  .tabs::-webkit-scrollbar { display:none; }
+  .tab { flex:none; width:36px; height:36px; border-radius:50%; border:1.5px solid var(--line);
+         background:#fffbeb; color:var(--brand); font-size:15px; font-weight:bold;
+         display:inline-flex; align-items:center; justify-content:center; cursor:pointer; }
+  .tab.done { background:#fef3c7; }
+  .tab.done::after { content:""; }
+  .tab.on { background:var(--brand); border-color:var(--brand); color:#fff;
+            box-shadow:0 2px 6px rgba(180,83,9,.35); }
+  .pbar { height:3px; background:#f5ecd8; border-radius:2px; overflow:hidden; margin:0 0 0; }
+  .pfill { height:100%; width:0; background:linear-gradient(90deg,var(--amber),#fbbf24);
+           border-radius:2px; transition:width .25s ease; }
+
+  /* ── ビュー / ステップ ── */
+  .view { display:none; }
+  .view.on { display:block; position:relative; animation:vfade .18s ease; }
+  @keyframes vfade { from { opacity:.6; } to { opacity:1; } }
+  .step { display:none; }
+  .step.on { display:block; }
+  /* 本物っぽいページめくり（2枚重ね）:
+     進む = 今のページ自体が左とじに沿って手前にめくれて去り、下から次のページが現れる。
+     戻る = 前のページが手前からめくり戻されて上に着地する。 */
+  /* min-height:100% = 下に敷かれた新ページ全体を覆う（絶対配置なので view の実高さに解決される。
+     これが無いと、めくれるページより新ページが長いとき下端が透けて見える） */
+  .step.turn-out { display:block; position:absolute; top:0; left:0; width:100%; min-height:100%;
+                   z-index:3; pointer-events:none; background:var(--cream);
+                   transform-origin:left center;
+                   animation:turnOut .45s cubic-bezier(.55,.06,.68,.19) forwards; }
+  @keyframes turnOut {
+    0%   { transform:perspective(1200px) rotateY(0); opacity:1; }
+    75%  { opacity:1; }
+    100% { transform:perspective(1200px) rotateY(-88deg); opacity:0; } }
+  .step.turn-out::after { content:""; position:absolute; inset:0; pointer-events:none;
+                          background:linear-gradient(to right, transparent 55%, rgba(124,45,18,.12)); }
+  .step.on.turn-in { position:relative; z-index:3; background:var(--cream);
+                     transform-origin:left center;
+                     animation:turnIn .45s cubic-bezier(.22,.72,.32,1); }
+  @keyframes turnIn {
+    from { transform:perspective(1200px) rotateY(-88deg); }
+    to   { transform:perspective(1200px) rotateY(0); } }
+  .step.turn-under { display:block; position:absolute; top:0; left:0; width:100%; z-index:1;
+                     pointer-events:none; max-height:100%; overflow:hidden; }
+
+  /* ホーム */
+  .top { text-align:center; padding:26px 0 6px; }
+  .badge { display:inline-block; background:var(--brand); color:#fff; font-weight:bold;
+           padding:4px 16px; border-radius:20px; font-size:13px; }
+  .webtag { background:rgba(255,255,255,.25); border-radius:10px; padding:1px 8px;
+            font-size:11px; margin-left:4px; }
+  .top h1 { font-size:29px; color:var(--deep); margin-top:12px; line-height:1.4; }
+  .sub { color:#92400e; font-size:14px; margin-top:2px; }
+  .cover-navi { display:flex; align-items:center; gap:12px; justify-content:center;
+                margin:18px auto 4px; max-width:420px; text-align:left; }
+  .navi { width:56px; height:56px; border-radius:50%; object-fit:cover; flex:none;
+          box-shadow:0 1px 4px rgba(0,0,0,.15); }
+  /* キャラは丸トリミングせず全身を表示（透過PNG） */
+  .navi-char { width:auto; border-radius:0; object-fit:contain; background:none; box-shadow:none;
+               filter:drop-shadow(0 1px 2px rgba(0,0,0,.18)); }
+  .tband .tchar { height:40px; margin-left:auto; }
+  .sum30-navi { display:flex; align-items:center; justify-content:flex-end; gap:8px;
+                padding:0 12px 10px; margin-top:-2px; }
+  .sum30-navi .navi-char { height:46px; }
+  .sum30-bubble { position:relative; background:#fff; border:1.5px solid var(--amber); border-radius:12px;
+                  padding:6px 12px; font-size:12.5px; font-weight:bold; color:var(--deep); }
+  .sum30-bubble::after { content:""; position:absolute; right:-11px; top:50%; transform:translateY(-50%);
+                         border:6px solid transparent; border-left-color:var(--amber); }
+  .navi-emoji { background:#fef3c7; display:flex; align-items:center; justify-content:center; font-size:30px; }
+  .bubble { position:relative; background:#fff; border:2px solid var(--amber); border-radius:12px;
+            padding:8px 14px; font-size:13px; font-weight:bold; color:var(--deep); }
+  .bubble::before { content:""; position:absolute; left:-12px; top:50%; transform:translateY(-50%);
+                    border:6px solid transparent; border-right-color:var(--amber); }
+  .resume { display:block; width:100%; margin:16px 0 0; background:var(--brand); color:#fff;
+            border:none; border-radius:14px; padding:13px; font-size:15px; font-weight:bold;
+            cursor:pointer; box-shadow:0 3px 8px rgba(180,83,9,.3); }
+  .resume span { font-weight:normal; font-size:12px; opacity:.9; margin-left:8px; }
+  .toc { margin:16px 0 8px; background:#fff; border:2px solid var(--line); border-radius:14px;
+         padding:14px; }
+  .toc-h { font-weight:bold; color:var(--deep); margin-bottom:6px; font-size:15px; }
+  .toc-item { display:flex; align-items:center; gap:10px; width:100%; padding:11px 6px;
+              background:none; border:none; border-top:1px solid #faf1dc; cursor:pointer;
+              color:#44403c; font-weight:bold; font-size:15px; text-align:left;
+              font-family:inherit; line-height:1.5; }
+  .toc-item:first-of-type { border-top:none; }
+  .toc-no { flex:none; width:24px; height:24px; border-radius:50%; background:var(--amber);
+            color:#fff; display:inline-flex; align-items:center; justify-content:center;
+            font-size:13px; }
+  .toc-name { flex:1; }
+  /* 高さを固定して、✓（環境により絵文字グリフで行ボックスが太る）でも
+     行の高さが他の行と変わらないようにする */
+  .toc-state { flex:none; font-size:11px; font-weight:bold; line-height:1;
+               display:inline-flex; align-items:center; height:20px; }
+  .toc-state.done { color:#16a34a; }
+  .toc-state.doing { color:var(--brand); background:#fffbeb; border:1px solid var(--line);
+                     border-radius:10px; padding:1px 8px; }
+
+  /* 単元ヘッダー */
+  .tband { display:flex; align-items:center; gap:10px; margin:18px 0 14px; }
+  .tno { flex:none; width:34px; height:34px; border-radius:50%; background:var(--brand); color:#fff;
+         display:inline-flex; align-items:center; justify-content:center; font-size:17px;
+         font-weight:bold; box-shadow:0 2px 4px rgba(180,83,9,.3); }
+  .tband h2 { font-size:20px; color:var(--deep); border-bottom:3px solid var(--line);
+              padding-bottom:2px; flex:1; line-height:1.4; }
+
+  .hook { display:flex; align-items:center; gap:12px; margin-bottom:14px; }
+  .hook .bubble { font-weight:normal; font-size:13.5px; line-height:1.8; }
+
+  /* ── 単元表紙デザイン（PDFの単元表紙とおそろい）── */
+  .cover-img { width:100%; display:block; margin:2px 0 14px; border-radius:16px;
+               box-shadow:0 8px 18px rgba(91,68,53,.14); }
+  .cover-art { position:relative; margin:8px 8px 26px; padding:10px;
+               background:#fffaf1; border:2px solid rgba(180,83,9,.35); border-radius:14px;
+               box-shadow:0 10px 18px rgba(91,68,53,.16); transform:rotate(-1.6deg); }
+  .cover-art.art-even { transform:rotate(1.6deg); }
+  .cover-art img { width:100%; border-radius:10px; display:block; }
+  .cover-art::before, .cover-art::after { content:""; position:absolute; top:-12px;
+               width:84px; height:26px; border-radius:5px; background:rgba(217,119,6,.32);
+               box-shadow:0 2px 4px rgba(91,68,53,.1); z-index:1; }
+  .cover-art::before { left:22px; transform:rotate(-7deg); }
+  .cover-art::after { right:22px; transform:rotate(7deg); }
+  .cover-art figcaption { font-size:12px; color:#a8a29e; text-align:center; margin-top:6px; }
+
+  .overview { background:rgba(255,255,255,.94); border:2.5px solid rgba(180,83,9,.45);
+              border-radius:16px; padding:16px 16px 8px; margin-bottom:14px;
+              box-shadow:0 8px 16px rgba(91,68,53,.1); }
+  .ov-h { font-weight:bold; font-size:16px; color:var(--deep); margin-bottom:6px; }
+  .ov-list { list-style:none; display:flex; flex-direction:column; }
+  .ov-list li { display:flex; align-items:flex-start; gap:10px; padding:9px 2px;
+                font-size:14px; font-weight:bold; color:#44372e; line-height:1.6; }
+  .ov-list li + li { border-top:2px dashed rgba(180,83,9,.22); }
+  .ov-num { flex:none; width:24px; height:24px; border-radius:50%; background:var(--brand);
+            color:#fff; font-weight:bold; display:inline-flex; align-items:center;
+            justify-content:center; font-size:13px; margin-top:2px; }
+
+  .cheer { display:flex; align-items:center; justify-content:center; gap:12px; margin:2px 0 12px; }
+  .cheer-char { width:76px; filter:drop-shadow(0 3px 5px rgba(91,68,53,.2)); }
+  .cheer-bubble { position:relative; background:#fff; border:2px solid rgba(180,83,9,.55);
+                  border-radius:14px; padding:8px 14px; font-size:13.5px; font-weight:bold;
+                  color:#5b4435; }
+  .cheer-bubble::before { content:""; position:absolute; left:-9px; top:50%; width:14px; height:14px;
+                  background:#fff; border-left:2px solid rgba(180,83,9,.55);
+                  border-bottom:2px solid rgba(180,83,9,.55);
+                  transform:translateY(-50%) rotate(45deg); }
+
+  .hero { margin:0 0 8px; }
+  .hero img { width:100%; border-radius:14px; display:block; }
+  .hero figcaption { font-size:12px; color:#a8a29e; text-align:center; margin-top:4px; }
+
+  /* 節 */
+  .step h3 { font-size:18px; color:var(--deep); display:flex; align-items:center; gap:8px; line-height:1.5; }
+  .sec-no { flex:none; width:22px; height:22px; border-radius:50%; background:#fff;
+            border:1.5px solid var(--line); color:var(--brand); font-weight:bold;
+            display:inline-flex; align-items:center; justify-content:center; font-size:12px; }
+  .sec-lead { font-size:13px; color:var(--brand); font-weight:bold; margin:2px 0 4px 30px; }
+  .step p { margin-top:8px; text-align:justify; }
+  .point { background:#fff9c4; border-left:6px solid #fbbf24; border-radius:8px;
+           padding:10px 12px; margin-top:12px; font-size:14px; line-height:1.8; }
+  .ptag { font-weight:bold; color:var(--brand); }
+  .ptxt { color:#44403c; margin-top:2px; }
+  .tip { background:#fffbeb; border-radius:10px; padding:10px 12px; font-size:13.5px;
+         color:#44403c; line-height:1.8; }
+  .words { display:flex; flex-direction:column; gap:6px; margin-top:12px; }
+  .word { background:#fff; border:1px solid #f0e6d2; border-radius:10px; padding:8px 12px;
+          font-size:13.5px; line-height:1.7; }
+  .w-term { font-weight:bold; color:var(--brand); margin-right:8px; }
+  .w-rd { font-weight:normal; font-size:11px; color:#b8b0a6; margin-left:4px; }
+  .w-desc { color:#57534e; }
+
+  /* 重要語チェック */
+  .terms-h { font-size:18px; font-weight:bold; color:var(--deep); }
+  .terms-sub { font-size:12px; font-weight:normal; color:#a8a29e; margin-left:8px; }
+  .terms-tools { display:flex; align-items:center; justify-content:space-between; gap:8px;
+                 flex-wrap:wrap; margin:6px 0 10px; }
+  .tt-btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .shuffle-btn, .swap-btn { flex:none; display:inline-flex; align-items:center; gap:4px;
+                 font-family:inherit; font-size:13px; font-weight:bold; cursor:pointer;
+                 border-radius:16px; padding:6px 13px; }
+  .shuffle-btn { color:#fff; background:var(--brand); border:none; box-shadow:0 2px 6px rgba(180,83,9,.3); }
+  .swap-btn { color:var(--brand); background:#fffbeb; border:1.5px solid var(--line); }
+  .swap-btn.on { color:#fff; background:var(--brand); border-color:var(--brand); box-shadow:0 2px 6px rgba(180,83,9,.3); }
+  .shuffle-btn:active, .swap-btn:active { transform:translateY(1px); }
+  .both-toggle { display:inline-flex; align-items:center; gap:6px; font-size:13px;
+                 font-weight:bold; color:#57534e; cursor:pointer; }
+  .both-toggle input { width:16px; height:16px; accent-color:var(--brand); }
+  .tgrid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  /* シャッフル時のふわっと再配置アニメ */
+  .tgrid.shuffling .tcard { animation:tshuffle .34s ease; }
+  @keyframes tshuffle { 0% { opacity:.25; transform:scale(.92); }
+                        100% { opacity:1; transform:none; } }
+  @media (max-width:400px) { .tgrid { grid-template-columns:1fr; } }
+  /* フラッシュカード（タップで表裏。両面表示チェックで従来の一覧に）
+     ─ めくりモード: 全カード同じ高さ（150px）・面は絶対配置で重ねて3D回転
+     ─ 両面モード: 3Dを使わず通常フローで表＋裏を縦に並べる（崩れ防止） */
+  .tcard { position:relative; height:150px; background:none; border:none; padding:0;
+           cursor:pointer; font-family:inherit; text-align:left; perspective:800px; }
+  .tcard-inner { display:block; position:absolute; inset:0; transition:transform .35s;
+                 transform-style:preserve-3d; }
+  .tc-face { position:absolute; inset:0; display:flex; flex-direction:column;
+             align-items:center; justify-content:center; text-align:center; overflow:hidden;
+             backface-visibility:hidden; -webkit-backface-visibility:hidden;
+             border:1.5px solid var(--line); border-radius:10px; padding:10px; background:#fff; }
+  /* 表＝説明（読んで用語を当てる） */
+  .tc-front { background:#fffbeb; overflow-y:auto; }
+  .tc-desc { font-size:13px; color:#44403c; line-height:1.6; font-weight:500; }
+  /* 裏＝用語（こたえ） */
+  .tc-back { transform:rotateY(180deg); }
+  .tc-term { font-weight:bold; font-size:17px; color:var(--deep); line-height:1.5; }
+  .tc-rd { display:block; font-weight:normal; font-size:11px; color:#b8b0a6; margin-top:2px; }
+  .tc-tap { font-size:10px; color:#d6c9a8; margin-top:6px; }
+  .tcard.flipped .tcard-inner { transform:rotateY(180deg); }
+  /* 裏表入れ替え: 用語を先に見せる（意味→用語 ⇄ 用語→意味） */
+  .tgrid.term-first .tcard-inner { transform:rotateY(180deg); }
+  .tgrid.term-first .tcard.flipped .tcard-inner { transform:rotateY(0deg); }
+  /* 両面表示モード（用語→説明の順に縦並べ） */
+  .tgrid.both .tcard { cursor:default; height:auto; perspective:none; }
+  .tgrid.both .tcard-inner { position:static; transform:none !important; transform-style:flat;
+                             display:flex; flex-direction:column; }
+  .tgrid.both .tc-face { position:static; overflow:visible; align-items:flex-start; text-align:left;
+                         backface-visibility:visible; -webkit-backface-visibility:visible; }
+  .tgrid.both .tc-back { order:0; transform:none; border-bottom:none; border-radius:10px 10px 0 0;
+                         padding-bottom:4px; background:#fff; }
+  .tgrid.both .tc-front { order:1; border-top:none; border-radius:0 0 10px 10px; }
+  .tgrid.both .tc-term { font-size:14px; }
+  .tgrid.both .tc-tap { display:none; }
+
+  /* まとめ・完了 */
+  .sum30 { border:2px solid var(--amber); border-radius:14px; overflow:hidden;
+           box-shadow:0 2px 8px rgba(245,158,11,.14); }
+  .sum30-h { background:linear-gradient(90deg,#d97706,var(--amber)); color:#fff; font-weight:bold;
+             font-size:15px; padding:8px 14px; display:flex; align-items:center; gap:8px; }
+  .sum30-tag { margin-left:auto; font-size:11px; background:rgba(255,255,255,.28);
+               padding:2px 10px; border-radius:12px; }
+  .sum30-body { padding:14px 16px; font-size:15px; font-weight:bold; color:#44403c; line-height:2.0;
+                background:#fffdf5; }
+  .sum30-body .mark { background:none; color:#c2410c; padding:0; }
+  .done { text-align:center; font-size:16px; font-weight:bold; color:var(--deep); margin:18px 0 10px; }
+  .wb-btn { display:flex; align-items:center; gap:12px; text-decoration:none;
+            background:var(--brand); color:#fff; border-radius:14px; padding:13px 16px;
+            box-shadow:0 3px 8px rgba(180,83,9,.3); margin-bottom:10px; }
+  .wb-home { display:block; text-align:center; margin:14px 0 0; text-decoration:none;
+             background:var(--brand); color:#fff; border-radius:14px; padding:13px 16px;
+             font-size:15px; font-weight:bold; box-shadow:0 3px 8px rgba(180,83,9,.3); }
+  .ai-btn { display:flex; align-items:center; gap:12px; text-decoration:none;
+            background:#06c755; color:#fff; border-radius:14px; padding:13px 16px;
+            box-shadow:0 3px 8px rgba(6,199,85,.3); }
+  .ai-ico { font-size:24px; flex:none; }
+  .ai-main { flex:1; font-weight:bold; font-size:15px; line-height:1.5; }
+  .ai-sub { display:block; font-weight:normal; font-size:12px; opacity:.9; }
+  .ai-arrow { font-size:22px; opacity:.8; }
+
+  .foot { text-align:center; margin-top:36px; color:#a8a29e; font-size:13px; }
+  .foot-note { margin-top:4px; font-size:12px; }
+
+  /* ── 下部ナビ ── */
+  .navbar { position:fixed; left:0; right:0; bottom:0; z-index:10;
+            background:rgba(255,253,248,.97); border-top:1px solid #f0e6d2;
+            padding:10px 16px calc(10px + env(safe-area-inset-bottom)); }
+  .navbar-in { max-width:640px; margin:0 auto; display:flex; align-items:center; gap:10px; }
+  .nb { border:none; border-radius:14px; padding:12px 0; font-size:15px; font-weight:bold;
+        cursor:pointer; font-family:inherit; }
+  .nb-prev { flex:1; background:#fff; color:var(--brand); border:1.5px solid var(--line); }
+  .nb-next { flex:2; background:var(--brand); color:#fff; box-shadow:0 3px 8px rgba(180,83,9,.3); }
+  .nav-label { position:absolute; left:-9999px; }
+
+  /* ── ホバー: マウスを乗せると「押せる」ことが分かる（タッチ端末では固着しないよう hover 端末限定）── */
+  @media (hover: hover) {
+    .toc-item, .resume, .shuffle-btn, .swap-btn, .tcard, .ai-btn, .wb-btn, .nb,
+    .chat-fab, .chat-close, .chat-login-btn, #chatSend {
+      transition: filter .12s ease, background-color .12s ease; }
+    /* 色つき（塗り）ボタンは少し濃く */
+    .resume:hover, .shuffle-btn:hover, .ai-btn:hover, .nb:hover, .chat-fab:hover,
+    .chat-login-btn:hover, #chatSend:hover { filter: brightness(0.94); }
+    /* 白・枠線ボタン／リスト／カードは薄いアンバーで下地を変える */
+    .toc-item:hover, .swap-btn:hover, .wb-btn:hover, .tcard:hover,
+    .chat-close:hover { background-color: #fff8ec; }
+  }
+
+  /* ── ページ内チャット（スタ先生）── */
+  .chat-fab { position:fixed; right:14px; bottom:calc(84px + env(safe-area-inset-bottom));
+              z-index:20; width:56px; height:56px; border-radius:50%;
+              border:none; background:var(--brand); color:#fff; font-size:26px;
+              cursor:pointer; box-shadow:0 4px 12px rgba(180,83,9,.4); }
+  .chat-fab.hidden { display:none; }
+  .chat-panel { position:fixed; right:12px; bottom:calc(84px + env(safe-area-inset-bottom));
+                z-index:21; width:min(400px, calc(100vw - 24px));
+                height:min(540px, calc(100vh - 160px));
+                display:flex; flex-direction:column; background:var(--cream);
+                border:2px solid var(--line); border-radius:16px;
+                box-shadow:0 10px 30px rgba(68,55,46,.25); overflow:hidden; }
+  .chat-head { display:flex; align-items:center; gap:8px; padding:10px 12px;
+               background:var(--brand); color:#fff; }
+  .chat-title { font-weight:bold; font-size:14px; }
+  .chat-topic { flex:1; font-size:11px; opacity:.9; white-space:nowrap;
+                overflow:hidden; text-overflow:ellipsis; }
+  .chat-close { border:none; background:none; color:#fff; font-size:22px;
+                line-height:1; cursor:pointer; padding:0 4px; }
+  .chat-note { font-size:11px; color:#92400e; background:#fffbeb;
+               border-bottom:1px solid #f0e6d2; padding:6px 12px; }
+  .chat-body { flex:1; overflow-y:auto; padding:12px; display:flex;
+               flex-direction:column; gap:8px; }
+  .chat-msg { max-width:85%; padding:8px 12px; border-radius:14px; font-size:13.5px;
+              line-height:1.7; white-space:pre-wrap; word-break:break-word; }
+  .chat-msg.user { align-self:flex-end; background:var(--brand); color:#fff;
+                   border-bottom-right-radius:4px; }
+  .chat-msg.model { align-self:flex-start; background:#fff; color:#1c1917;
+                    border:1.5px solid var(--line); border-bottom-left-radius:4px; }
+  .chat-msg.sys { align-self:center; background:none; color:#a8a29e; font-size:11.5px;
+                  text-align:center; }
+  .chat-login { padding:16px; text-align:center; border-top:1px solid #f0e6d2; }
+  .chat-login p { font-size:12.5px; color:#57534e; margin-bottom:10px; }
+  .chat-login-btn { display:inline-block; background:#06c755; color:#fff; font-weight:bold;
+                    font-size:14px; padding:10px 22px; border-radius:12px;
+                    text-decoration:none; }
+  .chat-input { display:flex; gap:8px; padding:10px 12px;
+                border-top:1px solid #f0e6d2; background:#fff; }
+  .chat-input input { flex:1; border:1.5px solid var(--line); border-radius:12px;
+                      padding:9px 12px; font-size:14px; font-family:inherit; }
+  .chat-input input:focus { outline:none; border-color:var(--amber); }
+  .chat-input button { border:none; background:var(--brand); color:#fff; font-weight:bold;
+                       font-size:14px; padding:0 18px; border-radius:12px;
+                       cursor:pointer; font-family:inherit; }
+  .chat-input button:disabled { opacity:.5; }
+  .chat-foot { font-size:10.5px; color:#a8a29e; text-align:center; padding:4px 8px 7px;
+               background:#fff; }
+  /* display:flex 指定が UA の [hidden]{display:none} に勝ってしまうのを防ぐ */
+  .chat-panel[hidden], .chat-input[hidden], .chat-login[hidden] { display:none; }
+</style></head><body>
+<div class="bar"><div class="bar-in">
+  <div class="bar-row">
+    <div class="bar-title">歴史 ③ 日本の始まり</div>
+    <div class="bar-step" id="barStep"></div>
+  </div>
+  <nav class="tabs" id="tabs"><button class="tab tab-home" data-go="0" aria-label="目次">🏠</button><button class="tab" data-go="1" aria-label="旧石器時代と縄文時代">1</button><button class="tab" data-go="2" aria-label="弥生時代">2</button><button class="tab" data-go="3" aria-label="古墳時代と大和政権">3</button></nav>
+  <div class="pbar"><div class="pfill" id="pfill"></div></div>
+</div></div>
+<main class="wrap" id="views">
+
+<section class="view home" data-t="0">
+  <header class="top">
+    <div class="badge">歴史 ③　参考書 <span class="webtag">Web版</span></div>
+    <h1>日本の始まり</h1>
+    <div class="sub">旧石器時代 〜 古墳時代</div>
+    <div class="cover-navi"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt="">
+      <div class="bubble">こんにちは！タブか下の単元をえらんで、1ページずつ読み進めよう！</div>
+    </div>
+  </header>
+  <button class="resume" id="resumeBtn" hidden>▶ つづきから読む<span id="resumeWhere"></span></button>
+  <nav class="toc">
+    <div class="toc-h">📚 この本の単元</div>
+    <button class="toc-item" data-go="1"><span class="toc-no">1</span><span class="toc-name">旧石器時代と縄文時代</span><span class="toc-state" data-state-t="1"></span></button><button class="toc-item" data-go="2"><span class="toc-no">2</span><span class="toc-name">弥生時代</span><span class="toc-state" data-state-t="2"></span></button><button class="toc-item" data-go="3"><span class="toc-no">3</span><span class="toc-name">古墳時代と大和政権</span><span class="toc-state" data-state-t="3"></span></button>
+  </nav>
+  <a class="wb-home" href="../../wb/03/index.html">✏️ 問題集Web版を開く（この本の問題を解く）</a>
+  <footer class="foot">
+    <div>つづもん 参考書 Web版</div>
+    <div class="foot-note">紙やタブレットでじっくり派には、ダウンロード済みのPDF版もどうぞ。</div>
+  </footer>
+</section>
+<section class="view" data-t="1">
+  <div class="tband"><span class="tno">1</span><h2>旧石器時代と縄文時代</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  
+    <div class="step" data-label="この単元でわかること">
+      <img class="cover-img" src="img/cover-jomon-era.webp"
+           alt="旧石器時代と縄文時代（この単元でわかること）">
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">土器も家もなかった大昔の日本で、人々はどうやって命をつないでいたんだろう？氷におおわれた大地から、定住のむらへ変わっていく様子を、いっしょに見てみよう。</div></div>
+    </div>
+    <div class="step" data-label="旧石器時代の始まり">
+      <h3><span class="sec-no">1</span>旧石器時代の始まり</h3>
+      <div class="sec-lead">岩宿遺跡の発見で、日本の旧石器時代が証明されたよ。</div>
+      <p>今から数万年前、日本列島は<span class="mark">氷期(氷河時代)</span>で海面が低くて、大陸と陸続きだったんだ。このころ、大型動物の<span class="mark">ナウマンゾウ</span>やオオツノジカが大陸から渡ってきて、人々の狩りの対象になっていたんだよ。人々は石を打ち欠いて作った打製石器を使って、獲物を追いながら移動する暮らしをしていたんだ。この時代を旧石器時代と呼ぶんだけど、群馬県の<span class="mark">岩宿遺跡</span>で<span class="mark">相沢忠洋</span>が打製石器を発見するまでは、日本に旧石器時代があったなんて誰も知らなかったんだよ。この発見のおかげで、日本にも旧石器時代が存在したことが初めて証明されたんだね。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">岩宿遺跡で相沢忠洋が発見し、旧石器時代の存在が証明されたよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">岩宿遺跡<span class="w-rd">いわじゅくいせき</span></span><span class="w-desc">群馬県にある遺跡。ここでの発見が日本の旧石器時代の存在を証明した。</span></div><div class="word"><span class="w-term">相沢忠洋<span class="w-rd">あいざわただひろ</span></span><span class="w-desc">岩宿遺跡で打製石器を発見し、日本の旧石器時代を証明した人物。</span></div><div class="word"><span class="w-term">ナウマンゾウ<span class="w-rd">なうまんぞう</span></span><span class="w-desc">氷河時代に大陸から渡ってきた大型のゾウ。長野県の野尻湖で化石が発見された。</span></div></div>
+    </div>
+    <div class="step" data-label="縄文時代の始まりと暮らし">
+      <h3><span class="sec-no">2</span>縄文時代の始まりと暮らし</h3>
+      <div class="sec-lead">たて穴住居に定住し、縄文土器を使ったよ。</div>
+      <p>約1万年前、気候が温暖になって海面が上がると、日本列島は大陸から切り離されて今の姿になり、<span class="mark">縄文時代</span>が始まったんだ。人々は地面を掘り下げて柱を立てた<span class="mark">たて穴住居</span>に定住して、狩猟・採集や漁を中心に暮らしていたんだよ。表面に縄目の文様がある<span class="mark">縄文土器</span>で食料を煮炊きしていて、食べ終えた貝殻や骨を捨てた<span class="mark">貝塚</span>からは、当時の食生活の様子がわかるんだ。それに、女性をかたどったものが多い<span class="mark">土偶</span>も作られていて、安産や豊作を祈るまじないの道具として使われたと考えられているんだよ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">縄文時代は、たて穴住居に住み狩猟や採集で暮らした時代だよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">縄文土器<span class="w-rd">じょうもんどき</span></span><span class="w-desc">表面に縄目の文様がある、縄文時代に使われた厚手の土器。</span></div><div class="word"><span class="w-term">たて穴住居<span class="w-rd">たてあなじゅうきょ</span></span><span class="w-desc">地面を掘り下げて柱を立てて造った、縄文時代から使われた住居。</span></div><div class="word"><span class="w-term">貝塚<span class="w-rd">かいづか</span></span><span class="w-desc">縄文人が食べ終えた貝殻や骨を捨てた場所。当時の食生活がわかる。</span></div><div class="word"><span class="w-term">土偶<span class="w-rd">どぐう</span></span><span class="w-desc">祈りやまじないのために作られた土の人形。女性をかたどったものが多い。</span></div></div>
+    </div>
+    <div class="step" data-label="交易と大規模集落">
+      <h3><span class="sec-no">3</span>交易と大規模集落</h3>
+      <div class="sec-lead">黒曜石の交易と、大規模な集落の跡が見つかったよ。</div>
+      <p>縄文時代の人々は、鋭い刃を作れる黒いガラス質の石である黒曜石などを使って道具を作っていたんだ。黒曜石は長野県の和田峠など限られた場所でしか採れないのに、遠く離れた遺跡からも見つかっていて、当時すでに広い範囲で物を交換する交易が行われていたことがわかるんだよ。青森県の<span class="mark">三内丸山遺跡</span>では、大型の建物の跡やクリの栽培の跡が発見されていて、縄文時代にも人々が計画的に定住して、大規模な集落を営んでいたことが明らかになっているんだね。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">黒曜石の広がりは、縄文時代の交易の証拠になっているんだよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">三内丸山遺跡<span class="w-rd">さんないまるやまいせき</span></span><span class="w-desc">青森県にある縄文時代の大規模な集落遺跡。定住生活の様子がわかる。</span></div></div>
+    </div>
+    <div class="step" data-label="重要語チェック">
+      <div class="terms-h">📖 重要語チェック<span class="terms-sub">意味を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="tgrid"><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">群馬県にある遺跡。ここでの発見が日本の旧石器時代の存在を証明した。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">岩宿遺跡</span>
+          <span class="tc-rd">いわじゅくいせき</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">岩宿遺跡で打製石器を発見し、日本の旧石器時代を証明した人物。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">相沢忠洋</span>
+          <span class="tc-rd">あいざわただひろ</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">氷河時代に大陸から渡ってきた大型のゾウ。長野県の野尻湖で化石が発見された。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">ナウマンゾウ</span>
+          <span class="tc-rd">なうまんぞう</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">表面に縄目の文様がある、縄文時代に使われた厚手の土器。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">縄文土器</span>
+          <span class="tc-rd">じょうもんどき</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">地面を掘り下げて柱を立てて造った、縄文時代から使われた住居。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">たて穴住居</span>
+          <span class="tc-rd">たてあなじゅうきょ</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">縄文人が食べ終えた貝殻や骨を捨てた場所。当時の食生活がわかる。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">貝塚</span>
+          <span class="tc-rd">かいづか</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">祈りやまじないのために作られた土の人形。女性をかたどったものが多い。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">土偶</span>
+          <span class="tc-rd">どぐう</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">青森県にある縄文時代の大規模な集落遺跡。定住生活の様子がわかる。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">三内丸山遺跡</span>
+          <span class="tc-rd">さんないまるやまいせき</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button></div>
+    </div>
+    <div class="step" data-label="30秒まとめ">
+      
+      <div class="sum30">
+        <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
+        <div class="sum30-body">氷期に大陸と陸続きだった日本では、旧石器時代に打製石器が使われ、<span class="mark">岩宿遺跡</span>の発見でその存在が証明されたんだ。<span class="mark">縄文時代</span>になると、人々は<span class="mark">たて穴住居</span>に定住して<span class="mark">縄文土器</span>を使い、<span class="mark">土偶</span>や貝塚、黒曜石の交易の跡など、豊かな暮らしの痕跡を残していったんだよ。</div>
+        
+        <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
+          <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
+      </div>
+      <div class="done">🎉 この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/03/index.html#t2"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=03-jomon-era" target="_blank" rel="noopener">
+        <span class="ai-ico">🤖</span>
+        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
+        <span class="ai-arrow">›</span>
+      </a>
+    </div>
+</section>
+<section class="view" data-t="2">
+  <div class="tband"><span class="tno">2</span><h2>弥生時代</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  
+    <div class="step" data-label="この単元でわかること">
+      <img class="cover-img" src="img/cover-yayoi-era.webp"
+           alt="弥生時代（この単元でわかること）">
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">稲作が伝わったことで、日本の暮らしはどう変わったんだろう？むらどうしの争いや、中国との外交が始まった時代を、いっしょに見てみよう。</div></div>
+    </div>
+    <div class="step" data-label="稲作の伝来とむらの変化">
+      <h3><span class="sec-no">1</span>稲作の伝来とむらの変化</h3>
+      <div class="sec-lead">稲作が広まり、むらどうしの争いも起きたよ。</div>
+      <p>紀元前4世紀ごろ、大陸から九州北部に<span class="mark">稲作</span>が伝わって、東北地方まで広がり、<span class="mark">弥生時代</span>が始まったんだ。人々は稲の穂を摘み取るための石包丁を使い、収穫した稲を湿気やねずみから守るために<span class="mark">高床倉庫</span>を建てていたんだよ。稲作によって食料を蓄えられるようになると、人々の間に貧富や身分の差が生まれていったんだ。また、むらの周りには堀や柵をめぐらせた環濠(環濠集落)が造られるようになって、佐賀県の<span class="mark">吉野ヶ里遺跡</span>に見られるように、むらどうしの争いが起きていたこともわかるんだよ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">稲作が広まると、むらの間に貧富の差や争いが生まれたんだよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">稲作<span class="w-rd">いなさく</span></span><span class="w-desc">紀元前4世紀ごろ九州北部に伝わり、東北まで広がった農業。弥生時代の始まりとなった。</span></div><div class="word"><span class="w-term">高床倉庫<span class="w-rd">たかゆかそうこ</span></span><span class="w-desc">収穫した稲を湿気やねずみから守るために建てられた倉庫。</span></div><div class="word"><span class="w-term">吉野ヶ里遺跡<span class="w-rd">よしのがりいせき</span></span><span class="w-desc">佐賀県にある、環濠や物見やぐらを備えた大規模な弥生時代の遺跡。</span></div></div>
+    </div>
+    <div class="step" data-label="金属器の伝来">
+      <h3><span class="sec-no">2</span>金属器の伝来</h3>
+      <div class="sec-lead">鉄器は実用品、青銅器は祭りの道具に使われたよ。</div>
+      <p>稲作とともに、大陸からは金属器も伝わったんだよ。武器や工具、農具として実用的に使われた鉄器と、銅とすずを混ぜて作られ主に祭りの道具として使われた青銅器の2種類があって、青銅器には<span class="mark">銅鐸</span>・銅剣・銅鏡などがあるんだ。銅鐸はつりがね形をした青銅器で近畿地方を中心に多く出土していて、表面に絵が描かれることもあるんだよ。これらの金属器は、当時の人々の暮らしを支える実用品としてだけでなく、権威や祭りの道具としても使われていたんだね。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">鉄器は実用品、青銅器は祭りの道具として使われたよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">銅鐸<span class="w-rd">どうたく</span></span><span class="w-desc">祭りの道具として使われた、つりがね形の青銅器。近畿地方に多い。</span></div></div>
+    </div>
+    <div class="step" data-label="中国との交流と邪馬台国">
+      <h3><span class="sec-no">3</span>中国との交流と邪馬台国</h3>
+      <div class="sec-lead">卑弥呼が魏に使いを送り、称号を授かったよ。</div>
+      <p>1世紀、<span class="mark">奴国</span>の王は後漢の皇帝に使いを送って、「漢委奴国王」と刻まれた<span class="mark">金印</span>を授かったんだ。この金印は、江戸時代に福岡県の志賀島で発見されているんだよ。3世紀ごろになると、30あまりの国をまとめた<span class="mark">邪馬台国</span>の女王<span class="mark">卑弥呼</span>が魏に使いを送って、<span class="mark">親魏倭王</span>の称号を授かったんだね。このように貢ぎ物を送って中国の皇帝に王として認めてもらう外交を朝貢と呼ぶんだけど、卑弥呼と邪馬台国のことは中国の歴史書『魏志』倭人伝に記されているんだよ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">卑弥呼は魏に使いを送り、親魏倭王の称号を得た女王だよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">金印<span class="w-rd">きんいん</span></span><span class="w-desc">1世紀に奴国の王が後漢の皇帝から授かった印。「漢委奴国王」と刻まれる。</span></div><div class="word"><span class="w-term">卑弥呼<span class="w-rd">ひみこ</span></span><span class="w-desc">3世紀ごろ、30あまりの国をまとめた邪馬台国の女王。魏に使いを送った。</span></div><div class="word"><span class="w-term">邪馬台国<span class="w-rd">やまたいこく</span></span><span class="w-desc">卑弥呼が都を置いていたとされる国。『魏志』倭人伝に記されている。</span></div><div class="word"><span class="w-term">親魏倭王<span class="w-rd">しんぎわおう</span></span><span class="w-desc">卑弥呼が魏の皇帝から授かった称号。</span></div></div>
+    </div>
+    <div class="step" data-label="重要語チェック">
+      <div class="terms-h">📖 重要語チェック<span class="terms-sub">意味を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="tgrid"><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">紀元前4世紀ごろ九州北部に伝わり、東北まで広がった農業。弥生時代の始まりとなった。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">稲作</span>
+          <span class="tc-rd">いなさく</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">収穫した稲を湿気やねずみから守るために建てられた倉庫。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">高床倉庫</span>
+          <span class="tc-rd">たかゆかそうこ</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">佐賀県にある、環濠や物見やぐらを備えた大規模な弥生時代の遺跡。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">吉野ヶ里遺跡</span>
+          <span class="tc-rd">よしのがりいせき</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">祭りの道具として使われた、つりがね形の青銅器。近畿地方に多い。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">銅鐸</span>
+          <span class="tc-rd">どうたく</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1世紀に奴国の王が後漢の皇帝から授かった印。「漢委奴国王」と刻まれる。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">金印</span>
+          <span class="tc-rd">きんいん</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">3世紀ごろ、30あまりの国をまとめた邪馬台国の女王。魏に使いを送った。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">卑弥呼</span>
+          <span class="tc-rd">ひみこ</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">卑弥呼が都を置いていたとされる国。『魏志』倭人伝に記されている。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">邪馬台国</span>
+          <span class="tc-rd">やまたいこく</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">卑弥呼が魏の皇帝から授かった称号。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">親魏倭王</span>
+          <span class="tc-rd">しんぎわおう</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button></div>
+    </div>
+    <div class="step" data-label="30秒まとめ">
+      
+      <div class="sum30">
+        <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
+        <div class="sum30-body">紀元前4世紀に<span class="mark">稲作</span>が伝わって<span class="mark">弥生時代</span>が始まると、高床倉庫や環濠集落が造られ、鉄器・青銅器も使われるようになったんだ。1世紀には奴国が<span class="mark">金印</span>を、3世紀には<span class="mark">邪馬台国</span>の<span class="mark">卑弥呼</span>が<span class="mark">親魏倭王</span>の称号を中国から授かるなど、大陸との交流も深まっていったんだよ。</div>
+        
+        <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
+          <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
+      </div>
+      <div class="done">🎉 この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/03/index.html#t3"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=03-yayoi-era" target="_blank" rel="noopener">
+        <span class="ai-ico">🤖</span>
+        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
+        <span class="ai-arrow">›</span>
+      </a>
+    </div>
+</section>
+<section class="view" data-t="3">
+  <div class="tband"><span class="tno">3</span><h2>古墳時代と大和政権</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  
+    <div class="step" data-label="この単元でわかること">
+      <img class="cover-img" src="img/cover-kofun-era.webp"
+           alt="古墳時代と大和政権（この単元でわかること）">
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">巨大な墓の大きさが、その持ち主の力の大きさを物語る時代なんだ。渡来人がもたらした新しい技術や文化にも、注目してみよう。</div></div>
+    </div>
+    <div class="step" data-label="大和政権と前方後円墳">
+      <h3><span class="sec-no">1</span>大和政権と前方後円墳</h3>
+      <div class="sec-lead">前方後円墳の大きさが、権力の大きさを表すよ。</div>
+      <p>3世紀後半、近畿地方を中心に<span class="mark">大和政権</span>が成立して、その頂点に立つ<span class="mark">大王</span>のもとに各地の豪族がまとめられたんだ。大王や豪族の力を示す巨大な墓として<span class="mark">前方後円墳</span>が各地に造られていて、大阪府堺市の<span class="mark">大仙古墳</span>はその代表で全長約486mにもおよぶんだよ。古墳の上や周りには人や動物、家などをかたどった<span class="mark">埴輪</span>が並べられていて、死者の魂を守るためだったと考えられているんだ。埼玉県の稲荷山古墳と熊本県の江田船山古墳から出土した鉄剣・鉄刀には、共通して<span class="mark">ワカタケル大王</span>の名が刻まれていて、大和政権の支配が関東から九州まで広い範囲に及んでいたことがわかるんだよ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">前方後円墳の大きさは、大王や豪族の権力の大きさを表すんだよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">大和政権<span class="w-rd">やまとせいけん</span></span><span class="w-desc">3世紀後半、近畿地方を中心に成立した政治勢力。大王が豪族をまとめた。</span></div><div class="word"><span class="w-term">大王<span class="w-rd">おおきみ</span></span><span class="w-desc">大和政権の頂点に立った王。のちの天皇号につながる存在。</span></div><div class="word"><span class="w-term">前方後円墳<span class="w-rd">ぜんぽうこうえんふん</span></span><span class="w-desc">円形と方形を組み合わせた日本独自の大きな墓。権力の大きさを示す。</span></div><div class="word"><span class="w-term">大仙古墳<span class="w-rd">だいせんこふん</span></span><span class="w-desc">大阪府堺市にある日本最大級の前方後円墳。全長約486m。</span></div><div class="word"><span class="w-term">埴輪<span class="w-rd">はにわ</span></span><span class="w-desc">古墳の表面に並べられた人や動物などの焼き物。死者の魂を守るとされる。</span></div><div class="word"><span class="w-term">ワカタケル大王<span class="w-rd">わかたけるおおきみ</span></span><span class="w-desc">稲荷山古墳と江田船山古墳の鉄剣・鉄刀に名が刻まれた5世紀後半の大王。</span></div></div>
+    </div>
+    <div class="step" data-label="中国・朝鮮半島との交流">
+      <h3><span class="sec-no">2</span>中国・朝鮮半島との交流</h3>
+      <div class="sec-lead">百済との交流を通じ、仏教が伝わったよ。</div>
+      <p>5世紀、倭の五王と呼ばれる大和政権の王たちは中国の南朝に使いを送っていて、その活動は中国の歴史書『宋書』に記録されているんだよ。また、朝鮮半島には北部の高句麗、南西の百済、南東の新羅という国があって、大和政権は鉄の原料を得るために朝鮮半島南部の伽耶地域と交流していたんだ。百済とは友好関係を結んでいて、6世紀半ばには百済から日本へ<span class="mark">仏教</span>が伝えられているんだよ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">大和政権は鉄を求めて伽耶と交流し、百済から仏教が伝わったよ。</div></div>
+      
+    </div>
+    <div class="step" data-label="渡来人が伝えた技術と文化">
+      <h3><span class="sec-no">3</span>渡来人が伝えた技術と文化</h3>
+      <div class="sec-lead">渡来人が、須恵器や漢字の技術を伝えたよ。</div>
+      <p>このころ、朝鮮半島や中国大陸から日本へ移り住んだ<span class="mark">渡来人</span>が、さまざまな新しい技術や文化を伝えてくれたんだ。高温で焼く硬い灰色の土器である<span class="mark">須恵器</span>の製法や、記録や書類作成に使う漢字も、その一つだよ。渡来人が伝えた技術や文化には、それまでの日本になかったものが多くて、その後の国づくりの土台になっていったんだね。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">渡来人は、須恵器や漢字などの技術を日本に伝えた人々だよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">渡来人<span class="w-rd">とらいじん</span></span><span class="w-desc">大陸から移り住み、須恵器や漢字などの技術・文化を伝えた人々。</span></div><div class="word"><span class="w-term">須恵器<span class="w-rd">すえき</span></span><span class="w-desc">渡来人が伝えた技術で作られる、高温で焼く硬い灰色の土器。</span></div></div>
+    </div>
+    <div class="step" data-label="重要語チェック">
+      <div class="terms-h">📖 重要語チェック<span class="terms-sub">意味を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="tgrid"><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">3世紀後半、近畿地方を中心に成立した政治勢力。大王が豪族をまとめた。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">大和政権</span>
+          <span class="tc-rd">やまとせいけん</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">大和政権の頂点に立った王。のちの天皇号につながる存在。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">大王</span>
+          <span class="tc-rd">おおきみ</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">円形と方形を組み合わせた日本独自の大きな墓。権力の大きさを示す。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">前方後円墳</span>
+          <span class="tc-rd">ぜんぽうこうえんふん</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">大阪府堺市にある日本最大級の前方後円墳。全長約486m。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">大仙古墳</span>
+          <span class="tc-rd">だいせんこふん</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">古墳の表面に並べられた人や動物などの焼き物。死者の魂を守るとされる。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">埴輪</span>
+          <span class="tc-rd">はにわ</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">稲荷山古墳と江田船山古墳の鉄剣・鉄刀に名が刻まれた5世紀後半の大王。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">ワカタケル大王</span>
+          <span class="tc-rd">わかたけるおおきみ</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">大陸から移り住み、須恵器や漢字などの技術・文化を伝えた人々。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">渡来人</span>
+          <span class="tc-rd">とらいじん</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">渡来人が伝えた技術で作られる、高温で焼く硬い灰色の土器。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">須恵器</span>
+          <span class="tc-rd">すえき</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button></div>
+    </div>
+    <div class="step" data-label="30秒まとめ">
+      
+      <div class="sum30">
+        <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
+        <div class="sum30-body">3世紀後半に成立した<span class="mark">大和政権</span>は、大王を中心に豪族をまとめて、<span class="mark">前方後円墳</span>や<span class="mark">埴輪</span>にその力を示したんだ。中国・朝鮮半島との交流や、<span class="mark">渡来人</span>による須恵器・漢字・<span class="mark">仏教</span>の伝来は、その後の日本の国づくりの土台となっていったんだよ。</div>
+        
+        <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
+          <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
+      </div>
+      <div class="done">🎉 この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/03/index.html#t4"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=03-kofun-era" target="_blank" rel="noopener">
+        <span class="ai-ico">🤖</span>
+        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
+        <span class="ai-arrow">›</span>
+      </a>
+    </div>
+</section>
+</main>
+<div class="navbar" id="navbar" hidden><div class="navbar-in">
+  <button class="nb nb-prev" id="btnPrev">← まえへ</button>
+  <button class="nb nb-next" id="btnNext">つぎへ →</button>
+</div></div>
+<button class="chat-fab" id="chatFab" aria-label="スタ先生に質問する">🤖</button>
+<section class="chat-panel" id="chatPanel" hidden>
+  <header class="chat-head">
+    <span class="chat-title">🤖 スタ先生に質問</span>
+    <span class="chat-topic" id="chatTopic"></span>
+    <button class="chat-close" id="chatClose" aria-label="閉じる">×</button>
+  </header>
+  <div class="chat-note">公式LINEと同じAI。会話はLINEのトークとつながるよ。</div>
+  <div class="chat-body" id="chatBody"></div>
+  <div class="chat-login" id="chatLogin" hidden>
+    <p>LINEログインすると、このページでスタ先生に質問できるよ。<br>会話のつづきは公式LINEでも話せる！</p>
+    <a class="chat-login-btn" id="chatLoginBtn" href="/welcome">LINEでログイン</a>
+  </div>
+  <form class="chat-input" id="chatForm" hidden>
+    <input type="text" id="chatText" placeholder="この単元の質問をどうぞ！" maxlength="300" autocomplete="off">
+    <button type="submit" id="chatSend">送信</button>
+  </form>
+  <div class="chat-foot" id="chatFoot"></div>
+</section>
+<script>
+(function () {
+  var KEY = 'tzmref-03';
+  var views = [].slice.call(document.querySelectorAll('.view'));
+  var tabs = [].slice.call(document.querySelectorAll('.tab'));
+  var N = views.length - 1; // 単元数
+  var state = { t: 0, s: 0 };
+  var lastDir = 1;
+  var rendered = null; // 直前に表示していた {t, s}（ページめくり演出用）
+
+  function store() {
+    try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; }
+  }
+  function save(obj) {
+    try { localStorage.setItem(KEY, JSON.stringify(obj)); } catch (e) {}
+  }
+  function stepsOf(t) { return views[t].querySelectorAll('.step'); }
+
+  function render() {
+    var t = state.t, s = state.s;
+    views.forEach(function (v, i) { v.classList.toggle('on', i === t); });
+    tabs.forEach(function (b) {
+      var bt = +b.dataset.go;
+      b.classList.toggle('on', bt === t);
+      b.classList.toggle('done', bt > 0 && store()['d' + bt] === 1);
+    });
+    var tabEl = tabs[t];
+    if (tabEl && tabEl.scrollIntoView) {
+      tabEl.scrollIntoView({ block: 'nearest', inline: 'center' });
+    }
+    var navbar = document.getElementById('navbar');
+    var barStep = document.getElementById('barStep');
+    var pfill = document.getElementById('pfill');
+    if (t === 0) {
+      navbar.hidden = true;
+      barStep.textContent = '';
+      pfill.style.width = '0';
+      renderHome();
+    } else {
+      var steps = stepsOf(t);
+      // 同じ単元内のページ送りだけ「めくり」演出（古いページと新しいページを重ねる）
+      var animFrom = rendered && rendered.t === t && rendered.s !== s ? rendered.s : null;
+      [].forEach.call(steps, function (el, i) {
+        el.classList.remove('turn-out', 'turn-in', 'turn-under');
+        el.classList.toggle('on', i === s);
+      });
+      if (animFrom !== null && steps[animFrom] && steps[s]) {
+        var oldEl = steps[animFrom], newEl = steps[s];
+        var clear = function () {
+          oldEl.classList.remove('turn-out', 'turn-under');
+          newEl.classList.remove('turn-in');
+        };
+        if (lastDir > 0) {
+          oldEl.classList.add('turn-out');      // 今のページがめくれて去る
+          oldEl.addEventListener('animationend', clear, { once: true });
+        } else {
+          oldEl.classList.add('turn-under');    // 下に敷いたまま
+          newEl.classList.add('turn-in');       // 前のページがめくり戻ってくる
+          newEl.addEventListener('animationend', clear, { once: true });
+        }
+        setTimeout(clear, 700); // アニメ未発火時の保険
+      }
+      navbar.hidden = false;
+      barStep.textContent = (s + 1) + ' / ' + steps.length;
+      pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
+      var prev = document.getElementById('btnPrev');
+      var next = document.getElementById('btnNext');
+      prev.textContent = s === 0 ? '🏠 目次' : '← まえへ';
+      if (s < steps.length - 1) {
+        next.textContent = 'つぎへ →';
+      } else {
+        next.textContent = t < N ? '次の単元へ →' : '🏠 目次にもどる';
+      }
+      // 進捗保存
+      var st = store();
+      st.last = { t: t, s: s };
+      if (s === steps.length - 1) st['d' + t] = 1;
+      save(st);
+    }
+    window.scrollTo(0, 0);
+    var h = '#t' + t + (t > 0 && s > 0 ? 's' + s : '');
+    if (location.hash !== h) history.replaceState(null, '', t === 0 ? '#' : h);
+    rendered = { t: t, s: s };
+  }
+
+  function renderHome() {
+    var st = store();
+    [].forEach.call(document.querySelectorAll('.toc-state'), function (el) {
+      var t = +el.dataset.stateT;
+      el.className = 'toc-state';
+      if (st['d' + t] === 1) { el.classList.add('done'); el.textContent = '✓︎ 読んだ'; }
+      else if (st.last && st.last.t === t && st.last.s > 0) {
+        el.classList.add('doing'); el.textContent = 'つづき';
+      } else { el.textContent = ''; }
+    });
+    var btn = document.getElementById('resumeBtn');
+    if (st.last && st.last.t > 0) {
+      btn.hidden = false;
+      var name = views[st.last.t].querySelector('.tband h2').textContent;
+      document.getElementById('resumeWhere').textContent =
+        name + '（' + (st.last.s + 1) + 'ページ目）';
+      btn.onclick = function () { go(st.last.t, st.last.s, 1); };
+    } else {
+      btn.hidden = true;
+    }
+  }
+
+  function go(t, s, dir) {
+    lastDir = dir || 1;
+    state.t = Math.max(0, Math.min(N, t));
+    state.s = Math.max(0, s || 0);
+    if (state.t > 0) {
+      state.s = Math.min(state.s, stepsOf(state.t).length - 1);
+    } else {
+      state.s = 0;
+    }
+    render();
+  }
+
+  function next() {
+    var t = state.t, s = state.s;
+    if (t === 0) return;
+    if (s < stepsOf(t).length - 1) go(t, s + 1, 1);
+    else if (t < N) go(t + 1, 0, 1);
+    else go(0, 0, 1);
+  }
+  function prev() {
+    var t = state.t, s = state.s;
+    if (t === 0) return;
+    if (s > 0) go(t, s - 1, -1);
+    else go(0, 0, -1);
+  }
+
+  document.getElementById('btnNext').addEventListener('click', next);
+  document.getElementById('btnPrev').addEventListener('click', prev);
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-go]');
+    if (b) { go(+b.dataset.go, 0, 1); return; }
+    // 重要語チェックのシャッフル: カードの並びをランダムに入れ替える
+    var sh = e.target.closest('.shuffle-btn');
+    if (sh) {
+      var grid = sh.closest('.step').querySelector('.tgrid');
+      if (grid) {
+        var cards = [].slice.call(grid.querySelectorAll('.tcard'));
+        for (var i = cards.length - 1; i > 0; i--) {
+          var j = Math.floor(Math.random() * (i + 1));
+          var tmp = cards[i]; cards[i] = cards[j]; cards[j] = tmp;
+        }
+        cards.forEach(function (c) { c.classList.remove('flipped'); grid.appendChild(c); });
+        grid.classList.remove('shuffling');
+        void grid.offsetWidth;              // リフローでアニメを再始動
+        grid.classList.add('shuffling');
+      }
+      return;
+    }
+    // 裏表入れ替え（説明→用語 ⇄ 用語→説明）。設定は保存し全単元に反映
+    var sw = e.target.closest('.swap-btn');
+    if (sw) {
+      var g0 = document.querySelector('.tgrid');
+      var on = !(g0 && g0.classList.contains('term-first'));
+      applySwap(on);
+      var st2 = store(); st2.swap = on ? 1 : 0; save(st2);
+      return;
+    }
+    // 重要語カード: タップで表裏（両面表示中はめくらない）
+    var card = e.target.closest('.tcard');
+    if (card && !card.closest('.tgrid').classList.contains('both')) {
+      card.classList.toggle('flipped');
+    }
+  });
+
+  // 「両面表示にする」チェック（設定は保存して全単元・次回にも反映）
+  function applyBoth(on) {
+    [].forEach.call(document.querySelectorAll('.both-chk'), function (c) { c.checked = on; });
+    [].forEach.call(document.querySelectorAll('.tgrid'), function (g) {
+      g.classList.toggle('both', on);
+    });
+  }
+  document.addEventListener('change', function (e) {
+    if (e.target.classList && e.target.classList.contains('both-chk')) {
+      applyBoth(e.target.checked);
+      var st = store(); st.both = e.target.checked ? 1 : 0; save(st);
+    }
+  });
+  applyBoth(store().both === 1);
+
+  // 裏表入れ替え（用語⇄説明のどちらを先に見せるか。全カード共通・保存）
+  function applySwap(on) {
+    [].forEach.call(document.querySelectorAll('.tgrid'), function (g) {
+      [].forEach.call(g.querySelectorAll('.tcard.flipped'), function (c) { c.classList.remove('flipped'); });
+      g.classList.toggle('term-first', on);
+    });
+    [].forEach.call(document.querySelectorAll('.swap-btn'), function (b) { b.classList.toggle('on', on); });
+  }
+  applySwap(store().swap === 1);
+
+  // 左右スワイプでページ送り（縦スクロールと誤爆しないよう横優位のみ）
+  var tx = 0, ty = 0;
+  document.addEventListener('touchstart', function (e) {
+    tx = e.changedTouches[0].clientX; ty = e.changedTouches[0].clientY;
+  }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    var dx = e.changedTouches[0].clientX - tx;
+    var dy = e.changedTouches[0].clientY - ty;
+    if (Math.abs(dx) > 64 && Math.abs(dy) < 48 && state.t > 0) {
+      if (dx < 0) next(); else prev();
+    }
+  }, { passive: true });
+
+  // ハッシュ直リンク（#t3s2）
+  function fromHash() {
+    var m = /#t(\d+)(?:s(\d+))?/.exec(location.hash);
+    if (m) go(+m[1], +(m[2] || 0), 1); else go(0, 0, 1);
+  }
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
+})();
+</script>
+<script type="module">
+// ── ページ内チャット（スタ先生）──
+// 公式LINEの参考書AI（ref_ask）と知識・会話履歴・1日回数枠を共有する。
+// 認証は www.chatstudy.jp の LINE Login（Firebase Auth）。marutto-study の
+// SPA と同じ localStorage 永続化なので、一度 /welcome でログインすれば共有される。
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js';
+import {
+  initializeAuth, browserLocalPersistence, browserSessionPersistence,
+  inMemoryPersistence, onAuthStateChanged,
+} from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js';
+
+var TOPIC_KEYS = ["03-jomon-era", "03-yayoi-era", "03-kofun-era"];
+var API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/referenceChat';
+
+var app = initializeApp({
+  apiKey: 'AIzaSyBJuODbPmpu_fiJ8a1ffzDIUwEFszol5Cc',
+  authDomain: 'chatstudy-63477.firebaseapp.com',
+  projectId: 'chatstudy-63477',
+  appId: '1:283901969847:web:9efd3b421e8cdb16091432',
+});
+var auth = initializeAuth(app, {
+  persistence: [browserLocalPersistence, browserSessionPersistence, inMemoryPersistence],
+});
+
+var fab = document.getElementById('chatFab');
+var panel = document.getElementById('chatPanel');
+var body = document.getElementById('chatBody');
+var loginBox = document.getElementById('chatLogin');
+var form = document.getElementById('chatForm');
+var input = document.getElementById('chatText');
+var sendBtn = document.getElementById('chatSend');
+var foot = document.getElementById('chatFoot');
+var topicEl = document.getElementById('chatTopic');
+
+var user = null;
+var loadedTopic = null;   // 履歴取得済みの topicKey
+var busy = false;
+
+function currentTopicKey() {
+  var m = /#t(\d+)/.exec(location.hash);
+  var t = m ? +m[1] : 0;
+  var idx = Math.max(1, Math.min(t, TOPIC_KEYS.length)) - 1;
+  return TOPIC_KEYS[idx];
+}
+function msg(role, text) {
+  var el = document.createElement('div');
+  el.className = 'chat-msg ' + role;
+  el.textContent = text;
+  body.appendChild(el);
+  body.scrollTop = body.scrollHeight;
+  return el;
+}
+function setFoot(remaining) {
+  foot.textContent = remaining != null ? 'きょう あと' + remaining + '回 質問できるよ' : '';
+}
+function showLogin() {
+  loginBox.hidden = false;
+  form.hidden = true;
+  document.getElementById('chatLoginBtn').href =
+    '/welcome?next=' + encodeURIComponent(location.pathname + location.hash);
+}
+function showChat() { loginBox.hidden = true; form.hidden = false; }
+
+async function callApi(payload) {
+  var idToken = await user.getIdToken();
+  var res = await fetch(API, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(Object.assign({ idToken: idToken }, payload)),
+  });
+  var data = null;
+  try { data = await res.json(); } catch (e) { /* no body */ }
+  return { status: res.status, data: data || {} };
+}
+
+async function loadHistory() {
+  var topicKey = currentTopicKey();
+  loadedTopic = topicKey;
+  body.innerHTML = '';
+  var loading = msg('sys', '読み込み中…');
+  try {
+    var r = await callApi({ topicKey: topicKey, action: 'history' });
+    loading.remove();
+    if (r.status === 402) { msg('sys', r.data.message || 'この単元は購入者向けです'); form.hidden = true; return; }
+    if (r.status !== 200) { msg('sys', 'うまく読み込めなかった。開き直してみてね'); return; }
+    topicEl.textContent = r.data.topicName || '';
+    var h = r.data.history || [];
+    if (h.length === 0) {
+      msg('model', 'こんにちは！「' + (r.data.topicName || 'この単元') + '」でわからないことがあったら、なんでも聞いてね😊');
+    } else {
+      msg('sys', '── ここまでの会話（LINEと共有）──');
+      h.forEach(function (turn) { msg(turn.role === 'user' ? 'user' : 'model', turn.text); });
+    }
+    setFoot(r.data.remaining);
+    showChat();
+  } catch (e) {
+    loading.textContent = '通信エラー。電波のよいところで開き直してみてね';
+  }
+}
+
+async function send(text) {
+  if (busy) return;
+  busy = true;
+  sendBtn.disabled = true;
+  msg('user', text);
+  var waiting = msg('sys', 'スタ先生が考え中…');
+  try {
+    var r = await callApi({ topicKey: loadedTopic || currentTopicKey(), action: 'send', text: text });
+    waiting.remove();
+    if (r.status === 200) {
+      msg('model', r.data.answer);
+      setFoot(r.data.remaining);
+    } else if (r.data && r.data.message) {
+      msg('sys', r.data.message);
+    } else {
+      msg('sys', 'ごめんね、いまうまく答えられなかった。もう一度送ってみてね');
+    }
+  } catch (e) {
+    waiting.textContent = '通信エラー。もう一度送ってみてね';
+  }
+  busy = false;
+  sendBtn.disabled = false;
+}
+
+fab.addEventListener('click', function () {
+  panel.hidden = false;
+  fab.classList.add('hidden');
+  if (!user) { showLogin(); return; }
+  if (loadedTopic !== currentTopicKey()) loadHistory();
+});
+document.getElementById('chatClose').addEventListener('click', function () {
+  panel.hidden = true;
+  fab.classList.remove('hidden');
+});
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  var text = input.value.trim();
+  if (!text) return;
+  input.value = '';
+  send(text);
+});
+// 単元を移動したら（パネルを開いたまま）その単元の会話に切り替える
+window.addEventListener('hashchange', function () {
+  if (!panel.hidden && user && loadedTopic !== currentTopicKey()) loadHistory();
+});
+
+onAuthStateChanged(auth, function (u) {
+  user = u;
+  if (panel.hidden) return;
+  if (!u) { showLogin(); return; }
+  loadHistory();
+});
+</script>
+</body></html>

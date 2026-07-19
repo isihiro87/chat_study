@@ -12,53 +12,62 @@
  */
 
 export type ServerFunnelEventType =
-  | "richmenu_premium_info_tap"
+  | 'richmenu_premium_info_tap'
   // 学習エンゲージメント（回答後カード / メニューの追加学習動線）
-  | "extra_question_tap"
-  | "weak_review_tap"
-  | "trial_started"
-  | "trial_reminder_sent"
-  | "trial_expired"
-  | "paid_contract_started"
-  | "paid_cancel_requested"
-  | "checkout_session_created"
+  | 'extra_question_tap'
+  | 'weak_review_tap'
+  // 「まだ習ってない」ワンタップ出題除外（2026-07）
+  | 'not_learned_tap'
+  | 'not_learned_applied'
+  // 友だち追加直後のおためし1問（2026-07。context: correct）
+  | 'sample_question_answered'
+  | 'trial_started'
+  | 'trial_reminder_sent'
+  | 'trial_expired'
+  | 'paid_contract_started'
+  | 'paid_cancel_requested'
+  | 'checkout_session_created'
   // 休眠ユーザー除外システム / Win-back（§B, §C）
-  | "winback_sent"
-  | "status_transition"
-  | "restart_intent_detected"
+  | 'winback_sent'
+  | 'status_transition'
+  | 'restart_intent_detected'
+  // 配信一時停止 / 再開（ユーザー自身の選択、2026-07）
+  | 'delivery_paused'
+  | 'delivery_resumed'
   // Trial ドリップキャンペーン（§D）
-  | "trial_drip_sent"
-  | "trial_drip_parent_sent"
-  | "trial_drip_story_sent"
-  | "trial_evening_reminder_sent"
-  | "trial_night_reminder_sent"
+  | 'trial_drip_sent'
+  | 'trial_drip_parent_sent'
+  | 'trial_drip_story_sent'
+  | 'trial_evening_reminder_sent'
+  | 'trial_night_reminder_sent'
   // 申込フォーム離脱 / 期限切れ後フォロー（§D-13）
-  | "premium_apply_form_abandoned"
-  | "post_trial_followup_sent"
+  | 'premium_apply_form_abandoned'
+  | 'post_trial_followup_sent'
   // 月次送信モニタリング
-  | "monthly_delivery_report_generated"
+  | 'monthly_delivery_report_generated'
   // 月末ふり返りレポート（AI 学習分析）
-  | "monthly_report_invite_sent"
-  | "monthly_report_viewed";
+  | 'monthly_report_invite_sent'
+  | 'monthly_report_viewed';
 
 export async function logServerFunnelEvent(
   eventType: ServerFunnelEventType,
   uid: string,
-  context?: Record<string, unknown>,
+  context?: Record<string, unknown>
 ): Promise<void> {
   try {
-    const { initializeApp, getApps } = await import("firebase-admin/app");
-    const { getFirestore, FieldValue } = await import("firebase-admin/firestore");
+    const { initializeApp, getApps } = await import('firebase-admin/app');
+    const { getFirestore, FieldValue } =
+      await import('firebase-admin/firestore');
     if (getApps().length === 0) {
       initializeApp();
     }
     const db = getFirestore();
 
-    const lineUserId = uid.startsWith("line:")
-      ? uid.slice("line:".length)
+    const lineUserId = uid.startsWith('line:')
+      ? uid.slice('line:'.length)
       : uid;
 
-    await db.collection("premiumFunnelEvents").add({
+    await db.collection('premiumFunnelEvents').add({
       uid,
       lineUserId,
       eventType,
@@ -68,7 +77,7 @@ export async function logServerFunnelEvent(
   } catch (error) {
     console.warn(
       `[funnelEvent] server log failed eventType=${eventType} uid=${uid}:`,
-      error,
+      error
     );
   }
 }

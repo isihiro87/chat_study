@@ -37,6 +37,9 @@ export { submitContactForm } from './submitContactForm';
 // つづもん納品zipのダウンロード口（回数制限つき・/tsudumon/dl から rewrite）
 export { tsudumonDownload } from './tsudumonDownload';
 
+// 参考書Webページ内チャット（スタ先生。LINEの参考書AIと知識・履歴・回数枠を共有）
+export { referenceChat } from './referenceChat';
+
 // ムビスタ（授業動画アプリ）学習イベントの受け口（users/{uid}.mubista へ集約）
 export { recordMubistaProgress } from './recordMubistaProgress';
 // ムビスタ連携: LINE の link トークンを長命 session に交換する
@@ -359,7 +362,7 @@ export const workbookLaunch = functions
 
 /**
  * 参考書QR即開始: 参考書の QR（LIFF /liff/units/ref?t=章番号-topicId）から呼ばれ、
- * LIFF の ID トークンを検証して「AI先生と深める」メニュー（質問／理解度チェック）を
+ * LIFF の ID トークンを検証して「スタ先生と深める」メニュー（質問／理解度チェック）を
  * トークへ push する。生徒は QR を読むだけで LINE 上のAI学習を始められる。
  *
  * レスポンス: 200 ok / 404 unknown topic / 424 push失敗 / 401 token不正

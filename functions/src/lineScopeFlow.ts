@@ -121,6 +121,59 @@ export function expandErasToTopics(
   return out;
 }
 
+// --- 「まだ習ってない」ワンタップ出題除外 ---
+
+export type NotLearnedMode = 'single' | 'after';
+
+/**
+ * 「まだ習ってない」タップ後の新しい testScope.topics を計算する（純粋関数）。
+ *
+ * - 粒度は era（大枠）ではなく topic（= questions.topic の細かい範囲）単位。
+ * - mode 'single': その topic だけを出題から外す。
+ * - mode 'after': その topic から先を外す。ただし**理科は同じ単元（era）の中の
+ *   それ以降だけ**（分野が並列で、単元をまたぐ「以降」はカリキュラム順として
+ *   成立しないため）。他教科は era 順 × era 内 topic 順の全体並びで以降すべて。
+ * - 母集合は現 testScope.topics（未設定なら当該教科×学年の全 topic）。
+ *   未設定ユーザーがタップした場合は「全 topic − 除外分」が新規スコープになる
+ *   （実質の範囲設定代行）。
+ *
+ * @returns 新スコープと除外リスト。topic が当該教科×学年に無ければ null。
+ *          topics が空になり得る（先頭 topic で 'after' 等）ので呼び出し側でガードする。
+ */
+export function computeScopeAfterNotLearned(opts: {
+  subject: string;
+  grade: number;
+  topic: string;
+  currentTopics: string[] | null;
+  mode: NotLearnedMode;
+}): { topics: string[]; excluded: string[] } | null {
+  const { subject, grade, topic, currentTopics, mode } = opts;
+  const metas = getEraMetas(subject, grade);
+  const allTopics = metas.flatMap((m) => m.topics);
+  if (!allTopics.includes(topic)) return null;
+
+  const base =
+    currentTopics && currentTopics.length > 0 ? currentTopics : allTopics;
+
+  let excludeList: string[];
+  if (mode === 'single') {
+    excludeList = [topic];
+  } else if (subject === 'science') {
+    const era = metas.find((m) => m.topics.includes(topic));
+    const idx = era ? era.topics.indexOf(topic) : -1;
+    excludeList = era && idx >= 0 ? era.topics.slice(idx) : [topic];
+  } else {
+    excludeList = allTopics.slice(allTopics.indexOf(topic));
+  }
+
+  const excludeSet = new Set(excludeList);
+  const topics = base.filter((t) => !excludeSet.has(t));
+  // excluded は「実際に母集合から外れたもの」だけ返す（確認文の件数表示用）。
+  const baseSet = new Set(base);
+  const excluded = excludeList.filter((t) => baseSet.has(t));
+  return { topics, excluded };
+}
+
 // --- postback data ビルダー ---
 
 export function buildPickData(
@@ -163,6 +216,35 @@ export function buildCommitData(
   return params.toString();
 }
 
+/**
+ * 「これで決定」flexボタン用。sel を持たない（保存済み testScope を読んで確定する）。
+ * Quick Reply チップは次の発言で消えるため、履歴に残る flex ボタンから確定できる
+ * ようにする。古いバブルのボタンを押しても常に最新の保存状態が反映される。
+ */
+export function buildFinishData(subject: string, grade: number): string {
+  const params = new URLSearchParams({
+    type: 'scope_finish',
+    s: subject,
+    g: String(grade),
+  });
+  return params.toString();
+}
+
+/**
+ * 保存済み topics から選択中 era を逆算する（era の全 topic が含まれるものだけ）。
+ * /scope ページで topic 単位の部分選択をした場合は該当 era が入らないことがある。
+ */
+export function topicsToSel(
+  subject: string,
+  grade: number,
+  topics: string[]
+): string[] {
+  const set = new Set(topics);
+  return getEraMetas(subject, grade)
+    .filter((m) => m.topics.length > 0 && m.topics.every((t) => set.has(t)))
+    .map((m) => m.eraId);
+}
+
 /** 「学年ぜんぶでOK」＝範囲解除（topics=[]）。 */
 export function buildClearCommitData(subject: string, grade: number): string {
   const params = new URLSearchParams({
@@ -193,6 +275,8 @@ export function buildGuideText(subject: string, grade: number): string {
   const metas = getEraMetas(subject, grade);
   const lines = metas.map((m) => {
     const when = m.whenLabel ? `（${m.whenLabel}）` : '';
+    // 行頭の全角スペースは意図的（用語リストの字下げ表示）
+    // eslint-disable-next-line no-irregular-whitespace
     const terms = m.keyTerms ? `\n　${m.keyTerms}` : '';
     return `▫️ ${m.shortName}${when}${terms}`;
   });

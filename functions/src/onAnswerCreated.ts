@@ -1,6 +1,10 @@
-import * as functions from "firebase-functions/v1";
+import * as functions from 'firebase-functions/v1';
 
-import { getJstDateString, nextStreakState, type StreakState } from "./streakState";
+import {
+  getJstDateString,
+  nextStreakState,
+  type StreakState,
+} from './streakState';
 import {
   buildPremiumNudgeFlexMessage,
   buildNextStepGuideFlex,
@@ -9,14 +13,16 @@ import {
   getLineClient,
   getUserPlan,
   isPremiumEligibleGrade,
+  pickScopeNudgeVariant,
   type PremiumNudgeReason,
-} from "./lineWebhook";
-import { linkRichMenuForUser } from "./lineRichMenu";
-import { recordPushDelivery } from "./deliveryStats";
-import { logServerFunnelEvent } from "./funnelEvent";
-import { computeTrialEndJst } from "./trialDuration";
+} from './lineWebhook';
+import { linkRichMenuForUser } from './lineRichMenu';
+import { recordPushDelivery } from './deliveryStats';
+import { logServerFunnelEvent } from './funnelEvent';
+import { computeTrialEndJst } from './trialDuration';
 
-const STREAK_MILESTONES = [3, 7, 14, 30] as const;
+// messageVariations.ts の DAY_STREAK_MILESTONES（3/7/14/30/100）と揃える
+const STREAK_MILESTONES = [3, 7, 14, 30, 100] as const;
 const VOLUME_MILESTONES = [10, 30, 100] as const;
 const PREMIUM_NUDGE_COOLDOWN_MS = 7 * 24 * 60 * 60 * 1000;
 /**
@@ -40,13 +46,19 @@ const FIRST_ANSWER_NUDGE_DELAY_MS = 0;
  * 最初の数回で打ち切る。実際の送信タイミングは SCOPE_SETUP_NUDGE_MILESTONES
  * （累計回答数）で間隔をあける。
  */
-const SCOPE_SETUP_NUDGE_MAX = 3;
+const SCOPE_SETUP_NUDGE_MAX = 2;
 /**
  * テスト範囲未設定 nudge を送る「累計回答数」の節目。
- * 連続（2/3/4問目）ではなく 1/5/10問目に分散させ、「毎回うるさい」印象を避ける。
- * trial 開始 flex は廃止（TRIAL_FLOW_ENABLED=false）したので 1問目に送ってよい。
+ *
+ * 2026-07 見直し（計測分解の結果を反映）:
+ *   - 旧 1/5/10問目・最大3回。計測で「3回全部受けて未設定=248人」＝3回目はほぼ
+ *     効かず"ナッジ疲れ"と判明。→ 2回（3問目・8問目）に削減し、しつこさを回避。
+ *   - 1問目はオンボ直後で多くが既に inline 設定済み＝送っても無駄打ちになりやすい。
+ *     少し数をこなして「範囲外の問題」を体感し始める 3問目に後ろ倒し。
+ *   - なお「まだ習ってない」タップ（handleNotLearnedApplyPostback）が痛点での
+ *     範囲設定代行として別途機能しているため、push ナッジは最小限でよい。
  */
-const SCOPE_SETUP_NUDGE_MILESTONES = [1, 5, 10] as const;
+const SCOPE_SETUP_NUDGE_MILESTONES = [3, 8] as const;
 
 /**
  * 「今回の回答で新たに到達したか」を判定する。
@@ -71,7 +83,7 @@ interface NudgeContext {
   nextTotalAnswered: number;
   prevStreakCurrent: number;
   nextStreakCurrent: number;
-  userPlan: "free" | "premium";
+  userPlan: 'free' | 'premium';
   lastPremiumNudgeAtMs: number | null;
   /**
    * first_answer flex を既に送信したかどうか。送信済みなら null 以外。
@@ -98,7 +110,7 @@ interface NudgeContext {
 interface FirstExtraFollowupContext {
   uid: string;
   lineUserId: string;
-  userPlan: "free" | "premium";
+  userPlan: 'free' | 'premium';
   planSource: string;
   firstExtraQuestionAtMs: number | null;
   firstExtraFollowupSentAtMs: number | null;
@@ -106,7 +118,7 @@ interface FirstExtraFollowupContext {
   blocked: boolean;
 }
 
-type AutoTrialOutcome = "started" | "skipped" | "failed";
+type AutoTrialOutcome = 'started' | 'skipped' | 'failed';
 
 /**
  * 1問目回答時に 7 日間の trial を自動開放する。
@@ -121,12 +133,11 @@ type AutoTrialOutcome = "started" | "skipped" | "failed";
 async function maybeAutoStartTrial(
   ctx: NudgeContext
 ): Promise<AutoTrialOutcome> {
-  if (!ctx.lineUserId) return "skipped";
+  if (!ctx.lineUserId) return 'skipped';
 
-  const { initializeApp, getApps } = await import("firebase-admin/app");
-  const { getFirestore, FieldValue, Timestamp } = await import(
-    "firebase-admin/firestore"
-  );
+  const { initializeApp, getApps } = await import('firebase-admin/app');
+  const { getFirestore, FieldValue, Timestamp } =
+    await import('firebase-admin/firestore');
   if (getApps().length === 0) initializeApp();
   const db = getFirestore();
 
@@ -136,22 +147,22 @@ async function maybeAutoStartTrial(
   const userData = userSnap.data();
   const currentPlan = getUserPlan(userData);
   const currentPlanSource =
-    typeof userData?.planSource === "string" ? userData.planSource : null;
+    typeof userData?.planSource === 'string' ? userData.planSource : null;
   const grade =
-    typeof userData?.grade === "string" ? userData.grade : undefined;
+    typeof userData?.grade === 'string' ? userData.grade : undefined;
 
   // 既プレミアム（trial 中含む）→ 二重開放しない
-  if (currentPlan === "premium") return "skipped";
+  if (currentPlan === 'premium') return 'skipped';
 
   // trial 使用済み → 再開放しない
   const hasUsedTrial =
-    currentPlanSource === "trial" ||
-    currentPlanSource === "trial_expired" ||
+    currentPlanSource === 'trial' ||
+    currentPlanSource === 'trial_expired' ||
     userData?.trialStartedAt !== undefined;
-  if (hasUsedTrial) return "skipped";
+  if (hasUsedTrial) return 'skipped';
 
   // 学年未登録 → 対応コンテンツが特定できないため trial 対象外
-  if (!isPremiumEligibleGrade(grade)) return "skipped";
+  if (!isPremiumEligibleGrade(grade)) return 'skipped';
 
   const trialEnd = computeTrialEndJst(new Date());
 
@@ -159,22 +170,22 @@ async function maybeAutoStartTrial(
   // trial 開放を中止する（メニューが free のまま機能だけ premium になる不整合を避ける）。
   // LINE_RICHMENU_TRIAL_ID 未設定なら lineRichMenu 側で premium ID にフォールバックする。
   try {
-    await linkRichMenuForUser(ctx.lineUserId, "trial");
+    await linkRichMenuForUser(ctx.lineUserId, 'trial');
   } catch (error) {
     console.error(
       `[onAnswerCreated] auto trial richmenu link failed uid=${ctx.uid}:`,
       error
     );
-    return "failed";
+    return 'failed';
   }
 
   try {
     await db.doc(`users/${ctx.uid}`).set(
       {
-        plan: "premium",
+        plan: 'premium',
         premiumUntil: Timestamp.fromDate(trialEnd),
-        richMenuType: "trial",
-        planSource: "trial",
+        richMenuType: 'trial',
+        planSource: 'trial',
         trialStartedAt: FieldValue.serverTimestamp(),
         priceLockExpiresAt: Timestamp.fromDate(trialEnd),
         lockedMonthlyPrice: 680,
@@ -188,23 +199,23 @@ async function maybeAutoStartTrial(
       `[onAnswerCreated] auto trial firestore write failed uid=${ctx.uid}:`,
       error
     );
-    return "failed";
+    return 'failed';
   }
 
-  await logServerFunnelEvent("trial_started", ctx.uid, {
-    source: "auto_first_answer",
+  await logServerFunnelEvent('trial_started', ctx.uid, {
+    source: 'auto_first_answer',
   });
   console.log(
     `[onAnswerCreated] auto trial started uid=${ctx.uid} until=${trialEnd.toISOString()}`
   );
-  return "started";
+  return 'started';
 }
 
 async function maybeSendPremiumNudge(ctx: NudgeContext): Promise<void> {
   // 2026-06 トライアル廃止・課金導線停止: 自動トライアル開放（maybeAutoStartTrial）
   // とプレミアム nudge はいったん全停止（TRIAL_FLOW_ENABLED 参照）。
   if (!TRIAL_FLOW_ENABLED) return;
-  if (ctx.userPlan === "premium") return;
+  if (ctx.userPlan === 'premium') return;
   if (!ctx.lineUserId) return;
   // 公式 LINE をブロック中のユーザーには nudge を送らない。
   // 自動トライアル開放（maybeAutoStartTrial）もここを通って初めて発動するため
@@ -248,12 +259,12 @@ async function maybeSendPremiumNudge(ctx: NudgeContext): Promise<void> {
     | ReturnType<typeof buildTrialStartedFlexMessage>;
 
   if (isFirstAnswer) {
-    reason = "first_answer";
+    reason = 'first_answer';
     // 1問目回答時は trial 自動開放を試みる（学年登録済み・trial 未使用なら開放成功）。
     // 成功時: 「trial 開始」flex を push。
     // 失敗・スキップ時: 従来の first_answer nudge flex を fallback として push。
     const autoTrialOutcome = await maybeAutoStartTrial(ctx);
-    if (autoTrialOutcome === "started") {
+    if (autoTrialOutcome === 'started') {
       flex = buildTrialStartedFlexMessage();
     } else {
       flex = buildPremiumNudgeFlexMessage(reason);
@@ -274,13 +285,13 @@ async function maybeSendPremiumNudge(ctx: NudgeContext): Promise<void> {
         );
 
     if (streakHit === null && volumeHit === null) return;
-    reason = streakHit ? "streak_milestone" : "volume_milestone";
+    reason = streakHit ? 'streak_milestone' : 'volume_milestone';
     flex = buildPremiumNudgeFlexMessage(reason);
   }
 
   // first_answer は基本的に即時 push（FIRST_ANSWER_NUDGE_DELAY_MS=0）。
   // 将来また遅延を入れたい場合に備え、定数 > 0 のときだけ wait する形を残す。
-  if (reason === "first_answer" && FIRST_ANSWER_NUDGE_DELAY_MS > 0) {
+  if (reason === 'first_answer' && FIRST_ANSWER_NUDGE_DELAY_MS > 0) {
     await new Promise((resolve) =>
       setTimeout(resolve, FIRST_ANSWER_NUDGE_DELAY_MS)
     );
@@ -299,16 +310,17 @@ async function maybeSendPremiumNudge(ctx: NudgeContext): Promise<void> {
         `streak=${ctx.nextStreakCurrent} total=${ctx.nextTotalAnswered}`
     );
   } catch (error) {
-    console.error("[onAnswerCreated] premium nudge push failed:", error);
+    console.error('[onAnswerCreated] premium nudge push failed:', error);
   }
 
   if (!pushed) return;
 
-  await recordPushDelivery("premiumNudge");
+  await recordPushDelivery('premiumNudge');
 
   try {
-    const { initializeApp, getApps } = await import("firebase-admin/app");
-    const { getFirestore, FieldValue } = await import("firebase-admin/firestore");
+    const { initializeApp, getApps } = await import('firebase-admin/app');
+    const { getFirestore, FieldValue } =
+      await import('firebase-admin/firestore');
     if (getApps().length === 0) {
       initializeApp();
     }
@@ -317,13 +329,13 @@ async function maybeSendPremiumNudge(ctx: NudgeContext): Promise<void> {
       lastPremiumNudgeAt: FieldValue.serverTimestamp(),
     };
     // first_answer は生涯 1 回限りなので専用フィールドにも記録
-    if (reason === "first_answer") {
+    if (reason === 'first_answer') {
       updates.firstAnswerNudgeSentAt = FieldValue.serverTimestamp();
     }
     await db.doc(`users/${ctx.uid}`).set(updates, { merge: true });
   } catch (error) {
     console.error(
-      "[onAnswerCreated] lastPremiumNudgeAt update failed (next milestone retry):",
+      '[onAnswerCreated] lastPremiumNudgeAt update failed (next milestone retry):',
       error
     );
   }
@@ -333,7 +345,7 @@ async function maybeSendPremiumNudge(ctx: NudgeContext): Promise<void> {
  * テスト範囲が未設定のユーザーへ、回答直後に「範囲を設定しよう」nudge を送る。
  * - testScope 設定済み → 送らない（設定したら自動で止まる）
  * - 送信回数が SCOPE_SETUP_NUDGE_MAX に達していたら送らない（安全弁）
- * - 累計回答数が SCOPE_SETUP_NUDGE_MILESTONES（1/5/10問目）に到達した回だけ送る
+ * - 累計回答数が SCOPE_SETUP_NUDGE_MILESTONES（3問目・8問目）に到達した回だけ送る
  * - プレミアム/無料を問わず未設定なら対象
  * 送信したら scopeSetupNudgeCount をインクリメントする。
  */
@@ -342,7 +354,7 @@ async function maybeSendScopeSetupNudge(ctx: NudgeContext): Promise<void> {
   if (ctx.blocked) return;
   if (ctx.hasTestScope) return;
   if (ctx.scopeSetupNudgeCount >= SCOPE_SETUP_NUDGE_MAX) return;
-  // 連続ではなく 1/5/10問目の節目に到達した回だけ送る。
+  // 連続ではなく SCOPE_SETUP_NUDGE_MILESTONES の節目に到達した回だけ送る。
   const milestoneHit = detectNewlyReachedMilestone(
     ctx.prevTotalAnswered,
     ctx.nextTotalAnswered,
@@ -350,29 +362,34 @@ async function maybeSendScopeSetupNudge(ctx: NudgeContext): Promise<void> {
   );
   if (milestoneHit === null) return;
 
+  // A/B バリアント（uid で固定）。どちらの文言が設定に結びつくか計測するため
+  // scopeSetupNudgeVariant を user doc に記録する。
+  const variant = pickScopeNudgeVariant(ctx.uid);
+
   let pushed = false;
   try {
     const client = await getLineClient();
     await client.pushMessage({
       to: ctx.lineUserId,
-      messages: [buildScopeSetupNudgeFlexMessage()],
+      messages: [buildScopeSetupNudgeFlexMessage(variant)],
     });
     pushed = true;
     console.log(
       `[onAnswerCreated] scope setup nudge sent uid=${ctx.uid} ` +
-        `count=${ctx.scopeSetupNudgeCount + 1}/${SCOPE_SETUP_NUDGE_MAX}`
+        `count=${ctx.scopeSetupNudgeCount + 1}/${SCOPE_SETUP_NUDGE_MAX} variant=${variant}`
     );
   } catch (error) {
-    console.error("[onAnswerCreated] scope setup nudge push failed:", error);
+    console.error('[onAnswerCreated] scope setup nudge push failed:', error);
   }
 
   if (!pushed) return;
 
-  await recordPushDelivery("scopeSetupNudge");
+  await recordPushDelivery('scopeSetupNudge');
 
   try {
-    const { initializeApp, getApps } = await import("firebase-admin/app");
-    const { getFirestore, FieldValue } = await import("firebase-admin/firestore");
+    const { initializeApp, getApps } = await import('firebase-admin/app');
+    const { getFirestore, FieldValue } =
+      await import('firebase-admin/firestore');
     if (getApps().length === 0) {
       initializeApp();
     }
@@ -381,12 +398,13 @@ async function maybeSendScopeSetupNudge(ctx: NudgeContext): Promise<void> {
       {
         scopeSetupNudgeCount: FieldValue.increment(1),
         lastScopeSetupNudgeAt: FieldValue.serverTimestamp(),
+        scopeSetupNudgeVariant: variant,
       },
       { merge: true }
     );
   } catch (error) {
     console.error(
-      "[onAnswerCreated] scopeSetupNudgeCount update failed:",
+      '[onAnswerCreated] scopeSetupNudgeCount update failed:',
       error
     );
   }
@@ -410,8 +428,8 @@ async function maybeSendFirstExtraFollowup(
   // （TRIAL_FLOW_ENABLED 参照）。じっくり学ぶは全ユーザーが回答後の
   // 「暗記カードを開く」ボタンから到達できる。
   if (!TRIAL_FLOW_ENABLED) return;
-  if (ctx.userPlan !== "premium") return;
-  if (ctx.planSource !== "trial") return;
+  if (ctx.userPlan !== 'premium') return;
+  if (ctx.planSource !== 'trial') return;
   if (!ctx.lineUserId) return;
   if (ctx.firstExtraQuestionAtMs === null) return;
   // 公式 LINE をブロック中のユーザーには 2 通連続 push を送らない
@@ -429,21 +447,23 @@ async function maybeSendFirstExtraFollowup(
     return;
   }
 
-  const { initializeApp, getApps } = await import("firebase-admin/app");
-  const { getFirestore, FieldValue } = await import("firebase-admin/firestore");
+  const { initializeApp, getApps } = await import('firebase-admin/app');
+  const { getFirestore, FieldValue } = await import('firebase-admin/firestore');
   if (getApps().length === 0) {
     initializeApp();
   }
   const db = getFirestore();
 
   try {
-    await db.doc(`users/${ctx.uid}`).set(
-      { firstExtraFollowupSentAt: FieldValue.serverTimestamp() },
-      { merge: true }
-    );
+    await db
+      .doc(`users/${ctx.uid}`)
+      .set(
+        { firstExtraFollowupSentAt: FieldValue.serverTimestamp() },
+        { merge: true }
+      );
   } catch (error) {
     console.error(
-      "[onAnswerCreated] firstExtraFollowupSentAt write failed:",
+      '[onAnswerCreated] firstExtraFollowupSentAt write failed:',
       error
     );
     return;
@@ -453,15 +473,15 @@ async function maybeSendFirstExtraFollowup(
     const client = await getLineClient();
     await client.pushMessage({
       to: ctx.lineUserId,
-      messages: [buildNextStepGuideFlex("jikkuri") as never],
+      messages: [buildNextStepGuideFlex('jikkuri') as never],
     });
-    await recordPushDelivery("premiumNudge");
+    await recordPushDelivery('premiumNudge');
     console.log(
       `[onAnswerCreated] first_extra_followup: jikkuri sent uid=${ctx.uid}`
     );
   } catch (error) {
     console.error(
-      "[onAnswerCreated] first_extra_followup jikkuri push failed:",
+      '[onAnswerCreated] first_extra_followup jikkuri push failed:',
       error
     );
     return;
@@ -473,30 +493,32 @@ async function maybeSendFirstExtraFollowup(
 }
 
 export const onAnswerCreated = functions
-  .region("asia-northeast1")
+  .region('asia-northeast1')
   // first_extra_followup（trial 中ユーザーの追加で解く 60 秒遅延 push）と
   // stats 更新の同時実行に備えて timeout を伸ばす。デフォルト 60 秒では
   // 余裕がないため 120 秒。
   .runWith({ timeoutSeconds: 120 })
-  .firestore.document("answers/{answerId}")
+  .firestore.document('answers/{answerId}')
   .onCreate(async (snap) => {
     const data = snap.data();
-    const uid = typeof data.uid === "string" ? data.uid : "";
-    const questionId = typeof data.questionId === "string" ? data.questionId : "";
+    const uid = typeof data.uid === 'string' ? data.uid : '';
+    const questionId =
+      typeof data.questionId === 'string' ? data.questionId : '';
     const isCorrect = data.isCorrect === true;
-    const subject = typeof data.subject === "string" ? data.subject : "";
+    const subject = typeof data.subject === 'string' ? data.subject : '';
     const topic =
-      typeof data.topic === "string" && data.topic.trim() !== ""
+      typeof data.topic === 'string' && data.topic.trim() !== ''
         ? data.topic
         : null;
 
     if (!questionId) {
-      console.warn("[onAnswerCreated] missing questionId in answer:", snap.id);
+      console.warn('[onAnswerCreated] missing questionId in answer:', snap.id);
       return;
     }
 
-    const { initializeApp, getApps } = await import("firebase-admin/app");
-    const { getFirestore, FieldValue } = await import("firebase-admin/firestore");
+    const { initializeApp, getApps } = await import('firebase-admin/app');
+    const { getFirestore, FieldValue } =
+      await import('firebase-admin/firestore');
     if (getApps().length === 0) {
       initializeApp();
     }
@@ -510,16 +532,21 @@ export const onAnswerCreated = functions
     }
 
     try {
-      await db.doc(`questions/${questionId}`).set(questionUpdates, { merge: true });
+      await db
+        .doc(`questions/${questionId}`)
+        .set(questionUpdates, { merge: true });
       console.log(
         `[onAnswerCreated] updated questions/${questionId}: isCorrect=${isCorrect}`
       );
     } catch (error) {
-      console.error("[onAnswerCreated] questions update failed:", error);
+      console.error('[onAnswerCreated] questions update failed:', error);
     }
 
     if (!uid) {
-      console.warn("[onAnswerCreated] missing uid in answer; skip stats update:", snap.id);
+      console.warn(
+        '[onAnswerCreated] missing uid in answer; skip stats update:',
+        snap.id
+      );
       return;
     }
 
@@ -528,16 +555,22 @@ export const onAnswerCreated = functions
     // 通知判定のため transaction 内で prev/next 値や plan を捕捉する
     let nudgeCtx: NudgeContext | null = null;
     let firstExtraCtx: FirstExtraFollowupContext | null = null;
+    // 休眠→復帰（非active→active）を transaction 後に funnel へ記録するため、
+    // 復帰元 status を捕捉する（active のままなら null）。retention 定点指標
+    // 「status_transition→active」はこの経路でしか観測できない（夜間 cron は
+    // 既に active に戻った後に走るので回復遷移を取りこぼす）。
+    let recoveredFromStatus: string | null = null;
 
     try {
       await db.runTransaction(async (tx) => {
         const userSnap = await tx.get(userRef);
-        const userData = userSnap.exists ? userSnap.data() ?? {} : {};
+        const userData = userSnap.exists ? (userSnap.data() ?? {}) : {};
         const prevStats =
           (userData.stats as Record<string, unknown> | undefined) ?? {};
-        const prevStreak = (prevStats.streak as StreakState | undefined) ?? null;
+        const prevStreak =
+          (prevStats.streak as StreakState | undefined) ?? null;
         const prevCorrectStreak =
-          typeof prevStats.correctStreak === "number"
+          typeof prevStats.correctStreak === 'number'
             ? prevStats.correctStreak
             : 0;
 
@@ -552,6 +585,10 @@ export const onAnswerCreated = functions
             current: nextStreak.current,
             longest: nextStreak.longest,
             lastStudyDate: nextStreak.lastStudyDate,
+            // 週1おやすみ免除の最終使用日（未使用なら書かない）
+            ...(nextStreak.lastForgivenDateJst
+              ? { lastForgivenDateJst: nextStreak.lastForgivenDateJst }
+              : {}),
           },
           correctStreak: nextCorrectStreak,
         };
@@ -587,17 +624,19 @@ export const onAnswerCreated = functions
         };
 
         const currentStatus =
-          typeof userData.status === "string" ? userData.status : "active";
-        if (currentStatus !== "active") {
-          userUpdates.status = "active";
+          typeof userData.status === 'string' ? userData.status : 'active';
+        if (currentStatus !== 'active') {
+          userUpdates.status = 'active';
           userUpdates.statusChangedAt = FieldValue.serverTimestamp();
+          // transaction 後に status_transition→active を funnel 記録する
+          recoveredFromStatus = currentStatus;
         }
 
         tx.set(userRef, userUpdates, { merge: true });
 
         // nudge 判定用コンテキストを captureしておく
         const prevTotalAnswered =
-          typeof prevStats.totalAnswered === "number"
+          typeof prevStats.totalAnswered === 'number'
             ? prevStats.totalAnswered
             : 0;
         const lastNudge = userData.lastPremiumNudgeAt as
@@ -605,7 +644,7 @@ export const onAnswerCreated = functions
           | undefined
           | null;
         const lastPremiumNudgeAtMs =
-          lastNudge && typeof lastNudge.toDate === "function"
+          lastNudge && typeof lastNudge.toDate === 'function'
             ? lastNudge.toDate().getTime()
             : null;
 
@@ -616,24 +655,24 @@ export const onAnswerCreated = functions
           | null;
         const firstAnswerNudgeSentAtMs =
           firstAnswerNudgeRaw &&
-          typeof firstAnswerNudgeRaw.toDate === "function"
+          typeof firstAnswerNudgeRaw.toDate === 'function'
             ? firstAnswerNudgeRaw.toDate().getTime()
             : null;
 
         const lineUserId =
-          typeof userData.lineUserId === "string" ? userData.lineUserId : "";
+          typeof userData.lineUserId === 'string' ? userData.lineUserId : '';
 
         // 公式 LINE をブロック中なら nudge / firstExtraFollowup の push を全て止める
         const blocked = userData.blocked === true;
 
         // 範囲設定 nudge の停止条件
-        const scopeTopics = (userData.testScope as
-          | { topics?: unknown[] }
-          | undefined)?.topics;
+        const scopeTopics = (
+          userData.testScope as { topics?: unknown[] } | undefined
+        )?.topics;
         const hasTestScope =
           Array.isArray(scopeTopics) && scopeTopics.length > 0;
         const scopeSetupNudgeCount =
-          typeof userData.scopeSetupNudgeCount === "number"
+          typeof userData.scopeSetupNudgeCount === 'number'
             ? userData.scopeSetupNudgeCount
             : 0;
 
@@ -659,7 +698,7 @@ export const onAnswerCreated = functions
           | null;
         const firstExtraQuestionAtMs =
           firstExtraQuestionAtRaw &&
-          typeof firstExtraQuestionAtRaw.toDate === "function"
+          typeof firstExtraQuestionAtRaw.toDate === 'function'
             ? firstExtraQuestionAtRaw.toDate().getTime()
             : null;
         const firstExtraFollowupRaw = userData.firstExtraFollowupSentAt as
@@ -668,11 +707,11 @@ export const onAnswerCreated = functions
           | null;
         const firstExtraFollowupSentAtMs =
           firstExtraFollowupRaw &&
-          typeof firstExtraFollowupRaw.toDate === "function"
+          typeof firstExtraFollowupRaw.toDate === 'function'
             ? firstExtraFollowupRaw.toDate().getTime()
             : null;
         const planSource =
-          typeof userData.planSource === "string" ? userData.planSource : "";
+          typeof userData.planSource === 'string' ? userData.planSource : '';
 
         firstExtraCtx = {
           uid,
@@ -686,20 +725,38 @@ export const onAnswerCreated = functions
       });
       console.log(`[onAnswerCreated] updated users/${uid}.stats`);
     } catch (error) {
-      console.error("[onAnswerCreated] users stats update failed:", error);
+      console.error('[onAnswerCreated] users stats update failed:', error);
+    }
+
+    // 休眠→復帰（回答による自然再活性化）を funnel に記録する。
+    // handleRestartIntent（CTA/キーワード復帰）と合わせて「status_transition→active」
+    // の定点指標を埋める。失敗は握りつぶす（本体は止めない）。
+    if (recoveredFromStatus) {
+      try {
+        await logServerFunnelEvent('status_transition', uid, {
+          from: recoveredFromStatus,
+          to: 'active',
+          source: 'answer',
+        });
+      } catch (error) {
+        console.error(
+          '[onAnswerCreated] recovery status_transition log failed:',
+          error
+        );
+      }
     }
 
     if (nudgeCtx) {
       try {
         await maybeSendPremiumNudge(nudgeCtx);
       } catch (error) {
-        console.error("[onAnswerCreated] maybeSendPremiumNudge failed:", error);
+        console.error('[onAnswerCreated] maybeSendPremiumNudge failed:', error);
       }
       try {
         await maybeSendScopeSetupNudge(nudgeCtx);
       } catch (error) {
         console.error(
-          "[onAnswerCreated] maybeSendScopeSetupNudge failed:",
+          '[onAnswerCreated] maybeSendScopeSetupNudge failed:',
           error
         );
       }
@@ -710,7 +767,7 @@ export const onAnswerCreated = functions
         await maybeSendFirstExtraFollowup(firstExtraCtx);
       } catch (error) {
         console.error(
-          "[onAnswerCreated] maybeSendFirstExtraFollowup failed:",
+          '[onAnswerCreated] maybeSendFirstExtraFollowup failed:',
           error
         );
       }

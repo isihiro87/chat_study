@@ -1,0 +1,2076 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>歴史 ⑱ 冷戦と日本の復興｜つづもん問題集</title>
+<style>
+  :root { --brand:#b45309; --deep:#7c2d12; --amber:#f59e0b; --cream:#fffdf8; --line:#fde68a;
+          --ok:#16a34a; --ng:#dc2626; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { -webkit-text-size-adjust:100%; }
+  body { font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;
+         font-size:16px; line-height:1.95; color:#1c1917; background:var(--cream);
+         padding-bottom:86px; }
+  .wrap { max-width:640px; margin:0 auto; padding:0 16px 24px; }
+  ruby rt { font-size:0.5em; }
+  .print-only { display:none; }
+
+  /* ── 上部バー ── */
+  .bar { position:sticky; top:0; z-index:10; background:rgba(255,253,248,.96);
+         backdrop-filter:blur(6px); border-bottom:1px solid #f0e6d2; }
+  .bar-in { max-width:640px; margin:0 auto; padding:8px 16px 0; }
+  .bar-row { display:flex; align-items:center; gap:8px; }
+  .bar-title { font-weight:bold; color:var(--deep); font-size:14px; flex:1;
+               white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .bar-step { flex:none; font-size:12px; font-weight:bold; color:var(--brand); }
+  .tabs { display:flex; gap:6px; overflow-x:auto; padding:8px 0; scrollbar-width:none; }
+  .tabs::-webkit-scrollbar { display:none; }
+  .tab { flex:none; width:36px; height:36px; border-radius:50%; border:1.5px solid var(--line);
+         background:#fffbeb; color:var(--brand); font-size:14px; font-weight:bold;
+         display:inline-flex; align-items:center; justify-content:center; cursor:pointer; }
+  .tab.done { background:#fef3c7; }
+  .tab.on { background:var(--brand); border-color:var(--brand); color:#fff;
+            box-shadow:0 2px 6px rgba(180,83,9,.35); }
+  .pbar { height:3px; background:#f5ecd8; border-radius:2px; overflow:hidden; }
+  .pfill { height:100%; width:0; background:linear-gradient(90deg,var(--amber),#fbbf24);
+           transition:width .25s ease; }
+
+  .view { display:none; }
+  .view.on { display:block; position:relative; animation:vfade .18s ease; }
+  @keyframes vfade { from { opacity:.6; } to { opacity:1; } }
+  .step { display:none; }
+  .step.on { display:block; }
+  /* 本物っぽいページめくり（2枚重ね・参考書Web版と共通）:
+     進む = 今のページ自体が左とじに沿って手前にめくれて去り、下から次のページが現れる。
+     戻る = 前のページが手前からめくり戻されて上に着地する。 */
+  /* min-height:100% = 下に敷かれた新ページ全体を覆う（絶対配置なので view の実高さに解決される。
+     これが無いと、めくれるページより新ページが長いとき下端が透けて見える） */
+  .step.turn-out { display:block; position:absolute; top:0; left:0; width:100%; min-height:100%;
+                   z-index:3; pointer-events:none; background:var(--cream);
+                   transform-origin:left center;
+                   animation:turnOut .45s cubic-bezier(.55,.06,.68,.19) forwards; }
+  @keyframes turnOut {
+    0%   { transform:perspective(1200px) rotateY(0); opacity:1; }
+    75%  { opacity:1; }
+    100% { transform:perspective(1200px) rotateY(-88deg); opacity:0; } }
+  .step.turn-out::after { content:""; position:absolute; inset:0; pointer-events:none;
+                          background:linear-gradient(to right, transparent 55%, rgba(124,45,18,.12)); }
+  .step.on.turn-in { position:relative; z-index:3; background:var(--cream);
+                     transform-origin:left center;
+                     animation:turnIn .45s cubic-bezier(.22,.72,.32,1); }
+  @keyframes turnIn {
+    from { transform:perspective(1200px) rotateY(-88deg); }
+    to   { transform:perspective(1200px) rotateY(0); } }
+  .step.turn-under { display:block; position:absolute; top:0; left:0; width:100%; z-index:1;
+                     pointer-events:none; max-height:100%; overflow:hidden; }
+
+  /* ── ホーム ── */
+  .top { text-align:center; padding:26px 0 6px; }
+  .badge { display:inline-block; background:var(--brand); color:#fff; font-weight:bold;
+           padding:4px 16px; border-radius:20px; font-size:13px; }
+  .webtag { background:rgba(255,255,255,.25); border-radius:10px; padding:1px 8px; font-size:11px; margin-left:4px; }
+  .top h1 { font-size:29px; color:var(--deep); margin-top:12px; line-height:1.4; }
+  .sub { color:#92400e; font-size:14px; margin-top:2px; }
+  .howto { font-size:13.5px; color:#57534e; }
+  .home-howto { margin-top:14px; background:#fffbeb; border:1.5px dashed var(--line);
+                border-radius:12px; padding:10px 14px; text-align:left; }
+  .resume { display:block; width:100%; margin:16px 0 0; background:var(--brand); color:#fff;
+            border:none; border-radius:14px; padding:13px; font-size:15px; font-weight:bold;
+            cursor:pointer; box-shadow:0 3px 8px rgba(180,83,9,.3); font-family:inherit; }
+  .resume span { font-weight:normal; font-size:12px; opacity:.9; margin-left:8px; }
+  .toc { margin:16px 0 12px; background:#fff; border:2px solid var(--line); border-radius:14px; padding:14px; }
+  .toc-h { font-weight:bold; color:var(--deep); margin-bottom:6px; font-size:15px; }
+  .toc-item { display:flex; align-items:center; gap:10px; width:100%; padding:11px 6px;
+              background:none; border:none; border-top:1px solid #faf1dc; cursor:pointer;
+              color:#44403c; font-weight:bold; font-size:15px; text-align:left;
+              font-family:inherit; line-height:1.5; }
+  .toc-item:first-of-type { border-top:none; }
+  .toc-no { flex:none; min-width:24px; height:24px; border-radius:50%; background:var(--amber);
+            color:#fff; display:inline-flex; align-items:center; justify-content:center;
+            font-size:12px; padding:0 4px; }
+  .toc-name { flex:1; }
+  .toc-state { flex:none; font-size:11px; font-weight:bold; }
+  .toc-state.done { color:var(--ok); }
+  .toc-state.doing { color:var(--brand); background:#fffbeb; border:1px solid var(--line);
+                     border-radius:10px; padding:1px 8px; }
+
+  /* ── マスコット ── */
+  .wchar { flex:none; object-fit:contain; }
+  .home-cheer { display:flex; align-items:center; justify-content:center; gap:8px; margin-top:12px; }
+  .home-cheer .wchar { height:58px; }
+  .sp-bubble { position:relative; display:inline-block; background:#fffbeb; border:1.5px solid #f0b558;
+               border-radius:12px; padding:5px 12px; font-size:13px; font-weight:bold; color:#92400e; }
+  .sp-bubble.sp-taill::before { content:""; position:absolute; left:-7px; top:50%; transform:translateY(-50%);
+               border:5px solid transparent; border-right-color:#f0b558; }
+  .tchar { height:38px; margin-left:auto; }
+  .done-char { height:52px; vertical-align:middle; margin-right:6px; }
+
+  /* ── 単元 ── */
+  .tband { display:flex; align-items:center; gap:10px; margin:18px 0 14px; }
+  .tno, .ttag { flex:none; min-width:34px; height:34px; border-radius:50%; background:var(--brand); color:#fff;
+         display:inline-flex; align-items:center; justify-content:center; font-size:16px;
+         font-weight:bold; box-shadow:0 2px 4px rgba(180,83,9,.3); padding:0 6px; }
+  .tband h2 { font-size:20px; color:var(--deep); border-bottom:3px solid var(--line);
+              padding-bottom:2px; flex:1; line-height:1.4; }
+  .sec-h { display:flex; align-items:center; gap:8px; font-size:16px; font-weight:bold;
+           color:var(--deep); margin-bottom:10px; }
+  .sec-tag { flex:none; background:var(--brand); color:#fff; border-radius:8px; width:26px; height:26px;
+             display:inline-flex; align-items:center; justify-content:center; font-size:14px; }
+  .sec-note { font-size:12px; font-weight:normal; color:#a8a29e; }
+  .ref-link { display:inline-block; font-size:13px; font-weight:bold; color:var(--brand);
+              text-decoration:none; border:1.5px solid var(--line); background:#fffbeb;
+              border-radius:16px; padding:5px 14px; margin-bottom:10px; }
+
+  /* 穴埋めチップ */
+  .summary { background:#fff; border:1.5px solid #e2d5bd; border-radius:12px; padding:12px 14px;
+             text-align:justify; }
+  .blank { display:inline; border:none; background:none; font:inherit; cursor:pointer; padding:0; }
+  .blank .bno { color:var(--brand); font-weight:bold; }
+  .blank .ba { display:none; font-weight:bold; color:var(--brand);
+               background:linear-gradient(transparent 55%, var(--line) 55%); padding:0 2px; }
+  .blank .bl { display:inline-block; border-bottom:2px solid #a8a29e; height:1em;
+               vertical-align:-2px; max-width:9em; background:#fffbeb; }
+  .blank.open .ba { display:inline; }
+  .blank.open .bl { display:none; }
+  .tap-hint { display:none; }
+  .reveal-all-row { margin-top:10px; text-align:right; }
+  .reveal-all { border:1.5px solid var(--line); background:#fffbeb; color:var(--brand);
+                font-weight:bold; font-size:13px; border-radius:16px; padding:6px 14px;
+                cursor:pointer; font-family:inherit; }
+
+  /* 年表 */
+  .tl-table { width:100%; border-collapse:collapse; background:#fff; font-size:14px; }
+  .tl-table th, .tl-table td { border:1px solid #d6cbb2; padding:6px 10px; }
+  .tl-table th { background:#faf5eb; font-size:13px; }
+  .tl-year { width:74px; text-align:center; white-space:nowrap; }
+
+  /* 問題共通 */
+  .q-text { font-size:16.5px; font-weight:bold; line-height:1.9; }
+  .qa-no { font-weight:bold; margin-right:6px; color:var(--brand); }
+  .reveal { display:block; width:100%; margin-top:14px; border:none; border-radius:12px;
+            background:var(--amber); color:#fff; font-weight:bold; font-size:15px;
+            padding:12px; cursor:pointer; font-family:inherit; box-shadow:0 2px 6px rgba(245,158,11,.3); }
+  .hidden-until { display:none; }
+  .show .hidden-until { display:block; }
+  .show .reveal { display:none; }
+  .qa-a { margin-top:12px; background:#fff; border:2px solid var(--amber); border-radius:12px;
+          padding:10px 14px; font-size:18px; font-weight:bold; color:var(--deep); text-align:center; }
+  .qa-expl { font-size:13.5px; color:#57534e; background:#fffbeb; border-radius:10px;
+             padding:8px 12px; margin-top:8px; line-height:1.8; }
+  .marks { display:flex; gap:10px; margin-top:12px; }
+  .mk { flex:1; border:2px solid; border-radius:12px; background:#fff; font-weight:bold;
+        font-size:15px; padding:10px; cursor:pointer; font-family:inherit; }
+  .mk-ok { border-color:#bbe3cc; color:var(--ok); }
+  .mk-ng { border-color:#fecaca; color:var(--ng); }
+
+  /* 4択 */
+  .qopts { display:flex; flex-direction:column; gap:8px; margin-top:12px; }
+  .qopt { display:flex; align-items:center; gap:10px; text-align:left; background:#fff;
+          border:1.5px solid #e2d5bd; border-radius:12px; padding:10px 12px; font-size:14.5px;
+          cursor:pointer; font-family:inherit; line-height:1.7; }
+  .opt-k { flex:none; width:26px; height:26px; border-radius:50%; border:1.5px solid #a8a29e;
+           display:inline-flex; align-items:center; justify-content:center; font-size:13px; font-weight:bold; }
+  .qz-step.answered .qopt { cursor:default; }
+  .qopt.correct { border-color:var(--ok); background:#f0fdf4; }
+  .qopt.correct .opt-k { background:var(--ok); border-color:var(--ok); color:#fff; }
+  .qopt.wrong { border-color:var(--ng); background:#fef2f2; }
+  .qopt.wrong .opt-k { background:var(--ng); border-color:var(--ng); color:#fff; }
+  .qopt.dim { opacity:.55; }
+  .expl { margin-top:10px; font-size:13.5px; color:#57534e; background:#fffbeb;
+          border-radius:10px; padding:8px 12px; line-height:1.8; }
+  .qz-step.answered .expl { display:block; }
+
+  /* 記述 */
+  .kw-note { font-size:13px; color:#57534e; margin-top:6px; }
+  .kw-chip { display:inline-block; border:1px solid var(--brand); color:var(--brand);
+             border-radius:6px; padding:0 8px; margin-left:6px; font-size:12.5px; }
+  .w-input { width:100%; margin-top:12px; border:1.5px solid #e2d5bd; border-radius:12px;
+             padding:10px 12px; font:inherit; font-size:14.5px; background:#fff; resize:vertical; }
+  .line-mini { display:block; margin-top:10px; text-align:center; font-size:13px; font-weight:bold;
+               color:#06c755; text-decoration:none; border:1.5px solid #bbe3cc; border-radius:12px;
+               padding:8px; background:#f0fdf4; }
+
+  /* 資料 */
+  .s-img { margin-bottom:12px; }
+  .s-img img { width:100%; border-radius:12px; border:1px solid #e2d5bd; display:block; }
+  .s-img figcaption { font-size:12px; color:#a8a29e; text-align:center; margin-top:4px; }
+  .s-q { margin-bottom:14px; font-size:15px; line-height:1.8; }
+  .s-blank { display:block; margin:6px 0 0 26px; text-align:left; }
+  .s-blank .tap-hint { display:inline; font-size:11px; color:#b8b0a6; margin-left:8px; }
+  .s-blank.open .tap-hint { display:none; }
+  .m-res-row { display:flex; gap:8px; margin-bottom:14px; }
+  .m-res { flex:1; text-align:center; }
+  .m-res img { width:100%; border-radius:10px; border:1px solid #e2d5bd; }
+  .m-lab { display:block; font-weight:bold; color:var(--brand); font-size:14px; }
+  .m-item { background:#fff; border:1.5px solid #e2d5bd; border-radius:12px; padding:10px 12px;
+            margin-bottom:10px; }
+  .m-text { font-size:14.5px; line-height:1.8; }
+  .m-btns { display:flex; gap:8px; margin-top:8px; }
+  .mopt { flex:1; border:1.5px solid #e2d5bd; background:#fffbeb; border-radius:10px;
+          font-weight:bold; font-size:15px; padding:8px; cursor:pointer; font-family:inherit; }
+  .mopt.correct { border-color:var(--ok); background:#f0fdf4; color:var(--ok); }
+  .mopt.wrong { border-color:var(--ng); background:#fef2f2; color:var(--ng); }
+
+  /* 結果 */
+  .done { text-align:center; font-size:17px; font-weight:bold; color:var(--deep); margin:14px 0; }
+  .score-box { background:#fff; border:2px solid var(--line); border-radius:14px; padding:14px;
+               margin-bottom:12px; font-size:14.5px; }
+  .score-row { display:flex; justify-content:space-between; padding:4px 2px; }
+  .score-row b { color:var(--brand); }
+  .big-btn { display:block; width:100%; text-align:center; margin-top:10px; border:none;
+             border-radius:14px; padding:13px 16px; font-size:15px; font-weight:bold;
+             cursor:pointer; font-family:inherit; text-decoration:none; }
+  .line-btn { background:#06c755; color:#fff; box-shadow:0 3px 8px rgba(6,199,85,.3); }
+  .btn-sub { display:block; font-weight:normal; font-size:12px; opacity:.9; }
+  .ref-btn { background:#fffbeb; color:var(--brand); border:1.5px solid var(--line); }
+  .retry-btn { background:#fff; color:#57534e; border:1.5px solid #e2d5bd; }
+  .print-btn { background:#fff; color:#57534e; border:1.5px solid #e2d5bd; }
+
+  .foot { text-align:center; margin-top:32px; color:#a8a29e; font-size:13px; }
+  .foot-note { margin-top:4px; font-size:12px; }
+
+  /* ── 下部ナビ ── */
+  .navbar { position:fixed; left:0; right:0; bottom:0; z-index:10;
+            background:rgba(255,253,248,.97); border-top:1px solid #f0e6d2;
+            padding:10px 16px calc(10px + env(safe-area-inset-bottom)); }
+  .navbar-in { max-width:640px; margin:0 auto; display:flex; align-items:center; gap:10px; }
+  .nb { border:none; border-radius:14px; padding:12px 0; font-size:15px; font-weight:bold;
+        cursor:pointer; font-family:inherit; }
+  .nb-prev { flex:1; background:#fff; color:var(--brand); border:1.5px solid var(--line); }
+  .nb-next { flex:2; background:var(--brand); color:#fff; box-shadow:0 3px 8px rgba(180,83,9,.3); }
+
+  /* ── 印刷（紙のワークとして使える） ── */
+  @media print {
+    body { background:#fff; padding-bottom:0; font-size:10.5pt; line-height:1.8; }
+    .bar, .navbar, .resume, .reveal, .marks, .reveal-all-row, .w-input, .line-mini,
+    .big-btn, .qa-expl, .expl, .tap-hint, .toc-state, .home-howto, .howto, .m-btns { display:none !important; }
+    .print-only { display:block !important; }
+    .view { display:block !important; }
+    .step { display:block !important; margin-bottom:14px; break-inside:avoid; }
+    .hidden-until { display:none !important; }
+    .blank .ba { display:none !important; }
+    .blank .bl { display:inline-block !important; background:none; }
+    .qopt { border:none; padding:1px 0; background:none; }
+    .qopt .opt-k { width:18px; height:18px; font-size:10px; }
+    .qopt.correct, .qopt.wrong { background:none; border:none; }
+    .qopt.correct .opt-k, .qopt.wrong .opt-k { background:none; color:#1c1917; border-color:#a8a29e; }
+    .qopts { gap:2px; margin-top:4px; }
+    .wline { border-bottom:1px solid #78716c; height:9mm; margin-top:2mm; }
+    .toc-item, .tab { cursor:default; }
+    .top { padding-top:0; }
+    .tband { margin-top:8mm; break-after:avoid; }
+    .m-item { break-inside:avoid; }
+    .m-item::after { content:"〔　　〕"; color:#44403c; }
+    .print-answers { page-break-before:always; font-size:9pt; line-height:1.9; }
+    .ans-band { background:#44403c; color:#fff; text-align:center; padding:2px 0; border-radius:4px;
+                margin-bottom:8px; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .a-topic { border-bottom:1px dashed #a8a29e; padding:4px 0; }
+    .a-title { font-weight:bold; background:#f5f5f4; padding:0 6px; border-left:8px solid var(--brand);
+               -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .a-label { font-weight:bold; color:var(--brand); margin-right:6px; }
+    .a-item { display:inline-block; margin-right:4px; }
+    .a-written { padding-left:6px; }
+    .credits { font-size:7.5pt; color:#78716c; border-top:1px solid #d6d3d1; margin-top:8px; }
+  }
+  .credits { font-size:11px; color:#a8a29e; margin-top:20px; }
+</style></head><body>
+<div class="bar"><div class="bar-in">
+  <div class="bar-row">
+    <div class="bar-title">歴史 ⑱ 冷戦と日本の復興（問題集）</div>
+    <div class="bar-step" id="barStep"></div>
+  </div>
+  <nav class="tabs" id="tabs"><button class="tab tab-home" data-go="0" aria-label="目次">🏠</button><button class="tab" data-go="1" aria-label="年表">年</button><button class="tab" data-go="2" aria-label="冷戦の始まり">1</button><button class="tab" data-go="3" aria-label="日本の独立回復">2</button><button class="tab" data-go="4" aria-label="国際社会への復帰">3</button><button class="tab" data-go="5" aria-label="高度経済成長">4</button><button class="tab" data-go="6" aria-label="戦後の文化">5</button></nav>
+  <div class="pbar"><div class="pfill" id="pfill"></div></div>
+</div></div>
+<main class="wrap" id="views">
+
+<section class="view home" data-t="0">
+  <header class="top">
+    <div class="badge">歴史 ⑱　問題集 <span class="webtag">Web版</span></div>
+    <h1>冷戦と日本の復興</h1>
+    <div class="sub">戦後の国際社会 〜 高度経済成長期</div>
+    <div class="home-cheer"><img class="wchar" src="img/characters_char_manabi_sm.png" alt=""><span class="sp-bubble sp-taill">いっしょに がんばろう！</span></div>
+    <div class="howto home-howto">タブか下のリストから選んで、1問ずつ解いていこう！<br>
+    要点まとめ → 一問一答 → 4択 → 記述の順で力がつくよ。</div>
+  </header>
+  <button class="resume" id="resumeBtn" hidden>▶ つづきから解く<span id="resumeWhere"></span></button>
+  <nav class="toc">
+    <div class="toc-h">✏️ この本の問題</div>
+    <button class="toc-item" data-go="1"><span class="toc-no">年</span><span class="toc-name">年表でチェック</span><span class="toc-state" data-state-t="1"></span></button><button class="toc-item" data-go="2"><span class="toc-no">1</span><span class="toc-name">冷戦の始まり</span><span class="toc-state" data-state-t="2"></span></button><button class="toc-item" data-go="3"><span class="toc-no">2</span><span class="toc-name">日本の独立回復</span><span class="toc-state" data-state-t="3"></span></button><button class="toc-item" data-go="4"><span class="toc-no">3</span><span class="toc-name">国際社会への復帰</span><span class="toc-state" data-state-t="4"></span></button><button class="toc-item" data-go="5"><span class="toc-no">4</span><span class="toc-name">高度経済成長</span><span class="toc-state" data-state-t="5"></span></button><button class="toc-item" data-go="6"><span class="toc-no">5</span><span class="toc-name">戦後の文化</span><span class="toc-state" data-state-t="6"></span></button>
+  </nav>
+  <a class="big-btn ref-btn" href="../../ref/18/index.html">📖 参考書Web版を開く</a>
+  <button class="big-btn print-btn" type="button" onclick="window.print()">🖨 紙に印刷して解く（解答つき）</button>
+  
+  <footer class="foot">
+    <div>つづもん 問題集 Web版</div>
+    <div class="foot-note">ダウンロード済みのA4版PDF（書き込みレイアウト）もあわせてどうぞ。</div>
+  </footer>
+</section>
+<section class="view" data-t="1">
+  <div class="tband"><span class="ttag">年</span><h2>年表でチェック</h2></div>
+  <div class="step" data-label="年表でチェック">
+    <div class="howto">（　）をタップすると答えが出るよ。まずは自分で言ってから確かめよう！</div>
+    <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    <table class="tl-table"><tr><th class="tl-year">年代</th><th>できごと</th></tr><tr><td class='tl-year'>1945年</td><td>世界平和を目指す<button class="blank" type="button"><span class="bno">①</span><span class="ba">国際連合</span><span class="bl" style="width:3.6em"></span></button>が発足する</td></tr><tr><td class='tl-year'>1949年</td><td>毛沢東が<button class="blank" type="button"><span class="bno">②</span><span class="ba">中華人民共和国</span><span class="bl" style="width:6.3em"></span></button>を建国する</td></tr><tr><td class='tl-year'>1950年</td><td>北朝鮮の侵攻で<button class="blank" type="button"><span class="bno">③</span><span class="ba">朝鮮戦争</span><span class="bl" style="width:3.6em"></span></button>が始まる</td></tr><tr><td class='tl-year'>1951年</td><td>吉田茂内閣が<button class="blank" type="button"><span class="bno">④</span><span class="ba">サンフランシスコ平和条約</span><span class="bl" style="width:9.0em"></span></button>に調印する</td></tr><tr><td class='tl-year'>1954年</td><td>保安隊が改組され<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">自衛隊</span><span class="bl" style="width:2.7em"></span></button>が発足する</td></tr><tr><td class='tl-year'>1955年</td><td>保守合同で自由民主党が結成され、<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">55年体制</span><span class="bl" style="width:4.5em"></span></button>が始まる</td></tr><tr><td class='tl-year'>1956年</td><td><button class="blank" type="button"><span class="bno">⑦</span><span class="ba">日ソ共同宣言</span><span class="bl" style="width:5.4em"></span></button>が結ばれ、日本が国際連合に加盟する</td></tr><tr><td class='tl-year'>1960年</td><td>新日米安全保障条約に反対する<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">安保闘争</span><span class="bl" style="width:3.6em"></span></button>が起こる</td></tr><tr><td class='tl-year'>1961年</td><td>東ドイツが<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">ベルリンの壁</span><span class="bl" style="width:5.4em"></span></button>を築く</td></tr><tr><td class='tl-year'>1962年</td><td>米ソが対立した<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">キューバ危機</span><span class="bl" style="width:5.4em"></span></button>が起こる</td></tr><tr><td class='tl-year'>1964年</td><td><button class="blank" type="button"><span class="bno">⑪</span><span class="ba">東京オリンピック</span><span class="bl" style="width:7.2em"></span></button>が開催され、東海道新幹線が開通する</td></tr><tr><td class='tl-year'>1965年</td><td><button class="blank" type="button"><span class="bno">⑫</span><span class="ba">日韓基本条約</span><span class="bl" style="width:5.4em"></span></button>が結ばれる</td></tr><tr><td class='tl-year'>1968年</td><td><button class="blank" type="button"><span class="bno">⑬</span><span class="ba">川端康成</span><span class="bl" style="width:3.6em"></span></button>がノーベル文学賞を受賞する</td></tr><tr><td class='tl-year'>1970年</td><td>日本初の国際博覧会である<button class="blank" type="button"><span class="bno">⑭</span><span class="ba">大阪万博</span><span class="bl" style="width:3.6em"></span></button>が開催される</td></tr><tr><td class='tl-year'>1972年</td><td>沖縄返還と<button class="blank" type="button"><span class="bno">⑮</span><span class="ba">日中共同声明</span><span class="bl" style="width:5.4em"></span></button>が同じ年に実現する</td></tr><tr><td class='tl-year'>1973年</td><td><button class="blank" type="button"><span class="bno">⑯</span><span class="ba">石油危機</span><span class="bl" style="width:3.6em"></span></button>が起こり高度経済成長が終わる</td></tr></table>
+  </div>
+</section>
+<section class="view" data-t="2">
+  <div class="tband"><span class="tno">1</span><h2>冷戦の始まり</h2><img class="wchar tchar" src="img/characters_char_pencil_sm.png" alt=""></div>
+  
+    <div class="step" data-label="A 要点まとめ">
+      <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
+      <a class="ref-link" href="../../ref/18/index.html#t1">📖 先に参考書で理解する</a>
+      <div class="summary">第二次世界大戦後、アメリカを中心とする資本主義陣営とソ連を中心とする社会主義陣営が、直接戦火を交えずに対立する<button class="blank" type="button"><span class="bno">①</span><span class="ba">冷戦</span><span class="bl" style="width:2.7em"></span></button>が始まった。1949年、西側諸国は軍事同盟である<button class="blank" type="button"><span class="bno">②</span><span class="ba">NATO</span><span class="bl" style="width:3.6em"></span></button>を結成し、これに対抗して1955年にソ連と東欧諸国は<button class="blank" type="button"><span class="bno">③</span><span class="ba">ワルシャワ条約機構</span><span class="bl" style="width:8.1em"></span></button>を結んだ。1945年には世界平和を目指す<button class="blank" type="button"><span class="bno">④</span><span class="ba">国際連合</span><span class="bl" style="width:3.6em"></span></button>が発足し、その中心機関である<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">安全保障理事会</span><span class="bl" style="width:6.3em"></span></button>には米英仏ソ中の5常任理事国が置かれた。1949年に毛沢東が<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">中華人民共和国</span><span class="bl" style="width:6.3em"></span></button>を建国し、1950年には北朝鮮が韓国に攻め込んで<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">朝鮮戦争</span><span class="bl" style="width:3.6em"></span></button>が始まった。1961年には東ドイツが東西ベルリンを隔てる<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">ベルリンの壁</span><span class="bl" style="width:5.4em"></span></button>を築き、1962年には米ソが核戦争寸前まで対立した<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">キューバ危機</span><span class="bl" style="width:5.4em"></span></button>が起こった。1960年から75年まで続いた<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">ベトナム戦争</span><span class="bl" style="width:5.4em"></span></button>では、アメリカが介入したが敗れて撤退した。</div>
+      <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-cold-war-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">1 / 14</span></div>
+      <div class="q-text">戦後のアメリカとソ連の直接戦争にならない対立は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>冷戦<rt>れいせん</rt></ruby></div>
+        <div class="qa-expl">米ソが直接戦わず軍備・経済・国の仕組み（資本主義と社会主義）で争った状態。1947年頃〜1989年。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (2/14)" data-qid="qa-cold-war-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">2 / 14</span></div>
+      <div class="q-text">アメリカ中心の資本主義陣営とソ連中心の社会主義陣営の対立は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>東西<rt>とうざい</rt></ruby><ruby>陣営<rt>じんえい</rt></ruby></div>
+        <div class="qa-expl">西側＝アメリカ中心で自由経済（資本主義）、東側＝ソ連中心で国が経済を管理（社会主義）の二大グループ。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (3/14)" data-qid="qa-cold-war-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">3 / 14</span></div>
+      <div class="q-text">1949年に結成された西側諸国の軍事同盟は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">NATO</div>
+        <div class="qa-expl">北大西洋条約機構の略称。1949年、アメリカと西欧諸国が結成した西側陣営の軍事同盟。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (4/14)" data-qid="qa-cold-war-4" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">4 / 14</span></div>
+      <div class="q-text">1955年に結成された東側諸国の軍事同盟は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">ワルシャワ<ruby>条約<rt>じょうやく</rt></ruby><ruby>機構<rt>きこう</rt></ruby></div>
+        <div class="qa-expl">1955年、NATOに対抗してソ連と東欧諸国が結成した東側陣営の軍事同盟。1991年に解消。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (5/14)" data-qid="qa-cold-war-5" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">5 / 14</span></div>
+      <div class="q-text">1945年に発足した世界平和を目指す国際機関は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>国際<rt>こくさい</rt></ruby><ruby>連合<rt>れんごう</rt></ruby></div>
+        <div class="qa-expl">1945年、国際連盟に代わり世界平和のため設立された国際機関。本部はニューヨークで原加盟国は51か国。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (6/14)" data-qid="qa-cold-war-6" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">6 / 14</span></div>
+      <div class="q-text">国際連合が発足した年は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">1945年</div>
+        <div class="qa-expl">1945年は第二次世界大戦が終結した年で、同年10月に国際連合が原加盟国51か国で発足した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (7/14)" data-qid="qa-cold-war-7" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">7 / 14</span></div>
+      <div class="q-text">国連の中で世界平和を維持する責任を持つ機関は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>安全<rt>あんぜん</rt></ruby><ruby>保障<rt>ほしょう</rt></ruby><ruby>理事会<rt>りじかい</rt></ruby></div>
+        <div class="qa-expl">国連の中心機関。米英仏ロ中の5常任と非常任10か国で構成。常任は1か国でも反対すれば決議を止める拒否権を持つ。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (8/14)" data-qid="qa-cold-war-8" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">8 / 14</span></div>
+      <div class="q-text">1961年に東ドイツが東西ベルリンを隔てるために築いた壁は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">ベルリンの<ruby>壁<rt>かべ</rt></ruby></div>
+        <div class="qa-expl">1961年に東ドイツが築いた冷戦の象徴。東西ベルリンを隔てたが、1989年に市民の力で崩壊した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (9/14)" data-qid="qa-cold-war-9" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">9 / 14</span></div>
+      <div class="q-text">1950年に北朝鮮が韓国に攻め込んで始まった戦争は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>朝鮮<rt>ちょうせん</rt></ruby><ruby>戦争<rt>せんそう</rt></ruby></div>
+        <div class="qa-expl">1950年北朝鮮の南進で開戦。冷戦下アジアの代理戦争となり、日本は特需景気で経済復興した。1953年休戦。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (10/14)" data-qid="qa-cold-war-10" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">10 / 14</span></div>
+      <div class="q-text">朝鮮戦争が始まった年は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">1950年</div>
+        <div class="qa-expl">1950年に北朝鮮が韓国に侵攻して開戦し、米中の介入を経て1953年に板門店で休戦協定が結ばれた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (11/14)" data-qid="qa-cold-war-11" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">11 / 14</span></div>
+      <div class="q-text">1960〜75年にベトナムで起きた戦争は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">ベトナム<ruby>戦争<rt>せんそう</rt></ruby></div>
+        <div class="qa-expl">1960〜75年、社会主義の北ベトナムと米支援の南ベトナムが戦った。米軍は介入したが敗北し撤退した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (12/14)" data-qid="qa-cold-war-12" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">12 / 14</span></div>
+      <div class="q-text">1949年に毛沢東が建国した国は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>中華<rt>ちゅうか</rt></ruby><ruby>人民<rt>じんみん</rt></ruby><ruby>共和国<rt>きょうわこく</rt></ruby></div>
+        <div class="qa-expl">1949年、毛沢東率いる共産党が国共内戦に勝利して建国。蒋介石の国民党は台湾へ逃れた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (13/14)" data-qid="qa-cold-war-13" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">13 / 14</span></div>
+      <div class="q-text">中華人民共和国が成立した年は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">1949年</div>
+        <div class="qa-expl">1949年は毛沢東が中華人民共和国を建国した年で、西側ではNATOが結成された冷戦の節目の年。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (14/14)" data-qid="qa-cold-war-14" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">14 / 14</span></div>
+      <div class="q-text">1962年、米ソが核戦争寸前まで対立した事件は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">キューバ<ruby>危機<rt>きき</rt></ruby></div>
+        <div class="qa-expl">1962年、ソ連がキューバにミサイル基地を建設しようとし、米ケネディ大統領と対立。核戦争寸前まで緊張が高まった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (1/8)" data-qid="qz-cold-war-1" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">1 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">第二次世界大戦後、アメリカとソ連が直接戦火を交えずに対立した状態を何と呼ぶ？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">軍拡競争</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">代理戦争</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">冷戦</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">核戦争</span></button></div>
+      <div class="expl hidden-until">💡 「冷たい戦争」と呼ばれました。米ソは直接戦わず、軍備・経済・考え方（資本主義と社会主義）で争いました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-cold-war-2" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">2 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">1945年に発足した国際機関は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">EU</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">NATO</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">国際連合</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">国際連盟</span></button></div>
+      <div class="expl hidden-until">💡 1945年、戦争防止と世界平和のため国際連合が発足しました。本部はニューヨークで原加盟国は51か国です。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-cold-war-3" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">3 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">国連の中で世界平和を維持する機関は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">事務局</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">安全保障理事会</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">国際司法裁判所</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">総会</span></button></div>
+      <div class="expl hidden-until">💡 国連で世界平和を担うのは安全保障理事会。米英仏ロ中の5常任理事国は1か国でも反対すれば決議を止められます。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-cold-war-4" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">4 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">ワルシャワ条約機構を結成したのは？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">アメリカ</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">中国</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">ソ連</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">フランス</span></button></div>
+      <div class="expl hidden-until">💡 1955年、ソ連がNATOに対抗して東欧諸国とともに結成した東側陣営の軍事同盟です。1991年に解消されました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-cold-war-5" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">5 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">1962年に米ソが核戦争寸前となった事件は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ベルリン封鎖</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">キューバ危機</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">ベトナム戦争</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">朝鮮戦争</span></button></div>
+      <div class="expl hidden-until">💡 1962年のキューバ危機です。ソ連のキューバへのミサイル配備に米ケネディ大統領が反発し、核戦争寸前まで対立しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-cold-war-6" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">6 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">ベトナム戦争に介入し撤退した国は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">中国</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">フランス</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">ソ連</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">アメリカ</span></button></div>
+      <div class="expl hidden-until">💡 1960〜75年のベトナム戦争にアメリカが介入しましたが敗北し撤退しました。社会主義の北ベトナムが統一を果たしました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-cold-war-7" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">7 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">国際連合・安全保障理事会の常任理事国に含まれないのは？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ドイツ</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">フランス</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">中国</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">ロシア</span></button></div>
+      <div class="expl hidden-until">💡 常任理事国は米英仏ロ中の5か国で、ドイツは含まれません。日本やドイツは経済大国ながら常任入りしておらず、国連改革で議論されます。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-cold-war-8" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">8 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">朝鮮戦争休戦の年は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">1960年</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">1950年</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">1965年</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">1953年</span></button></div>
+      <div class="expl hidden-until">💡 1950年に始まった朝鮮戦争は、米中の介入を経て1953年に板門店で休戦協定が結ばれました。現在も平和条約は未締結です。</div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-cold-war-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">1 / 3　文章で説明しよう</span></div>
+      <div class="q-text">冷戦とはどのような対立か、説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">資本主義</span><span class="kw-chip">社会主義</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">アメリカを中心とする資本主義陣営とソ連を中心とする社会主義陣営が、直接戦火を交えず軍備や経済の面で対立したこと。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%86%B7%E6%88%A6%E3%81%AE%E5%A7%8B%E3%81%BE%E3%82%8A" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (2/3)" data-qid="wr-cold-war-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">2 / 3　文章で説明しよう</span></div>
+      <div class="q-text">朝鮮戦争が日本の経済にどのような影響を与えたか、説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">朝鮮特需</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">朝鮮戦争にともなう軍需物資の発注が日本に集中し、朝鮮特需と呼ばれる好景気をもたらして経済復興を後押しした。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%86%B7%E6%88%A6%E3%81%AE%E5%A7%8B%E3%81%BE%E3%82%8A" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (3/3)" data-qid="wr-cold-war-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">3 / 3　文章で説明しよう</span></div>
+      <div class="q-text">冷戦のもとで東西両陣営が結んだ軍事同盟を、それぞれ答えなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">NATO</span><span class="kw-chip">ワルシャワ条約機構</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">西側諸国は軍事同盟のNATO（北大西洋条約機構）を結成し、これに対抗して東側のソ連と東欧諸国はワルシャワ条約機構を結んだ。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%86%B7%E6%88%A6%E3%81%AE%E5%A7%8B%E3%81%BE%E3%82%8A" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step" data-label="E 資料問題">
+      <div class="sec-h"><span class="sec-tag">E</span>資料問題<span class="sec-note">写真を見て答えよう</span></div>
+      <figure class="s-img"><img src="img/cold-war-blocs.webp" alt="" loading="lazy"><figcaption>冷戦の東西陣営</figcaption></figure>
+      <div class="s-q"><span class="qa-no">(1)</span>地図中で、アメリカを中心とする西側の陣営を何というか。<button class="blank s-blank" type="button"><span class="ba">資本主義陣営（西側陣営）</span><span class="bl" style="width:8em"></span><span class="tap-hint">タップで答え</span></button></div><div class="s-q"><span class="qa-no">(2)</span>地図中で、ソ連を中心とする東側の陣営を何というか。<button class="blank s-blank" type="button"><span class="ba">社会主義陣営（東側陣営）</span><span class="bl" style="width:8em"></span><span class="tap-hint">タップで答え</span></button></div>
+    </div>
+    <div class="step done-step" data-label="結果">
+      <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「冷戦の始まり」おつかれさま！</span></div>
+      <div class="score-box" data-score></div>
+      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%86%B7%E6%88%A6%E3%81%AE%E5%A7%8B%E3%81%BE%E3%82%8A" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
+      <a class="big-btn ref-btn" href="../../ref/18/index.html#t1">📖 参考書でおさらいする</a>
+      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元をもう一度とく</button>
+    </div>
+</section>
+<section class="view" data-t="3">
+  <div class="tband"><span class="tno">2</span><h2>日本の独立回復</h2><img class="wchar tchar" src="img/characters_manabi_think_sm.png" alt=""></div>
+  
+    <div class="step" data-label="A 要点まとめ">
+      <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
+      <a class="ref-link" href="../../ref/18/index.html#t2">📖 先に参考書で理解する</a>
+      <div class="summary">1951年、<button class="blank" type="button"><span class="bno">①</span><span class="ba">吉田茂</span><span class="bl" style="width:2.7em"></span></button>内閣は連合国48か国との間に<button class="blank" type="button"><span class="bno">②</span><span class="ba">サンフランシスコ平和条約</span><span class="bl" style="width:9.0em"></span></button>を結び、同じ日に米軍の駐留を認める<button class="blank" type="button"><span class="bno">③</span><span class="ba">日米安全保障条約</span><span class="bl" style="width:7.2em"></span></button>にも調印した。翌1952年に条約が発効すると、日本は独立を回復し、GHQによる占領が終わった。1950年に朝鮮戦争が始まると、GHQの指令で<button class="blank" type="button"><span class="bno">④</span><span class="ba">警察予備隊</span><span class="bl" style="width:4.5em"></span></button>がつくられ、1952年の保安隊を経て1954年に<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">自衛隊</span><span class="bl" style="width:2.7em"></span></button>へと発展した。また朝鮮戦争にともなう軍需物資の発注は<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">朝鮮特需</span><span class="bl" style="width:3.6em"></span></button>と呼ばれる好景気を日本にもたらした。1960年、<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">岸信介</span><span class="bl" style="width:2.7em"></span></button>内閣は新日米安全保障条約を成立させたが、これに反対する大規模な<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">安保闘争</span><span class="bl" style="width:3.6em"></span></button>が起こり、内閣は退陣した。1972年には<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">佐藤栄作</span><span class="bl" style="width:3.6em"></span></button>内閣のもとで<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">沖縄返還</span><span class="bl" style="width:3.6em"></span></button>が実現し、27年に及んだ米軍統治が終わって沖縄は日本に復帰した。</div>
+      <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-japan-independence-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">1 / 14</span></div>
+      <div class="q-text">1951年、日本と連合国48か国が結んだ講和条約は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">サンフランシスコ平和<ruby>条約<rt>じょうやく</rt></ruby></div>
+        <div class="qa-expl">1951年、吉田茂内閣が連合国48か国と調印した講和条約。翌1952年に発効し、日本は独立を回復した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (2/14)" data-qid="qa-japan-independence-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">2 / 14</span></div>
+      <div class="q-text">サンフランシスコ平和条約が結ばれた年は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">1951年</div>
+        <div class="qa-expl">1951年は吉田茂内閣がサンフランシスコ平和条約と日米安全保障条約に同日調印した年。翌52年発効で日本独立。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (3/14)" data-qid="qa-japan-independence-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">3 / 14</span></div>
+      <div class="q-text">サンフランシスコ平和条約が発効し日本が独立を回復した年は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">1952年</div>
+        <div class="qa-expl">1952年はサンフランシスコ平和条約が発効し日本が独立を回復した年。GHQによる約7年間の占領が終わった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (4/14)" data-qid="qa-japan-independence-4" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">4 / 14</span></div>
+      <div class="q-text">サンフランシスコ平和条約・日米安全保障条約に調印した首相は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>吉田茂<rt>よしだしげる</rt></ruby></div>
+        <div class="qa-expl">戦後復興期の首相。1951年にサンフランシスコ平和条約と日米安全保障条約に調印し日本独立への道を開いた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (5/14)" data-qid="qa-japan-independence-5" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">5 / 14</span></div>
+      <div class="q-text">1951年に日米間で結ばれた、米軍の日本駐留を認める条約は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>日米<rt>にちべい</rt></ruby><ruby>安全<rt>あんぜん</rt></ruby><ruby>保障<rt>ほしょう</rt></ruby><ruby>条約<rt>じょうやく</rt></ruby></div>
+        <div class="qa-expl">1951年にサンフランシスコ平和条約と同日に結ばれ、米軍の日本駐留を認めた条約。日米同盟の出発点となった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (6/14)" data-qid="qa-japan-independence-6" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">6 / 14</span></div>
+      <div class="q-text">1950年、朝鮮戦争を背景に作られた組織は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>警察<rt>けいさつ</rt></ruby><ruby>予備隊<rt>よびたい</rt></ruby></div>
+        <div class="qa-expl">1950年、朝鮮戦争の勃発を背景にGHQ指令で作られた組織。1952年に保安隊、1954年に自衛隊へと発展した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (7/14)" data-qid="qa-japan-independence-7" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">7 / 14</span></div>
+      <div class="q-text">1954年に発足した日本の防衛組織は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>自衛隊<rt>じえいたい</rt></ruby></div>
+        <div class="qa-expl">1954年発足の日本の防衛組織。1950年の警察予備隊が1952年保安隊、1954年に自衛隊へと変化した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (8/14)" data-qid="qa-japan-independence-8" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">8 / 14</span></div>
+      <div class="q-text">自衛隊が発足した年は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">1954年</div>
+        <div class="qa-expl">1954年は保安隊が改組されて自衛隊（陸海空）が発足し、これを統括する防衛庁が設置された年。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (9/14)" data-qid="qa-japan-independence-9" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">9 / 14</span></div>
+      <div class="q-text">朝鮮戦争による軍需物資の発注で日本が経済復興した好景気は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>朝鮮<rt>ちょうせん</rt></ruby><ruby>特需<rt>とくじゅ</rt></ruby></div>
+        <div class="qa-expl">1950年に始まった朝鮮戦争で、米軍からの軍需物資の発注が日本に集中。日本経済の戦後復興を加速させた好景気。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (10/14)" data-qid="qa-japan-independence-10" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">10 / 14</span></div>
+      <div class="q-text">1960年に岸信介内閣が改定した日米安保条約は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">新<ruby>日米<rt>にちべい</rt></ruby><ruby>安全<rt>あんぜん</rt></ruby><ruby>保障<rt>ほしょう</rt></ruby><ruby>条約<rt>じょうやく</rt></ruby></div>
+        <div class="qa-expl">1960年に岸信介内閣が改定。日本かアメリカが攻撃されたら互いに助け合うことを明確化。安保闘争が起きた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (11/14)" data-qid="qa-japan-independence-11" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">11 / 14</span></div>
+      <div class="q-text">新日米安全保障条約が結ばれ、安保闘争が起きた年は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">1960年</div>
+        <div class="qa-expl">1960年は岸信介内閣が新日米安全保障条約を成立させ、改定反対の安保闘争が起きて内閣が退陣した年。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (12/14)" data-qid="qa-japan-independence-12" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">12 / 14</span></div>
+      <div class="q-text">1960年の新安保条約改定に反対した大規模な国民運動は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>安保<rt>あんぽ</rt></ruby><ruby>闘争<rt>とうそう</rt></ruby></div>
+        <div class="qa-expl">1960年の新安保条約改定に反対し、学生や労働組合、市民が連日国会前を取り巻いた戦後最大規模のデモ運動。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (13/14)" data-qid="qa-japan-independence-13" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">13 / 14</span></div>
+      <div class="q-text">1972年、アメリカから日本に返還された地域は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>沖縄<rt>おきなわ</rt></ruby><ruby>返還<rt>へんかん</rt></ruby></div>
+        <div class="qa-expl">1972年、佐藤栄作内閣の時に実現。1945年の沖縄戦以来27年間続いた米軍統治が終わり、本土復帰した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (14/14)" data-qid="qa-japan-independence-14" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">14 / 14</span></div>
+      <div class="q-text">沖縄が日本に復帰した年は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">1972年</div>
+        <div class="qa-expl">1972年は佐藤栄作内閣の時に沖縄返還が実現した年。27年に及ぶ米軍統治が終わり日本に復帰した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (1/8)" data-qid="qz-japan-independence-1" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">1 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">1951年に結ばれた日本独立の条約は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ベルサイユ条約</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">日米修好通商条約</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">サンフランシスコ平和条約</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">日ソ共同宣言</span></button></div>
+      <div class="expl hidden-until">💡 1951年のサンフランシスコ平和条約で、日本は連合国48か国と講和し独立を回復しました。翌1952年に発効しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-japan-independence-2" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">2 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">サンフランシスコ平和条約に調印した首相は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">吉田茂</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">池田勇人</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">鳩山一郎</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">岸信介</span></button></div>
+      <div class="expl hidden-until">💡 1951年、戦後復興期の首相吉田茂がサンフランシスコ平和条約と日米安全保障条約に調印し、独立への道を開きました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-japan-independence-3" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">3 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">新日米安全保障条約を成立させた首相は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">佐藤栄作</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">鳩山一郎</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">岸信介</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">吉田茂</span></button></div>
+      <div class="expl hidden-until">💡 1960年、岸信介内閣が新日米安全保障条約を成立させました。改定反対の安保闘争を受け条約成立後に退陣しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-japan-independence-4" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">4 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">朝鮮戦争による日本の好景気は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">朝鮮復興景気</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">朝鮮景気</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">朝鮮特需</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">いざなぎ景気</span></button></div>
+      <div class="expl hidden-until">💡 朝鮮戦争にともなう軍需物資などの注文で日本経済が活気づいたことを朝鮮特需といいます。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-japan-independence-5" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">5 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">1950年に作られた自衛隊の前身は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">防衛庁</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">保安隊</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">国家警察</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">警察予備隊</span></button></div>
+      <div class="expl hidden-until">💡 1950年に作られた警察予備隊が始まりです。1952年に保安隊へ改組され、1954年に自衛隊・防衛庁が発足しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-japan-independence-6" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">6 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">サンフランシスコ平和条約が発効したのは？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">1951年</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">1954年</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">1945年</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">1952年</span></button></div>
+      <div class="expl hidden-until">💡 サンフランシスコ平和条約は1951年に調印され、翌1952年に発効して日本は独立を回復しました。GHQ占領が終了しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-japan-independence-7" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">7 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">沖縄を返還させた首相は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">田中角栄</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">佐藤栄作</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">三木武夫</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">池田勇人</span></button></div>
+      <div class="expl hidden-until">💡 1972年、佐藤栄作内閣で沖縄返還が実現しました。1945年の沖縄戦以来27年間の米軍統治が終わり本土復帰しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-japan-independence-8" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">8 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">サンフランシスコ平和条約に調印しなかった国は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ソ連</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">イギリス</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">フランス</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">アメリカ</span></button></div>
+      <div class="expl hidden-until">💡 1951年のサンフランシスコ平和条約はソ連が調印を拒否しました。日ソの国交回復は1956年の日ソ共同宣言を待ちました。</div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-japan-independence-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">1 / 3　文章で説明しよう</span></div>
+      <div class="q-text">日米安全保障条約は何のために結ばれたか、簡単に書きなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">米軍</span><span class="kw-chip">駐留</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">サンフランシスコ平和条約と同時に結び、米軍が日本に駐留することを認めて日本の安全を守ることを目的とした。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E6%97%A5%E6%9C%AC%E3%81%AE%E7%8B%AC%E7%AB%8B%E5%9B%9E%E5%BE%A9" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (2/3)" data-qid="wr-japan-independence-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">2 / 3　文章で説明しよう</span></div>
+      <div class="q-text">1960年に安保闘争と呼ばれる大規模な反対運動が起こったのはなぜか、説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">岸信介</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">岸信介内閣が新日米安全保障条約を成立させたことに対し、学生や労働組合、市民が改定に強く反対したから。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E6%97%A5%E6%9C%AC%E3%81%AE%E7%8B%AC%E7%AB%8B%E5%9B%9E%E5%BE%A9" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (3/3)" data-qid="wr-japan-independence-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">3 / 3　文章で説明しよう</span></div>
+      <div class="q-text">警察予備隊から自衛隊がつくられていった流れを説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">警察予備隊</span><span class="kw-chip">自衛隊</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">朝鮮戦争が始まるとGHQの指令で警察予備隊がつくられ、1952年の保安隊を経て1954年に自衛隊へと発展した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E6%97%A5%E6%9C%AC%E3%81%AE%E7%8B%AC%E7%AB%8B%E5%9B%9E%E5%BE%A9" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step done-step" data-label="結果">
+      <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「日本の独立回復」おつかれさま！</span></div>
+      <div class="score-box" data-score></div>
+      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E6%97%A5%E6%9C%AC%E3%81%AE%E7%8B%AC%E7%AB%8B%E5%9B%9E%E5%BE%A9" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
+      <a class="big-btn ref-btn" href="../../ref/18/index.html#t2">📖 参考書でおさらいする</a>
+      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元をもう一度とく</button>
+    </div>
+</section>
+<section class="view" data-t="4">
+  <div class="tband"><span class="tno">3</span><h2>国際社会への復帰</h2><img class="wchar tchar" src="img/characters_char_neko_sm.png" alt=""></div>
+  
+    <div class="step" data-label="A 要点まとめ">
+      <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
+      <a class="ref-link" href="../../ref/18/index.html#t3">📖 先に参考書で理解する</a>
+      <div class="summary">1955年、自由党と日本民主党が合同して自由民主党が結成され、以後長期政権を担う<button class="blank" type="button"><span class="bno">①</span><span class="ba">55年体制</span><span class="bl" style="width:4.5em"></span></button>が始まった。1956年、<button class="blank" type="button"><span class="bno">②</span><span class="ba">鳩山一郎</span><span class="bl" style="width:3.6em"></span></button>内閣はソ連との戦争状態を終わらせる<button class="blank" type="button"><span class="bno">③</span><span class="ba">日ソ共同宣言</span><span class="bl" style="width:5.4em"></span></button>を結び、これを機に日本は同年<button class="blank" type="button"><span class="bno">④</span><span class="ba">国際連合</span><span class="bl" style="width:3.6em"></span></button>への加盟を果たして国際社会に復帰した。1965年には<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">佐藤栄作</span><span class="bl" style="width:3.6em"></span></button>内閣が韓国と国交を樹立する<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">日韓基本条約</span><span class="bl" style="width:5.4em"></span></button>を結び、1967年には佐藤首相が核兵器を「持たず、作らず、持ち込ませず」とする<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">非核三原則</span><span class="bl" style="width:4.5em"></span></button>を表明した。1972年、<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">田中角栄</span><span class="bl" style="width:3.6em"></span></button>内閣は中華人民共和国と国交を樹立する<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">日中共同声明</span><span class="bl" style="width:5.4em"></span></button>を発表し、台湾の中華民国とは断交した。1978年には福田赳夫内閣がこれを条約として確定させる<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">日中平和友好条約</span><span class="bl" style="width:7.2em"></span></button>を結んだ。</div>
+      <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-postwar-international-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">1 / 14</span></div>
+      <div class="q-text">1956年に鳩山一郎内閣が結んだ、ソ連との戦争状態を終わらせた宣言は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>日<rt>にっ</rt></ruby>ソ<ruby>共同<rt>きょうどう</rt></ruby><ruby>宣言<rt>せんげん</rt></ruby></div>
+        <div class="qa-expl">1956年に鳩山一郎内閣が結んだ宣言。ソ連との戦争状態を終わらせ国交を回復し、同年の日本の国連加盟への道を開いた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (2/14)" data-qid="qa-postwar-international-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">2 / 14</span></div>
+      <div class="q-text">日ソ共同宣言と国連加盟の年は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">1956年</div>
+        <div class="qa-expl">1956年は鳩山一郎内閣が日ソ共同宣言を結び、ソ連の支持を得て国連加盟を実現。日本の国際社会復帰の転換点となった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (3/14)" data-qid="qa-postwar-international-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">3 / 14</span></div>
+      <div class="q-text">1956年に日本が加盟し、国際社会への復帰を果たした国際組織は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>国際連合<rt>こくさいれんごう</rt></ruby>（<ruby>国連<rt>こくれん</rt></ruby>）</div>
+        <div class="qa-expl">日本は1956年に国際連合（国連）へ加盟し、国際社会へ復帰した。同年の日ソ共同宣言で国交回復したことが加盟実現を後押しした。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (4/14)" data-qid="qa-postwar-international-4" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">4 / 14</span></div>
+      <div class="q-text">日ソ共同宣言を結び国連加盟を実現した首相は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>鳩山一郎<rt>はとやまいちろう</rt></ruby></div>
+        <div class="qa-expl">1956年に日ソ共同宣言を結び国連加盟を実現した首相。1955年の保守合同で自由民主党を結成し55年体制を始動させた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (5/14)" data-qid="qa-postwar-international-5" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">5 / 14</span></div>
+      <div class="q-text">1955年から続いた自民党と社会党の二大政党体制は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">55年<ruby>体制<rt>たいせい</rt></ruby></div>
+        <div class="qa-expl">1955〜93年まで続いた政治のしくみ。自民党が長く政権を担い、日本社会党が主な野党として向き合った体制。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (6/14)" data-qid="qa-postwar-international-6" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">6 / 14</span></div>
+      <div class="q-text">1955年に結成された保守政党は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">自由<ruby>民主党<rt>みんしゅとう</rt></ruby>（<ruby>自民党<rt>じみんとう</rt></ruby>）</div>
+        <div class="qa-expl">1955年に自由党と日本民主党の保守合同で結成された保守政党。55年体制で長期政権を担い、1993年まで続いた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (7/14)" data-qid="qa-postwar-international-7" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">7 / 14</span></div>
+      <div class="q-text">1965年に佐藤栄作内閣が結んだ、韓国との国交を樹立した条約は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>日韓<rt>にっかん</rt></ruby>基本<ruby>条約<rt>じょうやく</rt></ruby></div>
+        <div class="qa-expl">1965年、佐藤栄作内閣が結び韓国と国交を樹立。韓国を朝鮮半島の正式な政府と認め、経済協力を約束した条約。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (8/14)" data-qid="qa-postwar-international-8" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">8 / 14</span></div>
+      <div class="q-text">日韓基本条約が結ばれた年は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">1965年</div>
+        <div class="qa-expl">1965年は佐藤栄作内閣のもとで日韓基本条約が結ばれ、日本と韓国の国交が樹立された年。経済協力も約束された。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (9/14)" data-qid="qa-postwar-international-9" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">9 / 14</span></div>
+      <div class="q-text">1972年に田中角栄内閣が出した、中華人民共和国と国交を結んだ声明は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>日中<rt>にっちゅう</rt></ruby><ruby>共同<rt>きょうどう</rt></ruby><ruby>声明<rt>せいめい</rt></ruby></div>
+        <div class="qa-expl">1972年、田中角栄首相が訪中し中華人民共和国と国交を樹立した声明。これにより日本は中華民国（台湾）と断交した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (10/14)" data-qid="qa-postwar-international-10" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">10 / 14</span></div>
+      <div class="q-text">日中共同声明と沖縄返還の年は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">1972年</div>
+        <div class="qa-expl">1972年は沖縄返還が実現し、首相が佐藤栄作から田中角栄に代わり、田中内閣が日中共同声明を出した節目の年。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (11/14)" data-qid="qa-postwar-international-11" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">11 / 14</span></div>
+      <div class="q-text">日中国交正常化を実現した首相は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>田中角栄<rt>たなかかくえい</rt></ruby></div>
+        <div class="qa-expl">1972年の日中共同声明で日中国交正常化を実現した首相。「日本列島改造論」を掲げ経済成長を完成させようとした。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (12/14)" data-qid="qa-postwar-international-12" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">12 / 14</span></div>
+      <div class="q-text">1978年に福田赳夫内閣が結んだ、日中の平和を約束する条約は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>日中<rt>にっちゅう</rt></ruby>平和<ruby>友好<rt>ゆうこう</rt></ruby><ruby>条約<rt>じょうやく</rt></ruby></div>
+        <div class="qa-expl">1978年に福田赳夫内閣が結んだ条約で、日中の平和友好を約束した。1972年の日中共同声明から6年後の正式条約化。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (13/14)" data-qid="qa-postwar-international-13" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">13 / 14</span></div>
+      <div class="q-text">「持たず、作らず、持ち込ませず」の核兵器に関する日本の方針は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>非核<rt>ひかく</rt></ruby><ruby>三原則<rt>さんげんそく</rt></ruby></div>
+        <div class="qa-expl">「核兵器を持たず、作らず、持ち込ませず」とする日本の核政策の三原則。1967年に佐藤栄作首相が表明した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (14/14)" data-qid="qa-postwar-international-14" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">14 / 14</span></div>
+      <div class="q-text">非核三原則を表明し、ノーベル平和賞を受賞した首相は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>佐藤栄作<rt>さとうえいさく</rt></ruby></div>
+        <div class="qa-expl">1972年に沖縄返還を実現し非核三原則を表明した首相。1974年にノーベル平和賞を受賞。首相在任期間は当時最長だった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (1/8)" data-qid="qz-postwar-international-1" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">1 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">日本が国連に加盟した年は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">1951年</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">1956年</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">1972年</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">1945年</span></button></div>
+      <div class="expl hidden-until">💡 日本は1956年に国際連合へ加盟しました。同年の日ソ共同宣言でソ連との国交が回復したことが加盟実現を後押ししました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-postwar-international-2" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">2 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">非核三原則の内容は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">「持たず、減らさず、増やさず」</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">「持たず、使わず、配備せず」</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">「持たず、作らず、持ち込ませず」</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">「作らず、買わず、貸さず」</span></button></div>
+      <div class="expl hidden-until">💡 「持たず、作らず、持ち込ませず」が非核三原則です。1967年に佐藤栄作首相が表明しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-postwar-international-3" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">3 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">非核三原則を表明した首相は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">池田勇人</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">福田赳夫</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">佐藤栄作</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">田中角栄</span></button></div>
+      <div class="expl hidden-until">💡 1967年に佐藤栄作首相が表明した「持たず、作らず、持ち込ませず」の核三原則です。後にノーベル平和賞受賞理由ともなりました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-postwar-international-4" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">4 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">1972年の日中共同声明によって日本が国交を断絶した、台湾の政府は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">大韓民国</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">モンゴル人民共和国</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">朝鮮民主主義人民共和国</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">中華民国</span></button></div>
+      <div class="expl hidden-until">💡 1972年の日中共同声明で田中角栄内閣が中華人民共和国と国交を樹立し、同時に台湾の中華民国とは断交しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-postwar-international-5" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">5 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">1978年に結ばれた中国との条約は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">日中共同声明</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">日中文化協定</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">日中平和友好条約</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">日中安全保障条約</span></button></div>
+      <div class="expl hidden-until">💡 1978年、福田赳夫内閣が日中平和友好条約を結びました。1972年の日中共同声明から6年後の正式条約化です。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-postwar-international-6" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">6 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">ノーベル平和賞を受賞した日本の首相は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">佐藤栄作</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">田中角栄</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">吉田茂</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">岸信介</span></button></div>
+      <div class="expl hidden-until">💡 1974年、佐藤栄作元首相が日本人初のノーベル平和賞を受賞しました。沖縄返還の実現と非核三原則の表明が評価されました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-postwar-international-7" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">7 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">1955年に結成された保守政党は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">自由党</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">自由民主党</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">民社党</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">民主党</span></button></div>
+      <div class="expl hidden-until">💡 1955年の保守合同で自由党と日本民主党が結集し自由民主党（自民党）が結成され、55年体制が始まりました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-postwar-international-8" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">8 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">日中共同声明と同年に起きた出来事は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">日韓基本条約</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">東京オリンピック</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">国連加盟</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">沖縄返還</span></button></div>
+      <div class="expl hidden-until">💡 1972年は沖縄返還が実現した年でもあり、同年に田中角栄内閣が日中共同声明を出し国交を樹立しました。</div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (1/2)" data-qid="wr-postwar-international-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">1 / 2　文章で説明しよう</span></div>
+      <div class="q-text">日ソ共同宣言を結んだことは、なぜ同じ年の日本の国連加盟につながったのか、説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">日ソ共同宣言</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">日ソ共同宣言によってソ連との戦争状態を終わらせて国交を回復したことが、同じ年に実現した国連加盟への道を開いたから。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%9B%BD%E9%9A%9B%E7%A4%BE%E4%BC%9A%E3%81%B8%E3%81%AE%E5%BE%A9%E5%B8%B0" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (2/2)" data-qid="wr-postwar-international-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">2 / 2　文章で説明しよう</span></div>
+      <div class="q-text">1972年の日中共同声明によって、日本と台湾（中華民国）との関係はどうなったか、説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">中華民国</span><span class="kw-chip">断交</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">日中共同声明で中華人民共和国と国交を樹立したことにより、それまで国交があった中華民国（台湾）とは断交した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%9B%BD%E9%9A%9B%E7%A4%BE%E4%BC%9A%E3%81%B8%E3%81%AE%E5%BE%A9%E5%B8%B0" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step done-step" data-label="結果">
+      <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「国際社会への復帰」おつかれさま！</span></div>
+      <div class="score-box" data-score></div>
+      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%9B%BD%E9%9A%9B%E7%A4%BE%E4%BC%9A%E3%81%B8%E3%81%AE%E5%BE%A9%E5%B8%B0" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
+      <a class="big-btn ref-btn" href="../../ref/18/index.html#t3">📖 参考書でおさらいする</a>
+      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元をもう一度とく</button>
+    </div>
+</section>
+<section class="view" data-t="5">
+  <div class="tband"><span class="tno">4</span><h2>高度経済成長</h2><img class="wchar tchar" src="img/characters_char_owl_sm.png" alt=""></div>
+  
+    <div class="step" data-label="A 要点まとめ">
+      <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
+      <a class="ref-link" href="../../ref/18/index.html#t4">📖 先に参考書で理解する</a>
+      <div class="summary">1955年から1973年にかけて、日本経済は年平均約10%という急成長を遂げ、これを<button class="blank" type="button"><span class="bno">①</span><span class="ba">高度経済成長</span><span class="bl" style="width:5.4em"></span></button>と呼ぶ。1950年代後半には電気冷蔵庫・洗濯機・白黒テレビからなる「<button class="blank" type="button"><span class="bno">②</span><span class="ba">三種の神器</span><span class="bl" style="width:4.5em"></span></button>」が家庭に普及し、1960年代にはカー・カラーテレビ・クーラーの「3C」が広まった。1964年には<button class="blank" type="button"><span class="bno">③</span><span class="ba">東京オリンピック</span><span class="bl" style="width:7.2em"></span></button>が開催され、これに合わせて<button class="blank" type="button"><span class="bno">④</span><span class="ba">東海道新幹線</span><span class="bl" style="width:5.4em"></span></button>が開通し、1970年には日本初の国際博覧会である<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">大阪万博</span><span class="bl" style="width:3.6em"></span></button>が開かれた。一方で経済成長の負の側面として環境汚染による健康被害も深刻化し、水俣病・新潟水俣病・イタイイタイ病・<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">四日市ぜんそく</span><span class="bl" style="width:6.3em"></span></button>を合わせて<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">四大公害病</span><span class="bl" style="width:4.5em"></span></button>と呼ぶ。1967年には<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">公害対策基本法</span><span class="bl" style="width:6.3em"></span></button>が制定され、公害防止の取り組みが始まった。1973年、第四次中東戦争をきっかけとする<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">石油危機</span><span class="bl" style="width:3.6em"></span></button>が起こると、高度経済成長は終わりを迎えた。</div>
+      <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-economic-growth-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">1 / 14</span></div>
+      <div class="q-text">1955〜73年に日本経済が年平均約10%成長した時期は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>高度<rt>こうど</rt></ruby><ruby>経済<rt>けいざい</rt></ruby><ruby>成長<rt>せいちょう</rt></ruby></div>
+        <div class="qa-expl">1955〜73年に年平均約10%成長した時期で、「東洋の奇跡」と呼ばれた。日本は世界第2位の経済大国となった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (2/14)" data-qid="qa-economic-growth-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">2 / 14</span></div>
+      <div class="q-text">高度経済成長の時期は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">1955〜73年</div>
+        <div class="qa-expl">高度経済成長は1955年頃から続き、1973年の第四次中東戦争による石油危機（オイルショック）で終わった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (3/14)" data-qid="qa-economic-growth-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">3 / 14</span></div>
+      <div class="q-text">1950年代後半に普及した電気冷蔵庫・洗濯機・白黒テレビは？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>三種<rt>さんしゅ</rt></ruby>の<ruby>神器<rt>じんぎ</rt></ruby></div>
+        <div class="qa-expl">1950年代後半に普及した電気冷蔵庫・洗濯機・白黒テレビの3つ。家庭生活が大きく近代化した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (4/14)" data-qid="qa-economic-growth-4" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">4 / 14</span></div>
+      <div class="q-text">1960年代に普及したカー・カラーテレビ・クーラーは？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">3C</div>
+        <div class="qa-expl">1960年代に普及したカー（自動車）・カラーテレビ・クーラーで、新三種の神器とも呼ばれた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (5/14)" data-qid="qa-economic-growth-5" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">5 / 14</span></div>
+      <div class="q-text">1964年に開催されたアジア初のオリンピックは？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>東京<rt>とうきょう</rt></ruby>オリンピック</div>
+        <div class="qa-expl">1964年に開催されたアジア初のオリンピック。高度経済成長の象徴で、同年に東海道新幹線も開通した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (6/14)" data-qid="qa-economic-growth-6" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">6 / 14</span></div>
+      <div class="q-text">東京オリンピック・東海道新幹線開業の年は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">1964年</div>
+        <div class="qa-expl">1964年は東京オリンピックと東海道新幹線開業の年。戦後復興を遂げた日本の姿を世界に示した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (7/14)" data-qid="qa-economic-growth-7" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">7 / 14</span></div>
+      <div class="q-text">1964年に開業した東京〜新大阪間の高速鉄道は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>東海道<rt>とうかいどう</rt></ruby><ruby>新幹線<rt>しんかんせん</rt></ruby></div>
+        <div class="qa-expl">1964年、東京〜新大阪間で開業した世界初の高速鉄道。東京オリンピックに合わせて開通し、高度経済成長を象徴した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (8/14)" data-qid="qa-economic-growth-8" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">8 / 14</span></div>
+      <div class="q-text">1970年に開催された日本初の国際博覧会は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>大阪<rt>おおさか</rt></ruby><ruby>万博<rt>ばんぱく</rt></ruby></div>
+        <div class="qa-expl">1970年に大阪で開かれた日本初の国際博覧会。「人類の進歩と調和」がテーマで、岡本太郎の「太陽の塔」が有名。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (9/14)" data-qid="qa-economic-growth-9" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">9 / 14</span></div>
+      <div class="q-text">大阪万博が開催された年は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">1970年</div>
+        <div class="qa-expl">1970年は大阪万博が開かれ、日本が高度経済成長の絶頂期にあったことを象徴する年となった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (10/14)" data-qid="qa-economic-growth-10" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">10 / 14</span></div>
+      <div class="q-text">経済成長の負の側面として生じた、環境汚染による健康被害は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>公害<rt>こうがい</rt></ruby></div>
+        <div class="qa-expl">高度経済成長期の負の側面で、水俣病・新潟水俣病・イタイイタイ病・四日市ぜんそくの四大公害病が代表例。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (11/14)" data-qid="qa-economic-growth-11" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">11 / 14</span></div>
+      <div class="q-text">水俣病・新潟水俣病・イタイイタイ病・四日市ぜんそくの総称は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>四大<rt>よんだい</rt></ruby><ruby>公害<rt>こうがい</rt></ruby><ruby>病<rt>びょう</rt></ruby></div>
+        <div class="qa-expl">水俣病（熊本）・新潟水俣病・イタイイタイ病（富山）・四日市ぜんそく（三重）の総称で、高度経済成長期の負の遺産。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (12/14)" data-qid="qa-economic-growth-12" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">12 / 14</span></div>
+      <div class="q-text">熊本県で発生した、有機水銀による神経の病気は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>水俣病<rt>みなまたびょう</rt></ruby></div>
+        <div class="qa-expl">チッソの工場排水の有機水銀が海に流れ、それを食べた魚介を食べた人々に出た神経の病気。1956年公式確認。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (13/14)" data-qid="qa-economic-growth-13" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">13 / 14</span></div>
+      <div class="q-text">1973年に第四次中東戦争で石油価格が高騰した出来事は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>石油<rt>せきゆ</rt></ruby><ruby>危機<rt>きき</rt></ruby>（オイルショック）</div>
+        <div class="qa-expl">1973年の第四次中東戦争で原油価格が高騰した出来事。高度経済成長は終わり、日本は安定成長期に入った。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (14/14)" data-qid="qa-economic-growth-14" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">14 / 14</span></div>
+      <div class="q-text">石油危機が起きた年は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">1973年</div>
+        <div class="qa-expl">1973年は第四次中東戦争による石油危機（オイルショック）が起こり、高度経済成長の終わりとなった年。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (1/8)" data-qid="qz-economic-growth-1" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">1 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">1964年に開催されたアジア初のオリンピックは？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">東京オリンピック</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">ソウルオリンピック</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">北京オリンピック</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">札幌オリンピック</span></button></div>
+      <div class="expl hidden-until">💡 東京オリンピックは1964年に開催され、アジア初のオリンピックとして高度経済成長の象徴になりました。同年に東海道新幹線も開業しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-economic-growth-2" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">2 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">1950年代後半に普及した三種の神器に含まれないのは？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">白黒テレビ</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">電気冷蔵庫</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">クーラー</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">洗濯機</span></button></div>
+      <div class="expl hidden-until">💡 1950年代後半の三種の神器は電気冷蔵庫・洗濯機・白黒テレビです。クーラーは1960年代の3Cの一つです。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-economic-growth-3" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">3 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">1960年代の3Cに含まれるのは？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">カセットデッキ</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">カラーテレビ</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">コンピューター</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">カメラ</span></button></div>
+      <div class="expl hidden-until">💡 3Cはカー・カラーテレビ・クーラーです。カメラ、コンピューター、カセットデッキは3Cには含まれません。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-economic-growth-4" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">4 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">水俣病の原因物質は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">亜硫酸ガス</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">有機水銀</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">カドミウム</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">ダイオキシン</span></button></div>
+      <div class="expl hidden-until">💡 チッソの工場排水の有機水銀が海に流れ、それを食べた魚介を食べた人々に発生した神経の病気。1956年公式確認。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-economic-growth-5" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">5 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">イタイイタイ病の原因物質は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">カドミウム</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">有機水銀</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">ダイオキシン</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">亜硫酸ガス</span></button></div>
+      <div class="expl hidden-until">💡 鉱山の排水のカドミウムが神通川を汚し、その水で育った米を食べた人々に発生。骨がもろくなる病気です。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-economic-growth-6" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">6 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">公害対策基本法が制定された年は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">1960年</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">1967年</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">1955年</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">1972年</span></button></div>
+      <div class="expl hidden-until">💡 1967年制定。1971年に環境庁が設置され、1993年により広く環境全体を守る環境基本法へ引き継がれました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-economic-growth-7" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">7 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">四日市ぜんそくの原因は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">有機水銀</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">カドミウム</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">亜硫酸ガス</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">アスベスト</span></button></div>
+      <div class="expl hidden-until">💡 三重県四日市市の石油化学工場群から出た亜硫酸ガスを吸って起きた呼吸器の病気。1960年代に深刻化しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-economic-growth-8" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">8 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">高度経済成長期の経済成長率はおよそ？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">年平均5%</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">年平均20%</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">年平均1%</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">年平均10%</span></button></div>
+      <div class="expl hidden-until">💡 1955〜73年の高度経済成長期は年平均約10%の高成長で、日本はアメリカに次ぐ世界第2位の経済大国になりました。</div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-economic-growth-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">1 / 3　文章で説明しよう</span></div>
+      <div class="q-text">1973年の石油危機は、日本の高度経済成長にどのような影響を与えたか、説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">石油危機</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">第四次中東戦争をきっかけに原油価格が高騰する石油危機が起こり、日本の高度経済成長は終わりを迎えた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E9%AB%98%E5%BA%A6%E7%B5%8C%E6%B8%88%E6%88%90%E9%95%B7" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (2/3)" data-qid="wr-economic-growth-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">2 / 3　文章で説明しよう</span></div>
+      <div class="q-text">水俣病はどのようにして発生したか、そのしくみを説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">有機水銀</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">チッソの工場排水に含まれる有機水銀が海に流れ込み、それを含む魚介類を食べた人々に神経の病気が発生した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E9%AB%98%E5%BA%A6%E7%B5%8C%E6%B8%88%E6%88%90%E9%95%B7" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (3/3)" data-qid="wr-economic-growth-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">3 / 3　文章で説明しよう</span></div>
+      <div class="q-text">高度経済成長期に、家庭の生活はどのように変化したか説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">三種の神器</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">電気冷蔵庫・洗濯機・白黒テレビからなる「三種の神器」などの電化製品が普及し、家庭の生活が便利で豊かになった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E9%AB%98%E5%BA%A6%E7%B5%8C%E6%B8%88%E6%88%90%E9%95%B7" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step" data-label="E 資料問題">
+      <div class="sec-h"><span class="sec-tag">E</span>資料問題<span class="sec-note">写真を見て答えよう</span></div>
+      <figure class="s-img"><img src="img/high-growth-gnp-chart.webp" alt="" loading="lazy"><figcaption>実質GNP成長率の推移（1955〜1973年）</figcaption></figure>
+      <div class="s-q"><span class="qa-no">(1)</span>グラフのように、1950年代半ばから1973年ごろまで年平均10%前後の高い成長が続いた時期を何というか。<button class="blank s-blank" type="button"><span class="ba">高度経済成長</span><span class="bl" style="width:8em"></span><span class="tap-hint">タップで答え</span></button></div><div class="s-q"><span class="qa-no">(2)</span>グラフから読み取れる、この時期の日本の経済成長率はおよそ何%で推移していたか。次のア〜ウから選びなさい。　ア 約1%　イ 約10%　ウ 約30%<button class="blank s-blank" type="button"><span class="ba">イ（約10%）</span><span class="bl" style="width:8em"></span><span class="tap-hint">タップで答え</span></button></div><div class="s-q"><span class="qa-no">(3)</span>グラフで成長率が大きく落ち込んだ1973年に起こり、この成長が終わるきっかけとなったできごとを何というか。<button class="blank s-blank" type="button"><span class="ba">石油危機（オイルショック）</span><span class="bl" style="width:8em"></span><span class="tap-hint">タップで答え</span></button></div><div class="s-q"><span class="qa-no">(4)</span>グラフを参考に、1973年を境に日本経済がどのように変化したかを、「成長率」の語を使って説明しなさい。<button class="blank s-blank" type="button"><span class="ba">10%前後だった成長率が大きく落ちこみ、高度経済成長が終わった。（例）</span><span class="bl" style="width:8em"></span><span class="tap-hint">タップで答え</span></button></div>
+    </div>
+    <div class="step done-step" data-label="結果">
+      <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「高度経済成長」おつかれさま！</span></div>
+      <div class="score-box" data-score></div>
+      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E9%AB%98%E5%BA%A6%E7%B5%8C%E6%B8%88%E6%88%90%E9%95%B7" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
+      <a class="big-btn ref-btn" href="../../ref/18/index.html#t4">📖 参考書でおさらいする</a>
+      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元をもう一度とく</button>
+    </div>
+</section>
+<section class="view" data-t="6">
+  <div class="tband"><span class="tno">5</span><h2>戦後の文化</h2><img class="wchar tchar" src="img/characters_manabi_ok_sm.png" alt=""></div>
+  
+    <div class="step" data-label="A 要点まとめ">
+      <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
+      <a class="ref-link" href="../../ref/18/index.html#t5">📖 先に参考書で理解する</a>
+      <div class="summary">1953年、NHKと民間放送で<button class="blank" type="button"><span class="bno">①</span><span class="ba">テレビ放送</span><span class="bl" style="width:4.5em"></span></button>が始まり、新聞やラジオと並ぶ<button class="blank" type="button"><span class="bno">②</span><span class="ba">マスメディア</span><span class="bl" style="width:5.4em"></span></button>として戦後の大衆文化に大きな影響を与えた。1949年には<button class="blank" type="button"><span class="bno">③</span><span class="ba">湯川秀樹</span><span class="bl" style="width:3.6em"></span></button>が中間子理論により日本人として初めてノーベル物理学賞を受賞し、1968年には「雪国」などの作品で<button class="blank" type="button"><span class="bno">④</span><span class="ba">川端康成</span><span class="bl" style="width:3.6em"></span></button>が日本人初のノーベル文学賞を受賞した。映画の分野では、「羅生門」「七人の侍」で世界的に知られる<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">黒澤明</span><span class="bl" style="width:2.7em"></span></button>が活躍し、マンガでは「鉄腕アトム」を著した「マンガの神様」<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">手塚治虫</span><span class="bl" style="width:3.6em"></span></button>が、戦後の日本の<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">アニメ</span><span class="bl" style="width:2.7em"></span></button>文化の基礎を築いた。文学では「金閣寺」を著した<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">三島由紀夫</span><span class="bl" style="width:4.5em"></span></button>や、「竜馬がゆく」などの歴史小説で人気を集めた<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">司馬遼太郎</span><span class="bl" style="width:4.5em"></span></button>が活躍した。1974年には元首相の<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">佐藤栄作</span><span class="bl" style="width:3.6em"></span></button>が沖縄返還と非核三原則の表明を理由にノーベル平和賞を受賞した。</div>
+      <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (1/12)" data-qid="qa-postwar-culture-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">1 / 12</span></div>
+      <div class="q-text">1953年に日本で本放送が始まったメディアは？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">テレビ<ruby>放送<rt>ほうそう</rt></ruby></div>
+        <div class="qa-expl">1953年、NHKと民放（日本テレビ）が同年に本放送を開始。戦後の大衆文化を象徴するメディアとなった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (2/12)" data-qid="qa-postwar-culture-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">2 / 12</span></div>
+      <div class="q-text">日本でテレビ放送が始まった年は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">1953年</div>
+        <div class="qa-expl">1953年はNHKと民放（日本テレビ）でテレビ本放送が始まった年。戦後の大衆文化を象徴するメディアが誕生した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (3/12)" data-qid="qa-postwar-culture-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">3 / 12</span></div>
+      <div class="q-text">新聞・テレビ・ラジオなど大量に情報を伝える媒体は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">マスメディア</div>
+        <div class="qa-expl">新聞・テレビ・ラジオなど大量に情報を伝える媒体。1953年のテレビ放送開始以降、戦後の生活と世論に大きな影響を与えた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (4/12)" data-qid="qa-postwar-culture-4" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">4 / 12</span></div>
+      <div class="q-text">1949年に日本人初のノーベル賞（物理学賞）を受賞した科学者は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>湯川秀樹<rt>ゆかわひでき</rt></ruby></div>
+        <div class="qa-expl">1949年に物理学賞を受賞した日本人初のノーベル賞学者。原子核の中の粒子を説明する中間子理論で評価された。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (5/12)" data-qid="qa-postwar-culture-5" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">5 / 12</span></div>
+      <div class="q-text">湯川秀樹がノーベル賞を受賞した年は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">1949年</div>
+        <div class="qa-expl">1949年は湯川秀樹が中間子理論で日本人初のノーベル賞（物理学賞）を受賞し、敗戦間もない日本に希望を与えた年。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (6/12)" data-qid="qa-postwar-culture-6" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">6 / 12</span></div>
+      <div class="q-text">1968年にノーベル文学賞を受賞した日本人初の作家は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>川端康成<rt>かわばたやすなり</rt></ruby></div>
+        <div class="qa-expl">1968年に日本人初のノーベル文学賞を受賞した作家。「雪国」「伊豆の踊子」「古都」などの作品で世界に知られる。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (7/12)" data-qid="qa-postwar-culture-7" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">7 / 12</span></div>
+      <div class="q-text">「羅生門」「七人の侍」などで世界的に有名な映画監督は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>黒澤明<rt>くろさわあきら</rt></ruby></div>
+        <div class="qa-expl">「羅生門」「七人の侍」などで世界的に有名な映画監督。1951年に「羅生門」がヴェネチア国際映画祭で金獅子賞を受賞した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (8/12)" data-qid="qa-postwar-culture-8" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">8 / 12</span></div>
+      <div class="q-text">「鉄腕アトム」「火の鳥」などを著した「マンガの神様」は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>手塚治虫<rt>てづかおさむ</rt></ruby></div>
+        <div class="qa-expl">「鉄腕アトム」「火の鳥」「ブラック・ジャック」などを著した「マンガの神様」。戦後の日本マンガ・アニメ文化の基礎を作った。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (9/12)" data-qid="qa-postwar-culture-9" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">9 / 12</span></div>
+      <div class="q-text">手塚治虫らが発展させた日本独自の動画文化は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">アニメ</div>
+        <div class="qa-expl">1963年放送開始の手塚治虫「鉄腕アトム」を皮切りに発展した日本独自の動画文化。現在は世界中に愛好者がいる。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (10/12)" data-qid="qa-postwar-culture-10" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">10 / 12</span></div>
+      <div class="q-text">「金閣寺」「潮騒」などを著した戦後の作家は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>三島由紀夫<rt>みしまゆきお</rt></ruby></div>
+        <div class="qa-expl">「金閣寺」「潮騒」などを著した戦後の作家。1970年に自衛隊市ヶ谷駐屯地で自殺し社会に衝撃を与えた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (11/12)" data-qid="qa-postwar-culture-11" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">11 / 12</span></div>
+      <div class="q-text">「竜馬がゆく」「坂の上の雲」などを著した歴史小説家は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>司馬遼太郎<rt>しばりょうたろう</rt></ruby></div>
+        <div class="qa-expl">「竜馬がゆく」「坂の上の雲」など幕末・明治期を題材にした歴史小説で戦後の国民的人気を集めた作家。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (12/12)" data-qid="qa-postwar-culture-12" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">12 / 12</span></div>
+      <div class="q-text">1974年にノーベル平和賞を受賞した日本人元首相は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>佐藤栄作<rt>さとうえいさく</rt></ruby></div>
+        <div class="qa-expl">1974年に日本人初のノーベル平和賞を受賞した元首相。沖縄返還の実現と非核三原則の表明が評価された。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (1/8)" data-qid="qz-postwar-culture-1" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">1 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">日本人初のノーベル賞受賞者は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">湯川秀樹</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">山中伸弥</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">朝永振一郎</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">野依良治</span></button></div>
+      <div class="expl hidden-until">💡 湯川秀樹が1949年に物理学賞を受賞。原子核内の粒子を説明する中間子理論で評価された日本人初の受賞者です。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-postwar-culture-2" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">2 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">日本でテレビ本放送が始まった年は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">1951年</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">1953年</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">1956年</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">1947年</span></button></div>
+      <div class="expl hidden-until">💡 1953年にNHKと民放（日本テレビ）でテレビ本放送が始まりました。戦後の大衆文化を象徴するメディアの誕生となりました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-postwar-culture-3" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">3 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">湯川秀樹がノーベル賞を受賞した分野は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">物理学</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">文学</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">化学</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">医学</span></button></div>
+      <div class="expl hidden-until">💡 湯川秀樹は1949年に中間子理論で物理学賞を受賞し、日本人初のノーベル賞受賞者となりました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-postwar-culture-4" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">4 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">「金閣寺」「潮騒」を著した作家は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">司馬遼太郎</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">三島由紀夫</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">大江健三郎</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">川端康成</span></button></div>
+      <div class="expl hidden-until">💡 三島由紀夫は「金閣寺」「潮騒」などを著した戦後の代表的作家。1970年に自衛隊市ヶ谷駐屯地で自殺しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-postwar-culture-5" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">5 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">1974年にノーベル平和賞を受賞した日本人は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">佐藤栄作</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">田中角栄</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">吉田茂</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">鳩山一郎</span></button></div>
+      <div class="expl hidden-until">💡 1974年に佐藤栄作元首相が日本人初のノーベル平和賞を受賞しました。沖縄返還の実現と非核三原則の表明が評価されました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-postwar-culture-6" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">6 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">湯川秀樹がノーベル賞を受賞した年は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">1955年</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">1964年</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">1949年</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">1945年</span></button></div>
+      <div class="expl hidden-until">💡 湯川秀樹は1949年に中間子理論で物理学賞を受賞しました。日本人初のノーベル賞で、敗戦の傷を癒す快挙となりました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-postwar-culture-7" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">7 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">川端康成がノーベル文学賞を受賞した年は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">1949年</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">1964年</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">1972年</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">1968年</span></button></div>
+      <div class="expl hidden-until">💡 川端康成は1968年に「雪国」などの作品が評価され、日本人初のノーベル文学賞を受賞しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-postwar-culture-8" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">8 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">「竜馬がゆく」「坂の上の雲」を著したのは？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">松本清張</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">司馬遼太郎</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">三島由紀夫</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">井上靖</span></button></div>
+      <div class="expl hidden-until">💡 司馬遼太郎の歴史小説です。幕末・明治期を題材にした「竜馬がゆく」「坂の上の雲」などは戦後の国民的人気を集めました。</div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (1/2)" data-qid="wr-postwar-culture-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">1 / 2　文章で説明しよう</span></div>
+      <div class="q-text">テレビ放送が始まったことは、戦後の日本社会にどのような影響を与えたか、説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">マスメディア</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">1953年に始まったテレビ放送は、新聞やラジオと並ぶマスメディアとして人々の生活や世論に大きな影響を与えた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E6%88%A6%E5%BE%8C%E3%81%AE%E6%96%87%E5%8C%96" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (2/2)" data-qid="wr-postwar-culture-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">2 / 2　文章で説明しよう</span></div>
+      <div class="q-text">日本人として初めてノーベル物理学賞を受賞した科学者はだれか、戦後復興期の人々に与えた影響にふれて説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">湯川秀樹</span><span class="kw-chip">ノーベル物理学賞</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">1949年に中間子理論で日本人として初めてノーベル物理学賞を受賞した湯川秀樹で、敗戦で自信を失っていた人々に希望と誇りを与え、戦後復興を勇気づけた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E6%88%A6%E5%BE%8C%E3%81%AE%E6%96%87%E5%8C%96" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step done-step" data-label="結果">
+      <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「戦後の文化」おつかれさま！</span></div>
+      <div class="score-box" data-score></div>
+      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E6%88%A6%E5%BE%8C%E3%81%AE%E6%96%87%E5%8C%96" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
+      <a class="big-btn ref-btn" href="../../ref/18/index.html#t5">📖 参考書でおさらいする</a>
+      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元をもう一度とく</button>
+    </div>
+</section>
+<section class="print-answers print-only">
+  <h2 class="ans-band">解答</h2>
+  <div class="a-topic"><div class="a-title">年表でチェック</div><div class="a-group"><span class="a-item">国際連合</span>　<span class="a-item">中華人民共和国</span>　<span class="a-item">朝鮮戦争</span>　<span class="a-item">サンフランシスコ平和条約</span>　<span class="a-item">自衛隊</span>　<span class="a-item">55年体制</span>　<span class="a-item">日ソ共同宣言</span>　<span class="a-item">安保闘争</span>　<span class="a-item">ベルリンの壁</span>　<span class="a-item">キューバ危機</span>　<span class="a-item">東京オリンピック</span>　<span class="a-item">日韓基本条約</span>　<span class="a-item">川端康成</span>　<span class="a-item">大阪万博</span>　<span class="a-item">日中共同声明</span>　<span class="a-item">石油危機</span></div></div><div class="a-topic"><div class="a-title">1　冷戦の始まり</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 冷戦</span>　<span class="a-item">② NATO</span>　<span class="a-item">③ ワルシャワ条約機構</span>　<span class="a-item">④ 国際連合</span>　<span class="a-item">⑤ 安全保障理事会</span>　<span class="a-item">⑥ 中華人民共和国</span>　<span class="a-item">⑦ 朝鮮戦争</span>　<span class="a-item">⑧ ベルリンの壁</span>　<span class="a-item">⑨ キューバ危機</span>　<span class="a-item">⑩ ベトナム戦争</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 冷戦</span>　<span class="a-item">(2) 東西陣営</span>　<span class="a-item">(3) NATO</span>　<span class="a-item">(4) ワルシャワ条約機構</span>　<span class="a-item">(5) 国際連合</span>　<span class="a-item">(6) 1945年</span>　<span class="a-item">(7) 安全保障理事会</span>　<span class="a-item">(8) ベルリンの壁</span>　<span class="a-item">(9) 朝鮮戦争</span>　<span class="a-item">(10) 1950年</span>　<span class="a-item">(11) ベトナム戦争</span>　<span class="a-item">(12) 中華人民共和国</span>　<span class="a-item">(13) 1949年</span>　<span class="a-item">(14) キューバ危機</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) ウ（冷戦）</span>　<span class="a-item">(2) ウ（国際連合）</span>　<span class="a-item">(3) イ（安全保障理事会）</span>　<span class="a-item">(4) ウ（ソ連）</span>　<span class="a-item">(5) イ（キューバ危機）</span>　<span class="a-item">(6) エ（アメリカ）</span>　<span class="a-item">(7) ア（ドイツ）</span>　<span class="a-item">(8) エ（1953年）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) アメリカを中心とする資本主義陣営とソ連を中心とする社会主義陣営が、直接戦火を交えず軍備や経済の面で対立したこと。</div><div class="a-written">(2) 朝鮮戦争にともなう軍需物資の発注が日本に集中し、朝鮮特需と呼ばれる好景気をもたらして経済復興を後押しした。</div><div class="a-written">(3) 西側諸国は軍事同盟のNATO（北大西洋条約機構）を結成し、これに対抗して東側のソ連と東欧諸国はワルシャワ条約機構を結んだ。</div></div><div class="a-group"><span class="a-label">E 資料問題</span><span class="a-item">(1) 資本主義陣営（西側陣営）</span>　<span class="a-item">(2) 社会主義陣営（東側陣営）</span></div></div><div class="a-topic"><div class="a-title">2　日本の独立回復</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 吉田茂</span>　<span class="a-item">② サンフランシスコ平和条約</span>　<span class="a-item">③ 日米安全保障条約</span>　<span class="a-item">④ 警察予備隊</span>　<span class="a-item">⑤ 自衛隊</span>　<span class="a-item">⑥ 朝鮮特需</span>　<span class="a-item">⑦ 岸信介</span>　<span class="a-item">⑧ 安保闘争</span>　<span class="a-item">⑨ 佐藤栄作</span>　<span class="a-item">⑩ 沖縄返還</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) サンフランシスコ平和条約</span>　<span class="a-item">(2) 1951年</span>　<span class="a-item">(3) 1952年</span>　<span class="a-item">(4) 吉田茂</span>　<span class="a-item">(5) 日米安全保障条約</span>　<span class="a-item">(6) 警察予備隊</span>　<span class="a-item">(7) 自衛隊</span>　<span class="a-item">(8) 1954年</span>　<span class="a-item">(9) 朝鮮特需</span>　<span class="a-item">(10) 新日米安全保障条約</span>　<span class="a-item">(11) 1960年</span>　<span class="a-item">(12) 安保闘争</span>　<span class="a-item">(13) 沖縄返還</span>　<span class="a-item">(14) 1972年</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) ウ（サンフランシスコ平和条約）</span>　<span class="a-item">(2) ア（吉田茂）</span>　<span class="a-item">(3) ウ（岸信介）</span>　<span class="a-item">(4) ウ（朝鮮特需）</span>　<span class="a-item">(5) エ（警察予備隊）</span>　<span class="a-item">(6) エ（1952年）</span>　<span class="a-item">(7) イ（佐藤栄作）</span>　<span class="a-item">(8) ア（ソ連）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) サンフランシスコ平和条約と同時に結び、米軍が日本に駐留することを認めて日本の安全を守ることを目的とした。</div><div class="a-written">(2) 岸信介内閣が新日米安全保障条約を成立させたことに対し、学生や労働組合、市民が改定に強く反対したから。</div><div class="a-written">(3) 朝鮮戦争が始まるとGHQの指令で警察予備隊がつくられ、1952年の保安隊を経て1954年に自衛隊へと発展した。</div></div></div><div class="a-topic"><div class="a-title">3　国際社会への復帰</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 55年体制</span>　<span class="a-item">② 鳩山一郎</span>　<span class="a-item">③ 日ソ共同宣言</span>　<span class="a-item">④ 国際連合</span>　<span class="a-item">⑤ 佐藤栄作</span>　<span class="a-item">⑥ 日韓基本条約</span>　<span class="a-item">⑦ 非核三原則</span>　<span class="a-item">⑧ 田中角栄</span>　<span class="a-item">⑨ 日中共同声明</span>　<span class="a-item">⑩ 日中平和友好条約</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 日ソ共同宣言</span>　<span class="a-item">(2) 1956年</span>　<span class="a-item">(3) 国際連合（国連）</span>　<span class="a-item">(4) 鳩山一郎</span>　<span class="a-item">(5) 55年体制</span>　<span class="a-item">(6) 自由民主党（自民党）</span>　<span class="a-item">(7) 日韓基本条約</span>　<span class="a-item">(8) 1965年</span>　<span class="a-item">(9) 日中共同声明</span>　<span class="a-item">(10) 1972年</span>　<span class="a-item">(11) 田中角栄</span>　<span class="a-item">(12) 日中平和友好条約</span>　<span class="a-item">(13) 非核三原則</span>　<span class="a-item">(14) 佐藤栄作</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) イ（1956年）</span>　<span class="a-item">(2) ウ（「持たず、作らず、持ち込ませず」）</span>　<span class="a-item">(3) ウ（佐藤栄作）</span>　<span class="a-item">(4) エ（中華民国）</span>　<span class="a-item">(5) ウ（日中平和友好条約）</span>　<span class="a-item">(6) ア（佐藤栄作）</span>　<span class="a-item">(7) イ（自由民主党）</span>　<span class="a-item">(8) エ（沖縄返還）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 日ソ共同宣言によってソ連との戦争状態を終わらせて国交を回復したことが、同じ年に実現した国連加盟への道を開いたから。</div><div class="a-written">(2) 日中共同声明で中華人民共和国と国交を樹立したことにより、それまで国交があった中華民国（台湾）とは断交した。</div></div></div><div class="a-topic"><div class="a-title">4　高度経済成長</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 高度経済成長</span>　<span class="a-item">② 三種の神器</span>　<span class="a-item">③ 東京オリンピック</span>　<span class="a-item">④ 東海道新幹線</span>　<span class="a-item">⑤ 大阪万博</span>　<span class="a-item">⑥ 四日市ぜんそく</span>　<span class="a-item">⑦ 四大公害病</span>　<span class="a-item">⑧ 公害対策基本法</span>　<span class="a-item">⑨ 石油危機</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 高度経済成長</span>　<span class="a-item">(2) 1955〜73年</span>　<span class="a-item">(3) 三種の神器</span>　<span class="a-item">(4) 3C</span>　<span class="a-item">(5) 東京オリンピック</span>　<span class="a-item">(6) 1964年</span>　<span class="a-item">(7) 東海道新幹線</span>　<span class="a-item">(8) 大阪万博</span>　<span class="a-item">(9) 1970年</span>　<span class="a-item">(10) 公害</span>　<span class="a-item">(11) 四大公害病</span>　<span class="a-item">(12) 水俣病</span>　<span class="a-item">(13) 石油危機（オイルショック）</span>　<span class="a-item">(14) 1973年</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) ア（東京オリンピック）</span>　<span class="a-item">(2) ウ（クーラー）</span>　<span class="a-item">(3) イ（カラーテレビ）</span>　<span class="a-item">(4) イ（有機水銀）</span>　<span class="a-item">(5) ア（カドミウム）</span>　<span class="a-item">(6) イ（1967年）</span>　<span class="a-item">(7) ウ（亜硫酸ガス）</span>　<span class="a-item">(8) エ（年平均10%）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 第四次中東戦争をきっかけに原油価格が高騰する石油危機が起こり、日本の高度経済成長は終わりを迎えた。</div><div class="a-written">(2) チッソの工場排水に含まれる有機水銀が海に流れ込み、それを含む魚介類を食べた人々に神経の病気が発生した。</div><div class="a-written">(3) 電気冷蔵庫・洗濯機・白黒テレビからなる「三種の神器」などの電化製品が普及し、家庭の生活が便利で豊かになった。</div></div><div class="a-group"><span class="a-label">E 資料問題</span><span class="a-item">(1) 高度経済成長</span>　<span class="a-item">(2) イ（約10%）</span>　<span class="a-item">(3) 石油危機（オイルショック）</span>　<span class="a-item">(4) 10%前後だった成長率が大きく落ちこみ、高度経済成長が終わった。（例）</span></div></div><div class="a-topic"><div class="a-title">5　戦後の文化</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① テレビ放送</span>　<span class="a-item">② マスメディア</span>　<span class="a-item">③ 湯川秀樹</span>　<span class="a-item">④ 川端康成</span>　<span class="a-item">⑤ 黒澤明</span>　<span class="a-item">⑥ 手塚治虫</span>　<span class="a-item">⑦ アニメ</span>　<span class="a-item">⑧ 三島由紀夫</span>　<span class="a-item">⑨ 司馬遼太郎</span>　<span class="a-item">⑩ 佐藤栄作</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) テレビ放送</span>　<span class="a-item">(2) 1953年</span>　<span class="a-item">(3) マスメディア</span>　<span class="a-item">(4) 湯川秀樹</span>　<span class="a-item">(5) 1949年</span>　<span class="a-item">(6) 川端康成</span>　<span class="a-item">(7) 黒澤明</span>　<span class="a-item">(8) 手塚治虫</span>　<span class="a-item">(9) アニメ</span>　<span class="a-item">(10) 三島由紀夫</span>　<span class="a-item">(11) 司馬遼太郎</span>　<span class="a-item">(12) 佐藤栄作</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) ア（湯川秀樹）</span>　<span class="a-item">(2) イ（1953年）</span>　<span class="a-item">(3) ア（物理学）</span>　<span class="a-item">(4) イ（三島由紀夫）</span>　<span class="a-item">(5) ア（佐藤栄作）</span>　<span class="a-item">(6) ウ（1949年）</span>　<span class="a-item">(7) エ（1968年）</span>　<span class="a-item">(8) イ（司馬遼太郎）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 1953年に始まったテレビ放送は、新聞やラジオと並ぶマスメディアとして人々の生活や世論に大きな影響を与えた。</div><div class="a-written">(2) 1949年に中間子理論で日本人として初めてノーベル物理学賞を受賞した湯川秀樹で、敗戦で自信を失っていた人々に希望と誇りを与え、戦後復興を勇気づけた。</div></div></div>
+</section>
+</main>
+<div class="navbar" id="navbar" hidden><div class="navbar-in">
+  <button class="nb nb-prev" id="btnPrev">← まえへ</button>
+  <button class="nb nb-next" id="btnNext">つぎへ →</button>
+</div></div>
+<script>
+(function () {
+  var KEY = 'tzmwb-18';
+  var views = [].slice.call(document.querySelectorAll('.view'));
+  var tabs = [].slice.call(document.querySelectorAll('.tab'));
+  var N = views.length - 1;
+  var state = { t: 0, s: 0 };
+  var lastDir = 1;
+  var rendered = null; // 直前に表示していた {t, s}（ページめくり演出用）
+
+  function store() {
+    try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; }
+  }
+  function save(obj) { try { localStorage.setItem(KEY, JSON.stringify(obj)); } catch (e) {} }
+  function stepsOf(t) { return views[t].querySelectorAll('.step'); }
+
+  function renderScore(view) {
+    var st = store(), r = st.r || {};
+    var box = view.querySelector('[data-score]');
+    if (!box) return;
+    function count(sel) {
+      var ids = [].map.call(view.querySelectorAll(sel), function (el) { return el.dataset.qid; });
+      var done = ids.filter(function (id) { return r[id] === 1; }).length;
+      var tried = ids.filter(function (id) { return id in r; }).length;
+      return { total: ids.length, done: done, tried: tried };
+    }
+    var qa = count('.qa-step'), qz = count('.qz-step'), wr = count('.wr-step');
+    var rows = [];
+    if (qa.total) rows.push('<div class="score-row"><span>B 一問一答</span><b>⭕ ' + qa.done + ' / ' + qa.total + '</b></div>');
+    if (qz.total) rows.push('<div class="score-row"><span>C 実戦4択</span><b>正解 ' + qz.done + ' / ' + qz.total + '</b></div>');
+    if (wr.total) rows.push('<div class="score-row"><span>D 記述</span><b>⭕ ' + wr.done + ' / ' + wr.total + '</b></div>');
+    box.innerHTML = rows.join('') || 'このページの問題はタップ形式だよ。';
+  }
+
+  function render() {
+    var t = state.t, s = state.s;
+    views.forEach(function (v, i) { v.classList.toggle('on', i === t); });
+    tabs.forEach(function (b) {
+      var bt = +b.dataset.go;
+      b.classList.toggle('on', bt === t);
+      b.classList.toggle('done', bt > 0 && store()['d' + bt] === 1);
+    });
+    var tabEl = tabs[t];
+    if (tabEl && tabEl.scrollIntoView) tabEl.scrollIntoView({ block: 'nearest', inline: 'center' });
+    var navbar = document.getElementById('navbar');
+    var barStep = document.getElementById('barStep');
+    var pfill = document.getElementById('pfill');
+    if (t === 0) {
+      navbar.hidden = true; barStep.textContent = ''; pfill.style.width = '0';
+      renderHome();
+    } else {
+      var steps = stepsOf(t);
+      // 同じ単元内のページ送りだけ「めくり」演出（古いページと新しいページを重ねる）
+      var animFrom = rendered && rendered.t === t && rendered.s !== s ? rendered.s : null;
+      [].forEach.call(steps, function (el, i) {
+        el.classList.remove('turn-out', 'turn-in', 'turn-under');
+        el.classList.toggle('on', i === s);
+      });
+      if (animFrom !== null && steps[animFrom] && steps[s]) {
+        var oldEl = steps[animFrom], newEl = steps[s];
+        var clear = function () {
+          oldEl.classList.remove('turn-out', 'turn-under');
+          newEl.classList.remove('turn-in');
+        };
+        if (lastDir > 0) {
+          oldEl.classList.add('turn-out');      // 今のページがめくれて去る
+          oldEl.addEventListener('animationend', clear, { once: true });
+        } else {
+          oldEl.classList.add('turn-under');    // 下に敷いたまま
+          newEl.classList.add('turn-in');       // 前のページがめくり戻ってくる
+          newEl.addEventListener('animationend', clear, { once: true });
+        }
+        setTimeout(clear, 700); // アニメ未発火時の保険
+      }
+      navbar.hidden = false;
+      barStep.textContent = (s + 1) + ' / ' + steps.length;
+      pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
+      document.getElementById('btnPrev').textContent = s === 0 ? '🏠 目次' : '← まえへ';
+      var next = document.getElementById('btnNext');
+      if (s < steps.length - 1) next.textContent = 'つぎへ →';
+      else next.textContent = t < N ? '次の単元へ →' : '🏠 目次にもどる';
+      if (steps[s] && steps[s].classList.contains('done-step')) renderScore(views[t]);
+      var st = store();
+      st.last = { t: t, s: s };
+      if (s === steps.length - 1) st['d' + t] = 1;
+      save(st);
+    }
+    window.scrollTo(0, 0);
+    var h = '#t' + t + (t > 0 && s > 0 ? 's' + s : '');
+    if (location.hash !== h) history.replaceState(null, '', t === 0 ? '#' : h);
+    rendered = { t: t, s: s };
+  }
+
+  function renderHome() {
+    var st = store();
+    [].forEach.call(document.querySelectorAll('.toc-state'), function (el) {
+      var t = +el.dataset.stateT;
+      el.className = 'toc-state';
+      if (st['d' + t] === 1) { el.classList.add('done'); el.textContent = '✓ といた'; }
+      else if (st.last && st.last.t === t && st.last.s > 0) {
+        el.classList.add('doing'); el.textContent = 'つづき';
+      } else { el.textContent = ''; }
+    });
+    var btn = document.getElementById('resumeBtn');
+    if (st.last && st.last.t > 0) {
+      btn.hidden = false;
+      var name = views[st.last.t].querySelector('.tband h2').textContent;
+      document.getElementById('resumeWhere').textContent =
+        name + '（' + (st.last.s + 1) + '問目）';
+      btn.onclick = function () { go(st.last.t, st.last.s, 1); };
+    } else { btn.hidden = true; }
+  }
+
+  function go(t, s, dir) {
+    lastDir = dir || 1;
+    state.t = Math.max(0, Math.min(N, t));
+    state.s = Math.max(0, s || 0);
+    if (state.t > 0) state.s = Math.min(state.s, stepsOf(state.t).length - 1);
+    else state.s = 0;
+    render();
+  }
+  function next() {
+    var t = state.t, s = state.s;
+    if (t === 0) return;
+    if (s < stepsOf(t).length - 1) go(t, s + 1, 1);
+    else if (t < N) go(t + 1, 0, 1);
+    else go(0, 0, 1);
+  }
+  function prev() {
+    var t = state.t, s = state.s;
+    if (t === 0) return;
+    if (s > 0) go(t, s - 1, -1);
+    else go(0, 0, -1);
+  }
+
+  document.getElementById('btnNext').addEventListener('click', next);
+  document.getElementById('btnPrev').addEventListener('click', prev);
+
+  document.addEventListener('click', function (e) {
+    var go_ = e.target.closest('[data-go]');
+    if (go_) { go(+go_.dataset.go, 0, 1); return; }
+
+    var blank = e.target.closest('.blank');
+    if (blank) { blank.classList.toggle('open'); return; }
+
+    var rall = e.target.closest('.reveal-all');
+    if (rall) {
+      var step = rall.closest('.step');
+      var opened = step.querySelectorAll('.blank.open').length;
+      var all = step.querySelectorAll('.blank');
+      var open = opened < all.length;
+      [].forEach.call(all, function (b) { b.classList.toggle('open', open); });
+      rall.textContent = open ? 'すべての答えを隠す' : 'すべての答えを表示';
+      return;
+    }
+
+    var rev = e.target.closest('.reveal');
+    if (rev) { rev.closest('.step').classList.add('show'); return; }
+
+    var mk = e.target.closest('.mk');
+    if (mk) {
+      var stp = mk.closest('.step');
+      var st = store(); st.r = st.r || {};
+      st.r[stp.dataset.qid] = +mk.dataset.v;
+      save(st);
+      setTimeout(next, 220);
+      return;
+    }
+
+    var opt = e.target.closest('.qopt');
+    if (opt) {
+      var qstep = opt.closest('.qz-step');
+      if (qstep.classList.contains('answered')) return;
+      qstep.classList.add('answered');
+      var c = +qstep.dataset.c, chosen = +opt.dataset.i;
+      [].forEach.call(qstep.querySelectorAll('.qopt'), function (b, i) {
+        if (i === c) b.classList.add('correct');
+        else if (i === chosen) b.classList.add('wrong');
+        else b.classList.add('dim');
+      });
+      var ex = qstep.querySelector('.expl');
+      if (ex) ex.style.display = 'block';
+      var st2 = store(); st2.r = st2.r || {};
+      st2.r[qstep.dataset.qid] = chosen === c ? 1 : 0;
+      save(st2);
+      return;
+    }
+
+    var mopt = e.target.closest('.mopt');
+    if (mopt) {
+      var item = mopt.closest('.m-item');
+      if (item.dataset.done) return;
+      var ok = mopt.dataset.l === item.dataset.a;
+      mopt.classList.add(ok ? 'correct' : 'wrong');
+      if (!ok) {
+        [].forEach.call(item.querySelectorAll('.mopt'), function (b) {
+          if (b.dataset.l === item.dataset.a) b.classList.add('correct');
+        });
+      }
+      item.dataset.done = '1';
+      return;
+    }
+
+    var retry = e.target.closest('[data-retry]');
+    if (retry) {
+      var view = retry.closest('.view');
+      var st3 = store(); st3.r = st3.r || {};
+      [].forEach.call(view.querySelectorAll('[data-qid]'), function (el) {
+        delete st3.r[el.dataset.qid];
+      });
+      delete st3['d' + state.t];
+      save(st3);
+      [].forEach.call(view.querySelectorAll('.step'), function (el) {
+        el.classList.remove('show', 'answered');
+      });
+      [].forEach.call(view.querySelectorAll('.qopt'), function (b) {
+        b.classList.remove('correct', 'wrong', 'dim');
+      });
+      [].forEach.call(view.querySelectorAll('.m-item'), function (it) {
+        delete it.dataset.done;
+        [].forEach.call(it.querySelectorAll('.mopt'), function (b) {
+          b.classList.remove('correct', 'wrong');
+        });
+      });
+      [].forEach.call(view.querySelectorAll('.blank.open'), function (b) {
+        b.classList.remove('open');
+      });
+      go(state.t, 0, -1);
+      return;
+    }
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight') next();
+    if (e.key === 'ArrowLeft') prev();
+  });
+  var tx = 0, ty = 0;
+  document.addEventListener('touchstart', function (e) {
+    tx = e.changedTouches[0].clientX; ty = e.changedTouches[0].clientY;
+  }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    var dx = e.changedTouches[0].clientX - tx;
+    var dy = e.changedTouches[0].clientY - ty;
+    if (Math.abs(dx) > 64 && Math.abs(dy) < 48 && state.t > 0) {
+      if (dx < 0) next(); else prev();
+    }
+  }, { passive: true });
+
+  function fromHash() {
+    var m = /#t(\d+)(?:s(\d+))?/.exec(location.hash);
+    if (m) go(+m[1], +(m[2] || 0), 1); else go(0, 0, 1);
+  }
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
+})();
+</script>
+</body></html>

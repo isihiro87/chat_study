@@ -1,7 +1,7 @@
-import * as functions from "firebase-functions/v1";
-import { selectAndSendQuestion, getLineClient } from "./lineWebhook";
-import { daysBetweenJst } from "./userStatus";
-import { recordPushDelivery } from "./deliveryStats";
+import * as functions from 'firebase-functions/v1';
+import { selectAndSendQuestion, getLineClient } from './lineWebhook';
+import { daysBetweenJst, shouldSkipCronPush } from './userStatus';
+import { recordPushDelivery } from './deliveryStats';
 
 type ValidHour = 6 | 7 | 16 | 18 | 20;
 type UserDocSnap = FirebaseFirestore.QueryDocumentSnapshot;
@@ -35,7 +35,7 @@ const LEGACY_ONBOARDING_DAYS = 14; // カットオフ前に登録した既存ユ
 const NEW_ONBOARDING_DAYS = 7; // カットオフ以降に登録した新規ユーザー
 // このカットオフ以降に登録（onboardingStartedAt）したユーザーは 7 日、
 // それより前の登録者は 14 日。変更デプロイ時刻を JST で固定する。
-const ONBOARDING_SHORTEN_CUTOFF = new Date("2026-06-22T15:36:00+09:00");
+const ONBOARDING_SHORTEN_CUTOFF = new Date('2026-06-22T15:36:00+09:00');
 const REGULAR_DELIVERY_WEEKDAYS = new Set<number>([1, 3, 5]); // 月・水・金
 // 1 回の配信枠で selectAndSendQuestion を同時並列実行する最大件数。
 // ピークメモリを抑えてメモリ超過クラッシュ（一部ユーザーに未配信）を防ぐため、
@@ -66,7 +66,7 @@ function getOnboardingPeriodDays(registeredAt: Date | null): number {
  */
 async function sendTransitionNotices(
   db: FirebaseFirestore.Firestore,
-  FieldValue: typeof import("firebase-admin/firestore").FieldValue,
+  FieldValue: typeof import('firebase-admin/firestore').FieldValue,
   cohort: UserDocSnap[]
 ): Promise<number> {
   if (cohort.length === 0) return 0;
@@ -75,30 +75,50 @@ async function sendTransitionNotices(
   try {
     client = await getLineClient();
   } catch (error) {
-    console.error("[dailyQuiz] transition notice getLineClient failed:", error);
+    console.error('[dailyQuiz] transition notice getLineClient failed:', error);
     return 0;
   }
 
   const text =
-    "📅 おしらせ\n" +
-    "今日で「毎日配信」は最終日だよ！明日からは週3回（月・水・金）に1問お届けします。\n\n" +
-    "週3配信がない日も、メニューの「1問解く」を押せばいつでも問題に挑戦できるよ。これからも一緒にコツコツ続けよう！";
+    '📅 おしらせ\n' +
+    '今日で「毎日配信」は最終日だよ！明日からは週3回（月・水・金）に1問お届けします。\n\n' +
+    '週3配信がない日も、メニューの「1問解く」を押せばいつでも問題に挑戦できるよ。これからも一緒にコツコツ続けよう！';
 
   for (const doc of cohort) {
     const data = doc.data();
     const lineUserId =
-      typeof data.lineUserId === "string" ? data.lineUserId : null;
+      typeof data.lineUserId === 'string' ? data.lineUserId : null;
     if (!lineUserId) continue;
     try {
       await client.pushMessage({
         to: lineUserId,
-        messages: [{ type: "text", text }],
+        // 文言で説明するだけでなく、その場で押せる pull 導線（reply 経路・枠ゼロ）を
+        // 添えて「配信がない日も自分から解ける」ことを体験させる。
+        messages: [
+          {
+            type: 'text',
+            text,
+            quickReply: {
+              items: [
+                {
+                  type: 'action',
+                  action: {
+                    type: 'postback',
+                    label: '✏️ 1問解く',
+                    data: 'type=extra_question&src=transition_notice',
+                    displayText: '1問解く',
+                  },
+                },
+              ],
+            },
+          },
+        ],
       });
       await doc.ref.set(
         { deliveryTransitionNotifiedAt: FieldValue.serverTimestamp() },
         { merge: true }
       );
-      await recordPushDelivery("deliveryTransition");
+      await recordPushDelivery('deliveryTransition');
       sent++;
     } catch (error) {
       console.error(
@@ -120,9 +140,9 @@ function jstWeekday(): number {
  * Date で返す。どちらも無い旧スキーマのユーザーは null（= 確立ユーザー＝週3 扱い）。
  */
 function getRegisteredAt(data: Record<string, unknown>): Date | null {
-  for (const key of ["onboardingStartedAt", "createdAt"] as const) {
+  for (const key of ['onboardingStartedAt', 'createdAt'] as const) {
     const ts = data[key] as { toDate?: () => Date } | undefined | null;
-    if (ts && typeof ts.toDate === "function") {
+    if (ts && typeof ts.toDate === 'function') {
       return ts.toDate();
     }
   }
@@ -142,17 +162,17 @@ async function runDailyQuiz(hour: ValidHour): Promise<void> {
   const startedAt = Date.now();
   console.log(`[dailyQuiz${pad(hour)}] start`);
 
-  const { initializeApp, getApps } = await import("firebase-admin/app");
-  const { getFirestore, FieldValue } = await import("firebase-admin/firestore");
+  const { initializeApp, getApps } = await import('firebase-admin/app');
+  const { getFirestore, FieldValue } = await import('firebase-admin/firestore');
   if (getApps().length === 0) {
     initializeApp();
   }
   const db = getFirestore();
 
   const snap = await db
-    .collection("users")
-    .where("preferredHour", "==", hour)
-    .where("status", "==", "active")
+    .collection('users')
+    .where('preferredHour', '==', hour)
+    .where('status', '==', 'active')
     .get();
 
   if (snap.empty) {
@@ -170,11 +190,16 @@ async function runDailyQuiz(hour: ValidHour): Promise<void> {
     );
   }
 
-  // 公式 LINE をブロック中のユーザー (blocked === true) は除外する。
+  // 公式 LINE をブロック中 (blocked === true) と、ユーザー自身が配信を一時停止中
+  // (deliveryPaused === true、設定メニューの「配信をおやすみ」) のユーザーは除外する。
   // Firestore の where("blocked", "!=", true) はフィールド未定義のドキュメントを
   // 除外してしまうため、クエリには入れずアプリ側で filter する。
-  const notBlocked = snap.docs.filter((d) => d.data().blocked !== true);
-  const blockedSkipped = snap.size - notBlocked.length;
+  // 移行案内（transitionCohort）もこのフィルタの下流なので停止中には送られない。
+  const notBlocked = snap.docs.filter((d) => !shouldSkipCronPush(d.data()));
+  const pausedSkipped = snap.docs.filter(
+    (d) => d.data().blocked !== true && d.data().deliveryPaused === true
+  ).length;
+  const blockedSkipped = snap.size - notBlocked.length - pausedSkipped;
 
   // 配信頻度モデル（getOnboardingPeriodDays / REGULAR_DELIVERY_WEEKDAYS 参照）:
   // オンボーディング期間中（新規7日 / 既存14日）のユーザーは曜日を問わず毎日
@@ -234,67 +259,68 @@ async function runDailyQuiz(hour: ValidHour): Promise<void> {
   let success = 0;
   let failed = 0;
   for (const r of results) {
-    if (r.status === "fulfilled") success++;
+    if (r.status === 'fulfilled') success++;
     else failed++;
   }
   const elapsed = Date.now() - startedAt;
   console.log(
     `[dailyQuiz${pad(hour)}] done users=${eligibleDocs.length} success=${success} ` +
-      `failed=${failed} blockedSkipped=${blockedSkipped} scheduleSkipped=${scheduleSkipped} ` +
+      `failed=${failed} blockedSkipped=${blockedSkipped} pausedSkipped=${pausedSkipped} ` +
+      `scheduleSkipped=${scheduleSkipped} ` +
       `transitionSent=${transitionSent} regularDeliveryDay=${isRegularDeliveryDay} elapsed=${elapsed}ms`
   );
 }
 
 function pad(hour: number): string {
-  return hour.toString().padStart(2, "0");
+  return hour.toString().padStart(2, '0');
 }
 
 export const dailyQuiz06 = functions
-  .region("asia-northeast1")
+  .region('asia-northeast1')
   // メモリ超過クラッシュ対策（2026-06-25）: デフォルト 256MiB では人数の多い枠で
   // selectAndSendQuestion の並列処理がメモリを超過し途中クラッシュ＝一部ユーザー
   // 未配信になっていた。512MB へ引き上げ（DELIVERY_CHUNK_SIZE の逐次化と併用）。
-  .runWith({ memory: "512MB" })
-  .pubsub.schedule("0 6 * * *")
-  .timeZone("Asia/Tokyo")
+  .runWith({ memory: '512MB' })
+  .pubsub.schedule('0 6 * * *')
+  .timeZone('Asia/Tokyo')
   .onRun(() => runDailyQuiz(6));
 
 export const dailyQuiz07 = functions
-  .region("asia-northeast1")
+  .region('asia-northeast1')
   // メモリ超過クラッシュ対策（2026-06-25）: デフォルト 256MiB では人数の多い枠で
   // selectAndSendQuestion の並列処理がメモリを超過し途中クラッシュ＝一部ユーザー
   // 未配信になっていた。512MB へ引き上げ（DELIVERY_CHUNK_SIZE の逐次化と併用）。
-  .runWith({ memory: "512MB" })
-  .pubsub.schedule("0 7 * * *")
-  .timeZone("Asia/Tokyo")
+  .runWith({ memory: '512MB' })
+  .pubsub.schedule('0 7 * * *')
+  .timeZone('Asia/Tokyo')
   .onRun(() => runDailyQuiz(7));
 
 export const dailyQuiz16 = functions
-  .region("asia-northeast1")
+  .region('asia-northeast1')
   // メモリ超過クラッシュ対策（2026-06-25）: デフォルト 256MiB では人数の多い枠で
   // selectAndSendQuestion の並列処理がメモリを超過し途中クラッシュ＝一部ユーザー
   // 未配信になっていた。512MB へ引き上げ（DELIVERY_CHUNK_SIZE の逐次化と併用）。
-  .runWith({ memory: "512MB" })
-  .pubsub.schedule("0 16 * * *")
-  .timeZone("Asia/Tokyo")
+  .runWith({ memory: '512MB' })
+  .pubsub.schedule('0 16 * * *')
+  .timeZone('Asia/Tokyo')
   .onRun(() => runDailyQuiz(16));
 
 export const dailyQuiz18 = functions
-  .region("asia-northeast1")
+  .region('asia-northeast1')
   // メモリ超過クラッシュ対策（2026-06-25）: デフォルト 256MiB では人数の多い枠で
   // selectAndSendQuestion の並列処理がメモリを超過し途中クラッシュ＝一部ユーザー
   // 未配信になっていた。512MB へ引き上げ（DELIVERY_CHUNK_SIZE の逐次化と併用）。
-  .runWith({ memory: "512MB" })
-  .pubsub.schedule("0 18 * * *")
-  .timeZone("Asia/Tokyo")
+  .runWith({ memory: '512MB' })
+  .pubsub.schedule('0 18 * * *')
+  .timeZone('Asia/Tokyo')
   .onRun(() => runDailyQuiz(18));
 
 export const dailyQuiz20 = functions
-  .region("asia-northeast1")
+  .region('asia-northeast1')
   // メモリ超過クラッシュ対策（2026-06-25）: デフォルト 256MiB では人数の多い枠で
   // selectAndSendQuestion の並列処理がメモリを超過し途中クラッシュ＝一部ユーザー
   // 未配信になっていた。512MB へ引き上げ（DELIVERY_CHUNK_SIZE の逐次化と併用）。
-  .runWith({ memory: "512MB" })
-  .pubsub.schedule("0 20 * * *")
-  .timeZone("Asia/Tokyo")
+  .runWith({ memory: '512MB' })
+  .pubsub.schedule('0 20 * * *')
+  .timeZone('Asia/Tokyo')
   .onRun(() => runDailyQuiz(20));

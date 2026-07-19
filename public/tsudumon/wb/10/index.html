@@ -1,0 +1,1497 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>歴史 ⑩ 幕末の動乱｜つづもん問題集</title>
+<style>
+  :root { --brand:#b45309; --deep:#7c2d12; --amber:#f59e0b; --cream:#fffdf8; --line:#fde68a;
+          --ok:#16a34a; --ng:#dc2626; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { -webkit-text-size-adjust:100%; }
+  body { font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;
+         font-size:16px; line-height:1.95; color:#1c1917; background:var(--cream);
+         padding-bottom:86px; }
+  .wrap { max-width:640px; margin:0 auto; padding:0 16px 24px; }
+  ruby rt { font-size:0.5em; }
+  .print-only { display:none; }
+
+  /* ── 上部バー ── */
+  .bar { position:sticky; top:0; z-index:10; background:rgba(255,253,248,.96);
+         backdrop-filter:blur(6px); border-bottom:1px solid #f0e6d2; }
+  .bar-in { max-width:640px; margin:0 auto; padding:8px 16px 0; }
+  .bar-row { display:flex; align-items:center; gap:8px; }
+  .bar-title { font-weight:bold; color:var(--deep); font-size:14px; flex:1;
+               white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .bar-step { flex:none; font-size:12px; font-weight:bold; color:var(--brand); }
+  .tabs { display:flex; gap:6px; overflow-x:auto; padding:8px 0; scrollbar-width:none; }
+  .tabs::-webkit-scrollbar { display:none; }
+  .tab { flex:none; width:36px; height:36px; border-radius:50%; border:1.5px solid var(--line);
+         background:#fffbeb; color:var(--brand); font-size:14px; font-weight:bold;
+         display:inline-flex; align-items:center; justify-content:center; cursor:pointer; }
+  .tab.done { background:#fef3c7; }
+  .tab.on { background:var(--brand); border-color:var(--brand); color:#fff;
+            box-shadow:0 2px 6px rgba(180,83,9,.35); }
+  .pbar { height:3px; background:#f5ecd8; border-radius:2px; overflow:hidden; }
+  .pfill { height:100%; width:0; background:linear-gradient(90deg,var(--amber),#fbbf24);
+           transition:width .25s ease; }
+
+  .view { display:none; }
+  .view.on { display:block; position:relative; animation:vfade .18s ease; }
+  @keyframes vfade { from { opacity:.6; } to { opacity:1; } }
+  .step { display:none; }
+  .step.on { display:block; }
+  /* 本物っぽいページめくり（2枚重ね・参考書Web版と共通）:
+     進む = 今のページ自体が左とじに沿って手前にめくれて去り、下から次のページが現れる。
+     戻る = 前のページが手前からめくり戻されて上に着地する。 */
+  /* min-height:100% = 下に敷かれた新ページ全体を覆う（絶対配置なので view の実高さに解決される。
+     これが無いと、めくれるページより新ページが長いとき下端が透けて見える） */
+  .step.turn-out { display:block; position:absolute; top:0; left:0; width:100%; min-height:100%;
+                   z-index:3; pointer-events:none; background:var(--cream);
+                   transform-origin:left center;
+                   animation:turnOut .45s cubic-bezier(.55,.06,.68,.19) forwards; }
+  @keyframes turnOut {
+    0%   { transform:perspective(1200px) rotateY(0); opacity:1; }
+    75%  { opacity:1; }
+    100% { transform:perspective(1200px) rotateY(-88deg); opacity:0; } }
+  .step.turn-out::after { content:""; position:absolute; inset:0; pointer-events:none;
+                          background:linear-gradient(to right, transparent 55%, rgba(124,45,18,.12)); }
+  .step.on.turn-in { position:relative; z-index:3; background:var(--cream);
+                     transform-origin:left center;
+                     animation:turnIn .45s cubic-bezier(.22,.72,.32,1); }
+  @keyframes turnIn {
+    from { transform:perspective(1200px) rotateY(-88deg); }
+    to   { transform:perspective(1200px) rotateY(0); } }
+  .step.turn-under { display:block; position:absolute; top:0; left:0; width:100%; z-index:1;
+                     pointer-events:none; max-height:100%; overflow:hidden; }
+
+  /* ── ホーム ── */
+  .top { text-align:center; padding:26px 0 6px; }
+  .badge { display:inline-block; background:var(--brand); color:#fff; font-weight:bold;
+           padding:4px 16px; border-radius:20px; font-size:13px; }
+  .webtag { background:rgba(255,255,255,.25); border-radius:10px; padding:1px 8px; font-size:11px; margin-left:4px; }
+  .top h1 { font-size:29px; color:var(--deep); margin-top:12px; line-height:1.4; }
+  .sub { color:#92400e; font-size:14px; margin-top:2px; }
+  .howto { font-size:13.5px; color:#57534e; }
+  .home-howto { margin-top:14px; background:#fffbeb; border:1.5px dashed var(--line);
+                border-radius:12px; padding:10px 14px; text-align:left; }
+  .resume { display:block; width:100%; margin:16px 0 0; background:var(--brand); color:#fff;
+            border:none; border-radius:14px; padding:13px; font-size:15px; font-weight:bold;
+            cursor:pointer; box-shadow:0 3px 8px rgba(180,83,9,.3); font-family:inherit; }
+  .resume span { font-weight:normal; font-size:12px; opacity:.9; margin-left:8px; }
+  .toc { margin:16px 0 12px; background:#fff; border:2px solid var(--line); border-radius:14px; padding:14px; }
+  .toc-h { font-weight:bold; color:var(--deep); margin-bottom:6px; font-size:15px; }
+  .toc-item { display:flex; align-items:center; gap:10px; width:100%; padding:11px 6px;
+              background:none; border:none; border-top:1px solid #faf1dc; cursor:pointer;
+              color:#44403c; font-weight:bold; font-size:15px; text-align:left;
+              font-family:inherit; line-height:1.5; }
+  .toc-item:first-of-type { border-top:none; }
+  .toc-no { flex:none; min-width:24px; height:24px; border-radius:50%; background:var(--amber);
+            color:#fff; display:inline-flex; align-items:center; justify-content:center;
+            font-size:12px; padding:0 4px; }
+  .toc-name { flex:1; }
+  .toc-state { flex:none; font-size:11px; font-weight:bold; }
+  .toc-state.done { color:var(--ok); }
+  .toc-state.doing { color:var(--brand); background:#fffbeb; border:1px solid var(--line);
+                     border-radius:10px; padding:1px 8px; }
+
+  /* ── マスコット ── */
+  .wchar { flex:none; object-fit:contain; }
+  .home-cheer { display:flex; align-items:center; justify-content:center; gap:8px; margin-top:12px; }
+  .home-cheer .wchar { height:58px; }
+  .sp-bubble { position:relative; display:inline-block; background:#fffbeb; border:1.5px solid #f0b558;
+               border-radius:12px; padding:5px 12px; font-size:13px; font-weight:bold; color:#92400e; }
+  .sp-bubble.sp-taill::before { content:""; position:absolute; left:-7px; top:50%; transform:translateY(-50%);
+               border:5px solid transparent; border-right-color:#f0b558; }
+  .tchar { height:38px; margin-left:auto; }
+  .done-char { height:52px; vertical-align:middle; margin-right:6px; }
+
+  /* ── 単元 ── */
+  .tband { display:flex; align-items:center; gap:10px; margin:18px 0 14px; }
+  .tno, .ttag { flex:none; min-width:34px; height:34px; border-radius:50%; background:var(--brand); color:#fff;
+         display:inline-flex; align-items:center; justify-content:center; font-size:16px;
+         font-weight:bold; box-shadow:0 2px 4px rgba(180,83,9,.3); padding:0 6px; }
+  .tband h2 { font-size:20px; color:var(--deep); border-bottom:3px solid var(--line);
+              padding-bottom:2px; flex:1; line-height:1.4; }
+  .sec-h { display:flex; align-items:center; gap:8px; font-size:16px; font-weight:bold;
+           color:var(--deep); margin-bottom:10px; }
+  .sec-tag { flex:none; background:var(--brand); color:#fff; border-radius:8px; width:26px; height:26px;
+             display:inline-flex; align-items:center; justify-content:center; font-size:14px; }
+  .sec-note { font-size:12px; font-weight:normal; color:#a8a29e; }
+  .ref-link { display:inline-block; font-size:13px; font-weight:bold; color:var(--brand);
+              text-decoration:none; border:1.5px solid var(--line); background:#fffbeb;
+              border-radius:16px; padding:5px 14px; margin-bottom:10px; }
+
+  /* 穴埋めチップ */
+  .summary { background:#fff; border:1.5px solid #e2d5bd; border-radius:12px; padding:12px 14px;
+             text-align:justify; }
+  .blank { display:inline; border:none; background:none; font:inherit; cursor:pointer; padding:0; }
+  .blank .bno { color:var(--brand); font-weight:bold; }
+  .blank .ba { display:none; font-weight:bold; color:var(--brand);
+               background:linear-gradient(transparent 55%, var(--line) 55%); padding:0 2px; }
+  .blank .bl { display:inline-block; border-bottom:2px solid #a8a29e; height:1em;
+               vertical-align:-2px; max-width:9em; background:#fffbeb; }
+  .blank.open .ba { display:inline; }
+  .blank.open .bl { display:none; }
+  .tap-hint { display:none; }
+  .reveal-all-row { margin-top:10px; text-align:right; }
+  .reveal-all { border:1.5px solid var(--line); background:#fffbeb; color:var(--brand);
+                font-weight:bold; font-size:13px; border-radius:16px; padding:6px 14px;
+                cursor:pointer; font-family:inherit; }
+
+  /* 年表 */
+  .tl-table { width:100%; border-collapse:collapse; background:#fff; font-size:14px; }
+  .tl-table th, .tl-table td { border:1px solid #d6cbb2; padding:6px 10px; }
+  .tl-table th { background:#faf5eb; font-size:13px; }
+  .tl-year { width:74px; text-align:center; white-space:nowrap; }
+
+  /* 問題共通 */
+  .q-text { font-size:16.5px; font-weight:bold; line-height:1.9; }
+  .qa-no { font-weight:bold; margin-right:6px; color:var(--brand); }
+  .reveal { display:block; width:100%; margin-top:14px; border:none; border-radius:12px;
+            background:var(--amber); color:#fff; font-weight:bold; font-size:15px;
+            padding:12px; cursor:pointer; font-family:inherit; box-shadow:0 2px 6px rgba(245,158,11,.3); }
+  .hidden-until { display:none; }
+  .show .hidden-until { display:block; }
+  .show .reveal { display:none; }
+  .qa-a { margin-top:12px; background:#fff; border:2px solid var(--amber); border-radius:12px;
+          padding:10px 14px; font-size:18px; font-weight:bold; color:var(--deep); text-align:center; }
+  .qa-expl { font-size:13.5px; color:#57534e; background:#fffbeb; border-radius:10px;
+             padding:8px 12px; margin-top:8px; line-height:1.8; }
+  .marks { display:flex; gap:10px; margin-top:12px; }
+  .mk { flex:1; border:2px solid; border-radius:12px; background:#fff; font-weight:bold;
+        font-size:15px; padding:10px; cursor:pointer; font-family:inherit; }
+  .mk-ok { border-color:#bbe3cc; color:var(--ok); }
+  .mk-ng { border-color:#fecaca; color:var(--ng); }
+
+  /* 4択 */
+  .qopts { display:flex; flex-direction:column; gap:8px; margin-top:12px; }
+  .qopt { display:flex; align-items:center; gap:10px; text-align:left; background:#fff;
+          border:1.5px solid #e2d5bd; border-radius:12px; padding:10px 12px; font-size:14.5px;
+          cursor:pointer; font-family:inherit; line-height:1.7; }
+  .opt-k { flex:none; width:26px; height:26px; border-radius:50%; border:1.5px solid #a8a29e;
+           display:inline-flex; align-items:center; justify-content:center; font-size:13px; font-weight:bold; }
+  .qz-step.answered .qopt { cursor:default; }
+  .qopt.correct { border-color:var(--ok); background:#f0fdf4; }
+  .qopt.correct .opt-k { background:var(--ok); border-color:var(--ok); color:#fff; }
+  .qopt.wrong { border-color:var(--ng); background:#fef2f2; }
+  .qopt.wrong .opt-k { background:var(--ng); border-color:var(--ng); color:#fff; }
+  .qopt.dim { opacity:.55; }
+  .expl { margin-top:10px; font-size:13.5px; color:#57534e; background:#fffbeb;
+          border-radius:10px; padding:8px 12px; line-height:1.8; }
+  .qz-step.answered .expl { display:block; }
+
+  /* 記述 */
+  .kw-note { font-size:13px; color:#57534e; margin-top:6px; }
+  .kw-chip { display:inline-block; border:1px solid var(--brand); color:var(--brand);
+             border-radius:6px; padding:0 8px; margin-left:6px; font-size:12.5px; }
+  .w-input { width:100%; margin-top:12px; border:1.5px solid #e2d5bd; border-radius:12px;
+             padding:10px 12px; font:inherit; font-size:14.5px; background:#fff; resize:vertical; }
+  .line-mini { display:block; margin-top:10px; text-align:center; font-size:13px; font-weight:bold;
+               color:#06c755; text-decoration:none; border:1.5px solid #bbe3cc; border-radius:12px;
+               padding:8px; background:#f0fdf4; }
+
+  /* 資料 */
+  .s-img { margin-bottom:12px; }
+  .s-img img { width:100%; border-radius:12px; border:1px solid #e2d5bd; display:block; }
+  .s-img figcaption { font-size:12px; color:#a8a29e; text-align:center; margin-top:4px; }
+  .s-q { margin-bottom:14px; font-size:15px; line-height:1.8; }
+  .s-blank { display:block; margin:6px 0 0 26px; text-align:left; }
+  .s-blank .tap-hint { display:inline; font-size:11px; color:#b8b0a6; margin-left:8px; }
+  .s-blank.open .tap-hint { display:none; }
+  .m-res-row { display:flex; gap:8px; margin-bottom:14px; }
+  .m-res { flex:1; text-align:center; }
+  .m-res img { width:100%; border-radius:10px; border:1px solid #e2d5bd; }
+  .m-lab { display:block; font-weight:bold; color:var(--brand); font-size:14px; }
+  .m-item { background:#fff; border:1.5px solid #e2d5bd; border-radius:12px; padding:10px 12px;
+            margin-bottom:10px; }
+  .m-text { font-size:14.5px; line-height:1.8; }
+  .m-btns { display:flex; gap:8px; margin-top:8px; }
+  .mopt { flex:1; border:1.5px solid #e2d5bd; background:#fffbeb; border-radius:10px;
+          font-weight:bold; font-size:15px; padding:8px; cursor:pointer; font-family:inherit; }
+  .mopt.correct { border-color:var(--ok); background:#f0fdf4; color:var(--ok); }
+  .mopt.wrong { border-color:var(--ng); background:#fef2f2; color:var(--ng); }
+
+  /* 結果 */
+  .done { text-align:center; font-size:17px; font-weight:bold; color:var(--deep); margin:14px 0; }
+  .score-box { background:#fff; border:2px solid var(--line); border-radius:14px; padding:14px;
+               margin-bottom:12px; font-size:14.5px; }
+  .score-row { display:flex; justify-content:space-between; padding:4px 2px; }
+  .score-row b { color:var(--brand); }
+  .big-btn { display:block; width:100%; text-align:center; margin-top:10px; border:none;
+             border-radius:14px; padding:13px 16px; font-size:15px; font-weight:bold;
+             cursor:pointer; font-family:inherit; text-decoration:none; }
+  .line-btn { background:#06c755; color:#fff; box-shadow:0 3px 8px rgba(6,199,85,.3); }
+  .btn-sub { display:block; font-weight:normal; font-size:12px; opacity:.9; }
+  .ref-btn { background:#fffbeb; color:var(--brand); border:1.5px solid var(--line); }
+  .retry-btn { background:#fff; color:#57534e; border:1.5px solid #e2d5bd; }
+  .print-btn { background:#fff; color:#57534e; border:1.5px solid #e2d5bd; }
+
+  .foot { text-align:center; margin-top:32px; color:#a8a29e; font-size:13px; }
+  .foot-note { margin-top:4px; font-size:12px; }
+
+  /* ── 下部ナビ ── */
+  .navbar { position:fixed; left:0; right:0; bottom:0; z-index:10;
+            background:rgba(255,253,248,.97); border-top:1px solid #f0e6d2;
+            padding:10px 16px calc(10px + env(safe-area-inset-bottom)); }
+  .navbar-in { max-width:640px; margin:0 auto; display:flex; align-items:center; gap:10px; }
+  .nb { border:none; border-radius:14px; padding:12px 0; font-size:15px; font-weight:bold;
+        cursor:pointer; font-family:inherit; }
+  .nb-prev { flex:1; background:#fff; color:var(--brand); border:1.5px solid var(--line); }
+  .nb-next { flex:2; background:var(--brand); color:#fff; box-shadow:0 3px 8px rgba(180,83,9,.3); }
+
+  /* ── 印刷（紙のワークとして使える） ── */
+  @media print {
+    body { background:#fff; padding-bottom:0; font-size:10.5pt; line-height:1.8; }
+    .bar, .navbar, .resume, .reveal, .marks, .reveal-all-row, .w-input, .line-mini,
+    .big-btn, .qa-expl, .expl, .tap-hint, .toc-state, .home-howto, .howto, .m-btns { display:none !important; }
+    .print-only { display:block !important; }
+    .view { display:block !important; }
+    .step { display:block !important; margin-bottom:14px; break-inside:avoid; }
+    .hidden-until { display:none !important; }
+    .blank .ba { display:none !important; }
+    .blank .bl { display:inline-block !important; background:none; }
+    .qopt { border:none; padding:1px 0; background:none; }
+    .qopt .opt-k { width:18px; height:18px; font-size:10px; }
+    .qopt.correct, .qopt.wrong { background:none; border:none; }
+    .qopt.correct .opt-k, .qopt.wrong .opt-k { background:none; color:#1c1917; border-color:#a8a29e; }
+    .qopts { gap:2px; margin-top:4px; }
+    .wline { border-bottom:1px solid #78716c; height:9mm; margin-top:2mm; }
+    .toc-item, .tab { cursor:default; }
+    .top { padding-top:0; }
+    .tband { margin-top:8mm; break-after:avoid; }
+    .m-item { break-inside:avoid; }
+    .m-item::after { content:"〔　　〕"; color:#44403c; }
+    .print-answers { page-break-before:always; font-size:9pt; line-height:1.9; }
+    .ans-band { background:#44403c; color:#fff; text-align:center; padding:2px 0; border-radius:4px;
+                margin-bottom:8px; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .a-topic { border-bottom:1px dashed #a8a29e; padding:4px 0; }
+    .a-title { font-weight:bold; background:#f5f5f4; padding:0 6px; border-left:8px solid var(--brand);
+               -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .a-label { font-weight:bold; color:var(--brand); margin-right:6px; }
+    .a-item { display:inline-block; margin-right:4px; }
+    .a-written { padding-left:6px; }
+    .credits { font-size:7.5pt; color:#78716c; border-top:1px solid #d6d3d1; margin-top:8px; }
+  }
+  .credits { font-size:11px; color:#a8a29e; margin-top:20px; }
+</style></head><body>
+<div class="bar"><div class="bar-in">
+  <div class="bar-row">
+    <div class="bar-title">歴史 ⑩ 幕末の動乱（問題集）</div>
+    <div class="bar-step" id="barStep"></div>
+  </div>
+  <nav class="tabs" id="tabs"><button class="tab tab-home" data-go="0" aria-label="目次">🏠</button><button class="tab" data-go="1" aria-label="年表">年</button><button class="tab" data-go="2" aria-label="開国と不平等条約">1</button><button class="tab" data-go="3" aria-label="開国後の政治と経済">2</button><button class="tab" data-go="4" aria-label="江戸幕府の滅亡">3</button></nav>
+  <div class="pbar"><div class="pfill" id="pfill"></div></div>
+</div></div>
+<main class="wrap" id="views">
+
+<section class="view home" data-t="0">
+  <header class="top">
+    <div class="badge">歴史 ⑩　問題集 <span class="webtag">Web版</span></div>
+    <h1>幕末の動乱</h1>
+    <div class="sub">黒船来航 〜 江戸幕府の滅亡</div>
+    <div class="home-cheer"><img class="wchar" src="img/characters_char_manabi_sm.png" alt=""><span class="sp-bubble sp-taill">いっしょに がんばろう！</span></div>
+    <div class="howto home-howto">タブか下のリストから選んで、1問ずつ解いていこう！<br>
+    要点まとめ → 一問一答 → 4択 → 記述の順で力がつくよ。</div>
+  </header>
+  <button class="resume" id="resumeBtn" hidden>▶ つづきから解く<span id="resumeWhere"></span></button>
+  <nav class="toc">
+    <div class="toc-h">✏️ この本の問題</div>
+    <button class="toc-item" data-go="1"><span class="toc-no">年</span><span class="toc-name">年表でチェック</span><span class="toc-state" data-state-t="1"></span></button><button class="toc-item" data-go="2"><span class="toc-no">1</span><span class="toc-name">開国と不平等条約</span><span class="toc-state" data-state-t="2"></span></button><button class="toc-item" data-go="3"><span class="toc-no">2</span><span class="toc-name">開国後の政治と経済</span><span class="toc-state" data-state-t="3"></span></button><button class="toc-item" data-go="4"><span class="toc-no">3</span><span class="toc-name">江戸幕府の滅亡</span><span class="toc-state" data-state-t="4"></span></button>
+  </nav>
+  <a class="big-btn ref-btn" href="../../ref/10/index.html">📖 参考書Web版を開く</a>
+  <button class="big-btn print-btn" type="button" onclick="window.print()">🖨 紙に印刷して解く（解答つき）</button>
+  
+  <footer class="foot">
+    <div>つづもん 問題集 Web版</div>
+    <div class="foot-note">ダウンロード済みのA4版PDF（書き込みレイアウト）もあわせてどうぞ。</div>
+  </footer>
+</section>
+<section class="view" data-t="1">
+  <div class="tband"><span class="ttag">年</span><h2>年表でチェック</h2></div>
+  <div class="step" data-label="年表でチェック">
+    <div class="howto">（　）をタップすると答えが出るよ。まずは自分で言ってから確かめよう！</div>
+    <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    <table class="tl-table"><tr><th class="tl-year">年代</th><th>できごと</th></tr><tr><td class='tl-year'>1853年</td><td><button class="blank" type="button"><span class="bno">①</span><span class="ba">ペリー</span><span class="bl" style="width:2.7em"></span></button>が黒船で浦賀に来航し、開国を要求する</td></tr><tr><td class='tl-year'>1854年</td><td><button class="blank" type="button"><span class="bno">②</span><span class="ba">日米和親条約</span><span class="bl" style="width:5.4em"></span></button>が結ばれ、下田・函館の2港が開かれる</td></tr><tr><td class='tl-year'>1858年</td><td>井伊直弼が<button class="blank" type="button"><span class="bno">③</span><span class="ba">日米修好通商条約</span><span class="bl" style="width:7.2em"></span></button>を結び、領事裁判権を認める</td></tr><tr><td class='tl-year'>1858〜59年</td><td>井伊直弼が尊王攘夷派を弾圧する<button class="blank" type="button"><span class="bno">④</span><span class="ba">安政の大獄</span><span class="bl" style="width:4.5em"></span></button>が起こる</td></tr><tr><td class='tl-year'>1860年</td><td>井伊直弼が暗殺される<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">桜田門外の変</span><span class="bl" style="width:5.4em"></span></button>が起こる</td></tr><tr><td class='tl-year'>1862年</td><td>薩摩藩士がイギリス人を殺傷する<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">生麦事件</span><span class="bl" style="width:3.6em"></span></button>が起こる</td></tr><tr><td class='tl-year'>1863年</td><td>薩摩藩とイギリスが戦う<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">薩英戦争</span><span class="bl" style="width:3.6em"></span></button>が起こる</td></tr><tr><td class='tl-year'>1863年</td><td>高杉晋作が長州藩で<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">奇兵隊</span><span class="bl" style="width:2.7em"></span></button>を組織する</td></tr><tr><td class='tl-year'>1863〜64年</td><td>長州藩が四国艦隊と戦う<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">下関戦争</span><span class="bl" style="width:3.6em"></span></button>が起こる</td></tr><tr><td class='tl-year'>1866年</td><td>坂本龍馬の仲立ちで<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">薩長同盟</span><span class="bl" style="width:3.6em"></span></button>が結ばれる</td></tr><tr><td class='tl-year'>1867年</td><td>徳川慶喜が政権を朝廷に返す<button class="blank" type="button"><span class="bno">⑪</span><span class="ba">大政奉還</span><span class="bl" style="width:3.6em"></span></button>が行われる</td></tr><tr><td class='tl-year'>1867年</td><td>天皇中心の新政府樹立を宣言する<button class="blank" type="button"><span class="bno">⑫</span><span class="ba">王政復古の大号令</span><span class="bl" style="width:7.2em"></span></button>が出される</td></tr><tr><td class='tl-year'>1867年ごろ</td><td>民衆による熱狂的な踊り「<button class="blank" type="button"><span class="bno">⑬</span><span class="ba">ええじゃないか</span><span class="bl" style="width:6.3em"></span></button>」が広がる</td></tr><tr><td class='tl-year'>1868年</td><td>戊辰戦争最初の戦いとなる<button class="blank" type="button"><span class="bno">⑭</span><span class="ba">鳥羽・伏見の戦い</span><span class="bl" style="width:7.2em"></span></button>が起こる</td></tr><tr><td class='tl-year'>1868年</td><td>勝海舟と西郷隆盛の交渉により<button class="blank" type="button"><span class="bno">⑮</span><span class="ba">江戸城</span><span class="bl" style="width:2.7em"></span></button>が無血開城される</td></tr></table>
+  </div>
+</section>
+<section class="view" data-t="2">
+  <div class="tband"><span class="tno">1</span><h2>開国と不平等条約</h2><img class="wchar tchar" src="img/characters_char_pencil_sm.png" alt=""></div>
+  
+    <div class="step" data-label="A 要点まとめ">
+      <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
+      <a class="ref-link" href="../../ref/10/index.html#t1">📖 先に参考書で理解する</a>
+      <div class="summary">1853年、アメリカの<button class="blank" type="button"><span class="bno">①</span><span class="ba">ペリー</span><span class="bl" style="width:2.7em"></span></button>が軍艦を率いて浦賀に来航し、幕府に開国を要求した。人々はその蒸気船を<button class="blank" type="button"><span class="bno">②</span><span class="ba">黒船</span><span class="bl" style="width:2.7em"></span></button>と呼んで驚いた。翌1854年、幕府はアメリカと<button class="blank" type="button"><span class="bno">③</span><span class="ba">日米和親条約</span><span class="bl" style="width:5.4em"></span></button>を結び、下田と函館の2港を開いて約200年続いた鎖国を終わらせた。その後、アメリカ総領事<button class="blank" type="button"><span class="bno">④</span><span class="ba">ハリス</span><span class="bl" style="width:2.7em"></span></button>が下田に駐在して通商を求め、1858年、大老<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">井伊直弼</span><span class="bl" style="width:3.6em"></span></button>は天皇の許可である<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">勅許</span><span class="bl" style="width:2.7em"></span></button>を得ないまま<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">日米修好通商条約</span><span class="bl" style="width:7.2em"></span></button>を結んだ。この条約は、外国人の犯罪を外国の法で裁く<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">領事裁判権</span><span class="bl" style="width:4.5em"></span></button>を認め、輸入品の税率を自国で決める<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">関税自主権</span><span class="bl" style="width:4.5em"></span></button>を持たない不平等な内容であった。</div>
+      <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-opening-japan-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">1 / 14</span></div>
+      <div class="q-text">1853年に黒船で浦賀に来航し、開国を要求したアメリカの軍人は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">ペリー</div>
+        <div class="qa-expl">アメリカ東インド艦隊司令長官。1853年に黒船で浦賀に来航し、翌年の日米和親条約で日本の鎖国を終わらせた人物。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (2/14)" data-qid="qa-opening-japan-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">2 / 14</span></div>
+      <div class="q-text">ペリーが率いた蒸気船の呼び名は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>黒船<rt>くろふね</rt></ruby></div>
+        <div class="qa-expl">1853年にペリーが率いて浦賀に来航したアメリカの蒸気船。黒い船体と蒸気の煙から「黒船」と呼ばれ、人々を驚かせた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (3/14)" data-qid="qa-opening-japan-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">3 / 14</span></div>
+      <div class="q-text">1854年に日本とアメリカが結んだ、下田・函館を開く条約は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>日米<rt>にちべい</rt></ruby><ruby>和親<rt>わしん</rt></ruby><ruby>条約<rt>じょうやく</rt></ruby></div>
+        <div class="qa-expl">1854年に日本がアメリカと結んだ条約。下田と函館の2港を開き、約200年続いた鎖国を終わらせた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (4/14)" data-qid="qa-opening-japan-4" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">4 / 14</span></div>
+      <div class="q-text">1858年に井伊直弼が結んだ、不平等な通商条約は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>日米<rt>にちべい</rt></ruby><ruby>修好<rt>しゅうこう</rt></ruby><ruby>通商<rt>つうしょう</rt></ruby><ruby>条約<rt>じょうやく</rt></ruby></div>
+        <div class="qa-expl">1858年に大老井伊直弼がアメリカと結んだ通商条約。領事裁判権を認め、関税自主権がない不平等条約だった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (5/14)" data-qid="qa-opening-japan-5" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">5 / 14</span></div>
+      <div class="q-text">日米修好通商条約を朝廷の許可なく結んだ大老は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>井伊直弼<rt>いいなおすけ</rt></ruby></div>
+        <div class="qa-expl">1858年に勅許なく日米修好通商条約を結んだ大老。安政の大獄で反対派を弾圧したが、1860年桜田門外の変で暗殺された。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (6/14)" data-qid="qa-opening-japan-6" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">6 / 14</span></div>
+      <div class="q-text">外国人が日本で罪を犯しても日本の法律で裁けない権利は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>領事<rt>りょうじ</rt></ruby><ruby>裁判権<rt>さいばんけん</rt></ruby></div>
+        <div class="qa-expl">外国人が日本で罪を犯しても日本の法では裁けず、外国側の領事が外国の法で裁く権利。不平等条約の代表的な中身。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (7/14)" data-qid="qa-opening-japan-7" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">7 / 14</span></div>
+      <div class="q-text">輸入品にかける税率を自国で決める権利は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>関税<rt>かんぜい</rt></ruby><ruby>自主権<rt>じしゅけん</rt></ruby></div>
+        <div class="qa-expl">輸入品にかける税率を自国で自由に決める権利。日米修好通商条約で日本はこの権利がなく、国内産業を保護できなかった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (8/14)" data-qid="qa-opening-japan-8" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">8 / 14</span></div>
+      <div class="q-text">アメリカ・オランダ・ロシア・イギリス・フランスと結んだ不平等条約の総称は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>安政<rt>あんせい</rt></ruby>の<ruby>五か国<rt>ごかこく</rt></ruby><ruby>条約<rt>じょうやく</rt></ruby></div>
+        <div class="qa-expl">1858年、井伊直弼のもとでアメリカ・オランダ・ロシア・イギリス・フランスの5か国と結ばれた不平等条約の総称。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (9/14)" data-qid="qa-opening-japan-9" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">9 / 14</span></div>
+      <div class="q-text">日米和親条約で開かれた静岡県の港は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>下田<rt>しもだ</rt></ruby></div>
+        <div class="qa-expl">1854年の日米和親条約で函館とともに最初に開かれた静岡県の港で、後にアメリカ総領事ハリスが駐在した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (10/14)" data-qid="qa-opening-japan-10" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">10 / 14</span></div>
+      <div class="q-text">日米和親条約で開かれた北海道の港は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>函館<rt>はこだて</rt></ruby></div>
+        <div class="qa-expl">1854年の日米和親条約で下田とともに開港された北海道の港。当時は箱館と書いた。鎖国終了の象徴の一つ。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (11/14)" data-qid="qa-opening-japan-11" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">11 / 14</span></div>
+      <div class="q-text">日米修好通商条約後に最大の貿易港となった港は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>横浜<rt>よこはま</rt></ruby></div>
+        <div class="qa-expl">1858年の日米修好通商条約で開港し、生糸などの輸出を通じて外国との貿易の中心地となった港。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (12/14)" data-qid="qa-opening-japan-12" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">12 / 14</span></div>
+      <div class="q-text">1853年にペリーが来航した場所は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>浦賀<rt>うらが</rt></ruby></div>
+        <div class="qa-expl">神奈川県にある江戸湾の入口の港。1853年にペリーが黒船を率いて来航し、幕府に開国を要求した場所として有名。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (13/14)" data-qid="qa-opening-japan-13" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">13 / 14</span></div>
+      <div class="q-text">日米修好通商条約の交渉にあたったアメリカ総領事は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">ハリス</div>
+        <div class="qa-expl">アメリカの初代総領事。1856年から下田に駐在し、幕府と1858年の日米修好通商条約の交渉を行った人物。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (14/14)" data-qid="qa-opening-japan-14" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">14 / 14</span></div>
+      <div class="q-text">天皇の許可のことを何という？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>勅許<rt>ちょっきょ</rt></ruby></div>
+        <div class="qa-expl">天皇の許可のこと。1858年に大老井伊直弼は勅許なしで通商条約を結び、天皇を尊び外国を退けるべきと主張する人々から強く批判された。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (1/8)" data-qid="qz-opening-japan-1" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">1 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">1858年に朝廷の許可なく条約を結んだ大老は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">井伊直弼</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">阿部正弘</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">徳川慶喜</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">松平慶永</span></button></div>
+      <div class="expl hidden-until">💡 大老の井伊直弼が1858年に朝廷の許可（勅許）を得ないまま、アメリカと日米修好通商条約を結びました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-opening-japan-2" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">2 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">日米修好通商条約で、日本が自由に決められなかった税に関する権利は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">関税自主権</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">領事裁判権</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">最恵国待遇</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">治外法権</span></button></div>
+      <div class="expl hidden-until">💡 関税自主権は輸入品の税率を自国で自由に決める権利のことで、日本はこの権利を持てなかったため国内産業を保護できませんでした。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-opening-japan-3" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">3 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">井伊直弼が1858年に列強と結んだ不平等条約の総称は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">日清修好条規</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">日朝修好条規</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">安政の五か国条約</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">日米和親条約</span></button></div>
+      <div class="expl hidden-until">💡 1858年に大老井伊直弼が勅許なくアメリカ・イギリス・フランス・ロシア・オランダの5か国と結んだ不平等条約の総称です。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-opening-japan-4" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">4 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">日米修好通商条約の交渉相手のアメリカ総領事は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">リンカン</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">ハリス</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">フィルモア</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">ペリー</span></button></div>
+      <div class="expl hidden-until">💡 アメリカの初代総領事ハリスが1856年から下田に駐在し、幕府と日米修好通商条約の交渉を行いました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-opening-japan-5" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">5 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">日米修好通商条約で日本側に不利だった点として正しいものは？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">外国通貨を使うことになった</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">領土を割譲した</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">外交権を完全に失った</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">関税を自由に決められなかった</span></button></div>
+      <div class="expl hidden-until">💡 日米修好通商条約は領事裁判権を認め、関税自主権を持たない不平等条約で、日本は輸入品の関税率を自由に決められませんでした。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-opening-japan-6" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">6 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">ペリー来航時に対応した老中は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">田沼意次</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">井伊直弼</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">松平定信</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">阿部正弘</span></button></div>
+      <div class="expl hidden-until">💡 1853年のペリー来航時、老中・阿部正弘が前例を破り大名たちに広く意見を求め、開国の方針が固まっていきました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-opening-japan-7" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">7 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">日米修好通商条約で新たに開港された港の数は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">5港</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">7港</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">3港</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">2港</span></button></div>
+      <div class="expl hidden-until">💡 1858年の日米修好通商条約により、神奈川・長崎・新潟・兵庫・函館の5港が新たに開港されることになりました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-opening-japan-8" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">8 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">井伊直弼が反対派を処罰した事件は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">安政の五か国条約</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">桜田門外の変</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">安政の大獄</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">寛政の改革</span></button></div>
+      <div class="expl hidden-until">💡 安政の大獄は、井伊直弼が条約調印や将軍継嗣問題で対立した尊王攘夷派を処罰した事件で、吉田松陰らが処刑されました。</div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-opening-japan-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">1 / 3　文章で説明しよう</span></div>
+      <div class="q-text">アメリカが日本に開国を求めた目的を簡単に書きなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">捕鯨船</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">太平洋で活動する捕鯨船や中国との貿易船に、燃料・食料・水を補給する港として日本を利用すること。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E9%96%8B%E5%9B%BD%E3%81%A8%E4%B8%8D%E5%B9%B3%E7%AD%89%E6%9D%A1%E7%B4%84" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (2/3)" data-qid="wr-opening-japan-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">2 / 3　文章で説明しよう</span></div>
+      <div class="q-text">日米和親条約と日米修好通商条約の内容の違いを説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">領事裁判権</span><span class="kw-chip">関税自主権</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">和親条約は下田・函館の2港を開いただけだったが、修好通商条約はさらに開港を広げたうえ、領事裁判権を認め関税自主権を持たない不平等な条約だった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E9%96%8B%E5%9B%BD%E3%81%A8%E4%B8%8D%E5%B9%B3%E7%AD%89%E6%9D%A1%E7%B4%84" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (3/3)" data-qid="wr-opening-japan-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">3 / 3　文章で説明しよう</span></div>
+      <div class="q-text">大老井伊直弼が結んだ日米修好通商条約は、手続きの面でどのような問題があったか説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">勅許</span><span class="kw-chip">朝廷</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">朝廷（天皇）の許可である勅許を得ないまま条約を結んだため、尊王攘夷派の反発を招いた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E9%96%8B%E5%9B%BD%E3%81%A8%E4%B8%8D%E5%B9%B3%E7%AD%89%E6%9D%A1%E7%B4%84" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step" data-label="E 資料問題">
+      <div class="sec-h"><span class="sec-tag">E</span>資料問題<span class="sec-note">写真を見て答えよう</span></div>
+      <figure class="s-img"><img src="img/treaty-ports-map.webp" alt="" loading="lazy"><figcaption>開国後の開港地</figcaption></figure>
+      <div class="s-q"><span class="qa-no">(1)</span>地図中のA・Bは、日米修好通商条約(1858年)で開かれた港である。Aの、現在の横浜にあたる港を何というか。<button class="blank s-blank" type="button"><span class="ba">神奈川（横浜）</span><span class="bl" style="width:8em"></span><span class="tap-hint">タップで答え</span></button></div><div class="s-q"><span class="qa-no">(2)</span>地図中Bの、九州にある港を何というか。<button class="blank s-blank" type="button"><span class="ba">長崎</span><span class="bl" style="width:8em"></span><span class="tap-hint">タップで答え</span></button></div><div class="s-q"><span class="qa-no">(3)</span>地図中に示された、1853年にペリーが初めて来航した場所を何というか。<button class="blank s-blank" type="button"><span class="ba">浦賀</span><span class="bl" style="width:8em"></span><span class="tap-hint">タップで答え</span></button></div>
+    </div>
+    <div class="step done-step" data-label="結果">
+      <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「開国と不平等条約」おつかれさま！</span></div>
+      <div class="score-box" data-score></div>
+      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E9%96%8B%E5%9B%BD%E3%81%A8%E4%B8%8D%E5%B9%B3%E7%AD%89%E6%9D%A1%E7%B4%84" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
+      <a class="big-btn ref-btn" href="../../ref/10/index.html#t1">📖 参考書でおさらいする</a>
+      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元をもう一度とく</button>
+    </div>
+</section>
+<section class="view" data-t="3">
+  <div class="tband"><span class="tno">2</span><h2>開国後の政治と経済</h2><img class="wchar tchar" src="img/characters_manabi_think_sm.png" alt=""></div>
+  
+    <div class="step" data-label="A 要点まとめ">
+      <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
+      <a class="ref-link" href="../../ref/10/index.html#t2">📖 先に参考書で理解する</a>
+      <div class="summary">開国に反対する人々の間には、天皇を尊び外国勢力を排除しようとする<button class="blank" type="button"><span class="bno">①</span><span class="ba">尊王攘夷</span><span class="bl" style="width:3.6em"></span></button>の考えが広がった。これに対し大老井伊直弼は、1858〜59年に反対派を処罰する<button class="blank" type="button"><span class="bno">②</span><span class="ba">安政の大獄</span><span class="bl" style="width:4.5em"></span></button>を行い、<button class="blank" type="button"><span class="bno">③</span><span class="ba">松下村塾</span><span class="bl" style="width:3.6em"></span></button>で高杉晋作らを育てた思想家<button class="blank" type="button"><span class="bno">④</span><span class="ba">吉田松陰</span><span class="bl" style="width:3.6em"></span></button>らを処刑した。この弾圧への反発から、1860年、井伊直弼は水戸藩の浪士らに暗殺される<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">桜田門外の変</span><span class="bl" style="width:5.4em"></span></button>で命を落とした。幕府は権威回復のため朝廷と協力する<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">公武合体</span><span class="bl" style="width:3.6em"></span></button>を図ったが、うまくいかなかった。一方、開港後の貿易では<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">生糸</span><span class="bl" style="width:2.7em"></span></button>や茶が横浜港から<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">イギリス</span><span class="bl" style="width:3.6em"></span></button>などへ大量に輸出され、国内で品不足が起こって物価が上昇した。また、日本と海外の金銀の交換比率の違いから<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">金の流出</span><span class="bl" style="width:3.6em"></span></button>も起こり、人々の生活は苦しくなった。</div>
+      <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-post-opening-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">1 / 14</span></div>
+      <div class="q-text">天皇を尊び、外国を追い払おうとする運動は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>尊王攘夷<rt>そんのうじょうい</rt></ruby></div>
+        <div class="qa-expl">天皇を尊び、外国を追い払おうとする幕末の運動。開国に反対する長州・水戸藩の志士らが掲げ、倒幕へとつながった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (2/14)" data-qid="qa-post-opening-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">2 / 14</span></div>
+      <div class="q-text">井伊直弼が尊王攘夷派を厳しく処罰した事件は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>安政<rt>あんせい</rt></ruby>の<ruby>大獄<rt>たいごく</rt></ruby></div>
+        <div class="qa-expl">1858〜59年、大老井伊直弼が条約調印や将軍継嗣問題で対立した尊王攘夷派を処罰した事件。吉田松陰らが処刑された。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (3/14)" data-qid="qa-post-opening-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">3 / 14</span></div>
+      <div class="q-text">1860年、井伊直弼が暗殺された事件は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>桜田門外<rt>さくらだもんがい</rt></ruby>の<ruby>変<rt>へん</rt></ruby></div>
+        <div class="qa-expl">1860年、安政の大獄への反発から水戸藩の浪士らが江戸城桜田門外で大老井伊直弼を襲撃し、暗殺した事件。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (4/14)" data-qid="qa-post-opening-4" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">4 / 14</span></div>
+      <div class="q-text">安政の大獄で処刑された長州藩の思想家は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>吉田松陰<rt>よしだしょういん</rt></ruby></div>
+        <div class="qa-expl">長州藩の思想家。松下村塾で高杉晋作や伊藤博文らを育てたが、1859年の安政の大獄で処刑された。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (5/14)" data-qid="qa-post-opening-5" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">5 / 14</span></div>
+      <div class="q-text">幕府と朝廷が協力しようとする政策は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>公武<rt>こうぶ</rt></ruby><ruby>合体<rt>がったい</rt></ruby></div>
+        <div class="qa-expl">朝廷（公）と幕府（武）が手を組み政治の安定を図ろうとした政策。幕府は権威の回復を狙ったが結局うまくいかなかった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (6/14)" data-qid="qa-post-opening-6" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">6 / 14</span></div>
+      <div class="q-text">開港後の日本の主要な輸出品は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>生糸<rt>きいと</rt></ruby></div>
+        <div class="qa-expl">開港後の日本の最大の輸出品で、横浜港からイギリスなどへ大量に輸出された。国内では品不足から価格が高騰した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (7/14)" data-qid="qa-post-opening-7" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">7 / 14</span></div>
+      <div class="q-text">日本と外国の金銀交換比率の違いで起きた問題は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">金の<ruby>流出<rt>りゅうしゅつ</rt></ruby></div>
+        <div class="qa-expl">日本では金1=銀5、海外では金1=銀15だったため、外国商人は銀を持ち込んで日本の金を安く買い、大量の金が海外に流出した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (8/14)" data-qid="qa-post-opening-8" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">8 / 14</span></div>
+      <div class="q-text">開港後に最大の貿易港となった場所は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>横浜<rt>よこはま</rt></ruby></div>
+        <div class="qa-expl">1858年の日米修好通商条約で開かれた5港の一つで、生糸の輸出を通じて開港後最大の貿易港となった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (9/14)" data-qid="qa-post-opening-9" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">9 / 14</span></div>
+      <div class="q-text">天皇を尊ぶという考え方を何という？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>尊王<rt>そんのう</rt></ruby></div>
+        <div class="qa-expl">天皇を尊ぶという幕末の思想。攘夷と合わせて「尊王攘夷」というスローガンになり、倒幕運動を支える理念となった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (10/14)" data-qid="qa-post-opening-10" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">10 / 14</span></div>
+      <div class="q-text">外国の勢力を排除しようとする考えは？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>攘夷<rt>じょうい</rt></ruby></div>
+        <div class="qa-expl">外国の勢力を武力で追い払おうとする幕末の考え方。「夷」とは当時、外国人を見下して呼んだ言葉。尊王思想と結びついた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (11/14)" data-qid="qa-post-opening-11" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">11 / 14</span></div>
+      <div class="q-text">生糸とともに開港後の日本の主要な輸出品となった農産物は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>茶<rt>ちゃ</rt></ruby></div>
+        <div class="qa-expl">生糸とともに開港後の日本の主要な輸出品となった農産物で、主にアメリカへ横浜港から大量に輸出された。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (12/14)" data-qid="qa-post-opening-12" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">12 / 14</span></div>
+      <div class="q-text">開港後、日本の最大の貿易相手国は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">イギリス</div>
+        <div class="qa-expl">1858年の日米修好通商条約後、横浜港を通じて生糸などを大量に輸入した、当時の日本最大の貿易相手国。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (13/14)" data-qid="qa-post-opening-13" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">13 / 14</span></div>
+      <div class="q-text">吉田松陰が開いた私塾は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>松下村塾<rt>しょうかそんじゅく</rt></ruby></div>
+        <div class="qa-expl">長州藩の思想家・吉田松陰が萩で開いた私塾で、高杉晋作・伊藤博文・木戸孝允ら明治維新の志士を多数輩出した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (14/14)" data-qid="qa-post-opening-14" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">14 / 14</span></div>
+      <div class="q-text">桜田門外の変が起きた年は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">1860年</div>
+        <div class="qa-expl">桜田門外の変が起きた年。水戸藩の浪士らが江戸城桜田門外で大老井伊直弼を襲撃し、暗殺した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (1/8)" data-qid="qz-post-opening-1" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">1 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">松下村塾で多くの志士を育てた長州藩の思想家は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">高杉晋作</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">吉田松陰</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">伊藤博文</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">坂本龍馬</span></button></div>
+      <div class="expl hidden-until">💡 長州藩の思想家・吉田松陰は萩の松下村塾で高杉晋作・伊藤博文・木戸孝允ら多くの維新の志士を育てました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-post-opening-2" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">2 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">開港後の最大の貿易港は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">神戸</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">横浜</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">函館</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">長崎</span></button></div>
+      <div class="expl hidden-until">💡 1858年の日米修好通商条約で開かれた横浜は、生糸などの輸出を通じて開港後最大の貿易港として発展しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-post-opening-3" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">3 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">金銀交換比率の違いで起きた問題は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">銀の不足</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">金の流出</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">輸出入の停止</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">物価の下落</span></button></div>
+      <div class="expl hidden-until">💡 金と銀の交換比率の差を使い外国商人が銀で日本の金を安く買い、大量の金が海外に流出し物価が高騰して民衆の生活が苦しくなりました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-post-opening-4" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">4 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">桜田門外の変で井伊直弼を襲撃したのは主にどの藩の浪士？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">長州藩</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">薩摩藩</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">水戸藩</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">土佐藩</span></button></div>
+      <div class="expl hidden-until">💡 1860年の桜田門外の変では、安政の大獄に反発した水戸藩の浪士を中心とする攘夷派が井伊直弼を襲撃しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-post-opening-5" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">5 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">開港後の最大の貿易相手国は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">オランダ</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">フランス</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">アメリカ</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">イギリス</span></button></div>
+      <div class="expl hidden-until">💡 開港後、イギリスが日本の最大の貿易相手国となり、横浜港を通じて日本の生糸などを大量に輸入しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-post-opening-6" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">6 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">幕府と朝廷が協力しようとする政策は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">尊王攘夷</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">開国和親</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">公武合体</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">倒幕運動</span></button></div>
+      <div class="expl hidden-until">💡 公武合体は、朝廷（公）と幕府（武）が手を組むことで幕府の権威を取り戻し政治の安定を図ろうとした政策です。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-post-opening-7" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">7 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">開国後に物価が上昇した理由は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">輸出増で品不足になった</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">紙幣を大量発行した</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">幕府が物資生産を禁じた</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">安い外国産品が流入した</span></button></div>
+      <div class="expl hidden-until">💡 開港後、生糸や茶などの主要産品の輸出が急増し、国内で品不足が起きたため物価が高騰しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-post-opening-8" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">8 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">金が海外に大量に流出した原因は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">金貨の信用が下がったため</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">外国船が金山を採掘したため</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">銀が採れなくなったため</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">金銀比率が海外と違ったため</span></button></div>
+      <div class="expl hidden-until">💡 日本では金1：銀5、海外では金1：銀15と交換比率が大きく違ったため、外国商人が銀で日本の金を買い大量に流出しました。</div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (1/2)" data-qid="wr-post-opening-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">1 / 2　文章で説明しよう</span></div>
+      <div class="q-text">井伊直弼が桜田門外の変で暗殺されたのはなぜか、説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">安政の大獄</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">安政の大獄で尊王攘夷派を厳しく弾圧したことへの反発から、水戸藩の浪士らに江戸城桜田門外で襲撃され暗殺されたから。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E9%96%8B%E5%9B%BD%E5%BE%8C%E3%81%AE%E6%94%BF%E6%B2%BB%E3%81%A8%E7%B5%8C%E6%B8%88" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (2/2)" data-qid="wr-post-opening-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">2 / 2　文章で説明しよう</span></div>
+      <div class="q-text">開港後、日本から金が大量に海外へ流出した理由を説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">交換比率</span><span class="kw-chip">金</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">日本と海外で金と銀の交換比率が大きく違ったため、外国商人が銀を持ち込んで日本の金を安く買い、大量に国外へ持ち出したから。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E9%96%8B%E5%9B%BD%E5%BE%8C%E3%81%AE%E6%94%BF%E6%B2%BB%E3%81%A8%E7%B5%8C%E6%B8%88" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step done-step" data-label="結果">
+      <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「開国後の政治と経済」おつかれさま！</span></div>
+      <div class="score-box" data-score></div>
+      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E9%96%8B%E5%9B%BD%E5%BE%8C%E3%81%AE%E6%94%BF%E6%B2%BB%E3%81%A8%E7%B5%8C%E6%B8%88" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
+      <a class="big-btn ref-btn" href="../../ref/10/index.html#t2">📖 参考書でおさらいする</a>
+      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元をもう一度とく</button>
+    </div>
+</section>
+<section class="view" data-t="4">
+  <div class="tband"><span class="tno">3</span><h2>江戸幕府の滅亡</h2><img class="wchar tchar" src="img/characters_char_neko_sm.png" alt=""></div>
+  
+    <div class="step" data-label="A 要点まとめ">
+      <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
+      <a class="ref-link" href="../../ref/10/index.html#t3">📖 先に参考書で理解する</a>
+      <div class="summary">1863年、薩摩藩は生麦事件をきっかけに<button class="blank" type="button"><span class="bno">①</span><span class="ba">薩英戦争</span><span class="bl" style="width:3.6em"></span></button>でイギリスと戦い、長州藩も外国艦隊と<button class="blank" type="button"><span class="bno">②</span><span class="ba">下関戦争</span><span class="bl" style="width:3.6em"></span></button>を戦って、ともに欧米との軍事力の差を痛感し、攘夷から倒幕へと方針を転換した。長州藩では高杉晋作が身分にとらわれない<button class="blank" type="button"><span class="bno">③</span><span class="ba">奇兵隊</span><span class="bl" style="width:2.7em"></span></button>を組織して倒幕の戦力とした。1866年、土佐藩出身の<button class="blank" type="button"><span class="bno">④</span><span class="ba">坂本龍馬</span><span class="bl" style="width:3.6em"></span></button>の仲立ちにより、薩摩藩と長州藩の間で<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">薩長同盟</span><span class="bl" style="width:3.6em"></span></button>が結ばれ、倒幕の中心勢力が固まった。1867年、15代将軍<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">徳川慶喜</span><span class="bl" style="width:3.6em"></span></button>は政権を朝廷に返す<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">大政奉還</span><span class="bl" style="width:3.6em"></span></button>を行ったが、その後天皇中心の新政府樹立を宣言する<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">王政復古の大号令</span><span class="bl" style="width:7.2em"></span></button>が出された。翌1868年、鳥羽・伏見の戦いから<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">戊辰戦争</span><span class="bl" style="width:3.6em"></span></button>が始まり、<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">西郷隆盛</span><span class="bl" style="width:3.6em"></span></button>らの新政府軍が旧幕府軍を破って明治政府が確立した。</div>
+      <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-fall-of-bakufu-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">1 / 14</span></div>
+      <div class="q-text">1866年、薩摩藩と長州藩が結んだ同盟は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>薩長<rt>さっちょう</rt></ruby><ruby>同盟<rt>どうめい</rt></ruby></div>
+        <div class="qa-expl">1866年、土佐藩の坂本龍馬らの仲立ちで薩摩藩と長州藩が結んだ軍事同盟。倒幕の中心勢力となった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (2/14)" data-qid="qa-fall-of-bakufu-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">2 / 14</span></div>
+      <div class="q-text">薩長同盟を仲介した土佐藩出身の志士は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>坂本龍馬<rt>さかもとりょうま</rt></ruby></div>
+        <div class="qa-expl">土佐藩出身の幕末の志士。1866年に薩長同盟を仲介し、海援隊を結成して日本の近代化に尽力した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (3/14)" data-qid="qa-fall-of-bakufu-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">3 / 14</span></div>
+      <div class="q-text">1867年、徳川慶喜が政権を朝廷に返したことは？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>大政<rt>たいせい</rt></ruby><ruby>奉還<rt>ほうかん</rt></ruby></div>
+        <div class="qa-expl">1867年、15代将軍徳川慶喜が政権を朝廷に返した出来事。約260年続いた江戸幕府の政権が終わった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (4/14)" data-qid="qa-fall-of-bakufu-4" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">4 / 14</span></div>
+      <div class="q-text">大政奉還を行った江戸幕府最後の将軍は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>徳川慶喜<rt>とくがわよしのぶ</rt></ruby></div>
+        <div class="qa-expl">江戸幕府15代将軍。1867年に大政奉還を行い、政権を朝廷に返して幕府の終わりを迎えた人物。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (5/14)" data-qid="qa-fall-of-bakufu-5" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">5 / 14</span></div>
+      <div class="q-text">天皇中心の新政府を作ることを宣言した命令は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>王政復古<rt>おうせいふっこ</rt></ruby>の<ruby>大号令<rt>だいごうれい</rt></ruby></div>
+        <div class="qa-expl">1867年、大政奉還の後に出された命令。天皇を中心とする新政府の樹立を宣言し、幕府や摂政・関白の廃止を決めた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (6/14)" data-qid="qa-fall-of-bakufu-6" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">6 / 14</span></div>
+      <div class="q-text">旧幕府軍と新政府軍が戦った内戦は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>戊辰<rt>ぼしん</rt></ruby><ruby>戦争<rt>せんそう</rt></ruby></div>
+        <div class="qa-expl">1868年の鳥羽・伏見の戦いから始まり、約1年半続いた旧幕府軍と新政府軍の内戦。新政府軍が勝利し明治政府が確立した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (7/14)" data-qid="qa-fall-of-bakufu-7" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">7 / 14</span></div>
+      <div class="q-text">倒幕運動の中心となり、戊辰戦争で新政府軍を指揮した薩摩藩出身の人物は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>西郷隆盛<rt>さいごうたかもり</rt></ruby></div>
+        <div class="qa-expl">薩摩藩出身の幕末・明治の指導者。倒幕運動を主導し、戊辰戦争では新政府軍を指揮した。後の西南戦争で敗死。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (8/14)" data-qid="qa-fall-of-bakufu-8" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">8 / 14</span></div>
+      <div class="q-text">初代内務卿として明治政府の中心となった薩摩藩出身の人物は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>大久保利通<rt>おおくぼとしみち</rt></ruby></div>
+        <div class="qa-expl">薩摩藩出身。西郷隆盛とともに倒幕運動を進め、明治政府の初代内務卿として殖産興業を推進した中心人物。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (9/14)" data-qid="qa-fall-of-bakufu-9" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">9 / 14</span></div>
+      <div class="q-text">長州藩で奇兵隊を組織した志士は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>高杉晋作<rt>たかすぎしんさく</rt></ruby></div>
+        <div class="qa-expl">長州藩の幕末の志士。1863年、身分に関係なく有志を集めた奇兵隊を組織し、倒幕の戦いに活躍した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (10/14)" data-qid="qa-fall-of-bakufu-10" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">10 / 14</span></div>
+      <div class="q-text">桂小五郎の名でも知られ、薩長同盟の交渉を担った長州藩出身の人物は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>木戸孝允<rt>きどたかよし</rt></ruby></div>
+        <div class="qa-expl">長州藩出身。桂小五郎の名でも知られ、薩長同盟の長州側の交渉を担い、明治政府で版籍奉還などを推進した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (11/14)" data-qid="qa-fall-of-bakufu-11" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">11 / 14</span></div>
+      <div class="q-text">1863〜64年に長州藩が外国艦隊と戦った戦争は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>下関<rt>しものせき</rt></ruby><ruby>戦争<rt>せんそう</rt></ruby></div>
+        <div class="qa-expl">1863〜64年、長州藩が関門海峡で英・仏・米・蘭の四国艦隊と戦った戦争。四国艦隊下関砲撃事件とも呼ばれる。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (12/14)" data-qid="qa-fall-of-bakufu-12" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">12 / 14</span></div>
+      <div class="q-text">高杉晋作が身分に関係なく有志を集めて組織した軍隊は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>奇兵隊<rt>きへいたい</rt></ruby></div>
+        <div class="qa-expl">1863年に高杉晋作が長州藩で組織した、武士以外の農民や町人も加わった新しい形の軍隊で、倒幕の戦力となった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (13/14)" data-qid="qa-fall-of-bakufu-13" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">13 / 14</span></div>
+      <div class="q-text">薩長同盟が成立した年は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">1866年</div>
+        <div class="qa-expl">薩長同盟が成立した年。坂本龍馬の仲立ちで薩摩藩と長州藩が結ばれ、倒幕運動の中心勢力となった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (14/14)" data-qid="qa-fall-of-bakufu-14" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">14 / 14</span></div>
+      <div class="q-text">大政奉還が行われた年は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">1867年</div>
+        <div class="qa-expl">大政奉還が行われた年。15代将軍徳川慶喜が政権を朝廷に返し、約260年続いた江戸幕府の政権が終わった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (1/8)" data-qid="qz-fall-of-bakufu-1" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">1 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">大政奉還の後、天皇中心の新政府を宣言した命令は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">五箇条の御誓文</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">教育勅語</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">王政復古の大号令</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">廃藩置県</span></button></div>
+      <div class="expl hidden-until">💡 1867年、大政奉還の後に出された王政復古の大号令は天皇中心の新政府樹立を宣言し、幕府や摂政・関白の廃止を決めました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-fall-of-bakufu-2" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">2 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">旧幕府軍と新政府軍が戦った内戦は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">薩英戦争</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">西南戦争</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">戊辰戦争</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">下関戦争</span></button></div>
+      <div class="expl hidden-until">💡 戊辰戦争は1868年の鳥羽・伏見の戦いから始まり、約1年半続いた旧幕府軍と新政府軍の内戦で、新政府軍が勝利しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-fall-of-bakufu-3" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">3 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">幕末に民衆の間で流行した踊りは？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ええじゃないか</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">盆踊り騒動</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">お札降り</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">天保踊り</span></button></div>
+      <div class="expl hidden-until">💡 「ええじゃないか」は1867年ごろ東海から各地に広がった民衆の踊り騒動で、世直しへの期待を込めて熱狂的に踊られました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-fall-of-bakufu-4" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">4 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">初代内務卿として明治政府の中心となった薩摩藩出身の人物は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">高杉晋作</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">木戸孝允</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">坂本龍馬</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">大久保利通</span></button></div>
+      <div class="expl hidden-until">💡 大久保利通は薩摩藩出身。初代内務卿として殖産興業を推進し、西郷隆盛らとともに明治政府の中心人物として活躍しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-fall-of-bakufu-5" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">5 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">戊辰戦争の最初の戦いが行われた場所は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">横浜・桜田門外</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">鳥羽・伏見</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">江戸城・函館</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">浦賀・下田</span></button></div>
+      <div class="expl hidden-until">💡 1868年1月、京都南郊の鳥羽・伏見で起きた戦いで戊辰戦争最初の戦闘となり、新政府軍が旧幕府軍に勝利しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-fall-of-bakufu-6" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">6 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">薩英戦争のきっかけとなった事件は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">生麦事件</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">安政の大獄</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">禁門の変</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">桜田門外の変</span></button></div>
+      <div class="expl hidden-until">💡 1862年に薩摩藩士がイギリス人を殺傷した生麦事件をきっかけに、翌1863年に薩英戦争が起こり、薩摩は近代軍の力を知りました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-fall-of-bakufu-7" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">7 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">長州藩出身で、薩長同盟の締結に尽力した人物は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">坂本龍馬</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">西郷隆盛</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">木戸孝允</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">大久保利通</span></button></div>
+      <div class="expl hidden-until">💡 木戸孝允（桂小五郎）は長州藩出身。1866年の薩長同盟締結に長州側の代表として尽力し、のちに明治政府の中心となりました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-fall-of-bakufu-8" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">8 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">戊辰戦争はいつ始まった？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">1869年</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">1867年</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">1866年</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">1868年</span></button></div>
+      <div class="expl hidden-until">💡 戊辰戦争は1868年1月の鳥羽・伏見の戦いから始まり、約1年半続いた旧幕府軍と新政府軍の内戦です。</div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-fall-of-bakufu-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">1 / 3　文章で説明しよう</span></div>
+      <div class="q-text">薩摩藩や長州藩が攘夷から倒幕へ方針を転換した理由を説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">軍事力</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">薩英戦争や下関戦争で欧米との軍事力の差を痛感し、攘夷をやめて倒幕による近代化を目指すようになったから。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E6%B1%9F%E6%88%B8%E5%B9%95%E5%BA%9C%E3%81%AE%E6%BB%85%E4%BA%A1" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (2/3)" data-qid="wr-fall-of-bakufu-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">2 / 3　文章で説明しよう</span></div>
+      <div class="q-text">大政奉還と王政復古の大号令の違いを簡単に説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">政権</span><span class="kw-chip">天皇</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">大政奉還は徳川慶喜が政権を朝廷に返したことで、王政復古の大号令はその後天皇中心の新政府の樹立を宣言したことである。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E6%B1%9F%E6%88%B8%E5%B9%95%E5%BA%9C%E3%81%AE%E6%BB%85%E4%BA%A1" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (3/3)" data-qid="wr-fall-of-bakufu-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">3 / 3　文章で説明しよう</span></div>
+      <div class="q-text">1866年に結ばれた薩長同盟は、どのようにして成立し、どのような意味を持ったか説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">坂本龍馬</span><span class="kw-chip">倒幕</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">土佐藩出身の坂本龍馬の仲立ちで、対立していた薩摩藩と長州藩が同盟を結び、倒幕の中心勢力が固まった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E6%B1%9F%E6%88%B8%E5%B9%95%E5%BA%9C%E3%81%AE%E6%BB%85%E4%BA%A1" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step done-step" data-label="結果">
+      <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「江戸幕府の滅亡」おつかれさま！</span></div>
+      <div class="score-box" data-score></div>
+      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E6%B1%9F%E6%88%B8%E5%B9%95%E5%BA%9C%E3%81%AE%E6%BB%85%E4%BA%A1" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
+      <a class="big-btn ref-btn" href="../../ref/10/index.html#t3">📖 参考書でおさらいする</a>
+      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元をもう一度とく</button>
+    </div>
+</section>
+<section class="print-answers print-only">
+  <h2 class="ans-band">解答</h2>
+  <div class="a-topic"><div class="a-title">年表でチェック</div><div class="a-group"><span class="a-item">ペリー</span>　<span class="a-item">日米和親条約</span>　<span class="a-item">日米修好通商条約</span>　<span class="a-item">安政の大獄</span>　<span class="a-item">桜田門外の変</span>　<span class="a-item">生麦事件</span>　<span class="a-item">薩英戦争</span>　<span class="a-item">奇兵隊</span>　<span class="a-item">下関戦争</span>　<span class="a-item">薩長同盟</span>　<span class="a-item">大政奉還</span>　<span class="a-item">王政復古の大号令</span>　<span class="a-item">ええじゃないか</span>　<span class="a-item">鳥羽・伏見の戦い</span>　<span class="a-item">江戸城</span></div></div><div class="a-topic"><div class="a-title">1　開国と不平等条約</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① ペリー</span>　<span class="a-item">② 黒船</span>　<span class="a-item">③ 日米和親条約</span>　<span class="a-item">④ ハリス</span>　<span class="a-item">⑤ 井伊直弼</span>　<span class="a-item">⑥ 勅許</span>　<span class="a-item">⑦ 日米修好通商条約</span>　<span class="a-item">⑧ 領事裁判権</span>　<span class="a-item">⑨ 関税自主権</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) ペリー</span>　<span class="a-item">(2) 黒船</span>　<span class="a-item">(3) 日米和親条約</span>　<span class="a-item">(4) 日米修好通商条約</span>　<span class="a-item">(5) 井伊直弼</span>　<span class="a-item">(6) 領事裁判権</span>　<span class="a-item">(7) 関税自主権</span>　<span class="a-item">(8) 安政の五か国条約</span>　<span class="a-item">(9) 下田</span>　<span class="a-item">(10) 函館</span>　<span class="a-item">(11) 横浜</span>　<span class="a-item">(12) 浦賀</span>　<span class="a-item">(13) ハリス</span>　<span class="a-item">(14) 勅許</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) ア（井伊直弼）</span>　<span class="a-item">(2) ア（関税自主権）</span>　<span class="a-item">(3) ウ（安政の五か国条約）</span>　<span class="a-item">(4) イ（ハリス）</span>　<span class="a-item">(5) エ（関税を自由に決められなかった）</span>　<span class="a-item">(6) エ（阿部正弘）</span>　<span class="a-item">(7) ア（5港）</span>　<span class="a-item">(8) ウ（安政の大獄）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 太平洋で活動する捕鯨船や中国との貿易船に、燃料・食料・水を補給する港として日本を利用すること。</div><div class="a-written">(2) 和親条約は下田・函館の2港を開いただけだったが、修好通商条約はさらに開港を広げたうえ、領事裁判権を認め関税自主権を持たない不平等な条約だった。</div><div class="a-written">(3) 朝廷（天皇）の許可である勅許を得ないまま条約を結んだため、尊王攘夷派の反発を招いた。</div></div><div class="a-group"><span class="a-label">E 資料問題</span><span class="a-item">(1) 神奈川（横浜）</span>　<span class="a-item">(2) 長崎</span>　<span class="a-item">(3) 浦賀</span></div></div><div class="a-topic"><div class="a-title">2　開国後の政治と経済</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 尊王攘夷</span>　<span class="a-item">② 安政の大獄</span>　<span class="a-item">③ 松下村塾</span>　<span class="a-item">④ 吉田松陰</span>　<span class="a-item">⑤ 桜田門外の変</span>　<span class="a-item">⑥ 公武合体</span>　<span class="a-item">⑦ 生糸</span>　<span class="a-item">⑧ イギリス</span>　<span class="a-item">⑨ 金の流出</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 尊王攘夷</span>　<span class="a-item">(2) 安政の大獄</span>　<span class="a-item">(3) 桜田門外の変</span>　<span class="a-item">(4) 吉田松陰</span>　<span class="a-item">(5) 公武合体</span>　<span class="a-item">(6) 生糸</span>　<span class="a-item">(7) 金の流出</span>　<span class="a-item">(8) 横浜</span>　<span class="a-item">(9) 尊王</span>　<span class="a-item">(10) 攘夷</span>　<span class="a-item">(11) 茶</span>　<span class="a-item">(12) イギリス</span>　<span class="a-item">(13) 松下村塾</span>　<span class="a-item">(14) 1860年</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) イ（吉田松陰）</span>　<span class="a-item">(2) イ（横浜）</span>　<span class="a-item">(3) イ（金の流出）</span>　<span class="a-item">(4) ウ（水戸藩）</span>　<span class="a-item">(5) エ（イギリス）</span>　<span class="a-item">(6) ウ（公武合体）</span>　<span class="a-item">(7) ア（輸出増で品不足になった）</span>　<span class="a-item">(8) エ（金銀比率が海外と違ったため）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 安政の大獄で尊王攘夷派を厳しく弾圧したことへの反発から、水戸藩の浪士らに江戸城桜田門外で襲撃され暗殺されたから。</div><div class="a-written">(2) 日本と海外で金と銀の交換比率が大きく違ったため、外国商人が銀を持ち込んで日本の金を安く買い、大量に国外へ持ち出したから。</div></div></div><div class="a-topic"><div class="a-title">3　江戸幕府の滅亡</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 薩英戦争</span>　<span class="a-item">② 下関戦争</span>　<span class="a-item">③ 奇兵隊</span>　<span class="a-item">④ 坂本龍馬</span>　<span class="a-item">⑤ 薩長同盟</span>　<span class="a-item">⑥ 徳川慶喜</span>　<span class="a-item">⑦ 大政奉還</span>　<span class="a-item">⑧ 王政復古の大号令</span>　<span class="a-item">⑨ 戊辰戦争</span>　<span class="a-item">⑩ 西郷隆盛</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 薩長同盟</span>　<span class="a-item">(2) 坂本龍馬</span>　<span class="a-item">(3) 大政奉還</span>　<span class="a-item">(4) 徳川慶喜</span>　<span class="a-item">(5) 王政復古の大号令</span>　<span class="a-item">(6) 戊辰戦争</span>　<span class="a-item">(7) 西郷隆盛</span>　<span class="a-item">(8) 大久保利通</span>　<span class="a-item">(9) 高杉晋作</span>　<span class="a-item">(10) 木戸孝允</span>　<span class="a-item">(11) 下関戦争</span>　<span class="a-item">(12) 奇兵隊</span>　<span class="a-item">(13) 1866年</span>　<span class="a-item">(14) 1867年</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) ウ（王政復古の大号令）</span>　<span class="a-item">(2) ウ（戊辰戦争）</span>　<span class="a-item">(3) ア（ええじゃないか）</span>　<span class="a-item">(4) エ（大久保利通）</span>　<span class="a-item">(5) イ（鳥羽・伏見）</span>　<span class="a-item">(6) ア（生麦事件）</span>　<span class="a-item">(7) ウ（木戸孝允）</span>　<span class="a-item">(8) エ（1868年）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 薩英戦争や下関戦争で欧米との軍事力の差を痛感し、攘夷をやめて倒幕による近代化を目指すようになったから。</div><div class="a-written">(2) 大政奉還は徳川慶喜が政権を朝廷に返したことで、王政復古の大号令はその後天皇中心の新政府の樹立を宣言したことである。</div><div class="a-written">(3) 土佐藩出身の坂本龍馬の仲立ちで、対立していた薩摩藩と長州藩が同盟を結び、倒幕の中心勢力が固まった。</div></div></div>
+</section>
+</main>
+<div class="navbar" id="navbar" hidden><div class="navbar-in">
+  <button class="nb nb-prev" id="btnPrev">← まえへ</button>
+  <button class="nb nb-next" id="btnNext">つぎへ →</button>
+</div></div>
+<script>
+(function () {
+  var KEY = 'tzmwb-10';
+  var views = [].slice.call(document.querySelectorAll('.view'));
+  var tabs = [].slice.call(document.querySelectorAll('.tab'));
+  var N = views.length - 1;
+  var state = { t: 0, s: 0 };
+  var lastDir = 1;
+  var rendered = null; // 直前に表示していた {t, s}（ページめくり演出用）
+
+  function store() {
+    try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; }
+  }
+  function save(obj) { try { localStorage.setItem(KEY, JSON.stringify(obj)); } catch (e) {} }
+  function stepsOf(t) { return views[t].querySelectorAll('.step'); }
+
+  function renderScore(view) {
+    var st = store(), r = st.r || {};
+    var box = view.querySelector('[data-score]');
+    if (!box) return;
+    function count(sel) {
+      var ids = [].map.call(view.querySelectorAll(sel), function (el) { return el.dataset.qid; });
+      var done = ids.filter(function (id) { return r[id] === 1; }).length;
+      var tried = ids.filter(function (id) { return id in r; }).length;
+      return { total: ids.length, done: done, tried: tried };
+    }
+    var qa = count('.qa-step'), qz = count('.qz-step'), wr = count('.wr-step');
+    var rows = [];
+    if (qa.total) rows.push('<div class="score-row"><span>B 一問一答</span><b>⭕ ' + qa.done + ' / ' + qa.total + '</b></div>');
+    if (qz.total) rows.push('<div class="score-row"><span>C 実戦4択</span><b>正解 ' + qz.done + ' / ' + qz.total + '</b></div>');
+    if (wr.total) rows.push('<div class="score-row"><span>D 記述</span><b>⭕ ' + wr.done + ' / ' + wr.total + '</b></div>');
+    box.innerHTML = rows.join('') || 'このページの問題はタップ形式だよ。';
+  }
+
+  function render() {
+    var t = state.t, s = state.s;
+    views.forEach(function (v, i) { v.classList.toggle('on', i === t); });
+    tabs.forEach(function (b) {
+      var bt = +b.dataset.go;
+      b.classList.toggle('on', bt === t);
+      b.classList.toggle('done', bt > 0 && store()['d' + bt] === 1);
+    });
+    var tabEl = tabs[t];
+    if (tabEl && tabEl.scrollIntoView) tabEl.scrollIntoView({ block: 'nearest', inline: 'center' });
+    var navbar = document.getElementById('navbar');
+    var barStep = document.getElementById('barStep');
+    var pfill = document.getElementById('pfill');
+    if (t === 0) {
+      navbar.hidden = true; barStep.textContent = ''; pfill.style.width = '0';
+      renderHome();
+    } else {
+      var steps = stepsOf(t);
+      // 同じ単元内のページ送りだけ「めくり」演出（古いページと新しいページを重ねる）
+      var animFrom = rendered && rendered.t === t && rendered.s !== s ? rendered.s : null;
+      [].forEach.call(steps, function (el, i) {
+        el.classList.remove('turn-out', 'turn-in', 'turn-under');
+        el.classList.toggle('on', i === s);
+      });
+      if (animFrom !== null && steps[animFrom] && steps[s]) {
+        var oldEl = steps[animFrom], newEl = steps[s];
+        var clear = function () {
+          oldEl.classList.remove('turn-out', 'turn-under');
+          newEl.classList.remove('turn-in');
+        };
+        if (lastDir > 0) {
+          oldEl.classList.add('turn-out');      // 今のページがめくれて去る
+          oldEl.addEventListener('animationend', clear, { once: true });
+        } else {
+          oldEl.classList.add('turn-under');    // 下に敷いたまま
+          newEl.classList.add('turn-in');       // 前のページがめくり戻ってくる
+          newEl.addEventListener('animationend', clear, { once: true });
+        }
+        setTimeout(clear, 700); // アニメ未発火時の保険
+      }
+      navbar.hidden = false;
+      barStep.textContent = (s + 1) + ' / ' + steps.length;
+      pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
+      document.getElementById('btnPrev').textContent = s === 0 ? '🏠 目次' : '← まえへ';
+      var next = document.getElementById('btnNext');
+      if (s < steps.length - 1) next.textContent = 'つぎへ →';
+      else next.textContent = t < N ? '次の単元へ →' : '🏠 目次にもどる';
+      if (steps[s] && steps[s].classList.contains('done-step')) renderScore(views[t]);
+      var st = store();
+      st.last = { t: t, s: s };
+      if (s === steps.length - 1) st['d' + t] = 1;
+      save(st);
+    }
+    window.scrollTo(0, 0);
+    var h = '#t' + t + (t > 0 && s > 0 ? 's' + s : '');
+    if (location.hash !== h) history.replaceState(null, '', t === 0 ? '#' : h);
+    rendered = { t: t, s: s };
+  }
+
+  function renderHome() {
+    var st = store();
+    [].forEach.call(document.querySelectorAll('.toc-state'), function (el) {
+      var t = +el.dataset.stateT;
+      el.className = 'toc-state';
+      if (st['d' + t] === 1) { el.classList.add('done'); el.textContent = '✓ といた'; }
+      else if (st.last && st.last.t === t && st.last.s > 0) {
+        el.classList.add('doing'); el.textContent = 'つづき';
+      } else { el.textContent = ''; }
+    });
+    var btn = document.getElementById('resumeBtn');
+    if (st.last && st.last.t > 0) {
+      btn.hidden = false;
+      var name = views[st.last.t].querySelector('.tband h2').textContent;
+      document.getElementById('resumeWhere').textContent =
+        name + '（' + (st.last.s + 1) + '問目）';
+      btn.onclick = function () { go(st.last.t, st.last.s, 1); };
+    } else { btn.hidden = true; }
+  }
+
+  function go(t, s, dir) {
+    lastDir = dir || 1;
+    state.t = Math.max(0, Math.min(N, t));
+    state.s = Math.max(0, s || 0);
+    if (state.t > 0) state.s = Math.min(state.s, stepsOf(state.t).length - 1);
+    else state.s = 0;
+    render();
+  }
+  function next() {
+    var t = state.t, s = state.s;
+    if (t === 0) return;
+    if (s < stepsOf(t).length - 1) go(t, s + 1, 1);
+    else if (t < N) go(t + 1, 0, 1);
+    else go(0, 0, 1);
+  }
+  function prev() {
+    var t = state.t, s = state.s;
+    if (t === 0) return;
+    if (s > 0) go(t, s - 1, -1);
+    else go(0, 0, -1);
+  }
+
+  document.getElementById('btnNext').addEventListener('click', next);
+  document.getElementById('btnPrev').addEventListener('click', prev);
+
+  document.addEventListener('click', function (e) {
+    var go_ = e.target.closest('[data-go]');
+    if (go_) { go(+go_.dataset.go, 0, 1); return; }
+
+    var blank = e.target.closest('.blank');
+    if (blank) { blank.classList.toggle('open'); return; }
+
+    var rall = e.target.closest('.reveal-all');
+    if (rall) {
+      var step = rall.closest('.step');
+      var opened = step.querySelectorAll('.blank.open').length;
+      var all = step.querySelectorAll('.blank');
+      var open = opened < all.length;
+      [].forEach.call(all, function (b) { b.classList.toggle('open', open); });
+      rall.textContent = open ? 'すべての答えを隠す' : 'すべての答えを表示';
+      return;
+    }
+
+    var rev = e.target.closest('.reveal');
+    if (rev) { rev.closest('.step').classList.add('show'); return; }
+
+    var mk = e.target.closest('.mk');
+    if (mk) {
+      var stp = mk.closest('.step');
+      var st = store(); st.r = st.r || {};
+      st.r[stp.dataset.qid] = +mk.dataset.v;
+      save(st);
+      setTimeout(next, 220);
+      return;
+    }
+
+    var opt = e.target.closest('.qopt');
+    if (opt) {
+      var qstep = opt.closest('.qz-step');
+      if (qstep.classList.contains('answered')) return;
+      qstep.classList.add('answered');
+      var c = +qstep.dataset.c, chosen = +opt.dataset.i;
+      [].forEach.call(qstep.querySelectorAll('.qopt'), function (b, i) {
+        if (i === c) b.classList.add('correct');
+        else if (i === chosen) b.classList.add('wrong');
+        else b.classList.add('dim');
+      });
+      var ex = qstep.querySelector('.expl');
+      if (ex) ex.style.display = 'block';
+      var st2 = store(); st2.r = st2.r || {};
+      st2.r[qstep.dataset.qid] = chosen === c ? 1 : 0;
+      save(st2);
+      return;
+    }
+
+    var mopt = e.target.closest('.mopt');
+    if (mopt) {
+      var item = mopt.closest('.m-item');
+      if (item.dataset.done) return;
+      var ok = mopt.dataset.l === item.dataset.a;
+      mopt.classList.add(ok ? 'correct' : 'wrong');
+      if (!ok) {
+        [].forEach.call(item.querySelectorAll('.mopt'), function (b) {
+          if (b.dataset.l === item.dataset.a) b.classList.add('correct');
+        });
+      }
+      item.dataset.done = '1';
+      return;
+    }
+
+    var retry = e.target.closest('[data-retry]');
+    if (retry) {
+      var view = retry.closest('.view');
+      var st3 = store(); st3.r = st3.r || {};
+      [].forEach.call(view.querySelectorAll('[data-qid]'), function (el) {
+        delete st3.r[el.dataset.qid];
+      });
+      delete st3['d' + state.t];
+      save(st3);
+      [].forEach.call(view.querySelectorAll('.step'), function (el) {
+        el.classList.remove('show', 'answered');
+      });
+      [].forEach.call(view.querySelectorAll('.qopt'), function (b) {
+        b.classList.remove('correct', 'wrong', 'dim');
+      });
+      [].forEach.call(view.querySelectorAll('.m-item'), function (it) {
+        delete it.dataset.done;
+        [].forEach.call(it.querySelectorAll('.mopt'), function (b) {
+          b.classList.remove('correct', 'wrong');
+        });
+      });
+      [].forEach.call(view.querySelectorAll('.blank.open'), function (b) {
+        b.classList.remove('open');
+      });
+      go(state.t, 0, -1);
+      return;
+    }
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight') next();
+    if (e.key === 'ArrowLeft') prev();
+  });
+  var tx = 0, ty = 0;
+  document.addEventListener('touchstart', function (e) {
+    tx = e.changedTouches[0].clientX; ty = e.changedTouches[0].clientY;
+  }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    var dx = e.changedTouches[0].clientX - tx;
+    var dy = e.changedTouches[0].clientY - ty;
+    if (Math.abs(dx) > 64 && Math.abs(dy) < 48 && state.t > 0) {
+      if (dx < 0) next(); else prev();
+    }
+  }, { passive: true });
+
+  function fromHash() {
+    var m = /#t(\d+)(?:s(\d+))?/.exec(location.hash);
+    if (m) go(+m[1], +(m[2] || 0), 1); else go(0, 0, 1);
+  }
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
+})();
+</script>
+</body></html>

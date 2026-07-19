@@ -31,7 +31,7 @@ export function buildReferenceMenuFlex(
   const label = referenceTopicLabel(topic);
   return {
     type: 'flex',
-    altText: `参考書「${topic.name}」— AI先生と深める`,
+    altText: `参考書「${topic.name}」— スタ先生と深める`,
     contents: {
       type: 'bubble',
       size: 'kilo',
@@ -43,7 +43,7 @@ export function buildReferenceMenuFlex(
         contents: [
           {
             type: 'text',
-            text: '🤖 AI先生と深める',
+            text: '🤖 スタ先生と深める',
             color: '#FFFFFF',
             weight: 'bold',
             size: 'sm',
@@ -96,6 +96,17 @@ export function buildReferenceMenuFlex(
               label: '❓ わからないことを質問する',
               data: pb('ref_ask', { t: topicKey }),
               displayText: 'この単元について質問する',
+            },
+          },
+          {
+            type: 'button',
+            style: 'secondary',
+            height: 'sm',
+            action: {
+              type: 'postback',
+              label: '💬 対話で理解を深める',
+              data: pb('ref_talk', { t: topicKey }),
+              displayText: '対話で理解を深める',
             },
           },
           {
@@ -191,7 +202,7 @@ export function buildRefLevelFlex(
 }
 
 const TONE =
-  'あなたは中学生の歴史学習を助ける、やさしくて親しみやすい「AI先生」です。' +
+  'あなたは中学生の歴史学習を助ける、やさしくて親しみやすい学習サポーター「スタ先生」です（公式LINEのAIチャットと同じ先生）。自分から名乗る必要はなく、名前を聞かれたときだけ「スタ先生だよ」と答えます。' +
   '中学生にわかる言葉で、短く（長くても4〜5文）、はげますように話します。' +
   '下の【教材】に書かれていることだけを根拠にし、教材にないことは' +
   '「この単元の範囲では説明されていないよ」と正直に伝えます。むずかしい用語は言いかえます。' +
@@ -248,6 +259,31 @@ export function refCheckGradePrompt(
     '次に、正しい答えとやさしい解説（2〜3文）。\n' +
     '最後に、はげましの一言。\n' +
     '答えが合っていれば大きくほめる。間違いでも否定せず、次につながる言い方にする。' +
+    '\n\n【教材】\n' +
+    buildReferenceContext(topic)
+  );
+}
+
+/** 質問モードの入口で見せる「質問例」を数個つくらせるプロンプト。 */
+export function refAskExamplesPrompt(topic: ReferenceTopic): string {
+  return (
+    TONE +
+    '\n\n中学生がこの単元について「わからなくて聞きたくなりそうな質問」を3つ考えてください。' +
+    '出力は質問文だけを1行に1つ、ちょうど3行。各18文字以内。' +
+    '番号・記号・カギカッコ・語尾の空白は付けない。' +
+    '\n\n【教材】\n' +
+    buildReferenceContext(topic)
+  );
+}
+
+/** 「対話で理解を深める」モードのシステムプロンプト（AIが会話をリードする）。 */
+export function refTalkSystemPrompt(topic: ReferenceTopic): string {
+  return (
+    TONE +
+    '\n\nあなたは生徒と対話しながら、この単元の理解を深めます。一方的に説明しきらず、' +
+    '身近なたとえや「どうしてだと思う？」といった問いかけを1回の発言に1つ入れて、' +
+    '生徒に考えさせます。生徒の答えには必ず反応してほめ、そこから話を少し深めます。' +
+    '1回の発言は3〜4文まで。教材にある範囲で話し、脱線しすぎないようにします。' +
     '\n\n【教材】\n' +
     buildReferenceContext(topic)
   );

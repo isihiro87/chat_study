@@ -1,0 +1,775 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>歴史 ① 年代の表し方｜つづもん問題集</title>
+<style>
+  :root { --brand:#b45309; --deep:#7c2d12; --amber:#f59e0b; --cream:#fffdf8; --line:#fde68a;
+          --ok:#16a34a; --ng:#dc2626; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { -webkit-text-size-adjust:100%; }
+  body { font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;
+         font-size:16px; line-height:1.95; color:#1c1917; background:var(--cream);
+         padding-bottom:86px; }
+  .wrap { max-width:640px; margin:0 auto; padding:0 16px 24px; }
+  ruby rt { font-size:0.5em; }
+  .print-only { display:none; }
+
+  /* ── 上部バー ── */
+  .bar { position:sticky; top:0; z-index:10; background:rgba(255,253,248,.96);
+         backdrop-filter:blur(6px); border-bottom:1px solid #f0e6d2; }
+  .bar-in { max-width:640px; margin:0 auto; padding:8px 16px 0; }
+  .bar-row { display:flex; align-items:center; gap:8px; }
+  .bar-title { font-weight:bold; color:var(--deep); font-size:14px; flex:1;
+               white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .bar-step { flex:none; font-size:12px; font-weight:bold; color:var(--brand); }
+  .tabs { display:flex; gap:6px; overflow-x:auto; padding:8px 0; scrollbar-width:none; }
+  .tabs::-webkit-scrollbar { display:none; }
+  .tab { flex:none; width:36px; height:36px; border-radius:50%; border:1.5px solid var(--line);
+         background:#fffbeb; color:var(--brand); font-size:14px; font-weight:bold;
+         display:inline-flex; align-items:center; justify-content:center; cursor:pointer; }
+  .tab.done { background:#fef3c7; }
+  .tab.on { background:var(--brand); border-color:var(--brand); color:#fff;
+            box-shadow:0 2px 6px rgba(180,83,9,.35); }
+  .pbar { height:3px; background:#f5ecd8; border-radius:2px; overflow:hidden; }
+  .pfill { height:100%; width:0; background:linear-gradient(90deg,var(--amber),#fbbf24);
+           transition:width .25s ease; }
+
+  .view { display:none; }
+  .view.on { display:block; position:relative; animation:vfade .18s ease; }
+  @keyframes vfade { from { opacity:.6; } to { opacity:1; } }
+  .step { display:none; }
+  .step.on { display:block; }
+  /* 本物っぽいページめくり（2枚重ね・参考書Web版と共通）:
+     進む = 今のページ自体が左とじに沿って手前にめくれて去り、下から次のページが現れる。
+     戻る = 前のページが手前からめくり戻されて上に着地する。 */
+  /* min-height:100% = 下に敷かれた新ページ全体を覆う（絶対配置なので view の実高さに解決される。
+     これが無いと、めくれるページより新ページが長いとき下端が透けて見える） */
+  .step.turn-out { display:block; position:absolute; top:0; left:0; width:100%; min-height:100%;
+                   z-index:3; pointer-events:none; background:var(--cream);
+                   transform-origin:left center;
+                   animation:turnOut .45s cubic-bezier(.55,.06,.68,.19) forwards; }
+  @keyframes turnOut {
+    0%   { transform:perspective(1200px) rotateY(0); opacity:1; }
+    75%  { opacity:1; }
+    100% { transform:perspective(1200px) rotateY(-88deg); opacity:0; } }
+  .step.turn-out::after { content:""; position:absolute; inset:0; pointer-events:none;
+                          background:linear-gradient(to right, transparent 55%, rgba(124,45,18,.12)); }
+  .step.on.turn-in { position:relative; z-index:3; background:var(--cream);
+                     transform-origin:left center;
+                     animation:turnIn .45s cubic-bezier(.22,.72,.32,1); }
+  @keyframes turnIn {
+    from { transform:perspective(1200px) rotateY(-88deg); }
+    to   { transform:perspective(1200px) rotateY(0); } }
+  .step.turn-under { display:block; position:absolute; top:0; left:0; width:100%; z-index:1;
+                     pointer-events:none; max-height:100%; overflow:hidden; }
+
+  /* ── ホーム ── */
+  .top { text-align:center; padding:26px 0 6px; }
+  .badge { display:inline-block; background:var(--brand); color:#fff; font-weight:bold;
+           padding:4px 16px; border-radius:20px; font-size:13px; }
+  .webtag { background:rgba(255,255,255,.25); border-radius:10px; padding:1px 8px; font-size:11px; margin-left:4px; }
+  .top h1 { font-size:29px; color:var(--deep); margin-top:12px; line-height:1.4; }
+  .sub { color:#92400e; font-size:14px; margin-top:2px; }
+  .howto { font-size:13.5px; color:#57534e; }
+  .home-howto { margin-top:14px; background:#fffbeb; border:1.5px dashed var(--line);
+                border-radius:12px; padding:10px 14px; text-align:left; }
+  .resume { display:block; width:100%; margin:16px 0 0; background:var(--brand); color:#fff;
+            border:none; border-radius:14px; padding:13px; font-size:15px; font-weight:bold;
+            cursor:pointer; box-shadow:0 3px 8px rgba(180,83,9,.3); font-family:inherit; }
+  .resume span { font-weight:normal; font-size:12px; opacity:.9; margin-left:8px; }
+  .toc { margin:16px 0 12px; background:#fff; border:2px solid var(--line); border-radius:14px; padding:14px; }
+  .toc-h { font-weight:bold; color:var(--deep); margin-bottom:6px; font-size:15px; }
+  .toc-item { display:flex; align-items:center; gap:10px; width:100%; padding:11px 6px;
+              background:none; border:none; border-top:1px solid #faf1dc; cursor:pointer;
+              color:#44403c; font-weight:bold; font-size:15px; text-align:left;
+              font-family:inherit; line-height:1.5; }
+  .toc-item:first-of-type { border-top:none; }
+  .toc-no { flex:none; min-width:24px; height:24px; border-radius:50%; background:var(--amber);
+            color:#fff; display:inline-flex; align-items:center; justify-content:center;
+            font-size:12px; padding:0 4px; }
+  .toc-name { flex:1; }
+  .toc-state { flex:none; font-size:11px; font-weight:bold; }
+  .toc-state.done { color:var(--ok); }
+  .toc-state.doing { color:var(--brand); background:#fffbeb; border:1px solid var(--line);
+                     border-radius:10px; padding:1px 8px; }
+
+  /* ── マスコット ── */
+  .wchar { flex:none; object-fit:contain; }
+  .home-cheer { display:flex; align-items:center; justify-content:center; gap:8px; margin-top:12px; }
+  .home-cheer .wchar { height:58px; }
+  .sp-bubble { position:relative; display:inline-block; background:#fffbeb; border:1.5px solid #f0b558;
+               border-radius:12px; padding:5px 12px; font-size:13px; font-weight:bold; color:#92400e; }
+  .sp-bubble.sp-taill::before { content:""; position:absolute; left:-7px; top:50%; transform:translateY(-50%);
+               border:5px solid transparent; border-right-color:#f0b558; }
+  .tchar { height:38px; margin-left:auto; }
+  .done-char { height:52px; vertical-align:middle; margin-right:6px; }
+
+  /* ── 単元 ── */
+  .tband { display:flex; align-items:center; gap:10px; margin:18px 0 14px; }
+  .tno, .ttag { flex:none; min-width:34px; height:34px; border-radius:50%; background:var(--brand); color:#fff;
+         display:inline-flex; align-items:center; justify-content:center; font-size:16px;
+         font-weight:bold; box-shadow:0 2px 4px rgba(180,83,9,.3); padding:0 6px; }
+  .tband h2 { font-size:20px; color:var(--deep); border-bottom:3px solid var(--line);
+              padding-bottom:2px; flex:1; line-height:1.4; }
+  .sec-h { display:flex; align-items:center; gap:8px; font-size:16px; font-weight:bold;
+           color:var(--deep); margin-bottom:10px; }
+  .sec-tag { flex:none; background:var(--brand); color:#fff; border-radius:8px; width:26px; height:26px;
+             display:inline-flex; align-items:center; justify-content:center; font-size:14px; }
+  .sec-note { font-size:12px; font-weight:normal; color:#a8a29e; }
+  .ref-link { display:inline-block; font-size:13px; font-weight:bold; color:var(--brand);
+              text-decoration:none; border:1.5px solid var(--line); background:#fffbeb;
+              border-radius:16px; padding:5px 14px; margin-bottom:10px; }
+
+  /* 穴埋めチップ */
+  .summary { background:#fff; border:1.5px solid #e2d5bd; border-radius:12px; padding:12px 14px;
+             text-align:justify; }
+  .blank { display:inline; border:none; background:none; font:inherit; cursor:pointer; padding:0; }
+  .blank .bno { color:var(--brand); font-weight:bold; }
+  .blank .ba { display:none; font-weight:bold; color:var(--brand);
+               background:linear-gradient(transparent 55%, var(--line) 55%); padding:0 2px; }
+  .blank .bl { display:inline-block; border-bottom:2px solid #a8a29e; height:1em;
+               vertical-align:-2px; max-width:9em; background:#fffbeb; }
+  .blank.open .ba { display:inline; }
+  .blank.open .bl { display:none; }
+  .tap-hint { display:none; }
+  .reveal-all-row { margin-top:10px; text-align:right; }
+  .reveal-all { border:1.5px solid var(--line); background:#fffbeb; color:var(--brand);
+                font-weight:bold; font-size:13px; border-radius:16px; padding:6px 14px;
+                cursor:pointer; font-family:inherit; }
+
+  /* 年表 */
+  .tl-table { width:100%; border-collapse:collapse; background:#fff; font-size:14px; }
+  .tl-table th, .tl-table td { border:1px solid #d6cbb2; padding:6px 10px; }
+  .tl-table th { background:#faf5eb; font-size:13px; }
+  .tl-year { width:74px; text-align:center; white-space:nowrap; }
+
+  /* 問題共通 */
+  .q-text { font-size:16.5px; font-weight:bold; line-height:1.9; }
+  .qa-no { font-weight:bold; margin-right:6px; color:var(--brand); }
+  .reveal { display:block; width:100%; margin-top:14px; border:none; border-radius:12px;
+            background:var(--amber); color:#fff; font-weight:bold; font-size:15px;
+            padding:12px; cursor:pointer; font-family:inherit; box-shadow:0 2px 6px rgba(245,158,11,.3); }
+  .hidden-until { display:none; }
+  .show .hidden-until { display:block; }
+  .show .reveal { display:none; }
+  .qa-a { margin-top:12px; background:#fff; border:2px solid var(--amber); border-radius:12px;
+          padding:10px 14px; font-size:18px; font-weight:bold; color:var(--deep); text-align:center; }
+  .qa-expl { font-size:13.5px; color:#57534e; background:#fffbeb; border-radius:10px;
+             padding:8px 12px; margin-top:8px; line-height:1.8; }
+  .marks { display:flex; gap:10px; margin-top:12px; }
+  .mk { flex:1; border:2px solid; border-radius:12px; background:#fff; font-weight:bold;
+        font-size:15px; padding:10px; cursor:pointer; font-family:inherit; }
+  .mk-ok { border-color:#bbe3cc; color:var(--ok); }
+  .mk-ng { border-color:#fecaca; color:var(--ng); }
+
+  /* 4択 */
+  .qopts { display:flex; flex-direction:column; gap:8px; margin-top:12px; }
+  .qopt { display:flex; align-items:center; gap:10px; text-align:left; background:#fff;
+          border:1.5px solid #e2d5bd; border-radius:12px; padding:10px 12px; font-size:14.5px;
+          cursor:pointer; font-family:inherit; line-height:1.7; }
+  .opt-k { flex:none; width:26px; height:26px; border-radius:50%; border:1.5px solid #a8a29e;
+           display:inline-flex; align-items:center; justify-content:center; font-size:13px; font-weight:bold; }
+  .qz-step.answered .qopt { cursor:default; }
+  .qopt.correct { border-color:var(--ok); background:#f0fdf4; }
+  .qopt.correct .opt-k { background:var(--ok); border-color:var(--ok); color:#fff; }
+  .qopt.wrong { border-color:var(--ng); background:#fef2f2; }
+  .qopt.wrong .opt-k { background:var(--ng); border-color:var(--ng); color:#fff; }
+  .qopt.dim { opacity:.55; }
+  .expl { margin-top:10px; font-size:13.5px; color:#57534e; background:#fffbeb;
+          border-radius:10px; padding:8px 12px; line-height:1.8; }
+  .qz-step.answered .expl { display:block; }
+
+  /* 記述 */
+  .kw-note { font-size:13px; color:#57534e; margin-top:6px; }
+  .kw-chip { display:inline-block; border:1px solid var(--brand); color:var(--brand);
+             border-radius:6px; padding:0 8px; margin-left:6px; font-size:12.5px; }
+  .w-input { width:100%; margin-top:12px; border:1.5px solid #e2d5bd; border-radius:12px;
+             padding:10px 12px; font:inherit; font-size:14.5px; background:#fff; resize:vertical; }
+  .line-mini { display:block; margin-top:10px; text-align:center; font-size:13px; font-weight:bold;
+               color:#06c755; text-decoration:none; border:1.5px solid #bbe3cc; border-radius:12px;
+               padding:8px; background:#f0fdf4; }
+
+  /* 資料 */
+  .s-img { margin-bottom:12px; }
+  .s-img img { width:100%; border-radius:12px; border:1px solid #e2d5bd; display:block; }
+  .s-img figcaption { font-size:12px; color:#a8a29e; text-align:center; margin-top:4px; }
+  .s-q { margin-bottom:14px; font-size:15px; line-height:1.8; }
+  .s-blank { display:block; margin:6px 0 0 26px; text-align:left; }
+  .s-blank .tap-hint { display:inline; font-size:11px; color:#b8b0a6; margin-left:8px; }
+  .s-blank.open .tap-hint { display:none; }
+  .m-res-row { display:flex; gap:8px; margin-bottom:14px; }
+  .m-res { flex:1; text-align:center; }
+  .m-res img { width:100%; border-radius:10px; border:1px solid #e2d5bd; }
+  .m-lab { display:block; font-weight:bold; color:var(--brand); font-size:14px; }
+  .m-item { background:#fff; border:1.5px solid #e2d5bd; border-radius:12px; padding:10px 12px;
+            margin-bottom:10px; }
+  .m-text { font-size:14.5px; line-height:1.8; }
+  .m-btns { display:flex; gap:8px; margin-top:8px; }
+  .mopt { flex:1; border:1.5px solid #e2d5bd; background:#fffbeb; border-radius:10px;
+          font-weight:bold; font-size:15px; padding:8px; cursor:pointer; font-family:inherit; }
+  .mopt.correct { border-color:var(--ok); background:#f0fdf4; color:var(--ok); }
+  .mopt.wrong { border-color:var(--ng); background:#fef2f2; color:var(--ng); }
+
+  /* 結果 */
+  .done { text-align:center; font-size:17px; font-weight:bold; color:var(--deep); margin:14px 0; }
+  .score-box { background:#fff; border:2px solid var(--line); border-radius:14px; padding:14px;
+               margin-bottom:12px; font-size:14.5px; }
+  .score-row { display:flex; justify-content:space-between; padding:4px 2px; }
+  .score-row b { color:var(--brand); }
+  .big-btn { display:block; width:100%; text-align:center; margin-top:10px; border:none;
+             border-radius:14px; padding:13px 16px; font-size:15px; font-weight:bold;
+             cursor:pointer; font-family:inherit; text-decoration:none; }
+  .line-btn { background:#06c755; color:#fff; box-shadow:0 3px 8px rgba(6,199,85,.3); }
+  .btn-sub { display:block; font-weight:normal; font-size:12px; opacity:.9; }
+  .ref-btn { background:#fffbeb; color:var(--brand); border:1.5px solid var(--line); }
+  .retry-btn { background:#fff; color:#57534e; border:1.5px solid #e2d5bd; }
+  .print-btn { background:#fff; color:#57534e; border:1.5px solid #e2d5bd; }
+
+  .foot { text-align:center; margin-top:32px; color:#a8a29e; font-size:13px; }
+  .foot-note { margin-top:4px; font-size:12px; }
+
+  /* ── 下部ナビ ── */
+  .navbar { position:fixed; left:0; right:0; bottom:0; z-index:10;
+            background:rgba(255,253,248,.97); border-top:1px solid #f0e6d2;
+            padding:10px 16px calc(10px + env(safe-area-inset-bottom)); }
+  .navbar-in { max-width:640px; margin:0 auto; display:flex; align-items:center; gap:10px; }
+  .nb { border:none; border-radius:14px; padding:12px 0; font-size:15px; font-weight:bold;
+        cursor:pointer; font-family:inherit; }
+  .nb-prev { flex:1; background:#fff; color:var(--brand); border:1.5px solid var(--line); }
+  .nb-next { flex:2; background:var(--brand); color:#fff; box-shadow:0 3px 8px rgba(180,83,9,.3); }
+
+  /* ── 印刷（紙のワークとして使える） ── */
+  @media print {
+    body { background:#fff; padding-bottom:0; font-size:10.5pt; line-height:1.8; }
+    .bar, .navbar, .resume, .reveal, .marks, .reveal-all-row, .w-input, .line-mini,
+    .big-btn, .qa-expl, .expl, .tap-hint, .toc-state, .home-howto, .howto, .m-btns { display:none !important; }
+    .print-only { display:block !important; }
+    .view { display:block !important; }
+    .step { display:block !important; margin-bottom:14px; break-inside:avoid; }
+    .hidden-until { display:none !important; }
+    .blank .ba { display:none !important; }
+    .blank .bl { display:inline-block !important; background:none; }
+    .qopt { border:none; padding:1px 0; background:none; }
+    .qopt .opt-k { width:18px; height:18px; font-size:10px; }
+    .qopt.correct, .qopt.wrong { background:none; border:none; }
+    .qopt.correct .opt-k, .qopt.wrong .opt-k { background:none; color:#1c1917; border-color:#a8a29e; }
+    .qopts { gap:2px; margin-top:4px; }
+    .wline { border-bottom:1px solid #78716c; height:9mm; margin-top:2mm; }
+    .toc-item, .tab { cursor:default; }
+    .top { padding-top:0; }
+    .tband { margin-top:8mm; break-after:avoid; }
+    .m-item { break-inside:avoid; }
+    .m-item::after { content:"〔　　〕"; color:#44403c; }
+    .print-answers { page-break-before:always; font-size:9pt; line-height:1.9; }
+    .ans-band { background:#44403c; color:#fff; text-align:center; padding:2px 0; border-radius:4px;
+                margin-bottom:8px; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .a-topic { border-bottom:1px dashed #a8a29e; padding:4px 0; }
+    .a-title { font-weight:bold; background:#f5f5f4; padding:0 6px; border-left:8px solid var(--brand);
+               -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .a-label { font-weight:bold; color:var(--brand); margin-right:6px; }
+    .a-item { display:inline-block; margin-right:4px; }
+    .a-written { padding-left:6px; }
+    .credits { font-size:7.5pt; color:#78716c; border-top:1px solid #d6d3d1; margin-top:8px; }
+  }
+  .credits { font-size:11px; color:#a8a29e; margin-top:20px; }
+</style></head><body>
+<div class="bar"><div class="bar-in">
+  <div class="bar-row">
+    <div class="bar-title">歴史 ① 年代の表し方（問題集）</div>
+    <div class="bar-step" id="barStep"></div>
+  </div>
+  <nav class="tabs" id="tabs"><button class="tab tab-home" data-go="0" aria-label="目次">🏠</button><button class="tab" data-go="1" aria-label="年表">年</button><button class="tab" data-go="2" aria-label="時期や年代の表し方">1</button></nav>
+  <div class="pbar"><div class="pfill" id="pfill"></div></div>
+</div></div>
+<main class="wrap" id="views">
+
+<section class="view home" data-t="0">
+  <header class="top">
+    <div class="badge">歴史 ①　問題集 <span class="webtag">Web版</span></div>
+    <h1>年代の表し方</h1>
+    <div class="sub">西暦・世紀・年代の表し方</div>
+    <div class="home-cheer"><img class="wchar" src="img/characters_char_manabi_sm.png" alt=""><span class="sp-bubble sp-taill">いっしょに がんばろう！</span></div>
+    <div class="howto home-howto">タブか下のリストから選んで、1問ずつ解いていこう！<br>
+    要点まとめ → 一問一答 → 4択 → 記述の順で力がつくよ。</div>
+  </header>
+  <button class="resume" id="resumeBtn" hidden>▶ つづきから解く<span id="resumeWhere"></span></button>
+  <nav class="toc">
+    <div class="toc-h">✏️ この本の問題</div>
+    <button class="toc-item" data-go="1"><span class="toc-no">年</span><span class="toc-name">年表でチェック</span><span class="toc-state" data-state-t="1"></span></button><button class="toc-item" data-go="2"><span class="toc-no">1</span><span class="toc-name">時期や年代の表し方</span><span class="toc-state" data-state-t="2"></span></button>
+  </nav>
+  <a class="big-btn ref-btn" href="../../ref/01/index.html">📖 参考書Web版を開く</a>
+  <button class="big-btn print-btn" type="button" onclick="window.print()">🖨 紙に印刷して解く（解答つき）</button>
+  
+  <footer class="foot">
+    <div>つづもん 問題集 Web版</div>
+    <div class="foot-note">ダウンロード済みのA4版PDF（書き込みレイアウト）もあわせてどうぞ。</div>
+  </footer>
+</section>
+<section class="view" data-t="1">
+  <div class="tband"><span class="ttag">年</span><h2>年表でチェック</h2></div>
+  <div class="step" data-label="年表でチェック">
+    <div class="howto">（　）をタップすると答えが出るよ。まずは自分で言ってから確かめよう！</div>
+    <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    <table class="tl-table"><tr><th class="tl-year">年代</th><th>できごと</th></tr><tr><td class='tl-year'>西暦1年</td><td>イエスが生まれたと考えられた年を<button class="blank" type="button"><span class="bno">①</span><span class="ba">西暦</span><span class="bl" style="width:2.7em"></span></button>1年とする</td></tr><tr><td class='tl-year'>紀元前660年</td><td>西暦1年より前の時代を<button class="blank" type="button"><span class="bno">②</span><span class="ba">紀元前</span><span class="bl" style="width:2.7em"></span></button>という</td></tr><tr><td class='tl-year'>西暦645年</td><td>西暦1年より後の時代を<button class="blank" type="button"><span class="bno">③</span><span class="ba">紀元後</span><span class="bl" style="width:2.7em"></span></button>という</td></tr><tr><td class='tl-year'>紀元前300年</td><td>紀元前100年より数字が大きく、<button class="blank" type="button"><span class="bno">④</span><span class="ba">古い</span><span class="bl" style="width:2.7em"></span></button>時代のできごとである</td></tr><tr><td class='tl-year'>1年〜100年</td><td><button class="blank" type="button"><span class="bno">⑤</span><span class="ba">1世紀</span><span class="bl" style="width:2.7em"></span></button>にあたる期間である</td></tr><tr><td class='tl-year'>101年〜200年</td><td><button class="blank" type="button"><span class="bno">⑥</span><span class="ba">2世紀</span><span class="bl" style="width:2.7em"></span></button>にあたる期間である</td></tr><tr><td class='tl-year'>901年〜1000年</td><td><button class="blank" type="button"><span class="bno">⑦</span><span class="ba">10世紀</span><span class="bl" style="width:3.6em"></span></button>にあたる期間である</td></tr><tr><td class='tl-year'>1801年〜1900年</td><td><button class="blank" type="button"><span class="bno">⑧</span><span class="ba">19世紀</span><span class="bl" style="width:3.6em"></span></button>にあたる期間である</td></tr><tr><td class='tl-year'>1901年〜2000年</td><td><button class="blank" type="button"><span class="bno">⑨</span><span class="ba">20世紀</span><span class="bl" style="width:3.6em"></span></button>にあたる期間である</td></tr><tr><td class='tl-year'>2001年〜2100年</td><td><button class="blank" type="button"><span class="bno">⑩</span><span class="ba">21世紀</span><span class="bl" style="width:3.6em"></span></button>にあたる期間である</td></tr><tr><td class='tl-year'>1970年〜1979年</td><td>10年をひとまとまりとする表し方を<button class="blank" type="button"><span class="bno">⑪</span><span class="ba">年代</span><span class="bl" style="width:2.7em"></span></button>といい、この期間は<button class="blank" type="button"><span class="bno">⑫</span><span class="ba">1970年代</span><span class="bl" style="width:5.4em"></span></button>とよばれる</td></tr><tr><td class='tl-year'>十干と十二支</td><td>これらを組み合わせて年を表す方法を<button class="blank" type="button"><span class="bno">⑬</span><span class="ba">干支</span><span class="bl" style="width:2.7em"></span></button>という</td></tr><tr><td class='tl-year'>60年</td><td>干支がひとまわりする周期で、この年数にちなむ祝いを<button class="blank" type="button"><span class="bno">⑭</span><span class="ba">還暦</span><span class="bl" style="width:2.7em"></span></button>という</td></tr><tr><td class='tl-year'>紀元前500年→紀元前100年→西暦100年</td><td>紀元前は数字が大きいほど古いので、この並びは古い時代から<button class="blank" type="button"><span class="bno">⑮</span><span class="ba">新しい</span><span class="bl" style="width:2.7em"></span></button>時代への順になっている</td></tr></table>
+  </div>
+</section>
+<section class="view" data-t="2">
+  <div class="tband"><span class="tno">1</span><h2>時期や年代の表し方</h2><img class="wchar tchar" src="img/characters_char_pencil_sm.png" alt=""></div>
+  
+    <div class="step" data-label="A 要点まとめ">
+      <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
+      <a class="ref-link" href="../../ref/01/index.html#t1">📖 先に参考書で理解する</a>
+      <div class="summary">歴史の年代を表す方法にはいくつかの種類がある。世界で広く使われているのは、イエスが生まれたと考えられた年を基準とする<button class="blank" type="button"><span class="bno">①</span><span class="ba">西暦</span><span class="bl" style="width:2.7em"></span></button>で、この基準の年より前を<button class="blank" type="button"><span class="bno">②</span><span class="ba">紀元前</span><span class="bl" style="width:2.7em"></span></button>、後を<button class="blank" type="button"><span class="bno">③</span><span class="ba">紀元後</span><span class="bl" style="width:2.7em"></span></button>という。紀元前は数字が大きいほど古い時代を、小さいほど西暦1年に近い時代を示す。また、100年をひとつのまとまりとして数える表し方を<button class="blank" type="button"><span class="bno">④</span><span class="ba">世紀</span><span class="bl" style="width:2.7em"></span></button>といい、1年から100年までが<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">1世紀</span><span class="bl" style="width:2.7em"></span></button>、2001年から2100年までは<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">21世紀</span><span class="bl" style="width:3.6em"></span></button>にあたる。ほかにも、10年ごとのまとまりを表す<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">年代</span><span class="bl" style="width:2.7em"></span></button>という言い方があり、1970年から1979年までは<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">1970年代</span><span class="bl" style="width:5.4em"></span></button>と呼ばれる。日本や中国で古くから使われてきた年の表し方には、十干と十二支を組み合わせた<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">干支</span><span class="bl" style="width:2.7em"></span></button>もあり、60年で一回りすることから、満60歳を祝う<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">還暦</span><span class="bl" style="width:2.7em"></span></button>の由来にもなっている。</div>
+      <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (1/7)" data-qid="qa-time-periods-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">1 / 7</span></div>
+      <div class="q-text">イエスが生まれたと考えられた年を基準にして年を表す方法を何という？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>西暦<rt>せいれき</rt></ruby></div>
+        <div class="qa-expl">イエス・キリストが生まれたとされる年を西暦1年とする世界で広く使われる年の表し方。紀元前と紀元後を区別する。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (2/7)" data-qid="qa-time-periods-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">2 / 7</span></div>
+      <div class="q-text">西暦1年より前の時代を表す言い方は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>紀元前<rt>きげんぜん</rt></ruby></div>
+        <div class="qa-expl">西暦1年より前の時代を指す。B.C.（Before Christ）と表記し、数字が大きいほど古く、小さいほど西暦1年に近づく。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (3/7)" data-qid="qa-time-periods-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">3 / 7</span></div>
+      <div class="q-text">西暦1年以後の時代を表す言い方は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>紀元後<rt>きげんご</rt></ruby></div>
+        <div class="qa-expl">西暦1年以後の時代を指す。A.D.（ラテン語Anno Domini）と表記し、ふつう「西暦○年」と表す。現在は紀元後にあたる。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (4/7)" data-qid="qa-time-periods-4" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">4 / 7</span></div>
+      <div class="q-text">100年を1つのまとまりとして数える表し方を何という？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>世紀<rt>せいき</rt></ruby></div>
+        <div class="qa-expl">100年を1つのまとまりとして数える表し方。1世紀は1年〜100年、21世紀は2001年〜2100年にあたる。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (5/7)" data-qid="qa-time-periods-5" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">5 / 7</span></div>
+      <div class="q-text">1世紀にふくまれる年の範囲は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">1年〜100年</div>
+        <div class="qa-expl">西暦には0年が存在しないため、1世紀は1年から100年まで。同様に2世紀は101年〜200年と覚える。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (6/7)" data-qid="qa-time-periods-6" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">6 / 7</span></div>
+      <div class="q-text">2001年は何世紀？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">21<ruby>世紀<rt>せいき</rt></ruby></div>
+        <div class="qa-expl">2001年から2100年までが21世紀。西暦の上2桁に1を足すと世紀が求められる（20＋1＝21世紀）。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (7/7)" data-qid="qa-time-periods-7" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">7 / 7</span></div>
+      <div class="q-text">十干と十二支を組み合わせて年を表す方法を何という？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>干支<rt>えと</rt></ruby></div>
+        <div class="qa-expl">甲・乙…の十干と、子・丑…の十二支を組み合わせて年を表す方法。60年で一回りし、還暦の由来となった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (1/7)" data-qid="qz-time-periods-1" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">1 / 7　正しいものを選ぼう</span></div>
+      <div class="q-text">イエスが生まれたと考えられた年を基準にする年の表し方を何といいますか。</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">年代</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">元号</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">干支</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">西暦</span></button></div>
+      <div class="expl hidden-until">💡 西暦はイエスが生まれたとされる年を1年とし世界で広く使われる年の表し方です。元号は日本で使われる紀年法です。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (2/7)" data-qid="qz-time-periods-2" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">2 / 7　正しいものを選ぼう</span></div>
+      <div class="q-text">西暦1年より前の時代を表す言い方はどれですか。</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">紀元前</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">現代</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">近代</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">紀元後</span></button></div>
+      <div class="expl hidden-until">💡 紀元前は西暦1年より前を表しB.C.と表記します。紀元後は西暦1年以後でA.D.と表記します。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (3/7)" data-qid="qz-time-periods-3" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">3 / 7　正しいものを選ぼう</span></div>
+      <div class="q-text">1世紀にふくまれる年として正しいものはどれですか。</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">101年〜200年</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">100年〜199年</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">1年〜100年</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">0年〜99年</span></button></div>
+      <div class="expl hidden-until">💡 1世紀は1年から100年までです。西暦には0年がないため、1世紀は1年から始まることに注意します。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (4/7)" data-qid="qz-time-periods-4" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">4 / 7　正しいものを選ぼう</span></div>
+      <div class="q-text">2001年は何世紀ですか。</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">21世紀</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">19世紀</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">20世紀</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">22世紀</span></button></div>
+      <div class="expl hidden-until">💡 2001年から2100年までが21世紀です。西暦の上2桁に1を足すと世紀が求められます。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (5/7)" data-qid="qz-time-periods-5" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">5 / 7　正しいものを選ぼう</span></div>
+      <div class="q-text">1970年代を表す説明として正しいものはどれですか。</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">1971年〜1980年</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">1970年〜1979年</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">1980年〜1989年</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">1961年〜1970年</span></button></div>
+      <div class="expl hidden-until">💡 年代は10年ごとのまとまりを表す表し方で、1970年代は1970年から1979年までの10年間を指します。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (6/7)" data-qid="qz-time-periods-6" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">6 / 7　正しいものを選ぼう</span></div>
+      <div class="q-text">紀元前300年と紀元前100年について正しい説明はどれですか。</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">紀元前100年の方が古い</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">紀元前300年の方が古い</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">紀元前300年の方が新しい</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">どちらも同じ世紀である</span></button></div>
+      <div class="expl hidden-until">💡 紀元前は数字が大きいほど古く、小さいほど西暦1年に近づくので、紀元前300年の方が古いです。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (7/7)" data-qid="qz-time-periods-7" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">7 / 7　正しいものを選ぼう</span></div>
+      <div class="q-text">古い順に正しく並んでいるものはどれですか。</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">紀元前100年→紀元前500年→西暦100年</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">紀元前500年→西暦100年→紀元前100年</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">紀元前500年→紀元前100年→西暦100年</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">西暦100年→紀元前100年→紀元前500年</span></button></div>
+      <div class="expl hidden-until">💡 紀元前では数字が大きい方が古いので紀元前500年→紀元前100年の順、その後西暦100年が続きます。</div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (1/2)" data-qid="wr-time-periods-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">1 / 2　文章で説明しよう</span></div>
+      <div class="q-text">紀元前300年は紀元前100年よりも古い時代である。数字の大小と時代の古さの関係を説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">紀元前</span><span class="kw-chip">西暦1年</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">紀元前は西暦1年に近づくほど数字が小さくなるしくみになっており、数字が大きいほど古い時代を表すから。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E6%99%82%E6%9C%9F%E3%82%84%E5%B9%B4%E4%BB%A3%E3%81%AE%E8%A1%A8%E3%81%97%E6%96%B9" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (2/2)" data-qid="wr-time-periods-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">2 / 2　文章で説明しよう</span></div>
+      <div class="q-text">「世紀」と「年代」の違いを説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">100年</span><span class="kw-chip">10年</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">世紀は100年を、年代は10年をそれぞれひとまとまりとして年を数える表し方であり、区切る期間の長さが異なること。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E6%99%82%E6%9C%9F%E3%82%84%E5%B9%B4%E4%BB%A3%E3%81%AE%E8%A1%A8%E3%81%97%E6%96%B9" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step" data-label="E 資料問題">
+      <div class="sec-h"><span class="sec-tag">E</span>資料問題<span class="sec-note">写真を見て答えよう</span></div>
+      <figure class="s-img"><img src="img/era-scale-diagram.webp" alt="" loading="lazy"><figcaption>年の数え方</figcaption></figure>
+      <div class="s-q"><span class="qa-no">(1)</span>図のように、イエス（キリスト）が生まれたと考えられる年を基準に年を数える表し方を何というか。<button class="blank s-blank" type="button"><span class="ba">西暦</span><span class="bl" style="width:8em"></span><span class="tap-hint">タップで答え</span></button></div><div class="s-q"><span class="qa-no">(2)</span>図中で、1年から100年までのように、100年をひとまとまりとして数える表し方を何というか。<button class="blank s-blank" type="button"><span class="ba">世紀</span><span class="bl" style="width:8em"></span><span class="tap-hint">タップで答え</span></button></div>
+    </div>
+    <div class="step done-step" data-label="結果">
+      <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「時期や年代の表し方」おつかれさま！</span></div>
+      <div class="score-box" data-score></div>
+      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E6%99%82%E6%9C%9F%E3%82%84%E5%B9%B4%E4%BB%A3%E3%81%AE%E8%A1%A8%E3%81%97%E6%96%B9" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
+      <a class="big-btn ref-btn" href="../../ref/01/index.html#t1">📖 参考書でおさらいする</a>
+      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元をもう一度とく</button>
+    </div>
+</section>
+<section class="print-answers print-only">
+  <h2 class="ans-band">解答</h2>
+  <div class="a-topic"><div class="a-title">年表でチェック</div><div class="a-group"><span class="a-item">西暦</span>　<span class="a-item">紀元前</span>　<span class="a-item">紀元後</span>　<span class="a-item">古い</span>　<span class="a-item">1世紀</span>　<span class="a-item">2世紀</span>　<span class="a-item">10世紀</span>　<span class="a-item">19世紀</span>　<span class="a-item">20世紀</span>　<span class="a-item">21世紀</span>　<span class="a-item">年代</span>　<span class="a-item">1970年代</span>　<span class="a-item">干支</span>　<span class="a-item">還暦</span>　<span class="a-item">新しい</span></div></div><div class="a-topic"><div class="a-title">1　時期や年代の表し方</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 西暦</span>　<span class="a-item">② 紀元前</span>　<span class="a-item">③ 紀元後</span>　<span class="a-item">④ 世紀</span>　<span class="a-item">⑤ 1世紀</span>　<span class="a-item">⑥ 21世紀</span>　<span class="a-item">⑦ 年代</span>　<span class="a-item">⑧ 1970年代</span>　<span class="a-item">⑨ 干支</span>　<span class="a-item">⑩ 還暦</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 西暦</span>　<span class="a-item">(2) 紀元前</span>　<span class="a-item">(3) 紀元後</span>　<span class="a-item">(4) 世紀</span>　<span class="a-item">(5) 1年〜100年</span>　<span class="a-item">(6) 21世紀</span>　<span class="a-item">(7) 干支</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) エ（西暦）</span>　<span class="a-item">(2) ア（紀元前）</span>　<span class="a-item">(3) ウ（1年〜100年）</span>　<span class="a-item">(4) ア（21世紀）</span>　<span class="a-item">(5) イ（1970年〜1979年）</span>　<span class="a-item">(6) イ（紀元前300年の方が古い）</span>　<span class="a-item">(7) ウ（紀元前500年→紀元前100年→西暦100年）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 紀元前は西暦1年に近づくほど数字が小さくなるしくみになっており、数字が大きいほど古い時代を表すから。</div><div class="a-written">(2) 世紀は100年を、年代は10年をそれぞれひとまとまりとして年を数える表し方であり、区切る期間の長さが異なること。</div></div><div class="a-group"><span class="a-label">E 資料問題</span><span class="a-item">(1) 西暦</span>　<span class="a-item">(2) 世紀</span></div></div>
+</section>
+</main>
+<div class="navbar" id="navbar" hidden><div class="navbar-in">
+  <button class="nb nb-prev" id="btnPrev">← まえへ</button>
+  <button class="nb nb-next" id="btnNext">つぎへ →</button>
+</div></div>
+<script>
+(function () {
+  var KEY = 'tzmwb-01';
+  var views = [].slice.call(document.querySelectorAll('.view'));
+  var tabs = [].slice.call(document.querySelectorAll('.tab'));
+  var N = views.length - 1;
+  var state = { t: 0, s: 0 };
+  var lastDir = 1;
+  var rendered = null; // 直前に表示していた {t, s}（ページめくり演出用）
+
+  function store() {
+    try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; }
+  }
+  function save(obj) { try { localStorage.setItem(KEY, JSON.stringify(obj)); } catch (e) {} }
+  function stepsOf(t) { return views[t].querySelectorAll('.step'); }
+
+  function renderScore(view) {
+    var st = store(), r = st.r || {};
+    var box = view.querySelector('[data-score]');
+    if (!box) return;
+    function count(sel) {
+      var ids = [].map.call(view.querySelectorAll(sel), function (el) { return el.dataset.qid; });
+      var done = ids.filter(function (id) { return r[id] === 1; }).length;
+      var tried = ids.filter(function (id) { return id in r; }).length;
+      return { total: ids.length, done: done, tried: tried };
+    }
+    var qa = count('.qa-step'), qz = count('.qz-step'), wr = count('.wr-step');
+    var rows = [];
+    if (qa.total) rows.push('<div class="score-row"><span>B 一問一答</span><b>⭕ ' + qa.done + ' / ' + qa.total + '</b></div>');
+    if (qz.total) rows.push('<div class="score-row"><span>C 実戦4択</span><b>正解 ' + qz.done + ' / ' + qz.total + '</b></div>');
+    if (wr.total) rows.push('<div class="score-row"><span>D 記述</span><b>⭕ ' + wr.done + ' / ' + wr.total + '</b></div>');
+    box.innerHTML = rows.join('') || 'このページの問題はタップ形式だよ。';
+  }
+
+  function render() {
+    var t = state.t, s = state.s;
+    views.forEach(function (v, i) { v.classList.toggle('on', i === t); });
+    tabs.forEach(function (b) {
+      var bt = +b.dataset.go;
+      b.classList.toggle('on', bt === t);
+      b.classList.toggle('done', bt > 0 && store()['d' + bt] === 1);
+    });
+    var tabEl = tabs[t];
+    if (tabEl && tabEl.scrollIntoView) tabEl.scrollIntoView({ block: 'nearest', inline: 'center' });
+    var navbar = document.getElementById('navbar');
+    var barStep = document.getElementById('barStep');
+    var pfill = document.getElementById('pfill');
+    if (t === 0) {
+      navbar.hidden = true; barStep.textContent = ''; pfill.style.width = '0';
+      renderHome();
+    } else {
+      var steps = stepsOf(t);
+      // 同じ単元内のページ送りだけ「めくり」演出（古いページと新しいページを重ねる）
+      var animFrom = rendered && rendered.t === t && rendered.s !== s ? rendered.s : null;
+      [].forEach.call(steps, function (el, i) {
+        el.classList.remove('turn-out', 'turn-in', 'turn-under');
+        el.classList.toggle('on', i === s);
+      });
+      if (animFrom !== null && steps[animFrom] && steps[s]) {
+        var oldEl = steps[animFrom], newEl = steps[s];
+        var clear = function () {
+          oldEl.classList.remove('turn-out', 'turn-under');
+          newEl.classList.remove('turn-in');
+        };
+        if (lastDir > 0) {
+          oldEl.classList.add('turn-out');      // 今のページがめくれて去る
+          oldEl.addEventListener('animationend', clear, { once: true });
+        } else {
+          oldEl.classList.add('turn-under');    // 下に敷いたまま
+          newEl.classList.add('turn-in');       // 前のページがめくり戻ってくる
+          newEl.addEventListener('animationend', clear, { once: true });
+        }
+        setTimeout(clear, 700); // アニメ未発火時の保険
+      }
+      navbar.hidden = false;
+      barStep.textContent = (s + 1) + ' / ' + steps.length;
+      pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
+      document.getElementById('btnPrev').textContent = s === 0 ? '🏠 目次' : '← まえへ';
+      var next = document.getElementById('btnNext');
+      if (s < steps.length - 1) next.textContent = 'つぎへ →';
+      else next.textContent = t < N ? '次の単元へ →' : '🏠 目次にもどる';
+      if (steps[s] && steps[s].classList.contains('done-step')) renderScore(views[t]);
+      var st = store();
+      st.last = { t: t, s: s };
+      if (s === steps.length - 1) st['d' + t] = 1;
+      save(st);
+    }
+    window.scrollTo(0, 0);
+    var h = '#t' + t + (t > 0 && s > 0 ? 's' + s : '');
+    if (location.hash !== h) history.replaceState(null, '', t === 0 ? '#' : h);
+    rendered = { t: t, s: s };
+  }
+
+  function renderHome() {
+    var st = store();
+    [].forEach.call(document.querySelectorAll('.toc-state'), function (el) {
+      var t = +el.dataset.stateT;
+      el.className = 'toc-state';
+      if (st['d' + t] === 1) { el.classList.add('done'); el.textContent = '✓ といた'; }
+      else if (st.last && st.last.t === t && st.last.s > 0) {
+        el.classList.add('doing'); el.textContent = 'つづき';
+      } else { el.textContent = ''; }
+    });
+    var btn = document.getElementById('resumeBtn');
+    if (st.last && st.last.t > 0) {
+      btn.hidden = false;
+      var name = views[st.last.t].querySelector('.tband h2').textContent;
+      document.getElementById('resumeWhere').textContent =
+        name + '（' + (st.last.s + 1) + '問目）';
+      btn.onclick = function () { go(st.last.t, st.last.s, 1); };
+    } else { btn.hidden = true; }
+  }
+
+  function go(t, s, dir) {
+    lastDir = dir || 1;
+    state.t = Math.max(0, Math.min(N, t));
+    state.s = Math.max(0, s || 0);
+    if (state.t > 0) state.s = Math.min(state.s, stepsOf(state.t).length - 1);
+    else state.s = 0;
+    render();
+  }
+  function next() {
+    var t = state.t, s = state.s;
+    if (t === 0) return;
+    if (s < stepsOf(t).length - 1) go(t, s + 1, 1);
+    else if (t < N) go(t + 1, 0, 1);
+    else go(0, 0, 1);
+  }
+  function prev() {
+    var t = state.t, s = state.s;
+    if (t === 0) return;
+    if (s > 0) go(t, s - 1, -1);
+    else go(0, 0, -1);
+  }
+
+  document.getElementById('btnNext').addEventListener('click', next);
+  document.getElementById('btnPrev').addEventListener('click', prev);
+
+  document.addEventListener('click', function (e) {
+    var go_ = e.target.closest('[data-go]');
+    if (go_) { go(+go_.dataset.go, 0, 1); return; }
+
+    var blank = e.target.closest('.blank');
+    if (blank) { blank.classList.toggle('open'); return; }
+
+    var rall = e.target.closest('.reveal-all');
+    if (rall) {
+      var step = rall.closest('.step');
+      var opened = step.querySelectorAll('.blank.open').length;
+      var all = step.querySelectorAll('.blank');
+      var open = opened < all.length;
+      [].forEach.call(all, function (b) { b.classList.toggle('open', open); });
+      rall.textContent = open ? 'すべての答えを隠す' : 'すべての答えを表示';
+      return;
+    }
+
+    var rev = e.target.closest('.reveal');
+    if (rev) { rev.closest('.step').classList.add('show'); return; }
+
+    var mk = e.target.closest('.mk');
+    if (mk) {
+      var stp = mk.closest('.step');
+      var st = store(); st.r = st.r || {};
+      st.r[stp.dataset.qid] = +mk.dataset.v;
+      save(st);
+      setTimeout(next, 220);
+      return;
+    }
+
+    var opt = e.target.closest('.qopt');
+    if (opt) {
+      var qstep = opt.closest('.qz-step');
+      if (qstep.classList.contains('answered')) return;
+      qstep.classList.add('answered');
+      var c = +qstep.dataset.c, chosen = +opt.dataset.i;
+      [].forEach.call(qstep.querySelectorAll('.qopt'), function (b, i) {
+        if (i === c) b.classList.add('correct');
+        else if (i === chosen) b.classList.add('wrong');
+        else b.classList.add('dim');
+      });
+      var ex = qstep.querySelector('.expl');
+      if (ex) ex.style.display = 'block';
+      var st2 = store(); st2.r = st2.r || {};
+      st2.r[qstep.dataset.qid] = chosen === c ? 1 : 0;
+      save(st2);
+      return;
+    }
+
+    var mopt = e.target.closest('.mopt');
+    if (mopt) {
+      var item = mopt.closest('.m-item');
+      if (item.dataset.done) return;
+      var ok = mopt.dataset.l === item.dataset.a;
+      mopt.classList.add(ok ? 'correct' : 'wrong');
+      if (!ok) {
+        [].forEach.call(item.querySelectorAll('.mopt'), function (b) {
+          if (b.dataset.l === item.dataset.a) b.classList.add('correct');
+        });
+      }
+      item.dataset.done = '1';
+      return;
+    }
+
+    var retry = e.target.closest('[data-retry]');
+    if (retry) {
+      var view = retry.closest('.view');
+      var st3 = store(); st3.r = st3.r || {};
+      [].forEach.call(view.querySelectorAll('[data-qid]'), function (el) {
+        delete st3.r[el.dataset.qid];
+      });
+      delete st3['d' + state.t];
+      save(st3);
+      [].forEach.call(view.querySelectorAll('.step'), function (el) {
+        el.classList.remove('show', 'answered');
+      });
+      [].forEach.call(view.querySelectorAll('.qopt'), function (b) {
+        b.classList.remove('correct', 'wrong', 'dim');
+      });
+      [].forEach.call(view.querySelectorAll('.m-item'), function (it) {
+        delete it.dataset.done;
+        [].forEach.call(it.querySelectorAll('.mopt'), function (b) {
+          b.classList.remove('correct', 'wrong');
+        });
+      });
+      [].forEach.call(view.querySelectorAll('.blank.open'), function (b) {
+        b.classList.remove('open');
+      });
+      go(state.t, 0, -1);
+      return;
+    }
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight') next();
+    if (e.key === 'ArrowLeft') prev();
+  });
+  var tx = 0, ty = 0;
+  document.addEventListener('touchstart', function (e) {
+    tx = e.changedTouches[0].clientX; ty = e.changedTouches[0].clientY;
+  }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    var dx = e.changedTouches[0].clientX - tx;
+    var dy = e.changedTouches[0].clientY - ty;
+    if (Math.abs(dx) > 64 && Math.abs(dy) < 48 && state.t > 0) {
+      if (dx < 0) next(); else prev();
+    }
+  }, { passive: true });
+
+  function fromHash() {
+    var m = /#t(\d+)(?:s(\d+))?/.exec(location.hash);
+    if (m) go(+m[1], +(m[2] || 0), 1); else go(0, 0, 1);
+  }
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
+})();
+</script>
+</body></html>

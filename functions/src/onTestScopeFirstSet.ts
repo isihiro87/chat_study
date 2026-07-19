@@ -18,8 +18,9 @@ import {
  *   配信時間 postback (`select_time`) でサマリー flex + 1問目を一括で reply 送信していた。
  * 新フロー:
  *   配信時間 postback は「出題範囲を設定する」サマリー flex のみ返す。
- *   ユーザーが LIFF /liff/scope で範囲を保存すると users/{uid}.testScope が新規 set され、
- *   このトリガが発火して 1問目を push する。
+ *   主動線はトーク内 Quick Reply 逐次選択（lastSource='line_inline'、下記でスキップ）。
+ *   ブラウザページ https://line.chatstudy.jp/scope（旧 LIFF /liff/scope は廃止・リダイレクトのみ）
+ *   で範囲を保存すると users/{uid}.testScope が新規 set され、このトリガが 1問目を push する。
  *   ※ 範囲を保存せずに離脱した場合は翌日の dailyQuiz が 1問目になる。
  *
  * 発火条件:

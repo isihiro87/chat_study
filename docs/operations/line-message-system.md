@@ -39,6 +39,85 @@
 `recalculateUserStatuses` cron が毎日 JST 02:00 に発火し、全 users を batch
 読み込みして status を再計算 → `statusChangedAt` を更新する。
 
+## 2.5 配信の一時停止・再開（ユーザー自身の選択、2026-07 追加）
+
+ユーザーは設定メニュー（リッチメニュー「設定・サポート」→ flex footer の
+「🔕 配信をおやすみする」ボタン）から、自分で配信を一時停止できる。
+ブロックの受け皿（「止めたい」の唯一の手段がブロックだった）と配信枠の節約を兼ねる。
+
+- **フィールド**: `users/{uid}.deliveryPaused`（boolean）、`deliveryPausedAt` / `deliveryResumedAt`
+- **停止中に止まるもの**: cron 由来 push すべて（dailyQuiz の毎日/週3配信・
+  週3移行案内・Win-back）。判定は `userStatus.ts` の `shouldSkipCronPush(data)`
+  （blocked と共通、ユニットテストあり）
+- **停止中も使えるもの**: reply 系すべて（1問解く / 苦手を復習 / 範囲設定 /
+  AIチャット / じっくり学ぶ）。停止確認メッセージにその旨を明記している
+- **再開手段**（3経路）:
+  1. 停止確認 / 設定メニューの「▶️ 配信を再開する」ボタン（postback `type=resume_delivery`）
+  2. 復帰キーワード「再開」等（`detectRestartIntent`）。**停止中ユーザーは
+     8日ゲート（RESTART_WELCOME_MIN_INACTIVE_DAYS）をバイパス**して即再開
+  3. Win-back CTA 経由の `handleRestartIntent`（write に `deliveryPaused: false` を含む）
+- **再開時の処理**: `deliveryPaused=false` + `status='active'` + `statusChangedAt` 更新
+  → 翌日以降の dailyQuiz 対象に復帰
+- **計測**: funnel イベント `delivery_paused` / `delivery_resumed`
+  （`premiumFunnelEvents`）。dailyQuiz done ログに `pausedSkipped=N` が出る
+
+## 2.52 友だち追加直後の「おためし1問」（2026-07 追加）
+
+follow の最初の reply に、学年不問の静的1問（`SAMPLE_QUESTION`、江戸幕府）を同梱する。
+ブロックの46%が登録48h以内・無回答層のブロック率28.7%への対策で、オンボ登録より先に
+「タップで解ける→解説が届く」成功体験を作る。
+
+- postback `type=sample_answer&c=N` → `handleSampleAnswerPostback`。
+  **Firestore の questions / answers / stats には触れない自己完結**（学習記録を汚さない）。
+- 回答後: 正誤＋解説＋「毎日こんな1問が届くよ」→ オンボ未完了なら学年選択 flex を再提示。
+  完了済みなら「メニューの『1問解く』へ」と案内（冪等・何度押しても同じ）。
+- 計測: funnel `sample_question_answered`（context.correct）。
+
+## 2.53 streak 週1おやすみ免除（2026-07 追加）
+
+**ちょうど1日の欠席は、7日に1回まで免除して連続記録を継続**する（+1）。
+1日のうっかり欠席で streak がゼロに戻る喪失感（離脱・ブロック誘因）への対策。
+
+- ロジック: `streakState.ts` の `nextStreakState`（純粋関数・UT 21件）。
+  免除使用日は `users.stats.streak.lastForgivenDateJst`（JST 日付）に永続化
+  （書き込みは `onAnswerCreated` の transaction）。
+- 発動時は回答フィードバックに「🎟️ 週1回のおやすみOKでつながってるよ」を添える。
+- 連続記録 flex（`handleStreakPostback`）は answers limit(500) の再計算をやめ、
+  `users.stats` を真値として表示（免除との整合＋1タップ 500 read 削減）。
+  表示判定は `displayStreakDays`（今日/昨日/免除可能な一昨日までは「生きている」扱い）。
+- dormant 移行時の streak リセット（`recalculateUserStatuses` 系）は従来どおり。
+
+## 2.55 「考え中…」ローディング表示（2026-07 追加）
+
+ボタンタップ（postback）・メッセージ受信の処理ラグの間、トーク画面に LINE 公式の
+ローディングアニメーションを表示する（`showLoadingAnimation` / chat loading API）。
+
+- 実装: `lineWebhook.ts` の `dispatchEvent` 冒頭 → `showThinkingIndicator(event, seconds)`
+- 秒数: postback=10秒 / message=20秒（AI チャット・画像音声は Gemini で 10数秒かかるため）。
+  **bot の返信が届いた時点で自動的に消える**ので、実際の表示は処理時間ぶんだけ。
+- 1:1 トークのみ対応（API 仕様）。呼び出し失敗は warn ログのみで本処理を止めない。
+- 制約: webhook のコード実行が始まる前の遅延（LINE 側の配送・コールドスタート）は
+  カバーできない（インジケーターを出せるのは関数起動後のため）。
+
+## 2.6 「まだ習ってない」ワンタップ出題除外（2026-07 追加）
+
+問題カード footer 末尾の「🙅 この範囲はまだ習ってない」→ 除外モードを Quick Reply で
+選択 → `testScope.topics` を **topic（細かい範囲）単位**で更新し、その場で代わりの
+1問を同一 reply で出す。すべて reply（配信枠ゼロ）。
+
+- **モード**: 「この範囲だけ外す」（single）/「ここから先も外す」（after）。
+  2択は **flex のボタン**で提示（Quick Reply チップは PC 版 LINE 非表示・
+  次の発言で消えるため不採用。2026-07-03 変更）。
+  **after の範囲は教科で異なる**: 理科＝同じ単元（era）内のそれ以降だけ、
+  歴史・英語・地理＝全体並び（era 順 × era 内 topic 順）でそれ以降すべて。
+- **範囲計算**: `lineScopeFlow.computeScopeAfterNotLearned`（純粋関数・テスト済み）。
+  範囲未設定ユーザーは「全 topic − 除外分」を新規スコープとして保存（範囲設定の代行）。
+- **ガード**: 除外で topics が空になる場合は保存せず「範囲を設定する」チップへ誘導。
+  数学は scope eras 未生成のためボタン自体を出さない。
+- **書き込み**: `testScope.lastSource='line_inline'` で push トリガを抑止（範囲設定と同じ）。
+- **計測**: funnel `not_learned_tap` / `not_learned_applied`（topic / mode / excludedCount / hadScope）。
+- **戻し方**: メニューの「出題範囲設定」（scope_start フロー）でいつでも再選択可能。
+
 ## 3. 復帰トリガー（再開キーワード）
 
 ユーザーが「再開」「久しぶり」「もう一度」等のテキストを送ると、

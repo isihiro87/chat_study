@@ -49,21 +49,23 @@ export const onTestScopeSaved = functions
     if (topics.length === 0) {
       // クリア（全範囲）も「設定できたこと」を伝える（詳しく設定ページで全解除した等）。
       text =
-        `✅ 出題範囲を「学年ぜんぶ」に設定しました！\n\n` +
-        `学年の全範囲から毎日1問お届けします。範囲はリッチメニュー「出題範囲設定」からいつでも絞り込めます。`;
+        `✅ 出題範囲を「学年ぜんぶ」に設定したよ！\n\n` +
+        `学年の全範囲から1問ずつ届くよ。範囲はメニューの「出題範囲設定」からいつでも絞り込めるよ。`;
     } else {
       // 範囲が多すぎる場合はメッセージが長くなりすぎないよう上限を設ける
       const MAX_LIST = 30;
       const shown = topics.slice(0, MAX_LIST);
       const listText = shown.map((t) => `・${t}`).join('\n');
       const moreText =
-        topics.length > MAX_LIST ? `\n…ほか ${topics.length - MAX_LIST} 単元` : '';
+        topics.length > MAX_LIST
+          ? `\n…ほか ${topics.length - MAX_LIST} 単元`
+          : '';
 
       text =
-        `✅ 出題範囲を設定しました！\n\n` +
+        `✅ 出題範囲を設定したよ！\n\n` +
         `【選択中の範囲（${topics.length}単元）】\n` +
         `${listText}${moreText}\n\n` +
-        `この範囲から毎日1問お届けします。範囲はリッチメニュー「出題範囲設定」からいつでも変更できます。`;
+        `この範囲から1問ずつ届くよ。範囲はメニューの「出題範囲設定」からいつでも変更できるよ。`;
     }
 
     try {

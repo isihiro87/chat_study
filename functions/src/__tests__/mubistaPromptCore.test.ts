@@ -28,7 +28,7 @@ describe('summarizeMubistaForPrompt', () => {
       },
       NOW
     );
-    expect(s).toContain('スタ先生');
+    expect(s).toContain('同じ先生');
     expect(s).toContain('鎌倉幕府の成立');
     expect(s).toContain('きのう');
     expect(s).toContain('70%');

@@ -21,19 +21,23 @@
  *   - 「再開」キーワード等で active に戻ったユーザーは status クエリに入らないので対象外
  */
 
-import * as functions from "firebase-functions/v1";
+import * as functions from 'firebase-functions/v1';
 
-import { getLineClient } from "./lineWebhook";
-import { logServerFunnelEvent } from "./funnelEvent";
-import { recordPushDelivery } from "./deliveryStats";
-import { selectNextWinbackVariation } from "./winbackSelector";
-import { daysBetweenJst, getJstDateString } from "./userStatus";
+import { getLineClient } from './lineWebhook';
+import { logServerFunnelEvent } from './funnelEvent';
+import { recordPushDelivery } from './deliveryStats';
+import { selectNextWinbackVariation } from './winbackSelector';
+import {
+  daysBetweenJst,
+  getJstDateString,
+  shouldSkipCronPush,
+} from './userStatus';
 import type {
   UserStatus,
   WinbackTouchpoint,
   UserDoc,
   WinbackHistoryEntry,
-} from "./userDocTypes";
+} from './userDocTypes';
 
 /**
  * 最終回答からの経過日数（JST 暦日）→ 送信する touchpoint の対応表。
@@ -45,11 +49,11 @@ import type {
  *  15 日 → day14 (churned 入り・最終)
  */
 const WINBACK_SCHEDULE: Record<number, WinbackTouchpoint> = {
-  4: "day3",
-  6: "day5",
-  8: "day7",
-  11: "day10",
-  15: "day14",
+  4: 'day3',
+  6: 'day5',
+  8: 'day7',
+  11: 'day10',
+  15: 'day14',
 };
 
 function touchpointForDays(days: number): WinbackTouchpoint | null {
@@ -67,17 +71,16 @@ interface SendStats {
 }
 
 export const sendWinbackMessages = functions
-  .region("asia-northeast1")
-  .pubsub.schedule("0 19 * * *")
-  .timeZone("Asia/Tokyo")
+  .region('asia-northeast1')
+  .pubsub.schedule('0 19 * * *')
+  .timeZone('Asia/Tokyo')
   .onRun(async () => {
     const startedAt = Date.now();
-    console.log("[sendWinbackMessages] start");
+    console.log('[sendWinbackMessages] start');
 
-    const { initializeApp, getApps } = await import("firebase-admin/app");
-    const { getFirestore, FieldValue, Timestamp } = await import(
-      "firebase-admin/firestore"
-    );
+    const { initializeApp, getApps } = await import('firebase-admin/app');
+    const { getFirestore, FieldValue, Timestamp } =
+      await import('firebase-admin/firestore');
     if (getApps().length === 0) {
       initializeApp();
     }
@@ -87,7 +90,10 @@ export const sendWinbackMessages = functions
     try {
       lineClient = await getLineClient();
     } catch (error) {
-      console.error("[sendWinbackMessages] getLineClient failed; abort:", error);
+      console.error(
+        '[sendWinbackMessages] getLineClient failed; abort:',
+        error
+      );
       return;
     }
 
@@ -105,11 +111,11 @@ export const sendWinbackMessages = functions
     const todayJst = getJstDateString(now);
 
     // 今日 status 変化したユーザーを抽出（at-risk / dormant / churned のみ）
-    const targets: UserStatus[] = ["at-risk", "dormant", "churned"];
+    const targets: UserStatus[] = ['at-risk', 'dormant', 'churned'];
     for (const status of targets) {
       const snap = await db
-        .collection("users")
-        .where("status", "==", status)
+        .collection('users')
+        .where('status', '==', status)
         .get();
 
       for (const doc of snap.docs) {
@@ -117,8 +123,10 @@ export const sendWinbackMessages = functions
         const uid = doc.id;
         const data = doc.data() as UserDoc & Record<string, unknown>;
 
-        // 公式 LINE をブロック中のユーザーには Win-back を送らない
-        if (data.blocked === true) {
+        // 公式 LINE をブロック中、または配信を一時停止中（deliveryPaused、
+        // 設定メニューの「配信をおやすみ」）のユーザーには Win-back を送らない。
+        // 自分の意思で止めた人への復帰催促は逆効果（ブロック誘因）になるため。
+        if (shouldSkipCronPush(data)) {
           stats.blockedSkipped++;
           continue;
         }
@@ -129,7 +137,7 @@ export const sendWinbackMessages = functions
           | { toDate?: () => Date }
           | undefined;
         const lastAnsweredDate =
-          lastAnsweredAtRaw && typeof lastAnsweredAtRaw.toDate === "function"
+          lastAnsweredAtRaw && typeof lastAnsweredAtRaw.toDate === 'function'
             ? lastAnsweredAtRaw.toDate()
             : null;
         if (!lastAnsweredDate) {
@@ -148,11 +156,11 @@ export const sendWinbackMessages = functions
         }
 
         const lineUserId =
-          typeof data.lineUserId === "string"
+          typeof data.lineUserId === 'string'
             ? data.lineUserId
-            : uid.startsWith("line:")
-              ? uid.slice("line:".length)
-              : "";
+            : uid.startsWith('line:')
+              ? uid.slice('line:'.length)
+              : '';
         if (!lineUserId) {
           console.warn(
             `[sendWinbackMessages] lineUserId 不在のため skip uid=${uid}`
@@ -168,7 +176,7 @@ export const sendWinbackMessages = functions
           ] as WinbackHistoryEntry[] | undefined) ?? [];
         const sentToday = historyForTp.some((h) => {
           const entryDate =
-            h.sentAt && typeof h.sentAt.toDate === "function"
+            h.sentAt && typeof h.sentAt.toDate === 'function'
               ? h.sentAt.toDate()
               : null;
           return entryDate && getJstDateString(entryDate) === todayJst;
@@ -212,17 +220,17 @@ export const sendWinbackMessages = functions
             // 明示タップなので復帰キーワードの誤爆防止ゲート（8日）は通さない。
             messages: [
               {
-                type: "text",
+                type: 'text',
                 text: bodyText,
                 quickReply: {
                   items: [
                     {
-                      type: "action",
+                      type: 'action',
                       action: {
-                        type: "postback",
-                        label: "今日の1問に挑戦",
-                        data: "type=restart&src=winback",
-                        displayText: "今日の1問に挑戦",
+                        type: 'postback',
+                        label: '今日の1問に挑戦',
+                        data: 'type=restart&src=winback',
+                        displayText: '今日の1問に挑戦',
                       },
                     },
                   ],
@@ -262,12 +270,12 @@ export const sendWinbackMessages = functions
           // push は成功しているので、失敗してもログのみ
         }
 
-        await logServerFunnelEvent("winback_sent", uid, {
+        await logServerFunnelEvent('winback_sent', uid, {
           touchpoint,
           variationId: variation.id,
           priceLockReopened: priceLockReopenedThisRun,
         });
-        await recordPushDelivery("winback");
+        await recordPushDelivery('winback');
 
         stats.sent++;
         stats.byTouchpoint[touchpoint]++;

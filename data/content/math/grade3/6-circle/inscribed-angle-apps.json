@@ -12,263 +12,537 @@
     "questions": [
       {
         "id": "math-g3-inscribed-angle-apps-q1",
-        "question": "円Oで、弧ABに対する中心角 $\\angle AOB$ が $100°$ です。同じ弧ABに対する円周角 $\\angle APB$ の大きさを求めなさい。",
+        "question": "下の図で、円Oの弧BCに対する中心角 $\\angle BOC = 100°$ です。同じ弧BCに対する円周角 $\\angle BAC$ の大きさを求めなさい。",
         "options": [
-          "$25°$",
+          "$50°$",
           "$100°$",
           "$200°$",
-          "$50°$"
+          "$25°$"
         ],
-        "correctIndex": 3,
-        "explanation": "$\\angle APB = 100° \\div 2 = 50°$\n円周角は、同じ弧に対する中心角の半分になる。",
+        "correctIndex": 0,
+        "explanation": "$\\angle BAC = 100° \\div 2 = 50°$\n円周角は、同じ弧に対する中心角の半分になる。",
+        "image": {
+          "kind": "circle-angles",
+          "center": true,
+          "points": [
+            { "name": "A", "at": 90 },
+            { "name": "B", "at": 205 },
+            { "name": "C", "at": 335 }
+          ],
+          "segments": [["A", "B"], ["A", "C"], ["O", "B"], ["O", "C"]],
+          "angles": [
+            { "at": "O", "from": "B", "to": "C", "label": "100°" },
+            { "at": "A", "from": "B", "to": "C", "label": "x" }
+          ]
+        },
         "difficulty": "basic"
       },
       {
         "id": "math-g3-inscribed-angle-apps-q2",
-        "question": "円Oで、弧ABに対する円周角 $\\angle APB$ が $45°$ です。同じ弧ABに対する中心角 $\\angle AOB$ の大きさを求めなさい。",
+        "question": "下の図で、線分ABは円Oの直径で、点Cは円周上にあります。$\\angle ABC = 35°$ のとき、$\\angle BAC$ の大きさを求めなさい。",
         "options": [
+          "$55°$",
+          "$35°$",
           "$45°$",
-          "$180°$",
-          "$90°$",
-          "$135°$"
+          "$65°$"
         ],
-        "correctIndex": 2,
-        "explanation": "$\\angle AOB = 45° \\times 2 = 90°$\n中心角は、同じ弧に対する円周角の2倍になる。",
-        "difficulty": "basic"
+        "correctIndex": 0,
+        "explanation": "$\\angle ACB = 90°,\\ \\angle BAC = 180° - 90° - 35° = 55°$\n直径に対する円周角は $90°$。三角形ABCの内角の和から求める。",
+        "image": {
+          "kind": "circle-angles",
+          "center": true,
+          "points": [
+            { "name": "A", "at": 180 },
+            { "name": "B", "at": 0 },
+            { "name": "C", "at": 110 }
+          ],
+          "segments": [["A", "B"], ["A", "C"], ["B", "C"]],
+          "angles": [
+            { "at": "C", "from": "A", "to": "B", "right": true },
+            { "at": "B", "from": "A", "to": "C", "label": "35°" },
+            { "at": "A", "from": "B", "to": "C", "label": "x" }
+          ]
+        },
+        "difficulty": "standard"
       },
       {
         "id": "math-g3-inscribed-angle-apps-q3",
-        "question": "線分ABが円Oの直径で、点Pが円周上（A、Bと異なる位置）にあります。$\\angle APB$ の大きさを求めなさい。",
+        "question": "下の図のように、四角形ABCDは円に内接しています。$\\angle A = 85°$ のとき、向かい合う $\\angle C$ の大きさを求めなさい。",
         "options": [
-          "$45°$",
-          "$90°$",
-          "$60°$",
-          "$120°$"
+          "$95°$",
+          "$85°$",
+          "$275°$",
+          "$105°$"
         ],
-        "correctIndex": 1,
-        "explanation": "$\\angle APB = 90°$\n直径（半円の弧）に対する円周角は、つねに $90°$ になる。",
+        "correctIndex": 0,
+        "explanation": "$\\angle C = 180° - \\angle A = 180° - 85° = 95°$\n円に内接する四角形では、向かい合う角の和が $180°$ になる。",
+        "image": {
+          "kind": "circle-angles",
+          "points": [
+            { "name": "A", "at": 115 },
+            { "name": "B", "at": 200 },
+            { "name": "C", "at": 330 },
+            { "name": "D", "at": 50 }
+          ],
+          "segments": [["A", "B"], ["B", "C"], ["C", "D"], ["D", "A"]],
+          "angles": [
+            { "at": "A", "from": "D", "to": "B", "label": "85°" },
+            { "at": "C", "from": "B", "to": "D", "label": "x" }
+          ]
+        },
         "difficulty": "basic"
       },
       {
         "id": "math-g3-inscribed-angle-apps-q4",
-        "question": "4点A、B、C、Dが1つの円周上にあります。弧ABに対する円周角 $\\angle ACB$ が $38°$ のとき、同じ弧ABに対する円周角 $\\angle ADB$ の大きさを求めなさい。",
+        "question": "下の図のように、四角形ABCDは円に内接しています。$\\angle B = 110°$ のとき、向かい合う $\\angle D$ の大きさを求めなさい。",
         "options": [
-          "$19°$",
-          "$38°$",
-          "$52°$",
-          "$76°$"
+          "$70°$",
+          "$110°$",
+          "$250°$",
+          "$90°$"
         ],
-        "correctIndex": 1,
-        "explanation": "$\\angle ADB = \\angle ACB = 38°$\n同じ弧に対する円周角はすべて等しい。",
+        "correctIndex": 0,
+        "explanation": "$\\angle D = 180° - \\angle B = 180° - 110° = 70°$\n向かい合う角の和は $180°$（$360°$ ではない）。",
+        "image": {
+          "kind": "circle-angles",
+          "points": [
+            { "name": "A", "at": 115 },
+            { "name": "B", "at": 200 },
+            { "name": "C", "at": 330 },
+            { "name": "D", "at": 50 }
+          ],
+          "segments": [["A", "B"], ["B", "C"], ["C", "D"], ["D", "A"]],
+          "angles": [
+            { "at": "B", "from": "A", "to": "C", "label": "110°" },
+            { "at": "D", "from": "C", "to": "A", "label": "x" }
+          ]
+        },
         "difficulty": "basic"
       },
       {
         "id": "math-g3-inscribed-angle-apps-q5",
-        "question": "線分ABが円Oの直径で、点Pが円周上にあります。$\\angle PAB = 35°$ のとき、$\\angle PBA$ の大きさを求めなさい。",
+        "question": "下の図のように、四角形ABCDは円に内接し、$\\angle A = 70°$、$\\angle B = 100°$ です。$\\angle C$ の大きさを求めなさい。",
         "options": [
-          "$35°$",
-          "$45°$",
-          "$65°$",
-          "$55°$"
+          "$110°$",
+          "$80°$",
+          "$70°$",
+          "$90°$"
         ],
-        "correctIndex": 3,
-        "explanation": "$\\angle APB = 90°,\\ \\angle PBA = 180° - 90° - 35° = 55°$\n直径に対する円周角 $\\angle APB$ は $90°$。三角形の内角の和 $180°$ から残りの角を求める。",
+        "correctIndex": 0,
+        "explanation": "$\\angle C = 180° - \\angle A = 180° - 70° = 110°$\n$\\angle C$ は $\\angle A$ と向かい合う角なので、和が $180°$ になる。",
+        "image": {
+          "kind": "circle-angles",
+          "points": [
+            { "name": "A", "at": 115 },
+            { "name": "B", "at": 200 },
+            { "name": "C", "at": 330 },
+            { "name": "D", "at": 50 }
+          ],
+          "segments": [["A", "B"], ["B", "C"], ["C", "D"], ["D", "A"]],
+          "angles": [
+            { "at": "A", "from": "D", "to": "B", "label": "70°" },
+            { "at": "B", "from": "A", "to": "C", "label": "100°" },
+            { "at": "C", "from": "B", "to": "D", "label": "x" }
+          ]
+        },
         "difficulty": "standard"
       },
       {
         "id": "math-g3-inscribed-angle-apps-q6",
-        "question": "円に内接する四角形ABCDで、$\\angle A = 85°$ です。向かい合う角 $\\angle C$ の大きさを求めなさい。",
+        "question": "下の図のように、四角形ABCDは円に内接しています。$\\angle C = 95°$ のとき、向かい合う $\\angle A$ の大きさを求めなさい。",
         "options": [
           "$85°$",
-          "$105°$",
           "$95°$",
-          "$275°$"
+          "$265°$",
+          "$105°$"
         ],
-        "correctIndex": 2,
-        "explanation": "$\\angle C = 180° - 85° = 95°$\n円に内接する四角形では、向かい合う角の和は $180°$ になる。",
+        "correctIndex": 0,
+        "explanation": "$\\angle A = 180° - \\angle C = 180° - 95° = 85°$\n向かい合う角の和は $180°$ になる。",
+        "image": {
+          "kind": "circle-angles",
+          "points": [
+            { "name": "A", "at": 115 },
+            { "name": "B", "at": 200 },
+            { "name": "C", "at": 330 },
+            { "name": "D", "at": 50 }
+          ],
+          "segments": [["A", "B"], ["B", "C"], ["C", "D"], ["D", "A"]],
+          "angles": [
+            { "at": "C", "from": "B", "to": "D", "label": "95°" },
+            { "at": "A", "from": "D", "to": "B", "label": "x" }
+          ]
+        },
         "difficulty": "standard"
       },
       {
         "id": "math-g3-inscribed-angle-apps-q7",
-        "question": "円に内接する四角形ABCDで、$\\angle B = 110°$ です。向かい合う角 $\\angle D$ の大きさを求めなさい。",
+        "question": "下の図のように、四角形ABCDは円に内接し、$\\angle ABC = 95°$、$\\angle BCD = 70°$ です。$\\angle CDA$ の大きさを求めなさい。",
         "options": [
+          "$85°$",
           "$110°$",
-          "$250°$",
-          "$70°$",
-          "$90°$"
+          "$95°$",
+          "$70°$"
         ],
-        "correctIndex": 2,
-        "explanation": "$\\angle D = 180° - 110° = 70°$\n向かい合う角の和は $180°$。$360°$ ではないので $250°$ にはならない。",
-        "difficulty": "standard"
+        "correctIndex": 0,
+        "explanation": "$\\angle CDA = 180° - \\angle ABC = 180° - 95° = 85°$\n$\\angle ABC$ と $\\angle CDA$ は向かい合う角なので、和が $180°$ になる。",
+        "image": {
+          "kind": "circle-angles",
+          "points": [
+            { "name": "A", "at": 115 },
+            { "name": "B", "at": 200 },
+            { "name": "C", "at": 330 },
+            { "name": "D", "at": 50 }
+          ],
+          "segments": [["A", "B"], ["B", "C"], ["C", "D"], ["D", "A"]],
+          "angles": [
+            { "at": "B", "from": "A", "to": "C", "label": "95°" },
+            { "at": "C", "from": "B", "to": "D", "label": "70°" },
+            { "at": "D", "from": "C", "to": "A", "label": "x" }
+          ]
+        },
+        "difficulty": "advanced"
       },
       {
         "id": "math-g3-inscribed-angle-apps-q8",
-        "question": "円Oで、弧ABに対する中心角 $\\angle AOB$ が $120°$ です。同じ弧ABに対する円周角 $\\angle APB$ の大きさを求めなさい。",
+        "question": "下の図のように、四角形ABCDは円に内接し、$\\angle DAB = 100°$、$\\angle ABC = 85°$ です。$\\angle BCD$ の大きさを求めなさい。",
         "options": [
-          "$60°$",
-          "$30°$",
-          "$240°$",
-          "$120°$"
+          "$80°$",
+          "$95°$",
+          "$100°$",
+          "$85°$"
         ],
         "correctIndex": 0,
-        "explanation": "$\\angle APB = 120° \\div 2 = 60°$\n円周角は中心角の半分。",
-        "difficulty": "standard"
+        "explanation": "$\\angle BCD = 180° - \\angle DAB = 180° - 100° = 80°$\n$\\angle DAB$ と $\\angle BCD$ は向かい合う角なので、和が $180°$ になる。",
+        "image": {
+          "kind": "circle-angles",
+          "points": [
+            { "name": "A", "at": 115 },
+            { "name": "B", "at": 200 },
+            { "name": "C", "at": 330 },
+            { "name": "D", "at": 50 }
+          ],
+          "segments": [["A", "B"], ["B", "C"], ["C", "D"], ["D", "A"]],
+          "angles": [
+            { "at": "A", "from": "D", "to": "B", "label": "100°" },
+            { "at": "B", "from": "A", "to": "C", "label": "85°" },
+            { "at": "C", "from": "B", "to": "D", "label": "x" }
+          ]
+        },
+        "difficulty": "advanced"
       },
       {
         "id": "math-g3-inscribed-angle-apps-q9",
-        "question": "線分ABが円Oの直径で、点Cが円周上にあります。$\\angle ABC = 28°$ のとき、$\\angle CAB$ の大きさを求めなさい。",
+        "question": "下の図で、円Oの外部の点Pから2本の接線をひき、接点をA、Bとします。$\\angle APB = 50°$ のとき、$\\angle PAB$ の大きさを求めなさい。",
         "options": [
-          "$52°$",
-          "$28°$",
-          "$90°$",
-          "$62°$"
+          "$65°$",
+          "$50°$",
+          "$130°$",
+          "$25°$"
         ],
-        "correctIndex": 3,
-        "explanation": "$\\angle ACB = 90°,\\ \\angle CAB = 180° - 90° - 28° = 62°$\n直径に対する円周角は $90°$。三角形ABCの内角の和から求める。",
+        "correctIndex": 0,
+        "explanation": "$PA = PB$ より $\\triangle PAB$ は二等辺三角形。$\\angle PAB = (180° - 50°) \\div 2 = 65°$\n円外の1点からひいた2本の接線の長さは等しい。",
+        "image": {
+          "kind": "circle-angles",
+          "center": true,
+          "centerDx": 13,
+          "external": {
+            "name": "P",
+            "at": 180,
+            "dist": 1.7,
+            "tangentNames": ["A", "B"],
+            "showRadii": true,
+            "angleLabel": "50°"
+          },
+          "segments": [["A", "B"]]
+        },
         "difficulty": "standard"
       },
       {
         "id": "math-g3-inscribed-angle-apps-q10",
-        "question": "円に内接する四角形ABCDで、$\\angle A = 70°$、$\\angle B = 100°$ です。$\\angle C$ の大きさを求めなさい。",
+        "question": "下の図で、円Oの外部の点Pから2本の接線をひき、接点をA、Bとします。$\\angle APB = 40°$ のとき、$\\angle AOB$ の大きさを求めなさい。",
         "options": [
-          "$80°$",
-          "$100°$",
-          "$110°$",
+          "$140°$",
+          "$70°$",
+          "$40°$",
           "$90°$"
         ],
-        "correctIndex": 2,
-        "explanation": "$\\angle C = 180° - \\angle A = 180° - 70° = 110°$\n$\\angle C$ は $\\angle A$ と向かい合う角なので、和が $180°$ になる。",
+        "correctIndex": 0,
+        "explanation": "$\\angle OAP = \\angle OBP = 90°,\\ \\angle AOB = 360° - 90° - 90° - 40° = 140°$\n接点を通る半径は接線に垂直。四角形OAPBの内角の和 $360°$ から求める。",
+        "image": {
+          "kind": "circle-angles",
+          "center": true,
+          "centerDx": 13,
+          "external": {
+            "name": "P",
+            "at": 180,
+            "dist": 1.7,
+            "tangentNames": ["A", "B"],
+            "showRadii": true,
+            "angleLabel": "40°"
+          },
+          "segments": [["A", "B"]]
+        },
         "difficulty": "standard"
       },
       {
         "id": "math-g3-inscribed-angle-apps-q11",
-        "question": "円Oで、弦ABをひきます。中心角 $\\angle AOB = 140°$ のとき、三角形OABの $\\angle OAB$ の大きさを求めなさい。",
+        "question": "下の図で、円Oの外部の点Pから2本の接線をひき、接点をA、Bとします。$\\angle APB = 40°$ のとき、$\\angle OAB$ の大きさを求めなさい。",
         "options": [
-          "$40°$",
           "$20°$",
           "$70°$",
-          "$30°$"
+          "$40°$",
+          "$90°$"
         ],
-        "correctIndex": 1,
-        "explanation": "$\\angle OAB = (180° - 140°) \\div 2 = 20°$\nOA、OBはともに半径で $OA = OB$。三角形OABは二等辺三角形なので、底角は等しい。",
+        "correctIndex": 0,
+        "explanation": "$\\angle AOB = 360° - 90° - 90° - 40° = 140°,\\ \\angle OAB = (180° - 140°) \\div 2 = 20°$\n$OA = OB$（半径）で $\\triangle OAB$ は二等辺三角形。その底角を求める。",
+        "image": {
+          "kind": "circle-angles",
+          "center": true,
+          "centerDx": 13,
+          "external": {
+            "name": "P",
+            "at": 180,
+            "dist": 1.7,
+            "tangentNames": ["A", "B"],
+            "showRadii": true,
+            "angleLabel": "40°"
+          },
+          "segments": [["A", "B"], ["O", "A"], ["O", "B"]]
+        },
         "difficulty": "advanced"
       },
       {
         "id": "math-g3-inscribed-angle-apps-q12",
-        "question": "円に内接する四角形ABCDで、$\\angle A$ は $\\angle C$ の2倍です。$\\angle A$ の大きさを求めなさい。",
+        "question": "下の図で、円Oの外部の点Pから2本の接線をひき、接点をA、Bとします。$\\angle APB = 64°$ のとき、$\\angle PAB$ の大きさを求めなさい。",
         "options": [
-          "$120°$",
-          "$150°$",
-          "$90°$",
-          "$100°$"
+          "$58°$",
+          "$64°$",
+          "$116°$",
+          "$32°$"
         ],
         "correctIndex": 0,
-        "explanation": "$\\angle A + \\angle C = 180°,\\ 2\\angle C + \\angle C = 180°,\\ \\angle C = 60°,\\ \\angle A = 120°$\n向かい合う角の和 $180°$ と「$\\angle A = 2\\angle C$」を連立して求める。",
-        "difficulty": "advanced"
+        "explanation": "$PA = PB$ より $\\triangle PAB$ は二等辺三角形。$\\angle PAB = (180° - 64°) \\div 2 = 58°$\n円外の1点からひいた2本の接線の長さは等しい。",
+        "image": {
+          "kind": "circle-angles",
+          "center": true,
+          "centerDx": 13,
+          "external": {
+            "name": "P",
+            "at": 180,
+            "dist": 1.7,
+            "tangentNames": ["A", "B"],
+            "showRadii": true,
+            "angleLabel": "64°"
+          },
+          "segments": [["A", "B"]]
+        },
+        "difficulty": "standard"
       },
       {
         "id": "math-g3-inscribed-angle-apps-q13",
-        "question": "点C、Dが直線ABについて同じ側にあり、4点A、B、C、Dは1つの円周上にあります。$\\angle ACB = 64°$ のとき、$\\angle ADB$ の大きさを求めなさい。",
+        "question": "下の図で、2つの弦AB、CDが円の内部の点Pで交わっています。$AP = 4$、$CP = 6$、$PD = 8$ のとき、$PB$ の長さ $x$ を求めなさい。",
         "options": [
-          "$32°$",
-          "$64°$",
-          "$128°$",
-          "$58°$"
+          "$12$",
+          "$3$",
+          "$48$",
+          "$10$"
         ],
-        "correctIndex": 1,
-        "explanation": "$\\angle ADB = \\angle ACB = 64°$\n$\\angle ACB$ と $\\angle ADB$ はともに弧ABに対する円周角なので等しい。",
+        "correctIndex": 0,
+        "explanation": "$AP \\times PB = CP \\times PD$ より $4 \\times x = 6 \\times 8 = 48$、$x = 12$\n交わる2弦では、分けられた線分の積が等しい（方べきの定理）。",
+        "image": {
+          "kind": "circle-angles",
+          "points": [
+            { "name": "A", "at": 110 },
+            { "name": "C", "at": 250 },
+            { "name": "B", "at": 300 },
+            { "name": "D", "at": 40 }
+          ],
+          "segments": [["A", "B"], ["C", "D"]],
+          "intersects": [{ "name": "P", "chord1": ["A", "B"], "chord2": ["C", "D"] }],
+          "segLabels": [
+            { "seg": ["A", "P"], "text": "4" },
+            { "seg": ["P", "B"], "text": "x" },
+            { "seg": ["C", "P"], "text": "6" },
+            { "seg": ["P", "D"], "text": "8" }
+          ]
+        },
         "difficulty": "standard"
       },
       {
         "id": "math-g3-inscribed-angle-apps-q14",
-        "question": "1つの円で、弧ABと弧CDの長さが等しいとします。弧ABに対する円周角が $40°$ のとき、弧CDに対する円周角の大きさを求めなさい。",
+        "question": "下の図で、2つの弦AB、CDが円の内部の点Pで交わっています。$AP = 12$、$CP = 8$、$PD = 9$ のとき、$PB$ の長さ $x$ を求めなさい。",
         "options": [
-          "$40°$",
-          "$80°$",
-          "$20°$",
-          "$60°$"
+          "$6$",
+          "$72$",
+          "$5$",
+          "$8$"
         ],
         "correctIndex": 0,
-        "explanation": "弧CDに対する円周角 $= 40°$\n同じ円で等しい弧に対する円周角は等しい。",
+        "explanation": "$AP \\times PB = CP \\times PD$ より $12 \\times x = 8 \\times 9 = 72$、$x = 6$\n交わる2弦では、分けられた線分の積が等しい（方べきの定理）。",
+        "image": {
+          "kind": "circle-angles",
+          "points": [
+            { "name": "A", "at": 110 },
+            { "name": "C", "at": 250 },
+            { "name": "B", "at": 300 },
+            { "name": "D", "at": 40 }
+          ],
+          "segments": [["A", "B"], ["C", "D"]],
+          "intersects": [{ "name": "P", "chord1": ["A", "B"], "chord2": ["C", "D"] }],
+          "segLabels": [
+            { "seg": ["A", "P"], "text": "12" },
+            { "seg": ["P", "B"], "text": "x" },
+            { "seg": ["C", "P"], "text": "8" },
+            { "seg": ["P", "D"], "text": "9" }
+          ]
+        },
         "difficulty": "standard"
       },
       {
         "id": "math-g3-inscribed-angle-apps-q15",
-        "question": "線分ABが円Oの直径で、点Cが円周上にあります。$\\angle CAB = 40°$ のとき、弧BC（Cを含まない側）に対する中心角 $\\angle BOC$ の大きさを求めなさい。",
+        "question": "下の図で、2つの弦AB、CDが円の内部の点Pで交わっています。$AP = 10$、$CP = 5$、$PD = 8$ のとき、$PB$ の長さ $x$ を求めなさい。",
         "options": [
-          "$40°$",
-          "$140°$",
-          "$80°$",
-          "$100°$"
-        ],
-        "correctIndex": 2,
-        "explanation": "$\\angle BOC = 40° \\times 2 = 80°$\n$\\angle CAB$ は弧BCに対する円周角なので、中心角はその2倍になる。",
-        "difficulty": "advanced"
-      },
-      {
-        "id": "math-g3-inscribed-angle-apps-q16",
-        "question": "円に内接する四角形ABCDで、$\\angle C = 95°$ です。向かい合う角 $\\angle A$ の大きさを求めなさい。",
-        "options": [
-          "$85°$",
-          "$95°$",
-          "$180°$",
-          "$105°$"
+          "$4$",
+          "$40$",
+          "$3$",
+          "$8$"
         ],
         "correctIndex": 0,
-        "explanation": "$\\angle A = 180° - 95° = 85°$\n向かい合う角の和は $180°$ になる。",
+        "explanation": "$AP \\times PB = CP \\times PD$ より $10 \\times x = 5 \\times 8 = 40$、$x = 4$\n交わる2弦では、分けられた線分の積が等しい（方べきの定理）。",
+        "image": {
+          "kind": "circle-angles",
+          "points": [
+            { "name": "A", "at": 110 },
+            { "name": "C", "at": 250 },
+            { "name": "B", "at": 300 },
+            { "name": "D", "at": 40 }
+          ],
+          "segments": [["A", "B"], ["C", "D"]],
+          "intersects": [{ "name": "P", "chord1": ["A", "B"], "chord2": ["C", "D"] }],
+          "segLabels": [
+            { "seg": ["A", "P"], "text": "10" },
+            { "seg": ["P", "B"], "text": "x" },
+            { "seg": ["C", "P"], "text": "5" },
+            { "seg": ["P", "D"], "text": "8" }
+          ]
+        },
         "difficulty": "standard"
       },
       {
-        "id": "math-g3-inscribed-angle-apps-q17",
-        "question": "円の直径を1辺とする半円の弧について、その弧に対する円周角はつねに何度になりますか。",
+        "id": "math-g3-inscribed-angle-apps-q16",
+        "question": "下の図で、2つの弦AB、CDが円の内部の点Pで交わっています。$PB = 8$、$CP = 4$、$PD = 6$ のとき、$AP$ の長さ $x$ を求めなさい。",
         "options": [
-          "$45°$",
-          "$90°$",
-          "$180°$",
-          "$60°$"
+          "$3$",
+          "$24$",
+          "$2$",
+          "$12$"
         ],
-        "correctIndex": 1,
-        "explanation": "$90°$\n直径に対する中心角は $180°$ なので、円周角はその半分の $90°$ で一定になる。",
-        "difficulty": "basic"
+        "correctIndex": 0,
+        "explanation": "$AP \\times PB = CP \\times PD$ より $x \\times 8 = 4 \\times 6 = 24$、$x = 3$\n交わる2弦では、分けられた線分の積が等しい（方べきの定理）。",
+        "image": {
+          "kind": "circle-angles",
+          "points": [
+            { "name": "A", "at": 110 },
+            { "name": "C", "at": 250 },
+            { "name": "B", "at": 300 },
+            { "name": "D", "at": 40 }
+          ],
+          "segments": [["A", "B"], ["C", "D"]],
+          "intersects": [{ "name": "P", "chord1": ["A", "B"], "chord2": ["C", "D"] }],
+          "segLabels": [
+            { "seg": ["A", "P"], "text": "x" },
+            { "seg": ["P", "B"], "text": "8" },
+            { "seg": ["C", "P"], "text": "4" },
+            { "seg": ["P", "D"], "text": "6" }
+          ]
+        },
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-inscribed-angle-apps-q17",
+        "question": "下の図で、弧ABと弧BCの長さは等しい（印）です。$\\angle BPC = 28°$ のとき、$\\angle APB$（図の $x$）の大きさを求めなさい。",
+        "options": [
+          "$28°$",
+          "$56°$",
+          "$14°$",
+          "$30°$"
+        ],
+        "correctIndex": 0,
+        "explanation": "弧AB = 弧BC なので、対する円周角も等しく $\\angle APB = \\angle BPC = 28°$\nよって $x = 28°$。等しい弧に対する円周角は等しい。",
+        "image": {
+          "kind": "circle-angles",
+          "points": [
+            { "name": "P", "at": 90 },
+            { "name": "A", "at": 215 },
+            { "name": "B", "at": 270 },
+            { "name": "C", "at": 325 }
+          ],
+          "segments": [["P", "A"], ["P", "B"], ["P", "C"], ["A", "B"], ["B", "C"]],
+          "arcTicks": [
+            { "from": "A", "to": "B", "n": 1 },
+            { "from": "B", "to": "C", "n": 1 }
+          ],
+          "angles": [
+            { "at": "P", "from": "A", "to": "B", "label": "x" }
+          ]
+        },
+        "difficulty": "standard"
       },
       {
         "id": "math-g3-inscribed-angle-apps-q18",
-        "question": "線分ABが円Oの直径で、点Pが円周上にあります。$\\angle PAB = 20°$ のとき、弧PB（Pを含まない側）に対する中心角 $\\angle POB$ の大きさを求めなさい。",
+        "question": "下の図で、弧ABと弧BCの長さは等しい（印）です。$\\angle APC = 64°$ のとき、$\\angle APB$（図の $x$）の大きさを求めなさい。",
         "options": [
-          "$20°$",
-          "$80°$",
-          "$70°$",
-          "$40°$"
+          "$32°$",
+          "$64°$",
+          "$16°$",
+          "$48°$"
         ],
-        "correctIndex": 3,
-        "explanation": "$\\angle POB = 20° \\times 2 = 40°$\n$\\angle PAB$ は弧PBに対する円周角なので、中心角はその2倍。",
+        "correctIndex": 0,
+        "explanation": "弧AB = 弧BC より $\\angle APB = \\angle BPC$ なので $\\angle APC = 2\\angle APB = 64°$、$x = 32°$\n等しい弧に対する円周角は等しいことを使う。",
+        "image": {
+          "kind": "circle-angles",
+          "points": [
+            { "name": "P", "at": 90 },
+            { "name": "A", "at": 215 },
+            { "name": "B", "at": 270 },
+            { "name": "C", "at": 325 }
+          ],
+          "segments": [["P", "A"], ["P", "B"], ["P", "C"], ["A", "B"], ["B", "C"]],
+          "arcTicks": [
+            { "from": "A", "to": "B", "n": 1 },
+            { "from": "B", "to": "C", "n": 1 }
+          ],
+          "angles": [
+            { "at": "P", "from": "A", "to": "B", "label": "x" }
+          ]
+        },
         "difficulty": "advanced"
       },
       {
         "id": "math-g3-inscribed-angle-apps-q19",
-        "question": "点C、Dが直線ABについて同じ側にあります。$\\angle ACB = 50°$、$\\angle ADB = 60°$ のとき、4点A、B、C、Dについて正しいものを選びなさい。",
+        "question": "2点C、Dが直線ABについて同じ側にあります。$\\angle ACB = 55°$、$\\angle ADB = 55°$ のとき、4点A、B、C、Dについて正しいものを選びなさい。",
         "options": [
           "4点は1つの円周上にある",
-          "対角線が等しいので円周上にある",
-          "$\\angle ACB$ と $\\angle ADB$ の和が $110°$ なので円周上にある",
-          "4点は1つの円周上にあるとはいえない"
+          "4点は1つの円周上にあるとはいえない",
+          "$\\angle ACB + \\angle ADB = 110°$ なので円周上にない",
+          "C、Dが同じ側にあるので円周上にない"
         ],
-        "correctIndex": 3,
-        "explanation": "$\\angle ACB = 50° \\neq \\angle ADB = 60°$\n同じ側にある2点から線分ABを見る角が等しいときだけ4点は同一円周上にある。ここでは角が等しくないので、円周上にあるとはいえない。",
+        "correctIndex": 0,
+        "explanation": "$\\angle ACB = \\angle ADB = 55°$（等しい）\n線分ABの同じ側にある2点から見込む角が等しいとき、4点は1つの円周上にある（円周角の定理の逆）。",
         "difficulty": "standard"
       },
       {
         "id": "math-g3-inscribed-angle-apps-q20",
-        "question": "円に内接する四角形ABCDで、$\\angle ABC = 95°$、$\\angle BCD = 70°$ です。$\\angle BAD$ の大きさを求めなさい。",
+        "question": "2点C、Dが直線ABについて同じ側にあります。$\\angle ACB = 42°$、$\\angle ADB = 58°$ のとき、4点A、B、C、Dについて正しいものを選びなさい。",
         "options": [
-          "$110°$",
-          "$95°$",
-          "$70°$",
-          "$85°$"
+          "4点は1つの円周上にあるとはいえない",
+          "4点は必ず1つの円周上にある",
+          "$\\angle ACB + \\angle ADB = 100°$ なので円周上にある",
+          "対角線の長さが等しいので円周上にある"
         ],
         "correctIndex": 0,
-        "explanation": "$\\angle BAD = 180° - \\angle BCD = 180° - 70° = 110°$\n$\\angle BAD$ は $\\angle BCD$ と向かい合う角なので、和が $180°$ になる。",
-        "difficulty": "advanced"
+        "explanation": "$\\angle ACB = 42° \\neq \\angle ADB = 58°$（等しくない）\n同じ側から線分ABを見込む角が等しいときだけ4点は同一円周上にある。等しくないのでそうとはいえない。",
+        "difficulty": "standard"
       }
     ]
   }

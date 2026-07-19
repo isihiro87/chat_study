@@ -128,19 +128,42 @@
   .hook { display:flex; align-items:center; gap:12px; margin-bottom:14px; }
   .hook .bubble { font-weight:normal; font-size:13.5px; line-height:1.8; }
 
-  .overview { background:linear-gradient(135deg,#fffbeb,#fff3d8); border:2px solid #fcd34d;
-              border-radius:14px; padding:14px; margin-bottom:14px; }
-  .ov-h { display:inline-block; background:var(--brand); color:#fff; font-weight:bold;
-          font-size:13px; padding:3px 14px; border-radius:16px; margin-bottom:10px; }
-  .ov-list { list-style:none; display:flex; flex-direction:column; gap:8px; }
-  .ov-list li { display:flex; align-items:center; gap:9px; background:#fff;
-                border:1.5px solid var(--line); border-radius:10px; padding:8px 10px;
-                font-size:14px; font-weight:bold; color:#44403c; line-height:1.6; }
-  /* わかること・節番号は「白地に茶文字」= タブ（茶地に白文字）と見た目を分けて
-     単元タブの番号との対応と誤認させない */
-  .ov-num { flex:none; width:22px; height:22px; border-radius:50%; background:#fff;
-            border:1.5px solid var(--line); color:var(--brand); font-weight:bold;
-            display:inline-flex; align-items:center; justify-content:center; font-size:12px; }
+  /* ── 単元表紙デザイン（PDFの単元表紙とおそろい）── */
+  .cover-img { width:100%; display:block; margin:2px 0 14px; border-radius:16px;
+               box-shadow:0 8px 18px rgba(91,68,53,.14); }
+  .cover-art { position:relative; margin:8px 8px 26px; padding:10px;
+               background:#fffaf1; border:2px solid rgba(180,83,9,.35); border-radius:14px;
+               box-shadow:0 10px 18px rgba(91,68,53,.16); transform:rotate(-1.6deg); }
+  .cover-art.art-even { transform:rotate(1.6deg); }
+  .cover-art img { width:100%; border-radius:10px; display:block; }
+  .cover-art::before, .cover-art::after { content:""; position:absolute; top:-12px;
+               width:84px; height:26px; border-radius:5px; background:rgba(217,119,6,.32);
+               box-shadow:0 2px 4px rgba(91,68,53,.1); z-index:1; }
+  .cover-art::before { left:22px; transform:rotate(-7deg); }
+  .cover-art::after { right:22px; transform:rotate(7deg); }
+  .cover-art figcaption { font-size:12px; color:#a8a29e; text-align:center; margin-top:6px; }
+
+  .overview { background:rgba(255,255,255,.94); border:2.5px solid rgba(180,83,9,.45);
+              border-radius:16px; padding:16px 16px 8px; margin-bottom:14px;
+              box-shadow:0 8px 16px rgba(91,68,53,.1); }
+  .ov-h { font-weight:bold; font-size:16px; color:var(--deep); margin-bottom:6px; }
+  .ov-list { list-style:none; display:flex; flex-direction:column; }
+  .ov-list li { display:flex; align-items:flex-start; gap:10px; padding:9px 2px;
+                font-size:14px; font-weight:bold; color:#44372e; line-height:1.6; }
+  .ov-list li + li { border-top:2px dashed rgba(180,83,9,.22); }
+  .ov-num { flex:none; width:24px; height:24px; border-radius:50%; background:var(--brand);
+            color:#fff; font-weight:bold; display:inline-flex; align-items:center;
+            justify-content:center; font-size:13px; margin-top:2px; }
+
+  .cheer { display:flex; align-items:center; justify-content:center; gap:12px; margin:2px 0 12px; }
+  .cheer-char { width:76px; filter:drop-shadow(0 3px 5px rgba(91,68,53,.2)); }
+  .cheer-bubble { position:relative; background:#fff; border:2px solid rgba(180,83,9,.55);
+                  border-radius:14px; padding:8px 14px; font-size:13.5px; font-weight:bold;
+                  color:#5b4435; }
+  .cheer-bubble::before { content:""; position:absolute; left:-9px; top:50%; width:14px; height:14px;
+                  background:#fff; border-left:2px solid rgba(180,83,9,.55);
+                  border-bottom:2px solid rgba(180,83,9,.55);
+                  transform:translateY(-50%) rotate(45deg); }
 
   .hero { margin:0 0 8px; }
   .hero img { width:100%; border-radius:14px; display:block; }
@@ -262,6 +285,19 @@
   .nb-next { flex:2; background:var(--brand); color:#fff; box-shadow:0 3px 8px rgba(180,83,9,.3); }
   .nav-label { position:absolute; left:-9999px; }
 
+  /* ── ホバー: マウスを乗せると「押せる」ことが分かる（タッチ端末では固着しないよう hover 端末限定）── */
+  @media (hover: hover) {
+    .toc-item, .resume, .shuffle-btn, .swap-btn, .tcard, .ai-btn, .wb-btn, .nb,
+    .chat-fab, .chat-close, .chat-login-btn, #chatSend {
+      transition: filter .12s ease, background-color .12s ease; }
+    /* 色つき（塗り）ボタンは少し濃く */
+    .resume:hover, .shuffle-btn:hover, .ai-btn:hover, .nb:hover, .chat-fab:hover,
+    .chat-login-btn:hover, #chatSend:hover { filter: brightness(0.94); }
+    /* 白・枠線ボタン／リスト／カードは薄いアンバーで下地を変える */
+    .toc-item:hover, .swap-btn:hover, .wb-btn:hover, .tcard:hover,
+    .chat-close:hover { background-color: #fff8ec; }
+  }
+
   /* ── ページ内チャット（スタ先生）── */
   .chat-fab { position:fixed; right:14px; bottom:calc(84px + env(safe-area-inset-bottom));
               z-index:20; width:56px; height:56px; border-radius:50%;
@@ -346,12 +382,9 @@
   <div class="tband"><span class="tno">1</span><h2>聖徳太子と飛鳥文化</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
   
     <div class="step" data-label="この単元でわかること">
+      <img class="cover-img" src="img/cover-shotoku-asuka.webp"
+           alt="聖徳太子と飛鳥文化（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">天皇を中心にした国づくりが、この時代に始まったんだ。小さな国だった日本が、大陸の国々と肩を並べようとした一歩を見てみよう。</div></div>
-      <div class="overview">
-        <div class="ov-h">🎯 この単元でわかること</div>
-        <ul class="ov-list"><li><span class="ov-num">1</span><span>聖徳太子が行った政治の改革（冠位十二階・十七条の憲法）</span></li><li><span class="ov-num">2</span><span>遣隋使を送って隋と対等な国交を目指したこと</span></li><li><span class="ov-num">3</span><span>法隆寺に代表される飛鳥文化のとくちょう</span></li></ul>
-      </div>
-      <figure class="hero"><img src="img/hist04-shotoku.webp" alt="" loading="lazy"></figure>
     </div>
     <div class="step" data-label="聖徳太子の政治改革">
       <h3><span class="sec-no">1</span>聖徳太子の政治改革</h3>
@@ -497,12 +530,9 @@
   <div class="tband"><span class="tno">2</span><h2>大化の改新</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
   
     <div class="step" data-label="この単元でわかること">
+      <img class="cover-img" src="img/cover-taika-reform.webp"
+           alt="大化の改新（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">天皇をしのぐほどの力を持った豪族を倒し、国のしくみをまるごと作り直そうとした大事件があったんだ。</div></div>
-      <div class="overview">
-        <div class="ov-h">🎯 この単元でわかること</div>
-        <ul class="ov-list"><li><span class="ov-num">1</span><span>中大兄皇子・中臣鎌足が行った大化の改新と公地公民の方針</span></li><li><span class="ov-num">2</span><span>白村江の戦いの敗北と、そのあとの九州防衛の強化</span></li><li><span class="ov-num">3</span><span>壬申の乱に勝利した天武天皇による律令国家づくり</span></li></ul>
-      </div>
-      <figure class="hero"><img src="img/hist04-taika.webp" alt="" loading="lazy"></figure>
     </div>
     <div class="step" data-label="大化の改新">
       <h3><span class="sec-no">1</span>大化の改新</h3>
@@ -636,12 +666,9 @@
   <div class="tband"><span class="tno">3</span><h2>律令国家と奈良時代</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
   
     <div class="step" data-label="この単元でわかること">
+      <img class="cover-img" src="img/cover-ritsuryo-nara.webp"
+           alt="律令国家と奈良時代（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">中国にならった本格的な法律と、碁盤の目のような大きな都を持つ国へ、日本が大きく近づいた時代だよ。</div></div>
-      <div class="overview">
-        <div class="ov-h">🎯 この単元でわかること</div>
-        <ul class="ov-list"><li><span class="ov-num">1</span><span>刑罰の律と政治の令からなる大宝律令と国のしくみ</span></li><li><span class="ov-num">2</span><span>唐の長安をモデルにした奈良時代の都・平城京の誕生</span></li></ul>
-      </div>
-      <figure class="hero"><img src="img/hist04-nara.webp" alt="" loading="lazy"></figure>
     </div>
     <div class="step" data-label="大宝律令と国のしくみ">
       <h3><span class="sec-no">1</span>大宝律令と国のしくみ</h3>
@@ -768,12 +795,9 @@
   <div class="tband"><span class="tno">4</span><h2>班田収授法と税制度</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
   
     <div class="step" data-label="この単元でわかること">
+      <img class="cover-img" src="img/cover-handen-tax.webp"
+           alt="班田収授法と税制度（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">土地をもらえる代わりに、人々は重い税や兵役の義務も背負うことになったんだ。</div></div>
-      <div class="overview">
-        <div class="ov-h">🎯 この単元でわかること</div>
-        <ul class="ov-list"><li><span class="ov-num">1</span><span>6歳以上に口分田を与える班田収授法のしくみ</span></li><li><span class="ov-num">2</span><span>租・調・庸などの税と防人などの兵役の重い負担</span></li><li><span class="ov-num">3</span><span>墾田永年私財法をきっかけに荘園が生まれたこと</span></li></ul>
-      </div>
-      <figure class="hero"><img src="img/hist04-handen.webp" alt="" loading="lazy"></figure>
     </div>
     <div class="step" data-label="班田収授法と口分田">
       <h3><span class="sec-no">1</span>班田収授法と口分田</h3>
@@ -919,12 +943,9 @@
   <div class="tband"><span class="tno">5</span><h2>天平文化</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
   
     <div class="step" data-label="この単元でわかること">
+      <img class="cover-img" src="img/cover-tenpyo-culture.webp"
+           alt="天平文化（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">仏教の力にすがって国を守ろうとした天皇の願いが、国際色豊かな文化を生んだんだ。</div></div>
-      <div class="overview">
-        <div class="ov-h">🎯 この単元でわかること</div>
-        <ul class="ov-list"><li><span class="ov-num">1</span><span>聖武天皇が仏教の力で国を守ろうとした鎮護国家の考え方</span></li><li><span class="ov-num">2</span><span>正倉院や鑑真の来日にみる国際色豊かな天平文化</span></li><li><span class="ov-num">3</span><span>古事記・日本書紀・万葉集という奈良時代の書物</span></li></ul>
-      </div>
-      <figure class="hero"><img src="img/hist04-daibutsu.webp" alt="" loading="lazy"><figcaption>天平文化の象徴・東大寺の大仏</figcaption></figure>
     </div>
     <div class="step" data-label="聖武天皇と鎮護国家">
       <h3><span class="sec-no">1</span>聖武天皇と鎮護国家</h3>
@@ -1058,12 +1079,9 @@
   <div class="tband"><span class="tno">6</span><h2>平安京と新しい仏教</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
   
     <div class="step" data-label="この単元でわかること">
+      <img class="cover-img" src="img/cover-heian-capital.webp"
+           alt="平安京と新しい仏教（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">都を移し、東北を平定し、新しい仏教を迎え入れる。桓武天皇の時代に、平安の世が幕を開けたんだ。</div></div>
-      <div class="overview">
-        <div class="ov-h">🎯 この単元でわかること</div>
-        <ul class="ov-list"><li><span class="ov-num">1</span><span>桓武天皇が律令政治を立て直すために行った平安京への遷都</span></li><li><span class="ov-num">2</span><span>坂上田村麻呂による東北地方の蝦夷の平定</span></li><li><span class="ov-num">3</span><span>最澄の天台宗と空海の真言宗という新しい山岳仏教</span></li></ul>
-      </div>
-      <figure class="hero"><img src="img/hist04-heian-capital.webp" alt="" loading="lazy"><figcaption>平安京と新しい仏教</figcaption></figure>
     </div>
     <div class="step" data-label="桓武天皇と平安京への遷都">
       <h3><span class="sec-no">1</span>桓武天皇と平安京への遷都</h3>
@@ -1209,12 +1227,9 @@
   <div class="tband"><span class="tno">7</span><h2>摂関政治</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
   
     <div class="step" data-label="この単元でわかること">
+      <img class="cover-img" src="img/cover-sekkan-politics.webp"
+           alt="摂関政治（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">天皇の親戚という立場を使って、一つの一族が政治を思うままに動かした時代があったんだ。</div></div>
-      <div class="overview">
-        <div class="ov-h">🎯 この単元でわかること</div>
-        <ul class="ov-list"><li><span class="ov-num">1</span><span>藤原氏が外戚として実権を握った摂関政治のしくみ</span></li><li><span class="ov-num">2</span><span>藤原道長・頼通のころに全盛期を迎えた摂関政治</span></li><li><span class="ov-num">3</span><span>摂関政治から上皇が実権を握る院政へ移り変わったこと</span></li></ul>
-      </div>
-      <figure class="hero"><img src="img/hist04-sekkan-politics.webp" alt="" loading="lazy"><figcaption>摂関政治</figcaption></figure>
     </div>
     <div class="step" data-label="藤原氏と摂関政治のしくみ">
       <h3><span class="sec-no">1</span>藤原氏と摂関政治のしくみ</h3>
@@ -1360,12 +1375,9 @@
   <div class="tband"><span class="tno">8</span><h2>国風文化</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
   
     <div class="step" data-label="この単元でわかること">
+      <img class="cover-img" src="img/cover-kokufu-culture.webp"
+           alt="国風文化（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">中国のお手本から少し離れ、日本らしい感性で書かれた文学が花開いた時代だよ。</div></div>
-      <div class="overview">
-        <div class="ov-h">🎯 この単元でわかること</div>
-        <ul class="ov-list"><li><span class="ov-num">1</span><span>遣唐使の停止をきっかけに発展した国風文化</span></li><li><span class="ov-num">2</span><span>かな文字で書かれた源氏物語・枕草子などの女性文学</span></li><li><span class="ov-num">3</span><span>寝殿造の貴族のくらしと、極楽浄土を願う浄土信仰</span></li></ul>
-      </div>
-      <figure class="hero"><img src="img/hist04-byodoin.webp" alt="" loading="lazy"><figcaption>国風文化と浄土信仰・平等院鳳凰堂</figcaption></figure>
     </div>
     <div class="step" data-label="遣唐使の停止と国風文化">
       <h3><span class="sec-no">1</span>遣唐使の停止と国風文化</h3>

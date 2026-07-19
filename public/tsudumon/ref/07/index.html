@@ -1,0 +1,1650 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>歴史 ⑦ ヨーロッパと天下統一｜つづもん参考書</title>
+<style>
+  :root { --brand:#b45309; --deep:#7c2d12; --amber:#f59e0b; --cream:#fffdf8; --line:#fde68a; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { -webkit-text-size-adjust:100%; }
+  body { font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;
+         font-size:16px; line-height:1.95; color:#1c1917; background:var(--cream);
+         padding-bottom:86px; }
+  .wrap { max-width:640px; margin:0 auto; padding:0 16px 24px; }
+
+  .mark { background:linear-gradient(transparent 55%, var(--line) 55%); font-weight:bold; padding:0 1px; }
+
+  /* ── 上部: タイトル＋単元タブ＋進捗バー ── */
+  .bar { position:sticky; top:0; z-index:10; background:rgba(255,253,248,.96);
+         backdrop-filter:blur(6px); border-bottom:1px solid #f0e6d2; }
+  .bar-in { max-width:640px; margin:0 auto; padding:8px 16px 0; }
+  .bar-row { display:flex; align-items:center; gap:8px; }
+  .bar-title { font-weight:bold; color:var(--deep); font-size:14px; flex:1;
+               white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .bar-step { flex:none; font-size:12px; font-weight:bold; color:var(--brand); }
+  .tabs { display:flex; gap:6px; overflow-x:auto; padding:8px 0;
+          scrollbar-width:none; -webkit-overflow-scrolling:touch; }
+  .tabs::-webkit-scrollbar { display:none; }
+  .tab { flex:none; width:36px; height:36px; border-radius:50%; border:1.5px solid var(--line);
+         background:#fffbeb; color:var(--brand); font-size:15px; font-weight:bold;
+         display:inline-flex; align-items:center; justify-content:center; cursor:pointer; }
+  .tab.done { background:#fef3c7; }
+  .tab.done::after { content:""; }
+  .tab.on { background:var(--brand); border-color:var(--brand); color:#fff;
+            box-shadow:0 2px 6px rgba(180,83,9,.35); }
+  .pbar { height:3px; background:#f5ecd8; border-radius:2px; overflow:hidden; margin:0 0 0; }
+  .pfill { height:100%; width:0; background:linear-gradient(90deg,var(--amber),#fbbf24);
+           border-radius:2px; transition:width .25s ease; }
+
+  /* ── ビュー / ステップ ── */
+  .view { display:none; }
+  .view.on { display:block; position:relative; animation:vfade .18s ease; }
+  @keyframes vfade { from { opacity:.6; } to { opacity:1; } }
+  .step { display:none; }
+  .step.on { display:block; }
+  /* 本物っぽいページめくり（2枚重ね）:
+     進む = 今のページ自体が左とじに沿って手前にめくれて去り、下から次のページが現れる。
+     戻る = 前のページが手前からめくり戻されて上に着地する。 */
+  /* min-height:100% = 下に敷かれた新ページ全体を覆う（絶対配置なので view の実高さに解決される。
+     これが無いと、めくれるページより新ページが長いとき下端が透けて見える） */
+  .step.turn-out { display:block; position:absolute; top:0; left:0; width:100%; min-height:100%;
+                   z-index:3; pointer-events:none; background:var(--cream);
+                   transform-origin:left center;
+                   animation:turnOut .45s cubic-bezier(.55,.06,.68,.19) forwards; }
+  @keyframes turnOut {
+    0%   { transform:perspective(1200px) rotateY(0); opacity:1; }
+    75%  { opacity:1; }
+    100% { transform:perspective(1200px) rotateY(-88deg); opacity:0; } }
+  .step.turn-out::after { content:""; position:absolute; inset:0; pointer-events:none;
+                          background:linear-gradient(to right, transparent 55%, rgba(124,45,18,.12)); }
+  .step.on.turn-in { position:relative; z-index:3; background:var(--cream);
+                     transform-origin:left center;
+                     animation:turnIn .45s cubic-bezier(.22,.72,.32,1); }
+  @keyframes turnIn {
+    from { transform:perspective(1200px) rotateY(-88deg); }
+    to   { transform:perspective(1200px) rotateY(0); } }
+  .step.turn-under { display:block; position:absolute; top:0; left:0; width:100%; z-index:1;
+                     pointer-events:none; max-height:100%; overflow:hidden; }
+
+  /* ホーム */
+  .top { text-align:center; padding:26px 0 6px; }
+  .badge { display:inline-block; background:var(--brand); color:#fff; font-weight:bold;
+           padding:4px 16px; border-radius:20px; font-size:13px; }
+  .webtag { background:rgba(255,255,255,.25); border-radius:10px; padding:1px 8px;
+            font-size:11px; margin-left:4px; }
+  .top h1 { font-size:29px; color:var(--deep); margin-top:12px; line-height:1.4; }
+  .sub { color:#92400e; font-size:14px; margin-top:2px; }
+  .cover-navi { display:flex; align-items:center; gap:12px; justify-content:center;
+                margin:18px auto 4px; max-width:420px; text-align:left; }
+  .navi { width:56px; height:56px; border-radius:50%; object-fit:cover; flex:none;
+          box-shadow:0 1px 4px rgba(0,0,0,.15); }
+  /* キャラは丸トリミングせず全身を表示（透過PNG） */
+  .navi-char { width:auto; border-radius:0; object-fit:contain; background:none; box-shadow:none;
+               filter:drop-shadow(0 1px 2px rgba(0,0,0,.18)); }
+  .tband .tchar { height:40px; margin-left:auto; }
+  .sum30-navi { display:flex; align-items:center; justify-content:flex-end; gap:8px;
+                padding:0 12px 10px; margin-top:-2px; }
+  .sum30-navi .navi-char { height:46px; }
+  .sum30-bubble { position:relative; background:#fff; border:1.5px solid var(--amber); border-radius:12px;
+                  padding:6px 12px; font-size:12.5px; font-weight:bold; color:var(--deep); }
+  .sum30-bubble::after { content:""; position:absolute; right:-11px; top:50%; transform:translateY(-50%);
+                         border:6px solid transparent; border-left-color:var(--amber); }
+  .navi-emoji { background:#fef3c7; display:flex; align-items:center; justify-content:center; font-size:30px; }
+  .bubble { position:relative; background:#fff; border:2px solid var(--amber); border-radius:12px;
+            padding:8px 14px; font-size:13px; font-weight:bold; color:var(--deep); }
+  .bubble::before { content:""; position:absolute; left:-12px; top:50%; transform:translateY(-50%);
+                    border:6px solid transparent; border-right-color:var(--amber); }
+  .resume { display:block; width:100%; margin:16px 0 0; background:var(--brand); color:#fff;
+            border:none; border-radius:14px; padding:13px; font-size:15px; font-weight:bold;
+            cursor:pointer; box-shadow:0 3px 8px rgba(180,83,9,.3); }
+  .resume span { font-weight:normal; font-size:12px; opacity:.9; margin-left:8px; }
+  .toc { margin:16px 0 8px; background:#fff; border:2px solid var(--line); border-radius:14px;
+         padding:14px; }
+  .toc-h { font-weight:bold; color:var(--deep); margin-bottom:6px; font-size:15px; }
+  .toc-item { display:flex; align-items:center; gap:10px; width:100%; padding:11px 6px;
+              background:none; border:none; border-top:1px solid #faf1dc; cursor:pointer;
+              color:#44403c; font-weight:bold; font-size:15px; text-align:left;
+              font-family:inherit; line-height:1.5; }
+  .toc-item:first-of-type { border-top:none; }
+  .toc-no { flex:none; width:24px; height:24px; border-radius:50%; background:var(--amber);
+            color:#fff; display:inline-flex; align-items:center; justify-content:center;
+            font-size:13px; }
+  .toc-name { flex:1; }
+  /* 高さを固定して、✓（環境により絵文字グリフで行ボックスが太る）でも
+     行の高さが他の行と変わらないようにする */
+  .toc-state { flex:none; font-size:11px; font-weight:bold; line-height:1;
+               display:inline-flex; align-items:center; height:20px; }
+  .toc-state.done { color:#16a34a; }
+  .toc-state.doing { color:var(--brand); background:#fffbeb; border:1px solid var(--line);
+                     border-radius:10px; padding:1px 8px; }
+
+  /* 単元ヘッダー */
+  .tband { display:flex; align-items:center; gap:10px; margin:18px 0 14px; }
+  .tno { flex:none; width:34px; height:34px; border-radius:50%; background:var(--brand); color:#fff;
+         display:inline-flex; align-items:center; justify-content:center; font-size:17px;
+         font-weight:bold; box-shadow:0 2px 4px rgba(180,83,9,.3); }
+  .tband h2 { font-size:20px; color:var(--deep); border-bottom:3px solid var(--line);
+              padding-bottom:2px; flex:1; line-height:1.4; }
+
+  .hook { display:flex; align-items:center; gap:12px; margin-bottom:14px; }
+  .hook .bubble { font-weight:normal; font-size:13.5px; line-height:1.8; }
+
+  /* ── 単元表紙デザイン（PDFの単元表紙とおそろい）── */
+  .cover-img { width:100%; display:block; margin:2px 0 14px; border-radius:16px;
+               box-shadow:0 8px 18px rgba(91,68,53,.14); }
+  .cover-art { position:relative; margin:8px 8px 26px; padding:10px;
+               background:#fffaf1; border:2px solid rgba(180,83,9,.35); border-radius:14px;
+               box-shadow:0 10px 18px rgba(91,68,53,.16); transform:rotate(-1.6deg); }
+  .cover-art.art-even { transform:rotate(1.6deg); }
+  .cover-art img { width:100%; border-radius:10px; display:block; }
+  .cover-art::before, .cover-art::after { content:""; position:absolute; top:-12px;
+               width:84px; height:26px; border-radius:5px; background:rgba(217,119,6,.32);
+               box-shadow:0 2px 4px rgba(91,68,53,.1); z-index:1; }
+  .cover-art::before { left:22px; transform:rotate(-7deg); }
+  .cover-art::after { right:22px; transform:rotate(7deg); }
+  .cover-art figcaption { font-size:12px; color:#a8a29e; text-align:center; margin-top:6px; }
+
+  .overview { background:rgba(255,255,255,.94); border:2.5px solid rgba(180,83,9,.45);
+              border-radius:16px; padding:16px 16px 8px; margin-bottom:14px;
+              box-shadow:0 8px 16px rgba(91,68,53,.1); }
+  .ov-h { font-weight:bold; font-size:16px; color:var(--deep); margin-bottom:6px; }
+  .ov-list { list-style:none; display:flex; flex-direction:column; }
+  .ov-list li { display:flex; align-items:flex-start; gap:10px; padding:9px 2px;
+                font-size:14px; font-weight:bold; color:#44372e; line-height:1.6; }
+  .ov-list li + li { border-top:2px dashed rgba(180,83,9,.22); }
+  .ov-num { flex:none; width:24px; height:24px; border-radius:50%; background:var(--brand);
+            color:#fff; font-weight:bold; display:inline-flex; align-items:center;
+            justify-content:center; font-size:13px; margin-top:2px; }
+
+  .cheer { display:flex; align-items:center; justify-content:center; gap:12px; margin:2px 0 12px; }
+  .cheer-char { width:76px; filter:drop-shadow(0 3px 5px rgba(91,68,53,.2)); }
+  .cheer-bubble { position:relative; background:#fff; border:2px solid rgba(180,83,9,.55);
+                  border-radius:14px; padding:8px 14px; font-size:13.5px; font-weight:bold;
+                  color:#5b4435; }
+  .cheer-bubble::before { content:""; position:absolute; left:-9px; top:50%; width:14px; height:14px;
+                  background:#fff; border-left:2px solid rgba(180,83,9,.55);
+                  border-bottom:2px solid rgba(180,83,9,.55);
+                  transform:translateY(-50%) rotate(45deg); }
+
+  .hero { margin:0 0 8px; }
+  .hero img { width:100%; border-radius:14px; display:block; }
+  .hero figcaption { font-size:12px; color:#a8a29e; text-align:center; margin-top:4px; }
+
+  /* 節 */
+  .step h3 { font-size:18px; color:var(--deep); display:flex; align-items:center; gap:8px; line-height:1.5; }
+  .sec-no { flex:none; width:22px; height:22px; border-radius:50%; background:#fff;
+            border:1.5px solid var(--line); color:var(--brand); font-weight:bold;
+            display:inline-flex; align-items:center; justify-content:center; font-size:12px; }
+  .sec-lead { font-size:13px; color:var(--brand); font-weight:bold; margin:2px 0 4px 30px; }
+  .step p { margin-top:8px; text-align:justify; }
+  .point { background:#fff9c4; border-left:6px solid #fbbf24; border-radius:8px;
+           padding:10px 12px; margin-top:12px; font-size:14px; line-height:1.8; }
+  .ptag { font-weight:bold; color:var(--brand); }
+  .ptxt { color:#44403c; margin-top:2px; }
+  .tip { background:#fffbeb; border-radius:10px; padding:10px 12px; font-size:13.5px;
+         color:#44403c; line-height:1.8; }
+  .words { display:flex; flex-direction:column; gap:6px; margin-top:12px; }
+  .word { background:#fff; border:1px solid #f0e6d2; border-radius:10px; padding:8px 12px;
+          font-size:13.5px; line-height:1.7; }
+  .w-term { font-weight:bold; color:var(--brand); margin-right:8px; }
+  .w-rd { font-weight:normal; font-size:11px; color:#b8b0a6; margin-left:4px; }
+  .w-desc { color:#57534e; }
+
+  /* 重要語チェック */
+  .terms-h { font-size:18px; font-weight:bold; color:var(--deep); }
+  .terms-sub { font-size:12px; font-weight:normal; color:#a8a29e; margin-left:8px; }
+  .terms-tools { display:flex; align-items:center; justify-content:space-between; gap:8px;
+                 flex-wrap:wrap; margin:6px 0 10px; }
+  .tt-btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .shuffle-btn, .swap-btn { flex:none; display:inline-flex; align-items:center; gap:4px;
+                 font-family:inherit; font-size:13px; font-weight:bold; cursor:pointer;
+                 border-radius:16px; padding:6px 13px; }
+  .shuffle-btn { color:#fff; background:var(--brand); border:none; box-shadow:0 2px 6px rgba(180,83,9,.3); }
+  .swap-btn { color:var(--brand); background:#fffbeb; border:1.5px solid var(--line); }
+  .swap-btn.on { color:#fff; background:var(--brand); border-color:var(--brand); box-shadow:0 2px 6px rgba(180,83,9,.3); }
+  .shuffle-btn:active, .swap-btn:active { transform:translateY(1px); }
+  .both-toggle { display:inline-flex; align-items:center; gap:6px; font-size:13px;
+                 font-weight:bold; color:#57534e; cursor:pointer; }
+  .both-toggle input { width:16px; height:16px; accent-color:var(--brand); }
+  .tgrid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  /* シャッフル時のふわっと再配置アニメ */
+  .tgrid.shuffling .tcard { animation:tshuffle .34s ease; }
+  @keyframes tshuffle { 0% { opacity:.25; transform:scale(.92); }
+                        100% { opacity:1; transform:none; } }
+  @media (max-width:400px) { .tgrid { grid-template-columns:1fr; } }
+  /* フラッシュカード（タップで表裏。両面表示チェックで従来の一覧に）
+     ─ めくりモード: 全カード同じ高さ（150px）・面は絶対配置で重ねて3D回転
+     ─ 両面モード: 3Dを使わず通常フローで表＋裏を縦に並べる（崩れ防止） */
+  .tcard { position:relative; height:150px; background:none; border:none; padding:0;
+           cursor:pointer; font-family:inherit; text-align:left; perspective:800px; }
+  .tcard-inner { display:block; position:absolute; inset:0; transition:transform .35s;
+                 transform-style:preserve-3d; }
+  .tc-face { position:absolute; inset:0; display:flex; flex-direction:column;
+             align-items:center; justify-content:center; text-align:center; overflow:hidden;
+             backface-visibility:hidden; -webkit-backface-visibility:hidden;
+             border:1.5px solid var(--line); border-radius:10px; padding:10px; background:#fff; }
+  /* 表＝説明（読んで用語を当てる） */
+  .tc-front { background:#fffbeb; overflow-y:auto; }
+  .tc-desc { font-size:13px; color:#44403c; line-height:1.6; font-weight:500; }
+  /* 裏＝用語（こたえ） */
+  .tc-back { transform:rotateY(180deg); }
+  .tc-term { font-weight:bold; font-size:17px; color:var(--deep); line-height:1.5; }
+  .tc-rd { display:block; font-weight:normal; font-size:11px; color:#b8b0a6; margin-top:2px; }
+  .tc-tap { font-size:10px; color:#d6c9a8; margin-top:6px; }
+  .tcard.flipped .tcard-inner { transform:rotateY(180deg); }
+  /* 裏表入れ替え: 用語を先に見せる（意味→用語 ⇄ 用語→意味） */
+  .tgrid.term-first .tcard-inner { transform:rotateY(180deg); }
+  .tgrid.term-first .tcard.flipped .tcard-inner { transform:rotateY(0deg); }
+  /* 両面表示モード（用語→説明の順に縦並べ） */
+  .tgrid.both .tcard { cursor:default; height:auto; perspective:none; }
+  .tgrid.both .tcard-inner { position:static; transform:none !important; transform-style:flat;
+                             display:flex; flex-direction:column; }
+  .tgrid.both .tc-face { position:static; overflow:visible; align-items:flex-start; text-align:left;
+                         backface-visibility:visible; -webkit-backface-visibility:visible; }
+  .tgrid.both .tc-back { order:0; transform:none; border-bottom:none; border-radius:10px 10px 0 0;
+                         padding-bottom:4px; background:#fff; }
+  .tgrid.both .tc-front { order:1; border-top:none; border-radius:0 0 10px 10px; }
+  .tgrid.both .tc-term { font-size:14px; }
+  .tgrid.both .tc-tap { display:none; }
+
+  /* まとめ・完了 */
+  .sum30 { border:2px solid var(--amber); border-radius:14px; overflow:hidden;
+           box-shadow:0 2px 8px rgba(245,158,11,.14); }
+  .sum30-h { background:linear-gradient(90deg,#d97706,var(--amber)); color:#fff; font-weight:bold;
+             font-size:15px; padding:8px 14px; display:flex; align-items:center; gap:8px; }
+  .sum30-tag { margin-left:auto; font-size:11px; background:rgba(255,255,255,.28);
+               padding:2px 10px; border-radius:12px; }
+  .sum30-body { padding:14px 16px; font-size:15px; font-weight:bold; color:#44403c; line-height:2.0;
+                background:#fffdf5; }
+  .sum30-body .mark { background:none; color:#c2410c; padding:0; }
+  .done { text-align:center; font-size:16px; font-weight:bold; color:var(--deep); margin:18px 0 10px; }
+  .wb-btn { display:flex; align-items:center; gap:12px; text-decoration:none;
+            background:var(--brand); color:#fff; border-radius:14px; padding:13px 16px;
+            box-shadow:0 3px 8px rgba(180,83,9,.3); margin-bottom:10px; }
+  .wb-home { display:block; text-align:center; margin:14px 0 0; text-decoration:none;
+             background:var(--brand); color:#fff; border-radius:14px; padding:13px 16px;
+             font-size:15px; font-weight:bold; box-shadow:0 3px 8px rgba(180,83,9,.3); }
+  .ai-btn { display:flex; align-items:center; gap:12px; text-decoration:none;
+            background:#06c755; color:#fff; border-radius:14px; padding:13px 16px;
+            box-shadow:0 3px 8px rgba(6,199,85,.3); }
+  .ai-ico { font-size:24px; flex:none; }
+  .ai-main { flex:1; font-weight:bold; font-size:15px; line-height:1.5; }
+  .ai-sub { display:block; font-weight:normal; font-size:12px; opacity:.9; }
+  .ai-arrow { font-size:22px; opacity:.8; }
+
+  .foot { text-align:center; margin-top:36px; color:#a8a29e; font-size:13px; }
+  .foot-note { margin-top:4px; font-size:12px; }
+
+  /* ── 下部ナビ ── */
+  .navbar { position:fixed; left:0; right:0; bottom:0; z-index:10;
+            background:rgba(255,253,248,.97); border-top:1px solid #f0e6d2;
+            padding:10px 16px calc(10px + env(safe-area-inset-bottom)); }
+  .navbar-in { max-width:640px; margin:0 auto; display:flex; align-items:center; gap:10px; }
+  .nb { border:none; border-radius:14px; padding:12px 0; font-size:15px; font-weight:bold;
+        cursor:pointer; font-family:inherit; }
+  .nb-prev { flex:1; background:#fff; color:var(--brand); border:1.5px solid var(--line); }
+  .nb-next { flex:2; background:var(--brand); color:#fff; box-shadow:0 3px 8px rgba(180,83,9,.3); }
+  .nav-label { position:absolute; left:-9999px; }
+
+  /* ── ホバー: マウスを乗せると「押せる」ことが分かる（タッチ端末では固着しないよう hover 端末限定）── */
+  @media (hover: hover) {
+    .toc-item, .resume, .shuffle-btn, .swap-btn, .tcard, .ai-btn, .wb-btn, .nb,
+    .chat-fab, .chat-close, .chat-login-btn, #chatSend {
+      transition: filter .12s ease, background-color .12s ease; }
+    /* 色つき（塗り）ボタンは少し濃く */
+    .resume:hover, .shuffle-btn:hover, .ai-btn:hover, .nb:hover, .chat-fab:hover,
+    .chat-login-btn:hover, #chatSend:hover { filter: brightness(0.94); }
+    /* 白・枠線ボタン／リスト／カードは薄いアンバーで下地を変える */
+    .toc-item:hover, .swap-btn:hover, .wb-btn:hover, .tcard:hover,
+    .chat-close:hover { background-color: #fff8ec; }
+  }
+
+  /* ── ページ内チャット（スタ先生）── */
+  .chat-fab { position:fixed; right:14px; bottom:calc(84px + env(safe-area-inset-bottom));
+              z-index:20; width:56px; height:56px; border-radius:50%;
+              border:none; background:var(--brand); color:#fff; font-size:26px;
+              cursor:pointer; box-shadow:0 4px 12px rgba(180,83,9,.4); }
+  .chat-fab.hidden { display:none; }
+  .chat-panel { position:fixed; right:12px; bottom:calc(84px + env(safe-area-inset-bottom));
+                z-index:21; width:min(400px, calc(100vw - 24px));
+                height:min(540px, calc(100vh - 160px));
+                display:flex; flex-direction:column; background:var(--cream);
+                border:2px solid var(--line); border-radius:16px;
+                box-shadow:0 10px 30px rgba(68,55,46,.25); overflow:hidden; }
+  .chat-head { display:flex; align-items:center; gap:8px; padding:10px 12px;
+               background:var(--brand); color:#fff; }
+  .chat-title { font-weight:bold; font-size:14px; }
+  .chat-topic { flex:1; font-size:11px; opacity:.9; white-space:nowrap;
+                overflow:hidden; text-overflow:ellipsis; }
+  .chat-close { border:none; background:none; color:#fff; font-size:22px;
+                line-height:1; cursor:pointer; padding:0 4px; }
+  .chat-note { font-size:11px; color:#92400e; background:#fffbeb;
+               border-bottom:1px solid #f0e6d2; padding:6px 12px; }
+  .chat-body { flex:1; overflow-y:auto; padding:12px; display:flex;
+               flex-direction:column; gap:8px; }
+  .chat-msg { max-width:85%; padding:8px 12px; border-radius:14px; font-size:13.5px;
+              line-height:1.7; white-space:pre-wrap; word-break:break-word; }
+  .chat-msg.user { align-self:flex-end; background:var(--brand); color:#fff;
+                   border-bottom-right-radius:4px; }
+  .chat-msg.model { align-self:flex-start; background:#fff; color:#1c1917;
+                    border:1.5px solid var(--line); border-bottom-left-radius:4px; }
+  .chat-msg.sys { align-self:center; background:none; color:#a8a29e; font-size:11.5px;
+                  text-align:center; }
+  .chat-login { padding:16px; text-align:center; border-top:1px solid #f0e6d2; }
+  .chat-login p { font-size:12.5px; color:#57534e; margin-bottom:10px; }
+  .chat-login-btn { display:inline-block; background:#06c755; color:#fff; font-weight:bold;
+                    font-size:14px; padding:10px 22px; border-radius:12px;
+                    text-decoration:none; }
+  .chat-input { display:flex; gap:8px; padding:10px 12px;
+                border-top:1px solid #f0e6d2; background:#fff; }
+  .chat-input input { flex:1; border:1.5px solid var(--line); border-radius:12px;
+                      padding:9px 12px; font-size:14px; font-family:inherit; }
+  .chat-input input:focus { outline:none; border-color:var(--amber); }
+  .chat-input button { border:none; background:var(--brand); color:#fff; font-weight:bold;
+                       font-size:14px; padding:0 18px; border-radius:12px;
+                       cursor:pointer; font-family:inherit; }
+  .chat-input button:disabled { opacity:.5; }
+  .chat-foot { font-size:10.5px; color:#a8a29e; text-align:center; padding:4px 8px 7px;
+               background:#fff; }
+  /* display:flex 指定が UA の [hidden]{display:none} に勝ってしまうのを防ぐ */
+  .chat-panel[hidden], .chat-input[hidden], .chat-login[hidden] { display:none; }
+</style></head><body>
+<div class="bar"><div class="bar-in">
+  <div class="bar-row">
+    <div class="bar-title">歴史 ⑦ ヨーロッパと天下統一</div>
+    <div class="bar-step" id="barStep"></div>
+  </div>
+  <nav class="tabs" id="tabs"><button class="tab tab-home" data-go="0" aria-label="目次">🏠</button><button class="tab" data-go="1" aria-label="ヨーロッパの変革">1</button><button class="tab" data-go="2" aria-label="大航海時代">2</button><button class="tab" data-go="3" aria-label="南蛮貿易とキリスト教">3</button><button class="tab" data-go="4" aria-label="信長・秀吉の天下統一">4</button><button class="tab" data-go="5" aria-label="秀吉の政策と朝鮮出兵">5</button><button class="tab" data-go="6" aria-label="桃山文化">6</button></nav>
+  <div class="pbar"><div class="pfill" id="pfill"></div></div>
+</div></div>
+<main class="wrap" id="views">
+
+<section class="view home" data-t="0">
+  <header class="top">
+    <div class="badge">歴史 ⑦　参考書 <span class="webtag">Web版</span></div>
+    <h1>ヨーロッパと天下統一</h1>
+    <div class="sub">ルネサンス 〜 安土桃山時代</div>
+    <div class="cover-navi"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt="">
+      <div class="bubble">こんにちは！タブか下の単元をえらんで、1ページずつ読み進めよう！</div>
+    </div>
+  </header>
+  <button class="resume" id="resumeBtn" hidden>▶ つづきから読む<span id="resumeWhere"></span></button>
+  <nav class="toc">
+    <div class="toc-h">📚 この本の単元</div>
+    <button class="toc-item" data-go="1"><span class="toc-no">1</span><span class="toc-name">ヨーロッパの変革</span><span class="toc-state" data-state-t="1"></span></button><button class="toc-item" data-go="2"><span class="toc-no">2</span><span class="toc-name">大航海時代</span><span class="toc-state" data-state-t="2"></span></button><button class="toc-item" data-go="3"><span class="toc-no">3</span><span class="toc-name">南蛮貿易とキリスト教</span><span class="toc-state" data-state-t="3"></span></button><button class="toc-item" data-go="4"><span class="toc-no">4</span><span class="toc-name">信長・秀吉の天下統一</span><span class="toc-state" data-state-t="4"></span></button><button class="toc-item" data-go="5"><span class="toc-no">5</span><span class="toc-name">秀吉の政策と朝鮮出兵</span><span class="toc-state" data-state-t="5"></span></button><button class="toc-item" data-go="6"><span class="toc-no">6</span><span class="toc-name">桃山文化</span><span class="toc-state" data-state-t="6"></span></button>
+  </nav>
+  <a class="wb-home" href="../../wb/07/index.html">✏️ 問題集Web版を開く（この本の問題を解く）</a>
+  <footer class="foot">
+    <div>つづもん 参考書 Web版</div>
+    <div class="foot-note">紙やタブレットでじっくり派には、ダウンロード済みのPDF版もどうぞ。</div>
+  </footer>
+</section>
+<section class="view" data-t="1">
+  <div class="tband"><span class="tno">1</span><h2>ヨーロッパの変革</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  
+    <div class="step" data-label="この単元でわかること">
+      <img class="cover-img" src="img/cover-europe-change.webp"
+           alt="ヨーロッパの変革（この単元でわかること）">
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">教会の力が絶対だったヨーロッパで、人々の考え方や信仰のあり方が大きく変わり始めたんだ。何がきっかけだったんだろう?</div></div>
+    </div>
+    <div class="step" data-label="十字軍とその影響">
+      <h3><span class="sec-no">1</span>十字軍とその影響</h3>
+      <div class="sec-lead">十字軍の遠征が、教皇の権威を揺るがせたよ。</div>
+      <p>西ヨーロッパでは、<span class="mark">ローマ教皇</span>を頂点とする<span class="mark">カトリック教会</span>が、国王をしのぐくらい大きな権威を持っていたんだ。11世紀末、教皇の呼びかけで聖地エルサレムを取り戻そうと<span class="mark">十字軍</span>の遠征が始まり、その後なんと約200年も繰り返されたんだよ。でも遠征は結局失敗に終わってしまい、教皇の権威はかえって下がってしまったんだ。その一方で、この間にイスラム世界との交流がさかんになって、進んだ文化や知識がヨーロッパに伝わる大きなきっかけにもなったんだよ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">十字軍は聖地奪還に失敗したけど、教皇の権威は下がったよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">ローマ教皇<span class="w-rd">ローマきょうこう</span></span><span class="w-desc">カトリック教会の頂点に立ち、西ヨーロッパで大きな権威を持った人物。</span></div><div class="word"><span class="w-term">カトリック教会<span class="w-rd">カトリックきょうかい</span></span><span class="w-desc">ローマ教皇を中心とするキリスト教の宗派。</span></div><div class="word"><span class="w-term">十字軍<span class="w-rd">じゅうじぐん</span></span><span class="w-desc">教皇の呼びかけで聖地エルサレム奪還のため派遣された遠征軍。</span></div></div>
+    </div>
+    <div class="step" data-label="ルネサンスの開花">
+      <h3><span class="sec-no">2</span>ルネサンスの開花</h3>
+      <div class="sec-lead">人間らしさを描く、ルネサンスが花開いたよ。</div>
+      <p>14世紀のイタリアでは、古代ギリシャ・ローマの文化をもう一度見直して、人間らしさを表現しようとする文化運動、<span class="mark">ルネサンス</span>(文芸復興)が始まったんだ。「モナ・リザ」を描いた<span class="mark">レオナルド・ダ・ヴィンチ</span>や、「最後の審判」で知られるミケランジェロなど、たくさんの芸術家が活躍したよ。また、このころ発明された<span class="mark">活版印刷</span>の技術のおかげで書物を安く大量に作れるようになり、新しい知識や考え方が人々の間にすばやく広く伝わるようになったんだ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">ルネサンスは、人間らしさを表現するイタリアの文化運動だよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">ルネサンス<span class="w-rd">るねさんす</span></span><span class="w-desc">古代ギリシャ・ローマ文化を見直し、人間らしさを表現しようとした文化運動。</span></div><div class="word"><span class="w-term">レオナルド・ダ・ヴィンチ<span class="w-rd">れおなるど・だ・う゛ぃんち</span></span><span class="w-desc">「モナ・リザ」を描いたルネサンスの巨匠。</span></div></div>
+    </div>
+    <div class="step" data-label="宗教改革とカトリックの巻き返し">
+      <h3><span class="sec-no">3</span>宗教改革とカトリックの巻き返し</h3>
+      <div class="sec-lead">ルターの宗教改革から、対立が生まれたよ。</div>
+      <p>1517年、ドイツの<span class="mark">ルター</span>は、「これを買えば罪が許される」として売られていた免罪符をカトリック教会が売り出したことに疑問を持ち、批判して<span class="mark">宗教改革</span>を始めたんだ。この動きに賛同してカトリック教会に抗議する人々は<span class="mark">プロテスタント</span>と呼ばれ、スイスのカルバンも改革を進めたよ。教会の権威がゆらぐ中、カトリック教会側も<span class="mark">イエズス会</span>という組織をつくって信者を増やす活動に力を入れ、宣教師を海外へ送り出して巻き返しをはかったんだ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">ルターの宗教改革でプロテスタントが生まれ、教会も対抗したよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">ルター<span class="w-rd">るたー</span></span><span class="w-desc">免罪符販売を批判し、ドイツで宗教改革を始めた人物。</span></div><div class="word"><span class="w-term">プロテスタント<span class="w-rd">ぷろてすたんと</span></span><span class="w-desc">ルターやカルバンを支持し、カトリック教会に抗議した人々。</span></div><div class="word"><span class="w-term">イエズス会<span class="w-rd">いえずすかい</span></span><span class="w-desc">宗教改革に対抗して、カトリック教会側がつくった組織。</span></div></div>
+    </div>
+    <div class="step" data-label="重要語チェック">
+      <div class="terms-h">📖 重要語チェック<span class="terms-sub">意味を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="tgrid"><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">カトリック教会の頂点に立ち、西ヨーロッパで大きな権威を持った人物。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">ローマ教皇</span>
+          <span class="tc-rd">ローマきょうこう</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">ローマ教皇を中心とするキリスト教の宗派。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">カトリック教会</span>
+          <span class="tc-rd">カトリックきょうかい</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">教皇の呼びかけで聖地エルサレム奪還のため派遣された遠征軍。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">十字軍</span>
+          <span class="tc-rd">じゅうじぐん</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">古代ギリシャ・ローマ文化を見直し、人間らしさを表現しようとした文化運動。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">ルネサンス</span>
+          <span class="tc-rd">るねさんす</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">「モナ・リザ」を描いたルネサンスの巨匠。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">レオナルド・ダ・ヴィンチ</span>
+          <span class="tc-rd">れおなるど・だ・う゛ぃんち</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">免罪符販売を批判し、ドイツで宗教改革を始めた人物。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">ルター</span>
+          <span class="tc-rd">るたー</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">ルターやカルバンを支持し、カトリック教会に抗議した人々。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">プロテスタント</span>
+          <span class="tc-rd">ぷろてすたんと</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">宗教改革に対抗して、カトリック教会側がつくった組織。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">イエズス会</span>
+          <span class="tc-rd">いえずすかい</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button></div>
+    </div>
+    <div class="step" data-label="30秒まとめ">
+      
+      <div class="sum30">
+        <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
+        <div class="sum30-body"><span class="mark">十字軍</span>は聖地奪還には失敗したけれど、教皇の権威を低下させ東西交流をさかんにしたよ。14世紀イタリアで始まった<span class="mark">ルネサンス</span>は人間らしさを重んじる文化を生み、1517年のルターの<span class="mark">宗教改革</span>は<span class="mark">プロテスタント</span>を誕生させたんだ。カトリック教会も<span class="mark">イエズス会</span>で対抗していったんだよ。</div>
+        
+        <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
+          <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
+      </div>
+      <div class="done">🎉 この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/07/index.html#t2"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=07-europe-change" target="_blank" rel="noopener">
+        <span class="ai-ico">🤖</span>
+        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
+        <span class="ai-arrow">›</span>
+      </a>
+    </div>
+</section>
+<section class="view" data-t="2">
+  <div class="tband"><span class="tno">2</span><h2>大航海時代</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  
+    <div class="step" data-label="この単元でわかること">
+      <img class="cover-img" src="img/cover-europe-spread.webp"
+           alt="大航海時代（この単元でわかること）">
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">香辛料を求めて大海原へ乗り出したヨーロッパ人が、世界の姿をがらりと変えていったんだよ。想像できるかな?</div></div>
+    </div>
+    <div class="step" data-label="新航路の開拓">
+      <h3><span class="sec-no">1</span>新航路の開拓</h3>
+      <div class="sec-lead">ヨーロッパ人が、新しい航路を切り開いたよ。</div>
+      <p>15世紀以降、香辛料やキリスト教の布教を求めたヨーロッパ人は、新しい航路を切り開いて世界各地へ進出する<span class="mark">大航海時代</span>を迎えたんだ。1498年、ポルトガル人の<span class="mark">バスコ・ダ・ガマ</span>はアフリカ南端を回ってインドにたどり着き、インド航路を開いたよ。1492年には<span class="mark">コロンブス</span>がスペインの支援を受けて大西洋を横断し、カリブ海の島に到達したんだけど、本人は最後まで「アジアに着いた」と信じていたんだって。面白いよね。1522年には<span class="mark">マゼランの船隊</span>が世界一周をなしとげ、地球が丸いことが実際に証明されたんだ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">バスコ・ダ・ガマ、コロンブス、マゼランが新航路を切り開いたよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">大航海時代<span class="w-rd">だいこうかいじだい</span></span><span class="w-desc">ヨーロッパ人が新しい航路を開き、世界各地へ進出した時代。</span></div><div class="word"><span class="w-term">バスコ・ダ・ガマ<span class="w-rd">ばすこ・だ・がま</span></span><span class="w-desc">アフリカ南端を回ってインドに到達したポルトガル人。</span></div><div class="word"><span class="w-term">コロンブス<span class="w-rd">ころんぶす</span></span><span class="w-desc">スペインの支援で大西洋を横断し、カリブ海の島に到達した人物。</span></div><div class="word"><span class="w-term">マゼランの船隊<span class="w-rd">まぜらんのせんたい</span></span><span class="w-desc">1522年に世界一周を達成した船隊。</span></div></div>
+    </div>
+    <div class="step" data-label="南北アメリカの征服と三角貿易">
+      <h3><span class="sec-no">2</span>南北アメリカの征服と三角貿易</h3>
+      <div class="sec-lead">アメリカ大陸の征服と、悲しい奴隷貿易だよ。</div>
+      <p>スペインは中南米へ進出し、ピサロが<span class="mark">インカ帝国</span>を、コルテスが<span class="mark">アステカ帝国</span>をそれぞれ滅ぼして、広大な植民地を築いたんだ。ヨーロッパ・アフリカ・アメリカ大陸を結ぶ<span class="mark">三角貿易</span>では、ヨーロッパが武器などをアフリカへ運び、多くのアフリカ人が奴隷としてアメリカ大陸へ無理やり送られてしまったんだよ。悲しい歴史だね。また、オランダは<span class="mark">東インド会社</span>を設立して、アジアの香辛料貿易を独占し、大きな利益を上げたんだ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">スペインは中南米を征服し、三角貿易で奴隷も送られたよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">インカ帝国<span class="w-rd">いんかていこく</span></span><span class="w-desc">スペインのピサロが滅ぼした南米の帝国。</span></div><div class="word"><span class="w-term">アステカ帝国<span class="w-rd">あすてかていこく</span></span><span class="w-desc">スペインのコルテスが滅ぼしたメキシコの帝国。</span></div><div class="word"><span class="w-term">三角貿易<span class="w-rd">さんかくぼうえき</span></span><span class="w-desc">ヨーロッパ・アフリカ・アメリカ大陸を結んだ、奴隷貿易を伴う貿易。</span></div><div class="word"><span class="w-term">東インド会社<span class="w-rd">ひがしいんどがいしゃ</span></span><span class="w-desc">オランダがアジア貿易のために設立した会社。</span></div></div>
+    </div>
+    <div class="step" data-label="重要語チェック">
+      <div class="terms-h">📖 重要語チェック<span class="terms-sub">意味を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="tgrid"><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">ヨーロッパ人が新しい航路を開き、世界各地へ進出した時代。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">大航海時代</span>
+          <span class="tc-rd">だいこうかいじだい</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">アフリカ南端を回ってインドに到達したポルトガル人。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">バスコ・ダ・ガマ</span>
+          <span class="tc-rd">ばすこ・だ・がま</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">スペインの支援で大西洋を横断し、カリブ海の島に到達した人物。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">コロンブス</span>
+          <span class="tc-rd">ころんぶす</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1522年に世界一周を達成した船隊。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">マゼランの船隊</span>
+          <span class="tc-rd">まぜらんのせんたい</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">スペインのピサロが滅ぼした南米の帝国。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">インカ帝国</span>
+          <span class="tc-rd">いんかていこく</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">スペインのコルテスが滅ぼしたメキシコの帝国。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">アステカ帝国</span>
+          <span class="tc-rd">あすてかていこく</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">ヨーロッパ・アフリカ・アメリカ大陸を結んだ、奴隷貿易を伴う貿易。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">三角貿易</span>
+          <span class="tc-rd">さんかくぼうえき</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">オランダがアジア貿易のために設立した会社。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">東インド会社</span>
+          <span class="tc-rd">ひがしいんどがいしゃ</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button></div>
+    </div>
+    <div class="step" data-label="30秒まとめ">
+      
+      <div class="sum30">
+        <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
+        <div class="sum30-body">大航海時代、<span class="mark">バスコ・ダ・ガマ</span>はインド航路を、<span class="mark">コロンブス</span>はカリブ海への到達を、<span class="mark">マゼランの船隊</span>は世界一周を成しとげたよ。スペインは中南米のインカ・アステカ両帝国を滅ぼし、ヨーロッパ・アフリカ・アメリカを結ぶ<span class="mark">三角貿易</span>では、多くのアフリカ人が奴隷として送られてしまったんだ。</div>
+        
+        <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
+          <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
+      </div>
+      <div class="done">🎉 この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/07/index.html#t3"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=07-europe-spread" target="_blank" rel="noopener">
+        <span class="ai-ico">🤖</span>
+        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
+        <span class="ai-arrow">›</span>
+      </a>
+    </div>
+</section>
+<section class="view" data-t="3">
+  <div class="tband"><span class="tno">3</span><h2>南蛮貿易とキリスト教</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  
+    <div class="step" data-label="この単元でわかること">
+      <img class="cover-img" src="img/cover-nanban-trade.webp"
+           alt="南蛮貿易とキリスト教（この単元でわかること）">
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">海の向こうから伝わった鉄砲と十字架が、戦国の日本を大きく揺さぶることになったんだよ。どんな変化が起きたか見てみよう。</div></div>
+    </div>
+    <div class="step" data-label="鉄砲伝来">
+      <h3><span class="sec-no">1</span>鉄砲伝来</h3>
+      <div class="sec-lead">種子島に鉄砲が伝わり、戦い方が変わったよ。</div>
+      <p>1543年、ポルトガル人を乗せた中国船が九州南方の<span class="mark">種子島</span>に流れ着いて、<span class="mark">鉄砲</span>が日本に伝えられたんだ。領主の種子島時尭が鉄砲の国産化を進め、その後鉄砲は近江の国友や和泉の堺でどんどん量産されるようになったよ。これによって、それまでの弓矢や刀を中心とした戦い方は大きく変わり、鉄砲をうまく使えるかどうかが戦国大名の勝敗を左右するようになっていったんだ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1543年、種子島に鉄砲が伝わり戦い方が変わったよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">鉄砲<span class="w-rd">てっぽう</span></span><span class="w-desc">1543年、種子島に伝えられ、戦国大名の戦い方を変えた武器。</span></div><div class="word"><span class="w-term">種子島<span class="w-rd">たねがしま</span></span><span class="w-desc">1543年に鉄砲が伝来した九州南方の島。</span></div></div>
+    </div>
+    <div class="step" data-label="ザビエルの来日と南蛮貿易">
+      <h3><span class="sec-no">2</span>ザビエルの来日と南蛮貿易</h3>
+      <div class="sec-lead">ザビエルが、キリスト教と貿易を伝えたよ。</div>
+      <p>1549年、イエズス会の宣教師<span class="mark">ザビエル</span>が鹿児島に上陸して、日本にキリスト教を伝えたんだ。それ以降、日本はポルトガル人・スペイン人との<span class="mark">南蛮貿易</span>を行い、銀を輸出して中国産の生糸などを輸入するようになったよ。貿易の利益を得ることなどを目的にキリスト教を受け入れる大名も現れて、<span class="mark">キリシタン大名</span>と呼ばれたんだ。1580年には大村純忠が<span class="mark">長崎</span>をイエズス会に寄進し、長崎は南蛮貿易の中心地としてにぎわうことになったんだよ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">ザビエルがキリスト教を伝え、南蛮貿易も始まったよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">ザビエル<span class="w-rd">ざびえる</span></span><span class="w-desc">1549年に日本へキリスト教を伝えたイエズス会の宣教師。</span></div><div class="word"><span class="w-term">南蛮貿易<span class="w-rd">なんばんぼうえき</span></span><span class="w-desc">ポルトガル人・スペイン人との貿易。日本は銀を輸出し生糸を輸入した。</span></div><div class="word"><span class="w-term">キリシタン大名<span class="w-rd">きりしたんだいみょう</span></span><span class="w-desc">南蛮貿易の利益などを目的にキリスト教を受け入れた大名。</span></div><div class="word"><span class="w-term">長崎<span class="w-rd">ながさき</span></span><span class="w-desc">1580年にイエズス会に寄進され、南蛮貿易の中心地として栄えた港町。</span></div></div>
+    </div>
+    <div class="step" data-label="天正遣欧使節と南蛮文化">
+      <h3><span class="sec-no">3</span>天正遣欧使節と南蛮文化</h3>
+      <div class="sec-lead">少年使節がローマへ、南蛮文化も伝わったよ。</div>
+      <p>1582年、キリシタン大名の大友宗麟らは、4人の少年をローマ教皇のもとへ送る<span class="mark">天正遣欧使節</span>を派遣したんだ。少年たちは実に8年後に日本へ帰ってきたんだよ。このころ、ヨーロッパの文物が日本に伝わる<span class="mark">南蛮文化</span>も広まっていって、宣教師が持ち込んだ活版印刷術によって「平家物語」などがローマ字で印刷されたり、カステラなどの南蛮の菓子も日本に伝えられたりしたんだ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">キリシタン大名が天正遣欧使節を送り、南蛮文化も広まったよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">天正遣欧使節<span class="w-rd">てんしょうけんおうしせつ</span></span><span class="w-desc">1582年、キリシタン大名がローマ教皇のもとへ送った少年使節。</span></div><div class="word"><span class="w-term">南蛮文化<span class="w-rd">なんばんぶんか</span></span><span class="w-desc">ポルトガル人・スペイン人との交流で日本に広まった文化。</span></div></div>
+    </div>
+    <div class="step" data-label="重要語チェック">
+      <div class="terms-h">📖 重要語チェック<span class="terms-sub">意味を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="tgrid"><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1543年、種子島に伝えられ、戦国大名の戦い方を変えた武器。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">鉄砲</span>
+          <span class="tc-rd">てっぽう</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1543年に鉄砲が伝来した九州南方の島。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">種子島</span>
+          <span class="tc-rd">たねがしま</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1549年に日本へキリスト教を伝えたイエズス会の宣教師。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">ザビエル</span>
+          <span class="tc-rd">ざびえる</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">ポルトガル人・スペイン人との貿易。日本は銀を輸出し生糸を輸入した。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">南蛮貿易</span>
+          <span class="tc-rd">なんばんぼうえき</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">南蛮貿易の利益などを目的にキリスト教を受け入れた大名。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">キリシタン大名</span>
+          <span class="tc-rd">きりしたんだいみょう</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1580年にイエズス会に寄進され、南蛮貿易の中心地として栄えた港町。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">長崎</span>
+          <span class="tc-rd">ながさき</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1582年、キリシタン大名がローマ教皇のもとへ送った少年使節。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">天正遣欧使節</span>
+          <span class="tc-rd">てんしょうけんおうしせつ</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">ポルトガル人・スペイン人との交流で日本に広まった文化。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">南蛮文化</span>
+          <span class="tc-rd">なんばんぶんか</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button></div>
+    </div>
+    <div class="step" data-label="30秒まとめ">
+      
+      <div class="sum30">
+        <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
+        <div class="sum30-body">1543年に<span class="mark">種子島</span>へ<span class="mark">鉄砲</span>が伝わり戦国大名の戦い方を変え、1549年には<span class="mark">ザビエル</span>がキリスト教を伝えたよ。日本は<span class="mark">南蛮貿易</span>で銀を輸出し生糸を輸入するようになり、キリシタン大名も現れて<span class="mark">長崎</span>はその中心地としてにぎわい、<span class="mark">天正遣欧使節</span>も派遣されたんだ。</div>
+        
+        <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
+          <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
+      </div>
+      <div class="done">🎉 この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/07/index.html#t4"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=07-nanban-trade" target="_blank" rel="noopener">
+        <span class="ai-ico">🤖</span>
+        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
+        <span class="ai-arrow">›</span>
+      </a>
+    </div>
+</section>
+<section class="view" data-t="4">
+  <div class="tband"><span class="tno">4</span><h2>信長・秀吉の天下統一</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  
+    <div class="step" data-label="この単元でわかること">
+      <img class="cover-img" src="img/cover-nobunaga-hideyoshi.webp"
+           alt="信長・秀吉の天下統一（この単元でわかること）">
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">尾張の一大名だった織田信長から、天下統一を成しとげた豊臣秀吉へ。時代が大きく動いた瞬間を、いっしょに見てみよう。</div></div>
+    </div>
+    <div class="step" data-label="織田信長の台頭">
+      <h3><span class="sec-no">1</span>織田信長の台頭</h3>
+      <div class="sec-lead">信長が桶狭間で勝ち、幕府を滅ぼしたよ。</div>
+      <p>尾張の戦国大名<span class="mark">織田信長</span>は、1560年の<span class="mark">桶狭間の戦い</span>で、少ない兵ながら今川義元の大軍を奇襲して打ち破り、大きく勢力を広げたんだ。1573年には、もともと味方だった第15代将軍足利義昭と対立してこれを京都から追放し、約240年も続いた<span class="mark">室町幕府</span>を滅ぼしてしまったんだよ。これによって戦国の世は大きな転機を迎え、信長による天下統一への歩みが本格的に始まっていったんだ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">信長は桶狭間の戦いで勝ち、室町幕府を滅ぼしたよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">織田信長<span class="w-rd">おだのぶなが</span></span><span class="w-desc">桶狭間の戦いで今川義元を破り、室町幕府を滅ぼした尾張の戦国大名。</span></div><div class="word"><span class="w-term">桶狭間の戦い<span class="w-rd">おけはざまのたたかい</span></span><span class="w-desc">1560年、織田信長が今川義元を破った戦い。</span></div><div class="word"><span class="w-term">室町幕府<span class="w-rd">むろまちばくふ</span></span><span class="w-desc">1573年、信長が足利義昭を追放して滅ぼした幕府。</span></div></div>
+    </div>
+    <div class="step" data-label="信長の戦いと経済政策">
+      <h3><span class="sec-no">2</span>信長の戦いと経済政策</h3>
+      <div class="sec-lead">鉄砲を活用し、楽市・楽座も行ったよ。</div>
+      <p>信長は敵対する仏教勢力の比叡山延暦寺を焼き討ちにする一方、1575年の<span class="mark">長篠の戦い</span>では鉄砲を効果的に使って、武田勝頼の騎馬軍団を打ち破ったんだ。また、税や座の特権をなくす<span class="mark">楽市・楽座</span>を行って商工業が自由に発展できるようにし、関所も廃止して物の行き来をさかんにしたんだよ。近江には壮大な安土城を築いて、天下統一の拠点にしたんだね。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">信長は長篠の戦いで武田勝頼を破り、楽市・楽座も行ったよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">長篠の戦い<span class="w-rd">ながしののたたかい</span></span><span class="w-desc">1575年、信長・家康連合軍が鉄砲を活用し武田勝頼を破った戦い。</span></div><div class="word"><span class="w-term">楽市・楽座<span class="w-rd">らくいち・らくざ</span></span><span class="w-desc">信長が税や座の特権をなくし、商工業の発展をうながした政策。</span></div></div>
+    </div>
+    <div class="step" data-label="本能寺の変と秀吉の統一">
+      <h3><span class="sec-no">3</span>本能寺の変と秀吉の統一</h3>
+      <div class="sec-lead">信長が倒れ、秀吉が天下を統一したよ。</div>
+      <p>1582年、信長は家臣の<span class="mark">明智光秀</span>に攻められて自害する<span class="mark">本能寺の変</span>が起こり、天下統一を目前にして倒れてしまったんだ。信長の後継者となった<span class="mark">豊臣秀吉</span>は山崎の戦いで光秀を討ち、大阪城を拠点に勢力を固めていったよ。1585年には関白に任じられ、1590年には関東の北条氏を滅ぼして全国統一を達成したんだ。信長・秀吉が政権を握ったこの時代を安土桃山時代と呼ぶんだよ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">本能寺の変で信長が倒れ、秀吉が全国統一したよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">本能寺の変<span class="w-rd">ほんのうじのへん</span></span><span class="w-desc">1582年、信長が家臣の明智光秀に攻められ自害した事件。</span></div><div class="word"><span class="w-term">明智光秀<span class="w-rd">あけちみつひで</span></span><span class="w-desc">本能寺の変で信長を討った家臣。直後に秀吉に討たれた。</span></div><div class="word"><span class="w-term">豊臣秀吉<span class="w-rd">とよとみひでよし</span></span><span class="w-desc">信長の後継者となり、1590年に全国統一を達成した人物。</span></div></div>
+    </div>
+    <div class="step" data-label="重要語チェック">
+      <div class="terms-h">📖 重要語チェック<span class="terms-sub">意味を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="tgrid"><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">桶狭間の戦いで今川義元を破り、室町幕府を滅ぼした尾張の戦国大名。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">織田信長</span>
+          <span class="tc-rd">おだのぶなが</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1560年、織田信長が今川義元を破った戦い。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">桶狭間の戦い</span>
+          <span class="tc-rd">おけはざまのたたかい</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1573年、信長が足利義昭を追放して滅ぼした幕府。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">室町幕府</span>
+          <span class="tc-rd">むろまちばくふ</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1575年、信長・家康連合軍が鉄砲を活用し武田勝頼を破った戦い。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">長篠の戦い</span>
+          <span class="tc-rd">ながしののたたかい</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">信長が税や座の特権をなくし、商工業の発展をうながした政策。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">楽市・楽座</span>
+          <span class="tc-rd">らくいち・らくざ</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1582年、信長が家臣の明智光秀に攻められ自害した事件。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">本能寺の変</span>
+          <span class="tc-rd">ほんのうじのへん</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">本能寺の変で信長を討った家臣。直後に秀吉に討たれた。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">明智光秀</span>
+          <span class="tc-rd">あけちみつひで</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">信長の後継者となり、1590年に全国統一を達成した人物。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">豊臣秀吉</span>
+          <span class="tc-rd">とよとみひでよし</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button></div>
+    </div>
+    <div class="step" data-label="30秒まとめ">
+      
+      <div class="sum30">
+        <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
+        <div class="sum30-body">尾張の<span class="mark">織田信長</span>は<span class="mark">桶狭間の戦い</span>で勢力を広げ、1573年に<span class="mark">室町幕府</span>を滅ぼし、長篠の戦いや楽市・楽座で力を強めたよ。しかし1582年の<span class="mark">本能寺の変</span>で倒れてしまい、後継者の<span class="mark">豊臣秀吉</span>が1590年に北条氏を滅ぼして全国統一を成しとげたんだ。</div>
+        
+        <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
+          <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
+      </div>
+      <div class="done">🎉 この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/07/index.html#t5"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=07-nobunaga-hideyoshi" target="_blank" rel="noopener">
+        <span class="ai-ico">🤖</span>
+        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
+        <span class="ai-arrow">›</span>
+      </a>
+    </div>
+</section>
+<section class="view" data-t="5">
+  <div class="tband"><span class="tno">5</span><h2>秀吉の政策と朝鮮出兵</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  
+    <div class="step" data-label="この単元でわかること">
+      <img class="cover-img" src="img/cover-hideyoshi-policy.webp"
+           alt="秀吉の政策と朝鮮出兵（この単元でわかること）">
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">全国を統一した秀吉は、土地と人々の支配のしくみを大きく作り変えたんだ。そして海の向こうの朝鮮にも、大軍を送ることになるんだよ。</div></div>
+    </div>
+    <div class="step" data-label="太閤検地と刀狩">
+      <h3><span class="sec-no">1</span>太閤検地と刀狩</h3>
+      <div class="sec-lead">検地と刀狩で、兵農分離が進んだよ。</div>
+      <p>秀吉は1582年から全国で<span class="mark">太閤検地</span>を行い、京ますという統一されたますを基準に田畑を測量して、その土地の収穫量を<span class="mark">石高</span>という基準で表したんだ。これによって百姓は土地を耕作する権利を保障してもらえる代わりに、石高に応じて<span class="mark">年貢</span>を納める義務を負うことになったんだよ。さらに1588年には、百姓から刀や鉄砲などの武器を取り上げる<span class="mark">刀狩</span>を行い、一揆を防ぐとともに武士と農民の身分をはっきり分ける<span class="mark">兵農分離</span>を進めていったんだ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">太閤検地と刀狩によって、兵農分離が進んでいったよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">太閤検地<span class="w-rd">たいこうけんち</span></span><span class="w-desc">秀吉が全国の田畑を測量し、収穫量を石高で表した政策。</span></div><div class="word"><span class="w-term">石高<span class="w-rd">こくだか</span></span><span class="w-desc">米の収穫量で土地の価値を表す基準。</span></div><div class="word"><span class="w-term">年貢<span class="w-rd">ねんぐ</span></span><span class="w-desc">検地により百姓が納める義務を負った税。</span></div><div class="word"><span class="w-term">刀狩<span class="w-rd">かたながり</span></span><span class="w-desc">1588年、秀吉が百姓から刀や鉄砲などの武器を取り上げた政策。</span></div><div class="word"><span class="w-term">兵農分離<span class="w-rd">へいのうぶんり</span></span><span class="w-desc">太閤検地と刀狩により、武士と農民の身分がはっきり分けられたこと。</span></div></div>
+    </div>
+    <div class="step" data-label="朝鮮出兵">
+      <h3><span class="sec-no">2</span>朝鮮出兵</h3>
+      <div class="sec-lead">秀吉は、朝鮮に二度も大軍を送ったよ。</div>
+      <p>全国統一を果たした秀吉は、中国の<span class="mark">明</span>の征服をめざして、1592年の文禄の役と1597年の慶長の役の二度にわたって朝鮮へ大軍を送ったんだ。でも朝鮮の武将<span class="mark">李舜臣</span>が亀甲船を率いて日本軍の補給路を断つなど激しく抵抗し、日本軍は苦戦を強いられたんだよ。1598年に秀吉が亡くなると日本軍は朝鮮から撤退したんだけど、このとき日本へ連れてこられた朝鮮人陶工の技術によって、九州各地で<span class="mark">有田焼</span>などの焼き物が発展していったんだ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">秀吉は朝鮮に二度出兵したけど、秀吉の死で撤退したよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">明<span class="w-rd">みん</span></span><span class="w-desc">秀吉が朝鮮出兵で征服を目指した中国の王朝。</span></div><div class="word"><span class="w-term">李舜臣<span class="w-rd">りしゅんしん</span></span><span class="w-desc">朝鮮水軍を率い、亀甲船で日本軍の補給路を断った武将。</span></div><div class="word"><span class="w-term">有田焼<span class="w-rd">ありたやき</span></span><span class="w-desc">朝鮮出兵で連れてこられた陶工の技術で発展した九州の焼き物。</span></div></div>
+    </div>
+    <div class="step" data-label="重要語チェック">
+      <div class="terms-h">📖 重要語チェック<span class="terms-sub">意味を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="tgrid"><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">秀吉が全国の田畑を測量し、収穫量を石高で表した政策。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">太閤検地</span>
+          <span class="tc-rd">たいこうけんち</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">米の収穫量で土地の価値を表す基準。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">石高</span>
+          <span class="tc-rd">こくだか</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">検地により百姓が納める義務を負った税。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">年貢</span>
+          <span class="tc-rd">ねんぐ</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1588年、秀吉が百姓から刀や鉄砲などの武器を取り上げた政策。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">刀狩</span>
+          <span class="tc-rd">かたながり</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">太閤検地と刀狩により、武士と農民の身分がはっきり分けられたこと。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">兵農分離</span>
+          <span class="tc-rd">へいのうぶんり</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">秀吉が朝鮮出兵で征服を目指した中国の王朝。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">明</span>
+          <span class="tc-rd">みん</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">朝鮮水軍を率い、亀甲船で日本軍の補給路を断った武将。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">李舜臣</span>
+          <span class="tc-rd">りしゅんしん</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">朝鮮出兵で連れてこられた陶工の技術で発展した九州の焼き物。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">有田焼</span>
+          <span class="tc-rd">ありたやき</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button></div>
+    </div>
+    <div class="step" data-label="30秒まとめ">
+      
+      <div class="sum30">
+        <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
+        <div class="sum30-body">秀吉は<span class="mark">太閤検地</span>で<span class="mark">石高</span>により土地を把握し、<span class="mark">刀狩</span>で百姓から武器を取り上げて<span class="mark">兵農分離</span>を進めたよ。明の征服をめざした文禄・慶長の役では李舜臣らの抵抗にあって苦戦し秀吉の死で撤退したけれど、連れ帰られた陶工の技術は<span class="mark">有田焼</span>などの発展につながったんだ。</div>
+        
+        <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
+          <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
+      </div>
+      <div class="done">🎉 この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/07/index.html#t6"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=07-hideyoshi-policy" target="_blank" rel="noopener">
+        <span class="ai-ico">🤖</span>
+        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
+        <span class="ai-arrow">›</span>
+      </a>
+    </div>
+</section>
+<section class="view" data-t="6">
+  <div class="tband"><span class="tno">6</span><h2>桃山文化</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  
+    <div class="step" data-label="この単元でわかること">
+      <img class="cover-img" src="img/cover-momoyama-culture.webp"
+           alt="桃山文化（この単元でわかること）">
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">戦国の世を勝ち抜いた大名や豪商の富と力が、豪華絢爛な文化を生み出したんだよ。どんな文化か、のぞいてみよう。</div></div>
+    </div>
+    <div class="step" data-label="豪壮な城と障壁画">
+      <h3><span class="sec-no">1</span>豪壮な城と障壁画</h3>
+      <div class="sec-lead">天守閣や障壁画が、権威を示したよ。</div>
+      <p>信長・秀吉の時代、大名や豪商の力を背景に、豪華で力強い<span class="mark">桃山文化</span>が花開いたんだ。城の中心にそびえる<span class="mark">天守閣</span>は大名の権威を示す象徴で、白壁が美しい<span class="mark">姫路城</span>はその代表例として知られているよ。城のふすまや屏風には金箔を使った<span class="mark">障壁画</span>が描かれ、なかでも<span class="mark">狩野永徳</span>の「唐獅子図屏風」は、力強い唐獅子を描いた桃山文化を代表する傑作として名高いんだ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">大名や豪商の力を背景に、豪華な桃山文化が栄えたよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">桃山文化<span class="w-rd">ももやまぶんか</span></span><span class="w-desc">大名や豪商の力を背景にした、豪華で力強い文化。</span></div><div class="word"><span class="w-term">狩野永徳<span class="w-rd">かのうえいとく</span></span><span class="w-desc">城の障壁画を描いた画家。代表作は「唐獅子図屏風」。</span></div><div class="word"><span class="w-term">天守閣<span class="w-rd">てんしゅかく</span></span><span class="w-desc">城の中心にそびえる、大名の権威を示す建築物。</span></div></div>
+    </div>
+    <div class="step" data-label="千利休のわび茶と新しい芸能">
+      <h3><span class="sec-no">2</span>千利休のわび茶と新しい芸能</h3>
+      <div class="sec-lead">利休のわび茶と、かぶきおどりが生まれたよ。</div>
+      <p>堺の商人<span class="mark">千利休</span>は、豪華な桃山文化のなかで、静かで質素な美を追い求める<span class="mark">わび茶</span>を完成させて、わずか二畳の茶室「待庵」を造ったんだ。茶室の小さな入り口である「にじり口」は、武士も商人も同じように屈んで入ることから、身分を問わない茶の湯の平等の精神を表しているんだよ。すてきな考え方だよね。また、<span class="mark">出雲の阿国</span>が京都で始めた「かぶきおどり」も人気を集め、のちの歌舞伎のもとになったんだ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">千利休はわび茶を完成させ、出雲の阿国はかぶきおどりを広めたよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">千利休<span class="w-rd">せんのりきゅう</span></span><span class="w-desc">わび茶を完成させた堺の商人。</span></div><div class="word"><span class="w-term">わび茶<span class="w-rd">わびちゃ</span></span><span class="w-desc">千利休が完成させた、質素な美を重んじる茶道の様式。</span></div><div class="word"><span class="w-term">出雲の阿国<span class="w-rd">いずものおくに</span></span><span class="w-desc">「かぶきおどり」を始めた女性芸能者。</span></div></div>
+    </div>
+    <div class="step" data-label="南蛮文化とくらしの変化">
+      <h3><span class="sec-no">3</span>南蛮文化とくらしの変化</h3>
+      <div class="sec-lead">南蛮文化が、人々のくらしを変えたよ。</div>
+      <p>南蛮貿易を通じて、ポルトガルから<span class="mark">カステラ</span>などの菓子や、宣教師が持ち込んだ活版印刷術が伝わり、「平家物語」などがローマ字で印刷されたんだ。また、庶民の衣料には麻に比べて温かく肌触りのよい<span class="mark">木綿</span>が広まり始めて、人々のくらしにも変化をもたらしたんだよ。こうした南蛮文化は、桃山文化の国際色豊かな一面をつくりあげたんだね。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">ヨーロッパとの交流で南蛮文化が伝わり、木綿も広まったよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">南蛮文化<span class="w-rd">なんばんぶんか</span></span><span class="w-desc">ポルトガル人・スペイン人との交流で日本に広まった文化。</span></div><div class="word"><span class="w-term">木綿<span class="w-rd">もめん</span></span><span class="w-desc">桃山時代に庶民の衣料として普及し始めた素材。</span></div></div>
+    </div>
+    <div class="step" data-label="重要語チェック">
+      <div class="terms-h">📖 重要語チェック<span class="terms-sub">意味を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="tgrid"><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">大名や豪商の力を背景にした、豪華で力強い文化。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">桃山文化</span>
+          <span class="tc-rd">ももやまぶんか</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">城の障壁画を描いた画家。代表作は「唐獅子図屏風」。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">狩野永徳</span>
+          <span class="tc-rd">かのうえいとく</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">城の中心にそびえる、大名の権威を示す建築物。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">天守閣</span>
+          <span class="tc-rd">てんしゅかく</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">わび茶を完成させた堺の商人。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">千利休</span>
+          <span class="tc-rd">せんのりきゅう</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">千利休が完成させた、質素な美を重んじる茶道の様式。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">わび茶</span>
+          <span class="tc-rd">わびちゃ</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">「かぶきおどり」を始めた女性芸能者。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">出雲の阿国</span>
+          <span class="tc-rd">いずものおくに</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">ポルトガル人・スペイン人との交流で日本に広まった文化。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">南蛮文化</span>
+          <span class="tc-rd">なんばんぶんか</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">桃山時代に庶民の衣料として普及し始めた素材。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">木綿</span>
+          <span class="tc-rd">もめん</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button></div>
+    </div>
+    <div class="step" data-label="30秒まとめ">
+      
+      <div class="sum30">
+        <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
+        <div class="sum30-body">信長・秀吉の時代、大名や豪商の力を背景に豪壮な<span class="mark">桃山文化</span>が花開いたよ。<span class="mark">狩野永徳</span>の障壁画や<span class="mark">姫路城</span>の天守閣が力強さを示す一方、<span class="mark">千利休</span>は<span class="mark">わび茶</span>で質素な美を追い求め、出雲の阿国のかぶきおどりや南蛮文化も人々のくらしに彩りを添えたんだ。</div>
+        
+        <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
+          <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
+      </div>
+      <div class="done">🎉 この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/07/index.html#t7"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=07-momoyama-culture" target="_blank" rel="noopener">
+        <span class="ai-ico">🤖</span>
+        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
+        <span class="ai-arrow">›</span>
+      </a>
+    </div>
+</section>
+</main>
+<div class="navbar" id="navbar" hidden><div class="navbar-in">
+  <button class="nb nb-prev" id="btnPrev">← まえへ</button>
+  <button class="nb nb-next" id="btnNext">つぎへ →</button>
+</div></div>
+<button class="chat-fab" id="chatFab" aria-label="スタ先生に質問する">🤖</button>
+<section class="chat-panel" id="chatPanel" hidden>
+  <header class="chat-head">
+    <span class="chat-title">🤖 スタ先生に質問</span>
+    <span class="chat-topic" id="chatTopic"></span>
+    <button class="chat-close" id="chatClose" aria-label="閉じる">×</button>
+  </header>
+  <div class="chat-note">公式LINEと同じAI。会話はLINEのトークとつながるよ。</div>
+  <div class="chat-body" id="chatBody"></div>
+  <div class="chat-login" id="chatLogin" hidden>
+    <p>LINEログインすると、このページでスタ先生に質問できるよ。<br>会話のつづきは公式LINEでも話せる！</p>
+    <a class="chat-login-btn" id="chatLoginBtn" href="/welcome">LINEでログイン</a>
+  </div>
+  <form class="chat-input" id="chatForm" hidden>
+    <input type="text" id="chatText" placeholder="この単元の質問をどうぞ！" maxlength="300" autocomplete="off">
+    <button type="submit" id="chatSend">送信</button>
+  </form>
+  <div class="chat-foot" id="chatFoot"></div>
+</section>
+<script>
+(function () {
+  var KEY = 'tzmref-07';
+  var views = [].slice.call(document.querySelectorAll('.view'));
+  var tabs = [].slice.call(document.querySelectorAll('.tab'));
+  var N = views.length - 1; // 単元数
+  var state = { t: 0, s: 0 };
+  var lastDir = 1;
+  var rendered = null; // 直前に表示していた {t, s}（ページめくり演出用）
+
+  function store() {
+    try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; }
+  }
+  function save(obj) {
+    try { localStorage.setItem(KEY, JSON.stringify(obj)); } catch (e) {}
+  }
+  function stepsOf(t) { return views[t].querySelectorAll('.step'); }
+
+  function render() {
+    var t = state.t, s = state.s;
+    views.forEach(function (v, i) { v.classList.toggle('on', i === t); });
+    tabs.forEach(function (b) {
+      var bt = +b.dataset.go;
+      b.classList.toggle('on', bt === t);
+      b.classList.toggle('done', bt > 0 && store()['d' + bt] === 1);
+    });
+    var tabEl = tabs[t];
+    if (tabEl && tabEl.scrollIntoView) {
+      tabEl.scrollIntoView({ block: 'nearest', inline: 'center' });
+    }
+    var navbar = document.getElementById('navbar');
+    var barStep = document.getElementById('barStep');
+    var pfill = document.getElementById('pfill');
+    if (t === 0) {
+      navbar.hidden = true;
+      barStep.textContent = '';
+      pfill.style.width = '0';
+      renderHome();
+    } else {
+      var steps = stepsOf(t);
+      // 同じ単元内のページ送りだけ「めくり」演出（古いページと新しいページを重ねる）
+      var animFrom = rendered && rendered.t === t && rendered.s !== s ? rendered.s : null;
+      [].forEach.call(steps, function (el, i) {
+        el.classList.remove('turn-out', 'turn-in', 'turn-under');
+        el.classList.toggle('on', i === s);
+      });
+      if (animFrom !== null && steps[animFrom] && steps[s]) {
+        var oldEl = steps[animFrom], newEl = steps[s];
+        var clear = function () {
+          oldEl.classList.remove('turn-out', 'turn-under');
+          newEl.classList.remove('turn-in');
+        };
+        if (lastDir > 0) {
+          oldEl.classList.add('turn-out');      // 今のページがめくれて去る
+          oldEl.addEventListener('animationend', clear, { once: true });
+        } else {
+          oldEl.classList.add('turn-under');    // 下に敷いたまま
+          newEl.classList.add('turn-in');       // 前のページがめくり戻ってくる
+          newEl.addEventListener('animationend', clear, { once: true });
+        }
+        setTimeout(clear, 700); // アニメ未発火時の保険
+      }
+      navbar.hidden = false;
+      barStep.textContent = (s + 1) + ' / ' + steps.length;
+      pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
+      var prev = document.getElementById('btnPrev');
+      var next = document.getElementById('btnNext');
+      prev.textContent = s === 0 ? '🏠 目次' : '← まえへ';
+      if (s < steps.length - 1) {
+        next.textContent = 'つぎへ →';
+      } else {
+        next.textContent = t < N ? '次の単元へ →' : '🏠 目次にもどる';
+      }
+      // 進捗保存
+      var st = store();
+      st.last = { t: t, s: s };
+      if (s === steps.length - 1) st['d' + t] = 1;
+      save(st);
+    }
+    window.scrollTo(0, 0);
+    var h = '#t' + t + (t > 0 && s > 0 ? 's' + s : '');
+    if (location.hash !== h) history.replaceState(null, '', t === 0 ? '#' : h);
+    rendered = { t: t, s: s };
+  }
+
+  function renderHome() {
+    var st = store();
+    [].forEach.call(document.querySelectorAll('.toc-state'), function (el) {
+      var t = +el.dataset.stateT;
+      el.className = 'toc-state';
+      if (st['d' + t] === 1) { el.classList.add('done'); el.textContent = '✓︎ 読んだ'; }
+      else if (st.last && st.last.t === t && st.last.s > 0) {
+        el.classList.add('doing'); el.textContent = 'つづき';
+      } else { el.textContent = ''; }
+    });
+    var btn = document.getElementById('resumeBtn');
+    if (st.last && st.last.t > 0) {
+      btn.hidden = false;
+      var name = views[st.last.t].querySelector('.tband h2').textContent;
+      document.getElementById('resumeWhere').textContent =
+        name + '（' + (st.last.s + 1) + 'ページ目）';
+      btn.onclick = function () { go(st.last.t, st.last.s, 1); };
+    } else {
+      btn.hidden = true;
+    }
+  }
+
+  function go(t, s, dir) {
+    lastDir = dir || 1;
+    state.t = Math.max(0, Math.min(N, t));
+    state.s = Math.max(0, s || 0);
+    if (state.t > 0) {
+      state.s = Math.min(state.s, stepsOf(state.t).length - 1);
+    } else {
+      state.s = 0;
+    }
+    render();
+  }
+
+  function next() {
+    var t = state.t, s = state.s;
+    if (t === 0) return;
+    if (s < stepsOf(t).length - 1) go(t, s + 1, 1);
+    else if (t < N) go(t + 1, 0, 1);
+    else go(0, 0, 1);
+  }
+  function prev() {
+    var t = state.t, s = state.s;
+    if (t === 0) return;
+    if (s > 0) go(t, s - 1, -1);
+    else go(0, 0, -1);
+  }
+
+  document.getElementById('btnNext').addEventListener('click', next);
+  document.getElementById('btnPrev').addEventListener('click', prev);
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-go]');
+    if (b) { go(+b.dataset.go, 0, 1); return; }
+    // 重要語チェックのシャッフル: カードの並びをランダムに入れ替える
+    var sh = e.target.closest('.shuffle-btn');
+    if (sh) {
+      var grid = sh.closest('.step').querySelector('.tgrid');
+      if (grid) {
+        var cards = [].slice.call(grid.querySelectorAll('.tcard'));
+        for (var i = cards.length - 1; i > 0; i--) {
+          var j = Math.floor(Math.random() * (i + 1));
+          var tmp = cards[i]; cards[i] = cards[j]; cards[j] = tmp;
+        }
+        cards.forEach(function (c) { c.classList.remove('flipped'); grid.appendChild(c); });
+        grid.classList.remove('shuffling');
+        void grid.offsetWidth;              // リフローでアニメを再始動
+        grid.classList.add('shuffling');
+      }
+      return;
+    }
+    // 裏表入れ替え（説明→用語 ⇄ 用語→説明）。設定は保存し全単元に反映
+    var sw = e.target.closest('.swap-btn');
+    if (sw) {
+      var g0 = document.querySelector('.tgrid');
+      var on = !(g0 && g0.classList.contains('term-first'));
+      applySwap(on);
+      var st2 = store(); st2.swap = on ? 1 : 0; save(st2);
+      return;
+    }
+    // 重要語カード: タップで表裏（両面表示中はめくらない）
+    var card = e.target.closest('.tcard');
+    if (card && !card.closest('.tgrid').classList.contains('both')) {
+      card.classList.toggle('flipped');
+    }
+  });
+
+  // 「両面表示にする」チェック（設定は保存して全単元・次回にも反映）
+  function applyBoth(on) {
+    [].forEach.call(document.querySelectorAll('.both-chk'), function (c) { c.checked = on; });
+    [].forEach.call(document.querySelectorAll('.tgrid'), function (g) {
+      g.classList.toggle('both', on);
+    });
+  }
+  document.addEventListener('change', function (e) {
+    if (e.target.classList && e.target.classList.contains('both-chk')) {
+      applyBoth(e.target.checked);
+      var st = store(); st.both = e.target.checked ? 1 : 0; save(st);
+    }
+  });
+  applyBoth(store().both === 1);
+
+  // 裏表入れ替え（用語⇄説明のどちらを先に見せるか。全カード共通・保存）
+  function applySwap(on) {
+    [].forEach.call(document.querySelectorAll('.tgrid'), function (g) {
+      [].forEach.call(g.querySelectorAll('.tcard.flipped'), function (c) { c.classList.remove('flipped'); });
+      g.classList.toggle('term-first', on);
+    });
+    [].forEach.call(document.querySelectorAll('.swap-btn'), function (b) { b.classList.toggle('on', on); });
+  }
+  applySwap(store().swap === 1);
+
+  // 左右スワイプでページ送り（縦スクロールと誤爆しないよう横優位のみ）
+  var tx = 0, ty = 0;
+  document.addEventListener('touchstart', function (e) {
+    tx = e.changedTouches[0].clientX; ty = e.changedTouches[0].clientY;
+  }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    var dx = e.changedTouches[0].clientX - tx;
+    var dy = e.changedTouches[0].clientY - ty;
+    if (Math.abs(dx) > 64 && Math.abs(dy) < 48 && state.t > 0) {
+      if (dx < 0) next(); else prev();
+    }
+  }, { passive: true });
+
+  // ハッシュ直リンク（#t3s2）
+  function fromHash() {
+    var m = /#t(\d+)(?:s(\d+))?/.exec(location.hash);
+    if (m) go(+m[1], +(m[2] || 0), 1); else go(0, 0, 1);
+  }
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
+})();
+</script>
+<script type="module">
+// ── ページ内チャット（スタ先生）──
+// 公式LINEの参考書AI（ref_ask）と知識・会話履歴・1日回数枠を共有する。
+// 認証は www.chatstudy.jp の LINE Login（Firebase Auth）。marutto-study の
+// SPA と同じ localStorage 永続化なので、一度 /welcome でログインすれば共有される。
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js';
+import {
+  initializeAuth, browserLocalPersistence, browserSessionPersistence,
+  inMemoryPersistence, onAuthStateChanged,
+} from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js';
+
+var TOPIC_KEYS = ["07-europe-change", "07-europe-spread", "07-nanban-trade", "07-nobunaga-hideyoshi", "07-hideyoshi-policy", "07-momoyama-culture"];
+var API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/referenceChat';
+
+var app = initializeApp({
+  apiKey: 'AIzaSyBJuODbPmpu_fiJ8a1ffzDIUwEFszol5Cc',
+  authDomain: 'chatstudy-63477.firebaseapp.com',
+  projectId: 'chatstudy-63477',
+  appId: '1:283901969847:web:9efd3b421e8cdb16091432',
+});
+var auth = initializeAuth(app, {
+  persistence: [browserLocalPersistence, browserSessionPersistence, inMemoryPersistence],
+});
+
+var fab = document.getElementById('chatFab');
+var panel = document.getElementById('chatPanel');
+var body = document.getElementById('chatBody');
+var loginBox = document.getElementById('chatLogin');
+var form = document.getElementById('chatForm');
+var input = document.getElementById('chatText');
+var sendBtn = document.getElementById('chatSend');
+var foot = document.getElementById('chatFoot');
+var topicEl = document.getElementById('chatTopic');
+
+var user = null;
+var loadedTopic = null;   // 履歴取得済みの topicKey
+var busy = false;
+
+function currentTopicKey() {
+  var m = /#t(\d+)/.exec(location.hash);
+  var t = m ? +m[1] : 0;
+  var idx = Math.max(1, Math.min(t, TOPIC_KEYS.length)) - 1;
+  return TOPIC_KEYS[idx];
+}
+function msg(role, text) {
+  var el = document.createElement('div');
+  el.className = 'chat-msg ' + role;
+  el.textContent = text;
+  body.appendChild(el);
+  body.scrollTop = body.scrollHeight;
+  return el;
+}
+function setFoot(remaining) {
+  foot.textContent = remaining != null ? 'きょう あと' + remaining + '回 質問できるよ' : '';
+}
+function showLogin() {
+  loginBox.hidden = false;
+  form.hidden = true;
+  document.getElementById('chatLoginBtn').href =
+    '/welcome?next=' + encodeURIComponent(location.pathname + location.hash);
+}
+function showChat() { loginBox.hidden = true; form.hidden = false; }
+
+async function callApi(payload) {
+  var idToken = await user.getIdToken();
+  var res = await fetch(API, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(Object.assign({ idToken: idToken }, payload)),
+  });
+  var data = null;
+  try { data = await res.json(); } catch (e) { /* no body */ }
+  return { status: res.status, data: data || {} };
+}
+
+async function loadHistory() {
+  var topicKey = currentTopicKey();
+  loadedTopic = topicKey;
+  body.innerHTML = '';
+  var loading = msg('sys', '読み込み中…');
+  try {
+    var r = await callApi({ topicKey: topicKey, action: 'history' });
+    loading.remove();
+    if (r.status === 402) { msg('sys', r.data.message || 'この単元は購入者向けです'); form.hidden = true; return; }
+    if (r.status !== 200) { msg('sys', 'うまく読み込めなかった。開き直してみてね'); return; }
+    topicEl.textContent = r.data.topicName || '';
+    var h = r.data.history || [];
+    if (h.length === 0) {
+      msg('model', 'こんにちは！「' + (r.data.topicName || 'この単元') + '」でわからないことがあったら、なんでも聞いてね😊');
+    } else {
+      msg('sys', '── ここまでの会話（LINEと共有）──');
+      h.forEach(function (turn) { msg(turn.role === 'user' ? 'user' : 'model', turn.text); });
+    }
+    setFoot(r.data.remaining);
+    showChat();
+  } catch (e) {
+    loading.textContent = '通信エラー。電波のよいところで開き直してみてね';
+  }
+}
+
+async function send(text) {
+  if (busy) return;
+  busy = true;
+  sendBtn.disabled = true;
+  msg('user', text);
+  var waiting = msg('sys', 'スタ先生が考え中…');
+  try {
+    var r = await callApi({ topicKey: loadedTopic || currentTopicKey(), action: 'send', text: text });
+    waiting.remove();
+    if (r.status === 200) {
+      msg('model', r.data.answer);
+      setFoot(r.data.remaining);
+    } else if (r.data && r.data.message) {
+      msg('sys', r.data.message);
+    } else {
+      msg('sys', 'ごめんね、いまうまく答えられなかった。もう一度送ってみてね');
+    }
+  } catch (e) {
+    waiting.textContent = '通信エラー。もう一度送ってみてね';
+  }
+  busy = false;
+  sendBtn.disabled = false;
+}
+
+fab.addEventListener('click', function () {
+  panel.hidden = false;
+  fab.classList.add('hidden');
+  if (!user) { showLogin(); return; }
+  if (loadedTopic !== currentTopicKey()) loadHistory();
+});
+document.getElementById('chatClose').addEventListener('click', function () {
+  panel.hidden = true;
+  fab.classList.remove('hidden');
+});
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  var text = input.value.trim();
+  if (!text) return;
+  input.value = '';
+  send(text);
+});
+// 単元を移動したら（パネルを開いたまま）その単元の会話に切り替える
+window.addEventListener('hashchange', function () {
+  if (!panel.hidden && user && loadedTopic !== currentTopicKey()) loadHistory();
+});
+
+onAuthStateChanged(auth, function (u) {
+  user = u;
+  if (panel.hidden) return;
+  if (!u) { showLogin(); return; }
+  loadHistory();
+});
+</script>
+</body></html>

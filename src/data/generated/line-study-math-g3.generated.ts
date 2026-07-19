@@ -40,7962 +40,6367 @@ export interface StudyEra {
 
 export const lineStudyMathEras: StudyEra[] = [
   {
-    "eraId": "math-g3-expansion-factoring",
-    "eraName": "展開と因数分解",
-    "eraIcon": "✖️",
-    "eraPeriod": "中3 数と式",
-    "topics": [
+    eraId: 'math-g3-expansion-factoring',
+    eraName: '展開と因数分解',
+    eraIcon: '✖️',
+    eraPeriod: '中3 数と式',
+    topics: [
       {
-        "topicId": "math-g3-expansion-basics",
-        "name": "式の展開の基本",
-        "subtitle": "かっこを外して計算しよう",
-        "icon": "📖",
-        "order": 1,
-        "flashcards": [],
-        "quiz": [
+        topicId: 'math-g3-expansion-basics',
+        name: '式の展開の基本',
+        subtitle: 'かっこを外して計算しよう',
+        icon: '📖',
+        order: 1,
+        flashcards: [],
+        quiz: [
           {
-            "id": "math-g3-expansion-basics-q1",
-            "question": "次の計算をしましょう。\n2x(x+3)",
-            "options": [
-              "2x²+6x",
-              "2x²+3x",
-              "2x²+6",
-              "2x²+3"
-            ],
-            "correctIndex": 0,
-            "explanation": "2x × x = 2x²、2x × 3 = 6x\nかっこの中の各項に 2x を分配します。",
-            "difficulty": "basic"
+            id: 'math-g3-expansion-basics-q1',
+            question: '次の計算をしましょう。\n2x(x+3)',
+            options: ['2x²+3x', '2x²+6x', '2x²+6', '2x²+3'],
+            correctIndex: 1,
+            explanation:
+              '2x × x = 2x²、2x × 3 = 6x\nかっこの中の各項に 2x を分配します。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-expansion-basics-q2",
-            "question": "次の計算をしましょう。\n-3a(2a-1)",
-            "options": [
-              "-6a²-3a",
-              "-6a²+3a",
-              "-6a²-1",
-              "6a²+3a"
-            ],
-            "correctIndex": 1,
-            "explanation": "-3a × 2a = -6a²、-3a × (-1) = +3a\n負の数どうしの積は正になることに注意します。",
-            "difficulty": "standard"
+            id: 'math-g3-expansion-basics-q2',
+            question: '次の計算をしましょう。\n-3a(2a-1)',
+            options: ['-6a²-3a', '-6a²-1', '-6a²+3a', '6a²+3a'],
+            correctIndex: 2,
+            explanation:
+              '-3a × 2a = -6a²、-3a × (-1) = +3a\n負の数どうしの積は正になることに注意します。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-expansion-basics-q3",
-            "question": "次の計算をしましょう。\n(x+4)× 5x",
-            "options": [
-              "5x²+4x",
-              "5x²+20",
-              "5x²+20x",
-              "x²+20x"
-            ],
-            "correctIndex": 2,
-            "explanation": "x × 5x = 5x²、4 × 5x = 20x\nどちらの項にも 5x を掛けます。",
-            "difficulty": "basic"
+            id: 'math-g3-expansion-basics-q3',
+            question: '次の計算をしましょう。\n(x+4)× 5x',
+            options: ['5x²+4x', '5x²+20x', '5x²+20', 'x²+20x'],
+            correctIndex: 1,
+            explanation:
+              'x × 5x = 5x²、4 × 5x = 20x\nどちらの項にも 5x を掛けます。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-expansion-basics-q4",
-            "question": "次の計算をしましょう。\n(2x-3y)×(-4x)",
-            "options": [
-              "-8x²-12xy",
-              "8x²-12xy",
-              "-8x²+12y",
-              "-8x²+12xy"
-            ],
-            "correctIndex": 3,
-            "explanation": "2x × (-4x) = -8x²、-3y × (-4x) = +12xy\n後ろの項は負どうしの積で正になります。",
-            "difficulty": "standard"
+            id: 'math-g3-expansion-basics-q4',
+            question: '次の計算をしましょう。\n(2x-3y)×(-4x)',
+            options: ['-8x²+12xy', '8x²-12xy', '-8x²+12y', '-8x²-12xy'],
+            correctIndex: 0,
+            explanation:
+              '2x × (-4x) = -8x²、-3y × (-4x) = +12xy\n後ろの項は負どうしの積で正になります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-expansion-basics-q5",
-            "question": "次の計算をしましょう。\nx(x-5)+2x",
-            "options": [
-              "x²-3x",
-              "x²-7x",
-              "x²-3",
-              "x²-5x+2"
-            ],
-            "correctIndex": 0,
-            "explanation": "x(x-5)=x²-5x、-5x+2x=-3x\nかっこを外してから同類項 -5x と 2x をまとめます。",
-            "difficulty": "standard"
+            id: 'math-g3-expansion-basics-q5',
+            question: '次の計算をしましょう。\nx(x-5)+2x',
+            options: ['x²-3', 'x²-7x', 'x²-3x', 'x²-5x+2'],
+            correctIndex: 2,
+            explanation:
+              'x(x-5)=x²-5x、-5x+2x=-3x\nかっこを外してから同類項 -5x と 2x をまとめます。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-expansion-basics-q6",
-            "question": "次の計算をしましょう。\n3a(a+2)",
-            "options": [
-              "3a²+2a",
-              "3a²+6a",
-              "3a²+6",
-              "3a+6a"
-            ],
-            "correctIndex": 1,
-            "explanation": "3a × a = 3a²、3a × 2 = 6a\n定数 2 にも 3a を掛けます。",
-            "difficulty": "basic"
+            id: 'math-g3-expansion-basics-q6',
+            question: '次の計算をしましょう。\n3a(a+2)',
+            options: ['3a²+2a', '3a+6a', '3a²+6', '3a²+6a'],
+            correctIndex: 3,
+            explanation:
+              '3a × a = 3a²、3a × 2 = 6a\n定数 2 にも 3a を掛けます。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-expansion-basics-q7",
-            "question": "次の計算をしましょう。\n-2x(3x-4)",
-            "options": [
-              "-6x²-8x",
-              "-5x²+8x",
-              "-6x²+8x",
-              "-6x²+8"
-            ],
-            "correctIndex": 2,
-            "explanation": "-2x × 3x = -6x²、-2x × (-4) = +8x\n係数は掛け算で -2 × 3 = -6 です。",
-            "difficulty": "standard"
+            id: 'math-g3-expansion-basics-q7',
+            question: '次の計算をしましょう。\n-2x(3x-4)',
+            options: ['-6x²-8x', '-6x²+8x', '-5x²+8x', '-6x²+8'],
+            correctIndex: 1,
+            explanation:
+              '-2x × 3x = -6x²、-2x × (-4) = +8x\n係数は掛け算で -2 × 3 = -6 です。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-expansion-basics-q8",
-            "question": "次の計算をしましょう。\n4y(2y+3)",
-            "options": [
-              "8y²+3y",
-              "8y²+12",
-              "6y²+12y",
-              "8y²+12y"
-            ],
-            "correctIndex": 3,
-            "explanation": "4y × 2y = 8y²、4y × 3 = 12y\n係数どうしを掛けて 4 × 2 = 8 です。",
-            "difficulty": "basic"
+            id: 'math-g3-expansion-basics-q8',
+            question: '次の計算をしましょう。\n4y(2y+3)',
+            options: ['8y²+3y', '8y²+12', '6y²+12y', '8y²+12y'],
+            correctIndex: 3,
+            explanation:
+              '4y × 2y = 8y²、4y × 3 = 12y\n係数どうしを掛けて 4 × 2 = 8 です。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-expansion-basics-q9",
-            "question": "次の計算をしましょう。\n(3a-2)× 2a",
-            "options": [
-              "6a²-4a",
-              "6a²-2a",
-              "6a²-4",
-              "5a²-4a"
-            ],
-            "correctIndex": 0,
-            "explanation": "3a × 2a = 6a²、-2 × 2a = -4a\n-2 にも 2a を掛けます。",
-            "difficulty": "basic"
+            id: 'math-g3-expansion-basics-q9',
+            question: '次の計算をしましょう。\n(3a-2)× 2a',
+            options: ['6a²-2a', '6a²-4a', '6a²-4', '5a²-4a'],
+            correctIndex: 1,
+            explanation:
+              '3a × 2a = 6a²、-2 × 2a = -4a\n-2 にも 2a を掛けます。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-expansion-basics-q10",
-            "question": "次の計算をしましょう。\n-a(a-b)",
-            "options": [
-              "-a²-ab",
-              "-a²+ab",
-              "a²-ab",
-              "-a²+b"
-            ],
-            "correctIndex": 1,
-            "explanation": "-a × a = -a²、-a × (-b) = +ab\n後ろの項は負どうしの積で +ab になります。",
-            "difficulty": "standard"
+            id: 'math-g3-expansion-basics-q10',
+            question: '次の計算をしましょう。\n-a(a-b)',
+            options: ['-a²-ab', '-a²+ab', 'a²-ab', '-a²+b'],
+            correctIndex: 1,
+            explanation:
+              '-a × a = -a²、-a × (-b) = +ab\n後ろの項は負どうしの積で +ab になります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-expansion-basics-q11",
-            "question": "次の計算をしましょう。\n5x(x-2y)",
-            "options": [
-              "5x²-2xy",
-              "5x²-10y",
-              "5x²-10xy",
-              "5x²+10xy"
-            ],
-            "correctIndex": 2,
-            "explanation": "5x × x = 5x²、5x × (-2y) = -10xy\n-2y にも 5x を掛けるので x が残ります。",
-            "difficulty": "standard"
+            id: 'math-g3-expansion-basics-q11',
+            question: '次の計算をしましょう。\n5x(x-2y)',
+            options: ['5x²-10xy', '5x²-10y', '5x²-2xy', '5x²+10xy'],
+            correctIndex: 0,
+            explanation:
+              '5x × x = 5x²、5x × (-2y) = -10xy\n-2y にも 5x を掛けるので x が残ります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-expansion-basics-q12",
-            "question": "次の計算をしましょう。\n(x+1)×(-3x)",
-            "options": [
-              "-3x²+3x",
-              "-3x²-3",
-              "3x²-3x",
-              "-3x²-3x"
-            ],
-            "correctIndex": 3,
-            "explanation": "x × (-3x) = -3x²、1 × (-3x) = -3x\nどちらの項にも -3x を掛けます。",
-            "difficulty": "basic"
+            id: 'math-g3-expansion-basics-q12',
+            question: '次の計算をしましょう。\n(x+1)×(-3x)',
+            options: ['-3x²-3x', '-3x²-3', '3x²-3x', '-3x²+3x'],
+            correctIndex: 0,
+            explanation:
+              'x × (-3x) = -3x²、1 × (-3x) = -3x\nどちらの項にも -3x を掛けます。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-expansion-basics-q13",
-            "question": "次の計算をしましょう。\n2a(3a-b+2)",
-            "options": [
-              "6a²-2ab+4a",
-              "6a²-b+4a",
-              "6a²-2ab+2",
-              "6a²-2ab+4"
-            ],
-            "correctIndex": 0,
-            "explanation": "2a × 3a = 6a²、2a × (-b) = -2ab、2a × 2 = 4a\n3つの項すべてに 2a を分配します。",
-            "difficulty": "advanced"
+            id: 'math-g3-expansion-basics-q13',
+            question: '次の計算をしましょう。\n2a(3a-b+2)',
+            options: ['6a²-2ab+2', '6a²-b+4a', '6a²-2ab+4a', '6a²-2ab+4'],
+            correctIndex: 2,
+            explanation:
+              '2a × 3a = 6a²、2a × (-b) = -2ab、2a × 2 = 4a\n3つの項すべてに 2a を分配します。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-expansion-basics-q14",
-            "question": "次の計算をしましょう。\n-4x(x²-2x)",
-            "options": [
-              "-4x³-8x²",
-              "-4x³+8x²",
-              "-4x²+8x²",
-              "4x³-8x²"
-            ],
-            "correctIndex": 1,
-            "explanation": "-4x × x² = -4x³、-4x × (-2x) = +8x²\nx × x² = x³ と指数の足し算に注意します。",
-            "difficulty": "advanced"
+            id: 'math-g3-expansion-basics-q14',
+            question: '次の計算をしましょう。\n-4x(x²-2x)',
+            options: ['-4x³-8x²', '4x³-8x²', '-4x²+8x²', '-4x³+8x²'],
+            correctIndex: 3,
+            explanation:
+              '-4x × x² = -4x³、-4x × (-2x) = +8x²\nx × x² = x³ と指数の足し算に注意します。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-expansion-basics-q15",
-            "question": "次の計算をしましょう。\nx(2x+3)+x(x-1)",
-            "options": [
-              "3x²+4x",
-              "2x²+2x",
-              "3x²+2x",
-              "3x²+3x"
-            ],
-            "correctIndex": 2,
-            "explanation": "x(2x+3)=2x²+3x、x(x-1)=x²-x\nまとめると 2x²+x²=3x²、3x-x=2x です。",
-            "difficulty": "advanced"
+            id: 'math-g3-expansion-basics-q15',
+            question: '次の計算をしましょう。\nx(2x+3)+x(x-1)',
+            options: ['3x²+4x', '2x²+2x', '3x²+3x', '3x²+2x'],
+            correctIndex: 3,
+            explanation:
+              'x(2x+3)=2x²+3x、x(x-1)=x²-x\nまとめると 2x²+x²=3x²、3x-x=2x です。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-expansion-basics-q16",
-            "question": "次の計算をしましょう。\n3x(x-2)-2x(x+1)",
-            "options": [
-              "x²-4x",
-              "5x²-8x",
-              "x²-8",
-              "x²-8x"
-            ],
-            "correctIndex": 3,
-            "explanation": "3x(x-2)=3x²-6x、-2x(x+1)=-2x²-2x\nまとめると 3x²-2x²=x²、-6x-2x=-8x です。",
-            "difficulty": "advanced"
+            id: 'math-g3-expansion-basics-q16',
+            question: '次の計算をしましょう。\n3x(x-2)-2x(x+1)',
+            options: ['x²-4x', '5x²-8x', 'x²-8x', 'x²-8'],
+            correctIndex: 2,
+            explanation:
+              '3x(x-2)=3x²-6x、-2x(x+1)=-2x²-2x\nまとめると 3x²-2x²=x²、-6x-2x=-8x です。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-expansion-basics-q17",
-            "question": "次の計算をしましょう。\n1/2x(4x-6)",
-            "options": [
-              "2x²-3x",
-              "2x²-6x",
-              "2x²-3",
-              "4x²-3x"
-            ],
-            "correctIndex": 0,
-            "explanation": "1/2x × 4x = 2x²、1/2x × (-6) = -3x\nどちらの項にも 1/2x を掛けます。",
-            "difficulty": "standard"
+            id: 'math-g3-expansion-basics-q17',
+            question: '次の計算をしましょう。\n1/2x(4x-6)',
+            options: ['2x²-3x', '2x²-6x', '2x²-3', '4x²-3x'],
+            correctIndex: 0,
+            explanation:
+              '1/2x × 4x = 2x²、1/2x × (-6) = -3x\nどちらの項にも 1/2x を掛けます。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-expansion-basics-q18",
-            "question": "次の計算をしましょう。\n-2a(a-3)+5a",
-            "options": [
-              "-2a²+a",
-              "-2a²+11a",
-              "-2a²-11a",
-              "2a²+11a"
-            ],
-            "correctIndex": 1,
-            "explanation": "-2a(a-3)=-2a²+6a、6a+5a=11a\n-2a × (-3)=+6a となり、5a と同類項をまとめます。",
-            "difficulty": "standard"
+            id: 'math-g3-expansion-basics-q18',
+            question: '次の計算をしましょう。\n-2a(a-3)+5a',
+            options: ['-2a²+a', '2a²+11a', '-2a²-11a', '-2a²+11a'],
+            correctIndex: 3,
+            explanation:
+              '-2a(a-3)=-2a²+6a、6a+5a=11a\n-2a × (-3)=+6a となり、5a と同類項をまとめます。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-expansion-basics-q19",
-            "question": "次の計算をしましょう。\n-3y(2y-5)",
-            "options": [
-              "-6y²-15y",
-              "-6y²+5y",
-              "-6y²+15y",
-              "6y²+15y"
-            ],
-            "correctIndex": 2,
-            "explanation": "-3y × 2y = -6y²、-3y × (-5) = +15y\n-5 にも -3y を掛けて正になります。",
-            "difficulty": "basic"
+            id: 'math-g3-expansion-basics-q19',
+            question: '次の計算をしましょう。\n-3y(2y-5)',
+            options: ['-6y²-15y', '-6y²+5y', '-6y²+15y', '6y²+15y'],
+            correctIndex: 2,
+            explanation:
+              '-3y × 2y = -6y²、-3y × (-5) = +15y\n-5 にも -3y を掛けて正になります。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-expansion-basics-q20",
-            "question": "次の計算をしましょう。\n2x(x+y-3)",
-            "options": [
-              "2x²+2y-6x",
-              "2x²+2xy-3",
-              "2x²+xy-6x",
-              "2x²+2xy-6x"
-            ],
-            "correctIndex": 3,
-            "explanation": "2x × x = 2x²、2x × y = 2xy、2x × (-3) = -6x\n3つの項すべてに 2x を分配します。",
-            "difficulty": "advanced"
-          }
-        ]
+            id: 'math-g3-expansion-basics-q20',
+            question: '次の計算をしましょう。\n2x(x+y-3)',
+            options: ['2x²+2xy-6x', '2x²+2xy-3', '2x²+xy-6x', '2x²+2y-6x'],
+            correctIndex: 0,
+            explanation:
+              '2x × x = 2x²、2x × y = 2xy、2x × (-3) = -6x\n3つの項すべてに 2x を分配します。',
+            difficulty: 'advanced',
+          },
+        ],
       },
       {
-        "topicId": "math-g3-expansion-formulas",
-        "name": "乗法の公式",
-        "subtitle": "4つの公式で展開を速く",
-        "icon": "⚡",
-        "order": 2,
-        "flashcards": [],
-        "quiz": [
+        topicId: 'math-g3-expansion-formulas',
+        name: '乗法の公式',
+        subtitle: '4つの公式で展開を速く',
+        icon: '⚡',
+        order: 2,
+        flashcards: [],
+        quiz: [
           {
-            "id": "math-g3-expansion-formulas-q1",
-            "question": "次の計算をしましょう。\n(x+3)(x+5)",
-            "options": [
-              "x²+8x+15",
-              "x²+15x+8",
-              "x²+8x+8",
-              "x²+2x+15"
-            ],
-            "correctIndex": 0,
-            "explanation": "(x+3)(x+5)=x²+(3+5)x+3×5=x²+8x+15\n和 3+5=8 が x の係数、積 3×5=15 が定数項です。",
-            "difficulty": "basic"
+            id: 'math-g3-expansion-formulas-q1',
+            question: '次の計算をしましょう。\n(x+3)(x+5)',
+            options: ['x²+15x+8', 'x²+8x+15', 'x²+8x+8', 'x²+2x+15'],
+            correctIndex: 1,
+            explanation:
+              '(x+3)(x+5)=x²+(3+5)x+3×5=x²+8x+15\n和 3+5=8 が x の係数、積 3×5=15 が定数項です。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-expansion-formulas-q2",
-            "question": "次の計算をしましょう。\n(x+4)²",
-            "options": [
-              "x²+4x+16",
-              "x²+8x+16",
-              "x²+16",
-              "x²+8x+8"
-            ],
-            "correctIndex": 1,
-            "explanation": "(x+4)²=x²+2×4× x+4²=x²+8x+16\n中央の項は 4 を 2 倍した 8x です。",
-            "difficulty": "basic"
+            id: 'math-g3-expansion-formulas-q2',
+            question: '次の計算をしましょう。\n(x+4)²',
+            options: ['x²+4x+16', 'x²+16', 'x²+8x+16', 'x²+8x+8'],
+            correctIndex: 2,
+            explanation:
+              '(x+4)²=x²+2×4× x+4²=x²+8x+16\n中央の項は 4 を 2 倍した 8x です。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-expansion-formulas-q3",
-            "question": "次の計算をしましょう。\n(x-6)²",
-            "options": [
-              "x²-6x+36",
-              "x²+12x+36",
-              "x²-12x+36",
-              "x²-12x-36"
-            ],
-            "correctIndex": 2,
-            "explanation": "(x-6)²=x²-2×6× x+6²=x²-12x+36\n中央の項だけが負で、定数項 36 は正になります。",
-            "difficulty": "basic"
+            id: 'math-g3-expansion-formulas-q3',
+            question: '次の計算をしましょう。\n(x-6)²',
+            options: ['x²-6x+36', 'x²+12x+36', 'x²-12x+36', 'x²-12x-36'],
+            correctIndex: 2,
+            explanation:
+              '(x-6)²=x²-2×6× x+6²=x²-12x+36\n中央の項だけが負で、定数項 36 は正になります。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-expansion-formulas-q4",
-            "question": "次の計算をしましょう。\n(x+7)(x-7)",
-            "options": [
-              "x²+49",
-              "x²-14x-49",
-              "x²-14x+49",
-              "x²-49"
-            ],
-            "correctIndex": 3,
-            "explanation": "(x+7)(x-7)=x²-7²=x²-49\n和と差の積なので x の項は消え、x²-49 になります。",
-            "difficulty": "basic"
+            id: 'math-g3-expansion-formulas-q4',
+            question: '次の計算をしましょう。\n(x+7)(x-7)',
+            options: ['x²-49', 'x²-14x-49', 'x²-14x+49', 'x²+49'],
+            correctIndex: 0,
+            explanation:
+              '(x+7)(x-7)=x²-7²=x²-49\n和と差の積なので x の項は消え、x²-49 になります。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-expansion-formulas-q5",
-            "question": "次の計算をしましょう。\n(x+2)(x+6)",
-            "options": [
-              "x²+12x+8",
-              "x²+8x+12",
-              "x²+8x+8",
-              "x²+8x+16"
-            ],
-            "correctIndex": 1,
-            "explanation": "(x+2)(x+6)=x²+(2+6)x+2×6=x²+8x+12\n和 2+6=8、積 2×6=12 です。",
-            "difficulty": "basic"
+            id: 'math-g3-expansion-formulas-q5',
+            question: '次の計算をしましょう。\n(x+2)(x+6)',
+            options: ['x²+8x+12', 'x²+12x+8', 'x²+8x+8', 'x²+8x+16'],
+            correctIndex: 0,
+            explanation:
+              '(x+2)(x+6)=x²+(2+6)x+2×6=x²+8x+12\n和 2+6=8、積 2×6=12 です。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-expansion-formulas-q6",
-            "question": "次の計算をしましょう。\n(x-3)(x-8)",
-            "options": [
-              "x²-11x+24",
-              "x²-11x-24",
-              "x²+11x+24",
-              "x²-24x+11"
-            ],
-            "correctIndex": 0,
-            "explanation": "(x-3)(x-8)=x²+(-3-8)x+(-3)×(-8)=x²-11x+24\n負どうしの積 24 は正になります。",
-            "difficulty": "standard"
+            id: 'math-g3-expansion-formulas-q6',
+            question: '次の計算をしましょう。\n(x-3)(x-8)',
+            options: ['x²+11x+24', 'x²-11x-24', 'x²-11x+24', 'x²-24x+11'],
+            correctIndex: 2,
+            explanation:
+              '(x-3)(x-8)=x²+(-3-8)x+(-3)×(-8)=x²-11x+24\n負どうしの積 24 は正になります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-expansion-formulas-q7",
-            "question": "次の計算をしましょう。\n(x+5)(x-2)",
-            "options": [
-              "x²-3x-10",
-              "x²+3x+10",
-              "x²+3x-10",
-              "x²+7x-10"
-            ],
-            "correctIndex": 2,
-            "explanation": "(x+5)(x-2)=x²+(5-2)x+5×(-2)=x²+3x-10\n和 5-2=3、積 5×(-2)=-10 です。",
-            "difficulty": "standard"
+            id: 'math-g3-expansion-formulas-q7',
+            question: '次の計算をしましょう。\n(x+5)(x-2)',
+            options: ['x²-3x-10', 'x²+3x-10', 'x²+3x+10', 'x²+7x-10'],
+            correctIndex: 1,
+            explanation:
+              '(x+5)(x-2)=x²+(5-2)x+5×(-2)=x²+3x-10\n和 5-2=3、積 5×(-2)=-10 です。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-expansion-formulas-q8",
-            "question": "次の計算をしましょう。\n(x-9)(x+4)",
-            "options": [
-              "x²+5x-36",
-              "x²-5x+36",
-              "x²-13x-36",
-              "x²-5x-36"
-            ],
-            "correctIndex": 3,
-            "explanation": "(x-9)(x+4)=x²+(-9+4)x+(-9)×4=x²-5x-36\n和 -9+4=-5、積 -36 です。",
-            "difficulty": "standard"
+            id: 'math-g3-expansion-formulas-q8',
+            question: '次の計算をしましょう。\n(x-9)(x+4)',
+            options: ['x²+5x-36', 'x²-5x+36', 'x²-5x-36', 'x²-13x-36'],
+            correctIndex: 2,
+            explanation:
+              '(x-9)(x+4)=x²+(-9+4)x+(-9)×4=x²-5x-36\n和 -9+4=-5、積 -36 です。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-expansion-formulas-q9",
-            "question": "次の計算をしましょう。\n(x+10)²",
-            "options": [
-              "x²+20x+100",
-              "x²+10x+100",
-              "x²+20x+10",
-              "x²+100"
-            ],
-            "correctIndex": 0,
-            "explanation": "(x+10)²=x²+2×10× x+10²=x²+20x+100\n中央は 10 の 2 倍 20x、定数項は 10²=100 です。",
-            "difficulty": "basic"
+            id: 'math-g3-expansion-formulas-q9',
+            question: '次の計算をしましょう。\n(x+10)²',
+            options: ['x²+20x+100', 'x²+10x+100', 'x²+20x+10', 'x²+100'],
+            correctIndex: 0,
+            explanation:
+              '(x+10)²=x²+2×10× x+10²=x²+20x+100\n中央は 10 の 2 倍 20x、定数項は 10²=100 です。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-expansion-formulas-q10",
-            "question": "次の計算をしましょう。\n(x-1)²",
-            "options": [
-              "x²-x+1",
-              "x²-2x+1",
-              "x²-2x-1",
-              "x²+2x+1"
-            ],
-            "correctIndex": 1,
-            "explanation": "(x-1)²=x²-2×1× x+1²=x²-2x+1\n中央の項は 1 の 2 倍で -2x になります。",
-            "difficulty": "basic"
+            id: 'math-g3-expansion-formulas-q10',
+            question: '次の計算をしましょう。\n(x-1)²',
+            options: ['x²-2x+1', 'x²-x+1', 'x²-2x-1', 'x²+2x+1'],
+            correctIndex: 0,
+            explanation:
+              '(x-1)²=x²-2×1× x+1²=x²-2x+1\n中央の項は 1 の 2 倍で -2x になります。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-expansion-formulas-q11",
-            "question": "次の計算をしましょう。\n(x+8)(x-8)",
-            "options": [
-              "x²+64",
-              "x²-16x-64",
-              "x²-64",
-              "x²-16x+64"
-            ],
-            "correctIndex": 2,
-            "explanation": "(x+8)(x-8)=x²-8²=x²-64\n和と差の積なので x の項は消えます。",
-            "difficulty": "basic"
+            id: 'math-g3-expansion-formulas-q11',
+            question: '次の計算をしましょう。\n(x+8)(x-8)',
+            options: ['x²+64', 'x²-16x-64', 'x²-16x+64', 'x²-64'],
+            correctIndex: 3,
+            explanation:
+              '(x+8)(x-8)=x²-8²=x²-64\n和と差の積なので x の項は消えます。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-expansion-formulas-q12",
-            "question": "次の計算をしましょう。\n(2x+3)²",
-            "options": [
-              "4x²+12x+9",
-              "4x²+6x+9",
-              "2x²+12x+9",
-              "4x²+9"
-            ],
-            "correctIndex": 0,
-            "explanation": "(2x+3)²=(2x)²+2×3×2x+3²=4x²+12x+9\n先頭は 2x を 2 乗して 4x²、中央は 2×3×2x=12x です。",
-            "difficulty": "standard"
+            id: 'math-g3-expansion-formulas-q12',
+            question: '次の計算をしましょう。\n(2x+3)²',
+            options: ['4x²+9', '4x²+6x+9', '2x²+12x+9', '4x²+12x+9'],
+            correctIndex: 3,
+            explanation:
+              '(2x+3)²=(2x)²+2×3×2x+3²=4x²+12x+9\n先頭は 2x を 2 乗して 4x²、中央は 2×3×2x=12x です。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-expansion-formulas-q13",
-            "question": "次の計算をしましょう。\n(3x-1)(3x+1)",
-            "options": [
-              "9x²+1",
-              "3x²-1",
-              "9x²-6x-1",
-              "9x²-1"
-            ],
-            "correctIndex": 3,
-            "explanation": "(3x-1)(3x+1)=(3x)²-1²=9x²-1\n3x を 2 乗して 9x²、和と差の積なので x の項は消えます。",
-            "difficulty": "standard"
+            id: 'math-g3-expansion-formulas-q13',
+            question: '次の計算をしましょう。\n(3x-1)(3x+1)',
+            options: ['9x²+1', '9x²-1', '9x²-6x-1', '3x²-1'],
+            correctIndex: 1,
+            explanation:
+              '(3x-1)(3x+1)=(3x)²-1²=9x²-1\n3x を 2 乗して 9x²、和と差の積なので x の項は消えます。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-expansion-formulas-q14",
-            "question": "次の計算をしましょう。\n(2x-5)²",
-            "options": [
-              "4x²-10x+25",
-              "4x²-20x+25",
-              "4x²-20x-25",
-              "2x²-20x+25"
-            ],
-            "correctIndex": 1,
-            "explanation": "(2x-5)²=(2x)²-2×5×2x+5²=4x²-20x+25\n中央は 2×5×2x=20x で符号は負です。",
-            "difficulty": "standard"
+            id: 'math-g3-expansion-formulas-q14',
+            question: '次の計算をしましょう。\n(2x-5)²',
+            options: ['4x²-20x+25', '4x²-10x+25', '4x²-20x-25', '2x²-20x+25'],
+            correctIndex: 0,
+            explanation:
+              '(2x-5)²=(2x)²-2×5×2x+5²=4x²-20x+25\n中央は 2×5×2x=20x で符号は負です。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-expansion-formulas-q15",
-            "question": "次の計算をしましょう。\n(5x+2)(5x-2)",
-            "options": [
-              "25x²+4",
-              "5x²-4",
-              "25x²-4",
-              "25x²-20x-4"
-            ],
-            "correctIndex": 2,
-            "explanation": "(5x+2)(5x-2)=(5x)²-2²=25x²-4\n5x を 2 乗して 25x²、2²=4 を引きます。",
-            "difficulty": "standard"
+            id: 'math-g3-expansion-formulas-q15',
+            question: '次の計算をしましょう。\n(5x+2)(5x-2)',
+            options: ['25x²+4', '5x²-4', '25x²-20x-4', '25x²-4'],
+            correctIndex: 3,
+            explanation:
+              '(5x+2)(5x-2)=(5x)²-2²=25x²-4\n5x を 2 乗して 25x²、2²=4 を引きます。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-expansion-formulas-q16",
-            "question": "次の計算をしましょう。\n(3a+4)²",
-            "options": [
-              "9a²+24a+16",
-              "9a²+12a+16",
-              "3a²+24a+16",
-              "9a²+24a+8"
-            ],
-            "correctIndex": 0,
-            "explanation": "(3a+4)²=(3a)²+2×4×3a+4²=9a²+24a+16\n中央は 2×4×3a=24a です。",
-            "difficulty": "advanced"
+            id: 'math-g3-expansion-formulas-q16',
+            question: '次の計算をしましょう。\n(3a+4)²',
+            options: ['9a²+12a+16', '9a²+24a+16', '3a²+24a+16', '9a²+24a+8'],
+            correctIndex: 1,
+            explanation:
+              '(3a+4)²=(3a)²+2×4×3a+4²=9a²+24a+16\n中央は 2×4×3a=24a です。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-expansion-formulas-q17",
-            "question": "次の計算をしましょう。\n(4x-3)(4x+3)",
-            "options": [
-              "16x²+9",
-              "4x²-9",
-              "16x²-24x-9",
-              "16x²-9"
-            ],
-            "correctIndex": 3,
-            "explanation": "(4x-3)(4x+3)=(4x)²-3²=16x²-9\n4x を 2 乗して 16x²、和と差の積なので x の項は消えます。",
-            "difficulty": "standard"
+            id: 'math-g3-expansion-formulas-q17',
+            question: '次の計算をしましょう。\n(4x-3)(4x+3)',
+            options: ['16x²+9', '16x²-9', '16x²-24x-9', '4x²-9'],
+            correctIndex: 1,
+            explanation:
+              '(4x-3)(4x+3)=(4x)²-3²=16x²-9\n4x を 2 乗して 16x²、和と差の積なので x の項は消えます。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-expansion-formulas-q18",
-            "question": "次の計算をしましょう。\n(x+2y)²",
-            "options": [
-              "x²+2xy+4y²",
-              "x²+4xy+4y²",
-              "x²+4xy+2y²",
-              "x²+4y²"
-            ],
-            "correctIndex": 1,
-            "explanation": "(x+2y)²=x²+2×2y× x+(2y)²=x²+4xy+4y²\n中央は 2×2y× x=4xy、末項は (2y)²=4y² です。",
-            "difficulty": "advanced"
+            id: 'math-g3-expansion-formulas-q18',
+            question: '次の計算をしましょう。\n(x+2y)²',
+            options: ['x²+2xy+4y²', 'x²+4y²', 'x²+4xy+2y²', 'x²+4xy+4y²'],
+            correctIndex: 3,
+            explanation:
+              '(x+2y)²=x²+2×2y× x+(2y)²=x²+4xy+4y²\n中央は 2×2y× x=4xy、末項は (2y)²=4y² です。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-expansion-formulas-q19",
-            "question": "次の計算をしましょう。\n(2x+3)(2x-7)",
-            "options": [
-              "4x²+8x-21",
-              "4x²-8x+21",
-              "4x²-8x-21",
-              "4x²-4x-21"
-            ],
-            "correctIndex": 2,
-            "explanation": "(2x+3)(2x-7)=(2x)²+(3-7)×2x+3×(-7)=4x²-8x-21\n2x をひとまとまりと見て、和 3-7=-4 を 2x にかけ -8x、積は -21 です。",
-            "difficulty": "advanced"
+            id: 'math-g3-expansion-formulas-q19',
+            question: '次の計算をしましょう。\n(2x+3)(2x-7)',
+            options: ['4x²+8x-21', '4x²-8x+21', '4x²-8x-21', '4x²-4x-21'],
+            correctIndex: 2,
+            explanation:
+              '(2x+3)(2x-7)=(2x)²+(3-7)×2x+3×(-7)=4x²-8x-21\n2x をひとまとまりと見て、和 3-7=-4 を 2x にかけ -8x、積は -21 です。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-expansion-formulas-q20",
-            "question": "次の計算をしましょう。\n(x-4y)(x+4y)",
-            "options": [
-              "x²+16y²",
-              "x²-8y²",
-              "x²-16y",
-              "x²-16y²"
-            ],
-            "correctIndex": 3,
-            "explanation": "(x-4y)(x+4y)=x²-(4y)²=x²-16y²\n和と差の積で、(4y)²=16y² を引きます。",
-            "difficulty": "advanced"
-          }
-        ]
+            id: 'math-g3-expansion-formulas-q20',
+            question: '次の計算をしましょう。\n(x-4y)(x+4y)',
+            options: ['x²+16y²', 'x²-8y²', 'x²-16y', 'x²-16y²'],
+            correctIndex: 3,
+            explanation:
+              '(x-4y)(x+4y)=x²-(4y)²=x²-16y²\n和と差の積で、(4y)²=16y² を引きます。',
+            difficulty: 'advanced',
+          },
+        ],
       },
       {
-        "topicId": "math-g3-expansion-advanced",
-        "name": "展開の応用",
-        "subtitle": "置き換え・式を簡単にする",
-        "icon": "🚀",
-        "order": 3,
-        "flashcards": [],
-        "quiz": [
+        topicId: 'math-g3-expansion-advanced',
+        name: '展開の応用',
+        subtitle: '置き換え・式を簡単にする',
+        icon: '🚀',
+        order: 3,
+        flashcards: [],
+        quiz: [
           {
-            "id": "math-g3-expansion-advanced-q1",
-            "question": "次の計算をしましょう。\n(a+b)(x+y)",
-            "options": [
-              "ax+ay+bx+by",
-              "ax+by",
-              "ab+xy",
-              "ax+ay+bx"
-            ],
-            "correctIndex": 0,
-            "explanation": "(a+b)(x+y)=ax+ay+bx+by\nそれぞれの項をもれなくかけ合わせます。",
-            "difficulty": "basic"
+            id: 'math-g3-expansion-advanced-q1',
+            question: '次の計算をしましょう。\n(a+b)(x+y)',
+            options: ['ax+by', 'ax+ay+bx+by', 'ab+xy', 'ax+ay+bx'],
+            correctIndex: 1,
+            explanation:
+              '(a+b)(x+y)=ax+ay+bx+by\nそれぞれの項をもれなくかけ合わせます。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-expansion-advanced-q2",
-            "question": "次の計算をしましょう。\n(x+2)(x+y+1)",
-            "options": [
-              "x²+xy+x+2y+2",
-              "x²+xy+3x+2y+2",
-              "x²+xy+3x+2y",
-              "x²+xy+2x+2y+2"
+            id: 'math-g3-expansion-advanced-q2',
+            question: '次の計算をしましょう。\n(x+2)(x+y+1)',
+            options: [
+              'x²+xy+3x+2y+2',
+              'x²+xy+x+2y+2',
+              'x²+xy+3x+2y',
+              'x²+xy+2x+2y+2',
             ],
-            "correctIndex": 1,
-            "explanation": "(x+2)(x+y+1)=x²+xy+x+2x+2y+2=x²+xy+3x+2y+2\nx と 2x をまとめます。",
-            "difficulty": "basic"
+            correctIndex: 0,
+            explanation:
+              '(x+2)(x+y+1)=x²+xy+x+2x+2y+2=x²+xy+3x+2y+2\nx と 2x をまとめます。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-expansion-advanced-q3",
-            "question": "次の計算をしましょう。\n(a+3)(a+b-2)",
-            "options": [
-              "a²+ab-a+3b-6",
-              "a²+ab+5a+3b-6",
-              "a²+ab+a+3b-6",
-              "a²+ab+a+3b+6"
+            id: 'math-g3-expansion-advanced-q3',
+            question: '次の計算をしましょう。\n(a+3)(a+b-2)',
+            options: [
+              'a²+ab-a+3b-6',
+              'a²+ab+5a+3b-6',
+              'a²+ab+a+3b+6',
+              'a²+ab+a+3b-6',
             ],
-            "correctIndex": 2,
-            "explanation": "(a+3)(a+b-2)=a²+ab-2a+3a+3b-6=a²+ab+a+3b-6\n-2a+3a=a になります。",
-            "difficulty": "basic"
+            correctIndex: 3,
+            explanation:
+              '(a+3)(a+b-2)=a²+ab-2a+3a+3b-6=a²+ab+a+3b-6\n-2a+3a=a になります。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-expansion-advanced-q4",
-            "question": "次の計算をしましょう。\n(x-2)(x²+x-1)",
-            "options": [
-              "x³+x²-3x+2",
-              "x³-x²-x+2",
-              "x³-x²-3x-2",
-              "x³-x²-3x+2"
-            ],
-            "correctIndex": 3,
-            "explanation": "(x-2)(x²+x-1)=x³+x²-x-2x²-2x+2=x³-x²-3x+2\n同類項 x²-2x²、-x-2x をまとめます。",
-            "difficulty": "standard"
+            id: 'math-g3-expansion-advanced-q4',
+            question: '次の計算をしましょう。\n(x-2)(x²+x-1)',
+            options: ['x³+x²-3x+2', 'x³-x²-x+2', 'x³-x²-3x-2', 'x³-x²-3x+2'],
+            correctIndex: 3,
+            explanation:
+              '(x-2)(x²+x-1)=x³+x²-x-2x²-2x+2=x³-x²-3x+2\n同類項 x²-2x²、-x-2x をまとめます。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-expansion-advanced-q5",
-            "question": "次の計算をしましょう。\n(x+y+1)(x+y-2)",
-            "options": [
-              "x²+2xy+y²-x-y-2",
-              "x²+y²-x-y-2",
-              "x²+2xy+y²+x+y-2",
-              "x²+2xy+y²-x-y+2"
+            id: 'math-g3-expansion-advanced-q5',
+            question: '次の計算をしましょう。\n(x+y+1)(x+y-2)',
+            options: [
+              'x²+y²-x-y-2',
+              'x²+2xy+y²-x-y-2',
+              'x²+2xy+y²+x+y-2',
+              'x²+2xy+y²-x-y+2',
             ],
-            "correctIndex": 0,
-            "explanation": "x+y=A とおくと (A+1)(A-2)=A²-A-2=(x+y)²-(x+y)-2=x²+2xy+y²-x-y-2\n(x+y)² の 2xy を忘れないようにします。",
-            "difficulty": "basic"
+            correctIndex: 1,
+            explanation:
+              'x+y=A とおくと (A+1)(A-2)=A²-A-2=(x+y)²-(x+y)-2=x²+2xy+y²-x-y-2\n(x+y)² の 2xy を忘れないようにします。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-expansion-advanced-q6",
-            "question": "次の計算をしましょう。\n(a-b+3)(a-b-5)",
-            "options": [
-              "a²-2ab+b²-2a-2b-15",
-              "a²-2ab+b²-2a+2b-15",
-              "a²+b²-2a+2b-15",
-              "a²-2ab+b²-2a+2b+15"
+            id: 'math-g3-expansion-advanced-q6',
+            question: '次の計算をしましょう。\n(a-b+3)(a-b-5)',
+            options: [
+              'a²-2ab+b²-2a-2b-15',
+              'a²-2ab+b²-2a+2b+15',
+              'a²+b²-2a+2b-15',
+              'a²-2ab+b²-2a+2b-15',
             ],
-            "correctIndex": 1,
-            "explanation": "a-b=M とおくと (M+3)(M-5)=M²-2M-15=(a-b)²-2(a-b)-15=a²-2ab+b²-2a+2b-15\n-2(a-b)=-2a+2b です。",
-            "difficulty": "standard"
+            correctIndex: 3,
+            explanation:
+              'a-b=M とおくと (M+3)(M-5)=M²-2M-15=(a-b)²-2(a-b)-15=a²-2ab+b²-2a+2b-15\n-2(a-b)=-2a+2b です。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-expansion-advanced-q7",
-            "question": "次の計算をしましょう。\n(x+y+4)²",
-            "options": [
-              "x²+y²+8x+8y+16",
-              "x²+2xy+y²+4x+4y+16",
-              "x²+2xy+y²+8x+8y+16",
-              "x²+2xy+y²+8x+8y+8"
+            id: 'math-g3-expansion-advanced-q7',
+            question: '次の計算をしましょう。\n(x+y+4)²',
+            options: [
+              'x²+y²+8x+8y+16',
+              'x²+2xy+y²+8x+8y+16',
+              'x²+2xy+y²+4x+4y+16',
+              'x²+2xy+y²+8x+8y+8',
             ],
-            "correctIndex": 2,
-            "explanation": "x+y=A とおくと (A+4)²=A²+8A+16=(x+y)²+8(x+y)+16=x²+2xy+y²+8x+8y+16\n8A=8x+8y に戻します。",
-            "difficulty": "standard"
+            correctIndex: 1,
+            explanation:
+              'x+y=A とおくと (A+4)²=A²+8A+16=(x+y)²+8(x+y)+16=x²+2xy+y²+8x+8y+16\n8A=8x+8y に戻します。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-expansion-advanced-q8",
-            "question": "次の計算をしましょう。\n(a+b-c)(a-b+c)",
-            "options": [
-              "a²-b²-2bc-c²",
-              "a²-b²+2bc+c²",
-              "a²+b²-2bc-c²",
-              "a²-b²+2bc-c²"
+            id: 'math-g3-expansion-advanced-q8',
+            question: '次の計算をしましょう。\n(a+b-c)(a-b+c)',
+            options: [
+              'a²-b²-2bc-c²',
+              'a²-b²+2bc+c²',
+              'a²-b²+2bc-c²',
+              'a²+b²-2bc-c²',
             ],
-            "correctIndex": 3,
-            "explanation": "(a+b-c)(a-b+c)={a+(b-c)}{a-(b-c)}=a²-(b-c)²=a²-b²+2bc-c²\nb-c を1つのまとまりとみて和と差の積を使います。",
-            "difficulty": "advanced"
+            correctIndex: 2,
+            explanation:
+              '(a+b-c)(a-b+c)={a+(b-c)}{a-(b-c)}=a²-(b-c)²=a²-b²+2bc-c²\nb-c を1つのまとまりとみて和と差の積を使います。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-expansion-advanced-q9",
-            "question": "次の計算をしましょう。\n(x+2)(x-2)(x+3)",
-            "options": [
-              "x³+3x²-4x-12",
-              "x³+3x²-4x+12",
-              "x³+3x²+4x-12",
-              "x³-3x²-4x-12"
+            id: 'math-g3-expansion-advanced-q9',
+            question: '次の計算をしましょう。\n(x+2)(x-2)(x+3)',
+            options: [
+              'x³+3x²+4x-12',
+              'x³+3x²-4x+12',
+              'x³+3x²-4x-12',
+              'x³-3x²-4x-12',
             ],
-            "correctIndex": 0,
-            "explanation": "(x+2)(x-2)(x+3)=(x²-4)(x+3)=x³+3x²-4x-12\nまず和と差の積で x²-4 にします。",
-            "difficulty": "standard"
+            correctIndex: 2,
+            explanation:
+              '(x+2)(x-2)(x+3)=(x²-4)(x+3)=x³+3x²-4x-12\nまず和と差の積で x²-4 にします。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-expansion-advanced-q10",
-            "question": "次の計算をしましょう。\n(x+1)(x-1)(x²+1)",
-            "options": [
-              "x⁴+1",
-              "x⁴-1",
-              "x⁴-x²-1",
-              "x⁴-2x²-1"
-            ],
-            "correctIndex": 1,
-            "explanation": "(x+1)(x-1)(x²+1)=(x²-1)(x²+1)=x⁴-1\n和と差の積を2回続けて使います。",
-            "difficulty": "advanced"
+            id: 'math-g3-expansion-advanced-q10',
+            question: '次の計算をしましょう。\n(x+1)(x-1)(x²+1)',
+            options: ['x⁴+1', 'x⁴-1', 'x⁴-x²-1', 'x⁴-2x²-1'],
+            correctIndex: 1,
+            explanation:
+              '(x+1)(x-1)(x²+1)=(x²-1)(x²+1)=x⁴-1\n和と差の積を2回続けて使います。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-expansion-advanced-q11",
-            "question": "次の計算をしましょう。\n(a+2)(a-2)(a²+4)",
-            "options": [
-              "a⁴+16",
-              "a⁴-8",
-              "a⁴-16",
-              "a⁴-8a²-16"
-            ],
-            "correctIndex": 2,
-            "explanation": "(a+2)(a-2)(a²+4)=(a²-4)(a²+4)=a⁴-16\n和と差の積を2回使います。",
-            "difficulty": "standard"
+            id: 'math-g3-expansion-advanced-q11',
+            question: '次の計算をしましょう。\n(a+2)(a-2)(a²+4)',
+            options: ['a⁴-16', 'a⁴-8', 'a⁴+16', 'a⁴-8a²-16'],
+            correctIndex: 0,
+            explanation:
+              '(a+2)(a-2)(a²+4)=(a²-4)(a²+4)=a⁴-16\n和と差の積を2回使います。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-expansion-advanced-q12",
-            "question": "次の計算をしましょう。\n(2x+3)(2x-3)",
-            "options": [
-              "4x²+9",
-              "2x²-9",
-              "4x²-36",
-              "4x²-9"
-            ],
-            "correctIndex": 3,
-            "explanation": "(2x+3)(2x-3)=(2x)²-3²=4x²-9\n和と差の積です。(2x)²=4x²。",
-            "difficulty": "basic"
+            id: 'math-g3-expansion-advanced-q12',
+            question: '次の計算をしましょう。\n(2x+3)(2x-3)',
+            options: ['4x²+9', '2x²-9', '4x²-9', '4x²-36'],
+            correctIndex: 2,
+            explanation:
+              '(2x+3)(2x-3)=(2x)²-3²=4x²-9\n和と差の積です。(2x)²=4x²。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-expansion-advanced-q13",
-            "question": "次の計算をしましょう。\n(x+3)²-(x-2)(x+5)",
-            "options": [
-              "3x+19",
-              "3x-1",
-              "9x+19",
-              "3x-19"
-            ],
-            "correctIndex": 0,
-            "explanation": "(x+3)²-(x-2)(x+5)=(x²+6x+9)-(x²+3x-10)=3x+19\nひく式の -10 にも符号を分配します。",
-            "difficulty": "standard"
+            id: 'math-g3-expansion-advanced-q13',
+            question: '次の計算をしましょう。\n(x+3)²-(x-2)(x+5)',
+            options: ['3x-19', '3x-1', '9x+19', '3x+19'],
+            correctIndex: 3,
+            explanation:
+              '(x+3)²-(x-2)(x+5)=(x²+6x+9)-(x²+3x-10)=3x+19\nひく式の -10 にも符号を分配します。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-expansion-advanced-q14",
-            "question": "次の計算をしましょう。\n(x+4)(x-4)-(x-3)²",
-            "options": [
-              "6x-7",
-              "6x-25",
-              "-6x-25",
-              "6x+25"
-            ],
-            "correctIndex": 1,
-            "explanation": "(x+4)(x-4)-(x-3)²=(x²-16)-(x²-6x+9)=6x-25\nひく式の +9 の符号に注意します。",
-            "difficulty": "standard"
+            id: 'math-g3-expansion-advanced-q14',
+            question: '次の計算をしましょう。\n(x+4)(x-4)-(x-3)²',
+            options: ['6x-25', '6x-7', '-6x-25', '6x+25'],
+            correctIndex: 0,
+            explanation:
+              '(x+4)(x-4)-(x-3)²=(x²-16)-(x²-6x+9)=6x-25\nひく式の +9 の符号に注意します。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-expansion-advanced-q15",
-            "question": "次の計算をしましょう。\n(2x-1)²-(x+2)(4x-1)",
-            "options": [
-              "-11x-1",
-              "11x+3",
-              "-11x+3",
-              "-3x+3"
-            ],
-            "correctIndex": 2,
-            "explanation": "(2x-1)²-(x+2)(4x-1)=(4x²-4x+1)-(4x²+7x-2)=-11x+3\nひく式全体の符号を変えます。",
-            "difficulty": "advanced"
+            id: 'math-g3-expansion-advanced-q15',
+            question: '次の計算をしましょう。\n(2x-1)²-(x+2)(4x-1)',
+            options: ['-11x-1', '11x+3', '-11x+3', '-3x+3'],
+            correctIndex: 2,
+            explanation:
+              '(2x-1)²-(x+2)(4x-1)=(4x²-4x+1)-(4x²+7x-2)=-11x+3\nひく式全体の符号を変えます。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-expansion-advanced-q16",
-            "question": "次の計算をしましょう。\n(x+5)(x-2)-(x-1)(x+3)",
-            "options": [
-              "x-13",
-              "5x-7",
-              "x+7",
-              "x-7"
-            ],
-            "correctIndex": 3,
-            "explanation": "(x+5)(x-2)-(x-1)(x+3)=(x²+3x-10)-(x²+2x-3)=x-7\nひく式の -3 も符号が変わり +3 になります。",
-            "difficulty": "standard"
+            id: 'math-g3-expansion-advanced-q16',
+            question: '次の計算をしましょう。\n(x+5)(x-2)-(x-1)(x+3)',
+            options: ['x-13', '5x-7', 'x+7', 'x-7'],
+            correctIndex: 3,
+            explanation:
+              '(x+5)(x-2)-(x-1)(x+3)=(x²+3x-10)-(x²+2x-3)=x-7\nひく式の -3 も符号が変わり +3 になります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-expansion-advanced-q17",
-            "question": "次の計算をしましょう。\n(x+1)²+(x-1)²",
-            "options": [
-              "2x²+2",
-              "2x²",
-              "2x²+4x+2",
-              "2x²+2x+2"
-            ],
-            "correctIndex": 0,
-            "explanation": "(x+1)²+(x-1)²=(x²+2x+1)+(x²-2x+1)=2x²+2\n+2x と -2x が消えます。",
-            "difficulty": "basic"
+            id: 'math-g3-expansion-advanced-q17',
+            question: '次の計算をしましょう。\n(x+1)²+(x-1)²',
+            options: ['2x²', '2x²+2', '2x²+4x+2', '2x²+2x+2'],
+            correctIndex: 1,
+            explanation:
+              '(x+1)²+(x-1)²=(x²+2x+1)+(x²-2x+1)=2x²+2\n+2x と -2x が消えます。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-expansion-advanced-q18",
-            "question": "次の計算をしましょう。\n(x+2)²-(x-2)²",
-            "options": [
-              "0",
-              "8x",
-              "16x",
-              "-8x"
-            ],
-            "correctIndex": 1,
-            "explanation": "(x+2)²-(x-2)²=(x²+4x+4)-(x²-4x+4)=8x\nx² と定数が消え、4x+4x=8x が残ります。",
-            "difficulty": "basic"
+            id: 'math-g3-expansion-advanced-q18',
+            question: '次の計算をしましょう。\n(x+2)²-(x-2)²',
+            options: ['8x', '0', '16x', '-8x'],
+            correctIndex: 0,
+            explanation:
+              '(x+2)²-(x-2)²=(x²+4x+4)-(x²-4x+4)=8x\nx² と定数が消え、4x+4x=8x が残ります。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-expansion-advanced-q19",
-            "question": "次の計算をしましょう。\n(x+y+1)(x-y+1)",
-            "options": [
-              "x²+1-y²",
-              "x²+2x+1+y²",
-              "x²+2x+1-y²",
-              "x²-2x+1-y²"
-            ],
-            "correctIndex": 2,
-            "explanation": "(x+y+1)(x-y+1)={(x+1)+y}{(x+1)-y}=(x+1)²-y²=x²+2x+1-y²\nx+1 をまとまりとみて和と差の積を使います。",
-            "difficulty": "advanced"
+            id: 'math-g3-expansion-advanced-q19',
+            question: '次の計算をしましょう。\n(x+y+1)(x-y+1)',
+            options: ['x²+1-y²', 'x²+2x+1+y²', 'x²+2x+1-y²', 'x²-2x+1-y²'],
+            correctIndex: 2,
+            explanation:
+              '(x+y+1)(x-y+1)={(x+1)+y}{(x+1)-y}=(x+1)²-y²=x²+2x+1-y²\nx+1 をまとまりとみて和と差の積を使います。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-expansion-advanced-q20",
-            "question": "次の計算をしましょう。\n(2a+b-1)(2a+b+1)",
-            "options": [
-              "4a²+b²-1",
-              "2a²+4ab+b²-1",
-              "4a²+4ab+b²+1",
-              "4a²+4ab+b²-1"
+            id: 'math-g3-expansion-advanced-q20',
+            question: '次の計算をしましょう。\n(2a+b-1)(2a+b+1)',
+            options: [
+              '4a²+4ab+b²-1',
+              '2a²+4ab+b²-1',
+              '4a²+4ab+b²+1',
+              '4a²+b²-1',
             ],
-            "correctIndex": 3,
-            "explanation": "(2a+b-1)(2a+b+1)=(2a+b)²-1=4a²+4ab+b²-1\n2a+b をまとまりとみます。(2a+b)²=4a²+4ab+b²。",
-            "difficulty": "standard"
-          }
-        ]
+            correctIndex: 0,
+            explanation:
+              '(2a+b-1)(2a+b+1)=(2a+b)²-1=4a²+4ab+b²-1\n2a+b をまとまりとみます。(2a+b)²=4a²+4ab+b²。',
+            difficulty: 'standard',
+          },
+        ],
       },
       {
-        "topicId": "math-g3-factoring-basics",
-        "name": "因数分解の基本",
-        "subtitle": "共通因数をくくり出そう",
-        "icon": "🔧",
-        "order": 4,
-        "flashcards": [],
-        "quiz": [
+        topicId: 'math-g3-factoring-basics',
+        name: '因数分解の基本',
+        subtitle: '共通因数をくくり出そう',
+        icon: '🔧',
+        order: 4,
+        flashcards: [],
+        quiz: [
           {
-            "id": "math-g3-factoring-basics-q1",
-            "question": "次の式を因数分解しましょう。\n2x²+6x",
-            "options": [
-              "2x(x+3)",
-              "2x(x+6)",
-              "x(2x+6)",
-              "2(x²+3x)"
-            ],
-            "correctIndex": 0,
-            "explanation": "2x²+6x=2x(x+3)\n各項に共通な 2x をくくり出します。残りは x と 3 です。",
-            "difficulty": "basic"
+            id: 'math-g3-factoring-basics-q1',
+            question: '次の式を因数分解しましょう。\n2x²+6x',
+            options: ['2x(x+3)', '2x(x+6)', 'x(2x+6)', '2(x²+3x)'],
+            correctIndex: 0,
+            explanation:
+              '2x²+6x=2x(x+3)\n各項に共通な 2x をくくり出します。残りは x と 3 です。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-factoring-basics-q2",
-            "question": "次の式を因数分解しましょう。\n3ab-6a",
-            "options": [
-              "3a(b-6)",
-              "3a(b-2)",
-              "a(3b-6)",
-              "3(ab-2a)"
-            ],
-            "correctIndex": 1,
-            "explanation": "3ab-6a=3a(b-2)\n共通な 3a をくくり出すと、6a÷ 3a=2 なので中は b-2 です。",
-            "difficulty": "basic"
+            id: 'math-g3-factoring-basics-q2',
+            question: '次の式を因数分解しましょう。\n3ab-6a',
+            options: ['3a(b-2)', '3a(b-6)', 'a(3b-6)', '3(ab-2a)'],
+            correctIndex: 0,
+            explanation:
+              '3ab-6a=3a(b-2)\n共通な 3a をくくり出すと、6a÷ 3a=2 なので中は b-2 です。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-factoring-basics-q3",
-            "question": "次の式を因数分解しましょう。\nx²y+xy²",
-            "options": [
-              "xy(x²+y²)",
-              "x(xy+y²)",
-              "xy(x+y)",
-              "x²y(1+y)"
-            ],
-            "correctIndex": 2,
-            "explanation": "x²y+xy²=xy(x+y)\n両方の項に共通な xy をくくり出すと、残りは x と y です。",
-            "difficulty": "basic"
+            id: 'math-g3-factoring-basics-q3',
+            question: '次の式を因数分解しましょう。\nx²y+xy²',
+            options: ['xy(x²+y²)', 'x(xy+y²)', 'xy(x+y)', 'x²y(1+y)'],
+            correctIndex: 2,
+            explanation:
+              'x²y+xy²=xy(x+y)\n両方の項に共通な xy をくくり出すと、残りは x と y です。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-factoring-basics-q4",
-            "question": "次の式を因数分解しましょう。\n-4a²-8a",
-            "options": [
-              "-4a(a-2)",
-              "4a(a+2)",
-              "-4(a²+2a)",
-              "-4a(a+2)"
-            ],
-            "correctIndex": 3,
-            "explanation": "-4a²-8a=-4a(a+2)\n共通因数を -4a にとると、中の符号はどちらも + になります。",
-            "difficulty": "standard"
+            id: 'math-g3-factoring-basics-q4',
+            question: '次の式を因数分解しましょう。\n-4a²-8a',
+            options: ['-4a(a-2)', '4a(a+2)', '-4(a²+2a)', '-4a(a+2)'],
+            correctIndex: 3,
+            explanation:
+              '-4a²-8a=-4a(a+2)\n共通因数を -4a にとると、中の符号はどちらも + になります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-factoring-basics-q5",
-            "question": "次の式を因数分解しましょう。\n6xy-9y",
-            "options": [
-              "3y(2x-3)",
-              "3y(2x+3)",
-              "y(6x-9)",
-              "3(2xy-3y)"
-            ],
-            "correctIndex": 0,
-            "explanation": "6xy-9y=3y(2x-3)\n係数 6,9 の最大公約数 3 と共通な y をまとめてくくり出します。",
-            "difficulty": "basic"
+            id: 'math-g3-factoring-basics-q5',
+            question: '次の式を因数分解しましょう。\n6xy-9y',
+            options: ['3y(2x+3)', '3y(2x-3)', 'y(6x-9)', '3(2xy-3y)'],
+            correctIndex: 1,
+            explanation:
+              '6xy-9y=3y(2x-3)\n係数 6,9 の最大公約数 3 と共通な y をまとめてくくり出します。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-factoring-basics-q6",
-            "question": "次の式を因数分解しましょう。\n4a²b+8ab²",
-            "options": [
-              "4ab(a+b)",
-              "4ab(a+2b)",
-              "ab(4a+8b)",
-              "4a(ab+2b²)"
-            ],
-            "correctIndex": 1,
-            "explanation": "4a²b+8ab²=4ab(a+2b)\n係数の最大公約数 4 と共通な ab をくくり出します。",
-            "difficulty": "standard"
+            id: 'math-g3-factoring-basics-q6',
+            question: '次の式を因数分解しましょう。\n4a²b+8ab²',
+            options: ['4ab(a+2b)', '4ab(a+b)', 'ab(4a+8b)', '4a(ab+2b²)'],
+            correctIndex: 0,
+            explanation:
+              '4a²b+8ab²=4ab(a+2b)\n係数の最大公約数 4 と共通な ab をくくり出します。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-factoring-basics-q7",
-            "question": "次の式を因数分解しましょう。\n5x²-10x",
-            "options": [
-              "5x(x+2)",
-              "5(x²-2x)",
-              "5x(x-2)",
-              "x(5x-10)"
-            ],
-            "correctIndex": 2,
-            "explanation": "5x²-10x=5x(x-2)\n共通な 5x をくくり出すと、10x÷ 5x=2 なので中は x-2 です。",
-            "difficulty": "basic"
+            id: 'math-g3-factoring-basics-q7',
+            question: '次の式を因数分解しましょう。\n5x²-10x',
+            options: ['5x(x+2)', '5(x²-2x)', 'x(5x-10)', '5x(x-2)'],
+            correctIndex: 3,
+            explanation:
+              '5x²-10x=5x(x-2)\n共通な 5x をくくり出すと、10x÷ 5x=2 なので中は x-2 です。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-factoring-basics-q8",
-            "question": "次の式を因数分解しましょう。\n12ab+18b",
-            "options": [
-              "6b(2a+18)",
-              "6(2ab+3b)",
-              "b(12a+18)",
-              "6b(2a+3)"
-            ],
-            "correctIndex": 3,
-            "explanation": "12ab+18b=6b(2a+3)\n係数 12,18 の最大公約数 6 と共通な b をくくり出します。",
-            "difficulty": "standard"
+            id: 'math-g3-factoring-basics-q8',
+            question: '次の式を因数分解しましょう。\n12ab+18b',
+            options: ['6b(2a+18)', '6(2ab+3b)', '6b(2a+3)', 'b(12a+18)'],
+            correctIndex: 2,
+            explanation:
+              '12ab+18b=6b(2a+3)\n係数 12,18 の最大公約数 6 と共通な b をくくり出します。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-factoring-basics-q9",
-            "question": "次の式を因数分解しましょう。\na²-ab",
-            "options": [
-              "a(a-b)",
-              "a(a+b)",
-              "a(1-b)",
-              "a²(1-b)"
-            ],
-            "correctIndex": 0,
-            "explanation": "a²-ab=a(a-b)\n共通な a をくくり出すと、a²÷ a=a なので中は a-b です。",
-            "difficulty": "standard"
+            id: 'math-g3-factoring-basics-q9',
+            question: '次の式を因数分解しましょう。\na²-ab',
+            options: ['a(a-b)', 'a(a+b)', 'a(1-b)', 'a²(1-b)'],
+            correctIndex: 0,
+            explanation:
+              'a²-ab=a(a-b)\n共通な a をくくり出すと、a²÷ a=a なので中は a-b です。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-factoring-basics-q10",
-            "question": "次の式を因数分解しましょう。\n3x²y-6xy²+9xy",
-            "options": [
-              "3xy(x-2y)",
-              "3xy(x-2y+3)",
-              "3xy(x+2y+3)",
-              "xy(3x-6y+9)"
-            ],
-            "correctIndex": 1,
-            "explanation": "3x²y-6xy²+9xy=3xy(x-2y+3)\n3つの項すべてに共通な 3xy をくくり出します。最後の項を忘れないようにします。",
-            "difficulty": "standard"
+            id: 'math-g3-factoring-basics-q10',
+            question: '次の式を因数分解しましょう。\n3x²y-6xy²+9xy',
+            options: ['3xy(x-2y)', '3xy(x-2y+3)', '3xy(x+2y+3)', 'xy(3x-6y+9)'],
+            correctIndex: 1,
+            explanation:
+              '3x²y-6xy²+9xy=3xy(x-2y+3)\n3つの項すべてに共通な 3xy をくくり出します。最後の項を忘れないようにします。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-factoring-basics-q11",
-            "question": "次の式を因数分解しましょう。\n-2x³+4x²-6x",
-            "options": [
-              "-2x(x²+2x-3)",
-              "-2x(x²-2x-3)",
-              "-2x(x²-2x+3)",
-              "2x(x²-2x+3)"
+            id: 'math-g3-factoring-basics-q11',
+            question: '次の式を因数分解しましょう。\n-2x³+4x²-6x',
+            options: [
+              '-2x(x²+2x-3)',
+              '-2x(x²-2x-3)',
+              '-2x(x²-2x+3)',
+              '2x(x²-2x+3)',
             ],
-            "correctIndex": 2,
-            "explanation": "-2x³+4x²-6x=-2x(x²-2x+3)\n共通因数を -2x にとると、各項を -2x で割って符号が変わります。",
-            "difficulty": "advanced"
+            correctIndex: 2,
+            explanation:
+              '-2x³+4x²-6x=-2x(x²-2x+3)\n共通因数を -2x にとると、各項を -2x で割って符号が変わります。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-factoring-basics-q12",
-            "question": "次の式を因数分解しましょう。\n8a³b-12a²b²",
-            "options": [
-              "4a²b(2a+3b)",
-              "4ab(2a²-3ab)",
-              "4a²b(2-3b)",
-              "4a²b(2a-3b)"
+            id: 'math-g3-factoring-basics-q12',
+            question: '次の式を因数分解しましょう。\n8a³b-12a²b²',
+            options: [
+              '4a²b(2a+3b)',
+              '4a²b(2a-3b)',
+              '4a²b(2-3b)',
+              '4ab(2a²-3ab)',
             ],
-            "correctIndex": 3,
-            "explanation": "8a³b-12a²b²=4a²b(2a-3b)\n係数の最大公約数 4 と、共通な a²b をまとめてくくり出します。",
-            "difficulty": "advanced"
+            correctIndex: 1,
+            explanation:
+              '8a³b-12a²b²=4a²b(2a-3b)\n係数の最大公約数 4 と、共通な a²b をまとめてくくり出します。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-factoring-basics-q13",
-            "question": "次の式を因数分解しましょう。\n4x²+6x",
-            "options": [
-              "2x(2x+3)",
-              "2x(2x+6)",
-              "2(2x²+3x)",
-              "x(4x+6)"
-            ],
-            "correctIndex": 0,
-            "explanation": "4x²+6x=2x(2x+3)\n係数 4,6 の最大公約数 2 と共通な x をくくり出します。",
-            "difficulty": "basic"
+            id: 'math-g3-factoring-basics-q13',
+            question: '次の式を因数分解しましょう。\n4x²+6x',
+            options: ['x(4x+6)', '2x(2x+6)', '2(2x²+3x)', '2x(2x+3)'],
+            correctIndex: 3,
+            explanation:
+              '4x²+6x=2x(2x+3)\n係数 4,6 の最大公約数 2 と共通な x をくくり出します。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-factoring-basics-q14",
-            "question": "6a²-9a を因数分解した式として正しいものを選びましょう。",
-            "options": [
-              "3a(2a+3)",
-              "3a(2a-3)",
-              "3(2a²-3a)",
-              "a(6a-9)"
-            ],
-            "correctIndex": 1,
-            "explanation": "6a²-9a=3a(2a-3)\n共通因数 3a をくくり出した形が正しい因数分解です。中の符号は - になります。",
-            "difficulty": "standard"
+            id: 'math-g3-factoring-basics-q14',
+            question: '6a²-9a を因数分解した式として正しいものを選びましょう。',
+            options: ['3a(2a+3)', '3(2a²-3a)', '3a(2a-3)', 'a(6a-9)'],
+            correctIndex: 2,
+            explanation:
+              '6a²-9a=3a(2a-3)\n共通因数 3a をくくり出した形が正しい因数分解です。中の符号は - になります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-factoring-basics-q15",
-            "question": "次の式を因数分解しましょう。\n7m+7n",
-            "options": [
-              "7(m-n)",
-              "7m(1+n)",
-              "7(m+n)",
-              "m(7+7n)"
-            ],
-            "correctIndex": 2,
-            "explanation": "7m+7n=7(m+n)\n両方の項に共通な 7 をくくり出します。",
-            "difficulty": "basic"
+            id: 'math-g3-factoring-basics-q15',
+            question: '次の式を因数分解しましょう。\n7m+7n',
+            options: ['7(m-n)', '7m(1+n)', '7(m+n)', 'm(7+7n)'],
+            correctIndex: 2,
+            explanation: '7m+7n=7(m+n)\n両方の項に共通な 7 をくくり出します。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-factoring-basics-q16",
-            "question": "次の式を因数分解しましょう。\nax+ay-az",
-            "options": [
-              "a(x+y+z)",
-              "a(xy-z)",
-              "ax(1+y-z)",
-              "a(x+y-z)"
-            ],
-            "correctIndex": 3,
-            "explanation": "ax+ay-az=a(x+y-z)\n3つの項すべてに共通な a をくくり出します。符号はそのまま残します。",
-            "difficulty": "standard"
+            id: 'math-g3-factoring-basics-q16',
+            question: '次の式を因数分解しましょう。\nax+ay-az',
+            options: ['a(x+y+z)', 'a(xy-z)', 'ax(1+y-z)', 'a(x+y-z)'],
+            correctIndex: 3,
+            explanation:
+              'ax+ay-az=a(x+y-z)\n3つの項すべてに共通な a をくくり出します。符号はそのまま残します。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-factoring-basics-q17",
-            "question": "次の式を因数分解しましょう。\n6x²y+9xy²-3xy",
-            "options": [
-              "3xy(2x+3y-1)",
-              "3xy(2x+3y)",
-              "3xy(2x+3y-3)",
-              "xy(6x+9y-3)"
+            id: 'math-g3-factoring-basics-q17',
+            question: '次の式を因数分解しましょう。\n6x²y+9xy²-3xy',
+            options: [
+              '3xy(2x+3y-1)',
+              '3xy(2x+3y)',
+              '3xy(2x+3y-3)',
+              'xy(6x+9y-3)',
             ],
-            "correctIndex": 0,
-            "explanation": "6x²y+9xy²-3xy=3xy(2x+3y-1)\n共通な 3xy をくくり出すと、3xy÷ 3xy=1 なので最後の項は -1 が残ります。",
-            "difficulty": "advanced"
+            correctIndex: 0,
+            explanation:
+              '6x²y+9xy²-3xy=3xy(2x+3y-1)\n共通な 3xy をくくり出すと、3xy÷ 3xy=1 なので最後の項は -1 が残ります。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-factoring-basics-q18",
-            "question": "次の式を因数分解しましょう。\n-x²-x",
-            "options": [
-              "-x(x-1)",
-              "-x(x+1)",
-              "x(x+1)",
-              "-(x²+x)"
-            ],
-            "correctIndex": 1,
-            "explanation": "-x²-x=-x(x+1)\n共通因数を -x にとると、各項を -x で割って中は x+1 になります。",
-            "difficulty": "standard"
+            id: 'math-g3-factoring-basics-q18',
+            question: '次の式を因数分解しましょう。\n-x²-x',
+            options: ['-x(x-1)', '-x(x+1)', 'x(x+1)', '-(x²+x)'],
+            correctIndex: 1,
+            explanation:
+              '-x²-x=-x(x+1)\n共通因数を -x にとると、各項を -x で割って中は x+1 になります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-factoring-basics-q19",
-            "question": "次の式を因数分解しましょう。\n10a²bc-15ab²c+5abc",
-            "options": [
-              "5abc(2a-3b)",
-              "5abc(2a-3b+5)",
-              "5abc(2a-3b+1)",
-              "abc(10a-15b+5)"
+            id: 'math-g3-factoring-basics-q19',
+            question: '次の式を因数分解しましょう。\n10a²bc-15ab²c+5abc',
+            options: [
+              '5abc(2a-3b)',
+              '5abc(2a-3b+5)',
+              'abc(10a-15b+5)',
+              '5abc(2a-3b+1)',
             ],
-            "correctIndex": 2,
-            "explanation": "10a²bc-15ab²c+5abc=5abc(2a-3b+1)\n係数の最大公約数 5 と共通な abc をくくり出すと、最後の項は +1 が残ります。",
-            "difficulty": "advanced"
+            correctIndex: 3,
+            explanation:
+              '10a²bc-15ab²c+5abc=5abc(2a-3b+1)\n係数の最大公約数 5 と共通な abc をくくり出すと、最後の項は +1 が残ります。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-factoring-basics-q20",
-            "question": "次の式を因数分解しましょう。\nx²+4x",
-            "options": [
-              "x(x-4)",
-              "4x(x+1)",
-              "x(x+2)",
-              "x(x+4)"
-            ],
-            "correctIndex": 3,
-            "explanation": "x²+4x=x(x+4)\n共通な x をくくり出すと、中は x+4 になります。",
-            "difficulty": "basic"
-          }
-        ]
+            id: 'math-g3-factoring-basics-q20',
+            question: '次の式を因数分解しましょう。\nx²+4x',
+            options: ['x(x-4)', 'x(x+4)', 'x(x+2)', '4x(x+1)'],
+            correctIndex: 1,
+            explanation:
+              'x²+4x=x(x+4)\n共通な x をくくり出すと、中は x+4 になります。',
+            difficulty: 'basic',
+          },
+        ],
       },
       {
-        "topicId": "math-g3-factoring-formulas",
-        "name": "公式を使った因数分解",
-        "subtitle": "かけて○足して△の数を探そう",
-        "icon": "🎯",
-        "order": 5,
-        "flashcards": [],
-        "quiz": [
+        topicId: 'math-g3-factoring-formulas',
+        name: '公式を使った因数分解',
+        subtitle: 'かけて○足して△の数を探そう',
+        icon: '🎯',
+        order: 5,
+        flashcards: [],
+        quiz: [
           {
-            "id": "math-g3-factoring-formulas-q1",
-            "question": "次の式を因数分解しましょう。\nx²+7x+12",
-            "options": [
-              "(x+3)(x+4)",
-              "(x+2)(x+6)",
-              "(x-3)(x-4)",
-              "(x+1)(x+12)"
-            ],
-            "correctIndex": 0,
-            "explanation": "x²+7x+12=(x+3)(x+4)\nかけて 12、足して 7 になる 2 数は 3 と 4 です。",
-            "difficulty": "basic"
+            id: 'math-g3-factoring-formulas-q1',
+            question: '次の式を因数分解しましょう。\nx²+7x+12',
+            options: ['(x+2)(x+6)', '(x+3)(x+4)', '(x-3)(x-4)', '(x+1)(x+12)'],
+            correctIndex: 1,
+            explanation:
+              'x²+7x+12=(x+3)(x+4)\nかけて 12、足して 7 になる 2 数は 3 と 4 です。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-factoring-formulas-q2",
-            "question": "次の式を因数分解しましょう。\nx²-5x+6",
-            "options": [
-              "(x+2)(x+3)",
-              "(x-2)(x-3)",
-              "(x-1)(x-6)",
-              "(x-2)(x+3)"
-            ],
-            "correctIndex": 1,
-            "explanation": "x²-5x+6=(x-2)(x-3)\nかけて 6、足して -5 になる 2 数は -2 と -3 です。",
-            "difficulty": "basic"
+            id: 'math-g3-factoring-formulas-q2',
+            question: '次の式を因数分解しましょう。\nx²-5x+6',
+            options: ['(x-2)(x-3)', '(x+2)(x+3)', '(x-1)(x-6)', '(x-2)(x+3)'],
+            correctIndex: 0,
+            explanation:
+              'x²-5x+6=(x-2)(x-3)\nかけて 6、足して -5 になる 2 数は -2 と -3 です。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-factoring-formulas-q3",
-            "question": "次の式を因数分解しましょう。\nx²+x-6",
-            "options": [
-              "(x-3)(x+2)",
-              "(x+6)(x-1)",
-              "(x+3)(x-2)",
-              "(x+2)(x+3)"
-            ],
-            "correctIndex": 2,
-            "explanation": "x²+x-6=(x+3)(x-2)\nかけて -6、足して 1 になる 2 数は 3 と -2 です。",
-            "difficulty": "standard"
+            id: 'math-g3-factoring-formulas-q3',
+            question: '次の式を因数分解しましょう。\nx²+x-6',
+            options: ['(x+3)(x-2)', '(x+6)(x-1)', '(x-3)(x+2)', '(x+2)(x+3)'],
+            correctIndex: 0,
+            explanation:
+              'x²+x-6=(x+3)(x-2)\nかけて -6、足して 1 になる 2 数は 3 と -2 です。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-factoring-formulas-q4",
-            "question": "次の式を因数分解しましょう。\nx²+8x+16",
-            "options": [
-              "(x+8)²",
-              "(x-4)²",
-              "(x+2)(x+8)",
-              "(x+4)²"
-            ],
-            "correctIndex": 3,
-            "explanation": "x²+8x+16=(x+4)²\n16=4²、8=2×4 なので (x+4)² になります。",
-            "difficulty": "basic"
+            id: 'math-g3-factoring-formulas-q4',
+            question: '次の式を因数分解しましょう。\nx²+8x+16',
+            options: ['(x+8)²', '(x+4)²', '(x+2)(x+8)', '(x-4)²'],
+            correctIndex: 1,
+            explanation:
+              'x²+8x+16=(x+4)²\n16=4²、8=2×4 なので (x+4)² になります。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-factoring-formulas-q5",
-            "question": "次の式を因数分解しましょう。\nx²-49",
-            "options": [
-              "(x+7)(x-7)",
-              "(x-7)²",
-              "(x+7)²",
-              "(x+1)(x-49)"
-            ],
-            "correctIndex": 0,
-            "explanation": "x²-49=(x+7)(x-7)\n49=7² で、a²-b²=(a+b)(a-b) を使います。",
-            "difficulty": "basic"
+            id: 'math-g3-factoring-formulas-q5',
+            question: '次の式を因数分解しましょう。\nx²-49',
+            options: ['(x+7)(x-7)', '(x-7)²', '(x+7)²', '(x+1)(x-49)'],
+            correctIndex: 0,
+            explanation:
+              'x²-49=(x+7)(x-7)\n49=7² で、a²-b²=(a+b)(a-b) を使います。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-factoring-formulas-q6",
-            "question": "次の式を因数分解しましょう。\nx²-9x+20",
-            "options": [
-              "(x+4)(x+5)",
-              "(x-4)(x-5)",
-              "(x-2)(x-10)",
-              "(x-1)(x-20)"
-            ],
-            "correctIndex": 1,
-            "explanation": "x²-9x+20=(x-4)(x-5)\nかけて 20、足して -9 になる 2 数は -4 と -5 です。",
-            "difficulty": "standard"
+            id: 'math-g3-factoring-formulas-q6',
+            question: '次の式を因数分解しましょう。\nx²-9x+20',
+            options: ['(x+4)(x+5)', '(x-2)(x-10)', '(x-4)(x-5)', '(x-1)(x-20)'],
+            correctIndex: 2,
+            explanation:
+              'x²-9x+20=(x-4)(x-5)\nかけて 20、足して -9 になる 2 数は -4 と -5 です。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-factoring-formulas-q7",
-            "question": "次の式を因数分解しましょう。\nx²-2x-15",
-            "options": [
-              "(x+5)(x-3)",
-              "(x+5)(x+3)",
-              "(x-5)(x+3)",
-              "(x-5)(x-3)"
-            ],
-            "correctIndex": 2,
-            "explanation": "x²-2x-15=(x-5)(x+3)\nかけて -15、足して -2 になる 2 数は -5 と 3 です。",
-            "difficulty": "standard"
+            id: 'math-g3-factoring-formulas-q7',
+            question: '次の式を因数分解しましょう。\nx²-2x-15',
+            options: ['(x+5)(x-3)', '(x+5)(x+3)', '(x-5)(x-3)', '(x-5)(x+3)'],
+            correctIndex: 3,
+            explanation:
+              'x²-2x-15=(x-5)(x+3)\nかけて -15、足して -2 になる 2 数は -5 と 3 です。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-factoring-formulas-q8",
-            "question": "次の式を因数分解しましょう。\nx²+9x+18",
-            "options": [
-              "(x+2)(x+9)",
-              "(x+1)(x+18)",
-              "(x-3)(x-6)",
-              "(x+3)(x+6)"
-            ],
-            "correctIndex": 3,
-            "explanation": "x²+9x+18=(x+3)(x+6)\nかけて 18、足して 9 になる 2 数は 3 と 6 です。",
-            "difficulty": "standard"
+            id: 'math-g3-factoring-formulas-q8',
+            question: '次の式を因数分解しましょう。\nx²+9x+18',
+            options: ['(x+2)(x+9)', '(x+1)(x+18)', '(x-3)(x-6)', '(x+3)(x+6)'],
+            correctIndex: 3,
+            explanation:
+              'x²+9x+18=(x+3)(x+6)\nかけて 18、足して 9 になる 2 数は 3 と 6 です。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-factoring-formulas-q9",
-            "question": "次の式を因数分解しましょう。\nx²-x-12",
-            "options": [
-              "(x-4)(x+3)",
-              "(x+4)(x-3)",
-              "(x-6)(x+2)",
-              "(x-4)(x-3)"
-            ],
-            "correctIndex": 0,
-            "explanation": "x²-x-12=(x-4)(x+3)\nかけて -12、足して -1 になる 2 数は -4 と 3 です。",
-            "difficulty": "standard"
+            id: 'math-g3-factoring-formulas-q9',
+            question: '次の式を因数分解しましょう。\nx²-x-12',
+            options: ['(x-4)(x+3)', '(x+4)(x-3)', '(x-6)(x+2)', '(x-4)(x-3)'],
+            correctIndex: 0,
+            explanation:
+              'x²-x-12=(x-4)(x+3)\nかけて -12、足して -1 になる 2 数は -4 と 3 です。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-factoring-formulas-q10",
-            "question": "次の式を因数分解しましょう。\nx²+10x+25",
-            "options": [
-              "(x-5)²",
-              "(x+5)²",
-              "(x+5)(x+10)",
-              "(x+1)(x+25)"
-            ],
-            "correctIndex": 1,
-            "explanation": "x²+10x+25=(x+5)²\n25=5²、10=2×5 なので (x+5)² になります。",
-            "difficulty": "basic"
+            id: 'math-g3-factoring-formulas-q10',
+            question: '次の式を因数分解しましょう。\nx²+10x+25',
+            options: ['(x-5)²', '(x+5)(x+10)', '(x+5)²', '(x+1)(x+25)'],
+            correctIndex: 2,
+            explanation:
+              'x²+10x+25=(x+5)²\n25=5²、10=2×5 なので (x+5)² になります。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-factoring-formulas-q11",
-            "question": "次の式を因数分解しましょう。\nx²-12x+36",
-            "options": [
-              "(x+6)²",
-              "(x-4)(x-9)",
-              "(x-6)²",
-              "(x-2)(x-18)"
-            ],
-            "correctIndex": 2,
-            "explanation": "x²-12x+36=(x-6)²\n36=6²、12=2×6 なので (x-6)² になります。",
-            "difficulty": "standard"
+            id: 'math-g3-factoring-formulas-q11',
+            question: '次の式を因数分解しましょう。\nx²-12x+36',
+            options: ['(x+6)²', '(x-6)²', '(x-4)(x-9)', '(x-2)(x-18)'],
+            correctIndex: 1,
+            explanation:
+              'x²-12x+36=(x-6)²\n36=6²、12=2×6 なので (x-6)² になります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-factoring-formulas-q12",
-            "question": "次の式を因数分解しましょう。\nx²-64",
-            "options": [
-              "(x+8)²",
-              "(x-8)²",
-              "(x+4)(x-16)",
-              "(x+8)(x-8)"
-            ],
-            "correctIndex": 3,
-            "explanation": "x²-64=(x+8)(x-8)\n64=8² で、a²-b²=(a+b)(a-b) を使います。",
-            "difficulty": "basic"
+            id: 'math-g3-factoring-formulas-q12',
+            question: '次の式を因数分解しましょう。\nx²-64',
+            options: ['(x+8)²', '(x-8)²', '(x+8)(x-8)', '(x+4)(x-16)'],
+            correctIndex: 2,
+            explanation:
+              'x²-64=(x+8)(x-8)\n64=8² で、a²-b²=(a+b)(a-b) を使います。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-factoring-formulas-q13",
-            "question": "次の式を因数分解しましょう。\nx²+2x-8",
-            "options": [
-              "(x+4)(x-2)",
-              "(x-4)(x+2)",
-              "(x+8)(x-1)",
-              "(x-4)(x-2)"
-            ],
-            "correctIndex": 0,
-            "explanation": "x²+2x-8=(x+4)(x-2)\nかけて -8、足して 2 になる 2 数は 4 と -2 です。",
-            "difficulty": "basic"
+            id: 'math-g3-factoring-formulas-q13',
+            question: '次の式を因数分解しましょう。\nx²+2x-8',
+            options: ['(x+4)(x-2)', '(x-4)(x+2)', '(x+8)(x-1)', '(x-4)(x-2)'],
+            correctIndex: 0,
+            explanation:
+              'x²+2x-8=(x+4)(x-2)\nかけて -8、足して 2 になる 2 数は 4 と -2 です。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-factoring-formulas-q14",
-            "question": "次の式を因数分解しましょう。\nx²-13x+40",
-            "options": [
-              "(x+5)(x+8)",
-              "(x-5)(x-8)",
-              "(x-4)(x-10)",
-              "(x-2)(x-20)"
-            ],
-            "correctIndex": 1,
-            "explanation": "x²-13x+40=(x-5)(x-8)\nかけて 40、足して -13 になる 2 数は -5 と -8 です。",
-            "difficulty": "advanced"
+            id: 'math-g3-factoring-formulas-q14',
+            question: '次の式を因数分解しましょう。\nx²-13x+40',
+            options: ['(x+5)(x+8)', '(x-5)(x-8)', '(x-4)(x-10)', '(x-2)(x-20)'],
+            correctIndex: 1,
+            explanation:
+              'x²-13x+40=(x-5)(x-8)\nかけて 40、足して -13 になる 2 数は -5 と -8 です。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-factoring-formulas-q15",
-            "question": "次の式を因数分解しましょう。\nx²+3x-10",
-            "options": [
-              "(x-5)(x+2)",
-              "(x+10)(x-1)",
-              "(x+5)(x-2)",
-              "(x-5)(x-2)"
-            ],
-            "correctIndex": 2,
-            "explanation": "x²+3x-10=(x+5)(x-2)\nかけて -10、足して 3 になる 2 数は 5 と -2 です。",
-            "difficulty": "standard"
+            id: 'math-g3-factoring-formulas-q15',
+            question: '次の式を因数分解しましょう。\nx²+3x-10',
+            options: ['(x-5)(x+2)', '(x+10)(x-1)', '(x-5)(x-2)', '(x+5)(x-2)'],
+            correctIndex: 3,
+            explanation:
+              'x²+3x-10=(x+5)(x-2)\nかけて -10、足して 3 になる 2 数は 5 と -2 です。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-factoring-formulas-q16",
-            "question": "次の式を因数分解しましょう。\nx²-100",
-            "options": [
-              "(x-10)²",
-              "(x+10)²",
-              "(x+5)(x-20)",
-              "(x+10)(x-10)"
-            ],
-            "correctIndex": 3,
-            "explanation": "x²-100=(x+10)(x-10)\n100=10² で、a²-b²=(a+b)(a-b) を使います。",
-            "difficulty": "basic"
+            id: 'math-g3-factoring-formulas-q16',
+            question: '次の式を因数分解しましょう。\nx²-100',
+            options: ['(x-10)²', '(x+10)²', '(x+5)(x-20)', '(x+10)(x-10)'],
+            correctIndex: 3,
+            explanation:
+              'x²-100=(x+10)(x-10)\n100=10² で、a²-b²=(a+b)(a-b) を使います。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-factoring-formulas-q17",
-            "question": "次の式を因数分解しましょう。\nx²+11x+24",
-            "options": [
-              "(x+3)(x+8)",
-              "(x+4)(x+6)",
-              "(x+2)(x+12)",
-              "(x+1)(x+24)"
-            ],
-            "correctIndex": 0,
-            "explanation": "x²+11x+24=(x+3)(x+8)\nかけて 24、足して 11 になる 2 数は 3 と 8 です。",
-            "difficulty": "standard"
+            id: 'math-g3-factoring-formulas-q17',
+            question: '次の式を因数分解しましょう。\nx²+11x+24',
+            options: ['(x+2)(x+12)', '(x+4)(x+6)', '(x+3)(x+8)', '(x+1)(x+24)'],
+            correctIndex: 2,
+            explanation:
+              'x²+11x+24=(x+3)(x+8)\nかけて 24、足して 11 になる 2 数は 3 と 8 です。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-factoring-formulas-q18",
-            "question": "次の式を因数分解しましょう。\nx²-7x-18",
-            "options": [
-              "(x+9)(x-2)",
-              "(x-9)(x+2)",
-              "(x-6)(x+3)",
-              "(x-9)(x-2)"
-            ],
-            "correctIndex": 1,
-            "explanation": "x²-7x-18=(x-9)(x+2)\nかけて -18、足して -7 になる 2 数は -9 と 2 です。",
-            "difficulty": "advanced"
+            id: 'math-g3-factoring-formulas-q18',
+            question: '次の式を因数分解しましょう。\nx²-7x-18',
+            options: ['(x+9)(x-2)', '(x-6)(x+3)', '(x-9)(x+2)', '(x-9)(x-2)'],
+            correctIndex: 2,
+            explanation:
+              'x²-7x-18=(x-9)(x+2)\nかけて -18、足して -7 になる 2 数は -9 と 2 です。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-factoring-formulas-q19",
-            "question": "次の式を因数分解しましょう。\nx²+5x-24",
-            "options": [
-              "(x-8)(x+3)",
-              "(x+6)(x-4)",
-              "(x+8)(x-3)",
-              "(x-8)(x-3)"
-            ],
-            "correctIndex": 2,
-            "explanation": "x²+5x-24=(x+8)(x-3)\nかけて -24、足して 5 になる 2 数は 8 と -3 です。",
-            "difficulty": "advanced"
+            id: 'math-g3-factoring-formulas-q19',
+            question: '次の式を因数分解しましょう。\nx²+5x-24',
+            options: ['(x-8)(x+3)', '(x+8)(x-3)', '(x+6)(x-4)', '(x-8)(x-3)'],
+            correctIndex: 1,
+            explanation:
+              'x²+5x-24=(x+8)(x-3)\nかけて -24、足して 5 になる 2 数は 8 と -3 です。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-factoring-formulas-q20",
-            "question": "次の式を因数分解しましょう。\nx²-14x+49",
-            "options": [
-              "(x+7)²",
-              "(x+7)(x-7)",
-              "(x-1)(x-49)",
-              "(x-7)²"
-            ],
-            "correctIndex": 3,
-            "explanation": "x²-14x+49=(x-7)²\n49=7²、14=2×7 なので (x-7)² になります。",
-            "difficulty": "standard"
+            id: 'math-g3-factoring-formulas-q20',
+            question: '次の式を因数分解しましょう。\nx²-14x+49',
+            options: ['(x+7)²', '(x+7)(x-7)', '(x-1)(x-49)', '(x-7)²'],
+            correctIndex: 3,
+            explanation:
+              'x²-14x+49=(x-7)²\n49=7²、14=2×7 なので (x-7)² になります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-factoring-formulas-q21",
-            "question": "次の式を因数分解しましょう。\nx²-3x-40",
-            "options": [
-              "(x-8)(x+5)",
-              "(x+8)(x-5)",
-              "(x-10)(x+4)",
-              "(x-8)(x-5)"
-            ],
-            "correctIndex": 0,
-            "explanation": "x²-3x-40=(x-8)(x+5)\nかけて -40、足して -3 になる 2 数は -8 と 5 です。",
-            "difficulty": "advanced"
-          }
-        ]
+            id: 'math-g3-factoring-formulas-q21',
+            question: '次の式を因数分解しましょう。\nx²-3x-40',
+            options: ['(x-8)(x+5)', '(x+8)(x-5)', '(x-10)(x+4)', '(x-8)(x-5)'],
+            correctIndex: 0,
+            explanation:
+              'x²-3x-40=(x-8)(x+5)\nかけて -40、足して -3 になる 2 数は -8 と 5 です。',
+            difficulty: 'advanced',
+          },
+        ],
       },
       {
-        "topicId": "math-g3-calc-applications",
-        "name": "式の計算の利用",
-        "subtitle": "整数の性質の証明と計算の工夫",
-        "icon": "🧩",
-        "order": 6,
-        "flashcards": [],
-        "quiz": [
+        topicId: 'math-g3-calc-applications',
+        name: '式の計算の利用',
+        subtitle: '整数の性質の証明と計算の工夫',
+        icon: '🧩',
+        order: 6,
+        flashcards: [],
+        quiz: [
           {
-            "id": "math-g3-calc-applications-q1",
-            "question": "98² を、展開の公式を使って工夫して計算しましょう。",
-            "options": [
-              "9600",
-              "9604",
-              "9996",
-              "9804"
-            ],
-            "correctIndex": 1,
-            "explanation": "98²=(100-2)²=100²-2×100×2+2²\n=10000-400+4=9604。(a-b)² の公式を使うと暗算しやすくなります。",
-            "difficulty": "basic"
+            id: 'math-g3-calc-applications-q1',
+            question: '98² を、展開の公式を使って工夫して計算しましょう。',
+            options: ['9600', '9996', '9604', '9804'],
+            correctIndex: 2,
+            explanation:
+              '98²=(100-2)²=100²-2×100×2+2²\n=10000-400+4=9604。(a-b)² の公式を使うと暗算しやすくなります。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-calc-applications-q2",
-            "question": "103×97 を、展開の公式を使って工夫して計算しましょう。",
-            "options": [
-              "9997",
-              "10009",
-              "9991",
-              "10003"
-            ],
-            "correctIndex": 2,
-            "explanation": "103×97=(100+3)(100-3)=100²-3²\n=10000-9=9991。和と差の積 (a+b)(a-b)=a²-b² を利用します。",
-            "difficulty": "basic"
+            id: 'math-g3-calc-applications-q2',
+            question: '103×97 を、展開の公式を使って工夫して計算しましょう。',
+            options: ['9991', '10009', '9997', '10003'],
+            correctIndex: 0,
+            explanation:
+              '103×97=(100+3)(100-3)=100²-3²\n=10000-9=9991。和と差の積 (a+b)(a-b)=a²-b² を利用します。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-calc-applications-q3",
-            "question": "52²-48² を、因数分解を使って工夫して計算しましょう。",
-            "options": [
-              "16",
-              "100",
-              "200",
-              "400"
-            ],
-            "correctIndex": 3,
-            "explanation": "52²-48²=(52+48)(52-48)=100×4=400。a²-b²=(a+b)(a-b) で因数分解してから計算します。",
-            "difficulty": "basic"
+            id: 'math-g3-calc-applications-q3',
+            question: '52²-48² を、因数分解を使って工夫して計算しましょう。',
+            options: ['16', '400', '200', '100'],
+            correctIndex: 1,
+            explanation:
+              '52²-48²=(52+48)(52-48)=100×4=400。a²-b²=(a+b)(a-b) で因数分解してから計算します。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-calc-applications-q4",
-            "question": "63²-37² を、因数分解を使って工夫して計算しましょう。",
-            "options": [
-              "2600",
-              "676",
-              "1300",
-              "26"
-            ],
-            "correctIndex": 0,
-            "explanation": "63²-37²=(63+37)(63-37)=100×26=2600。和 100 と差 26 をかけるだけで求められます。",
-            "difficulty": "standard"
+            id: 'math-g3-calc-applications-q4',
+            question: '63²-37² を、因数分解を使って工夫して計算しましょう。',
+            options: ['26', '676', '1300', '2600'],
+            correctIndex: 3,
+            explanation:
+              '63²-37²=(63+37)(63-37)=100×26=2600。和 100 と差 26 をかけるだけで求められます。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-calc-applications-q5",
-            "question": "101² を、展開の公式を使って工夫して計算しましょう。",
-            "options": [
-              "10001",
-              "10201",
-              "10101",
-              "10002"
-            ],
-            "correctIndex": 1,
-            "explanation": "101²=(100+1)²=100²+2×100×1+1²\n=10000+200+1=10201。まん中の項 2×100×1=200 を忘れないようにします。",
-            "difficulty": "basic"
+            id: 'math-g3-calc-applications-q5',
+            question: '101² を、展開の公式を使って工夫して計算しましょう。',
+            options: ['10001', '10101', '10201', '10002'],
+            correctIndex: 2,
+            explanation:
+              '101²=(100+1)²=100²+2×100×1+1²\n=10000+200+1=10201。まん中の項 2×100×1=200 を忘れないようにします。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-calc-applications-q6",
-            "question": "48×52 を、展開の公式を使って工夫して計算しましょう。",
-            "options": [
-              "2504",
-              "2500",
-              "2496",
-              "2596"
-            ],
-            "correctIndex": 2,
-            "explanation": "48×52=(50-2)(50+2)=50²-2²\n=2500-4=2496。和と差の積に直すと簡単です。",
-            "difficulty": "standard"
+            id: 'math-g3-calc-applications-q6',
+            question: '48×52 を、展開の公式を使って工夫して計算しましょう。',
+            options: ['2504', '2500', '2596', '2496'],
+            correctIndex: 3,
+            explanation:
+              '48×52=(50-2)(50+2)=50²-2²\n=2500-4=2496。和と差の積に直すと簡単です。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-calc-applications-q7",
-            "question": "x=7 のとき、x²-6x+9 の値を求めましょう。",
-            "options": [
-              "16",
-              "100",
-              "4",
-              "58"
-            ],
-            "correctIndex": 0,
-            "explanation": "x²-6x+9=(x-3)² と因数分解してから代入すると\n(7-3)²=4²=16。先に因数分解すると計算がらくになります。",
-            "difficulty": "standard"
+            id: 'math-g3-calc-applications-q7',
+            question: 'x=7 のとき、x²-6x+9 の値を求めましょう。',
+            options: ['100', '16', '4', '58'],
+            correctIndex: 1,
+            explanation:
+              'x²-6x+9=(x-3)² と因数分解してから代入すると\n(7-3)²=4²=16。先に因数分解すると計算がらくになります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-calc-applications-q8",
-            "question": "x=53、y=47 のとき、x²-y² の値を求めましょう。",
-            "options": [
-              "6",
-              "36",
-              "100",
-              "600"
-            ],
-            "correctIndex": 3,
-            "explanation": "x²-y²=(x+y)(x-y)=(53+47)(53-47)\n=100×6=600。先に因数分解してから代入します。",
-            "difficulty": "standard"
+            id: 'math-g3-calc-applications-q8',
+            question: 'x=53、y=47 のとき、x²-y² の値を求めましょう。',
+            options: ['6', '36', '100', '600'],
+            correctIndex: 3,
+            explanation:
+              'x²-y²=(x+y)(x-y)=(53+47)(53-47)\n=100×6=600。先に因数分解してから代入します。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-calc-applications-q9",
-            "question": "a=2+√3、b=2-√3 のとき、a²-b² の値を求めましょう。",
-            "options": [
-              "4√3",
-              "8√3",
-              "2√3",
-              "4"
-            ],
-            "correctIndex": 1,
-            "explanation": "a²-b²=(a+b)(a-b) で、a+b=4、a-b=2√3 だから\n4×2√3=8√3。先に因数分解すると平方根の計算が減ります。",
-            "difficulty": "advanced"
+            id: 'math-g3-calc-applications-q9',
+            question: 'a=2+√3、b=2-√3 のとき、a²-b² の値を求めましょう。',
+            options: ['4√3', '4', '2√3', '8√3'],
+            correctIndex: 3,
+            explanation:
+              'a²-b²=(a+b)(a-b) で、a+b=4、a-b=2√3 だから\n4×2√3=8√3。先に因数分解すると平方根の計算が減ります。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-calc-applications-q10",
-            "question": "x=2+√5、y=2-√5 のとき、xy の値を求めましょう。",
-            "options": [
-              "-1",
-              "9",
-              "-9",
-              "1"
-            ],
-            "correctIndex": 0,
-            "explanation": "xy=(2+√5)(2-√5)=2²-(√5)²\n=4-5=-1。和と差の積の公式を使います。",
-            "difficulty": "standard"
+            id: 'math-g3-calc-applications-q10',
+            question: 'x=2+√5、y=2-√5 のとき、xy の値を求めましょう。',
+            options: ['-1', '9', '-9', '1'],
+            correctIndex: 0,
+            explanation:
+              'xy=(2+√5)(2-√5)=2²-(√5)²\n=4-5=-1。和と差の積の公式を使います。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-calc-applications-q11",
-            "question": "x=2+√5、y=2-√5 のとき、x²+y² の値を求めましょう。",
-            "options": [
-              "9",
-              "14",
-              "18",
-              "8"
-            ],
-            "correctIndex": 2,
-            "explanation": "x+y=4、xy=-1 だから x²+y²=(x+y)²-2xy\n=4²-2×(-1)=16+2=18。",
-            "difficulty": "advanced"
+            id: 'math-g3-calc-applications-q11',
+            question: 'x=2+√5、y=2-√5 のとき、x²+y² の値を求めましょう。',
+            options: ['9', '18', '14', '8'],
+            correctIndex: 1,
+            explanation:
+              'x+y=4、xy=-1 だから x²+y²=(x+y)²-2xy\n=4²-2×(-1)=16+2=18。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-calc-applications-q12",
-            "question": "x=18 のとき、x²+4x+4 の値を求めましょう。",
-            "options": [
-              "256",
-              "324",
-              "484",
-              "400"
-            ],
-            "correctIndex": 3,
-            "explanation": "x²+4x+4=(x+2)² と因数分解してから代入すると\n(18+2)²=20²=400。",
-            "difficulty": "standard"
+            id: 'math-g3-calc-applications-q12',
+            question: 'x=18 のとき、x²+4x+4 の値を求めましょう。',
+            options: ['400', '324', '484', '256'],
+            correctIndex: 0,
+            explanation:
+              'x²+4x+4=(x+2)² と因数分解してから代入すると\n(18+2)²=20²=400。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-calc-applications-q13",
-            "question": "連続する2つの整数があります。小さい方を整数 n で表すとき、大きい方を表す式はどれですか。",
-            "options": [
-              "n+1",
-              "n-1",
-              "2n",
-              "n+2"
-            ],
-            "correctIndex": 0,
-            "explanation": "連続する整数は 1 ずつ大きくなるので、小さい方が n なら大きい方は n+1 です。",
-            "difficulty": "basic"
+            id: 'math-g3-calc-applications-q13',
+            question:
+              '連続する2つの整数があります。小さい方を整数 n で表すとき、大きい方を表す式はどれですか。',
+            options: ['n+2', 'n-1', '2n', 'n+1'],
+            correctIndex: 3,
+            explanation:
+              '連続する整数は 1 ずつ大きくなるので、小さい方が n なら大きい方は n+1 です。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-calc-applications-q14",
-            "question": "n を整数とするとき、偶数を表す式として正しいものはどれですか。",
-            "options": [
-              "2n+1",
-              "2n",
-              "n+2",
-              "n²"
-            ],
-            "correctIndex": 1,
-            "explanation": "偶数は 2 の倍数だから、整数 n を使って 2n と表せます。",
-            "difficulty": "basic"
+            id: 'math-g3-calc-applications-q14',
+            question:
+              'n を整数とするとき、偶数を表す式として正しいものはどれですか。',
+            options: ['2n+1', 'n+2', '2n', 'n²'],
+            correctIndex: 2,
+            explanation:
+              '偶数は 2 の倍数だから、整数 n を使って 2n と表せます。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-calc-applications-q15",
-            "question": "n を整数とするとき、奇数を表す式として正しいものはどれですか。",
-            "options": [
-              "2n",
-              "3n",
-              "2n+1",
-              "n+1"
-            ],
-            "correctIndex": 2,
-            "explanation": "奇数は偶数 2n より 1 大きい数なので、2n+1 と表せます。",
-            "difficulty": "basic"
+            id: 'math-g3-calc-applications-q15',
+            question:
+              'n を整数とするとき、奇数を表す式として正しいものはどれですか。',
+            options: ['2n', '3n', '2n+1', 'n+1'],
+            correctIndex: 2,
+            explanation:
+              '奇数は偶数 2n より 1 大きい数なので、2n+1 と表せます。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-calc-applications-q16",
-            "question": "連続する2つの奇数の和について、小さい方を 2n+1、大きい方を 2n+3 とします。この和はどんな数になりますか。",
-            "options": [
-              "3 の倍数",
-              "奇数",
-              "2 の倍数だが 4 の倍数ではない数",
-              "4 の倍数"
+            id: 'math-g3-calc-applications-q16',
+            question:
+              '連続する2つの奇数の和について、小さい方を 2n+1、大きい方を 2n+3 とします。この和はどんな数になりますか。',
+            options: [
+              '4 の倍数',
+              '奇数',
+              '2 の倍数だが 4 の倍数ではない数',
+              '3 の倍数',
             ],
-            "correctIndex": 3,
-            "explanation": "(2n+1)+(2n+3)=4n+4=4(n+1)。n+1 は整数だから、この和はつねに 4 の倍数になります。",
-            "difficulty": "standard"
+            correctIndex: 0,
+            explanation:
+              '(2n+1)+(2n+3)=4n+4=4(n+1)。n+1 は整数だから、この和はつねに 4 の倍数になります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-calc-applications-q17",
-            "question": "連続する3つの整数の和が3の倍数になることを示します。最も小さい整数を n とするとき、3つの整数の和を表す式はどれですか。",
-            "options": [
-              "3n+3",
-              "3n",
-              "3n+1",
-              "3n+2"
-            ],
-            "correctIndex": 0,
-            "explanation": "n+(n+1)+(n+2)=3n+3=3(n+1)。n+1 は整数だから和は 3 の倍数です。",
-            "difficulty": "standard"
+            id: 'math-g3-calc-applications-q17',
+            question:
+              '連続する3つの整数の和が3の倍数になることを示します。最も小さい整数を n とするとき、3つの整数の和を表す式はどれですか。',
+            options: ['3n', '3n+3', '3n+1', '3n+2'],
+            correctIndex: 1,
+            explanation:
+              'n+(n+1)+(n+2)=3n+3=3(n+1)。n+1 は整数だから和は 3 の倍数です。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-calc-applications-q18",
-            "question": "連続する3つの整数の和が3の倍数になることを、まん中の整数を n とおいて示します。このとき3つの整数の和を表す式はどれですか。",
-            "options": [
-              "3n+3",
-              "3n",
-              "3n-3",
-              "3n+1"
-            ],
-            "correctIndex": 1,
-            "explanation": "まん中を n とすると3つは n-1、n、n+1 で、和は (n-1)+n+(n+1)=3n。よって 3 の倍数です。",
-            "difficulty": "standard"
+            id: 'math-g3-calc-applications-q18',
+            question:
+              '連続する3つの整数の和が3の倍数になることを、まん中の整数を n とおいて示します。このとき3つの整数の和を表す式はどれですか。',
+            options: ['3n', '3n+3', '3n-3', '3n+1'],
+            correctIndex: 0,
+            explanation:
+              'まん中を n とすると3つは n-1、n、n+1 で、和は (n-1)+n+(n+1)=3n。よって 3 の倍数です。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-calc-applications-q19",
-            "question": "連続する2つの整数のうち、大きい方の2乗から小さい方の2乗をひいた差について調べます。小さい方を n とするとき、この差はどんな数といえますか。",
-            "options": [
-              "偶数になる",
-              "3 の倍数になる",
-              "もとの2つの整数の和に等しい",
-              "4 の倍数になる"
+            id: 'math-g3-calc-applications-q19',
+            question:
+              '連続する2つの整数のうち、大きい方の2乗から小さい方の2乗をひいた差について調べます。小さい方を n とするとき、この差はどんな数といえますか。',
+            options: [
+              '偶数になる',
+              'もとの2つの整数の和に等しい',
+              '3 の倍数になる',
+              '4 の倍数になる',
             ],
-            "correctIndex": 2,
-            "explanation": "(n+1)²-n²=2n+1。これは n+(n+1) と等しいので、もとの2つの整数の和になります。",
-            "difficulty": "advanced"
+            correctIndex: 1,
+            explanation:
+              '(n+1)²-n²=2n+1。これは n+(n+1) と等しいので、もとの2つの整数の和になります。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-calc-applications-q20",
-            "question": "2けたの自然数と、その十の位と一の位を入れかえた数の和を考えます。十の位を a、一の位を b とするとき、2つの数の和を表す式はどれですか。",
-            "options": [
-              "11(a+b)",
-              "11a+b",
-              "10a+b",
-              "9(a-b)"
-            ],
-            "correctIndex": 0,
-            "explanation": "もとの数は 10a+b、入れかえた数は 10b+a だから\n(10a+b)+(10b+a)=11a+11b=11(a+b)。11 の倍数になります。",
-            "difficulty": "advanced"
+            id: 'math-g3-calc-applications-q20',
+            question:
+              '2けたの自然数と、その十の位と一の位を入れかえた数の和を考えます。十の位を a、一の位を b とするとき、2つの数の和を表す式はどれですか。',
+            options: ['11(a+b)', '11a+b', '10a+b', '9(a-b)'],
+            correctIndex: 0,
+            explanation:
+              'もとの数は 10a+b、入れかえた数は 10b+a だから\n(10a+b)+(10b+a)=11a+11b=11(a+b)。11 の倍数になります。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-calc-applications-q21",
-            "question": "2けたの自然数から、その十の位と一の位を入れかえた数をひいた差を考えます。十の位を a、一の位を b とするとき、その差を表す式はどれですか。",
-            "options": [
-              "11(a+b)",
-              "9(a+b)",
-              "a-b",
-              "9(a-b)"
-            ],
-            "correctIndex": 3,
-            "explanation": "(10a+b)-(10b+a)=9a-9b=9(a-b)。a-b は整数だから、この差は 9 の倍数になります。",
-            "difficulty": "advanced"
-          }
-        ]
-      }
-    ]
+            id: 'math-g3-calc-applications-q21',
+            question:
+              '2けたの自然数から、その十の位と一の位を入れかえた数をひいた差を考えます。十の位を a、一の位を b とするとき、その差を表す式はどれですか。',
+            options: ['11(a+b)', '9(a+b)', '9(a-b)', 'a-b'],
+            correctIndex: 2,
+            explanation:
+              '(10a+b)-(10b+a)=9a-9b=9(a-b)。a-b は整数だから、この差は 9 の倍数になります。',
+            difficulty: 'advanced',
+          },
+        ],
+      },
+    ],
   },
   {
-    "eraId": "math-g3-square-roots",
-    "eraName": "平方根",
-    "eraIcon": "√",
-    "eraPeriod": "中3 数と式",
-    "topics": [
+    eraId: 'math-g3-square-roots',
+    eraName: '平方根',
+    eraIcon: '√',
+    eraPeriod: '中3 数と式',
+    topics: [
       {
-        "topicId": "math-g3-sqrt-meaning",
-        "name": "平方根の意味と大小",
-        "subtitle": "√の世界への入り口",
-        "icon": "√",
-        "order": 1,
-        "flashcards": [],
-        "quiz": [
+        topicId: 'math-g3-sqrt-meaning',
+        name: '平方根の意味と大小',
+        subtitle: '√の世界への入り口',
+        icon: '√',
+        order: 1,
+        flashcards: [],
+        quiz: [
           {
-            "id": "math-g3-sqrt-meaning-q1",
-            "question": "9 の平方根をすべて求めなさい。",
-            "options": [
-              "3",
-              "81",
-              "± 81",
-              "± 3"
-            ],
-            "correctIndex": 3,
-            "explanation": "3² = 9、(-3)² = 9\n2乗して 9 になる数は正と負の2つあるので ± 3。",
-            "difficulty": "basic"
+            id: 'math-g3-sqrt-meaning-q1',
+            question: '9 の平方根をすべて求めなさい。',
+            options: ['3', '81', '± 3', '± 81'],
+            correctIndex: 2,
+            explanation:
+              '3² = 9、(-3)² = 9\n2乗して 9 になる数は正と負の2つあるので ± 3。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-sqrt-meaning-q2",
-            "question": "正の数の平方根について、正しく述べているものはどれですか。",
-            "options": [
-              "正の数が1つだけある",
-              "負の数が1つだけある",
-              "平方根は存在しない",
-              "絶対値が等しい正と負の2つがある"
+            id: 'math-g3-sqrt-meaning-q2',
+            question:
+              '正の数の平方根について、正しく述べているものはどれですか。',
+            options: [
+              '正の数が1つだけある',
+              '負の数が1つだけある',
+              '平方根は存在しない',
+              '正と負の2つがある',
             ],
-            "correctIndex": 3,
-            "explanation": "2乗して同じ正の数になる数は、正と負で対になっている。\nだから正の数の平方根は、絶対値が等しい正と負の2つある。",
-            "difficulty": "basic"
+            correctIndex: 3,
+            explanation:
+              '2乗して同じ正の数になる数は、正と負で対になっている。\nだから正の数の平方根は、絶対値が等しい正と負の2つある。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-sqrt-meaning-q3",
-            "question": "次の値を求めましょう。\n√36",
-            "options": [
-              "6",
-              "± 6",
-              "18",
-              "1296"
-            ],
-            "correctIndex": 0,
-            "explanation": "√36 = 6\n根号 √ は平方根のうち正のほうを表すので 6。",
-            "difficulty": "basic"
+            id: 'math-g3-sqrt-meaning-q3',
+            question: '次の値を求めましょう。\n√36',
+            options: ['1296', '± 6', '18', '6'],
+            correctIndex: 3,
+            explanation: '√36 = 6\n根号 √ は平方根のうち正のほうを表すので 6。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-sqrt-meaning-q4",
-            "question": "次の値を求めましょう。\n(√7)²",
-            "options": [
-              "49",
-              "√49",
-              "7",
-              "14"
-            ],
-            "correctIndex": 2,
-            "explanation": "(√7)² = 7\n√7 は2乗すると 7 になる数なので、2乗するとそのまま 7 に戻る。",
-            "difficulty": "basic"
+            id: 'math-g3-sqrt-meaning-q4',
+            question: '次の値を求めましょう。\n(√7)²',
+            options: ['7', '√49', '49', '14'],
+            correctIndex: 0,
+            explanation:
+              '(√7)² = 7\n√7 は2乗すると 7 になる数なので、2乗するとそのまま 7 に戻る。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-sqrt-meaning-q5",
-            "question": "次の値を求めましょう。\n√(-4)²",
-            "options": [
-              "-4",
-              "4",
-              "16",
-              "± 4"
-            ],
-            "correctIndex": 1,
-            "explanation": "(-4)² = 16、√16 = 4\nまず2乗して 16 にしてから根号をとるので、答えは正の 4。",
-            "difficulty": "standard"
+            id: 'math-g3-sqrt-meaning-q5',
+            question: '次の値を求めましょう。\n√(-4)²',
+            options: ['-4', '4', '16', '± 4'],
+            correctIndex: 1,
+            explanation:
+              '(-4)² = 16、√16 = 4\nまず2乗して 16 にしてから根号をとるので、答えは正の 4。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sqrt-meaning-q6",
-            "question": "次の値を求めましょう。\n√100",
-            "options": [
-              "50",
-              "10000",
-              "± 10",
-              "10"
-            ],
-            "correctIndex": 3,
-            "explanation": "10² = 100 なので √100 = 10\n根号は正のほうを表すので 10。",
-            "difficulty": "basic"
+            id: 'math-g3-sqrt-meaning-q6',
+            question: '次の値を求めましょう。\n√100',
+            options: ['50', '10', '± 10', '10000'],
+            correctIndex: 1,
+            explanation:
+              '10² = 100 なので √100 = 10\n根号は正のほうを表すので 10。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-sqrt-meaning-q7",
-            "question": "次の値を求めましょう。\n√0.49",
-            "options": [
-              "0.07",
-              "± 0.7",
-              "0.24",
-              "0.7"
-            ],
-            "correctIndex": 3,
-            "explanation": "0.7² = 0.49 なので √0.49 = 0.7\n根号は正のほうを表すので 0.7。",
-            "difficulty": "standard"
+            id: 'math-g3-sqrt-meaning-q7',
+            question: '次の値を求めましょう。\n√0.49',
+            options: ['0.7', '± 0.7', '0.24', '0.07'],
+            correctIndex: 0,
+            explanation:
+              '0.7² = 0.49 なので √0.49 = 0.7\n根号は正のほうを表すので 0.7。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sqrt-meaning-q8",
-            "question": "√10 と 3 の大小として正しいものはどれですか。",
-            "options": [
-              "√10 = 3",
-              "√10 < 3",
-              "√10 > 3",
-              "比べられない"
-            ],
-            "correctIndex": 2,
-            "explanation": "3 = √9 で、9 < 10\n根号の中が大きいほど値も大きいので √10 > 3。",
-            "difficulty": "standard"
+            id: 'math-g3-sqrt-meaning-q8',
+            question: '√10 と 3 の大小として正しいものはどれですか。',
+            options: ['√10 = 3', '√10 < 3', '√10 > 3', '比べられない'],
+            correctIndex: 2,
+            explanation:
+              '3 = √9 で、9 < 10\n根号の中が大きいほど値も大きいので √10 > 3。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sqrt-meaning-q9",
-            "question": "2√3 と √13 の大小として正しいものはどれですか。",
-            "options": [
-              "2√3 > √13",
-              "2√3 < √13",
-              "2√3 = √13",
-              "比べられない"
-            ],
-            "correctIndex": 1,
-            "explanation": "(2√3)² = 12、(√13)² = 13 で 12 < 13\n両方を2乗して比べると 2√3 < √13。",
-            "difficulty": "advanced"
+            id: 'math-g3-sqrt-meaning-q9',
+            question: '2√3 と √13 の大小として正しいものはどれですか。',
+            options: ['2√3 > √13', '2√3 = √13', '2√3 < √13', '比べられない'],
+            correctIndex: 2,
+            explanation:
+              '(2√3)² = 12、(√13)² = 13 で 12 < 13\n両方を2乗して比べると 2√3 < √13。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-sqrt-meaning-q10",
-            "question": "√5 と √7 の大小として正しいものはどれですか。",
-            "options": [
-              "√5 > √7",
-              "√5 = √7",
-              "√5 < √7",
-              "比べられない"
-            ],
-            "correctIndex": 2,
-            "explanation": "根号の中を比べると 5 < 7\n中が大きいほど値も大きいので √5 < √7。",
-            "difficulty": "basic"
+            id: 'math-g3-sqrt-meaning-q10',
+            question: '√5 と √7 の大小として正しいものはどれですか。',
+            options: ['√5 < √7', '√5 = √7', '√5 > √7', '比べられない'],
+            correctIndex: 0,
+            explanation:
+              '根号の中を比べると 5 < 7\n中が大きいほど値も大きいので √5 < √7。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-sqrt-meaning-q11",
-            "question": "4 と √15 の大小として正しいものはどれですか。",
-            "options": [
-              "4 > √15",
-              "4 < √15",
-              "4 = √15",
-              "比べられない"
-            ],
-            "correctIndex": 0,
-            "explanation": "4 = √16 で、16 > 15\n根号の中が大きいほど値も大きいので 4 > √15。",
-            "difficulty": "standard"
+            id: 'math-g3-sqrt-meaning-q11',
+            question: '4 と √15 の大小として正しいものはどれですか。',
+            options: ['比べられない', '4 < √15', '4 = √15', '4 > √15'],
+            correctIndex: 3,
+            explanation:
+              '4 = √16 で、16 > 15\n根号の中が大きいほど値も大きいので 4 > √15。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sqrt-meaning-q12",
-            "question": "3√2 と 2√5 の大小として正しいものはどれですか。",
-            "options": [
-              "3√2 > 2√5",
-              "3√2 = 2√5",
-              "3√2 < 2√5",
-              "比べられない"
-            ],
-            "correctIndex": 2,
-            "explanation": "(3√2)² = 18、(2√5)² = 20 で 18 < 20\n両方を2乗して比べると 3√2 < 2√5。",
-            "difficulty": "advanced"
+            id: 'math-g3-sqrt-meaning-q12',
+            question: '3√2 と 2√5 の大小として正しいものはどれですか。',
+            options: ['3√2 > 2√5', '3√2 = 2√5', '比べられない', '3√2 < 2√5'],
+            correctIndex: 3,
+            explanation:
+              '(3√2)² = 18、(2√5)² = 20 で 18 < 20\n両方を2乗して比べると 3√2 < 2√5。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-sqrt-meaning-q13",
-            "question": "√2 の近似値として最も適切なものはどれですか。",
-            "options": [
-              "1.41",
-              "1.73",
-              "2.23",
-              "1.0"
-            ],
-            "correctIndex": 0,
-            "explanation": "1.41² = 1.9881 で 2 に近い。\n√2 = 1.4142・s なので、最も近いのは 1.41。",
-            "difficulty": "standard"
+            id: 'math-g3-sqrt-meaning-q13',
+            question: '√2 の近似値として最も適切なものはどれですか。',
+            options: ['2.23', '1.73', '1.41', '1.0'],
+            correctIndex: 2,
+            explanation:
+              '1.41² = 1.9881 で 2 に近い。\n√2 = 1.4142・s なので、最も近いのは 1.41。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sqrt-meaning-q14",
-            "question": "√3 の近似値として最も適切なものはどれですか。",
-            "options": [
-              "1.41",
-              "1.73",
-              "1.5",
-              "3.0"
-            ],
-            "correctIndex": 1,
-            "explanation": "1.73² = 2.9929 で 3 に近い。\n√3 = 1.7320・s なので、最も近いのは 1.73。",
-            "difficulty": "basic"
+            id: 'math-g3-sqrt-meaning-q14',
+            question: '√3 の近似値として最も適切なものはどれですか。',
+            options: ['1.41', '1.73', '1.5', '3.0'],
+            correctIndex: 1,
+            explanation:
+              '1.73² = 2.9929 で 3 に近い。\n√3 = 1.7320・s なので、最も近いのは 1.73。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-sqrt-meaning-q15",
-            "question": "次の数のうち、無理数はどれですか。",
-            "options": [
-              "√9",
-              "√5",
-              "0.5",
-              "2/3"
-            ],
-            "correctIndex": 1,
-            "explanation": "√9 = 3、0.5、2/3 は分数で表せる有理数。\n√5 は分数で表せず、無理数。",
-            "difficulty": "standard"
+            id: 'math-g3-sqrt-meaning-q15',
+            question: '次の数のうち、無理数はどれですか。',
+            options: ['√9', '√5', '0.5', '2/3'],
+            correctIndex: 1,
+            explanation:
+              '√9 = 3、0.5、2/3 は分数で表せる有理数。\n√5 は分数で表せず、無理数。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sqrt-meaning-q16",
-            "question": "次の数のうち、有理数はどれですか。",
-            "options": [
-              "√2",
-              "√7",
-              "√16",
-              "π"
-            ],
-            "correctIndex": 2,
-            "explanation": "√16 = 4 で整数だから有理数。\n√2、√7、π は分数で表せない無理数。",
-            "difficulty": "advanced"
+            id: 'math-g3-sqrt-meaning-q16',
+            question: '次の数のうち、有理数はどれですか。',
+            options: ['√16', '√7', '√2', 'π'],
+            correctIndex: 0,
+            explanation:
+              '√16 = 4 で整数だから有理数。\n√2、√7、π は分数で表せない無理数。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-sqrt-meaning-q17",
-            "question": "√16 について正しく述べているものはどれですか。",
-            "options": [
-              "4 に等しく、有理数である",
-              "無理数である",
-              "± 4 に等しい",
-              "値が定まらない"
+            id: 'math-g3-sqrt-meaning-q17',
+            question: '√16 について正しく述べているものはどれですか。',
+            options: [
+              '± 4 に等しい',
+              '無理数である',
+              '4 に等しい',
+              '値が定まらない',
             ],
-            "correctIndex": 0,
-            "explanation": "√16 = 4 で、根号は正のほうを表すので ± 4 ではない。\n4 は整数なので有理数。",
-            "difficulty": "advanced"
+            correctIndex: 2,
+            explanation:
+              '√16 = 4 で、根号は正のほうを表すので ± 4 ではない。\n4 は整数なので有理数。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-sqrt-meaning-q18",
-            "question": "a² = 7 を満たす数 a を求めなさい。",
-            "options": [
-              "7",
-              "√7",
-              "± 7",
-              "±√7"
-            ],
-            "correctIndex": 3,
-            "explanation": "a は 7 の平方根で、正と負の2つある。\nよって a = ±√7。",
-            "difficulty": "standard"
+            id: 'math-g3-sqrt-meaning-q18',
+            question: 'a² = 7 を満たす数 a を求めなさい。',
+            options: ['7', '√7', '± 7', '±√7'],
+            correctIndex: 3,
+            explanation:
+              'a は 7 の平方根で、正と負の2つある。\nよって a = ±√7。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sqrt-meaning-q19",
-            "question": "x² = 11 を満たす数 x を求めなさい。",
-            "options": [
-              "x = 11",
-              "x = ±√11",
-              "x = √11",
-              "x = ± 11"
-            ],
-            "correctIndex": 1,
-            "explanation": "x は 11 の平方根で、正と負の2つある。\nよって x = ±√11。",
-            "difficulty": "standard"
+            id: 'math-g3-sqrt-meaning-q19',
+            question: 'x² = 11 を満たす数 x を求めなさい。',
+            options: ['x = ±√11', 'x = 11', 'x = √11', 'x = ± 11'],
+            correctIndex: 0,
+            explanation:
+              'x は 11 の平方根で、正と負の2つある。\nよって x = ±√11。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sqrt-meaning-q20",
-            "question": "面積が 121 cm² の正方形の1辺の長さを求めなさい。",
-            "options": [
-              "11 cm",
-              "± 11 cm",
-              "60.5 cm",
-              "√11 cm"
-            ],
-            "correctIndex": 0,
-            "explanation": "1辺を x とすると x² = 121。11² = 121 より x = √121 = 11。\n長さは正の数なので 11 cm。",
-            "difficulty": "standard"
-          }
-        ]
+            id: 'math-g3-sqrt-meaning-q20',
+            question: '面積が 121 cm² の正方形の1辺の長さを求めなさい。',
+            options: ['± 11 cm', '11 cm', '60.5 cm', '√11 cm'],
+            correctIndex: 1,
+            explanation:
+              '1辺を x とすると x² = 121。11² = 121 より x = √121 = 11。\n長さは正の数なので 11 cm。',
+            difficulty: 'standard',
+          },
+        ],
       },
       {
-        "topicId": "math-g3-sqrt-mul-div",
-        "name": "根号の乗法・除法",
-        "subtitle": "√の中身どうしを計算",
-        "icon": "✖️",
-        "order": 2,
-        "flashcards": [],
-        "quiz": [
+        topicId: 'math-g3-sqrt-mul-div',
+        name: '根号の乗法・除法',
+        subtitle: '√の中身どうしを計算',
+        icon: '✖️',
+        order: 2,
+        flashcards: [],
+        quiz: [
           {
-            "id": "math-g3-sqrt-mul-div-q1",
-            "question": "次の計算をしましょう。\n√2×√3",
-            "options": [
-              "√5",
-              "√6",
-              "6",
-              "2√3"
-            ],
-            "correctIndex": 1,
-            "explanation": "√2×√3=√2×3=√6\n根号の中の数どうしをかけます。",
-            "difficulty": "basic"
+            id: 'math-g3-sqrt-mul-div-q1',
+            question: '次の計算をしましょう。\n√2×√3',
+            options: ['√5', '√6', '6', '2√3'],
+            correctIndex: 1,
+            explanation: '√2×√3=√2×3=√6\n根号の中の数どうしをかけます。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-sqrt-mul-div-q2",
-            "question": "次の計算をしましょう。\n√3×√5",
-            "options": [
-              "√8",
-              "15",
-              "√15",
-              "3√5"
-            ],
-            "correctIndex": 2,
-            "explanation": "√3×√5=√3×5=√15\n中の数をたすのではなく、かけます。",
-            "difficulty": "basic"
+            id: 'math-g3-sqrt-mul-div-q2',
+            question: '次の計算をしましょう。\n√3×√5',
+            options: ['√8', '√15', '15', '3√5'],
+            correctIndex: 1,
+            explanation: '√3×√5=√3×5=√15\n中の数をたすのではなく、かけます。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-sqrt-mul-div-q3",
-            "question": "次の計算をしましょう。\n√2×√8",
-            "options": [
-              "√10",
-              "2√2",
-              "16",
-              "4"
-            ],
-            "correctIndex": 3,
-            "explanation": "√2×√8=√16=4\n中の数をかけてから、根号を外せるか確かめます。",
-            "difficulty": "basic"
+            id: 'math-g3-sqrt-mul-div-q3',
+            question: '次の計算をしましょう。\n√2×√8',
+            options: ['√10', '2√2', '4', '16'],
+            correctIndex: 2,
+            explanation:
+              '√2×√8=√16=4\n中の数をかけてから、根号を外せるか確かめます。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-sqrt-mul-div-q4",
-            "question": "次の計算をしましょう。\n√6×√6",
-            "options": [
-              "6",
-              "√6",
-              "36",
-              "2√6"
-            ],
-            "correctIndex": 0,
-            "explanation": "√6×√6=√36=6\n同じ数の積は、その数になります。",
-            "difficulty": "basic"
+            id: 'math-g3-sqrt-mul-div-q4',
+            question: '次の計算をしましょう。\n√6×√6',
+            options: ['6', '√6', '36', '2√6'],
+            correctIndex: 0,
+            explanation: '√6×√6=√36=6\n同じ数の積は、その数になります。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-sqrt-mul-div-q5",
-            "question": "次の数を a√b の形にしましょう。\n√12",
-            "options": [
-              "3√2",
-              "2√3",
-              "4√3",
-              "2√6"
-            ],
-            "correctIndex": 1,
-            "explanation": "√12=√4×3=2√3\n中を（平方数）×（数）に分け、平方数を根号の外に出します。",
-            "difficulty": "basic"
+            id: 'math-g3-sqrt-mul-div-q5',
+            question: '次の数を a√b の形にしましょう。\n√12',
+            options: ['3√2', '4√3', '2√3', '2√6'],
+            correctIndex: 2,
+            explanation:
+              '√12=√4×3=2√3\n中を（平方数）×（数）に分け、平方数を根号の外に出します。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-sqrt-mul-div-q6",
-            "question": "次の数を a√b の形にしましょう。\n√50",
-            "options": [
-              "2√5",
-              "25√2",
-              "5√2",
-              "10√5"
-            ],
-            "correctIndex": 2,
-            "explanation": "√50=√25×2=5√2\n√25=5 を外に出します。",
-            "difficulty": "basic"
+            id: 'math-g3-sqrt-mul-div-q6',
+            question: '次の数を a√b の形にしましょう。\n√50',
+            options: ['2√5', '25√2', '10√5', '5√2'],
+            correctIndex: 3,
+            explanation: '√50=√25×2=5√2\n√25=5 を外に出します。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-sqrt-mul-div-q7",
-            "question": "次の数を a√b の形にしましょう。\n√18",
-            "options": [
-              "2√3",
-              "9√2",
-              "3√6",
-              "3√2"
-            ],
-            "correctIndex": 3,
-            "explanation": "√18=√9×2=3√2\n√9=3 を外に出します。",
-            "difficulty": "basic"
+            id: 'math-g3-sqrt-mul-div-q7',
+            question: '次の数を a√b の形にしましょう。\n√18',
+            options: ['2√3', '9√2', '3√2', '3√6'],
+            correctIndex: 2,
+            explanation: '√18=√9×2=3√2\n√9=3 を外に出します。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-sqrt-mul-div-q8",
-            "question": "次の数を a√b の形にしましょう。\n√45",
-            "options": [
-              "3√5",
-              "5√3",
-              "9√5",
-              "3√15"
-            ],
-            "correctIndex": 0,
-            "explanation": "√45=√9×5=3√5\n√9=3 を外に出します。",
-            "difficulty": "standard"
+            id: 'math-g3-sqrt-mul-div-q8',
+            question: '次の数を a√b の形にしましょう。\n√45',
+            options: ['5√3', '3√5', '9√5', '3√15'],
+            correctIndex: 1,
+            explanation: '√45=√9×5=3√5\n√9=3 を外に出します。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sqrt-mul-div-q9",
-            "question": "次の数を a√b の形にしましょう。\n√72",
-            "options": [
-              "8√3",
-              "6√2",
-              "2√6",
-              "6√3"
-            ],
-            "correctIndex": 1,
-            "explanation": "√72=√36×2=6√2\n中の最大の平方数 36 を見つけて外に出します。",
-            "difficulty": "standard"
+            id: 'math-g3-sqrt-mul-div-q9',
+            question: '次の数を a√b の形にしましょう。\n√72',
+            options: ['8√3', '6√3', '2√6', '6√2'],
+            correctIndex: 3,
+            explanation:
+              '√72=√36×2=6√2\n中の最大の平方数 36 を見つけて外に出します。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sqrt-mul-div-q10",
-            "question": "次の計算をしましょう。\n√8÷√2",
-            "options": [
-              "4",
-              "√2",
-              "2",
-              "√6"
-            ],
-            "correctIndex": 2,
-            "explanation": "√8÷√2=√8/2=√4=2\n中の数どうしを割ります。",
-            "difficulty": "basic"
+            id: 'math-g3-sqrt-mul-div-q10',
+            question: '次の計算をしましょう。\n√8÷√2',
+            options: ['4', '√2', '√6', '2'],
+            correctIndex: 3,
+            explanation: '√8÷√2=√8/2=√4=2\n中の数どうしを割ります。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-sqrt-mul-div-q11",
-            "question": "次の計算をしましょう。\n√18÷√2",
-            "options": [
-              "9",
-              "√3",
-              "6",
-              "3"
-            ],
-            "correctIndex": 3,
-            "explanation": "√18÷√2=√18/2=√9=3\n中の数を割ってから、根号を外します。",
-            "difficulty": "basic"
+            id: 'math-g3-sqrt-mul-div-q11',
+            question: '次の計算をしましょう。\n√18÷√2',
+            options: ['9', '√3', '3', '6'],
+            correctIndex: 2,
+            explanation:
+              '√18÷√2=√18/2=√9=3\n中の数を割ってから、根号を外します。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-sqrt-mul-div-q12",
-            "question": "次の計算をしましょう。\n√2÷√8",
-            "options": [
-              "1/2",
-              "2",
-              "1/4",
-              "√1/2"
-            ],
-            "correctIndex": 0,
-            "explanation": "√2÷√8=√2/8=√1/4=1/2\n割る順序に注意し、最後に根号を外します。",
-            "difficulty": "advanced"
+            id: 'math-g3-sqrt-mul-div-q12',
+            question: '次の計算をしましょう。\n√2÷√8',
+            options: ['1/2', '2', '1/4', '√1/2'],
+            correctIndex: 0,
+            explanation:
+              '√2÷√8=√2/8=√1/4=1/2\n割る順序に注意し、最後に根号を外します。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-sqrt-mul-div-q13",
-            "question": "次の計算をしましょう。\n3√2×2√5",
-            "options": [
-              "5√10",
-              "6√10",
-              "6√7",
-              "5√7"
-            ],
-            "correctIndex": 1,
-            "explanation": "3√2×2√5=(3×2)√2×5=6√10\n係数どうし、根号の中どうしをそれぞれかけます。",
-            "difficulty": "standard"
+            id: 'math-g3-sqrt-mul-div-q13',
+            question: '次の計算をしましょう。\n3√2×2√5',
+            options: ['5√10', '6√10', '6√7', '5√7'],
+            correctIndex: 1,
+            explanation:
+              '3√2×2√5=(3×2)√2×5=6√10\n係数どうし、根号の中どうしをそれぞれかけます。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sqrt-mul-div-q14",
-            "question": "次の計算をしましょう。\n2√3×4√3",
-            "options": [
-              "8√3",
-              "8√6",
-              "24",
-              "6√3"
-            ],
-            "correctIndex": 2,
-            "explanation": "2√3×4√3=8√9=8×3=24\n係数と中をそれぞれかけ、√9=3 を外します。",
-            "difficulty": "standard"
+            id: 'math-g3-sqrt-mul-div-q14',
+            question: '次の計算をしましょう。\n2√3×4√3',
+            options: ['24', '8√6', '8√3', '6√3'],
+            correctIndex: 0,
+            explanation:
+              '2√3×4√3=8√9=8×3=24\n係数と中をそれぞれかけ、√9=3 を外します。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sqrt-mul-div-q15",
-            "question": "次の計算をしましょう。\n√20×√5",
-            "options": [
-              "√25",
-              "100",
-              "5√5",
-              "10"
-            ],
-            "correctIndex": 3,
-            "explanation": "√20×√5=√100=10\n中の数をかけてから根号を外します。",
-            "difficulty": "standard"
+            id: 'math-g3-sqrt-mul-div-q15',
+            question: '次の計算をしましょう。\n√20×√5',
+            options: ['10', '100', '5√5', '√25'],
+            correctIndex: 0,
+            explanation: '√20×√5=√100=10\n中の数をかけてから根号を外します。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sqrt-mul-div-q16",
-            "question": "次の計算をしましょう。\n√6×√8",
-            "options": [
-              "4√3",
-              "√14",
-              "2√14",
-              "8√3"
-            ],
-            "correctIndex": 0,
-            "explanation": "√6×√8=√48=√16×3=4√3\n中をかけたあと、√48 を簡単にします。",
-            "difficulty": "advanced"
+            id: 'math-g3-sqrt-mul-div-q16',
+            question: '次の計算をしましょう。\n√6×√8',
+            options: ['2√14', '√14', '4√3', '8√3'],
+            correctIndex: 2,
+            explanation:
+              '√6×√8=√48=√16×3=4√3\n中をかけたあと、√48 を簡単にします。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-sqrt-mul-div-q17",
-            "question": "次の計算をしましょう。\n2√6×3√2",
-            "options": [
-              "6√3",
-              "12√3",
-              "12√6",
-              "24√3"
-            ],
-            "correctIndex": 1,
-            "explanation": "2√6×3√2=6√12=6×2√3=12√3\n係数と中をかけたあと、√12=2√3 を簡単にします。",
-            "difficulty": "advanced"
+            id: 'math-g3-sqrt-mul-div-q17',
+            question: '次の計算をしましょう。\n2√6×3√2',
+            options: ['6√3', '12√3', '12√6', '24√3'],
+            correctIndex: 1,
+            explanation:
+              '2√6×3√2=6√12=6×2√3=12√3\n係数と中をかけたあと、√12=2√3 を簡単にします。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-sqrt-mul-div-q18",
-            "question": "次の計算をしましょう。\n√54÷√6",
-            "options": [
-              "48",
-              "9",
-              "3",
-              "√3"
-            ],
-            "correctIndex": 2,
-            "explanation": "√54÷√6=√54/6=√9=3\n中の数を割ってから、根号を外します。",
-            "difficulty": "standard"
+            id: 'math-g3-sqrt-mul-div-q18',
+            question: '次の計算をしましょう。\n√54÷√6',
+            options: ['48', '9', '√3', '3'],
+            correctIndex: 3,
+            explanation:
+              '√54÷√6=√54/6=√9=3\n中の数を割ってから、根号を外します。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sqrt-mul-div-q19",
-            "question": "次の計算をしましょう。\n6√10÷2√5",
-            "options": [
-              "3√5",
-              "4√2",
-              "3√15",
-              "3√2"
-            ],
-            "correctIndex": 3,
-            "explanation": "6√10÷2√5=6/2√10/5=3√2\n係数どうし、中の数どうしをそれぞれ割ります。",
-            "difficulty": "advanced"
+            id: 'math-g3-sqrt-mul-div-q19',
+            question: '次の計算をしましょう。\n6√10÷2√5',
+            options: ['3√2', '4√2', '3√15', '3√5'],
+            correctIndex: 0,
+            explanation:
+              '6√10÷2√5=6/2√10/5=3√2\n係数どうし、中の数どうしをそれぞれ割ります。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-sqrt-mul-div-q20",
-            "question": "次の計算をしましょう。\n√48÷√3",
-            "options": [
-              "4",
-              "√45",
-              "16",
-              "2√3"
-            ],
-            "correctIndex": 0,
-            "explanation": "√48÷√3=√48/3=√16=4\n中の数を割ってから、根号を外します。",
-            "difficulty": "standard"
+            id: 'math-g3-sqrt-mul-div-q20',
+            question: '次の計算をしましょう。\n√48÷√3',
+            options: ['2√3', '√45', '16', '4'],
+            correctIndex: 3,
+            explanation:
+              '√48÷√3=√48/3=√16=4\n中の数を割ってから、根号を外します。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sqrt-mul-div-q21",
-            "question": "次の数を a√b の形にしましょう。\n√24",
-            "options": [
-              "4√6",
-              "2√6",
-              "6√2",
-              "2√12"
-            ],
-            "correctIndex": 1,
-            "explanation": "√24=√4×6=2√6\n√4=2 を外に出します。",
-            "difficulty": "standard"
-          }
-        ]
+            id: 'math-g3-sqrt-mul-div-q21',
+            question: '次の数を a√b の形にしましょう。\n√24',
+            options: ['4√6', '2√6', '6√2', '2√12'],
+            correctIndex: 1,
+            explanation: '√24=√4×6=2√6\n√4=2 を外に出します。',
+            difficulty: 'standard',
+          },
+        ],
       },
       {
-        "topicId": "math-g3-rationalization",
-        "name": "分母の有理化",
-        "subtitle": "分母の√をなくそう",
-        "icon": "📐",
-        "order": 3,
-        "flashcards": [],
-        "quiz": [
+        topicId: 'math-g3-rationalization',
+        name: '分母の有理化',
+        subtitle: '分母の√をなくそう',
+        icon: '📐',
+        order: 3,
+        flashcards: [],
+        quiz: [
           {
-            "id": "math-g3-rationalization-q1",
-            "question": "次の数の分母を有理化しましょう。\nfrac{1}{√2}",
-            "options": [
-              "frac{√2}{2}",
-              "√2",
-              "2√2",
-              "1/2"
-            ],
-            "correctIndex": 0,
-            "explanation": "frac{1}{√2}=frac{1×√2}{√2×√2}=frac{√2}{2}\n分母と分子に√2をかける。",
-            "difficulty": "basic"
+            id: 'math-g3-rationalization-q1',
+            question: '次の数の分母を有理化しましょう。\nfrac{1}{√2}',
+            options: ['√2', 'frac{√2}{2}', '2√2', '1/2'],
+            correctIndex: 1,
+            explanation:
+              'frac{1}{√2}=frac{1×√2}{√2×√2}=frac{√2}{2}\n分母と分子に√2をかける。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-rationalization-q2",
-            "question": "次の数の分母を有理化しましょう。\nfrac{1}{√3}",
-            "options": [
-              "√3",
-              "frac{√3}{3}",
-              "3√3",
-              "1/3"
-            ],
-            "correctIndex": 1,
-            "explanation": "frac{1}{√3}=frac{√3}{√3×√3}=frac{√3}{3}\n分母と分子に√3をかける。",
-            "difficulty": "basic"
+            id: 'math-g3-rationalization-q2',
+            question: '次の数の分母を有理化しましょう。\nfrac{1}{√3}',
+            options: ['√3', '3√3', 'frac{√3}{3}', '1/3'],
+            correctIndex: 2,
+            explanation:
+              'frac{1}{√3}=frac{√3}{√3×√3}=frac{√3}{3}\n分母と分子に√3をかける。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-rationalization-q3",
-            "question": "次の数の分母を有理化しましょう。\nfrac{1}{√5}",
-            "options": [
-              "5√5",
-              "√5",
-              "frac{√5}{5}",
-              "1/5"
-            ],
-            "correctIndex": 2,
-            "explanation": "frac{1}{√5}=frac{√5}{√5×√5}=frac{√5}{5}\n分母と分子に√5をかける。",
-            "difficulty": "basic"
+            id: 'math-g3-rationalization-q3',
+            question: '次の数の分母を有理化しましょう。\nfrac{1}{√5}',
+            options: ['frac{√5}{5}', '√5', '5√5', '1/5'],
+            correctIndex: 0,
+            explanation:
+              'frac{1}{√5}=frac{√5}{√5×√5}=frac{√5}{5}\n分母と分子に√5をかける。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-rationalization-q4",
-            "question": "次の数の分母を有理化しましょう。\nfrac{3}{√3}",
-            "options": [
-              "3√3",
-              "frac{√3}{3}",
-              "3",
-              "√3"
-            ],
-            "correctIndex": 3,
-            "explanation": "frac{3}{√3}=frac{3√3}{3}=√3\n分母分子に√3をかけ、3/3を約分する。",
-            "difficulty": "basic"
+            id: 'math-g3-rationalization-q4',
+            question: '次の数の分母を有理化しましょう。\nfrac{3}{√3}',
+            options: ['3√3', 'frac{√3}{3}', '3', '√3'],
+            correctIndex: 3,
+            explanation:
+              'frac{3}{√3}=frac{3√3}{3}=√3\n分母分子に√3をかけ、3/3を約分する。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-rationalization-q5",
-            "question": "次の数の分母を有理化しましょう。\nfrac{6}{√3}",
-            "options": [
-              "2√3",
-              "6√3",
-              "3√3",
-              "2"
-            ],
-            "correctIndex": 0,
-            "explanation": "frac{6}{√3}=frac{6√3}{3}=2√3\n分母分子に√3をかけ、6/3を約分する。",
-            "difficulty": "basic"
+            id: 'math-g3-rationalization-q5',
+            question: '次の数の分母を有理化しましょう。\nfrac{6}{√3}',
+            options: ['2√3', '6√3', '3√3', '2'],
+            correctIndex: 0,
+            explanation:
+              'frac{6}{√3}=frac{6√3}{3}=2√3\n分母分子に√3をかけ、6/3を約分する。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-rationalization-q6",
-            "question": "次の数の分母を有理化しましょう。\nfrac{9}{√3}",
-            "options": [
-              "9√3",
-              "3√3",
-              "frac{√3}{3}",
-              "3"
-            ],
-            "correctIndex": 1,
-            "explanation": "frac{9}{√3}=frac{9√3}{3}=3√3\n分母分子に√3をかけ、9/3を約分する。",
-            "difficulty": "basic"
+            id: 'math-g3-rationalization-q6',
+            question: '次の数の分母を有理化しましょう。\nfrac{9}{√3}',
+            options: ['9√3', 'frac{√3}{3}', '3√3', '3'],
+            correctIndex: 2,
+            explanation:
+              'frac{9}{√3}=frac{9√3}{3}=3√3\n分母分子に√3をかけ、9/3を約分する。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-rationalization-q7",
-            "question": "次の数の分母を有理化しましょう。\nfrac{2}{√2}",
-            "options": [
-              "2√2",
-              "frac{√2}{2}",
-              "√2",
-              "2"
-            ],
-            "correctIndex": 2,
-            "explanation": "frac{2}{√2}=frac{2√2}{2}=√2\n分母分子に√2をかけ、2/2を約分する。",
-            "difficulty": "basic"
+            id: 'math-g3-rationalization-q7',
+            question: '次の数の分母を有理化しましょう。\nfrac{2}{√2}',
+            options: ['2√2', 'frac{√2}{2}', '2', '√2'],
+            correctIndex: 3,
+            explanation:
+              'frac{2}{√2}=frac{2√2}{2}=√2\n分母分子に√2をかけ、2/2を約分する。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-rationalization-q8",
-            "question": "次の数の分母を有理化しましょう。\nfrac{5}{√5}",
-            "options": [
-              "5√5",
-              "frac{√5}{5}",
-              "5",
-              "√5"
-            ],
-            "correctIndex": 3,
-            "explanation": "frac{5}{√5}=frac{5√5}{5}=√5\n分母分子に√5をかけ、5/5を約分する。",
-            "difficulty": "basic"
+            id: 'math-g3-rationalization-q8',
+            question: '次の数の分母を有理化しましょう。\nfrac{5}{√5}',
+            options: ['5√5', 'frac{√5}{5}', '√5', '5'],
+            correctIndex: 2,
+            explanation:
+              'frac{5}{√5}=frac{5√5}{5}=√5\n分母分子に√5をかけ、5/5を約分する。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-rationalization-q9",
-            "question": "次の数の分母を有理化しましょう。\nfrac{√2}{√5}",
-            "options": [
-              "frac{√10}{5}",
-              "√10",
-              "frac{√7}{5}",
-              "frac{√2}{5}"
-            ],
-            "correctIndex": 0,
-            "explanation": "frac{√2}{√5}=frac{√2×√5}{√5×√5}=frac{√10}{5}\n分母分子に√5をかける。",
-            "difficulty": "standard"
+            id: 'math-g3-rationalization-q9',
+            question: '次の数の分母を有理化しましょう。\nfrac{√2}{√5}',
+            options: ['frac{√10}{5}', '√10', 'frac{√7}{5}', 'frac{√2}{5}'],
+            correctIndex: 0,
+            explanation:
+              'frac{√2}{√5}=frac{√2×√5}{√5×√5}=frac{√10}{5}\n分母分子に√5をかける。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-rationalization-q10",
-            "question": "次の数の分母を有理化しましょう。\nfrac{√3}{√7}",
-            "options": [
-              "√21",
-              "frac{√21}{7}",
-              "frac{√10}{7}",
-              "frac{√3}{7}"
-            ],
-            "correctIndex": 1,
-            "explanation": "frac{√3}{√7}=frac{√3×√7}{√7×√7}=frac{√21}{7}\n分母分子に√7をかける。",
-            "difficulty": "standard"
+            id: 'math-g3-rationalization-q10',
+            question: '次の数の分母を有理化しましょう。\nfrac{√3}{√7}',
+            options: ['√21', 'frac{√21}{7}', 'frac{√10}{7}', 'frac{√3}{7}'],
+            correctIndex: 1,
+            explanation:
+              'frac{√3}{√7}=frac{√3×√7}{√7×√7}=frac{√21}{7}\n分母分子に√7をかける。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-rationalization-q11",
-            "question": "次の数の分母を有理化しましょう。\nfrac{4}{2√2}",
-            "options": [
-              "2√2",
-              "frac{√2}{2}",
-              "√2",
-              "2"
-            ],
-            "correctIndex": 2,
-            "explanation": "frac{4}{2√2}=frac{2}{√2}=frac{2√2}{2}=√2\n先に4/2を約分してから有理化する。",
-            "difficulty": "standard"
+            id: 'math-g3-rationalization-q11',
+            question: '次の数の分母を有理化しましょう。\nfrac{4}{2√2}',
+            options: ['2√2', '√2', 'frac{√2}{2}', '2'],
+            correctIndex: 1,
+            explanation:
+              'frac{4}{2√2}=frac{2}{√2}=frac{2√2}{2}=√2\n先に4/2を約分してから有理化する。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-rationalization-q12",
-            "question": "次の数の分母を有理化しましょう。\nfrac{6}{2√3}",
-            "options": [
-              "3√3",
-              "2√3",
-              "frac{√3}{2}",
-              "√3"
-            ],
-            "correctIndex": 3,
-            "explanation": "frac{6}{2√3}=frac{3}{√3}=frac{3√3}{3}=√3\n先に6/2を約分してから有理化する。",
-            "difficulty": "standard"
+            id: 'math-g3-rationalization-q12',
+            question: '次の数の分母を有理化しましょう。\nfrac{6}{2√3}',
+            options: ['√3', '2√3', 'frac{√3}{2}', '3√3'],
+            correctIndex: 0,
+            explanation:
+              'frac{6}{2√3}=frac{3}{√3}=frac{3√3}{3}=√3\n先に6/2を約分してから有理化する。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-rationalization-q13",
-            "question": "次の数の分母を有理化しましょう。\nfrac{1}{2√3}",
-            "options": [
-              "frac{√3}{6}",
-              "frac{√3}{3}",
-              "frac{√3}{2}",
-              "2√3"
-            ],
-            "correctIndex": 0,
-            "explanation": "frac{1}{2√3}=frac{√3}{2√3×√3}=frac{√3}{6}\n分母分子に√3をかけ、分母は2×3=6。",
-            "difficulty": "standard"
+            id: 'math-g3-rationalization-q13',
+            question: '次の数の分母を有理化しましょう。\nfrac{1}{2√3}',
+            options: ['2√3', 'frac{√3}{3}', 'frac{√3}{2}', 'frac{√3}{6}'],
+            correctIndex: 3,
+            explanation:
+              'frac{1}{2√3}=frac{√3}{2√3×√3}=frac{√3}{6}\n分母分子に√3をかけ、分母は2×3=6。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-rationalization-q14",
-            "question": "次の数の分母を有理化しましょう。\nfrac{10}{√5}",
-            "options": [
-              "10√5",
-              "2√5",
-              "frac{√5}{2}",
-              "5√5"
-            ],
-            "correctIndex": 1,
-            "explanation": "frac{10}{√5}=frac{10√5}{5}=2√5\n分母分子に√5をかけ、10/5を約分する。",
-            "difficulty": "standard"
+            id: 'math-g3-rationalization-q14',
+            question: '次の数の分母を有理化しましょう。\nfrac{10}{√5}',
+            options: ['10√5', 'frac{√5}{2}', '2√5', '5√5'],
+            correctIndex: 2,
+            explanation:
+              'frac{10}{√5}=frac{10√5}{5}=2√5\n分母分子に√5をかけ、10/5を約分する。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-rationalization-q15",
-            "question": "次の数の分母を有理化しましょう。\nfrac{8}{√2}",
-            "options": [
-              "8√2",
-              "frac{√2}{4}",
-              "4√2",
-              "2√2"
-            ],
-            "correctIndex": 2,
-            "explanation": "frac{8}{√2}=frac{8√2}{2}=4√2\n分母分子に√2をかけ、8/2を約分する。",
-            "difficulty": "standard"
+            id: 'math-g3-rationalization-q15',
+            question: '次の数の分母を有理化しましょう。\nfrac{8}{√2}',
+            options: ['4√2', 'frac{√2}{4}', '8√2', '2√2'],
+            correctIndex: 0,
+            explanation:
+              'frac{8}{√2}=frac{8√2}{2}=4√2\n分母分子に√2をかけ、8/2を約分する。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-rationalization-q16",
-            "question": "次の数の分母を有理化しましょう。\nfrac{√5}{√3}",
-            "options": [
-              "√15",
-              "frac{√8}{3}",
-              "frac{√5}{3}",
-              "frac{√15}{3}"
-            ],
-            "correctIndex": 3,
-            "explanation": "frac{√5}{√3}=frac{√5×√3}{√3×√3}=frac{√15}{3}\n分母分子に√3をかける。",
-            "difficulty": "standard"
+            id: 'math-g3-rationalization-q16',
+            question: '次の数の分母を有理化しましょう。\nfrac{√5}{√3}',
+            options: ['√15', 'frac{√8}{3}', 'frac{√5}{3}', 'frac{√15}{3}'],
+            correctIndex: 3,
+            explanation:
+              'frac{√5}{√3}=frac{√5×√3}{√3×√3}=frac{√15}{3}\n分母分子に√3をかける。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-rationalization-q17",
-            "question": "次の数の分母を有理化しましょう。\nfrac{√3}{2√6}",
-            "options": [
-              "frac{√2}{4}",
-              "frac{√2}{2}",
-              "frac{3√2}{4}",
-              "frac{√2}{12}"
+            id: 'math-g3-rationalization-q17',
+            question: '次の数の分母を有理化しましょう。\nfrac{√3}{2√6}',
+            options: [
+              'frac{√2}{2}',
+              'frac{√2}{4}',
+              'frac{3√2}{4}',
+              'frac{√2}{12}',
             ],
-            "correctIndex": 0,
-            "explanation": "frac{√3}{2√6}=frac{√3×√6}{2×6}=frac{√18}{12}=frac{3√2}{12}=frac{√2}{4}\n√18=3√2にして約分する。",
-            "difficulty": "advanced"
+            correctIndex: 1,
+            explanation:
+              'frac{√3}{2√6}=frac{√3×√6}{2×6}=frac{√18}{12}=frac{3√2}{12}=frac{√2}{4}\n√18=3√2にして約分する。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-rationalization-q18",
-            "question": "次の数の分母を有理化しましょう。\nfrac{3}{2√6}",
-            "options": [
-              "frac{√6}{2}",
-              "frac{√6}{4}",
-              "frac{√6}{8}",
-              "frac{3√6}{4}"
+            id: 'math-g3-rationalization-q18',
+            question: '次の数の分母を有理化しましょう。\nfrac{3}{2√6}',
+            options: [
+              'frac{√6}{2}',
+              'frac{√6}{4}',
+              'frac{√6}{8}',
+              'frac{3√6}{4}',
             ],
-            "correctIndex": 1,
-            "explanation": "frac{3}{2√6}=frac{3√6}{2×6}=frac{3√6}{12}=frac{√6}{4}\n分母分子に√6をかけ、3/12を約分する。",
-            "difficulty": "advanced"
+            correctIndex: 1,
+            explanation:
+              'frac{3}{2√6}=frac{3√6}{2×6}=frac{3√6}{12}=frac{√6}{4}\n分母分子に√6をかけ、3/12を約分する。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-rationalization-q19",
-            "question": "次の数の分母を有理化しましょう。\nfrac{√2}{3√5}",
-            "options": [
-              "frac{√10}{5}",
-              "frac{√10}{8}",
-              "frac{√10}{15}",
-              "frac{√7}{15}"
+            id: 'math-g3-rationalization-q19',
+            question: '次の数の分母を有理化しましょう。\nfrac{√2}{3√5}',
+            options: [
+              'frac{√10}{5}',
+              'frac{√10}{8}',
+              'frac{√7}{15}',
+              'frac{√10}{15}',
             ],
-            "correctIndex": 2,
-            "explanation": "frac{√2}{3√5}=frac{√2×√5}{3×5}=frac{√10}{15}\n分母分子に√5をかけ、分母は3×5=15。",
-            "difficulty": "advanced"
+            correctIndex: 3,
+            explanation:
+              'frac{√2}{3√5}=frac{√2×√5}{3×5}=frac{√10}{15}\n分母分子に√5をかけ、分母は3×5=15。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-rationalization-q20",
-            "question": "次の数の分母を有理化しましょう。\nfrac{5}{2√10}",
-            "options": [
-              "frac{√10}{2}",
-              "frac{√10}{8}",
-              "frac{5√10}{4}",
-              "frac{√10}{4}"
+            id: 'math-g3-rationalization-q20',
+            question: '次の数の分母を有理化しましょう。\nfrac{5}{2√10}',
+            options: [
+              'frac{√10}{2}',
+              'frac{√10}{8}',
+              'frac{√10}{4}',
+              'frac{5√10}{4}',
             ],
-            "correctIndex": 3,
-            "explanation": "frac{5}{2√10}=frac{5√10}{2×10}=frac{5√10}{20}=frac{√10}{4}\n分母分子に√10をかけ、5/20を約分する。",
-            "difficulty": "advanced"
-          }
-        ]
+            correctIndex: 2,
+            explanation:
+              'frac{5}{2√10}=frac{5√10}{2×10}=frac{5√10}{20}=frac{√10}{4}\n分母分子に√10をかけ、5/20を約分する。',
+            difficulty: 'advanced',
+          },
+        ],
       },
       {
-        "topicId": "math-g3-sqrt-add-expand",
-        "name": "根号の和差と展開",
-        "subtitle": "同じ√はまとめられる",
-        "icon": "➕",
-        "order": 4,
-        "flashcards": [],
-        "quiz": [
+        topicId: 'math-g3-sqrt-add-expand',
+        name: '根号の和差と展開',
+        subtitle: '同じ√はまとめられる',
+        icon: '➕',
+        order: 4,
+        flashcards: [],
+        quiz: [
           {
-            "id": "math-g3-sqrt-add-expand-q1",
-            "question": "次の計算をしましょう。\n2√3+5√3",
-            "options": [
-              "7√3",
-              "10√3",
-              "7√6",
-              "7"
-            ],
-            "correctIndex": 0,
-            "explanation": "2√3+5√3=(2+5)√3=7√3\n√の中が同じなので係数だけをたす。",
-            "difficulty": "basic"
+            id: 'math-g3-sqrt-add-expand-q1',
+            question: '次の計算をしましょう。\n2√3+5√3',
+            options: ['10√3', '7√3', '7√6', '7'],
+            correctIndex: 1,
+            explanation:
+              '2√3+5√3=(2+5)√3=7√3\n√の中が同じなので係数だけをたす。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-sqrt-add-expand-q2",
-            "question": "次の計算をしましょう。\n6√5-2√5",
-            "options": [
-              "4",
-              "4√5",
-              "8√5",
-              "√5"
-            ],
-            "correctIndex": 1,
-            "explanation": "6√5-2√5=(6-2)√5=4√5\n√5を1つのまとまりとみて係数をひく。",
-            "difficulty": "basic"
+            id: 'math-g3-sqrt-add-expand-q2',
+            question: '次の計算をしましょう。\n6√5-2√5',
+            options: ['4√5', '4', '8√5', '√5'],
+            correctIndex: 0,
+            explanation:
+              '6√5-2√5=(6-2)√5=4√5\n√5を1つのまとまりとみて係数をひく。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-sqrt-add-expand-q3",
-            "question": "次の計算をしましょう。\n√8+√18",
-            "options": [
-              "√26",
-              "6√2",
-              "5√2",
-              "5√6"
-            ],
-            "correctIndex": 2,
-            "explanation": "√8=2√2, √18=3√2 より 2√2+3√2=5√2\nまず a√b の形にそろえてからまとめる。",
-            "difficulty": "standard"
+            id: 'math-g3-sqrt-add-expand-q3',
+            question: '次の計算をしましょう。\n√8+√18',
+            options: ['√26', '5√2', '6√2', '5√6'],
+            correctIndex: 1,
+            explanation:
+              '√8=2√2, √18=3√2 より 2√2+3√2=5√2\nまず a√b の形にそろえてからまとめる。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sqrt-add-expand-q4",
-            "question": "次の計算をしましょう。\n√12-√3",
-            "options": [
-              "3",
-              "√12-√3",
-              "2√3",
-              "√3"
-            ],
-            "correctIndex": 3,
-            "explanation": "√12=2√3 より 2√3-√3=√3\n√の中の数どうしを引いて √9 としてはいけない。",
-            "difficulty": "standard"
+            id: 'math-g3-sqrt-add-expand-q4',
+            question: '次の計算をしましょう。\n√12-√3',
+            options: ['3', '√12-√3', '2√3', '√3'],
+            correctIndex: 3,
+            explanation:
+              '√12=2√3 より 2√3-√3=√3\n√の中の数どうしを引いて √9 としてはいけない。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sqrt-add-expand-q5",
-            "question": "次の計算をしましょう。\n√2(√6+1)",
-            "options": [
-              "2√3+√2",
-              "√6+√2",
-              "2√3",
-              "√8+√2"
-            ],
-            "correctIndex": 0,
-            "explanation": "√2×√6+√2×1=√12+√2=2√3+√2\n分配法則でそれぞれにかける。",
-            "difficulty": "standard"
+            id: 'math-g3-sqrt-add-expand-q5',
+            question: '次の計算をしましょう。\n√2(√6+1)',
+            options: ['√6+√2', '2√3+√2', '2√3', '√8+√2'],
+            correctIndex: 1,
+            explanation:
+              '√2×√6+√2×1=√12+√2=2√3+√2\n分配法則でそれぞれにかける。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sqrt-add-expand-q6",
-            "question": "次の計算をしましょう。\n(√3+1)(√3-2)",
-            "options": [
-              "1+√3",
-              "1-√3",
-              "-1-√3",
-              "5-√3"
-            ],
-            "correctIndex": 1,
-            "explanation": "3-2√3+√3-2=1-√3\n展開して定数項と√の項をそれぞれまとめる。",
-            "difficulty": "standard"
+            id: 'math-g3-sqrt-add-expand-q6',
+            question: '次の計算をしましょう。\n(√3+1)(√3-2)',
+            options: ['1+√3', '1-√3', '-1-√3', '5-√3'],
+            correctIndex: 1,
+            explanation:
+              '3-2√3+√3-2=1-√3\n展開して定数項と√の項をそれぞれまとめる。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sqrt-add-expand-q7",
-            "question": "次の計算をしましょう。\n(√5+2)²",
-            "options": [
-              "9",
-              "9+2√5",
-              "9+4√5",
-              "5+4√5"
-            ],
-            "correctIndex": 2,
-            "explanation": "(√5)²+2×√5×2+2²=5+4√5+4=9+4√5\n中央項 2×√5×2=4√5 を忘れない。",
-            "difficulty": "standard"
+            id: 'math-g3-sqrt-add-expand-q7',
+            question: '次の計算をしましょう。\n(√5+2)²',
+            options: ['9', '9+2√5', '5+4√5', '9+4√5'],
+            correctIndex: 3,
+            explanation:
+              '(√5)²+2×√5×2+2²=5+4√5+4=9+4√5\n中央項 2×√5×2=4√5 を忘れない。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sqrt-add-expand-q8",
-            "question": "次の計算をしましょう。\n(√7+√3)(√7-√3)",
-            "options": [
-              "10",
-              "√10",
-              "2",
-              "4"
-            ],
-            "correctIndex": 3,
-            "explanation": "(√7)²-(√3)²=7-3=4\n和と差の積なので a²-b² の形になる。",
-            "difficulty": "standard"
+            id: 'math-g3-sqrt-add-expand-q8',
+            question: '次の計算をしましょう。\n(√7+√3)(√7-√3)',
+            options: ['10', '√10', '4', '2'],
+            correctIndex: 2,
+            explanation:
+              '(√7)²-(√3)²=7-3=4\n和と差の積なので a²-b² の形になる。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sqrt-add-expand-q9",
-            "question": "次の計算をしましょう。\n3√2+√2",
-            "options": [
-              "4√2",
-              "3√2",
-              "3√4",
-              "4"
-            ],
-            "correctIndex": 0,
-            "explanation": "3√2+1√2=(3+1)√2=4√2\n√2 は 1√2 とみて係数をたす。",
-            "difficulty": "basic"
+            id: 'math-g3-sqrt-add-expand-q9',
+            question: '次の計算をしましょう。\n3√2+√2',
+            options: ['4', '3√2', '3√4', '4√2'],
+            correctIndex: 3,
+            explanation: '3√2+1√2=(3+1)√2=4√2\n√2 は 1√2 とみて係数をたす。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-sqrt-add-expand-q10",
-            "question": "次の計算をしましょう。\n√27-√12",
-            "options": [
-              "√15",
-              "√3",
-              "5√3",
-              "√39"
-            ],
-            "correctIndex": 1,
-            "explanation": "√27=3√3, √12=2√3 より 3√3-2√3=√3\n中の数を引いて √15 としない。",
-            "difficulty": "standard"
+            id: 'math-g3-sqrt-add-expand-q10',
+            question: '次の計算をしましょう。\n√27-√12',
+            options: ['√3', '√15', '5√3', '√39'],
+            correctIndex: 0,
+            explanation:
+              '√27=3√3, √12=2√3 より 3√3-2√3=√3\n中の数を引いて √15 としない。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sqrt-add-expand-q11",
-            "question": "次の計算をしましょう。\n√50+√8",
-            "options": [
-              "√58",
-              "10√2",
-              "7√2",
-              "7√4"
-            ],
-            "correctIndex": 2,
-            "explanation": "√50=5√2, √8=2√2 より 5√2+2√2=7√2\nそろえてから係数をたす。",
-            "difficulty": "standard"
+            id: 'math-g3-sqrt-add-expand-q11',
+            question: '次の計算をしましょう。\n√50+√8',
+            options: ['√58', '10√2', '7√2', '7√4'],
+            correctIndex: 2,
+            explanation:
+              '√50=5√2, √8=2√2 より 5√2+2√2=7√2\nそろえてから係数をたす。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sqrt-add-expand-q12",
-            "question": "次の計算をしましょう。\n√20-√5",
-            "options": [
-              "√15",
-              "2√5",
-              "3√5",
-              "√5"
-            ],
-            "correctIndex": 3,
-            "explanation": "√20=2√5 より 2√5-√5=√5\n係数 2-1=1 で √5 が残る。",
-            "difficulty": "basic"
+            id: 'math-g3-sqrt-add-expand-q12',
+            question: '次の計算をしましょう。\n√20-√5',
+            options: ['√15', '2√5', '3√5', '√5'],
+            correctIndex: 3,
+            explanation: '√20=2√5 より 2√5-√5=√5\n係数 2-1=1 で √5 が残る。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-sqrt-add-expand-q13",
-            "question": "次の計算をしましょう。\n√3(√3+2)",
-            "options": [
-              "3+2√3",
-              "3√3",
-              "5",
-              "2√3"
-            ],
-            "correctIndex": 0,
-            "explanation": "√3×√3+√3×2=3+2√3\n√3×√3=3 になる点に注意。",
-            "difficulty": "basic"
+            id: 'math-g3-sqrt-add-expand-q13',
+            question: '次の計算をしましょう。\n√3(√3+2)',
+            options: ['5', '3√3', '3+2√3', '2√3'],
+            correctIndex: 2,
+            explanation: '√3×√3+√3×2=3+2√3\n√3×√3=3 になる点に注意。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-sqrt-add-expand-q14",
-            "question": "次の計算をしましょう。\n(√2+3)(√2+1)",
-            "options": [
-              "5+3√2",
-              "5+4√2",
-              "2+4√2",
-              "5+√2"
-            ],
-            "correctIndex": 1,
-            "explanation": "2+√2+3√2+3=5+4√2\n4つの積をすべて出してからまとめる。",
-            "difficulty": "standard"
+            id: 'math-g3-sqrt-add-expand-q14',
+            question: '次の計算をしましょう。\n(√2+3)(√2+1)',
+            options: ['5+3√2', '2+4√2', '5+4√2', '5+√2'],
+            correctIndex: 2,
+            explanation:
+              '2+√2+3√2+3=5+4√2\n4つの積をすべて出してからまとめる。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sqrt-add-expand-q15",
-            "question": "次の計算をしましょう。\n(√6-√2)²",
-            "options": [
-              "8",
-              "8+4√3",
-              "8-4√3",
-              "4-4√3"
-            ],
-            "correctIndex": 2,
-            "explanation": "(√6)²-2×√6×√2+(√2)²=6-2√12+2=8-4√3\n中央項は -2√12=-4√3。",
-            "difficulty": "advanced"
+            id: 'math-g3-sqrt-add-expand-q15',
+            question: '次の計算をしましょう。\n(√6-√2)²',
+            options: ['8-4√3', '8+4√3', '8', '4-4√3'],
+            correctIndex: 0,
+            explanation:
+              '(√6)²-2×√6×√2+(√2)²=6-2√12+2=8-4√3\n中央項は -2√12=-4√3。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-sqrt-add-expand-q16",
-            "question": "次の計算をしましょう。\n(√5+√3)(√5-√3)",
-            "options": [
-              "8",
-              "√2",
-              "2√15",
-              "2"
-            ],
-            "correctIndex": 3,
-            "explanation": "(√5)²-(√3)²=5-3=2\n和と差の積は a²-b²。",
-            "difficulty": "basic"
+            id: 'math-g3-sqrt-add-expand-q16',
+            question: '次の計算をしましょう。\n(√5+√3)(√5-√3)',
+            options: ['8', '2', '2√15', '√2'],
+            correctIndex: 1,
+            explanation: '(√5)²-(√3)²=5-3=2\n和と差の積は a²-b²。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-sqrt-add-expand-q17",
-            "question": "次の計算をしましょう。\n√18-√8+√2",
-            "options": [
-              "2√2",
-              "4√2",
-              "√2",
-              "6√2"
-            ],
-            "correctIndex": 0,
-            "explanation": "3√2-2√2+√2=2√2\nすべて a√2 にそろえ、係数を 3-2+1 で計算する。",
-            "difficulty": "advanced"
+            id: 'math-g3-sqrt-add-expand-q17',
+            question: '次の計算をしましょう。\n√18-√8+√2',
+            options: ['2√2', '4√2', '√2', '6√2'],
+            correctIndex: 0,
+            explanation:
+              '3√2-2√2+√2=2√2\nすべて a√2 にそろえ、係数を 3-2+1 で計算する。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-sqrt-add-expand-q18",
-            "question": "次の計算をしましょう。\n(2√3+1)(2√3-1)",
-            "options": [
-              "5",
-              "11",
-              "13",
-              "11√3"
-            ],
-            "correctIndex": 1,
-            "explanation": "(2√3)²-1²=4×3-1=12-1=11\n(2√3)²=4×3=12 とすること。",
-            "difficulty": "standard"
+            id: 'math-g3-sqrt-add-expand-q18',
+            question: '次の計算をしましょう。\n(2√3+1)(2√3-1)',
+            options: ['5', '11√3', '13', '11'],
+            correctIndex: 3,
+            explanation: '(2√3)²-1²=4×3-1=12-1=11\n(2√3)²=4×3=12 とすること。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sqrt-add-expand-q19",
-            "question": "次の計算をしましょう。\n√3(2√6-√3)",
-            "options": [
-              "2√18-√3",
-              "6√2+3",
-              "6√2-3",
-              "2√2-3"
-            ],
-            "correctIndex": 2,
-            "explanation": "√3×2√6-√3×√3=2√18-3=6√2-3\n√3×√3=3 で符号は -。",
-            "difficulty": "advanced"
+            id: 'math-g3-sqrt-add-expand-q19',
+            question: '次の計算をしましょう。\n√3(2√6-√3)',
+            options: ['6√2-3', '6√2+3', '2√18-√3', '2√2-3'],
+            correctIndex: 0,
+            explanation: '√3×2√6-√3×√3=2√18-3=6√2-3\n√3×√3=3 で符号は -。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-sqrt-add-expand-q20",
-            "question": "次の計算をしましょう。\n(√7-2)²",
-            "options": [
-              "11",
-              "3-4√7",
-              "11+4√7",
-              "11-4√7"
-            ],
-            "correctIndex": 3,
-            "explanation": "(√7)²-2×√7×2+2²=7-4√7+4=11-4√7\n定数項は 7+4=11、中央項は -4√7。",
-            "difficulty": "advanced"
-          }
-        ]
-      }
-    ]
+            id: 'math-g3-sqrt-add-expand-q20',
+            question: '次の計算をしましょう。\n(√7-2)²',
+            options: ['11', '3-4√7', '11-4√7', '11+4√7'],
+            correctIndex: 2,
+            explanation:
+              '(√7)²-2×√7×2+2²=7-4√7+4=11-4√7\n定数項は 7+4=11、中央項は -4√7。',
+            difficulty: 'advanced',
+          },
+        ],
+      },
+    ],
   },
   {
-    "eraId": "math-g3-quadratic-eq",
-    "eraName": "二次方程式",
-    "eraIcon": "⚖️",
-    "eraPeriod": "中3 数と式",
-    "topics": [
+    eraId: 'math-g3-quadratic-eq',
+    eraName: '二次方程式',
+    eraIcon: '⚖️',
+    eraPeriod: '中3 数と式',
+    topics: [
       {
-        "topicId": "math-g3-quad-eq-basics",
-        "name": "二次方程式の基本",
-        "subtitle": "x²の方程式、解が2つ",
-        "icon": "📊",
-        "order": 1,
-        "flashcards": [],
-        "quiz": [
+        topicId: 'math-g3-quad-eq-basics',
+        name: '二次方程式の基本',
+        subtitle: 'x²の方程式、解が2つ',
+        icon: '📊',
+        order: 1,
+        flashcards: [],
+        quiz: [
           {
-            "id": "math-g3-quad-eq-basics-q1",
-            "question": "次のうち、二次方程式はどれですか。",
-            "options": [
-              "2x + 5 = 0",
-              "3x - 1 = 7",
-              "x² - 3x + 2 = 0",
-              "1/x = 4"
-            ],
-            "correctIndex": 2,
-            "explanation": "x² - 3x + 2 = 0 には x² の項がある\n整理したとき x の2乗が最高次の項になる方程式を二次方程式という。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-eq-basics-q1',
+            question: '次のうち、二次方程式はどれですか。',
+            options: ['x² - 3x + 2 = 0', '3x - 1 = 7', '2x + 5 = 0', '1/x = 4'],
+            correctIndex: 0,
+            explanation:
+              'x² - 3x + 2 = 0 には x² の項がある\n整理したとき x の2乗が最高次の項になる方程式を二次方程式という。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-eq-basics-q2",
-            "question": "次の値のうち、方程式 x² = 9 の解であるものはどれですか。",
-            "options": [
-              "x = -3",
-              "x = 9",
-              "x = 81",
-              "x = 9/2"
-            ],
-            "correctIndex": 0,
-            "explanation": "(-3)² = 9 となり成り立つ\n解とは、代入したとき方程式が成り立つ値のこと。x = 3 も解になる。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-eq-basics-q2',
+            question:
+              '次の値のうち、方程式 x² = 9 の解であるものはどれですか。',
+            options: ['x = -3', 'x = 9', 'x = 81', 'x = 9/2'],
+            correctIndex: 0,
+            explanation:
+              '(-3)² = 9 となり成り立つ\n解とは、代入したとき方程式が成り立つ値のこと。x = 3 も解になる。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-eq-basics-q3",
-            "question": "次の方程式を解きましょう。\nx² = 16",
-            "options": [
-              "x = 4",
-              "x = ± 4",
-              "x = ± 8",
-              "x = ± 256"
-            ],
-            "correctIndex": 1,
-            "explanation": "x = ±√16 = ± 4\n2乗して16になる数は4と-4の2つある。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-eq-basics-q3',
+            question: '次の方程式を解きましょう。\nx² = 16',
+            options: ['x = 4', 'x = ± 8', 'x = ± 4', 'x = ± 256'],
+            correctIndex: 2,
+            explanation: 'x = ±√16 = ± 4\n2乗して16になる数は4と-4の2つある。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-eq-basics-q4",
-            "question": "次の方程式を解きましょう。\nx² = 49",
-            "options": [
-              "x = 7",
-              "x = ± √7",
-              "x = ± 2401",
-              "x = ± 7"
-            ],
-            "correctIndex": 3,
-            "explanation": "x = ±√49 = ± 7\n49は 7² なので、平方根は ± 7 になる。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-eq-basics-q4',
+            question: '次の方程式を解きましょう。\nx² = 49',
+            options: ['x = 7', 'x = ± 7', 'x = ± 2401', 'x = ± √7'],
+            correctIndex: 1,
+            explanation:
+              'x = ±√49 = ± 7\n49は 7² なので、平方根は ± 7 になる。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-eq-basics-q5",
-            "question": "次の方程式を解きましょう。\nx² = 7",
-            "options": [
-              "x = ± √7",
-              "x = √7",
-              "x = ± 7",
-              "x = ± 7/2"
-            ],
-            "correctIndex": 0,
-            "explanation": "x = ±√7\n7はある整数の2乗ではないので、±√7 のままにする。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-eq-basics-q5',
+            question: '次の方程式を解きましょう。\nx² = 7',
+            options: ['x = ± 7/2', 'x = √7', 'x = ± 7', 'x = ± √7'],
+            correctIndex: 3,
+            explanation:
+              'x = ±√7\n7はある整数の2乗ではないので、±√7 のままにする。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-eq-basics-q6",
-            "question": "次の方程式を解きましょう。\nx² - 7 = 0",
-            "options": [
-              "x = 7",
-              "x = ± 7",
-              "x = ± √7",
-              "x = √7"
-            ],
-            "correctIndex": 2,
-            "explanation": "x² = 7 より x = ±√7\n-7 を移項して x² = 7 にしてから平方根をとる。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-eq-basics-q6',
+            question: '次の方程式を解きましょう。\nx² - 7 = 0',
+            options: ['x = 7', 'x = ± 7', 'x = ± √7', 'x = √7'],
+            correctIndex: 2,
+            explanation:
+              'x² = 7 より x = ±√7\n-7 を移項して x² = 7 にしてから平方根をとる。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-eq-basics-q7",
-            "question": "次の方程式を解きましょう。\nx² - 3 = 0",
-            "options": [
-              "x = ± 3",
-              "x = ± √3",
-              "x = √3",
-              "x = ± 3/2"
-            ],
-            "correctIndex": 1,
-            "explanation": "x² = 3 より x = ±√3\n-3 を移項してから平方根をとる。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-eq-basics-q7',
+            question: '次の方程式を解きましょう。\nx² - 3 = 0',
+            options: ['x = ± 3', 'x = ± √3', 'x = √3', 'x = ± 3/2'],
+            correctIndex: 1,
+            explanation: 'x² = 3 より x = ±√3\n-3 を移項してから平方根をとる。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-eq-basics-q8",
-            "question": "次の方程式を解きましょう。\nx² - 12 = 0",
-            "options": [
-              "x = ± 12",
-              "x = ± 6",
-              "x = ± 3√2",
-              "x = ± 2√3"
-            ],
-            "correctIndex": 3,
-            "explanation": "x² = 12, x = ±√12 = ± 2√3\n√12 = √4 × 3 = 2√3 と変形する。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-eq-basics-q8',
+            question: '次の方程式を解きましょう。\nx² - 12 = 0',
+            options: ['x = ± 12', 'x = ± 6', 'x = ± 3√2', 'x = ± 2√3'],
+            correctIndex: 3,
+            explanation:
+              'x² = 12, x = ±√12 = ± 2√3\n√12 = √4 × 3 = 2√3 と変形する。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-eq-basics-q9",
-            "question": "次の方程式を解きましょう。\n2x² = 50",
-            "options": [
-              "x = ± 5",
-              "x = ± 25",
-              "x = ± 5√2",
-              "x = ± 5/2"
-            ],
-            "correctIndex": 0,
-            "explanation": "x² = 25 より x = ± 5\n両辺を2でわって x² = 25 にしてから平方根をとる。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-eq-basics-q9',
+            question: '次の方程式を解きましょう。\n2x² = 50',
+            options: ['x = ± 5√2', 'x = ± 25', 'x = ± 5', 'x = ± 5/2'],
+            correctIndex: 2,
+            explanation:
+              'x² = 25 より x = ± 5\n両辺を2でわって x² = 25 にしてから平方根をとる。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-eq-basics-q10",
-            "question": "次の方程式を解きましょう。\n3x² - 12 = 0",
-            "options": [
-              "x = ± 4",
-              "x = ± 2√3",
-              "x = ± 2",
-              "x = ± 6"
-            ],
-            "correctIndex": 2,
-            "explanation": "3x² = 12, x² = 4, x = ± 2\n両辺を3でわってから平方根をとる。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-eq-basics-q10',
+            question: '次の方程式を解きましょう。\n3x² - 12 = 0',
+            options: ['x = ± 4', 'x = ± 2', 'x = ± 2√3', 'x = ± 6'],
+            correctIndex: 1,
+            explanation:
+              '3x² = 12, x² = 4, x = ± 2\n両辺を3でわってから平方根をとる。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-eq-basics-q11",
-            "question": "次の方程式を解きましょう。\nx² = 0",
-            "options": [
-              "解はない",
-              "x = 0",
-              "x = 1",
-              "x = ± 1"
-            ],
-            "correctIndex": 1,
-            "explanation": "x = √0 = 0\n2乗して0になる数は0だけなので、解は1つになる。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-eq-basics-q11',
+            question: '次の方程式を解きましょう。\nx² = 0',
+            options: ['解はない', 'x = ± 1', 'x = 1', 'x = 0'],
+            correctIndex: 3,
+            explanation:
+              'x = √0 = 0\n2乗して0になる数は0だけなので、解は1つになる。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-eq-basics-q12",
-            "question": "x = 4 が解となる方程式はどれですか。",
-            "options": [
-              "x² = 8",
-              "x² = 4",
-              "x² = 2",
-              "x² = 16"
-            ],
-            "correctIndex": 3,
-            "explanation": "4² = 16 なので x² = 16 が成り立つ\n解を代入して成り立つ方程式を選ぶ。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-eq-basics-q12',
+            question: 'x = 4 が解となる方程式はどれですか。',
+            options: ['x² = 8', 'x² = 16', 'x² = 2', 'x² = 4'],
+            correctIndex: 1,
+            explanation:
+              '4² = 16 なので x² = 16 が成り立つ\n解を代入して成り立つ方程式を選ぶ。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-eq-basics-q13",
-            "question": "次の方程式を解きましょう。\n(x-3)² = 5",
-            "options": [
-              "x = 3 ± √5",
-              "x = -3 ± √5",
-              "x = 3 ± 5",
-              "x = ± √5"
-            ],
-            "correctIndex": 0,
-            "explanation": "x - 3 = ±√5, x = 3 ±√5\n(x-3) をかたまりとみて平方根をとり、3を移項する。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-eq-basics-q13',
+            question: '次の方程式を解きましょう。\n(x-3)² = 5',
+            options: ['x = 3 ± √5', 'x = -3 ± √5', 'x = 3 ± 5', 'x = ± √5'],
+            correctIndex: 0,
+            explanation:
+              'x - 3 = ±√5, x = 3 ±√5\n(x-3) をかたまりとみて平方根をとり、3を移項する。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-eq-basics-q14",
-            "question": "次の方程式を解きましょう。\n(x+2)² = 9",
-            "options": [
-              "x = -2 ± 9",
-              "x = 1, 5",
-              "x = 1, -5",
-              "x = ± 3"
-            ],
-            "correctIndex": 2,
-            "explanation": "x + 2 = ± 3, x = -2 ± 3 より x = 1, -5\nx+2=3 なら x=1、x+2=-3 なら x=-5。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-eq-basics-q14',
+            question: '次の方程式を解きましょう。\n(x+2)² = 9',
+            options: ['x = -2 ± 9', 'x = 1, -5', 'x = 1, 5', 'x = ± 3'],
+            correctIndex: 1,
+            explanation:
+              'x + 2 = ± 3, x = -2 ± 3 より x = 1, -5\nx+2=3 なら x=1、x+2=-3 なら x=-5。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-eq-basics-q15",
-            "question": "次の方程式を解きましょう。\n(x-1)² = 7",
-            "options": [
-              "x = -1 ± √7",
-              "x = 1 ± √7",
-              "x = 1 ± 7",
-              "x = ± √7"
-            ],
-            "correctIndex": 1,
-            "explanation": "x - 1 = ±√7, x = 1 ±√7\n平方根をとってから1を移項する。",
-            "difficulty": "advanced"
+            id: 'math-g3-quad-eq-basics-q15',
+            question: '次の方程式を解きましょう。\n(x-1)² = 7',
+            options: ['x = -1 ± √7', 'x = ± √7', 'x = 1 ± 7', 'x = 1 ± √7'],
+            correctIndex: 3,
+            explanation:
+              'x - 1 = ±√7, x = 1 ±√7\n平方根をとってから1を移項する。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-quad-eq-basics-q16",
-            "question": "次の方程式を解きましょう。\n(x+4)² = 12",
-            "options": [
-              "x = 4 ± 2√3",
-              "x = -4 ± 12",
-              "x = -4 ± 3√2",
-              "x = -4 ± 2√3"
+            id: 'math-g3-quad-eq-basics-q16',
+            question: '次の方程式を解きましょう。\n(x+4)² = 12',
+            options: [
+              'x = -4 ± 2√3',
+              'x = -4 ± 12',
+              'x = -4 ± 3√2',
+              'x = 4 ± 2√3',
             ],
-            "correctIndex": 3,
-            "explanation": "x + 4 = ± 2√3, x = -4 ± 2√3\n√12 = 2√3 とし、-4 を移項する。",
-            "difficulty": "advanced"
+            correctIndex: 0,
+            explanation:
+              'x + 4 = ± 2√3, x = -4 ± 2√3\n√12 = 2√3 とし、-4 を移項する。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-quad-eq-basics-q17",
-            "question": "x² - 5 = 0 について、次の説明のうち正しいものはどれですか。",
-            "options": [
-              "解は x = ±√5 の2つ",
-              "解は x = 5 の1つ",
-              "解は x = ± 5 の2つ",
-              "解はない"
+            id: 'math-g3-quad-eq-basics-q17',
+            question:
+              'x² - 5 = 0 について、次の説明のうち正しいものはどれですか。',
+            options: [
+              '解はない',
+              '解は x = 5 の1つ',
+              '解は x = ± 5 の2つ',
+              '解は x = ±√5 の2つ',
             ],
-            "correctIndex": 0,
-            "explanation": "x² = 5, x = ±√5\n移項して平方根をとると、正と負の2つの解が出る。",
-            "difficulty": "standard"
+            correctIndex: 3,
+            explanation:
+              'x² = 5, x = ±√5\n移項して平方根をとると、正と負の2つの解が出る。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-eq-basics-q18",
-            "question": "次の方程式を解きましょう。\n4x² = 9",
-            "options": [
-              "x = ± 9/4",
-              "x = ± 3",
-              "x = ± 3/2",
-              "x = ± 2/3"
-            ],
-            "correctIndex": 2,
-            "explanation": "x² = 9/4, x = ±3/2\n両辺を4でわり、√9/4 = 3/2 となる。",
-            "difficulty": "advanced"
+            id: 'math-g3-quad-eq-basics-q18',
+            question: '次の方程式を解きましょう。\n4x² = 9',
+            options: ['x = ± 9/4', 'x = ± 3', 'x = ± 3/2', 'x = ± 2/3'],
+            correctIndex: 2,
+            explanation:
+              'x² = 9/4, x = ±3/2\n両辺を4でわり、√9/4 = 3/2 となる。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-quad-eq-basics-q19",
-            "question": "次の方程式を解きましょう。\n2x² - 16 = 0",
-            "options": [
-              "x = ± 8",
-              "x = ± 2√2",
-              "x = ± 4",
-              "x = ± 3√2"
-            ],
-            "correctIndex": 1,
-            "explanation": "2x² = 16, x² = 8, x = ±√8 = ± 2√2\n2でわってから平方根をとり、√8 = 2√2 とする。",
-            "difficulty": "advanced"
+            id: 'math-g3-quad-eq-basics-q19',
+            question: '次の方程式を解きましょう。\n2x² - 16 = 0',
+            options: ['x = ± 2√2', 'x = ± 8', 'x = ± 4', 'x = ± 3√2'],
+            correctIndex: 0,
+            explanation:
+              '2x² = 16, x² = 8, x = ±√8 = ± 2√2\n2でわってから平方根をとり、√8 = 2√2 とする。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-quad-eq-basics-q20",
-            "question": "次の方程式を解きましょう。\n(2x-1)² = 9",
-            "options": [
-              "x = 2, 1",
-              "x = ± 3",
-              "x = 1, -2",
-              "x = 2, -1"
-            ],
-            "correctIndex": 3,
-            "explanation": "2x - 1 = ± 3, 2x = 1 ± 3, x = 2, -1\n2x-1=3 なら x=2、2x-1=-3 なら x=-1。",
-            "difficulty": "advanced"
-          }
-        ]
+            id: 'math-g3-quad-eq-basics-q20',
+            question: '次の方程式を解きましょう。\n(2x-1)² = 9',
+            options: ['x = 2, 1', 'x = ± 3', 'x = 2, -1', 'x = 1, -2'],
+            correctIndex: 2,
+            explanation:
+              '2x - 1 = ± 3, 2x = 1 ± 3, x = 2, -1\n2x-1=3 なら x=2、2x-1=-3 なら x=-1。',
+            difficulty: 'advanced',
+          },
+        ],
       },
       {
-        "topicId": "math-g3-quad-eq-factoring",
-        "name": "因数分解で解く",
-        "subtitle": "A×B=0ならA=0またはB=0",
-        "icon": "🔧",
-        "order": 2,
-        "flashcards": [],
-        "quiz": [
+        topicId: 'math-g3-quad-eq-factoring',
+        name: '因数分解で解く',
+        subtitle: 'A×B=0ならA=0またはB=0',
+        icon: '🔧',
+        order: 2,
+        flashcards: [],
+        quiz: [
           {
-            "id": "math-g3-quad-eq-factoring-q1",
-            "question": "次の方程式を解きましょう。\nx² + 5x + 6 = 0",
-            "options": [
-              "x = -2, -3",
-              "x = 2, 3",
-              "x = -1, -6",
-              "x = -2"
-            ],
-            "correctIndex": 0,
-            "explanation": "(x+2)(x+3)=0\nx=-2, -3\nかけて 6、たして 5 になる 2 と 3 で因数分解する。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-eq-factoring-q1',
+            question: '次の方程式を解きましょう。\nx² + 5x + 6 = 0',
+            options: ['x = -2, -3', 'x = 2, 3', 'x = -1, -6', 'x = -2'],
+            correctIndex: 0,
+            explanation:
+              '(x+2)(x+3)=0\nx=-2, -3\nかけて 6、たして 5 になる 2 と 3 で因数分解する。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-eq-factoring-q2",
-            "question": "次の方程式を解きましょう。\nx² - 7x + 12 = 0",
-            "options": [
-              "x = -3, -4",
-              "x = 3, 4",
-              "x = 2, 6",
-              "x = 3"
-            ],
-            "correctIndex": 1,
-            "explanation": "(x-3)(x-4)=0\nx=3, 4\nかけて 12、たして -7 になる -3 と -4 を使う。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-eq-factoring-q2',
+            question: '次の方程式を解きましょう。\nx² - 7x + 12 = 0',
+            options: ['x = -3, -4', 'x = 3, 4', 'x = 2, 6', 'x = 3'],
+            correctIndex: 1,
+            explanation:
+              '(x-3)(x-4)=0\nx=3, 4\nかけて 12、たして -7 になる -3 と -4 を使う。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-eq-factoring-q3",
-            "question": "次の方程式を解きましょう。\nx² - 9 = 0",
-            "options": [
-              "x = 3",
-              "x = ± 9",
-              "x = ± 3",
-              "x = -3"
-            ],
-            "correctIndex": 2,
-            "explanation": "(x+3)(x-3)=0\nx=± 3\nx² - 9 = x² - 3² と見て平方の差で因数分解する。負の解も忘れない。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-eq-factoring-q3',
+            question: '次の方程式を解きましょう。\nx² - 9 = 0',
+            options: ['x = 3', 'x = ± 3', 'x = ± 9', 'x = -3'],
+            correctIndex: 1,
+            explanation:
+              '(x+3)(x-3)=0\nx=± 3\nx² - 9 = x² - 3² と見て平方の差で因数分解する。負の解も忘れない。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-eq-factoring-q4",
-            "question": "次の方程式を解きましょう。\nx² + 6x = 0",
-            "options": [
-              "x = 0, 6",
-              "x = -6",
-              "x = 6",
-              "x = 0, -6"
-            ],
-            "correctIndex": 3,
-            "explanation": "x(x+6)=0\nx=0, -6\n共通因数 x でくくる。x=0 の解を落とさない。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-eq-factoring-q4',
+            question: '次の方程式を解きましょう。\nx² + 6x = 0',
+            options: ['x = 0, 6', 'x = -6', 'x = 6', 'x = 0, -6'],
+            correctIndex: 3,
+            explanation:
+              'x(x+6)=0\nx=0, -6\n共通因数 x でくくる。x=0 の解を落とさない。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-eq-factoring-q5",
-            "question": "次の方程式を解きましょう。\nx² - 5x + 6 = 0",
-            "options": [
-              "x = 2, 3",
-              "x = -2, -3",
-              "x = 1, 6",
-              "x = 3"
-            ],
-            "correctIndex": 0,
-            "explanation": "(x-2)(x-3)=0\nx=2, 3\nかけて 6、たして -5 になる -2 と -3 を使う。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-eq-factoring-q5',
+            question: '次の方程式を解きましょう。\nx² - 5x + 6 = 0',
+            options: ['x = -2, -3', 'x = 2, 3', 'x = 1, 6', 'x = 3'],
+            correctIndex: 1,
+            explanation:
+              '(x-2)(x-3)=0\nx=2, 3\nかけて 6、たして -5 になる -2 と -3 を使う。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-eq-factoring-q6",
-            "question": "次の方程式を解きましょう。\nx² - 3x = 0",
-            "options": [
-              "x = 3",
-              "x = 0, 3",
-              "x = 0, -3",
-              "x = -3"
-            ],
-            "correctIndex": 1,
-            "explanation": "x(x-3)=0\nx=0, 3\n共通因数 x でくくる。x=0 も解になる。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-eq-factoring-q6',
+            question: '次の方程式を解きましょう。\nx² - 3x = 0',
+            options: ['x = 0, 3', 'x = 3', 'x = 0, -3', 'x = -3'],
+            correctIndex: 0,
+            explanation:
+              'x(x-3)=0\nx=0, 3\n共通因数 x でくくる。x=0 も解になる。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-eq-factoring-q7",
-            "question": "次の方程式を解きましょう。\n(x+1)(x-4) = 0",
-            "options": [
-              "x = 1, -4",
-              "x = 1, 4",
-              "x = -1, 4",
-              "x = -1"
-            ],
-            "correctIndex": 2,
-            "explanation": "x+1=0 または x-4=0\nx=-1, 4\nAB=0 なら A=0 または B=0。それぞれ符号を逆にして解く。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-eq-factoring-q7',
+            question: '次の方程式を解きましょう。\n(x+1)(x-4) = 0',
+            options: ['x = 1, -4', 'x = 1, 4', 'x = -1, 4', 'x = -1'],
+            correctIndex: 2,
+            explanation:
+              'x+1=0 または x-4=0\nx=-1, 4\nAB=0 なら A=0 または B=0。それぞれ符号を逆にして解く。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-eq-factoring-q8",
-            "question": "次の方程式を解きましょう。\nx² - 16 = 0",
-            "options": [
-              "x = 4",
-              "x = ± 16",
-              "x = -4",
-              "x = ± 4"
-            ],
-            "correctIndex": 3,
-            "explanation": "(x+4)(x-4)=0\nx=± 4\nx² - 16 = x² - 4² と見て平方の差で因数分解する。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-eq-factoring-q8',
+            question: '次の方程式を解きましょう。\nx² - 16 = 0',
+            options: ['x = 4', 'x = ± 16', 'x = -4', 'x = ± 4'],
+            correctIndex: 3,
+            explanation:
+              '(x+4)(x-4)=0\nx=± 4\nx² - 16 = x² - 4² と見て平方の差で因数分解する。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-eq-factoring-q9",
-            "question": "次の方程式を解きましょう。\nx² + x - 12 = 0",
-            "options": [
-              "x = -4, 3",
-              "x = 4, -3",
-              "x = 4, 3",
-              "x = 3"
-            ],
-            "correctIndex": 0,
-            "explanation": "(x+4)(x-3)=0\nx=-4, 3\nかけて -12、たして 1 になる 4 と -3 を使う。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-eq-factoring-q9',
+            question: '次の方程式を解きましょう。\nx² + x - 12 = 0',
+            options: ['x = 4, -3', 'x = -4, 3', 'x = 4, 3', 'x = 3'],
+            correctIndex: 1,
+            explanation:
+              '(x+4)(x-3)=0\nx=-4, 3\nかけて -12、たして 1 になる 4 と -3 を使う。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-eq-factoring-q10",
-            "question": "次の方程式を解きましょう。\nx² + 8x + 15 = 0",
-            "options": [
-              "x = 3, 5",
-              "x = -3, -5",
-              "x = -1, -15",
-              "x = -5"
-            ],
-            "correctIndex": 1,
-            "explanation": "(x+3)(x+5)=0\nx=-3, -5\nかけて 15、たして 8 になる 3 と 5 を使う。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-eq-factoring-q10',
+            question: '次の方程式を解きましょう。\nx² + 8x + 15 = 0',
+            options: ['x = 3, 5', 'x = -1, -15', 'x = -3, -5', 'x = -5'],
+            correctIndex: 2,
+            explanation:
+              '(x+3)(x+5)=0\nx=-3, -5\nかけて 15、たして 8 になる 3 と 5 を使う。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-eq-factoring-q11",
-            "question": "次の方程式を解きましょう。\nx² - 2x - 15 = 0",
-            "options": [
-              "x = -5, 3",
-              "x = 5, 3",
-              "x = 5, -3",
-              "x = -5"
-            ],
-            "correctIndex": 2,
-            "explanation": "(x-5)(x+3)=0\nx=5, -3\nかけて -15、たして -2 になる -5 と 3 を使う。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-eq-factoring-q11',
+            question: '次の方程式を解きましょう。\nx² - 2x - 15 = 0',
+            options: ['x = -5, 3', 'x = 5, 3', 'x = -5', 'x = 5, -3'],
+            correctIndex: 3,
+            explanation:
+              '(x-5)(x+3)=0\nx=5, -3\nかけて -15、たして -2 になる -5 と 3 を使う。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-eq-factoring-q12",
-            "question": "次の方程式を解きましょう。\nx² - 10x + 25 = 0",
-            "options": [
-              "x = 5, -5",
-              "x = -5",
-              "x = ± 5",
-              "x = 5"
-            ],
-            "correctIndex": 3,
-            "explanation": "(x-5)²=0\nx=5\nかけて 25、たして -10 になる -5 が重なるので、解は 1 つ。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-eq-factoring-q12',
+            question: '次の方程式を解きましょう。\nx² - 10x + 25 = 0',
+            options: ['x = 5, -5', 'x = -5', 'x = ± 5', 'x = 5'],
+            correctIndex: 3,
+            explanation:
+              '(x-5)²=0\nx=5\nかけて 25、たして -10 になる -5 が重なるので、解は 1 つ。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-eq-factoring-q13",
-            "question": "次の方程式を解きましょう。\nx² + 7x + 10 = 0",
-            "options": [
-              "x = -2, -5",
-              "x = 2, 5",
-              "x = -1, -10",
-              "x = -5"
-            ],
-            "correctIndex": 0,
-            "explanation": "(x+2)(x+5)=0\nx=-2, -5\nかけて 10、たして 7 になる 2 と 5 を使う。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-eq-factoring-q13',
+            question: '次の方程式を解きましょう。\nx² + 7x + 10 = 0',
+            options: ['x = -2, -5', 'x = 2, 5', 'x = -1, -10', 'x = -5'],
+            correctIndex: 0,
+            explanation:
+              '(x+2)(x+5)=0\nx=-2, -5\nかけて 10、たして 7 になる 2 と 5 を使う。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-eq-factoring-q14",
-            "question": "次の方程式を解きましょう。\nx² + 2x - 8 = 0",
-            "options": [
-              "x = 4, -2",
-              "x = -4, 2",
-              "x = -4, -2",
-              "x = 2"
-            ],
-            "correctIndex": 1,
-            "explanation": "(x+4)(x-2)=0\nx=-4, 2\nかけて -8、たして 2 になる 4 と -2 を使う。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-eq-factoring-q14',
+            question: '次の方程式を解きましょう。\nx² + 2x - 8 = 0',
+            options: ['x = -4, 2', 'x = 4, -2', 'x = -4, -2', 'x = 2'],
+            correctIndex: 0,
+            explanation:
+              '(x+4)(x-2)=0\nx=-4, 2\nかけて -8、たして 2 になる 4 と -2 を使う。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-eq-factoring-q15",
-            "question": "次の方程式を解きましょう。\nx² - x - 20 = 0",
-            "options": [
-              "x = -5, 4",
-              "x = 5, 4",
-              "x = 5, -4",
-              "x = -4"
-            ],
-            "correctIndex": 2,
-            "explanation": "(x-5)(x+4)=0\nx=5, -4\nかけて -20、たして -1 になる -5 と 4 を使う。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-eq-factoring-q15',
+            question: '次の方程式を解きましょう。\nx² - x - 20 = 0',
+            options: ['x = -5, 4', 'x = 5, 4', 'x = 5, -4', 'x = -4'],
+            correctIndex: 2,
+            explanation:
+              '(x-5)(x+4)=0\nx=5, -4\nかけて -20、たして -1 になる -5 と 4 を使う。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-eq-factoring-q16",
-            "question": "次の方程式を解きましょう。\nx² - 8x + 16 = 0",
-            "options": [
-              "x = 4, -4",
-              "x = ± 4",
-              "x = -4",
-              "x = 4"
-            ],
-            "correctIndex": 3,
-            "explanation": "(x-4)²=0\nx=4\nかけて 16、たして -8 になる -4 が重なるので、解は 1 つ。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-eq-factoring-q16',
+            question: '次の方程式を解きましょう。\nx² - 8x + 16 = 0',
+            options: ['x = 4, -4', 'x = ± 4', 'x = 4', 'x = -4'],
+            correctIndex: 2,
+            explanation:
+              '(x-4)²=0\nx=4\nかけて 16、たして -8 になる -4 が重なるので、解は 1 つ。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-eq-factoring-q17",
-            "question": "次の方程式を解きましょう。\n2x² - 8x = 0",
-            "options": [
-              "x = 0, 4",
-              "x = 4",
-              "x = 0, -4",
-              "x = 0, 2"
-            ],
-            "correctIndex": 0,
-            "explanation": "2x(x-4)=0\nx=0, 4\n共通因数 2x でくくる。x=0 の解を落とさない。",
-            "difficulty": "advanced"
+            id: 'math-g3-quad-eq-factoring-q17',
+            question: '次の方程式を解きましょう。\n2x² - 8x = 0',
+            options: ['x = 0, 4', 'x = 4', 'x = 0, -4', 'x = 0, 2'],
+            correctIndex: 0,
+            explanation:
+              '2x(x-4)=0\nx=0, 4\n共通因数 2x でくくる。x=0 の解を落とさない。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-quad-eq-factoring-q18",
-            "question": "次の方程式を解きましょう。\nx² + 12x + 36 = 0",
-            "options": [
-              "x = 6",
-              "x = -6",
-              "x = ± 6",
-              "x = 6, -6"
-            ],
-            "correctIndex": 1,
-            "explanation": "(x+6)²=0\nx=-6\nかけて 36、たして 12 になる 6 が重なるので、解は 1 つ。",
-            "difficulty": "advanced"
+            id: 'math-g3-quad-eq-factoring-q18',
+            question: '次の方程式を解きましょう。\nx² + 12x + 36 = 0',
+            options: ['x = 6', 'x = 6, -6', 'x = ± 6', 'x = -6'],
+            correctIndex: 3,
+            explanation:
+              '(x+6)²=0\nx=-6\nかけて 36、たして 12 になる 6 が重なるので、解は 1 つ。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-quad-eq-factoring-q19",
-            "question": "次の方程式を解きましょう。\n3x² - 27 = 0",
-            "options": [
-              "x = ± 9",
-              "x = 3",
-              "x = ± 3",
-              "x = ± 27"
-            ],
-            "correctIndex": 2,
-            "explanation": "x² - 9 = 0、(x+3)(x-3)=0\nx=± 3\n両辺を 3 でわってから平方の差で因数分解する。",
-            "difficulty": "advanced"
+            id: 'math-g3-quad-eq-factoring-q19',
+            question: '次の方程式を解きましょう。\n3x² - 27 = 0',
+            options: ['x = ± 9', 'x = ± 3', 'x = 3', 'x = ± 27'],
+            correctIndex: 1,
+            explanation:
+              'x² - 9 = 0、(x+3)(x-3)=0\nx=± 3\n両辺を 3 でわってから平方の差で因数分解する。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-quad-eq-factoring-q20",
-            "question": "次の方程式を解きましょう。\n2x² + 10x = 0",
-            "options": [
-              "x = 0, 5",
-              "x = -5",
-              "x = 0, -10",
-              "x = 0, -5"
-            ],
-            "correctIndex": 3,
-            "explanation": "2x(x+5)=0\nx=0, -5\n共通因数 2x でくくる。x=0 も解になる。",
-            "difficulty": "advanced"
-          }
-        ]
+            id: 'math-g3-quad-eq-factoring-q20',
+            question: '次の方程式を解きましょう。\n2x² + 10x = 0',
+            options: ['x = 0, 5', 'x = -5', 'x = 0, -5', 'x = 0, -10'],
+            correctIndex: 2,
+            explanation:
+              '2x(x+5)=0\nx=0, -5\n共通因数 2x でくくる。x=0 も解になる。',
+            difficulty: 'advanced',
+          },
+        ],
       },
       {
-        "topicId": "math-g3-quad-formula",
-        "name": "平方完成と解の公式",
-        "subtitle": "どんな二次方程式でもOK",
-        "icon": "🏆",
-        "order": 3,
-        "flashcards": [],
-        "quiz": [
+        topicId: 'math-g3-quad-formula',
+        name: '平方完成と解の公式',
+        subtitle: 'どんな二次方程式でもOK',
+        icon: '🏆',
+        order: 3,
+        flashcards: [],
+        quiz: [
           {
-            "id": "math-g3-quad-formula-q1",
-            "question": "次の方程式を解きましょう。\nx²+3x+1=0",
-            "options": [
-              "x=frac{-3±√5}{2}",
-              "x=frac{3±√5}{2}",
-              "x=frac{-3±√13}{2}",
-              "x=-3/2±√5"
+            id: 'math-g3-quad-formula-q1',
+            question: '次の方程式を解きましょう。\nx²+3x+1=0',
+            options: [
+              'x=frac{3±√5}{2}',
+              'x=frac{-3±√5}{2}',
+              'x=frac{-3±√13}{2}',
+              'x=-3/2±√5',
             ],
-            "correctIndex": 0,
-            "explanation": "a=1, b=3, c=1 を解の公式に代入すると x=frac{-3±√9-4}{2}=frac{-3±√5}{2}\n√{} の中は b²-4ac=5 になります。",
-            "difficulty": "basic"
+            correctIndex: 1,
+            explanation:
+              'a=1, b=3, c=1 を解の公式に代入すると x=frac{-3±√9-4}{2}=frac{-3±√5}{2}\n√{} の中は b²-4ac=5 になります。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-formula-q2",
-            "question": "次の方程式を解きましょう。\nx²-5x+2=0",
-            "options": [
-              "x=frac{-5±√17}{2}",
-              "x=frac{5±√17}{2}",
-              "x=5/2±√17",
-              "x=frac{5±√33}{2}"
+            id: 'math-g3-quad-formula-q2',
+            question: '次の方程式を解きましょう。\nx²-5x+2=0',
+            options: [
+              'x=frac{-5±√17}{2}',
+              'x=5/2±√17',
+              'x=frac{5±√17}{2}',
+              'x=frac{5±√33}{2}',
             ],
-            "correctIndex": 1,
-            "explanation": "a=1, b=-5, c=2 を代入すると x=frac{5±√25-8}{2}=frac{5±√17}{2}\n-b=-(-5)=5 なので分子の先頭は +5 です。",
-            "difficulty": "basic"
+            correctIndex: 2,
+            explanation:
+              'a=1, b=-5, c=2 を代入すると x=frac{5±√25-8}{2}=frac{5±√17}{2}\n-b=-(-5)=5 なので分子の先頭は +5 です。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-formula-q3",
-            "question": "次の方程式を解きましょう。\n2x²+3x-1=0",
-            "options": [
-              "x=frac{3±√17}{4}",
-              "x=frac{-3±√17}{2}",
-              "x=frac{-3±√17}{4}",
-              "x=-3/4±√17"
+            id: 'math-g3-quad-formula-q3',
+            question: '次の方程式を解きましょう。\n2x²+3x-1=0',
+            options: [
+              'x=frac{3±√17}{4}',
+              'x=frac{-3±√17}{2}',
+              'x=-3/4±√17',
+              'x=frac{-3±√17}{4}',
             ],
-            "correctIndex": 2,
-            "explanation": "a=2, b=3, c=-1 を代入すると x=frac{-3±√9+8}{4}=frac{-3±√17}{4}\n分母は 2a=4 です。",
-            "difficulty": "standard"
+            correctIndex: 3,
+            explanation:
+              'a=2, b=3, c=-1 を代入すると x=frac{-3±√9+8}{4}=frac{-3±√17}{4}\n分母は 2a=4 です。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-formula-q4",
-            "question": "次の方程式を解きましょう。\n3x²-2x-1=0",
-            "options": [
-              "x=-1, 1/3",
-              "x=2, -2/3",
-              "x=6, -2",
-              "x=1, -1/3"
-            ],
-            "correctIndex": 3,
-            "explanation": "a=3, b=-2, c=-1 を代入すると x=frac{2±√4+12}{6}=2±4/6\nよって x=1, -1/3 となります。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-formula-q4',
+            question: '次の方程式を解きましょう。\n3x²-2x-1=0',
+            options: ['x=1, -1/3', 'x=2, -2/3', 'x=6, -2', 'x=-1, 1/3'],
+            correctIndex: 0,
+            explanation:
+              'a=3, b=-2, c=-1 を代入すると x=frac{2±√4+12}{6}=2±4/6\nよって x=1, -1/3 となります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-formula-q5",
-            "question": "次の方程式を解きましょう。\nx²+2x-4=0",
-            "options": [
-              "x=-1±√5",
-              "x=1±√5",
-              "x=-1±2√5",
-              "x=-2±2√5"
-            ],
-            "correctIndex": 0,
-            "explanation": "x=frac{-2±√4+16}{2}=frac{-2±2√5}{2}=-1±√5\n分子の -2 と 2√5 を両方 2 で割ります。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-formula-q5',
+            question: '次の方程式を解きましょう。\nx²+2x-4=0',
+            options: ['x=1±√5', 'x=-1±√5', 'x=-1±2√5', 'x=-2±2√5'],
+            correctIndex: 1,
+            explanation:
+              'x=frac{-2±√4+16}{2}=frac{-2±2√5}{2}=-1±√5\n分子の -2 と 2√5 を両方 2 で割ります。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-formula-q6",
-            "question": "次の方程式を解きましょう。\nx²-4x+1=0",
-            "options": [
-              "x=-2±√3",
-              "x=2±√3",
-              "x=2±√5",
-              "x=2±2√3"
-            ],
-            "correctIndex": 1,
-            "explanation": "x=frac{4±√16-4}{2}=frac{4±2√3}{2}=2±√3\n√12=2√3 にしてから約分します。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-formula-q6',
+            question: '次の方程式を解きましょう。\nx²-4x+1=0',
+            options: ['x=2±√3', 'x=-2±√3', 'x=2±√5', 'x=2±2√3'],
+            correctIndex: 0,
+            explanation:
+              'x=frac{4±√16-4}{2}=frac{4±2√3}{2}=2±√3\n√12=2√3 にしてから約分します。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-formula-q7",
-            "question": "次の方程式を解きましょう。\nx²+6x=1",
-            "options": [
-              "x=3±√10",
-              "x=-6±√10",
-              "x=-3±√10",
-              "x=-2, -4"
-            ],
-            "correctIndex": 2,
-            "explanation": "両辺に 9 を加えて (x+3)²=10\nよって x+3=±√10 から x=-3±√10 です。",
-            "difficulty": "advanced"
+            id: 'math-g3-quad-formula-q7',
+            question: '次の方程式を解きましょう。\nx²+6x=1',
+            options: ['x=3±√10', 'x=-6±√10', 'x=-3±√10', 'x=-2, -4'],
+            correctIndex: 2,
+            explanation:
+              '両辺に 9 を加えて (x+3)²=10\nよって x+3=±√10 から x=-3±√10 です。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-quad-formula-q8",
-            "question": "次の方程式を解きましょう。\nx²+4x-3=0",
-            "options": [
-              "x=2±√7",
-              "x=-4±√7",
-              "x=-2±√3",
-              "x=-2±√7"
-            ],
-            "correctIndex": 3,
-            "explanation": "x²+4x=3 の両辺に 4 を加えて (x+2)²=7\nよって x+2=±√7 から x=-2±√7 です。",
-            "difficulty": "advanced"
+            id: 'math-g3-quad-formula-q8',
+            question: '次の方程式を解きましょう。\nx²+4x-3=0',
+            options: ['x=2±√7', 'x=-4±√7', 'x=-2±√3', 'x=-2±√7'],
+            correctIndex: 3,
+            explanation:
+              'x²+4x=3 の両辺に 4 を加えて (x+2)²=7\nよって x+2=±√7 から x=-2±√7 です。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-quad-formula-q9",
-            "question": "次の方程式を解きましょう。\nx²-2x-2=0",
-            "options": [
-              "x=1±√3",
-              "x=-1±√3",
-              "x=1±√2",
-              "x=2±√3"
-            ],
-            "correctIndex": 0,
-            "explanation": "x²-2x=2 の両辺に 1 を加えて (x-1)²=3\nよって x-1=±√3 から x=1±√3 です。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-formula-q9',
+            question: '次の方程式を解きましょう。\nx²-2x-2=0',
+            options: ['x=-1±√3', 'x=1±√3', 'x=1±√2', 'x=2±√3'],
+            correctIndex: 1,
+            explanation:
+              'x²-2x=2 の両辺に 1 を加えて (x-1)²=3\nよって x-1=±√3 から x=1±√3 です。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-formula-q10",
-            "question": "2x²-3x+1=0 の b²-4ac の値を求めなさい。",
-            "options": [
-              "17",
-              "1",
-              "9",
-              "5"
-            ],
-            "correctIndex": 1,
-            "explanation": "a=2, b=-3, c=1 より b²-4ac=(-3)²-4×2×1=9-8=1\n4ac=8 を引くのを忘れないようにします。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-formula-q10',
+            question: '2x²-3x+1=0 の b²-4ac の値を求めなさい。',
+            options: ['17', '5', '9', '1'],
+            correctIndex: 3,
+            explanation:
+              'a=2, b=-3, c=1 より b²-4ac=(-3)²-4×2×1=9-8=1\n4ac=8 を引くのを忘れないようにします。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-formula-q11",
-            "question": "x²+5x+3=0 の b²-4ac の値を求めなさい。",
-            "options": [
-              "37",
-              "25",
-              "13",
-              "-13"
-            ],
-            "correctIndex": 2,
-            "explanation": "a=1, b=5, c=3 より b²-4ac=5²-4×1×3=25-12=13\nb² から 4ac を引きます。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-formula-q11',
+            question: 'x²+5x+3=0 の b²-4ac の値を求めなさい。',
+            options: ['37', '13', '25', '-13'],
+            correctIndex: 1,
+            explanation:
+              'a=1, b=5, c=3 より b²-4ac=5²-4×1×3=25-12=13\nb² から 4ac を引きます。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-formula-q12",
-            "question": "次の方程式を解きましょう。\nx²+x-3=0",
-            "options": [
-              "x=frac{1±√13}{2}",
-              "x=-1/2±√13",
-              "x=-1±√13",
-              "x=frac{-1±√13}{2}"
+            id: 'math-g3-quad-formula-q12',
+            question: '次の方程式を解きましょう。\nx²+x-3=0',
+            options: [
+              'x=frac{1±√13}{2}',
+              'x=-1/2±√13',
+              'x=-1±√13',
+              'x=frac{-1±√13}{2}',
             ],
-            "correctIndex": 3,
-            "explanation": "a=1, b=1, c=-3 を代入すると x=frac{-1±√1+12}{2}=frac{-1±√13}{2}\n分母 2a=2 で分子全体を割ります。",
-            "difficulty": "standard"
+            correctIndex: 3,
+            explanation:
+              'a=1, b=1, c=-3 を代入すると x=frac{-1±√1+12}{2}=frac{-1±√13}{2}\n分母 2a=2 で分子全体を割ります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-formula-q13",
-            "question": "次の方程式を解きましょう。\nx²-3x+1=0",
-            "options": [
-              "x=frac{3±√5}{2}",
-              "x=frac{-3±√5}{2}",
-              "x=3/2±√5",
-              "x=frac{3±√13}{2}"
+            id: 'math-g3-quad-formula-q13',
+            question: '次の方程式を解きましょう。\nx²-3x+1=0',
+            options: [
+              'x=frac{3±√13}{2}',
+              'x=frac{-3±√5}{2}',
+              'x=3/2±√5',
+              'x=frac{3±√5}{2}',
             ],
-            "correctIndex": 0,
-            "explanation": "a=1, b=-3, c=1 を代入すると x=frac{3±√9-4}{2}=frac{3±√5}{2}\n-b=3 なので分子の先頭は +3 です。",
-            "difficulty": "basic"
+            correctIndex: 3,
+            explanation:
+              'a=1, b=-3, c=1 を代入すると x=frac{3±√9-4}{2}=frac{3±√5}{2}\n-b=3 なので分子の先頭は +3 です。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-formula-q14",
-            "question": "次の方程式を解きましょう。\n2x²-5x+1=0",
-            "options": [
-              "x=frac{-5±√17}{4}",
-              "x=frac{5±√17}{4}",
-              "x=frac{5±√17}{2}",
-              "x=frac{5±√33}{4}"
+            id: 'math-g3-quad-formula-q14',
+            question: '次の方程式を解きましょう。\n2x²-5x+1=0',
+            options: [
+              'x=frac{5±√17}{4}',
+              'x=frac{-5±√17}{4}',
+              'x=frac{5±√17}{2}',
+              'x=frac{5±√33}{4}',
             ],
-            "correctIndex": 1,
-            "explanation": "a=2, b=-5, c=1 を代入すると x=frac{5±√25-8}{4}=frac{5±√17}{4}\n分母は 2a=4 です。",
-            "difficulty": "standard"
+            correctIndex: 0,
+            explanation:
+              'a=2, b=-5, c=1 を代入すると x=frac{5±√25-8}{4}=frac{5±√17}{4}\n分母は 2a=4 です。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-formula-q15",
-            "question": "次の方程式を解きましょう。\n3x²+4x-1=0",
-            "options": [
-              "x=frac{2±√7}{3}",
-              "x=frac{-4±2√7}{3}",
-              "x=frac{-2±√7}{3}",
-              "x=-1/3, -1"
+            id: 'math-g3-quad-formula-q15',
+            question: '次の方程式を解きましょう。\n3x²+4x-1=0',
+            options: [
+              'x=frac{-2±√7}{3}',
+              'x=frac{-4±2√7}{3}',
+              'x=frac{2±√7}{3}',
+              'x=-1/3, -1',
             ],
-            "correctIndex": 2,
-            "explanation": "x=frac{-4±√16+12}{6}=frac{-4±2√7}{6}=frac{-2±√7}{3}\n分子と分母を 2 で約分します。",
-            "difficulty": "advanced"
+            correctIndex: 0,
+            explanation:
+              'x=frac{-4±√16+12}{6}=frac{-4±2√7}{6}=frac{-2±√7}{3}\n分子と分母を 2 で約分します。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-quad-formula-q16",
-            "question": "次の方程式を解きましょう。\nx²+x-1=0",
-            "options": [
-              "x=frac{1±√5}{2}",
-              "x=-1/2±√5",
-              "x=-1±√5",
-              "x=frac{-1±√5}{2}"
+            id: 'math-g3-quad-formula-q16',
+            question: '次の方程式を解きましょう。\nx²+x-1=0',
+            options: [
+              'x=frac{1±√5}{2}',
+              'x=frac{-1±√5}{2}',
+              'x=-1±√5',
+              'x=-1/2±√5',
             ],
-            "correctIndex": 3,
-            "explanation": "a=1, b=1, c=-1 を代入すると x=frac{-1±√1+4}{2}=frac{-1±√5}{2}\n分母 2a=2 で分子全体を割ります。",
-            "difficulty": "standard"
+            correctIndex: 1,
+            explanation:
+              'a=1, b=1, c=-1 を代入すると x=frac{-1±√1+4}{2}=frac{-1±√5}{2}\n分母 2a=2 で分子全体を割ります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-formula-q17",
-            "question": "次の方程式を解きましょう。\nx²-6x+2=0",
-            "options": [
-              "x=3±√7",
-              "x=-3±√7",
-              "x=3±2√7",
-              "x=3±√11"
-            ],
-            "correctIndex": 0,
-            "explanation": "x=frac{6±√36-8}{2}=frac{6±2√7}{2}=3±√7\n√28=2√7 にしてから約分します。",
-            "difficulty": "advanced"
+            id: 'math-g3-quad-formula-q17',
+            question: '次の方程式を解きましょう。\nx²-6x+2=0',
+            options: ['x=3±2√7', 'x=-3±√7', 'x=3±√7', 'x=3±√11'],
+            correctIndex: 2,
+            explanation:
+              'x=frac{6±√36-8}{2}=frac{6±2√7}{2}=3±√7\n√28=2√7 にしてから約分します。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-quad-formula-q18",
-            "question": "次の方程式を解きましょう。\nx²+5x+2=0",
-            "options": [
-              "x=frac{5±√17}{2}",
-              "x=frac{-5±√17}{2}",
-              "x=-5/2±√17",
-              "x=frac{-5±√33}{2}"
+            id: 'math-g3-quad-formula-q18',
+            question: '次の方程式を解きましょう。\nx²+5x+2=0',
+            options: [
+              'x=frac{-5±√17}{2}',
+              'x=frac{5±√17}{2}',
+              'x=-5/2±√17',
+              'x=frac{-5±√33}{2}',
             ],
-            "correctIndex": 1,
-            "explanation": "a=1, b=5, c=2 を代入すると x=frac{-5±√25-8}{2}=frac{-5±√17}{2}\n-b=-5 なので分子の先頭は -5 です。",
-            "difficulty": "basic"
+            correctIndex: 0,
+            explanation:
+              'a=1, b=5, c=2 を代入すると x=frac{-5±√25-8}{2}=frac{-5±√17}{2}\n-b=-5 なので分子の先頭は -5 です。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-formula-q19",
-            "question": "次の方程式を解きましょう。\nx²-8x+5=0",
-            "options": [
-              "x=-4±√11",
-              "x=4±2√11",
-              "x=4±√11",
-              "x=4±√21"
-            ],
-            "correctIndex": 2,
-            "explanation": "x=frac{8±√64-20}{2}=frac{8±2√11}{2}=4±√11\n√44=2√11 にしてから約分します。",
-            "difficulty": "advanced"
+            id: 'math-g3-quad-formula-q19',
+            question: '次の方程式を解きましょう。\nx²-8x+5=0',
+            options: ['x=-4±√11', 'x=4±2√11', 'x=4±√11', 'x=4±√21'],
+            correctIndex: 2,
+            explanation:
+              'x=frac{8±√64-20}{2}=frac{8±2√11}{2}=4±√11\n√44=2√11 にしてから約分します。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-quad-formula-q20",
-            "question": "次の方程式を解きましょう。\n2x²-7x+3=0",
-            "options": [
-              "x=-3, -1/2",
-              "x=6, 1",
-              "x=12, 2",
-              "x=3, 1/2"
-            ],
-            "correctIndex": 3,
-            "explanation": "x=frac{7±√49-24}{4}=7±5/4\nよって x=3, 1/2 となります。",
-            "difficulty": "standard"
-          }
-        ]
+            id: 'math-g3-quad-formula-q20',
+            question: '次の方程式を解きましょう。\n2x²-7x+3=0',
+            options: ['x=-3, -1/2', 'x=6, 1', 'x=3, 1/2', 'x=12, 2'],
+            correctIndex: 2,
+            explanation:
+              'x=frac{7±√49-24}{4}=7±5/4\nよって x=3, 1/2 となります。',
+            difficulty: 'standard',
+          },
+        ],
       },
       {
-        "topicId": "math-g3-quad-eq-apps",
-        "name": "二次方程式の利用",
-        "subtitle": "文章題と図形の問題",
-        "icon": "📋",
-        "order": 4,
-        "flashcards": [],
-        "quiz": [
+        topicId: 'math-g3-quad-eq-apps',
+        name: '二次方程式の利用',
+        subtitle: '文章題と図形の問題',
+        icon: '📋',
+        order: 4,
+        flashcards: [],
+        quiz: [
           {
-            "id": "math-g3-quad-eq-apps-q1",
-            "question": "連続する2つの自然数があり、その積が 132 である。この2つの数を求めなさい。",
-            "options": [
-              "11 と 12",
-              "12 と 13",
-              "10 と 11",
-              "11 と 13"
-            ],
-            "correctIndex": 0,
-            "explanation": "小さい方を n とすると n(n+1)=132。n²+n-132=0、(n-11)(n+12)=0\n自然数なので n=11、よって 11 と 12。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-eq-apps-q1',
+            question:
+              '連続する2つの自然数があり、その積が 132 である。この2つの数を求めなさい。',
+            options: ['10 と 11', '12 と 13', '11 と 12', '11 と 13'],
+            correctIndex: 2,
+            explanation:
+              '小さい方を n とすると n(n+1)=132。n²+n-132=0、(n-11)(n+12)=0\n自然数なので n=11、よって 11 と 12。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-eq-apps-q2",
-            "question": "連続する2つの自然数について、それぞれを2乗した数の和が 85 である。この2つの数を求めなさい。",
-            "options": [
-              "5 と 6",
-              "6 と 7",
-              "7 と 8",
-              "8 と 9"
-            ],
-            "correctIndex": 1,
-            "explanation": "小さい方を n とすると n²+(n+1)²=85。2n²+2n-84=0、n²+n-42=0、(n-6)(n+7)=0\n自然数なので n=6、よって 6 と 7。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-eq-apps-q2',
+            question:
+              '連続する2つの自然数について、それぞれを2乗した数の和が 85 である。この2つの数を求めなさい。',
+            options: ['5 と 6', '8 と 9', '7 と 8', '6 と 7'],
+            correctIndex: 3,
+            explanation:
+              '小さい方を n とすると n²+(n+1)²=85。2n²+2n-84=0、n²+n-42=0、(n-6)(n+7)=0\n自然数なので n=6、よって 6 と 7。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-eq-apps-q3",
-            "question": "ある自然数を2乗すると、もとの数の3倍より 40 大きくなる。この自然数を求めなさい。",
-            "options": [
-              "5",
-              "-5",
-              "8",
-              "13"
-            ],
-            "correctIndex": 2,
-            "explanation": "x²=3x+40、x²-3x-40=0、(x-8)(x+5)=0 より x=8, -5\n自然数なので x=8。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-eq-apps-q3',
+            question:
+              'ある自然数を2乗すると、もとの数の3倍より 40 大きくなる。この自然数を求めなさい。',
+            options: ['5', '8', '-5', '13'],
+            correctIndex: 1,
+            explanation:
+              'x²=3x+40、x²-3x-40=0、(x-8)(x+5)=0 より x=8, -5\n自然数なので x=8。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-eq-apps-q4",
-            "question": "連続する3つの自然数について、それぞれを2乗した数の和が 110 である。真ん中の数を求めなさい。",
-            "options": [
-              "10",
-              "5",
-              "7",
-              "6"
-            ],
-            "correctIndex": 3,
-            "explanation": "真ん中を n とすると (n-1)²+n²+(n+1)²=110。3n²+2=110、n²=36\n自然数なので n=6。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-eq-apps-q4',
+            question:
+              '連続する3つの自然数について、それぞれを2乗した数の和が 110 である。真ん中の数を求めなさい。',
+            options: ['10', '5', '6', '7'],
+            correctIndex: 2,
+            explanation:
+              '真ん中を n とすると (n-1)²+n²+(n+1)²=110。3n²+2=110、n²=36\n自然数なので n=6。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-eq-apps-q5",
-            "question": "ある正の数があり、その数を2乗した数は、もとの数より 42 大きい。もとの数を x とするとき、正しい方程式はどれですか。",
-            "options": [
-              "x² = x + 42",
-              "x² = x - 42",
-              "2x = x + 42",
-              "x² + 42 = x"
+            id: 'math-g3-quad-eq-apps-q5',
+            question:
+              'ある正の数があり、その数を2乗した数は、もとの数より 42 大きい。もとの数を x とするとき、正しい方程式はどれですか。',
+            options: [
+              'x² = x + 42',
+              'x² = x - 42',
+              '2x = x + 42',
+              'x² + 42 = x',
             ],
-            "correctIndex": 0,
-            "explanation": "「2乗した数」は x²、「もとの数より 42 大きい」は x+42\nよって x²=x+42 と立式する。",
-            "difficulty": "standard"
+            correctIndex: 0,
+            explanation:
+              '「2乗した数」は x²、「もとの数より 42 大きい」は x+42\nよって x²=x+42 と立式する。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-eq-apps-q6",
-            "question": "二次方程式 x²-2x-15=0 を解くと x=-3, 5 となった。この x が長方形の横の長さ（cm）を表すとき、適する解はどれですか。",
-            "options": [
-              "x=-3",
-              "x=5",
-              "x=-3, 5 の両方",
-              "適する解はない"
-            ],
-            "correctIndex": 1,
-            "explanation": "x²-2x-15=0、(x+3)(x-5)=0 より x=-3, 5\n長さは正の数なので、負の -3 は適さず x=5。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-eq-apps-q6',
+            question:
+              '二次方程式 x²-2x-15=0 を解くと x=-3, 5 となった。この x が長方形の横の長さ（cm）を表すとき、適する解はどれですか。',
+            options: ['x=-3', 'x=-3, 5 の両方', 'x=5', '適する解はない'],
+            correctIndex: 2,
+            explanation:
+              'x²-2x-15=0、(x+3)(x-5)=0 より x=-3, 5\n長さは正の数なので、負の -3 は適さず x=5。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-eq-apps-q7",
-            "question": "横が縦より 3cm 長い長方形があり、面積は 40cm² である。縦の長さを求めなさい。",
-            "options": [
-              "8cm",
-              "4cm",
-              "5cm",
-              "-8cm"
-            ],
-            "correctIndex": 2,
-            "explanation": "縦を x とすると x(x+3)=40。x²+3x-40=0、(x+8)(x-5)=0 より x=5, -8\n長さは正なので x=5、縦は 5cm。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-eq-apps-q7',
+            question:
+              '横が縦より 3cm 長い長方形があり、面積は 40cm² である。縦の長さを求めなさい。',
+            options: ['8cm', '4cm', '-8cm', '5cm'],
+            correctIndex: 3,
+            explanation:
+              '縦を x とすると x(x+3)=40。x²+3x-40=0、(x+8)(x-5)=0 より x=5, -8\n長さは正なので x=5、縦は 5cm。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-eq-apps-q8",
-            "question": "縦が横より 2cm 長い長方形の面積が 48cm² である。横の長さを求めなさい。",
-            "options": [
-              "6cm",
-              "8cm",
-              "-8cm",
-              "4cm"
-            ],
-            "correctIndex": 0,
-            "explanation": "横を x とすると x(x+2)=48。x²+2x-48=0、(x+8)(x-6)=0 より x=6, -8\n長さは正なので、横は 6cm。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-eq-apps-q8',
+            question:
+              '縦が横より 2cm 長い長方形の面積が 48cm² である。横の長さを求めなさい。',
+            options: ['8cm', '6cm', '-8cm', '4cm'],
+            correctIndex: 1,
+            explanation:
+              '横を x とすると x(x+2)=48。x²+2x-48=0、(x+8)(x-6)=0 より x=6, -8\n長さは正なので、横は 6cm。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-eq-apps-q9",
-            "question": "縦 8m、横 12m の長方形の土地に、はばが等しい道を縦と横に1本ずつ作る。残りの土地を1つに集めると面積が 60m² になった。道のはばを求めなさい。",
-            "options": [
-              "6m",
-              "4m",
-              "2m",
-              "18m"
-            ],
-            "correctIndex": 2,
-            "explanation": "はばを x とすると、残りを集めると (8-x)(12-x)=60。x²-20x+36=0、(x-2)(x-18)=0 より x=2, 18\nはばは縦 8m より短いので x=2、2m。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-eq-apps-q9',
+            question:
+              '縦 8m、横 12m の長方形の土地に、はばが等しい道を縦と横に1本ずつ作る。残りの土地を1つに集めると面積が 60m² になった。道のはばを求めなさい。',
+            options: ['6m', '2m', '4m', '18m'],
+            correctIndex: 1,
+            explanation:
+              'はばを x とすると、残りを集めると (8-x)(12-x)=60。x²-20x+36=0、(x-2)(x-18)=0 より x=2, 18\nはばは縦 8m より短いので x=2、2m。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-eq-apps-q10",
-            "question": "ある道幅の問題で x²-20x+36=0 を解くと x=2, 18 が得られた。道は縦 8m、横 12m の土地の中に作るものとする。道のはばとして適する解と、その理由の組として正しいものはどれですか。",
-            "options": [
-              "x=18。大きいほうの解を選ぶから",
-              "x=2。道のはばは土地の縦 8m より短くなければならないから",
-              "x=2, 18 の両方。どちらも正の数だから",
-              "x=18。正の数ならどちらでもよいから"
+            id: 'math-g3-quad-eq-apps-q10',
+            question:
+              'ある道幅の問題で x²-20x+36=0 を解くと x=2, 18 が得られた。道は縦 8m、横 12m の土地の中に作るものとする。道のはばとして適する解と、その理由の組として正しいものはどれですか。',
+            options: [
+              'x=18。大きいほうの解を選ぶから',
+              'x=2, 18 の両方。どちらも正の数だから',
+              'x=2。はばは縦 8m より短いはずだから',
+              'x=18。正の数ならどちらでもよいから',
             ],
-            "correctIndex": 1,
-            "explanation": "道は土地の中に作るので、はばは縦 8m より小さくなければならない\nよって x=18 は適さず、x=2 が適する解。",
-            "difficulty": "standard"
+            correctIndex: 2,
+            explanation:
+              '道は土地の中に作るので、はばは縦 8m より小さくなければならない\nよって x=18 は適さず、x=2 が適する解。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-eq-apps-q11",
-            "question": "横が縦の2倍である長方形の面積が 72cm² である。縦の長さを求めなさい。",
-            "options": [
-              "8cm",
-              "36cm",
-              "12cm",
-              "6cm"
-            ],
-            "correctIndex": 3,
-            "explanation": "縦を x とすると x× 2x=72。2x²=72、x²=36\n長さは正なので x=6、縦は 6cm。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-eq-apps-q11',
+            question:
+              '横が縦の2倍である長方形の面積が 72cm² である。縦の長さを求めなさい。',
+            options: ['6cm', '36cm', '12cm', '8cm'],
+            correctIndex: 0,
+            explanation:
+              '縦を x とすると x× 2x=72。2x²=72、x²=36\n長さは正なので x=6、縦は 6cm。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-eq-apps-q12",
-            "question": "1辺が 6cm の正方形 ABCD で、点Pは頂点Aを出発して辺AB上を毎秒1cmでBまで動く。点Qは点Pと同時に頂点Bを出発して辺BC上を毎秒1cmでCまで動く。三角形PBQの面積が 4cm² になるのは出発してから何秒後ですか。",
-            "options": [
-              "2秒後と4秒後",
-              "2秒後",
-              "4秒後",
-              "3秒後"
-            ],
-            "correctIndex": 0,
-            "explanation": "x 秒後、PB=6-x、BQ=x。1/2(6-x)x=4\nx²-6x+8=0、(x-2)(x-4)=0 より、0<x<6 を満たす x=2, 4 のどちらも適する。",
-            "difficulty": "advanced"
+            id: 'math-g3-quad-eq-apps-q12',
+            question:
+              '1辺が 6cm の正方形 ABCD で、点Pは頂点Aを出発して辺AB上を毎秒1cmでBまで動く。点Qは点Pと同時に頂点Bを出発して辺BC上を毎秒1cmでCまで動く。三角形PBQの面積が 4cm² になるのは出発してから何秒後ですか。',
+            options: ['2秒後と4秒後', '2秒後', '4秒後', '1秒後と5秒後'],
+            correctIndex: 0,
+            explanation:
+              'x 秒後、PB=6-x、BQ=x。1/2(6-x)x=4\nx²-6x+8=0、(x-2)(x-4)=0 より、0<x<6 を満たす x=2, 4 のどちらも適する。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-quad-eq-apps-q13",
-            "question": "物を落とすとき、落ち始めてから x 秒間に落ちる距離は 5x² m で表される。80m 落ちるのは落ち始めてから何秒後ですか。",
-            "options": [
-              "16秒後",
-              "8秒後",
-              "4秒後",
-              "40秒後"
-            ],
-            "correctIndex": 2,
-            "explanation": "5x²=80、x²=16、x=± 4\n時間は正なので x=4、4秒後。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-eq-apps-q13',
+            question:
+              '物を落とすとき、落ち始めてから x 秒間に落ちる距離は 5x² m で表される。80m 落ちるのは落ち始めてから何秒後ですか。',
+            options: ['16秒後', '8秒後', '40秒後', '4秒後'],
+            correctIndex: 3,
+            explanation: '5x²=80、x²=16、x=± 4\n時間は正なので x=4、4秒後。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-eq-apps-q14",
-            "question": "ある数と、その数に 4 を加えた数との積が 96 になる。この正の数を求めなさい。",
-            "options": [
-              "12",
-              "6",
-              "-12",
-              "8"
-            ],
-            "correctIndex": 3,
-            "explanation": "x(x+4)=96、x²+4x-96=0、(x+12)(x-8)=0 より x=8, -12\n正の数なので x=8。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-eq-apps-q14',
+            question:
+              'ある数と、その数に 4 を加えた数との積が 96 になる。この正の数を求めなさい。',
+            options: ['12', '6', '-12', '8'],
+            correctIndex: 3,
+            explanation:
+              'x(x+4)=96、x²+4x-96=0、(x+12)(x-8)=0 より x=8, -12\n正の数なので x=8。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-eq-apps-q15",
-            "question": "縦と横の長さの和が 13cm、面積が 40cm² の長方形がある。縦と横の長さを求めなさい。",
-            "options": [
-              "4cm と 10cm",
-              "5cm と 8cm",
-              "6cm と 7cm",
-              "3cm と 10cm"
-            ],
-            "correctIndex": 1,
-            "explanation": "一方を x とすると他方は 13-x。x(13-x)=40、x²-13x+40=0、(x-5)(x-8)=0\nよって 5cm と 8cm。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-eq-apps-q15',
+            question:
+              '縦と横の長さの和が 13cm、面積が 40cm² の長方形がある。縦と横の長さを求めなさい。',
+            options: ['5cm と 8cm', '4cm と 10cm', '6cm と 7cm', '3cm と 10cm'],
+            correctIndex: 0,
+            explanation:
+              '一方を x とすると他方は 13-x。x(13-x)=40、x²-13x+40=0、(x-5)(x-8)=0\nよって 5cm と 8cm。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-eq-apps-q16",
-            "question": "1辺が 12cm の正方形の厚紙の四すみから合同な正方形を切り取り、折り曲げてふたのない箱を作る。底面が1辺 8cm の正方形になるようにするには、四すみから切り取る正方形の1辺を何 cm にすればよいですか。",
-            "options": [
-              "10cm",
-              "4cm",
-              "1cm",
-              "2cm"
-            ],
-            "correctIndex": 3,
-            "explanation": "切り取る正方形の1辺を x とすると、底面の1辺は 12-2x。(12-2x)²=64、12-2x=8\n0<x<6 より x=2、2cm。",
-            "difficulty": "advanced"
+            id: 'math-g3-quad-eq-apps-q16',
+            question:
+              '1辺が 12cm の正方形の厚紙の四すみから合同な正方形を切り取り、折り曲げてふたのない箱を作る。底面が1辺 8cm の正方形になるようにするには、四すみから切り取る正方形の1辺を何 cm にすればよいですか。',
+            options: ['10cm', '4cm', '1cm', '2cm'],
+            correctIndex: 3,
+            explanation:
+              '切り取る正方形の1辺を x とすると、底面の1辺は 12-2x。(12-2x)²=64、12-2x=8\n0<x<6 より x=2、2cm。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-quad-eq-apps-q17",
-            "question": "連続する3つの自然数があり、いちばん小さい数といちばん大きい数の積が、真ん中の数の 6 倍より 15 大きい。真ん中の数を求めなさい。",
-            "options": [
-              "6",
-              "7",
-              "8",
-              "9"
-            ],
-            "correctIndex": 2,
-            "explanation": "真ん中を n とすると (n-1)(n+1)=6n+15。n²-1=6n+15、n²-6n-16=0、(n-8)(n+2)=0 より n=8, -2\n自然数なので n=8。",
-            "difficulty": "advanced"
+            id: 'math-g3-quad-eq-apps-q17',
+            question:
+              '連続する3つの自然数があり、いちばん小さい数といちばん大きい数の積が、真ん中の数の 6 倍より 15 大きい。真ん中の数を求めなさい。',
+            options: ['6', '8', '7', '9'],
+            correctIndex: 1,
+            explanation:
+              '真ん中を n とすると (n-1)(n+1)=6n+15。n²-1=6n+15、n²-6n-16=0、(n-8)(n+2)=0 より n=8, -2\n自然数なので n=8。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-quad-eq-apps-q18",
-            "question": "縦が横より 5cm 長い長方形の面積が 84cm² である。横の長さを x cm とするとき、正しい方程式はどれですか。",
-            "options": [
-              "x(x+5)=84",
-              "x(x-5)=84",
-              "x+(x+5)=84",
-              "2x+5=84"
-            ],
-            "correctIndex": 0,
-            "explanation": "横が x、縦が x+5 なので、面積は x(x+5)\nこれが 84 だから x(x+5)=84 と立式する。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-eq-apps-q18',
+            question:
+              '縦が横より 5cm 長い長方形の面積が 84cm² である。横の長さを x cm とするとき、正しい方程式はどれですか。',
+            options: ['x(x+5)=84', 'x(x-5)=84', 'x+(x+5)=84', '2x+5=84'],
+            correctIndex: 0,
+            explanation:
+              '横が x、縦が x+5 なので、面積は x(x+5)\nこれが 84 だから x(x+5)=84 と立式する。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-eq-apps-q19",
-            "question": "ある正の数を2乗した数は、その数を5倍して6を引いた数に等しい。この数を求めなさい。",
-            "options": [
-              "1 と 6",
-              "2 と 3",
-              "2",
-              "3"
-            ],
-            "correctIndex": 1,
-            "explanation": "x²=5x-6、x²-5x+6=0、(x-2)(x-3)=0 より x=2, 3\nどちらも正の数なので、2 と 3 の両方が適する。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-eq-apps-q19',
+            question:
+              'ある正の数を2乗した数は、その数を5倍して6を引いた数に等しい。この数を求めなさい。',
+            options: ['1 と 6', '2 と 3', '2', '3'],
+            correctIndex: 1,
+            explanation:
+              'x²=5x-6、x²-5x+6=0、(x-2)(x-3)=0 より x=2, 3\nどちらも正の数なので、2 と 3 の両方が適する。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-eq-apps-q20",
-            "question": "ある正方形の1辺の長さを求めるために二次方程式を解いたところ、x=-4, 6 となった。適する解と、その理由の組として正しいものはどれですか。",
-            "options": [
-              "x=-4。小さいほうの解を選ぶから",
-              "x=-4, 6 の両方。解は2つとも答えになるから",
-              "x=6。大きいほうの解を選ぶから",
-              "x=6。長さは正の数なので、負の解 -4 は適さないから"
+            id: 'math-g3-quad-eq-apps-q20',
+            question:
+              'ある正方形の1辺の長さを求めるために二次方程式を解いたところ、x=-4, 6 となった。適する解と、その理由の組として正しいものはどれですか。',
+            options: [
+              'x=-4。小さいほうの解を選ぶから',
+              'x=-4, 6 の両方。解は2つとも答えになるから',
+              'x=6。長さは正なので負の解は適さないから',
+              'x=6。大きいほうの解を選ぶから',
             ],
-            "correctIndex": 3,
-            "explanation": "正方形の1辺の長さは正の数でなければならない\nよって負の解 -4 は適さず、x=6 が適する解。",
-            "difficulty": "advanced"
-          }
-        ]
-      }
-    ]
+            correctIndex: 2,
+            explanation:
+              '正方形の1辺の長さは正の数でなければならない\nよって負の解 -4 は適さず、x=6 が適する解。',
+            difficulty: 'advanced',
+          },
+        ],
+      },
+    ],
   },
   {
-    "eraId": "math-g3-quadratic-func",
-    "eraName": "二次関数",
-    "eraIcon": "📈",
-    "eraPeriod": "中3 関数",
-    "topics": [
+    eraId: 'math-g3-quadratic-func',
+    eraName: '二次関数',
+    eraIcon: '📈',
+    eraPeriod: '中3 関数',
+    topics: [
       {
-        "topicId": "math-g3-quad-func-parabola",
-        "name": "y=ax²と放物線",
-        "subtitle": "U字型のグラフを描こう",
-        "icon": "〰️",
-        "order": 1,
-        "flashcards": [],
-        "quiz": [
+        topicId: 'math-g3-quad-func-parabola',
+        name: 'y=ax²と放物線',
+        subtitle: 'U字型のグラフを描こう',
+        icon: '〰️',
+        order: 1,
+        flashcards: [],
+        quiz: [
           {
-            "id": "math-g3-quad-func-parabola-q1",
-            "question": "関数 y=ax² のグラフが点 (2, 8) を通るとき、a の値を求めなさい。",
-            "options": [
-              "a = 2",
-              "a = 4",
-              "a = 1/2",
-              "a = 16"
-            ],
-            "correctIndex": 0,
-            "explanation": "a = 8/2² = 8/4 = 2\n点の座標を式に代入し、x を2乗してから割る。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-func-parabola-q1',
+            question:
+              '下のグラフは y=ax² のグラフで、点 (2, 8) を通ります。a の値を求めなさい。',
+            options: ['a = 16', 'a = 4', 'a = 1/2', 'a = 2'],
+            correctIndex: 3,
+            explanation:
+              'a = 8/2² = 8/4 = 2\n点の座標を式に代入し、x を2乗してから割る。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-func-parabola-q2",
-            "question": "関数 y=ax² のグラフが点 (3, -18) を通るとき、a の値を求めなさい。",
-            "options": [
-              "a = 2",
-              "a = -2",
-              "a = -6",
-              "a = -1/2"
-            ],
-            "correctIndex": 1,
-            "explanation": "a = -18/3² = -18/9 = -2\ny が負なので a も負になる。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-func-parabola-q2',
+            question:
+              '下のグラフは y=ax² のグラフで、点 (3, -18) を通ります。a の値を求めなさい。',
+            options: ['a = 2', 'a = -6', 'a = -2', 'a = -1/2'],
+            correctIndex: 2,
+            explanation: 'a = -18/3² = -18/9 = -2\ny が負なので a も負になる。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-func-parabola-q3",
-            "question": "関数 y=ax² のグラフが点 (4, 8) を通るとき、a の値を求めなさい。",
-            "options": [
-              "a = 2",
-              "a = 1/4",
-              "a = 1/2",
-              "a = 32"
-            ],
-            "correctIndex": 2,
-            "explanation": "a = 8/4² = 8/16 = 1/2\n約分して既約分数にする。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-func-parabola-q3',
+            question:
+              '下のグラフは y=ax² のグラフで、点 (4, 8) を通ります。a の値を求めなさい。',
+            options: ['a = 2', 'a = 1/4', 'a = 32', 'a = 1/2'],
+            correctIndex: 3,
+            explanation: 'a = 8/4² = 8/16 = 1/2\n約分して既約分数にする。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-func-parabola-q4",
-            "question": "関数 y=2x² について、x=3 のときの y の値を求めなさい。",
-            "options": [
-              "6",
-              "12",
-              "36",
-              "18"
-            ],
-            "correctIndex": 3,
-            "explanation": "y = 2 × 3² = 2 × 9 = 18\n先に x を2乗してから係数をかける。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-func-parabola-q4',
+            question: '関数 y=2x² について、x=3 のときの y の値を求めなさい。',
+            options: ['6', '18', '36', '12'],
+            correctIndex: 1,
+            explanation:
+              'y = 2 × 3² = 2 × 9 = 18\n先に x を2乗してから係数をかける。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-func-parabola-q5",
-            "question": "関数 y=2x² について、x=-4 のときの y の値を求めなさい。",
-            "options": [
-              "32",
-              "-32",
-              "16",
-              "-8"
-            ],
-            "correctIndex": 0,
-            "explanation": "y = 2 × (-4)² = 2 × 16 = 32\nx を2乗するので、負の数でも y は正になる。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-func-parabola-q5',
+            question: '関数 y=2x² について、x=-4 のときの y の値を求めなさい。',
+            options: ['-32', '32', '16', '-8'],
+            correctIndex: 1,
+            explanation:
+              'y = 2 × (-4)² = 2 × 16 = 32\nx を2乗するので、負の数でも y は正になる。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-func-parabola-q6",
-            "question": "関数 y=-3x² について、x=2 のときの y の値を求めなさい。",
-            "options": [
-              "-36",
-              "-12",
-              "12",
-              "-6"
-            ],
-            "correctIndex": 1,
-            "explanation": "y = -3 × 2² = -3 × 4 = -12\n係数は最後にかける。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-func-parabola-q6',
+            question: '関数 y=-3x² について、x=2 のときの y の値を求めなさい。',
+            options: ['-12', '-36', '12', '-6'],
+            correctIndex: 0,
+            explanation: 'y = -3 × 2² = -3 × 4 = -12\n係数は最後にかける。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-func-parabola-q7",
-            "question": "関数 y=1/2x² について、x=-6 のときの y の値を求めなさい。",
-            "options": [
-              "-18",
-              "-3",
-              "18",
-              "36"
-            ],
-            "correctIndex": 2,
-            "explanation": "y = 1/2 × (-6)² = 1/2 × 36 = 18\n2乗してから 1/2 をかける。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-func-parabola-q7',
+            question:
+              '関数 y=1/2x² について、x=-6 のときの y の値を求めなさい。',
+            options: ['18', '-3', '-18', '36'],
+            correctIndex: 0,
+            explanation:
+              'y = 1/2 × (-6)² = 1/2 × 36 = 18\n2乗してから 1/2 をかける。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-func-parabola-q8",
-            "question": "関数 y=1/2x² のグラフ上にある点はどれですか。",
-            "options": [
-              "(2, 4)",
-              "(3, 9)",
-              "(6, 3)",
-              "(4, 8)"
-            ],
-            "correctIndex": 3,
-            "explanation": "y = 1/2 × 4² = 1/2 × 16 = 8\n各点の x を代入し、y と一致するか確かめる。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-func-parabola-q8',
+            question:
+              '下のグラフは y=1/2x² のグラフです。このグラフ上にある点はどれですか。',
+            options: ['(2, 4)', '(3, 9)', '(4, 8)', '(6, 3)'],
+            correctIndex: 2,
+            explanation:
+              'y = 1/2 × 4² = 1/2 × 16 = 8\n各点の x を代入し、y と一致するか確かめる。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-func-parabola-q9",
-            "question": "関数 y=3x² のグラフ上にある点はどれですか。",
-            "options": [
-              "(-2, 12)",
-              "(2, 6)",
-              "(1, 9)",
-              "(3, 9)"
-            ],
-            "correctIndex": 0,
-            "explanation": "y = 3 × (-2)² = 3 × 4 = 12\nx を代入して y と合う点を選ぶ。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-func-parabola-q9',
+            question:
+              '下のグラフは y=3x² のグラフです。このグラフ上にある点はどれですか。',
+            options: ['(2, 6)', '(-2, 12)', '(1, 9)', '(3, 9)'],
+            correctIndex: 1,
+            explanation:
+              'y = 3 × (-2)² = 3 × 4 = 12\nx を代入して y と合う点を選ぶ。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-func-parabola-q10",
-            "question": "点 (3, 9) と y 軸について対称な点の座標を求めなさい。",
-            "options": [
-              "(3, -9)",
-              "(-3, 9)",
-              "(-3, -9)",
-              "(9, 3)"
-            ],
-            "correctIndex": 1,
-            "explanation": "y 軸対称では x の符号だけ変える。\n(3, 9) arrow (-3, 9)",
-            "difficulty": "basic"
+            id: 'math-g3-quad-func-parabola-q10',
+            question:
+              '下の図の点 (3, 9) と y 軸について対称な点の座標を求めなさい。',
+            options: ['(3, -9)', '(-3, -9)', '(-3, 9)', '(9, 3)'],
+            correctIndex: 2,
+            explanation:
+              'y 軸対称では x の符号だけ変える。\n(3, 9) arrow (-3, 9)',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-func-parabola-q11",
-            "question": "関数 y=ax² のグラフ（放物線）は、何について線対称ですか。",
-            "options": [
-              "x 軸",
-              "原点",
-              "y 軸",
-              "直線 y=x"
-            ],
-            "correctIndex": 2,
-            "explanation": "放物線 y=ax² は y 軸（直線 x=0）について左右対称になる。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-func-parabola-q11',
+            question:
+              '関数 y=ax² のグラフ（放物線）は、何について線対称ですか。',
+            options: ['x 軸', '原点', '直線 y=x', 'y 軸'],
+            correctIndex: 3,
+            explanation:
+              '放物線 y=ax² は y 軸（直線 x=0）について左右対称になる。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-func-parabola-q12",
-            "question": "関数 y=ax² のグラフが、a の値に関係なく必ず通る点はどれですか。",
-            "options": [
-              "(1, 1)",
-              "(0, 1)",
-              "(1, 0)",
-              "(0, 0)"
-            ],
-            "correctIndex": 3,
-            "explanation": "x=0 のとき y = a × 0² = 0\nどんな a でも原点 (0, 0) を通る。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-func-parabola-q12',
+            question:
+              '関数 y=ax² のグラフが、a の値に関係なく必ず通る点はどれですか。',
+            options: ['(1, 1)', '(0, 1)', '(0, 0)', '(1, 0)'],
+            correctIndex: 2,
+            explanation:
+              'x=0 のとき y = a × 0² = 0\nどんな a でも原点 (0, 0) を通る。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-func-parabola-q13",
-            "question": "関数 y=ax² のグラフが上に開く（下に凸の）形になるのは、a がどんなときですか。",
-            "options": [
-              "a>0 のとき",
-              "a<0 のとき",
-              "a=0 のとき",
-              "a が整数のとき"
+            id: 'math-g3-quad-func-parabola-q13',
+            question:
+              '関数 y=ax² のグラフが上に開く（下に凸の）形になるのは、a がどんなときですか。',
+            options: [
+              'a が整数のとき',
+              'a<0 のとき',
+              'a=0 のとき',
+              'a>0 のとき',
             ],
-            "correctIndex": 0,
-            "explanation": "a>0 のとき上に開き、a<0 のとき下に開く。",
-            "difficulty": "standard"
+            correctIndex: 3,
+            explanation: 'a>0 のとき上に開き、a<0 のとき下に開く。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-func-parabola-q14",
-            "question": "次の関数のうち、グラフが下に開く（上に凸の）ものはどれですか。",
-            "options": [
-              "y=3x²",
-              "y=-1/2x²",
-              "y=x²",
-              "y=5x²"
-            ],
-            "correctIndex": 1,
-            "explanation": "a<0 のときグラフは下に開く。a=-1/2<0 なので下に開く。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-func-parabola-q14',
+            question:
+              '次の関数のうち、グラフが下に開く（上に凸の）ものはどれですか。',
+            options: ['y=-1/2x²', 'y=3x²', 'y=x²', 'y=5x²'],
+            correctIndex: 0,
+            explanation:
+              'a<0 のときグラフは下に開く。a=-1/2<0 なので下に開く。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-func-parabola-q15",
-            "question": "次の関数のうち、グラフの開き方が最も大きい（最も横に広がる）ものはどれですか。",
-            "options": [
-              "y=2x²",
-              "y=3x²",
-              "y=1/3x²",
-              "y=x²"
-            ],
-            "correctIndex": 2,
-            "explanation": "a の絶対値が小さいほど開き方が大きい。1/3 が最小なので最も広がる。",
-            "difficulty": "advanced"
+            id: 'math-g3-quad-func-parabola-q15',
+            question:
+              '次の関数のうち、グラフの開き方が最も大きい（最も横に広がる）ものはどれですか。',
+            options: ['y=1/3x²', 'y=3x²', 'y=2x²', 'y=x²'],
+            correctIndex: 0,
+            explanation:
+              'a の絶対値が小さいほど開き方が大きい。1/3 が最小なので最も広がる。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-quad-func-parabola-q16",
-            "question": "次の関数のうち、グラフの開き方が最も小さい（最もとがっている）ものはどれですか。",
-            "options": [
-              "y=1/2x²",
-              "y=2x²",
-              "y=-3x²",
-              "y=-4x²"
-            ],
-            "correctIndex": 3,
-            "explanation": "a の絶対値が大きいほど開き方が小さい。|-4|=4 が最大なので最もとがる。",
-            "difficulty": "advanced"
+            id: 'math-g3-quad-func-parabola-q16',
+            question:
+              '次の関数のうち、グラフの開き方が最も小さい（最もとがっている）ものはどれですか。',
+            options: ['y=1/2x²', 'y=-4x²', 'y=-3x²', 'y=2x²'],
+            correctIndex: 1,
+            explanation:
+              'a の絶対値が大きいほど開き方が小さい。|-4|=4 が最大なので最もとがる。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-quad-func-parabola-q17",
-            "question": "関数 y=ax² のグラフが点 (2, -2) を通るとき、a の値を求めなさい。",
-            "options": [
-              "a = -1/2",
-              "a = -2",
-              "a = 1/2",
-              "a = -1"
-            ],
-            "correctIndex": 0,
-            "explanation": "a = -2/2² = -2/4 = -1/2\n約分して既約分数にする。",
-            "difficulty": "advanced"
+            id: 'math-g3-quad-func-parabola-q17',
+            question:
+              '下のグラフは y=ax² のグラフで、点 (2, -2) を通ります。a の値を求めなさい。',
+            options: ['a = -1/2', 'a = -2', 'a = 1/2', 'a = -1'],
+            correctIndex: 0,
+            explanation: 'a = -2/2² = -2/4 = -1/2\n約分して既約分数にする。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-quad-func-parabola-q18",
-            "question": "関数 y=ax² のグラフが点 (-3, 6) を通るとき、a の値を求めなさい。",
-            "options": [
-              "a = 3/2",
-              "a = 2/3",
-              "a = -2/3",
-              "a = 2"
-            ],
-            "correctIndex": 1,
-            "explanation": "a = 6/((-3)²) = 6/9 = 2/3\nx を2乗すると正になる。",
-            "difficulty": "advanced"
+            id: 'math-g3-quad-func-parabola-q18',
+            question:
+              '関数 y=ax² のグラフが点 (-3, 6) を通るとき、a の値を求めなさい。',
+            options: ['a = 3/2', 'a = 2/3', 'a = -2/3', 'a = 2'],
+            correctIndex: 1,
+            explanation: 'a = 6/((-3)²) = 6/9 = 2/3\nx を2乗すると正になる。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-quad-func-parabola-q19",
-            "question": "関数 y=2x² について、y=8 となる x の値をすべて求めなさい。",
-            "options": [
-              "x = 2",
-              "x = 4",
-              "x = ± 2",
-              "x = ± 4"
-            ],
-            "correctIndex": 2,
-            "explanation": "2x² = 8, x² = 4, x = ± 2\n2乗して4になる数は正負の2つある。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-func-parabola-q19',
+            question:
+              '下のグラフは y=2x² のグラフです。y=8 となる x の値をすべて求めなさい。',
+            options: ['x = 2', 'x = 4', 'x = ± 4', 'x = ± 2'],
+            correctIndex: 3,
+            explanation:
+              '2x² = 8, x² = 4, x = ± 2\n2乗して4になる数は正負の2つある。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-func-parabola-q20",
-            "question": "関数 y=x² のグラフ上にある点はどれですか。",
-            "options": [
-              "(2, 2)",
-              "(3, 6)",
-              "(-4, -16)",
-              "(-5, 25)"
-            ],
-            "correctIndex": 3,
-            "explanation": "y = (-5)² = 25\nx を2乗した値が y になる点を選ぶ。",
-            "difficulty": "basic"
-          }
-        ]
+            id: 'math-g3-quad-func-parabola-q20',
+            question: '関数 y=x² のグラフ上にある点はどれですか。',
+            options: ['(2, 2)', '(3, 6)', '(-5, 25)', '(-4, -16)'],
+            correctIndex: 2,
+            explanation: 'y = (-5)² = 25\nx を2乗した値が y になる点を選ぶ。',
+            difficulty: 'basic',
+          },
+        ],
       },
       {
-        "topicId": "math-g3-quad-func-range",
-        "name": "値の変化と変域",
-        "subtitle": "x=0をまたぐときに注意",
-        "icon": "↕️",
-        "order": 2,
-        "flashcards": [],
-        "quiz": [
+        topicId: 'math-g3-quad-func-range',
+        name: '値の変化と変域',
+        subtitle: 'x=0をまたぐときに注意',
+        icon: '↕️',
+        order: 2,
+        flashcards: [],
+        quiz: [
           {
-            "id": "math-g3-quad-func-range-q1",
-            "question": "関数 y=x² で、x の変域が -2 ≦ x ≦ 1 のときの y の変域を求めましょう。",
-            "options": [
-              "0 ≦ y ≦ 4",
-              "1 ≦ y ≦ 4",
-              "-2 ≦ y ≦ 4",
-              "0 ≦ y ≦ 1"
-            ],
-            "correctIndex": 0,
-            "explanation": "x の変域が 0 をまたぐので、最小値は頂点の y=0。最大値は絶対値が大きい x=-2 で y=(-2)²=4。\nよって 0 ≦ y ≦ 4。両端だけで考えると 0 を含み忘れるので注意。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-func-range-q1',
+            question:
+              '下のグラフは関数 y=x² のグラフです。x の変域が -2 ≦ x ≦ 1 のときの y の変域を求めましょう。',
+            options: ['1 ≦ y ≦ 4', '0 ≦ y ≦ 4', '-2 ≦ y ≦ 4', '0 ≦ y ≦ 1'],
+            correctIndex: 1,
+            explanation:
+              'x の変域が 0 をまたぐので、最小値は頂点の y=0。最大値は絶対値が大きい x=-2 で y=(-2)²=4。\nよって 0 ≦ y ≦ 4。両端だけで考えると 0 を含み忘れるので注意。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-func-range-q2",
-            "question": "関数 y=1/2x² で、x の変域が 2 ≦ x ≦ 4 のときの y の変域を求めましょう。",
-            "options": [
-              "4 ≦ y ≦ 16",
-              "2 ≦ y ≦ 8",
-              "0 ≦ y ≦ 8",
-              "1 ≦ y ≦ 4"
-            ],
-            "correctIndex": 1,
-            "explanation": "x の変域は 0 をまたがず単調に増える区間。x=2 で y=1/2×2²=2、x=4 で y=1/2×4²=8。\nよって 2 ≦ y ≦ 8。係数 1/2 を忘れると 4 ≦ y ≦ 16 になる。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-func-range-q2',
+            question:
+              '下のグラフは関数 y=1/2x² のグラフです。x の変域が 2 ≦ x ≦ 4 のときの y の変域を求めましょう。',
+            options: ['4 ≦ y ≦ 16', '0 ≦ y ≦ 8', '2 ≦ y ≦ 8', '1 ≦ y ≦ 4'],
+            correctIndex: 2,
+            explanation:
+              'x の変域は 0 をまたがず単調に増える区間。x=2 で y=1/2×2²=2、x=4 で y=1/2×4²=8。\nよって 2 ≦ y ≦ 8。係数 1/2 を忘れると 4 ≦ y ≦ 16 になる。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-func-range-q3",
-            "question": "関数 y=-x² で、x の変域が -1 ≦ x ≦ 2 のときの y の変域を求めましょう。",
-            "options": [
-              "-4 ≦ y ≦ -1",
-              "0 ≦ y ≦ 4",
-              "-4 ≦ y ≦ 0",
-              "-1 ≦ y ≦ 4"
-            ],
-            "correctIndex": 2,
-            "explanation": "a<0 で x の変域が 0 をまたぐので、最大値は頂点の y=0。最小値は絶対値が大きい x=2 で y=-2²=-4。\nよって -4 ≦ y ≦ 0。両端だけだと 0 を含み忘れる。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-func-range-q3',
+            question:
+              '下のグラフは関数 y=-x² のグラフです。x の変域が -1 ≦ x ≦ 2 のときの y の変域を求めましょう。',
+            options: ['-4 ≦ y ≦ -1', '0 ≦ y ≦ 4', '-1 ≦ y ≦ 4', '-4 ≦ y ≦ 0'],
+            correctIndex: 3,
+            explanation:
+              'a<0 で x の変域が 0 をまたぐので、最大値は頂点の y=0。最小値は絶対値が大きい x=2 で y=-2²=-4。\nよって -4 ≦ y ≦ 0。両端だけだと 0 を含み忘れる。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-func-range-q4",
-            "question": "関数 y=2x² で、x の変域が 1 ≦ x ≦ 3 のときの y の変域を求めましょう。",
-            "options": [
-              "1 ≦ y ≦ 9",
-              "0 ≦ y ≦ 18",
-              "2 ≦ y ≦ 9",
-              "2 ≦ y ≦ 18"
-            ],
-            "correctIndex": 3,
-            "explanation": "x の変域は 0 をまたがない区間。x=1 で y=2×1²=2、x=3 で y=2×3²=18。\nよって 2 ≦ y ≦ 18。係数 2 を忘れると 1 ≦ y ≦ 9 になる。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-func-range-q4',
+            question:
+              '関数 y=2x² で、x の変域が 1 ≦ x ≦ 3 のときの y の変域を求めましょう。',
+            options: ['1 ≦ y ≦ 9', '0 ≦ y ≦ 18', '2 ≦ y ≦ 9', '2 ≦ y ≦ 18'],
+            correctIndex: 3,
+            explanation:
+              'x の変域は 0 をまたがない区間。x=1 で y=2×1²=2、x=3 で y=2×3²=18。\nよって 2 ≦ y ≦ 18。係数 2 を忘れると 1 ≦ y ≦ 9 になる。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-func-range-q5",
-            "question": "関数 y=x² で、x の変域が -3 ≦ x ≦ 2 のときの y の変域を求めましょう。",
-            "options": [
-              "0 ≦ y ≦ 9",
-              "4 ≦ y ≦ 9",
-              "0 ≦ y ≦ 4",
-              "-3 ≦ y ≦ 9"
-            ],
-            "correctIndex": 0,
-            "explanation": "x の変域が 0 をまたぐので、最小値は y=0。最大値は絶対値が大きい x=-3 で y=(-3)²=9。\nよって 0 ≦ y ≦ 9。x=2 を最大と思うと 0 ≦ y ≦ 4 と誤る。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-func-range-q5',
+            question:
+              '下のグラフは関数 y=x² のグラフです。x の変域が -3 ≦ x ≦ 2 のときの y の変域を求めましょう。',
+            options: ['0 ≦ y ≦ 9', '4 ≦ y ≦ 9', '0 ≦ y ≦ 4', '-3 ≦ y ≦ 9'],
+            correctIndex: 0,
+            explanation:
+              'x の変域が 0 をまたぐので、最小値は y=0。最大値は絶対値が大きい x=-3 で y=(-3)²=9。\nよって 0 ≦ y ≦ 9。x=2 を最大と思うと 0 ≦ y ≦ 4 と誤る。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-func-range-q6",
-            "question": "関数 y=-2x² で、x の変域が -2 ≦ x ≦ 1 のときの y の変域を求めましょう。",
-            "options": [
-              "-8 ≦ y ≦ -2",
-              "-8 ≦ y ≦ 0",
-              "0 ≦ y ≦ 8",
-              "-2 ≦ y ≦ 8"
-            ],
-            "correctIndex": 1,
-            "explanation": "a<0 で x の変域が 0 をまたぐので、最大値は y=0。最小値は絶対値が大きい x=-2 で y=-2×(-2)²=-8。\nよって -8 ≦ y ≦ 0。両端だけだと 0 を含み忘れる。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-func-range-q6',
+            question:
+              '下のグラフは関数 y=-2x² のグラフです。x の変域が -2 ≦ x ≦ 1 のときの y の変域を求めましょう。',
+            options: ['-8 ≦ y ≦ -2', '0 ≦ y ≦ 8', '-8 ≦ y ≦ 0', '-2 ≦ y ≦ 8'],
+            correctIndex: 2,
+            explanation:
+              'a<0 で x の変域が 0 をまたぐので、最大値は y=0。最小値は絶対値が大きい x=-2 で y=-2×(-2)²=-8。\nよって -8 ≦ y ≦ 0。両端だけだと 0 を含み忘れる。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-func-range-q7",
-            "question": "関数 y=1/3x² で、x の変域が -3 ≦ x ≦ 3 のときの y の変域を求めましょう。",
-            "options": [
-              "0 ≦ y ≦ 9",
-              "-3 ≦ y ≦ 3",
-              "0 ≦ y ≦ 3",
-              "0 ≦ y ≦ 1"
-            ],
-            "correctIndex": 2,
-            "explanation": "x の変域が 0 をまたぐので、最小値は y=0。最大値は x=±3 で y=1/3×3²=3。\nよって 0 ≦ y ≦ 3。係数 1/3 を忘れると 0 ≦ y ≦ 9 になる。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-func-range-q7',
+            question:
+              '下のグラフは関数 y=1/3x² のグラフです。x の変域が -3 ≦ x ≦ 3 のときの y の変域を求めましょう。',
+            options: ['0 ≦ y ≦ 3', '-3 ≦ y ≦ 3', '0 ≦ y ≦ 9', '0 ≦ y ≦ 1'],
+            correctIndex: 0,
+            explanation:
+              'x の変域が 0 をまたぐので、最小値は y=0。最大値は x=±3 で y=1/3×3²=3。\nよって 0 ≦ y ≦ 3。係数 1/3 を忘れると 0 ≦ y ≦ 9 になる。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-func-range-q8",
-            "question": "関数 y=x² で、x の変域が 2 ≦ x ≦ 5 のときの y の変域を求めましょう。",
-            "options": [
-              "0 ≦ y ≦ 25",
-              "2 ≦ y ≦ 5",
-              "4 ≦ y ≦ 10",
-              "4 ≦ y ≦ 25"
-            ],
-            "correctIndex": 3,
-            "explanation": "x の変域は 0 をまたがない区間。x=2 で y=2²=4、x=5 で y=5²=25。\nよって 4 ≦ y ≦ 25。0 をまたがないので最小値に 0 は入らない。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-func-range-q8',
+            question:
+              '関数 y=x² で、x の変域が 2 ≦ x ≦ 5 のときの y の変域を求めましょう。',
+            options: ['0 ≦ y ≦ 25', '2 ≦ y ≦ 5', '4 ≦ y ≦ 25', '4 ≦ y ≦ 10'],
+            correctIndex: 2,
+            explanation:
+              'x の変域は 0 をまたがない区間。x=2 で y=2²=4、x=5 で y=5²=25。\nよって 4 ≦ y ≦ 25。0 をまたがないので最小値に 0 は入らない。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-func-range-q9",
-            "question": "関数 y=-x² で、x の変域が 1 ≦ x ≦ 4 のときの y の変域を求めましょう。",
-            "options": [
-              "-16 ≦ y ≦ -1",
-              "-16 ≦ y ≦ 0",
-              "1 ≦ y ≦ 16",
-              "-1 ≦ y ≦ 16"
+            id: 'math-g3-quad-func-range-q9',
+            question:
+              '関数 y=-x² で、x の変域が 1 ≦ x ≦ 4 のときの y の変域を求めましょう。',
+            options: [
+              '-16 ≦ y ≦ 0',
+              '-16 ≦ y ≦ -1',
+              '1 ≦ y ≦ 16',
+              '-1 ≦ y ≦ 16',
             ],
-            "correctIndex": 0,
-            "explanation": "x の変域は 0 をまたがない。x=1 で y=-1²=-1、x=4 で y=-4²=-16。a<0 なので x が大きいほど y は小さい。\nよって -16 ≦ y ≦ -1。0 をまたがないので 0 は入らない。",
-            "difficulty": "standard"
+            correctIndex: 1,
+            explanation:
+              'x の変域は 0 をまたがない。x=1 で y=-1²=-1、x=4 で y=-4²=-16。a<0 なので x が大きいほど y は小さい。\nよって -16 ≦ y ≦ -1。0 をまたがないので 0 は入らない。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-func-range-q10",
-            "question": "関数 y=1/2x² で、x の変域が -4 ≦ x ≦ 2 のときの y の変域を求めましょう。",
-            "options": [
-              "2 ≦ y ≦ 8",
-              "0 ≦ y ≦ 8",
-              "0 ≦ y ≦ 2",
-              "-4 ≦ y ≦ 8"
-            ],
-            "correctIndex": 1,
-            "explanation": "x の変域が 0 をまたぐので、最小値は y=0。最大値は絶対値が大きい x=-4 で y=1/2×(-4)²=8。\nよって 0 ≦ y ≦ 8。x=2 を最大と思うと誤る。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-func-range-q10',
+            question:
+              '下のグラフは関数 y=1/2x² のグラフです。x の変域が -4 ≦ x ≦ 2 のときの y の変域を求めましょう。',
+            options: ['2 ≦ y ≦ 8', '0 ≦ y ≦ 8', '0 ≦ y ≦ 2', '-4 ≦ y ≦ 8'],
+            correctIndex: 1,
+            explanation:
+              'x の変域が 0 をまたぐので、最小値は y=0。最大値は絶対値が大きい x=-4 で y=1/2×(-4)²=8。\nよって 0 ≦ y ≦ 8。x=2 を最大と思うと誤る。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-func-range-q11",
-            "question": "関数 y=3x² で、x の変域が -1 ≦ x ≦ 2 のときの y の変域を求めましょう。",
-            "options": [
-              "3 ≦ y ≦ 12",
-              "-1 ≦ y ≦ 12",
-              "0 ≦ y ≦ 12",
-              "0 ≦ y ≦ 3"
-            ],
-            "correctIndex": 2,
-            "explanation": "x の変域が 0 をまたぐので、最小値は y=0。最大値は絶対値が大きい x=2 で y=3×2²=12。\nよって 0 ≦ y ≦ 12。両端 x=-1, 2 だけで考えると 0 を含み忘れる。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-func-range-q11',
+            question:
+              '下のグラフは関数 y=3x² のグラフです。x の変域が -1 ≦ x ≦ 2 のときの y の変域を求めましょう。',
+            options: ['3 ≦ y ≦ 12', '-1 ≦ y ≦ 12', '0 ≦ y ≦ 3', '0 ≦ y ≦ 12'],
+            correctIndex: 3,
+            explanation:
+              'x の変域が 0 をまたぐので、最小値は y=0。最大値は絶対値が大きい x=2 で y=3×2²=12。\nよって 0 ≦ y ≦ 12。両端 x=-1, 2 だけで考えると 0 を含み忘れる。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-func-range-q12",
-            "question": "関数 y=-1/2x² で、x の変域が -2 ≦ x ≦ 4 のときの y の変域を求めましょう。",
-            "options": [
-              "-8 ≦ y ≦ -2",
-              "0 ≦ y ≦ 8",
-              "-2 ≦ y ≦ 8",
-              "-8 ≦ y ≦ 0"
-            ],
-            "correctIndex": 3,
-            "explanation": "a<0 で x の変域が 0 をまたぐので、最大値は y=0。最小値は絶対値が大きい x=4 で y=-1/2×4²=-8。\nよって -8 ≦ y ≦ 0。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-func-range-q12',
+            question:
+              '下のグラフは関数 y=-1/2x² のグラフです。x の変域が -2 ≦ x ≦ 4 のときの y の変域を求めましょう。',
+            options: ['-8 ≦ y ≦ -2', '0 ≦ y ≦ 8', '-8 ≦ y ≦ 0', '-2 ≦ y ≦ 8'],
+            correctIndex: 2,
+            explanation:
+              'a<0 で x の変域が 0 をまたぐので、最大値は y=0。最小値は絶対値が大きい x=4 で y=-1/2×4²=-8。\nよって -8 ≦ y ≦ 0。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-func-range-q13",
-            "question": "関数 y=2x² で、x の変域が -3 ≦ x ≦ 1 のときの y の変域を求めましょう。",
-            "options": [
-              "0 ≦ y ≦ 18",
-              "2 ≦ y ≦ 18",
-              "0 ≦ y ≦ 2",
-              "-3 ≦ y ≦ 18"
-            ],
-            "correctIndex": 0,
-            "explanation": "x の変域が 0 をまたぐので、最小値は y=0。最大値は絶対値が大きい x=-3 で y=2×(-3)²=18。\nよって 0 ≦ y ≦ 18。両端だけだと 0 を含み忘れる。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-func-range-q13',
+            question:
+              '関数 y=2x² で、x の変域が -3 ≦ x ≦ 1 のときの y の変域を求めましょう。',
+            options: ['-3 ≦ y ≦ 18', '2 ≦ y ≦ 18', '0 ≦ y ≦ 2', '0 ≦ y ≦ 18'],
+            correctIndex: 3,
+            explanation:
+              'x の変域が 0 をまたぐので、最小値は y=0。最大値は絶対値が大きい x=-3 で y=2×(-3)²=18。\nよって 0 ≦ y ≦ 18。両端だけだと 0 を含み忘れる。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-func-range-q14",
-            "question": "関数 y=ax²（a>0）で、x の変域が -2 ≦ x ≦ 3 のとき y の変域が 0 ≦ y ≦ 18 でした。a の値を求めましょう。",
-            "options": [
-              "a=9",
-              "a=2",
-              "a=6",
-              "a=9/2"
-            ],
-            "correctIndex": 1,
-            "explanation": "x の変域が 0 をまたぎ a>0 なので最小値 0 は頂点。最大値 18 は絶対値が大きい x=3 でとる。a×3²=18 より 9a=18、a=2。\nx=3 を 2 乗せず 3a=18 とすると a=6 と誤る。",
-            "difficulty": "advanced"
+            id: 'math-g3-quad-func-range-q14',
+            question:
+              '関数 y=ax²（a>0）で、x の変域が -2 ≦ x ≦ 3 のとき y の変域が 0 ≦ y ≦ 18 でした。a の値を求めましょう。',
+            options: ['a=2', 'a=9', 'a=6', 'a=9/2'],
+            correctIndex: 0,
+            explanation:
+              'x の変域が 0 をまたぎ a>0 なので最小値 0 は頂点。最大値 18 は絶対値が大きい x=3 でとる。a×3²=18 より 9a=18、a=2。\nx=3 を 2 乗せず 3a=18 とすると a=6 と誤る。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-quad-func-range-q15",
-            "question": "関数 y=ax²（a<0）で、x の変域が -1 ≦ x ≦ 2 のとき y の変域が -8 ≦ y ≦ 0 でした。a の値を求めましょう。",
-            "options": [
-              "a=8",
-              "a=-8",
-              "a=-2",
-              "a=-4"
-            ],
-            "correctIndex": 2,
-            "explanation": "x の変域が 0 をまたぎ a<0 なので最大値 0 は頂点。最小値 -8 は絶対値が大きい x=2 でとる。a×2²=-8 より 4a=-8、a=-2。\nx=2 を 2 乗せず 2a=-8 とすると a=-4 と誤る。",
-            "difficulty": "advanced"
+            id: 'math-g3-quad-func-range-q15',
+            question:
+              '関数 y=ax²（a<0）で、x の変域が -1 ≦ x ≦ 2 のとき y の変域が -8 ≦ y ≦ 0 でした。a の値を求めましょう。',
+            options: ['a=8', 'a=-8', 'a=-2', 'a=-4'],
+            correctIndex: 2,
+            explanation:
+              'x の変域が 0 をまたぎ a<0 なので最大値 0 は頂点。最小値 -8 は絶対値が大きい x=2 でとる。a×2²=-8 より 4a=-8、a=-2。\nx=2 を 2 乗せず 2a=-8 とすると a=-4 と誤る。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-quad-func-range-q16",
-            "question": "関数 y=1/4x² で、x の変域が -6 ≦ x ≦ 4 のときの y の変域を求めましょう。",
-            "options": [
-              "4 ≦ y ≦ 9",
-              "0 ≦ y ≦ 4",
-              "-6 ≦ y ≦ 9",
-              "0 ≦ y ≦ 9"
-            ],
-            "correctIndex": 3,
-            "explanation": "x の変域が 0 をまたぐので、最小値は y=0。最大値は絶対値が大きい x=-6 で y=1/4×(-6)²=9。\nよって 0 ≦ y ≦ 9。x=4 を最大と思うと 0 ≦ y ≦ 4 と誤る。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-func-range-q16',
+            question:
+              '下のグラフは関数 y=1/4x² のグラフです。x の変域が -6 ≦ x ≦ 4 のときの y の変域を求めましょう。',
+            options: ['4 ≦ y ≦ 9', '0 ≦ y ≦ 9', '-6 ≦ y ≦ 9', '0 ≦ y ≦ 4'],
+            correctIndex: 1,
+            explanation:
+              'x の変域が 0 をまたぐので、最小値は y=0。最大値は絶対値が大きい x=-6 で y=1/4×(-6)²=9。\nよって 0 ≦ y ≦ 9。x=4 を最大と思うと 0 ≦ y ≦ 4 と誤る。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-func-range-q17",
-            "question": "関数 y=ax²（a>0）で、x の変域が 0 をまたいでいるとき、y の最小値はどれですか。",
-            "options": [
-              "y=0",
-              "x の左端での値",
-              "x の右端での値",
-              "a と同じ値"
-            ],
-            "correctIndex": 0,
-            "explanation": "a>0 のグラフは下に開く放物線で、頂点 (0, 0) が最も低い点。x の変域が 0 を含むので、最小値は頂点の y=0。\n端の値は最大値を決めるときに使う。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-func-range-q17',
+            question:
+              '関数 y=ax²（a>0）で、x の変域が 0 をまたいでいるとき、y の最小値はどれですか。',
+            options: ['a と同じ値', 'x の左端での値', 'x の右端での値', 'y=0'],
+            correctIndex: 3,
+            explanation:
+              'a>0 のグラフは下に開く放物線で、頂点 (0, 0) が最も低い点。x の変域が 0 を含むので、最小値は頂点の y=0。\n端の値は最大値を決めるときに使う。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-func-range-q18",
-            "question": "関数 y=-3x² で、x の変域が -1 ≦ x ≦ 2 のときの y の変域を求めましょう。",
-            "options": [
-              "-3 ≦ y ≦ 12",
-              "-12 ≦ y ≦ 0",
-              "0 ≦ y ≦ 12",
-              "-12 ≦ y ≦ -3"
+            id: 'math-g3-quad-func-range-q18',
+            question:
+              '下のグラフは関数 y=-3x² のグラフです。x の変域が -1 ≦ x ≦ 2 のときの y の変域を求めましょう。',
+            options: [
+              '-12 ≦ y ≦ 0',
+              '-3 ≦ y ≦ 12',
+              '0 ≦ y ≦ 12',
+              '-12 ≦ y ≦ -3',
             ],
-            "correctIndex": 1,
-            "explanation": "a<0 で x の変域が 0 をまたぐので、最大値は y=0。最小値は絶対値が大きい x=2 で y=-3×2²=-12。\nよって -12 ≦ y ≦ 0。両端だけだと 0 を含み忘れる。",
-            "difficulty": "advanced"
+            correctIndex: 0,
+            explanation:
+              'a<0 で x の変域が 0 をまたぐので、最大値は y=0。最小値は絶対値が大きい x=2 で y=-3×2²=-12。\nよって -12 ≦ y ≦ 0。両端だけだと 0 を含み忘れる。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-quad-func-range-q19",
-            "question": "関数 y=x² で、x の変域が -4 ≦ x ≦ -1 のときの y の変域を求めましょう。",
-            "options": [
-              "0 ≦ y ≦ 16",
-              "-16 ≦ y ≦ -1",
-              "1 ≦ y ≦ 16",
-              "1 ≦ y ≦ 4"
-            ],
-            "correctIndex": 2,
-            "explanation": "x の変域は両端とも負で 0 をまたがない。x=-4 で y=(-4)²=16、x=-1 で y=(-1)²=1。\nよって 1 ≦ y ≦ 16。0 をまたがないので 0 は入らない。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-func-range-q19',
+            question:
+              '下のグラフは関数 y=x² のグラフです。x の変域が -4 ≦ x ≦ -1 のときの y の変域を求めましょう。',
+            options: ['1 ≦ y ≦ 16', '-16 ≦ y ≦ -1', '0 ≦ y ≦ 16', '1 ≦ y ≦ 4'],
+            correctIndex: 0,
+            explanation:
+              'x の変域は両端とも負で 0 をまたがない。x=-4 で y=(-4)²=16、x=-1 で y=(-1)²=1。\nよって 1 ≦ y ≦ 16。0 をまたがないので 0 は入らない。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-func-range-q20",
-            "question": "関数 y=-x² で y の変域が -9 ≦ y ≦ 0 となるような x の変域はどれですか。",
-            "options": [
-              "-2 ≦ x ≦ 2",
-              "1 ≦ x ≦ 3",
-              "-3 ≦ x ≦ -1",
-              "-3 ≦ x ≦ 2"
-            ],
-            "correctIndex": 3,
-            "explanation": "最大値 0 をとるので x の変域は 0 をまたぐ。最小値 -9 は -x²=-9 すなわち x²=9、|x|=3 のとき。0 を含み絶対値の最大が 3 になるのは -3 ≦ x ≦ 2。\n-2 ≦ x ≦ 2 では最小値が -4、1 ≦ x ≦ 3 は 0 をまたがず最大値が 0 にならない。",
-            "difficulty": "advanced"
-          }
-        ]
+            id: 'math-g3-quad-func-range-q20',
+            question:
+              '関数 y=-x² で y の変域が -9 ≦ y ≦ 0 となるような x の変域はどれですか。',
+            options: ['-2 ≦ x ≦ 2', '-3 ≦ x ≦ 2', '-3 ≦ x ≦ -1', '1 ≦ x ≦ 3'],
+            correctIndex: 1,
+            explanation:
+              '最大値 0 をとるので x の変域は 0 をまたぐ。最小値 -9 は -x²=-9 すなわち x²=9、|x|=3 のとき。0 を含み絶対値の最大が 3 になるのは -3 ≦ x ≦ 2。\n-2 ≦ x ≦ 2 では最小値が -4、1 ≦ x ≦ 3 は 0 をまたがず最大値が 0 にならない。',
+            difficulty: 'advanced',
+          },
+        ],
       },
       {
-        "topicId": "math-g3-rate-of-change",
-        "name": "変化の割合",
-        "subtitle": "一次関数との大きな違い",
-        "icon": "📊",
-        "order": 3,
-        "flashcards": [],
-        "quiz": [
+        topicId: 'math-g3-rate-of-change',
+        name: '変化の割合',
+        subtitle: '一次関数との大きな違い',
+        icon: '📊',
+        order: 3,
+        flashcards: [],
+        quiz: [
           {
-            "id": "math-g3-rate-of-change-q1",
-            "question": "関数 y=x² で、x の値が 1 から 3 まで増加するときの変化の割合を求めなさい。",
-            "options": [
-              "4",
-              "8",
-              "2",
-              "5"
-            ],
-            "correctIndex": 0,
-            "explanation": "y の増加量 =9-1=8、x の増加量 =3-1=2\n変化の割合 =8/2=4。",
-            "difficulty": "basic"
+            id: 'math-g3-rate-of-change-q1',
+            question:
+              '下のグラフは y=x² のグラフです。x が 1 から 3 まで増えるときの変化の割合を求めなさい。',
+            options: ['4', '8', '2', '5'],
+            correctIndex: 0,
+            explanation:
+              'y の増加量 =9-1=8、x の増加量 =3-1=2\n変化の割合 =8/2=4。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-rate-of-change-q2",
-            "question": "関数 y=1/2x² で、x の値が 2 から 4 まで増加するときの変化の割合を求めなさい。",
-            "options": [
-              "6",
-              "3",
-              "4",
-              "1"
-            ],
-            "correctIndex": 1,
-            "explanation": "y の増加量 =8-2=6、x の増加量 =4-2=2\n変化の割合 =6/2=3。",
-            "difficulty": "basic"
+            id: 'math-g3-rate-of-change-q2',
+            question:
+              '下のグラフは y=1/2x² のグラフです。x が 2 から 4 まで増えるときの変化の割合を求めなさい。',
+            options: ['6', '4', '3', '1'],
+            correctIndex: 2,
+            explanation:
+              'y の増加量 =8-2=6、x の増加量 =4-2=2\n変化の割合 =6/2=3。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-rate-of-change-q3",
-            "question": "関数 y=2x² で、x の値が -1 から 2 まで増加するときの変化の割合を求めなさい。",
-            "options": [
-              "6",
-              "1",
-              "2",
-              "3"
-            ],
-            "correctIndex": 2,
-            "explanation": "y の増加量 =8-2=6、x の増加量 =2-(-1)=3\n変化の割合 =6/3=2。",
-            "difficulty": "basic"
+            id: 'math-g3-rate-of-change-q3',
+            question:
+              '下のグラフは y=2x² のグラフです。x が -1 から 2 まで増えるときの変化の割合を求めなさい。',
+            options: ['6', '1', '3', '2'],
+            correctIndex: 3,
+            explanation:
+              'y の増加量 =8-2=6、x の増加量 =2-(-1)=3\n変化の割合 =6/3=2。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-rate-of-change-q4",
-            "question": "関数 y=-x² で、x の値が 1 から 3 まで増加するときの変化の割合を求めなさい。",
-            "options": [
-              "4",
-              "-8",
-              "8",
-              "-4"
-            ],
-            "correctIndex": 3,
-            "explanation": "y の増加量 =-9-(-1)=-8、x の増加量 =3-1=2\n変化の割合 =-8/2=-4。",
-            "difficulty": "basic"
+            id: 'math-g3-rate-of-change-q4',
+            question:
+              '下のグラフは y=-x² のグラフです。x が 1 から 3 まで増えるときの変化の割合を求めなさい。',
+            options: ['4', '-8', '8', '-4'],
+            correctIndex: 3,
+            explanation:
+              'y の増加量 =-9-(-1)=-8、x の増加量 =3-1=2\n変化の割合 =-8/2=-4。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-rate-of-change-q5",
-            "question": "関数 y=3x² で、x の値が 0 から 2 まで増加するときの変化の割合を求めなさい。",
-            "options": [
-              "6",
-              "12",
-              "2",
-              "3"
-            ],
-            "correctIndex": 0,
-            "explanation": "y の増加量 =12-0=12、x の増加量 =2-0=2\n変化の割合 =12/2=6。",
-            "difficulty": "basic"
+            id: 'math-g3-rate-of-change-q5',
+            question:
+              '下のグラフは y=3x² のグラフです。x が 0 から 2 まで増えるときの変化の割合を求めなさい。',
+            options: ['12', '6', '2', '3'],
+            correctIndex: 1,
+            explanation:
+              'y の増加量 =12-0=12、x の増加量 =2-0=2\n変化の割合 =12/2=6。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-rate-of-change-q6",
-            "question": "二次関数 y=ax² の変化の割合について、正しいものを選びなさい。",
-            "options": [
-              "どんな範囲でもつねに一定である",
-              "x の値の範囲によって変わる",
-              "つねに a に等しい",
-              "つねに 0 である"
+            id: 'math-g3-rate-of-change-q6',
+            question:
+              '二次関数 y=ax² の変化の割合について、正しいものを選びなさい。',
+            options: [
+              'どんな範囲でもつねに一定である',
+              'つねに a に等しい',
+              'x の値の範囲によって変わる',
+              'つねに 0 である',
             ],
-            "correctIndex": 1,
-            "explanation": "x が p から q まで変わるときの変化の割合は a(p+q) で表される。\nこの値は p、q によって変わるので、一次関数と違い一定ではない。",
-            "difficulty": "basic"
+            correctIndex: 2,
+            explanation:
+              'x が p から q まで変わるときの変化の割合は a(p+q) で表される。\nこの値は p、q によって変わるので、一次関数と違い一定ではない。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-rate-of-change-q7",
-            "question": "関数 y=1/4x² で、x の値が 2 から 6 まで増加するときの変化の割合を求めなさい。",
-            "options": [
-              "8",
-              "1",
-              "2",
-              "4"
-            ],
-            "correctIndex": 2,
-            "explanation": "y の増加量 =9-1=8、x の増加量 =6-2=4\n変化の割合 =8/4=2。",
-            "difficulty": "basic"
+            id: 'math-g3-rate-of-change-q7',
+            question:
+              '下のグラフは y=1/4x² のグラフです。x が 2 から 6 まで増えるときの変化の割合を求めなさい。',
+            options: ['2', '1', '8', '4'],
+            correctIndex: 0,
+            explanation:
+              'y の増加量 =9-1=8、x の増加量 =6-2=4\n変化の割合 =8/4=2。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-rate-of-change-q8",
-            "question": "関数 y=-2x² で、x の値が 1 から 4 まで増加するときの変化の割合を求めなさい。",
-            "options": [
-              "10",
-              "-30",
-              "-5",
-              "-10"
-            ],
-            "correctIndex": 3,
-            "explanation": "y の増加量 =-32-(-2)=-30、x の増加量 =4-1=3\n変化の割合 =-30/3=-10。",
-            "difficulty": "standard"
+            id: 'math-g3-rate-of-change-q8',
+            question:
+              '関数 y=-2x² で、x の値が 1 から 4 まで増加するときの変化の割合を求めなさい。',
+            options: ['10', '-30', '-10', '-5'],
+            correctIndex: 2,
+            explanation:
+              'y の増加量 =-32-(-2)=-30、x の増加量 =4-1=3\n変化の割合 =-30/3=-10。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-rate-of-change-q9",
-            "question": "関数 y=1/3x² で、x の値が -3 から 3 まで増加するときの変化の割合を求めなさい。",
-            "options": [
-              "0",
-              "2",
-              "-2",
-              "6"
-            ],
-            "correctIndex": 0,
-            "explanation": "y の増加量 =3-3=0、x の増加量 =3-(-3)=6\n変化の割合 =0/6=0。a(p+q)=1/3(-3+3)=0 とも一致する。",
-            "difficulty": "standard"
+            id: 'math-g3-rate-of-change-q9',
+            question:
+              '下のグラフは y=1/3x² のグラフです。x が -3 から 3 まで増えるときの変化の割合を求めなさい。',
+            options: ['-2', '2', '0', '6'],
+            correctIndex: 2,
+            explanation:
+              'y の増加量 =3-3=0、x の増加量 =3-(-3)=6\n変化の割合 =0/6=0。a(p+q)=1/3(-3+3)=0 とも一致する。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-rate-of-change-q10",
-            "question": "関数 y=ax² で、x の値が p から q まで増加するときの変化の割合を表す式を選びなさい。",
-            "options": [
-              "a(q-p)",
-              "a(p+q)",
-              "p+q",
-              "aq²-ap²"
-            ],
-            "correctIndex": 1,
-            "explanation": "y の増加量 =aq²-ap²=a(q+p)(q-p)、x の増加量 =q-p\n割ると (a(q+p)(q-p))/(q-p)=a(p+q)。",
-            "difficulty": "standard"
+            id: 'math-g3-rate-of-change-q10',
+            question:
+              '関数 y=ax² で、x の値が p から q まで増加するときの変化の割合を表す式を選びなさい。',
+            options: ['a(p+q)', 'a(q-p)', 'p+q', 'aq²-ap²'],
+            correctIndex: 0,
+            explanation:
+              'y の増加量 =aq²-ap²=a(q+p)(q-p)、x の増加量 =q-p\n割ると (a(q+p)(q-p))/(q-p)=a(p+q)。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-rate-of-change-q11",
-            "question": "関数 y=-3x² で、x の値が -2 から 1 まで増加するときの変化の割合を求めなさい。",
-            "options": [
-              "-3",
-              "9",
-              "3",
-              "-1"
-            ],
-            "correctIndex": 2,
-            "explanation": "y の増加量 =-3-(-12)=9、x の増加量 =1-(-2)=3\n変化の割合 =9/3=3。",
-            "difficulty": "standard"
+            id: 'math-g3-rate-of-change-q11',
+            question:
+              '下のグラフは y=-3x² のグラフです。x が -2 から 1 まで増えるときの変化の割合を求めなさい。',
+            options: ['3', '9', '-3', '-1'],
+            correctIndex: 0,
+            explanation:
+              'y の増加量 =-3-(-12)=9、x の増加量 =1-(-2)=3\n変化の割合 =9/3=3。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-rate-of-change-q12",
-            "question": "関数 y=1/2x² で、x の値が -4 から -2 まで増加するときの変化の割合を求めなさい。",
-            "options": [
-              "3",
-              "-6",
-              "1",
-              "-3"
-            ],
-            "correctIndex": 3,
-            "explanation": "y の増加量 =2-8=-6、x の増加量 =-2-(-4)=2\n変化の割合 =-6/2=-3。",
-            "difficulty": "standard"
+            id: 'math-g3-rate-of-change-q12',
+            question:
+              '下のグラフは y=1/2x² のグラフです。x が -4 から -2 まで増えるときの変化の割合を求めなさい。',
+            options: ['3', '-6', '1', '-3'],
+            correctIndex: 3,
+            explanation:
+              'y の増加量 =2-8=-6、x の増加量 =-2-(-4)=2\n変化の割合 =-6/2=-3。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-rate-of-change-q13",
-            "question": "関数 y=x² で、x の値が a から a+1 まで増加するときの変化の割合を、a を使って表しなさい。",
-            "options": [
-              "2a+1",
-              "2a",
-              "a+1",
-              "a²+1"
-            ],
-            "correctIndex": 0,
-            "explanation": "y=x² の変化の割合は 1 × (p+q)=p+q。\np=a、q=a+1 だから a+(a+1)=2a+1。",
-            "difficulty": "standard"
+            id: 'math-g3-rate-of-change-q13',
+            question:
+              '関数 y=x² で、x の値が a から a+1 まで増加するときの変化の割合を、a を使って表しなさい。',
+            options: ['2a', '2a+1', 'a+1', 'a²+1'],
+            correctIndex: 1,
+            explanation:
+              'y=x² の変化の割合は 1 × (p+q)=p+q。\np=a、q=a+1 だから a+(a+1)=2a+1。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-rate-of-change-q14",
-            "question": "一次関数と二次関数 y=ax² の変化の割合の違いとして、正しいものを選びなさい。",
-            "options": [
-              "どちらも変化の割合は一定である",
-              "一次関数は一定だが、二次関数 y=ax² は一定ではない",
-              "二次関数 y=ax² は一定だが、一次関数は一定ではない",
-              "どちらも一定ではない"
+            id: 'math-g3-rate-of-change-q14',
+            question:
+              '一次関数と二次関数 y=ax² の変化の割合の違いとして、正しいものを選びなさい。',
+            options: [
+              'どちらも変化の割合は一定である',
+              '一次関数は一定だが、二次関数 y=ax² は一定ではない',
+              '二次関数 y=ax² は一定だが、一次関数は一定ではない',
+              'どちらも一定ではない',
             ],
-            "correctIndex": 1,
-            "explanation": "一次関数 y=ax+b の変化の割合はつねに傾き a で一定。\n二次関数 y=ax² の変化の割合は a(p+q) で、範囲によって変わるので一定ではない。",
-            "difficulty": "standard"
+            correctIndex: 1,
+            explanation:
+              '一次関数 y=ax+b の変化の割合はつねに傾き a で一定。\n二次関数 y=ax² の変化の割合は a(p+q) で、範囲によって変わるので一定ではない。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-rate-of-change-q15",
-            "question": "関数 y=x² で、x が 0 から 2 まで増加するときの変化の割合と、x が 2 から 4 まで増加するときの変化の割合について、正しいものを選びなさい。",
-            "options": [
-              "どちらも 2 で等しい",
-              "前者（0 から 2）の方が大きい",
-              "後者（2 から 4）の方が大きい",
-              "どちらも 4 で等しい"
+            id: 'math-g3-rate-of-change-q15',
+            question:
+              '関数 y=x² で、x が 0 から 2 まで増加するときの変化の割合と、x が 2 から 4 まで増加するときの変化の割合について、正しいものを選びなさい。',
+            options: [
+              '後者（2 から 4）の方が大きい',
+              '前者（0 から 2）の方が大きい',
+              'どちらも 2 で等しい',
+              'どちらも 4 で等しい',
             ],
-            "correctIndex": 2,
-            "explanation": "0 から 2 は 1(0+2)=2、2 から 4 は 1(2+4)=6。\n6>2 なので後者の方が大きい。範囲がちがうと値も変わる。",
-            "difficulty": "standard"
+            correctIndex: 0,
+            explanation:
+              '0 から 2 は 1(0+2)=2、2 から 4 は 1(2+4)=6。\n6>2 なので後者の方が大きい。範囲がちがうと値も変わる。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-rate-of-change-q16",
-            "question": "関数 y=ax² で、x の値が 1 から 3 まで増加するときの変化の割合が 8 でした。a の値を求めなさい。",
-            "options": [
-              "a = 4",
-              "a = 1/2",
-              "a = 1",
-              "a = 2"
-            ],
-            "correctIndex": 3,
-            "explanation": "変化の割合 =a(1+3)=4a。\n4a=8 より a=2。",
-            "difficulty": "advanced"
+            id: 'math-g3-rate-of-change-q16',
+            question:
+              '関数 y=ax² で、x の値が 1 から 3 まで増加するときの変化の割合が 8 でした。a の値を求めなさい。',
+            options: ['a = 4', 'a = 2', 'a = 1', 'a = 1/2'],
+            correctIndex: 1,
+            explanation: '変化の割合 =a(1+3)=4a。\n4a=8 より a=2。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-rate-of-change-q17",
-            "question": "関数 y=x² で、x の値が a から a+2 まで増加するときの変化の割合が 8 でした。a の値を求めなさい。",
-            "options": [
-              "a = 3",
-              "a = 4",
-              "a = 6",
-              "a = 8"
-            ],
-            "correctIndex": 0,
-            "explanation": "変化の割合 =1 × (a+(a+2))=2a+2。\n2a+2=8 より a=3。",
-            "difficulty": "advanced"
+            id: 'math-g3-rate-of-change-q17',
+            question:
+              '関数 y=x² で、x の値が a から a+2 まで増加するときの変化の割合が 8 でした。a の値を求めなさい。',
+            options: ['a = 4', 'a = 3', 'a = 6', 'a = 8'],
+            correctIndex: 1,
+            explanation: '変化の割合 =1 × (a+(a+2))=2a+2。\n2a+2=8 より a=3。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-rate-of-change-q18",
-            "question": "ボールがころがり始めてから x 秒間に進む距離 y m が y=2x² で表されます。ころがり始めて 2 秒後から 4 秒後までの平均の速さを求めなさい。",
-            "options": [
-              "毎秒 24 m",
-              "毎秒 12 m",
-              "毎秒 6 m",
-              "毎秒 16 m"
-            ],
-            "correctIndex": 1,
-            "explanation": "進んだ距離 =2 × 4² - 2 × 2²=32-8=24 m、時間 =4-2=2 秒\n平均の速さ =24/2=12（毎秒 12 m）。",
-            "difficulty": "advanced"
+            id: 'math-g3-rate-of-change-q18',
+            question:
+              'ボールがころがり始めてから x 秒間に進む距離 y m が y=2x² で表されます。ころがり始めて 2 秒後から 4 秒後までの平均の速さを求めなさい。',
+            options: ['毎秒 24 m', '毎秒 16 m', '毎秒 6 m', '毎秒 12 m'],
+            correctIndex: 3,
+            explanation:
+              '進んだ距離 =2 × 4² - 2 × 2²=32-8=24 m、時間 =4-2=2 秒\n平均の速さ =24/2=12（毎秒 12 m）。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-rate-of-change-q19",
-            "question": "物体が x 秒間に進む距離 y m が y=4x² で表されます。1 秒後から 3 秒後までの平均の速さを求めなさい。",
-            "options": [
-              "毎秒 32 m",
-              "毎秒 4 m",
-              "毎秒 16 m",
-              "毎秒 8 m"
-            ],
-            "correctIndex": 2,
-            "explanation": "進んだ距離 =4 × 3² - 4 × 1²=36-4=32 m、時間 =3-1=2 秒\n平均の速さ =32/2=16（毎秒 16 m）。",
-            "difficulty": "advanced"
+            id: 'math-g3-rate-of-change-q19',
+            question:
+              '物体が x 秒間に進む距離 y m が y=4x² で表されます。1 秒後から 3 秒後までの平均の速さを求めなさい。',
+            options: ['毎秒 32 m', '毎秒 4 m', '毎秒 16 m', '毎秒 8 m'],
+            correctIndex: 2,
+            explanation:
+              '進んだ距離 =4 × 3² - 4 × 1²=36-4=32 m、時間 =3-1=2 秒\n平均の速さ =32/2=16（毎秒 16 m）。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-rate-of-change-q20",
-            "question": "関数 y=-2x² で、x の値が -3 から -1 まで増加するときの変化の割合を求めなさい。",
-            "options": [
-              "-8",
-              "16",
-              "-4",
-              "8"
-            ],
-            "correctIndex": 3,
-            "explanation": "y の増加量 =-2-(-18)=16、x の増加量 =-1-(-3)=2\n変化の割合 =16/2=8。",
-            "difficulty": "advanced"
-          }
-        ]
+            id: 'math-g3-rate-of-change-q20',
+            question:
+              '関数 y=-2x² で、x の値が -3 から -1 まで増加するときの変化の割合を求めなさい。',
+            options: ['-8', '16', '-4', '8'],
+            correctIndex: 3,
+            explanation:
+              'y の増加量 =-2-(-18)=16、x の増加量 =-1-(-3)=2\n変化の割合 =16/2=8。',
+            difficulty: 'advanced',
+          },
+        ],
       },
       {
-        "topicId": "math-g3-quad-func-real",
-        "name": "日常への応用",
-        "subtitle": "制動距離・ふりこの長さ",
-        "icon": "🚗",
-        "order": 4,
-        "flashcards": [],
-        "quiz": [
+        topicId: 'math-g3-quad-func-real',
+        name: '日常への応用',
+        subtitle: '制動距離・ふりこの長さ',
+        icon: '🚗',
+        order: 4,
+        flashcards: [],
+        quiz: [
           {
-            "id": "math-g3-quad-func-real-q1",
-            "question": "自動車の制動距離 y m は、速さ x km/h について y=1/100x² で表されます。x=40 のときの制動距離を求めなさい。",
-            "options": [
-              "0.4 m",
-              "16 m",
-              "1600 m",
-              "0.8 m"
-            ],
-            "correctIndex": 1,
-            "explanation": "y=1/100× 40²=1600/100=16\n40 を2乗してから 1/100 をかけます。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-func-real-q1',
+            question:
+              '自動車の制動距離 y m は、速さ x km/h について y=1/100x² で表されます。x=40 のときの制動距離を求めなさい。',
+            options: ['0.4 m', '16 m', '1600 m', '0.8 m'],
+            correctIndex: 1,
+            explanation:
+              'y=1/100× 40²=1600/100=16\n40 を2乗してから 1/100 をかけます。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-func-real-q2",
-            "question": "自動車の制動距離 y m は、速さ x km/h について y=1/100x² で表されます。x=20 のときの制動距離を求めなさい。",
-            "options": [
-              "4 m",
-              "0.2 m",
-              "400 m",
-              "2 m"
-            ],
-            "correctIndex": 0,
-            "explanation": "y=1/100× 20²=400/100=4\n速さを2乗してから 1/100 をかけます。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-func-real-q2',
+            question:
+              '自動車の制動距離 y m は、速さ x km/h について y=1/100x² で表されます。x=20 のときの制動距離を求めなさい。',
+            options: ['2 m', '0.2 m', '400 m', '4 m'],
+            correctIndex: 3,
+            explanation:
+              'y=1/100× 20²=400/100=4\n速さを2乗してから 1/100 をかけます。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-func-real-q3",
-            "question": "自動車の制動距離 y m は、速さ x km/h について y=1/100x² で表されます。速さが2倍になると、制動距離は何倍になりますか。",
-            "options": [
-              "2 倍",
-              "8 倍",
-              "16 倍",
-              "4 倍"
-            ],
-            "correctIndex": 3,
-            "explanation": "x が2倍になると y は 2²=4 倍になります。\ny は x の2乗に比例するので、速さに比例して2倍にはなりません。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-func-real-q3',
+            question:
+              '自動車の制動距離 y m は、速さ x km/h について y=1/100x² で表されます。速さが2倍になると、制動距離は何倍になりますか。',
+            options: ['4 倍', '8 倍', '16 倍', '2 倍'],
+            correctIndex: 0,
+            explanation:
+              'x が2倍になると y は 2²=4 倍になります。\ny は x の2乗に比例するので、速さに比例して2倍にはなりません。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-func-real-q4",
-            "question": "自動車の制動距離 y m は、速さ x km/h について y=1/100x² で表されます。x=30 のときの制動距離を求めなさい。",
-            "options": [
-              "3 m",
-              "0.3 m",
-              "9 m",
-              "900 m"
-            ],
-            "correctIndex": 2,
-            "explanation": "y=1/100× 30²=900/100=9\n30 を2乗してから 1/100 をかけます。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-func-real-q4',
+            question:
+              '自動車の制動距離 y m は、速さ x km/h について y=1/100x² で表されます。x=30 のときの制動距離を求めなさい。',
+            options: ['3 m', '0.3 m', '9 m', '900 m'],
+            correctIndex: 2,
+            explanation:
+              'y=1/100× 30²=900/100=9\n30 を2乗してから 1/100 をかけます。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-func-real-q5",
-            "question": "自動車の制動距離 y m は、速さ x km/h について y=1/100x² で表されます。制動距離が 25 m のときの速さを求めなさい。",
-            "options": [
-              "5 km/h",
-              "50 km/h",
-              "250 km/h",
-              "2500 km/h"
-            ],
-            "correctIndex": 1,
-            "explanation": "1/100x²=25 より x²=2500、x>0 だから x=50\nx は速さなので正の値をとります。",
-            "difficulty": "advanced"
+            id: 'math-g3-quad-func-real-q5',
+            question:
+              '自動車の制動距離 y m は、速さ x km/h について y=1/100x² で表されます。制動距離が 25 m のときの速さを求めなさい。',
+            options: ['5 km/h', '250 km/h', '50 km/h', '2500 km/h'],
+            correctIndex: 2,
+            explanation:
+              '1/100x²=25 より x²=2500、x>0 だから x=50\nx は速さなので正の値をとります。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-quad-func-real-q6",
-            "question": "周期が x 秒のふりこの長さ y m は、y=1/4x² で表されます。周期が 2 秒のときのふりこの長さを求めなさい。",
-            "options": [
-              "1 m",
-              "0.5 m",
-              "4 m",
-              "2 m"
-            ],
-            "correctIndex": 0,
-            "explanation": "y=1/4× 2²=4/4=1\n2 を2乗してから 1/4 をかけます。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-func-real-q6',
+            question:
+              '周期が x 秒のふりこの長さ y m は、y=1/4x² で表されます。周期が 2 秒のときのふりこの長さを求めなさい。',
+            options: ['0.5 m', '1 m', '4 m', '2 m'],
+            correctIndex: 1,
+            explanation: 'y=1/4× 2²=4/4=1\n2 を2乗してから 1/4 をかけます。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-func-real-q7",
-            "question": "周期が x 秒のふりこの長さ y m は、y=1/4x² で表されます。周期が 4 秒のときのふりこの長さを求めなさい。",
-            "options": [
-              "8 m",
-              "16 m",
-              "4 m",
-              "2 m"
-            ],
-            "correctIndex": 2,
-            "explanation": "y=1/4× 4²=16/4=4\n4 を2乗してから 1/4 をかけます。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-func-real-q7',
+            question:
+              '周期が x 秒のふりこの長さ y m は、y=1/4x² で表されます。周期が 4 秒のときのふりこの長さを求めなさい。',
+            options: ['8 m', '4 m', '16 m', '2 m'],
+            correctIndex: 1,
+            explanation: 'y=1/4× 4²=16/4=4\n4 を2乗してから 1/4 をかけます。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-func-real-q8",
-            "question": "周期が x 秒のふりこの長さ y m は、y=1/4x² で表されます。周期が2倍になると、ふりこの長さは何倍になりますか。",
-            "options": [
-              "4 倍",
-              "2 倍",
-              "8 倍",
-              "√2 倍"
-            ],
-            "correctIndex": 0,
-            "explanation": "x が2倍になると y は 2²=4 倍になります。\ny は x の2乗に比例するので、周期に比例して2倍にはなりません。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-func-real-q8',
+            question:
+              '周期が x 秒のふりこの長さ y m は、y=1/4x² で表されます。周期が2倍になると、ふりこの長さは何倍になりますか。',
+            options: ['8 倍', '2 倍', '4 倍', '√2 倍'],
+            correctIndex: 2,
+            explanation:
+              'x が2倍になると y は 2²=4 倍になります。\ny は x の2乗に比例するので、周期に比例して2倍にはなりません。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-func-real-q9",
-            "question": "周期が x 秒のふりこの長さ y m は、y=1/4x² で表されます。長さが 9 m のふりこの周期を求めなさい。",
-            "options": [
-              "36 秒",
-              "3 秒",
-              "6 秒",
-              "18 秒"
-            ],
-            "correctIndex": 2,
-            "explanation": "1/4x²=9 より x²=36、x>0 だから x=6\nx は周期なので正の値をとります。",
-            "difficulty": "advanced"
+            id: 'math-g3-quad-func-real-q9',
+            question:
+              '周期が x 秒のふりこの長さ y m は、y=1/4x² で表されます。長さが 9 m のふりこの周期を求めなさい。',
+            options: ['36 秒', '3 秒', '18 秒', '6 秒'],
+            correctIndex: 3,
+            explanation:
+              '1/4x²=9 より x²=36、x>0 だから x=6\nx は周期なので正の値をとります。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-quad-func-real-q10",
-            "question": "ものを落とすとき、x 秒間に落ちる距離 y m は、y=5x² で表されます。x=2 のときに落ちる距離を求めなさい。",
-            "options": [
-              "10 m",
-              "20 m",
-              "40 m",
-              "25 m"
-            ],
-            "correctIndex": 1,
-            "explanation": "y=5× 2²=5× 4=20\n2 を2乗してから 5 をかけます。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-func-real-q10',
+            question:
+              'ものを落とすとき、x 秒間に落ちる距離 y m は、y=5x² で表されます。x=2 のときに落ちる距離を求めなさい。',
+            options: ['20 m', '10 m', '40 m', '25 m'],
+            correctIndex: 0,
+            explanation: 'y=5× 2²=5× 4=20\n2 を2乗してから 5 をかけます。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-func-real-q11",
-            "question": "ものを落とすとき、x 秒間に落ちる距離 y m は、y=5x² で表されます。x=3 のときに落ちる距離を求めなさい。",
-            "options": [
-              "45 m",
-              "15 m",
-              "90 m",
-              "30 m"
-            ],
-            "correctIndex": 0,
-            "explanation": "y=5× 3²=5× 9=45\n3 を2乗してから 5 をかけます。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-func-real-q11',
+            question:
+              'ものを落とすとき、x 秒間に落ちる距離 y m は、y=5x² で表されます。x=3 のときに落ちる距離を求めなさい。',
+            options: ['30 m', '15 m', '90 m', '45 m'],
+            correctIndex: 3,
+            explanation: 'y=5× 3²=5× 9=45\n3 を2乗してから 5 をかけます。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-func-real-q12",
-            "question": "ものを落とすとき、x 秒間に落ちる距離 y m は、y=5x² で表されます。落ちる時間が3倍になると、落ちる距離は何倍になりますか。",
-            "options": [
-              "3 倍",
-              "6 倍",
-              "27 倍",
-              "9 倍"
-            ],
-            "correctIndex": 3,
-            "explanation": "x が3倍になると y は 3²=9 倍になります。\ny は x の2乗に比例するので、時間に比例して3倍にはなりません。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-func-real-q12',
+            question:
+              'ものを落とすとき、x 秒間に落ちる距離 y m は、y=5x² で表されます。落ちる時間が3倍になると、落ちる距離は何倍になりますか。',
+            options: ['3 倍', '6 倍', '27 倍', '9 倍'],
+            correctIndex: 3,
+            explanation:
+              'x が3倍になると y は 3²=9 倍になります。\ny は x の2乗に比例するので、時間に比例して3倍にはなりません。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-func-real-q13",
-            "question": "ものを落とすとき、x 秒間に落ちる距離 y m は、y=5x² で表されます。4 秒間に落ちる距離を求めなさい。",
-            "options": [
-              "20 m",
-              "40 m",
-              "160 m",
-              "80 m"
-            ],
-            "correctIndex": 3,
-            "explanation": "y=5× 4²=5× 16=80\n4 を2乗してから 5 をかけます。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-func-real-q13',
+            question:
+              'ものを落とすとき、x 秒間に落ちる距離 y m は、y=5x² で表されます。4 秒間に落ちる距離を求めなさい。',
+            options: ['20 m', '80 m', '160 m', '40 m'],
+            correctIndex: 1,
+            explanation: 'y=5× 4²=5× 16=80\n4 を2乗してから 5 をかけます。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-func-real-q14",
-            "question": "ものを落とすとき、x 秒間に落ちる距離 y m は、y=5x² で表されます。125 m 落ちるのにかかる時間を求めなさい。",
-            "options": [
-              "25 秒",
-              "2.5 秒",
-              "5 秒",
-              "12.5 秒"
-            ],
-            "correctIndex": 2,
-            "explanation": "5x²=125 より x²=25、x>0 だから x=5\nx は時間なので正の値をとります。",
-            "difficulty": "advanced"
+            id: 'math-g3-quad-func-real-q14',
+            question:
+              'ものを落とすとき、x 秒間に落ちる距離 y m は、y=5x² で表されます。125 m 落ちるのにかかる時間を求めなさい。',
+            options: ['5 秒', '2.5 秒', '25 秒', '12.5 秒'],
+            correctIndex: 0,
+            explanation:
+              '5x²=125 より x²=25、x>0 だから x=5\nx は時間なので正の値をとります。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-quad-func-real-q15",
-            "question": "点 P が動いてできる図形の面積 y cm² は、時間 x 秒について y=2x² で表されます。x=3 のときの面積を求めなさい。",
-            "options": [
-              "12 cm²",
-              "18 cm²",
-              "36 cm²",
-              "6 cm²"
-            ],
-            "correctIndex": 1,
-            "explanation": "y=2× 3²=2× 9=18\n3 を2乗してから 2 をかけます。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-func-real-q15',
+            question:
+              '点 P が動いてできる図形の面積 y cm² は、時間 x 秒について y=2x² で表されます。x=3 のときの面積を求めなさい。',
+            options: ['12 cm²', '6 cm²', '36 cm²', '18 cm²'],
+            correctIndex: 3,
+            explanation: 'y=2× 3²=2× 9=18\n3 を2乗してから 2 をかけます。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-func-real-q16",
-            "question": "面積 y cm² は x の2乗に比例し、x=2 のとき y=12 です。比例定数を求めなさい。",
-            "options": [
-              "6",
-              "4",
-              "2",
-              "3"
-            ],
-            "correctIndex": 3,
-            "explanation": "y=ax² に代入して 12=a× 2²=4a、よって a=3\nx=2 を2乗した 4 で 12 をわります。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-func-real-q16',
+            question:
+              '面積 y cm² は x の2乗に比例し、x=2 のとき y=12 です。比例定数を求めなさい。',
+            options: ['3', '4', '2', '6'],
+            correctIndex: 0,
+            explanation:
+              'y=ax² に代入して 12=a× 2²=4a、よって a=3\nx=2 を2乗した 4 で 12 をわります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-func-real-q17",
-            "question": "面積 y cm² は x の2乗に比例し、x=2 のとき y=12 です。x=5 のときの面積を求めなさい。",
-            "options": [
-              "15",
-              "30",
-              "75",
-              "90"
-            ],
-            "correctIndex": 2,
-            "explanation": "12=a× 2² より a=3、y=3× 5²=3× 25=75\nまず比例定数 a=3 を求めてから x=5 を代入します。",
-            "difficulty": "advanced"
+            id: 'math-g3-quad-func-real-q17',
+            question:
+              '面積 y cm² は x の2乗に比例し、x=2 のとき y=12 です。x=5 のときの面積を求めなさい。',
+            options: ['15', '75', '30', '90'],
+            correctIndex: 1,
+            explanation:
+              '12=a× 2² より a=3、y=3× 5²=3× 25=75\nまず比例定数 a=3 を求めてから x=5 を代入します。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-quad-func-real-q18",
-            "question": "関数 y=3x² について、x=2 のときの y の値を求めなさい。",
-            "options": [
-              "6",
-              "18",
-              "9",
-              "12"
-            ],
-            "correctIndex": 3,
-            "explanation": "y=3× 2²=3× 4=12\n2 を2乗してから 3 をかけます。",
-            "difficulty": "basic"
+            id: 'math-g3-quad-func-real-q18',
+            question: '関数 y=3x² について、x=2 のときの y の値を求めなさい。',
+            options: ['12', '18', '9', '6'],
+            correctIndex: 0,
+            explanation: 'y=3× 2²=3× 4=12\n2 を2乗してから 3 をかけます。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-quad-func-real-q19",
-            "question": "関数 y=ax² について、x=1 のとき y=4 です。x=3 のときの y の値を求めなさい。",
-            "options": [
-              "12",
-              "36",
-              "9",
-              "18"
-            ],
-            "correctIndex": 1,
-            "explanation": "4=a× 1² より a=4、y=4× 3²=4× 9=36\nまず比例定数 a=4 を求めてから x=3 を代入します。",
-            "difficulty": "standard"
+            id: 'math-g3-quad-func-real-q19',
+            question:
+              '関数 y=ax² について、x=1 のとき y=4 です。x=3 のときの y の値を求めなさい。',
+            options: ['12', '9', '36', '18'],
+            correctIndex: 2,
+            explanation:
+              '4=a× 1² より a=4、y=4× 3²=4× 9=36\nまず比例定数 a=4 を求めてから x=3 を代入します。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-quad-func-real-q20",
-            "question": "自動車の制動距離 y m は、速さ x km/h について y=1/100x² で表されます。x=60 のときの制動距離を求めなさい。",
-            "options": [
-              "36 m",
-              "0.6 m",
-              "3.6 m",
-              "3600 m"
-            ],
-            "correctIndex": 0,
-            "explanation": "y=1/100× 60²=3600/100=36\n60 を2乗してから 1/100 をかけます。",
-            "difficulty": "standard"
-          }
-        ]
-      }
-    ]
+            id: 'math-g3-quad-func-real-q20',
+            question:
+              '自動車の制動距離 y m は、速さ x km/h について y=1/100x² で表されます。x=60 のときの制動距離を求めなさい。',
+            options: ['3.6 m', '0.6 m', '36 m', '3600 m'],
+            correctIndex: 2,
+            explanation:
+              'y=1/100× 60²=3600/100=36\n60 を2乗してから 1/100 をかけます。',
+            difficulty: 'standard',
+          },
+        ],
+      },
+    ],
   },
   {
-    "eraId": "math-g3-similarity",
-    "eraName": "相似な図形",
-    "eraIcon": "🔺",
-    "eraPeriod": "中3 図形",
-    "topics": [
+    eraId: 'math-g3-similarity',
+    eraName: '相似な図形',
+    eraIcon: '🔺',
+    eraPeriod: '中3 図形',
+    topics: [
       {
-        "topicId": "math-g3-similar-figures",
-        "name": "相似な図形と相似比",
-        "subtitle": "対応する辺の比を見つけよう",
-        "icon": "🔺",
-        "order": 1,
-        "flashcards": [],
-        "quiz": [
+        topicId: 'math-g3-similar-figures',
+        name: '相似な図形と相似比',
+        subtitle: '対応する辺の比を見つけよう',
+        icon: '🔺',
+        order: 1,
+        flashcards: [],
+        quiz: [
           {
-            "id": "math-g3-similar-figures-q1",
-            "question": "2つの図形が相似であるとは、どのような関係のことですか。",
-            "options": [
-              "一方を一定の割合で拡大・縮小すると他方にぴったり重なる",
-              "面積がつねに等しい",
-              "周の長さがつねに等しい",
-              "少なくとも1組の角が等しい"
+            id: 'math-g3-similar-figures-q1',
+            question:
+              '下の図で △ABC ∽ △DEF です。相似な図形について正しく述べたものはどれですか。',
+            options: [
+              '対応する辺の長さはそれぞれ等しい',
+              '対応する角の大きさはそれぞれ2倍になる',
+              '対応する角の大きさはそれぞれ等しい',
+              '対応する辺の長さはつねに整数になる',
             ],
-            "correctIndex": 0,
-            "explanation": "相似は、形を変えずに一定の割合で拡大・縮小した関係。\n大きさは変わってよいが、形（角）は保たれる。",
-            "difficulty": "basic"
+            correctIndex: 2,
+            explanation:
+              '相似な図形では、形を保ったまま拡大・縮小しているので対応する角の大きさは変わりません。\n相似では対応する角はそれぞれ等しく、対応する辺の比（相似比）は一定になります。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-similar-figures-q2",
-            "question": "2つの図形が相似であることを表す記号はどれですか。",
-            "options": [
-              "≡",
-              "∽",
-              "∥",
-              "perp"
+            id: 'math-g3-similar-figures-q2',
+            question:
+              '下の図で △ABC ∽ △DEF です。つねに成り立つ比はどれですか。',
+            options: [
+              'AB:DE = EF:BC',
+              'AB:DE = BC:EF',
+              'AB:EF = BC:DE',
+              'AB:DE = AC:EF',
             ],
-            "correctIndex": 1,
-            "explanation": "相似は記号 ∽ で表す。\n≡ は合同、∥ は平行、perp は垂直を表す。",
-            "difficulty": "basic"
+            correctIndex: 1,
+            explanation:
+              '対応する辺どうしの比はすべて等しく、AB:DE = BC:EF = CA:FD が成り立ちます。\nこの一定の比を相似比といいます。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-similar-figures-q3",
-            "question": "合同な2つの図形の相似比を、最も簡単な整数の比で表しなさい。",
-            "options": [
-              "1:2",
-              "2:1",
-              "1:1",
-              "0:1"
-            ],
-            "correctIndex": 2,
-            "explanation": "合同な図形は対応する辺がすべて等しいので、辺の比は 1:1。\n合同は相似比 1:1 の相似といえる。",
-            "difficulty": "basic"
+            id: 'math-g3-similar-figures-q3',
+            question:
+              '下の図で △ABC ∽ △DEF です。AB=6cm、DE=9cm のとき、相似比を最も簡単な整数の比で表しなさい。',
+            options: ['3:2', '6:9', '2:3', '4:9'],
+            correctIndex: 2,
+            explanation:
+              'AB:DE = 6:9 = 2:3 です。\n対応する辺の比が相似比なので、最も簡単な整数の比で表します。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-similar-figures-q4",
-            "question": "△ABC ∽ △DEF のとき、∠A に対応する角はどれですか。",
-            "options": [
-              "∠E",
-              "∠F",
-              "∠B",
-              "∠D"
-            ],
-            "correctIndex": 3,
-            "explanation": "頂点を対応順に書くので A と D、B と E、C と F が対応する。\nよって ∠A に対応する角は ∠D。",
-            "difficulty": "basic"
+            id: 'math-g3-similar-figures-q4',
+            question:
+              '下の図で △ABC ∽ △DEF です。AB=12cm、DE=8cm のとき、相似比を最も簡単な整数の比で表しなさい。',
+            options: ['3:2', '2:3', '12:8', '9:4'],
+            correctIndex: 0,
+            explanation:
+              'AB:DE = 12:8 = 3:2 です。\n対応する辺の比が相似比なので、最も簡単な整数の比で表します。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-similar-figures-q5",
-            "question": "△ABC ∽ △DEF のとき、辺 BC に対応する辺はどれですか。",
-            "options": [
-              "EF",
-              "DE",
-              "DF",
-              "AB"
-            ],
-            "correctIndex": 0,
-            "explanation": "B と E、C と F が対応する。\nだから辺 BC に対応する辺は EF。",
-            "difficulty": "basic"
+            id: 'math-g3-similar-figures-q5',
+            question: '下の図で △ABC ∽ △DEF です。x の値を求めなさい。',
+            options: ['4cm', '10cm', '9cm', '18cm'],
+            correctIndex: 2,
+            explanation:
+              'AB:DE = 8:12 = 2:3 なので BC:EF = 6:x = 2:3 より x = 9。\n対応する辺の比はどの組も相似比に等しいことを使います。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-similar-figures-q6",
-            "question": "相似な2つの図形について、つねに成り立つものはどれですか。",
-            "options": [
-              "対応する辺の長さが等しい",
-              "対応する角の大きさが等しい",
-              "面積が等しい",
-              "対応する辺の長さの差が等しい"
-            ],
-            "correctIndex": 1,
-            "explanation": "相似では対応する角の大きさはつねに等しい。\n辺は「比」が等しいだけで、長さや面積は等しいとは限らない。",
-            "difficulty": "basic"
+            id: 'math-g3-similar-figures-q6',
+            question: '下の図で △ABC ∽ △DEF です。x の値を求めなさい。',
+            options: ['50cm', '8cm', '14cm', '5cm'],
+            correctIndex: 1,
+            explanation:
+              'AB:DE = 10:4 = 5:2 なので BC:EF = 20:x = 5:2 より x = 8。\n相似比を使い、対応する辺から比例で求めます。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-similar-figures-q7",
-            "question": "相似な2つの図形で、対応する辺の長さの比を何といいますか。",
-            "options": [
-              "面積比",
-              "比例定数",
-              "相似比",
-              "円周率"
-            ],
-            "correctIndex": 2,
-            "explanation": "対応する辺の長さの比を相似比という。\nどの対応する辺で比をとっても同じ値になる。",
-            "difficulty": "basic"
+            id: 'math-g3-similar-figures-q7',
+            question: '下の図で △ABC ∽ △DEF です。x の値を求めなさい。',
+            options: ['15cm', '11cm', '8cm', '45cm'],
+            correctIndex: 0,
+            explanation:
+              'AB:DE = 3:9 = 1:3 なので BC:EF = 5:x = 1:3 より x = 15。\n相似比 1:3 を対応する辺にあてはめて求めます。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-similar-figures-q8",
-            "question": "△ABC ∽ △DEF で、相似比が 2:3、AB = 4 cm のとき、DE の長さを求めなさい。",
-            "options": [
-              "8 cm",
-              "8/3 cm",
-              "5 cm",
-              "6 cm"
-            ],
-            "correctIndex": 3,
-            "explanation": "AB:DE = 2:3 だから 4:DE = 2:3。\n2 × DE = 12 より DE = 6 cm。",
-            "difficulty": "standard"
+            id: 'math-g3-similar-figures-q8',
+            question:
+              '下の図で △DEF は △ABC を拡大した図で △ABC ∽ △DEF です。AB=3cm、DE=12cm のとき、△DEF は △ABC を何倍に拡大した図ですか。',
+            options: ['1/4倍', '16倍', '9倍', '4倍'],
+            correctIndex: 3,
+            explanation:
+              'DE:AB = 12:3 = 4:1 だから 4 倍です。\n対応する辺の比が、拡大・縮小の倍率（相似比）になります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-similar-figures-q9",
-            "question": "△ABC ∽ △DEF で、相似比が 3:5、AB = 9 cm のとき、DE の長さを求めなさい。",
-            "options": [
-              "15 cm",
-              "27/5 cm",
-              "11 cm",
-              "45 cm"
-            ],
-            "correctIndex": 0,
-            "explanation": "AB:DE = 3:5 だから 9:DE = 3:5。\n3 × DE = 45 より DE = 15 cm。",
-            "difficulty": "standard"
+            id: 'math-g3-similar-figures-q9',
+            question:
+              '下の図で △DEF は △ABC を縮小した図で △ABC ∽ △DEF です。AB=15cm、DE=5cm のとき、△DEF は △ABC を何分の1に縮小した図ですか。',
+            options: ['1/3', '1/5', '1/9', '3倍'],
+            correctIndex: 0,
+            explanation:
+              'DE:AB = 5:15 = 1:3 なので 1/3 に縮小した図です。\n対応する辺の比が相似比（縮小の割合）になります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-similar-figures-q10",
-            "question": "△ABC ∽ △DEF で、AB = 6 cm、DE = 9 cm です。この2つの三角形の相似比を、最も簡単な整数の比で表しなさい。",
-            "options": [
-              "3:2",
-              "2:3",
-              "6:9",
-              "1:3"
-            ],
-            "correctIndex": 1,
-            "explanation": "AB:DE = 6:9。\n両方を 3 でわって 2:3。",
-            "difficulty": "standard"
+            id: 'math-g3-similar-figures-q10',
+            question:
+              '下の図で △ABC ∽ △DEF です。AB=18cm、DE=24cm のとき、相似比を最も簡単な整数の比で表しなさい。',
+            options: ['4:3', '3:4', '18:24', '9:16'],
+            correctIndex: 1,
+            explanation:
+              'AB:DE = 18:24 = 3:4 です。\n両方を最大公約数 6 で割って、最も簡単な整数の比で表します。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-similar-figures-q11",
-            "question": "△ABC ∽ △DEF で、BC = 8 cm、EF = 12 cm です。相似比を、最も簡単な整数の比で表しなさい。",
-            "options": [
-              "3:2",
-              "8:12",
-              "2:3",
-              "4:5"
-            ],
-            "correctIndex": 2,
-            "explanation": "BC:EF = 8:12。\n両方を 4 でわって 2:3。",
-            "difficulty": "standard"
+            id: 'math-g3-similar-figures-q11',
+            question: '下の図で △ABC ∽ △DEF です。x の値を求めなさい。',
+            options: ['4cm', '22cm', '25cm', '28cm'],
+            correctIndex: 2,
+            explanation:
+              'AB:DE = 20:8 = 5:2 なので BC:EF = x:10 = 5:2 より x = 25。\n相似比 5:2 を対応する辺にあてはめて比例で求めます。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-similar-figures-q12",
-            "question": "縦 4 cm、横 6 cm の長方形 A と相似な長方形 B があり、B の縦は 6 cm です。長方形 B の横の長さを求めなさい。",
-            "options": [
-              "8 cm",
-              "4 cm",
-              "12 cm",
-              "9 cm"
-            ],
-            "correctIndex": 3,
-            "explanation": "縦の比 4:6 = 2:3 が相似比。\n横は 6 × 3/2 = 9 cm。",
-            "difficulty": "standard"
+            id: 'math-g3-similar-figures-q12',
+            question:
+              '△ABC ∽ △DEF で、相似比が 2:3、AB=6cm です。対応する辺 DE の長さを求めなさい。',
+            options: ['4cm', '12cm', '18cm', '9cm'],
+            correctIndex: 3,
+            explanation:
+              '相似比 2:3 より AB:DE = 2:3、6:DE = 2:3 なので DE = 9。\n相似比は対応する辺の比なので、比例式で長さを求められます。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-similar-figures-q13",
-            "question": "△ABC ∽ △DEF で、∠B = 70^circ です。∠E の大きさを求めなさい。",
-            "options": [
-              "70^circ",
-              "110^circ",
-              "35^circ",
-              "140^circ"
-            ],
-            "correctIndex": 0,
-            "explanation": "相似では対応する角は等しく、B と E が対応する。\nよって ∠E = ∠B = 70^circ。",
-            "difficulty": "basic"
+            id: 'math-g3-similar-figures-q13',
+            question: '下の図で △ABC ∽ △DEF です。x の値を求めなさい。',
+            options: ['12cm', '27cm', '11cm', '9cm'],
+            correctIndex: 0,
+            explanation:
+              'AB:DE = 21:14 = 3:2 なので BC:EF = 18:x = 3:2 より x = 12。\n相似比 3:2 を対応する辺にあてはめて比例で求めます。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-similar-figures-q14",
-            "question": "△ABC ∽ △DEF で、∠A = 50^circ、∠B = 60^circ です。∠F の大きさを求めなさい。",
-            "options": [
-              "50^circ",
-              "70^circ",
-              "60^circ",
-              "110^circ"
-            ],
-            "correctIndex": 1,
-            "explanation": "三角形の内角の和より ∠C = 180^circ - 50^circ - 60^circ = 70^circ。\nF は C に対応するので ∠F = 70^circ。",
-            "difficulty": "advanced"
+            id: 'math-g3-similar-figures-q14',
+            question:
+              '下の図で △ABC ∽ △DEF で、相似比は 2:3 です。2つの三角形の周の長さの比を、最も簡単な整数の比で表しなさい。',
+            options: ['4:9', '3:2', '2:3', '8:27'],
+            correctIndex: 2,
+            explanation:
+              '対応する辺はすべて 2:3 なので、その和である周の長さの比も 2:3 です。\n周の長さの比は相似比に等しく、面積の比 4:9（相似比の2乗）とは異なります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-similar-figures-q15",
-            "question": "△ABC ∽ △DEF で、相似比が 5:2、AB = 15 cm のとき、DE の長さを求めなさい。",
-            "options": [
-              "12 cm",
-              "9 cm",
-              "6 cm",
-              "3 cm"
+            id: 'math-g3-similar-figures-q15',
+            question:
+              '下の図で △ABC ∽ △DEF です。頂点 B に対応する頂点と、辺 BC に対応する辺の組み合わせはどれですか。',
+            options: [
+              '頂点E と 辺EF',
+              '頂点E と 辺DE',
+              '頂点F と 辺EF',
+              '頂点D と 辺FD',
             ],
-            "correctIndex": 2,
-            "explanation": "AB:DE = 5:2 だから 15:DE = 5:2。\n5 × DE = 30 より DE = 6 cm。",
-            "difficulty": "standard"
+            correctIndex: 0,
+            explanation:
+              '記号 ∽ は対応する順に頂点を並べるので、A→D、B→E、C→F と対応します。\nよって B には E が、辺 BC には辺 EF が対応します。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-similar-figures-q16",
-            "question": "△ABC ∽ △DEF で、AB = 8 cm、DE = 12 cm、EF = 18 cm です。辺 BC の長さを求めなさい。",
-            "options": [
-              "27 cm",
-              "14 cm",
-              "22 cm",
-              "12 cm"
-            ],
-            "correctIndex": 3,
-            "explanation": "相似比は AB:DE = 8:12 = 2:3。\nBC:EF = 2:3 より BC = 18 × 2/3 = 12 cm。",
-            "difficulty": "advanced"
+            id: 'math-g3-similar-figures-q16',
+            question: '下の図で △ABC ∽ △DEF です。x の値を求めなさい。',
+            options: ['4cm', '9cm', '10cm', '18cm'],
+            correctIndex: 1,
+            explanation:
+              'BC:EF = 8:12 = 2:3 なので AB:DE = 6:x = 2:3 より x = 9。\nどの対応する辺の比も相似比に等しいことを使います。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-similar-figures-q17",
-            "question": "相似な2つの三角形があり、相似比は 3:4 です。小さい方のある辺が 9 cm のとき、大きい方の対応する辺の長さを求めなさい。",
-            "options": [
-              "12 cm",
-              "27/4 cm",
-              "10 cm",
-              "16 cm"
-            ],
-            "correctIndex": 0,
-            "explanation": "対応する辺の比は 9:x = 3:4。\n3x = 36 より x = 12 cm。",
-            "difficulty": "standard"
+            id: 'math-g3-similar-figures-q17',
+            question: '下の図で △ABC ∽ △DEF です。x の値を求めなさい。',
+            options: ['12cm', '26cm', '9cm', '27cm'],
+            correctIndex: 3,
+            explanation:
+              'AB:DE = 16:24 = 2:3 なので BC:EF = 18:x = 2:3 より x = 27。\n相似比 2:3 を対応する辺にあてはめて比例で求めます。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-similar-figures-q18",
-            "question": "△ABC ∽ △DEF で、AB = 20 mm、DE = 6 cm です。相似比を、最も簡単な整数の比で表しなさい。",
-            "options": [
-              "10:3",
-              "1:3",
-              "20:6",
-              "3:1"
-            ],
-            "correctIndex": 1,
-            "explanation": "単位をそろえると AB = 20 mm = 2 cm。\nAB:DE = 2:6 = 1:3。",
-            "difficulty": "advanced"
+            id: 'math-g3-similar-figures-q18',
+            question:
+              '下の図で △ABC ∽ △DEF です。CA=8cm、FD=20cm のとき、相似比を最も簡単な整数の比で表しなさい。',
+            options: ['2:5', '5:2', '8:20', '4:25'],
+            correctIndex: 0,
+            explanation:
+              'CA:FD = 8:20 = 2:5 です。\n対応する辺はどの組でも比が等しいので、CA と FD の比から相似比を求められます。',
+            difficulty: 'advanced',
           },
-          {
-            "id": "math-g3-similar-figures-q19",
-            "question": "相似な2つの三角形について、正しくないものはどれですか。",
-            "options": [
-              "対応する角の大きさは等しい",
-              "対応する辺の長さの比はすべて等しい",
-              "対応する辺の長さはつねに等しい",
-              "一方を拡大・縮小すると他方に重なる"
-            ],
-            "correctIndex": 2,
-            "explanation": "対応する辺の長さは相似比が 1:1 のときしか等しくならない。\n等しいのは角の大きさと辺の「比」。",
-            "difficulty": "standard"
-          },
-          {
-            "id": "math-g3-similar-figures-q20",
-            "question": "△ABC ∽ △DEF で、相似比が 4:7、DE = 21 cm のとき、AB の長さを求めなさい。",
-            "options": [
-              "147/4 cm",
-              "18 cm",
-              "24 cm",
-              "12 cm"
-            ],
-            "correctIndex": 3,
-            "explanation": "AB:DE = 4:7 だから AB:21 = 4:7。\n7 × AB = 84 より AB = 12 cm。",
-            "difficulty": "advanced"
-          }
-        ]
+        ],
       },
       {
-        "topicId": "math-g3-triangle-similarity",
-        "name": "三角形の相似条件",
-        "subtitle": "3つの条件で相似を見抜く",
-        "icon": "📐",
-        "order": 2,
-        "flashcards": [],
-        "quiz": [
+        topicId: 'math-g3-triangle-similarity',
+        name: '三角形の相似条件',
+        subtitle: '3つの条件で相似を見抜く',
+        icon: '📐',
+        order: 2,
+        flashcards: [],
+        quiz: [
           {
-            "id": "math-g3-triangle-similarity-q1",
-            "question": "2つの三角形で、2組の角がそれぞれ等しいことがわかりました。このとき使える相似条件はどれですか。",
-            "options": [
-              "2組の角がそれぞれ等しい",
-              "3組の辺の比がすべて等しい",
-              "2組の辺の比とその間の角がそれぞれ等しい",
-              "1組の辺とその両端の角がそれぞれ等しい"
+            id: 'math-g3-triangle-similarity-q1',
+            question:
+              '下の図の2つの三角形が相似であることを示すのに使える相似条件はどれですか。',
+            options: [
+              '3組の辺の比がすべて等しい',
+              '2組の角がそれぞれ等しい',
+              '2組の辺の比とその間の角がそれぞれ等しい',
+              '1組の辺とその両端の角がそれぞれ等しい',
             ],
-            "correctIndex": 0,
-            "explanation": "2組の角がそれぞれ等しいとき、2つの三角形は相似です。\n三角形の内角の和は 180° なので、2組の角が等しければ残りの角も等しくなります。",
-            "difficulty": "basic"
+            correctIndex: 1,
+            explanation:
+              '図では2組の角（同じ印どうし）がそれぞれ等しいことが示されています。\n2組の角が等しければ残りの角も等しくなるので、2つの三角形は相似です。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-triangle-similarity-q2",
-            "question": "3組の辺の比がすべて等しい2つの三角形について、使える相似条件はどれですか。",
-            "options": [
-              "2組の角がそれぞれ等しい",
-              "2組の辺の比とその間の角がそれぞれ等しい",
-              "1組の辺とその両端の角がそれぞれ等しい",
-              "3組の辺の比がすべて等しい"
+            id: 'math-g3-triangle-similarity-q2',
+            question:
+              '下の図の2つの三角形が相似であることを示すのに使える相似条件はどれですか。',
+            options: [
+              '2組の角がそれぞれ等しい',
+              '2組の辺の比とその間の角がそれぞれ等しい',
+              '3組の辺の比がすべて等しい',
+              '3組の辺がそれぞれ等しい',
             ],
-            "correctIndex": 3,
-            "explanation": "3組の辺の比がすべて等しいとき、2つの三角形は相似です。\n対応する3辺の比が等しければ、三角形の形が完全に決まるためです。",
-            "difficulty": "basic"
+            correctIndex: 2,
+            explanation:
+              'AB:DE = BC:EF = CA:FD = 4:8 = 6:12 = 5:10 = 1:2 で3組とも等しいです。\n3組の辺の比がすべて等しいので、2つの三角形は相似です。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-triangle-similarity-q3",
-            "question": "△ABCと△DEFで、AB:DE = AC:DF となり、その間の角 ∠A = ∠D がわかっています。使える相似条件はどれですか。",
-            "options": [
-              "3組の辺の比がすべて等しい",
-              "2組の角がそれぞれ等しい",
-              "2組の辺の比とその間の角がそれぞれ等しい",
-              "2組の辺の比がそれぞれ等しい"
+            id: 'math-g3-triangle-similarity-q3',
+            question:
+              '下の図の2つの三角形が相似であることを示すのに使える相似条件はどれですか。',
+            options: [
+              '3組の辺の比がすべて等しい',
+              '2組の辺の比とその間の角がそれぞれ等しい',
+              '2組の角がそれぞれ等しい',
+              '2組の辺の比がそれぞれ等しい',
             ],
-            "correctIndex": 2,
-            "explanation": "2組の辺の比 AB:DE = AC:DF と、その間の角 ∠A=∠D が等しいので相似です。\n辺の比だけ、または角だけでは相似は決まりません。",
-            "difficulty": "basic"
+            correctIndex: 1,
+            explanation:
+              'AB:DE = BC:EF = 6:4 = 9:6 = 3:2 で、その間の角 ∠B = ∠E も等しいです。\n2組の辺の比とその間の角がそれぞれ等しいので相似です。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-triangle-similarity-q4",
-            "question": "三角形の相似条件は全部で何通りありますか。",
-            "options": [
-              "2つ",
-              "3つ",
-              "4つ",
-              "5つ"
+            id: 'math-g3-triangle-similarity-q4',
+            question: '下の図の2つの三角形について正しいものはどれですか。',
+            options: [
+              '相似である（2組の角がそれぞれ等しい）',
+              '相似である（3組の辺の比がすべて等しい）',
+              '相似である（2組の辺の比とその間の角がそれぞれ等しい）',
+              '相似かどうかは決まらない',
             ],
-            "correctIndex": 1,
-            "explanation": "三角形の相似条件は全部で 3 つです。\n①3組の辺の比がすべて等しい、②2組の辺の比とその間の角がそれぞれ等しい、③2組の角がそれぞれ等しい、の3通りです。",
-            "difficulty": "basic"
+            correctIndex: 0,
+            explanation:
+              '図では ∠A = ∠D、∠C = ∠F（同じ印どうし）が等しいことが示されています。\n2組の角がそれぞれ等しいので相似です。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-triangle-similarity-q5",
-            "question": "次のうち、三角形の相似条件として正しくないものはどれですか。",
-            "options": [
-              "3組の辺の比がすべて等しい",
-              "2組の角がそれぞれ等しい",
-              "2組の辺の比とその間の角がそれぞれ等しい",
-              "3組の辺がそれぞれ等しい"
-            ],
-            "correctIndex": 3,
-            "explanation": "「3組の辺がそれぞれ等しい」は合同条件であり、相似条件ではありません。\n相似では辺の長さそのものではなく、辺の比が等しいことを使います。",
-            "difficulty": "basic"
+            id: 'math-g3-triangle-similarity-q5',
+            question: '下の図で △ABC∽△DEF です。x の値を求めなさい。',
+            options: ['16/3', '11', '12', '9'],
+            correctIndex: 2,
+            explanation:
+              '相似比は AB:DE = 6:9 = 2:3 です。\nBC:EF = 2:3 より 8:x = 2:3、x = 12 となります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-triangle-similarity-q6",
-            "question": "△ABCと△DEFで、∠A=∠D、∠B=∠E がわかっています。この2つの三角形について正しいものはどれですか。",
-            "options": [
-              "相似である（2組の角がそれぞれ等しい）",
-              "相似である（3組の辺の比がすべて等しい）",
-              "相似である（2組の辺の比とその間の角がそれぞれ等しい）",
-              "相似かどうかは決まらない"
-            ],
-            "correctIndex": 0,
-            "explanation": "2組の角 ∠A=∠D、∠B=∠E が等しいので相似です。\n使った相似条件は「2組の角がそれぞれ等しい」です。",
-            "difficulty": "standard"
+            id: 'math-g3-triangle-similarity-q6',
+            question: '下の図で △ABC∽△DEF です。x の値を求めなさい。',
+            options: ['10/3', '15/2', '7', '6'],
+            correctIndex: 1,
+            explanation:
+              '相似比は AB:DE = 4:6 = 2:3 です。\nCA:FD = 2:3 より 5:x = 2:3、x = 5 × 3/2 = 15/2 となります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-triangle-similarity-q7",
-            "question": "△ABC∽△DEF で、AB=4 cm、DE=6 cm のとき、相似比を求めなさい。",
-            "options": [
-              "3:4",
-              "2:3",
-              "3:2",
-              "4:3"
+            id: 'math-g3-triangle-similarity-q7',
+            question:
+              '下の図で、2つの三角形は相似です。相似を正しく表しているものはどれですか。',
+            options: [
+              '△ABC ∽ △DEF',
+              '△ABC ∽ △EFD',
+              '△ABC ∽ △FED',
+              '△ABC ∽ △DFE',
             ],
-            "correctIndex": 1,
-            "explanation": "AB:DE = 4:6 = 2:3\n対応する辺 AB と DE の比が、そのまま相似比になります。",
-            "difficulty": "basic"
+            correctIndex: 0,
+            explanation:
+              '同じ印の角どうしが対応するので、A↔D、B↔E、C↔F です。\n対応する頂点の順に書くと △ABC ∽ △DEF となります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-triangle-similarity-q8",
-            "question": "△ABC∽△DEF で相似比が 2:3 です。BC=8 cm のとき、対応する辺 EF の長さを求めなさい。",
-            "options": [
-              "16/3 cm",
-              "10 cm",
-              "12 cm",
-              "16 cm"
+            id: 'math-g3-triangle-similarity-q8',
+            question: '下の図の2つの三角形について正しいものはどれですか。',
+            options: [
+              '相似である（2組の辺の比とその間の角がそれぞれ等しい）',
+              '相似である（2組の角がそれぞれ等しい）',
+              '相似である（3組の辺の比がすべて等しい）',
+              '相似とは限らない',
             ],
-            "correctIndex": 2,
-            "explanation": "BC:EF = 2:3 より 8:EF = 2:3\nEF = 8 × 3/2 = 12 (cm) です。",
-            "difficulty": "standard"
+            correctIndex: 3,
+            explanation:
+              '等しい2組の辺の比は AB:DE = AC:DF ですが、印のついた等しい角は ∠B = ∠E で、辺 AB、AC の間の角ではありません。\n「2組の辺の比とその間の角」は間の角が等しいときだけ使えるので、この図だけでは相似とは限りません。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-triangle-similarity-q9",
-            "question": "△ABCと△PQRで、AB=6、BC=9、CA=12、PQ=4、QR=6、RP=8 です。この2つの三角形は相似ですか。あわせて使う相似条件を選びなさい。",
-            "options": [
-              "相似である（3組の辺の比がすべて等しい）",
-              "相似である（2組の角がそれぞれ等しい）",
-              "相似である（2組の辺の比とその間の角がそれぞれ等しい）",
-              "相似ではない"
+            id: 'math-g3-triangle-similarity-q9',
+            question:
+              '下の図の2つの三角形は相似ですか。使う相似条件もあわせて選びなさい。',
+            options: [
+              '相似である（3組の辺の比がすべて等しい）',
+              '相似である（2組の角がそれぞれ等しい）',
+              '相似である（2組の辺の比とその間の角がそれぞれ等しい）',
+              '相似ではない',
             ],
-            "correctIndex": 0,
-            "explanation": "AB:PQ = BC:QR = CA:RP = 3:2 ですべて等しいので相似です。\n使った相似条件は「3組の辺の比がすべて等しい」です。",
-            "difficulty": "standard"
+            correctIndex: 0,
+            explanation:
+              'AB:DE = BC:EF = CA:FD = 6:4 = 9:6 = 12:8 = 3:2 ですべて等しいです。\n3組の辺の比がすべて等しいので相似です。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-triangle-similarity-q10",
-            "question": "△ABCと△DEFで、AB:DE = BC:EF = 3:5 となり、その間の角 ∠B = ∠E です。使う相似条件はどれですか。",
-            "options": [
-              "3組の辺の比がすべて等しい",
-              "2組の角がそれぞれ等しい",
-              "1組の辺とその両端の角がそれぞれ等しい",
-              "2組の辺の比とその間の角がそれぞれ等しい"
-            ],
-            "correctIndex": 3,
-            "explanation": "2組の辺の比 AB:DE = BC:EF = 3:5 と、その間の角 ∠B=∠E が等しいので相似です。\n∠B は辺 AB と BC の間の角になっています。",
-            "difficulty": "standard"
+            id: 'math-g3-triangle-similarity-q10',
+            question: '下の図で △ABC∽△DEF です。x の値を求めなさい。',
+            options: ['27/5', '13', '10', '15'],
+            correctIndex: 3,
+            explanation:
+              '相似比は AB:DE = 6:10 = 3:5 です。\nBC:EF = 3:5 より 9:x = 3:5、x = 9 × 5/3 = 15 となります。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-triangle-similarity-q11",
-            "question": "△ABCと△DEFで、AB:DE = AC:DF = 2:5 ですが、等しいとわかっている角は ∠B = ∠E だけです。この情報だけで2つの三角形は相似といえますか。",
-            "options": [
-              "相似である（2組の辺の比とその間の角がそれぞれ等しい）",
-              "相似とは限らない",
-              "相似である（2組の角がそれぞれ等しい）",
-              "相似である（3組の辺の比がすべて等しい）"
+            id: 'math-g3-triangle-similarity-q11',
+            question:
+              '下の図の2つの三角形が相似であることを示すのに使える相似条件はどれですか。',
+            options: [
+              '2組の辺の比とその間の角がそれぞれ等しい',
+              '2組の角がそれぞれ等しい',
+              '3組の辺の比がすべて等しい',
+              '1組の辺とその両端の角がそれぞれ等しい',
             ],
-            "correctIndex": 1,
-            "explanation": "等しい角 ∠B は、比のわかっている辺 AB、AC の間の角ではありません。\n「2組の辺の比とその間の角」は間の角が等しいときだけ使えるので、これだけでは相似とは限りません。",
-            "difficulty": "advanced"
+            correctIndex: 0,
+            explanation:
+              'AB:DE = AC:DF = 5:10 = 6:12 = 1:2 で、その間の角 ∠A = ∠D も等しいです。\n2組の辺の比とその間の角がそれぞれ等しいので相似です。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-triangle-similarity-q12",
-            "question": "△ABC∽△DEF のとき、対応する角について正しいものはどれですか。",
-            "options": [
-              "対応する角の大きさは辺の比と同じになる",
-              "対応する角の和が 180° になる",
-              "対応する角の大きさはそれぞれ等しい",
-              "対応する角の大きさは相似比の分だけ大きくなる"
+            id: 'math-g3-triangle-similarity-q12',
+            question:
+              '下の図の2つの三角形が相似であることを示すのに使える相似条件はどれですか。',
+            options: [
+              '3組の辺の比がすべて等しい',
+              '2組の辺の比とその間の角がそれぞれ等しい',
+              '1組の辺とその両端の角がそれぞれ等しい',
+              '2組の角がそれぞれ等しい',
             ],
-            "correctIndex": 2,
-            "explanation": "相似な図形では、対応する角の大きさはそれぞれ等しくなります。\n相似比に応じて変わるのは辺の長さで、角の大きさは変わりません。",
-            "difficulty": "basic"
+            correctIndex: 3,
+            explanation:
+              '図では ∠B = ∠E、∠C = ∠F（同じ印どうし）が等しいことが示されています。\n2組の角がそれぞれ等しいので相似です。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-triangle-similarity-q13",
-            "question": "△ABCで、辺 AB 上に点 D、辺 AC 上に点 E をとり、DE と BC が平行になっています。△ADEと△ABCについて正しいものはどれですか。",
-            "options": [
-              "相似である（2組の角がそれぞれ等しい）",
-              "相似である（3組の辺の比がすべて等しい）",
-              "相似である（2組の辺の比とその間の角がそれぞれ等しい）",
-              "相似ではない"
+            id: 'math-g3-triangle-similarity-q13',
+            question:
+              '下の図で、2つの三角形は相似です。相似を正しく表しているものはどれですか。',
+            options: [
+              '△ABC ∽ △DEF',
+              '△ABC ∽ △FDE',
+              '△ABC ∽ △EFD',
+              '△ABC ∽ △DFE',
             ],
-            "correctIndex": 0,
-            "explanation": "∠A は共通で、DE ∥ BC より同位角が等しく ∠ADE = ∠ABC です。\n2組の角が等しいので相似です。",
-            "difficulty": "standard"
+            correctIndex: 1,
+            explanation:
+              '同じ印の角どうしが対応するので、A↔F、B↔D、C↔E です。\n対応する頂点の順に書くと △ABC ∽ △FDE となります。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-triangle-similarity-q14",
-            "question": "△ABCで DE ∥ BC となるように辺 AB 上に点 D、辺 AC 上に点 E をとります。AD=4 cm、DB=2 cm、BC=9 cm のとき、DE の長さを求めなさい。",
-            "options": [
-              "3 cm",
-              "9/2 cm",
-              "15/2 cm",
-              "6 cm"
-            ],
-            "correctIndex": 3,
-            "explanation": "AD:AB = 4:(4+2) = 2:3 より DE:BC = 2:3\nDE = 9 × 2/3 = 6 (cm) です。",
-            "difficulty": "standard"
+            id: 'math-g3-triangle-similarity-q14',
+            question: '下の図で △ABC∽△DEF です。x の値を求めなさい。',
+            options: ['27/2', '5', '6', '8'],
+            correctIndex: 2,
+            explanation:
+              '相似比は AB:DE = 12:8 = 3:2 です。\nAC:DF = 3:2 より 9:x = 3:2、x = 9 × 2/3 = 6 となります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-triangle-similarity-q15",
-            "question": "△ABCと△DEFで、∠A = ∠D = 90° で、AB:DE = AC:DF = 1:2 です。使える相似条件はどれですか。",
-            "options": [
-              "3組の辺の比がすべて等しい",
-              "2組の辺の比とその間の角がそれぞれ等しい",
-              "2組の角がそれぞれ等しい",
-              "直角三角形なので相似とはいえない"
+            id: 'math-g3-triangle-similarity-q15',
+            question:
+              '下の図の2つの三角形が相似であることを示すのに使える相似条件はどれですか。',
+            options: [
+              '2組の角がそれぞれ等しい',
+              '3組の辺の比がすべて等しい',
+              '2組の辺の比とその間の角がそれぞれ等しい',
+              '3組の辺がそれぞれ等しい',
             ],
-            "correctIndex": 1,
-            "explanation": "∠A = ∠D は、辺 AB と AC の間の角です。\n2組の辺の比とその間の角が等しいので相似です。",
-            "difficulty": "advanced"
+            correctIndex: 1,
+            explanation:
+              '図では3組の辺（同じ印どうし）の比がそれぞれ等しいことが示されています。\n3組の辺の比がすべて等しいので相似です。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-triangle-similarity-q16",
-            "question": "線分 AB と CD が点 O で交わっていて、AC ∥ DB です。OA=6 cm、OB=4 cm、OC=9 cm のとき、OD の長さを求めなさい。",
-            "options": [
-              "27/2 cm",
-              "8/3 cm",
-              "6 cm",
-              "8 cm"
+            id: 'math-g3-triangle-similarity-q16',
+            question: '下の図の2つの三角形について正しいものはどれですか。',
+            options: [
+              '相似とは限らない',
+              '相似である（2組の辺の比とその間の角がそれぞれ等しい）',
+              '相似である（2組の角がそれぞれ等しい）',
+              '相似である（3組の辺の比がすべて等しい）',
             ],
-            "correctIndex": 2,
-            "explanation": "AC ∥ DB より ∠OAC = ∠OBD、対頂角で ∠AOC = ∠BOD なので △OAC∽△OBD です。\nOA:OB = OC:OD より 6:4 = 9:OD、OD = 6 (cm)。",
-            "difficulty": "advanced"
+            correctIndex: 1,
+            explanation:
+              'AB:DE = BC:EF = 8:12 = 6:9 = 2:3 で、その間の角 ∠B = ∠E も等しいです。\n2組の辺の比とその間の角がそれぞれ等しいので相似です。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-triangle-similarity-q17",
-            "question": "△ABC∽△DEF で、相似比が 3:4、△ABCの周の長さが 18 cm です。△DEFの周の長さを求めなさい。",
-            "options": [
-              "24 cm",
-              "27/2 cm",
-              "21 cm",
-              "32 cm"
-            ],
-            "correctIndex": 0,
-            "explanation": "相似な図形では周の長さの比も相似比に等しく 3:4 です。\n18:x = 3:4 より x = 24 (cm)。",
-            "difficulty": "standard"
+            id: 'math-g3-triangle-similarity-q17',
+            question: '下の図で △ABC∽△DEF です。x の値を求めなさい。',
+            options: ['6/5', '15/2', '9', '4'],
+            correctIndex: 1,
+            explanation:
+              '相似比は AB:DE = 10:4 = 5:2 です。\nBC:EF = 5:2 より x:3 = 5:2、x = 3 × 5/2 = 15/2 となります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-triangle-similarity-q18",
-            "question": "相似な2つの三角形について、いつでも成り立つことはどれですか。",
-            "options": [
-              "対応する辺の長さがそれぞれ等しい",
-              "対応する角の大きさがそれぞれ等しい",
-              "面積がそれぞれ等しい",
-              "周の長さがそれぞれ等しい"
-            ],
-            "correctIndex": 1,
-            "explanation": "相似な図形では、対応する角の大きさはつねに等しくなります。\n辺の長さ・面積・周の長さは相似比に応じて変わるので、等しいとは限りません。",
-            "difficulty": "basic"
+            id: 'math-g3-triangle-similarity-q18',
+            question: '下の図で △ABC∽△DEF です。x の値を求めなさい。',
+            options: ['18', '7', '10', '8'],
+            correctIndex: 3,
+            explanation:
+              '相似比は AB:DE = 15:10 = 3:2 です。\nCA:FD = 3:2 より 12:x = 3:2、x = 12 × 2/3 = 8 となります。',
+            difficulty: 'advanced',
           },
-          {
-            "id": "math-g3-triangle-similarity-q19",
-            "question": "△ABCと△DEFで、∠A=50°、∠B=60°、∠D=50°、∠F=70° です。この2つの三角形は相似ですか。あわせて使う相似条件を選びなさい。",
-            "options": [
-              "相似ではない",
-              "相似である（3組の辺の比がすべて等しい）",
-              "相似である（2組の角がそれぞれ等しい）",
-              "相似かどうかは決まらない"
-            ],
-            "correctIndex": 2,
-            "explanation": "△ABCの残りの角は ∠C=70°、△DEFの残りの角は ∠E=60° で、どちらも 50°, 60°, 70° の角をもちます。\n2組の角が等しいので相似です。",
-            "difficulty": "standard"
-          },
-          {
-            "id": "math-g3-triangle-similarity-q20",
-            "question": "△ABCと△DEFで、AB=6、BC=8、∠B=70°、DE=9、EF=12、∠E=70° です。この2つの三角形は相似といえますか。あわせて使う相似条件を選びなさい。",
-            "options": [
-              "相似ではない",
-              "相似である（3組の辺の比がすべて等しい）",
-              "相似である（2組の角がそれぞれ等しい）",
-              "相似である（2組の辺の比とその間の角がそれぞれ等しい）"
-            ],
-            "correctIndex": 3,
-            "explanation": "AB:DE = BC:EF = 2:3 で、その間の角 ∠B = ∠E = 70° が等しいので相似です。\n使った相似条件は「2組の辺の比とその間の角がそれぞれ等しい」です。",
-            "difficulty": "advanced"
-          }
-        ]
+        ],
       },
       {
-        "topicId": "math-g3-parallel-lines-ratio",
-        "name": "平行線と線分の比",
-        "subtitle": "平行線が作る比の関係",
-        "icon": "📏",
-        "order": 3,
-        "flashcards": [],
-        "quiz": [
+        topicId: 'math-g3-parallel-lines-ratio',
+        name: '平行線と線分の比',
+        subtitle: '平行線が作る比の関係',
+        icon: '📏',
+        order: 3,
+        flashcards: [],
+        quiz: [
           {
-            "id": "math-g3-parallel-lines-ratio-q1",
-            "question": "△ABC で，辺AB の中点を D，辺AC の中点を E とする。BC=10cm のとき，線分DE の長さを求めなさい。",
-            "options": [
-              "5cm",
-              "10cm",
-              "2.5cm",
-              "20cm"
-            ],
-            "correctIndex": 0,
-            "explanation": "DE=1/2BC=1/2×10=5（cm）。\n中点連結定理より，2辺の中点を結ぶ線分は第3辺の半分になります。",
-            "difficulty": "basic"
+            id: 'math-g3-parallel-lines-ratio-q1',
+            question:
+              '下の図の△ABC で，DE∥BC である。AD=4cm，DB=6cm，BC=15cm のとき，線分DE の長さを求めなさい。',
+            options: ['10cm', '6cm', '9cm', '7.5cm'],
+            correctIndex: 1,
+            explanation:
+              'DE:BC=AD:AB=4:10=2:5 なので DE=15×2/5=6（cm）。\nDE∥BC のとき AD:AB=DE:BC が成り立ちます。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-parallel-lines-ratio-q2",
-            "question": "△ABC で，辺AB の中点を M，辺AC の中点を N とする。MN=6cm のとき，辺BC の長さを求めなさい。",
-            "options": [
-              "6cm",
-              "12cm",
-              "24cm",
-              "3cm"
-            ],
-            "correctIndex": 1,
-            "explanation": "MN=1/2BC より BC=2× MN=2×6=12（cm）。\n中点を結んだ線分は第3辺の半分なので，第3辺はその2倍です。",
-            "difficulty": "basic"
+            id: 'math-g3-parallel-lines-ratio-q2',
+            question:
+              '下の図の△ABC で，DE∥BC である。AD=6cm，DB=4cm，AE=9cm のとき，線分EC の長さを求めなさい。',
+            options: ['13.5cm', '6cm', '15cm', '3cm'],
+            correctIndex: 1,
+            explanation:
+              'AD:DB=AE:EC より 6:4=9:EC，EC=4×9/6=6（cm）。\nDE∥BC のとき，2辺は同じ比に分けられます。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-parallel-lines-ratio-q3",
-            "question": "△ABC で，辺AB 上に点D，辺AC 上に点E があり，DE∥BC である。AD=6cm，DB=4cm，AE=9cm のとき，線分EC の長さを求めなさい。",
-            "options": [
-              "13.5cm",
-              "4cm",
-              "6cm",
-              "9cm"
-            ],
-            "correctIndex": 2,
-            "explanation": "DE∥ BC より AD:DB=AE:EC。6:4=9:EC，EC=4×9/6=6（cm）。",
-            "difficulty": "basic"
+            id: 'math-g3-parallel-lines-ratio-q3',
+            question:
+              '下の図の△ABC で，DE∥BC である。DB=6cm，AE=8cm，EC=4cm のとき，線分AD の長さを求めなさい。',
+            options: ['3cm', '6cm', '12cm', '8cm'],
+            correctIndex: 2,
+            explanation:
+              'AD:DB=AE:EC より AD:6=8:4=2:1，AD=6×2=12（cm）。\nAD:DB と AE:EC は等しくなります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-parallel-lines-ratio-q4",
-            "question": "△ABC で，辺AB 上に点D，辺AC 上に点E があり，DE∥BC である。AD=3cm，AB=9cm，BC=12cm のとき，線分DE の長さを求めなさい。",
-            "options": [
-              "36cm",
-              "6cm",
-              "8cm",
-              "4cm"
-            ],
-            "correctIndex": 3,
-            "explanation": "DE∥ BC より AD:AB=DE:BC。3:9=DE:12，DE=3×12/9=4（cm）。",
-            "difficulty": "basic"
+            id: 'math-g3-parallel-lines-ratio-q4',
+            question:
+              '下の図の△ABC で，DE∥BC である。AD=8cm，DB=4cm，DE=6cm のとき，辺BC の長さを求めなさい。',
+            options: ['12cm', '9cm', '3cm', '4cm'],
+            correctIndex: 1,
+            explanation:
+              'DE:BC=AD:AB=8:12=2:3 なので BC=6×3/2=9（cm）。\nDE と BC の比は AD と AB の比に等しくなります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-parallel-lines-ratio-q5",
-            "question": "3本の平行な直線がある。1本の直線がこれらと上から順に点A，B，C で交わり，もう1本の直線が上から順に点D，E，F で交わっている。AB=4cm，BC=6cm，DE=6cm のとき，線分EF の長さを求めなさい。",
-            "options": [
-              "9cm",
-              "4cm",
-              "6cm",
-              "8cm"
-            ],
-            "correctIndex": 0,
-            "explanation": "平行線にはさまれた線分の比は等しいので AB:BC=DE:EF。4:6=6:EF，EF=6×6/4=9（cm）。",
-            "difficulty": "basic"
+            id: 'math-g3-parallel-lines-ratio-q5',
+            question:
+              '下の図の△ABC で，DE∥BC である。DB=6cm，DE=6cm，BC=15cm のとき，線分AD の長さを求めなさい。',
+            options: ['9cm', '6cm', '4cm', '3cm'],
+            correctIndex: 2,
+            explanation:
+              'DE:BC=6:15=2:5 より AD:DB=2:3，AD=6×2/3=4（cm）。\nAD:DB=DE:(BC-DE) を使います。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-parallel-lines-ratio-q6",
-            "question": "3本の平行な直線が，1本の直線と上から順に点A，B，C で交わり，もう1本の直線と上から順に点D，E，F で交わっている。AB=3cm，DE=4cm，EF=8cm のとき，線分BC の長さを求めなさい。",
-            "options": [
-              "12cm",
-              "6cm",
-              "4cm",
-              "1.5cm"
-            ],
-            "correctIndex": 1,
-            "explanation": "AB:BC=DE:EF より 3:BC=4:8，BC=3×8/4=6（cm）。",
-            "difficulty": "standard"
+            id: 'math-g3-parallel-lines-ratio-q6',
+            question:
+              '下の図の△ABC で，DE∥BC である。AD=9cm，DB=6cm，BC=20cm のとき，線分DE の長さを求めなさい。',
+            options: ['30cm', '12cm', '8cm', '10cm'],
+            correctIndex: 1,
+            explanation:
+              'DE:BC=AD:AB=9:15=3:5 なので DE=20×3/5=12（cm）。\nAD:DB ではなく AD:AB と DE:BC が等しいことに注意します。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-parallel-lines-ratio-q7",
-            "question": "△ABC で，辺AB 上に点D，辺AC 上に点E があり，DE∥BC である。AD=6cm，DB=4cm，DE=9cm のとき，辺BC の長さを求めなさい。",
-            "options": [
-              "6cm",
-              "13.5cm",
-              "15cm",
-              "12cm"
-            ],
-            "correctIndex": 2,
-            "explanation": "DE∥ BC より AD:AB=DE:BC。AB=6+4=10 だから 6:10=9:BC，BC=10×9/6=15（cm）。\nDE と BC が対応するので，AD ではなく AB（=AD+DB）を使います。",
-            "difficulty": "standard"
+            id: 'math-g3-parallel-lines-ratio-q7',
+            question:
+              '下の図の△ABC で，DE∥BC である。DB=8cm，AE=6cm，EC=12cm のとき，線分AD の長さを求めなさい。',
+            options: ['16cm', '8cm', '4cm', '6cm'],
+            correctIndex: 2,
+            explanation:
+              'AD:DB=AE:EC より AD:8=6:12=1:2，AD=8×1/2=4（cm）。\nDE∥BC のとき両辺は同じ比に分けられます。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-parallel-lines-ratio-q8",
-            "question": "△ABC で，辺AB 上に点D，辺AC 上に点E があり，DE∥BC である。AD=5cm，DB=3cm，AE=10cm のとき，辺AC の長さを求めなさい。",
-            "options": [
-              "6cm",
-              "10cm",
-              "13cm",
-              "16cm"
-            ],
-            "correctIndex": 3,
-            "explanation": "DE∥ BC より AD:AB=AE:AC。AB=5+3=8 だから 5:8=10:AC，AC=8×10/5=16（cm）。",
-            "difficulty": "standard"
+            id: 'math-g3-parallel-lines-ratio-q8',
+            question:
+              '下の図の△ABC で，DE∥BC である。AD=8cm，AE=6cm，EC=12cm のとき，線分DB の長さを求めなさい。',
+            options: ['4cm', '6cm', '16cm', '12cm'],
+            correctIndex: 2,
+            explanation:
+              'AD:DB=AE:EC より 8:DB=6:12=1:2，DB=8×2=16（cm）。\nAD:DB と AE:EC が等しいことを使います。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-parallel-lines-ratio-q9",
-            "question": "△ABC で，辺AB の中点を D，辺AC の中点を E とする。BC=14cm のとき，線分DE の長さを求めなさい。",
-            "options": [
-              "7cm",
-              "14cm",
-              "28cm",
-              "3.5cm"
-            ],
-            "correctIndex": 0,
-            "explanation": "DE=1/2BC=1/2×14=7（cm）。\n中点連結定理より，DE は BC の半分です。",
-            "difficulty": "basic"
+            id: 'math-g3-parallel-lines-ratio-q9',
+            question:
+              '下の図で AB∥DC であり，対角線が点P で交わっている。AB=12cm，DC=8cm，AP=9cm のとき，線分PC の長さを求めなさい。',
+            options: ['13.5cm', '6cm', '12cm', '8cm'],
+            correctIndex: 1,
+            explanation:
+              'AB∥DC より △PAB∽△PCD，AP:PC=AB:DC=12:8=3:2。PC=9×2/3=6（cm）。\n砂時計型では交点から対応する辺の比が等しくなります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-parallel-lines-ratio-q10",
-            "question": "△ABC で，辺AB の中点を M，辺AC の中点を N とする。BC=9cm のとき，線分MN の長さを求めなさい。",
-            "options": [
-              "18cm",
-              "4.5cm",
-              "9cm",
-              "2.25cm"
-            ],
-            "correctIndex": 1,
-            "explanation": "MN=1/2BC=1/2×9=4.5（cm）。\n中点連結定理より，MN は BC の半分になります。",
-            "difficulty": "basic"
+            id: 'math-g3-parallel-lines-ratio-q10',
+            question:
+              '下の図で AB∥DC であり，対角線が点P で交わっている。AB=15cm，AP=10cm，PC=4cm のとき，線分DC の長さを求めなさい。',
+            options: ['37.5cm', '4cm', '6cm', '10cm'],
+            correctIndex: 2,
+            explanation:
+              '△PAB∽△PCD より AB:DC=AP:PC=10:4=5:2。DC=15×2/5=6（cm）。\n上下の三角形は相似で，対応する辺の比が等しくなります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-parallel-lines-ratio-q11",
-            "question": "△ABC で，辺AB 上に点D，辺AC 上に点E があり，DE∥BC である。DB=6cm，AE=4cm，EC=8cm で，AD=x cm とする。x の値を求めなさい。",
-            "options": [
-              "12",
-              "6",
-              "3",
-              "2"
-            ],
-            "correctIndex": 2,
-            "explanation": "DE∥ BC より AD:DB=AE:EC。x:6=4:8，x=6×4/8=3。",
-            "difficulty": "standard"
+            id: 'math-g3-parallel-lines-ratio-q11',
+            question:
+              '下の図で AB∥DC であり，対角線が点P で交わっている。AB=10cm，DC=6cm，PD=9cm のとき，線分BP の長さを求めなさい。',
+            options: ['5.4cm', '15cm', '9cm', '6cm'],
+            correctIndex: 1,
+            explanation:
+              '△PAB∽△PCD より BP:PD=AB:DC=10:6=5:3。BP=9×5/3=15（cm）。\nもう一方の対角線も同じ比に分けられます。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-parallel-lines-ratio-q12",
-            "question": "△ABC で，辺AB 上に点D，辺AC 上に点E があり，DE∥BC である。AD=8cm，AB=12cm，BC=15cm のとき，線分DE の長さを求めなさい。",
-            "options": [
-              "22.5cm",
-              "12cm",
-              "7.5cm",
-              "10cm"
-            ],
-            "correctIndex": 3,
-            "explanation": "DE∥ BC より AD:AB=DE:BC。8:12=DE:15，DE=8×15/12=10（cm）。",
-            "difficulty": "standard"
+            id: 'math-g3-parallel-lines-ratio-q12',
+            question:
+              '下の図で AB∥DC であり，対角線が点P で交わっている。DC=9cm，AP=8cm，PC=12cm のとき，線分AB の長さを求めなさい。',
+            options: ['13.5cm', '12cm', '6cm', '8cm'],
+            correctIndex: 2,
+            explanation:
+              '△PAB∽△PCD より AB:DC=AP:PC=8:12=2:3。AB=9×2/3=6（cm）。\n交点から測った対角線の比が上下の辺の比に等しくなります。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-parallel-lines-ratio-q13",
-            "question": "3本の平行な直線が，1本の直線と上から順に点A，B，C で交わり，もう1本の直線と上から順に点D，E，F で交わっている。AB=x cm，BC=10cm，DE=6cm，EF=15cm である。x の値を求めなさい。",
-            "options": [
-              "4",
-              "25",
-              "9",
-              "6"
-            ],
-            "correctIndex": 0,
-            "explanation": "AB:BC=DE:EF より x:10=6:15，x=10×6/15=4。",
-            "difficulty": "advanced"
+            id: 'math-g3-parallel-lines-ratio-q13',
+            question:
+              '下の図で，3本の平行線に2本の直線が交わっている。左の直線が上から6cm，x，右の直線が上から8cm，12cm に分けられているとき，x を求めなさい。',
+            options: ['16cm', '9cm', '10cm', '8cm'],
+            correctIndex: 1,
+            explanation:
+              '平行線にはさまれた線分の比は等しいので 6:x=8:12，x=6×12/8=9（cm）。\n3本の平行線では，各直線が同じ比に分けられます。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-parallel-lines-ratio-q14",
-            "question": "△ABC で，辺AB，BC，CA のそれぞれの中点を P，Q，R とする。AB=8cm，BC=12cm，CA=10cm のとき，△PQR の周の長さを求めなさい。",
-            "options": [
-              "30cm",
-              "15cm",
-              "60cm",
-              "20cm"
-            ],
-            "correctIndex": 1,
-            "explanation": "中点連結定理より，3つの中点を結んだ線分はそれぞれ向かい合う辺の半分。PQ=1/2CA=5，QR=1/2AB=4，RP=1/2BC=6。\n周の長さは 5+4+6=15（cm）で，もとの三角形の周の半分になります。",
-            "difficulty": "advanced"
+            id: 'math-g3-parallel-lines-ratio-q14',
+            question:
+              '下の図で，3本の平行線に2本の直線が交わっている。左の直線が上から x，10cm，右の直線が上から6cm，15cm に分けられているとき，x を求めなさい。',
+            options: ['25cm', '9cm', '4cm', '6cm'],
+            correctIndex: 2,
+            explanation:
+              'x:10=6:15 なので x=10×6/15=4（cm）。\n平行線が作る対応する区間の比は等しくなります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-parallel-lines-ratio-q15",
-            "question": "△ABC で，辺AB 上に点D，辺AC 上に点E があり，DE∥BC である。AD:DB=2:3，BC=20cm のとき，線分DE の長さを求めなさい。",
-            "options": [
-              "12cm",
-              "30cm",
-              "8cm",
-              "50cm"
-            ],
-            "correctIndex": 2,
-            "explanation": "AD:DB=2:3 より AD:AB=2:5。DE∥ BC だから DE:BC=AD:AB=2:5，DE=20×2/5=8（cm）。",
-            "difficulty": "standard"
+            id: 'math-g3-parallel-lines-ratio-q15',
+            question:
+              '下の図で，3本の平行線に2本の直線が交わっている。左の直線が上から8cm，6cm，右の直線が上から12cm，x に分けられているとき，x を求めなさい。',
+            options: ['16cm', '9cm', '10cm', '12cm'],
+            correctIndex: 1,
+            explanation:
+              '8:6=12:x なので x=6×12/8=9（cm）。\n左右の直線が同じ比に分けられることを使います。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-parallel-lines-ratio-q16",
-            "question": "△ABC で，辺AB 上に点D，辺AC 上に点E があり，DE∥BC である。AD:DB=3:2，DE=12cm のとき，辺BC の長さを求めなさい。",
-            "options": [
-              "30cm",
-              "18cm",
-              "7.2cm",
-              "20cm"
-            ],
-            "correctIndex": 3,
-            "explanation": "AD:DB=3:2 より AD:AB=3:5。DE:BC=AD:AB=3:5 だから 12:BC=3:5，BC=12×5/3=20（cm）。",
-            "difficulty": "advanced"
+            id: 'math-g3-parallel-lines-ratio-q16',
+            question:
+              '下の図で，3本の平行線に2本の直線が交わっている。左の直線が上から12cm，x，右の直線が上から9cm，6cm に分けられているとき，x を求めなさい。',
+            options: ['18cm', '9cm', '8cm', '3cm'],
+            correctIndex: 2,
+            explanation:
+              '12:x=9:6=3:2 なので x=12×2/3=8（cm）。\n平行線にはさまれた線分の比が等しいことを使います。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-parallel-lines-ratio-q17",
-            "question": "3本の平行な直線が，1本の直線と上から順に点A，B，C で交わり，もう1本の直線と上から順に点D，E，F で交わっている。AB=6cm，BC=9cm，DF=20cm のとき，線分DE の長さを求めなさい。",
-            "options": [
-              "8cm",
-              "12cm",
-              "10cm",
-              "13cm"
-            ],
-            "correctIndex": 0,
-            "explanation": "DE:EF=AB:BC=6:9=2:3。DF=DE+EF=20cm なので，DE は全体の 2/5。DE=20×2/5=8（cm）。",
-            "difficulty": "standard"
+            id: 'math-g3-parallel-lines-ratio-q17',
+            question:
+              '下の図の△ABC で，点M，N はそれぞれ辺AB，AC の中点である。BC=14cm のとき，線分MN の長さを求めなさい。',
+            options: ['28cm', '7cm', '14cm', '3.5cm'],
+            correctIndex: 1,
+            explanation:
+              '中点連結定理より MN=1/2BC=1/2×14=7（cm）。\n2辺の中点を結ぶ線分は第3辺に平行で，その長さの半分です。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-parallel-lines-ratio-q18",
-            "question": "△ABC で，辺AB 上に点D，辺AC 上に点E があり，DE∥BC である。AE=6cm，EC=4cm，DE=9cm のとき，辺BC の長さを求めなさい。",
-            "options": [
-              "6cm",
-              "15cm",
-              "13.5cm",
-              "22.5cm"
-            ],
-            "correctIndex": 1,
-            "explanation": "DE∥ BC より AE:AC=DE:BC。AC=6+4=10 だから 6:10=9:BC，BC=10×9/6=15（cm）。\nDE と BC が対応するので，EC ではなく AC（=AE+EC）を使います。",
-            "difficulty": "basic"
+            id: 'math-g3-parallel-lines-ratio-q18',
+            question:
+              '下の図の△ABC で，点M，N はそれぞれ辺AB，AC の中点である。MN=9cm のとき，辺BC の長さを求めなさい。',
+            options: ['9cm', '18cm', '4.5cm', '27cm'],
+            correctIndex: 1,
+            explanation:
+              'MN=1/2BC より BC=2× MN=2×9=18（cm）。\n中点を結んだ線分の2倍が第3辺の長さになります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-parallel-lines-ratio-q19",
-            "question": "△ABC で，辺AB の中点を D とし，D を通って辺BC に平行な直線が辺AC と交わる点を E とする。BC=18cm のとき，線分DE の長さを求めなさい。",
-            "options": [
-              "18cm",
-              "36cm",
-              "9cm",
-              "6cm"
-            ],
-            "correctIndex": 2,
-            "explanation": "D は AB の中点で DE∥ BC だから，E は AC の中点になり，DE は中点連結定理が使えます。DE=1/2BC=1/2×18=9（cm）。",
-            "difficulty": "standard"
+            id: 'math-g3-parallel-lines-ratio-q19',
+            question:
+              '下の図の△ABC で，点D，E，F はそれぞれ辺AB，AC，BC の中点である。BC=16cm のとき，線分DE の長さを求めなさい。',
+            options: ['16cm', '8cm', '32cm', '4cm'],
+            correctIndex: 1,
+            explanation:
+              '中点連結定理より DE=1/2BC=1/2×16=8（cm）。\nDE∥BC で，DE は BC の半分の長さです。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-parallel-lines-ratio-q20",
-            "question": "△ABC で，辺AB 上に点D，辺AC 上に点E がある。AD=4cm，DB=6cm，AE=6cm のとき，DE∥BC となるためには線分EC の長さがいくらであればよいか求めなさい。",
-            "options": [
-              "4cm",
-              "6cm",
-              "2.7cm",
-              "9cm"
-            ],
-            "correctIndex": 3,
-            "explanation": "DE∥ BC となるのは AD:DB=AE:EC のとき。4:6=6:EC，EC=6×6/4=9（cm）。",
-            "difficulty": "advanced"
-          }
-        ]
+            id: 'math-g3-parallel-lines-ratio-q20',
+            question:
+              '下の図の△ABC で，点D，E，F はそれぞれ辺AB，AC，BC の中点である。AB=10cm，BC=14cm，CA=12cm のとき，中点を結んでできる△DEF の周の長さを求めなさい。',
+            options: ['36cm', '18cm', '9cm', '12cm'],
+            correctIndex: 1,
+            explanation:
+              '中点三角形の各辺は対辺の半分なので，周ももとの三角形の半分。(10+14+12)÷2=18（cm）。\n中点三角形の周の長さは，もとの三角形の周の半分になります。',
+            difficulty: 'advanced',
+          },
+        ],
       },
       {
-        "topicId": "math-g3-area-volume-ratio",
-        "name": "相似比と面積比・体積比",
-        "subtitle": "相似比の2乗・3乗",
-        "icon": "🧊",
-        "order": 4,
-        "flashcards": [],
-        "quiz": [
+        topicId: 'math-g3-area-volume-ratio',
+        name: '相似比と面積比・体積比',
+        subtitle: '相似比の2乗・3乗',
+        icon: '🧊',
+        order: 4,
+        flashcards: [],
+        quiz: [
           {
-            "id": "math-g3-area-volume-ratio-q1",
-            "question": "相似比が 2:3 である2つの図形の面積比を求めなさい。",
-            "options": [
-              "4:9",
-              "2:3",
-              "8:27",
-              "9:4"
-            ],
-            "correctIndex": 0,
-            "explanation": "2² : 3² = 4 : 9\n相似比が m:n のとき、面積比は m²:n² になります。",
-            "difficulty": "basic"
+            id: 'math-g3-area-volume-ratio-q1',
+            question: '相似比が 2:3 である2つの図形の面積比を求めなさい。',
+            options: ['9:4', '2:3', '8:27', '4:9'],
+            correctIndex: 3,
+            explanation:
+              '2² : 3² = 4 : 9\n相似比が m:n のとき、面積比は m²:n² になります。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-area-volume-ratio-q2",
-            "question": "相似比が 1:2 である2つの図形の面積比を求めなさい。",
-            "options": [
-              "1:2",
-              "1:4",
-              "1:8",
-              "1:16"
-            ],
-            "correctIndex": 1,
-            "explanation": "1² : 2² = 1 : 4\n面積比は相似比をそれぞれ2乗します。",
-            "difficulty": "basic"
+            id: 'math-g3-area-volume-ratio-q2',
+            question: '相似比が 1:2 である2つの図形の面積比を求めなさい。',
+            options: ['1:4', '1:2', '1:8', '1:16'],
+            correctIndex: 0,
+            explanation: '1² : 2² = 1 : 4\n面積比は相似比をそれぞれ2乗します。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-area-volume-ratio-q3",
-            "question": "相似比が 3:4 である2つの図形の面積比を求めなさい。",
-            "options": [
-              "3:4",
-              "27:64",
-              "9:16",
-              "16:9"
-            ],
-            "correctIndex": 2,
-            "explanation": "3² : 4² = 9 : 16\n面積比は相似比の2乗の比です。",
-            "difficulty": "basic"
+            id: 'math-g3-area-volume-ratio-q3',
+            question: '相似比が 3:4 である2つの図形の面積比を求めなさい。',
+            options: ['3:4', '27:64', '9:16', '16:9'],
+            correctIndex: 2,
+            explanation: '3² : 4² = 9 : 16\n面積比は相似比の2乗の比です。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-area-volume-ratio-q4",
-            "question": "相似比が 4:5 である2つの相似な図形の面積比を求めなさい。",
-            "options": [
-              "4:5",
-              "64:125",
-              "25:16",
-              "16:25"
-            ],
-            "correctIndex": 3,
-            "explanation": "4² : 5² = 16 : 25\n相似比を2乗すると面積比になります。",
-            "difficulty": "basic"
+            id: 'math-g3-area-volume-ratio-q4',
+            question:
+              '相似比が 4:5 である2つの相似な図形の面積比を求めなさい。',
+            options: ['4:5', '16:25', '25:16', '64:125'],
+            correctIndex: 1,
+            explanation:
+              '4² : 5² = 16 : 25\n相似比を2乗すると面積比になります。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-area-volume-ratio-q5",
-            "question": "相似比が 2:3 である2つの立体の体積比を求めなさい。",
-            "options": [
-              "8:27",
-              "4:9",
-              "2:3",
-              "27:8"
-            ],
-            "correctIndex": 0,
-            "explanation": "2³ : 3³ = 8 : 27\n相似比が m:n のとき、体積比は m³:n³ になります。",
-            "difficulty": "basic"
+            id: 'math-g3-area-volume-ratio-q5',
+            question: '相似比が 2:3 である2つの立体の体積比を求めなさい。',
+            options: ['8:27', '4:9', '2:3', '27:8'],
+            correctIndex: 0,
+            explanation:
+              '2³ : 3³ = 8 : 27\n相似比が m:n のとき、体積比は m³:n³ になります。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-area-volume-ratio-q6",
-            "question": "相似比が 1:2 である2つの立体の体積比を求めなさい。",
-            "options": [
-              "1:4",
-              "1:8",
-              "1:2",
-              "1:6"
-            ],
-            "correctIndex": 1,
-            "explanation": "1³ : 2³ = 1 : 8\n体積比は相似比をそれぞれ3乗します。",
-            "difficulty": "basic"
+            id: 'math-g3-area-volume-ratio-q6',
+            question: '相似比が 1:2 である2つの立体の体積比を求めなさい。',
+            options: ['1:4', '1:6', '1:2', '1:8'],
+            correctIndex: 3,
+            explanation: '1³ : 2³ = 1 : 8\n体積比は相似比をそれぞれ3乗します。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-area-volume-ratio-q7",
-            "question": "相似比が 1:3 である2つの立体の体積比を求めなさい。",
-            "options": [
-              "1:9",
-              "1:3",
-              "1:27",
-              "1:6"
-            ],
-            "correctIndex": 2,
-            "explanation": "1³ : 3³ = 1 : 27\n体積比は相似比の3乗の比です。",
-            "difficulty": "basic"
+            id: 'math-g3-area-volume-ratio-q7',
+            question: '相似比が 1:3 である2つの立体の体積比を求めなさい。',
+            options: ['1:9', '1:27', '1:3', '1:6'],
+            correctIndex: 1,
+            explanation: '1³ : 3³ = 1 : 27\n体積比は相似比の3乗の比です。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-area-volume-ratio-q8",
-            "question": "相似比が 2:5 である2つの相似な立体の体積比を求めなさい。",
-            "options": [
-              "4:25",
-              "2:5",
-              "125:8",
-              "8:125"
-            ],
-            "correctIndex": 3,
-            "explanation": "2³ : 5³ = 8 : 125\n相似比を3乗すると体積比になります。",
-            "difficulty": "basic"
+            id: 'math-g3-area-volume-ratio-q8',
+            question:
+              '相似比が 2:5 である2つの相似な立体の体積比を求めなさい。',
+            options: ['4:25', '8:125', '125:8', '2:5'],
+            correctIndex: 1,
+            explanation:
+              '2³ : 5³ = 8 : 125\n相似比を3乗すると体積比になります。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-area-volume-ratio-q9",
-            "question": "相似な2つの図形の面積比が 9:25 のとき、相似比を求めなさい。",
-            "options": [
-              "3:5",
-              "9:25",
-              "81:625",
-              "5:3"
-            ],
-            "correctIndex": 0,
-            "explanation": "9 : 25 = 3² : 5² なので相似比は 3:5\n面積比は相似比の2乗なので、それぞれの平方根をとります。",
-            "difficulty": "standard"
+            id: 'math-g3-area-volume-ratio-q9',
+            question:
+              '相似な2つの図形の面積比が 9:25 のとき、相似比を求めなさい。',
+            options: ['3:5', '9:25', '81:625', '5:3'],
+            correctIndex: 0,
+            explanation:
+              '9 : 25 = 3² : 5² なので相似比は 3:5\n面積比は相似比の2乗なので、それぞれの平方根をとります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-area-volume-ratio-q10",
-            "question": "相似な2つの図形の面積比が 4:49 のとき、相似比を求めなさい。",
-            "options": [
-              "4:49",
-              "2:7",
-              "7:2",
-              "16:2401"
-            ],
-            "correctIndex": 1,
-            "explanation": "4 : 49 = 2² : 7² なので相似比は 2:7\n面積比から相似比を求めるには平方根をとります。",
-            "difficulty": "standard"
+            id: 'math-g3-area-volume-ratio-q10',
+            question:
+              '相似な2つの図形の面積比が 4:49 のとき、相似比を求めなさい。',
+            options: ['4:49', '7:2', '2:7', '16:2401'],
+            correctIndex: 2,
+            explanation:
+              '4 : 49 = 2² : 7² なので相似比は 2:7\n面積比から相似比を求めるには平方根をとります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-area-volume-ratio-q11",
-            "question": "相似な2つの図形の面積比が 16:81 のとき、相似比を求めなさい。",
-            "options": [
-              "16:81",
-              "8:9",
-              "4:9",
-              "9:4"
-            ],
-            "correctIndex": 2,
-            "explanation": "16 : 81 = 4² : 9² なので相似比は 4:9\n面積比の各項の平方根が相似比です。",
-            "difficulty": "standard"
+            id: 'math-g3-area-volume-ratio-q11',
+            question:
+              '相似な2つの図形の面積比が 16:81 のとき、相似比を求めなさい。',
+            options: ['16:81', '4:9', '8:9', '9:4'],
+            correctIndex: 1,
+            explanation:
+              '16 : 81 = 4² : 9² なので相似比は 4:9\n面積比の各項の平方根が相似比です。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-area-volume-ratio-q12",
-            "question": "相似な2つの立体の体積比が 8:27 のとき、相似比を求めなさい。",
-            "options": [
-              "4:9",
-              "8:27",
-              "3:2",
-              "2:3"
-            ],
-            "correctIndex": 3,
-            "explanation": "8 : 27 = 2³ : 3³ なので相似比は 2:3\n体積比は相似比の3乗なので、それぞれの立方根をとります。",
-            "difficulty": "standard"
+            id: 'math-g3-area-volume-ratio-q12',
+            question:
+              '相似な2つの立体の体積比が 8:27 のとき、相似比を求めなさい。',
+            options: ['4:9', '8:27', '2:3', '3:2'],
+            correctIndex: 2,
+            explanation:
+              '8 : 27 = 2³ : 3³ なので相似比は 2:3\n体積比は相似比の3乗なので、それぞれの立方根をとります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-area-volume-ratio-q13",
-            "question": "相似な2つの立体の体積比が 1:64 のとき、相似比を求めなさい。",
-            "options": [
-              "1:4",
-              "1:8",
-              "1:64",
-              "4:1"
-            ],
-            "correctIndex": 0,
-            "explanation": "1 : 64 = 1³ : 4³ なので相似比は 1:4\n体積比から相似比を求めるには立方根をとります。",
-            "difficulty": "standard"
+            id: 'math-g3-area-volume-ratio-q13',
+            question:
+              '相似な2つの立体の体積比が 1:64 のとき、相似比を求めなさい。',
+            options: ['4:1', '1:8', '1:64', '1:4'],
+            correctIndex: 3,
+            explanation:
+              '1 : 64 = 1³ : 4³ なので相似比は 1:4\n体積比から相似比を求めるには立方根をとります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-area-volume-ratio-q14",
-            "question": "相似な2つの立体の体積比が 27:125 のとき、相似比を求めなさい。",
-            "options": [
-              "9:25",
-              "3:5",
-              "27:125",
-              "5:3"
-            ],
-            "correctIndex": 1,
-            "explanation": "27 : 125 = 3³ : 5³ なので相似比は 3:5\n体積比の各項の立方根が相似比です。",
-            "difficulty": "standard"
+            id: 'math-g3-area-volume-ratio-q14',
+            question:
+              '相似な2つの立体の体積比が 27:125 のとき、相似比を求めなさい。',
+            options: ['9:25', '5:3', '27:125', '3:5'],
+            correctIndex: 3,
+            explanation:
+              '27 : 125 = 3³ : 5³ なので相似比は 3:5\n体積比の各項の立方根が相似比です。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-area-volume-ratio-q15",
-            "question": "相似な2つの立体の相似比が 1:2 で、小さい方の体積が 5 cm³ のとき、大きい方の体積を求めなさい。",
-            "options": [
-              "10 cm³",
-              "20 cm³",
-              "40 cm³",
-              "80 cm³"
-            ],
-            "correctIndex": 2,
-            "explanation": "体積比 1³:2³ = 1:8、5 × 8 = 40\n相似比 1:2 の立体の体積比は 1:8 なので、小さい方の8倍です。",
-            "difficulty": "standard"
+            id: 'math-g3-area-volume-ratio-q15',
+            question:
+              '相似な2つの立体の相似比が 1:2 で、小さい方の体積が 5 cm³ のとき、大きい方の体積を求めなさい。',
+            options: ['40 cm³', '20 cm³', '10 cm³', '80 cm³'],
+            correctIndex: 0,
+            explanation:
+              '体積比 1³:2³ = 1:8、5 × 8 = 40\n相似比 1:2 の立体の体積比は 1:8 なので、小さい方の8倍です。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-area-volume-ratio-q16",
-            "question": "相似な2つの図形の相似比が 2:3 で、小さい方の面積が 8 cm² のとき、大きい方の面積を求めなさい。",
-            "options": [
-              "12 cm²",
-              "27 cm²",
-              "24 cm²",
-              "18 cm²"
-            ],
-            "correctIndex": 3,
-            "explanation": "面積比 2²:3² = 4:9、8 ÷ 4 × 9 = 18\n面積比 4:9 で小さい方が 8 cm² だから、大きい方は 18 cm²。",
-            "difficulty": "standard"
+            id: 'math-g3-area-volume-ratio-q16',
+            question:
+              '相似な2つの図形の相似比が 2:3 で、小さい方の面積が 8 cm² のとき、大きい方の面積を求めなさい。',
+            options: ['12 cm²', '18 cm²', '24 cm²', '27 cm²'],
+            correctIndex: 1,
+            explanation:
+              '面積比 2²:3² = 4:9、8 ÷ 4 × 9 = 18\n面積比 4:9 で小さい方が 8 cm² だから、大きい方は 18 cm²。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-area-volume-ratio-q17",
-            "question": "相似な2つの立体の相似比が 1:3 で、小さい方の体積が 4 cm³ のとき、大きい方の体積を求めなさい。",
-            "options": [
-              "108 cm³",
-              "12 cm³",
-              "36 cm³",
-              "27 cm³"
-            ],
-            "correctIndex": 0,
-            "explanation": "体積比 1³:3³ = 1:27、4 × 27 = 108\n相似比 1:3 の体積比は 1:27 なので、小さい方の27倍です。",
-            "difficulty": "standard"
+            id: 'math-g3-area-volume-ratio-q17',
+            question:
+              '相似な2つの立体の相似比が 1:3 で、小さい方の体積が 4 cm³ のとき、大きい方の体積を求めなさい。',
+            options: ['108 cm³', '12 cm³', '36 cm³', '27 cm³'],
+            correctIndex: 0,
+            explanation:
+              '体積比 1³:3³ = 1:27、4 × 27 = 108\n相似比 1:3 の体積比は 1:27 なので、小さい方の27倍です。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-area-volume-ratio-q18",
-            "question": "相似な2つの立体の相似比が 2:3 で、大きい方の体積が 54 cm³ のとき、小さい方の体積を求めなさい。",
-            "options": [
-              "36 cm³",
-              "16 cm³",
-              "24 cm³",
-              "8 cm³"
-            ],
-            "correctIndex": 1,
-            "explanation": "体積比 2³:3³ = 8:27、54 ÷ 27 × 8 = 16\n大きい方が 54 cm³ なので、体積比 8:27 を使って小さい方を求めます。",
-            "difficulty": "advanced"
+            id: 'math-g3-area-volume-ratio-q18',
+            question:
+              '相似な2つの立体の相似比が 2:3 で、大きい方の体積が 54 cm³ のとき、小さい方の体積を求めなさい。',
+            options: ['36 cm³', '24 cm³', '16 cm³', '8 cm³'],
+            correctIndex: 2,
+            explanation:
+              '体積比 2³:3³ = 8:27、54 ÷ 27 × 8 = 16\n大きい方が 54 cm³ なので、体積比 8:27 を使って小さい方を求めます。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-area-volume-ratio-q19",
-            "question": "相似な2つの三角形の相似比が 2:5 で、小さい方の面積が 8 cm² のとき、大きい方の面積を求めなさい。",
-            "options": [
-              "20 cm²",
-              "40 cm²",
-              "50 cm²",
-              "125 cm²"
-            ],
-            "correctIndex": 2,
-            "explanation": "面積比 2²:5² = 4:25、8 ÷ 4 × 25 = 50\n相似な三角形の面積比は相似比の2乗 4:25 です。",
-            "difficulty": "advanced"
+            id: 'math-g3-area-volume-ratio-q19',
+            question:
+              '相似な2つの三角形の相似比が 2:5 で、小さい方の面積が 8 cm² のとき、大きい方の面積を求めなさい。',
+            options: ['20 cm²', '40 cm²', '125 cm²', '50 cm²'],
+            correctIndex: 3,
+            explanation:
+              '面積比 2²:5² = 4:25、8 ÷ 4 × 25 = 50\n相似な三角形の面積比は相似比の2乗 4:25 です。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-area-volume-ratio-q20",
-            "question": "相似比が 1:2 である大小2つの円錐がある。小さい円錐の表面積が 15 cm² のとき、大きい円錐の表面積を求めなさい。",
-            "options": [
-              "30 cm²",
-              "120 cm²",
-              "45 cm²",
-              "60 cm²"
-            ],
-            "correctIndex": 3,
-            "explanation": "面積比 1²:2² = 1:4、15 × 4 = 60\n相似比 1:2 の円錐の表面積比は 1:4 なので、4倍になります。",
-            "difficulty": "advanced"
+            id: 'math-g3-area-volume-ratio-q20',
+            question:
+              '相似比が 1:2 である大小2つの円錐がある。小さい円錐の表面積が 15 cm² のとき、大きい円錐の表面積を求めなさい。',
+            options: ['30 cm²', '120 cm²', '60 cm²', '45 cm²'],
+            correctIndex: 2,
+            explanation:
+              '面積比 1²:2² = 1:4、15 × 4 = 60\n相似比 1:2 の円錐の表面積比は 1:4 なので、4倍になります。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-area-volume-ratio-q21",
-            "question": "相似な2つの直方体の表面積の比が 25:36 のとき、体積比を求めなさい。",
-            "options": [
-              "125:216",
-              "25:36",
-              "5:6",
-              "625:1296"
-            ],
-            "correctIndex": 0,
-            "explanation": "面積比 25:36 = 5²:6² より相似比 5:6、体積比 5³:6³ = 125:216\n表面積比から相似比を求め、それを3乗して体積比にします。",
-            "difficulty": "advanced"
-          }
-        ]
-      }
-    ]
+            id: 'math-g3-area-volume-ratio-q21',
+            question:
+              '相似な2つの直方体の表面積の比が 25:36 のとき、体積比を求めなさい。',
+            options: ['125:216', '25:36', '5:6', '625:1296'],
+            correctIndex: 0,
+            explanation:
+              '面積比 25:36 = 5²:6² より相似比 5:6、体積比 5³:6³ = 125:216\n表面積比から相似比を求め、それを3乗して体積比にします。',
+            difficulty: 'advanced',
+          },
+          {
+            id: 'math-g3-area-volume-ratio-q22',
+            question:
+              '下の図で △ABC backsim △DEF であり、相似比は 2:3 である。△ABC の面積が 12 cm² のとき、△DEF の面積を求めなさい。',
+            options: ['27 cm²', '18 cm²', '24 cm²', '8 cm²'],
+            correctIndex: 0,
+            explanation:
+              '面積比 2²:3² = 4:9、12 ÷ 4 × 9 = 27\n相似比 2:3 の面積比は 4:9 なので、△DEF は 27 cm²。',
+            difficulty: 'standard',
+          },
+          {
+            id: 'math-g3-area-volume-ratio-q23',
+            question:
+              '下の図で △ABC backsim △DEF であり、相似比は 2:5 である。△ABC と △DEF の面積比を求めなさい。',
+            options: ['2:5', '4:25', '8:125', '25:4'],
+            correctIndex: 1,
+            explanation:
+              '2²:5² = 4:25\n相似な図形の面積比は、相似比をそれぞれ2乗した比になります。',
+            difficulty: 'basic',
+          },
+          {
+            id: 'math-g3-area-volume-ratio-q24',
+            question:
+              '下の図の相似な2つの円錐 P, Q がある。相似比は 2:3 で、P の体積は 24 cm³ である。Q の体積を求めなさい。',
+            options: ['81 cm³', '54 cm³', '36 cm³', '16 cm³'],
+            correctIndex: 0,
+            explanation:
+              '体積比 2³:3³ = 8:27、24 ÷ 8 × 27 = 81\n相似比 2:3 の立体の体積比は 8:27 なので、Q は 81 cm³。',
+            difficulty: 'standard',
+          },
+          {
+            id: 'math-g3-area-volume-ratio-q25',
+            question:
+              '下の図の相似な2つの円柱 P, Q がある。相似比が 1:2 のとき、P と Q の表面積の比を求めなさい。',
+            options: ['1:2', '1:8', '1:4', '1:16'],
+            correctIndex: 2,
+            explanation:
+              '1²:2² = 1:4\n表面積（面積）の比は相似比の2乗の比なので 1:4。体積比 1:8 と混同しないこと。',
+            difficulty: 'basic',
+          },
+          {
+            id: 'math-g3-area-volume-ratio-q26',
+            question:
+              '下の図の相似な2つの三角錐 P, Q がある。相似比が 1:3 のとき、P と Q の体積比を求めなさい。',
+            options: ['1:3', '1:9', '1:27', '1:6'],
+            correctIndex: 2,
+            explanation:
+              '1³:3³ = 1:27\n相似な立体の体積比は、相似比をそれぞれ3乗した比になります。',
+            difficulty: 'basic',
+          },
+          {
+            id: 'math-g3-area-volume-ratio-q27',
+            question:
+              '下の図の相似な2つの直方体 P, Q がある。相似比が 2:3 のとき、P と Q の表面積の比を求めなさい。',
+            options: ['2:3', '4:9', '8:27', '9:4'],
+            correctIndex: 1,
+            explanation:
+              '2²:3² = 4:9\n表面積の比は相似比の2乗の比です。体積比 8:27 と区別しましょう。',
+            difficulty: 'standard',
+          },
+          {
+            id: 'math-g3-area-volume-ratio-q28',
+            question:
+              '下の図で DE ∥ BC、AD:DB = 1:2 である。△ADE と △ABC の面積比を求めなさい。',
+            options: ['1:3', '1:9', '1:4', '1:2'],
+            correctIndex: 1,
+            explanation:
+              'AD:AB = 1:3 で △ADE backsim △ABC、面積比 1²:3² = 1:9\nDE ∥ BC なので2つの三角形は相似。相似比は AD:AB=1:3 です。',
+            difficulty: 'basic',
+          },
+          {
+            id: 'math-g3-area-volume-ratio-q29',
+            question:
+              '下の図で DE ∥ BC、AD:DB = 2:3 である。△ADE の面積が 12 cm² のとき、台形 DBCE の面積を求めなさい。',
+            options: ['63 cm²', '75 cm²', '48 cm²', '27 cm²'],
+            correctIndex: 0,
+            explanation:
+              'AD:AB=2:5 より △ADE:△ABC = 4:25、△ABC = 12 ÷ 4 × 25 = 75\n台形 DBCE = 75 - 12 = 63 cm²。',
+            difficulty: 'advanced',
+          },
+          {
+            id: 'math-g3-area-volume-ratio-q30',
+            question:
+              '下の図で DE ∥ BC であり、D は辺 AB の中点である。△ADE（①）と台形 DBCE（②）の面積比を求めなさい。',
+            options: ['1:2', '1:3', '1:4', '1:1'],
+            correctIndex: 1,
+            explanation:
+              'AD:AB=1:2 より △ADE:△ABC = 1:4\nよって ①:② = 1:(4-1) = 1:3。',
+            difficulty: 'standard',
+          },
+          {
+            id: 'math-g3-area-volume-ratio-q31',
+            question:
+              '下の図のように、辺 AB と辺 AC を3等分する点を通り、底辺 BC に平行な直線をひいた。3つの部分①、②、③の面積比を求めなさい。',
+            options: ['1:2:3', '1:3:5', '1:3:6', '1:1:1'],
+            correctIndex: 1,
+            explanation:
+              '頂点 A 側から相似比 1:2:3 の三角形ができ、面積は 1:4:9\n各部分の面積は 1:(4-1):(9-4) = 1:3:5。',
+            difficulty: 'standard',
+          },
+          {
+            id: 'math-g3-area-volume-ratio-q32',
+            question:
+              '下の図の台形 ABCD で AD ∥ BC、AD:BC = 1:2 である。対角線の交点を O とするとき、△OAD と △OBC の面積比を求めなさい。',
+            options: ['1:2', '1:4', '1:8', '2:1'],
+            correctIndex: 1,
+            explanation:
+              'AD ∥ BC より △OAD backsim △OCB、相似比は AD:BC=1:2\n面積比は 1²:2² = 1:4。',
+            difficulty: 'standard',
+          },
+          {
+            id: 'math-g3-area-volume-ratio-q33',
+            question:
+              '下の図の台形 ABCD で AD ∥ BC、AD = 4 cm、BC = 6 cm である。対角線の交点を O とする。△OAD の面積が 8 cm² のとき、△OCB の面積を求めなさい。',
+            options: ['18 cm²', '12 cm²', '16 cm²', '27 cm²'],
+            correctIndex: 0,
+            explanation:
+              '△OAD backsim △OCB で相似比 4:6 = 2:3、面積比 4:9\n8 ÷ 4 × 9 = 18 cm²。',
+            difficulty: 'advanced',
+          },
+          {
+            id: 'math-g3-area-volume-ratio-q34',
+            question:
+              '下の図のように、円錐を底面に平行な平面で高さの中点を通るように切る。頂点側の小さい円錐と、もとの円錐の体積比を求めなさい。',
+            options: ['1:2', '1:8', '1:4', '1:6'],
+            correctIndex: 1,
+            explanation:
+              '小さい円錐ともとの円錐は相似で、相似比は高さの比 1:2\n体積比は 1³:2³ = 1:8。',
+            difficulty: 'standard',
+          },
+          {
+            id: 'math-g3-area-volume-ratio-q35',
+            question:
+              '下の図のように、円錐を底面に平行な平面で高さの中点を通るように切る。頂点側の小さい円錐と、下側の円錐台の体積比を求めなさい。',
+            options: ['1:7', '1:8', '1:4', '1:2'],
+            correctIndex: 0,
+            explanation:
+              '小円錐ともとの円錐の体積比は 1:8\n円錐台 = 8-1 = 7 なので、小円錐:円錐台 = 1:7。',
+            difficulty: 'advanced',
+          },
+          {
+            id: 'math-g3-area-volume-ratio-q36',
+            question:
+              '下の図のような円錐の形をした容器がある。容器の高さは 18 cm で、いま深さ 12 cm まで水が入っている。水の体積は、容器を満水にしたときの体積の何倍ですか。',
+            options: ['8/27 倍', '4/9 倍', '2/3 倍', '19/27 倍'],
+            correctIndex: 0,
+            explanation:
+              '水の部分と容器全体は相似で、相似比は深さの比 12:18 = 2:3\n体積比は 2³:3³ = 8:27 なので、水は満水の 8/27 倍。',
+            difficulty: 'advanced',
+          },
+          {
+            id: 'math-g3-area-volume-ratio-q37',
+            question:
+              '下の図の三角錐 OABC を、底面 ABC に平行な平面 DEF で切る。D、E、F がそれぞれ辺 OA、OB、OC の中点であるとき、小さい三角錐 ODEF ともとの三角錐 OABC の体積比を求めなさい。',
+            options: ['1:2', '1:8', '1:4', '1:6'],
+            correctIndex: 1,
+            explanation:
+              '三角錐 ODEF ともとの三角錐 OABC は相似で、相似比は OD:OA=1:2\n体積比は 1³:2³ = 1:8。',
+            difficulty: 'standard',
+          },
+          {
+            id: 'math-g3-area-volume-ratio-q38',
+            question:
+              '下の図の三角錐 OABC を、底面に平行な平面 DEF で切る。OD:OA = 2:3 のとき、切り口 △DEF と底面 △ABC の面積比を求めなさい。',
+            options: ['2:3', '4:9', '8:27', '4:6'],
+            correctIndex: 1,
+            explanation:
+              '△DEF backsim △ABC で相似比 OD:OA = 2:3\n面積比は 2²:3² = 4:9。',
+            difficulty: 'advanced',
+          },
+        ],
+      },
+    ],
   },
   {
-    "eraId": "math-g3-circle",
-    "eraName": "円",
-    "eraIcon": "⭕",
-    "eraPeriod": "中3 図形",
-    "topics": [
+    eraId: 'math-g3-circle',
+    eraName: '円',
+    eraIcon: '⭕',
+    eraPeriod: '中3 図形',
+    topics: [
       {
-        "topicId": "math-g3-inscribed-angle",
-        "name": "円周角の定理",
-        "subtitle": "中心角の半分が円周角",
-        "icon": "⭕",
-        "order": 1,
-        "flashcards": [],
-        "quiz": [
+        topicId: 'math-g3-inscribed-angle',
+        name: '円周角の定理',
+        subtitle: '中心角の半分が円周角',
+        icon: '⭕',
+        order: 1,
+        flashcards: [],
+        quiz: [
           {
-            "id": "math-g3-inscribed-angle-q1",
-            "question": "ある弧に対する中心角が 80° のとき、その弧に対する円周角の大きさを求めなさい。",
-            "options": [
-              "40°",
-              "80°",
-              "160°",
-              "90°"
-            ],
-            "correctIndex": 0,
-            "explanation": "80° ÷ 2 = 40°\n円周角は同じ弧に対する中心角の半分になります。",
-            "difficulty": "basic"
+            id: 'math-g3-inscribed-angle-q1',
+            question:
+              '下の図で、中心 O の円について、∠x の大きさを求めなさい。',
+            options: ['50°', '100°', '200°', '25°'],
+            correctIndex: 0,
+            explanation:
+              '100° ÷ 2 = 50°\n1つの弧に対する円周角は、その弧に対する中心角の半分です。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-inscribed-angle-q2",
-            "question": "ある弧に対する円周角が 30° のとき、その弧に対する中心角の大きさを求めなさい。",
-            "options": [
-              "30°",
-              "15°",
-              "60°",
-              "90°"
-            ],
-            "correctIndex": 2,
-            "explanation": "30° × 2 = 60°\n中心角は同じ弧に対する円周角の2倍になります。",
-            "difficulty": "basic"
+            id: 'math-g3-inscribed-angle-q2',
+            question:
+              '下の図で、中心 O の円について、∠x の大きさを求めなさい。',
+            options: ['140°', '70°', '280°', '35°'],
+            correctIndex: 1,
+            explanation:
+              '140° ÷ 2 = 70°\n円周角は同じ弧に対する中心角の半分になります。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-inscribed-angle-q3",
-            "question": "ある弧に対する中心角が 120° のとき、その弧に対する円周角の大きさを求めなさい。",
-            "options": [
-              "120°",
-              "60°",
-              "240°",
-              "90°"
-            ],
-            "correctIndex": 1,
-            "explanation": "120° ÷ 2 = 60°\n円周角は中心角の半分です。",
-            "difficulty": "basic"
+            id: 'math-g3-inscribed-angle-q3',
+            question:
+              '下の図で、中心 O の円について、中心角 ∠x の大きさを求めなさい。',
+            options: ['35°', '140°', '70°', '90°'],
+            correctIndex: 2,
+            explanation:
+              '35° × 2 = 70°\n中心角は、同じ弧に対する円周角の2倍になります。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-inscribed-angle-q4",
-            "question": "円 O で線分 AB が直径のとき、円周上の点 P について ∠APB の大きさを求めなさい。",
-            "options": [
-              "45°",
-              "60°",
-              "180°",
-              "90°"
-            ],
-            "correctIndex": 3,
-            "explanation": "∠APB = 90°\n直径（半円の弧）に対する円周角はつねに 90° です。",
-            "difficulty": "basic"
+            id: 'math-g3-inscribed-angle-q4',
+            question:
+              '下の図で、overset{frown}{BC} に対する円周角 ∠x の大きさを求めなさい。',
+            options: ['25°', '50°', '100°', '90°'],
+            correctIndex: 1,
+            explanation:
+              '∠BAC = ∠BDC = 50°\n同じ弧に対する円周角はすべて等しくなります。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-inscribed-angle-q5",
-            "question": "ある弧に対する中心角が 100° のとき、その弧に対する円周角の大きさを求めなさい。",
-            "options": [
-              "100°",
-              "50°",
-              "25°",
-              "200°"
-            ],
-            "correctIndex": 1,
-            "explanation": "100° ÷ 2 = 50°\n円周角は中心角の半分です。",
-            "difficulty": "basic"
+            id: 'math-g3-inscribed-angle-q5',
+            question:
+              '下の図で、線分 BC は円の直径です。∠x の大きさを求めなさい。',
+            options: ['35°', '145°', '55°', '90°'],
+            correctIndex: 2,
+            explanation:
+              '∠BAC = 90° だから 180° - 90° - 35° = 55°\n半円の弧に対する円周角は 90° になります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-inscribed-angle-q6",
-            "question": "ある弧に対する円周角が 40° のとき、その弧に対する中心角の大きさを求めなさい。",
-            "options": [
-              "40°",
-              "20°",
-              "80°",
-              "160°"
-            ],
-            "correctIndex": 2,
-            "explanation": "40° × 2 = 80°\n中心角は円周角の2倍です。",
-            "difficulty": "basic"
+            id: 'math-g3-inscribed-angle-q6',
+            question:
+              '下の図で、中心 O の円について、円周角 ∠x の大きさを求めなさい。',
+            options: ['86°', '43°', '172°', '90°'],
+            correctIndex: 1,
+            explanation:
+              '86° ÷ 2 = 43°\n円周角は同じ弧に対する中心角の半分です。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-inscribed-angle-q7",
-            "question": "円 O の弧 AB について、点 C から見た円周角 ∠ACB = 35° です。同じ弧 AB に対する別の点 D から見た円周角 ∠ADB の大きさを求めなさい。",
-            "options": [
-              "35°",
-              "70°",
-              "55°",
-              "90°"
-            ],
-            "correctIndex": 0,
-            "explanation": "∠ADB = ∠ACB = 35°\n同じ弧に対する円周角はすべて等しくなります。",
-            "difficulty": "basic"
+            id: 'math-g3-inscribed-angle-q7',
+            question:
+              '下の図で、中心 O の円について、中心角 ∠x の大きさを求めなさい。',
+            options: ['58°', '116°', '29°', '90°'],
+            correctIndex: 1,
+            explanation:
+              '58° × 2 = 116°\n中心角は同じ弧に対する円周角の2倍です。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-inscribed-angle-q8",
-            "question": "ある弧に対する中心角が 140° のとき、その弧に対する円周角の大きさを求めなさい。",
-            "options": [
-              "140°",
-              "280°",
-              "35°",
-              "70°"
-            ],
-            "correctIndex": 3,
-            "explanation": "140° ÷ 2 = 70°\n円周角は中心角の半分です。",
-            "difficulty": "basic"
+            id: 'math-g3-inscribed-angle-q8',
+            question:
+              '下の図で、overset{frown}{BC} に対する円周角 ∠x の大きさを求めなさい。',
+            options: ['36°', '144°', '72°', '90°'],
+            correctIndex: 2,
+            explanation:
+              '∠BAC = ∠BDC = 72°\n同じ弧に対する円周角は等しいので、見る位置を変えても大きさは変わりません。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-inscribed-angle-q9",
-            "question": "ある弧に対する円周角が 72° のとき、その弧に対する中心角の大きさを求めなさい。",
-            "options": [
-              "72°",
-              "36°",
-              "144°",
-              "108°"
-            ],
-            "correctIndex": 2,
-            "explanation": "72° × 2 = 144°\n中心角は円周角の2倍です。",
-            "difficulty": "standard"
+            id: 'math-g3-inscribed-angle-q9',
+            question:
+              '下の図で、線分 BC は円の直径です。∠x の大きさを求めなさい。',
+            options: ['28°', '62°', '90°', '152°'],
+            correctIndex: 1,
+            explanation:
+              '∠BAC = 90° だから 180° - 90° - 28° = 62°\n直径に対する円周角は 90° になることを使います。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-inscribed-angle-q10",
-            "question": "円 O で線分 AB は直径です。円周上の点 C について ∠ABC = 28° のとき、∠BAC の大きさを求めなさい。",
-            "options": [
-              "62°",
-              "28°",
-              "152°",
-              "90°"
-            ],
-            "correctIndex": 0,
-            "explanation": "∠ACB = 90° より ∠BAC = 180° - 90° - 28° = 62°\n直径に対する円周角 ∠ACB が 90° になることを使います。",
-            "difficulty": "standard"
+            id: 'math-g3-inscribed-angle-q10',
+            question:
+              '下の図で、OA、OB は円の半径です。∠x（∠OAB）の大きさを求めなさい。',
+            options: ['70°', '40°', '140°', '20°'],
+            correctIndex: 0,
+            explanation:
+              '(180° - 40°) ÷ 2 = 70°\nOA = OB の二等辺三角形なので、2つの底角は等しくなります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-inscribed-angle-q11",
-            "question": "同じ円で、弧 CD の長さは弧 AB の 2 倍です。弧 AB に対する円周角が 25° のとき、弧 CD に対する円周角の大きさを求めなさい。",
-            "options": [
-              "25°",
-              "75°",
-              "100°",
-              "50°"
-            ],
-            "correctIndex": 3,
-            "explanation": "25° × 2 = 50°\n同じ円では弧の長さと円周角の大きさは比例します。弧が 2 倍なら円周角も 2 倍です。",
-            "difficulty": "standard"
+            id: 'math-g3-inscribed-angle-q11',
+            question:
+              '下の図で、OA、OB は円の半径です。∠x（∠OAB）の大きさを求めなさい。',
+            options: ['130°', '50°', '25°', '65°'],
+            correctIndex: 2,
+            explanation:
+              '(180° - 130°) ÷ 2 = 25°\nOA = OB の二等辺三角形なので、底角が等しいことを使います。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-inscribed-angle-q12",
-            "question": "同じ円で、弧 AB と弧 CD の長さが等しく、弧 AB に対する円周角が 38° です。弧 CD に対する円周角の大きさを求めなさい。",
-            "options": [
-              "76°",
-              "38°",
-              "19°",
-              "90°"
-            ],
-            "correctIndex": 1,
-            "explanation": "∠= 38°\n同じ円で弧の長さが等しければ、それに対する円周角も等しくなります。",
-            "difficulty": "standard"
+            id: 'math-g3-inscribed-angle-q12',
+            question:
+              '下の図で、overset{frown}{AB} = overset{frown}{BC} です。∠x の大きさを求めなさい。',
+            options: ['30°', '15°', '60°', '45°'],
+            correctIndex: 0,
+            explanation:
+              'overset{frown}{AB} = overset{frown}{BC} だから ∠APB = ∠BPC = 30°\n等しい弧に対する円周角は等しくなります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-inscribed-angle-q13",
-            "question": "ある弧に対する中心角が 210° のとき、その弧に対する円周角の大きさを求めなさい。",
-            "options": [
-              "210°",
-              "420°",
-              "105°",
-              "150°"
-            ],
-            "correctIndex": 2,
-            "explanation": "210° ÷ 2 = 105°\n円周角は中心角の半分です。中心角が 180° より大きくても同じように計算できます。",
-            "difficulty": "standard"
+            id: 'math-g3-inscribed-angle-q13',
+            question:
+              '下の図で、中心 O の円について、円周角 ∠x の大きさを求めなさい。',
+            options: ['110°', '55°', '220°', '90°'],
+            correctIndex: 1,
+            explanation:
+              '110° ÷ 2 = 55°\n円周角は同じ弧に対する中心角の半分です。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-inscribed-angle-q14",
-            "question": "円 O の周上に 4 点 A, B, C, D がこの順にあります。弧 BC に対する円周角 ∠BAC = 40° のとき、同じ弧 BC に対する円周角 ∠BDC の大きさを求めなさい。",
-            "options": [
-              "40°",
-              "80°",
-              "20°",
-              "140°"
-            ],
-            "correctIndex": 0,
-            "explanation": "∠BDC = ∠BAC = 40°\n同じ弧 BC に対する円周角は等しくなります。",
-            "difficulty": "standard"
+            id: 'math-g3-inscribed-angle-q14',
+            question:
+              '下の図で、中心 O の円について、中心角 ∠x の大きさを求めなさい。',
+            options: ['144°', '72°', '36°', '288°'],
+            correctIndex: 0,
+            explanation:
+              '72° × 2 = 144°\n中心角は同じ弧に対する円周角の2倍です。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-inscribed-angle-q15",
-            "question": "ある弧に対する円周角が 115° のとき、その弧に対する中心角の大きさを求めなさい。",
-            "options": [
-              "115°",
-              "130°",
-              "65°",
-              "230°"
-            ],
-            "correctIndex": 3,
-            "explanation": "115° × 2 = 230°\n中心角は円周角の2倍です。円周角が 90° より大きいときは中心角が 180° をこえます。",
-            "difficulty": "standard"
+            id: 'math-g3-inscribed-angle-q15',
+            question:
+              '下の図で、線分 BC は円の直径です。∠x の大きさを求めなさい。',
+            options: ['90°', '45°', '180°', '60°'],
+            correctIndex: 0,
+            explanation:
+              '∠x = 90°\n半円の弧（直径）に対する円周角はつねに 90° になります。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-inscribed-angle-q16",
-            "question": "円 O で線分 AB は直径です。円周上の点 C について、∠CAB の大きさが ∠CBA の 2 倍であるとき、∠CBA の大きさを求めなさい。",
-            "options": [
-              "45°",
-              "30°",
-              "60°",
-              "20°"
-            ],
-            "correctIndex": 1,
-            "explanation": "∠ACB = 90° より ∠CAB + ∠CBA = 90°。2x + x = 90° から x = 30°\n直径に対する円周角が 90° になることを使います。",
-            "difficulty": "advanced"
+            id: 'math-g3-inscribed-angle-q16',
+            question:
+              '下の図で、overset{frown}{AB} : overset{frown}{BC} = 1 : 2 です。∠x の大きさを求めなさい。',
+            options: ['25°', '75°', '50°', '100°'],
+            correctIndex: 2,
+            explanation:
+              '25° × 2 = 50°\n弧の長さと円周角は比例するので、弧が2倍なら円周角も2倍です。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-inscribed-angle-q17",
-            "question": "円を 6 等分する点が円周上にあります。このうち隣り合う 2 点を両端とする弧（円周の 1/6）に対する円周角の大きさを求めなさい。",
-            "options": [
-              "30°",
-              "60°",
-              "15°",
-              "45°"
-            ],
-            "correctIndex": 0,
-            "explanation": "弧の中心角は 360° ÷ 6 = 60°、円周角はその半分で 60° ÷ 2 = 30°\n円周角は中心角の半分です。",
-            "difficulty": "advanced"
+            id: 'math-g3-inscribed-angle-q17',
+            question:
+              '下の図で、2つの弦 AC、BD が点 P で交わっています。∠x の大きさを求めなさい。',
+            options: ['70°', '30°', '40°', '110°'],
+            correctIndex: 0,
+            explanation:
+              '∠x = ∠BAC + ∠ABD = 40° + 30° = 70°\n三角形 ABP の外角は、離れた2つの内角（円周角）の和に等しくなります。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-inscribed-angle-q18",
-            "question": "ある弧について、中心角と円周角の和が 180° です。この弧に対する中心角の大きさを求めなさい。",
-            "options": [
-              "60°",
-              "90°",
-              "135°",
-              "120°"
-            ],
-            "correctIndex": 3,
-            "explanation": "円周角を x とすると中心角は 2x。2x + x = 180° より x = 60°、中心角は 2 × 60° = 120°\n中心角は円周角の2倍であることを使います。",
-            "difficulty": "advanced"
+            id: 'math-g3-inscribed-angle-q18',
+            question:
+              '下の図で、2つの弦 AC、BD が点 P で交わっています。∠x の大きさを求めなさい。',
+            options: ['35°', '45°', '100°', '80°'],
+            correctIndex: 3,
+            explanation:
+              '∠x = ∠BAC + ∠ABD = 35° + 45° = 80°\n三角形 ABP の外角は、離れた2つの内角（円周角）の和に等しくなります。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-inscribed-angle-q19",
-            "question": "同じ円で、弧 AB と弧 CD の長さの比が 1 : 3 です。弧 AB に対する円周角が 15° のとき、弧 CD に対する円周角の大きさを求めなさい。",
-            "options": [
-              "15°",
-              "30°",
-              "45°",
-              "5°"
-            ],
-            "correctIndex": 2,
-            "explanation": "15° × 3 = 45°\n同じ円では弧の長さと円周角は比例します。弧が 3 倍なら円周角も 3 倍です。",
-            "difficulty": "advanced"
+            id: 'math-g3-inscribed-angle-q19',
+            question:
+              '下の図で、OA、OB は円の半径で、∠OAB = 50° です。中心角 ∠x の大きさを求めなさい。',
+            options: ['50°', '80°', '100°', '130°'],
+            correctIndex: 1,
+            explanation:
+              '180° - 50° × 2 = 80°\nOA = OB の二等辺三角形で、底角が等しいことから頂角を求めます。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-inscribed-angle-q20",
-            "question": "円 O で線分 AB は直径です。円周上の点 C について ∠CAB = 53° のとき、∠CBA の大きさを求めなさい。",
-            "options": [
-              "53°",
-              "37°",
-              "90°",
-              "127°"
-            ],
-            "correctIndex": 1,
-            "explanation": "∠ACB = 90° より ∠CBA = 180° - 90° - 53° = 37°\n直径に対する円周角が 90° であることを使います。",
-            "difficulty": "advanced"
-          }
-        ]
+            id: 'math-g3-inscribed-angle-q20',
+            question:
+              '下の図で、overset{frown}{BC} に対する円周角 ∠x の大きさを求めなさい。',
+            options: ['33°', '66°', '90°', '147°'],
+            correctIndex: 0,
+            explanation:
+              '∠BAC = ∠BDC = 33°\n同じ弧に対する円周角は、どの位置から見ても等しくなります。',
+            difficulty: 'standard',
+          },
+        ],
       },
       {
-        "topicId": "math-g3-inscribed-angle-apps",
-        "name": "円周角の定理の利用",
-        "subtitle": "角度を求める・円に内接",
-        "icon": "🎯",
-        "order": 2,
-        "flashcards": [],
-        "quiz": [
+        topicId: 'math-g3-inscribed-angle-apps',
+        name: '円周角の定理の利用',
+        subtitle: '角度を求める・円に内接',
+        icon: '🎯',
+        order: 2,
+        flashcards: [],
+        quiz: [
           {
-            "id": "math-g3-inscribed-angle-apps-q1",
-            "question": "円Oで、弧ABに対する中心角 ∠AOB が 100° です。同じ弧ABに対する円周角 ∠APB の大きさを求めなさい。",
-            "options": [
-              "50°",
-              "100°",
-              "200°",
-              "25°"
-            ],
-            "correctIndex": 0,
-            "explanation": "∠APB = 100° ÷ 2 = 50°\n円周角は、同じ弧に対する中心角の半分になる。",
-            "difficulty": "basic"
+            id: 'math-g3-inscribed-angle-apps-q1',
+            question:
+              '下の図で、円Oの弧BCに対する中心角 ∠BOC = 100° です。同じ弧BCに対する円周角 ∠BAC の大きさを求めなさい。',
+            options: ['50°', '100°', '200°', '25°'],
+            correctIndex: 0,
+            explanation:
+              '∠BAC = 100° ÷ 2 = 50°\n円周角は、同じ弧に対する中心角の半分になる。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-inscribed-angle-apps-q2",
-            "question": "円Oで、弧ABに対する円周角 ∠APB が 45° です。同じ弧ABに対する中心角 ∠AOB の大きさを求めなさい。",
-            "options": [
-              "45°",
-              "90°",
-              "180°",
-              "135°"
-            ],
-            "correctIndex": 1,
-            "explanation": "∠AOB = 45° × 2 = 90°\n中心角は、同じ弧に対する円周角の2倍になる。",
-            "difficulty": "basic"
+            id: 'math-g3-inscribed-angle-apps-q2',
+            question:
+              '下の図で、線分ABは円Oの直径で、点Cは円周上にあります。∠ABC = 35° のとき、∠BAC の大きさを求めなさい。',
+            options: ['55°', '35°', '45°', '65°'],
+            correctIndex: 0,
+            explanation:
+              '∠ACB = 90°, ∠BAC = 180° - 90° - 35° = 55°\n直径に対する円周角は 90°。三角形ABCの内角の和から求める。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-inscribed-angle-apps-q3",
-            "question": "線分ABが円Oの直径で、点Pが円周上（A、Bと異なる位置）にあります。∠APB の大きさを求めなさい。",
-            "options": [
-              "45°",
-              "60°",
-              "90°",
-              "120°"
-            ],
-            "correctIndex": 2,
-            "explanation": "∠APB = 90°\n直径（半円の弧）に対する円周角は、つねに 90° になる。",
-            "difficulty": "basic"
+            id: 'math-g3-inscribed-angle-apps-q3',
+            question:
+              '下の図のように、四角形ABCDは円に内接しています。∠A = 85° のとき、向かい合う ∠C の大きさを求めなさい。',
+            options: ['95°', '85°', '275°', '105°'],
+            correctIndex: 0,
+            explanation:
+              '∠C = 180° - ∠A = 180° - 85° = 95°\n円に内接する四角形では、向かい合う角の和が 180° になる。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-inscribed-angle-apps-q4",
-            "question": "4点A、B、C、Dが1つの円周上にあります。弧ABに対する円周角 ∠ACB が 38° のとき、同じ弧ABに対する円周角 ∠ADB の大きさを求めなさい。",
-            "options": [
-              "19°",
-              "76°",
-              "52°",
-              "38°"
-            ],
-            "correctIndex": 3,
-            "explanation": "∠ADB = ∠ACB = 38°\n同じ弧に対する円周角はすべて等しい。",
-            "difficulty": "basic"
+            id: 'math-g3-inscribed-angle-apps-q4',
+            question:
+              '下の図のように、四角形ABCDは円に内接しています。∠B = 110° のとき、向かい合う ∠D の大きさを求めなさい。',
+            options: ['70°', '110°', '250°', '90°'],
+            correctIndex: 0,
+            explanation:
+              '∠D = 180° - ∠B = 180° - 110° = 70°\n向かい合う角の和は 180°（360° ではない）。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-inscribed-angle-apps-q5",
-            "question": "線分ABが円Oの直径で、点Pが円周上にあります。∠PAB = 35° のとき、∠PBA の大きさを求めなさい。",
-            "options": [
-              "55°",
-              "45°",
-              "65°",
-              "35°"
-            ],
-            "correctIndex": 0,
-            "explanation": "∠APB = 90°, ∠PBA = 180° - 90° - 35° = 55°\n直径に対する円周角 ∠APB は 90°。三角形の内角の和 180° から残りの角を求める。",
-            "difficulty": "standard"
+            id: 'math-g3-inscribed-angle-apps-q5',
+            question:
+              '下の図のように、四角形ABCDは円に内接し、∠A = 70°、∠B = 100° です。∠C の大きさを求めなさい。',
+            options: ['110°', '80°', '70°', '90°'],
+            correctIndex: 0,
+            explanation:
+              '∠C = 180° - ∠A = 180° - 70° = 110°\n∠C は ∠A と向かい合う角なので、和が 180° になる。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-inscribed-angle-apps-q6",
-            "question": "円に内接する四角形ABCDで、∠A = 85° です。向かい合う角 ∠C の大きさを求めなさい。",
-            "options": [
-              "85°",
-              "95°",
-              "105°",
-              "275°"
-            ],
-            "correctIndex": 1,
-            "explanation": "∠C = 180° - 85° = 95°\n円に内接する四角形では、向かい合う角の和は 180° になる。",
-            "difficulty": "standard"
+            id: 'math-g3-inscribed-angle-apps-q6',
+            question:
+              '下の図のように、四角形ABCDは円に内接しています。∠C = 95° のとき、向かい合う ∠A の大きさを求めなさい。',
+            options: ['85°', '95°', '265°', '105°'],
+            correctIndex: 0,
+            explanation:
+              '∠A = 180° - ∠C = 180° - 95° = 85°\n向かい合う角の和は 180° になる。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-inscribed-angle-apps-q7",
-            "question": "円に内接する四角形ABCDで、∠B = 110° です。向かい合う角 ∠D の大きさを求めなさい。",
-            "options": [
-              "110°",
-              "250°",
-              "70°",
-              "90°"
-            ],
-            "correctIndex": 2,
-            "explanation": "∠D = 180° - 110° = 70°\n向かい合う角の和は 180°。360° ではないので 250° にはならない。",
-            "difficulty": "standard"
+            id: 'math-g3-inscribed-angle-apps-q7',
+            question:
+              '下の図のように、四角形ABCDは円に内接し、∠ABC = 95°、∠BCD = 70° です。∠CDA の大きさを求めなさい。',
+            options: ['85°', '110°', '95°', '70°'],
+            correctIndex: 0,
+            explanation:
+              '∠CDA = 180° - ∠ABC = 180° - 95° = 85°\n∠ABC と ∠CDA は向かい合う角なので、和が 180° になる。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-inscribed-angle-apps-q8",
-            "question": "円Oで、弧ABに対する中心角 ∠AOB が 120° です。同じ弧ABに対する円周角 ∠APB の大きさを求めなさい。",
-            "options": [
-              "120°",
-              "30°",
-              "240°",
-              "60°"
-            ],
-            "correctIndex": 3,
-            "explanation": "∠APB = 120° ÷ 2 = 60°\n円周角は中心角の半分。",
-            "difficulty": "standard"
+            id: 'math-g3-inscribed-angle-apps-q8',
+            question:
+              '下の図のように、四角形ABCDは円に内接し、∠DAB = 100°、∠ABC = 85° です。∠BCD の大きさを求めなさい。',
+            options: ['80°', '95°', '100°', '85°'],
+            correctIndex: 0,
+            explanation:
+              '∠BCD = 180° - ∠DAB = 180° - 100° = 80°\n∠DAB と ∠BCD は向かい合う角なので、和が 180° になる。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-inscribed-angle-apps-q9",
-            "question": "線分ABが円Oの直径で、点Cが円周上にあります。∠ABC = 28° のとき、∠CAB の大きさを求めなさい。",
-            "options": [
-              "62°",
-              "28°",
-              "90°",
-              "52°"
-            ],
-            "correctIndex": 0,
-            "explanation": "∠ACB = 90°, ∠CAB = 180° - 90° - 28° = 62°\n直径に対する円周角は 90°。三角形ABCの内角の和から求める。",
-            "difficulty": "standard"
+            id: 'math-g3-inscribed-angle-apps-q9',
+            question:
+              '下の図で、円Oの外部の点Pから2本の接線をひき、接点をA、Bとします。∠APB = 50° のとき、∠PAB の大きさを求めなさい。',
+            options: ['65°', '50°', '130°', '25°'],
+            correctIndex: 0,
+            explanation:
+              'PA = PB より △PAB は二等辺三角形。∠PAB = (180° - 50°) ÷ 2 = 65°\n円外の1点からひいた2本の接線の長さは等しい。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-inscribed-angle-apps-q10",
-            "question": "円に内接する四角形ABCDで、∠A = 70°、∠B = 100° です。∠C の大きさを求めなさい。",
-            "options": [
-              "80°",
-              "110°",
-              "100°",
-              "90°"
-            ],
-            "correctIndex": 1,
-            "explanation": "∠C = 180° - ∠A = 180° - 70° = 110°\n∠C は ∠A と向かい合う角なので、和が 180° になる。",
-            "difficulty": "standard"
+            id: 'math-g3-inscribed-angle-apps-q10',
+            question:
+              '下の図で、円Oの外部の点Pから2本の接線をひき、接点をA、Bとします。∠APB = 40° のとき、∠AOB の大きさを求めなさい。',
+            options: ['140°', '70°', '40°', '90°'],
+            correctIndex: 0,
+            explanation:
+              '∠OAP = ∠OBP = 90°, ∠AOB = 360° - 90° - 90° - 40° = 140°\n接点を通る半径は接線に垂直。四角形OAPBの内角の和 360° から求める。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-inscribed-angle-apps-q11",
-            "question": "円Oで、弦ABをひきます。中心角 ∠AOB = 140° のとき、三角形OABの ∠OAB の大きさを求めなさい。",
-            "options": [
-              "40°",
-              "70°",
-              "20°",
-              "30°"
-            ],
-            "correctIndex": 2,
-            "explanation": "∠OAB = (180° - 140°) ÷ 2 = 20°\nOA、OBはともに半径で OA = OB。三角形OABは二等辺三角形なので、底角は等しい。",
-            "difficulty": "advanced"
+            id: 'math-g3-inscribed-angle-apps-q11',
+            question:
+              '下の図で、円Oの外部の点Pから2本の接線をひき、接点をA、Bとします。∠APB = 40° のとき、∠OAB の大きさを求めなさい。',
+            options: ['20°', '70°', '40°', '90°'],
+            correctIndex: 0,
+            explanation:
+              '∠AOB = 360° - 90° - 90° - 40° = 140°, ∠OAB = (180° - 140°) ÷ 2 = 20°\nOA = OB（半径）で △OAB は二等辺三角形。その底角を求める。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-inscribed-angle-apps-q12",
-            "question": "円に内接する四角形ABCDで、∠A は ∠C の2倍です。∠A の大きさを求めなさい。",
-            "options": [
-              "100°",
-              "150°",
-              "90°",
-              "120°"
-            ],
-            "correctIndex": 3,
-            "explanation": "∠A + ∠C = 180°, 2∠C + ∠C = 180°, ∠C = 60°, ∠A = 120°\n向かい合う角の和 180° と「∠A = 2∠C」を連立して求める。",
-            "difficulty": "advanced"
+            id: 'math-g3-inscribed-angle-apps-q12',
+            question:
+              '下の図で、円Oの外部の点Pから2本の接線をひき、接点をA、Bとします。∠APB = 64° のとき、∠PAB の大きさを求めなさい。',
+            options: ['58°', '64°', '116°', '32°'],
+            correctIndex: 0,
+            explanation:
+              'PA = PB より △PAB は二等辺三角形。∠PAB = (180° - 64°) ÷ 2 = 58°\n円外の1点からひいた2本の接線の長さは等しい。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-inscribed-angle-apps-q13",
-            "question": "点C、Dが直線ABについて同じ側にあり、4点A、B、C、Dは1つの円周上にあります。∠ACB = 64° のとき、∠ADB の大きさを求めなさい。",
-            "options": [
-              "64°",
-              "32°",
-              "128°",
-              "58°"
-            ],
-            "correctIndex": 0,
-            "explanation": "∠ADB = ∠ACB = 64°\n∠ACB と ∠ADB はともに弧ABに対する円周角なので等しい。",
-            "difficulty": "standard"
+            id: 'math-g3-inscribed-angle-apps-q13',
+            question:
+              '下の図で、2つの弦AB、CDが円の内部の点Pで交わっています。AP = 4、CP = 6、PD = 8 のとき、PB の長さ x を求めなさい。',
+            options: ['12', '3', '48', '10'],
+            correctIndex: 0,
+            explanation:
+              'AP × PB = CP × PD より 4 × x = 6 × 8 = 48、x = 12\n交わる2弦では、分けられた線分の積が等しい（方べきの定理）。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-inscribed-angle-apps-q14",
-            "question": "1つの円で、弧ABと弧CDの長さが等しいとします。弧ABに対する円周角が 40° のとき、弧CDに対する円周角の大きさを求めなさい。",
-            "options": [
-              "80°",
-              "40°",
-              "20°",
-              "60°"
-            ],
-            "correctIndex": 1,
-            "explanation": "弧CDに対する円周角 = 40°\n同じ円で等しい弧に対する円周角は等しい。",
-            "difficulty": "standard"
+            id: 'math-g3-inscribed-angle-apps-q14',
+            question:
+              '下の図で、2つの弦AB、CDが円の内部の点Pで交わっています。AP = 12、CP = 8、PD = 9 のとき、PB の長さ x を求めなさい。',
+            options: ['6', '72', '5', '8'],
+            correctIndex: 0,
+            explanation:
+              'AP × PB = CP × PD より 12 × x = 8 × 9 = 72、x = 6\n交わる2弦では、分けられた線分の積が等しい（方べきの定理）。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-inscribed-angle-apps-q15",
-            "question": "線分ABが円Oの直径で、点Cが円周上にあります。∠CAB = 40° のとき、弧BC（Cを含まない側）に対する中心角 ∠BOC の大きさを求めなさい。",
-            "options": [
-              "40°",
-              "140°",
-              "80°",
-              "100°"
-            ],
-            "correctIndex": 2,
-            "explanation": "∠BOC = 40° × 2 = 80°\n∠CAB は弧BCに対する円周角なので、中心角はその2倍になる。",
-            "difficulty": "advanced"
+            id: 'math-g3-inscribed-angle-apps-q15',
+            question:
+              '下の図で、2つの弦AB、CDが円の内部の点Pで交わっています。AP = 10、CP = 5、PD = 8 のとき、PB の長さ x を求めなさい。',
+            options: ['4', '40', '3', '8'],
+            correctIndex: 0,
+            explanation:
+              'AP × PB = CP × PD より 10 × x = 5 × 8 = 40、x = 4\n交わる2弦では、分けられた線分の積が等しい（方べきの定理）。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-inscribed-angle-apps-q16",
-            "question": "円に内接する四角形ABCDで、∠C = 95° です。向かい合う角 ∠A の大きさを求めなさい。",
-            "options": [
-              "105°",
-              "95°",
-              "180°",
-              "85°"
-            ],
-            "correctIndex": 3,
-            "explanation": "∠A = 180° - 95° = 85°\n向かい合う角の和は 180° になる。",
-            "difficulty": "standard"
+            id: 'math-g3-inscribed-angle-apps-q16',
+            question:
+              '下の図で、2つの弦AB、CDが円の内部の点Pで交わっています。PB = 8、CP = 4、PD = 6 のとき、AP の長さ x を求めなさい。',
+            options: ['3', '24', '2', '12'],
+            correctIndex: 0,
+            explanation:
+              'AP × PB = CP × PD より x × 8 = 4 × 6 = 24、x = 3\n交わる2弦では、分けられた線分の積が等しい（方べきの定理）。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-inscribed-angle-apps-q17",
-            "question": "円の直径を1辺とする半円の弧について、その弧に対する円周角はつねに何度になりますか。",
-            "options": [
-              "90°",
-              "45°",
-              "180°",
-              "60°"
-            ],
-            "correctIndex": 0,
-            "explanation": "90°\n直径に対する中心角は 180° なので、円周角はその半分の 90° で一定になる。",
-            "difficulty": "basic"
+            id: 'math-g3-inscribed-angle-apps-q17',
+            question:
+              '下の図で、弧ABと弧BCの長さは等しい（印）です。∠BPC = 28° のとき、∠APB（図の x）の大きさを求めなさい。',
+            options: ['28°', '56°', '14°', '30°'],
+            correctIndex: 0,
+            explanation:
+              '弧AB = 弧BC なので、対する円周角も等しく ∠APB = ∠BPC = 28°\nよって x = 28°。等しい弧に対する円周角は等しい。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-inscribed-angle-apps-q18",
-            "question": "線分ABが円Oの直径で、点Pが円周上にあります。∠PAB = 20° のとき、弧PB（Pを含まない側）に対する中心角 ∠POB の大きさを求めなさい。",
-            "options": [
-              "20°",
-              "40°",
-              "70°",
-              "80°"
-            ],
-            "correctIndex": 1,
-            "explanation": "∠POB = 20° × 2 = 40°\n∠PAB は弧PBに対する円周角なので、中心角はその2倍。",
-            "difficulty": "advanced"
+            id: 'math-g3-inscribed-angle-apps-q18',
+            question:
+              '下の図で、弧ABと弧BCの長さは等しい（印）です。∠APC = 64° のとき、∠APB（図の x）の大きさを求めなさい。',
+            options: ['32°', '64°', '16°', '48°'],
+            correctIndex: 0,
+            explanation:
+              '弧AB = 弧BC より ∠APB = ∠BPC なので ∠APC = 2∠APB = 64°、x = 32°\n等しい弧に対する円周角は等しいことを使う。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-inscribed-angle-apps-q19",
-            "question": "点C、Dが直線ABについて同じ側にあります。∠ACB = 50°、∠ADB = 60° のとき、4点A、B、C、Dについて正しいものを選びなさい。",
-            "options": [
-              "4点は1つの円周上にある",
-              "対角線が等しいので円周上にある",
-              "4点は1つの円周上にあるとはいえない",
-              "∠ACB と ∠ADB の和が 110° なので円周上にある"
+            id: 'math-g3-inscribed-angle-apps-q19',
+            question:
+              '2点C、Dが直線ABについて同じ側にあります。∠ACB = 55°、∠ADB = 55° のとき、4点A、B、C、Dについて正しいものを選びなさい。',
+            options: [
+              '4点は1つの円周上にある',
+              '4点は1つの円周上にあるとはいえない',
+              '∠ACB + ∠ADB = 110° なので円周上にない',
+              'C、Dが同じ側にあるので円周上にない',
             ],
-            "correctIndex": 2,
-            "explanation": "∠ACB = 50° ≠ ∠ADB = 60°\n同じ側にある2点から線分ABを見る角が等しいときだけ4点は同一円周上にある。ここでは角が等しくないので、円周上にあるとはいえない。",
-            "difficulty": "standard"
+            correctIndex: 0,
+            explanation:
+              '∠ACB = ∠ADB = 55°（等しい）\n線分ABの同じ側にある2点から見込む角が等しいとき、4点は1つの円周上にある（円周角の定理の逆）。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-inscribed-angle-apps-q20",
-            "question": "円に内接する四角形ABCDで、∠ABC = 95°、∠BCD = 70° です。∠BAD の大きさを求めなさい。",
-            "options": [
-              "85°",
-              "95°",
-              "70°",
-              "110°"
+            id: 'math-g3-inscribed-angle-apps-q20',
+            question:
+              '2点C、Dが直線ABについて同じ側にあります。∠ACB = 42°、∠ADB = 58° のとき、4点A、B、C、Dについて正しいものを選びなさい。',
+            options: [
+              '4点は1つの円周上にあるとはいえない',
+              '4点は必ず1つの円周上にある',
+              '∠ACB + ∠ADB = 100° なので円周上にある',
+              '対角線の長さが等しいので円周上にある',
             ],
-            "correctIndex": 3,
-            "explanation": "∠BAD = 180° - ∠BCD = 180° - 70° = 110°\n∠BAD は ∠BCD と向かい合う角なので、和が 180° になる。",
-            "difficulty": "advanced"
-          }
-        ]
-      }
-    ]
+            correctIndex: 0,
+            explanation:
+              '∠ACB = 42° ≠ ∠ADB = 58°（等しくない）\n同じ側から線分ABを見込む角が等しいときだけ4点は同一円周上にある。等しくないのでそうとはいえない。',
+            difficulty: 'standard',
+          },
+        ],
+      },
+    ],
   },
   {
-    "eraId": "math-g3-pythagorean",
-    "eraName": "三平方の定理",
-    "eraIcon": "📐",
-    "eraPeriod": "中3 図形",
-    "topics": [
+    eraId: 'math-g3-pythagorean',
+    eraName: '三平方の定理',
+    eraIcon: '📐',
+    eraPeriod: '中3 図形',
+    topics: [
       {
-        "topicId": "math-g3-pythagorean-meaning",
-        "name": "三平方の定理",
-        "subtitle": "直角三角形の3辺の関係",
-        "icon": "📐",
-        "order": 1,
-        "flashcards": [],
-        "quiz": [
+        topicId: 'math-g3-pythagorean-meaning',
+        name: '三平方の定理',
+        subtitle: '直角三角形の3辺の関係',
+        icon: '📐',
+        order: 1,
+        flashcards: [],
+        quiz: [
           {
-            "id": "math-g3-pythagorean-meaning-q1",
-            "question": "直角をはさむ2辺の長さが 3 cm と 4 cm の直角三角形の、斜辺の長さを求めなさい。",
-            "options": [
-              "5 cm",
-              "7 cm",
-              "√7 cm",
-              "25 cm"
-            ],
-            "correctIndex": 0,
-            "explanation": "3²+4² = 9+16 = 25、√25=5\n斜辺の長さは2辺を2乗して足した数の平方根です。",
-            "difficulty": "basic"
+            id: 'math-g3-pythagorean-meaning-q1',
+            question:
+              '下の図の直角三角形で、残りの辺（斜辺）の長さを求めなさい。',
+            options: ['7 cm', '5 cm', '√7 cm', '25 cm'],
+            correctIndex: 1,
+            explanation:
+              '3²+4² = 9+16 = 25、√25=5\n斜辺の長さは2辺を2乗して足した数の平方根です。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-pythagorean-meaning-q2",
-            "question": "直角をはさむ2辺の長さが 6 cm と 8 cm の直角三角形の、斜辺の長さを求めなさい。",
-            "options": [
-              "14 cm",
-              "10 cm",
-              "√14 cm",
-              "100 cm"
-            ],
-            "correctIndex": 1,
-            "explanation": "6²+8² = 36+64 = 100、√100=10\n2辺をそのまま足すのではなく、それぞれ2乗してから足します。",
-            "difficulty": "basic"
+            id: 'math-g3-pythagorean-meaning-q2',
+            question:
+              '下の図の直角三角形で、残りの辺（斜辺）の長さを求めなさい。',
+            options: ['14 cm', '100 cm', '√14 cm', '10 cm'],
+            correctIndex: 3,
+            explanation:
+              '6²+8² = 36+64 = 100、√100=10\n2辺をそのまま足すのではなく、それぞれ2乗してから足します。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-pythagorean-meaning-q3",
-            "question": "直角をはさむ2辺の長さが 5 cm と 12 cm の直角三角形の、斜辺の長さを求めなさい。",
-            "options": [
-              "17 cm",
-              "√17 cm",
-              "13 cm",
-              "169 cm"
-            ],
-            "correctIndex": 2,
-            "explanation": "5²+12² = 25+144 = 169、√169=13\n最後に平方根をとるのを忘れないようにします。",
-            "difficulty": "basic"
+            id: 'math-g3-pythagorean-meaning-q3',
+            question:
+              '下の図の直角三角形で、残りの辺（斜辺）の長さを求めなさい。',
+            options: ['13 cm', '√17 cm', '17 cm', '169 cm'],
+            correctIndex: 0,
+            explanation:
+              '5²+12² = 25+144 = 169、√169=13\n最後に平方根をとるのを忘れないようにします。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-pythagorean-meaning-q4",
-            "question": "直角をはさむ2辺の長さがどちらも 1 cm の直角三角形の、斜辺の長さを求めなさい。",
-            "options": [
-              "2 cm",
-              "1 cm",
-              "2√2 cm",
-              "√2 cm"
-            ],
-            "correctIndex": 3,
-            "explanation": "1²+1² = 1+1 = 2、√2\n√2 はこれ以上簡単にできないのでそのままにします。",
-            "difficulty": "basic"
+            id: 'math-g3-pythagorean-meaning-q4',
+            question:
+              '下の図の直角三角形で、残りの辺（斜辺）の長さを求めなさい。',
+            options: ['2 cm', '1 cm', '√2 cm', '2√2 cm'],
+            correctIndex: 2,
+            explanation:
+              '1²+1² = 1+1 = 2、√2\n√2 はこれ以上簡単にできないのでそのままにします。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-pythagorean-meaning-q5",
-            "question": "縦 3 cm、横 4 cm の長方形の対角線の長さを求めなさい。",
-            "options": [
-              "7 cm",
-              "√7 cm",
-              "12 cm",
-              "5 cm"
-            ],
-            "correctIndex": 3,
-            "explanation": "3²+4² = 9+16 = 25、√25=5\n対角線は縦と横を直角をはさむ2辺とする直角三角形の斜辺です。",
-            "difficulty": "basic"
+            id: 'math-g3-pythagorean-meaning-q5',
+            question: '縦 3 cm、横 4 cm の長方形の対角線の長さを求めなさい。',
+            options: ['7 cm', '√7 cm', '5 cm', '12 cm'],
+            correctIndex: 2,
+            explanation:
+              '3²+4² = 9+16 = 25、√25=5\n対角線は縦と横を直角をはさむ2辺とする直角三角形の斜辺です。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-pythagorean-meaning-q6",
-            "question": "直角をはさむ2辺の長さが 2 cm と 3 cm の直角三角形の、斜辺の長さを求めなさい。",
-            "options": [
-              "√13 cm",
-              "5 cm",
-              "13 cm",
-              "√5 cm"
-            ],
-            "correctIndex": 0,
-            "explanation": "2²+3² = 4+9 = 13、√13\n13 は平方数ではないので根号がそのまま残ります。",
-            "difficulty": "standard"
+            id: 'math-g3-pythagorean-meaning-q6',
+            question:
+              '下の図の直角三角形で、残りの辺（斜辺）の長さを求めなさい。',
+            options: ['5 cm', '√13 cm', '13 cm', '√5 cm'],
+            correctIndex: 1,
+            explanation:
+              '2²+3² = 4+9 = 13、√13\n13 は平方数ではないので根号がそのまま残ります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-pythagorean-meaning-q7",
-            "question": "直角をはさむ2辺の長さがどちらも 2 cm の直角三角形の、斜辺の長さを求めなさい。",
-            "options": [
-              "4 cm",
-              "2 cm",
-              "2√2 cm",
-              "4√2 cm"
-            ],
-            "correctIndex": 2,
-            "explanation": "2²+2² = 4+4 = 8、√8=2√2\n√8=√4 × 2=2√2 と簡単にします。",
-            "difficulty": "standard"
+            id: 'math-g3-pythagorean-meaning-q7',
+            question:
+              '下の図の直角三角形で、残りの辺（斜辺）の長さを求めなさい。',
+            options: ['4 cm', '2 cm', '2√2 cm', '4√2 cm'],
+            correctIndex: 2,
+            explanation:
+              '2²+2² = 4+4 = 8、√8=2√2\n√8=√4 × 2=2√2 と簡単にします。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-pythagorean-meaning-q8",
-            "question": "斜辺の長さが 5 cm、直角をはさむ1辺の長さが 3 cm の直角三角形の、もう1つの辺の長さを求めなさい。",
-            "options": [
-              "4 cm",
-              "√34 cm",
-              "8 cm",
-              "2 cm"
-            ],
-            "correctIndex": 0,
-            "explanation": "5²-3² = 25-9 = 16、√16=4\n斜辺がわかっているときは2乗の差をとります。",
-            "difficulty": "basic"
+            id: 'math-g3-pythagorean-meaning-q8',
+            question: '下の図の直角三角形で、残りの辺の長さを求めなさい。',
+            options: ['√34 cm', '4 cm', '8 cm', '2 cm'],
+            correctIndex: 1,
+            explanation:
+              '5²-3² = 25-9 = 16、√16=4\n斜辺がわかっているときは2乗の差をとります。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-pythagorean-meaning-q9",
-            "question": "斜辺の長さが 13 cm、直角をはさむ1辺の長さが 5 cm の直角三角形の、もう1つの辺の長さを求めなさい。",
-            "options": [
-              "18 cm",
-              "12 cm",
-              "8 cm",
-              "√194 cm"
-            ],
-            "correctIndex": 1,
-            "explanation": "13²-5² = 169-25 = 144、√144=12\n斜辺の2乗から残りの辺の2乗を引きます。",
-            "difficulty": "standard"
+            id: 'math-g3-pythagorean-meaning-q9',
+            question: '下の図の直角三角形で、残りの辺の長さを求めなさい。',
+            options: ['18 cm', '√194 cm', '8 cm', '12 cm'],
+            correctIndex: 3,
+            explanation:
+              '13²-5² = 169-25 = 144、√144=12\n斜辺の2乗から残りの辺の2乗を引きます。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-pythagorean-meaning-q10",
-            "question": "斜辺の長さが 10 cm、直角をはさむ1辺の長さが 6 cm の直角三角形の、もう1つの辺の長さを求めなさい。",
-            "options": [
-              "√136 cm",
-              "16 cm",
-              "4 cm",
-              "8 cm"
-            ],
-            "correctIndex": 3,
-            "explanation": "10²-6² = 100-36 = 64、√64=8\n足すのではなく引くことに注意します。",
-            "difficulty": "standard"
+            id: 'math-g3-pythagorean-meaning-q10',
+            question: '下の図の直角三角形で、残りの辺の長さを求めなさい。',
+            options: ['√136 cm', '16 cm', '8 cm', '4 cm'],
+            correctIndex: 2,
+            explanation:
+              '10²-6² = 100-36 = 64、√64=8\n足すのではなく引くことに注意します。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-pythagorean-meaning-q11",
-            "question": "直角をはさむ2辺の長さが 1 cm と 2 cm の直角三角形の、斜辺の長さを求めなさい。",
-            "options": [
-              "3 cm",
-              "√3 cm",
-              "√5 cm",
-              "5 cm"
-            ],
-            "correctIndex": 2,
-            "explanation": "1²+2² = 1+4 = 5、√5\n5 は平方数ではないので √5 のままにします。",
-            "difficulty": "standard"
+            id: 'math-g3-pythagorean-meaning-q11',
+            question:
+              '下の図の直角三角形で、残りの辺（斜辺）の長さを求めなさい。',
+            options: ['√5 cm', '√3 cm', '3 cm', '5 cm'],
+            correctIndex: 0,
+            explanation:
+              '1²+2² = 1+4 = 5、√5\n5 は平方数ではないので √5 のままにします。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-pythagorean-meaning-q12",
-            "question": "直角をはさむ2辺の長さが 8 cm と 15 cm の直角三角形の、斜辺の長さを求めなさい。",
-            "options": [
-              "23 cm",
-              "17 cm",
-              "√23 cm",
-              "289 cm"
-            ],
-            "correctIndex": 1,
-            "explanation": "8²+15² = 64+225 = 289、√289=17\n2辺の2乗の和の平方根が斜辺です。",
-            "difficulty": "standard"
+            id: 'math-g3-pythagorean-meaning-q12',
+            question:
+              '下の図の直角三角形で、残りの辺（斜辺）の長さを求めなさい。',
+            options: ['17 cm', '23 cm', '√23 cm', '289 cm'],
+            correctIndex: 0,
+            explanation:
+              '8²+15² = 64+225 = 289、√289=17\n2辺の2乗の和の平方根が斜辺です。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-pythagorean-meaning-q13",
-            "question": "縦 5 cm、横 12 cm の長方形の対角線の長さを求めなさい。",
-            "options": [
-              "17 cm",
-              "13 cm",
-              "60 cm",
-              "√17 cm"
-            ],
-            "correctIndex": 1,
-            "explanation": "5²+12² = 25+144 = 169、√169=13\n対角線は縦・横を直角をはさむ2辺とする直角三角形の斜辺です。",
-            "difficulty": "basic"
+            id: 'math-g3-pythagorean-meaning-q13',
+            question: '縦 5 cm、横 12 cm の長方形の対角線の長さを求めなさい。',
+            options: ['17 cm', '60 cm', '13 cm', '√17 cm'],
+            correctIndex: 2,
+            explanation:
+              '5²+12² = 25+144 = 169、√169=13\n対角線は縦・横を直角をはさむ2辺とする直角三角形の斜辺です。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-pythagorean-meaning-q14",
-            "question": "1辺の長さが 1 cm の正方形の対角線の長さを求めなさい。",
-            "options": [
-              "1 cm",
-              "2 cm",
-              "√2 cm",
-              "2√2 cm"
-            ],
-            "correctIndex": 2,
-            "explanation": "1²+1² = 1+1 = 2、√2\n対角線は正方形を2つに分けてできる直角三角形の斜辺です。",
-            "difficulty": "basic"
+            id: 'math-g3-pythagorean-meaning-q14',
+            question: '1辺の長さが 1 cm の正方形の対角線の長さを求めなさい。',
+            options: ['1 cm', '2 cm', '2√2 cm', '√2 cm'],
+            correctIndex: 3,
+            explanation:
+              '1²+1² = 1+1 = 2、√2\n対角線は正方形を2つに分けてできる直角三角形の斜辺です。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-pythagorean-meaning-q15",
-            "question": "直角をはさむ2辺の長さが 1 cm と √3 cm の直角三角形の、斜辺の長さを求めなさい。",
-            "options": [
-              "2 cm",
-              "1+√3 cm",
-              "4 cm",
-              "√3 cm"
-            ],
-            "correctIndex": 0,
-            "explanation": "1²+(√3)² = 1+3 = 4、√4=2\n(√3)²=3 となることを使います。",
-            "difficulty": "advanced"
+            id: 'math-g3-pythagorean-meaning-q15',
+            question:
+              '直角をはさむ2辺の長さが 1 cm と √3 cm の直角三角形の、斜辺の長さを求めなさい。',
+            options: ['1+√3 cm', '2 cm', '4 cm', '√3 cm'],
+            correctIndex: 1,
+            explanation:
+              '1²+(√3)² = 1+3 = 4、√4=2\n(√3)²=3 となることを使います。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-pythagorean-meaning-q16",
-            "question": "直角をはさむ2辺の長さが 3 cm と √7 cm の直角三角形の、斜辺の長さを求めなさい。",
-            "options": [
-              "3+√7 cm",
-              "16 cm",
-              "4 cm",
-              "√2 cm"
-            ],
-            "correctIndex": 2,
-            "explanation": "3²+(√7)² = 9+7 = 16、√16=4\n(√7)²=7 を使い、最後に平方根をとります。",
-            "difficulty": "advanced"
+            id: 'math-g3-pythagorean-meaning-q16',
+            question:
+              '直角をはさむ2辺の長さが 3 cm と √7 cm の直角三角形の、斜辺の長さを求めなさい。',
+            options: ['3+√7 cm', '4 cm', '16 cm', '√2 cm'],
+            correctIndex: 1,
+            explanation:
+              '3²+(√7)² = 9+7 = 16、√16=4\n(√7)²=7 を使い、最後に平方根をとります。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-pythagorean-meaning-q17",
-            "question": "斜辺の長さが 17 cm、直角をはさむ1辺の長さが 8 cm の直角三角形の、もう1つの辺の長さを求めなさい。",
-            "options": [
-              "25 cm",
-              "√353 cm",
-              "9 cm",
-              "15 cm"
-            ],
-            "correctIndex": 3,
-            "explanation": "17²-8² = 289-64 = 225、√225=15\n斜辺の2乗から残りの辺の2乗を引きます。",
-            "difficulty": "advanced"
+            id: 'math-g3-pythagorean-meaning-q17',
+            question:
+              '斜辺の長さが 17 cm、直角をはさむ1辺の長さが 8 cm の直角三角形の、もう1つの辺の長さを求めなさい。',
+            options: ['25 cm', '√353 cm', '9 cm', '15 cm'],
+            correctIndex: 3,
+            explanation:
+              '17²-8² = 289-64 = 225、√225=15\n斜辺の2乗から残りの辺の2乗を引きます。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-pythagorean-meaning-q18",
-            "question": "次の3辺の組のうち、直角三角形になるものを選びなさい。",
-            "options": [
-              "3 cm, 4 cm, 5 cm",
-              "2 cm, 3 cm, 4 cm",
-              "4 cm, 5 cm, 6 cm",
-              "3 cm, 5 cm, 6 cm"
+            id: 'math-g3-pythagorean-meaning-q18',
+            question: '次の3辺の組のうち、直角三角形になるものを選びなさい。',
+            options: [
+              '3 cm, 4 cm, 5 cm',
+              '2 cm, 3 cm, 4 cm',
+              '4 cm, 5 cm, 6 cm',
+              '3 cm, 5 cm, 6 cm',
             ],
-            "correctIndex": 0,
-            "explanation": "3²+4² = 9+16 = 25 = 5²\n最も長い辺の2乗が他の2辺の2乗の和に等しいので直角三角形です。",
-            "difficulty": "standard"
+            correctIndex: 0,
+            explanation:
+              '3²+4² = 9+16 = 25 = 5²\n最も長い辺の2乗が他の2辺の2乗の和に等しいので直角三角形です。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-pythagorean-meaning-q19",
-            "question": "3辺の長さが 5 cm, 6 cm, 7 cm の三角形は直角三角形ですか。",
-            "options": [
-              "直角三角形である",
-              "直角三角形ではない",
-              "正三角形である",
-              "二等辺三角形である"
+            id: 'math-g3-pythagorean-meaning-q19',
+            question:
+              '3辺の長さが 5 cm, 6 cm, 7 cm の三角形は直角三角形ですか。',
+            options: [
+              '直角三角形である',
+              '二等辺三角形である',
+              '正三角形である',
+              '直角三角形ではない',
             ],
-            "correctIndex": 1,
-            "explanation": "5²+6² = 25+36 = 61、7² = 49\n61 ne 49 なので直角三角形ではありません。",
-            "difficulty": "standard"
+            correctIndex: 3,
+            explanation:
+              '5²+6² = 25+36 = 61、7² = 49\n61 ne 49 なので直角三角形ではありません。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-pythagorean-meaning-q20",
-            "question": "次の3辺の組のうち、直角三角形になるものを選びなさい。",
-            "options": [
-              "8 cm, 24 cm, 25 cm",
-              "6 cm, 24 cm, 25 cm",
-              "7 cm, 24 cm, 26 cm",
-              "7 cm, 24 cm, 25 cm"
+            id: 'math-g3-pythagorean-meaning-q20',
+            question: '次の3辺の組のうち、直角三角形になるものを選びなさい。',
+            options: [
+              '7 cm, 24 cm, 25 cm',
+              '6 cm, 24 cm, 25 cm',
+              '7 cm, 24 cm, 26 cm',
+              '8 cm, 24 cm, 25 cm',
             ],
-            "correctIndex": 3,
-            "explanation": "7²+24² = 49+576 = 625 = 25²\n他の組は2辺の2乗の和が最も長い辺の2乗と等しくなりません。",
-            "difficulty": "advanced"
-          }
-        ]
+            correctIndex: 0,
+            explanation:
+              '7²+24² = 49+576 = 625 = 25²\n他の組は2辺の2乗の和が最も長い辺の2乗と等しくなりません。',
+            difficulty: 'advanced',
+          },
+        ],
       },
       {
-        "topicId": "math-g3-pythagorean-plane",
-        "name": "平面図形への利用",
-        "subtitle": "対角線・特別な直角三角形",
-        "icon": "🔷",
-        "order": 2,
-        "flashcards": [],
-        "quiz": [
+        topicId: 'math-g3-pythagorean-plane',
+        name: '平面図形への利用',
+        subtitle: '対角線・特別な直角三角形',
+        icon: '🔷',
+        order: 2,
+        flashcards: [],
+        quiz: [
           {
-            "id": "math-g3-pythagorean-plane-q1",
-            "question": "縦 3 cm、横 4 cm の長方形の対角線の長さを求めなさい。",
-            "options": [
-              "5 cm",
-              "7 cm",
-              "√7 cm",
-              "25 cm"
-            ],
-            "correctIndex": 0,
-            "explanation": "√3² + 4² = √9 + 16 = √25 = 5\n対角線は直角三角形の斜辺なので、2辺を2乗して足し、平方根をとる。",
-            "difficulty": "basic"
+            id: 'math-g3-pythagorean-plane-q1',
+            question: '縦 3 cm、横 4 cm の長方形の対角線の長さを求めなさい。',
+            options: ['√7 cm', '7 cm', '5 cm', '25 cm'],
+            correctIndex: 2,
+            explanation:
+              '√3² + 4² = √9 + 16 = √25 = 5\n対角線は直角三角形の斜辺なので、2辺を2乗して足し、平方根をとる。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-pythagorean-plane-q2",
-            "question": "1辺が 5 cm の正方形の対角線の長さを求めなさい。",
-            "options": [
-              "10 cm",
-              "5√2 cm",
-              "√10 cm",
-              "25√2 cm"
-            ],
-            "correctIndex": 1,
-            "explanation": "√5² + 5² = √50 = 5√2\n正方形の対角線は、2つの辺を直角をはさむ2辺とする直角三角形の斜辺になる。",
-            "difficulty": "basic"
+            id: 'math-g3-pythagorean-plane-q2',
+            question: '1辺が 5 cm の正方形の対角線の長さを求めなさい。',
+            options: ['10 cm', '5√2 cm', '√10 cm', '25√2 cm'],
+            correctIndex: 1,
+            explanation:
+              '√5² + 5² = √50 = 5√2\n正方形の対角線は、2つの辺を直角をはさむ2辺とする直角三角形の斜辺になる。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-pythagorean-plane-q3",
-            "question": "1辺が a の正方形の対角線の長さを a を使って表しなさい。",
-            "options": [
-              "2a",
-              "a√3",
-              "a√2",
-              "frac{a}{√2}"
-            ],
-            "correctIndex": 2,
-            "explanation": "√a² + a² = √2a² = a√2\n正方形の対角線は、いつでも1辺の √2 倍になる。",
-            "difficulty": "basic"
+            id: 'math-g3-pythagorean-plane-q3',
+            question: '1辺が a の正方形の対角線の長さを a を使って表しなさい。',
+            options: ['2a', 'a√3', 'a√2', 'frac{a}{√2}'],
+            correctIndex: 2,
+            explanation:
+              '√a² + a² = √2a² = a√2\n正方形の対角線は、いつでも1辺の √2 倍になる。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-pythagorean-plane-q4",
-            "question": "1辺が 6 cm の正三角形の高さを求めなさい。",
-            "options": [
-              "3√5 cm",
-              "3√2 cm",
-              "6√3 cm",
-              "3√3 cm"
-            ],
-            "correctIndex": 3,
-            "explanation": "底辺を2等分すると底辺 3、斜辺 6 の直角三角形ができる。\n√6² - 3² = √27 = 3√3",
-            "difficulty": "basic"
+            id: 'math-g3-pythagorean-plane-q4',
+            question: '1辺が 6 cm の正三角形の高さを求めなさい。',
+            options: ['3√5 cm', '3√2 cm', '3√3 cm', '6√3 cm'],
+            correctIndex: 2,
+            explanation:
+              '底辺を2等分すると底辺 3、斜辺 6 の直角三角形ができる。\n√6² - 3² = √27 = 3√3',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-pythagorean-plane-q5",
-            "question": "1辺が a の正三角形の高さを a を使って表しなさい。",
-            "options": [
-              "frac{√3}{2}a",
-              "frac{√2}{2}a",
-              "√3a",
-              "a/2"
-            ],
-            "correctIndex": 0,
-            "explanation": "底辺を2等分すると底辺 a/2、斜辺 a の直角三角形になる。\n√a² - (a/2)² = √3/4a² = frac{√3}{2}a",
-            "difficulty": "standard"
+            id: 'math-g3-pythagorean-plane-q5',
+            question: '1辺が a の正三角形の高さを a を使って表しなさい。',
+            options: ['a/2', 'frac{√2}{2}a', '√3a', 'frac{√3}{2}a'],
+            correctIndex: 3,
+            explanation:
+              '底辺を2等分すると底辺 a/2、斜辺 a の直角三角形になる。\n√a² - (a/2)² = √3/4a² = frac{√3}{2}a',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-pythagorean-plane-q6",
-            "question": "1辺が 10 cm の正三角形の面積を求めなさい。",
-            "options": [
-              "50√3 cm²",
-              "25√3 cm²",
-              "25√2 cm²",
-              "50 cm²"
-            ],
-            "correctIndex": 1,
-            "explanation": "高さは √10² - 5² = √75 = 5√3。\n面積は 1/2 × 10 × 5√3 = 25√3。",
-            "difficulty": "standard"
+            id: 'math-g3-pythagorean-plane-q6',
+            question: '1辺が 10 cm の正三角形の面積を求めなさい。',
+            options: ['25√3 cm²', '50√3 cm²', '25√2 cm²', '50 cm²'],
+            correctIndex: 0,
+            explanation:
+              '高さは √10² - 5² = √75 = 5√3。\n面積は 1/2 × 10 × 5√3 = 25√3。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-pythagorean-plane-q7",
-            "question": "直角をはさむ2辺が等しく、その長さが 4 cm の直角二等辺三角形の斜辺の長さを求めなさい。",
-            "options": [
-              "8 cm",
-              "4√3 cm",
-              "4√2 cm",
-              "2√2 cm"
-            ],
-            "correctIndex": 2,
-            "explanation": "直角二等辺三角形の3辺の比は 1:1:√2。\n斜辺は等しい辺の √2 倍なので 4√2。",
-            "difficulty": "basic"
+            id: 'math-g3-pythagorean-plane-q7',
+            question:
+              '下の図の直角二等辺三角形で、斜辺 BC の長さを求めなさい。',
+            options: ['8 cm', '4√2 cm', '4√3 cm', '2√2 cm'],
+            correctIndex: 1,
+            explanation:
+              '直角二等辺三角形の3辺の比は 1:1:√2。\n斜辺は等しい辺の √2 倍なので 4√2。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-pythagorean-plane-q8",
-            "question": "斜辺が 6 cm の直角二等辺三角形の、直角をはさむ1辺の長さを求めなさい。",
-            "options": [
-              "6√2 cm",
-              "3√3 cm",
-              "12 cm",
-              "3√2 cm"
-            ],
-            "correctIndex": 3,
-            "explanation": "3辺の比は 1:1:√2 なので、辺は斜辺の frac{1}{√2} 倍。\nfrac{6}{√2} = frac{6√2}{2} = 3√2",
-            "difficulty": "standard"
+            id: 'math-g3-pythagorean-plane-q8',
+            question:
+              '下の図の直角二等辺三角形で、直角をはさむ1辺 AB の長さを求めなさい。',
+            options: ['3√2 cm', '3√3 cm', '12 cm', '6√2 cm'],
+            correctIndex: 0,
+            explanation:
+              '3辺の比は 1:1:√2 なので、辺は斜辺の frac{1}{√2} 倍。\nfrac{6}{√2} = frac{6√2}{2} = 3√2',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-pythagorean-plane-q9",
-            "question": "30°、60°、90° の直角三角形で、30° の角の向かいの辺が 3 cm のとき、斜辺の長さを求めなさい。",
-            "options": [
-              "6 cm",
-              "3√3 cm",
-              "3√2 cm",
-              "9 cm"
-            ],
-            "correctIndex": 0,
-            "explanation": "3辺の比は 1:2:√3（30°対辺 : 斜辺 : 60°対辺）。\n斜辺は 30° の対辺の 2 倍なので 3 × 2 = 6。",
-            "difficulty": "basic"
+            id: 'math-g3-pythagorean-plane-q9',
+            question: '下の図の直角三角形で、斜辺 BC の長さを求めなさい。',
+            options: ['6 cm', '3√3 cm', '3√2 cm', '9 cm'],
+            correctIndex: 0,
+            explanation:
+              '3辺の比は 1:2:√3（30°対辺 : 斜辺 : 60°対辺）。\n斜辺は 30° の対辺の 2 倍なので 3 × 2 = 6。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-pythagorean-plane-q10",
-            "question": "30°、60°、90° の直角三角形で、斜辺が 8 cm のとき、60° の角の向かいの辺の長さを求めなさい。",
-            "options": [
-              "4 cm",
-              "4√3 cm",
-              "8√3 cm",
-              "4√2 cm"
-            ],
-            "correctIndex": 1,
-            "explanation": "3辺の比は 1:2:√3 なので、60° の対辺は斜辺の frac{√3}{2} 倍。\n8 × frac{√3}{2} = 4√3",
-            "difficulty": "standard"
+            id: 'math-g3-pythagorean-plane-q10',
+            question:
+              '下の図の直角三角形で、60° の角の向かいの辺 AC の長さを求めなさい。',
+            options: ['4 cm', '8√3 cm', '4√3 cm', '4√2 cm'],
+            correctIndex: 2,
+            explanation:
+              '3辺の比は 1:2:√3 なので、60° の対辺は斜辺の frac{√3}{2} 倍。\n8 × frac{√3}{2} = 4√3',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-pythagorean-plane-q11",
-            "question": "45°、45°、90° の直角三角形の3辺の比として正しいものを選びなさい。",
-            "options": [
-              "1:1:√3",
-              "1:2:√3",
-              "1:1:√2",
-              "1:√2:2"
-            ],
-            "correctIndex": 2,
-            "explanation": "直角二等辺三角形なので等しい2辺の比は 1:1。\n斜辺はその √2 倍だから 1:1:√2。",
-            "difficulty": "standard"
+            id: 'math-g3-pythagorean-plane-q11',
+            question:
+              '45°、45°、90° の直角三角形の3辺の比として正しいものを選びなさい。',
+            options: ['1:1:√3', '1:2:√3', '1:√2:2', '1:1:√2'],
+            correctIndex: 3,
+            explanation:
+              '直角二等辺三角形なので等しい2辺の比は 1:1。\n斜辺はその √2 倍だから 1:1:√2。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-pythagorean-plane-q12",
-            "question": "座標平面上の2点 (1, 2) と (4, 6) の間の距離を求めなさい。",
-            "options": [
-              "7",
-              "√7",
-              "25",
-              "5"
-            ],
-            "correctIndex": 3,
-            "explanation": "x の差は 4-1=3、y の差は 6-2=4。\n√3² + 4² = √25 = 5",
-            "difficulty": "basic"
+            id: 'math-g3-pythagorean-plane-q12',
+            question:
+              '下のグラフの2点 (1, 2) と (4, 6) の間の距離を求めなさい。',
+            options: ['7', '√7', '25', '5'],
+            correctIndex: 3,
+            explanation: 'x の差は 4-1=3、y の差は 6-2=4。\n√3² + 4² = √25 = 5',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-pythagorean-plane-q13",
-            "question": "座標平面上の2点 (-2, 1) と (3, -4) の間の距離を求めなさい。",
-            "options": [
-              "5√2",
-              "10",
-              "√10",
-              "50"
-            ],
-            "correctIndex": 0,
-            "explanation": "x の差は 3-(-2)=5、y の差は -4-1=-5。\n√5² + (-5)² = √50 = 5√2",
-            "difficulty": "standard"
+            id: 'math-g3-pythagorean-plane-q13',
+            question:
+              '下のグラフの2点 (-2, 1) と (3, -4) の間の距離を求めなさい。',
+            options: ['√10', '10', '5√2', '50'],
+            correctIndex: 2,
+            explanation:
+              'x の差は 3-(-2)=5、y の差は -4-1=-5。\n√5² + (-5)² = √50 = 5√2',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-pythagorean-plane-q14",
-            "question": "原点 (0, 0) と点 (6, 8) の間の距離を求めなさい。",
-            "options": [
-              "14",
-              "10",
-              "√14",
-              "100"
-            ],
-            "correctIndex": 1,
-            "explanation": "√6² + 8² = √36 + 64 = √100 = 10\nx と y の差をそれぞれ2乗して足し、平方根をとる。",
-            "difficulty": "basic"
+            id: 'math-g3-pythagorean-plane-q14',
+            question:
+              '下のグラフの原点 (0, 0) と点 (6, 8) の間の距離を求めなさい。',
+            options: ['14', '10', '√14', '100'],
+            correctIndex: 1,
+            explanation:
+              '√6² + 8² = √36 + 64 = √100 = 10\nx と y の差をそれぞれ2乗して足し、平方根をとる。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-pythagorean-plane-q15",
-            "question": "半径 5 cm の円で、中心から 3 cm の距離にある弦の長さを求めなさい。",
-            "options": [
-              "4 cm",
-              "√34 cm",
-              "8 cm",
-              "2√34 cm"
-            ],
-            "correctIndex": 2,
-            "explanation": "中心から弦に垂線を引くと、半径 5 を斜辺、距離 3 を1辺とする直角三角形ができ、弦の半分は √5² - 3² = 4。\n弦はその2倍なので 8。",
-            "difficulty": "advanced"
+            id: 'math-g3-pythagorean-plane-q15',
+            question:
+              '半径 5 cm の円で、中心から 3 cm の距離にある弦の長さを求めなさい。',
+            options: ['4 cm', '8 cm', '√34 cm', '2√34 cm'],
+            correctIndex: 1,
+            explanation:
+              '中心から弦に垂線を引くと、半径 5 を斜辺、距離 3 を1辺とする直角三角形ができ、弦の半分は √5² - 3² = 4。\n弦はその2倍なので 8。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-pythagorean-plane-q16",
-            "question": "半径 7 cm の円で、中心から √13 cm の距離にある弦の長さを求めなさい。",
-            "options": [
-              "6 cm",
-              "2√62 cm",
-              "√62 cm",
-              "12 cm"
-            ],
-            "correctIndex": 3,
-            "explanation": "弦の半分は √{7² - (√13)²} = √49 - 13 = √36 = 6。\n弦はその2倍なので 12。",
-            "difficulty": "advanced"
+            id: 'math-g3-pythagorean-plane-q16',
+            question:
+              '半径 7 cm の円で、中心から √13 cm の距離にある弦の長さを求めなさい。',
+            options: ['12 cm', '2√62 cm', '√62 cm', '6 cm'],
+            correctIndex: 0,
+            explanation:
+              '弦の半分は √{7² - (√13)²} = √49 - 13 = √36 = 6。\n弦はその2倍なので 12。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-pythagorean-plane-q17",
-            "question": "縦 1 cm、横 2 cm の長方形の対角線の長さを求めなさい。",
-            "options": [
-              "√5 cm",
-              "3 cm",
-              "√3 cm",
-              "5 cm"
-            ],
-            "correctIndex": 0,
-            "explanation": "√1² + 2² = √1 + 4 = √5\n√5 はこれ以上簡単にできないので、そのまま答えにする。",
-            "difficulty": "standard"
+            id: 'math-g3-pythagorean-plane-q17',
+            question: '縦 1 cm、横 2 cm の長方形の対角線の長さを求めなさい。',
+            options: ['5 cm', '3 cm', '√3 cm', '√5 cm'],
+            correctIndex: 3,
+            explanation:
+              '√1² + 2² = √1 + 4 = √5\n√5 はこれ以上簡単にできないので、そのまま答えにする。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-pythagorean-plane-q18",
-            "question": "1辺が 8 cm の正三角形の面積を求めなさい。",
-            "options": [
-              "32√3 cm²",
-              "16√3 cm²",
-              "16√2 cm²",
-              "32 cm²"
-            ],
-            "correctIndex": 1,
-            "explanation": "高さは √8² - 4² = √48 = 4√3。\n面積は 1/2 × 8 × 4√3 = 16√3。",
-            "difficulty": "advanced"
+            id: 'math-g3-pythagorean-plane-q18',
+            question: '1辺が 8 cm の正三角形の面積を求めなさい。',
+            options: ['16√3 cm²', '32√3 cm²', '16√2 cm²', '32 cm²'],
+            correctIndex: 0,
+            explanation:
+              '高さは √8² - 4² = √48 = 4√3。\n面積は 1/2 × 8 × 4√3 = 16√3。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-pythagorean-plane-q19",
-            "question": "座標平面上の2点 (0, 5) と (12, 0) の間の距離を求めなさい。",
-            "options": [
-              "17",
-              "√17",
-              "13",
-              "169"
-            ],
-            "correctIndex": 2,
-            "explanation": "x の差は 12、y の差は 5。\n√12² + 5² = √144 + 25 = √169 = 13",
-            "difficulty": "standard"
+            id: 'math-g3-pythagorean-plane-q19',
+            question:
+              '下のグラフの2点 (0, 5) と (12, 0) の間の距離を求めなさい。',
+            options: ['17', '13', '√17', '169'],
+            correctIndex: 1,
+            explanation:
+              'x の差は 12、y の差は 5。\n√12² + 5² = √144 + 25 = √169 = 13',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-pythagorean-plane-q20",
-            "question": "対角線の長さが 8 cm の正方形の1辺の長さを求めなさい。",
-            "options": [
-              "8√2 cm",
-              "4√3 cm",
-              "4 cm",
-              "4√2 cm"
-            ],
-            "correctIndex": 3,
-            "explanation": "正方形の対角線は1辺の √2 倍なので、1辺は対角線の frac{1}{√2} 倍。\nfrac{8}{√2} = frac{8√2}{2} = 4√2",
-            "difficulty": "advanced"
-          }
-        ]
+            id: 'math-g3-pythagorean-plane-q20',
+            question: '対角線の長さが 8 cm の正方形の1辺の長さを求めなさい。',
+            options: ['8√2 cm', '4√3 cm', '4 cm', '4√2 cm'],
+            correctIndex: 3,
+            explanation:
+              '正方形の対角線は1辺の √2 倍なので、1辺は対角線の frac{1}{√2} 倍。\nfrac{8}{√2} = frac{8√2}{2} = 4√2',
+            difficulty: 'advanced',
+          },
+        ],
       },
       {
-        "topicId": "math-g3-pythagorean-space",
-        "name": "空間図形への利用",
-        "subtitle": "直方体の対角線・錐の高さ",
-        "icon": "🧊",
-        "order": 3,
-        "flashcards": [],
-        "quiz": [
+        topicId: 'math-g3-pythagorean-space',
+        name: '空間図形への利用',
+        subtitle: '直方体の対角線・錐の高さ',
+        icon: '🧊',
+        order: 3,
+        flashcards: [],
+        quiz: [
           {
-            "id": "math-g3-pythagorean-space-q1",
-            "question": "縦 3 cm、横 4 cm、高さ 12 cm の直方体の対角線の長さを求めなさい。",
-            "options": [
-              "13 cm",
-              "5 cm",
-              "19 cm",
-              "√19 cm"
-            ],
-            "correctIndex": 0,
-            "explanation": "√3²+4²+12² = √9+16+144 = √169 = 13\n直方体の対角線は縦・横・高さの3つを2乗して足し、平方根をとる。2辺だけで止めない。",
-            "difficulty": "basic"
+            id: 'math-g3-pythagorean-space-q1',
+            question: '下の図の直方体の対角線の長さを求めなさい。',
+            options: ['19 cm', '5 cm', '13 cm', '√19 cm'],
+            correctIndex: 2,
+            explanation:
+              '√3²+4²+12² = √9+16+144 = √169 = 13\n直方体の対角線は縦・横・高さの3つを2乗して足し、平方根をとる。2辺だけで止めない。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-pythagorean-space-q2",
-            "question": "縦 1 cm、横 2 cm、高さ 2 cm の直方体の対角線の長さを求めなさい。",
-            "options": [
-              "√5 cm",
-              "3 cm",
-              "5 cm",
-              "2√2 cm"
-            ],
-            "correctIndex": 1,
-            "explanation": "√1²+2²+2² = √1+4+4 = √9 = 3\n3辺すべての2乗の和の平方根が対角線になる。",
-            "difficulty": "basic"
+            id: 'math-g3-pythagorean-space-q2',
+            question: '下の図の直方体の対角線の長さを求めなさい。',
+            options: ['√5 cm', '3 cm', '5 cm', '2√2 cm'],
+            correctIndex: 1,
+            explanation:
+              '√1²+2²+2² = √1+4+4 = √9 = 3\n3辺すべての2乗の和の平方根が対角線になる。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-pythagorean-space-q3",
-            "question": "縦 2 cm、横 3 cm、高さ 6 cm の直方体の対角線の長さを求めなさい。",
-            "options": [
-              "√13 cm",
-              "11 cm",
-              "7 cm",
-              "√11 cm"
-            ],
-            "correctIndex": 2,
-            "explanation": "√2²+3²+6² = √4+9+36 = √49 = 7\n縦・横・高さ3つを2乗して足し、平方根をとる。",
-            "difficulty": "basic"
+            id: 'math-g3-pythagorean-space-q3',
+            question: '下の図の直方体の対角線の長さを求めなさい。',
+            options: ['7 cm', '11 cm', '√13 cm', '√11 cm'],
+            correctIndex: 0,
+            explanation:
+              '√2²+3²+6² = √4+9+36 = √49 = 7\n縦・横・高さ3つを2乗して足し、平方根をとる。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-pythagorean-space-q4",
-            "question": "1辺が 4 cm の立方体の対角線の長さを求めなさい。",
-            "options": [
-              "4√2 cm",
-              "4 cm",
-              "12 cm",
-              "4√3 cm"
-            ],
-            "correctIndex": 3,
-            "explanation": "√4²+4²+4² = √48 = 4√3\n1辺 a の立方体の対角線は a√3。面の対角線 a√2 と取り違えない。",
-            "difficulty": "basic"
+            id: 'math-g3-pythagorean-space-q4',
+            question: '下の図の立方体の対角線の長さを求めなさい。',
+            options: ['4√2 cm', '4 cm', '4√3 cm', '12 cm'],
+            correctIndex: 2,
+            explanation:
+              '√4²+4²+4² = √48 = 4√3\n1辺 a の立方体の対角線は a√3。面の対角線 a√2 と取り違えない。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-pythagorean-space-q5",
-            "question": "1辺が 2 cm の立方体の対角線の長さを求めなさい。",
-            "options": [
-              "2√3 cm",
-              "2√2 cm",
-              "6 cm",
-              "√6 cm"
-            ],
-            "correctIndex": 0,
-            "explanation": "√2²+2²+2² = √12 = 2√3\n立方体の対角線は1辺の √3 倍になる。",
-            "difficulty": "basic"
+            id: 'math-g3-pythagorean-space-q5',
+            question: '下の図の立方体の対角線の長さを求めなさい。',
+            options: ['2√2 cm', '2√3 cm', '6 cm', '√6 cm'],
+            correctIndex: 1,
+            explanation:
+              '√2²+2²+2² = √12 = 2√3\n立方体の対角線は1辺の √3 倍になる。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-pythagorean-space-q6",
-            "question": "1辺が 3 cm の立方体について、1つの面（正方形）の対角線の長さを求めなさい。",
-            "options": [
-              "3√3 cm",
-              "3√2 cm",
-              "6 cm",
-              "√6 cm"
-            ],
-            "correctIndex": 1,
-            "explanation": "√3²+3² = √18 = 3√2\n1つの面（正方形）の対角線は1辺の √2 倍。立体の対角線 3√3 と区別する。",
-            "difficulty": "basic"
+            id: 'math-g3-pythagorean-space-q6',
+            question:
+              '1辺が 3 cm の立方体について、1つの面（正方形）の対角線の長さを求めなさい。',
+            options: ['3√2 cm', '3√3 cm', '6 cm', '√6 cm'],
+            correctIndex: 0,
+            explanation:
+              '√3²+3² = √18 = 3√2\n1つの面（正方形）の対角線は1辺の √2 倍。立体の対角線 3√3 と区別する。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-pythagorean-space-q7",
-            "question": "立方体の対角線の長さが 6√3 cm のとき、この立方体の1辺の長さを求めなさい。",
-            "options": [
-              "6√3 cm",
-              "2√3 cm",
-              "6 cm",
-              "18 cm"
-            ],
-            "correctIndex": 2,
-            "explanation": "a√3 = 6√3 より a = 6\n立方体の対角線は1辺の √3 倍なので、6√3 のときの1辺は6。",
-            "difficulty": "standard"
+            id: 'math-g3-pythagorean-space-q7',
+            question:
+              '立方体の対角線の長さが 6√3 cm のとき、この立方体の1辺の長さを求めなさい。',
+            options: ['6√3 cm', '2√3 cm', '6 cm', '18 cm'],
+            correctIndex: 2,
+            explanation:
+              'a√3 = 6√3 より a = 6\n立方体の対角線は1辺の √3 倍なので、6√3 のときの1辺は6。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-pythagorean-space-q8",
-            "question": "底面が1辺 4 cm の正方形である正四角錐があり、頂点と底面の頂点を結ぶ側辺の長さが 6 cm です。この正四角錐の高さを求めなさい。",
-            "options": [
-              "2√5 cm",
-              "2 cm",
-              "2√2 cm",
-              "2√7 cm"
-            ],
-            "correctIndex": 3,
-            "explanation": "底面の対角線は 4√2、中心から底面の頂点までは 2√2。h = √{6²-(2√2)²} = √36-8 = √28 = 2√7\n高さは側辺と「底面の対角線の半分」で直角三角形をつくって求める。",
-            "difficulty": "standard"
+            id: 'math-g3-pythagorean-space-q8',
+            question:
+              '底面が1辺 4 cm の正方形である正四角錐があり、頂点と底面の頂点を結ぶ側辺の長さが 6 cm です。この正四角錐の高さを求めなさい。',
+            options: ['2√5 cm', '2 cm', '2√2 cm', '2√7 cm'],
+            correctIndex: 3,
+            explanation:
+              '底面の対角線は 4√2、中心から底面の頂点までは 2√2。h = √{6²-(2√2)²} = √36-8 = √28 = 2√7\n高さは側辺と「底面の対角線の半分」で直角三角形をつくって求める。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-pythagorean-space-q9",
-            "question": "底面の半径が 3 cm、母線の長さが 5 cm の円錐の高さを求めなさい。",
-            "options": [
-              "4 cm",
-              "√34 cm",
-              "8 cm",
-              "2 cm"
-            ],
-            "correctIndex": 0,
-            "explanation": "√5²-3² = √25-9 = √16 = 4\n母線が斜辺なので、高さ＝√(母線²−半径²)。足し算にしない。",
-            "difficulty": "basic"
+            id: 'math-g3-pythagorean-space-q9',
+            question:
+              '底面の半径が 3 cm、母線の長さが 5 cm の円錐の高さを求めなさい。',
+            options: ['4 cm', '√34 cm', '8 cm', '2 cm'],
+            correctIndex: 0,
+            explanation:
+              '√5²-3² = √25-9 = √16 = 4\n母線が斜辺なので、高さ＝√(母線²−半径²)。足し算にしない。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-pythagorean-space-q10",
-            "question": "底面の半径が 5 cm、母線の長さが 13 cm の円錐の高さを求めなさい。",
-            "options": [
-              "√194 cm",
-              "12 cm",
-              "18 cm",
-              "8 cm"
-            ],
-            "correctIndex": 1,
-            "explanation": "√13²-5² = √169-25 = √144 = 12\n母線が斜辺なので、母線²から半径²を引いて平方根をとる。",
-            "difficulty": "standard"
+            id: 'math-g3-pythagorean-space-q10',
+            question:
+              '底面の半径が 5 cm、母線の長さが 13 cm の円錐の高さを求めなさい。',
+            options: ['√194 cm', '12 cm', '18 cm', '8 cm'],
+            correctIndex: 1,
+            explanation:
+              '√13²-5² = √169-25 = √144 = 12\n母線が斜辺なので、母線²から半径²を引いて平方根をとる。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-pythagorean-space-q11",
-            "question": "底面の半径が 6 cm、高さが 8 cm の円錐の母線の長さを求めなさい。",
-            "options": [
-              "2√7 cm",
-              "14 cm",
-              "10 cm",
-              "√14 cm"
-            ],
-            "correctIndex": 2,
-            "explanation": "√6²+8² = √36+64 = √100 = 10\n母線は斜辺だから、半径²と高さ²を足して平方根をとる。",
-            "difficulty": "standard"
+            id: 'math-g3-pythagorean-space-q11',
+            question:
+              '底面の半径が 6 cm、高さが 8 cm の円錐の母線の長さを求めなさい。',
+            options: ['2√7 cm', '14 cm', '√14 cm', '10 cm'],
+            correctIndex: 3,
+            explanation:
+              '√6²+8² = √36+64 = √100 = 10\n母線は斜辺だから、半径²と高さ²を足して平方根をとる。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-pythagorean-space-q12",
-            "question": "高さが 2√3 cm、母線の長さが 4 cm の円錐の底面の半径を求めなさい。",
-            "options": [
-              "2√7 cm",
-              "√13 cm",
-              "1 cm",
-              "2 cm"
-            ],
-            "correctIndex": 3,
-            "explanation": "√{4²-(2√3)²} = √16-12 = √4 = 2\n半径＝√(母線²−高さ²)。母線が斜辺であることに注意する。",
-            "difficulty": "standard"
+            id: 'math-g3-pythagorean-space-q12',
+            question:
+              '高さが 2√3 cm、母線の長さが 4 cm の円錐の底面の半径を求めなさい。',
+            options: ['2√7 cm', '√13 cm', '1 cm', '2 cm'],
+            correctIndex: 3,
+            explanation:
+              '√{4²-(2√3)²} = √16-12 = √4 = 2\n半径＝√(母線²−高さ²)。母線が斜辺であることに注意する。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-pythagorean-space-q13",
-            "question": "縦 3 cm、横 4 cm、高さ 5 cm の直方体の対角線の長さを求めなさい。",
-            "options": [
-              "5√2 cm",
-              "5 cm",
-              "√41 cm",
-              "12 cm"
-            ],
-            "correctIndex": 0,
-            "explanation": "√3²+4²+5² = √9+16+25 = √50 = 5√2\n3辺を2乗して足し、√50 を 5√2 と既約化する。",
-            "difficulty": "standard"
+            id: 'math-g3-pythagorean-space-q13',
+            question: '下の図の直方体の対角線の長さを求めなさい。',
+            options: ['5 cm', '5√2 cm', '√41 cm', '12 cm'],
+            correctIndex: 1,
+            explanation:
+              '√3²+4²+5² = √9+16+25 = √50 = 5√2\n3辺を2乗して足し、√50 を 5√2 と既約化する。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-pythagorean-space-q14",
-            "question": "縦 4 cm、横 8 cm、高さ 5 cm の直方体があります。ある頂点 A から、横 8 cm の側面と横 4 cm の側面の2つの面の表面上だけを通って、A から最も遠い頂点まで進みます。この最短の道のりを展開図で考えて求めなさい。",
-            "options": [
-              "√105 cm",
-              "13 cm",
-              "17 cm",
-              "√89 cm"
-            ],
-            "correctIndex": 1,
-            "explanation": "2つの側面を展開すると、横 8+4=12、縦 5 の直角三角形になる。√12²+5² = √144+25 = √169 = 13\n表面を進む最短は2面を開いた平面上の直線。立体の対角線（√105）ではない。",
-            "difficulty": "advanced"
+            id: 'math-g3-pythagorean-space-q14',
+            question:
+              '縦 4 cm、横 8 cm、高さ 5 cm の直方体があります。ある頂点 A から、横 8 cm の側面と横 4 cm の側面の2つの面の表面上だけを通って、A から最も遠い頂点まで進みます。この最短の道のりを展開図で考えて求めなさい。',
+            options: ['√105 cm', '17 cm', '13 cm', '√89 cm'],
+            correctIndex: 2,
+            explanation:
+              '2つの側面を展開すると、横 8+4=12、縦 5 の直角三角形になる。√12²+5² = √144+25 = √169 = 13\n表面を進む最短は2面を開いた平面上の直線。立体の対角線（√105）ではない。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-pythagorean-space-q15",
-            "question": "立方体の対角線の長さが 9 cm のとき、この立方体の1辺の長さを求めなさい。",
-            "options": [
-              "3 cm",
-              "9√3 cm",
-              "3√3 cm",
-              "9/2 cm"
-            ],
-            "correctIndex": 2,
-            "explanation": "a√3 = 9 より a = frac{9}{√3} = 3√3\n対角線 a√3 が9なので、√3 で割って分母を有理化する。",
-            "difficulty": "advanced"
+            id: 'math-g3-pythagorean-space-q15',
+            question:
+              '立方体の対角線の長さが 9 cm のとき、この立方体の1辺の長さを求めなさい。',
+            options: ['3 cm', '9√3 cm', '3√3 cm', '9/2 cm'],
+            correctIndex: 2,
+            explanation:
+              'a√3 = 9 より a = frac{9}{√3} = 3√3\n対角線 a√3 が9なので、√3 で割って分母を有理化する。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-pythagorean-space-q16",
-            "question": "底面の半径が 3 cm、母線の長さが 5 cm の円錐の体積を求めなさい。",
-            "options": [
-              "15π cm³",
-              "36π cm³",
-              "4π cm³",
-              "12π cm³"
-            ],
-            "correctIndex": 3,
-            "explanation": "高さは √5²-3²=4。V = 1/3×π×3²×4 = 12π\n体積には母線5ではなく、求めた高さ4を使う。",
-            "difficulty": "standard"
+            id: 'math-g3-pythagorean-space-q16',
+            question:
+              '底面の半径が 3 cm、母線の長さが 5 cm の円錐の体積を求めなさい。',
+            options: ['12π cm³', '36π cm³', '4π cm³', '15π cm³'],
+            correctIndex: 0,
+            explanation:
+              '高さは √5²-3²=4。V = 1/3×π×3²×4 = 12π\n体積には母線5ではなく、求めた高さ4を使う。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-pythagorean-space-q17",
-            "question": "底面が1辺 6 cm の正方形で、高さが 4 cm の正四角錐があります。頂点と底面の頂点を結ぶ側辺の長さを求めなさい。",
-            "options": [
-              "√34 cm",
-              "2√13 cm",
-              "2√5 cm",
-              "10 cm"
-            ],
-            "correctIndex": 0,
-            "explanation": "底面の対角線の半分は 3√2。側辺 = √{4²+(3√2)²} = √16+18 = √34\n高さと「底面の対角線の半分」で直角三角形をつくる。",
-            "difficulty": "advanced"
+            id: 'math-g3-pythagorean-space-q17',
+            question:
+              '底面が1辺 6 cm の正方形で、高さが 4 cm の正四角錐があります。頂点と底面の頂点を結ぶ側辺の長さを求めなさい。',
+            options: ['10 cm', '2√13 cm', '2√5 cm', '√34 cm'],
+            correctIndex: 3,
+            explanation:
+              '底面の対角線の半分は 3√2。側辺 = √{4²+(3√2)²} = √16+18 = √34\n高さと「底面の対角線の半分」で直角三角形をつくる。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-pythagorean-space-q18",
-            "question": "縦 6 cm、横 6 cm、高さ 3 cm の直方体の対角線の長さを求めなさい。",
-            "options": [
-              "6√2 cm",
-              "9 cm",
-              "3√5 cm",
-              "15 cm"
-            ],
-            "correctIndex": 1,
-            "explanation": "√6²+6²+3² = √36+36+9 = √81 = 9\n3辺を2乗して足し、平方根をとる。",
-            "difficulty": "standard"
+            id: 'math-g3-pythagorean-space-q18',
+            question: '下の図の直方体の対角線の長さを求めなさい。',
+            options: ['6√2 cm', '9 cm', '3√5 cm', '15 cm'],
+            correctIndex: 1,
+            explanation:
+              '√6²+6²+3² = √36+36+9 = √81 = 9\n3辺を2乗して足し、平方根をとる。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-pythagorean-space-q19",
-            "question": "縦 2 cm、横 3 cm の直方体の対角線の長さが √29 cm のとき、この直方体の高さを求めなさい。",
-            "options": [
-              "16 cm",
-              "√14 cm",
-              "4 cm",
-              "2 cm"
-            ],
-            "correctIndex": 2,
-            "explanation": "2²+3²+h² = 29 より h² = 29-13 = 16、h = 4\n（対角線）²＝縦²+横²+高さ² の関係から高さを逆算する。",
-            "difficulty": "advanced"
+            id: 'math-g3-pythagorean-space-q19',
+            question:
+              '縦 2 cm、横 3 cm の直方体の対角線の長さが √29 cm のとき、この直方体の高さを求めなさい。',
+            options: ['4 cm', '√14 cm', '16 cm', '2 cm'],
+            correctIndex: 0,
+            explanation:
+              '2²+3²+h² = 29 より h² = 29-13 = 16、h = 4\n（対角線）²＝縦²+横²+高さ² の関係から高さを逆算する。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-pythagorean-space-q20",
-            "question": "底面の半径が 4 cm、高さが 3 cm の円錐の側面積を求めなさい。",
-            "options": [
-              "12π cm²",
-              "16π cm²",
-              "40π cm²",
-              "20π cm²"
-            ],
-            "correctIndex": 3,
-            "explanation": "母線は √4²+3²=5。側面積 = π×4×5 = 20π\n円錐の側面積は π×半径×母線。高さ3ではなく母線5を使う。",
-            "difficulty": "standard"
-          }
-        ]
-      }
-    ]
+            id: 'math-g3-pythagorean-space-q20',
+            question:
+              '底面の半径が 4 cm、高さが 3 cm の円錐の側面積を求めなさい。',
+            options: ['12π cm²', '16π cm²', '40π cm²', '20π cm²'],
+            correctIndex: 3,
+            explanation:
+              '母線は √4²+3²=5。側面積 = π×4×5 = 20π\n円錐の側面積は π×半径×母線。高さ3ではなく母線5を使う。',
+            difficulty: 'standard',
+          },
+        ],
+      },
+    ],
   },
   {
-    "eraId": "math-g3-sampling",
-    "eraName": "標本調査",
-    "eraIcon": "📊",
-    "eraPeriod": "中3 データの活用",
-    "topics": [
+    eraId: 'math-g3-sampling',
+    eraName: '標本調査',
+    eraIcon: '📊',
+    eraPeriod: '中3 データの活用',
+    topics: [
       {
-        "topicId": "math-g3-sampling-meaning",
-        "name": "標本調査と全数調査",
-        "subtitle": "どっちで調べる？",
-        "icon": "📊",
-        "order": 1,
-        "flashcards": [],
-        "quiz": [
+        topicId: 'math-g3-sampling-meaning',
+        name: '標本調査と全数調査',
+        subtitle: 'どっちで調べる？',
+        icon: '📊',
+        order: 1,
+        flashcards: [],
+        quiz: [
           {
-            "id": "math-g3-sampling-meaning-q1",
-            "question": "対象となる集団のすべてのものについて調べる調査を何といいますか。",
-            "options": [
-              "全数調査",
-              "標本調査",
-              "無作為調査",
-              "母集団調査"
-            ],
-            "correctIndex": 0,
-            "explanation": "集団全部を調べるのが全数調査。\n一部だけを取り出して調べるのが標本調査です。",
-            "difficulty": "basic"
+            id: 'math-g3-sampling-meaning-q1',
+            question:
+              '対象となる集団のすべてのものについて調べる調査を何といいますか。',
+            options: ['無作為調査', '標本調査', '全数調査', '母集団調査'],
+            correctIndex: 2,
+            explanation:
+              '集団全部を調べるのが全数調査。\n一部だけを取り出して調べるのが標本調査です。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-sampling-meaning-q2",
-            "question": "集団の一部を取り出して調べ、全体の傾向を推測する調査を何といいますか。",
-            "options": [
-              "全数調査",
-              "標本調査",
-              "完全調査",
-              "比例調査"
-            ],
-            "correctIndex": 1,
-            "explanation": "一部を取り出して全体を推測するのが標本調査。\n全部を調べる全数調査と区別します。",
-            "difficulty": "basic"
+            id: 'math-g3-sampling-meaning-q2',
+            question:
+              '集団の一部を取り出して調べ、全体の傾向を推測する調査を何といいますか。',
+            options: ['全数調査', '完全調査', '標本調査', '比例調査'],
+            correctIndex: 2,
+            explanation:
+              '一部を取り出して全体を推測するのが標本調査。\n全部を調べる全数調査と区別します。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-sampling-meaning-q3",
-            "question": "次の調査のうち、ふつう全数調査で行われるものはどれですか。",
-            "options": [
-              "テレビ番組の視聴率の調査",
-              "電球の寿命の調査",
-              "学校で行う身体測定",
-              "缶詰の品質の調査"
+            id: 'math-g3-sampling-meaning-q3',
+            question:
+              '次の調査のうち、ふつう全数調査で行われるものはどれですか。',
+            options: [
+              'テレビ番組の視聴率の調査',
+              '電球の寿命の調査',
+              '缶詰の品質の調査',
+              '学校で行う身体測定',
             ],
-            "correctIndex": 2,
-            "explanation": "身体測定は生徒全員を必ず測る必要があるので全数調査。\n視聴率・電球の寿命・缶詰の品質は標本調査で行います。",
-            "difficulty": "basic"
+            correctIndex: 3,
+            explanation:
+              '身体測定は生徒全員を必ず測る必要があるので全数調査。\n視聴率・電球の寿命・缶詰の品質は標本調査で行います。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-sampling-meaning-q4",
-            "question": "次の調査のうち、標本調査で行うのが適切なものはどれですか。",
-            "options": [
-              "国勢調査",
-              "学校の入学試験の採点",
-              "工場でつくる乾電池の寿命の調査",
-              "クラス全員の出欠の確認"
+            id: 'math-g3-sampling-meaning-q4',
+            question:
+              '次の調査のうち、標本調査で行うのが適切なものはどれですか。',
+            options: [
+              '工場でつくる乾電池の寿命の調査',
+              '学校の入学試験の採点',
+              '国勢調査',
+              'クラス全員の出欠の確認',
             ],
-            "correctIndex": 2,
-            "explanation": "乾電池の寿命は、調べると電池を使い切ってしまう（破壊検査）ので全数調査はできず標本調査。\n国勢調査・入学試験・出欠は全数調査です。",
-            "difficulty": "basic"
+            correctIndex: 0,
+            explanation:
+              '乾電池の寿命は、調べると電池を使い切ってしまう（破壊検査）ので全数調査はできず標本調査。\n国勢調査・入学試験・出欠は全数調査です。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-sampling-meaning-q5",
-            "question": "乾電池の寿命の調査が全数調査ではなく標本調査で行われる、最も適切な理由はどれですか。",
-            "options": [
-              "寿命は計算で求められるから",
-              "電池の数が少ないから",
-              "寿命にばらつきがないから",
-              "調べると電池が使えなくなってしまうから"
+            id: 'math-g3-sampling-meaning-q5',
+            question:
+              '乾電池の寿命の調査が全数調査ではなく標本調査で行われる、最も適切な理由はどれですか。',
+            options: [
+              '寿命は計算で求められるから',
+              '調べると電池が使えなくなってしまうから',
+              '寿命にばらつきがないから',
+              '電池の数が少ないから',
             ],
-            "correctIndex": 3,
-            "explanation": "寿命を調べるには電池を使い切るしかなく、全部調べると売る商品がなくなります（破壊検査）。\nそのため一部だけを調べる標本調査にします。",
-            "difficulty": "standard"
+            correctIndex: 1,
+            explanation:
+              '寿命を調べるには電池を使い切るしかなく、全部調べると売る商品がなくなります（破壊検査）。\nそのため一部だけを調べる標本調査にします。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sampling-meaning-q6",
-            "question": "テレビ番組の視聴率が標本調査で調べられる理由として、最も適切なものはどれですか。",
-            "options": [
-              "全世帯を調べると時間も費用もかかりすぎるから",
-              "視聴率は調べると変わってしまうから",
-              "テレビを見る人が少ないから",
-              "全世帯を調べると番組が壊れるから"
+            id: 'math-g3-sampling-meaning-q6',
+            question:
+              'テレビ番組の視聴率が標本調査で調べられる理由として、最も適切なものはどれですか。',
+            options: [
+              '視聴率は調べると変わってしまうから',
+              '全世帯を調べると時間も費用もかかりすぎるから',
+              'テレビを見る人が少ないから',
+              '全世帯を調べると番組が壊れるから',
             ],
-            "correctIndex": 0,
-            "explanation": "すべての世帯を調べるのは時間も費用も膨大で現実的でないので、一部の世帯を調べて推測します。\n破壊検査ではない点が乾電池などとの違いです。",
-            "difficulty": "standard"
+            correctIndex: 1,
+            explanation:
+              'すべての世帯を調べるのは時間も費用も膨大で現実的でないので、一部の世帯を調べて推測します。\n破壊検査ではない点が乾電池などとの違いです。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sampling-meaning-q7",
-            "question": "標本調査において、調査の対象とする集団全体を何といいますか。",
-            "options": [
-              "標本",
-              "母集団",
-              "標本の大きさ",
-              "度数"
-            ],
-            "correctIndex": 1,
-            "explanation": "調べたい集団全体が母集団。\nそこから取り出した一部が標本です。",
-            "difficulty": "basic"
+            id: 'math-g3-sampling-meaning-q7',
+            question:
+              '標本調査において、調査の対象とする集団全体を何といいますか。',
+            options: ['母集団', '標本', '標本の大きさ', '度数'],
+            correctIndex: 0,
+            explanation:
+              '調べたい集団全体が母集団。\nそこから取り出した一部が標本です。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-sampling-meaning-q8",
-            "question": "標本調査において、母集団から取り出した一部を何といいますか。",
-            "options": [
-              "全数",
-              "階級",
-              "標本",
-              "母集団"
-            ],
-            "correctIndex": 2,
-            "explanation": "母集団から取り出した一部が標本。\n標本を調べて母集団の傾向を推測します。",
-            "difficulty": "basic"
+            id: 'math-g3-sampling-meaning-q8',
+            question:
+              '標本調査において、母集団から取り出した一部を何といいますか。',
+            options: ['全数', '階級', '標本', '母集団'],
+            correctIndex: 2,
+            explanation:
+              '母集団から取り出した一部が標本。\n標本を調べて母集団の傾向を推測します。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-sampling-meaning-q9",
-            "question": "ある工場で1日に生産した製品20000個から500個を取り出して検査しました。このとき母集団はどれですか。",
-            "options": [
-              "不良品の個数",
-              "工場で働く人の数",
-              "取り出した500個",
-              "1日に生産した20000個"
+            id: 'math-g3-sampling-meaning-q9',
+            question:
+              'ある工場で1日に生産した製品20000個から500個を取り出して検査しました。このとき母集団はどれですか。',
+            options: [
+              '不良品の個数',
+              '1日に生産した20000個',
+              '取り出した500個',
+              '工場で働く人の数',
             ],
-            "correctIndex": 3,
-            "explanation": "調べたい対象全体は1日に生産した20000個なので、これが母集団。\n取り出した500個が標本です。",
-            "difficulty": "standard"
+            correctIndex: 1,
+            explanation:
+              '調べたい対象全体は1日に生産した20000個なので、これが母集団。\n取り出した500個が標本です。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sampling-meaning-q10",
-            "question": "ある工場で1日に生産した製品20000個から500個を取り出して検査しました。このとき標本の大きさはいくつですか。",
-            "options": [
-              "20000",
-              "500",
-              "20500",
-              "40"
-            ],
-            "correctIndex": 1,
-            "explanation": "標本の大きさは取り出した標本の個数なので500。\n20000は母集団の大きさです。",
-            "difficulty": "standard"
+            id: 'math-g3-sampling-meaning-q10',
+            question:
+              'ある工場で1日に生産した製品20000個から500個を取り出して検査しました。このとき標本の大きさはいくつですか。',
+            options: ['500', '20000', '20500', '40'],
+            correctIndex: 0,
+            explanation:
+              '標本の大きさは取り出した標本の個数なので500。\n20000は母集団の大きさです。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sampling-meaning-q11",
-            "question": "標本調査で「標本の大きさ」が表すものはどれですか。",
-            "options": [
-              "母集団の個数",
-              "標本1個の重さ",
-              "調査にかかった日数",
-              "取り出した標本に含まれるものの個数"
+            id: 'math-g3-sampling-meaning-q11',
+            question: '標本調査で「標本の大きさ」が表すものはどれですか。',
+            options: [
+              '取り出した標本に含まれるものの個数',
+              '標本1個の重さ',
+              '調査にかかった日数',
+              '母集団の個数',
             ],
-            "correctIndex": 3,
-            "explanation": "標本の大きさは、取り出した標本に含まれるものの個数のこと。\n母集団全体の個数とは区別します。",
-            "difficulty": "basic"
+            correctIndex: 0,
+            explanation:
+              '標本の大きさは、取り出した標本に含まれるものの個数のこと。\n母集団全体の個数とは区別します。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-sampling-meaning-q12",
-            "question": "母集団から標本を取り出すとき、かたよりが出ないようにすべての要素を同じ確率で取り出すことを何といいますか。",
-            "options": [
-              "無作為に抽出する",
-              "順番に抽出する",
-              "全数で抽出する",
-              "比例して抽出する"
+            id: 'math-g3-sampling-meaning-q12',
+            question:
+              '母集団から標本を取り出すとき、かたよりが出ないようにすべての要素を同じ確率で取り出すことを何といいますか。',
+            options: [
+              '全数で抽出する',
+              '順番に抽出する',
+              '無作為に抽出する',
+              '比例して抽出する',
             ],
-            "correctIndex": 0,
-            "explanation": "どれも同じ確率で公平に取り出すことを「無作為に抽出する」といいます。\nかたよった選び方では母集団の傾向を正しく推測できません。",
-            "difficulty": "basic"
+            correctIndex: 2,
+            explanation:
+              'どれも同じ確率で公平に取り出すことを「無作為に抽出する」といいます。\nかたよった選び方では母集団の傾向を正しく推測できません。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-sampling-meaning-q13",
-            "question": "標本を無作為に抽出しなければならないのは、なぜですか。最も適切なものを選びなさい。",
-            "options": [
-              "標本にかたよりが出て母集団の傾向を正しく推測できなくなるのを防ぐため",
-              "標本の数を増やすため",
-              "調査を早く終わらせるため",
-              "母集団を小さくするため"
+            id: 'math-g3-sampling-meaning-q13',
+            question:
+              '標本を無作為に抽出しなければならないのは、なぜですか。最も適切なものを選びなさい。',
+            options: [
+              '標本にかたよりが出て母集団の傾向を正しく推測できなくなるのを防ぐため',
+              '標本の数を増やすため',
+              '調査を早く終わらせるため',
+              '母集団を小さくするため',
             ],
-            "correctIndex": 0,
-            "explanation": "かたよった選び方をすると標本が母集団全体を代表しなくなります。\n公平に選ぶことで母集団の傾向を正しく推測できます。",
-            "difficulty": "standard"
+            correctIndex: 0,
+            explanation:
+              'かたよった選び方をすると標本が母集団全体を代表しなくなります。\n公平に選ぶことで母集団の傾向を正しく推測できます。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sampling-meaning-q14",
-            "question": "ある中学校の全校生徒の通学時間を調べるため、標本を選びます。最も無作為性の高い（かたよりの少ない）選び方はどれですか。",
-            "options": [
-              "バスケットボール部員だけを選ぶ",
-              "学校の近くに住む生徒だけを選ぶ",
-              "全校生徒の名簿から、くじ引きで選ぶ",
-              "遠くから通う生徒だけを選ぶ"
+            id: 'math-g3-sampling-meaning-q14',
+            question:
+              'ある中学校の全校生徒の通学時間を調べるため、標本を選びます。最も無作為性の高い（かたよりの少ない）選び方はどれですか。',
+            options: [
+              'バスケットボール部員だけを選ぶ',
+              '全校生徒の名簿から、くじ引きで選ぶ',
+              '学校の近くに住む生徒だけを選ぶ',
+              '遠くから通う生徒だけを選ぶ',
             ],
-            "correctIndex": 2,
-            "explanation": "名簿からくじ引きで選べば、どの生徒も同じ確率で選ばれかたよりません。\n近くや遠くの生徒だけを選ぶと通学時間がかたよります。",
-            "difficulty": "standard"
+            correctIndex: 1,
+            explanation:
+              '名簿からくじ引きで選べば、どの生徒も同じ確率で選ばれかたよりません。\n近くや遠くの生徒だけを選ぶと通学時間がかたよります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sampling-meaning-q15",
-            "question": "市の有権者の意見を調べる世論調査で、かたよりの大きい（適切でない）標本の選び方はどれですか。",
-            "options": [
-              "有権者名簿から乱数を使って選ぶ",
-              "ある特定の政党の集会に来た人だけに聞く",
-              "無作為に選んだ番号に電話して聞く",
-              "全有権者から等しい確率で選ぶ"
+            id: 'math-g3-sampling-meaning-q15',
+            question:
+              '市の有権者の意見を調べる世論調査で、かたよりの大きい（適切でない）標本の選び方はどれですか。',
+            options: [
+              '有権者名簿から乱数を使って選ぶ',
+              '全有権者から等しい確率で選ぶ',
+              '無作為に選んだ番号に電話して聞く',
+              'ある特定の政党の集会に来た人だけに聞く',
             ],
-            "correctIndex": 1,
-            "explanation": "特定の政党の集会に来た人は意見がかたよっており、市全体を代表しません。\n世論調査では無作為に選ぶ必要があります。",
-            "difficulty": "standard"
+            correctIndex: 3,
+            explanation:
+              '特定の政党の集会に来た人は意見がかたよっており、市全体を代表しません。\n世論調査では無作為に選ぶ必要があります。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sampling-meaning-q16",
-            "question": "袋の中に同じ大きさの赤玉と白玉が合わせて600個入っています。よくかき混ぜて50個取り出したところ、赤玉が20個ありました。袋全体の赤玉の個数はおよそ何個と推測できますか。",
-            "options": [
-              "およそ20個",
-              "およそ240個",
-              "およそ300個",
-              "およそ400個"
+            id: 'math-g3-sampling-meaning-q16',
+            question:
+              '袋の中に同じ大きさの赤玉と白玉が合わせて600個入っています。よくかき混ぜて50個取り出したところ、赤玉が20個ありました。袋全体の赤玉の個数はおよそ何個と推測できますか。',
+            options: [
+              'およそ20個',
+              'およそ300個',
+              'およそ240個',
+              'およそ400個',
             ],
-            "correctIndex": 1,
-            "explanation": "標本での赤玉の割合は 20/50。\n母集団でも同じ割合と考え 600 × 20/50 = 240 個と推測します。",
-            "difficulty": "advanced"
+            correctIndex: 2,
+            explanation:
+              '標本での赤玉の割合は 20/50。\n母集団でも同じ割合と考え 600 × 20/50 = 240 個と推測します。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-sampling-meaning-q17",
-            "question": "ある池の魚の数を調べるため、50匹つかまえて印をつけて池に戻し、後日100匹つかまえると印つきが10匹いました。池の魚の数はおよそ何匹と推測できますか。",
-            "options": [
-              "およそ50匹",
-              "およそ150匹",
-              "およそ500匹",
-              "およそ1000匹"
+            id: 'math-g3-sampling-meaning-q17',
+            question:
+              'ある池の魚の数を調べるため、50匹つかまえて印をつけて池に戻し、後日100匹つかまえると印つきが10匹いました。池の魚の数はおよそ何匹と推測できますか。',
+            options: [
+              'およそ50匹',
+              'およそ150匹',
+              'およそ500匹',
+              'およそ1000匹',
             ],
-            "correctIndex": 2,
-            "explanation": "後でつかまえた100匹のうち印つきは 10/100 の割合。\n池全体でも同じ割合と考え、印をつけた50匹がこの割合になるので 50 ÷ 10/100 = 500 匹と推測します。",
-            "difficulty": "advanced"
+            correctIndex: 2,
+            explanation:
+              '後でつかまえた100匹のうち印つきは 10/100 の割合。\n池全体でも同じ割合と考え、印をつけた50匹がこの割合になるので 50 ÷ 10/100 = 500 匹と推測します。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-sampling-meaning-q18",
-            "question": "標本平均を使って母集団の平均を推測するときの考え方として、最も適切なものはどれですか。",
-            "options": [
-              "標本平均は母集団の平均とまったく同じになる",
-              "標本平均は母集団の平均とは無関係である",
-              "標本平均から母集団の平均をおよそ推測できる",
-              "標本を大きくすると標本平均は必ず大きくなる"
+            id: 'math-g3-sampling-meaning-q18',
+            question:
+              '標本平均を使って母集団の平均を推測するときの考え方として、最も適切なものはどれですか。',
+            options: [
+              '標本平均は母集団の平均とまったく同じになる',
+              '標本平均から母集団の平均をおよそ推測できる',
+              '標本平均は母集団の平均とは無関係である',
+              '標本を大きくすると標本平均は必ず大きくなる',
             ],
-            "correctIndex": 2,
-            "explanation": "標本は母集団の一部なので、標本平均と母集団の平均は完全には一致しません。\nしかし無作為に選べば標本平均から母集団の平均をおよそ推測できます。",
-            "difficulty": "standard"
+            correctIndex: 1,
+            explanation:
+              '標本は母集団の一部なので、標本平均と母集団の平均は完全には一致しません。\nしかし無作為に選べば標本平均から母集団の平均をおよそ推測できます。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sampling-meaning-q19",
-            "question": "標本の大きさと推測の精度の関係について、最も適切なものはどれですか。",
-            "options": [
-              "標本を大きくするほど、母集団の傾向をより正確に推測しやすい",
-              "標本は小さいほど正確に推測できる",
-              "標本の大きさは推測の精度に関係しない",
-              "標本を大きくすると母集団も大きくなる"
+            id: 'math-g3-sampling-meaning-q19',
+            question:
+              '標本の大きさと推測の精度の関係について、最も適切なものはどれですか。',
+            options: [
+              '標本を大きくすると母集団も大きくなる',
+              '標本は小さいほど正確に推測できる',
+              '標本の大きさは推測の精度に関係しない',
+              '標本を大きくするほど、母集団の傾向をより正確に推測しやすい',
             ],
-            "correctIndex": 0,
-            "explanation": "標本が大きいほど母集団の特徴をよく反映し、推測の精度は上がりやすくなります。\nただし大きくするほど手間や費用も増えます。",
-            "difficulty": "standard"
+            correctIndex: 3,
+            explanation:
+              '標本が大きいほど母集団の特徴をよく反映し、推測の精度は上がりやすくなります。\nただし大きくするほど手間や費用も増えます。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sampling-meaning-q20",
-            "question": "ある工場で製品10000個から200個を無作為に取り出して調べたところ、不良品が3個ありました。この10000個の中の不良品の個数はおよそ何個と推測できますか。",
-            "options": [
-              "およそ3個",
-              "およそ15個",
-              "およそ150個",
-              "およそ300個"
-            ],
-            "correctIndex": 2,
-            "explanation": "標本での不良品の割合は 3/200。\n母集団でも同じ割合と考え 10000 × 3/200 = 150 個と推測します。",
-            "difficulty": "advanced"
+            id: 'math-g3-sampling-meaning-q20',
+            question:
+              'ある工場で製品10000個から200個を無作為に取り出して調べたところ、不良品が3個ありました。この10000個の中の不良品の個数はおよそ何個と推測できますか。',
+            options: ['およそ150個', 'およそ15個', 'およそ3個', 'およそ300個'],
+            correctIndex: 0,
+            explanation:
+              '標本での不良品の割合は 3/200。\n母集団でも同じ割合と考え 10000 × 3/200 = 150 個と推測します。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-sampling-meaning-q21",
-            "question": "次のうち、標本調査の結果が母集団の傾向を正しく表しやすいのはどんなときですか。最も適切なものを選びなさい。",
-            "options": [
-              "かたよりなく無作為に十分な大きさの標本を選んだとき",
-              "調べやすい人だけを少しだけ選んだとき",
-              "知り合いだけを標本に選んだとき",
-              "母集団より大きい標本を選んだとき"
+            id: 'math-g3-sampling-meaning-q21',
+            question:
+              '次のうち、標本調査の結果が母集団の傾向を正しく表しやすいのはどんなときですか。最も適切なものを選びなさい。',
+            options: [
+              '知り合いだけを標本に選んだとき',
+              '調べやすい人だけを少しだけ選んだとき',
+              'かたよりなく無作為に十分な大きさの標本を選んだとき',
+              '母集団より大きい標本を選んだとき',
             ],
-            "correctIndex": 0,
-            "explanation": "かたよりなく無作為に、十分な大きさの標本を選ぶほど母集団の傾向を正しく表しやすくなります。\n標本は母集団の一部なので、母集団より大きくはなりません。",
-            "difficulty": "standard"
-          }
-        ]
+            correctIndex: 2,
+            explanation:
+              'かたよりなく無作為に、十分な大きさの標本を選ぶほど母集団の傾向を正しく表しやすくなります。\n標本は母集団の一部なので、母集団より大きくはなりません。',
+            difficulty: 'standard',
+          },
+        ],
       },
       {
-        "topicId": "math-g3-sampling-estimation",
-        "name": "標本調査による推定",
-        "subtitle": "比例で全体を見積もる",
-        "icon": "🎣",
-        "order": 2,
-        "flashcards": [],
-        "quiz": [
+        topicId: 'math-g3-sampling-estimation',
+        name: '標本調査による推定',
+        subtitle: '比例で全体を見積もる',
+        icon: '🎣',
+        order: 2,
+        flashcards: [],
+        quiz: [
           {
-            "id": "math-g3-sampling-estimation-q1",
-            "question": "池の魚に印をつけて全体の数を推定します。印をつけた魚を 50 匹放し、後で 30 匹捕まえたところ、そのうち印のついた魚は 3 匹でした。池の魚はおよそ何匹と推定できますか。",
-            "options": [
-              "500 匹",
-              "5 匹",
-              "1500 匹",
-              "18 匹"
-            ],
-            "correctIndex": 0,
-            "explanation": "3 : 30 = 50 : x より x = 50 × 30/3 = 500\n後で捕まえた 30 匹のうち印が 3 匹いた割合が、池全体でも同じと考えます。",
-            "difficulty": "basic"
+            id: 'math-g3-sampling-estimation-q1',
+            question:
+              '池の魚に印をつけて全体の数を推定します。印をつけた魚を 50 匹放し、後で 30 匹捕まえたところ、そのうち印のついた魚は 3 匹でした。池の魚はおよそ何匹と推定できますか。',
+            options: ['18 匹', '5 匹', '1500 匹', '500 匹'],
+            correctIndex: 3,
+            explanation:
+              '3 : 30 = 50 : x より x = 50 × 30/3 = 500\n後で捕まえた 30 匹のうち印が 3 匹いた割合が、池全体でも同じと考えます。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-sampling-estimation-q2",
-            "question": "白玉と黒玉がたくさん入った袋から無作為に 40 個取り出したところ、白玉は 15 個でした。袋の中に黒玉が 200 個入っているとき、白玉はおよそ何個と推定できますか。",
-            "options": [
-              "80 個",
-              "120 個",
-              "200 個",
-              "333 個"
-            ],
-            "correctIndex": 1,
-            "explanation": "標本の白：黒は 15 : 25 なので 15 : 25 = x : 200\nx = 15 × 200/25 = 120 より、白玉はおよそ 120 個です。",
-            "difficulty": "basic"
+            id: 'math-g3-sampling-estimation-q2',
+            question:
+              '白玉と黒玉がたくさん入った袋から無作為に 40 個取り出したところ、白玉は 15 個でした。袋の中に黒玉が 200 個入っているとき、白玉はおよそ何個と推定できますか。',
+            options: ['120 個', '80 個', '200 個', '333 個'],
+            correctIndex: 0,
+            explanation:
+              '標本の白：黒は 15 : 25 なので 15 : 25 = x : 200\nx = 15 × 200/25 = 120 より、白玉はおよそ 120 個です。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-sampling-estimation-q3",
-            "question": "ある工場で作った製品 20000 個から無作為に 500 個取り出して調べたところ、不良品が 10 個ありました。製品全体の不良品はおよそ何個と推定できますか。",
-            "options": [
-              "40 個",
-              "200 個",
-              "400 個",
-              "4000 個"
-            ],
-            "correctIndex": 2,
-            "explanation": "10 : 500 = x : 20000 より x = 10 × 20000/500 = 400\n標本での不良品の割合を、製品全体にあてはめます。",
-            "difficulty": "basic"
+            id: 'math-g3-sampling-estimation-q3',
+            question:
+              'ある工場で作った製品 20000 個から無作為に 500 個取り出して調べたところ、不良品が 10 個ありました。製品全体の不良品はおよそ何個と推定できますか。',
+            options: ['40 個', '200 個', '4000 個', '400 個'],
+            correctIndex: 3,
+            explanation:
+              '10 : 500 = x : 20000 より x = 10 × 20000/500 = 400\n標本での不良品の割合を、製品全体にあてはめます。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-sampling-estimation-q4",
-            "question": "全校生徒 800 人のある中学校で、無作為に 50 人を選んで調べたところ、めがねをかけている生徒は 18 人でした。全校でめがねをかけている生徒はおよそ何人と推定できますか。",
-            "options": [
-              "144 人",
-              "225 人",
-              "360 人",
-              "288 人"
-            ],
-            "correctIndex": 3,
-            "explanation": "18 : 50 = x : 800 より x = 18 × 800/50 = 288\n標本でめがねをかけている割合を、全校生徒にあてはめます。",
-            "difficulty": "basic"
+            id: 'math-g3-sampling-estimation-q4',
+            question:
+              '全校生徒 800 人のある中学校で、無作為に 50 人を選んで調べたところ、めがねをかけている生徒は 18 人でした。全校でめがねをかけている生徒はおよそ何人と推定できますか。',
+            options: ['144 人', '288 人', '360 人', '225 人'],
+            correctIndex: 1,
+            explanation:
+              '18 : 50 = x : 800 より x = 18 × 800/50 = 288\n標本でめがねをかけている割合を、全校生徒にあてはめます。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-sampling-estimation-q5",
-            "question": "全校生徒 600 人のある中学校で、無作為に 80 人を選んで調べたところ、運動部に所属している生徒は 48 人でした。全校で運動部に所属している生徒はおよそ何人と推定できますか。",
-            "options": [
-              "360 人",
-              "300 人",
-              "420 人",
-              "240 人"
-            ],
-            "correctIndex": 0,
-            "explanation": "48 : 80 = x : 600 より x = 48 × 600/80 = 360\n標本での運動部の割合を、全校生徒にあてはめます。",
-            "difficulty": "basic"
+            id: 'math-g3-sampling-estimation-q5',
+            question:
+              '全校生徒 600 人のある中学校で、無作為に 80 人を選んで調べたところ、運動部に所属している生徒は 48 人でした。全校で運動部に所属している生徒はおよそ何人と推定できますか。',
+            options: ['420 人', '300 人', '360 人', '240 人'],
+            correctIndex: 2,
+            explanation:
+              '48 : 80 = x : 600 より x = 48 × 600/80 = 360\n標本での運動部の割合を、全校生徒にあてはめます。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-sampling-estimation-q6",
-            "question": "湖の魚の数を推定します。印をつけた魚を 120 匹放し、後で 75 匹捕まえたところ、そのうち印のついた魚は 9 匹でした。湖の魚はおよそ何匹と推定できますか。",
-            "options": [
-              "640 匹",
-              "1000 匹",
-              "900 匹",
-              "1440 匹"
-            ],
-            "correctIndex": 1,
-            "explanation": "9 : 75 = 120 : x より x = 120 × 75/9 = 1000\n後で捕まえた 75 匹のうち印が 9 匹いた割合を使います。",
-            "difficulty": "standard"
+            id: 'math-g3-sampling-estimation-q6',
+            question:
+              '湖の魚の数を推定します。印をつけた魚を 120 匹放し、後で 75 匹捕まえたところ、そのうち印のついた魚は 9 匹でした。湖の魚はおよそ何匹と推定できますか。',
+            options: ['640 匹', '900 匹', '1000 匹', '1440 匹'],
+            correctIndex: 2,
+            explanation:
+              '9 : 75 = 120 : x より x = 120 × 75/9 = 1000\n後で捕まえた 75 匹のうち印が 9 匹いた割合を使います。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sampling-estimation-q7",
-            "question": "池の魚の数を推定します。印をつけた魚を 80 匹放し、後で 50 匹捕まえたところ、そのうち印のついた魚は 6 匹でした。池の魚はおよそ何匹と推定できますか。上から 2 けたの概数で答えなさい。",
-            "options": [
-              "240 匹",
-              "600 匹",
-              "670 匹",
-              "960 匹"
-            ],
-            "correctIndex": 2,
-            "explanation": "6 : 50 = 80 : x より x = 80 × 50/6 = 666.6・s\n上から 2 けたの概数にして、およそ 670 匹と推定します。",
-            "difficulty": "standard"
+            id: 'math-g3-sampling-estimation-q7',
+            question:
+              '池の魚の数を推定します。印をつけた魚を 80 匹放し、後で 50 匹捕まえたところ、そのうち印のついた魚は 6 匹でした。池の魚はおよそ何匹と推定できますか。上から 2 けたの概数で答えなさい。',
+            options: ['670 匹', '600 匹', '240 匹', '960 匹'],
+            correctIndex: 0,
+            explanation:
+              '6 : 50 = 80 : x より x = 80 × 50/6 = 666.6・s\n上から 2 けたの概数にして、およそ 670 匹と推定します。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sampling-estimation-q8",
-            "question": "赤玉と青玉がたくさん入った袋から無作為に 50 個取り出したところ、赤玉は 20 個、青玉は 30 個でした。袋の中に青玉が 420 個入っているとき、赤玉はおよそ何個と推定できますか。",
-            "options": [
-              "168 個",
-              "300 個",
-              "630 個",
-              "280 個"
-            ],
-            "correctIndex": 3,
-            "explanation": "標本の赤：青は 20 : 30 なので 20 : 30 = x : 420\nx = 20 × 420/30 = 280 より、赤玉はおよそ 280 個です。",
-            "difficulty": "standard"
+            id: 'math-g3-sampling-estimation-q8',
+            question:
+              '赤玉と青玉がたくさん入った袋から無作為に 50 個取り出したところ、赤玉は 20 個、青玉は 30 個でした。袋の中に青玉が 420 個入っているとき、赤玉はおよそ何個と推定できますか。',
+            options: ['280 個', '300 個', '630 個', '168 個'],
+            correctIndex: 0,
+            explanation:
+              '標本の赤：青は 20 : 30 なので 20 : 30 = x : 420\nx = 20 × 420/30 = 280 より、赤玉はおよそ 280 個です。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sampling-estimation-q9",
-            "question": "袋にたくさんのビーズが入っています。印をつけたビーズを 100 個入れてよくかき混ぜ、無作為に 60 個取り出したところ、印のついたビーズは 12 個でした。袋の中のビーズは全部でおよそ何個と推定できますか。",
-            "options": [
-              "500 個",
-              "720 個",
-              "200 個",
-              "50 個"
-            ],
-            "correctIndex": 0,
-            "explanation": "12 : 60 = 100 : x より x = 100 × 60/12 = 500\n取り出した 60 個のうち印が 12 個あった割合を使います。",
-            "difficulty": "standard"
+            id: 'math-g3-sampling-estimation-q9',
+            question:
+              '袋にたくさんのビーズが入っています。印をつけたビーズを 100 個入れてよくかき混ぜ、無作為に 60 個取り出したところ、印のついたビーズは 12 個でした。袋の中のビーズは全部でおよそ何個と推定できますか。',
+            options: ['50 個', '720 個', '200 個', '500 個'],
+            correctIndex: 3,
+            explanation:
+              '12 : 60 = 100 : x より x = 100 × 60/12 = 500\n取り出した 60 個のうち印が 12 個あった割合を使います。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sampling-estimation-q10",
-            "question": "池のコイの数を推定します。印をつけたコイを 300 匹放し、後で 120 匹捕まえたところ、そのうち印のついたコイは 20 匹でした。池のコイはおよそ何匹と推定できますか。",
-            "options": [
-              "2000 匹",
-              "1800 匹",
-              "720 匹",
-              "50 匹"
-            ],
-            "correctIndex": 1,
-            "explanation": "20 : 120 = 300 : x より x = 300 × 120/20 = 1800\n後で捕まえた 120 匹のうち印が 20 匹いた割合を使います。",
-            "difficulty": "standard"
+            id: 'math-g3-sampling-estimation-q10',
+            question:
+              '池のコイの数を推定します。印をつけたコイを 300 匹放し、後で 120 匹捕まえたところ、そのうち印のついたコイは 20 匹でした。池のコイはおよそ何匹と推定できますか。',
+            options: ['2000 匹', '720 匹', '1800 匹', '50 匹'],
+            correctIndex: 2,
+            explanation:
+              '20 : 120 = 300 : x より x = 300 × 120/20 = 1800\n後で捕まえた 120 匹のうち印が 20 匹いた割合を使います。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sampling-estimation-q11",
-            "question": "ある種が 600 粒あります。無作為に 50 粒選んでまいたところ、45 粒が発芽しました。600 粒すべてをまくと、およそ何粒が発芽すると推定できますか。",
-            "options": [
-              "450 粒",
-              "480 粒",
-              "540 粒",
-              "60 粒"
-            ],
-            "correctIndex": 2,
-            "explanation": "45 : 50 = x : 600 より x = 45 × 600/50 = 540\n標本で発芽した割合を、すべての種にあてはめます。",
-            "difficulty": "standard"
+            id: 'math-g3-sampling-estimation-q11',
+            question:
+              'ある種が 600 粒あります。無作為に 50 粒選んでまいたところ、45 粒が発芽しました。600 粒すべてをまくと、およそ何粒が発芽すると推定できますか。',
+            options: ['450 粒', '540 粒', '480 粒', '60 粒'],
+            correctIndex: 1,
+            explanation:
+              '45 : 50 = x : 600 より x = 45 × 600/50 = 540\n標本で発芽した割合を、すべての種にあてはめます。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sampling-estimation-q12",
-            "question": "池の魚の数を推定します。印をつけた魚を 45 匹放し、後で 60 匹捕まえたところ、そのうち印のついた魚は 8 匹でした。池の魚はおよそ何匹と推定できますか。上から 2 けたの概数で答えなさい。",
-            "options": [
-              "300 匹",
-              "338 匹",
-              "640 匹",
-              "340 匹"
-            ],
-            "correctIndex": 3,
-            "explanation": "8 : 60 = 45 : x より x = 45 × 60/8 = 337.5\n上から 2 けたの概数にして、およそ 340 匹と推定します。",
-            "difficulty": "advanced"
+            id: 'math-g3-sampling-estimation-q12',
+            question:
+              '池の魚の数を推定します。印をつけた魚を 45 匹放し、後で 60 匹捕まえたところ、そのうち印のついた魚は 8 匹でした。池の魚はおよそ何匹と推定できますか。上から 2 けたの概数で答えなさい。',
+            options: ['300 匹', '338 匹', '340 匹', '640 匹'],
+            correctIndex: 2,
+            explanation:
+              '8 : 60 = 45 : x より x = 45 × 60/8 = 337.5\n上から 2 けたの概数にして、およそ 340 匹と推定します。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-sampling-estimation-q13",
-            "question": "袋の中に白玉と黒玉が入っています。無作為に 60 個取り出したところ、白玉は 24 個でした。袋の中の白玉が実際には 300 個あるとき、袋全体の玉の数はおよそ何個と推定できますか。",
-            "options": [
-              "750 個",
-              "450 個",
-              "500 個",
-              "120 個"
-            ],
-            "correctIndex": 0,
-            "explanation": "標本での白玉の割合は 24/60 = 2/5\n300 ÷ 2/5 = 750 より、全体はおよそ 750 個です。",
-            "difficulty": "advanced"
+            id: 'math-g3-sampling-estimation-q13',
+            question:
+              '袋の中に白玉と黒玉が入っています。無作為に 60 個取り出したところ、白玉は 24 個でした。袋の中の白玉が実際には 300 個あるとき、袋全体の玉の数はおよそ何個と推定できますか。',
+            options: ['450 個', '750 個', '500 個', '120 個'],
+            correctIndex: 1,
+            explanation:
+              '標本での白玉の割合は 24/60 = 2/5\n300 ÷ 2/5 = 750 より、全体はおよそ 750 個です。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-sampling-estimation-q14",
-            "question": "ある市の有権者 25000 人から無作為に 500 人を選んでアンケートをとったところ、ある政策に賛成した人は 320 人でした。有権者全体で賛成する人はおよそ何人と推定できますか。",
-            "options": [
-              "8000 人",
-              "16000 人",
-              "12000 人",
-              "20000 人"
-            ],
-            "correctIndex": 1,
-            "explanation": "320 : 500 = x : 25000 より x = 320 × 25000/500 = 16000\n標本での賛成の割合を、有権者全体にあてはめます。",
-            "difficulty": "advanced"
+            id: 'math-g3-sampling-estimation-q14',
+            question:
+              'ある市の有権者 25000 人から無作為に 500 人を選んでアンケートをとったところ、ある政策に賛成した人は 320 人でした。有権者全体で賛成する人はおよそ何人と推定できますか。',
+            options: ['16000 人', '8000 人', '12000 人', '20000 人'],
+            correctIndex: 0,
+            explanation:
+              '320 : 500 = x : 25000 より x = 320 × 25000/500 = 16000\n標本での賛成の割合を、有権者全体にあてはめます。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-sampling-estimation-q15",
-            "question": "ある工場で作った製品 50000 個から無作為に 800 個取り出して調べたところ、不良品が 6 個ありました。製品全体の不良品はおよそ何個と推定できますか。",
-            "options": [
-              "300 個",
-              "480 個",
-              "375 個",
-              "400 個"
-            ],
-            "correctIndex": 2,
-            "explanation": "6 : 800 = x : 50000 より x = 6 × 50000/800 = 375\n標本での不良品の割合を、製品全体にあてはめます。",
-            "difficulty": "advanced"
+            id: 'math-g3-sampling-estimation-q15',
+            question:
+              'ある工場で作った製品 50000 個から無作為に 800 個取り出して調べたところ、不良品が 6 個ありました。製品全体の不良品はおよそ何個と推定できますか。',
+            options: ['300 個', '375 個', '480 個', '400 個'],
+            correctIndex: 1,
+            explanation:
+              '6 : 800 = x : 50000 より x = 6 × 50000/800 = 375\n標本での不良品の割合を、製品全体にあてはめます。',
+            difficulty: 'advanced',
           },
           {
-            "id": "math-g3-sampling-estimation-q16",
-            "question": "全校生徒 500 人のある中学校で、無作為に 60 人を選んで調べたところ、読書が好きな生徒は 21 人でした。全校で読書が好きな生徒はおよそ何人と推定できますか。",
-            "options": [
-              "120 人",
-              "150 人",
-              "210 人",
-              "175 人"
-            ],
-            "correctIndex": 3,
-            "explanation": "21 : 60 = x : 500 より x = 21 × 500/60 = 175\n標本での読書好きの割合を、全校生徒にあてはめます。",
-            "difficulty": "basic"
+            id: 'math-g3-sampling-estimation-q16',
+            question:
+              '全校生徒 500 人のある中学校で、無作為に 60 人を選んで調べたところ、読書が好きな生徒は 21 人でした。全校で読書が好きな生徒はおよそ何人と推定できますか。',
+            options: ['120 人', '150 人', '210 人', '175 人'],
+            correctIndex: 3,
+            explanation:
+              '21 : 60 = x : 500 より x = 21 × 500/60 = 175\n標本での読書好きの割合を、全校生徒にあてはめます。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-sampling-estimation-q17",
-            "question": "ある林にすむ野鳥の数を推定します。印をつけた野鳥を 40 羽放し、後で 25 羽捕まえたところ、そのうち印のついた野鳥は 5 羽でした。この林の野鳥はおよそ何羽と推定できますか。",
-            "options": [
-              "200 羽",
-              "250 羽",
-              "125 羽",
-              "1000 羽"
-            ],
-            "correctIndex": 0,
-            "explanation": "5 : 25 = 40 : x より x = 40 × 25/5 = 200\n後で捕まえた 25 羽のうち印が 5 羽いた割合を使います。",
-            "difficulty": "standard"
+            id: 'math-g3-sampling-estimation-q17',
+            question:
+              'ある林にすむ野鳥の数を推定します。印をつけた野鳥を 40 羽放し、後で 25 羽捕まえたところ、そのうち印のついた野鳥は 5 羽でした。この林の野鳥はおよそ何羽と推定できますか。',
+            options: ['125 羽', '250 羽', '200 羽', '1000 羽'],
+            correctIndex: 2,
+            explanation:
+              '5 : 25 = 40 : x より x = 40 × 25/5 = 200\n後で捕まえた 25 羽のうち印が 5 羽いた割合を使います。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sampling-estimation-q18",
-            "question": "当たりくじとはずれくじが合わせて 500 本入った箱があります。無作為に 30 本引いたところ、当たりくじは 6 本でした。箱の中の当たりくじはおよそ何本と推定できますか。",
-            "options": [
-              "60 本",
-              "100 本",
-              "150 本",
-              "36 本"
-            ],
-            "correctIndex": 1,
-            "explanation": "6 : 30 = x : 500 より x = 6 × 500/30 = 100\n標本での当たりくじの割合を、箱全体にあてはめます。",
-            "difficulty": "basic"
+            id: 'math-g3-sampling-estimation-q18',
+            question:
+              '当たりくじとはずれくじが合わせて 500 本入った箱があります。無作為に 30 本引いたところ、当たりくじは 6 本でした。箱の中の当たりくじはおよそ何本と推定できますか。',
+            options: ['60 本', '36 本', '150 本', '100 本'],
+            correctIndex: 3,
+            explanation:
+              '6 : 30 = x : 500 より x = 6 × 500/30 = 100\n標本での当たりくじの割合を、箱全体にあてはめます。',
+            difficulty: 'basic',
           },
           {
-            "id": "math-g3-sampling-estimation-q19",
-            "question": "池の魚の数を推定します。印をつけた魚を 150 匹放し、後で 90 匹捕まえたところ、そのうち印のついた魚は 11 匹でした。池の魚はおよそ何匹と推定できますか。上から 2 けたの概数で答えなさい。",
-            "options": [
-              "1100 匹",
-              "1230 匹",
-              "1200 匹",
-              "1227 匹"
-            ],
-            "correctIndex": 2,
-            "explanation": "11 : 90 = 150 : x より x = 150 × 90/11 = 1227.2・s\n上から 2 けたの概数にして、およそ 1200 匹と推定します。",
-            "difficulty": "standard"
+            id: 'math-g3-sampling-estimation-q19',
+            question:
+              '池の魚の数を推定します。印をつけた魚を 150 匹放し、後で 90 匹捕まえたところ、そのうち印のついた魚は 11 匹でした。池の魚はおよそ何匹と推定できますか。上から 2 けたの概数で答えなさい。',
+            options: ['1100 匹', '1200 匹', '1230 匹', '1227 匹'],
+            correctIndex: 1,
+            explanation:
+              '11 : 90 = 150 : x より x = 150 × 90/11 = 1227.2・s\n上から 2 けたの概数にして、およそ 1200 匹と推定します。',
+            difficulty: 'standard',
           },
           {
-            "id": "math-g3-sampling-estimation-q20",
-            "question": "袋にたくさんの白玉が入っています。区別のために赤玉を 80 個入れてよくかき混ぜ、無作為に 50 個取り出したところ、赤玉は 5 個でした。はじめに入っていた白玉はおよそ何個と推定できますか。",
-            "options": [
-              "500 個",
-              "640 個",
-              "800 個",
-              "720 個"
-            ],
-            "correctIndex": 3,
-            "explanation": "5 : 50 = 80 : x より x = 80 × 50/5 = 800\n袋全体は約 800 個で、入れた赤玉 80 個を引くと、白玉はおよそ 720 個です。",
-            "difficulty": "advanced"
-          }
-        ]
-      }
-    ]
-  }
+            id: 'math-g3-sampling-estimation-q20',
+            question:
+              '袋にたくさんの白玉が入っています。区別のために赤玉を 80 個入れてよくかき混ぜ、無作為に 50 個取り出したところ、赤玉は 5 個でした。はじめに入っていた白玉はおよそ何個と推定できますか。',
+            options: ['720 個', '640 個', '800 個', '500 個'],
+            correctIndex: 0,
+            explanation:
+              '5 : 50 = 80 : x より x = 80 × 50/5 = 800\n袋全体は約 800 個で、入れた赤玉 80 個を引くと、白玉はおよそ 720 個です。',
+            difficulty: 'advanced',
+          },
+        ],
+      },
+    ],
+  },
 ];

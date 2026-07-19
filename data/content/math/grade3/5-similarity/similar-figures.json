@@ -12,262 +12,467 @@
     "questions": [
       {
         "id": "math-g3-similar-figures-q1",
-        "question": "2つの図形が相似であるとは、どのような関係のことですか。",
+        "question": "下の図で $△ABC ∽ △DEF$ です。相似な図形について正しく述べたものはどれですか。",
         "options": [
-          "周の長さがつねに等しい",
-          "面積がつねに等しい",
-          "一方を一定の割合で拡大・縮小すると他方にぴったり重なる",
-          "少なくとも1組の角が等しい"
+          "対応する辺の長さはそれぞれ等しい",
+          "対応する角の大きさはそれぞれ2倍になる",
+          "対応する角の大きさはそれぞれ等しい",
+          "対応する辺の長さはつねに整数になる"
         ],
         "correctIndex": 2,
-        "explanation": "相似は、形を変えずに一定の割合で拡大・縮小した関係。\n大きさは変わってよいが、形（角）は保たれる。",
+        "explanation": "相似な図形では、形を保ったまま拡大・縮小しているので対応する角の大きさは変わりません。\n相似では対応する角はそれぞれ等しく、対応する辺の比（相似比）は一定になります。",
+        "image": {
+          "kind": "two-triangles",
+          "left": { "angles": [70, 60, 50], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [70, 60, 50], "vertexNames": ["D", "E", "F"] },
+          "angleMarks": [
+            { "tri": "left", "at": "A", "n": 1 }, { "tri": "right", "at": "D", "n": 1 },
+            { "tri": "left", "at": "B", "n": 2 }, { "tri": "right", "at": "E", "n": 2 },
+            { "tri": "left", "at": "C", "n": 3 }, { "tri": "right", "at": "F", "n": 3 }
+          ]
+        },
         "difficulty": "basic"
       },
       {
         "id": "math-g3-similar-figures-q2",
-        "question": "2つの図形が相似であることを表す記号はどれですか。",
+        "question": "下の図で $△ABC ∽ △DEF$ です。つねに成り立つ比はどれですか。",
         "options": [
-          "$\\equiv$",
-          "$\\parallel$",
-          "$∽$",
-          "$\\perp$"
+          "$AB:DE = EF:BC$",
+          "$AB:DE = BC:EF$",
+          "$AB:EF = BC:DE$",
+          "$AB:DE = AC:EF$"
         ],
-        "correctIndex": 2,
-        "explanation": "相似は記号 $∽$ で表す。\n$\\equiv$ は合同、$\\parallel$ は平行、$\\perp$ は垂直を表す。",
+        "correctIndex": 1,
+        "explanation": "対応する辺どうしの比はすべて等しく、$AB:DE = BC:EF = CA:FD$ が成り立ちます。\nこの一定の比を相似比といいます。",
+        "image": {
+          "kind": "two-triangles",
+          "left": { "angles": [80, 55, 45], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [80, 55, 45], "vertexNames": ["D", "E", "F"] },
+          "angleMarks": [
+            { "tri": "left", "at": "A", "n": 1 }, { "tri": "right", "at": "D", "n": 1 },
+            { "tri": "left", "at": "B", "n": 2 }, { "tri": "right", "at": "E", "n": 2 }
+          ]
+        },
         "difficulty": "basic"
       },
       {
         "id": "math-g3-similar-figures-q3",
-        "question": "合同な2つの図形の相似比を、最も簡単な整数の比で表しなさい。",
+        "question": "下の図で $△ABC ∽ △DEF$ です。$AB=6$cm、$DE=9$cm のとき、相似比を最も簡単な整数の比で表しなさい。",
         "options": [
-          "$1:2$",
-          "$1:1$",
-          "$2:1$",
-          "$0:1$"
+          "$3:2$",
+          "$6:9$",
+          "$2:3$",
+          "$4:9$"
         ],
-        "correctIndex": 1,
-        "explanation": "合同な図形は対応する辺がすべて等しいので、辺の比は $1:1$。\n合同は相似比 $1:1$ の相似といえる。",
+        "correctIndex": 2,
+        "explanation": "$AB:DE = 6:9 = 2:3$ です。\n対応する辺の比が相似比なので、最も簡単な整数の比で表します。",
+        "image": {
+          "kind": "two-triangles",
+          "left": { "angles": [65, 75, 40], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [65, 75, 40], "vertexNames": ["D", "E", "F"] },
+          "angleMarks": [
+            { "tri": "left", "at": "A", "n": 1 }, { "tri": "right", "at": "D", "n": 1 }
+          ],
+          "sideLabels": [
+            { "tri": "left", "side": "AB", "text": "6cm" },
+            { "tri": "right", "side": "DE", "text": "9cm" }
+          ]
+        },
         "difficulty": "basic"
       },
       {
         "id": "math-g3-similar-figures-q4",
-        "question": "$\\triangle ABC ∽ \\triangle DEF$ のとき、$\\angle A$ に対応する角はどれですか。",
+        "question": "下の図で $△ABC ∽ △DEF$ です。$AB=12$cm、$DE=8$cm のとき、相似比を最も簡単な整数の比で表しなさい。",
         "options": [
-          "$\\angle D$",
-          "$\\angle F$",
-          "$\\angle B$",
-          "$\\angle E$"
+          "$3:2$",
+          "$2:3$",
+          "$12:8$",
+          "$9:4$"
         ],
         "correctIndex": 0,
-        "explanation": "頂点を対応順に書くので $A$ と $D$、$B$ と $E$、$C$ と $F$ が対応する。\nよって $\\angle A$ に対応する角は $\\angle D$。",
+        "explanation": "$AB:DE = 12:8 = 3:2$ です。\n対応する辺の比が相似比なので、最も簡単な整数の比で表します。",
+        "image": {
+          "kind": "two-triangles",
+          "left": { "angles": [55, 65, 60], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [55, 65, 60], "vertexNames": ["D", "E", "F"] },
+          "angleMarks": [
+            { "tri": "left", "at": "A", "n": 1 }, { "tri": "right", "at": "D", "n": 1 }
+          ],
+          "sideLabels": [
+            { "tri": "left", "side": "AB", "text": "12cm" },
+            { "tri": "right", "side": "DE", "text": "8cm" }
+          ]
+        },
         "difficulty": "basic"
       },
       {
         "id": "math-g3-similar-figures-q5",
-        "question": "$\\triangle ABC ∽ \\triangle DEF$ のとき、辺 $BC$ に対応する辺はどれですか。",
+        "question": "下の図で $△ABC ∽ △DEF$ です。$x$ の値を求めなさい。",
         "options": [
-          "$DE$",
-          "$EF$",
-          "$DF$",
-          "$AB$"
+          "4cm",
+          "10cm",
+          "9cm",
+          "18cm"
         ],
-        "correctIndex": 1,
-        "explanation": "$B$ と $E$、$C$ と $F$ が対応する。\nだから辺 $BC$ に対応する辺は $EF$。",
-        "difficulty": "basic"
+        "correctIndex": 2,
+        "explanation": "$AB:DE = 8:12 = 2:3$ なので $BC:EF = 6:x = 2:3$ より $x = 9$。\n対応する辺の比はどの組も相似比に等しいことを使います。",
+        "image": {
+          "kind": "two-triangles",
+          "left": { "angles": [70, 60, 50], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [70, 60, 50], "vertexNames": ["D", "E", "F"] },
+          "angleMarks": [
+            { "tri": "left", "at": "A", "n": 1 }, { "tri": "right", "at": "D", "n": 1 },
+            { "tri": "left", "at": "B", "n": 2 }, { "tri": "right", "at": "E", "n": 2 }
+          ],
+          "sideLabels": [
+            { "tri": "left", "side": "AB", "text": "8cm" },
+            { "tri": "right", "side": "DE", "text": "12cm" },
+            { "tri": "left", "side": "BC", "text": "6cm" },
+            { "tri": "right", "side": "EF", "text": "x" }
+          ]
+        },
+        "difficulty": "standard"
       },
       {
         "id": "math-g3-similar-figures-q6",
-        "question": "相似な2つの図形について、つねに成り立つものはどれですか。",
+        "question": "下の図で $△ABC ∽ △DEF$ です。$x$ の値を求めなさい。",
         "options": [
-          "対応する辺の長さが等しい",
-          "対応する角の大きさが等しい",
-          "面積が等しい",
-          "対応する辺の長さの差が等しい"
+          "50cm",
+          "8cm",
+          "14cm",
+          "5cm"
         ],
         "correctIndex": 1,
-        "explanation": "相似では対応する角の大きさはつねに等しい。\n辺は「比」が等しいだけで、長さや面積は等しいとは限らない。",
-        "difficulty": "basic"
+        "explanation": "$AB:DE = 10:4 = 5:2$ なので $BC:EF = 20:x = 5:2$ より $x = 8$。\n相似比を使い、対応する辺から比例で求めます。",
+        "image": {
+          "kind": "two-triangles",
+          "left": { "angles": [50, 70, 60], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [50, 70, 60], "vertexNames": ["D", "E", "F"] },
+          "angleMarks": [
+            { "tri": "left", "at": "A", "n": 1 }, { "tri": "right", "at": "D", "n": 1 },
+            { "tri": "left", "at": "B", "n": 2 }, { "tri": "right", "at": "E", "n": 2 }
+          ],
+          "sideLabels": [
+            { "tri": "left", "side": "AB", "text": "10cm" },
+            { "tri": "right", "side": "DE", "text": "4cm" },
+            { "tri": "left", "side": "BC", "text": "20cm" },
+            { "tri": "right", "side": "EF", "text": "x" }
+          ]
+        },
+        "difficulty": "standard"
       },
       {
         "id": "math-g3-similar-figures-q7",
-        "question": "相似な2つの図形で、対応する辺の長さの比を何といいますか。",
+        "question": "下の図で $△ABC ∽ △DEF$ です。$x$ の値を求めなさい。",
         "options": [
-          "面積比",
-          "比例定数",
-          "円周率",
-          "相似比"
+          "15cm",
+          "11cm",
+          "8cm",
+          "45cm"
         ],
-        "correctIndex": 3,
-        "explanation": "対応する辺の長さの比を相似比という。\nどの対応する辺で比をとっても同じ値になる。",
-        "difficulty": "basic"
+        "correctIndex": 0,
+        "explanation": "$AB:DE = 3:9 = 1:3$ なので $BC:EF = 5:x = 1:3$ より $x = 15$。\n相似比 $1:3$ を対応する辺にあてはめて求めます。",
+        "image": {
+          "kind": "two-triangles",
+          "left": { "angles": [80, 50, 50], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [80, 50, 50], "vertexNames": ["D", "E", "F"] },
+          "angleMarks": [
+            { "tri": "left", "at": "A", "n": 1 }, { "tri": "right", "at": "D", "n": 1 },
+            { "tri": "left", "at": "B", "n": 2 }, { "tri": "right", "at": "E", "n": 2 }
+          ],
+          "sideLabels": [
+            { "tri": "left", "side": "AB", "text": "3cm" },
+            { "tri": "right", "side": "DE", "text": "9cm" },
+            { "tri": "left", "side": "BC", "text": "5cm" },
+            { "tri": "right", "side": "EF", "text": "x" }
+          ]
+        },
+        "difficulty": "standard"
       },
       {
         "id": "math-g3-similar-figures-q8",
-        "question": "$\\triangle ABC ∽ \\triangle DEF$ で、相似比が $2:3$、$AB = 4$ cm のとき、$DE$ の長さを求めなさい。",
+        "question": "下の図で $△DEF$ は $△ABC$ を拡大した図で $△ABC ∽ △DEF$ です。$AB=3$cm、$DE=12$cm のとき、$△DEF$ は $△ABC$ を何倍に拡大した図ですか。",
         "options": [
-          "$8$ cm",
-          "$\\frac{8}{3}$ cm",
-          "$5$ cm",
-          "$6$ cm"
+          "1/4倍",
+          "16倍",
+          "9倍",
+          "4倍"
         ],
         "correctIndex": 3,
-        "explanation": "$AB:DE = 2:3$ だから $4:DE = 2:3$。\n$2 \\times DE = 12$ より $DE = 6$ cm。",
+        "explanation": "$DE:AB = 12:3 = 4:1$ だから $4$ 倍です。\n対応する辺の比が、拡大・縮小の倍率（相似比）になります。",
+        "image": {
+          "kind": "two-triangles",
+          "left": { "angles": [60, 80, 40], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [60, 80, 40], "vertexNames": ["D", "E", "F"] },
+          "angleMarks": [
+            { "tri": "left", "at": "A", "n": 1 }, { "tri": "right", "at": "D", "n": 1 }
+          ],
+          "sideLabels": [
+            { "tri": "left", "side": "AB", "text": "3cm" },
+            { "tri": "right", "side": "DE", "text": "12cm" }
+          ]
+        },
         "difficulty": "standard"
       },
       {
         "id": "math-g3-similar-figures-q9",
-        "question": "$\\triangle ABC ∽ \\triangle DEF$ で、相似比が $3:5$、$AB = 9$ cm のとき、$DE$ の長さを求めなさい。",
+        "question": "下の図で $△DEF$ は $△ABC$ を縮小した図で $△ABC ∽ △DEF$ です。$AB=15$cm、$DE=5$cm のとき、$△DEF$ は $△ABC$ を何分の1に縮小した図ですか。",
         "options": [
-          "$15$ cm",
-          "$\\frac{27}{5}$ cm",
-          "$11$ cm",
-          "$45$ cm"
+          "$\\frac{1}{3}$",
+          "$\\frac{1}{5}$",
+          "$\\frac{1}{9}$",
+          "3倍"
         ],
         "correctIndex": 0,
-        "explanation": "$AB:DE = 3:5$ だから $9:DE = 3:5$。\n$3 \\times DE = 45$ より $DE = 15$ cm。",
+        "explanation": "$DE:AB = 5:15 = 1:3$ なので $\\frac{1}{3}$ に縮小した図です。\n対応する辺の比が相似比（縮小の割合）になります。",
+        "image": {
+          "kind": "two-triangles",
+          "left": { "angles": [75, 55, 50], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [75, 55, 50], "vertexNames": ["D", "E", "F"] },
+          "angleMarks": [
+            { "tri": "left", "at": "A", "n": 1 }, { "tri": "right", "at": "D", "n": 1 }
+          ],
+          "sideLabels": [
+            { "tri": "left", "side": "AB", "text": "15cm" },
+            { "tri": "right", "side": "DE", "text": "5cm" }
+          ]
+        },
         "difficulty": "standard"
       },
       {
         "id": "math-g3-similar-figures-q10",
-        "question": "$\\triangle ABC ∽ \\triangle DEF$ で、$AB = 6$ cm、$DE = 9$ cm です。この2つの三角形の相似比を、最も簡単な整数の比で表しなさい。",
+        "question": "下の図で $△ABC ∽ △DEF$ です。$AB=18$cm、$DE=24$cm のとき、相似比を最も簡単な整数の比で表しなさい。",
         "options": [
-          "$3:2$",
-          "$1:3$",
-          "$6:9$",
-          "$2:3$"
+          "$4:3$",
+          "$3:4$",
+          "$18:24$",
+          "$9:16$"
         ],
-        "correctIndex": 3,
-        "explanation": "$AB:DE = 6:9$。\n両方を $3$ でわって $2:3$。",
-        "difficulty": "standard"
+        "correctIndex": 1,
+        "explanation": "$AB:DE = 18:24 = 3:4$ です。\n両方を最大公約数 $6$ で割って、最も簡単な整数の比で表します。",
+        "image": {
+          "kind": "two-triangles",
+          "left": { "angles": [65, 60, 55], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [65, 60, 55], "vertexNames": ["D", "E", "F"] },
+          "angleMarks": [
+            { "tri": "left", "at": "A", "n": 1 }, { "tri": "right", "at": "D", "n": 1 }
+          ],
+          "sideLabels": [
+            { "tri": "left", "side": "AB", "text": "18cm" },
+            { "tri": "right", "side": "DE", "text": "24cm" }
+          ]
+        },
+        "difficulty": "advanced"
       },
       {
         "id": "math-g3-similar-figures-q11",
-        "question": "$\\triangle ABC ∽ \\triangle DEF$ で、$BC = 8$ cm、$EF = 12$ cm です。相似比を、最も簡単な整数の比で表しなさい。",
+        "question": "下の図で $△ABC ∽ △DEF$ です。$x$ の値を求めなさい。",
         "options": [
-          "$3:2$",
-          "$2:3$",
-          "$8:12$",
-          "$4:5$"
+          "4cm",
+          "22cm",
+          "25cm",
+          "28cm"
         ],
-        "correctIndex": 1,
-        "explanation": "$BC:EF = 8:12$。\n両方を $4$ でわって $2:3$。",
-        "difficulty": "standard"
+        "correctIndex": 2,
+        "explanation": "$AB:DE = 20:8 = 5:2$ なので $BC:EF = x:10 = 5:2$ より $x = 25$。\n相似比 $5:2$ を対応する辺にあてはめて比例で求めます。",
+        "image": {
+          "kind": "two-triangles",
+          "left": { "angles": [70, 65, 45], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [70, 65, 45], "vertexNames": ["D", "E", "F"] },
+          "angleMarks": [
+            { "tri": "left", "at": "A", "n": 1 }, { "tri": "right", "at": "D", "n": 1 },
+            { "tri": "left", "at": "B", "n": 2 }, { "tri": "right", "at": "E", "n": 2 }
+          ],
+          "sideLabels": [
+            { "tri": "left", "side": "AB", "text": "20cm" },
+            { "tri": "right", "side": "DE", "text": "8cm" },
+            { "tri": "left", "side": "BC", "text": "x" },
+            { "tri": "right", "side": "EF", "text": "10cm" }
+          ]
+        },
+        "difficulty": "advanced"
       },
       {
         "id": "math-g3-similar-figures-q12",
-        "question": "縦 $4$ cm、横 $6$ cm の長方形 A と相似な長方形 B があり、B の縦は $6$ cm です。長方形 B の横の長さを求めなさい。",
+        "question": "$△ABC ∽ △DEF$ で、相似比が $2:3$、$AB=6$cm です。対応する辺 $DE$ の長さを求めなさい。",
         "options": [
-          "$8$ cm",
-          "$9$ cm",
-          "$12$ cm",
-          "$4$ cm"
+          "4cm",
+          "12cm",
+          "18cm",
+          "9cm"
         ],
-        "correctIndex": 1,
-        "explanation": "縦の比 $4:6 = 2:3$ が相似比。\n横は $6 \\times \\frac{3}{2} = 9$ cm。",
-        "difficulty": "standard"
+        "correctIndex": 3,
+        "explanation": "相似比 $2:3$ より $AB:DE = 2:3$、$6:DE = 2:3$ なので $DE = 9$。\n相似比は対応する辺の比なので、比例式で長さを求められます。",
+        "image": {
+          "kind": "two-triangles",
+          "left": { "angles": [60, 70, 50], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [60, 70, 50], "vertexNames": ["D", "E", "F"] },
+          "angleMarks": [
+            { "tri": "left", "at": "A", "n": 1 }, { "tri": "right", "at": "D", "n": 1 }
+          ],
+          "sideLabels": [
+            { "tri": "left", "side": "AB", "text": "6cm" },
+            { "tri": "right", "side": "DE", "text": "x" }
+          ]
+        },
+        "difficulty": "advanced"
       },
       {
         "id": "math-g3-similar-figures-q13",
-        "question": "$\\triangle ABC ∽ \\triangle DEF$ で、$\\angle B = 70^\\circ$ です。$\\angle E$ の大きさを求めなさい。",
+        "question": "下の図で $△ABC ∽ △DEF$ です。$x$ の値を求めなさい。",
         "options": [
-          "$140^\\circ$",
-          "$110^\\circ$",
-          "$35^\\circ$",
-          "$70^\\circ$"
+          "12cm",
+          "27cm",
+          "11cm",
+          "9cm"
         ],
-        "correctIndex": 3,
-        "explanation": "相似では対応する角は等しく、$B$ と $E$ が対応する。\nよって $\\angle E = \\angle B = 70^\\circ$。",
-        "difficulty": "basic"
+        "correctIndex": 0,
+        "explanation": "$AB:DE = 21:14 = 3:2$ なので $BC:EF = 18:x = 3:2$ より $x = 12$。\n相似比 $3:2$ を対応する辺にあてはめて比例で求めます。",
+        "image": {
+          "kind": "two-triangles",
+          "left": { "angles": [55, 75, 50], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [55, 75, 50], "vertexNames": ["D", "E", "F"] },
+          "angleMarks": [
+            { "tri": "left", "at": "A", "n": 1 }, { "tri": "right", "at": "D", "n": 1 },
+            { "tri": "left", "at": "B", "n": 2 }, { "tri": "right", "at": "E", "n": 2 }
+          ],
+          "sideLabels": [
+            { "tri": "left", "side": "AB", "text": "21cm" },
+            { "tri": "right", "side": "DE", "text": "14cm" },
+            { "tri": "left", "side": "BC", "text": "18cm" },
+            { "tri": "right", "side": "EF", "text": "x" }
+          ]
+        },
+        "difficulty": "advanced"
       },
       {
         "id": "math-g3-similar-figures-q14",
-        "question": "$\\triangle ABC ∽ \\triangle DEF$ で、$\\angle A = 50^\\circ$、$\\angle B = 60^\\circ$ です。$\\angle F$ の大きさを求めなさい。",
+        "question": "下の図で $△ABC ∽ △DEF$ で、相似比は $2:3$ です。2つの三角形の周の長さの比を、最も簡単な整数の比で表しなさい。",
         "options": [
-          "$50^\\circ$",
-          "$110^\\circ$",
-          "$60^\\circ$",
-          "$70^\\circ$"
+          "$4:9$",
+          "$3:2$",
+          "$2:3$",
+          "$8:27$"
         ],
-        "correctIndex": 3,
-        "explanation": "三角形の内角の和より $\\angle C = 180^\\circ - 50^\\circ - 60^\\circ = 70^\\circ$。\n$F$ は $C$ に対応するので $\\angle F = 70^\\circ$。",
-        "difficulty": "advanced"
+        "correctIndex": 2,
+        "explanation": "対応する辺はすべて $2:3$ なので、その和である周の長さの比も $2:3$ です。\n周の長さの比は相似比に等しく、面積の比 $4:9$（相似比の2乗）とは異なります。",
+        "image": {
+          "kind": "two-triangles",
+          "left": { "angles": [70, 55, 55], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [70, 55, 55], "vertexNames": ["D", "E", "F"] },
+          "angleMarks": [
+            { "tri": "left", "at": "A", "n": 1 }, { "tri": "right", "at": "D", "n": 1 }
+          ],
+          "sideLabels": [
+            { "tri": "left", "side": "AB", "text": "2" },
+            { "tri": "right", "side": "DE", "text": "3" }
+          ]
+        },
+        "difficulty": "standard"
       },
       {
         "id": "math-g3-similar-figures-q15",
-        "question": "$\\triangle ABC ∽ \\triangle DEF$ で、相似比が $5:2$、$AB = 15$ cm のとき、$DE$ の長さを求めなさい。",
+        "question": "下の図で $△ABC ∽ △DEF$ です。頂点 $B$ に対応する頂点と、辺 $BC$ に対応する辺の組み合わせはどれですか。",
         "options": [
-          "$6$ cm",
-          "$9$ cm",
-          "$12$ cm",
-          "$3$ cm"
+          "頂点E と 辺EF",
+          "頂点E と 辺DE",
+          "頂点F と 辺EF",
+          "頂点D と 辺FD"
         ],
         "correctIndex": 0,
-        "explanation": "$AB:DE = 5:2$ だから $15:DE = 5:2$。\n$5 \\times DE = 30$ より $DE = 6$ cm。",
-        "difficulty": "standard"
+        "explanation": "記号 $∽$ は対応する順に頂点を並べるので、$A→D$、$B→E$、$C→F$ と対応します。\nよって $B$ には $E$ が、辺 $BC$ には辺 $EF$ が対応します。",
+        "image": {
+          "kind": "two-triangles",
+          "left": { "angles": [80, 60, 40], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [80, 60, 40], "vertexNames": ["D", "E", "F"] },
+          "angleMarks": [
+            { "tri": "left", "at": "A", "n": 1 }, { "tri": "right", "at": "D", "n": 1 },
+            { "tri": "left", "at": "B", "n": 2 }, { "tri": "right", "at": "E", "n": 2 },
+            { "tri": "left", "at": "C", "n": 3 }, { "tri": "right", "at": "F", "n": 3 }
+          ]
+        },
+        "difficulty": "basic"
       },
       {
         "id": "math-g3-similar-figures-q16",
-        "question": "$\\triangle ABC ∽ \\triangle DEF$ で、$AB = 8$ cm、$DE = 12$ cm、$EF = 18$ cm です。辺 $BC$ の長さを求めなさい。",
+        "question": "下の図で $△ABC ∽ △DEF$ です。$x$ の値を求めなさい。",
         "options": [
-          "$12$ cm",
-          "$14$ cm",
-          "$22$ cm",
-          "$27$ cm"
+          "4cm",
+          "9cm",
+          "10cm",
+          "18cm"
         ],
-        "correctIndex": 0,
-        "explanation": "相似比は $AB:DE = 8:12 = 2:3$。\n$BC:EF = 2:3$ より $BC = 18 \\times \\frac{2}{3} = 12$ cm。",
-        "difficulty": "advanced"
+        "correctIndex": 1,
+        "explanation": "$BC:EF = 8:12 = 2:3$ なので $AB:DE = 6:x = 2:3$ より $x = 9$。\nどの対応する辺の比も相似比に等しいことを使います。",
+        "image": {
+          "kind": "two-triangles",
+          "left": { "angles": [65, 70, 45], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [65, 70, 45], "vertexNames": ["D", "E", "F"] },
+          "angleMarks": [
+            { "tri": "left", "at": "A", "n": 1 }, { "tri": "right", "at": "D", "n": 1 },
+            { "tri": "left", "at": "B", "n": 2 }, { "tri": "right", "at": "E", "n": 2 }
+          ],
+          "sideLabels": [
+            { "tri": "left", "side": "BC", "text": "8cm" },
+            { "tri": "right", "side": "EF", "text": "12cm" },
+            { "tri": "left", "side": "AB", "text": "6cm" },
+            { "tri": "right", "side": "DE", "text": "x" }
+          ]
+        },
+        "difficulty": "standard"
       },
       {
         "id": "math-g3-similar-figures-q17",
-        "question": "相似な2つの三角形があり、相似比は $3:4$ です。小さい方のある辺が $9$ cm のとき、大きい方の対応する辺の長さを求めなさい。",
+        "question": "下の図で $△ABC ∽ △DEF$ です。$x$ の値を求めなさい。",
         "options": [
-          "$10$ cm",
-          "$\\frac{27}{4}$ cm",
-          "$12$ cm",
-          "$16$ cm"
+          "12cm",
+          "26cm",
+          "9cm",
+          "27cm"
         ],
-        "correctIndex": 2,
-        "explanation": "対応する辺の比は $9:x = 3:4$。\n$3x = 36$ より $x = 12$ cm。",
-        "difficulty": "standard"
-      },
-      {
-        "id": "math-g3-similar-figures-q18",
-        "question": "$\\triangle ABC ∽ \\triangle DEF$ で、$AB = 20$ mm、$DE = 6$ cm です。相似比を、最も簡単な整数の比で表しなさい。",
-        "options": [
-          "$10:3$",
-          "$20:6$",
-          "$1:3$",
-          "$3:1$"
-        ],
-        "correctIndex": 2,
-        "explanation": "単位をそろえると $AB = 20$ mm $= 2$ cm。\n$AB:DE = 2:6 = 1:3$。",
+        "correctIndex": 3,
+        "explanation": "$AB:DE = 16:24 = 2:3$ なので $BC:EF = 18:x = 2:3$ より $x = 27$。\n相似比 $2:3$ を対応する辺にあてはめて比例で求めます。",
+        "image": {
+          "kind": "two-triangles",
+          "left": { "angles": [60, 65, 55], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [60, 65, 55], "vertexNames": ["D", "E", "F"] },
+          "angleMarks": [
+            { "tri": "left", "at": "A", "n": 1 }, { "tri": "right", "at": "D", "n": 1 },
+            { "tri": "left", "at": "B", "n": 2 }, { "tri": "right", "at": "E", "n": 2 }
+          ],
+          "sideLabels": [
+            { "tri": "left", "side": "AB", "text": "16cm" },
+            { "tri": "right", "side": "DE", "text": "24cm" },
+            { "tri": "left", "side": "BC", "text": "18cm" },
+            { "tri": "right", "side": "EF", "text": "x" }
+          ]
+        },
         "difficulty": "advanced"
       },
       {
-        "id": "math-g3-similar-figures-q19",
-        "question": "相似な2つの三角形について、正しくないものはどれですか。",
+        "id": "math-g3-similar-figures-q18",
+        "question": "下の図で $△ABC ∽ △DEF$ です。$CA=8$cm、$FD=20$cm のとき、相似比を最も簡単な整数の比で表しなさい。",
         "options": [
-          "対応する辺の長さはつねに等しい",
-          "対応する辺の長さの比はすべて等しい",
-          "対応する角の大きさは等しい",
-          "一方を拡大・縮小すると他方に重なる"
+          "$2:5$",
+          "$5:2$",
+          "$8:20$",
+          "$4:25$"
         ],
         "correctIndex": 0,
-        "explanation": "対応する辺の長さは相似比が $1:1$ のときしか等しくならない。\n等しいのは角の大きさと辺の「比」。",
-        "difficulty": "standard"
-      },
-      {
-        "id": "math-g3-similar-figures-q20",
-        "question": "$\\triangle ABC ∽ \\triangle DEF$ で、相似比が $4:7$、$DE = 21$ cm のとき、$AB$ の長さを求めなさい。",
-        "options": [
-          "$\\frac{147}{4}$ cm",
-          "$18$ cm",
-          "$12$ cm",
-          "$24$ cm"
-        ],
-        "correctIndex": 2,
-        "explanation": "$AB:DE = 4:7$ だから $AB:21 = 4:7$。\n$7 \\times AB = 84$ より $AB = 12$ cm。",
+        "explanation": "$CA:FD = 8:20 = 2:5$ です。\n対応する辺はどの組でも比が等しいので、$CA$ と $FD$ の比から相似比を求められます。",
+        "image": {
+          "kind": "two-triangles",
+          "left": { "angles": [70, 50, 60], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [70, 50, 60], "vertexNames": ["D", "E", "F"] },
+          "angleMarks": [
+            { "tri": "left", "at": "A", "n": 1 }, { "tri": "right", "at": "D", "n": 1 },
+            { "tri": "left", "at": "C", "n": 2 }, { "tri": "right", "at": "F", "n": 2 }
+          ],
+          "sideLabels": [
+            { "tri": "left", "side": "CA", "text": "8cm" },
+            { "tri": "right", "side": "FD", "text": "20cm" }
+          ]
+        },
         "difficulty": "advanced"
       }
     ]

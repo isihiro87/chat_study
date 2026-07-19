@@ -4,6 +4,7 @@ import { describe, it, expect } from 'vitest';
 import {
   getEraMetas,
   supportsEraFlow,
+  computeScopeAfterNotLearned,
   parseSel,
   serializeSel,
   toggleEra,
@@ -14,6 +15,8 @@ import {
   buildScopeQuickItems,
   buildPickData,
   buildCommitData,
+  buildFinishData,
+  topicsToSel,
   QUICK_REPLY_LABEL_MAX,
   POSTBACK_DATA_MAX,
 } from '../lineScopeFlow';
@@ -28,8 +31,119 @@ describe('getEraMetas / supportsEraFlow', () => {
 
   it('未対応の教科・学年は空＝フローを使わない', () => {
     expect(getEraMetas('math', 1)).toEqual([]);
-    expect(supportsEraFlow('english', 1)).toBe(false); // 時代1個以下はフォールバック
+    expect(supportsEraFlow('math', 1)).toBe(false); // 単元データなしはフォールバック
+    expect(supportsEraFlow('geography', 3)).toBe(false); // 地理は中3対象外（単元0）
     expect(supportsEraFlow('history', 9 as unknown as number)).toBe(false);
+  });
+
+  it('english は学年別単元の再構成（2026-06）以降フロー対応', () => {
+    expect(supportsEraFlow('english', 1)).toBe(true);
+    expect(supportsEraFlow('english', 2)).toBe(true);
+    expect(supportsEraFlow('english', 3)).toBe(true);
+  });
+});
+
+describe('computeScopeAfterNotLearned', () => {
+  // 実データ（line-scope-eras.generated.ts）に基づく:
+  //   history g1: era0=[時期や年代の表し方] era1=[人類の出現と進化, 古代文明の誕生, ...]
+  //   science g1: era0(植物)=[観察のしかた, 顕微鏡の詳細, 花と種子のしくみ, 植物の分類]
+  //               era1(動物)=[脊椎動物, ...]
+  const allHistory1 = getEraMetas('history', 1).flatMap((m) => m.topics);
+  const allScience1 = getEraMetas('science', 1).flatMap((m) => m.topics);
+
+  it('single: その topic だけ外れる（未設定ユーザーは全 topic が母集合）', () => {
+    const r = computeScopeAfterNotLearned({
+      subject: 'history',
+      grade: 1,
+      topic: '古代文明の誕生',
+      currentTopics: null,
+      mode: 'single',
+    });
+    expect(r).not.toBeNull();
+    expect(r!.excluded).toEqual(['古代文明の誕生']);
+    expect(r!.topics).toEqual(
+      allHistory1.filter((t) => t !== '古代文明の誕生')
+    );
+  });
+
+  it('history × after: その topic 以降が era をまたいで全部外れる', () => {
+    const r = computeScopeAfterNotLearned({
+      subject: 'history',
+      grade: 1,
+      topic: '古代文明の誕生',
+      currentTopics: null,
+      mode: 'after',
+    });
+    const idx = allHistory1.indexOf('古代文明の誕生');
+    expect(r!.topics).toEqual(allHistory1.slice(0, idx));
+    expect(r!.excluded).toEqual(allHistory1.slice(idx));
+  });
+
+  it('science × after: 同じ単元（era）内の以降だけ外れ、他の単元は残る', () => {
+    const r = computeScopeAfterNotLearned({
+      subject: 'science',
+      grade: 1,
+      topic: '花と種子のしくみ',
+      currentTopics: null,
+      mode: 'after',
+    });
+    // 植物 era の「花と種子のしくみ」以降だけ除外
+    expect(r!.excluded).toEqual(['花と種子のしくみ', '植物の分類']);
+    // 動物 era 以降（脊椎動物など）は残る
+    expect(r!.topics).toContain('脊椎動物');
+    expect(r!.topics).toContain('観察のしかた');
+    expect(r!.topics).not.toContain('植物の分類');
+    expect(r!.topics.length).toBe(allScience1.length - 2);
+  });
+
+  it('現スコープ設定済みなら母集合はそのスコープ', () => {
+    const current = [
+      '時期や年代の表し方',
+      '人類の出現と進化',
+      '古代文明の誕生',
+    ];
+    const r = computeScopeAfterNotLearned({
+      subject: 'history',
+      grade: 1,
+      topic: '人類の出現と進化',
+      currentTopics: current,
+      mode: 'after',
+    });
+    expect(r!.topics).toEqual(['時期や年代の表し方']);
+    // excluded は母集合に実在したものだけ
+    expect(r!.excluded).toEqual(['人類の出現と進化', '古代文明の誕生']);
+  });
+
+  it('未知 topic（教科・学年に無い）は null', () => {
+    expect(
+      computeScopeAfterNotLearned({
+        subject: 'history',
+        grade: 1,
+        topic: '存在しない単元',
+        currentTopics: null,
+        mode: 'single',
+      })
+    ).toBeNull();
+    expect(
+      computeScopeAfterNotLearned({
+        subject: 'math',
+        grade: 1,
+        topic: '正負の数',
+        currentTopics: null,
+        mode: 'single',
+      })
+    ).toBeNull();
+  });
+
+  it('先頭 topic × after は空スコープになり得る（呼び出し側でガードする前提）', () => {
+    const r = computeScopeAfterNotLearned({
+      subject: 'history',
+      grade: 1,
+      topic: allHistory1[0],
+      currentTopics: null,
+      mode: 'after',
+    });
+    expect(r!.topics).toEqual([]);
   });
 });
 
@@ -178,11 +292,36 @@ describe('Quick Reply / postback の上限', () => {
     }
   });
 
+  it('buildFinishData は sel を含まず常に短い', () => {
+    const data = buildFinishData('history', 3);
+    expect(data).toContain('type=scope_finish');
+    expect(data).toContain('s=history');
+    expect(data).toContain('g=3');
+    expect(data).not.toContain('sel=');
+    expect(data.length).toBeLessThanOrEqual(POSTBACK_DATA_MAX);
+  });
+
+  it('topicsToSel は保存済み topics から era を逆算する（往復一致）', () => {
+    const metas = getEraMetas('history', 1);
+    const sel = [metas[0].eraId, metas[2].eraId];
+    const topics = expandErasToTopics('history', 1, sel);
+    expect(topicsToSel('history', 1, topics)).toEqual(sel);
+  });
+
+  it('topicsToSel は era の一部 topic しか無い場合その era を含めない', () => {
+    const metas = getEraMetas('history', 1);
+    const multiTopicEra = metas.find((m) => m.topics.length >= 2)!;
+    const sel = topicsToSel('history', 1, multiTopicEra.topics.slice(0, 1));
+    expect(sel).not.toContain(multiTopicEra.eraId);
+    // 空 topics は空 sel。
+    expect(topicsToSel('history', 1, [])).toEqual([]);
+  });
+
   it('個別ビルダーも全選択時に data≤300字', () => {
     const all = getEraMetas('history', 3).map((e) => e.eraId);
-    expect(
-      buildPickData('history', 3, all, all[0]).length
-    ).toBeLessThanOrEqual(POSTBACK_DATA_MAX);
+    expect(buildPickData('history', 3, all, all[0]).length).toBeLessThanOrEqual(
+      POSTBACK_DATA_MAX
+    );
     expect(buildCommitData('history', 3, all).length).toBeLessThanOrEqual(
       POSTBACK_DATA_MAX
     );

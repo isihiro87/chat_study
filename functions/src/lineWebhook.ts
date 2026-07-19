@@ -25,6 +25,8 @@ import {
   buildPickConfirmText,
   buildCommitText,
   buildScopeQuickItems,
+  buildFinishData,
+  topicsToSel,
   getEraMetas,
   computeScopeAfterNotLearned,
   type NotLearnedMode,
@@ -41,6 +43,8 @@ import {
   buildReferenceMenuFlex,
   buildRefLevelFlex,
   refAskSystemPrompt,
+  refAskExamplesPrompt,
+  refTalkSystemPrompt,
   refCheckQuestionPrompt,
   refCheckGradePrompt,
 } from './referencePrompt';
@@ -380,7 +384,7 @@ export function buildTimeSelectMessage() {
     total: 3,
     headerTitle: '配信時間を選ぶ',
     bodyText:
-      '毎日問題を送る時間を選んでね。学校がない時間で自由にどうぞ。あとから「設定変更」と送れば変えられます。',
+      '問題が届く時間を選んでね。学校がない時間で自由にどうぞ。あとから「設定変更」と送れば変えられるよ。',
     altText: '配信時間を選んでください',
     options: [
       { label: '朝6時', data: 'type=select_time&hour=6' },
@@ -423,7 +427,7 @@ export function buildOnboardingCompleteSummaryFlex(opts: {
 
   return {
     type: 'flex' as const,
-    altText: `設定完了！${opts.gradeLabel} ${opts.subjectLabel} ${opts.hourLabel}に毎日1問お届けします`,
+    altText: `設定完了！${opts.gradeLabel} ${opts.subjectLabel} ${opts.hourLabel}に1問お届けします`,
     contents: {
       type: 'bubble' as const,
       size: 'kilo' as const,
@@ -529,7 +533,7 @@ export function buildOnboardingCompleteSummaryFlex(opts: {
           },
           {
             type: 'text' as const,
-            text: '次は「出題範囲」を設定しよう！もう習った単元だけにチェックを入れておくと、毎日の1問がその範囲から届くようになるよ。',
+            text: '次は「出題範囲」を設定しよう！もう習った単元だけにチェックを入れておくと、届く1問がその範囲から出るようになるよ。',
             wrap: true,
             size: 'xs' as const,
             color: '#374151',
@@ -954,7 +958,10 @@ async function handleMessage(event: LineEvent): Promise<void> {
   const text = event.message?.text?.trim() ?? '';
   const replyToken = event.replyToken;
 
-  if (text === '設定変更' || text === 'せってい変更') {
+  // 「設定変更する」「せっていへんこう」等の表記ゆれも受ける（実会話で完全一致を
+  // 外して AI チャットに流れ、AI が「もう一度『設定変更』と送って」と案内する
+  // 遠回りが起きていたため。2026-07 実会話スナップショット参照）。
+  if (/^(設定|せってい)\s*(変更|へんこう)/.test(text)) {
     await handleSettingsChange(event, replyToken);
     return;
   }
@@ -977,6 +984,34 @@ async function handleMessage(event: LineEvent): Promise<void> {
       await handleTsudumonActivation(uidForTsudumon, replyToken, tsudumonCode);
       return;
     }
+  }
+
+  // つづもん期限切れ案内で「『継続希望』と送ってください」と誘導しているため、
+  // その受け口。AI チャットに流さず定型で受け付け、管理者へ通知する。
+  if (text === '継続希望') {
+    const uidForContinue = buildUid(event);
+    if (uidForContinue && replyToken) {
+      await handleTsudumonContinueRequest(uidForContinue, replyToken);
+      return;
+    }
+  }
+
+  // 範囲設定の「これで決定」ボタン名を手入力で送ってくるユーザーが多い
+  // （Quick Reply チップは次の発言で消えるため）。AI チャットに流すと
+  // 「設定完了だね！」と根拠のない完了確認を返してしまう事故が実会話で
+  // 多発していたため、定型で正しい状態を案内する（2026-07 スナップショット参照）。
+  if (
+    /^(これで)?決定[！!。]?$/.test(text.replace(/[\s✅☑]/gu, '')) &&
+    replyToken
+  ) {
+    await replyWithScopeStartChip(
+      replyToken,
+      '範囲設定の途中かな？だいじょうぶ、範囲は「タップした時点」で保存されているよ。\n' +
+        '「これで決定」はボタンをタップしたときだけ反応するんだ。\n' +
+        'いま選ばれている範囲を確認・変更したいときは、下のボタンからどうぞ👇',
+      'typed kettei'
+    );
+    return;
   }
 
   // 印刷ワークの QR コード経由:「ワーク {単元名}」→ その単元の問題を1問出題する。
@@ -1040,7 +1075,8 @@ async function handleMessage(event: LineEvent): Promise<void> {
       // 直近に学習しているユーザーやまだ一度も回答がないユーザーが復帰語を
       // 含むメッセージ（「また明日」「ごめん」等）を送っても誤爆させず、
       // そのまま下の AI チャットボットに自然に応答させる。
-      const { detectRestartIntent } = await import('./keywordMatcher');
+      const { detectRestartIntent, detectQuestionRequest } =
+        await import('./keywordMatcher');
       // 配信一時停止中（deliveryPaused）のユーザーは、直近に回答していても
       // 「再開」で配信を戻したい明確な意図があるため、8日ゲートをバイパスする。
       if (
@@ -1054,6 +1090,33 @@ async function handleMessage(event: LineEvent): Promise<void> {
           event,
           (userData?.status as string | undefined) ?? null
         );
+        return;
+      }
+
+      // 「問題出して」系は AI に渡さず公式の1問を reply で出す。
+      // AI が四択問題を自作してしまうと記録に残らず、ニガテ分析・範囲設定とも
+      // 連動しないため（2026-07 実会話スナップショットで多発を確認）。
+      // 別教科を名指ししている場合だけ AI に回す（教科変更の案内が必要）。
+      const registeredSubjectLabel =
+        typeof userData?.subject === 'string'
+          ? ((SUBJECT_LABELS as Record<string, string>)[userData.subject] ??
+            null)
+          : null;
+      if (replyToken && detectQuestionRequest(text, registeredSubjectLabel)) {
+        try {
+          const { logServerFunnelEvent } = await import('./funnelEvent');
+          await logServerFunnelEvent('extra_question_tap', uid, {
+            src: 'text_request',
+          });
+        } catch (error) {
+          console.warn('[lineWebhook] text_request funnel log failed:', error);
+        }
+        await selectAndSendQuestion(uid, {
+          replyToken,
+          introText: getExtraQuestionIntro(),
+          bypassDailyLimit: true,
+          source: 'extra',
+        });
         return;
       }
     } catch (error) {
@@ -1091,7 +1154,7 @@ const TSUDUMON_GATE_ENABLED = process.env.TSUDUMON_GATE_ENABLED !== 'false';
 
 const TSUDUMON_LP_URL = 'https://www.chatstudy.jp/tsudumon/';
 
-interface TsudumonGateCheck {
+export interface TsudumonGateCheck {
   result: TsudumonAccessResult;
   /** 登録済みプランの表示名（未登録なら null）。wrong_grade の案内文に使う。 */
   planLabel: string | null;
@@ -1103,7 +1166,7 @@ interface TsudumonGateCheck {
  * でのみ呼ぶこと**。継続 postback（wb_next 等）では呼ばない（read 規律）。
  * 判定自体に失敗したときは利用を止めない（正規購入者を巻き込まない側に倒す）。
  */
-async function checkTsudumonAccess(
+export async function checkTsudumonAccess(
   uid: string,
   grade: string | null
 ): Promise<TsudumonGateCheck> {
@@ -1124,7 +1187,7 @@ async function checkTsudumonAccess(
 }
 
 /** ゲートで止めたときの案内文。売り込まず、次にできることを1つずつ示す。 */
-function buildTsudumonGateText(
+export function buildTsudumonGateText(
   check: TsudumonGateCheck,
   grade: string | null
 ): string {
@@ -1132,7 +1195,7 @@ function buildTsudumonGateText(
     return (
       'つづもんのご利用期間が終了しています🙏\n' +
       'ダウンロード済みのPDF教材は、これからもそのままお使いいただけます。\n\n' +
-      'LINEでの問題演習・AI採点・AI先生を続けたい場合は、月額プランでの継続をご案内できます。' +
+      'LINEでの問題演習・AI採点・スタ先生への質問を続けたい場合は、月額プランでの継続をご案内できます。' +
       'このトークに「継続希望」と送ってください。'
     );
   }
@@ -1262,7 +1325,7 @@ async function handleTsudumonActivation(
         '使い方はかんたん：\n' +
         '📖 冊子・PDFの各単元にあるQRコードを読む\n' +
         '✏️ その単元の問題がこのトークに届く → 解けばAIがすぐ丸つけ\n' +
-        '❓ 参考書のQRからは、AI先生に質問や理解度チェックもできるよ\n\n' +
+        '❓ 参考書のQRからは、スタ先生に質問や理解度チェックもできるよ\n\n' +
         'さっそくQRコードを読んで、1問解いてみよう！',
       '(tsudumon activation ok)'
     );
@@ -1289,6 +1352,63 @@ async function handleTsudumonActivation(
     failText[outcome.kind],
     `(tsudumon activation ${outcome.kind})`
   );
+}
+
+/**
+ * つづもん継続希望の受け口。期限切れ案内文（handleTsudumonActivation の expired /
+ * ワークゲートの期限切れ）で「『継続希望』と送ってください」と誘導しているため、
+ * AI チャットに流さず定型で受け付け、管理者（ADMIN_LINE_USER_IDS）へ push で通知する。
+ */
+async function handleTsudumonContinueRequest(
+  uid: string,
+  replyToken: string
+): Promise<void> {
+  await replyText(
+    replyToken,
+    '継続のご希望を受け付けました！ありがとうございます🙏\n' +
+      '運営が確認して、このトークからあらためてご案内をお送りします。少しだけお待ちください。\n' +
+      'ダウンロード済みのPDF教材は、そのままお使いいただけます。',
+    '(tsudumon continue request)'
+  );
+
+  const admins = (process.env.ADMIN_LINE_USER_IDS || '')
+    .split(',')
+    .map((s) => s.trim())
+    .filter((s) => s.length > 0);
+  if (admins.length === 0) {
+    console.warn(
+      `[lineWebhook] tsudumon continue request: ADMIN_LINE_USER_IDS not set (uid=${uid})`
+    );
+    return;
+  }
+  try {
+    const client = await getLineClient();
+    let pushed = 0;
+    for (const adminId of admins) {
+      try {
+        await client.pushMessage({
+          to: adminId,
+          messages: [
+            {
+              type: 'text',
+              text: `📩 つづもん継続希望\nuid: ${uid}\n（期限切れユーザーが「継続希望」を送信）`,
+            },
+          ],
+        });
+        pushed++;
+      } catch (error) {
+        console.error(
+          `[lineWebhook] tsudumon continue notify to ${adminId} failed:`,
+          error
+        );
+      }
+    }
+    if (pushed > 0) {
+      await recordPushDelivery('other', pushed);
+    }
+  } catch (error) {
+    console.error('[lineWebhook] tsudumon continue notify failed:', error);
+  }
 }
 
 /**
@@ -1428,7 +1548,7 @@ export function buildWorkbookKindSelectFlex(
         contents: [
           {
             type: 'text',
-            text: '📖 ワークでスタディ',
+            text: '📖 ワーク問題集',
             color: '#FFFFFF',
             weight: 'bold',
             size: 'sm',
@@ -1585,7 +1705,7 @@ async function handleWorkbookKindPostback(
         contents: [
           {
             type: 'text' as const,
-            text: '📖 ワークでスタディ',
+            text: '📖 ワーク問題集',
             color: '#FFFFFF',
             weight: 'bold' as const,
             size: 'sm' as const,
@@ -2154,7 +2274,7 @@ interface WorkbookSessionData {
 // 状態は users/{uid}.refSession に相乗り merge write（別コレクションを作らない）。
 interface RefSessionData {
   topicKey?: string;
-  mode?: 'ask' | 'check';
+  mode?: 'ask' | 'talk' | 'check';
   level?: RefLevel;
   awaiting?: boolean;
   history?: Array<{ role: 'user' | 'model'; text: string }>;
@@ -2176,7 +2296,7 @@ function refCheckClosing(correct: number, total: number): string {
 }
 
 /**
- * 参考書QR即開始: LIFF /ref 経由で「AI先生と深める」メニュー（質問／理解度チェック）
+ * 参考書QR即開始: LIFF /ref 経由で「スタ先生と深める」メニュー（質問／理解度チェック）
  * を push する。reply ではなく push なので配信枠を消費（QR起点＝ユーザー操作の直後）。
  */
 export async function pushReferenceStart(
@@ -2222,7 +2342,11 @@ export async function pushReferenceStart(
   }
 }
 
-/** postback: type=ref_ask&t=... — 質問モードに入り、質問を促す（reply）。 */
+/**
+ * postback: type=ref_ask&t=... — 質問モードに入る。
+ * その単元に合った「質問例」を quickReply ボタンで提示（タップで送信＝そのまま質問）。
+ * もちろん自由記述の質問もできる。
+ */
 async function handleReferenceAskPostback(
   uid: string,
   replyToken: string | undefined,
@@ -2231,6 +2355,7 @@ async function handleReferenceAskPostback(
   const topicKey = params.get('t') ?? '';
   const topic = resolveReferenceTopic(topicKey);
   if (!topic || !replyToken) return;
+
   const { db } = await getDb();
   const session: RefSessionData = {
     topicKey,
@@ -2239,13 +2364,115 @@ async function handleReferenceAskPostback(
     history: [],
   };
   await db.doc(`users/${uid}`).set({ refSession: session }, { merge: true });
-  await replyText(
+
+  // 単元に合った質問例を AI で生成（失敗しても自由記述で続けられる）。
+  let examples: string[] = [];
+  try {
+    const { generateGeminiText } = await import('./aiChat');
+    const raw = await generateGeminiText(
+      refAskExamplesPrompt(topic),
+      'この単元の質問例を3つ、1行ずつ。',
+      200
+    );
+    examples = raw
+      .split('\n')
+      .map((s) => s.replace(/^[-・*\d.)．、\s]+/, '').trim())
+      .filter((s) => s.length > 0)
+      .slice(0, 3);
+  } catch (error) {
+    console.error('[lineWebhook] ref ask examples gen failed:', error);
+  }
+
+  const items = [
+    ...examples.map((q) => ({
+      type: 'action',
+      action: { type: 'message', label: q.slice(0, 20), text: q },
+    })),
+    {
+      type: 'action',
+      action: { type: 'message', label: '🔚 質問をおえる', text: 'おわり' },
+    },
+  ];
+
+  const client = await getLineClient();
+  await client.replyMessage({
     replyToken,
-    `📖「${topic.name}」について、わからないことを何でも聞いてね！\n` +
-      'AI先生が、この単元の内容にそってやさしく答えるよ。\n\n' +
-      '（おわるときは「おわり」と送ってね）',
-    '(ref_ask)'
-  );
+    messages: [
+      {
+        type: 'text',
+        text:
+          `📖「${topic.name}」について、聞きたいことをえらんでね。\n` +
+          'じぶんで質問を打ってもOKだよ！',
+        quickReply: { items },
+      },
+    ] as unknown as messagingApi.Message[],
+  });
+}
+
+/**
+ * postback: type=ref_talk&t=... — 「対話で理解を深める」モードに入る。
+ * スタ先生が最初に興味をひく一言＋問いかけを投げかけ、以降は対話で深めていく。
+ */
+async function handleReferenceTalkPostback(
+  uid: string,
+  replyToken: string | undefined,
+  params: URLSearchParams
+): Promise<void> {
+  const topicKey = params.get('t') ?? '';
+  const topic = resolveReferenceTopic(topicKey);
+  if (!topic || !replyToken) return;
+
+  let opener: string;
+  try {
+    const { generateGeminiText } = await import('./aiChat');
+    opener = (
+      await generateGeminiText(
+        refTalkSystemPrompt(topic),
+        'この単元の話をはじめてください。まず生徒の興味をひく一言と、答えやすい問いかけを1つだけ。',
+        400
+      )
+    ).trim();
+  } catch (error) {
+    console.error('[lineWebhook] ref talk opener gen failed:', error);
+    await replyText(
+      replyToken,
+      'ごめんね、いま準備できなかった。もう一度ためしてね。',
+      '(ref_talk_err)'
+    );
+    return;
+  }
+
+  const { db } = await getDb();
+  const session: RefSessionData = {
+    topicKey,
+    mode: 'talk',
+    awaiting: true,
+    history: [{ role: 'model', text: opener }],
+  };
+  await db.doc(`users/${uid}`).set({ refSession: session }, { merge: true });
+
+  const client = await getLineClient();
+  await client.replyMessage({
+    replyToken,
+    messages: [
+      {
+        type: 'text',
+        text: `💬「${topic.name}」について、いっしょに話そう！\n\n${opener}`,
+        quickReply: {
+          items: [
+            {
+              type: 'action',
+              action: {
+                type: 'message',
+                label: '🔚 会話をおえる',
+                text: 'おわり',
+              },
+            },
+          ],
+        },
+      },
+    ] as unknown as messagingApi.Message[],
+  });
 }
 
 /** postback: type=ref_check&t=... — 難易度選択カードを返す（reply）。 */
@@ -2312,7 +2539,7 @@ async function handleReferenceLevelPostback(
   await replyText(
     replyToken,
     `✅ 理解度チェック（${REF_LEVEL_LABEL[level]}）スタート！ぜんぶで${REF_CHECK_TOTAL}問だよ。\n\n` +
-      `【第1問 / 全${REF_CHECK_TOTAL}問】\n${question}\n\n答えを送ってね。（とちゅうでやめるときは「おわり」）`,
+      `【第1問 / 全${REF_CHECK_TOTAL}問】\n${question}\n\n答えを送ってね。`,
     '(ref_level)'
   );
 }
@@ -2348,24 +2575,26 @@ async function handleReferenceTextInput(
 
   const { generateGeminiText } = await import('./aiChat');
 
-  if (session.mode === 'ask') {
+  if (session.mode === 'ask' || session.mode === 'talk') {
     const hist = (session.history ?? [])
-      .slice(-4)
-      .map((h) => `${h.role === 'user' ? '生徒' : 'AI先生'}: ${h.text}`)
+      .slice(-6)
+      .map((h) => `${h.role === 'user' ? '生徒' : 'スタ先生'}: ${h.text}`)
       .join('\n');
     const userText = hist
-      ? `これまでのやり取り:\n${hist}\n\n生徒の質問: ${text}`
+      ? `これまでのやり取り:\n${hist}\n\n生徒の発言: ${text}`
       : text;
+    const sysPrompt =
+      session.mode === 'talk'
+        ? refTalkSystemPrompt(topic)
+        : refAskSystemPrompt(topic);
     let answer: string;
     try {
-      answer = (
-        await generateGeminiText(refAskSystemPrompt(topic), userText, 500)
-      ).trim();
+      answer = (await generateGeminiText(sysPrompt, userText, 500)).trim();
     } catch (error) {
-      console.error('[lineWebhook] ref ask gen failed:', error);
+      console.error('[lineWebhook] ref ask/talk gen failed:', error);
       await replyText(
         replyToken,
-        'ごめんね、いまうまく答えられなかった。もう一度きいてくれる？',
+        'ごめんね、いまうまく答えられなかった。もう一度おしえてくれる？',
         '(ref_ask_err)'
       );
       return true;
@@ -2464,7 +2693,7 @@ async function handleReferenceTextInput(
         : `【第${nextCount}問 / 全${REF_CHECK_TOTAL}問】`;
       await replyText(
         replyToken,
-        `${grade}\n\n━━━━━\n${heading}\n${next}\n\n（とちゅうでやめるときは「おわり」）`,
+        `${grade}\n\n━━━━━\n${heading}\n${next}`,
         '(ref_check_reply)'
       );
     } else {
@@ -2799,7 +3028,7 @@ async function handleWorkbookInputSkipPostback(
   if (!lookup) {
     await replyText(
       replyToken,
-      '問題が見つかりませんでした。',
+      'ごめんね、その問題が見つからなかったみたい💦 もう一度試してみてね。',
       '(wb_iskip not found)'
     );
     return;
@@ -3656,7 +3885,7 @@ async function handleWorkbookIdkPostback(
   if (!question) {
     await replyText(
       replyToken,
-      '問題が見つかりませんでした。',
+      'ごめんね、その問題が見つからなかったみたい💦 もう一度試してみてね。',
       '(wb_idk not found)'
     );
     return;
@@ -4184,7 +4413,7 @@ const MEDIA_ERROR_TEXT =
  * reply 送信なので配信枠は消費しない。
  */
 const VIDEO_UNSUPPORTED_TEXT =
-  '動画ありがとう🎥 ごめんね、先生（AI）は動画を見ることができないんだ💦 ' +
+  '動画ありがとう🎥 ごめんね、スタ先生（AI）は動画を見ることができないんだ💦 ' +
   'もし問題でわからないところなら、写真かテキストで送ってくれたらすぐ答えられるよ😊 ' +
   'それでもどうしても動画を見てほしいときは、運営の夫婦がちゃんと確認するから、その旨をメッセージで送ってね！';
 
@@ -4507,6 +4736,9 @@ async function handleRestartIntent(
     await selectAndSendQuestion(uid, {
       pushType: 'restartWelcome',
       source: 'restart',
+      // 直前に「おかえり」replyを送っているため、問題カード側の
+      // カムバック系intro（「おかえり！…」）と二重にならないよう固定introを渡す
+      introText: 'さっそく今日の1問だよ👇',
     });
   } catch (error) {
     console.error('[lineWebhook] restart selectAndSendQuestion failed:', error);
@@ -4544,7 +4776,7 @@ async function handleSettingsChange(
       );
       await replyText(
         replyToken,
-        'ごめんね、設定変更は1日1回までとなっています🙏\n明日もう一度お試しください。',
+        'ごめんね、設定変更は1日1回までなんだ🙏\nまた明日試してみてね。',
         '(settings change locked)'
       );
       return;
@@ -4578,7 +4810,7 @@ async function handleSettingsChange(
     await client.replyMessage({
       replyToken,
       messages: [
-        { type: 'text', text: '設定を変更します。学年を選んでください。' },
+        { type: 'text', text: '設定を変更するよ。まずは学年を選んでね。' },
         buildGradeSelectMessage(),
       ],
     });
@@ -4749,7 +4981,7 @@ async function handleSampleAnswerPostback(
     : `❌ おしい！正解は「${SAMPLE_QUESTION.choices[SAMPLE_QUESTION.correctIndex]}」だよ。`;
   const body =
     `${feedback}\n\n📖 ${SAMPLE_QUESTION.explanation}\n\n` +
-    `こんなふうに、毎日1問がこのLINEに届いて、答えるとすぐ解説が読めるよ📚`;
+    `こんなふうに、登録した時間に1問がこのLINEに届いて、答えるとすぐ解説が読めるよ📚`;
 
   try {
     const client = await getLineClient();
@@ -4821,9 +5053,9 @@ async function handleFollow(event: LineEvent): Promise<void> {
         {
           type: 'text',
           text:
-            'はじめまして！公式LINEに登録してくれてありがとうございます😊\n\n' +
-            'まずは、ためしにこんな1問をどうぞ👇（選択肢をタップするだけ！）\n\n' +
-            'そのあと、学年・教科・配信時刻の3つだけ教えてね。すぐ終わります！\n（保護者の方は、お子様の情報を選んでください）',
+            'はじめまして！「チャットでスタディ」に登録してくれてありがとう😊\n\n' +
+            'まずは、ためしにこんな1問をどうぞ👇（例として歴史の問題だよ。選択肢をタップするだけ！）\n\n' +
+            'そのあと、学年・教科・配信時刻の3つだけ教えてね。すぐ終わるよ！\n（保護者の方は、お子様の情報を選んでください）',
         },
         buildSampleQuestionFlex() as unknown as messagingApi.Message,
         buildGradeSelectMessage(),
@@ -4968,6 +5200,11 @@ async function handlePostback(event: LineEvent): Promise<void> {
     return;
   }
 
+  if (type === 'ref_talk') {
+    await handleReferenceTalkPostback(uid, replyToken, params);
+    return;
+  }
+
   if (type === 'ref_check') {
     await handleReferenceCheckPostback(uid, replyToken, params);
     return;
@@ -5079,6 +5316,11 @@ async function handlePostback(event: LineEvent): Promise<void> {
     return;
   }
 
+  if (type === 'scope_finish') {
+    await handleScopeFinishPostback(uid, replyToken, params);
+    return;
+  }
+
   if (type === 'sample_answer') {
     await handleSampleAnswerPostback(uid, replyToken, params);
     return;
@@ -5095,11 +5337,22 @@ async function handlePostback(event: LineEvent): Promise<void> {
   }
 
   if (type === 'premium_info') {
-    // プレミアム廃止中（PREMIUM_FLOW_ENABLED=false）は何もしない。
-    // 現行 default リッチメニューにプレミアムボタンは無く、この postback は
-    // 残置の旧メニュー/旧 flex からのタップに限られるため、訴求 flex は返さない。
+    // プレミアム廃止中（PREMIUM_FLOW_ENABLED=false）は訴求 flex を返さない。
+    // ただしこの postback は残置の旧メニュー/旧 flex（「もっと解く」ボタン等）から
+    // タップされ得るため、無反応にせず「全員無料になった」案内を reply する。
     if (PREMIUM_FLOW_ENABLED) {
       await handlePremiumInfoPostback(replyToken, uid, params.get('source'));
+    } else if (replyToken) {
+      // 旧メニューには「1問解く」ボタンが無いため、案内だけで終わらせず
+      // そのまま追加の1問を同じ reply で届ける（配信枠ゼロ）。
+      await selectAndSendQuestion(uid, {
+        replyToken,
+        introText:
+          'おしらせ：いまは追加問題も苦手復習も、ぜんぶ無料で使えるようになったよ🎉\n' +
+          'さっそく1問どうぞ👇',
+        bypassDailyLimit: true,
+        source: 'extra',
+      });
     }
     return;
   }
@@ -5309,7 +5562,7 @@ function buildScopeGuideFlex(subject: string, grade: number) {
           },
           {
             type: 'text' as const,
-            text: '習ったところから毎日の1問が届くよ',
+            text: '習ったところから、いつもの1問が届くよ',
             color: '#FFFFFF',
             size: 'xs' as const,
             margin: 'sm' as const,
@@ -5562,12 +5815,54 @@ async function handleScopePickPostback(
   const items = buildScopeQuickItems(subject, grade, sel, TEST_RANGE_SCOPE_URL);
   try {
     const client = await getLineClient();
+    // Quick Reply チップは次の発言で消えるため、履歴に残る flex ボタンでも
+    // 確定できるようにする（「これで決定」を手入力してしまう実例が多発したため。
+    // 2026-07 実会話スナップショット参照）。ボタンは sel を持たない scope_finish で、
+    // 古いバブルから押しても常に最新の保存状態が反映される。
     await client.replyMessage({
       replyToken,
       messages: [
         {
-          type: 'text',
-          text: confirmText,
+          type: 'flex',
+          altText: confirmText.split('\n')[0] ?? '範囲を保存したよ',
+          contents: {
+            type: 'bubble' as const,
+            size: 'kilo' as const,
+            body: {
+              type: 'box' as const,
+              layout: 'vertical' as const,
+              paddingAll: '14px',
+              spacing: 'sm' as const,
+              contents: [
+                {
+                  type: 'text' as const,
+                  text: confirmText,
+                  wrap: true,
+                  size: 'sm' as const,
+                  color: '#333333',
+                },
+              ],
+            },
+            footer: {
+              type: 'box' as const,
+              layout: 'vertical' as const,
+              paddingAll: '12px',
+              contents: [
+                {
+                  type: 'button' as const,
+                  style: 'primary' as const,
+                  color: '#F59E0B',
+                  height: 'sm' as const,
+                  action: {
+                    type: 'postback' as const,
+                    label: '✅ これで決定',
+                    data: buildFinishData(subject, grade),
+                    displayText: 'これで決定',
+                  },
+                },
+              ],
+            },
+          },
           quickReply: toLineQuickReply(items),
         },
       ],
@@ -5575,6 +5870,95 @@ async function handleScopePickPostback(
   } catch (error) {
     console.error('[lineWebhook] handleScopePick reply failed:', error);
   }
+}
+
+/**
+ * flex の「これで決定」ボタン（scope_finish）: sel を postback に持たず、
+ * 保存済みの testScope.topics を読んで確定処理をする。ピックのたびに保存済み
+ * なので書き込みは不要。初回設定なら 1問目も reply で送る（scope_commit と同等）。
+ */
+async function handleScopeFinishPostback(
+  uid: string,
+  replyToken: string | undefined,
+  params: URLSearchParams
+): Promise<void> {
+  if (!replyToken) return;
+  const subject = params.get('s') ?? '';
+  const gradeRaw = Number(params.get('g'));
+  const grade =
+    gradeRaw === 1 || gradeRaw === 2 || gradeRaw === 3 ? gradeRaw : null;
+  if (!subject || grade === null) {
+    await replyText(
+      replyToken,
+      'もう一度、範囲設定からやり直してね。',
+      '(scope_finish: bad params)'
+    );
+    return;
+  }
+
+  let topics: string[] = [];
+  let isInitialSetup = false;
+  try {
+    const { db } = await getDb();
+    const snap = await db.doc(`users/${uid}`).get();
+    const data = snap.data();
+    topics = Array.isArray(data?.testScope?.topics)
+      ? (data!.testScope.topics as unknown[]).filter(
+          (t): t is string => typeof t === 'string'
+        )
+      : [];
+    isInitialSetup =
+      typeof data?.preferredHour === 'number' && !data?.lastQuestionDeliveredAt;
+  } catch (error) {
+    console.error('[lineWebhook] handleScopeFinish read failed:', error);
+    await replyText(
+      replyToken,
+      'ごめんね、うまく確認できなかったみたい💦 もう一度押してみてね。',
+      '(scope_finish: read failed)'
+    );
+    return;
+  }
+
+  // 保存済み topics から era を逆算して確認文を作る。/scope ページ等で
+  // topic 単位の部分選択をしていて era に逆算できない場合は件数表示で代替。
+  const sel = topicsToSel(subject, grade, topics);
+  const confirmText =
+    topics.length > 0 && sel.length === 0
+      ? `✅ テスト範囲は保存済みだよ！（${topics.length}単元）\nこれから届く1問はこの範囲から出るよ。メニューの「出題範囲設定」からいつでも変えられるよ。`
+      : buildCommitText(subject, grade, sel);
+
+  if (isInitialSetup) {
+    try {
+      await selectAndSendQuestion(uid, {
+        replyToken,
+        prependMessages: [{ type: 'text', text: confirmText }],
+        isInitialSetup: true,
+        source: 'onboarding',
+      });
+      return;
+    } catch (error) {
+      console.error(
+        '[lineWebhook] handleScopeFinish first-question failed:',
+        error
+      );
+    }
+  }
+
+  try {
+    const client = await getLineClient();
+    await client.replyMessage({
+      replyToken,
+      messages: [
+        { type: 'text', text: confirmText },
+        buildScopeCommitCtaFlex(),
+      ],
+    });
+    return;
+  } catch (error) {
+    console.error('[lineWebhook] handleScopeFinish cta reply failed:', error);
+  }
+
+  await replyText(replyToken, confirmText, '(scope_finish)');
 }
 
 /**
@@ -5801,7 +6185,7 @@ async function handleNotLearnedPostback(
   if (!topicKnown) {
     await replyWithScopeStartChip(
       replyToken,
-      'ごめんね、その範囲をうまく特定できなかった…。「範囲を設定する」から、習ったところを選び直してもらえる？',
+      'ごめんね、その範囲をうまく特定できなかった…。下の「範囲を設定する」ボタンから、習ったところを選び直してもらえる？',
       'not_learned fallback'
     );
     return;
@@ -5960,7 +6344,7 @@ async function handleNotLearnedApplyPostback(
   if (!result) {
     await replyWithScopeStartChip(
       replyToken,
-      'ごめんね、その範囲をうまく特定できなかった…。「範囲を設定する」から、習ったところを選び直してもらえる？',
+      'ごめんね、その範囲をうまく特定できなかった…。下の「範囲を設定する」ボタンから、習ったところを選び直してもらえる？',
       'not_learned_apply fallback'
     );
     return;
@@ -5969,7 +6353,7 @@ async function handleNotLearnedApplyPostback(
     // 全部外れると出題できなくなるため保存しない（範囲設定への誘導のみ）。
     await replyWithScopeStartChip(
       replyToken,
-      'そこを外すと、出題できる範囲がなくなっちゃうみたい…。「範囲を設定する」から、習ったところを選んでもらえる？',
+      'そこを外すと、出題できる範囲がなくなっちゃうみたい…。下の「範囲を設定する」ボタンから、習ったところを選んでもらえる？',
       'not_learned_apply empty'
     );
     return;
@@ -6356,7 +6740,7 @@ async function handleChangeLearningSubject(
             type: 'text' as const,
             text:
               `✅ 学年「${grade}」・教科「${subjectLabel}」に変更したよ！\n` +
-              `これからこの設定で毎日の1問が届くよ。\n（今日はあと${remaining}回変更できるよ）`,
+              `これからはこの設定で問題が届くよ。\n（今日はあと${remaining}回変更できるよ）`,
           },
           buildScopeAfterChangeFlexMessage(),
         ],
@@ -6381,7 +6765,7 @@ async function handleChangeLearningSubject(
 function buildScopeAfterChangeFlexMessage() {
   return {
     type: 'flex' as const,
-    altText: 'テスト範囲を設定すると、毎日の1問が習った範囲から届きます',
+    altText: 'テスト範囲を設定すると、届く1問が習った範囲から出ます',
     contents: {
       type: 'bubble' as const,
       size: 'kilo' as const,
@@ -6408,7 +6792,7 @@ function buildScopeAfterChangeFlexMessage() {
         contents: [
           {
             type: 'text' as const,
-            text: '今は学年ぜんぶから出題しているよ。習った単元にしぼると、毎日の1問がその範囲から届いてテスト対策の効率がぐっと上がる👍',
+            text: '今は学年ぜんぶから出題しているよ。習った単元にしぼると、届く1問がその範囲だけになってテスト対策の効率がぐっと上がる👍',
             wrap: true,
             size: 'sm' as const,
             color: '#111827',
@@ -6763,7 +7147,7 @@ function buildHelpFlexMessage(
   const bodyContents = [
     {
       type: 'text' as const,
-      text: '毎日決まった時間に1問届きます。',
+      text: 'はじめは毎日、そのあとは週3回（月・水・金）、決まった時間に1問届くよ。',
       wrap: true,
       size: 'sm' as const,
       color: '#111827',
@@ -6809,7 +7193,7 @@ function buildHelpFlexMessage(
         },
         {
           type: 'text' as const,
-          text: '「設定変更」とトークに送ると、学年・配信時間を選び直せます（1日1回まで）。',
+          text: '「設定変更」とトークに送ると、学年・教科・配信時刻を選び直せるよ（1日1回まで）。学年・教科だけなら、メニューの「設定・サポート」にある「学年・教科を変更」でもOK（1日3回まで）。',
           wrap: true,
           size: 'xs' as const,
           color: '#6B7280',
@@ -7128,7 +7512,7 @@ function buildSettingsMenuFlexMessage(deliveryPaused: boolean) {
         contents: [
           {
             type: 'text' as const,
-            text: '通知時間や学年を変えたいときは、トークに「設定変更」と送ってください（1日1回まで）。',
+            text: '学年・教科・配信時刻を変えたいときは、下の「設定変更」ボタンを押すか、トークに「設定変更」と送ってね（1日1回まで）。',
             wrap: true,
             size: 'sm' as const,
             color: '#111827',
@@ -7218,15 +7602,15 @@ export function buildScopeSetupNudgeFlexMessage(
     variant === 'B'
       ? {
           header: '🎯 ムダな問題、減らせるよ',
-          body: 'テスト範囲を教えてくれたら、まだ習ってない単元は出さないよ。毎日の1問が“出るところ”だけになって、ムダなく進められる。',
+          body: 'テスト範囲を教えてくれたら、まだ習ってない単元は出さないよ。届く1問が“出るところ”だけになって、ムダなく進められる。',
         }
       : {
           header: '🎯 テスト範囲を設定しよう',
-          body: '定期テストの範囲を教えてくれたら、その単元だけを毎日1問お届け。テスト前の総復習がぐっとラクになるよ👍',
+          body: '定期テストの範囲を教えてくれたら、その単元だけから1問お届け。テスト前の総復習がぐっとラクになるよ👍',
         };
   return {
     type: 'flex' as const,
-    altText: 'テスト範囲を設定すると、毎日の1問がその単元から届きます',
+    altText: 'テスト範囲を設定すると、届く1問がその単元から出ます',
     contents: {
       type: 'bubble' as const,
       size: 'kilo' as const,
@@ -8811,7 +9195,7 @@ async function handleWeakReviewPostback(
     );
     await replyText(
       replyToken,
-      '苦手の取得に失敗しました。少し時間を置いて試してください。',
+      'ごめんね、苦手の記録をうまく読み込めなかったみたい💦 少し時間を置いて試してみてね。',
       '(weak_review query error)'
     );
     return;
@@ -8893,7 +9277,7 @@ async function handleWeakReviewPostback(
     console.warn('[lineWebhook] handleWeakReview question gone:', pickedId);
     await replyText(
       replyToken,
-      '苦手の出題対象が見つかりませんでした。もう一度押してみてください。',
+      'ごめんね、苦手の問題をうまく用意できなかったみたい💦 もう一度押してみてね。',
       '(weak_review question gone)'
     );
     return;
@@ -8952,7 +9336,7 @@ async function handleSelectGradePostback(
         typeof userData?.grade === 'string' ? userData.grade : '登録済みの学年';
       await replyText(
         replyToken,
-        `すでに${storedGrade}で登録済みです。変更したい場合は『設定変更』と送ってください。`,
+        `すでに${storedGrade}で登録済みだよ。学年・教科を変えたいときは、メニューの「設定・サポート」→「学年・教科を変更」からどうぞ（1日3回まで）。配信時刻もまとめて変えるなら「設定変更」と送ってね（1日1回まで）。`,
         '(grade locked)'
       );
     }
@@ -8967,7 +9351,9 @@ async function handleSelectGradePostback(
         const client = await getLineClient();
         await client.replyMessage({
           replyToken,
-          messages: [{ type: 'text', text: 'もう一度学年を選んでください。' }],
+          messages: [
+            { type: 'text', text: 'ごめんね、もう一度学年を選んでね。' },
+          ],
         });
       } catch (error) {
         console.error(
@@ -9041,7 +9427,7 @@ async function handleSelectSubjectPostback(
           : '登録済みの教科';
       await replyText(
         replyToken,
-        `すでに${label}で登録済みです。変更したい場合は『設定変更』と送ってください。`,
+        `すでに${label}で登録済みだよ。学年・教科を変えたいときは、メニューの「設定・サポート」→「学年・教科を変更」からどうぞ（1日3回まで）。配信時刻もまとめて変えるなら「設定変更」と送ってね（1日1回まで）。`,
         '(subject locked)'
       );
     }
@@ -9056,7 +9442,9 @@ async function handleSelectSubjectPostback(
         const client = await getLineClient();
         await client.replyMessage({
           replyToken,
-          messages: [{ type: 'text', text: 'もう一度教科を選んでください。' }],
+          messages: [
+            { type: 'text', text: 'ごめんね、もう一度教科を選んでね。' },
+          ],
         });
       } catch (error) {
         console.error(
@@ -9118,7 +9506,7 @@ async function handleSelectSubjectPostback(
       messages: [
         {
           type: 'text',
-          text: `${subjectLabel}ですね！最後に、毎日問題を送る時間を選んでね。`,
+          text: `${subjectLabel}ですね！最後に、問題が届く時間を選んでね。`,
         },
         buildTimeSelectMessage(),
       ],
@@ -9151,7 +9539,7 @@ async function handleSelectTimePostback(
           : '登録済みの時間';
       await replyText(
         replyToken,
-        `すでに${label}で登録済みです。変更したい場合は『設定変更』と送ってください。`,
+        `すでに${label}で登録済みだよ。配信時刻を変えたいときは「設定変更」と送ってね（1日1回まで）。`,
         '(time locked)'
       );
     }
@@ -9167,7 +9555,9 @@ async function handleSelectTimePostback(
         const client = await getLineClient();
         await client.replyMessage({
           replyToken,
-          messages: [{ type: 'text', text: 'もう一度時間を選んでください。' }],
+          messages: [
+            { type: 'text', text: 'ごめんね、もう一度時間を選んでね。' },
+          ],
         });
       } catch (error) {
         console.error(
@@ -9272,7 +9662,7 @@ async function handleSelectTimePostback(
       // 最も低い層（英語）に導線が届いていなかった。
       replyMessages.push({
         type: 'text',
-        text: '📝 テスト範囲を設定すると、毎日の1問が習った単元から届くよ。下のボタンから設定してね。',
+        text: '📝 テスト範囲を設定すると、届く1問が習った単元から出るよ。下のボタンから設定してね。',
         quickReply: {
           items: [
             {
@@ -9314,7 +9704,7 @@ async function handleAnswerPostback(
     if (replyToken) {
       await replyText(
         replyToken,
-        'もう一度選択肢を選んでください。',
+        'ごめんね、うまく受け取れなかったみたい💦 もう一度選択肢をタップしてみてね。',
         '(invalid params)'
       );
     }
@@ -9352,13 +9742,21 @@ async function handleAnswerPostback(
     questionSnap = await db.doc(`questions/${questionId}`).get();
   } catch (error) {
     console.error('[lineWebhook] handleAnswer firestore read failed:', error);
-    await replyText(replyToken, 'エラーが発生しました。', '(read error)');
+    await replyText(
+      replyToken,
+      'ごめんね、うまく処理できなかったみたい💦 少し時間を置いて、もう一度試してみてね。',
+      '(read error)'
+    );
     return;
   }
 
   if (!questionSnap.exists) {
     console.warn('[lineWebhook] handleAnswer question not found:', questionId);
-    await replyText(replyToken, '問題が見つかりませんでした。', '(not found)');
+    await replyText(
+      replyToken,
+      'ごめんね、その問題が見つからなかったみたい💦 もう一度試してみてね。',
+      '(not found)'
+    );
     return;
   }
 
@@ -10060,7 +10458,10 @@ export async function selectAndSendQuestion(
           await client.replyMessage({
             replyToken,
             messages: [
-              { type: 'text', text: '準備中です。少しお待ちください。' },
+              {
+                type: 'text',
+                text: 'ごめんね、いま準備中みたい。少し待ってからもう一度試してみてね。',
+              },
             ],
           });
         } catch (error) {

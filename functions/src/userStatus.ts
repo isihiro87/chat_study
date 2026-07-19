@@ -11,7 +11,7 @@
  *   - 同日なら 0日、翌日なら 1日
  */
 
-import type { UserStatus, WinbackTouchpoint } from "./userDocTypes";
+import type { UserStatus, WinbackTouchpoint } from './userDocTypes';
 
 const JST_OFFSET_MS = 9 * 60 * 60 * 1000;
 const MS_PER_DAY = 24 * 60 * 60 * 1000;
@@ -37,7 +37,7 @@ export interface ComputeStatusInput {
   /** 判定の起点となる現在時刻 */
   now: Date;
   /** ユーザーのプラン */
-  plan: "free" | "premium";
+  plan: 'free' | 'premium';
   /** プレミアムの有効期限（plan == 'premium' のときのみ参照） */
   premiumUntil?: Date | null;
 }
@@ -60,19 +60,23 @@ export function computeStatusFromLastAnswer(
 ): UserStatus {
   const { lastAnsweredAt, now, plan, premiumUntil } = input;
 
-  if (plan === "premium" && premiumUntil && premiumUntil.getTime() > now.getTime()) {
-    return "active";
+  if (
+    plan === 'premium' &&
+    premiumUntil &&
+    premiumUntil.getTime() > now.getTime()
+  ) {
+    return 'active';
   }
 
   if (!lastAnsweredAt) {
-    return "active";
+    return 'active';
   }
 
   const days = daysBetweenJst(lastAnsweredAt, now);
-  if (days <= 3) return "active";
-  if (days <= 7) return "at-risk";
-  if (days <= 14) return "dormant";
-  return "churned";
+  if (days <= 3) return 'active';
+  if (days <= 7) return 'at-risk';
+  if (days <= 14) return 'dormant';
+  return 'churned';
 }
 
 /**
@@ -87,10 +91,23 @@ export function shouldSendWinback(
   newStatus: UserStatus
 ): WinbackTouchpoint | null {
   if (oldStatus === newStatus) return null;
-  if (newStatus === "at-risk") return "day3";
-  if (newStatus === "dormant") return "day7";
-  if (newStatus === "churned") return "day14";
+  if (newStatus === 'at-risk') return 'day3';
+  if (newStatus === 'dormant') return 'day7';
+  if (newStatus === 'churned') return 'day14';
   return null;
+}
+
+/**
+ * cron 由来 push（dailyQuiz / 移行案内 / Win-back）をこのユーザーに送らず
+ * スキップすべきか。ブロック中と、ユーザー自身の配信一時停止
+ * （`deliveryPaused`、設定メニューの「配信をおやすみ」）を共通判定する。
+ * reply 系（1問解く / 苦手復習 / AIチャット）はこの判定の対象外。
+ */
+export function shouldSkipCronPush(
+  data: Record<string, unknown> | undefined
+): boolean {
+  if (!data) return false;
+  return data.blocked === true || data.deliveryPaused === true;
 }
 
 /**
@@ -103,9 +120,9 @@ export function shouldResetStreak(
   oldStatus: UserStatus,
   newStatus: UserStatus
 ): boolean {
-  if (oldStatus !== "dormant" && newStatus === "dormant") return true;
+  if (oldStatus !== 'dormant' && newStatus === 'dormant') return true;
   // active → churned のようにスキップした場合もリセット
-  if (oldStatus === "active" && newStatus === "churned") return true;
-  if (oldStatus === "at-risk" && newStatus === "churned") return true;
+  if (oldStatus === 'active' && newStatus === 'churned') return true;
+  if (oldStatus === 'at-risk' && newStatus === 'churned') return true;
   return false;
 }

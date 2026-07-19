@@ -12,263 +12,363 @@
     "questions": [
       {
         "id": "math-g3-inscribed-angle-q1",
-        "question": "ある弧に対する中心角が $80°$ のとき、その弧に対する円周角の大きさを求めなさい。",
-        "options": [
-          "$40°$",
-          "$80°$",
-          "$160°$",
-          "$90°$"
-        ],
+        "question": "下の図で、中心 $O$ の円について、$∠x$ の大きさを求めなさい。",
+        "options": ["$50°$", "$100°$", "$200°$", "$25°$"],
         "correctIndex": 0,
-        "explanation": "$80° \\div 2 = 40°$\n円周角は同じ弧に対する中心角の半分になります。",
+        "explanation": "$100° \\div 2 = 50°$\n1つの弧に対する円周角は、その弧に対する中心角の半分です。",
+        "image": {
+          "kind": "circle-angles",
+          "center": true,
+          "points": [{ "name": "A", "at": 90 }, { "name": "B", "at": 205 }, { "name": "C", "at": 335 }],
+          "segments": [["A", "B"], ["A", "C"], ["O", "B"], ["O", "C"]],
+          "angles": [
+            { "at": "O", "from": "B", "to": "C", "label": "100°" },
+            { "at": "A", "from": "B", "to": "C", "label": "x" }
+          ]
+        },
         "difficulty": "basic"
       },
       {
         "id": "math-g3-inscribed-angle-q2",
-        "question": "ある弧に対する円周角が $30°$ のとき、その弧に対する中心角の大きさを求めなさい。",
-        "options": [
-          "$30°$",
-          "$15°$",
-          "$60°$",
-          "$90°$"
-        ],
-        "correctIndex": 2,
-        "explanation": "$30° \\times 2 = 60°$\n中心角は同じ弧に対する円周角の2倍になります。",
+        "question": "下の図で、中心 $O$ の円について、$∠x$ の大きさを求めなさい。",
+        "options": ["$140°$", "$70°$", "$280°$", "$35°$"],
+        "correctIndex": 1,
+        "explanation": "$140° \\div 2 = 70°$\n円周角は同じ弧に対する中心角の半分になります。",
+        "image": {
+          "kind": "circle-angles",
+          "center": true,
+          "points": [{ "name": "A", "at": 90 }, { "name": "B", "at": 205 }, { "name": "C", "at": 335 }],
+          "segments": [["A", "B"], ["A", "C"], ["O", "B"], ["O", "C"]],
+          "angles": [
+            { "at": "O", "from": "B", "to": "C", "label": "140°" },
+            { "at": "A", "from": "B", "to": "C", "label": "x" }
+          ]
+        },
         "difficulty": "basic"
       },
       {
         "id": "math-g3-inscribed-angle-q3",
-        "question": "ある弧に対する中心角が $120°$ のとき、その弧に対する円周角の大きさを求めなさい。",
-        "options": [
-          "$120°$",
-          "$90°$",
-          "$240°$",
-          "$60°$"
-        ],
-        "correctIndex": 3,
-        "explanation": "$120° \\div 2 = 60°$\n円周角は中心角の半分です。",
+        "question": "下の図で、中心 $O$ の円について、中心角 $∠x$ の大きさを求めなさい。",
+        "options": ["$35°$", "$140°$", "$70°$", "$90°$"],
+        "correctIndex": 2,
+        "explanation": "$35° \\times 2 = 70°$\n中心角は、同じ弧に対する円周角の2倍になります。",
+        "image": {
+          "kind": "circle-angles",
+          "center": true,
+          "points": [{ "name": "A", "at": 90 }, { "name": "B", "at": 205 }, { "name": "C", "at": 335 }],
+          "segments": [["A", "B"], ["A", "C"], ["O", "B"], ["O", "C"]],
+          "angles": [
+            { "at": "A", "from": "B", "to": "C", "label": "35°" },
+            { "at": "O", "from": "B", "to": "C", "label": "x" }
+          ]
+        },
         "difficulty": "basic"
       },
       {
         "id": "math-g3-inscribed-angle-q4",
-        "question": "円 $O$ で線分 $AB$ が直径のとき、円周上の点 $P$ について $\\angle APB$ の大きさを求めなさい。",
-        "options": [
-          "$90°$",
-          "$60°$",
-          "$180°$",
-          "$45°$"
-        ],
-        "correctIndex": 0,
-        "explanation": "$\\angle APB = 90°$\n直径（半円の弧）に対する円周角はつねに $90°$ です。",
+        "question": "下の図で、$\\overset{\\frown}{BC}$ に対する円周角 $∠x$ の大きさを求めなさい。",
+        "options": ["$25°$", "$50°$", "$100°$", "$90°$"],
+        "correctIndex": 1,
+        "explanation": "$∠BAC = ∠BDC = 50°$\n同じ弧に対する円周角はすべて等しくなります。",
+        "image": {
+          "kind": "circle-angles",
+          "points": [{ "name": "A", "at": 120 }, { "name": "D", "at": 60 }, { "name": "B", "at": 210 }, { "name": "C", "at": 330 }],
+          "segments": [["A", "B"], ["A", "C"], ["D", "B"], ["D", "C"]],
+          "angles": [
+            { "at": "A", "from": "B", "to": "C", "label": "50°" },
+            { "at": "D", "from": "B", "to": "C", "label": "x" }
+          ]
+        },
         "difficulty": "basic"
       },
       {
         "id": "math-g3-inscribed-angle-q5",
-        "question": "ある弧に対する中心角が $100°$ のとき、その弧に対する円周角の大きさを求めなさい。",
-        "options": [
-          "$100°$",
-          "$25°$",
-          "$50°$",
-          "$200°$"
-        ],
+        "question": "下の図で、線分 $BC$ は円の直径です。$∠x$ の大きさを求めなさい。",
+        "options": ["$35°$", "$145°$", "$55°$", "$90°$"],
         "correctIndex": 2,
-        "explanation": "$100° \\div 2 = 50°$\n円周角は中心角の半分です。",
-        "difficulty": "basic"
+        "explanation": "$∠BAC = 90°$ だから $180° - 90° - 35° = 55°$\n半円の弧に対する円周角は $90°$ になります。",
+        "image": {
+          "kind": "circle-angles",
+          "center": true,
+          "points": [{ "name": "B", "at": 180 }, { "name": "C", "at": 0 }, { "name": "A", "at": 110 }],
+          "segments": [["B", "C"], ["A", "B"], ["A", "C"]],
+          "angles": [
+            { "at": "A", "from": "B", "to": "C", "right": true },
+            { "at": "B", "from": "A", "to": "C", "label": "35°" },
+            { "at": "C", "from": "A", "to": "B", "label": "x" }
+          ]
+        },
+        "difficulty": "standard"
       },
       {
         "id": "math-g3-inscribed-angle-q6",
-        "question": "ある弧に対する円周角が $40°$ のとき、その弧に対する中心角の大きさを求めなさい。",
-        "options": [
-          "$40°$",
-          "$20°$",
-          "$160°$",
-          "$80°$"
-        ],
-        "correctIndex": 3,
-        "explanation": "$40° \\times 2 = 80°$\n中心角は円周角の2倍です。",
-        "difficulty": "basic"
+        "question": "下の図で、中心 $O$ の円について、円周角 $∠x$ の大きさを求めなさい。",
+        "options": ["$86°$", "$43°$", "$172°$", "$90°$"],
+        "correctIndex": 1,
+        "explanation": "$86° \\div 2 = 43°$\n円周角は同じ弧に対する中心角の半分です。",
+        "image": {
+          "kind": "circle-angles",
+          "center": true,
+          "points": [{ "name": "A", "at": 90 }, { "name": "B", "at": 205 }, { "name": "C", "at": 335 }],
+          "segments": [["A", "B"], ["A", "C"], ["O", "B"], ["O", "C"]],
+          "angles": [
+            { "at": "O", "from": "B", "to": "C", "label": "86°" },
+            { "at": "A", "from": "B", "to": "C", "label": "x" }
+          ]
+        },
+        "difficulty": "standard"
       },
       {
         "id": "math-g3-inscribed-angle-q7",
-        "question": "円 $O$ の弧 $AB$ について、点 $C$ から見た円周角 $\\angle ACB = 35°$ です。同じ弧 $AB$ に対する別の点 $D$ から見た円周角 $\\angle ADB$ の大きさを求めなさい。",
-        "options": [
-          "$35°$",
-          "$70°$",
-          "$55°$",
-          "$90°$"
-        ],
-        "correctIndex": 0,
-        "explanation": "$\\angle ADB = \\angle ACB = 35°$\n同じ弧に対する円周角はすべて等しくなります。",
-        "difficulty": "basic"
+        "question": "下の図で、中心 $O$ の円について、中心角 $∠x$ の大きさを求めなさい。",
+        "options": ["$58°$", "$116°$", "$29°$", "$90°$"],
+        "correctIndex": 1,
+        "explanation": "$58° \\times 2 = 116°$\n中心角は同じ弧に対する円周角の2倍です。",
+        "image": {
+          "kind": "circle-angles",
+          "center": true,
+          "points": [{ "name": "A", "at": 90 }, { "name": "B", "at": 205 }, { "name": "C", "at": 335 }],
+          "segments": [["A", "B"], ["A", "C"], ["O", "B"], ["O", "C"]],
+          "angles": [
+            { "at": "A", "from": "B", "to": "C", "label": "58°" },
+            { "at": "O", "from": "B", "to": "C", "label": "x" }
+          ]
+        },
+        "difficulty": "standard"
       },
       {
         "id": "math-g3-inscribed-angle-q8",
-        "question": "ある弧に対する中心角が $140°$ のとき、その弧に対する円周角の大きさを求めなさい。",
-        "options": [
-          "$140°$",
-          "$70°$",
-          "$35°$",
-          "$280°$"
-        ],
-        "correctIndex": 1,
-        "explanation": "$140° \\div 2 = 70°$\n円周角は中心角の半分です。",
-        "difficulty": "basic"
+        "question": "下の図で、$\\overset{\\frown}{BC}$ に対する円周角 $∠x$ の大きさを求めなさい。",
+        "options": ["$36°$", "$144°$", "$72°$", "$90°$"],
+        "correctIndex": 2,
+        "explanation": "$∠BAC = ∠BDC = 72°$\n同じ弧に対する円周角は等しいので、見る位置を変えても大きさは変わりません。",
+        "image": {
+          "kind": "circle-angles",
+          "points": [{ "name": "A", "at": 120 }, { "name": "D", "at": 60 }, { "name": "B", "at": 210 }, { "name": "C", "at": 330 }],
+          "segments": [["A", "B"], ["A", "C"], ["D", "B"], ["D", "C"]],
+          "angles": [
+            { "at": "A", "from": "B", "to": "C", "label": "72°" },
+            { "at": "D", "from": "B", "to": "C", "label": "x" }
+          ]
+        },
+        "difficulty": "standard"
       },
       {
         "id": "math-g3-inscribed-angle-q9",
-        "question": "ある弧に対する円周角が $72°$ のとき、その弧に対する中心角の大きさを求めなさい。",
-        "options": [
-          "$72°$",
-          "$144°$",
-          "$36°$",
-          "$108°$"
-        ],
+        "question": "下の図で、線分 $BC$ は円の直径です。$∠x$ の大きさを求めなさい。",
+        "options": ["$28°$", "$62°$", "$90°$", "$152°$"],
         "correctIndex": 1,
-        "explanation": "$72° \\times 2 = 144°$\n中心角は円周角の2倍です。",
+        "explanation": "$∠BAC = 90°$ だから $180° - 90° - 28° = 62°$\n直径に対する円周角は $90°$ になることを使います。",
+        "image": {
+          "kind": "circle-angles",
+          "center": true,
+          "points": [{ "name": "B", "at": 180 }, { "name": "C", "at": 0 }, { "name": "A", "at": 110 }],
+          "segments": [["B", "C"], ["A", "B"], ["A", "C"]],
+          "angles": [
+            { "at": "A", "from": "B", "to": "C", "right": true },
+            { "at": "B", "from": "A", "to": "C", "label": "28°" },
+            { "at": "C", "from": "A", "to": "B", "label": "x" }
+          ]
+        },
         "difficulty": "standard"
       },
       {
         "id": "math-g3-inscribed-angle-q10",
-        "question": "円 $O$ で線分 $AB$ は直径です。円周上の点 $C$ について $\\angle ABC = 28°$ のとき、$\\angle BAC$ の大きさを求めなさい。",
-        "options": [
-          "$152°$",
-          "$28°$",
-          "$62°$",
-          "$90°$"
-        ],
-        "correctIndex": 2,
-        "explanation": "$\\angle ACB = 90°$ より $\\angle BAC = 180° - 90° - 28° = 62°$\n直径に対する円周角 $\\angle ACB$ が $90°$ になることを使います。",
+        "question": "下の図で、$OA$、$OB$ は円の半径です。$∠x$（$∠OAB$）の大きさを求めなさい。",
+        "options": ["$70°$", "$40°$", "$140°$", "$20°$"],
+        "correctIndex": 0,
+        "explanation": "$(180° - 40°) \\div 2 = 70°$\n$OA = OB$ の二等辺三角形なので、2つの底角は等しくなります。",
+        "image": {
+          "kind": "circle-angles",
+          "center": true,
+          "points": [{ "name": "A", "at": 160 }, { "name": "B", "at": 20 }],
+          "segments": [["O", "A"], ["O", "B"], ["A", "B"]],
+          "angles": [
+            { "at": "O", "from": "A", "to": "B", "label": "40°" },
+            { "at": "A", "from": "O", "to": "B", "label": "x" }
+          ]
+        },
         "difficulty": "standard"
       },
       {
         "id": "math-g3-inscribed-angle-q11",
-        "question": "同じ円で、弧 $CD$ の長さは弧 $AB$ の $2$ 倍です。弧 $AB$ に対する円周角が $25°$ のとき、弧 $CD$ に対する円周角の大きさを求めなさい。",
-        "options": [
-          "$25°$",
-          "$75°$",
-          "$50°$",
-          "$100°$"
-        ],
+        "question": "下の図で、$OA$、$OB$ は円の半径です。$∠x$（$∠OAB$）の大きさを求めなさい。",
+        "options": ["$130°$", "$50°$", "$25°$", "$65°$"],
         "correctIndex": 2,
-        "explanation": "$25° \\times 2 = 50°$\n同じ円では弧の長さと円周角の大きさは比例します。弧が $2$ 倍なら円周角も $2$ 倍です。",
+        "explanation": "$(180° - 130°) \\div 2 = 25°$\n$OA = OB$ の二等辺三角形なので、底角が等しいことを使います。",
+        "image": {
+          "kind": "circle-angles",
+          "center": true,
+          "points": [{ "name": "A", "at": 160 }, { "name": "B", "at": 20 }],
+          "segments": [["O", "A"], ["O", "B"], ["A", "B"]],
+          "angles": [
+            { "at": "O", "from": "A", "to": "B", "label": "130°" },
+            { "at": "A", "from": "O", "to": "B", "label": "x" }
+          ]
+        },
         "difficulty": "standard"
       },
       {
         "id": "math-g3-inscribed-angle-q12",
-        "question": "同じ円で、弧 $AB$ と弧 $CD$ の長さが等しく、弧 $AB$ に対する円周角が $38°$ です。弧 $CD$ に対する円周角の大きさを求めなさい。",
-        "options": [
-          "$38°$",
-          "$76°$",
-          "$19°$",
-          "$90°$"
-        ],
+        "question": "下の図で、$\\overset{\\frown}{AB} = \\overset{\\frown}{BC}$ です。$∠x$ の大きさを求めなさい。",
+        "options": ["$30°$", "$15°$", "$60°$", "$45°$"],
         "correctIndex": 0,
-        "explanation": "$\\angle = 38°$\n同じ円で弧の長さが等しければ、それに対する円周角も等しくなります。",
+        "explanation": "$\\overset{\\frown}{AB} = \\overset{\\frown}{BC}$ だから $∠APB = ∠BPC = 30°$\n等しい弧に対する円周角は等しくなります。",
+        "image": {
+          "kind": "circle-angles",
+          "points": [{ "name": "P", "at": 90 }, { "name": "A", "at": 198 }, { "name": "B", "at": 270 }, { "name": "C", "at": 342 }],
+          "segments": [["P", "A"], ["P", "B"], ["P", "C"], ["A", "B"], ["B", "C"]],
+          "arcTicks": [{ "from": "A", "to": "B", "n": 1 }, { "from": "B", "to": "C", "n": 1 }],
+          "angles": [
+            { "at": "P", "from": "A", "to": "B", "label": "30°" },
+            { "at": "P", "from": "B", "to": "C", "label": "x" }
+          ]
+        },
         "difficulty": "standard"
       },
       {
         "id": "math-g3-inscribed-angle-q13",
-        "question": "ある弧に対する中心角が $210°$ のとき、その弧に対する円周角の大きさを求めなさい。",
-        "options": [
-          "$210°$",
-          "$105°$",
-          "$420°$",
-          "$150°$"
-        ],
+        "question": "下の図で、中心 $O$ の円について、円周角 $∠x$ の大きさを求めなさい。",
+        "options": ["$110°$", "$55°$", "$220°$", "$90°$"],
         "correctIndex": 1,
-        "explanation": "$210° \\div 2 = 105°$\n円周角は中心角の半分です。中心角が $180°$ より大きくても同じように計算できます。",
-        "difficulty": "standard"
+        "explanation": "$110° \\div 2 = 55°$\n円周角は同じ弧に対する中心角の半分です。",
+        "image": {
+          "kind": "circle-angles",
+          "center": true,
+          "points": [{ "name": "A", "at": 90 }, { "name": "B", "at": 205 }, { "name": "C", "at": 335 }],
+          "segments": [["A", "B"], ["A", "C"], ["O", "B"], ["O", "C"]],
+          "angles": [
+            { "at": "O", "from": "B", "to": "C", "label": "110°" },
+            { "at": "A", "from": "B", "to": "C", "label": "x" }
+          ]
+        },
+        "difficulty": "basic"
       },
       {
         "id": "math-g3-inscribed-angle-q14",
-        "question": "円 $O$ の周上に $4$ 点 $A, B, C, D$ がこの順にあります。弧 $BC$ に対する円周角 $\\angle BAC = 40°$ のとき、同じ弧 $BC$ に対する円周角 $\\angle BDC$ の大きさを求めなさい。",
-        "options": [
-          "$140°$",
-          "$80°$",
-          "$20°$",
-          "$40°$"
-        ],
-        "correctIndex": 3,
-        "explanation": "$\\angle BDC = \\angle BAC = 40°$\n同じ弧 $BC$ に対する円周角は等しくなります。",
+        "question": "下の図で、中心 $O$ の円について、中心角 $∠x$ の大きさを求めなさい。",
+        "options": ["$144°$", "$72°$", "$36°$", "$288°$"],
+        "correctIndex": 0,
+        "explanation": "$72° \\times 2 = 144°$\n中心角は同じ弧に対する円周角の2倍です。",
+        "image": {
+          "kind": "circle-angles",
+          "center": true,
+          "points": [{ "name": "A", "at": 90 }, { "name": "B", "at": 205 }, { "name": "C", "at": 335 }],
+          "segments": [["A", "B"], ["A", "C"], ["O", "B"], ["O", "C"]],
+          "angles": [
+            { "at": "A", "from": "B", "to": "C", "label": "72°" },
+            { "at": "O", "from": "B", "to": "C", "label": "x" }
+          ]
+        },
         "difficulty": "standard"
       },
       {
         "id": "math-g3-inscribed-angle-q15",
-        "question": "ある弧に対する円周角が $115°$ のとき、その弧に対する中心角の大きさを求めなさい。",
-        "options": [
-          "$115°$",
-          "$230°$",
-          "$65°$",
-          "$130°$"
-        ],
-        "correctIndex": 1,
-        "explanation": "$115° \\times 2 = 230°$\n中心角は円周角の2倍です。円周角が $90°$ より大きいときは中心角が $180°$ をこえます。",
-        "difficulty": "standard"
+        "question": "下の図で、線分 $BC$ は円の直径です。$∠x$ の大きさを求めなさい。",
+        "options": ["$90°$", "$45°$", "$180°$", "$60°$"],
+        "correctIndex": 0,
+        "explanation": "$∠x = 90°$\n半円の弧（直径）に対する円周角はつねに $90°$ になります。",
+        "image": {
+          "kind": "circle-angles",
+          "center": true,
+          "points": [{ "name": "B", "at": 180 }, { "name": "C", "at": 0 }, { "name": "A", "at": 110 }],
+          "segments": [["B", "C"], ["A", "B"], ["A", "C"]],
+          "angles": [
+            { "at": "A", "from": "B", "to": "C", "label": "x" }
+          ]
+        },
+        "difficulty": "basic"
       },
       {
         "id": "math-g3-inscribed-angle-q16",
-        "question": "円 $O$ で線分 $AB$ は直径です。円周上の点 $C$ について、$\\angle CAB$ の大きさが $\\angle CBA$ の $2$ 倍であるとき、$\\angle CBA$ の大きさを求めなさい。",
-        "options": [
-          "$45°$",
-          "$60°$",
-          "$30°$",
-          "$20°$"
-        ],
+        "question": "下の図で、$\\overset{\\frown}{AB} : \\overset{\\frown}{BC} = 1 : 2$ です。$∠x$ の大きさを求めなさい。",
+        "options": ["$25°$", "$75°$", "$50°$", "$100°$"],
         "correctIndex": 2,
-        "explanation": "$\\angle ACB = 90°$ より $\\angle CAB + \\angle CBA = 90°$。$2x + x = 90°$ から $x = 30°$\n直径に対する円周角が $90°$ になることを使います。",
+        "explanation": "$25° \\times 2 = 50°$\n弧の長さと円周角は比例するので、弧が2倍なら円周角も2倍です。",
+        "image": {
+          "kind": "circle-angles",
+          "points": [{ "name": "P", "at": 90 }, { "name": "A", "at": 232 }, { "name": "B", "at": 272 }, { "name": "C", "at": 352 }],
+          "segments": [["P", "A"], ["P", "B"], ["P", "C"], ["A", "B"], ["B", "C"]],
+          "arcTicks": [{ "from": "A", "to": "B", "n": 1 }, { "from": "B", "to": "C", "n": 2 }],
+          "angles": [
+            { "at": "P", "from": "A", "to": "B", "label": "25°" },
+            { "at": "P", "from": "B", "to": "C", "label": "x" }
+          ]
+        },
         "difficulty": "advanced"
       },
       {
         "id": "math-g3-inscribed-angle-q17",
-        "question": "円を $6$ 等分する点が円周上にあります。このうち隣り合う $2$ 点を両端とする弧（円周の $\\frac{1}{6}$）に対する円周角の大きさを求めなさい。",
-        "options": [
-          "$60°$",
-          "$30°$",
-          "$15°$",
-          "$45°$"
-        ],
-        "correctIndex": 1,
-        "explanation": "弧の中心角は $360° \\div 6 = 60°$、円周角はその半分で $60° \\div 2 = 30°$\n円周角は中心角の半分です。",
+        "question": "下の図で、2つの弦 $AC$、$BD$ が点 $P$ で交わっています。$∠x$ の大きさを求めなさい。",
+        "options": ["$70°$", "$30°$", "$40°$", "$110°$"],
+        "correctIndex": 0,
+        "explanation": "$∠x = ∠BAC + ∠ABD = 40° + 30° = 70°$\n三角形 $ABP$ の外角は、離れた2つの内角（円周角）の和に等しくなります。",
+        "image": {
+          "kind": "circle-angles",
+          "points": [{ "name": "A", "at": 140 }, { "name": "B", "at": 40 }, { "name": "C", "at": 320 }, { "name": "D", "at": 220 }],
+          "segments": [["A", "C"], ["B", "D"], ["A", "B"]],
+          "intersects": [{ "name": "P", "chord1": ["A", "C"], "chord2": ["B", "D"] }],
+          "angles": [
+            { "at": "A", "from": "B", "to": "C", "label": "40°" },
+            { "at": "B", "from": "A", "to": "D", "label": "30°" },
+            { "at": "P", "from": "B", "to": "C", "label": "x" }
+          ]
+        },
         "difficulty": "advanced"
       },
       {
         "id": "math-g3-inscribed-angle-q18",
-        "question": "ある弧について、中心角と円周角の和が $180°$ です。この弧に対する中心角の大きさを求めなさい。",
-        "options": [
-          "$60°$",
-          "$90°$",
-          "$135°$",
-          "$120°$"
-        ],
+        "question": "下の図で、2つの弦 $AC$、$BD$ が点 $P$ で交わっています。$∠x$ の大きさを求めなさい。",
+        "options": ["$35°$", "$45°$", "$100°$", "$80°$"],
         "correctIndex": 3,
-        "explanation": "円周角を $x$ とすると中心角は $2x$。$2x + x = 180°$ より $x = 60°$、中心角は $2 \\times 60° = 120°$\n中心角は円周角の2倍であることを使います。",
+        "explanation": "$∠x = ∠BAC + ∠ABD = 35° + 45° = 80°$\n三角形 $ABP$ の外角は、離れた2つの内角（円周角）の和に等しくなります。",
+        "image": {
+          "kind": "circle-angles",
+          "points": [{ "name": "A", "at": 140 }, { "name": "B", "at": 40 }, { "name": "C", "at": 320 }, { "name": "D", "at": 220 }],
+          "segments": [["A", "C"], ["B", "D"], ["A", "B"]],
+          "intersects": [{ "name": "P", "chord1": ["A", "C"], "chord2": ["B", "D"] }],
+          "angles": [
+            { "at": "A", "from": "B", "to": "C", "label": "35°" },
+            { "at": "B", "from": "A", "to": "D", "label": "45°" },
+            { "at": "P", "from": "B", "to": "C", "label": "x" }
+          ]
+        },
         "difficulty": "advanced"
       },
       {
         "id": "math-g3-inscribed-angle-q19",
-        "question": "同じ円で、弧 $AB$ と弧 $CD$ の長さの比が $1 : 3$ です。弧 $AB$ に対する円周角が $15°$ のとき、弧 $CD$ に対する円周角の大きさを求めなさい。",
-        "options": [
-          "$45°$",
-          "$30°$",
-          "$15°$",
-          "$5°$"
-        ],
-        "correctIndex": 0,
-        "explanation": "$15° \\times 3 = 45°$\n同じ円では弧の長さと円周角は比例します。弧が $3$ 倍なら円周角も $3$ 倍です。",
-        "difficulty": "advanced"
+        "question": "下の図で、$OA$、$OB$ は円の半径で、$∠OAB = 50°$ です。中心角 $∠x$ の大きさを求めなさい。",
+        "options": ["$50°$", "$80°$", "$100°$", "$130°$"],
+        "correctIndex": 1,
+        "explanation": "$180° - 50° \\times 2 = 80°$\n$OA = OB$ の二等辺三角形で、底角が等しいことから頂角を求めます。",
+        "image": {
+          "kind": "circle-angles",
+          "center": true,
+          "points": [{ "name": "A", "at": 160 }, { "name": "B", "at": 20 }],
+          "segments": [["O", "A"], ["O", "B"], ["A", "B"]],
+          "angles": [
+            { "at": "A", "from": "O", "to": "B", "label": "50°" },
+            { "at": "O", "from": "A", "to": "B", "label": "x" }
+          ]
+        },
+        "difficulty": "standard"
       },
       {
         "id": "math-g3-inscribed-angle-q20",
-        "question": "円 $O$ で線分 $AB$ は直径です。円周上の点 $C$ について $\\angle CAB = 53°$ のとき、$\\angle CBA$ の大きさを求めなさい。",
-        "options": [
-          "$53°$",
-          "$127°$",
-          "$90°$",
-          "$37°$"
-        ],
-        "correctIndex": 3,
-        "explanation": "$\\angle ACB = 90°$ より $\\angle CBA = 180° - 90° - 53° = 37°$\n直径に対する円周角が $90°$ であることを使います。",
-        "difficulty": "advanced"
+        "question": "下の図で、$\\overset{\\frown}{BC}$ に対する円周角 $∠x$ の大きさを求めなさい。",
+        "options": ["$33°$", "$66°$", "$90°$", "$147°$"],
+        "correctIndex": 0,
+        "explanation": "$∠BAC = ∠BDC = 33°$\n同じ弧に対する円周角は、どの位置から見ても等しくなります。",
+        "image": {
+          "kind": "circle-angles",
+          "points": [{ "name": "A", "at": 120 }, { "name": "D", "at": 60 }, { "name": "B", "at": 210 }, { "name": "C", "at": 330 }],
+          "segments": [["A", "B"], ["A", "C"], ["D", "B"], ["D", "C"]],
+          "angles": [
+            { "at": "D", "from": "B", "to": "C", "label": "33°" },
+            { "at": "A", "from": "B", "to": "C", "label": "x" }
+          ]
+        },
+        "difficulty": "standard"
       }
     ]
   }

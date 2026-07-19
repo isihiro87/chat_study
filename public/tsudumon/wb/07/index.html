@@ -1,0 +1,2408 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>歴史 ⑦ ヨーロッパと天下統一｜つづもん問題集</title>
+<style>
+  :root { --brand:#b45309; --deep:#7c2d12; --amber:#f59e0b; --cream:#fffdf8; --line:#fde68a;
+          --ok:#16a34a; --ng:#dc2626; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { -webkit-text-size-adjust:100%; }
+  body { font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;
+         font-size:16px; line-height:1.95; color:#1c1917; background:var(--cream);
+         padding-bottom:86px; }
+  .wrap { max-width:640px; margin:0 auto; padding:0 16px 24px; }
+  ruby rt { font-size:0.5em; }
+  .print-only { display:none; }
+
+  /* ── 上部バー ── */
+  .bar { position:sticky; top:0; z-index:10; background:rgba(255,253,248,.96);
+         backdrop-filter:blur(6px); border-bottom:1px solid #f0e6d2; }
+  .bar-in { max-width:640px; margin:0 auto; padding:8px 16px 0; }
+  .bar-row { display:flex; align-items:center; gap:8px; }
+  .bar-title { font-weight:bold; color:var(--deep); font-size:14px; flex:1;
+               white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .bar-step { flex:none; font-size:12px; font-weight:bold; color:var(--brand); }
+  .tabs { display:flex; gap:6px; overflow-x:auto; padding:8px 0; scrollbar-width:none; }
+  .tabs::-webkit-scrollbar { display:none; }
+  .tab { flex:none; width:36px; height:36px; border-radius:50%; border:1.5px solid var(--line);
+         background:#fffbeb; color:var(--brand); font-size:14px; font-weight:bold;
+         display:inline-flex; align-items:center; justify-content:center; cursor:pointer; }
+  .tab.done { background:#fef3c7; }
+  .tab.on { background:var(--brand); border-color:var(--brand); color:#fff;
+            box-shadow:0 2px 6px rgba(180,83,9,.35); }
+  .pbar { height:3px; background:#f5ecd8; border-radius:2px; overflow:hidden; }
+  .pfill { height:100%; width:0; background:linear-gradient(90deg,var(--amber),#fbbf24);
+           transition:width .25s ease; }
+
+  .view { display:none; }
+  .view.on { display:block; position:relative; animation:vfade .18s ease; }
+  @keyframes vfade { from { opacity:.6; } to { opacity:1; } }
+  .step { display:none; }
+  .step.on { display:block; }
+  /* 本物っぽいページめくり（2枚重ね・参考書Web版と共通）:
+     進む = 今のページ自体が左とじに沿って手前にめくれて去り、下から次のページが現れる。
+     戻る = 前のページが手前からめくり戻されて上に着地する。 */
+  /* min-height:100% = 下に敷かれた新ページ全体を覆う（絶対配置なので view の実高さに解決される。
+     これが無いと、めくれるページより新ページが長いとき下端が透けて見える） */
+  .step.turn-out { display:block; position:absolute; top:0; left:0; width:100%; min-height:100%;
+                   z-index:3; pointer-events:none; background:var(--cream);
+                   transform-origin:left center;
+                   animation:turnOut .45s cubic-bezier(.55,.06,.68,.19) forwards; }
+  @keyframes turnOut {
+    0%   { transform:perspective(1200px) rotateY(0); opacity:1; }
+    75%  { opacity:1; }
+    100% { transform:perspective(1200px) rotateY(-88deg); opacity:0; } }
+  .step.turn-out::after { content:""; position:absolute; inset:0; pointer-events:none;
+                          background:linear-gradient(to right, transparent 55%, rgba(124,45,18,.12)); }
+  .step.on.turn-in { position:relative; z-index:3; background:var(--cream);
+                     transform-origin:left center;
+                     animation:turnIn .45s cubic-bezier(.22,.72,.32,1); }
+  @keyframes turnIn {
+    from { transform:perspective(1200px) rotateY(-88deg); }
+    to   { transform:perspective(1200px) rotateY(0); } }
+  .step.turn-under { display:block; position:absolute; top:0; left:0; width:100%; z-index:1;
+                     pointer-events:none; max-height:100%; overflow:hidden; }
+
+  /* ── ホーム ── */
+  .top { text-align:center; padding:26px 0 6px; }
+  .badge { display:inline-block; background:var(--brand); color:#fff; font-weight:bold;
+           padding:4px 16px; border-radius:20px; font-size:13px; }
+  .webtag { background:rgba(255,255,255,.25); border-radius:10px; padding:1px 8px; font-size:11px; margin-left:4px; }
+  .top h1 { font-size:29px; color:var(--deep); margin-top:12px; line-height:1.4; }
+  .sub { color:#92400e; font-size:14px; margin-top:2px; }
+  .howto { font-size:13.5px; color:#57534e; }
+  .home-howto { margin-top:14px; background:#fffbeb; border:1.5px dashed var(--line);
+                border-radius:12px; padding:10px 14px; text-align:left; }
+  .resume { display:block; width:100%; margin:16px 0 0; background:var(--brand); color:#fff;
+            border:none; border-radius:14px; padding:13px; font-size:15px; font-weight:bold;
+            cursor:pointer; box-shadow:0 3px 8px rgba(180,83,9,.3); font-family:inherit; }
+  .resume span { font-weight:normal; font-size:12px; opacity:.9; margin-left:8px; }
+  .toc { margin:16px 0 12px; background:#fff; border:2px solid var(--line); border-radius:14px; padding:14px; }
+  .toc-h { font-weight:bold; color:var(--deep); margin-bottom:6px; font-size:15px; }
+  .toc-item { display:flex; align-items:center; gap:10px; width:100%; padding:11px 6px;
+              background:none; border:none; border-top:1px solid #faf1dc; cursor:pointer;
+              color:#44403c; font-weight:bold; font-size:15px; text-align:left;
+              font-family:inherit; line-height:1.5; }
+  .toc-item:first-of-type { border-top:none; }
+  .toc-no { flex:none; min-width:24px; height:24px; border-radius:50%; background:var(--amber);
+            color:#fff; display:inline-flex; align-items:center; justify-content:center;
+            font-size:12px; padding:0 4px; }
+  .toc-name { flex:1; }
+  .toc-state { flex:none; font-size:11px; font-weight:bold; }
+  .toc-state.done { color:var(--ok); }
+  .toc-state.doing { color:var(--brand); background:#fffbeb; border:1px solid var(--line);
+                     border-radius:10px; padding:1px 8px; }
+
+  /* ── マスコット ── */
+  .wchar { flex:none; object-fit:contain; }
+  .home-cheer { display:flex; align-items:center; justify-content:center; gap:8px; margin-top:12px; }
+  .home-cheer .wchar { height:58px; }
+  .sp-bubble { position:relative; display:inline-block; background:#fffbeb; border:1.5px solid #f0b558;
+               border-radius:12px; padding:5px 12px; font-size:13px; font-weight:bold; color:#92400e; }
+  .sp-bubble.sp-taill::before { content:""; position:absolute; left:-7px; top:50%; transform:translateY(-50%);
+               border:5px solid transparent; border-right-color:#f0b558; }
+  .tchar { height:38px; margin-left:auto; }
+  .done-char { height:52px; vertical-align:middle; margin-right:6px; }
+
+  /* ── 単元 ── */
+  .tband { display:flex; align-items:center; gap:10px; margin:18px 0 14px; }
+  .tno, .ttag { flex:none; min-width:34px; height:34px; border-radius:50%; background:var(--brand); color:#fff;
+         display:inline-flex; align-items:center; justify-content:center; font-size:16px;
+         font-weight:bold; box-shadow:0 2px 4px rgba(180,83,9,.3); padding:0 6px; }
+  .tband h2 { font-size:20px; color:var(--deep); border-bottom:3px solid var(--line);
+              padding-bottom:2px; flex:1; line-height:1.4; }
+  .sec-h { display:flex; align-items:center; gap:8px; font-size:16px; font-weight:bold;
+           color:var(--deep); margin-bottom:10px; }
+  .sec-tag { flex:none; background:var(--brand); color:#fff; border-radius:8px; width:26px; height:26px;
+             display:inline-flex; align-items:center; justify-content:center; font-size:14px; }
+  .sec-note { font-size:12px; font-weight:normal; color:#a8a29e; }
+  .ref-link { display:inline-block; font-size:13px; font-weight:bold; color:var(--brand);
+              text-decoration:none; border:1.5px solid var(--line); background:#fffbeb;
+              border-radius:16px; padding:5px 14px; margin-bottom:10px; }
+
+  /* 穴埋めチップ */
+  .summary { background:#fff; border:1.5px solid #e2d5bd; border-radius:12px; padding:12px 14px;
+             text-align:justify; }
+  .blank { display:inline; border:none; background:none; font:inherit; cursor:pointer; padding:0; }
+  .blank .bno { color:var(--brand); font-weight:bold; }
+  .blank .ba { display:none; font-weight:bold; color:var(--brand);
+               background:linear-gradient(transparent 55%, var(--line) 55%); padding:0 2px; }
+  .blank .bl { display:inline-block; border-bottom:2px solid #a8a29e; height:1em;
+               vertical-align:-2px; max-width:9em; background:#fffbeb; }
+  .blank.open .ba { display:inline; }
+  .blank.open .bl { display:none; }
+  .tap-hint { display:none; }
+  .reveal-all-row { margin-top:10px; text-align:right; }
+  .reveal-all { border:1.5px solid var(--line); background:#fffbeb; color:var(--brand);
+                font-weight:bold; font-size:13px; border-radius:16px; padding:6px 14px;
+                cursor:pointer; font-family:inherit; }
+
+  /* 年表 */
+  .tl-table { width:100%; border-collapse:collapse; background:#fff; font-size:14px; }
+  .tl-table th, .tl-table td { border:1px solid #d6cbb2; padding:6px 10px; }
+  .tl-table th { background:#faf5eb; font-size:13px; }
+  .tl-year { width:74px; text-align:center; white-space:nowrap; }
+
+  /* 問題共通 */
+  .q-text { font-size:16.5px; font-weight:bold; line-height:1.9; }
+  .qa-no { font-weight:bold; margin-right:6px; color:var(--brand); }
+  .reveal { display:block; width:100%; margin-top:14px; border:none; border-radius:12px;
+            background:var(--amber); color:#fff; font-weight:bold; font-size:15px;
+            padding:12px; cursor:pointer; font-family:inherit; box-shadow:0 2px 6px rgba(245,158,11,.3); }
+  .hidden-until { display:none; }
+  .show .hidden-until { display:block; }
+  .show .reveal { display:none; }
+  .qa-a { margin-top:12px; background:#fff; border:2px solid var(--amber); border-radius:12px;
+          padding:10px 14px; font-size:18px; font-weight:bold; color:var(--deep); text-align:center; }
+  .qa-expl { font-size:13.5px; color:#57534e; background:#fffbeb; border-radius:10px;
+             padding:8px 12px; margin-top:8px; line-height:1.8; }
+  .marks { display:flex; gap:10px; margin-top:12px; }
+  .mk { flex:1; border:2px solid; border-radius:12px; background:#fff; font-weight:bold;
+        font-size:15px; padding:10px; cursor:pointer; font-family:inherit; }
+  .mk-ok { border-color:#bbe3cc; color:var(--ok); }
+  .mk-ng { border-color:#fecaca; color:var(--ng); }
+
+  /* 4択 */
+  .qopts { display:flex; flex-direction:column; gap:8px; margin-top:12px; }
+  .qopt { display:flex; align-items:center; gap:10px; text-align:left; background:#fff;
+          border:1.5px solid #e2d5bd; border-radius:12px; padding:10px 12px; font-size:14.5px;
+          cursor:pointer; font-family:inherit; line-height:1.7; }
+  .opt-k { flex:none; width:26px; height:26px; border-radius:50%; border:1.5px solid #a8a29e;
+           display:inline-flex; align-items:center; justify-content:center; font-size:13px; font-weight:bold; }
+  .qz-step.answered .qopt { cursor:default; }
+  .qopt.correct { border-color:var(--ok); background:#f0fdf4; }
+  .qopt.correct .opt-k { background:var(--ok); border-color:var(--ok); color:#fff; }
+  .qopt.wrong { border-color:var(--ng); background:#fef2f2; }
+  .qopt.wrong .opt-k { background:var(--ng); border-color:var(--ng); color:#fff; }
+  .qopt.dim { opacity:.55; }
+  .expl { margin-top:10px; font-size:13.5px; color:#57534e; background:#fffbeb;
+          border-radius:10px; padding:8px 12px; line-height:1.8; }
+  .qz-step.answered .expl { display:block; }
+
+  /* 記述 */
+  .kw-note { font-size:13px; color:#57534e; margin-top:6px; }
+  .kw-chip { display:inline-block; border:1px solid var(--brand); color:var(--brand);
+             border-radius:6px; padding:0 8px; margin-left:6px; font-size:12.5px; }
+  .w-input { width:100%; margin-top:12px; border:1.5px solid #e2d5bd; border-radius:12px;
+             padding:10px 12px; font:inherit; font-size:14.5px; background:#fff; resize:vertical; }
+  .line-mini { display:block; margin-top:10px; text-align:center; font-size:13px; font-weight:bold;
+               color:#06c755; text-decoration:none; border:1.5px solid #bbe3cc; border-radius:12px;
+               padding:8px; background:#f0fdf4; }
+
+  /* 資料 */
+  .s-img { margin-bottom:12px; }
+  .s-img img { width:100%; border-radius:12px; border:1px solid #e2d5bd; display:block; }
+  .s-img figcaption { font-size:12px; color:#a8a29e; text-align:center; margin-top:4px; }
+  .s-q { margin-bottom:14px; font-size:15px; line-height:1.8; }
+  .s-blank { display:block; margin:6px 0 0 26px; text-align:left; }
+  .s-blank .tap-hint { display:inline; font-size:11px; color:#b8b0a6; margin-left:8px; }
+  .s-blank.open .tap-hint { display:none; }
+  .m-res-row { display:flex; gap:8px; margin-bottom:14px; }
+  .m-res { flex:1; text-align:center; }
+  .m-res img { width:100%; border-radius:10px; border:1px solid #e2d5bd; }
+  .m-lab { display:block; font-weight:bold; color:var(--brand); font-size:14px; }
+  .m-item { background:#fff; border:1.5px solid #e2d5bd; border-radius:12px; padding:10px 12px;
+            margin-bottom:10px; }
+  .m-text { font-size:14.5px; line-height:1.8; }
+  .m-btns { display:flex; gap:8px; margin-top:8px; }
+  .mopt { flex:1; border:1.5px solid #e2d5bd; background:#fffbeb; border-radius:10px;
+          font-weight:bold; font-size:15px; padding:8px; cursor:pointer; font-family:inherit; }
+  .mopt.correct { border-color:var(--ok); background:#f0fdf4; color:var(--ok); }
+  .mopt.wrong { border-color:var(--ng); background:#fef2f2; color:var(--ng); }
+
+  /* 結果 */
+  .done { text-align:center; font-size:17px; font-weight:bold; color:var(--deep); margin:14px 0; }
+  .score-box { background:#fff; border:2px solid var(--line); border-radius:14px; padding:14px;
+               margin-bottom:12px; font-size:14.5px; }
+  .score-row { display:flex; justify-content:space-between; padding:4px 2px; }
+  .score-row b { color:var(--brand); }
+  .big-btn { display:block; width:100%; text-align:center; margin-top:10px; border:none;
+             border-radius:14px; padding:13px 16px; font-size:15px; font-weight:bold;
+             cursor:pointer; font-family:inherit; text-decoration:none; }
+  .line-btn { background:#06c755; color:#fff; box-shadow:0 3px 8px rgba(6,199,85,.3); }
+  .btn-sub { display:block; font-weight:normal; font-size:12px; opacity:.9; }
+  .ref-btn { background:#fffbeb; color:var(--brand); border:1.5px solid var(--line); }
+  .retry-btn { background:#fff; color:#57534e; border:1.5px solid #e2d5bd; }
+  .print-btn { background:#fff; color:#57534e; border:1.5px solid #e2d5bd; }
+
+  .foot { text-align:center; margin-top:32px; color:#a8a29e; font-size:13px; }
+  .foot-note { margin-top:4px; font-size:12px; }
+
+  /* ── 下部ナビ ── */
+  .navbar { position:fixed; left:0; right:0; bottom:0; z-index:10;
+            background:rgba(255,253,248,.97); border-top:1px solid #f0e6d2;
+            padding:10px 16px calc(10px + env(safe-area-inset-bottom)); }
+  .navbar-in { max-width:640px; margin:0 auto; display:flex; align-items:center; gap:10px; }
+  .nb { border:none; border-radius:14px; padding:12px 0; font-size:15px; font-weight:bold;
+        cursor:pointer; font-family:inherit; }
+  .nb-prev { flex:1; background:#fff; color:var(--brand); border:1.5px solid var(--line); }
+  .nb-next { flex:2; background:var(--brand); color:#fff; box-shadow:0 3px 8px rgba(180,83,9,.3); }
+
+  /* ── 印刷（紙のワークとして使える） ── */
+  @media print {
+    body { background:#fff; padding-bottom:0; font-size:10.5pt; line-height:1.8; }
+    .bar, .navbar, .resume, .reveal, .marks, .reveal-all-row, .w-input, .line-mini,
+    .big-btn, .qa-expl, .expl, .tap-hint, .toc-state, .home-howto, .howto, .m-btns { display:none !important; }
+    .print-only { display:block !important; }
+    .view { display:block !important; }
+    .step { display:block !important; margin-bottom:14px; break-inside:avoid; }
+    .hidden-until { display:none !important; }
+    .blank .ba { display:none !important; }
+    .blank .bl { display:inline-block !important; background:none; }
+    .qopt { border:none; padding:1px 0; background:none; }
+    .qopt .opt-k { width:18px; height:18px; font-size:10px; }
+    .qopt.correct, .qopt.wrong { background:none; border:none; }
+    .qopt.correct .opt-k, .qopt.wrong .opt-k { background:none; color:#1c1917; border-color:#a8a29e; }
+    .qopts { gap:2px; margin-top:4px; }
+    .wline { border-bottom:1px solid #78716c; height:9mm; margin-top:2mm; }
+    .toc-item, .tab { cursor:default; }
+    .top { padding-top:0; }
+    .tband { margin-top:8mm; break-after:avoid; }
+    .m-item { break-inside:avoid; }
+    .m-item::after { content:"〔　　〕"; color:#44403c; }
+    .print-answers { page-break-before:always; font-size:9pt; line-height:1.9; }
+    .ans-band { background:#44403c; color:#fff; text-align:center; padding:2px 0; border-radius:4px;
+                margin-bottom:8px; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .a-topic { border-bottom:1px dashed #a8a29e; padding:4px 0; }
+    .a-title { font-weight:bold; background:#f5f5f4; padding:0 6px; border-left:8px solid var(--brand);
+               -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .a-label { font-weight:bold; color:var(--brand); margin-right:6px; }
+    .a-item { display:inline-block; margin-right:4px; }
+    .a-written { padding-left:6px; }
+    .credits { font-size:7.5pt; color:#78716c; border-top:1px solid #d6d3d1; margin-top:8px; }
+  }
+  .credits { font-size:11px; color:#a8a29e; margin-top:20px; }
+</style></head><body>
+<div class="bar"><div class="bar-in">
+  <div class="bar-row">
+    <div class="bar-title">歴史 ⑦ ヨーロッパと天下統一（問題集）</div>
+    <div class="bar-step" id="barStep"></div>
+  </div>
+  <nav class="tabs" id="tabs"><button class="tab tab-home" data-go="0" aria-label="目次">🏠</button><button class="tab" data-go="1" aria-label="年表">年</button><button class="tab" data-go="2" aria-label="ヨーロッパの変革">1</button><button class="tab" data-go="3" aria-label="大航海時代">2</button><button class="tab" data-go="4" aria-label="南蛮貿易とキリスト教">3</button><button class="tab" data-go="5" aria-label="信長・秀吉の天下統一">4</button><button class="tab" data-go="6" aria-label="秀吉の政策と朝鮮出兵">5</button><button class="tab" data-go="7" aria-label="桃山文化">6</button></nav>
+  <div class="pbar"><div class="pfill" id="pfill"></div></div>
+</div></div>
+<main class="wrap" id="views">
+
+<section class="view home" data-t="0">
+  <header class="top">
+    <div class="badge">歴史 ⑦　問題集 <span class="webtag">Web版</span></div>
+    <h1>ヨーロッパと天下統一</h1>
+    <div class="sub">ルネサンス 〜 安土桃山時代</div>
+    <div class="home-cheer"><img class="wchar" src="img/characters_char_manabi_sm.png" alt=""><span class="sp-bubble sp-taill">いっしょに がんばろう！</span></div>
+    <div class="howto home-howto">タブか下のリストから選んで、1問ずつ解いていこう！<br>
+    要点まとめ → 一問一答 → 4択 → 記述の順で力がつくよ。</div>
+  </header>
+  <button class="resume" id="resumeBtn" hidden>▶ つづきから解く<span id="resumeWhere"></span></button>
+  <nav class="toc">
+    <div class="toc-h">✏️ この本の問題</div>
+    <button class="toc-item" data-go="1"><span class="toc-no">年</span><span class="toc-name">年表でチェック</span><span class="toc-state" data-state-t="1"></span></button><button class="toc-item" data-go="2"><span class="toc-no">1</span><span class="toc-name">ヨーロッパの変革</span><span class="toc-state" data-state-t="2"></span></button><button class="toc-item" data-go="3"><span class="toc-no">2</span><span class="toc-name">大航海時代</span><span class="toc-state" data-state-t="3"></span></button><button class="toc-item" data-go="4"><span class="toc-no">3</span><span class="toc-name">南蛮貿易とキリスト教</span><span class="toc-state" data-state-t="4"></span></button><button class="toc-item" data-go="5"><span class="toc-no">4</span><span class="toc-name">信長・秀吉の天下統一</span><span class="toc-state" data-state-t="5"></span></button><button class="toc-item" data-go="6"><span class="toc-no">5</span><span class="toc-name">秀吉の政策と朝鮮出兵</span><span class="toc-state" data-state-t="6"></span></button><button class="toc-item" data-go="7"><span class="toc-no">6</span><span class="toc-name">桃山文化</span><span class="toc-state" data-state-t="7"></span></button>
+  </nav>
+  <a class="big-btn ref-btn" href="../../ref/07/index.html">📖 参考書Web版を開く</a>
+  <button class="big-btn print-btn" type="button" onclick="window.print()">🖨 紙に印刷して解く（解答つき）</button>
+  
+  <footer class="foot">
+    <div>つづもん 問題集 Web版</div>
+    <div class="foot-note">ダウンロード済みのA4版PDF（書き込みレイアウト）もあわせてどうぞ。</div>
+  </footer>
+</section>
+<section class="view" data-t="1">
+  <div class="tband"><span class="ttag">年</span><h2>年表でチェック</h2></div>
+  <div class="step" data-label="年表でチェック">
+    <div class="howto">（　）をタップすると答えが出るよ。まずは自分で言ってから確かめよう！</div>
+    <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    <table class="tl-table"><tr><th class="tl-year">年代</th><th>できごと</th></tr><tr><td class='tl-year'>1453年</td><td><button class="blank" type="button"><span class="bno">①</span><span class="ba">オスマン帝国</span><span class="bl" style="width:5.4em"></span></button>がビザンツ帝国を滅ぼす</td></tr><tr><td class='tl-year'>1492年</td><td><button class="blank" type="button"><span class="bno">②</span><span class="ba">コロンブス</span><span class="bl" style="width:4.5em"></span></button>がカリブ海の島に到達する</td></tr><tr><td class='tl-year'>1498年</td><td><button class="blank" type="button"><span class="bno">③</span><span class="ba">バスコ・ダ・ガマ</span><span class="bl" style="width:7.2em"></span></button>がインドに到達する</td></tr><tr><td class='tl-year'>1517年</td><td><button class="blank" type="button"><span class="bno">④</span><span class="ba">ルター</span><span class="bl" style="width:2.7em"></span></button>が<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">宗教改革</span><span class="bl" style="width:3.6em"></span></button>を始める</td></tr><tr><td class='tl-year'>1522年</td><td><button class="blank" type="button"><span class="bno">⑥</span><span class="ba">マゼランの船隊</span><span class="bl" style="width:6.3em"></span></button>が世界一周を達成する</td></tr><tr><td class='tl-year'>1543年</td><td>ポルトガル人により種子島に<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">鉄砲</span><span class="bl" style="width:2.7em"></span></button>が伝わる</td></tr><tr><td class='tl-year'>1549年</td><td><button class="blank" type="button"><span class="bno">⑧</span><span class="ba">ザビエル</span><span class="bl" style="width:3.6em"></span></button>が来日しキリスト教を伝える</td></tr><tr><td class='tl-year'>1560年</td><td>織田信長が<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">桶狭間の戦い</span><span class="bl" style="width:5.4em"></span></button>で今川義元を破る</td></tr><tr><td class='tl-year'>1571年</td><td>信長が<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">比叡山延暦寺</span><span class="bl" style="width:5.4em"></span></button>を焼き討ちにする</td></tr><tr><td class='tl-year'>1573年</td><td>信長が足利義昭を追放し<button class="blank" type="button"><span class="bno">⑪</span><span class="ba">室町幕府</span><span class="bl" style="width:3.6em"></span></button>を滅ぼす</td></tr><tr><td class='tl-year'>1575年</td><td>信長・家康連合軍が<button class="blank" type="button"><span class="bno">⑫</span><span class="ba">長篠の戦い</span><span class="bl" style="width:4.5em"></span></button>で武田勝頼を破る</td></tr><tr><td class='tl-year'>1582年</td><td>明智光秀が<button class="blank" type="button"><span class="bno">⑬</span><span class="ba">本能寺の変</span><span class="bl" style="width:4.5em"></span></button>で信長を倒す</td></tr><tr><td class='tl-year'>1588年</td><td>秀吉が百姓から武器を取り上げる<button class="blank" type="button"><span class="bno">⑭</span><span class="ba">刀狩</span><span class="bl" style="width:2.7em"></span></button>を行う</td></tr><tr><td class='tl-year'>1590年</td><td>秀吉が<button class="blank" type="button"><span class="bno">⑮</span><span class="ba">北条氏</span><span class="bl" style="width:2.7em"></span></button>を滅ぼし全国統一を達成する</td></tr><tr><td class='tl-year'>1592年</td><td>秀吉が朝鮮に出兵する（<button class="blank" type="button"><span class="bno">⑯</span><span class="ba">文禄の役</span><span class="bl" style="width:3.6em"></span></button>）</td></tr><tr><td class='tl-year'>1598年</td><td>秀吉が死去し、日本軍が朝鮮から撤退する</td></tr></table>
+  </div>
+</section>
+<section class="view" data-t="2">
+  <div class="tband"><span class="tno">1</span><h2>ヨーロッパの変革</h2><img class="wchar tchar" src="img/characters_char_pencil_sm.png" alt=""></div>
+  
+    <div class="step" data-label="A 要点まとめ">
+      <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
+      <a class="ref-link" href="../../ref/07/index.html#t1">📖 先に参考書で理解する</a>
+      <div class="summary">西ヨーロッパでは<button class="blank" type="button"><span class="bno">①</span><span class="ba">ローマ教皇</span><span class="bl" style="width:4.5em"></span></button>を頂点とする<button class="blank" type="button"><span class="bno">②</span><span class="ba">カトリック教会</span><span class="bl" style="width:6.3em"></span></button>が大きな権威を持っていた。11世紀末、教皇の呼びかけで聖地エルサレムの奪還を目指す<button class="blank" type="button"><span class="bno">③</span><span class="ba">十字軍</span><span class="bl" style="width:2.7em"></span></button>が約200年にわたり派遣されたが失敗に終わり、かえって教皇の権威は低下し、東西の交流が活発になった。14世紀のイタリアでは、古代の文化を見直し人間らしさを表現する<button class="blank" type="button"><span class="bno">④</span><span class="ba">ルネサンス</span><span class="bl" style="width:4.5em"></span></button>が始まり、「モナ・リザ」を描いた<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">レオナルド・ダ・ヴィンチ</span><span class="bl" style="width:9.0em"></span></button>らが活躍した。1517年、<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">ルター</span><span class="bl" style="width:2.7em"></span></button>は免罪符の販売を批判して<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">宗教改革</span><span class="bl" style="width:3.6em"></span></button>を始め、教会に抗議する<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">プロテスタント</span><span class="bl" style="width:6.3em"></span></button>が生まれた。カトリック教会側も<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">イエズス会</span><span class="bl" style="width:4.5em"></span></button>をつくって巻き返しをはかった。このころ発明された<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">活版印刷</span><span class="bl" style="width:3.6em"></span></button>によって書物が安く広まり、知識の普及が加速した。</div>
+      <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-europe-change-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">1 / 14</span></div>
+      <div class="q-text">カトリック教会の頂点に立ち、西ヨーロッパで大きな権威を持った人物は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">ローマ<ruby>教皇<rt>きょうこう</rt></ruby></div>
+        <div class="qa-expl">カトリック教会の頂点に立つ最高位の聖職者で、西ヨーロッパ各国の国王にも強い影響力を持った宗教的指導者。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (2/14)" data-qid="qa-europe-change-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">2 / 14</span></div>
+      <div class="q-text">ローマ教皇を中心とするキリスト教の宗派は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">カトリック<ruby>教会<rt>きょうかい</rt></ruby></div>
+        <div class="qa-expl">ローマ教皇を頂点に西ヨーロッパで広まったキリスト教の宗派。東欧の正教会と区別する。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (3/14)" data-qid="qa-europe-change-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">3 / 14</span></div>
+      <div class="q-text">ビザンツ帝国と結びついたキリスト教の宗派は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>正教会<rt>せいきょうかい</rt></ruby></div>
+        <div class="qa-expl">ビザンツ帝国と結びつき東ヨーロッパで広まった宗派で、ローマ教皇の権威を認めない独自の教会。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (4/14)" data-qid="qa-europe-change-4" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">4 / 14</span></div>
+      <div class="q-text">7世紀にアラビア半島で成立し、西アジア・北アフリカへ広がった宗教は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">イスラム<ruby>教<rt>きょう</rt></ruby></div>
+        <div class="qa-expl">7世紀にムハンマドがアラビア半島で開いた一神教。信者はムスリムと呼ばれ、西アジア・北アフリカへ広がった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (5/14)" data-qid="qa-europe-change-5" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">5 / 14</span></div>
+      <div class="q-text">イスラム教徒のこと、インド洋交易で重要な役割を果たしたのは？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">ムスリム</div>
+        <div class="qa-expl">イスラム教徒を指す呼び名で、民族名ではなく宗教上の呼称。インド洋交易で大きな役割を果たした。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (6/14)" data-qid="qa-europe-change-6" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">6 / 14</span></div>
+      <div class="q-text">ローマ教皇の呼びかけで聖地エルサレム奪還のため派遣された遠征軍は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>十字軍<rt>じゅうじぐん</rt></ruby></div>
+        <div class="qa-expl">11世紀末から約200年続いた遠征。聖地奪還には失敗したが、東西交流を活発にし教皇の権威が低下した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (7/14)" data-qid="qa-europe-change-7" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">7 / 14</span></div>
+      <div class="q-text">古代ギリシャ・ローマ文化を見直し、人間らしさを表現しようとした文化運動は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">ルネサンス</div>
+        <div class="qa-expl">「文芸復興」ともいう。14世紀にイタリアで始まり、人間中心の文化として西欧に広がった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (8/14)" data-qid="qa-europe-change-8" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">8 / 14</span></div>
+      <div class="q-text">16世紀にルターやカルバンがカトリック教会を批判して始めた改革は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>宗教<rt>しゅうきょう</rt></ruby><ruby>改革<rt>かいかく</rt></ruby></div>
+        <div class="qa-expl">1517年、ルターの免罪符販売批判をきっかけに始まり、プロテスタントが生まれカトリックから分かれた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (9/14)" data-qid="qa-europe-change-9" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">9 / 14</span></div>
+      <div class="q-text">ルターが批判した、買えば罪が許されるとされた札は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>免罪符<rt>めんざいふ</rt></ruby>（<ruby>贖宥状<rt>しょくゆうじょう</rt></ruby>）</div>
+        <div class="qa-expl">ローマ教会がサン・ピエトロ大聖堂の資金集めなどに販売した札。ルターはこの販売を批判して宗教改革を始めた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (10/14)" data-qid="qa-europe-change-10" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">10 / 14</span></div>
+      <div class="q-text">ドイツで宗教改革を始め、聖書を信仰の中心とした人物は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">ルター</div>
+        <div class="qa-expl">1517年に「95か条の論題」を発表してカトリック教会の権威に抗議し、ドイツで宗教改革を始めた人物。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (11/14)" data-qid="qa-europe-change-11" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">11 / 14</span></div>
+      <div class="q-text">スイスで宗教改革を進めた人物は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">カルバン</div>
+        <div class="qa-expl">ルターとともに新教を広めた人物。よく働き、ぜいたくをしない生き方を説き、商工業者に支持された。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (12/14)" data-qid="qa-europe-change-12" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">12 / 14</span></div>
+      <div class="q-text">ルターやカルバンの考えを支持した新しいキリスト教勢力は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">プロテスタント</div>
+        <div class="qa-expl">「抗議する者」が語源。ルターやカルバンを支持しカトリック教会に抗議した、宗教改革による新教徒の総称。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (13/14)" data-qid="qa-europe-change-13" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">13 / 14</span></div>
+      <div class="q-text">カトリック教会側が宗教改革に対抗して作った組織は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">イエズス<ruby>会<rt>かい</rt></ruby></div>
+        <div class="qa-expl">宗教改革に対抗してカトリック側がつくった団体。アジアにも宣教師を送り、ザビエルもこの一員だった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (14/14)" data-qid="qa-europe-change-14" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">14 / 14</span></div>
+      <div class="q-text">ルネサンス期に発明され、知識の普及を加速した技術は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>活版<rt>かっぱん</rt></ruby><ruby>印刷<rt>いんさつ</rt></ruby></div>
+        <div class="qa-expl">15世紀にドイツのグーテンベルクが実用化し、書物が安く大量に作れるようになり知識の普及を加速させた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (1/8)" data-qid="qz-europe-change-1" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">1 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">十字軍の遠征がヨーロッパに与えた影響として最も適切なものはどれですか。</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">東西の交流が活発になった</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">ヨーロッパからイスラム教徒が完全に追放された</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">イスラム王朝が滅亡した</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">ローマ教皇の権威が強化された</span></button></div>
+      <div class="expl hidden-until">💡 十字軍は聖地奪還に失敗し教皇の権威はむしろ低下しましたが、イスラム世界との交流が活発になり文化や物産・東方の知識がヨーロッパへ伝わりました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-europe-change-2" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">2 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">イエズス会について正しい説明はどれですか。</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">カトリックの修道会組織</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">正教会の対抗組織として設立</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">教皇の権威を否定して独立した教会</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">プロテスタントの宗教改革を推進した組織</span></button></div>
+      <div class="expl hidden-until">💡 イエズス会は宗教改革に対抗してカトリック教会側が結成した修道会です。ザビエルなどをアジア・南米へ派遣し、カトリックの巻き返しを図りました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-europe-change-3" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">3 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">14〜16世紀に、古代文化を見直し人間らしさを表現しようとした動きを何といいますか。</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ヘレニズム</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">啓蒙思想</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">産業革命</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">ルネサンス</span></button></div>
+      <div class="expl hidden-until">💡 ルネサンスは「文芸復興」とも呼ばれ、14世紀にイタリアから広がりました。啓蒙思想は18世紀、産業革命は18〜19世紀のもので時代が違います。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-europe-change-4" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">4 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">ルターの宗教改革を支持しスイスで活動した改革者は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ミケランジェロ</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">ザビエル</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">カルバン</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">ルター</span></button></div>
+      <div class="expl hidden-until">💡 カルバンはスイスで宗教改革を進め、勤勉と質素を重んじる教えを広めて商工業者に支持された改革者です。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-europe-change-5" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">5 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">十字軍の遠征は最終的にどのような結果に終わったか？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">聖地を完全に奪還した</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">一部の領土を確保した</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">イスラム教に改宗した</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">失敗に終わった</span></button></div>
+      <div class="expl hidden-until">💡 11世紀末から約200年続いた十字軍は最終的に聖地奪還に失敗し、教皇の権威は低下しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-europe-change-6" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">6 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">ルネサンスの時代に発明され、知識の普及に貢献した印刷技術は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">石版印刷</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">活版印刷</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">木版印刷</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">銅版印刷</span></button></div>
+      <div class="expl hidden-until">💡 15世紀にドイツのグーテンベルクが活版印刷を実用化し、書物が安く大量に作られ知識の普及が加速しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-europe-change-7" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">7 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">ルネサンスを代表する「最後の審判」で知られる芸術家は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ボッティチェリ</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">ラファエロ</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">ミケランジェロ</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">レオナルド・ダ・ヴィンチ</span></button></div>
+      <div class="expl hidden-until">💡 ミケランジェロは「最後の審判」や「ダビデ像」、システィーナ礼拝堂の天井画で知られるイタリア・ルネサンスの巨匠です。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-europe-change-8" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">8 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">15世紀にビザンツ帝国を滅ぼしたイスラム教の大国は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">イスラム帝国</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">オスマン帝国</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">モンゴル帝国</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">ムガル帝国</span></button></div>
+      <div class="expl hidden-until">💡 オスマン帝国は1453年にビザンツ帝国を滅ぼし、約600年にわたり東地中海の広大な領土を支配したイスラム教の大国です。</div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-europe-change-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">1 / 3　文章で説明しよう</span></div>
+      <div class="q-text">十字軍の遠征は、ヨーロッパにどのような影響をもたらしたか、説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">教皇</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">聖地の奪還には失敗して教皇の権威はかえって低下したが、東西の交流が活発になるきっかけとなった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E3%83%A8%E3%83%BC%E3%83%AD%E3%83%83%E3%83%91%E3%81%AE%E5%A4%89%E9%9D%A9" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (2/3)" data-qid="wr-europe-change-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">2 / 3　文章で説明しよう</span></div>
+      <div class="q-text">ルターが宗教改革を始めたきっかけは何か、説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">免罪符</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">ローマ教会が資金集めのために売り出した、買えば罪が許されるとされる免罪符の販売をルターが批判したから。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E3%83%A8%E3%83%BC%E3%83%AD%E3%83%83%E3%83%91%E3%81%AE%E5%A4%89%E9%9D%A9" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (3/3)" data-qid="wr-europe-change-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">3 / 3　文章で説明しよう</span></div>
+      <div class="q-text">14世紀ごろのイタリアから広まったルネサンスとは、どのような文化の動きか、説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">ギリシャ・ローマ</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">古代ギリシャ・ローマの文化を理想として学び直し、人間そのもののあり方を見つめ直そうとする文化の動きである。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E3%83%A8%E3%83%BC%E3%83%AD%E3%83%83%E3%83%91%E3%81%AE%E5%A4%89%E9%9D%A9" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step" data-label="E 資料問題">
+      <div class="sec-h"><span class="sec-tag">E</span>資料問題<span class="sec-note">写真を見て答えよう</span></div>
+      <figure class="s-img"><img src="img/age-of-discovery-routes.webp" alt="" loading="lazy"><figcaption>大航海時代の航路</figcaption></figure>
+      <div class="s-q"><span class="qa-no">(1)</span>地図中で、大西洋を横断して1492年にアメリカ大陸付近に到達した航路を進んだ人物はだれか。<button class="blank s-blank" type="button"><span class="ba">コロンブス</span><span class="bl" style="width:8em"></span><span class="tap-hint">タップで答え</span></button></div><div class="s-q"><span class="qa-no">(2)</span>地図中で、アフリカ南端の喜望峰を回ってインドに達した航路を開いた人物はだれか。<button class="blank s-blank" type="button"><span class="ba">バスコ・ダ・ガマ</span><span class="bl" style="width:8em"></span><span class="tap-hint">タップで答え</span></button></div>
+    </div>
+    <div class="step done-step" data-label="結果">
+      <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「ヨーロッパの変革」おつかれさま！</span></div>
+      <div class="score-box" data-score></div>
+      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E3%83%A8%E3%83%BC%E3%83%AD%E3%83%83%E3%83%91%E3%81%AE%E5%A4%89%E9%9D%A9" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
+      <a class="big-btn ref-btn" href="../../ref/07/index.html#t1">📖 参考書でおさらいする</a>
+      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元をもう一度とく</button>
+    </div>
+</section>
+<section class="view" data-t="3">
+  <div class="tband"><span class="tno">2</span><h2>大航海時代</h2><img class="wchar tchar" src="img/characters_manabi_think_sm.png" alt=""></div>
+  
+    <div class="step" data-label="A 要点まとめ">
+      <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
+      <a class="ref-link" href="../../ref/07/index.html#t2">📖 先に参考書で理解する</a>
+      <div class="summary">15世紀以降、香辛料やキリスト教の布教を求めたヨーロッパ人は新しい航路を開いて世界各地へ進出する<button class="blank" type="button"><span class="bno">①</span><span class="ba">大航海時代</span><span class="bl" style="width:4.5em"></span></button>を迎えた。1498年、ポルトガル人の<button class="blank" type="button"><span class="bno">②</span><span class="ba">バスコ・ダ・ガマ</span><span class="bl" style="width:7.2em"></span></button>はアフリカ南端を回ってインドに到達し、インド航路を開いた。1492年には<button class="blank" type="button"><span class="bno">③</span><span class="ba">コロンブス</span><span class="bl" style="width:4.5em"></span></button>がスペインの支援で大西洋を横断しカリブ海の島に到達したが、本人は最後までアジアに着いたと信じていた。1522年には<button class="blank" type="button"><span class="bno">④</span><span class="ba">マゼランの船隊</span><span class="bl" style="width:6.3em"></span></button>が世界一周を達成し、地球が丸いことが証明された。スペインは中南米に進出し、ピサロが<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">インカ帝国</span><span class="bl" style="width:4.5em"></span></button>を、コルテスが<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">アステカ帝国</span><span class="bl" style="width:5.4em"></span></button>をそれぞれ滅ぼして広大な植民地を築いた。ヨーロッパ・アフリカ・アメリカ大陸を結ぶ<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">三角貿易</span><span class="bl" style="width:3.6em"></span></button>では、多くのアフリカ人が<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">奴隷</span><span class="bl" style="width:2.7em"></span></button>としてアメリカ大陸へ送られた。また、オランダは<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">東インド会社</span><span class="bl" style="width:5.4em"></span></button>を設立してアジアの香辛料貿易で大きな利益を上げた。</div>
+      <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-europe-spread-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">1 / 14</span></div>
+      <div class="q-text">ヨーロッパ人が新しい航路を開き、世界各地へ進出した時代は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>大航海<rt>だいこうかい</rt></ruby>時代</div>
+        <div class="qa-expl">15世紀以降、香辛料やキリスト教布教を求めてヨーロッパ人が新航路を開き、世界各地へ進出した時代。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (2/14)" data-qid="qa-europe-spread-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">2 / 14</span></div>
+      <div class="q-text">アフリカ南端を回ってインドに到達したポルトガル人は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">バスコ・ダ・ガマ</div>
+        <div class="qa-expl">1498年にアフリカ南端の喜望峰を回ってインドに到達し、ヨーロッパからのインド航路を開いたポルトガル人。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (3/14)" data-qid="qa-europe-spread-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">3 / 14</span></div>
+      <div class="q-text">スペインの支援を受け、大西洋を横断してカリブ海の島に到達した人物は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">コロンブス</div>
+        <div class="qa-expl">1492年にスペインの支援で大西洋を西に横断しカリブ海の島に到達したが、本人は最後までアジアに着いたと信じていた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (4/14)" data-qid="qa-europe-spread-4" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">4 / 14</span></div>
+      <div class="q-text">1522年に世界一周を達成した船隊を率いていた人物は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">マゼランの<ruby>船隊<rt>せんたい</rt></ruby></div>
+        <div class="qa-expl">スペイン国王の援助で出航。マゼラン本人はフィリピンで死亡したが、残った船隊が1522年に世界一周を完成させた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (5/14)" data-qid="qa-europe-spread-5" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">5 / 14</span></div>
+      <div class="q-text">ヨーロッパ・アフリカ・アメリカ大陸を結んだ貿易は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>三角<rt>さんかく</rt></ruby><ruby>貿易<rt>ぼうえき</rt></ruby></div>
+        <div class="qa-expl">ヨーロッパが武器をアフリカへ運び、アフリカから人々を奴隷としてアメリカ大陸へ強制的に送った貿易のしくみ。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (6/14)" data-qid="qa-europe-spread-6" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">6 / 14</span></div>
+      <div class="q-text">オランダなどがアジア貿易のために作った会社は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>東<rt>ひがし</rt></ruby>インド<ruby>会社<rt>がいしゃ</rt></ruby></div>
+        <div class="qa-expl">オランダが17世紀初めに作った、アジア貿易を独占する会社。香辛料などの貿易で大きな利益を上げた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (7/14)" data-qid="qa-europe-spread-7" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">7 / 14</span></div>
+      <div class="q-text">欧州人が求めた高価なアジアの産物は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>香辛料<rt>こうしんりょう</rt></ruby></div>
+        <div class="qa-expl">コショウなどの香辛料は肉の保存・調味に使われ、ヨーロッパでは金と同等の価値を持ち大航海時代の動機となった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (8/14)" data-qid="qa-europe-spread-8" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">8 / 14</span></div>
+      <div class="q-text">スペインが滅ぼした南米の帝国は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">インカ<ruby>帝国<rt>ていこく</rt></ruby></div>
+        <div class="qa-expl">南米ペルーを中心に栄えた帝国で、マチュピチュなどの遺跡で知られる。16世紀にスペインのピサロに征服された。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (9/14)" data-qid="qa-europe-spread-9" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">9 / 14</span></div>
+      <div class="q-text">スペインが滅ぼしたメキシコの帝国は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">アステカ<ruby>帝国<rt>ていこく</rt></ruby></div>
+        <div class="qa-expl">メキシコ高原に栄えた帝国で、テノチティトランを首都とした。16世紀にスペインのコルテスに征服された。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (10/14)" data-qid="qa-europe-spread-10" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">10 / 14</span></div>
+      <div class="q-text">バスコ・ダ・ガマを支援しインド航路を開拓した国は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">ポルトガル</div>
+        <div class="qa-expl">スペインとともに大航海時代を先導した国。バスコ・ダ・ガマを支援してインド航路を開き、アジアに多くの拠点を築いた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (11/14)" data-qid="qa-europe-spread-11" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">11 / 14</span></div>
+      <div class="q-text">コロンブスを支援しアメリカ大陸に進出した国は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">スペイン</div>
+        <div class="qa-expl">コロンブスを支援してアメリカ大陸に進出。アステカ帝国やインカ帝国を征服し、中南米に広大な植民地を築いた国。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (12/14)" data-qid="qa-europe-spread-12" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">12 / 14</span></div>
+      <div class="q-text">コロンブスがカリブ海の島に到達した年は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">1492年</div>
+        <div class="qa-expl">コロンブスがスペインの支援で大西洋を西回りに横断し、カリブ海の島（サン・サルバドル島）に到達した年。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (13/14)" data-qid="qa-europe-spread-13" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">13 / 14</span></div>
+      <div class="q-text">バスコ・ダ・ガマがインドに到達した年は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">1498年</div>
+        <div class="qa-expl">ポルトガル人バスコ・ダ・ガマがアフリカ南端の喜望峰を回り、ヨーロッパからのインド航路を開拓した年。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (14/14)" data-qid="qa-europe-spread-14" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">14 / 14</span></div>
+      <div class="q-text">マゼランの船隊が世界一周を達成した年は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">1522年</div>
+        <div class="qa-expl">マゼランの船隊がスペインへ帰還し世界一周を完成させた年。これにより地球が丸いことが実際に証明された。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (1/8)" data-qid="qz-europe-spread-1" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">1 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">アフリカ南端を回る航路でインドに到達した人物はだれですか。</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ルター</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">マゼラン</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">コロンブス</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">バスコ・ダ・ガマ</span></button></div>
+      <div class="expl hidden-until">💡 バスコ・ダ・ガマは1498年にアフリカ南端の喜望峰を回り、ヨーロッパからのインド航路を開いたポルトガル人です。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-europe-spread-2" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">2 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">マゼランの船隊について正しいものはどれですか。</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">アメリカ大陸が新大陸であると最初に発見した</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">ポルトガル国王の援助を受けて世界一周に出発した</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">本人は航海中に亡くなったが船隊が世界一周を達成した</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">ヨーロッパからインドへの航路を最初に開拓した</span></button></div>
+      <div class="expl hidden-until">💡 マゼランはスペイン国王の援助で出航しましたがフィリピンで死亡し、残った船隊が1522年にスペインへ帰還して世界一周を達成しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-europe-spread-3" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">3 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">ヨーロッパ・アフリカ・アメリカ大陸を結び、奴隷貿易を含んだ貿易を何といいますか。</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">朱印船貿易</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">三角貿易</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">勘合貿易</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">南蛮貿易</span></button></div>
+      <div class="expl hidden-until">💡 三角貿易ではアフリカの人々が奴隷としてアメリカ大陸の農園へ送られ、ヨーロッパ・アフリカ・アメリカを結ぶ貿易が成立しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-europe-spread-4" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">4 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">スペインが征服したメキシコの帝国は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">インカ帝国</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">オルメカ文明</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">アステカ帝国</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">マヤ文明</span></button></div>
+      <div class="expl hidden-until">💡 アステカ帝国はメキシコ高原に栄えた帝国でテノチティトランを首都とし、16世紀にスペインのコルテスに征服されました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-europe-spread-5" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">5 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">マゼランの世界一周によって証明されたことは？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">地球が丸いこと</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">アフリカの大きさ</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">新大陸の存在</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">太平洋の深さ</span></button></div>
+      <div class="expl hidden-until">💡 マゼランの船隊が1522年に世界一周を達成し、地球が球体であることが航海によって実際に証明されました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-europe-spread-6" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">6 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">三角貿易でアフリカからアメリカ大陸へ送られたのは？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">奴隷</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">金銀</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">武器</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">香辛料</span></button></div>
+      <div class="expl hidden-until">💡 三角貿易ではアフリカから多くの人々がアメリカ大陸に奴隷として送られ、農園で過酷な労働を強いられました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-europe-spread-7" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">7 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">コロンブス・バスコ＝ダ＝ガマ・マゼランの説明として正しい組み合わせはどれですか。</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">コロンブス＝インド航路、ガマ＝世界一周、マゼラン＝宗教改革</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">コロンブス＝日本来航、ガマ＝鉄砲伝来、マゼラン＝南蛮貿易</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">コロンブス＝宗教改革、ガマ＝キリスト教伝来、マゼラン＝十字軍</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">コロンブス＝カリブ海、ガマ＝インド航路、マゼランの船隊＝世界一周</span></button></div>
+      <div class="expl hidden-until">💡 コロンブスは1492年にカリブ海、ガマは1498年にインド航路、マゼランの船隊は1522年に世界一周を達成しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-europe-spread-8" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">8 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">イエズス会の宣教師が主に派遣された地域は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">北ヨーロッパや北米</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">オーストラリアや南太平洋</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">北アフリカや西アジア</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">アジアや南米</span></button></div>
+      <div class="expl hidden-until">💡 イエズス会はカトリックの対抗改革で設立され、宣教師をアジアや南米に派遣して布教を行いました。日本にはザビエルが来日。</div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (1/2)" data-qid="wr-europe-spread-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">1 / 2　文章で説明しよう</span></div>
+      <div class="q-text">コロンブスが到達した場所について、本人はどのように思い込んでいたか、説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">アジア</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">コロンブスは大西洋を横断してカリブ海の島に到達したが、本人は最後までそこをアジアだと信じていた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%A4%A7%E8%88%AA%E6%B5%B7%E6%99%82%E4%BB%A3" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (2/2)" data-qid="wr-europe-spread-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">2 / 2　文章で説明しよう</span></div>
+      <div class="q-text">三角貿易とは、どのようなしくみの貿易か、説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">奴隷</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">ヨーロッパが武器などをアフリカへ運び、アフリカの人々を奴隷として強制的にアメリカ大陸へ送る貿易のしくみである。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%A4%A7%E8%88%AA%E6%B5%B7%E6%99%82%E4%BB%A3" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step done-step" data-label="結果">
+      <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「大航海時代」おつかれさま！</span></div>
+      <div class="score-box" data-score></div>
+      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%A4%A7%E8%88%AA%E6%B5%B7%E6%99%82%E4%BB%A3" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
+      <a class="big-btn ref-btn" href="../../ref/07/index.html#t2">📖 参考書でおさらいする</a>
+      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元をもう一度とく</button>
+    </div>
+</section>
+<section class="view" data-t="4">
+  <div class="tband"><span class="tno">3</span><h2>南蛮貿易とキリスト教</h2><img class="wchar tchar" src="img/characters_char_neko_sm.png" alt=""></div>
+  
+    <div class="step" data-label="A 要点まとめ">
+      <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
+      <a class="ref-link" href="../../ref/07/index.html#t3">📖 先に参考書で理解する</a>
+      <div class="summary">1543年、ポルトガル人を乗せた中国船が<button class="blank" type="button"><span class="bno">①</span><span class="ba">種子島</span><span class="bl" style="width:2.7em"></span></button>に漂着し、<button class="blank" type="button"><span class="bno">②</span><span class="ba">鉄砲</span><span class="bl" style="width:2.7em"></span></button>が伝えられた。鉄砲は近江の国友や和泉の堺で量産され、戦国大名の戦い方を大きく変えた。1549年には、イエズス会の宣教師<button class="blank" type="button"><span class="bno">③</span><span class="ba">ザビエル</span><span class="bl" style="width:3.6em"></span></button>が鹿児島に上陸し、日本に<button class="blank" type="button"><span class="bno">④</span><span class="ba">キリスト教</span><span class="bl" style="width:4.5em"></span></button>を伝えた。以後、日本は銀を輸出し中国産の生糸などを輸入する<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">南蛮貿易</span><span class="bl" style="width:3.6em"></span></button>を行い、貿易の利益などを目的にキリスト教を受け入れる<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">キリシタン大名</span><span class="bl" style="width:6.3em"></span></button>も現れた。1580年には大村純忠が<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">長崎</span><span class="bl" style="width:2.7em"></span></button>をイエズス会に寄進し、南蛮貿易の中心地として栄えた。1582年には大友宗麟らが4人の少年をローマ教皇のもとへ送る<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">天正遣欧使節</span><span class="bl" style="width:5.4em"></span></button>を派遣した。このころ、ヨーロッパの文物が伝わる<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">南蛮文化</span><span class="bl" style="width:3.6em"></span></button>も広まり、活版印刷術やカステラなどが日本にもたらされた。</div>
+      <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-nanban-trade-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">1 / 14</span></div>
+      <div class="q-text">1543年、種子島に漂着したポルトガル人によって日本に伝えられた武器は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>鉄砲<rt>てっぽう</rt></ruby></div>
+        <div class="qa-expl">1543年にポルトガル人が種子島に伝えた武器で、戦国大名の戦い方を変えた。近江の国友や和泉の堺で量産された。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (2/14)" data-qid="qa-nanban-trade-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">2 / 14</span></div>
+      <div class="q-text">1543年に鉄砲が初めて伝来した九州南方の島は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>種子島<rt>たねがしま</rt></ruby></div>
+        <div class="qa-expl">1543年にポルトガル人を乗せた中国船が漂着し鉄砲2挺が伝えられた九州南方の島で、領主の種子島時尭が鉄砲の国産化を進めた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (3/14)" data-qid="qa-nanban-trade-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">3 / 14</span></div>
+      <div class="q-text">1549年に日本へキリスト教を伝えたイエズス会の宣教師は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">ザビエル</div>
+        <div class="qa-expl">1549年に鹿児島へ来航したイエズス会の宣教師で、日本にキリスト教を伝えた。日本人アンジロウとの出会いが来日のきっかけ。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (4/14)" data-qid="qa-nanban-trade-4" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">4 / 14</span></div>
+      <div class="q-text">ポルトガル人・スペイン人との貿易は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>南蛮<rt>なんばん</rt></ruby><ruby>貿易<rt>ぼうえき</rt></ruby></div>
+        <div class="qa-expl">日本は主に銀を輸出し、生糸などを輸入した。南蛮人とはポルトガル人・スペイン人のこと。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (5/14)" data-qid="qa-nanban-trade-5" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">5 / 14</span></div>
+      <div class="q-text">南蛮貿易の利益などを目的にキリスト教を受け入れた大名の総称は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">キリシタン<ruby>大名<rt>だいみょう</rt></ruby></div>
+        <div class="qa-expl">南蛮貿易の利益などを目的にキリスト教を受け入れた大名の総称で、九州に多く、大村純忠や大友宗麟などが代表的な人物。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (6/14)" data-qid="qa-nanban-trade-6" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">6 / 14</span></div>
+      <div class="q-text">1582年、大友宗麟らキリシタン大名がローマ教皇のもとへ送った少年使節は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>天正<rt>てんしょう</rt></ruby><ruby>遣欧使節<rt>けんおうしせつ</rt></ruby></div>
+        <div class="qa-expl">1582年に大友宗麟ら九州のキリシタン大名がローマ教皇のもとへ送った4人の少年使節で、8年後に帰国した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (7/14)" data-qid="qa-nanban-trade-7" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">7 / 14</span></div>
+      <div class="q-text">1543年に種子島に鉄砲を伝えた国は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">ポルトガル</div>
+        <div class="qa-expl">スペインとともに大航海時代を先導した国で、1543年に種子島へ鉄砲を伝え、その後日本との南蛮貿易を行った。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (8/14)" data-qid="qa-nanban-trade-8" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">8 / 14</span></div>
+      <div class="q-text">鉄砲の生産地として発展した近江の都市は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>国友<rt>くにとも</rt></ruby></div>
+        <div class="qa-expl">鉄砲の生産地として発展した近江（滋賀県）の都市で、和泉の堺とともに量産拠点となり、刀鍛冶の技術が鉄砲製造に生かされた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (9/14)" data-qid="qa-nanban-trade-9" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">9 / 14</span></div>
+      <div class="q-text">鉄砲の生産地として発展した和泉の都市は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>堺<rt>さかい</rt></ruby></div>
+        <div class="qa-expl">鉄砲の生産地として発展した和泉（大阪府）の都市で、近江の国友とともに量産拠点となり、商業都市としても繁栄した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (10/14)" data-qid="qa-nanban-trade-10" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">10 / 14</span></div>
+      <div class="q-text">南蛮貿易で日本に輸入された衣料の高級原料は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>生糸<rt>きいと</rt></ruby></div>
+        <div class="qa-expl">南蛮貿易で日本に輸入された衣料の高級原料で、中国産の生糸が主な輸入品となり、日本の絹織物産業を支えた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (11/14)" data-qid="qa-nanban-trade-11" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">11 / 14</span></div>
+      <div class="q-text">1580年にイエズス会に寄進された港町は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>長崎<rt>ながさき</rt></ruby></div>
+        <div class="qa-expl">1580年にキリシタン大名の大村純忠がイエズス会に寄進した港町で、その後南蛮貿易の中心地として繁栄した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (12/14)" data-qid="qa-nanban-trade-12" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">12 / 14</span></div>
+      <div class="q-text">ザビエルが所属していたカトリックの修道会は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">イエズス<ruby>会<rt>かい</rt></ruby></div>
+        <div class="qa-expl">宗教改革に対抗してカトリック側がつくった団体で、ザビエルなどの宣教師をアジアや南米に送ってキリスト教を広めた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (13/14)" data-qid="qa-nanban-trade-13" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">13 / 14</span></div>
+      <div class="q-text">ポルトガル人やスペイン人を日本人が呼んだ呼び名は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>南蛮人<rt>なんばんじん</rt></ruby></div>
+        <div class="qa-expl">南方から来たポルトガル人やスペイン人を指す日本人の呼び名で、南蛮貿易や南蛮文化、南蛮屏風などの名の由来となった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (14/14)" data-qid="qa-nanban-trade-14" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">14 / 14</span></div>
+      <div class="q-text">鉄砲が日本に伝来した年は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">1543年</div>
+        <div class="qa-expl">1543年にポルトガル人を乗せた中国船が種子島に漂着し、鉄砲2挺が日本に伝えられて戦国大名の戦い方を変えた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (1/8)" data-qid="qz-nanban-trade-1" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">1 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">南蛮貿易で日本が主に輸出したものはどれですか。</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">香辛料</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">生糸</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">銀</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">綿織物</span></button></div>
+      <div class="expl hidden-until">💡 南蛮貿易で日本は主に銀を輸出し、明の生糸や絹織物、鉄砲・火薬・南蛮の品々などを輸入しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-nanban-trade-2" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">2 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">九州でキリシタン大名が現れた理由として適切なものはどれですか。</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">領内の仏教勢力を弾圧するため</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">朝廷から官位を得るため</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">朝鮮との交易を独占するため</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">貿易の利益を得るため</span></button></div>
+      <div class="expl hidden-until">💡 九州の大名がキリスト教を受け入れた主な理由は、南蛮貿易で得られる鉄砲や生糸などの利益を確保することでした。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-nanban-trade-3" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">3 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">大友宗麟らが1582年にローマへ送った少年使節を何といいますか。</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">天正遣欧使節</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">遣唐使</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">朝鮮通信使</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">岩倉使節団</span></button></div>
+      <div class="expl hidden-until">💡 天正遣欧使節は1582年に大友宗麟ら九州のキリシタン大名がローマ教皇のもとへ送った4人の少年使節で、8年後に帰国しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-nanban-trade-4" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">4 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">次の出来事を古い順に並べたものとして正しいものはどれですか。①鉄砲伝来 ②宗教改革の開始 ③ザビエル来日</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">②→①→③</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">②→③→①</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">①→②→③</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">③→②→①</span></button></div>
+      <div class="expl hidden-until">💡 宗教改革の開始は1517年、鉄砲伝来は1543年、ザビエル来日は1549年なので、②→①→③の順となります。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-nanban-trade-5" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">5 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">1580年にイエズス会に寄進された港町は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">平戸港</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">長崎</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">堺港</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">博多港</span></button></div>
+      <div class="expl hidden-until">💡 1580年にキリシタン大名の大村純忠が長崎をイエズス会に寄進し、長崎は南蛮貿易の中心地として繁栄しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-nanban-trade-6" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">6 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">キリシタン大名として知られる九州の大名は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">島津義久</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">立花宗茂</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">龍造寺隆信</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">大友宗麟</span></button></div>
+      <div class="expl hidden-until">💡 大友宗麟は豊後（大分）の大名でキリスト教を受け入れ、1582年に天正遣欧使節をローマへ派遣したことで知られます。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-nanban-trade-7" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">7 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">鉄砲の生産地として発展した和泉の都市は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">博多</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">堺</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">京</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">奈良</span></button></div>
+      <div class="expl hidden-until">💡 和泉（大阪府）の堺は近江の国友とともに鉄砲の量産地として発展し、商業都市としても繁栄しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-nanban-trade-8" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">8 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">南蛮貿易で日本に輸入された衣料の高級原料は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">木綿</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">麻</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">生糸</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">羊毛</span></button></div>
+      <div class="expl hidden-until">💡 南蛮貿易では中国産の生糸が主な輸入品で、日本の絹織物産業を支え、その対価として日本からは主に銀が輸出されました。</div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-nanban-trade-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">1 / 3　文章で説明しよう</span></div>
+      <div class="q-text">鉄砲が日本に伝来したことは、戦国大名の戦い方にどのような影響を与えたか、説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">足軽</span><span class="kw-chip">集団戦法</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">足軽による鉄砲隊を用いた集団戦法が広まり、騎馬武者中心の戦いから足軽鉄砲隊中心の戦いへと変化した。長篠の戦いはその代表例であり、城づくりも鉄砲に備えた構えへと変わっていった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%8D%97%E8%9B%AE%E8%B2%BF%E6%98%93%E3%81%A8%E3%82%AD%E3%83%AA%E3%82%B9%E3%83%88%E6%95%99" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (2/3)" data-qid="wr-nanban-trade-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">2 / 3　文章で説明しよう</span></div>
+      <div class="q-text">九州の大名の中にキリスト教を受け入れる者が現れたのはなぜか、説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">南蛮貿易</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">南蛮貿易によって得られる鉄砲や生糸などの利益を確保することを目的として、キリスト教を受け入れる大名が現れたから。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%8D%97%E8%9B%AE%E8%B2%BF%E6%98%93%E3%81%A8%E3%82%AD%E3%83%AA%E3%82%B9%E3%83%88%E6%95%99" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (3/3)" data-qid="wr-nanban-trade-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">3 / 3　文章で説明しよう</span></div>
+      <div class="q-text">1549年に日本へ初めてキリスト教を伝えた人物と、そのできごとを説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">ザビエル</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">イエズス会の宣教師フランシスコ・ザビエルが鹿児島に来て、日本に初めてキリスト教を伝えた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%8D%97%E8%9B%AE%E8%B2%BF%E6%98%93%E3%81%A8%E3%82%AD%E3%83%AA%E3%82%B9%E3%83%88%E6%95%99" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step done-step" data-label="結果">
+      <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「南蛮貿易とキリスト教」おつかれさま！</span></div>
+      <div class="score-box" data-score></div>
+      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%8D%97%E8%9B%AE%E8%B2%BF%E6%98%93%E3%81%A8%E3%82%AD%E3%83%AA%E3%82%B9%E3%83%88%E6%95%99" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
+      <a class="big-btn ref-btn" href="../../ref/07/index.html#t3">📖 参考書でおさらいする</a>
+      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元をもう一度とく</button>
+    </div>
+</section>
+<section class="view" data-t="5">
+  <div class="tband"><span class="tno">4</span><h2>信長・秀吉の天下統一</h2><img class="wchar tchar" src="img/characters_char_owl_sm.png" alt=""></div>
+  
+    <div class="step" data-label="A 要点まとめ">
+      <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
+      <a class="ref-link" href="../../ref/07/index.html#t4">📖 先に参考書で理解する</a>
+      <div class="summary">尾張の戦国大名<button class="blank" type="button"><span class="bno">①</span><span class="ba">織田信長</span><span class="bl" style="width:3.6em"></span></button>は、1560年の<button class="blank" type="button"><span class="bno">②</span><span class="ba">桶狭間の戦い</span><span class="bl" style="width:5.4em"></span></button>で今川義元を破って勢力を広げた。1573年には将軍足利義昭を京都から追放し、約240年続いた<button class="blank" type="button"><span class="bno">③</span><span class="ba">室町幕府</span><span class="bl" style="width:3.6em"></span></button>を滅ぼした。信長は敵対する仏教勢力の比叡山延暦寺を焼き討ちにする一方、1575年の<button class="blank" type="button"><span class="bno">④</span><span class="ba">長篠の戦い</span><span class="bl" style="width:4.5em"></span></button>では鉄砲を活用して武田勝頼を破った。また、税や座の特権をなくす<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">楽市・楽座</span><span class="bl" style="width:4.5em"></span></button>や関所の廃止で商工業の発展を後押しし、近江には壮大な安土城を築いた。しかし1582年、家臣の明智光秀に攻められて自害する<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">本能寺の変</span><span class="bl" style="width:4.5em"></span></button>が起こった。信長の後継者となった<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">豊臣秀吉</span><span class="bl" style="width:3.6em"></span></button>は、大阪城を拠点に1590年に<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">北条氏</span><span class="bl" style="width:2.7em"></span></button>を滅ぼして全国統一を達成した。秀吉は1585年に朝廷から関白に任じられ、1587年には宣教師の国外追放を命じる<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">バテレン追放令</span><span class="bl" style="width:6.3em"></span></button>を出した。信長・秀吉の時代は安土桃山時代と呼ばれる。</div>
+      <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-nobunaga-hideyoshi-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">1 / 14</span></div>
+      <div class="q-text">尾張の戦国大名で、桶狭間の戦いで今川義元を破り室町幕府を滅ぼした人物は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>織田信長<rt>おだのぶなが</rt></ruby></div>
+        <div class="qa-expl">尾張の戦国大名で1560年に桶狭間で今川義元を破り、長篠で鉄砲を活用し、楽市・楽座や比叡山延暦寺焼き討ちで知られる。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (2/14)" data-qid="qa-nobunaga-hideyoshi-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">2 / 14</span></div>
+      <div class="q-text">1560年、織田信長が今川義元を破った戦いは？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>桶狭間<rt>おけはざま</rt></ruby>の<ruby>戦<rt>たたか</rt></ruby>い</div>
+        <div class="qa-expl">1560年、織田信長が今川義元を奇襲で破った戦い。少数の兵力で大軍を破り、信長が勢力を広げるきっかけとなった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (3/14)" data-qid="qa-nobunaga-hideyoshi-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">3 / 14</span></div>
+      <div class="q-text">室町幕府の第15代将軍で、信長により京都へ入ったが、のちに信長と対立した人物は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>足利義昭<rt>あしかがよしあき</rt></ruby></div>
+        <div class="qa-expl">室町幕府第15代将軍。当初信長に擁されて京都へ入ったが対立し、1573年に追放されて室町幕府が滅亡した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (4/14)" data-qid="qa-nobunaga-hideyoshi-4" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">4 / 14</span></div>
+      <div class="q-text">1573年、信長が足利義昭を追放して滅ぼした京都の幕府は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>室町<rt>むろまち</rt></ruby><ruby>幕府<rt>ばくふ</rt></ruby></div>
+        <div class="qa-expl">信長は将軍足利義昭を京都から追放し、約240年続いた室町幕府を滅ぼした。これで戦国時代の終わりが近づいた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (5/14)" data-qid="qa-nobunaga-hideyoshi-5" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">5 / 14</span></div>
+      <div class="q-text">信長が武力で攻撃した仏教勢力の一つで、1571年に焼き討ちにした寺は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>比叡山<rt>ひえいざん</rt></ruby><ruby>延暦寺<rt>えんりゃくじ</rt></ruby></div>
+        <div class="qa-expl">信長が1571年に焼き討ちにした天台宗の総本山で、強い仏教勢力をおさえる狙いがあった。場所は近江（滋賀県）の比叡山。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (6/14)" data-qid="qa-nobunaga-hideyoshi-6" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">6 / 14</span></div>
+      <div class="q-text">1575年、信長・徳川家康連合軍が鉄砲を活用して武田勝頼を破った戦いは？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>長篠<rt>ながしの</rt></ruby>の<ruby>戦<rt>たたか</rt></ruby>い</div>
+        <div class="qa-expl">1575年、信長・徳川家康連合軍が鉄砲を有効に活用し、武田勝頼の騎馬軍団を破った戦い。鉄砲の威力を示した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (7/14)" data-qid="qa-nobunaga-hideyoshi-7" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">7 / 14</span></div>
+      <div class="q-text">信長が城下で商工業を発展させるため、税や座の特権をなくした政策は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>楽市<rt>らくいち</rt></ruby>・<ruby>楽座<rt>らくざ</rt></ruby></div>
+        <div class="qa-expl">信長が安土城下などで行った経済政策で、税や座の特権をなくし商工業を自由化して城下の発展をうながした。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (8/14)" data-qid="qa-nobunaga-hideyoshi-8" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">8 / 14</span></div>
+      <div class="q-text">信長が近江（琵琶湖東岸）に築いた城は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>安土城<rt>あづちじょう</rt></ruby></div>
+        <div class="qa-expl">信長が1576年に近江（琵琶湖東岸）に築いた壮大な城で、安土桃山時代の名前の由来の一つ。大阪城は豊臣秀吉の拠点。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (9/14)" data-qid="qa-nobunaga-hideyoshi-9" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">9 / 14</span></div>
+      <div class="q-text">1582年、信長が家臣の明智光秀に攻められ自害した事件は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>本能寺<rt>ほんのうじ</rt></ruby>の<ruby>変<rt>へん</rt></ruby></div>
+        <div class="qa-expl">1582年、京都の本能寺で家臣の明智光秀が信長を攻め、信長が自害した事件。信長の天下統一目前の出来事だった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (10/14)" data-qid="qa-nobunaga-hideyoshi-10" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">10 / 14</span></div>
+      <div class="q-text">1582年に本能寺で信長を襲撃した家臣は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>明智光秀<rt>あけちみつひで</rt></ruby></div>
+        <div class="qa-expl">信長の家臣で、1582年の本能寺の変で謀反を起こし信長を自害させたが、直後の山崎の戦いで羽柴秀吉に討たれた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (11/14)" data-qid="qa-nobunaga-hideyoshi-11" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">11 / 14</span></div>
+      <div class="q-text">信長の後継者となり、全国統一を達成した人物は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>豊臣秀吉<rt>とよとみひでよし</rt></ruby></div>
+        <div class="qa-expl">信長の後継者として1590年に全国統一を達成した人物。農民出身で天下人に上り詰め、関白・太閤検地・刀狩・朝鮮出兵で知られる。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (12/14)" data-qid="qa-nobunaga-hideyoshi-12" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">12 / 14</span></div>
+      <div class="q-text">秀吉が政治の拠点として築いた城は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>大阪城<rt>おおさかじょう</rt></ruby></div>
+        <div class="qa-expl">秀吉が1583年から築いた政治の拠点で、当時日本で最大級の城。石山本願寺のあとに建てられた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (13/14)" data-qid="qa-nobunaga-hideyoshi-13" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">13 / 14</span></div>
+      <div class="q-text">秀吉が天皇から任命された、天皇を補佐する高い官職は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>関白<rt>かんぱく</rt></ruby></div>
+        <div class="qa-expl">天皇を助ける昔からの高い役職。秀吉は1585年にこの位につき、全国の大名に戦いをやめるよう命じた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (14/14)" data-qid="qa-nobunaga-hideyoshi-14" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">14 / 14</span></div>
+      <div class="q-text">信長・秀吉の二人が政権を握った時代の名称は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>安土桃山<rt>あづちももやま</rt></ruby>時代</div>
+        <div class="qa-expl">信長と秀吉が政権を握った時代の名称で、信長の安土城と秀吉の伏見桃山城にちなんだ時代名。豪壮な桃山文化が花開いた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (1/8)" data-qid="qz-nobunaga-hideyoshi-1" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">1 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">桶狭間の戦いで今川義元を破った戦国大名はだれですか。</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">徳川家康</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">豊臣秀吉</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">織田信長</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">武田勝頼</span></button></div>
+      <div class="expl hidden-until">💡 尾張の戦国大名・織田信長は1560年の桶狭間の戦いで少数の兵で今川義元を奇襲して破り、勢力を広げました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-nobunaga-hideyoshi-2" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">2 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">楽市・楽座の目的として最も適切なものはどれですか。</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">キリスト教を禁止するため</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">朝鮮へ出兵するため</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">農民から武器を取り上げるため</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">商工業の発展をうながすため</span></button></div>
+      <div class="expl hidden-until">💡 楽市・楽座は信長が安土城下などで税や座の特権をなくし、商工業の発展をうながして城下を活発にした経済政策です。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-nobunaga-hideyoshi-3" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">3 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">秀吉が天皇から任命された官職はどれですか。</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">征夷大将軍</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">執権</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">関白</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">太政大臣</span></button></div>
+      <div class="expl hidden-until">💡 秀吉は1585年に天皇から関白に任命され、全国の大名に停戦を命じて天下統一を進めました。征夷大将軍ではない点に注意。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-nobunaga-hideyoshi-4" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">4 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">1587年に豊臣秀吉がキリスト教に対して出した法令の内容として正しいものはどれですか。</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">長崎をイエズス会から取り戻すための法令</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">宣教師を国外へ追放しようとした命令</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">南蛮貿易を全面禁止した法令</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">キリスト教徒の信仰を公認した法令</span></button></div>
+      <div class="expl hidden-until">💡 1587年のこの法令は「バテレン追放令」と呼ばれ、秀吉が宣教師（バテレン）の国外追放を命じたもの。南蛮貿易自体は継続されました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-nobunaga-hideyoshi-5" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">5 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">信長・秀吉の時代を何時代と呼ぶ？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">安土桃山時代</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">江戸時代</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">戦国時代</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">室町時代</span></button></div>
+      <div class="expl hidden-until">💡 信長と秀吉が政権を握った時代を安土桃山時代と呼び、信長の安土城と秀吉の伏見桃山城にちなんだ時代の名称です。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-nobunaga-hideyoshi-6" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">6 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">信長が敵対して焼き討ちにした比叡山の寺は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">延暦寺</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">金閣寺</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">本願寺</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">東大寺</span></button></div>
+      <div class="expl hidden-until">💡 信長は1571年に敵対する天台宗の総本山・比叡山延暦寺を焼き討ちにし、強い仏教勢力を弱体化させました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-nobunaga-hideyoshi-7" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">7 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">信長が流通を活発にするために廃止した施設は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">組合</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">市場</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">関所</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">城郭</span></button></div>
+      <div class="expl hidden-until">💡 信長は各地の関所を廃止して物の行き来を自由にし、楽市・楽座と並ぶ経済政策で物流の自由化と活性化を図りました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-nobunaga-hideyoshi-8" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">8 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">秀吉のもともとの身分は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">公家</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">農民</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">武士</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">商人</span></button></div>
+      <div class="expl hidden-until">💡 秀吉は尾張の農民出身で、信長に仕えて出世し、1590年に北条氏を滅ぼして天下統一を達成しました。</div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-nobunaga-hideyoshi-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">1 / 3　文章で説明しよう</span></div>
+      <div class="q-text">信長が行った楽市・楽座の目的を、簡単に説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">商工業</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">座の特権や関所の税をなくして商工業を自由に営めるようにし、城下町の発展をうながす目的があった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E4%BF%A1%E9%95%B7%E3%83%BB%E7%A7%80%E5%90%89%E3%81%AE%E5%A4%A9%E4%B8%8B%E7%B5%B1%E4%B8%80" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (2/3)" data-qid="wr-nobunaga-hideyoshi-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">2 / 3　文章で説明しよう</span></div>
+      <div class="q-text">1587年に秀吉が出したバテレン追放令の内容について、貿易との関係にふれて説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">宣教師</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">秀吉が宣教師の国外追放を命じた法令だが、南蛮貿易そのものはすぐには禁止されず、その後も継続して行われた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E4%BF%A1%E9%95%B7%E3%83%BB%E7%A7%80%E5%90%89%E3%81%AE%E5%A4%A9%E4%B8%8B%E7%B5%B1%E4%B8%80" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (3/3)" data-qid="wr-nobunaga-hideyoshi-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">3 / 3　文章で説明しよう</span></div>
+      <div class="q-text">1575年の長篠の戦いで、信長がとった新しい戦法を説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">鉄砲</span><span class="kw-chip">足軽</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">信長は足軽による鉄砲隊を組織し、大量の鉄砲を用いて武田氏の騎馬隊を破った。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E4%BF%A1%E9%95%B7%E3%83%BB%E7%A7%80%E5%90%89%E3%81%AE%E5%A4%A9%E4%B8%8B%E7%B5%B1%E4%B8%80" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step done-step" data-label="結果">
+      <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「信長・秀吉の天下統一」おつかれさま！</span></div>
+      <div class="score-box" data-score></div>
+      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E4%BF%A1%E9%95%B7%E3%83%BB%E7%A7%80%E5%90%89%E3%81%AE%E5%A4%A9%E4%B8%8B%E7%B5%B1%E4%B8%80" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
+      <a class="big-btn ref-btn" href="../../ref/07/index.html#t4">📖 参考書でおさらいする</a>
+      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元をもう一度とく</button>
+    </div>
+</section>
+<section class="view" data-t="6">
+  <div class="tband"><span class="tno">5</span><h2>秀吉の政策と朝鮮出兵</h2><img class="wchar tchar" src="img/characters_manabi_ok_sm.png" alt=""></div>
+  
+    <div class="step" data-label="A 要点まとめ">
+      <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
+      <a class="ref-link" href="../../ref/07/index.html#t5">📖 先に参考書で理解する</a>
+      <div class="summary">秀吉は1582年から全国で<button class="blank" type="button"><span class="bno">①</span><span class="ba">太閤検地</span><span class="bl" style="width:3.6em"></span></button>を行い、京ますを基準に田畑を測量して収穫量を<button class="blank" type="button"><span class="bno">②</span><span class="ba">石高</span><span class="bl" style="width:2.7em"></span></button>で表した。これにより<button class="blank" type="button"><span class="bno">③</span><span class="ba">百姓</span><span class="bl" style="width:2.7em"></span></button>は土地の耕作権を保障される代わりに<button class="blank" type="button"><span class="bno">④</span><span class="ba">年貢</span><span class="bl" style="width:2.7em"></span></button>を納める義務を負った。1588年には百姓から刀や鉄砲を取り上げる<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">刀狩</span><span class="bl" style="width:2.7em"></span></button>を行い、武士と農民の身分をはっきり分ける<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">兵農分離</span><span class="bl" style="width:3.6em"></span></button>が進んだ。秀吉は中国の<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">明</span><span class="bl" style="width:2.7em"></span></button>の征服をめざし、1592年の文禄の役と1597年の慶長の役の二度にわたり朝鮮へ大軍を送ったが、朝鮮の武将<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">李舜臣</span><span class="bl" style="width:2.7em"></span></button>が亀甲船を率いて日本軍の補給路を断つなど抵抗にあい苦戦した。1598年の秀吉の死により日本軍は撤退したが、この戦いで日本に連れてこられた朝鮮人陶工の技術によって、九州各地で<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">有田焼</span><span class="bl" style="width:2.7em"></span></button>などの焼き物が発展した。</div>
+      <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-hideyoshi-policy-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">1 / 14</span></div>
+      <div class="q-text">秀吉が全国の田畑を調べ、収穫量を石高で表した政策は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>太閤<rt>たいこう</rt></ruby><ruby>検地<rt>けんち</rt></ruby></div>
+        <div class="qa-expl">1582年から秀吉が全国で実施。同じ大きさの「ます」を基準に田畑を測量し、収穫量を石高で表した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (2/14)" data-qid="qa-hideyoshi-policy-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">2 / 14</span></div>
+      <div class="q-text">米の収穫量で土地の価値を表す基準は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>石高<rt>こくだか</rt></ruby></div>
+        <div class="qa-expl">米の予想収穫量を石で表した基準。太閤検地で導入され、年貢徴収や大名の領地の規模を示す物差しになった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (3/14)" data-qid="qa-hideyoshi-policy-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">3 / 14</span></div>
+      <div class="q-text">秀吉が百姓から刀・弓・鉄砲などの武器を取り上げた政策は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>刀狩<rt>かたながり</rt></ruby></div>
+        <div class="qa-expl">1588年、秀吉が百姓から刀・弓・鉄砲などの武器を取り上げた政策。一揆を防ぎ、兵農分離を進める狙いがあった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (4/14)" data-qid="qa-hideyoshi-policy-4" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">4 / 14</span></div>
+      <div class="q-text">武士と農民の身分の区別が明確になったことを何という？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>兵農<rt>へいのう</rt></ruby><ruby>分離<rt>ぶんり</rt></ruby></div>
+        <div class="qa-expl">太閤検地と刀狩により、武士と農民の身分がはっきり分けられた。江戸時代の身分制度のもとになった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (5/14)" data-qid="qa-hideyoshi-policy-5" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">5 / 14</span></div>
+      <div class="q-text">秀吉が2度にわたり明の征服をめざして朝鮮に出兵した戦いの総称は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>文禄<rt>ぶんろく</rt></ruby>・<ruby>慶長<rt>けいちょう</rt></ruby>の<ruby>役<rt>えき</rt></ruby></div>
+        <div class="qa-expl">1592年が文禄の役、1597年が慶長の役。秀吉の死により1598年に撤退した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (6/14)" data-qid="qa-hideyoshi-policy-6" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">6 / 14</span></div>
+      <div class="q-text">1592年に秀吉が朝鮮に出兵した最初の戦いは？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>文禄<rt>ぶんろく</rt></ruby>の<ruby>役<rt>えき</rt></ruby></div>
+        <div class="qa-expl">1592年、秀吉が約15万の大軍を朝鮮に派遣した最初の戦い。朝鮮の抵抗や明の援軍によって日本軍は苦戦した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (7/14)" data-qid="qa-hideyoshi-policy-7" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">7 / 14</span></div>
+      <div class="q-text">1597年に再び朝鮮へ大軍を派遣した二度目の戦いは？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>慶長<rt>けいちょう</rt></ruby>の<ruby>役<rt>えき</rt></ruby></div>
+        <div class="qa-expl">1597年、秀吉が再び朝鮮へ大軍を派遣した二度目の戦い。1598年の秀吉の死により日本軍は朝鮮から撤退した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (8/14)" data-qid="qa-hideyoshi-policy-8" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">8 / 14</span></div>
+      <div class="q-text">朝鮮の水軍を率いて日本の補給路を断った英雄は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>李舜臣<rt>りしゅんしん</rt></ruby></div>
+        <div class="qa-expl">文禄・慶長の役で朝鮮水軍を率い、亀甲船を駆使して日本水軍を破り、日本軍の海上補給路を断った朝鮮の英雄。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (9/14)" data-qid="qa-hideyoshi-policy-9" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">9 / 14</span></div>
+      <div class="q-text">李舜臣が率いた甲板を鉄板で覆った軍船は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>亀甲船<rt>きっこうせん</rt></ruby></div>
+        <div class="qa-expl">李舜臣が率いた朝鮮の軍船。亀の甲羅のように甲板を鉄板で覆った構造で敵兵の侵入を防ぎ、日本水軍を苦しめた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (10/14)" data-qid="qa-hideyoshi-policy-10" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">10 / 14</span></div>
+      <div class="q-text">朝鮮出兵で連れてこられた陶工の技術により九州各地で発展した代表的な焼き物は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>有田焼<rt>ありたやき</rt></ruby>・<ruby>薩摩焼<rt>さつまやき</rt></ruby>・<ruby>萩焼<rt>はぎやき</rt></ruby></div>
+        <div class="qa-expl">文禄・慶長の役で連れてこられた朝鮮人陶工の技術によって、佐賀の有田焼・鹿児島の薩摩焼・山口の萩焼などが発展した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (11/14)" data-qid="qa-hideyoshi-policy-11" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">11 / 14</span></div>
+      <div class="q-text">検地により土地を耕作する権利を保障された身分は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>百姓<rt>ひゃくしょう</rt></ruby></div>
+        <div class="qa-expl">太閤検地により土地の耕作権が保障された身分。耕作権を得る代わりに領主に年貢を納める義務を負った。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (12/14)" data-qid="qa-hideyoshi-policy-12" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">12 / 14</span></div>
+      <div class="q-text">秀吉が朝鮮出兵で征服を目指した中国の王朝は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>明<rt>みん</rt></ruby></div>
+        <div class="qa-expl">14世紀から17世紀まで続いた中国の王朝。秀吉は文禄・慶長の役でこの明の征服を目指して朝鮮へ出兵した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (13/14)" data-qid="qa-hideyoshi-policy-13" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">13 / 14</span></div>
+      <div class="q-text">検地により百姓が納める義務を負った税は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>年貢<rt>ねんぐ</rt></ruby></div>
+        <div class="qa-expl">百姓が領主に納める税。太閤検地により耕作権が保障される代わりに、石高に応じて米などを納める義務が定められた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (14/14)" data-qid="qa-hideyoshi-policy-14" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">14 / 14</span></div>
+      <div class="q-text">秀吉が刀狩を行った年は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">1588年</div>
+        <div class="qa-expl">秀吉が刀狩令を出した年。百姓から刀・弓・鉄砲などを取り上げて一揆を防ぎ、兵農分離を進める政策を行った。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (1/8)" data-qid="qz-hideyoshi-policy-1" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">1 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">太閤検地と刀狩によって進んだ社会の変化はどれですか。</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">民主化</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">兵農分離</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">王政復古</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">幕藩体制の崩壊</span></button></div>
+      <div class="expl hidden-until">💡 太閤検地と1588年の刀狩によって武士と農民の身分の区別が明確になり、兵農分離が進んで近世社会の基盤となりました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-hideyoshi-policy-2" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">2 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">秀吉が明の征服をめざして朝鮮へ出兵した戦いを何といいますか。</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">文禄・慶長の役</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">蒙古襲来</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">文永・弘安の役</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">応永の外寇</span></button></div>
+      <div class="expl hidden-until">💡 文禄・慶長の役は1592年と1597年に秀吉が明の征服をめざして朝鮮へ出兵した戦いで、1598年の秀吉の死により撤退しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-hideyoshi-policy-3" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">3 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">朝鮮出兵で亀甲船を率い、日本軍の補給路を断った朝鮮の英雄は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">世宗大王</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">李成桂</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">李舜臣</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">明の皇帝</span></button></div>
+      <div class="expl hidden-until">💡 李舜臣は文禄・慶長の役で朝鮮水軍を率い、亀甲船を駆使して日本水軍を破り、海上補給路を断った英雄です。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-hideyoshi-policy-4" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">4 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">1597年の秀吉の二度目の朝鮮出兵は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">壬辰倭乱</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">文禄の役</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">丁酉再乱</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">慶長の役</span></button></div>
+      <div class="expl hidden-until">💡 慶長の役は1597年に秀吉が再び朝鮮へ大軍を派遣した二度目の戦いで、1598年の秀吉の死により日本軍は撤退しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-hideyoshi-policy-5" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">5 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">太閤検地で統一された計量器は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">尺貫法</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">大坂枡</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">江戸尺</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">京ます</span></button></div>
+      <div class="expl hidden-until">💡 秀吉は太閤検地の際に京ますを統一基準として全国の計量を統一し、公平な年貢徴収を可能にしました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-hideyoshi-policy-6" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">6 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">朝鮮出兵の際に日本に連行された陶工が伝えた工芸品は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">織物</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">有田焼</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">和紙</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">漆器</span></button></div>
+      <div class="expl hidden-until">💡 文禄・慶長の役で連れてこられた朝鮮人陶工の技術により、佐賀の有田焼や薩摩焼・萩焼など九州各地の焼き物が発展しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-hideyoshi-policy-7" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">7 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">太閤検地で百姓に保障された権利は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">年貢を免除される権利</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">土地の耕作権</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">武器を持つ権利</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">自由に移住する権利</span></button></div>
+      <div class="expl hidden-until">💡 太閤検地により百姓は土地を耕作する権利が保障される代わりに、石高に応じて領主に年貢を納める義務を負いました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-hideyoshi-policy-8" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">8 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">刀狩が行われた年は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">1585年</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">1587年</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">1588年</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">1590年</span></button></div>
+      <div class="expl hidden-until">💡 1588年に秀吉は刀狩令を出し、百姓から刀・弓・鉄砲を取り上げて一揆を防ぎ、兵農分離を進めました。</div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (1/2)" data-qid="wr-hideyoshi-policy-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">1 / 2　文章で説明しよう</span></div>
+      <div class="q-text">太閤検地によって、百姓にはどのような権利と義務が生じたか、説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">石高</span><span class="kw-chip">年貢</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">百姓は土地を耕作する権利を保障される代わりに、石高に応じて年貢を納める義務を負うことになった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E7%A7%80%E5%90%89%E3%81%AE%E6%94%BF%E7%AD%96%E3%81%A8%E6%9C%9D%E9%AE%AE%E5%87%BA%E5%85%B5" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (2/2)" data-qid="wr-hideyoshi-policy-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">2 / 2　文章で説明しよう</span></div>
+      <div class="q-text">秀吉が刀狩を行った目的を、説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">兵農分離</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">百姓から刀や鉄砲などの武器を取り上げることで一揆を防ぎ、武士と農民の身分を分ける兵農分離を進める目的があった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E7%A7%80%E5%90%89%E3%81%AE%E6%94%BF%E7%AD%96%E3%81%A8%E6%9C%9D%E9%AE%AE%E5%87%BA%E5%85%B5" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step done-step" data-label="結果">
+      <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「秀吉の政策と朝鮮出兵」おつかれさま！</span></div>
+      <div class="score-box" data-score></div>
+      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E7%A7%80%E5%90%89%E3%81%AE%E6%94%BF%E7%AD%96%E3%81%A8%E6%9C%9D%E9%AE%AE%E5%87%BA%E5%85%B5" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
+      <a class="big-btn ref-btn" href="../../ref/07/index.html#t5">📖 参考書でおさらいする</a>
+      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元をもう一度とく</button>
+    </div>
+</section>
+<section class="view" data-t="7">
+  <div class="tband"><span class="tno">6</span><h2>桃山文化</h2><img class="wchar tchar" src="img/characters_manabi_point_sm.png" alt=""></div>
+  
+    <div class="step" data-label="A 要点まとめ">
+      <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
+      <a class="ref-link" href="../../ref/07/index.html#t6">📖 先に参考書で理解する</a>
+      <div class="summary">信長・秀吉の時代、大名や豪商の力を背景に豪華で力強い<button class="blank" type="button"><span class="bno">①</span><span class="ba">桃山文化</span><span class="bl" style="width:3.6em"></span></button>が花開いた。城のふすまや屏風には金箔を使った<button class="blank" type="button"><span class="bno">②</span><span class="ba">障壁画</span><span class="bl" style="width:2.7em"></span></button>が描かれ、なかでも<button class="blank" type="button"><span class="bno">③</span><span class="ba">狩野永徳</span><span class="bl" style="width:3.6em"></span></button>の「唐獅子図屏風」が代表作として知られる。城の中心にそびえる<button class="blank" type="button"><span class="bno">④</span><span class="ba">天守閣</span><span class="bl" style="width:2.7em"></span></button>は大名の権威を示す象徴で、白壁が美しい<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">姫路城</span><span class="bl" style="width:2.7em"></span></button>はその代表例である。堺の商人<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">千利休</span><span class="bl" style="width:2.7em"></span></button>は、静かで質素な美を追い求める<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">わび茶</span><span class="bl" style="width:2.7em"></span></button>を完成させ、二畳の茶室「待庵」を造った。芸能では出雲の阿国が始めた<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">かぶきおどり</span><span class="bl" style="width:5.4em"></span></button>が京都で人気を集め、後の歌舞伎のもとになった。また、南蛮貿易を通じてポルトガルから<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">カステラ</span><span class="bl" style="width:3.6em"></span></button>などが伝わり、庶民の衣料には温かく肌触りのよい<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">木綿</span><span class="bl" style="width:2.7em"></span></button>が普及し始めた。</div>
+      <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-momoyama-culture-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">1 / 14</span></div>
+      <div class="q-text">大名や豪商の力を背景にした、豪華で力強い文化は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>桃山<rt>ももやま</rt></ruby><ruby>文化<rt>ぶんか</rt></ruby></div>
+        <div class="qa-expl">信長・秀吉の時代に大名や豪商の力を背景に花開いた文化で、城・障壁画・茶の湯などが代表的。豪壮で力強い特徴を持つ。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (2/14)" data-qid="qa-momoyama-culture-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">2 / 14</span></div>
+      <div class="q-text">桃山文化を代表する画家で、城のふすまや屏風に濃絵を描いた人物は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>狩野永徳<rt>かのうえいとく</rt></ruby></div>
+        <div class="qa-expl">信長や秀吉に仕えた狩野派の巨匠で、「唐獅子図屏風」が代表作。城の障壁画に金箔を使った濃絵を描いた桃山文化の画家。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (3/14)" data-qid="qa-momoyama-culture-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">3 / 14</span></div>
+      <div class="q-text">狩野永徳が描いた、力強い唐獅子が特徴の障壁画は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>唐獅子図屏風<rt>からじしずびょうぶ</rt></ruby></div>
+        <div class="qa-expl">狩野永徳が金箔地に力強い唐獅子を描いた屏風絵で、大名の権力と富を象徴する桃山文化を代表する障壁画の傑作。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (4/14)" data-qid="qa-momoyama-culture-4" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">4 / 14</span></div>
+      <div class="q-text">城のふすまや屏風に描かれたきらびやかな絵は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>障壁画<rt>しょうへきが</rt></ruby></div>
+        <div class="qa-expl">城のふすまや屏風に金箔を使って描かれた華やかな絵で、大名の権力と富を象徴した。「濃絵」とも呼ばれ狩野永徳らが活躍。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (5/14)" data-qid="qa-momoyama-culture-5" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">5 / 14</span></div>
+      <div class="q-text">茶の湯を大成し、わび茶を完成させた堺の商人は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>千利休<rt>せんのりきゅう</rt></ruby></div>
+        <div class="qa-expl">堺の商人で信長や秀吉に仕えた茶人。豪華な桃山文化の中で、静かで質素な美を追い求めるわび茶を完成させた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (6/14)" data-qid="qa-momoyama-culture-6" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">6 / 14</span></div>
+      <div class="q-text">千利休が完成させた、質素さを重んじる茶道の様式は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">わび<ruby>茶<rt>ちゃ</rt></ruby></div>
+        <div class="qa-expl">千利休が完成させた、はなやかさをおさえ静かで質素な美しさを大切にする茶道の様式。現代茶道のもとになった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (7/14)" data-qid="qa-momoyama-culture-7" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">7 / 14</span></div>
+      <div class="q-text">千利休が造った、究極のわびを表現した二畳の茶室は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>待庵<rt>たいあん</rt></ruby></div>
+        <div class="qa-expl">千利休が造った現存する最古の茶室で、わずか二畳の空間にわびの精神が凝縮された国宝。京都府大山崎町にある。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (8/14)" data-qid="qa-momoyama-culture-8" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">8 / 14</span></div>
+      <div class="q-text">白壁が美しく「白鷺城」とも呼ばれる兵庫県の城は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>姫路城<rt>ひめじじょう</rt></ruby></div>
+        <div class="qa-expl">兵庫県にある城で白壁が美しく「白鷺城」とも呼ばれる。現存する天守閣の中でも最大級で、世界遺産にも登録されている。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (9/14)" data-qid="qa-momoyama-culture-9" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">9 / 14</span></div>
+      <div class="q-text">城の中心にそびえる、桃山文化を象徴する建築物は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>天守閣<rt>てんしゅかく</rt></ruby></div>
+        <div class="qa-expl">城の中心にそびえる最上部の高層建築で、大名の権威と富を示す桃山文化を象徴する建築物。姫路城や安土城が代表例。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (10/14)" data-qid="qa-momoyama-culture-10" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">10 / 14</span></div>
+      <div class="q-text">出雲の阿国が始めた芸能は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">かぶきおどり</div>
+        <div class="qa-expl">出雲の阿国が始めた踊りを伴う芸能で、京都で人気を集め、江戸時代に発展する歌舞伎のルーツとなった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (11/14)" data-qid="qa-momoyama-culture-11" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">11 / 14</span></div>
+      <div class="q-text">京都で「かぶきおどり」を始めた女性は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>出雲<rt>いずも</rt></ruby>の<ruby>阿国<rt>おくに</rt></ruby></div>
+        <div class="qa-expl">桃山時代の京都で「かぶきおどり」を始めた女性芸能者で、その踊りが江戸時代に発展する歌舞伎のルーツとなった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (12/14)" data-qid="qa-momoyama-culture-12" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">12 / 14</span></div>
+      <div class="q-text">三味線に合わせて語る、桃山時代に人気を集めた芸能は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>浄瑠璃<rt>じょうるり</rt></ruby></div>
+        <div class="qa-expl">三味線に合わせて物語を語る桃山時代に人気を集めた芸能で、後に人形と組み合わさって人形浄瑠璃となり江戸時代に大発展した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (13/14)" data-qid="qa-momoyama-culture-13" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">13 / 14</span></div>
+      <div class="q-text">宣教師が持ち込み、平家物語などをローマ字で印刷した技術は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>活版<rt>かっぱん</rt></ruby><ruby>印刷術<rt>いんさつじゅつ</rt></ruby></div>
+        <div class="qa-expl">宣教師が日本へ持ち込んだ印刷技術で、天草版平家物語などをローマ字で印刷し、宣教師の日本語学習に役立てられた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (14/14)" data-qid="qa-momoyama-culture-14" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">14 / 14</span></div>
+      <div class="q-text">桃山時代に庶民の衣料として普及し始めた素材は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>木綿<rt>もめん</rt></ruby></div>
+        <div class="qa-expl">桃山時代に普及し始めた繊維素材で、麻に比べて肌触りがよく温かいため、庶民の衣料として広まり国内栽培も進んだ。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (1/8)" data-qid="qz-momoyama-culture-1" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">1 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">千利休が造った究極のわびを表現した二畳の茶室は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">待庵</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">同仁斎</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">如庵</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">黄金の茶室</span></button></div>
+      <div class="expl hidden-until">💡 待庵は千利休が造ったわずか二畳の茶室で、現存する最古の茶室として知られ、わびの精神が凝縮された国宝です。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-momoyama-culture-2" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">2 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">三味線に合わせて語り、桃山時代に人気を集めた芸能は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">浄瑠璃</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">狂言</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">歌舞伎</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">能楽</span></button></div>
+      <div class="expl hidden-until">💡 浄瑠璃は三味線の伴奏で物語を語る桃山時代に人気を集めた芸能で、後に人形と組み合わさり江戸時代に人形浄瑠璃へ発展しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-momoyama-culture-3" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">3 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">桃山時代に庶民の衣料として普及し始めた素材は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">絹</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">麻</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">毛織物</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">木綿</span></button></div>
+      <div class="expl hidden-until">💡 木綿は桃山時代に庶民の衣料として普及し始めた素材で、麻に比べて肌触りがよく温かいことから国内栽培も進みました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-momoyama-culture-4" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">4 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">活版印刷機でローマ字印刷された日本の古典は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">枕草子</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">平家物語</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">源氏物語</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">徒然草</span></button></div>
+      <div class="expl hidden-until">💡 天草版平家物語は宣教師が持ち込んだ活版印刷機でローマ字印刷された日本の古典で、宣教師の日本語学習に役立てられました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-momoyama-culture-5" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">5 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">城の中心にそびえる、桃山文化を象徴する建築物は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">書院</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">天守閣</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">御殿</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">茶室</span></button></div>
+      <div class="expl hidden-until">💡 天守閣は城の中心にそびえる高層建築で、大名の権威と富を示す桃山文化を代表する建築物。姫路城や安土城が代表例です。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-momoyama-culture-6" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">6 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">わび茶の茶室のにじり口が表している精神は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">威厳</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">平等の精神</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">厳しい戒律</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">強い権威</span></button></div>
+      <div class="expl hidden-until">💡 にじり口は身分を問わず屈んで入る設計で、茶の湯における平等の精神を表しています。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-momoyama-culture-7" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">7 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">織田信長と豊臣秀吉の政策の組み合わせとして正しいものはどれですか。</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">信長＝太閤検地、秀吉＝関所の廃止</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">信長＝刀狩、秀吉＝楽市・楽座</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">信長＝楽市・楽座、秀吉＝刀狩</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">信長＝バテレン追放令、秀吉＝比叡山焼き討ち</span></button></div>
+      <div class="expl hidden-until">💡 信長は楽市・楽座で商工業を促進し、秀吉は1588年の刀狩で百姓から武器を取り上げ兵農分離を進めました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-momoyama-culture-8" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">8 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">次の出来事を古い順に並べたものとして正しいものはどれですか。①本能寺の変 ②室町幕府の滅亡 ③全国統一</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">②→①→③</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">①→②→③</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">②→③→①</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">③→②→①</span></button></div>
+      <div class="expl hidden-until">💡 室町幕府滅亡は1573年、本能寺の変は1582年、秀吉の全国統一は1590年です。</div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-momoyama-culture-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">1 / 3　文章で説明しよう</span></div>
+      <div class="q-text">茶室の入り口にある「にじり口」には、どのような意味が込められているか、説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">身分</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">武士も商人も同じように屈んで入る小さな入り口で、身分を問わない茶の湯の平等の精神を表している。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E6%A1%83%E5%B1%B1%E6%96%87%E5%8C%96" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (2/3)" data-qid="wr-momoyama-culture-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">2 / 3　文章で説明しよう</span></div>
+      <div class="q-text">千利休が完成させた「わび茶」は、桃山文化の中でどのような特徴を持つ様式か、説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">質素</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">大名や豪商による豪華な文化が広がる中で、静かで質素な美しさを追い求める、はなやかさをおさえた茶道の様式である。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E6%A1%83%E5%B1%B1%E6%96%87%E5%8C%96" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (3/3)" data-qid="wr-momoyama-culture-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">3 / 3　文章で説明しよう</span></div>
+      <div class="q-text">狩野永徳らがえがいた、桃山文化を代表する絵画について説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">障壁画</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">城のふすまやびょうぶに、金ぱくを使って自然などを豪華にえがいた障壁画が、桃山文化を代表する絵画としてえがかれた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E6%A1%83%E5%B1%B1%E6%96%87%E5%8C%96" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step done-step" data-label="結果">
+      <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「桃山文化」おつかれさま！</span></div>
+      <div class="score-box" data-score></div>
+      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E6%A1%83%E5%B1%B1%E6%96%87%E5%8C%96" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
+      <a class="big-btn ref-btn" href="../../ref/07/index.html#t6">📖 参考書でおさらいする</a>
+      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元をもう一度とく</button>
+    </div>
+</section>
+<section class="print-answers print-only">
+  <h2 class="ans-band">解答</h2>
+  <div class="a-topic"><div class="a-title">年表でチェック</div><div class="a-group"><span class="a-item">オスマン帝国</span>　<span class="a-item">コロンブス</span>　<span class="a-item">バスコ・ダ・ガマ</span>　<span class="a-item">ルター</span>　<span class="a-item">宗教改革</span>　<span class="a-item">マゼランの船隊</span>　<span class="a-item">鉄砲</span>　<span class="a-item">ザビエル</span>　<span class="a-item">桶狭間の戦い</span>　<span class="a-item">比叡山延暦寺</span>　<span class="a-item">室町幕府</span>　<span class="a-item">長篠の戦い</span>　<span class="a-item">本能寺の変</span>　<span class="a-item">刀狩</span>　<span class="a-item">北条氏</span>　<span class="a-item">文禄の役</span></div></div><div class="a-topic"><div class="a-title">1　ヨーロッパの変革</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① ローマ教皇</span>　<span class="a-item">② カトリック教会</span>　<span class="a-item">③ 十字軍</span>　<span class="a-item">④ ルネサンス</span>　<span class="a-item">⑤ レオナルド・ダ・ヴィンチ</span>　<span class="a-item">⑥ ルター</span>　<span class="a-item">⑦ 宗教改革</span>　<span class="a-item">⑧ プロテスタント</span>　<span class="a-item">⑨ イエズス会</span>　<span class="a-item">⑩ 活版印刷</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) ローマ教皇</span>　<span class="a-item">(2) カトリック教会</span>　<span class="a-item">(3) 正教会</span>　<span class="a-item">(4) イスラム教</span>　<span class="a-item">(5) ムスリム</span>　<span class="a-item">(6) 十字軍</span>　<span class="a-item">(7) ルネサンス</span>　<span class="a-item">(8) 宗教改革</span>　<span class="a-item">(9) 免罪符（贖宥状）</span>　<span class="a-item">(10) ルター</span>　<span class="a-item">(11) カルバン</span>　<span class="a-item">(12) プロテスタント</span>　<span class="a-item">(13) イエズス会</span>　<span class="a-item">(14) 活版印刷</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) ア（東西の交流が活発になった）</span>　<span class="a-item">(2) ア（カトリックの修道会組織）</span>　<span class="a-item">(3) エ（ルネサンス）</span>　<span class="a-item">(4) ウ（カルバン）</span>　<span class="a-item">(5) エ（失敗に終わった）</span>　<span class="a-item">(6) イ（活版印刷）</span>　<span class="a-item">(7) ウ（ミケランジェロ）</span>　<span class="a-item">(8) イ（オスマン帝国）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 聖地の奪還には失敗して教皇の権威はかえって低下したが、東西の交流が活発になるきっかけとなった。</div><div class="a-written">(2) ローマ教会が資金集めのために売り出した、買えば罪が許されるとされる免罪符の販売をルターが批判したから。</div><div class="a-written">(3) 古代ギリシャ・ローマの文化を理想として学び直し、人間そのもののあり方を見つめ直そうとする文化の動きである。</div></div><div class="a-group"><span class="a-label">E 資料問題</span><span class="a-item">(1) コロンブス</span>　<span class="a-item">(2) バスコ・ダ・ガマ</span></div></div><div class="a-topic"><div class="a-title">2　大航海時代</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 大航海時代</span>　<span class="a-item">② バスコ・ダ・ガマ</span>　<span class="a-item">③ コロンブス</span>　<span class="a-item">④ マゼランの船隊</span>　<span class="a-item">⑤ インカ帝国</span>　<span class="a-item">⑥ アステカ帝国</span>　<span class="a-item">⑦ 三角貿易</span>　<span class="a-item">⑧ 奴隷</span>　<span class="a-item">⑨ 東インド会社</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 大航海時代</span>　<span class="a-item">(2) バスコ・ダ・ガマ</span>　<span class="a-item">(3) コロンブス</span>　<span class="a-item">(4) マゼランの船隊</span>　<span class="a-item">(5) 三角貿易</span>　<span class="a-item">(6) 東インド会社</span>　<span class="a-item">(7) 香辛料</span>　<span class="a-item">(8) インカ帝国</span>　<span class="a-item">(9) アステカ帝国</span>　<span class="a-item">(10) ポルトガル</span>　<span class="a-item">(11) スペイン</span>　<span class="a-item">(12) 1492年</span>　<span class="a-item">(13) 1498年</span>　<span class="a-item">(14) 1522年</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) エ（バスコ・ダ・ガマ）</span>　<span class="a-item">(2) ウ（本人は航海中に亡くなったが船隊が世界一周を達成した）</span>　<span class="a-item">(3) イ（三角貿易）</span>　<span class="a-item">(4) ウ（アステカ帝国）</span>　<span class="a-item">(5) ア（地球が丸いこと）</span>　<span class="a-item">(6) ア（奴隷）</span>　<span class="a-item">(7) エ（コロンブス＝カリブ海、ガマ＝インド航路、マゼランの船隊＝世界一周）</span>　<span class="a-item">(8) エ（アジアや南米）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) コロンブスは大西洋を横断してカリブ海の島に到達したが、本人は最後までそこをアジアだと信じていた。</div><div class="a-written">(2) ヨーロッパが武器などをアフリカへ運び、アフリカの人々を奴隷として強制的にアメリカ大陸へ送る貿易のしくみである。</div></div></div><div class="a-topic"><div class="a-title">3　南蛮貿易とキリスト教</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 種子島</span>　<span class="a-item">② 鉄砲</span>　<span class="a-item">③ ザビエル</span>　<span class="a-item">④ キリスト教</span>　<span class="a-item">⑤ 南蛮貿易</span>　<span class="a-item">⑥ キリシタン大名</span>　<span class="a-item">⑦ 長崎</span>　<span class="a-item">⑧ 天正遣欧使節</span>　<span class="a-item">⑨ 南蛮文化</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 鉄砲</span>　<span class="a-item">(2) 種子島</span>　<span class="a-item">(3) ザビエル</span>　<span class="a-item">(4) 南蛮貿易</span>　<span class="a-item">(5) キリシタン大名</span>　<span class="a-item">(6) 天正遣欧使節</span>　<span class="a-item">(7) ポルトガル</span>　<span class="a-item">(8) 国友</span>　<span class="a-item">(9) 堺</span>　<span class="a-item">(10) 生糸</span>　<span class="a-item">(11) 長崎</span>　<span class="a-item">(12) イエズス会</span>　<span class="a-item">(13) 南蛮人</span>　<span class="a-item">(14) 1543年</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) ウ（銀）</span>　<span class="a-item">(2) エ（貿易の利益を得るため）</span>　<span class="a-item">(3) ア（天正遣欧使節）</span>　<span class="a-item">(4) ア（②→①→③）</span>　<span class="a-item">(5) イ（長崎）</span>　<span class="a-item">(6) エ（大友宗麟）</span>　<span class="a-item">(7) イ（堺）</span>　<span class="a-item">(8) ウ（生糸）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 足軽による鉄砲隊を用いた集団戦法が広まり、騎馬武者中心の戦いから足軽鉄砲隊中心の戦いへと変化した。長篠の戦いはその代表例であり、城づくりも鉄砲に備えた構えへと変わっていった。</div><div class="a-written">(2) 南蛮貿易によって得られる鉄砲や生糸などの利益を確保することを目的として、キリスト教を受け入れる大名が現れたから。</div><div class="a-written">(3) イエズス会の宣教師フランシスコ・ザビエルが鹿児島に来て、日本に初めてキリスト教を伝えた。</div></div></div><div class="a-topic"><div class="a-title">4　信長・秀吉の天下統一</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 織田信長</span>　<span class="a-item">② 桶狭間の戦い</span>　<span class="a-item">③ 室町幕府</span>　<span class="a-item">④ 長篠の戦い</span>　<span class="a-item">⑤ 楽市・楽座</span>　<span class="a-item">⑥ 本能寺の変</span>　<span class="a-item">⑦ 豊臣秀吉</span>　<span class="a-item">⑧ 北条氏</span>　<span class="a-item">⑨ バテレン追放令</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 織田信長</span>　<span class="a-item">(2) 桶狭間の戦い</span>　<span class="a-item">(3) 足利義昭</span>　<span class="a-item">(4) 室町幕府</span>　<span class="a-item">(5) 比叡山延暦寺</span>　<span class="a-item">(6) 長篠の戦い</span>　<span class="a-item">(7) 楽市・楽座</span>　<span class="a-item">(8) 安土城</span>　<span class="a-item">(9) 本能寺の変</span>　<span class="a-item">(10) 明智光秀</span>　<span class="a-item">(11) 豊臣秀吉</span>　<span class="a-item">(12) 大阪城</span>　<span class="a-item">(13) 関白</span>　<span class="a-item">(14) 安土桃山時代</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) ウ（織田信長）</span>　<span class="a-item">(2) エ（商工業の発展をうながすため）</span>　<span class="a-item">(3) ウ（関白）</span>　<span class="a-item">(4) イ（宣教師を国外へ追放しようとした命令）</span>　<span class="a-item">(5) ア（安土桃山時代）</span>　<span class="a-item">(6) ア（延暦寺）</span>　<span class="a-item">(7) ウ（関所）</span>　<span class="a-item">(8) イ（農民）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 座の特権や関所の税をなくして商工業を自由に営めるようにし、城下町の発展をうながす目的があった。</div><div class="a-written">(2) 秀吉が宣教師の国外追放を命じた法令だが、南蛮貿易そのものはすぐには禁止されず、その後も継続して行われた。</div><div class="a-written">(3) 信長は足軽による鉄砲隊を組織し、大量の鉄砲を用いて武田氏の騎馬隊を破った。</div></div></div><div class="a-topic"><div class="a-title">5　秀吉の政策と朝鮮出兵</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 太閤検地</span>　<span class="a-item">② 石高</span>　<span class="a-item">③ 百姓</span>　<span class="a-item">④ 年貢</span>　<span class="a-item">⑤ 刀狩</span>　<span class="a-item">⑥ 兵農分離</span>　<span class="a-item">⑦ 明</span>　<span class="a-item">⑧ 李舜臣</span>　<span class="a-item">⑨ 有田焼</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 太閤検地</span>　<span class="a-item">(2) 石高</span>　<span class="a-item">(3) 刀狩</span>　<span class="a-item">(4) 兵農分離</span>　<span class="a-item">(5) 文禄・慶長の役</span>　<span class="a-item">(6) 文禄の役</span>　<span class="a-item">(7) 慶長の役</span>　<span class="a-item">(8) 李舜臣</span>　<span class="a-item">(9) 亀甲船</span>　<span class="a-item">(10) 有田焼・薩摩焼・萩焼</span>　<span class="a-item">(11) 百姓</span>　<span class="a-item">(12) 明</span>　<span class="a-item">(13) 年貢</span>　<span class="a-item">(14) 1588年</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) イ（兵農分離）</span>　<span class="a-item">(2) ア（文禄・慶長の役）</span>　<span class="a-item">(3) ウ（李舜臣）</span>　<span class="a-item">(4) エ（慶長の役）</span>　<span class="a-item">(5) エ（京ます）</span>　<span class="a-item">(6) イ（有田焼）</span>　<span class="a-item">(7) イ（土地の耕作権）</span>　<span class="a-item">(8) ウ（1588年）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 百姓は土地を耕作する権利を保障される代わりに、石高に応じて年貢を納める義務を負うことになった。</div><div class="a-written">(2) 百姓から刀や鉄砲などの武器を取り上げることで一揆を防ぎ、武士と農民の身分を分ける兵農分離を進める目的があった。</div></div></div><div class="a-topic"><div class="a-title">6　桃山文化</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 桃山文化</span>　<span class="a-item">② 障壁画</span>　<span class="a-item">③ 狩野永徳</span>　<span class="a-item">④ 天守閣</span>　<span class="a-item">⑤ 姫路城</span>　<span class="a-item">⑥ 千利休</span>　<span class="a-item">⑦ わび茶</span>　<span class="a-item">⑧ かぶきおどり</span>　<span class="a-item">⑨ カステラ</span>　<span class="a-item">⑩ 木綿</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 桃山文化</span>　<span class="a-item">(2) 狩野永徳</span>　<span class="a-item">(3) 唐獅子図屏風</span>　<span class="a-item">(4) 障壁画</span>　<span class="a-item">(5) 千利休</span>　<span class="a-item">(6) わび茶</span>　<span class="a-item">(7) 待庵</span>　<span class="a-item">(8) 姫路城</span>　<span class="a-item">(9) 天守閣</span>　<span class="a-item">(10) かぶきおどり</span>　<span class="a-item">(11) 出雲の阿国</span>　<span class="a-item">(12) 浄瑠璃</span>　<span class="a-item">(13) 活版印刷術</span>　<span class="a-item">(14) 木綿</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) ア（待庵）</span>　<span class="a-item">(2) ア（浄瑠璃）</span>　<span class="a-item">(3) エ（木綿）</span>　<span class="a-item">(4) イ（平家物語）</span>　<span class="a-item">(5) イ（天守閣）</span>　<span class="a-item">(6) イ（平等の精神）</span>　<span class="a-item">(7) ウ（信長＝楽市・楽座、秀吉＝刀狩）</span>　<span class="a-item">(8) ア（②→①→③）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 武士も商人も同じように屈んで入る小さな入り口で、身分を問わない茶の湯の平等の精神を表している。</div><div class="a-written">(2) 大名や豪商による豪華な文化が広がる中で、静かで質素な美しさを追い求める、はなやかさをおさえた茶道の様式である。</div><div class="a-written">(3) 城のふすまやびょうぶに、金ぱくを使って自然などを豪華にえがいた障壁画が、桃山文化を代表する絵画としてえがかれた。</div></div></div>
+</section>
+</main>
+<div class="navbar" id="navbar" hidden><div class="navbar-in">
+  <button class="nb nb-prev" id="btnPrev">← まえへ</button>
+  <button class="nb nb-next" id="btnNext">つぎへ →</button>
+</div></div>
+<script>
+(function () {
+  var KEY = 'tzmwb-07';
+  var views = [].slice.call(document.querySelectorAll('.view'));
+  var tabs = [].slice.call(document.querySelectorAll('.tab'));
+  var N = views.length - 1;
+  var state = { t: 0, s: 0 };
+  var lastDir = 1;
+  var rendered = null; // 直前に表示していた {t, s}（ページめくり演出用）
+
+  function store() {
+    try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; }
+  }
+  function save(obj) { try { localStorage.setItem(KEY, JSON.stringify(obj)); } catch (e) {} }
+  function stepsOf(t) { return views[t].querySelectorAll('.step'); }
+
+  function renderScore(view) {
+    var st = store(), r = st.r || {};
+    var box = view.querySelector('[data-score]');
+    if (!box) return;
+    function count(sel) {
+      var ids = [].map.call(view.querySelectorAll(sel), function (el) { return el.dataset.qid; });
+      var done = ids.filter(function (id) { return r[id] === 1; }).length;
+      var tried = ids.filter(function (id) { return id in r; }).length;
+      return { total: ids.length, done: done, tried: tried };
+    }
+    var qa = count('.qa-step'), qz = count('.qz-step'), wr = count('.wr-step');
+    var rows = [];
+    if (qa.total) rows.push('<div class="score-row"><span>B 一問一答</span><b>⭕ ' + qa.done + ' / ' + qa.total + '</b></div>');
+    if (qz.total) rows.push('<div class="score-row"><span>C 実戦4択</span><b>正解 ' + qz.done + ' / ' + qz.total + '</b></div>');
+    if (wr.total) rows.push('<div class="score-row"><span>D 記述</span><b>⭕ ' + wr.done + ' / ' + wr.total + '</b></div>');
+    box.innerHTML = rows.join('') || 'このページの問題はタップ形式だよ。';
+  }
+
+  function render() {
+    var t = state.t, s = state.s;
+    views.forEach(function (v, i) { v.classList.toggle('on', i === t); });
+    tabs.forEach(function (b) {
+      var bt = +b.dataset.go;
+      b.classList.toggle('on', bt === t);
+      b.classList.toggle('done', bt > 0 && store()['d' + bt] === 1);
+    });
+    var tabEl = tabs[t];
+    if (tabEl && tabEl.scrollIntoView) tabEl.scrollIntoView({ block: 'nearest', inline: 'center' });
+    var navbar = document.getElementById('navbar');
+    var barStep = document.getElementById('barStep');
+    var pfill = document.getElementById('pfill');
+    if (t === 0) {
+      navbar.hidden = true; barStep.textContent = ''; pfill.style.width = '0';
+      renderHome();
+    } else {
+      var steps = stepsOf(t);
+      // 同じ単元内のページ送りだけ「めくり」演出（古いページと新しいページを重ねる）
+      var animFrom = rendered && rendered.t === t && rendered.s !== s ? rendered.s : null;
+      [].forEach.call(steps, function (el, i) {
+        el.classList.remove('turn-out', 'turn-in', 'turn-under');
+        el.classList.toggle('on', i === s);
+      });
+      if (animFrom !== null && steps[animFrom] && steps[s]) {
+        var oldEl = steps[animFrom], newEl = steps[s];
+        var clear = function () {
+          oldEl.classList.remove('turn-out', 'turn-under');
+          newEl.classList.remove('turn-in');
+        };
+        if (lastDir > 0) {
+          oldEl.classList.add('turn-out');      // 今のページがめくれて去る
+          oldEl.addEventListener('animationend', clear, { once: true });
+        } else {
+          oldEl.classList.add('turn-under');    // 下に敷いたまま
+          newEl.classList.add('turn-in');       // 前のページがめくり戻ってくる
+          newEl.addEventListener('animationend', clear, { once: true });
+        }
+        setTimeout(clear, 700); // アニメ未発火時の保険
+      }
+      navbar.hidden = false;
+      barStep.textContent = (s + 1) + ' / ' + steps.length;
+      pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
+      document.getElementById('btnPrev').textContent = s === 0 ? '🏠 目次' : '← まえへ';
+      var next = document.getElementById('btnNext');
+      if (s < steps.length - 1) next.textContent = 'つぎへ →';
+      else next.textContent = t < N ? '次の単元へ →' : '🏠 目次にもどる';
+      if (steps[s] && steps[s].classList.contains('done-step')) renderScore(views[t]);
+      var st = store();
+      st.last = { t: t, s: s };
+      if (s === steps.length - 1) st['d' + t] = 1;
+      save(st);
+    }
+    window.scrollTo(0, 0);
+    var h = '#t' + t + (t > 0 && s > 0 ? 's' + s : '');
+    if (location.hash !== h) history.replaceState(null, '', t === 0 ? '#' : h);
+    rendered = { t: t, s: s };
+  }
+
+  function renderHome() {
+    var st = store();
+    [].forEach.call(document.querySelectorAll('.toc-state'), function (el) {
+      var t = +el.dataset.stateT;
+      el.className = 'toc-state';
+      if (st['d' + t] === 1) { el.classList.add('done'); el.textContent = '✓ といた'; }
+      else if (st.last && st.last.t === t && st.last.s > 0) {
+        el.classList.add('doing'); el.textContent = 'つづき';
+      } else { el.textContent = ''; }
+    });
+    var btn = document.getElementById('resumeBtn');
+    if (st.last && st.last.t > 0) {
+      btn.hidden = false;
+      var name = views[st.last.t].querySelector('.tband h2').textContent;
+      document.getElementById('resumeWhere').textContent =
+        name + '（' + (st.last.s + 1) + '問目）';
+      btn.onclick = function () { go(st.last.t, st.last.s, 1); };
+    } else { btn.hidden = true; }
+  }
+
+  function go(t, s, dir) {
+    lastDir = dir || 1;
+    state.t = Math.max(0, Math.min(N, t));
+    state.s = Math.max(0, s || 0);
+    if (state.t > 0) state.s = Math.min(state.s, stepsOf(state.t).length - 1);
+    else state.s = 0;
+    render();
+  }
+  function next() {
+    var t = state.t, s = state.s;
+    if (t === 0) return;
+    if (s < stepsOf(t).length - 1) go(t, s + 1, 1);
+    else if (t < N) go(t + 1, 0, 1);
+    else go(0, 0, 1);
+  }
+  function prev() {
+    var t = state.t, s = state.s;
+    if (t === 0) return;
+    if (s > 0) go(t, s - 1, -1);
+    else go(0, 0, -1);
+  }
+
+  document.getElementById('btnNext').addEventListener('click', next);
+  document.getElementById('btnPrev').addEventListener('click', prev);
+
+  document.addEventListener('click', function (e) {
+    var go_ = e.target.closest('[data-go]');
+    if (go_) { go(+go_.dataset.go, 0, 1); return; }
+
+    var blank = e.target.closest('.blank');
+    if (blank) { blank.classList.toggle('open'); return; }
+
+    var rall = e.target.closest('.reveal-all');
+    if (rall) {
+      var step = rall.closest('.step');
+      var opened = step.querySelectorAll('.blank.open').length;
+      var all = step.querySelectorAll('.blank');
+      var open = opened < all.length;
+      [].forEach.call(all, function (b) { b.classList.toggle('open', open); });
+      rall.textContent = open ? 'すべての答えを隠す' : 'すべての答えを表示';
+      return;
+    }
+
+    var rev = e.target.closest('.reveal');
+    if (rev) { rev.closest('.step').classList.add('show'); return; }
+
+    var mk = e.target.closest('.mk');
+    if (mk) {
+      var stp = mk.closest('.step');
+      var st = store(); st.r = st.r || {};
+      st.r[stp.dataset.qid] = +mk.dataset.v;
+      save(st);
+      setTimeout(next, 220);
+      return;
+    }
+
+    var opt = e.target.closest('.qopt');
+    if (opt) {
+      var qstep = opt.closest('.qz-step');
+      if (qstep.classList.contains('answered')) return;
+      qstep.classList.add('answered');
+      var c = +qstep.dataset.c, chosen = +opt.dataset.i;
+      [].forEach.call(qstep.querySelectorAll('.qopt'), function (b, i) {
+        if (i === c) b.classList.add('correct');
+        else if (i === chosen) b.classList.add('wrong');
+        else b.classList.add('dim');
+      });
+      var ex = qstep.querySelector('.expl');
+      if (ex) ex.style.display = 'block';
+      var st2 = store(); st2.r = st2.r || {};
+      st2.r[qstep.dataset.qid] = chosen === c ? 1 : 0;
+      save(st2);
+      return;
+    }
+
+    var mopt = e.target.closest('.mopt');
+    if (mopt) {
+      var item = mopt.closest('.m-item');
+      if (item.dataset.done) return;
+      var ok = mopt.dataset.l === item.dataset.a;
+      mopt.classList.add(ok ? 'correct' : 'wrong');
+      if (!ok) {
+        [].forEach.call(item.querySelectorAll('.mopt'), function (b) {
+          if (b.dataset.l === item.dataset.a) b.classList.add('correct');
+        });
+      }
+      item.dataset.done = '1';
+      return;
+    }
+
+    var retry = e.target.closest('[data-retry]');
+    if (retry) {
+      var view = retry.closest('.view');
+      var st3 = store(); st3.r = st3.r || {};
+      [].forEach.call(view.querySelectorAll('[data-qid]'), function (el) {
+        delete st3.r[el.dataset.qid];
+      });
+      delete st3['d' + state.t];
+      save(st3);
+      [].forEach.call(view.querySelectorAll('.step'), function (el) {
+        el.classList.remove('show', 'answered');
+      });
+      [].forEach.call(view.querySelectorAll('.qopt'), function (b) {
+        b.classList.remove('correct', 'wrong', 'dim');
+      });
+      [].forEach.call(view.querySelectorAll('.m-item'), function (it) {
+        delete it.dataset.done;
+        [].forEach.call(it.querySelectorAll('.mopt'), function (b) {
+          b.classList.remove('correct', 'wrong');
+        });
+      });
+      [].forEach.call(view.querySelectorAll('.blank.open'), function (b) {
+        b.classList.remove('open');
+      });
+      go(state.t, 0, -1);
+      return;
+    }
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight') next();
+    if (e.key === 'ArrowLeft') prev();
+  });
+  var tx = 0, ty = 0;
+  document.addEventListener('touchstart', function (e) {
+    tx = e.changedTouches[0].clientX; ty = e.changedTouches[0].clientY;
+  }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    var dx = e.changedTouches[0].clientX - tx;
+    var dy = e.changedTouches[0].clientY - ty;
+    if (Math.abs(dx) > 64 && Math.abs(dy) < 48 && state.t > 0) {
+      if (dx < 0) next(); else prev();
+    }
+  }, { passive: true });
+
+  function fromHash() {
+    var m = /#t(\d+)(?:s(\d+))?/.exec(location.hash);
+    if (m) go(+m[1], +(m[2] || 0), 1); else go(0, 0, 1);
+  }
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
+})();
+</script>
+</body></html>

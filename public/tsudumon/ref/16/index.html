@@ -1,0 +1,1358 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>歴史 ⑯ 第二次世界大戦と日本｜つづもん参考書</title>
+<style>
+  :root { --brand:#b45309; --deep:#7c2d12; --amber:#f59e0b; --cream:#fffdf8; --line:#fde68a; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { -webkit-text-size-adjust:100%; }
+  body { font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;
+         font-size:16px; line-height:1.95; color:#1c1917; background:var(--cream);
+         padding-bottom:86px; }
+  .wrap { max-width:640px; margin:0 auto; padding:0 16px 24px; }
+
+  .mark { background:linear-gradient(transparent 55%, var(--line) 55%); font-weight:bold; padding:0 1px; }
+
+  /* ── 上部: タイトル＋単元タブ＋進捗バー ── */
+  .bar { position:sticky; top:0; z-index:10; background:rgba(255,253,248,.96);
+         backdrop-filter:blur(6px); border-bottom:1px solid #f0e6d2; }
+  .bar-in { max-width:640px; margin:0 auto; padding:8px 16px 0; }
+  .bar-row { display:flex; align-items:center; gap:8px; }
+  .bar-title { font-weight:bold; color:var(--deep); font-size:14px; flex:1;
+               white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .bar-step { flex:none; font-size:12px; font-weight:bold; color:var(--brand); }
+  .tabs { display:flex; gap:6px; overflow-x:auto; padding:8px 0;
+          scrollbar-width:none; -webkit-overflow-scrolling:touch; }
+  .tabs::-webkit-scrollbar { display:none; }
+  .tab { flex:none; width:36px; height:36px; border-radius:50%; border:1.5px solid var(--line);
+         background:#fffbeb; color:var(--brand); font-size:15px; font-weight:bold;
+         display:inline-flex; align-items:center; justify-content:center; cursor:pointer; }
+  .tab.done { background:#fef3c7; }
+  .tab.done::after { content:""; }
+  .tab.on { background:var(--brand); border-color:var(--brand); color:#fff;
+            box-shadow:0 2px 6px rgba(180,83,9,.35); }
+  .pbar { height:3px; background:#f5ecd8; border-radius:2px; overflow:hidden; margin:0 0 0; }
+  .pfill { height:100%; width:0; background:linear-gradient(90deg,var(--amber),#fbbf24);
+           border-radius:2px; transition:width .25s ease; }
+
+  /* ── ビュー / ステップ ── */
+  .view { display:none; }
+  .view.on { display:block; position:relative; animation:vfade .18s ease; }
+  @keyframes vfade { from { opacity:.6; } to { opacity:1; } }
+  .step { display:none; }
+  .step.on { display:block; }
+  /* 本物っぽいページめくり（2枚重ね）:
+     進む = 今のページ自体が左とじに沿って手前にめくれて去り、下から次のページが現れる。
+     戻る = 前のページが手前からめくり戻されて上に着地する。 */
+  /* min-height:100% = 下に敷かれた新ページ全体を覆う（絶対配置なので view の実高さに解決される。
+     これが無いと、めくれるページより新ページが長いとき下端が透けて見える） */
+  .step.turn-out { display:block; position:absolute; top:0; left:0; width:100%; min-height:100%;
+                   z-index:3; pointer-events:none; background:var(--cream);
+                   transform-origin:left center;
+                   animation:turnOut .45s cubic-bezier(.55,.06,.68,.19) forwards; }
+  @keyframes turnOut {
+    0%   { transform:perspective(1200px) rotateY(0); opacity:1; }
+    75%  { opacity:1; }
+    100% { transform:perspective(1200px) rotateY(-88deg); opacity:0; } }
+  .step.turn-out::after { content:""; position:absolute; inset:0; pointer-events:none;
+                          background:linear-gradient(to right, transparent 55%, rgba(124,45,18,.12)); }
+  .step.on.turn-in { position:relative; z-index:3; background:var(--cream);
+                     transform-origin:left center;
+                     animation:turnIn .45s cubic-bezier(.22,.72,.32,1); }
+  @keyframes turnIn {
+    from { transform:perspective(1200px) rotateY(-88deg); }
+    to   { transform:perspective(1200px) rotateY(0); } }
+  .step.turn-under { display:block; position:absolute; top:0; left:0; width:100%; z-index:1;
+                     pointer-events:none; max-height:100%; overflow:hidden; }
+
+  /* ホーム */
+  .top { text-align:center; padding:26px 0 6px; }
+  .badge { display:inline-block; background:var(--brand); color:#fff; font-weight:bold;
+           padding:4px 16px; border-radius:20px; font-size:13px; }
+  .webtag { background:rgba(255,255,255,.25); border-radius:10px; padding:1px 8px;
+            font-size:11px; margin-left:4px; }
+  .top h1 { font-size:29px; color:var(--deep); margin-top:12px; line-height:1.4; }
+  .sub { color:#92400e; font-size:14px; margin-top:2px; }
+  .cover-navi { display:flex; align-items:center; gap:12px; justify-content:center;
+                margin:18px auto 4px; max-width:420px; text-align:left; }
+  .navi { width:56px; height:56px; border-radius:50%; object-fit:cover; flex:none;
+          box-shadow:0 1px 4px rgba(0,0,0,.15); }
+  /* キャラは丸トリミングせず全身を表示（透過PNG） */
+  .navi-char { width:auto; border-radius:0; object-fit:contain; background:none; box-shadow:none;
+               filter:drop-shadow(0 1px 2px rgba(0,0,0,.18)); }
+  .tband .tchar { height:40px; margin-left:auto; }
+  .sum30-navi { display:flex; align-items:center; justify-content:flex-end; gap:8px;
+                padding:0 12px 10px; margin-top:-2px; }
+  .sum30-navi .navi-char { height:46px; }
+  .sum30-bubble { position:relative; background:#fff; border:1.5px solid var(--amber); border-radius:12px;
+                  padding:6px 12px; font-size:12.5px; font-weight:bold; color:var(--deep); }
+  .sum30-bubble::after { content:""; position:absolute; right:-11px; top:50%; transform:translateY(-50%);
+                         border:6px solid transparent; border-left-color:var(--amber); }
+  .navi-emoji { background:#fef3c7; display:flex; align-items:center; justify-content:center; font-size:30px; }
+  .bubble { position:relative; background:#fff; border:2px solid var(--amber); border-radius:12px;
+            padding:8px 14px; font-size:13px; font-weight:bold; color:var(--deep); }
+  .bubble::before { content:""; position:absolute; left:-12px; top:50%; transform:translateY(-50%);
+                    border:6px solid transparent; border-right-color:var(--amber); }
+  .resume { display:block; width:100%; margin:16px 0 0; background:var(--brand); color:#fff;
+            border:none; border-radius:14px; padding:13px; font-size:15px; font-weight:bold;
+            cursor:pointer; box-shadow:0 3px 8px rgba(180,83,9,.3); }
+  .resume span { font-weight:normal; font-size:12px; opacity:.9; margin-left:8px; }
+  .toc { margin:16px 0 8px; background:#fff; border:2px solid var(--line); border-radius:14px;
+         padding:14px; }
+  .toc-h { font-weight:bold; color:var(--deep); margin-bottom:6px; font-size:15px; }
+  .toc-item { display:flex; align-items:center; gap:10px; width:100%; padding:11px 6px;
+              background:none; border:none; border-top:1px solid #faf1dc; cursor:pointer;
+              color:#44403c; font-weight:bold; font-size:15px; text-align:left;
+              font-family:inherit; line-height:1.5; }
+  .toc-item:first-of-type { border-top:none; }
+  .toc-no { flex:none; width:24px; height:24px; border-radius:50%; background:var(--amber);
+            color:#fff; display:inline-flex; align-items:center; justify-content:center;
+            font-size:13px; }
+  .toc-name { flex:1; }
+  /* 高さを固定して、✓（環境により絵文字グリフで行ボックスが太る）でも
+     行の高さが他の行と変わらないようにする */
+  .toc-state { flex:none; font-size:11px; font-weight:bold; line-height:1;
+               display:inline-flex; align-items:center; height:20px; }
+  .toc-state.done { color:#16a34a; }
+  .toc-state.doing { color:var(--brand); background:#fffbeb; border:1px solid var(--line);
+                     border-radius:10px; padding:1px 8px; }
+
+  /* 単元ヘッダー */
+  .tband { display:flex; align-items:center; gap:10px; margin:18px 0 14px; }
+  .tno { flex:none; width:34px; height:34px; border-radius:50%; background:var(--brand); color:#fff;
+         display:inline-flex; align-items:center; justify-content:center; font-size:17px;
+         font-weight:bold; box-shadow:0 2px 4px rgba(180,83,9,.3); }
+  .tband h2 { font-size:20px; color:var(--deep); border-bottom:3px solid var(--line);
+              padding-bottom:2px; flex:1; line-height:1.4; }
+
+  .hook { display:flex; align-items:center; gap:12px; margin-bottom:14px; }
+  .hook .bubble { font-weight:normal; font-size:13.5px; line-height:1.8; }
+
+  /* ── 単元表紙デザイン（PDFの単元表紙とおそろい）── */
+  .cover-img { width:100%; display:block; margin:2px 0 14px; border-radius:16px;
+               box-shadow:0 8px 18px rgba(91,68,53,.14); }
+  .cover-art { position:relative; margin:8px 8px 26px; padding:10px;
+               background:#fffaf1; border:2px solid rgba(180,83,9,.35); border-radius:14px;
+               box-shadow:0 10px 18px rgba(91,68,53,.16); transform:rotate(-1.6deg); }
+  .cover-art.art-even { transform:rotate(1.6deg); }
+  .cover-art img { width:100%; border-radius:10px; display:block; }
+  .cover-art::before, .cover-art::after { content:""; position:absolute; top:-12px;
+               width:84px; height:26px; border-radius:5px; background:rgba(217,119,6,.32);
+               box-shadow:0 2px 4px rgba(91,68,53,.1); z-index:1; }
+  .cover-art::before { left:22px; transform:rotate(-7deg); }
+  .cover-art::after { right:22px; transform:rotate(7deg); }
+  .cover-art figcaption { font-size:12px; color:#a8a29e; text-align:center; margin-top:6px; }
+
+  .overview { background:rgba(255,255,255,.94); border:2.5px solid rgba(180,83,9,.45);
+              border-radius:16px; padding:16px 16px 8px; margin-bottom:14px;
+              box-shadow:0 8px 16px rgba(91,68,53,.1); }
+  .ov-h { font-weight:bold; font-size:16px; color:var(--deep); margin-bottom:6px; }
+  .ov-list { list-style:none; display:flex; flex-direction:column; }
+  .ov-list li { display:flex; align-items:flex-start; gap:10px; padding:9px 2px;
+                font-size:14px; font-weight:bold; color:#44372e; line-height:1.6; }
+  .ov-list li + li { border-top:2px dashed rgba(180,83,9,.22); }
+  .ov-num { flex:none; width:24px; height:24px; border-radius:50%; background:var(--brand);
+            color:#fff; font-weight:bold; display:inline-flex; align-items:center;
+            justify-content:center; font-size:13px; margin-top:2px; }
+
+  .cheer { display:flex; align-items:center; justify-content:center; gap:12px; margin:2px 0 12px; }
+  .cheer-char { width:76px; filter:drop-shadow(0 3px 5px rgba(91,68,53,.2)); }
+  .cheer-bubble { position:relative; background:#fff; border:2px solid rgba(180,83,9,.55);
+                  border-radius:14px; padding:8px 14px; font-size:13.5px; font-weight:bold;
+                  color:#5b4435; }
+  .cheer-bubble::before { content:""; position:absolute; left:-9px; top:50%; width:14px; height:14px;
+                  background:#fff; border-left:2px solid rgba(180,83,9,.55);
+                  border-bottom:2px solid rgba(180,83,9,.55);
+                  transform:translateY(-50%) rotate(45deg); }
+
+  .hero { margin:0 0 8px; }
+  .hero img { width:100%; border-radius:14px; display:block; }
+  .hero figcaption { font-size:12px; color:#a8a29e; text-align:center; margin-top:4px; }
+
+  /* 節 */
+  .step h3 { font-size:18px; color:var(--deep); display:flex; align-items:center; gap:8px; line-height:1.5; }
+  .sec-no { flex:none; width:22px; height:22px; border-radius:50%; background:#fff;
+            border:1.5px solid var(--line); color:var(--brand); font-weight:bold;
+            display:inline-flex; align-items:center; justify-content:center; font-size:12px; }
+  .sec-lead { font-size:13px; color:var(--brand); font-weight:bold; margin:2px 0 4px 30px; }
+  .step p { margin-top:8px; text-align:justify; }
+  .point { background:#fff9c4; border-left:6px solid #fbbf24; border-radius:8px;
+           padding:10px 12px; margin-top:12px; font-size:14px; line-height:1.8; }
+  .ptag { font-weight:bold; color:var(--brand); }
+  .ptxt { color:#44403c; margin-top:2px; }
+  .tip { background:#fffbeb; border-radius:10px; padding:10px 12px; font-size:13.5px;
+         color:#44403c; line-height:1.8; }
+  .words { display:flex; flex-direction:column; gap:6px; margin-top:12px; }
+  .word { background:#fff; border:1px solid #f0e6d2; border-radius:10px; padding:8px 12px;
+          font-size:13.5px; line-height:1.7; }
+  .w-term { font-weight:bold; color:var(--brand); margin-right:8px; }
+  .w-rd { font-weight:normal; font-size:11px; color:#b8b0a6; margin-left:4px; }
+  .w-desc { color:#57534e; }
+
+  /* 重要語チェック */
+  .terms-h { font-size:18px; font-weight:bold; color:var(--deep); }
+  .terms-sub { font-size:12px; font-weight:normal; color:#a8a29e; margin-left:8px; }
+  .terms-tools { display:flex; align-items:center; justify-content:space-between; gap:8px;
+                 flex-wrap:wrap; margin:6px 0 10px; }
+  .tt-btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .shuffle-btn, .swap-btn { flex:none; display:inline-flex; align-items:center; gap:4px;
+                 font-family:inherit; font-size:13px; font-weight:bold; cursor:pointer;
+                 border-radius:16px; padding:6px 13px; }
+  .shuffle-btn { color:#fff; background:var(--brand); border:none; box-shadow:0 2px 6px rgba(180,83,9,.3); }
+  .swap-btn { color:var(--brand); background:#fffbeb; border:1.5px solid var(--line); }
+  .swap-btn.on { color:#fff; background:var(--brand); border-color:var(--brand); box-shadow:0 2px 6px rgba(180,83,9,.3); }
+  .shuffle-btn:active, .swap-btn:active { transform:translateY(1px); }
+  .both-toggle { display:inline-flex; align-items:center; gap:6px; font-size:13px;
+                 font-weight:bold; color:#57534e; cursor:pointer; }
+  .both-toggle input { width:16px; height:16px; accent-color:var(--brand); }
+  .tgrid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  /* シャッフル時のふわっと再配置アニメ */
+  .tgrid.shuffling .tcard { animation:tshuffle .34s ease; }
+  @keyframes tshuffle { 0% { opacity:.25; transform:scale(.92); }
+                        100% { opacity:1; transform:none; } }
+  @media (max-width:400px) { .tgrid { grid-template-columns:1fr; } }
+  /* フラッシュカード（タップで表裏。両面表示チェックで従来の一覧に）
+     ─ めくりモード: 全カード同じ高さ（150px）・面は絶対配置で重ねて3D回転
+     ─ 両面モード: 3Dを使わず通常フローで表＋裏を縦に並べる（崩れ防止） */
+  .tcard { position:relative; height:150px; background:none; border:none; padding:0;
+           cursor:pointer; font-family:inherit; text-align:left; perspective:800px; }
+  .tcard-inner { display:block; position:absolute; inset:0; transition:transform .35s;
+                 transform-style:preserve-3d; }
+  .tc-face { position:absolute; inset:0; display:flex; flex-direction:column;
+             align-items:center; justify-content:center; text-align:center; overflow:hidden;
+             backface-visibility:hidden; -webkit-backface-visibility:hidden;
+             border:1.5px solid var(--line); border-radius:10px; padding:10px; background:#fff; }
+  /* 表＝説明（読んで用語を当てる） */
+  .tc-front { background:#fffbeb; overflow-y:auto; }
+  .tc-desc { font-size:13px; color:#44403c; line-height:1.6; font-weight:500; }
+  /* 裏＝用語（こたえ） */
+  .tc-back { transform:rotateY(180deg); }
+  .tc-term { font-weight:bold; font-size:17px; color:var(--deep); line-height:1.5; }
+  .tc-rd { display:block; font-weight:normal; font-size:11px; color:#b8b0a6; margin-top:2px; }
+  .tc-tap { font-size:10px; color:#d6c9a8; margin-top:6px; }
+  .tcard.flipped .tcard-inner { transform:rotateY(180deg); }
+  /* 裏表入れ替え: 用語を先に見せる（意味→用語 ⇄ 用語→意味） */
+  .tgrid.term-first .tcard-inner { transform:rotateY(180deg); }
+  .tgrid.term-first .tcard.flipped .tcard-inner { transform:rotateY(0deg); }
+  /* 両面表示モード（用語→説明の順に縦並べ） */
+  .tgrid.both .tcard { cursor:default; height:auto; perspective:none; }
+  .tgrid.both .tcard-inner { position:static; transform:none !important; transform-style:flat;
+                             display:flex; flex-direction:column; }
+  .tgrid.both .tc-face { position:static; overflow:visible; align-items:flex-start; text-align:left;
+                         backface-visibility:visible; -webkit-backface-visibility:visible; }
+  .tgrid.both .tc-back { order:0; transform:none; border-bottom:none; border-radius:10px 10px 0 0;
+                         padding-bottom:4px; background:#fff; }
+  .tgrid.both .tc-front { order:1; border-top:none; border-radius:0 0 10px 10px; }
+  .tgrid.both .tc-term { font-size:14px; }
+  .tgrid.both .tc-tap { display:none; }
+
+  /* まとめ・完了 */
+  .sum30 { border:2px solid var(--amber); border-radius:14px; overflow:hidden;
+           box-shadow:0 2px 8px rgba(245,158,11,.14); }
+  .sum30-h { background:linear-gradient(90deg,#d97706,var(--amber)); color:#fff; font-weight:bold;
+             font-size:15px; padding:8px 14px; display:flex; align-items:center; gap:8px; }
+  .sum30-tag { margin-left:auto; font-size:11px; background:rgba(255,255,255,.28);
+               padding:2px 10px; border-radius:12px; }
+  .sum30-body { padding:14px 16px; font-size:15px; font-weight:bold; color:#44403c; line-height:2.0;
+                background:#fffdf5; }
+  .sum30-body .mark { background:none; color:#c2410c; padding:0; }
+  .done { text-align:center; font-size:16px; font-weight:bold; color:var(--deep); margin:18px 0 10px; }
+  .wb-btn { display:flex; align-items:center; gap:12px; text-decoration:none;
+            background:var(--brand); color:#fff; border-radius:14px; padding:13px 16px;
+            box-shadow:0 3px 8px rgba(180,83,9,.3); margin-bottom:10px; }
+  .wb-home { display:block; text-align:center; margin:14px 0 0; text-decoration:none;
+             background:var(--brand); color:#fff; border-radius:14px; padding:13px 16px;
+             font-size:15px; font-weight:bold; box-shadow:0 3px 8px rgba(180,83,9,.3); }
+  .ai-btn { display:flex; align-items:center; gap:12px; text-decoration:none;
+            background:#06c755; color:#fff; border-radius:14px; padding:13px 16px;
+            box-shadow:0 3px 8px rgba(6,199,85,.3); }
+  .ai-ico { font-size:24px; flex:none; }
+  .ai-main { flex:1; font-weight:bold; font-size:15px; line-height:1.5; }
+  .ai-sub { display:block; font-weight:normal; font-size:12px; opacity:.9; }
+  .ai-arrow { font-size:22px; opacity:.8; }
+
+  .foot { text-align:center; margin-top:36px; color:#a8a29e; font-size:13px; }
+  .foot-note { margin-top:4px; font-size:12px; }
+
+  /* ── 下部ナビ ── */
+  .navbar { position:fixed; left:0; right:0; bottom:0; z-index:10;
+            background:rgba(255,253,248,.97); border-top:1px solid #f0e6d2;
+            padding:10px 16px calc(10px + env(safe-area-inset-bottom)); }
+  .navbar-in { max-width:640px; margin:0 auto; display:flex; align-items:center; gap:10px; }
+  .nb { border:none; border-radius:14px; padding:12px 0; font-size:15px; font-weight:bold;
+        cursor:pointer; font-family:inherit; }
+  .nb-prev { flex:1; background:#fff; color:var(--brand); border:1.5px solid var(--line); }
+  .nb-next { flex:2; background:var(--brand); color:#fff; box-shadow:0 3px 8px rgba(180,83,9,.3); }
+  .nav-label { position:absolute; left:-9999px; }
+
+  /* ── ホバー: マウスを乗せると「押せる」ことが分かる（タッチ端末では固着しないよう hover 端末限定）── */
+  @media (hover: hover) {
+    .toc-item, .resume, .shuffle-btn, .swap-btn, .tcard, .ai-btn, .wb-btn, .nb,
+    .chat-fab, .chat-close, .chat-login-btn, #chatSend {
+      transition: filter .12s ease, background-color .12s ease; }
+    /* 色つき（塗り）ボタンは少し濃く */
+    .resume:hover, .shuffle-btn:hover, .ai-btn:hover, .nb:hover, .chat-fab:hover,
+    .chat-login-btn:hover, #chatSend:hover { filter: brightness(0.94); }
+    /* 白・枠線ボタン／リスト／カードは薄いアンバーで下地を変える */
+    .toc-item:hover, .swap-btn:hover, .wb-btn:hover, .tcard:hover,
+    .chat-close:hover { background-color: #fff8ec; }
+  }
+
+  /* ── ページ内チャット（スタ先生）── */
+  .chat-fab { position:fixed; right:14px; bottom:calc(84px + env(safe-area-inset-bottom));
+              z-index:20; width:56px; height:56px; border-radius:50%;
+              border:none; background:var(--brand); color:#fff; font-size:26px;
+              cursor:pointer; box-shadow:0 4px 12px rgba(180,83,9,.4); }
+  .chat-fab.hidden { display:none; }
+  .chat-panel { position:fixed; right:12px; bottom:calc(84px + env(safe-area-inset-bottom));
+                z-index:21; width:min(400px, calc(100vw - 24px));
+                height:min(540px, calc(100vh - 160px));
+                display:flex; flex-direction:column; background:var(--cream);
+                border:2px solid var(--line); border-radius:16px;
+                box-shadow:0 10px 30px rgba(68,55,46,.25); overflow:hidden; }
+  .chat-head { display:flex; align-items:center; gap:8px; padding:10px 12px;
+               background:var(--brand); color:#fff; }
+  .chat-title { font-weight:bold; font-size:14px; }
+  .chat-topic { flex:1; font-size:11px; opacity:.9; white-space:nowrap;
+                overflow:hidden; text-overflow:ellipsis; }
+  .chat-close { border:none; background:none; color:#fff; font-size:22px;
+                line-height:1; cursor:pointer; padding:0 4px; }
+  .chat-note { font-size:11px; color:#92400e; background:#fffbeb;
+               border-bottom:1px solid #f0e6d2; padding:6px 12px; }
+  .chat-body { flex:1; overflow-y:auto; padding:12px; display:flex;
+               flex-direction:column; gap:8px; }
+  .chat-msg { max-width:85%; padding:8px 12px; border-radius:14px; font-size:13.5px;
+              line-height:1.7; white-space:pre-wrap; word-break:break-word; }
+  .chat-msg.user { align-self:flex-end; background:var(--brand); color:#fff;
+                   border-bottom-right-radius:4px; }
+  .chat-msg.model { align-self:flex-start; background:#fff; color:#1c1917;
+                    border:1.5px solid var(--line); border-bottom-left-radius:4px; }
+  .chat-msg.sys { align-self:center; background:none; color:#a8a29e; font-size:11.5px;
+                  text-align:center; }
+  .chat-login { padding:16px; text-align:center; border-top:1px solid #f0e6d2; }
+  .chat-login p { font-size:12.5px; color:#57534e; margin-bottom:10px; }
+  .chat-login-btn { display:inline-block; background:#06c755; color:#fff; font-weight:bold;
+                    font-size:14px; padding:10px 22px; border-radius:12px;
+                    text-decoration:none; }
+  .chat-input { display:flex; gap:8px; padding:10px 12px;
+                border-top:1px solid #f0e6d2; background:#fff; }
+  .chat-input input { flex:1; border:1.5px solid var(--line); border-radius:12px;
+                      padding:9px 12px; font-size:14px; font-family:inherit; }
+  .chat-input input:focus { outline:none; border-color:var(--amber); }
+  .chat-input button { border:none; background:var(--brand); color:#fff; font-weight:bold;
+                       font-size:14px; padding:0 18px; border-radius:12px;
+                       cursor:pointer; font-family:inherit; }
+  .chat-input button:disabled { opacity:.5; }
+  .chat-foot { font-size:10.5px; color:#a8a29e; text-align:center; padding:4px 8px 7px;
+               background:#fff; }
+  /* display:flex 指定が UA の [hidden]{display:none} に勝ってしまうのを防ぐ */
+  .chat-panel[hidden], .chat-input[hidden], .chat-login[hidden] { display:none; }
+</style></head><body>
+<div class="bar"><div class="bar-in">
+  <div class="bar-row">
+    <div class="bar-title">歴史 ⑯ 第二次世界大戦と日本</div>
+    <div class="bar-step" id="barStep"></div>
+  </div>
+  <nav class="tabs" id="tabs"><button class="tab tab-home" data-go="0" aria-label="目次">🏠</button><button class="tab" data-go="1" aria-label="第二次世界大戦の勃発">1</button><button class="tab" data-go="2" aria-label="太平洋戦争と日本の敗退">2</button><button class="tab" data-go="3" aria-label="銃後の苦しみと総動員">3</button><button class="tab" data-go="4" aria-label="終戦への道">4</button></nav>
+  <div class="pbar"><div class="pfill" id="pfill"></div></div>
+</div></div>
+<main class="wrap" id="views">
+
+<section class="view home" data-t="0">
+  <header class="top">
+    <div class="badge">歴史 ⑯　参考書 <span class="webtag">Web版</span></div>
+    <h1>第二次世界大戦と日本</h1>
+    <div class="sub">第二次世界大戦の始まり 〜 日本の敗戦</div>
+    <div class="cover-navi"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt="">
+      <div class="bubble">こんにちは！タブか下の単元をえらんで、1ページずつ読み進めよう！</div>
+    </div>
+  </header>
+  <button class="resume" id="resumeBtn" hidden>▶ つづきから読む<span id="resumeWhere"></span></button>
+  <nav class="toc">
+    <div class="toc-h">📚 この本の単元</div>
+    <button class="toc-item" data-go="1"><span class="toc-no">1</span><span class="toc-name">第二次世界大戦の勃発</span><span class="toc-state" data-state-t="1"></span></button><button class="toc-item" data-go="2"><span class="toc-no">2</span><span class="toc-name">太平洋戦争と日本の敗退</span><span class="toc-state" data-state-t="2"></span></button><button class="toc-item" data-go="3"><span class="toc-no">3</span><span class="toc-name">銃後の苦しみと総動員</span><span class="toc-state" data-state-t="3"></span></button><button class="toc-item" data-go="4"><span class="toc-no">4</span><span class="toc-name">終戦への道</span><span class="toc-state" data-state-t="4"></span></button>
+  </nav>
+  <a class="wb-home" href="../../wb/16/index.html">✏️ 問題集Web版を開く（この本の問題を解く）</a>
+  <footer class="foot">
+    <div>つづもん 参考書 Web版</div>
+    <div class="foot-note">紙やタブレットでじっくり派には、ダウンロード済みのPDF版もどうぞ。</div>
+  </footer>
+</section>
+<section class="view" data-t="1">
+  <div class="tband"><span class="tno">1</span><h2>第二次世界大戦の勃発</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  
+    <div class="step" data-label="この単元でわかること">
+      <img class="cover-img" src="img/cover-ww2-outbreak.webp"
+           alt="第二次世界大戦の勃発（この単元でわかること）">
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">世界中を巻き込んだ戦争は、ヨーロッパの小さな国への侵攻から始まったんだ。どうしてこんなに大きな戦争になってしまったのか、順番に見ていこう。</div></div>
+    </div>
+    <div class="step" data-label="独ソ不可侵条約とポーランド侵攻">
+      <h3><span class="sec-no">1</span>独ソ不可侵条約とポーランド侵攻</h3>
+      <div class="sec-lead">一つの条約が世界大戦の引き金になったよ。</div>
+      <p>1939年8月、対立していたはずのドイツとソ連が、「お互いに戦争をしない」と約束する<span class="mark">独ソ不可侵条約</span>を結んだんだ。この条約でうしろを心配しなくてよくなったヒトラーは、同年9月1日、<span class="mark">ポーランド</span>への侵攻に踏み切ったよ。これに対してイギリスとフランスがドイツに宣戦布告し、こうして<span class="mark">第二次世界大戦</span>が始まってしまったんだ。たった一つの条約が、大きな戦争のきっかけになったんだね。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1939年9月1日、ドイツのポーランド侵攻から第二次世界大戦が始まったよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">第二次世界大戦<span class="w-rd">だいにじせかいたいせん</span></span><span class="w-desc">1939年のドイツのポーランド侵攻で始まり、1945年まで続いた世界規模の戦争。</span></div><div class="word"><span class="w-term">独ソ不可侵条約<span class="w-rd">どくそふかしんじょうやく</span></span><span class="w-desc">1939年8月にドイツとソ連が結んだ、お互いに戦争しないという約束。</span></div></div>
+    </div>
+    <div class="step" data-label="枢軸国と連合国、そして世界大戦へ">
+      <h3><span class="sec-no">2</span>枢軸国と連合国、そして世界大戦へ</h3>
+      <div class="sec-lead">世界が二つの陣営に分かれて戦ったよ。</div>
+      <p>1940年、ドイツはフランスを降伏させて勢いに乗り、同じ年、日本・ドイツ・イタリアの3か国は<span class="mark">日独伊三国同盟</span>を結んで<span class="mark">枢軸国</span>と呼ばれる側の中心になった。これに対してアメリカ・イギリス・ソ連・中国などは<span class="mark">連合国</span>としてまとまっていったんだ。さらに1941年6月、ドイツは条約を破って<span class="mark">ソ連</span>に攻め込む<span class="mark">独ソ戦</span>を始め、戦争はどんどん世界規模に広がっていったんだよ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">日独伊の枢軸国と、米英ソ中などの連合国が世界規模で戦ったよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">枢軸国<span class="w-rd">すうじくこく</span></span><span class="w-desc">日独伊三国同盟を軸にまとまった、ドイツ・イタリア・日本などの国々。</span></div><div class="word"><span class="w-term">連合国<span class="w-rd">れんごうこく</span></span><span class="w-desc">枢軸国と戦った、アメリカ・イギリス・ソ連・中国などの国々。</span></div><div class="word"><span class="w-term">日独伊三国同盟<span class="w-rd">にちどくいさんごくどうめい</span></span><span class="w-desc">1940年に日本・ドイツ・イタリアが結んだ同盟。</span></div></div>
+    </div>
+    <div class="step" data-label="ホロコースト">
+      <h3><span class="sec-no">3</span>ホロコースト</h3>
+      <div class="sec-lead">多くの命が組織的に奪われてしまったよ。</div>
+      <p>この戦争の裏で、ナチス・ドイツはユダヤ人を「敵」として計画的に迫害する恐ろしい政策を進めていた。これを<span class="mark">ホロコースト</span>と呼ぶよ。<span class="mark">アウシュビッツ</span>をはじめとする強制収容所に送られた人々の多くが命を奪われ、その数はおよそ600万人にものぼるとされているんだ。二度とこうしたことが起きないように、歴史からしっかり学んでおきたいね。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">ナチス・ドイツはユダヤ人を組織的に迫害し、約600万人が犠牲になったんだ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">ホロコースト<span class="w-rd">ほろこーすと</span></span><span class="w-desc">ナチス・ドイツによるユダヤ人の組織的な迫害・虐殺。</span></div><div class="word"><span class="w-term">アウシュビッツ<span class="w-rd">あうしゅびっつ</span></span><span class="w-desc">ナチスが作った最大の強制収容所。約110万人が命を奪われた。</span></div></div>
+    </div>
+    <div class="step" data-label="重要語チェック">
+      <div class="terms-h">📖 重要語チェック<span class="terms-sub">意味を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="tgrid"><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1939年のドイツのポーランド侵攻で始まり、1945年まで続いた世界規模の戦争。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">第二次世界大戦</span>
+          <span class="tc-rd">だいにじせかいたいせん</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1939年8月にドイツとソ連が結んだ、お互いに戦争しないという約束。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">独ソ不可侵条約</span>
+          <span class="tc-rd">どくそふかしんじょうやく</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1939年9月1日にドイツが行った軍事行動で、第二次世界大戦のきっかけになった。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">ポーランド侵攻</span>
+          <span class="tc-rd">ぽーらんどしんこう</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">日独伊三国同盟を軸にまとまった、ドイツ・イタリア・日本などの国々。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">枢軸国</span>
+          <span class="tc-rd">すうじくこく</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">枢軸国と戦った、アメリカ・イギリス・ソ連・中国などの国々。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">連合国</span>
+          <span class="tc-rd">れんごうこく</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1940年に日本・ドイツ・イタリアが結んだ同盟。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">日独伊三国同盟</span>
+          <span class="tc-rd">にちどくいさんごくどうめい</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">ナチス・ドイツによるユダヤ人の組織的な迫害・虐殺。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">ホロコースト</span>
+          <span class="tc-rd">ほろこーすと</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">ナチスが作った最大の強制収容所。約110万人が命を奪われた。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">アウシュビッツ</span>
+          <span class="tc-rd">あうしゅびっつ</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button></div>
+    </div>
+    <div class="step" data-label="30秒まとめ">
+      
+      <div class="sum30">
+        <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
+        <div class="sum30-body">1939年、ドイツのポーランド侵攻をきっかけに<span class="mark">第二次世界大戦</span>が始まり、日独伊の<span class="mark">枢軸国</span>と米英ソ中などの<span class="mark">連合国</span>が世界規模で戦うことになったよ。その裏では、ナチス・ドイツによる<span class="mark">ホロコースト</span>という痛ましい迫害も行われていたんだ。</div>
+        
+        <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
+          <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
+      </div>
+      <div class="done">🎉 この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/16/index.html#t2"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=16-ww2-outbreak" target="_blank" rel="noopener">
+        <span class="ai-ico">🤖</span>
+        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
+        <span class="ai-arrow">›</span>
+      </a>
+    </div>
+</section>
+<section class="view" data-t="2">
+  <div class="tband"><span class="tno">2</span><h2>太平洋戦争と日本の敗退</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  
+    <div class="step" data-label="この単元でわかること">
+      <img class="cover-img" src="img/cover-pacific-war.webp"
+           alt="太平洋戦争と日本の敗退（この単元でわかること）">
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">ハワイの真珠湾への奇襲から始まった戦争は、やがて日本の街まで焼き尽くすことになったんだ。日本がどんな道をたどったのか見ていこう。</div></div>
+    </div>
+    <div class="step" data-label="真珠湾攻撃と太平洋戦争の始まり">
+      <h3><span class="sec-no">1</span>真珠湾攻撃と太平洋戦争の始まり</h3>
+      <div class="sec-lead">奇襲攻撃から太平洋の戦争が始まったよ。</div>
+      <p>日本はアメリカ・イギリス・中国・オランダによる石油や鉄の輸出停止、いわゆる<span class="mark">ABCD包囲網</span>で経済的に追いつめられていた。<span class="mark">東条英機</span>内閣はこの状況を打開しようと、「アジアを欧米から解放する」と唱える大東亜共栄圏を掲げて開戦を決断したんだ。1941年12月8日、日本海軍はハワイの<span class="mark">真珠湾</span>を奇襲し、<span class="mark">太平洋戦争</span>が始まったよ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1941年12月8日、東条英機内閣のもとで真珠湾攻撃が始まったよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">太平洋戦争<span class="w-rd">たいへいようせんそう</span></span><span class="w-desc">1941〜45年、日本がアメリカ・イギリスなどと戦った戦争。</span></div><div class="word"><span class="w-term">東条英機<span class="w-rd">とうじょうひでき</span></span><span class="w-desc">真珠湾攻撃を決断した、当時の日本の首相。</span></div><div class="word"><span class="w-term">ABCD包囲網<span class="w-rd">えーびーしーでぃーほういもう</span></span><span class="w-desc">アメリカ・イギリス・中国・オランダによる対日経済封鎖。</span></div></div>
+    </div>
+    <div class="step" data-label="ミッドウェー海戦と戦局の転換">
+      <h3><span class="sec-no">2</span>ミッドウェー海戦と戦局の転換</h3>
+      <div class="sec-lead">大敗北が攻守を逆転させてしまったよ。</div>
+      <p>開戦当初こそ優勢だった日本だけど、1942年6月の<span class="mark">ミッドウェー海戦</span>で主力空母4隻を失う大敗北を喫し、そこから戦況は一気に不利になっていったんだ。さらにガダルカナル島の戦いでは、日本軍は初めて撤退に追い込まれてしまう。攻める側から守る側へ、日本の立場が大きく変わってしまった瞬間だったんだね。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1942年のミッドウェー海戦で空母を失い、戦況が不利になったよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">ミッドウェー海戦<span class="w-rd">みっどうぇーかいせん</span></span><span class="w-desc">1942年、日本海軍が主力空母4隻を失った海戦。</span></div></div>
+    </div>
+    <div class="step" data-label="サイパン陥落と本土空襲">
+      <h3><span class="sec-no">3</span>サイパン陥落と本土空襲</h3>
+      <div class="sec-lead">戦いの被害が日本本土にも及び始めたよ。</div>
+      <p>1944年、<span class="mark">サイパン島</span>が陥落すると、日本本土はアメリカの爆撃機B-29の航続距離に入ってしまい、責任を取る形で東条内閣は退陣した。そして1945年3月10日、<span class="mark">東京大空襲</span>で東京の下町が焼夷弾によって焼き尽くされ、一夜にして多くの命が失われたんだ。空の上からの戦争の被害が、日本国内にも直接及ぶようになっていったよ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1944年のサイパン陥落後、日本本土はB-29の空襲を受けたよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">サイパン島<span class="w-rd">さいぱんとう</span></span><span class="w-desc">1944年に陥落し、日本本土空襲の拠点になった島。</span></div><div class="word"><span class="w-term">東京大空襲<span class="w-rd">とうきょうだいくうしゅう</span></span><span class="w-desc">1945年3月10日、アメリカ軍による東京への大規模爆撃。</span></div></div>
+    </div>
+    <div class="step" data-label="沖縄戦">
+      <h3><span class="sec-no">4</span>沖縄戦</h3>
+      <div class="sec-lead">地上戦が多くの命を奪ってしまったよ。</div>
+      <p>1945年4月から6月にかけて、日本本土で唯一の地上戦となる<span class="mark">沖縄戦</span>が行われた。看護要員として動員された女子学生たち「<span class="mark">ひめゆり学徒隊</span>」をはじめ、多くの沖縄県民が戦いに巻き込まれ、県民の4分の1以上が命を落としたとされているんだ。戦争は兵士だけでなく、そこに暮らす人々の日常をも奪ってしまうことを、心にとめておきたいね。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">沖縄戦は日本本土で唯一の地上戦で、県民の4分の1以上が犠牲になったんだ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">沖縄戦<span class="w-rd">おきなわせん</span></span><span class="w-desc">1945年4〜6月に行われた、日本本土で唯一の地上戦。</span></div></div>
+    </div>
+    <div class="step" data-label="重要語チェック">
+      <div class="terms-h">📖 重要語チェック<span class="terms-sub">意味を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="tgrid"><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1941〜45年、日本がアメリカ・イギリスなどと戦った戦争。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">太平洋戦争</span>
+          <span class="tc-rd">たいへいようせんそう</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1941年12月8日、日本海軍がハワイのアメリカ軍基地を奇襲した攻撃。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">真珠湾攻撃</span>
+          <span class="tc-rd">しんじゅわんこうげき</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">真珠湾攻撃を決断した、当時の日本の首相。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">東条英機</span>
+          <span class="tc-rd">とうじょうひでき</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">アメリカ・イギリス・中国・オランダによる対日経済封鎖。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">ABCD包囲網</span>
+          <span class="tc-rd">えーびーしーでぃーほういもう</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1942年、日本海軍が主力空母4隻を失った海戦。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">ミッドウェー海戦</span>
+          <span class="tc-rd">みっどうぇーかいせん</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1944年に陥落し、日本本土空襲の拠点になった島。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">サイパン島</span>
+          <span class="tc-rd">さいぱんとう</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1945年3月10日、アメリカ軍による東京への大規模爆撃。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">東京大空襲</span>
+          <span class="tc-rd">とうきょうだいくうしゅう</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1945年4〜6月に行われた、日本本土で唯一の地上戦。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">沖縄戦</span>
+          <span class="tc-rd">おきなわせん</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button></div>
+    </div>
+    <div class="step" data-label="30秒まとめ">
+      
+      <div class="sum30">
+        <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
+        <div class="sum30-body"><span class="mark">太平洋戦争</span>は1941年の<span class="mark">真珠湾攻撃</span>で始まり、<span class="mark">ミッドウェー海戦</span>での敗北を境に日本は追いつめられていったよ。<span class="mark">サイパン島</span>陥落後は本土空襲が本格化し、<span class="mark">沖縄戦</span>では多くの県民が犠牲になるなど、戦争の被害は日本国内にも大きく広がっていったんだ。</div>
+        
+        <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
+          <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
+      </div>
+      <div class="done">🎉 この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/16/index.html#t3"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=16-pacific-war" target="_blank" rel="noopener">
+        <span class="ai-ico">🤖</span>
+        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
+        <span class="ai-arrow">›</span>
+      </a>
+    </div>
+</section>
+<section class="view" data-t="3">
+  <div class="tband"><span class="tno">3</span><h2>銃後の苦しみと総動員</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  
+    <div class="step" data-label="この単元でわかること">
+      <img class="cover-img" src="img/cover-wartime-life.webp"
+           alt="銃後の苦しみと総動員（この単元でわかること）">
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">戦場に行かなかった人たちも、実は戦争と無縁ではいられなかったんだ。当時のふつうの暮らしがどう変わっていったのか、のぞいてみよう。</div></div>
+    </div>
+    <div class="step" data-label="配給制と切符制">
+      <h3><span class="sec-no">1</span>配給制と切符制</h3>
+      <div class="sec-lead">限られた物資をやりくりする暮らしが続いたよ。</div>
+      <p>戦争が長引くと、物資はどんどん不足していった。そこで国は米や砂糖などを国民に割り当てて分配する<span class="mark">配給制</span>を始めたんだ。1940年からは、衣料品や砂糖などをチケットと引きかえに受け取る<span class="mark">切符制</span>も組み合わされ、限られた物資を何とかやりくりする暮らしが続いたよ。今のように、お店に行けば何でも買える時代とはまったく違っていたんだね。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1940年から、物資を配る配給制と切符制が実施されたよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">配給制<span class="w-rd">はいきゅうせい</span></span><span class="w-desc">米や砂糖などを国が国民に割り当てて分配した制度。</span></div><div class="word"><span class="w-term">切符制<span class="w-rd">きっぷせい</span></span><span class="w-desc">衣料品などをチケットと引きかえに配給する制度。1940年から実施。</span></div></div>
+    </div>
+    <div class="step" data-label="学徒出陣と勤労動員">
+      <h3><span class="sec-no">2</span>学徒出陣と勤労動員</h3>
+      <div class="sec-lead">学生たちの日常が戦争に奪われていったよ。</div>
+      <p>兵力が足りなくなると、1943年からは文系の大学生たちが繰り上げ卒業のまま戦場に送られる<span class="mark">学徒出陣</span>が始まった。同じころ、出征した男性の代わりに工場で働く人手も足りなくなり、中学生や女学生までもが軍需工場で働く<span class="mark">勤労動員</span>にかり出されたんだ。学生たちの学ぶ時間や日常が、戦争によって次々と奪われていった時代だったんだよ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1943年、文系大学生の学徒出陣と学生の勤労動員が始まったよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">学徒出陣<span class="w-rd">がくとしゅつじん</span></span><span class="w-desc">1943年、文系大学生が繰り上げ卒業で出征したこと。</span></div><div class="word"><span class="w-term">勤労動員<span class="w-rd">きんろうどういん</span></span><span class="w-desc">中学生や女学生も軍需工場で働かされたこと。</span></div></div>
+    </div>
+    <div class="step" data-label="学童疎開と国民学校">
+      <h3><span class="sec-no">3</span>学童疎開と国民学校</h3>
+      <div class="sec-lead">子どもたちの暮らしも大きく変わったよ。</div>
+      <p>1944年になると、空襲から都市の子どもたちを守るため、小学生を地方の寺などへ集団で避難させる<span class="mark">学童疎開</span>が行われた。親元を離れての生活は、幼い子どもたちにとって心細いものだったはずだよ。また1941年には、尋常小学校が<span class="mark">国民学校</span>という名前に変わり、天皇に尽くす国民を育てることが教育の目的にされていったんだ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1944年から学童疎開、1941年に国民学校へと改称されたよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">学童疎開<span class="w-rd">がくどうそかい</span></span><span class="w-desc">都市の小学生を空襲から守るため地方へ避難させたこと。</span></div><div class="word"><span class="w-term">国民学校<span class="w-rd">こくみんがっこう</span></span><span class="w-desc">1941年に尋常小学校から改称された学校。</span></div></div>
+    </div>
+    <div class="step" data-label="植民地の皇民化政策">
+      <h3><span class="sec-no">4</span>植民地の皇民化政策</h3>
+      <div class="sec-lead">名前や言葉まで奪おうとしてしまったよ。</div>
+      <p>日本の植民地だった朝鮮や台湾では、人々に日本語を使わせたり神社に参拝させたりして、無理やり「日本人」にしようとする<span class="mark">皇民化政策</span>が進められた。1940年には、朝鮮の人々に日本式の姓名を名乗らせる<span class="mark">創氏改名</span>も行われたんだ。自分たちの名前や言葉を奪われるというのは、想像以上につらいことだったんじゃないかな。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">朝鮮・台湾で皇民化政策が進められ、1940年に創氏改名も行われたよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">皇民化政策<span class="w-rd">こうみんかせいさく</span></span><span class="w-desc">朝鮮・台湾の人々に日本人化を強要した政策。</span></div><div class="word"><span class="w-term">創氏改名<span class="w-rd">そうしかいめい</span></span><span class="w-desc">1940年、朝鮮の人々に日本式の姓名を名乗らせた政策。</span></div></div>
+    </div>
+    <div class="step" data-label="重要語チェック">
+      <div class="terms-h">📖 重要語チェック<span class="terms-sub">意味を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="tgrid"><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">米や砂糖などを国が国民に割り当てて分配した制度。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">配給制</span>
+          <span class="tc-rd">はいきゅうせい</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">衣料品などをチケットと引きかえに配給する制度。1940年から実施。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">切符制</span>
+          <span class="tc-rd">きっぷせい</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1943年、文系大学生が繰り上げ卒業で出征したこと。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">学徒出陣</span>
+          <span class="tc-rd">がくとしゅつじん</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">中学生や女学生も軍需工場で働かされたこと。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">勤労動員</span>
+          <span class="tc-rd">きんろうどういん</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">都市の小学生を空襲から守るため地方へ避難させたこと。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">学童疎開</span>
+          <span class="tc-rd">がくどうそかい</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1941年に尋常小学校から改称された学校。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">国民学校</span>
+          <span class="tc-rd">こくみんがっこう</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">朝鮮・台湾の人々に日本人化を強要した政策。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">皇民化政策</span>
+          <span class="tc-rd">こうみんかせいさく</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1940年、朝鮮の人々に日本式の姓名を名乗らせた政策。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">創氏改名</span>
+          <span class="tc-rd">そうしかいめい</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button></div>
+    </div>
+    <div class="step" data-label="30秒まとめ">
+      
+      <div class="sum30">
+        <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
+        <div class="sum30-body">戦争が長引くと、<span class="mark">配給制</span>や<span class="mark">切符制</span>で物資が制限され、<span class="mark">学徒出陣</span>や<span class="mark">勤労動員</span>で学生たちの日常も奪われていったよ。<span class="mark">学童疎開</span>で親元を離れた子どもたちも多く、植民地では<span class="mark">皇民化政策</span>や創氏改名が進められるなど、戦争は多くの人々の暮らしを大きく変えてしまったんだ。</div>
+        
+        <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
+          <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
+      </div>
+      <div class="done">🎉 この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/16/index.html#t4"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=16-wartime-life" target="_blank" rel="noopener">
+        <span class="ai-ico">🤖</span>
+        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
+        <span class="ai-arrow">›</span>
+      </a>
+    </div>
+</section>
+<section class="view" data-t="4">
+  <div class="tband"><span class="tno">4</span><h2>終戦への道</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  
+    <div class="step" data-label="この単元でわかること">
+      <img class="cover-img" src="img/cover-end-of-war.webp"
+           alt="終戦への道（この単元でわかること）">
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">長く続いた戦争が、どのように終わりを迎えたのか。つらい出来事も含まれるけれど、しっかりと事実を見つめてみよう。</div></div>
+    </div>
+    <div class="step" data-label="ヤルタ会談とポツダム宣言">
+      <h3><span class="sec-no">1</span>ヤルタ会談とポツダム宣言</h3>
+      <div class="sec-lead">降伏を求める宣言を日本は無視してしまったよ。</div>
+      <p>1945年2月、アメリカ・イギリス・ソ連の首脳は<span class="mark">ヤルタ会談</span>を開き、ドイツ降伏の3か月後にソ連が日本と戦争を始めることを、秘密のうちに約束していたんだ。同年7月には、アメリカ・イギリス・中国が日本に無条件降伏を求める<span class="mark">ポツダム宣言</span>を発表したよ。でも日本はこれをすぐには受け入れず、無視を続けてしまったんだ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1945年7月、米英中がポツダム宣言で無条件降伏を求めたよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">ヤルタ会談<span class="w-rd">やるたかいだん</span></span><span class="w-desc">1945年2月、米英ソが戦後処理を話し合った会談。ソ連の対日参戦が秘密に決められた。</span></div><div class="word"><span class="w-term">ポツダム宣言<span class="w-rd">ぽつだむせんげん</span></span><span class="w-desc">1945年7月、米英中が日本に無条件降伏を求めた宣言。</span></div></div>
+    </div>
+    <div class="step" data-label="広島と長崎への原爆投下">
+      <h3><span class="sec-no">2</span>広島と長崎への原爆投下</h3>
+      <div class="sec-lead">一発の爆弾が多くの命を奪ってしまったよ。</div>
+      <p>日本がポツダム宣言を無視し続けたことで、アメリカは1945年8月6日、<span class="mark">広島</span>に人類史上初めてとなる原子爆弾を投下した。この爆撃で約14万人もの命が奪われたんだ。さらに8月9日には<span class="mark">長崎</span>にも原爆が投下され、約7万人が犠牲になった。一発の爆弾がこれほど多くの命を奪ってしまったという事実を、私たちはしっかり心に刻んでおく必要があるね。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">8月6日に広島(約14万人)、9日に長崎(約7万人)が原爆の犠牲になったよ。</div></div>
+      
+    </div>
+    <div class="step" data-label="ソ連参戦と玉音放送">
+      <h3><span class="sec-no">3</span>ソ連参戦と玉音放送</h3>
+      <div class="sec-lead">長い戦争にようやく終わりが来たよ。</div>
+      <p>8月8日、<span class="mark">ソ連</span>はヤルタでの秘密の約束にしたがい、日ソ中立条約を破って満州に攻め込み、日本への参戦に踏み切った。次々と追いつめられた日本は、8月15日についにポツダム宣言の受け入れを決断し、昭和天皇がラジオで国民に終戦を伝える<span class="mark">玉音放送</span>が行われたんだ。こうして、多くの犠牲を出した長い戦争が、ようやく終わりを迎えたんだよ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">8月15日、玉音放送によって終戦が国民に伝えられたよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">玉音放送<span class="w-rd">ぎょくおんほうそう</span></span><span class="w-desc">1945年8月15日、昭和天皇がラジオで終戦を国民に伝えた放送。</span></div></div>
+    </div>
+    <div class="step" data-label="重要語チェック">
+      <div class="terms-h">📖 重要語チェック<span class="terms-sub">意味を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="tgrid"><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1945年2月、米英ソが戦後処理を話し合った会談。ソ連の対日参戦が秘密に決められた。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">ヤルタ会談</span>
+          <span class="tc-rd">やるたかいだん</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1945年7月、米英中が日本に無条件降伏を求めた宣言。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">ポツダム宣言</span>
+          <span class="tc-rd">ぽつだむせんげん</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1945年8月6日、広島に投下された原子爆弾。約14万人が犠牲になった。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">広島原爆</span>
+          <span class="tc-rd">ひろしまげんばく</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1945年8月9日、長崎に投下された原子爆弾。約7万人が犠牲になった。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">長崎原爆</span>
+          <span class="tc-rd">ながさきげんばく</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1945年8月8日、ソ連が日ソ中立条約を破って日本に宣戦したこと。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">ソ連参戦</span>
+          <span class="tc-rd">それんさんせん</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1945年8月15日、昭和天皇がラジオで終戦を国民に伝えた放送。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">玉音放送</span>
+          <span class="tc-rd">ぎょくおんほうそう</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button></div>
+    </div>
+    <div class="step" data-label="30秒まとめ">
+      
+      <div class="sum30">
+        <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
+        <div class="sum30-body">1945年、<span class="mark">ポツダム宣言</span>を日本が無視し続けたことで<span class="mark">広島</span>・<span class="mark">長崎</span>に原爆が投下され、<span class="mark">ソ連参戦</span>もあって日本は追いつめられたよ。8月15日、<span class="mark">玉音放送</span>によってようやく終戦が伝えられ、多くの犠牲を出した戦争が幕を閉じたんだ。</div>
+        
+        <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
+          <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
+      </div>
+      <div class="done">🎉 この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/16/index.html#t5"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=16-end-of-war" target="_blank" rel="noopener">
+        <span class="ai-ico">🤖</span>
+        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
+        <span class="ai-arrow">›</span>
+      </a>
+    </div>
+</section>
+</main>
+<div class="navbar" id="navbar" hidden><div class="navbar-in">
+  <button class="nb nb-prev" id="btnPrev">← まえへ</button>
+  <button class="nb nb-next" id="btnNext">つぎへ →</button>
+</div></div>
+<button class="chat-fab" id="chatFab" aria-label="スタ先生に質問する">🤖</button>
+<section class="chat-panel" id="chatPanel" hidden>
+  <header class="chat-head">
+    <span class="chat-title">🤖 スタ先生に質問</span>
+    <span class="chat-topic" id="chatTopic"></span>
+    <button class="chat-close" id="chatClose" aria-label="閉じる">×</button>
+  </header>
+  <div class="chat-note">公式LINEと同じAI。会話はLINEのトークとつながるよ。</div>
+  <div class="chat-body" id="chatBody"></div>
+  <div class="chat-login" id="chatLogin" hidden>
+    <p>LINEログインすると、このページでスタ先生に質問できるよ。<br>会話のつづきは公式LINEでも話せる！</p>
+    <a class="chat-login-btn" id="chatLoginBtn" href="/welcome">LINEでログイン</a>
+  </div>
+  <form class="chat-input" id="chatForm" hidden>
+    <input type="text" id="chatText" placeholder="この単元の質問をどうぞ！" maxlength="300" autocomplete="off">
+    <button type="submit" id="chatSend">送信</button>
+  </form>
+  <div class="chat-foot" id="chatFoot"></div>
+</section>
+<script>
+(function () {
+  var KEY = 'tzmref-16';
+  var views = [].slice.call(document.querySelectorAll('.view'));
+  var tabs = [].slice.call(document.querySelectorAll('.tab'));
+  var N = views.length - 1; // 単元数
+  var state = { t: 0, s: 0 };
+  var lastDir = 1;
+  var rendered = null; // 直前に表示していた {t, s}（ページめくり演出用）
+
+  function store() {
+    try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; }
+  }
+  function save(obj) {
+    try { localStorage.setItem(KEY, JSON.stringify(obj)); } catch (e) {}
+  }
+  function stepsOf(t) { return views[t].querySelectorAll('.step'); }
+
+  function render() {
+    var t = state.t, s = state.s;
+    views.forEach(function (v, i) { v.classList.toggle('on', i === t); });
+    tabs.forEach(function (b) {
+      var bt = +b.dataset.go;
+      b.classList.toggle('on', bt === t);
+      b.classList.toggle('done', bt > 0 && store()['d' + bt] === 1);
+    });
+    var tabEl = tabs[t];
+    if (tabEl && tabEl.scrollIntoView) {
+      tabEl.scrollIntoView({ block: 'nearest', inline: 'center' });
+    }
+    var navbar = document.getElementById('navbar');
+    var barStep = document.getElementById('barStep');
+    var pfill = document.getElementById('pfill');
+    if (t === 0) {
+      navbar.hidden = true;
+      barStep.textContent = '';
+      pfill.style.width = '0';
+      renderHome();
+    } else {
+      var steps = stepsOf(t);
+      // 同じ単元内のページ送りだけ「めくり」演出（古いページと新しいページを重ねる）
+      var animFrom = rendered && rendered.t === t && rendered.s !== s ? rendered.s : null;
+      [].forEach.call(steps, function (el, i) {
+        el.classList.remove('turn-out', 'turn-in', 'turn-under');
+        el.classList.toggle('on', i === s);
+      });
+      if (animFrom !== null && steps[animFrom] && steps[s]) {
+        var oldEl = steps[animFrom], newEl = steps[s];
+        var clear = function () {
+          oldEl.classList.remove('turn-out', 'turn-under');
+          newEl.classList.remove('turn-in');
+        };
+        if (lastDir > 0) {
+          oldEl.classList.add('turn-out');      // 今のページがめくれて去る
+          oldEl.addEventListener('animationend', clear, { once: true });
+        } else {
+          oldEl.classList.add('turn-under');    // 下に敷いたまま
+          newEl.classList.add('turn-in');       // 前のページがめくり戻ってくる
+          newEl.addEventListener('animationend', clear, { once: true });
+        }
+        setTimeout(clear, 700); // アニメ未発火時の保険
+      }
+      navbar.hidden = false;
+      barStep.textContent = (s + 1) + ' / ' + steps.length;
+      pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
+      var prev = document.getElementById('btnPrev');
+      var next = document.getElementById('btnNext');
+      prev.textContent = s === 0 ? '🏠 目次' : '← まえへ';
+      if (s < steps.length - 1) {
+        next.textContent = 'つぎへ →';
+      } else {
+        next.textContent = t < N ? '次の単元へ →' : '🏠 目次にもどる';
+      }
+      // 進捗保存
+      var st = store();
+      st.last = { t: t, s: s };
+      if (s === steps.length - 1) st['d' + t] = 1;
+      save(st);
+    }
+    window.scrollTo(0, 0);
+    var h = '#t' + t + (t > 0 && s > 0 ? 's' + s : '');
+    if (location.hash !== h) history.replaceState(null, '', t === 0 ? '#' : h);
+    rendered = { t: t, s: s };
+  }
+
+  function renderHome() {
+    var st = store();
+    [].forEach.call(document.querySelectorAll('.toc-state'), function (el) {
+      var t = +el.dataset.stateT;
+      el.className = 'toc-state';
+      if (st['d' + t] === 1) { el.classList.add('done'); el.textContent = '✓︎ 読んだ'; }
+      else if (st.last && st.last.t === t && st.last.s > 0) {
+        el.classList.add('doing'); el.textContent = 'つづき';
+      } else { el.textContent = ''; }
+    });
+    var btn = document.getElementById('resumeBtn');
+    if (st.last && st.last.t > 0) {
+      btn.hidden = false;
+      var name = views[st.last.t].querySelector('.tband h2').textContent;
+      document.getElementById('resumeWhere').textContent =
+        name + '（' + (st.last.s + 1) + 'ページ目）';
+      btn.onclick = function () { go(st.last.t, st.last.s, 1); };
+    } else {
+      btn.hidden = true;
+    }
+  }
+
+  function go(t, s, dir) {
+    lastDir = dir || 1;
+    state.t = Math.max(0, Math.min(N, t));
+    state.s = Math.max(0, s || 0);
+    if (state.t > 0) {
+      state.s = Math.min(state.s, stepsOf(state.t).length - 1);
+    } else {
+      state.s = 0;
+    }
+    render();
+  }
+
+  function next() {
+    var t = state.t, s = state.s;
+    if (t === 0) return;
+    if (s < stepsOf(t).length - 1) go(t, s + 1, 1);
+    else if (t < N) go(t + 1, 0, 1);
+    else go(0, 0, 1);
+  }
+  function prev() {
+    var t = state.t, s = state.s;
+    if (t === 0) return;
+    if (s > 0) go(t, s - 1, -1);
+    else go(0, 0, -1);
+  }
+
+  document.getElementById('btnNext').addEventListener('click', next);
+  document.getElementById('btnPrev').addEventListener('click', prev);
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-go]');
+    if (b) { go(+b.dataset.go, 0, 1); return; }
+    // 重要語チェックのシャッフル: カードの並びをランダムに入れ替える
+    var sh = e.target.closest('.shuffle-btn');
+    if (sh) {
+      var grid = sh.closest('.step').querySelector('.tgrid');
+      if (grid) {
+        var cards = [].slice.call(grid.querySelectorAll('.tcard'));
+        for (var i = cards.length - 1; i > 0; i--) {
+          var j = Math.floor(Math.random() * (i + 1));
+          var tmp = cards[i]; cards[i] = cards[j]; cards[j] = tmp;
+        }
+        cards.forEach(function (c) { c.classList.remove('flipped'); grid.appendChild(c); });
+        grid.classList.remove('shuffling');
+        void grid.offsetWidth;              // リフローでアニメを再始動
+        grid.classList.add('shuffling');
+      }
+      return;
+    }
+    // 裏表入れ替え（説明→用語 ⇄ 用語→説明）。設定は保存し全単元に反映
+    var sw = e.target.closest('.swap-btn');
+    if (sw) {
+      var g0 = document.querySelector('.tgrid');
+      var on = !(g0 && g0.classList.contains('term-first'));
+      applySwap(on);
+      var st2 = store(); st2.swap = on ? 1 : 0; save(st2);
+      return;
+    }
+    // 重要語カード: タップで表裏（両面表示中はめくらない）
+    var card = e.target.closest('.tcard');
+    if (card && !card.closest('.tgrid').classList.contains('both')) {
+      card.classList.toggle('flipped');
+    }
+  });
+
+  // 「両面表示にする」チェック（設定は保存して全単元・次回にも反映）
+  function applyBoth(on) {
+    [].forEach.call(document.querySelectorAll('.both-chk'), function (c) { c.checked = on; });
+    [].forEach.call(document.querySelectorAll('.tgrid'), function (g) {
+      g.classList.toggle('both', on);
+    });
+  }
+  document.addEventListener('change', function (e) {
+    if (e.target.classList && e.target.classList.contains('both-chk')) {
+      applyBoth(e.target.checked);
+      var st = store(); st.both = e.target.checked ? 1 : 0; save(st);
+    }
+  });
+  applyBoth(store().both === 1);
+
+  // 裏表入れ替え（用語⇄説明のどちらを先に見せるか。全カード共通・保存）
+  function applySwap(on) {
+    [].forEach.call(document.querySelectorAll('.tgrid'), function (g) {
+      [].forEach.call(g.querySelectorAll('.tcard.flipped'), function (c) { c.classList.remove('flipped'); });
+      g.classList.toggle('term-first', on);
+    });
+    [].forEach.call(document.querySelectorAll('.swap-btn'), function (b) { b.classList.toggle('on', on); });
+  }
+  applySwap(store().swap === 1);
+
+  // 左右スワイプでページ送り（縦スクロールと誤爆しないよう横優位のみ）
+  var tx = 0, ty = 0;
+  document.addEventListener('touchstart', function (e) {
+    tx = e.changedTouches[0].clientX; ty = e.changedTouches[0].clientY;
+  }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    var dx = e.changedTouches[0].clientX - tx;
+    var dy = e.changedTouches[0].clientY - ty;
+    if (Math.abs(dx) > 64 && Math.abs(dy) < 48 && state.t > 0) {
+      if (dx < 0) next(); else prev();
+    }
+  }, { passive: true });
+
+  // ハッシュ直リンク（#t3s2）
+  function fromHash() {
+    var m = /#t(\d+)(?:s(\d+))?/.exec(location.hash);
+    if (m) go(+m[1], +(m[2] || 0), 1); else go(0, 0, 1);
+  }
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
+})();
+</script>
+<script type="module">
+// ── ページ内チャット（スタ先生）──
+// 公式LINEの参考書AI（ref_ask）と知識・会話履歴・1日回数枠を共有する。
+// 認証は www.chatstudy.jp の LINE Login（Firebase Auth）。marutto-study の
+// SPA と同じ localStorage 永続化なので、一度 /welcome でログインすれば共有される。
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js';
+import {
+  initializeAuth, browserLocalPersistence, browserSessionPersistence,
+  inMemoryPersistence, onAuthStateChanged,
+} from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js';
+
+var TOPIC_KEYS = ["16-ww2-outbreak", "16-pacific-war", "16-wartime-life", "16-end-of-war"];
+var API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/referenceChat';
+
+var app = initializeApp({
+  apiKey: 'AIzaSyBJuODbPmpu_fiJ8a1ffzDIUwEFszol5Cc',
+  authDomain: 'chatstudy-63477.firebaseapp.com',
+  projectId: 'chatstudy-63477',
+  appId: '1:283901969847:web:9efd3b421e8cdb16091432',
+});
+var auth = initializeAuth(app, {
+  persistence: [browserLocalPersistence, browserSessionPersistence, inMemoryPersistence],
+});
+
+var fab = document.getElementById('chatFab');
+var panel = document.getElementById('chatPanel');
+var body = document.getElementById('chatBody');
+var loginBox = document.getElementById('chatLogin');
+var form = document.getElementById('chatForm');
+var input = document.getElementById('chatText');
+var sendBtn = document.getElementById('chatSend');
+var foot = document.getElementById('chatFoot');
+var topicEl = document.getElementById('chatTopic');
+
+var user = null;
+var loadedTopic = null;   // 履歴取得済みの topicKey
+var busy = false;
+
+function currentTopicKey() {
+  var m = /#t(\d+)/.exec(location.hash);
+  var t = m ? +m[1] : 0;
+  var idx = Math.max(1, Math.min(t, TOPIC_KEYS.length)) - 1;
+  return TOPIC_KEYS[idx];
+}
+function msg(role, text) {
+  var el = document.createElement('div');
+  el.className = 'chat-msg ' + role;
+  el.textContent = text;
+  body.appendChild(el);
+  body.scrollTop = body.scrollHeight;
+  return el;
+}
+function setFoot(remaining) {
+  foot.textContent = remaining != null ? 'きょう あと' + remaining + '回 質問できるよ' : '';
+}
+function showLogin() {
+  loginBox.hidden = false;
+  form.hidden = true;
+  document.getElementById('chatLoginBtn').href =
+    '/welcome?next=' + encodeURIComponent(location.pathname + location.hash);
+}
+function showChat() { loginBox.hidden = true; form.hidden = false; }
+
+async function callApi(payload) {
+  var idToken = await user.getIdToken();
+  var res = await fetch(API, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(Object.assign({ idToken: idToken }, payload)),
+  });
+  var data = null;
+  try { data = await res.json(); } catch (e) { /* no body */ }
+  return { status: res.status, data: data || {} };
+}
+
+async function loadHistory() {
+  var topicKey = currentTopicKey();
+  loadedTopic = topicKey;
+  body.innerHTML = '';
+  var loading = msg('sys', '読み込み中…');
+  try {
+    var r = await callApi({ topicKey: topicKey, action: 'history' });
+    loading.remove();
+    if (r.status === 402) { msg('sys', r.data.message || 'この単元は購入者向けです'); form.hidden = true; return; }
+    if (r.status !== 200) { msg('sys', 'うまく読み込めなかった。開き直してみてね'); return; }
+    topicEl.textContent = r.data.topicName || '';
+    var h = r.data.history || [];
+    if (h.length === 0) {
+      msg('model', 'こんにちは！「' + (r.data.topicName || 'この単元') + '」でわからないことがあったら、なんでも聞いてね😊');
+    } else {
+      msg('sys', '── ここまでの会話（LINEと共有）──');
+      h.forEach(function (turn) { msg(turn.role === 'user' ? 'user' : 'model', turn.text); });
+    }
+    setFoot(r.data.remaining);
+    showChat();
+  } catch (e) {
+    loading.textContent = '通信エラー。電波のよいところで開き直してみてね';
+  }
+}
+
+async function send(text) {
+  if (busy) return;
+  busy = true;
+  sendBtn.disabled = true;
+  msg('user', text);
+  var waiting = msg('sys', 'スタ先生が考え中…');
+  try {
+    var r = await callApi({ topicKey: loadedTopic || currentTopicKey(), action: 'send', text: text });
+    waiting.remove();
+    if (r.status === 200) {
+      msg('model', r.data.answer);
+      setFoot(r.data.remaining);
+    } else if (r.data && r.data.message) {
+      msg('sys', r.data.message);
+    } else {
+      msg('sys', 'ごめんね、いまうまく答えられなかった。もう一度送ってみてね');
+    }
+  } catch (e) {
+    waiting.textContent = '通信エラー。もう一度送ってみてね';
+  }
+  busy = false;
+  sendBtn.disabled = false;
+}
+
+fab.addEventListener('click', function () {
+  panel.hidden = false;
+  fab.classList.add('hidden');
+  if (!user) { showLogin(); return; }
+  if (loadedTopic !== currentTopicKey()) loadHistory();
+});
+document.getElementById('chatClose').addEventListener('click', function () {
+  panel.hidden = true;
+  fab.classList.remove('hidden');
+});
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  var text = input.value.trim();
+  if (!text) return;
+  input.value = '';
+  send(text);
+});
+// 単元を移動したら（パネルを開いたまま）その単元の会話に切り替える
+window.addEventListener('hashchange', function () {
+  if (!panel.hidden && user && loadedTopic !== currentTopicKey()) loadHistory();
+});
+
+onAuthStateChanged(auth, function (u) {
+  user = u;
+  if (panel.hidden) return;
+  if (!u) { showLogin(); return; }
+  loadHistory();
+});
+</script>
+</body></html>

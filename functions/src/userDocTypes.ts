@@ -166,7 +166,7 @@ export interface UserDoc {
   /**
    * つづもん（PDF問題集＋参考書）のライセンス登録状態。
    * ライセンスコード（TZM-XXXX-XXXX）を LINE で送ると
-   * `handleTsudumonActivation` が書き込む。ワーク演習・参考書AI先生の
+   * `handleTsudumonActivation` が書き込む。ワーク演習・参考書のスタ先生対話の
    * ゲート判定は `tsudumonCore.evaluateTsudumonAccess` がこのスナップショット
    * だけで行う（license doc はホットパスで読まない）。
    * 正本は tsudumonLicenses/{code}（revoke 等はそちらを更新→再登録で反映）。

@@ -12,7 +12,7 @@
     "questions": [
       {
         "id": "math-g3-triangle-similarity-q1",
-        "question": "下の図の2つの三角形について、相似条件として正しいものはどれですか。",
+        "question": "下の図の2つの三角形が相似であることを示すのに使える相似条件はどれですか。",
         "options": [
           "3組の辺の比がすべて等しい",
           "2組の角がそれぞれ等しい",
@@ -20,655 +20,480 @@
           "1組の辺とその両端の角がそれぞれ等しい"
         ],
         "correctIndex": 1,
-        "explanation": "図では2組の角（同じ印どうし）がそれぞれ等しいことが示されています。\n三角形の内角の和は $180°$ なので、2組の角が等しければ残りの角も等しくなり、2つの三角形は相似です。",
+        "explanation": "図では2組の角（同じ印どうし）がそれぞれ等しいことが示されています。\n2組の角が等しければ残りの角も等しくなるので、2つの三角形は相似です。",
         "image": {
           "kind": "two-triangles",
-          "left": {
-            "angles": [
-              70,
-              60,
-              50
-            ],
-            "vertexNames": [
-              "A",
-              "B",
-              "C"
-            ]
-          },
-          "right": {
-            "angles": [
-              70,
-              60,
-              50
-            ],
-            "vertexNames": [
-              "D",
-              "E",
-              "F"
-            ]
-          },
+          "left": { "angles": [70, 60, 50], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [70, 60, 50], "vertexNames": ["D", "E", "F"] },
           "angleMarks": [
-            {
-              "tri": "left",
-              "at": "A",
-              "n": 1
-            },
-            {
-              "tri": "right",
-              "at": "D",
-              "n": 1
-            },
-            {
-              "tri": "left",
-              "at": "B",
-              "n": 2
-            },
-            {
-              "tri": "right",
-              "at": "E",
-              "n": 2
-            }
+            { "tri": "left", "at": "A", "n": 1 },
+            { "tri": "right", "at": "D", "n": 1 },
+            { "tri": "left", "at": "B", "n": 2 },
+            { "tri": "right", "at": "E", "n": 2 }
           ]
         },
         "difficulty": "basic"
       },
       {
         "id": "math-g3-triangle-similarity-q2",
-        "question": "下の図の2つの三角形について、相似条件として正しいものはどれですか。",
+        "question": "下の図の2つの三角形が相似であることを示すのに使える相似条件はどれですか。",
         "options": [
           "2組の角がそれぞれ等しい",
           "2組の辺の比とその間の角がそれぞれ等しい",
-          "1組の辺とその両端の角がそれぞれ等しい",
-          "3組の辺の比がすべて等しい"
+          "3組の辺の比がすべて等しい",
+          "3組の辺がそれぞれ等しい"
         ],
-        "correctIndex": 3,
-        "explanation": "図では対応する3組の辺（同じ印どうし）の比がすべて等しいことが示されています。\n対応する3辺の比が等しければ三角形の形が完全に決まるので、2つの三角形は相似です。",
+        "correctIndex": 2,
+        "explanation": "$AB:DE = BC:EF = CA:FD = 4:8 = 6:12 = 5:10 = 1:2$ で3組とも等しいです。\n3組の辺の比がすべて等しいので、2つの三角形は相似です。",
         "image": {
           "kind": "two-triangles",
-          "left": {
-            "angles": [
-              70,
-              60,
-              50
-            ],
-            "vertexNames": [
-              "A",
-              "B",
-              "C"
-            ]
-          },
-          "right": {
-            "angles": [
-              70,
-              60,
-              50
-            ],
-            "vertexNames": [
-              "D",
-              "E",
-              "F"
-            ]
-          },
-          "sideTicks": [
-            {
-              "tri": "left",
-              "side": "AB",
-              "n": 1
-            },
-            {
-              "tri": "right",
-              "side": "DE",
-              "n": 1
-            },
-            {
-              "tri": "left",
-              "side": "BC",
-              "n": 2
-            },
-            {
-              "tri": "right",
-              "side": "EF",
-              "n": 2
-            },
-            {
-              "tri": "left",
-              "side": "CA",
-              "n": 3
-            },
-            {
-              "tri": "right",
-              "side": "FD",
-              "n": 3
-            }
+          "left": { "angles": [83, 56, 41], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [83, 56, 41], "vertexNames": ["D", "E", "F"] },
+          "sideLabels": [
+            { "tri": "left", "side": "AB", "text": "4cm" },
+            { "tri": "left", "side": "BC", "text": "6cm" },
+            { "tri": "left", "side": "CA", "text": "5cm" },
+            { "tri": "right", "side": "DE", "text": "8cm" },
+            { "tri": "right", "side": "EF", "text": "12cm" },
+            { "tri": "right", "side": "FD", "text": "10cm" }
           ]
         },
         "difficulty": "basic"
       },
       {
         "id": "math-g3-triangle-similarity-q3",
-        "question": "下の図の2つの三角形について、相似条件として正しいものはどれですか。",
+        "question": "下の図の2つの三角形が相似であることを示すのに使える相似条件はどれですか。",
         "options": [
           "3組の辺の比がすべて等しい",
-          "2組の角がそれぞれ等しい",
           "2組の辺の比とその間の角がそれぞれ等しい",
+          "2組の角がそれぞれ等しい",
           "2組の辺の比がそれぞれ等しい"
         ],
-        "correctIndex": 2,
-        "explanation": "図では2組の辺の比 $AB:DE = AC:DF$（同じ印どうし）と、その間の角 $∠A=∠D$ が等しいことが示されています。\n2組の辺の比とその間の角が等しいので相似です。辺の比だけ、または角だけでは相似は決まりません。",
+        "correctIndex": 1,
+        "explanation": "$AB:DE = BC:EF = 6:4 = 9:6 = 3:2$ で、その間の角 $∠B = ∠E$ も等しいです。\n2組の辺の比とその間の角がそれぞれ等しいので相似です。",
         "image": {
           "kind": "two-triangles",
-          "left": {
-            "angles": [
-              60,
-              70,
-              50
-            ],
-            "vertexNames": [
-              "A",
-              "B",
-              "C"
-            ]
-          },
-          "right": {
-            "angles": [
-              60,
-              70,
-              50
-            ],
-            "vertexNames": [
-              "D",
-              "E",
-              "F"
-            ]
-          },
-          "sideTicks": [
-            {
-              "tri": "left",
-              "side": "AB",
-              "n": 1
-            },
-            {
-              "tri": "right",
-              "side": "DE",
-              "n": 1
-            },
-            {
-              "tri": "left",
-              "side": "AC",
-              "n": 2
-            },
-            {
-              "tri": "right",
-              "side": "DF",
-              "n": 2
-            }
+          "left": { "angles": [60, 80, 40], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [60, 80, 40], "vertexNames": ["D", "E", "F"] },
+          "sideLabels": [
+            { "tri": "left", "side": "AB", "text": "6cm" },
+            { "tri": "left", "side": "BC", "text": "9cm" },
+            { "tri": "right", "side": "DE", "text": "4cm" },
+            { "tri": "right", "side": "EF", "text": "6cm" }
           ],
           "angleMarks": [
-            {
-              "tri": "left",
-              "at": "A",
-              "n": 1
-            },
-            {
-              "tri": "right",
-              "at": "D",
-              "n": 1
-            }
+            { "tri": "left", "at": "B", "n": 1 },
+            { "tri": "right", "at": "E", "n": 1 }
           ]
         },
         "difficulty": "basic"
       },
       {
         "id": "math-g3-triangle-similarity-q4",
-        "question": "三角形の相似条件は全部で何通りありますか。",
+        "question": "下の図の2つの三角形について正しいものはどれですか。",
         "options": [
-          "3つ",
-          "2つ",
-          "4つ",
-          "5つ"
+          "相似である（2組の角がそれぞれ等しい）",
+          "相似である（3組の辺の比がすべて等しい）",
+          "相似である（2組の辺の比とその間の角がそれぞれ等しい）",
+          "相似かどうかは決まらない"
         ],
         "correctIndex": 0,
-        "explanation": "三角形の相似条件は全部で $3$ つです。\n①3組の辺の比がすべて等しい、②2組の辺の比とその間の角がそれぞれ等しい、③2組の角がそれぞれ等しい、の3通りです。",
-        "difficulty": "basic"
+        "explanation": "図では $∠A = ∠D$、$∠C = ∠F$（同じ印どうし）が等しいことが示されています。\n2組の角がそれぞれ等しいので相似です。",
+        "image": {
+          "kind": "two-triangles",
+          "left": { "angles": [55, 65, 60], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [55, 65, 60], "vertexNames": ["D", "E", "F"] },
+          "angleMarks": [
+            { "tri": "left", "at": "A", "n": 1 },
+            { "tri": "right", "at": "D", "n": 1 },
+            { "tri": "left", "at": "C", "n": 2 },
+            { "tri": "right", "at": "F", "n": 2 }
+          ]
+        },
+        "difficulty": "standard"
       },
       {
         "id": "math-g3-triangle-similarity-q5",
-        "question": "次のうち、三角形の相似条件として正しくないものはどれですか。",
+        "question": "下の図で △ABC∽△DEF です。$x$ の値を求めなさい。",
         "options": [
-          "3組の辺がそれぞれ等しい",
-          "2組の角がそれぞれ等しい",
-          "2組の辺の比とその間の角がそれぞれ等しい",
-          "3組の辺の比がすべて等しい"
+          "$\\frac{16}{3}$",
+          "$11$",
+          "$12$",
+          "$9$"
         ],
-        "correctIndex": 0,
-        "explanation": "「3組の辺がそれぞれ等しい」は合同条件であり、相似条件ではありません。\n相似では辺の長さそのものではなく、辺の比が等しいことを使います。",
-        "difficulty": "basic"
+        "correctIndex": 2,
+        "explanation": "相似比は $AB:DE = 6:9 = 2:3$ です。\n$BC:EF = 2:3$ より $8:x = 2:3$、$x = 12$ となります。",
+        "image": {
+          "kind": "two-triangles",
+          "left": { "angles": [70, 55, 55], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [70, 55, 55], "vertexNames": ["D", "E", "F"] },
+          "angleMarks": [
+            { "tri": "left", "at": "A", "n": 1 },
+            { "tri": "right", "at": "D", "n": 1 },
+            { "tri": "left", "at": "B", "n": 2 },
+            { "tri": "right", "at": "E", "n": 2 }
+          ],
+          "sideLabels": [
+            { "tri": "left", "side": "AB", "text": "6cm" },
+            { "tri": "left", "side": "BC", "text": "8cm" },
+            { "tri": "right", "side": "DE", "text": "9cm" },
+            { "tri": "right", "side": "EF", "text": "x" }
+          ]
+        },
+        "difficulty": "standard"
       },
       {
         "id": "math-g3-triangle-similarity-q6",
-        "question": "下の図の2つの三角形について正しいものはどれですか。",
+        "question": "下の図で △ABC∽△DEF です。$x$ の値を求めなさい。",
         "options": [
-          "相似である（2組の辺の比とその間の角がそれぞれ等しい）",
-          "相似である（3組の辺の比がすべて等しい）",
-          "相似である（2組の角がそれぞれ等しい）",
-          "相似かどうかは決まらない"
+          "$\\frac{10}{3}$",
+          "$\\frac{15}{2}$",
+          "$7$",
+          "$6$"
         ],
-        "correctIndex": 2,
-        "explanation": "図では2組の角 $∠A=∠D$、$∠B=∠E$（同じ印どうし）が等しいことが示されています。\n2組の角がそれぞれ等しいので相似です。",
+        "correctIndex": 1,
+        "explanation": "相似比は $AB:DE = 4:6 = 2:3$ です。\n$CA:FD = 2:3$ より $5:x = 2:3$、$x = 5 \\times \\frac{3}{2} = \\frac{15}{2}$ となります。",
         "image": {
           "kind": "two-triangles",
-          "left": {
-            "angles": [
-              50,
-              60,
-              70
-            ],
-            "vertexNames": [
-              "A",
-              "B",
-              "C"
-            ]
-          },
-          "right": {
-            "angles": [
-              50,
-              60,
-              70
-            ],
-            "vertexNames": [
-              "D",
-              "E",
-              "F"
-            ]
-          },
+          "left": { "angles": [60, 70, 50], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [60, 70, 50], "vertexNames": ["D", "E", "F"] },
           "angleMarks": [
-            {
-              "tri": "left",
-              "at": "A",
-              "n": 1
-            },
-            {
-              "tri": "right",
-              "at": "D",
-              "n": 1
-            },
-            {
-              "tri": "left",
-              "at": "B",
-              "n": 2
-            },
-            {
-              "tri": "right",
-              "at": "E",
-              "n": 2
-            }
+            { "tri": "left", "at": "B", "n": 1 },
+            { "tri": "right", "at": "E", "n": 1 }
+          ],
+          "sideLabels": [
+            { "tri": "left", "side": "AB", "text": "4cm" },
+            { "tri": "left", "side": "CA", "text": "5cm" },
+            { "tri": "right", "side": "DE", "text": "6cm" },
+            { "tri": "right", "side": "FD", "text": "x" }
           ]
         },
         "difficulty": "standard"
       },
       {
         "id": "math-g3-triangle-similarity-q7",
-        "question": "△ABC∽△DEF で、$AB=4$ cm、$DE=6$ cm のとき、相似比を求めなさい。",
+        "question": "下の図で、2つの三角形は相似です。相似を正しく表しているものはどれですか。",
         "options": [
-          "$2:3$",
-          "$3:4$",
-          "$3:2$",
-          "$4:3$"
+          "$△ABC ∽ △DEF$",
+          "$△ABC ∽ △EFD$",
+          "$△ABC ∽ △FED$",
+          "$△ABC ∽ △DFE$"
         ],
         "correctIndex": 0,
-        "explanation": "$AB:DE = 4:6 = 2:3$\n対応する辺 $AB$ と $DE$ の比が、そのまま相似比になります。",
-        "difficulty": "basic"
-      },
-      {
-        "id": "math-g3-triangle-similarity-q8",
-        "question": "△ABC∽△DEF で相似比が $2:3$ です。$BC=8$ cm のとき、対応する辺 $EF$ の長さを求めなさい。",
-        "options": [
-          "$\\frac{16}{3}$ cm",
-          "$12$ cm",
-          "$10$ cm",
-          "$16$ cm"
-        ],
-        "correctIndex": 1,
-        "explanation": "$BC:EF = 2:3$ より $8:EF = 2:3$\n$EF = 8 \\times \\frac{3}{2} = 12$ (cm) です。",
-        "difficulty": "standard"
-      },
-      {
-        "id": "math-g3-triangle-similarity-q9",
-        "question": "△ABCと△PQRで、$AB=6$、$BC=9$、$CA=12$、$PQ=4$、$QR=6$、$RP=8$ です。この2つの三角形は相似ですか。あわせて使う相似条件を選びなさい。",
-        "options": [
-          "相似ではない",
-          "相似である（2組の角がそれぞれ等しい）",
-          "相似である（2組の辺の比とその間の角がそれぞれ等しい）",
-          "相似である（3組の辺の比がすべて等しい）"
-        ],
-        "correctIndex": 3,
-        "explanation": "$AB:PQ = BC:QR = CA:RP = 3:2$ ですべて等しいので相似です。\n使った相似条件は「3組の辺の比がすべて等しい」です。",
-        "difficulty": "standard"
-      },
-      {
-        "id": "math-g3-triangle-similarity-q10",
-        "question": "下の図の2つの三角形について、相似条件として正しいものはどれですか。",
-        "options": [
-          "3組の辺の比がすべて等しい",
-          "2組の角がそれぞれ等しい",
-          "2組の辺の比とその間の角がそれぞれ等しい",
-          "1組の辺とその両端の角がそれぞれ等しい"
-        ],
-        "correctIndex": 2,
-        "explanation": "図では2組の辺の比 $AB:DE = BC:EF$（同じ印どうし）と、その間の角 $∠B=∠E$ が等しいことが示されています。\n$∠B$ は辺 $AB$ と $BC$ の間の角なので、2組の辺の比とその間の角が等しく相似です。",
+        "explanation": "同じ印の角どうしが対応するので、$A↔D$、$B↔E$、$C↔F$ です。\n対応する頂点の順に書くと $△ABC ∽ △DEF$ となります。",
         "image": {
           "kind": "two-triangles",
-          "left": {
-            "angles": [
-              55,
-              70,
-              55
-            ],
-            "vertexNames": [
-              "A",
-              "B",
-              "C"
-            ]
-          },
-          "right": {
-            "angles": [
-              55,
-              70,
-              55
-            ],
-            "vertexNames": [
-              "D",
-              "E",
-              "F"
-            ]
-          },
-          "sideTicks": [
-            {
-              "tri": "left",
-              "side": "AB",
-              "n": 1
-            },
-            {
-              "tri": "right",
-              "side": "DE",
-              "n": 1
-            },
-            {
-              "tri": "left",
-              "side": "BC",
-              "n": 2
-            },
-            {
-              "tri": "right",
-              "side": "EF",
-              "n": 2
-            }
-          ],
+          "left": { "angles": [50, 60, 70], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [50, 60, 70], "vertexNames": ["D", "E", "F"] },
           "angleMarks": [
-            {
-              "tri": "left",
-              "at": "B",
-              "n": 1
-            },
-            {
-              "tri": "right",
-              "at": "E",
-              "n": 1
-            }
+            { "tri": "left", "at": "A", "n": 1 },
+            { "tri": "right", "at": "D", "n": 1 },
+            { "tri": "left", "at": "B", "n": 2 },
+            { "tri": "right", "at": "E", "n": 2 },
+            { "tri": "left", "at": "C", "n": 3 },
+            { "tri": "right", "at": "F", "n": 3 }
           ]
         },
         "difficulty": "standard"
       },
       {
-        "id": "math-g3-triangle-similarity-q11",
+        "id": "math-g3-triangle-similarity-q8",
         "question": "下の図の2つの三角形について正しいものはどれですか。",
         "options": [
           "相似である（2組の辺の比とその間の角がそれぞれ等しい）",
           "相似である（2組の角がそれぞれ等しい）",
-          "相似とは限らない",
-          "相似である（3組の辺の比がすべて等しい）"
+          "相似である（3組の辺の比がすべて等しい）",
+          "相似とは限らない"
         ],
-        "correctIndex": 2,
-        "explanation": "図では2組の辺の比 $AB:DE = AC:DF$（同じ印どうし）が等しいですが、等しい角は $∠B=∠E$ で、これは辺 $AB$、$AC$ の間の角ではありません。\n「2組の辺の比とその間の角」は間の角が等しいときだけ使えるので、この図だけでは相似とは限りません。",
+        "correctIndex": 3,
+        "explanation": "等しい2組の辺の比は $AB:DE = AC:DF$ ですが、印のついた等しい角は $∠B = ∠E$ で、辺 $AB$、$AC$ の間の角ではありません。\n「2組の辺の比とその間の角」は間の角が等しいときだけ使えるので、この図だけでは相似とは限りません。",
         "image": {
           "kind": "two-triangles",
-          "left": {
-            "angles": [
-              50,
-              60,
-              70
-            ],
-            "vertexNames": [
-              "A",
-              "B",
-              "C"
-            ]
-          },
-          "right": {
-            "angles": [
-              50,
-              60,
-              70
-            ],
-            "vertexNames": [
-              "D",
-              "E",
-              "F"
-            ]
-          },
-          "sideTicks": [
-            {
-              "tri": "left",
-              "side": "AB",
-              "n": 1
-            },
-            {
-              "tri": "right",
-              "side": "DE",
-              "n": 1
-            },
-            {
-              "tri": "left",
-              "side": "AC",
-              "n": 2
-            },
-            {
-              "tri": "right",
-              "side": "DF",
-              "n": 2
-            }
+          "left": { "angles": [50, 60, 70], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [50, 60, 70], "vertexNames": ["D", "E", "F"] },
+          "sideLabels": [
+            { "tri": "left", "side": "AB", "text": "6cm" },
+            { "tri": "left", "side": "AC", "text": "8cm" },
+            { "tri": "right", "side": "DE", "text": "9cm" },
+            { "tri": "right", "side": "DF", "text": "12cm" }
           ],
           "angleMarks": [
-            {
-              "tri": "left",
-              "at": "B",
-              "n": 1
-            },
-            {
-              "tri": "right",
-              "at": "E",
-              "n": 1
-            }
+            { "tri": "left", "at": "B", "n": 1 },
+            { "tri": "right", "at": "E", "n": 1 }
           ]
         },
         "difficulty": "advanced"
       },
       {
-        "id": "math-g3-triangle-similarity-q12",
-        "question": "△ABC∽△DEF のとき、対応する角について正しいものはどれですか。",
-        "options": [
-          "対応する角の大きさは辺の比と同じになる",
-          "対応する角の和が $180°$ になる",
-          "対応する角の大きさは相似比の分だけ大きくなる",
-          "対応する角の大きさはそれぞれ等しい"
-        ],
-        "correctIndex": 3,
-        "explanation": "相似な図形では、対応する角の大きさはそれぞれ等しくなります。\n相似比に応じて変わるのは辺の長さで、角の大きさは変わりません。",
-        "difficulty": "basic"
-      },
-      {
-        "id": "math-g3-triangle-similarity-q13",
-        "question": "△ABCで、辺 $AB$ 上に点 $D$、辺 $AC$ 上に点 $E$ をとり、$DE$ と $BC$ が平行になっています。△ADEと△ABCについて正しいものはどれですか。",
+        "id": "math-g3-triangle-similarity-q9",
+        "question": "下の図の2つの三角形は相似ですか。使う相似条件もあわせて選びなさい。",
         "options": [
           "相似である（3組の辺の比がすべて等しい）",
           "相似である（2組の角がそれぞれ等しい）",
           "相似である（2組の辺の比とその間の角がそれぞれ等しい）",
           "相似ではない"
         ],
-        "correctIndex": 1,
-        "explanation": "$∠A$ は共通で、$DE \\parallel BC$ より同位角が等しく $∠ADE = ∠ABC$ です。\n2組の角が等しいので相似です。",
-        "difficulty": "standard"
-      },
-      {
-        "id": "math-g3-triangle-similarity-q14",
-        "question": "△ABCで $DE \\parallel BC$ となるように辺 $AB$ 上に点 $D$、辺 $AC$ 上に点 $E$ をとります。$AD=4$ cm、$DB=2$ cm、$BC=9$ cm のとき、$DE$ の長さを求めなさい。",
-        "options": [
-          "$3$ cm",
-          "$\\frac{9}{2}$ cm",
-          "$\\frac{15}{2}$ cm",
-          "$6$ cm"
-        ],
-        "correctIndex": 3,
-        "explanation": "$AD:AB = 4:(4+2) = 2:3$ より $DE:BC = 2:3$\n$DE = 9 \\times \\frac{2}{3} = 6$ (cm) です。",
-        "difficulty": "standard"
-      },
-      {
-        "id": "math-g3-triangle-similarity-q15",
-        "question": "下の図の2つの三角形について、相似条件として正しいものはどれですか。",
-        "options": [
-          "3組の辺の比がすべて等しい",
-          "直角三角形なので相似とはいえない",
-          "2組の角がそれぞれ等しい",
-          "2組の辺の比とその間の角がそれぞれ等しい"
-        ],
-        "correctIndex": 3,
-        "explanation": "図では $∠A = ∠D$ と、2組の辺の比 $AB:DE = AC:DF$（同じ印どうし）が等しいことが示されています。\n$∠A$ は辺 $AB$ と $AC$ の間の角なので、2組の辺の比とその間の角が等しく相似です。",
+        "correctIndex": 0,
+        "explanation": "$AB:DE = BC:EF = CA:FD = 6:4 = 9:6 = 12:8 = 3:2$ ですべて等しいです。\n3組の辺の比がすべて等しいので相似です。",
         "image": {
           "kind": "two-triangles",
-          "left": {
-            "angles": [
-              90,
-              55,
-              35
-            ],
-            "vertexNames": [
-              "A",
-              "B",
-              "C"
-            ]
-          },
-          "right": {
-            "angles": [
-              90,
-              55,
-              35
-            ],
-            "vertexNames": [
-              "D",
-              "E",
-              "F"
-            ]
-          },
-          "sideTicks": [
-            {
-              "tri": "left",
-              "side": "AB",
-              "n": 1
-            },
-            {
-              "tri": "right",
-              "side": "DE",
-              "n": 1
-            },
-            {
-              "tri": "left",
-              "side": "AC",
-              "n": 2
-            },
-            {
-              "tri": "right",
-              "side": "DF",
-              "n": 2
-            }
-          ],
+          "left": { "angles": [47, 104, 29], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [47, 104, 29], "vertexNames": ["D", "E", "F"] },
+          "sideLabels": [
+            { "tri": "left", "side": "AB", "text": "6cm" },
+            { "tri": "left", "side": "BC", "text": "9cm" },
+            { "tri": "left", "side": "CA", "text": "12cm" },
+            { "tri": "right", "side": "DE", "text": "4cm" },
+            { "tri": "right", "side": "EF", "text": "6cm" },
+            { "tri": "right", "side": "FD", "text": "8cm" }
+          ]
+        },
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-triangle-similarity-q10",
+        "question": "下の図で △ABC∽△DEF です。$x$ の値を求めなさい。",
+        "options": [
+          "$\\frac{27}{5}$",
+          "$13$",
+          "$10$",
+          "$15$"
+        ],
+        "correctIndex": 3,
+        "explanation": "相似比は $AB:DE = 6:10 = 3:5$ です。\n$BC:EF = 3:5$ より $9:x = 3:5$、$x = 9 \\times \\frac{5}{3} = 15$ となります。",
+        "image": {
+          "kind": "two-triangles",
+          "left": { "angles": [65, 60, 55], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [65, 60, 55], "vertexNames": ["D", "E", "F"] },
           "angleMarks": [
-            {
-              "tri": "left",
-              "at": "A",
-              "n": 1
-            },
-            {
-              "tri": "right",
-              "at": "D",
-              "n": 1
-            }
+            { "tri": "left", "at": "A", "n": 1 },
+            { "tri": "right", "at": "D", "n": 1 },
+            { "tri": "left", "at": "B", "n": 2 },
+            { "tri": "right", "at": "E", "n": 2 }
+          ],
+          "sideLabels": [
+            { "tri": "left", "side": "AB", "text": "6cm" },
+            { "tri": "left", "side": "BC", "text": "9cm" },
+            { "tri": "right", "side": "DE", "text": "10cm" },
+            { "tri": "right", "side": "EF", "text": "x" }
           ]
         },
         "difficulty": "advanced"
       },
       {
-        "id": "math-g3-triangle-similarity-q16",
-        "question": "線分 $AB$ と $CD$ が点 $O$ で交わっていて、$AC \\parallel DB$ です。$OA=6$ cm、$OB=4$ cm、$OC=9$ cm のとき、$OD$ の長さを求めなさい。",
+        "id": "math-g3-triangle-similarity-q11",
+        "question": "下の図の2つの三角形が相似であることを示すのに使える相似条件はどれですか。",
         "options": [
-          "$\\frac{27}{2}$ cm",
-          "$6$ cm",
-          "$\\frac{8}{3}$ cm",
-          "$8$ cm"
+          "2組の辺の比とその間の角がそれぞれ等しい",
+          "2組の角がそれぞれ等しい",
+          "3組の辺の比がすべて等しい",
+          "1組の辺とその両端の角がそれぞれ等しい"
+        ],
+        "correctIndex": 0,
+        "explanation": "$AB:DE = AC:DF = 5:10 = 6:12 = 1:2$ で、その間の角 $∠A = ∠D$ も等しいです。\n2組の辺の比とその間の角がそれぞれ等しいので相似です。",
+        "image": {
+          "kind": "two-triangles",
+          "left": { "angles": [50, 70, 60], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [50, 70, 60], "vertexNames": ["D", "E", "F"] },
+          "sideLabels": [
+            { "tri": "left", "side": "AB", "text": "5cm" },
+            { "tri": "left", "side": "AC", "text": "6cm" },
+            { "tri": "right", "side": "DE", "text": "10cm" },
+            { "tri": "right", "side": "DF", "text": "12cm" }
+          ],
+          "angleMarks": [
+            { "tri": "left", "at": "A", "n": 1 },
+            { "tri": "right", "at": "D", "n": 1 }
+          ]
+        },
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-triangle-similarity-q12",
+        "question": "下の図の2つの三角形が相似であることを示すのに使える相似条件はどれですか。",
+        "options": [
+          "3組の辺の比がすべて等しい",
+          "2組の辺の比とその間の角がそれぞれ等しい",
+          "1組の辺とその両端の角がそれぞれ等しい",
+          "2組の角がそれぞれ等しい"
+        ],
+        "correctIndex": 3,
+        "explanation": "図では $∠B = ∠E$、$∠C = ∠F$（同じ印どうし）が等しいことが示されています。\n2組の角がそれぞれ等しいので相似です。",
+        "image": {
+          "kind": "two-triangles",
+          "left": { "angles": [55, 65, 60], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [55, 65, 60], "vertexNames": ["D", "E", "F"] },
+          "angleMarks": [
+            { "tri": "left", "at": "B", "n": 1 },
+            { "tri": "right", "at": "E", "n": 1 },
+            { "tri": "left", "at": "C", "n": 2 },
+            { "tri": "right", "at": "F", "n": 2 }
+          ]
+        },
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-triangle-similarity-q13",
+        "question": "下の図で、2つの三角形は相似です。相似を正しく表しているものはどれですか。",
+        "options": [
+          "$△ABC ∽ △DEF$",
+          "$△ABC ∽ △FDE$",
+          "$△ABC ∽ △EFD$",
+          "$△ABC ∽ △DFE$"
         ],
         "correctIndex": 1,
-        "explanation": "$AC \\parallel DB$ より $∠OAC = ∠OBD$、対頂角で $∠AOC = ∠BOD$ なので △OAC∽△OBD です。\n$OA:OB = OC:OD$ より $6:4 = 9:OD$、$OD = 6$ (cm)。",
+        "explanation": "同じ印の角どうしが対応するので、$A↔F$、$B↔D$、$C↔E$ です。\n対応する頂点の順に書くと $△ABC ∽ △FDE$ となります。",
+        "image": {
+          "kind": "two-triangles",
+          "left": { "angles": [40, 60, 80], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [60, 80, 40], "vertexNames": ["D", "E", "F"] },
+          "angleMarks": [
+            { "tri": "left", "at": "A", "n": 1 },
+            { "tri": "left", "at": "B", "n": 2 },
+            { "tri": "left", "at": "C", "n": 3 },
+            { "tri": "right", "at": "F", "n": 1 },
+            { "tri": "right", "at": "D", "n": 2 },
+            { "tri": "right", "at": "E", "n": 3 }
+          ]
+        },
+        "difficulty": "advanced"
+      },
+      {
+        "id": "math-g3-triangle-similarity-q14",
+        "question": "下の図で △ABC∽△DEF です。$x$ の値を求めなさい。",
+        "options": [
+          "$\\frac{27}{2}$",
+          "$5$",
+          "$6$",
+          "$8$"
+        ],
+        "correctIndex": 2,
+        "explanation": "相似比は $AB:DE = 12:8 = 3:2$ です。\n$AC:DF = 3:2$ より $9:x = 3:2$、$x = 9 \\times \\frac{2}{3} = 6$ となります。",
+        "image": {
+          "kind": "two-triangles",
+          "left": { "angles": [60, 55, 65], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [60, 55, 65], "vertexNames": ["D", "E", "F"] },
+          "angleMarks": [
+            { "tri": "left", "at": "A", "n": 1 },
+            { "tri": "right", "at": "D", "n": 1 }
+          ],
+          "sideLabels": [
+            { "tri": "left", "side": "AB", "text": "12cm" },
+            { "tri": "left", "side": "AC", "text": "9cm" },
+            { "tri": "right", "side": "DE", "text": "8cm" },
+            { "tri": "right", "side": "DF", "text": "x" }
+          ]
+        },
+        "difficulty": "standard"
+      },
+      {
+        "id": "math-g3-triangle-similarity-q15",
+        "question": "下の図の2つの三角形が相似であることを示すのに使える相似条件はどれですか。",
+        "options": [
+          "2組の角がそれぞれ等しい",
+          "3組の辺の比がすべて等しい",
+          "2組の辺の比とその間の角がそれぞれ等しい",
+          "3組の辺がそれぞれ等しい"
+        ],
+        "correctIndex": 1,
+        "explanation": "図では3組の辺（同じ印どうし）の比がそれぞれ等しいことが示されています。\n3組の辺の比がすべて等しいので相似です。",
+        "image": {
+          "kind": "two-triangles",
+          "left": { "angles": [70, 60, 50], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [70, 60, 50], "vertexNames": ["D", "E", "F"] },
+          "sideTicks": [
+            { "tri": "left", "side": "AB", "n": 1 },
+            { "tri": "right", "side": "DE", "n": 1 },
+            { "tri": "left", "side": "BC", "n": 2 },
+            { "tri": "right", "side": "EF", "n": 2 },
+            { "tri": "left", "side": "CA", "n": 3 },
+            { "tri": "right", "side": "FD", "n": 3 }
+          ]
+        },
+        "difficulty": "basic"
+      },
+      {
+        "id": "math-g3-triangle-similarity-q16",
+        "question": "下の図の2つの三角形について正しいものはどれですか。",
+        "options": [
+          "相似とは限らない",
+          "相似である（2組の辺の比とその間の角がそれぞれ等しい）",
+          "相似である（2組の角がそれぞれ等しい）",
+          "相似である（3組の辺の比がすべて等しい）"
+        ],
+        "correctIndex": 1,
+        "explanation": "$AB:DE = BC:EF = 8:12 = 6:9 = 2:3$ で、その間の角 $∠B = ∠E$ も等しいです。\n2組の辺の比とその間の角がそれぞれ等しいので相似です。",
+        "image": {
+          "kind": "two-triangles",
+          "left": { "angles": [60, 75, 45], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [60, 75, 45], "vertexNames": ["D", "E", "F"] },
+          "sideLabels": [
+            { "tri": "left", "side": "AB", "text": "8cm" },
+            { "tri": "left", "side": "BC", "text": "6cm" },
+            { "tri": "right", "side": "DE", "text": "12cm" },
+            { "tri": "right", "side": "EF", "text": "9cm" }
+          ],
+          "angleMarks": [
+            { "tri": "left", "at": "B", "n": 1 },
+            { "tri": "right", "at": "E", "n": 1 }
+          ]
+        },
         "difficulty": "advanced"
       },
       {
         "id": "math-g3-triangle-similarity-q17",
-        "question": "△ABC∽△DEF で、相似比が $3:4$、△ABCの周の長さが $18$ cm です。△DEFの周の長さを求めなさい。",
+        "question": "下の図で △ABC∽△DEF です。$x$ の値を求めなさい。",
         "options": [
-          "$24$ cm",
-          "$\\frac{27}{2}$ cm",
-          "$21$ cm",
-          "$32$ cm"
+          "$\\frac{6}{5}$",
+          "$\\frac{15}{2}$",
+          "$9$",
+          "$4$"
         ],
-        "correctIndex": 0,
-        "explanation": "相似な図形では周の長さの比も相似比に等しく $3:4$ です。\n$18:x = 3:4$ より $x = 24$ (cm)。",
+        "correctIndex": 1,
+        "explanation": "相似比は $AB:DE = 10:4 = 5:2$ です。\n$BC:EF = 5:2$ より $x:3 = 5:2$、$x = 3 \\times \\frac{5}{2} = \\frac{15}{2}$ となります。",
+        "image": {
+          "kind": "two-triangles",
+          "left": { "angles": [65, 60, 55], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [65, 60, 55], "vertexNames": ["D", "E", "F"] },
+          "angleMarks": [
+            { "tri": "left", "at": "B", "n": 1 },
+            { "tri": "right", "at": "E", "n": 1 }
+          ],
+          "sideLabels": [
+            { "tri": "left", "side": "AB", "text": "10cm" },
+            { "tri": "left", "side": "BC", "text": "x" },
+            { "tri": "right", "side": "DE", "text": "4cm" },
+            { "tri": "right", "side": "EF", "text": "3cm" }
+          ]
+        },
         "difficulty": "standard"
       },
       {
         "id": "math-g3-triangle-similarity-q18",
-        "question": "相似な2つの三角形について、いつでも成り立つことはどれですか。",
+        "question": "下の図で △ABC∽△DEF です。$x$ の値を求めなさい。",
         "options": [
-          "対応する角の大きさがそれぞれ等しい",
-          "対応する辺の長さがそれぞれ等しい",
-          "面積がそれぞれ等しい",
-          "周の長さがそれぞれ等しい"
+          "$18$",
+          "$7$",
+          "$10$",
+          "$8$"
         ],
-        "correctIndex": 0,
-        "explanation": "相似な図形では、対応する角の大きさはつねに等しくなります。\n辺の長さ・面積・周の長さは相似比に応じて変わるので、等しいとは限りません。",
-        "difficulty": "basic"
-      },
-      {
-        "id": "math-g3-triangle-similarity-q19",
-        "question": "△ABCと△DEFで、$∠A=50°$、$∠B=60°$、$∠D=50°$、$∠F=70°$ です。この2つの三角形は相似ですか。あわせて使う相似条件を選びなさい。",
-        "options": [
-          "相似ではない",
-          "相似である（2組の角がそれぞれ等しい）",
-          "相似である（3組の辺の比がすべて等しい）",
-          "相似かどうかは決まらない"
-        ],
-        "correctIndex": 1,
-        "explanation": "△ABCの残りの角は $∠C=70°$、△DEFの残りの角は $∠E=60°$ で、どちらも $50°,\\ 60°,\\ 70°$ の角をもちます。\n2組の角が等しいので相似です。",
-        "difficulty": "standard"
-      },
-      {
-        "id": "math-g3-triangle-similarity-q20",
-        "question": "△ABCと△DEFで、$AB=6$、$BC=8$、$∠B=70°$、$DE=9$、$EF=12$、$∠E=70°$ です。この2つの三角形は相似といえますか。あわせて使う相似条件を選びなさい。",
-        "options": [
-          "相似ではない",
-          "相似である（3組の辺の比がすべて等しい）",
-          "相似である（2組の辺の比とその間の角がそれぞれ等しい）",
-          "相似である（2組の角がそれぞれ等しい）"
-        ],
-        "correctIndex": 2,
-        "explanation": "$AB:DE = BC:EF = 2:3$ で、その間の角 $∠B = ∠E = 70°$ が等しいので相似です。\n使った相似条件は「2組の辺の比とその間の角がそれぞれ等しい」です。",
+        "correctIndex": 3,
+        "explanation": "相似比は $AB:DE = 15:10 = 3:2$ です。\n$CA:FD = 3:2$ より $12:x = 3:2$、$x = 12 \\times \\frac{2}{3} = 8$ となります。",
+        "image": {
+          "kind": "two-triangles",
+          "left": { "angles": [70, 55, 55], "vertexNames": ["A", "B", "C"] },
+          "right": { "angles": [70, 55, 55], "vertexNames": ["D", "E", "F"] },
+          "angleMarks": [
+            { "tri": "left", "at": "A", "n": 1 },
+            { "tri": "right", "at": "D", "n": 1 }
+          ],
+          "sideLabels": [
+            { "tri": "left", "side": "AB", "text": "15cm" },
+            { "tri": "left", "side": "CA", "text": "12cm" },
+            { "tri": "right", "side": "DE", "text": "10cm" },
+            { "tri": "right", "side": "FD", "text": "x" }
+          ]
+        },
         "difficulty": "advanced"
       }
     ]

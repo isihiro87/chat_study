@@ -5,15 +5,19 @@
  * 読み込める。`aiChat.ts` はこの core を使ってオーケストレーションする。
  */
 
-import type { AiChatTurn } from "./userDocTypes";
-import type { UserPlan } from "./lineWebhook";
+import type { AiChatTurn } from './userDocTypes';
+import type { UserPlan } from './lineWebhook';
 
 /** 全ユーザー共通の 1 日あたり AI 応答回数上限（プラン統合後）。 */
 export const DAILY_LIMIT = 40;
 
-/** 無料プランで保持する会話ターン数（user/model のペア数）。 */
-export const FREE_HISTORY_TURNS = 3;
-/** トライアル・プレミアムで保持する会話ターン数（微増）。 */
+/**
+ * 無料プランで保持する会話ターン数（user/model のペア数）。
+ * 2026-07: 3→6 に拡大。3ターンだと AI が自分の直前の発言を忘れて
+ * 釈明する事故が実会話で確認されたため（flash-lite の入力コストは十分小さい）。
+ */
+export const FREE_HISTORY_TURNS = 6;
+/** トライアル・プレミアムで保持する会話ターン数。 */
 export const PREMIUM_HISTORY_TURNS = 6;
 
 /** 1 日上限を返す（プラン統合により全ユーザー共通）。 */
@@ -23,18 +27,18 @@ export function getDailyLimit(_plan: UserPlan): number {
 
 /** プランに応じた保持ターン数を返す。 */
 export function getHistoryTurns(plan: UserPlan): number {
-  return plan === "premium" ? PREMIUM_HISTORY_TURNS : FREE_HISTORY_TURNS;
+  return plan === 'premium' ? PREMIUM_HISTORY_TURNS : FREE_HISTORY_TURNS;
 }
 
 /** JST の YYYY-MM-DD を返す。 */
 export function getJstDate(date: Date): string {
-  const formatter = new Intl.DateTimeFormat("ja-JP", {
-    timeZone: "Asia/Tokyo",
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
+  const formatter = new Intl.DateTimeFormat('ja-JP', {
+    timeZone: 'Asia/Tokyo',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
   });
-  return formatter.format(date).replace(/\//g, "-");
+  return formatter.format(date).replace(/\//g, '-');
 }
 
 /**
@@ -66,6 +70,6 @@ export function evaluateRateLimit(
   limit: number
 ): { currentCount: number; limited: boolean } {
   const sameDay = state?.dateJST === todayJst;
-  const currentCount = sameDay ? state?.count ?? 0 : 0;
+  const currentCount = sameDay ? (state?.count ?? 0) : 0;
   return { currentCount, limited: currentCount >= limit };
 }

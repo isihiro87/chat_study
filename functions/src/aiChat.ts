@@ -15,16 +15,16 @@
  * 失敗時はフォールバック文を返し、webhook 全体（200 応答）を壊さない。
  */
 
-import type { UserDoc, AiChatTurn } from "./userDocTypes";
-import { getUserPlan, getLineClient } from "./lineWebhook";
-import { buildSystemPrompt } from "./aiChatPrompt";
+import type { UserDoc, AiChatTurn } from './userDocTypes';
+import { getUserPlan, getLineClient } from './lineWebhook';
+import { buildSystemPrompt } from './aiChatPrompt';
 import {
   getDailyLimit,
   getHistoryTurns,
   getJstDate,
   trimHistory,
   evaluateRateLimit,
-} from "./aiChatCore";
+} from './aiChatCore';
 
 /** Gemini の出力トークン上限。LINE で読める長さに抑える。 */
 const MAX_OUTPUT_TOKENS = 500;
@@ -33,18 +33,79 @@ const GEMINI_TIMEOUT_MS = 12_000;
 
 /** 上限超過時の固定文。webhook 側のメディア早期ガードでも再利用する。 */
 export const LIMIT_REACHED_TEXT =
-  "ごめんね、1日にやり取りできる回数に達しちゃったみたい💦 また明日、続きを質問してね😊";
+  'ごめんね、1日にやり取りできる回数に達しちゃったみたい💦 また明日、続きを質問してね😊';
 /** Gemini エラー時のフォールバック文。 */
 const FALLBACK_ERROR_TEXT =
-  "ごめんね、いまうまく答えられなかったみたい💦 もう一度送ってみてくれる？";
+  'ごめんね、いまうまく答えられなかったみたい💦 もう一度送ってみてくれる？';
 /**
  * AI 応答の注意書き。初回利用時と毎月最初のやり取り時に、AI 回答の前に1通添える。
  */
 const AI_DISCLAIMER_TEXT =
-  "💡 ここからは AI が自動で返信するよ。べんりだけど、ときどき間違えることもあるんだ。大事なことは教科書や先生にも確認してね😊";
+  '💡 ここからは AI が自動で返信するよ。べんりだけど、ときどき間違えることもあるんだ。大事なことは教科書や先生にも確認してね😊';
 
 interface GeminiResult {
   text: string;
+}
+
+/**
+ * AI 応答に添える意図検出 Quick Reply（軽量ツール実行・2026-07）。
+ * AI が正しく操作を案内しても、ユーザーがその操作をしない取りこぼしが実会話で
+ * 多かったため、話題に応じたワンタップ導線を応答に添える。
+ * チップは reply に載るだけなので配信枠・コストは増えない。
+ */
+export function buildIntentQuickReply(userText: string):
+  | {
+      items: Array<{
+        type: 'action';
+        action: Record<string, string>;
+      }>;
+    }
+  | undefined {
+  const items: Array<{ type: 'action'; action: Record<string, string> }> = [];
+
+  if (
+    /設定変更|せってい|(時間|時刻|教科|学年)[^\n]{0,6}(変え|変更|かえ)/.test(
+      userText
+    )
+  ) {
+    items.push({
+      type: 'action',
+      action: {
+        type: 'message',
+        label: '⚙ 設定変更をひらく',
+        text: '設定変更',
+      },
+    });
+  }
+  if (/範囲|単元|習ってない|習っていない|ならってない/.test(userText)) {
+    items.push({
+      type: 'action',
+      action: {
+        type: 'postback',
+        label: '🎯 出題範囲設定',
+        data: 'type=scope_start',
+        displayText: '出題範囲設定',
+      },
+    });
+  }
+  if (
+    /問題|クイズ|解きたい|ときたい|届かない|届いてない|来ない|こない/.test(
+      userText
+    )
+  ) {
+    items.push({
+      type: 'action',
+      action: {
+        type: 'postback',
+        label: '✏️ 1問解く',
+        data: 'type=extra_question&src=ai_chat',
+        displayText: '1問解く',
+      },
+    });
+  }
+
+  if (items.length === 0) return undefined;
+  return { items: items.slice(0, 3) };
 }
 
 /**
@@ -59,34 +120,34 @@ export interface AiChatMediaPart {
 }
 
 /** メディア種別を MIME から判定（プロンプト・履歴マーカーの出し分け用）。 */
-function mediaKind(media: AiChatMediaPart[]): "image" | "audio" | "mixed" {
+function mediaKind(media: AiChatMediaPart[]): 'image' | 'audio' | 'mixed' {
   const kinds = new Set(
-    media.map((m) => (m.mimeType.startsWith("audio/") ? "audio" : "image"))
+    media.map((m) => (m.mimeType.startsWith('audio/') ? 'audio' : 'image'))
   );
-  if (kinds.size > 1) return "mixed";
-  return kinds.has("audio") ? "audio" : "image";
+  if (kinds.size > 1) return 'mixed';
+  return kinds.has('audio') ? 'audio' : 'image';
 }
 
 /** テキスト無しでメディアだけ送られたときに Gemini へ与える既定の指示文。 */
 function defaultMediaPrompt(media: AiChatMediaPart[]): string {
   switch (mediaKind(media)) {
-    case "audio":
-      return "送られてきた音声を聞き取って、その内容にわかりやすく答えてあげてね。質問が含まれていれば中学生にもわかるように解説して。";
-    case "image":
-      return "送られてきた画像の内容を読み取って、わかりやすく説明したり質問に答えてあげてね。問題の写真なら解き方も教えてあげて。";
+    case 'audio':
+      return '送られてきた音声を聞き取って、その内容にわかりやすく答えてあげてね。質問が含まれていれば中学生にもわかるように解説して。';
+    case 'image':
+      return '送られてきた画像の内容を読み取って、わかりやすく説明したり質問に答えてあげてね。問題の写真なら解き方も教えてあげて。';
     default:
-      return "送られてきたファイルの内容を読み取って、わかりやすく答えてあげてね。";
+      return '送られてきたファイルの内容を読み取って、わかりやすく答えてあげてね。';
   }
 }
 
 /** 履歴に残す user 側マーカー（base64 は保存せず、何を送ったかだけ残す）。 */
 function mediaHistoryMarker(media: AiChatMediaPart[], caption: string): string {
   const tag =
-    mediaKind(media) === "audio"
-      ? "[音声を送信]"
-      : mediaKind(media) === "image"
-        ? "[画像を送信]"
-        : "[ファイルを送信]";
+    mediaKind(media) === 'audio'
+      ? '[音声を送信]'
+      : mediaKind(media) === 'image'
+        ? '[画像を送信]'
+        : '[ファイルを送信]';
   return caption ? `${tag} ${caption}` : tag;
 }
 
@@ -104,12 +165,12 @@ async function callGemini(
   modelOverride?: string,
   timeoutMs: number = GEMINI_TIMEOUT_MS
 ): Promise<GeminiResult> {
-  const apiKey = process.env.GEMINI_API_KEY || "";
+  const apiKey = process.env.GEMINI_API_KEY || '';
   if (!apiKey) {
-    throw new Error("GEMINI_API_KEY is not set");
+    throw new Error('GEMINI_API_KEY is not set');
   }
   const model =
-    modelOverride || process.env.GEMINI_MODEL || "gemini-3.1-flash-lite";
+    modelOverride || process.env.GEMINI_MODEL || 'gemini-3.1-flash-lite';
 
   // 最後の user ターン: メディア（あれば）→ テキストの順に parts を並べる。
   const userParts: Array<Record<string, unknown>> = [];
@@ -127,7 +188,7 @@ async function callGemini(
       role: turn.role,
       parts: [{ text: turn.text }],
     })),
-    { role: "user", parts: userParts },
+    { role: 'user', parts: userParts },
   ];
 
   const body = {
@@ -147,13 +208,13 @@ async function callGemini(
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
     const res = await fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
       signal: controller.signal,
     });
     if (!res.ok) {
-      const errText = await res.text().catch(() => "");
+      const errText = await res.text().catch(() => '');
       throw new Error(`Gemini HTTP ${res.status}: ${errText.slice(0, 300)}`);
     }
     const data = (await res.json()) as {
@@ -162,11 +223,11 @@ async function callGemini(
       }>;
     };
     const text = data.candidates?.[0]?.content?.parts
-      ?.map((p) => p.text ?? "")
-      .join("")
+      ?.map((p) => p.text ?? '')
+      .join('')
       .trim();
     if (!text) {
-      throw new Error("Gemini returned empty text");
+      throw new Error('Gemini returned empty text');
     }
     return { text };
   } finally {
@@ -179,7 +240,7 @@ async function reply(replyToken: string, text: string): Promise<void> {
   const client = await getLineClient();
   await client.replyMessage({
     replyToken,
-    messages: [{ type: "text", text }],
+    messages: [{ type: 'text', text }],
   });
 }
 
@@ -228,7 +289,7 @@ export async function handleAiChat(
     try {
       await reply(replyToken, LIMIT_REACHED_TEXT);
     } catch (error) {
-      console.error("[aiChat] limit reply failed:", error);
+      console.error('[aiChat] limit reply failed:', error);
     }
     return;
   }
@@ -240,30 +301,43 @@ export async function handleAiChat(
   let answer: string;
   try {
     const systemPrompt = buildSystemPrompt(userData);
-    const result = await callGemini(systemPrompt, priorHistory, promptText, media);
+    const result = await callGemini(
+      systemPrompt,
+      priorHistory,
+      promptText,
+      media
+    );
     answer = result.text;
   } catch (error) {
-    console.error("[aiChat] Gemini call failed:", error);
+    console.error('[aiChat] Gemini call failed:', error);
     try {
       await reply(replyToken, FALLBACK_ERROR_TEXT);
     } catch (replyError) {
-      console.error("[aiChat] fallback reply failed:", replyError);
+      console.error('[aiChat] fallback reply failed:', replyError);
     }
     return; // count は消費しない
   }
 
   // 4. 返信。初回・毎月最初のやり取りでは AI 注意書きを先頭に添えて送る。
+  // 話題に応じたワンタップ導線（設定変更 / 出題範囲設定 / 1問解く）を最後の
+  // メッセージに Quick Reply で添える（テキスト入力時のみ・追いコストなし）。
   try {
     const client = await getLineClient();
+    const quickReply = hasMedia ? undefined : buildIntentQuickReply(trimmed);
+    const answerMessage: Record<string, unknown> = {
+      type: 'text',
+      text: answer,
+      ...(quickReply ? { quickReply } : {}),
+    };
     const messages = needsDisclaimer
-      ? [
-          { type: "text" as const, text: AI_DISCLAIMER_TEXT },
-          { type: "text" as const, text: answer },
-        ]
-      : [{ type: "text" as const, text: answer }];
-    await client.replyMessage({ replyToken, messages });
+      ? [{ type: 'text' as const, text: AI_DISCLAIMER_TEXT }, answerMessage]
+      : [answerMessage];
+    await client.replyMessage({
+      replyToken,
+      messages: messages as never,
+    });
   } catch (error) {
-    console.error("[aiChat] reply failed:", error);
+    console.error('[aiChat] reply failed:', error);
     return; // 返信できなければ count も履歴も更新しない
   }
 
@@ -273,8 +347,8 @@ export async function handleAiChat(
     const newHistory = trimHistory(
       [
         ...priorHistory,
-        { role: "user" as const, text: historyUserText },
-        { role: "model" as const, text: answer },
+        { role: 'user' as const, text: historyUserText },
+        { role: 'model' as const, text: answer },
       ],
       maxTurns
     );
@@ -293,7 +367,7 @@ export async function handleAiChat(
     );
   } catch (error) {
     // 返信は済んでいるのでログのみ。
-    console.error("[aiChat] state write failed:", error);
+    console.error('[aiChat] state write failed:', error);
   }
 
   // 注: AI 応答は replyMessage（リプライ）で送るため LINE の月間配信枠を
@@ -329,10 +403,8 @@ export async function generateGeminiText(
 
 /** firebase-admin の Firestore を遅延初期化して返す（lineWebhook と同パターン）。 */
 async function getDb() {
-  const { initializeApp, getApps } = await import("firebase-admin/app");
-  const { getFirestore, FieldValue } = await import(
-    "firebase-admin/firestore"
-  );
+  const { initializeApp, getApps } = await import('firebase-admin/app');
+  const { getFirestore, FieldValue } = await import('firebase-admin/firestore');
   if (getApps().length === 0) {
     initializeApp();
   }

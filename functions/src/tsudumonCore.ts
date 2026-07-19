@@ -116,7 +116,7 @@ export function readTsudumonEntitlement(
 export type TsudumonAccessResult = 'ok' | 'none' | 'expired' | 'wrong_grade';
 
 /**
- * つづもん機能（ワーク演習・参考書AI先生）へのアクセス判定。
+ * つづもん機能（ワーク演習・参考書のスタ先生対話）へのアクセス判定。
  * @param raw users/{uid}.tsudumon（無ければ undefined）
  * @param grade 利用しようとしている単元の学年（'中1'等）。null なら学年不問。
  */

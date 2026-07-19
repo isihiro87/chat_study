@@ -1,0 +1,1551 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>歴史 ⑱ 冷戦と日本の復興｜つづもん参考書</title>
+<style>
+  :root { --brand:#b45309; --deep:#7c2d12; --amber:#f59e0b; --cream:#fffdf8; --line:#fde68a; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { -webkit-text-size-adjust:100%; }
+  body { font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;
+         font-size:16px; line-height:1.95; color:#1c1917; background:var(--cream);
+         padding-bottom:86px; }
+  .wrap { max-width:640px; margin:0 auto; padding:0 16px 24px; }
+
+  .mark { background:linear-gradient(transparent 55%, var(--line) 55%); font-weight:bold; padding:0 1px; }
+
+  /* ── 上部: タイトル＋単元タブ＋進捗バー ── */
+  .bar { position:sticky; top:0; z-index:10; background:rgba(255,253,248,.96);
+         backdrop-filter:blur(6px); border-bottom:1px solid #f0e6d2; }
+  .bar-in { max-width:640px; margin:0 auto; padding:8px 16px 0; }
+  .bar-row { display:flex; align-items:center; gap:8px; }
+  .bar-title { font-weight:bold; color:var(--deep); font-size:14px; flex:1;
+               white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .bar-step { flex:none; font-size:12px; font-weight:bold; color:var(--brand); }
+  .tabs { display:flex; gap:6px; overflow-x:auto; padding:8px 0;
+          scrollbar-width:none; -webkit-overflow-scrolling:touch; }
+  .tabs::-webkit-scrollbar { display:none; }
+  .tab { flex:none; width:36px; height:36px; border-radius:50%; border:1.5px solid var(--line);
+         background:#fffbeb; color:var(--brand); font-size:15px; font-weight:bold;
+         display:inline-flex; align-items:center; justify-content:center; cursor:pointer; }
+  .tab.done { background:#fef3c7; }
+  .tab.done::after { content:""; }
+  .tab.on { background:var(--brand); border-color:var(--brand); color:#fff;
+            box-shadow:0 2px 6px rgba(180,83,9,.35); }
+  .pbar { height:3px; background:#f5ecd8; border-radius:2px; overflow:hidden; margin:0 0 0; }
+  .pfill { height:100%; width:0; background:linear-gradient(90deg,var(--amber),#fbbf24);
+           border-radius:2px; transition:width .25s ease; }
+
+  /* ── ビュー / ステップ ── */
+  .view { display:none; }
+  .view.on { display:block; position:relative; animation:vfade .18s ease; }
+  @keyframes vfade { from { opacity:.6; } to { opacity:1; } }
+  .step { display:none; }
+  .step.on { display:block; }
+  /* 本物っぽいページめくり（2枚重ね）:
+     進む = 今のページ自体が左とじに沿って手前にめくれて去り、下から次のページが現れる。
+     戻る = 前のページが手前からめくり戻されて上に着地する。 */
+  /* min-height:100% = 下に敷かれた新ページ全体を覆う（絶対配置なので view の実高さに解決される。
+     これが無いと、めくれるページより新ページが長いとき下端が透けて見える） */
+  .step.turn-out { display:block; position:absolute; top:0; left:0; width:100%; min-height:100%;
+                   z-index:3; pointer-events:none; background:var(--cream);
+                   transform-origin:left center;
+                   animation:turnOut .45s cubic-bezier(.55,.06,.68,.19) forwards; }
+  @keyframes turnOut {
+    0%   { transform:perspective(1200px) rotateY(0); opacity:1; }
+    75%  { opacity:1; }
+    100% { transform:perspective(1200px) rotateY(-88deg); opacity:0; } }
+  .step.turn-out::after { content:""; position:absolute; inset:0; pointer-events:none;
+                          background:linear-gradient(to right, transparent 55%, rgba(124,45,18,.12)); }
+  .step.on.turn-in { position:relative; z-index:3; background:var(--cream);
+                     transform-origin:left center;
+                     animation:turnIn .45s cubic-bezier(.22,.72,.32,1); }
+  @keyframes turnIn {
+    from { transform:perspective(1200px) rotateY(-88deg); }
+    to   { transform:perspective(1200px) rotateY(0); } }
+  .step.turn-under { display:block; position:absolute; top:0; left:0; width:100%; z-index:1;
+                     pointer-events:none; max-height:100%; overflow:hidden; }
+
+  /* ホーム */
+  .top { text-align:center; padding:26px 0 6px; }
+  .badge { display:inline-block; background:var(--brand); color:#fff; font-weight:bold;
+           padding:4px 16px; border-radius:20px; font-size:13px; }
+  .webtag { background:rgba(255,255,255,.25); border-radius:10px; padding:1px 8px;
+            font-size:11px; margin-left:4px; }
+  .top h1 { font-size:29px; color:var(--deep); margin-top:12px; line-height:1.4; }
+  .sub { color:#92400e; font-size:14px; margin-top:2px; }
+  .cover-navi { display:flex; align-items:center; gap:12px; justify-content:center;
+                margin:18px auto 4px; max-width:420px; text-align:left; }
+  .navi { width:56px; height:56px; border-radius:50%; object-fit:cover; flex:none;
+          box-shadow:0 1px 4px rgba(0,0,0,.15); }
+  /* キャラは丸トリミングせず全身を表示（透過PNG） */
+  .navi-char { width:auto; border-radius:0; object-fit:contain; background:none; box-shadow:none;
+               filter:drop-shadow(0 1px 2px rgba(0,0,0,.18)); }
+  .tband .tchar { height:40px; margin-left:auto; }
+  .sum30-navi { display:flex; align-items:center; justify-content:flex-end; gap:8px;
+                padding:0 12px 10px; margin-top:-2px; }
+  .sum30-navi .navi-char { height:46px; }
+  .sum30-bubble { position:relative; background:#fff; border:1.5px solid var(--amber); border-radius:12px;
+                  padding:6px 12px; font-size:12.5px; font-weight:bold; color:var(--deep); }
+  .sum30-bubble::after { content:""; position:absolute; right:-11px; top:50%; transform:translateY(-50%);
+                         border:6px solid transparent; border-left-color:var(--amber); }
+  .navi-emoji { background:#fef3c7; display:flex; align-items:center; justify-content:center; font-size:30px; }
+  .bubble { position:relative; background:#fff; border:2px solid var(--amber); border-radius:12px;
+            padding:8px 14px; font-size:13px; font-weight:bold; color:var(--deep); }
+  .bubble::before { content:""; position:absolute; left:-12px; top:50%; transform:translateY(-50%);
+                    border:6px solid transparent; border-right-color:var(--amber); }
+  .resume { display:block; width:100%; margin:16px 0 0; background:var(--brand); color:#fff;
+            border:none; border-radius:14px; padding:13px; font-size:15px; font-weight:bold;
+            cursor:pointer; box-shadow:0 3px 8px rgba(180,83,9,.3); }
+  .resume span { font-weight:normal; font-size:12px; opacity:.9; margin-left:8px; }
+  .toc { margin:16px 0 8px; background:#fff; border:2px solid var(--line); border-radius:14px;
+         padding:14px; }
+  .toc-h { font-weight:bold; color:var(--deep); margin-bottom:6px; font-size:15px; }
+  .toc-item { display:flex; align-items:center; gap:10px; width:100%; padding:11px 6px;
+              background:none; border:none; border-top:1px solid #faf1dc; cursor:pointer;
+              color:#44403c; font-weight:bold; font-size:15px; text-align:left;
+              font-family:inherit; line-height:1.5; }
+  .toc-item:first-of-type { border-top:none; }
+  .toc-no { flex:none; width:24px; height:24px; border-radius:50%; background:var(--amber);
+            color:#fff; display:inline-flex; align-items:center; justify-content:center;
+            font-size:13px; }
+  .toc-name { flex:1; }
+  /* 高さを固定して、✓（環境により絵文字グリフで行ボックスが太る）でも
+     行の高さが他の行と変わらないようにする */
+  .toc-state { flex:none; font-size:11px; font-weight:bold; line-height:1;
+               display:inline-flex; align-items:center; height:20px; }
+  .toc-state.done { color:#16a34a; }
+  .toc-state.doing { color:var(--brand); background:#fffbeb; border:1px solid var(--line);
+                     border-radius:10px; padding:1px 8px; }
+
+  /* 単元ヘッダー */
+  .tband { display:flex; align-items:center; gap:10px; margin:18px 0 14px; }
+  .tno { flex:none; width:34px; height:34px; border-radius:50%; background:var(--brand); color:#fff;
+         display:inline-flex; align-items:center; justify-content:center; font-size:17px;
+         font-weight:bold; box-shadow:0 2px 4px rgba(180,83,9,.3); }
+  .tband h2 { font-size:20px; color:var(--deep); border-bottom:3px solid var(--line);
+              padding-bottom:2px; flex:1; line-height:1.4; }
+
+  .hook { display:flex; align-items:center; gap:12px; margin-bottom:14px; }
+  .hook .bubble { font-weight:normal; font-size:13.5px; line-height:1.8; }
+
+  /* ── 単元表紙デザイン（PDFの単元表紙とおそろい）── */
+  .cover-img { width:100%; display:block; margin:2px 0 14px; border-radius:16px;
+               box-shadow:0 8px 18px rgba(91,68,53,.14); }
+  .cover-art { position:relative; margin:8px 8px 26px; padding:10px;
+               background:#fffaf1; border:2px solid rgba(180,83,9,.35); border-radius:14px;
+               box-shadow:0 10px 18px rgba(91,68,53,.16); transform:rotate(-1.6deg); }
+  .cover-art.art-even { transform:rotate(1.6deg); }
+  .cover-art img { width:100%; border-radius:10px; display:block; }
+  .cover-art::before, .cover-art::after { content:""; position:absolute; top:-12px;
+               width:84px; height:26px; border-radius:5px; background:rgba(217,119,6,.32);
+               box-shadow:0 2px 4px rgba(91,68,53,.1); z-index:1; }
+  .cover-art::before { left:22px; transform:rotate(-7deg); }
+  .cover-art::after { right:22px; transform:rotate(7deg); }
+  .cover-art figcaption { font-size:12px; color:#a8a29e; text-align:center; margin-top:6px; }
+
+  .overview { background:rgba(255,255,255,.94); border:2.5px solid rgba(180,83,9,.45);
+              border-radius:16px; padding:16px 16px 8px; margin-bottom:14px;
+              box-shadow:0 8px 16px rgba(91,68,53,.1); }
+  .ov-h { font-weight:bold; font-size:16px; color:var(--deep); margin-bottom:6px; }
+  .ov-list { list-style:none; display:flex; flex-direction:column; }
+  .ov-list li { display:flex; align-items:flex-start; gap:10px; padding:9px 2px;
+                font-size:14px; font-weight:bold; color:#44372e; line-height:1.6; }
+  .ov-list li + li { border-top:2px dashed rgba(180,83,9,.22); }
+  .ov-num { flex:none; width:24px; height:24px; border-radius:50%; background:var(--brand);
+            color:#fff; font-weight:bold; display:inline-flex; align-items:center;
+            justify-content:center; font-size:13px; margin-top:2px; }
+
+  .cheer { display:flex; align-items:center; justify-content:center; gap:12px; margin:2px 0 12px; }
+  .cheer-char { width:76px; filter:drop-shadow(0 3px 5px rgba(91,68,53,.2)); }
+  .cheer-bubble { position:relative; background:#fff; border:2px solid rgba(180,83,9,.55);
+                  border-radius:14px; padding:8px 14px; font-size:13.5px; font-weight:bold;
+                  color:#5b4435; }
+  .cheer-bubble::before { content:""; position:absolute; left:-9px; top:50%; width:14px; height:14px;
+                  background:#fff; border-left:2px solid rgba(180,83,9,.55);
+                  border-bottom:2px solid rgba(180,83,9,.55);
+                  transform:translateY(-50%) rotate(45deg); }
+
+  .hero { margin:0 0 8px; }
+  .hero img { width:100%; border-radius:14px; display:block; }
+  .hero figcaption { font-size:12px; color:#a8a29e; text-align:center; margin-top:4px; }
+
+  /* 節 */
+  .step h3 { font-size:18px; color:var(--deep); display:flex; align-items:center; gap:8px; line-height:1.5; }
+  .sec-no { flex:none; width:22px; height:22px; border-radius:50%; background:#fff;
+            border:1.5px solid var(--line); color:var(--brand); font-weight:bold;
+            display:inline-flex; align-items:center; justify-content:center; font-size:12px; }
+  .sec-lead { font-size:13px; color:var(--brand); font-weight:bold; margin:2px 0 4px 30px; }
+  .step p { margin-top:8px; text-align:justify; }
+  .point { background:#fff9c4; border-left:6px solid #fbbf24; border-radius:8px;
+           padding:10px 12px; margin-top:12px; font-size:14px; line-height:1.8; }
+  .ptag { font-weight:bold; color:var(--brand); }
+  .ptxt { color:#44403c; margin-top:2px; }
+  .tip { background:#fffbeb; border-radius:10px; padding:10px 12px; font-size:13.5px;
+         color:#44403c; line-height:1.8; }
+  .words { display:flex; flex-direction:column; gap:6px; margin-top:12px; }
+  .word { background:#fff; border:1px solid #f0e6d2; border-radius:10px; padding:8px 12px;
+          font-size:13.5px; line-height:1.7; }
+  .w-term { font-weight:bold; color:var(--brand); margin-right:8px; }
+  .w-rd { font-weight:normal; font-size:11px; color:#b8b0a6; margin-left:4px; }
+  .w-desc { color:#57534e; }
+
+  /* 重要語チェック */
+  .terms-h { font-size:18px; font-weight:bold; color:var(--deep); }
+  .terms-sub { font-size:12px; font-weight:normal; color:#a8a29e; margin-left:8px; }
+  .terms-tools { display:flex; align-items:center; justify-content:space-between; gap:8px;
+                 flex-wrap:wrap; margin:6px 0 10px; }
+  .tt-btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .shuffle-btn, .swap-btn { flex:none; display:inline-flex; align-items:center; gap:4px;
+                 font-family:inherit; font-size:13px; font-weight:bold; cursor:pointer;
+                 border-radius:16px; padding:6px 13px; }
+  .shuffle-btn { color:#fff; background:var(--brand); border:none; box-shadow:0 2px 6px rgba(180,83,9,.3); }
+  .swap-btn { color:var(--brand); background:#fffbeb; border:1.5px solid var(--line); }
+  .swap-btn.on { color:#fff; background:var(--brand); border-color:var(--brand); box-shadow:0 2px 6px rgba(180,83,9,.3); }
+  .shuffle-btn:active, .swap-btn:active { transform:translateY(1px); }
+  .both-toggle { display:inline-flex; align-items:center; gap:6px; font-size:13px;
+                 font-weight:bold; color:#57534e; cursor:pointer; }
+  .both-toggle input { width:16px; height:16px; accent-color:var(--brand); }
+  .tgrid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  /* シャッフル時のふわっと再配置アニメ */
+  .tgrid.shuffling .tcard { animation:tshuffle .34s ease; }
+  @keyframes tshuffle { 0% { opacity:.25; transform:scale(.92); }
+                        100% { opacity:1; transform:none; } }
+  @media (max-width:400px) { .tgrid { grid-template-columns:1fr; } }
+  /* フラッシュカード（タップで表裏。両面表示チェックで従来の一覧に）
+     ─ めくりモード: 全カード同じ高さ（150px）・面は絶対配置で重ねて3D回転
+     ─ 両面モード: 3Dを使わず通常フローで表＋裏を縦に並べる（崩れ防止） */
+  .tcard { position:relative; height:150px; background:none; border:none; padding:0;
+           cursor:pointer; font-family:inherit; text-align:left; perspective:800px; }
+  .tcard-inner { display:block; position:absolute; inset:0; transition:transform .35s;
+                 transform-style:preserve-3d; }
+  .tc-face { position:absolute; inset:0; display:flex; flex-direction:column;
+             align-items:center; justify-content:center; text-align:center; overflow:hidden;
+             backface-visibility:hidden; -webkit-backface-visibility:hidden;
+             border:1.5px solid var(--line); border-radius:10px; padding:10px; background:#fff; }
+  /* 表＝説明（読んで用語を当てる） */
+  .tc-front { background:#fffbeb; overflow-y:auto; }
+  .tc-desc { font-size:13px; color:#44403c; line-height:1.6; font-weight:500; }
+  /* 裏＝用語（こたえ） */
+  .tc-back { transform:rotateY(180deg); }
+  .tc-term { font-weight:bold; font-size:17px; color:var(--deep); line-height:1.5; }
+  .tc-rd { display:block; font-weight:normal; font-size:11px; color:#b8b0a6; margin-top:2px; }
+  .tc-tap { font-size:10px; color:#d6c9a8; margin-top:6px; }
+  .tcard.flipped .tcard-inner { transform:rotateY(180deg); }
+  /* 裏表入れ替え: 用語を先に見せる（意味→用語 ⇄ 用語→意味） */
+  .tgrid.term-first .tcard-inner { transform:rotateY(180deg); }
+  .tgrid.term-first .tcard.flipped .tcard-inner { transform:rotateY(0deg); }
+  /* 両面表示モード（用語→説明の順に縦並べ） */
+  .tgrid.both .tcard { cursor:default; height:auto; perspective:none; }
+  .tgrid.both .tcard-inner { position:static; transform:none !important; transform-style:flat;
+                             display:flex; flex-direction:column; }
+  .tgrid.both .tc-face { position:static; overflow:visible; align-items:flex-start; text-align:left;
+                         backface-visibility:visible; -webkit-backface-visibility:visible; }
+  .tgrid.both .tc-back { order:0; transform:none; border-bottom:none; border-radius:10px 10px 0 0;
+                         padding-bottom:4px; background:#fff; }
+  .tgrid.both .tc-front { order:1; border-top:none; border-radius:0 0 10px 10px; }
+  .tgrid.both .tc-term { font-size:14px; }
+  .tgrid.both .tc-tap { display:none; }
+
+  /* まとめ・完了 */
+  .sum30 { border:2px solid var(--amber); border-radius:14px; overflow:hidden;
+           box-shadow:0 2px 8px rgba(245,158,11,.14); }
+  .sum30-h { background:linear-gradient(90deg,#d97706,var(--amber)); color:#fff; font-weight:bold;
+             font-size:15px; padding:8px 14px; display:flex; align-items:center; gap:8px; }
+  .sum30-tag { margin-left:auto; font-size:11px; background:rgba(255,255,255,.28);
+               padding:2px 10px; border-radius:12px; }
+  .sum30-body { padding:14px 16px; font-size:15px; font-weight:bold; color:#44403c; line-height:2.0;
+                background:#fffdf5; }
+  .sum30-body .mark { background:none; color:#c2410c; padding:0; }
+  .done { text-align:center; font-size:16px; font-weight:bold; color:var(--deep); margin:18px 0 10px; }
+  .wb-btn { display:flex; align-items:center; gap:12px; text-decoration:none;
+            background:var(--brand); color:#fff; border-radius:14px; padding:13px 16px;
+            box-shadow:0 3px 8px rgba(180,83,9,.3); margin-bottom:10px; }
+  .wb-home { display:block; text-align:center; margin:14px 0 0; text-decoration:none;
+             background:var(--brand); color:#fff; border-radius:14px; padding:13px 16px;
+             font-size:15px; font-weight:bold; box-shadow:0 3px 8px rgba(180,83,9,.3); }
+  .ai-btn { display:flex; align-items:center; gap:12px; text-decoration:none;
+            background:#06c755; color:#fff; border-radius:14px; padding:13px 16px;
+            box-shadow:0 3px 8px rgba(6,199,85,.3); }
+  .ai-ico { font-size:24px; flex:none; }
+  .ai-main { flex:1; font-weight:bold; font-size:15px; line-height:1.5; }
+  .ai-sub { display:block; font-weight:normal; font-size:12px; opacity:.9; }
+  .ai-arrow { font-size:22px; opacity:.8; }
+
+  .foot { text-align:center; margin-top:36px; color:#a8a29e; font-size:13px; }
+  .foot-note { margin-top:4px; font-size:12px; }
+
+  /* ── 下部ナビ ── */
+  .navbar { position:fixed; left:0; right:0; bottom:0; z-index:10;
+            background:rgba(255,253,248,.97); border-top:1px solid #f0e6d2;
+            padding:10px 16px calc(10px + env(safe-area-inset-bottom)); }
+  .navbar-in { max-width:640px; margin:0 auto; display:flex; align-items:center; gap:10px; }
+  .nb { border:none; border-radius:14px; padding:12px 0; font-size:15px; font-weight:bold;
+        cursor:pointer; font-family:inherit; }
+  .nb-prev { flex:1; background:#fff; color:var(--brand); border:1.5px solid var(--line); }
+  .nb-next { flex:2; background:var(--brand); color:#fff; box-shadow:0 3px 8px rgba(180,83,9,.3); }
+  .nav-label { position:absolute; left:-9999px; }
+
+  /* ── ホバー: マウスを乗せると「押せる」ことが分かる（タッチ端末では固着しないよう hover 端末限定）── */
+  @media (hover: hover) {
+    .toc-item, .resume, .shuffle-btn, .swap-btn, .tcard, .ai-btn, .wb-btn, .nb,
+    .chat-fab, .chat-close, .chat-login-btn, #chatSend {
+      transition: filter .12s ease, background-color .12s ease; }
+    /* 色つき（塗り）ボタンは少し濃く */
+    .resume:hover, .shuffle-btn:hover, .ai-btn:hover, .nb:hover, .chat-fab:hover,
+    .chat-login-btn:hover, #chatSend:hover { filter: brightness(0.94); }
+    /* 白・枠線ボタン／リスト／カードは薄いアンバーで下地を変える */
+    .toc-item:hover, .swap-btn:hover, .wb-btn:hover, .tcard:hover,
+    .chat-close:hover { background-color: #fff8ec; }
+  }
+
+  /* ── ページ内チャット（スタ先生）── */
+  .chat-fab { position:fixed; right:14px; bottom:calc(84px + env(safe-area-inset-bottom));
+              z-index:20; width:56px; height:56px; border-radius:50%;
+              border:none; background:var(--brand); color:#fff; font-size:26px;
+              cursor:pointer; box-shadow:0 4px 12px rgba(180,83,9,.4); }
+  .chat-fab.hidden { display:none; }
+  .chat-panel { position:fixed; right:12px; bottom:calc(84px + env(safe-area-inset-bottom));
+                z-index:21; width:min(400px, calc(100vw - 24px));
+                height:min(540px, calc(100vh - 160px));
+                display:flex; flex-direction:column; background:var(--cream);
+                border:2px solid var(--line); border-radius:16px;
+                box-shadow:0 10px 30px rgba(68,55,46,.25); overflow:hidden; }
+  .chat-head { display:flex; align-items:center; gap:8px; padding:10px 12px;
+               background:var(--brand); color:#fff; }
+  .chat-title { font-weight:bold; font-size:14px; }
+  .chat-topic { flex:1; font-size:11px; opacity:.9; white-space:nowrap;
+                overflow:hidden; text-overflow:ellipsis; }
+  .chat-close { border:none; background:none; color:#fff; font-size:22px;
+                line-height:1; cursor:pointer; padding:0 4px; }
+  .chat-note { font-size:11px; color:#92400e; background:#fffbeb;
+               border-bottom:1px solid #f0e6d2; padding:6px 12px; }
+  .chat-body { flex:1; overflow-y:auto; padding:12px; display:flex;
+               flex-direction:column; gap:8px; }
+  .chat-msg { max-width:85%; padding:8px 12px; border-radius:14px; font-size:13.5px;
+              line-height:1.7; white-space:pre-wrap; word-break:break-word; }
+  .chat-msg.user { align-self:flex-end; background:var(--brand); color:#fff;
+                   border-bottom-right-radius:4px; }
+  .chat-msg.model { align-self:flex-start; background:#fff; color:#1c1917;
+                    border:1.5px solid var(--line); border-bottom-left-radius:4px; }
+  .chat-msg.sys { align-self:center; background:none; color:#a8a29e; font-size:11.5px;
+                  text-align:center; }
+  .chat-login { padding:16px; text-align:center; border-top:1px solid #f0e6d2; }
+  .chat-login p { font-size:12.5px; color:#57534e; margin-bottom:10px; }
+  .chat-login-btn { display:inline-block; background:#06c755; color:#fff; font-weight:bold;
+                    font-size:14px; padding:10px 22px; border-radius:12px;
+                    text-decoration:none; }
+  .chat-input { display:flex; gap:8px; padding:10px 12px;
+                border-top:1px solid #f0e6d2; background:#fff; }
+  .chat-input input { flex:1; border:1.5px solid var(--line); border-radius:12px;
+                      padding:9px 12px; font-size:14px; font-family:inherit; }
+  .chat-input input:focus { outline:none; border-color:var(--amber); }
+  .chat-input button { border:none; background:var(--brand); color:#fff; font-weight:bold;
+                       font-size:14px; padding:0 18px; border-radius:12px;
+                       cursor:pointer; font-family:inherit; }
+  .chat-input button:disabled { opacity:.5; }
+  .chat-foot { font-size:10.5px; color:#a8a29e; text-align:center; padding:4px 8px 7px;
+               background:#fff; }
+  /* display:flex 指定が UA の [hidden]{display:none} に勝ってしまうのを防ぐ */
+  .chat-panel[hidden], .chat-input[hidden], .chat-login[hidden] { display:none; }
+</style></head><body>
+<div class="bar"><div class="bar-in">
+  <div class="bar-row">
+    <div class="bar-title">歴史 ⑱ 冷戦と日本の復興</div>
+    <div class="bar-step" id="barStep"></div>
+  </div>
+  <nav class="tabs" id="tabs"><button class="tab tab-home" data-go="0" aria-label="目次">🏠</button><button class="tab" data-go="1" aria-label="冷戦の始まり">1</button><button class="tab" data-go="2" aria-label="日本の独立回復">2</button><button class="tab" data-go="3" aria-label="国際社会への復帰">3</button><button class="tab" data-go="4" aria-label="高度経済成長">4</button><button class="tab" data-go="5" aria-label="戦後の文化">5</button></nav>
+  <div class="pbar"><div class="pfill" id="pfill"></div></div>
+</div></div>
+<main class="wrap" id="views">
+
+<section class="view home" data-t="0">
+  <header class="top">
+    <div class="badge">歴史 ⑱　参考書 <span class="webtag">Web版</span></div>
+    <h1>冷戦と日本の復興</h1>
+    <div class="sub">戦後の国際社会 〜 高度経済成長期</div>
+    <div class="cover-navi"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt="">
+      <div class="bubble">こんにちは！タブか下の単元をえらんで、1ページずつ読み進めよう！</div>
+    </div>
+  </header>
+  <button class="resume" id="resumeBtn" hidden>▶ つづきから読む<span id="resumeWhere"></span></button>
+  <nav class="toc">
+    <div class="toc-h">📚 この本の単元</div>
+    <button class="toc-item" data-go="1"><span class="toc-no">1</span><span class="toc-name">冷戦の始まり</span><span class="toc-state" data-state-t="1"></span></button><button class="toc-item" data-go="2"><span class="toc-no">2</span><span class="toc-name">日本の独立回復</span><span class="toc-state" data-state-t="2"></span></button><button class="toc-item" data-go="3"><span class="toc-no">3</span><span class="toc-name">国際社会への復帰</span><span class="toc-state" data-state-t="3"></span></button><button class="toc-item" data-go="4"><span class="toc-no">4</span><span class="toc-name">高度経済成長</span><span class="toc-state" data-state-t="4"></span></button><button class="toc-item" data-go="5"><span class="toc-no">5</span><span class="toc-name">戦後の文化</span><span class="toc-state" data-state-t="5"></span></button>
+  </nav>
+  <a class="wb-home" href="../../wb/18/index.html">✏️ 問題集Web版を開く（この本の問題を解く）</a>
+  <footer class="foot">
+    <div>つづもん 参考書 Web版</div>
+    <div class="foot-note">紙やタブレットでじっくり派には、ダウンロード済みのPDF版もどうぞ。</div>
+  </footer>
+</section>
+<section class="view" data-t="1">
+  <div class="tband"><span class="tno">1</span><h2>冷戦の始まり</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  
+    <div class="step" data-label="この単元でわかること">
+      <img class="cover-img" src="img/cover-cold-war.webp"
+           alt="冷戦の始まり（この単元でわかること）">
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">第二次世界大戦が終わったのに、世界はすぐには平和にならなかったんだ。今度はアメリカとソ連という二つの大国が、直接は戦わないままにらみ合う不思議な対立が始まったんだよ。</div></div>
+    </div>
+    <div class="step" data-label="「冷戦」ってどんな対立?">
+      <h3><span class="sec-no">1</span>「冷戦」ってどんな対立?</h3>
+      <div class="sec-lead">資本主義と社会主義が、直接戦わずににらみ合ったよ。</div>
+      <p>戦争が終わると、自由な経済を大事にする資本主義の国ぐにと、国が経済を仕切る社会主義の国ぐにが、世界を二つに分けて対立するようになったんだ。アメリカを中心とする西側と、ソ連を中心とする東側だね。おもしろいのは、この対立、実際に戦車や兵士がぶつかり合う戦争にはならなかったこと。武器や経済の力でにらみ合うだけの、いわば&quot;冷たい戦争&quot;、これを<span class="mark">冷戦</span>と呼ぶんだ。1949年には西側が軍事同盟の<span class="mark">NATO</span>を結成し、1955年にはソ連たち東側も対抗して<span class="mark">ワルシャワ条約機構</span>を作ったよ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">冷戦は、資本主義と社会主義が直接戦わずに対立したことだよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">冷戦<span class="w-rd">れいせん</span></span><span class="w-desc">アメリカ中心の資本主義国とソ連中心の社会主義国が、直接戦わずに対立した状態。</span></div><div class="word"><span class="w-term">NATO<span class="w-rd">なとー</span></span><span class="w-desc">1949年に結成された、アメリカと西側諸国の軍事同盟。</span></div><div class="word"><span class="w-term">ワルシャワ条約機構<span class="w-rd">わるしゃわじょうやくきこう</span></span><span class="w-desc">1955年、NATOに対抗してソ連と東欧諸国が結成した軍事同盟。</span></div></div>
+    </div>
+    <div class="step" data-label="世界平和を目指した国際連合">
+      <h3><span class="sec-no">2</span>世界平和を目指した国際連合</h3>
+      <div class="sec-lead">世界平和を目指して、国際連合が発足したよ。</div>
+      <p>実は冷戦が始まる前、1945年に、二度と大きな戦争を起こさないようにと<span class="mark">国際連合</span>が発足していたんだ。原加盟国は51か国、本部はニューヨークに置かれたよ。その中心にあるのが<span class="mark">安全保障理事会</span>。世界の平和を守る大事な役目を持っていて、アメリカ・イギリス・フランス・ロシア・中国の5つの常任理事国がいるんだ。おもしろいことに、この5か国はたった1国が反対するだけで決議を止められる「拒否権」という強い力を持っているんだよ。すごいでしょ?</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1945年、世界平和を目指す国際連合が発足したよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">国際連合<span class="w-rd">こくさいれんごう</span></span><span class="w-desc">1945年に発足した、世界平和を目指す国際機関。</span></div><div class="word"><span class="w-term">安全保障理事会<span class="w-rd">あんぜんほしょうりじかい</span></span><span class="w-desc">国連の中心機関。米英仏ロ中の5常任理事国が拒否権を持つ。</span></div></div>
+    </div>
+    <div class="step" data-label="冷戦、アジアにも広がる">
+      <h3><span class="sec-no">3</span>冷戦、アジアにも広がる</h3>
+      <div class="sec-lead">冷戦の対立は、アジアの戦争にも広がったよ。</div>
+      <p>冷戦の対立は、ヨーロッパだけじゃなくアジアにも広がっていったんだ。1949年、毛沢東が率いる共産党が内戦に勝利して中華人民共和国を建国し、敗れた国民党は台湾へ逃れたよ。そして1950年、北朝鮮が韓国に攻め込んで<span class="mark">朝鮮戦争</span>が始まったんだ。アメリカ中心の国連軍と中国が支援する北朝鮮側が激しく戦い、1953年にようやく休戦したよ。実はこの戦争、今も平和条約が結ばれていないって知ってた?さらに1960年から75年にかけては、社会主義の北ベトナムとアメリカが支援する南ベトナムが戦うベトナム戦争も起こり、アメリカは介入したものの敗れて撤退することになったんだ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1949年に中国が建国し、翌年に朝鮮戦争が始まったよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">朝鮮戦争<span class="w-rd">ちょうせんせんそう</span></span><span class="w-desc">1950年、北朝鮮が韓国に侵攻して始まった戦争。1953年に休戦した。</span></div></div>
+    </div>
+    <div class="step" data-label="冷戦の緊張が最高潮に達した瞬間">
+      <h3><span class="sec-no">4</span>冷戦の緊張が最高潮に達した瞬間</h3>
+      <div class="sec-lead">ベルリンの壁とキューバ危機で緊張が高まったよ。</div>
+      <p>冷戦の対立をひときわ強く感じさせる出来事も起きたよ。1961年、東ドイツは東西ベルリンを分ける<span class="mark">ベルリンの壁</span>を築いたんだ。自由を求めて逃げる人々を止めるためだったんだね。そして1962年には、ソ連がキューバにミサイル基地を作ろうとしたことでアメリカと激しく対立する<span class="mark">キューバ危機</span>が起こり、世界は核戦争一歩手前まで緊張したんだ。幸い戦争にはならず、話し合いで危機を乗り越えたんだよ。このベルリンの壁は、1989年に市民の手によって取り壊されるまで、実に28年間も東西を隔て続けたんだ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1961年のベルリンの壁と62年のキューバ危機が起きたよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">ベルリンの壁<span class="w-rd">べるりんのかべ</span></span><span class="w-desc">1961年に東ドイツが築いた、東西ベルリンを隔てる壁。冷戦の象徴。</span></div><div class="word"><span class="w-term">キューバ危機<span class="w-rd">きゅーばきき</span></span><span class="w-desc">1962年、ソ連のミサイル基地建設をめぐり米ソが核戦争寸前まで対立した事件。</span></div></div>
+    </div>
+    <div class="step" data-label="重要語チェック">
+      <div class="terms-h">📖 重要語チェック<span class="terms-sub">意味を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="tgrid"><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">アメリカ中心の資本主義国とソ連中心の社会主義国が、直接戦わずに対立した状態。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">冷戦</span>
+          <span class="tc-rd">れいせん</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1949年に結成された、アメリカと西側諸国の軍事同盟。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">NATO</span>
+          <span class="tc-rd">なとー</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1955年、NATOに対抗してソ連と東欧諸国が結成した軍事同盟。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">ワルシャワ条約機構</span>
+          <span class="tc-rd">わるしゃわじょうやくきこう</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1945年に発足した、世界平和を目指す国際機関。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">国際連合</span>
+          <span class="tc-rd">こくさいれんごう</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">国連の中心機関。米英仏ロ中の5常任理事国が拒否権を持つ。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">安全保障理事会</span>
+          <span class="tc-rd">あんぜんほしょうりじかい</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1950年、北朝鮮が韓国に侵攻して始まった戦争。1953年に休戦した。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">朝鮮戦争</span>
+          <span class="tc-rd">ちょうせんせんそう</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1961年に東ドイツが築いた、東西ベルリンを隔てる壁。冷戦の象徴。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">ベルリンの壁</span>
+          <span class="tc-rd">べるりんのかべ</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1962年、ソ連のミサイル基地建設をめぐり米ソが核戦争寸前まで対立した事件。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">キューバ危機</span>
+          <span class="tc-rd">きゅーばきき</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button></div>
+    </div>
+    <div class="step" data-label="30秒まとめ">
+      
+      <div class="sum30">
+        <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
+        <div class="sum30-body"><span class="mark">冷戦</span>とは、アメリカ中心の資本主義陣営とソ連中心の社会主義陣営が直接戦わずに対立した状態のことだよ。<span class="mark">国際連合</span>が世界平和を目指す一方、<span class="mark">朝鮮戦争</span>や<span class="mark">ベルリンの壁</span>、<span class="mark">キューバ危機</span>など、冷戦の緊張は世界のあちこちに表れたんだ。</div>
+        
+        <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
+          <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
+      </div>
+      <div class="done">🎉 この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/18/index.html#t2"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=18-cold-war" target="_blank" rel="noopener">
+        <span class="ai-ico">🤖</span>
+        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
+        <span class="ai-arrow">›</span>
+      </a>
+    </div>
+</section>
+<section class="view" data-t="2">
+  <div class="tband"><span class="tno">2</span><h2>日本の独立回復</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  
+    <div class="step" data-label="この単元でわかること">
+      <img class="cover-img" src="img/cover-japan-independence.webp"
+           alt="日本の独立回復（この単元でわかること）">
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">戦争に負けて占領されていた日本が、もう一度独立国として世界に戻っていく物語だよ。同時に、平和の代わりに背負うことになった新しい重荷にも注目してみよう。</div></div>
+    </div>
+    <div class="step" data-label="サンフランシスコ平和条約と独立">
+      <h3><span class="sec-no">1</span>サンフランシスコ平和条約と独立</h3>
+      <div class="sec-lead">条約を結んで、日本はついに独立を回復したよ。</div>
+      <p>1951年、<span class="mark">吉田茂</span>内閣は連合国48か国との間に<span class="mark">サンフランシスコ平和条約</span>を結んだんだ。実は同じ日に、米軍が日本にとどまることを認める<span class="mark">日米安全保障条約</span>にも調印していたんだよ。翌1952年に条約が発効すると、日本はようやく独立を回復し、約7年間続いたGHQの占領が終わったんだ。ちなみにソ連はこの条約への調印を拒否していて、ソ連との関係はまた別の形で解決することになるよ。戦争に負けてから6年、ようやく自分の国のことを自分たちで決められるようになったんだね。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1951年、吉田茂内閣が講和条約と安保条約を同時に結んだよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">サンフランシスコ平和条約<span class="w-rd">さんふらんしすこへいわじょうやく</span></span><span class="w-desc">1951年、日本と連合国48か国が結んだ講和条約。翌年発効し独立を回復した。</span></div><div class="word"><span class="w-term">吉田茂<span class="w-rd">よしだしげる</span></span><span class="w-desc">サンフランシスコ平和条約と日米安全保障条約に調印した首相。</span></div><div class="word"><span class="w-term">日米安全保障条約<span class="w-rd">にちべいあんぜんほしょうじょうやく</span></span><span class="w-desc">1951年に結ばれた、米軍の日本駐留を認めた条約。</span></div></div>
+    </div>
+    <div class="step" data-label="朝鮮戦争がもたらした変化">
+      <h3><span class="sec-no">2</span>朝鮮戦争がもたらした変化</h3>
+      <div class="sec-lead">朝鮮戦争がきっかけで、自衛隊が生まれたよ。</div>
+      <p>1950年に朝鮮戦争が始まると、GHQの指令で警察予備隊という組織がつくられたんだ。これが1952年に保安隊、1954年には<span class="mark">自衛隊</span>へと形を変えていったよ。同時に、朝鮮戦争にともなう軍需物資の注文が日本に集中する「朝鮮特需」という好景気も起こり、日本経済の復興を大きく後押ししたんだ。戦争が遠く離れたところで、思わぬ形で日本の暮らしに影響していたんだね。警察予備隊は最初こそ小さな組織だったけど、少しずつ規模を広げながら今の自衛隊へとつながっていったんだよ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">警察予備隊は保安隊を経て、1954年に自衛隊になったよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">自衛隊<span class="w-rd">じえいたい</span></span><span class="w-desc">1954年発足の日本の防衛組織。警察予備隊・保安隊を経て発展した。</span></div></div>
+    </div>
+    <div class="step" data-label="安保闘争、国民の声が渦巻いた1960年">
+      <h3><span class="sec-no">3</span>安保闘争、国民の声が渦巻いた1960年</h3>
+      <div class="sec-lead">安保条約の改定に、国民が大きく反対したよ。</div>
+      <p>1960年、<span class="mark">岸信介</span>内閣は日米安全保障条約を改定し、日本とアメリカのどちらかが攻撃されたら助け合うことを明確にしたんだ。でもこの改定には、戦争に巻き込まれるのではという不安から強く反対する声が上がり、学生や労働組合、市民が連日国会前に集まる<span class="mark">安保闘争</span>という大規模な運動になったよ。結局、条約は成立したものの、岸内閣は混乱の責任を取って退陣することになったんだ。戦後最大規模ともいわれるこの反対運動は、当時の若者たちの政治への強い関心を映し出す出来事でもあったんだよ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1960年、新安保条約に反対する安保闘争が起きたよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">岸信介<span class="w-rd">きしのぶすけ</span></span><span class="w-desc">1960年に新日米安全保障条約を成立させた首相。</span></div><div class="word"><span class="w-term">安保闘争<span class="w-rd">あんぽとうそう</span></span><span class="w-desc">1960年、新安保条約の改定に反対して起きた大規模な国民運動。</span></div></div>
+    </div>
+    <div class="step" data-label="沖縄、ついに日本へ">
+      <h3><span class="sec-no">4</span>沖縄、ついに日本へ</h3>
+      <div class="sec-lead">27年の米軍統治を経て、沖縄が日本に戻ったよ。</div>
+      <p>1972年、<span class="mark">佐藤栄作</span>内閣のもとで、ついに<span class="mark">沖縄返還</span>が実現したんだ。1945年の沖縄戦から数えると、なんと27年間も米軍の統治が続いていたんだよ。この間、沖縄では日本円ではなくドルが使われ、車も右側通行だったりと、本土とはちがう暮らしが続いていたんだ。長い年月を経てようやく沖縄が日本に復帰したこの出来事は、戦後日本にとって大きな節目のひとつだったんだね。沖縄の人々が本土復帰を心から待ち望んでいたことを思うと、この日の重みがより深く感じられるよね。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1972年、沖縄が返還され27年の米軍統治が終わったよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">佐藤栄作<span class="w-rd">さとうえいさく</span></span><span class="w-desc">1972年に沖縄返還を実現した首相。</span></div><div class="word"><span class="w-term">沖縄返還<span class="w-rd">おきなわへんかん</span></span><span class="w-desc">1972年、27年間の米軍統治が終わり沖縄が日本に復帰したこと。</span></div></div>
+    </div>
+    <div class="step" data-label="重要語チェック">
+      <div class="terms-h">📖 重要語チェック<span class="terms-sub">意味を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="tgrid"><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1951年、日本と連合国48か国が結んだ講和条約。翌年発効し独立を回復した。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">サンフランシスコ平和条約</span>
+          <span class="tc-rd">さんふらんしすこへいわじょうやく</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">サンフランシスコ平和条約と日米安全保障条約に調印した首相。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">吉田茂</span>
+          <span class="tc-rd">よしだしげる</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1951年に結ばれた、米軍の日本駐留を認めた条約。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">日米安全保障条約</span>
+          <span class="tc-rd">にちべいあんぜんほしょうじょうやく</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1954年発足の日本の防衛組織。警察予備隊・保安隊を経て発展した。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">自衛隊</span>
+          <span class="tc-rd">じえいたい</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1960年に新日米安全保障条約を成立させた首相。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">岸信介</span>
+          <span class="tc-rd">きしのぶすけ</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1960年、新安保条約の改定に反対して起きた大規模な国民運動。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">安保闘争</span>
+          <span class="tc-rd">あんぽとうそう</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1972年に沖縄返還を実現した首相。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">佐藤栄作</span>
+          <span class="tc-rd">さとうえいさく</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1972年、27年間の米軍統治が終わり沖縄が日本に復帰したこと。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">沖縄返還</span>
+          <span class="tc-rd">おきなわへんかん</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button></div>
+    </div>
+    <div class="step" data-label="30秒まとめ">
+      
+      <div class="sum30">
+        <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
+        <div class="sum30-body">1951年の<span class="mark">サンフランシスコ平和条約</span>と<span class="mark">日米安全保障条約</span>によって、日本は独立を回復すると同時に米軍駐留も受け入れたんだ。朝鮮戦争をきっかけに<span class="mark">自衛隊</span>が生まれ、1960年の<span class="mark">安保闘争</span>を経て、1972年には<span class="mark">沖縄返還</span>も実現したよ。</div>
+        
+        <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
+          <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
+      </div>
+      <div class="done">🎉 この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/18/index.html#t3"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=18-japan-independence" target="_blank" rel="noopener">
+        <span class="ai-ico">🤖</span>
+        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
+        <span class="ai-arrow">›</span>
+      </a>
+    </div>
+</section>
+<section class="view" data-t="3">
+  <div class="tband"><span class="tno">3</span><h2>国際社会への復帰</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  
+    <div class="step" data-label="この単元でわかること">
+      <img class="cover-img" src="img/cover-postwar-international.webp"
+           alt="国際社会への復帰（この単元でわかること）">
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">独立しただけじゃ足りない。日本はまわりの国ぐにと少しずつ握手をして、本当の意味で世界に戻っていったんだよ。</div></div>
+    </div>
+    <div class="step" data-label="55年体制の始まり">
+      <h3><span class="sec-no">1</span>55年体制の始まり</h3>
+      <div class="sec-lead">自民党が長く政権を担う、55年体制が始まったよ。</div>
+      <p>1955年、それまで分かれていた自由党と日本民主党が合同し、自由民主党(自民党)が結成されたんだ。これをきっかけに、自民党が長く政権を担い、日本社会党が主な野党として向き合う<span class="mark">55年体制</span>という政治のしくみが始まったよ。この体制は1993年まで、なんと40年近くも続くことになるんだ。長いよね。この保守合同を進めたのが鳩山一郎で、政権が安定したことで、日本はこのあと経済成長にじっくり力を注げるようになっていくんだよ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1955年、自民党結成とともに55年体制が始まったよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">55年体制<span class="w-rd">ごじゅうごねんたいせい</span></span><span class="w-desc">1955年から続いた、自民党が長期政権を担う政治体制。</span></div></div>
+    </div>
+    <div class="step" data-label="ソ連との国交回復と国連加盟">
+      <h3><span class="sec-no">2</span>ソ連との国交回復と国連加盟</h3>
+      <div class="sec-lead">ソ連と国交を回復し、国連加盟も果たしたよ。</div>
+      <p>1956年、鳩山一郎内閣は<span class="mark">日ソ共同宣言</span>を結び、ソ連との戦争状態をようやく終わらせて国交を回復させたんだ。実はこれがきっかけとなって、同じ年に日本は国際連合への加盟を果たすことができたんだよ。サンフランシスコ平和条約に調印しなかったソ連との関係を解決したことが、国際社会に完全に復帰するための最後のピースになったんだね。国連に加盟したことで、日本はようやく世界の一員として発言できる立場を手に入れたんだ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1956年、日ソ共同宣言でソ連と国交を回復したよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">日ソ共同宣言<span class="w-rd">にっそきょうどうせんげん</span></span><span class="w-desc">1956年、鳩山一郎内閣がソ連との戦争状態を終わらせた宣言。同年の国連加盟につながった。</span></div></div>
+    </div>
+    <div class="step" data-label="近隣国との条約、そして非核三原則">
+      <h3><span class="sec-no">3</span>近隣国との条約、そして非核三原則</h3>
+      <div class="sec-lead">韓国と国交を結び、非核三原則も表明したよ。</div>
+      <p>1965年、佐藤栄作内閣は<span class="mark">日韓基本条約</span>を結んで韓国と国交を樹立し、経済協力も約束したんだ。さらに1967年には、佐藤首相が「核兵器を持たず、作らず、持ち込ませず」という<span class="mark">非核三原則</span>を表明したよ。この方針は今も日本の核政策の基本になっていて、佐藤栄作が1974年にノーベル平和賞を受賞した理由のひとつにもなったんだ。唯一の被爆国として核を持たないと宣言したこの方針は、世界からも高く評価されたんだよ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1965年に日韓基本条約、67年に非核三原則を発表したよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">佐藤栄作<span class="w-rd">さとうえいさく</span></span><span class="w-desc">日韓基本条約や非核三原則の表明を行い、ノーベル平和賞を受賞した首相。</span></div><div class="word"><span class="w-term">日韓基本条約<span class="w-rd">にっかんきほんじょうやく</span></span><span class="w-desc">1965年、佐藤栄作内閣が韓国と国交を樹立した条約。</span></div><div class="word"><span class="w-term">非核三原則<span class="w-rd">ひかくさんげんそく</span></span><span class="w-desc">「持たず、作らず、持ち込ませず」という日本の核兵器に関する方針。</span></div></div>
+    </div>
+    <div class="step" data-label="中国との国交正常化">
+      <h3><span class="sec-no">4</span>中国との国交正常化</h3>
+      <div class="sec-lead">中国とも国交を正常化し、世界に復帰したよ。</div>
+      <p>1972年、<span class="mark">田中角栄</span>内閣は中国を訪れて<span class="mark">日中共同声明</span>を発表し、中華人民共和国との国交を正常化したんだ。ただし、これによってそれまで国交のあった台湾の中華民国とは断交することになったよ。そして1978年、福田赳夫内閣がこの関係を正式な条約として確定させる<span class="mark">日中平和友好条約</span>を結んだんだ。声明から条約まで、6年もかかったんだね。田中角栄は「日本列島改造論」を掲げるなど内政でも注目を集めた首相で、外交と経済の両面で戦後日本を大きく動かした人物なんだよ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1972年に日中共同声明、78年に平和友好条約を結んだよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">田中角栄<span class="w-rd">たなかかくえい</span></span><span class="w-desc">1972年、日中共同声明で中国との国交正常化を実現した首相。</span></div><div class="word"><span class="w-term">日中共同声明<span class="w-rd">にっちゅうきょうどうせいめい</span></span><span class="w-desc">1972年、中華人民共和国と国交を樹立した声明。台湾とは断交した。</span></div><div class="word"><span class="w-term">日中平和友好条約<span class="w-rd">にっちゅうへいわゆうこうじょうやく</span></span><span class="w-desc">1978年、福田赳夫内閣が結んだ、日中の平和友好を約束する条約。</span></div></div>
+    </div>
+    <div class="step" data-label="重要語チェック">
+      <div class="terms-h">📖 重要語チェック<span class="terms-sub">意味を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="tgrid"><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1955年から続いた、自民党が長期政権を担う政治体制。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">55年体制</span>
+          <span class="tc-rd">ごじゅうごねんたいせい</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1956年、鳩山一郎内閣がソ連との戦争状態を終わらせた宣言。同年の国連加盟につながった。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">日ソ共同宣言</span>
+          <span class="tc-rd">にっそきょうどうせんげん</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">日韓基本条約や非核三原則の表明を行い、ノーベル平和賞を受賞した首相。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">佐藤栄作</span>
+          <span class="tc-rd">さとうえいさく</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1965年、佐藤栄作内閣が韓国と国交を樹立した条約。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">日韓基本条約</span>
+          <span class="tc-rd">にっかんきほんじょうやく</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">「持たず、作らず、持ち込ませず」という日本の核兵器に関する方針。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">非核三原則</span>
+          <span class="tc-rd">ひかくさんげんそく</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1972年、日中共同声明で中国との国交正常化を実現した首相。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">田中角栄</span>
+          <span class="tc-rd">たなかかくえい</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1972年、中華人民共和国と国交を樹立した声明。台湾とは断交した。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">日中共同声明</span>
+          <span class="tc-rd">にっちゅうきょうどうせいめい</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1978年、福田赳夫内閣が結んだ、日中の平和友好を約束する条約。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">日中平和友好条約</span>
+          <span class="tc-rd">にっちゅうへいわゆうこうじょうやく</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button></div>
+    </div>
+    <div class="step" data-label="30秒まとめ">
+      
+      <div class="sum30">
+        <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
+        <div class="sum30-body">戦後の日本は<span class="mark">55年体制</span>のもとで政治を安定させながら、<span class="mark">日ソ共同宣言</span>や国連加盟、<span class="mark">日韓基本条約</span>、<span class="mark">日中共同声明</span>などを通じて国際社会に復帰していったんだ。佐藤栄作首相が表明した<span class="mark">非核三原則</span>も、日本の平和への姿勢を示す大切な方針だよ。</div>
+        
+        <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
+          <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
+      </div>
+      <div class="done">🎉 この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/18/index.html#t4"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=18-postwar-international" target="_blank" rel="noopener">
+        <span class="ai-ico">🤖</span>
+        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
+        <span class="ai-arrow">›</span>
+      </a>
+    </div>
+</section>
+<section class="view" data-t="4">
+  <div class="tband"><span class="tno">4</span><h2>高度経済成長</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  
+    <div class="step" data-label="この単元でわかること">
+      <img class="cover-img" src="img/cover-economic-growth.webp"
+           alt="高度経済成長（この単元でわかること）">
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">廃墟から一気に世界第2位の経済大国へ。日本が「東洋の奇跡」と呼ばれるほどの急成長を遂げた、驚きの時代を見てみよう。</div></div>
+    </div>
+    <div class="step" data-label="10年で驚きの急成長">
+      <h3><span class="sec-no">1</span>10年で驚きの急成長</h3>
+      <div class="sec-lead">日本経済は年10%もの急成長を遂げたよ。</div>
+      <p>1955年から1973年にかけて、日本経済は年平均約10%という驚くべきスピードで成長を続けたんだ。この時期を<span class="mark">高度経済成長</span>と呼ぶよ。あまりの急成長ぶりに「東洋の奇跡」と呼ばれ、日本はアメリカに次ぐ世界第2位の経済大国にまで上りつめたんだ。戦争で焼け野原になった国が、たった十数年でここまで復活するなんて、すごいよね。工場では新しい機械がどんどん導入され、人々の働き方や暮らし方も大きく変わっていった時代だったんだ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1955〜73年、日本は年10%もの高度経済成長を遂げたよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">高度経済成長<span class="w-rd">こうどけいざいせいちょう</span></span><span class="w-desc">1955〜73年、日本経済が年平均約10%成長した時期。「東洋の奇跡」と呼ばれた。</span></div></div>
+    </div>
+    <div class="step" data-label="暮らしを変えた新しい家電たち">
+      <h3><span class="sec-no">2</span>暮らしを変えた新しい家電たち</h3>
+      <div class="sec-lead">三種の神器と3Cで、暮らしが便利になったよ。</div>
+      <p>1950年代後半になると、電気冷蔵庫・洗濯機・白黒テレビの3つが家庭に広まり、これを<span class="mark">三種の神器</span>と呼ぶようになったんだ。1960年代にはさらに、カー(自動車)・カラーテレビ・クーラーの<span class="mark">3C</span>が普及していったよ。家事や暮らしがどんどん便利になっていく様子を、当時の人たちはきっとワクワクしながら見ていたんじゃないかな。それまで手作業だった洗濯や、氷を使った冷蔵庫での保存が、電気の力であっという間に楽になっていったんだね。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">三種の神器から3Cへと、暮らしの家電が広まったよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">三種の神器<span class="w-rd">さんしゅのじんぎ</span></span><span class="w-desc">1950年代後半に普及した電気冷蔵庫・洗濯機・白黒テレビ。</span></div><div class="word"><span class="w-term">3C<span class="w-rd">すりーしー</span></span><span class="w-desc">1960年代に普及したカー・カラーテレビ・クーラー。</span></div></div>
+    </div>
+    <div class="step" data-label="世界に見せた日本の力">
+      <h3><span class="sec-no">3</span>世界に見せた日本の力</h3>
+      <div class="sec-lead">オリンピックと万博で、日本の復興を示したよ。</div>
+      <p>1964年には、アジア初となる<span class="mark">東京オリンピック</span>が開催されたんだ。これに合わせて、東京〜新大阪間を結ぶ世界初の高速鉄道<span class="mark">東海道新幹線</span>も開通したよ。さらに1970年には、日本初の国際博覧会である<span class="mark">大阪万博</span>が開かれ、「人類の進歩と調和」をテーマに岡本太郎の「太陽の塔」が話題になったんだ。復興した日本の姿を、世界にしっかりアピールできた時代だったんだね。海外からもたくさんの人が日本を訪れ、この国の技術力と発展ぶりに驚いたんだよ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1964年の東京オリンピックと70年の大阪万博だよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">東京オリンピック<span class="w-rd">とうきょうおりんぴっく</span></span><span class="w-desc">1964年に開催された、アジア初のオリンピック。</span></div><div class="word"><span class="w-term">東海道新幹線<span class="w-rd">とうかいどうしんかんせん</span></span><span class="w-desc">1964年に開業した、東京〜新大阪間の世界初の高速鉄道。</span></div><div class="word"><span class="w-term">大阪万博<span class="w-rd">おおさかばんぱく</span></span><span class="w-desc">1970年に開催された、日本初の国際博覧会。</span></div></div>
+    </div>
+    <div class="step" data-label="急成長の裏にあった痛み">
+      <h3><span class="sec-no">4</span>急成長の裏にあった痛み</h3>
+      <div class="sec-lead">公害病と石油危機が、急成長に影を落としたよ。</div>
+      <p>でも、急成長には影の部分もあったんだ。工場からの排水やガスによる環境汚染で、各地で深刻な健康被害が起きてしまったんだよ。熊本の水俣病、新潟水俣病、富山のイタイイタイ病、三重の四日市ぜんそくをあわせて<span class="mark">四大公害病</span>と呼ぶんだ。1967年には公害対策基本法が制定されて対策が始まったよ。そして1973年、第四次中東戦争をきっかけに<span class="mark">石油危機</span>が起こると、10年以上続いた高度経済成長はついに終わりを迎えたんだ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">四大公害病が起き、1973年の石油危機で成長は終わったよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">四大公害病<span class="w-rd">よんだいこうがいびょう</span></span><span class="w-desc">水俣病・新潟水俣病・イタイイタイ病・四日市ぜんそくの総称。</span></div><div class="word"><span class="w-term">石油危機<span class="w-rd">せきゆきき</span></span><span class="w-desc">1973年、第四次中東戦争をきっかけに原油価格が高騰し、高度経済成長を終わらせた出来事。</span></div></div>
+    </div>
+    <div class="step" data-label="重要語チェック">
+      <div class="terms-h">📖 重要語チェック<span class="terms-sub">意味を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="tgrid"><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1955〜73年、日本経済が年平均約10%成長した時期。「東洋の奇跡」と呼ばれた。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">高度経済成長</span>
+          <span class="tc-rd">こうどけいざいせいちょう</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1950年代後半に普及した電気冷蔵庫・洗濯機・白黒テレビ。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">三種の神器</span>
+          <span class="tc-rd">さんしゅのじんぎ</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1960年代に普及したカー・カラーテレビ・クーラー。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">3C</span>
+          <span class="tc-rd">すりーしー</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1964年に開催された、アジア初のオリンピック。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">東京オリンピック</span>
+          <span class="tc-rd">とうきょうおりんぴっく</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1964年に開業した、東京〜新大阪間の世界初の高速鉄道。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">東海道新幹線</span>
+          <span class="tc-rd">とうかいどうしんかんせん</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1970年に開催された、日本初の国際博覧会。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">大阪万博</span>
+          <span class="tc-rd">おおさかばんぱく</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">水俣病・新潟水俣病・イタイイタイ病・四日市ぜんそくの総称。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">四大公害病</span>
+          <span class="tc-rd">よんだいこうがいびょう</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1973年、第四次中東戦争をきっかけに原油価格が高騰し、高度経済成長を終わらせた出来事。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">石油危機</span>
+          <span class="tc-rd">せきゆきき</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button></div>
+    </div>
+    <div class="step" data-label="30秒まとめ">
+      
+      <div class="sum30">
+        <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
+        <div class="sum30-body">1955〜73年、日本経済は年平均約10%という<span class="mark">高度経済成長</span>を遂げ、<span class="mark">東京オリンピック</span>や<span class="mark">大阪万博</span>で世界にその姿を示したんだ。でもその裏では<span class="mark">四大公害病</span>という深刻な問題も起こり、1973年の<span class="mark">石油危機</span>で高度経済成長は幕を閉じたよ。</div>
+        
+        <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
+          <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
+      </div>
+      <div class="done">🎉 この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/18/index.html#t5"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=18-economic-growth" target="_blank" rel="noopener">
+        <span class="ai-ico">🤖</span>
+        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
+        <span class="ai-arrow">›</span>
+      </a>
+    </div>
+</section>
+<section class="view" data-t="5">
+  <div class="tband"><span class="tno">5</span><h2>戦後の文化</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  
+    <div class="step" data-label="この単元でわかること">
+      <img class="cover-img" src="img/cover-postwar-culture.webp"
+           alt="戦後の文化（この単元でわかること）">
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">テレビが茶の間にやってきて、日本人が次々とノーベル賞を受賞する。戦後の日本文化が世界へ羽ばたいていった様子を見てみよう。</div></div>
+    </div>
+    <div class="step" data-label="テレビの登場と大衆文化">
+      <h3><span class="sec-no">1</span>テレビの登場と大衆文化</h3>
+      <div class="sec-lead">テレビ放送が始まり、暮らしを大きく変えたよ。</div>
+      <p>1953年、NHKと民放によって日本の<span class="mark">テレビ放送</span>が始まったんだ。新聞やラジオと並ぶマスメディアとして、人々の暮らしや世論に大きな影響をあたえるようになったんだよ。茶の間に集まって家族みんなでテレビを見る、そんな新しい光景がこのころから広まっていったんだね。最初はまだ高価で買える家庭も少なかったけど、街頭テレビの前に人だかりができるほど大人気で、プロレスや野球の中継にみんな夢中になったんだよ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1953年、テレビ放送が始まり大きな影響を与えたよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">テレビ放送<span class="w-rd">てれびほうそう</span></span><span class="w-desc">1953年に始まった、NHKと民放による放送。戦後の大衆文化に大きな影響を与えた。</span></div></div>
+    </div>
+    <div class="step" data-label="世界に認められた日本の科学と文学">
+      <h3><span class="sec-no">2</span>世界に認められた日本の科学と文学</h3>
+      <div class="sec-lead">湯川秀樹と川端康成が、ノーベル賞を受賞したよ。</div>
+      <p>1949年、<span class="mark">湯川秀樹</span>が中間子理論という研究で、日本人として初めてノーベル物理学賞を受賞したんだ。敗戦からまだ間もない時期だったから、この受賞は日本中に大きな誇りと希望をあたえたんだよ。そして1968年には、「雪国」などの作品で知られる<span class="mark">川端康成</span>が、日本人初のノーベル文学賞を受賞したんだ。二人とも、日本人にとって特別な「初めて」を成し遂げた人物なんだね。どちらの受賞も、戦争で傷ついた日本にとって大きな心の支えになったんだよ。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">湯川秀樹と川端康成が、日本人初のノーベル賞を受賞したよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">湯川秀樹<span class="w-rd">ゆかわひでき</span></span><span class="w-desc">1949年、中間子理論で日本人初のノーベル物理学賞を受賞した科学者。</span></div><div class="word"><span class="w-term">川端康成<span class="w-rd">かわばたやすなり</span></span><span class="w-desc">1968年、「雪国」などの作品で日本人初のノーベル文学賞を受賞した作家。</span></div></div>
+    </div>
+    <div class="step" data-label="映画・マンガ・アニメの巨匠たち">
+      <h3><span class="sec-no">3</span>映画・マンガ・アニメの巨匠たち</h3>
+      <div class="sec-lead">黒澤明と手塚治虫が、世界に日本文化を広げたよ。</div>
+      <p>「羅生門」「七人の侍」などで知られる映画監督<span class="mark">黒澤明</span>は、1951年に「羅生門」がヴェネチア国際映画祭で金獅子賞を受賞し、日本映画を世界に知らしめたんだ。同じころ、「鉄腕アトム」を生み出した「マンガの神様」<span class="mark">手塚治虫</span>は、戦後の日本の<span class="mark">アニメ</span>文化の土台を築いていったよ。今や世界中で愛されるアニメが、このころから始まっていたなんて、不思議でしょ?こうした才能あふれる表現者たちの活躍が、戦後の日本文化を世界に広める大きな力になったんだね。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">黒澤明の映画と手塚治虫のマンガが世界で評価されたよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">黒澤明<span class="w-rd">くろさわあきら</span></span><span class="w-desc">「羅生門」「七人の侍」などで世界的に知られる映画監督。</span></div><div class="word"><span class="w-term">手塚治虫<span class="w-rd">てづかおさむ</span></span><span class="w-desc">「鉄腕アトム」を著した「マンガの神様」。日本のアニメ文化の基礎を築いた。</span></div><div class="word"><span class="w-term">アニメ<span class="w-rd">あにめ</span></span><span class="w-desc">手塚治虫らが発展させた、日本独自の動画文化。</span></div></div>
+    </div>
+    <div class="step" data-label="戦後文学と平和への貢献">
+      <h3><span class="sec-no">4</span>戦後文学と平和への貢献</h3>
+      <div class="sec-lead">文学と平和への貢献が、世界に認められたよ。</div>
+      <p>「金閣寺」などを著した<span class="mark">三島由紀夫</span>をはじめ、幕末や明治を題材にした歴史小説で人気を集めた司馬遼太郎など、戦後は個性ゆたかな作家たちが活躍したんだ。そして元首相の<span class="mark">佐藤栄作</span>は、1974年に沖縄返還の実現と非核三原則の表明が評価されてノーベル平和賞を受賞したよ。文化だけでなく、平和への取り組みそのものが世界に認められた瞬間だったんだね。戦後の混乱を乗り越え、文化とともに平和への歩みを重ねてきたことがよく分かるね。</p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">戦後文学が花開き、佐藤栄作はノーベル平和賞を受賞したよ。</div></div>
+      <div class="words"><div class="word"><span class="w-term">三島由紀夫<span class="w-rd">みしまゆきお</span></span><span class="w-desc">「金閣寺」などを著した戦後の代表的作家。</span></div><div class="word"><span class="w-term">佐藤栄作<span class="w-rd">さとうえいさく</span></span><span class="w-desc">1974年、沖縄返還と非核三原則の表明が評価されノーベル平和賞を受賞した元首相。</span></div></div>
+    </div>
+    <div class="step" data-label="重要語チェック">
+      <div class="terms-h">📖 重要語チェック<span class="terms-sub">意味を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="tgrid"><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1953年に始まった、NHKと民放による放送。戦後の大衆文化に大きな影響を与えた。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">テレビ放送</span>
+          <span class="tc-rd">てれびほうそう</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1949年、中間子理論で日本人初のノーベル物理学賞を受賞した科学者。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">湯川秀樹</span>
+          <span class="tc-rd">ゆかわひでき</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1968年、「雪国」などの作品で日本人初のノーベル文学賞を受賞した作家。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">川端康成</span>
+          <span class="tc-rd">かわばたやすなり</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">「羅生門」「七人の侍」などで世界的に知られる映画監督。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">黒澤明</span>
+          <span class="tc-rd">くろさわあきら</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">「鉄腕アトム」を著した「マンガの神様」。日本のアニメ文化の基礎を築いた。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">手塚治虫</span>
+          <span class="tc-rd">てづかおさむ</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">手塚治虫らが発展させた、日本独自の動画文化。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">アニメ</span>
+          <span class="tc-rd">あにめ</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">「金閣寺」などを著した戦後の代表的作家。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">三島由紀夫</span>
+          <span class="tc-rd">みしまゆきお</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-desc">1974年、沖縄返還と非核三原則の表明が評価されノーベル平和賞を受賞した元首相。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-term">佐藤栄作</span>
+          <span class="tc-rd">さとうえいさく</span>
+          <span class="tc-tap">タップで説明</span>
+        </span>
+      </span>
+    </button></div>
+    </div>
+    <div class="step" data-label="30秒まとめ">
+      
+      <div class="sum30">
+        <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
+        <div class="sum30-body">1953年に始まった<span class="mark">テレビ放送</span>は戦後の大衆文化を大きく変え、<span class="mark">湯川秀樹</span>や<span class="mark">川端康成</span>といった日本人初のノーベル賞受賞者も現れたんだ。<span class="mark">黒澤明</span>の映画や<span class="mark">手塚治虫</span>のマンガ・アニメも世界に広がり、戦後の日本文化は大きく花開いたんだよ。</div>
+        
+        <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
+          <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
+      </div>
+      <div class="done">🎉 この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/18/index.html#t6"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=18-postwar-culture" target="_blank" rel="noopener">
+        <span class="ai-ico">🤖</span>
+        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
+        <span class="ai-arrow">›</span>
+      </a>
+    </div>
+</section>
+</main>
+<div class="navbar" id="navbar" hidden><div class="navbar-in">
+  <button class="nb nb-prev" id="btnPrev">← まえへ</button>
+  <button class="nb nb-next" id="btnNext">つぎへ →</button>
+</div></div>
+<button class="chat-fab" id="chatFab" aria-label="スタ先生に質問する">🤖</button>
+<section class="chat-panel" id="chatPanel" hidden>
+  <header class="chat-head">
+    <span class="chat-title">🤖 スタ先生に質問</span>
+    <span class="chat-topic" id="chatTopic"></span>
+    <button class="chat-close" id="chatClose" aria-label="閉じる">×</button>
+  </header>
+  <div class="chat-note">公式LINEと同じAI。会話はLINEのトークとつながるよ。</div>
+  <div class="chat-body" id="chatBody"></div>
+  <div class="chat-login" id="chatLogin" hidden>
+    <p>LINEログインすると、このページでスタ先生に質問できるよ。<br>会話のつづきは公式LINEでも話せる！</p>
+    <a class="chat-login-btn" id="chatLoginBtn" href="/welcome">LINEでログイン</a>
+  </div>
+  <form class="chat-input" id="chatForm" hidden>
+    <input type="text" id="chatText" placeholder="この単元の質問をどうぞ！" maxlength="300" autocomplete="off">
+    <button type="submit" id="chatSend">送信</button>
+  </form>
+  <div class="chat-foot" id="chatFoot"></div>
+</section>
+<script>
+(function () {
+  var KEY = 'tzmref-18';
+  var views = [].slice.call(document.querySelectorAll('.view'));
+  var tabs = [].slice.call(document.querySelectorAll('.tab'));
+  var N = views.length - 1; // 単元数
+  var state = { t: 0, s: 0 };
+  var lastDir = 1;
+  var rendered = null; // 直前に表示していた {t, s}（ページめくり演出用）
+
+  function store() {
+    try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; }
+  }
+  function save(obj) {
+    try { localStorage.setItem(KEY, JSON.stringify(obj)); } catch (e) {}
+  }
+  function stepsOf(t) { return views[t].querySelectorAll('.step'); }
+
+  function render() {
+    var t = state.t, s = state.s;
+    views.forEach(function (v, i) { v.classList.toggle('on', i === t); });
+    tabs.forEach(function (b) {
+      var bt = +b.dataset.go;
+      b.classList.toggle('on', bt === t);
+      b.classList.toggle('done', bt > 0 && store()['d' + bt] === 1);
+    });
+    var tabEl = tabs[t];
+    if (tabEl && tabEl.scrollIntoView) {
+      tabEl.scrollIntoView({ block: 'nearest', inline: 'center' });
+    }
+    var navbar = document.getElementById('navbar');
+    var barStep = document.getElementById('barStep');
+    var pfill = document.getElementById('pfill');
+    if (t === 0) {
+      navbar.hidden = true;
+      barStep.textContent = '';
+      pfill.style.width = '0';
+      renderHome();
+    } else {
+      var steps = stepsOf(t);
+      // 同じ単元内のページ送りだけ「めくり」演出（古いページと新しいページを重ねる）
+      var animFrom = rendered && rendered.t === t && rendered.s !== s ? rendered.s : null;
+      [].forEach.call(steps, function (el, i) {
+        el.classList.remove('turn-out', 'turn-in', 'turn-under');
+        el.classList.toggle('on', i === s);
+      });
+      if (animFrom !== null && steps[animFrom] && steps[s]) {
+        var oldEl = steps[animFrom], newEl = steps[s];
+        var clear = function () {
+          oldEl.classList.remove('turn-out', 'turn-under');
+          newEl.classList.remove('turn-in');
+        };
+        if (lastDir > 0) {
+          oldEl.classList.add('turn-out');      // 今のページがめくれて去る
+          oldEl.addEventListener('animationend', clear, { once: true });
+        } else {
+          oldEl.classList.add('turn-under');    // 下に敷いたまま
+          newEl.classList.add('turn-in');       // 前のページがめくり戻ってくる
+          newEl.addEventListener('animationend', clear, { once: true });
+        }
+        setTimeout(clear, 700); // アニメ未発火時の保険
+      }
+      navbar.hidden = false;
+      barStep.textContent = (s + 1) + ' / ' + steps.length;
+      pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
+      var prev = document.getElementById('btnPrev');
+      var next = document.getElementById('btnNext');
+      prev.textContent = s === 0 ? '🏠 目次' : '← まえへ';
+      if (s < steps.length - 1) {
+        next.textContent = 'つぎへ →';
+      } else {
+        next.textContent = t < N ? '次の単元へ →' : '🏠 目次にもどる';
+      }
+      // 進捗保存
+      var st = store();
+      st.last = { t: t, s: s };
+      if (s === steps.length - 1) st['d' + t] = 1;
+      save(st);
+    }
+    window.scrollTo(0, 0);
+    var h = '#t' + t + (t > 0 && s > 0 ? 's' + s : '');
+    if (location.hash !== h) history.replaceState(null, '', t === 0 ? '#' : h);
+    rendered = { t: t, s: s };
+  }
+
+  function renderHome() {
+    var st = store();
+    [].forEach.call(document.querySelectorAll('.toc-state'), function (el) {
+      var t = +el.dataset.stateT;
+      el.className = 'toc-state';
+      if (st['d' + t] === 1) { el.classList.add('done'); el.textContent = '✓︎ 読んだ'; }
+      else if (st.last && st.last.t === t && st.last.s > 0) {
+        el.classList.add('doing'); el.textContent = 'つづき';
+      } else { el.textContent = ''; }
+    });
+    var btn = document.getElementById('resumeBtn');
+    if (st.last && st.last.t > 0) {
+      btn.hidden = false;
+      var name = views[st.last.t].querySelector('.tband h2').textContent;
+      document.getElementById('resumeWhere').textContent =
+        name + '（' + (st.last.s + 1) + 'ページ目）';
+      btn.onclick = function () { go(st.last.t, st.last.s, 1); };
+    } else {
+      btn.hidden = true;
+    }
+  }
+
+  function go(t, s, dir) {
+    lastDir = dir || 1;
+    state.t = Math.max(0, Math.min(N, t));
+    state.s = Math.max(0, s || 0);
+    if (state.t > 0) {
+      state.s = Math.min(state.s, stepsOf(state.t).length - 1);
+    } else {
+      state.s = 0;
+    }
+    render();
+  }
+
+  function next() {
+    var t = state.t, s = state.s;
+    if (t === 0) return;
+    if (s < stepsOf(t).length - 1) go(t, s + 1, 1);
+    else if (t < N) go(t + 1, 0, 1);
+    else go(0, 0, 1);
+  }
+  function prev() {
+    var t = state.t, s = state.s;
+    if (t === 0) return;
+    if (s > 0) go(t, s - 1, -1);
+    else go(0, 0, -1);
+  }
+
+  document.getElementById('btnNext').addEventListener('click', next);
+  document.getElementById('btnPrev').addEventListener('click', prev);
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-go]');
+    if (b) { go(+b.dataset.go, 0, 1); return; }
+    // 重要語チェックのシャッフル: カードの並びをランダムに入れ替える
+    var sh = e.target.closest('.shuffle-btn');
+    if (sh) {
+      var grid = sh.closest('.step').querySelector('.tgrid');
+      if (grid) {
+        var cards = [].slice.call(grid.querySelectorAll('.tcard'));
+        for (var i = cards.length - 1; i > 0; i--) {
+          var j = Math.floor(Math.random() * (i + 1));
+          var tmp = cards[i]; cards[i] = cards[j]; cards[j] = tmp;
+        }
+        cards.forEach(function (c) { c.classList.remove('flipped'); grid.appendChild(c); });
+        grid.classList.remove('shuffling');
+        void grid.offsetWidth;              // リフローでアニメを再始動
+        grid.classList.add('shuffling');
+      }
+      return;
+    }
+    // 裏表入れ替え（説明→用語 ⇄ 用語→説明）。設定は保存し全単元に反映
+    var sw = e.target.closest('.swap-btn');
+    if (sw) {
+      var g0 = document.querySelector('.tgrid');
+      var on = !(g0 && g0.classList.contains('term-first'));
+      applySwap(on);
+      var st2 = store(); st2.swap = on ? 1 : 0; save(st2);
+      return;
+    }
+    // 重要語カード: タップで表裏（両面表示中はめくらない）
+    var card = e.target.closest('.tcard');
+    if (card && !card.closest('.tgrid').classList.contains('both')) {
+      card.classList.toggle('flipped');
+    }
+  });
+
+  // 「両面表示にする」チェック（設定は保存して全単元・次回にも反映）
+  function applyBoth(on) {
+    [].forEach.call(document.querySelectorAll('.both-chk'), function (c) { c.checked = on; });
+    [].forEach.call(document.querySelectorAll('.tgrid'), function (g) {
+      g.classList.toggle('both', on);
+    });
+  }
+  document.addEventListener('change', function (e) {
+    if (e.target.classList && e.target.classList.contains('both-chk')) {
+      applyBoth(e.target.checked);
+      var st = store(); st.both = e.target.checked ? 1 : 0; save(st);
+    }
+  });
+  applyBoth(store().both === 1);
+
+  // 裏表入れ替え（用語⇄説明のどちらを先に見せるか。全カード共通・保存）
+  function applySwap(on) {
+    [].forEach.call(document.querySelectorAll('.tgrid'), function (g) {
+      [].forEach.call(g.querySelectorAll('.tcard.flipped'), function (c) { c.classList.remove('flipped'); });
+      g.classList.toggle('term-first', on);
+    });
+    [].forEach.call(document.querySelectorAll('.swap-btn'), function (b) { b.classList.toggle('on', on); });
+  }
+  applySwap(store().swap === 1);
+
+  // 左右スワイプでページ送り（縦スクロールと誤爆しないよう横優位のみ）
+  var tx = 0, ty = 0;
+  document.addEventListener('touchstart', function (e) {
+    tx = e.changedTouches[0].clientX; ty = e.changedTouches[0].clientY;
+  }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    var dx = e.changedTouches[0].clientX - tx;
+    var dy = e.changedTouches[0].clientY - ty;
+    if (Math.abs(dx) > 64 && Math.abs(dy) < 48 && state.t > 0) {
+      if (dx < 0) next(); else prev();
+    }
+  }, { passive: true });
+
+  // ハッシュ直リンク（#t3s2）
+  function fromHash() {
+    var m = /#t(\d+)(?:s(\d+))?/.exec(location.hash);
+    if (m) go(+m[1], +(m[2] || 0), 1); else go(0, 0, 1);
+  }
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
+})();
+</script>
+<script type="module">
+// ── ページ内チャット（スタ先生）──
+// 公式LINEの参考書AI（ref_ask）と知識・会話履歴・1日回数枠を共有する。
+// 認証は www.chatstudy.jp の LINE Login（Firebase Auth）。marutto-study の
+// SPA と同じ localStorage 永続化なので、一度 /welcome でログインすれば共有される。
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js';
+import {
+  initializeAuth, browserLocalPersistence, browserSessionPersistence,
+  inMemoryPersistence, onAuthStateChanged,
+} from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js';
+
+var TOPIC_KEYS = ["18-cold-war", "18-japan-independence", "18-postwar-international", "18-economic-growth", "18-postwar-culture"];
+var API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/referenceChat';
+
+var app = initializeApp({
+  apiKey: 'AIzaSyBJuODbPmpu_fiJ8a1ffzDIUwEFszol5Cc',
+  authDomain: 'chatstudy-63477.firebaseapp.com',
+  projectId: 'chatstudy-63477',
+  appId: '1:283901969847:web:9efd3b421e8cdb16091432',
+});
+var auth = initializeAuth(app, {
+  persistence: [browserLocalPersistence, browserSessionPersistence, inMemoryPersistence],
+});
+
+var fab = document.getElementById('chatFab');
+var panel = document.getElementById('chatPanel');
+var body = document.getElementById('chatBody');
+var loginBox = document.getElementById('chatLogin');
+var form = document.getElementById('chatForm');
+var input = document.getElementById('chatText');
+var sendBtn = document.getElementById('chatSend');
+var foot = document.getElementById('chatFoot');
+var topicEl = document.getElementById('chatTopic');
+
+var user = null;
+var loadedTopic = null;   // 履歴取得済みの topicKey
+var busy = false;
+
+function currentTopicKey() {
+  var m = /#t(\d+)/.exec(location.hash);
+  var t = m ? +m[1] : 0;
+  var idx = Math.max(1, Math.min(t, TOPIC_KEYS.length)) - 1;
+  return TOPIC_KEYS[idx];
+}
+function msg(role, text) {
+  var el = document.createElement('div');
+  el.className = 'chat-msg ' + role;
+  el.textContent = text;
+  body.appendChild(el);
+  body.scrollTop = body.scrollHeight;
+  return el;
+}
+function setFoot(remaining) {
+  foot.textContent = remaining != null ? 'きょう あと' + remaining + '回 質問できるよ' : '';
+}
+function showLogin() {
+  loginBox.hidden = false;
+  form.hidden = true;
+  document.getElementById('chatLoginBtn').href =
+    '/welcome?next=' + encodeURIComponent(location.pathname + location.hash);
+}
+function showChat() { loginBox.hidden = true; form.hidden = false; }
+
+async function callApi(payload) {
+  var idToken = await user.getIdToken();
+  var res = await fetch(API, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(Object.assign({ idToken: idToken }, payload)),
+  });
+  var data = null;
+  try { data = await res.json(); } catch (e) { /* no body */ }
+  return { status: res.status, data: data || {} };
+}
+
+async function loadHistory() {
+  var topicKey = currentTopicKey();
+  loadedTopic = topicKey;
+  body.innerHTML = '';
+  var loading = msg('sys', '読み込み中…');
+  try {
+    var r = await callApi({ topicKey: topicKey, action: 'history' });
+    loading.remove();
+    if (r.status === 402) { msg('sys', r.data.message || 'この単元は購入者向けです'); form.hidden = true; return; }
+    if (r.status !== 200) { msg('sys', 'うまく読み込めなかった。開き直してみてね'); return; }
+    topicEl.textContent = r.data.topicName || '';
+    var h = r.data.history || [];
+    if (h.length === 0) {
+      msg('model', 'こんにちは！「' + (r.data.topicName || 'この単元') + '」でわからないことがあったら、なんでも聞いてね😊');
+    } else {
+      msg('sys', '── ここまでの会話（LINEと共有）──');
+      h.forEach(function (turn) { msg(turn.role === 'user' ? 'user' : 'model', turn.text); });
+    }
+    setFoot(r.data.remaining);
+    showChat();
+  } catch (e) {
+    loading.textContent = '通信エラー。電波のよいところで開き直してみてね';
+  }
+}
+
+async function send(text) {
+  if (busy) return;
+  busy = true;
+  sendBtn.disabled = true;
+  msg('user', text);
+  var waiting = msg('sys', 'スタ先生が考え中…');
+  try {
+    var r = await callApi({ topicKey: loadedTopic || currentTopicKey(), action: 'send', text: text });
+    waiting.remove();
+    if (r.status === 200) {
+      msg('model', r.data.answer);
+      setFoot(r.data.remaining);
+    } else if (r.data && r.data.message) {
+      msg('sys', r.data.message);
+    } else {
+      msg('sys', 'ごめんね、いまうまく答えられなかった。もう一度送ってみてね');
+    }
+  } catch (e) {
+    waiting.textContent = '通信エラー。もう一度送ってみてね';
+  }
+  busy = false;
+  sendBtn.disabled = false;
+}
+
+fab.addEventListener('click', function () {
+  panel.hidden = false;
+  fab.classList.add('hidden');
+  if (!user) { showLogin(); return; }
+  if (loadedTopic !== currentTopicKey()) loadHistory();
+});
+document.getElementById('chatClose').addEventListener('click', function () {
+  panel.hidden = true;
+  fab.classList.remove('hidden');
+});
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  var text = input.value.trim();
+  if (!text) return;
+  input.value = '';
+  send(text);
+});
+// 単元を移動したら（パネルを開いたまま）その単元の会話に切り替える
+window.addEventListener('hashchange', function () {
+  if (!panel.hidden && user && loadedTopic !== currentTopicKey()) loadHistory();
+});
+
+onAuthStateChanged(auth, function (u) {
+  user = u;
+  if (panel.hidden) return;
+  if (!u) { showLogin(); return; }
+  loadHistory();
+});
+</script>
+</body></html>

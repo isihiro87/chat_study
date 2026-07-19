@@ -1,0 +1,1134 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>歴史 ⑰ 占領と日本国憲法｜つづもん問題集</title>
+<style>
+  :root { --brand:#b45309; --deep:#7c2d12; --amber:#f59e0b; --cream:#fffdf8; --line:#fde68a;
+          --ok:#16a34a; --ng:#dc2626; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { -webkit-text-size-adjust:100%; }
+  body { font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;
+         font-size:16px; line-height:1.95; color:#1c1917; background:var(--cream);
+         padding-bottom:86px; }
+  .wrap { max-width:640px; margin:0 auto; padding:0 16px 24px; }
+  ruby rt { font-size:0.5em; }
+  .print-only { display:none; }
+
+  /* ── 上部バー ── */
+  .bar { position:sticky; top:0; z-index:10; background:rgba(255,253,248,.96);
+         backdrop-filter:blur(6px); border-bottom:1px solid #f0e6d2; }
+  .bar-in { max-width:640px; margin:0 auto; padding:8px 16px 0; }
+  .bar-row { display:flex; align-items:center; gap:8px; }
+  .bar-title { font-weight:bold; color:var(--deep); font-size:14px; flex:1;
+               white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .bar-step { flex:none; font-size:12px; font-weight:bold; color:var(--brand); }
+  .tabs { display:flex; gap:6px; overflow-x:auto; padding:8px 0; scrollbar-width:none; }
+  .tabs::-webkit-scrollbar { display:none; }
+  .tab { flex:none; width:36px; height:36px; border-radius:50%; border:1.5px solid var(--line);
+         background:#fffbeb; color:var(--brand); font-size:14px; font-weight:bold;
+         display:inline-flex; align-items:center; justify-content:center; cursor:pointer; }
+  .tab.done { background:#fef3c7; }
+  .tab.on { background:var(--brand); border-color:var(--brand); color:#fff;
+            box-shadow:0 2px 6px rgba(180,83,9,.35); }
+  .pbar { height:3px; background:#f5ecd8; border-radius:2px; overflow:hidden; }
+  .pfill { height:100%; width:0; background:linear-gradient(90deg,var(--amber),#fbbf24);
+           transition:width .25s ease; }
+
+  .view { display:none; }
+  .view.on { display:block; position:relative; animation:vfade .18s ease; }
+  @keyframes vfade { from { opacity:.6; } to { opacity:1; } }
+  .step { display:none; }
+  .step.on { display:block; }
+  /* 本物っぽいページめくり（2枚重ね・参考書Web版と共通）:
+     進む = 今のページ自体が左とじに沿って手前にめくれて去り、下から次のページが現れる。
+     戻る = 前のページが手前からめくり戻されて上に着地する。 */
+  /* min-height:100% = 下に敷かれた新ページ全体を覆う（絶対配置なので view の実高さに解決される。
+     これが無いと、めくれるページより新ページが長いとき下端が透けて見える） */
+  .step.turn-out { display:block; position:absolute; top:0; left:0; width:100%; min-height:100%;
+                   z-index:3; pointer-events:none; background:var(--cream);
+                   transform-origin:left center;
+                   animation:turnOut .45s cubic-bezier(.55,.06,.68,.19) forwards; }
+  @keyframes turnOut {
+    0%   { transform:perspective(1200px) rotateY(0); opacity:1; }
+    75%  { opacity:1; }
+    100% { transform:perspective(1200px) rotateY(-88deg); opacity:0; } }
+  .step.turn-out::after { content:""; position:absolute; inset:0; pointer-events:none;
+                          background:linear-gradient(to right, transparent 55%, rgba(124,45,18,.12)); }
+  .step.on.turn-in { position:relative; z-index:3; background:var(--cream);
+                     transform-origin:left center;
+                     animation:turnIn .45s cubic-bezier(.22,.72,.32,1); }
+  @keyframes turnIn {
+    from { transform:perspective(1200px) rotateY(-88deg); }
+    to   { transform:perspective(1200px) rotateY(0); } }
+  .step.turn-under { display:block; position:absolute; top:0; left:0; width:100%; z-index:1;
+                     pointer-events:none; max-height:100%; overflow:hidden; }
+
+  /* ── ホーム ── */
+  .top { text-align:center; padding:26px 0 6px; }
+  .badge { display:inline-block; background:var(--brand); color:#fff; font-weight:bold;
+           padding:4px 16px; border-radius:20px; font-size:13px; }
+  .webtag { background:rgba(255,255,255,.25); border-radius:10px; padding:1px 8px; font-size:11px; margin-left:4px; }
+  .top h1 { font-size:29px; color:var(--deep); margin-top:12px; line-height:1.4; }
+  .sub { color:#92400e; font-size:14px; margin-top:2px; }
+  .howto { font-size:13.5px; color:#57534e; }
+  .home-howto { margin-top:14px; background:#fffbeb; border:1.5px dashed var(--line);
+                border-radius:12px; padding:10px 14px; text-align:left; }
+  .resume { display:block; width:100%; margin:16px 0 0; background:var(--brand); color:#fff;
+            border:none; border-radius:14px; padding:13px; font-size:15px; font-weight:bold;
+            cursor:pointer; box-shadow:0 3px 8px rgba(180,83,9,.3); font-family:inherit; }
+  .resume span { font-weight:normal; font-size:12px; opacity:.9; margin-left:8px; }
+  .toc { margin:16px 0 12px; background:#fff; border:2px solid var(--line); border-radius:14px; padding:14px; }
+  .toc-h { font-weight:bold; color:var(--deep); margin-bottom:6px; font-size:15px; }
+  .toc-item { display:flex; align-items:center; gap:10px; width:100%; padding:11px 6px;
+              background:none; border:none; border-top:1px solid #faf1dc; cursor:pointer;
+              color:#44403c; font-weight:bold; font-size:15px; text-align:left;
+              font-family:inherit; line-height:1.5; }
+  .toc-item:first-of-type { border-top:none; }
+  .toc-no { flex:none; min-width:24px; height:24px; border-radius:50%; background:var(--amber);
+            color:#fff; display:inline-flex; align-items:center; justify-content:center;
+            font-size:12px; padding:0 4px; }
+  .toc-name { flex:1; }
+  .toc-state { flex:none; font-size:11px; font-weight:bold; }
+  .toc-state.done { color:var(--ok); }
+  .toc-state.doing { color:var(--brand); background:#fffbeb; border:1px solid var(--line);
+                     border-radius:10px; padding:1px 8px; }
+
+  /* ── マスコット ── */
+  .wchar { flex:none; object-fit:contain; }
+  .home-cheer { display:flex; align-items:center; justify-content:center; gap:8px; margin-top:12px; }
+  .home-cheer .wchar { height:58px; }
+  .sp-bubble { position:relative; display:inline-block; background:#fffbeb; border:1.5px solid #f0b558;
+               border-radius:12px; padding:5px 12px; font-size:13px; font-weight:bold; color:#92400e; }
+  .sp-bubble.sp-taill::before { content:""; position:absolute; left:-7px; top:50%; transform:translateY(-50%);
+               border:5px solid transparent; border-right-color:#f0b558; }
+  .tchar { height:38px; margin-left:auto; }
+  .done-char { height:52px; vertical-align:middle; margin-right:6px; }
+
+  /* ── 単元 ── */
+  .tband { display:flex; align-items:center; gap:10px; margin:18px 0 14px; }
+  .tno, .ttag { flex:none; min-width:34px; height:34px; border-radius:50%; background:var(--brand); color:#fff;
+         display:inline-flex; align-items:center; justify-content:center; font-size:16px;
+         font-weight:bold; box-shadow:0 2px 4px rgba(180,83,9,.3); padding:0 6px; }
+  .tband h2 { font-size:20px; color:var(--deep); border-bottom:3px solid var(--line);
+              padding-bottom:2px; flex:1; line-height:1.4; }
+  .sec-h { display:flex; align-items:center; gap:8px; font-size:16px; font-weight:bold;
+           color:var(--deep); margin-bottom:10px; }
+  .sec-tag { flex:none; background:var(--brand); color:#fff; border-radius:8px; width:26px; height:26px;
+             display:inline-flex; align-items:center; justify-content:center; font-size:14px; }
+  .sec-note { font-size:12px; font-weight:normal; color:#a8a29e; }
+  .ref-link { display:inline-block; font-size:13px; font-weight:bold; color:var(--brand);
+              text-decoration:none; border:1.5px solid var(--line); background:#fffbeb;
+              border-radius:16px; padding:5px 14px; margin-bottom:10px; }
+
+  /* 穴埋めチップ */
+  .summary { background:#fff; border:1.5px solid #e2d5bd; border-radius:12px; padding:12px 14px;
+             text-align:justify; }
+  .blank { display:inline; border:none; background:none; font:inherit; cursor:pointer; padding:0; }
+  .blank .bno { color:var(--brand); font-weight:bold; }
+  .blank .ba { display:none; font-weight:bold; color:var(--brand);
+               background:linear-gradient(transparent 55%, var(--line) 55%); padding:0 2px; }
+  .blank .bl { display:inline-block; border-bottom:2px solid #a8a29e; height:1em;
+               vertical-align:-2px; max-width:9em; background:#fffbeb; }
+  .blank.open .ba { display:inline; }
+  .blank.open .bl { display:none; }
+  .tap-hint { display:none; }
+  .reveal-all-row { margin-top:10px; text-align:right; }
+  .reveal-all { border:1.5px solid var(--line); background:#fffbeb; color:var(--brand);
+                font-weight:bold; font-size:13px; border-radius:16px; padding:6px 14px;
+                cursor:pointer; font-family:inherit; }
+
+  /* 年表 */
+  .tl-table { width:100%; border-collapse:collapse; background:#fff; font-size:14px; }
+  .tl-table th, .tl-table td { border:1px solid #d6cbb2; padding:6px 10px; }
+  .tl-table th { background:#faf5eb; font-size:13px; }
+  .tl-year { width:74px; text-align:center; white-space:nowrap; }
+
+  /* 問題共通 */
+  .q-text { font-size:16.5px; font-weight:bold; line-height:1.9; }
+  .qa-no { font-weight:bold; margin-right:6px; color:var(--brand); }
+  .reveal { display:block; width:100%; margin-top:14px; border:none; border-radius:12px;
+            background:var(--amber); color:#fff; font-weight:bold; font-size:15px;
+            padding:12px; cursor:pointer; font-family:inherit; box-shadow:0 2px 6px rgba(245,158,11,.3); }
+  .hidden-until { display:none; }
+  .show .hidden-until { display:block; }
+  .show .reveal { display:none; }
+  .qa-a { margin-top:12px; background:#fff; border:2px solid var(--amber); border-radius:12px;
+          padding:10px 14px; font-size:18px; font-weight:bold; color:var(--deep); text-align:center; }
+  .qa-expl { font-size:13.5px; color:#57534e; background:#fffbeb; border-radius:10px;
+             padding:8px 12px; margin-top:8px; line-height:1.8; }
+  .marks { display:flex; gap:10px; margin-top:12px; }
+  .mk { flex:1; border:2px solid; border-radius:12px; background:#fff; font-weight:bold;
+        font-size:15px; padding:10px; cursor:pointer; font-family:inherit; }
+  .mk-ok { border-color:#bbe3cc; color:var(--ok); }
+  .mk-ng { border-color:#fecaca; color:var(--ng); }
+
+  /* 4択 */
+  .qopts { display:flex; flex-direction:column; gap:8px; margin-top:12px; }
+  .qopt { display:flex; align-items:center; gap:10px; text-align:left; background:#fff;
+          border:1.5px solid #e2d5bd; border-radius:12px; padding:10px 12px; font-size:14.5px;
+          cursor:pointer; font-family:inherit; line-height:1.7; }
+  .opt-k { flex:none; width:26px; height:26px; border-radius:50%; border:1.5px solid #a8a29e;
+           display:inline-flex; align-items:center; justify-content:center; font-size:13px; font-weight:bold; }
+  .qz-step.answered .qopt { cursor:default; }
+  .qopt.correct { border-color:var(--ok); background:#f0fdf4; }
+  .qopt.correct .opt-k { background:var(--ok); border-color:var(--ok); color:#fff; }
+  .qopt.wrong { border-color:var(--ng); background:#fef2f2; }
+  .qopt.wrong .opt-k { background:var(--ng); border-color:var(--ng); color:#fff; }
+  .qopt.dim { opacity:.55; }
+  .expl { margin-top:10px; font-size:13.5px; color:#57534e; background:#fffbeb;
+          border-radius:10px; padding:8px 12px; line-height:1.8; }
+  .qz-step.answered .expl { display:block; }
+
+  /* 記述 */
+  .kw-note { font-size:13px; color:#57534e; margin-top:6px; }
+  .kw-chip { display:inline-block; border:1px solid var(--brand); color:var(--brand);
+             border-radius:6px; padding:0 8px; margin-left:6px; font-size:12.5px; }
+  .w-input { width:100%; margin-top:12px; border:1.5px solid #e2d5bd; border-radius:12px;
+             padding:10px 12px; font:inherit; font-size:14.5px; background:#fff; resize:vertical; }
+  .line-mini { display:block; margin-top:10px; text-align:center; font-size:13px; font-weight:bold;
+               color:#06c755; text-decoration:none; border:1.5px solid #bbe3cc; border-radius:12px;
+               padding:8px; background:#f0fdf4; }
+
+  /* 資料 */
+  .s-img { margin-bottom:12px; }
+  .s-img img { width:100%; border-radius:12px; border:1px solid #e2d5bd; display:block; }
+  .s-img figcaption { font-size:12px; color:#a8a29e; text-align:center; margin-top:4px; }
+  .s-q { margin-bottom:14px; font-size:15px; line-height:1.8; }
+  .s-blank { display:block; margin:6px 0 0 26px; text-align:left; }
+  .s-blank .tap-hint { display:inline; font-size:11px; color:#b8b0a6; margin-left:8px; }
+  .s-blank.open .tap-hint { display:none; }
+  .m-res-row { display:flex; gap:8px; margin-bottom:14px; }
+  .m-res { flex:1; text-align:center; }
+  .m-res img { width:100%; border-radius:10px; border:1px solid #e2d5bd; }
+  .m-lab { display:block; font-weight:bold; color:var(--brand); font-size:14px; }
+  .m-item { background:#fff; border:1.5px solid #e2d5bd; border-radius:12px; padding:10px 12px;
+            margin-bottom:10px; }
+  .m-text { font-size:14.5px; line-height:1.8; }
+  .m-btns { display:flex; gap:8px; margin-top:8px; }
+  .mopt { flex:1; border:1.5px solid #e2d5bd; background:#fffbeb; border-radius:10px;
+          font-weight:bold; font-size:15px; padding:8px; cursor:pointer; font-family:inherit; }
+  .mopt.correct { border-color:var(--ok); background:#f0fdf4; color:var(--ok); }
+  .mopt.wrong { border-color:var(--ng); background:#fef2f2; color:var(--ng); }
+
+  /* 結果 */
+  .done { text-align:center; font-size:17px; font-weight:bold; color:var(--deep); margin:14px 0; }
+  .score-box { background:#fff; border:2px solid var(--line); border-radius:14px; padding:14px;
+               margin-bottom:12px; font-size:14.5px; }
+  .score-row { display:flex; justify-content:space-between; padding:4px 2px; }
+  .score-row b { color:var(--brand); }
+  .big-btn { display:block; width:100%; text-align:center; margin-top:10px; border:none;
+             border-radius:14px; padding:13px 16px; font-size:15px; font-weight:bold;
+             cursor:pointer; font-family:inherit; text-decoration:none; }
+  .line-btn { background:#06c755; color:#fff; box-shadow:0 3px 8px rgba(6,199,85,.3); }
+  .btn-sub { display:block; font-weight:normal; font-size:12px; opacity:.9; }
+  .ref-btn { background:#fffbeb; color:var(--brand); border:1.5px solid var(--line); }
+  .retry-btn { background:#fff; color:#57534e; border:1.5px solid #e2d5bd; }
+  .print-btn { background:#fff; color:#57534e; border:1.5px solid #e2d5bd; }
+
+  .foot { text-align:center; margin-top:32px; color:#a8a29e; font-size:13px; }
+  .foot-note { margin-top:4px; font-size:12px; }
+
+  /* ── 下部ナビ ── */
+  .navbar { position:fixed; left:0; right:0; bottom:0; z-index:10;
+            background:rgba(255,253,248,.97); border-top:1px solid #f0e6d2;
+            padding:10px 16px calc(10px + env(safe-area-inset-bottom)); }
+  .navbar-in { max-width:640px; margin:0 auto; display:flex; align-items:center; gap:10px; }
+  .nb { border:none; border-radius:14px; padding:12px 0; font-size:15px; font-weight:bold;
+        cursor:pointer; font-family:inherit; }
+  .nb-prev { flex:1; background:#fff; color:var(--brand); border:1.5px solid var(--line); }
+  .nb-next { flex:2; background:var(--brand); color:#fff; box-shadow:0 3px 8px rgba(180,83,9,.3); }
+
+  /* ── 印刷（紙のワークとして使える） ── */
+  @media print {
+    body { background:#fff; padding-bottom:0; font-size:10.5pt; line-height:1.8; }
+    .bar, .navbar, .resume, .reveal, .marks, .reveal-all-row, .w-input, .line-mini,
+    .big-btn, .qa-expl, .expl, .tap-hint, .toc-state, .home-howto, .howto, .m-btns { display:none !important; }
+    .print-only { display:block !important; }
+    .view { display:block !important; }
+    .step { display:block !important; margin-bottom:14px; break-inside:avoid; }
+    .hidden-until { display:none !important; }
+    .blank .ba { display:none !important; }
+    .blank .bl { display:inline-block !important; background:none; }
+    .qopt { border:none; padding:1px 0; background:none; }
+    .qopt .opt-k { width:18px; height:18px; font-size:10px; }
+    .qopt.correct, .qopt.wrong { background:none; border:none; }
+    .qopt.correct .opt-k, .qopt.wrong .opt-k { background:none; color:#1c1917; border-color:#a8a29e; }
+    .qopts { gap:2px; margin-top:4px; }
+    .wline { border-bottom:1px solid #78716c; height:9mm; margin-top:2mm; }
+    .toc-item, .tab { cursor:default; }
+    .top { padding-top:0; }
+    .tband { margin-top:8mm; break-after:avoid; }
+    .m-item { break-inside:avoid; }
+    .m-item::after { content:"〔　　〕"; color:#44403c; }
+    .print-answers { page-break-before:always; font-size:9pt; line-height:1.9; }
+    .ans-band { background:#44403c; color:#fff; text-align:center; padding:2px 0; border-radius:4px;
+                margin-bottom:8px; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .a-topic { border-bottom:1px dashed #a8a29e; padding:4px 0; }
+    .a-title { font-weight:bold; background:#f5f5f4; padding:0 6px; border-left:8px solid var(--brand);
+               -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .a-label { font-weight:bold; color:var(--brand); margin-right:6px; }
+    .a-item { display:inline-block; margin-right:4px; }
+    .a-written { padding-left:6px; }
+    .credits { font-size:7.5pt; color:#78716c; border-top:1px solid #d6d3d1; margin-top:8px; }
+  }
+  .credits { font-size:11px; color:#a8a29e; margin-top:20px; }
+</style></head><body>
+<div class="bar"><div class="bar-in">
+  <div class="bar-row">
+    <div class="bar-title">歴史 ⑰ 占領と日本国憲法（問題集）</div>
+    <div class="bar-step" id="barStep"></div>
+  </div>
+  <nav class="tabs" id="tabs"><button class="tab tab-home" data-go="0" aria-label="目次">🏠</button><button class="tab" data-go="1" aria-label="年表">年</button><button class="tab" data-go="2" aria-label="占領と民主化">1</button><button class="tab" data-go="3" aria-label="日本国憲法と民主化">2</button></nav>
+  <div class="pbar"><div class="pfill" id="pfill"></div></div>
+</div></div>
+<main class="wrap" id="views">
+
+<section class="view home" data-t="0">
+  <header class="top">
+    <div class="badge">歴史 ⑰　問題集 <span class="webtag">Web版</span></div>
+    <h1>占領と日本国憲法</h1>
+    <div class="sub">GHQ占領 〜 日本国憲法制定</div>
+    <div class="home-cheer"><img class="wchar" src="img/characters_char_manabi_sm.png" alt=""><span class="sp-bubble sp-taill">いっしょに がんばろう！</span></div>
+    <div class="howto home-howto">タブか下のリストから選んで、1問ずつ解いていこう！<br>
+    要点まとめ → 一問一答 → 4択 → 記述の順で力がつくよ。</div>
+  </header>
+  <button class="resume" id="resumeBtn" hidden>▶ つづきから解く<span id="resumeWhere"></span></button>
+  <nav class="toc">
+    <div class="toc-h">✏️ この本の問題</div>
+    <button class="toc-item" data-go="1"><span class="toc-no">年</span><span class="toc-name">年表でチェック</span><span class="toc-state" data-state-t="1"></span></button><button class="toc-item" data-go="2"><span class="toc-no">1</span><span class="toc-name">占領と民主化</span><span class="toc-state" data-state-t="2"></span></button><button class="toc-item" data-go="3"><span class="toc-no">2</span><span class="toc-name">日本国憲法と民主化</span><span class="toc-state" data-state-t="3"></span></button>
+  </nav>
+  <a class="big-btn ref-btn" href="../../ref/17/index.html">📖 参考書Web版を開く</a>
+  <button class="big-btn print-btn" type="button" onclick="window.print()">🖨 紙に印刷して解く（解答つき）</button>
+  
+  <footer class="foot">
+    <div>つづもん 問題集 Web版</div>
+    <div class="foot-note">ダウンロード済みのA4版PDF（書き込みレイアウト）もあわせてどうぞ。</div>
+  </footer>
+</section>
+<section class="view" data-t="1">
+  <div class="tband"><span class="ttag">年</span><h2>年表でチェック</h2></div>
+  <div class="step" data-label="年表でチェック">
+    <div class="howto">（　）をタップすると答えが出るよ。まずは自分で言ってから確かめよう！</div>
+    <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    <table class="tl-table"><tr><th class="tl-year">年代</th><th>できごと</th></tr><tr><td class='tl-year'>1945年</td><td>GHQの指令で三井・三菱などの<button class="blank" type="button"><span class="bno">①</span><span class="ba">財閥解体</span><span class="bl" style="width:3.6em"></span></button>が始まる</td></tr><tr><td class='tl-year'>1945年</td><td>労働者の団結権などを保障する<button class="blank" type="button"><span class="bno">②</span><span class="ba">労働組合法</span><span class="bl" style="width:4.5em"></span></button>が制定される</td></tr><tr><td class='tl-year'>1945年</td><td>衆議院議員選挙法が改正され<button class="blank" type="button"><span class="bno">③</span><span class="ba">婦人参政権</span><span class="bl" style="width:4.5em"></span></button>が認められる</td></tr><tr><td class='tl-year'>1946年</td><td>地主の農地を小作人に分配する<button class="blank" type="button"><span class="bno">④</span><span class="ba">農地改革</span><span class="bl" style="width:3.6em"></span></button>が始まる</td></tr><tr><td class='tl-year'>1946年</td><td>戦争を指導した軍人・政治家らを退かせる<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">公職追放</span><span class="bl" style="width:3.6em"></span></button>が行われる</td></tr><tr><td class='tl-year'>1946年</td><td>戦争責任を問う<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">極東国際軍事裁判</span><span class="bl" style="width:7.2em"></span></button>（東京裁判）が開かれる</td></tr><tr><td class='tl-year'>1946年</td><td>GHQが憲法改正の原案となる<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">マッカーサー草案</span><span class="bl" style="width:7.2em"></span></button>を作成する</td></tr><tr><td class='tl-year'>1946年11月3日</td><td><button class="blank" type="button"><span class="bno">⑧</span><span class="ba">日本国憲法</span><span class="bl" style="width:4.5em"></span></button>が公布される</td></tr><tr><td class='tl-year'>1947年</td><td>働く条件を定めた<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">労働基準法</span><span class="bl" style="width:4.5em"></span></button>が制定され労働三法がそろう</td></tr><tr><td class='tl-year'>1947年</td><td>教育の機会均等などを定めた<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">教育基本法</span><span class="bl" style="width:4.5em"></span></button>が制定される</td></tr><tr><td class='tl-year'>1947年</td><td>六・三・三・四制を定めた<button class="blank" type="button"><span class="bno">⑪</span><span class="ba">学校教育法</span><span class="bl" style="width:4.5em"></span></button>が制定される</td></tr><tr><td class='tl-year'>1947年</td><td>民法が改正され<button class="blank" type="button"><span class="bno">⑫</span><span class="ba">戸主制度</span><span class="bl" style="width:3.6em"></span></button>が廃止される</td></tr><tr><td class='tl-year'>1947年5月3日</td><td>日本国憲法が<button class="blank" type="button"><span class="bno">⑬</span><span class="ba">施行</span><span class="bl" style="width:2.7em"></span></button>される</td></tr><tr><td class='tl-year'>1948年</td><td>東京裁判の判決で<button class="blank" type="button"><span class="bno">⑭</span><span class="ba">東条英機</span><span class="bl" style="width:3.6em"></span></button>らが死刑となる</td></tr></table>
+  </div>
+</section>
+<section class="view" data-t="2">
+  <div class="tband"><span class="tno">1</span><h2>占領と民主化</h2><img class="wchar tchar" src="img/characters_char_pencil_sm.png" alt=""></div>
+  
+    <div class="step" data-label="A 要点まとめ">
+      <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
+      <a class="ref-link" href="../../ref/17/index.html#t1">📖 先に参考書で理解する</a>
+      <div class="summary">1945年、日本はアメリカを中心とする連合国軍に占領され、<button class="blank" type="button"><span class="bno">①</span><span class="ba">マッカーサー</span><span class="bl" style="width:5.4em"></span></button>を最高司令官とする<button class="blank" type="button"><span class="bno">②</span><span class="ba">GHQ</span><span class="bl" style="width:2.7em"></span></button>が、日本政府に指令を出して政策を実行させる<button class="blank" type="button"><span class="bno">③</span><span class="ba">間接統治</span><span class="bl" style="width:3.6em"></span></button>の方式で改革を進めた。経済の民主化のため、三井・三菱などの大企業集団を分割する<button class="blank" type="button"><span class="bno">④</span><span class="ba">財閥解体</span><span class="bl" style="width:3.6em"></span></button>が行われ、農村では地主の農地を小作人に分配する<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">農地改革</span><span class="bl" style="width:3.6em"></span></button>によって自作農が増えた。労働者の団結権などを保障する労働組合法をはじめとする<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">労働三法</span><span class="bl" style="width:3.6em"></span></button>が定められ、教育では機会均等を定めた<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">教育基本法</span><span class="bl" style="width:4.5em"></span></button>と六・三・三・四制を定めた<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">学校教育法</span><span class="bl" style="width:4.5em"></span></button>が制定された。また衆議院議員選挙法が改正されて<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">婦人参政権</span><span class="bl" style="width:4.5em"></span></button>が認められ、戦争責任を問う<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">極東国際軍事裁判</span><span class="bl" style="width:7.2em"></span></button>では東条英機らが裁かれた。</div>
+      <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (1/12)" data-qid="qa-occupation-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">1 / 12</span></div>
+      <div class="q-text">戦後日本を占領した連合国軍最高司令官総司令部の略称は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">GHQ</div>
+        <div class="qa-expl">連合国軍最高司令官総司令部のことで、英語のGeneral Headquartersを略してGHQと呼びます。マッカーサーが日本の占領を指揮しました。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (2/12)" data-qid="qa-occupation-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">2 / 12</span></div>
+      <div class="q-text">GHQの最高司令官だったアメリカの軍人は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">マッカーサー</div>
+        <div class="qa-expl">アメリカ陸軍の最高位の軍人で、1945〜1951年にGHQ最高司令官として戦後日本の民主化を進めた人物です。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (3/12)" data-qid="qa-occupation-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">3 / 12</span></div>
+      <div class="q-text">GHQが日本政府を通じて行った占領統治の方式は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>間接<rt>かんせつ</rt></ruby><ruby>統治<rt>とうち</rt></ruby></div>
+        <div class="qa-expl">GHQが自分で直接ではなく、日本政府に命令を出して実行させる方式で、ドイツが直接支配されたのとは違いました。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (4/12)" data-qid="qa-occupation-4" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">4 / 12</span></div>
+      <div class="q-text">三井・三菱などの財閥を分割した戦後改革は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>財閥<rt>ざいばつ</rt></ruby><ruby>解体<rt>かいたい</rt></ruby></div>
+        <div class="qa-expl">1945年からGHQの命令で進められた経済の民主化政策で、三井・三菱・住友・安田などの大企業集団が分けられました。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (5/12)" data-qid="qa-occupation-5" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">5 / 12</span></div>
+      <div class="q-text">地主の農地を小作人に安く分配した戦後改革は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>農地<rt>のうち</rt></ruby><ruby>改革<rt>かいかく</rt></ruby></div>
+        <div class="qa-expl">1946年からの改革で、地主の農地を政府が買い上げて小作人に安く売り、自分の土地を持つ農家が大きく増えました。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (6/12)" data-qid="qa-occupation-6" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">6 / 12</span></div>
+      <div class="q-text">労働組合法・労働関係調整法・労働基準法をまとめて何という？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>労働三法<rt>ろうどうさんぽう</rt></ruby></div>
+        <div class="qa-expl">労働組合法(1945)・労働関係調整法(1946)・労働基準法(1947)の3つで、働く人の権利と働く条件を守りました。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (7/12)" data-qid="qa-occupation-7" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">7 / 12</span></div>
+      <div class="q-text">1945年に制定された、労働者の団結権・団体交渉権・団体行動権を保障した法律は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>労働<rt>ろうどう</rt></ruby><ruby>組合法<rt>くみあいほう</rt></ruby></div>
+        <div class="qa-expl">労働三法の一つ。労働者が団結する、会社と話し合う、ストライキを行う、という3つの権利を保障した法律です。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (8/12)" data-qid="qa-occupation-8" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">8 / 12</span></div>
+      <div class="q-text">1947年に制定された、戦後の新しい教育の方針を定めた法律は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>教育<rt>きょういく</rt></ruby>基本法</div>
+        <div class="qa-expl">1947年制定で、教育の機会均等・男女共学・義務教育9年などを定めた戦後教育の基本理念を示す法律です。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (9/12)" data-qid="qa-occupation-9" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">9 / 12</span></div>
+      <div class="q-text">六・三・三・四制の学校制度を定めた法律は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">学校<ruby>教育法<rt>きょういくほう</rt></ruby></div>
+        <div class="qa-expl">1947年制定で、小学校6年・中学校3年・高校3年・大学4年の六・三・三・四制を定め、義務教育は9年間となりました。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (10/12)" data-qid="qa-occupation-10" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">10 / 12</span></div>
+      <div class="q-text">婦人参政権が認められた年は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">1945年</div>
+        <div class="qa-expl">終戦の年に衆議院議員選挙法が改正され、満20歳以上の男女に選挙権が与えられ、翌1946年の選挙で女性議員が誕生しました。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (11/12)" data-qid="qa-occupation-11" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">11 / 12</span></div>
+      <div class="q-text">戦争責任を問うため開かれた裁判は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>極東<rt>きょくとう</rt></ruby><ruby>国際<rt>こくさい</rt></ruby><ruby>軍事<rt>ぐんじ</rt></ruby><ruby>裁判<rt>さいばん</rt></ruby></div>
+        <div class="qa-expl">1946〜48年に開かれた戦争責任を問う裁判で、東京裁判とも呼ばれます。東条英機ら7名が戦争を起こした罪で死刑になりました。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (12/12)" data-qid="qa-occupation-12" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">12 / 12</span></div>
+      <div class="q-text">極東国際軍事裁判の通称は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>東京<rt>とうきょう</rt></ruby><ruby>裁判<rt>さいばん</rt></ruby></div>
+        <div class="qa-expl">極東国際軍事裁判のべつの呼び方で、1946〜48年に戦争を引っ張った日本の軍人・政治家が重い罪で裁かれました。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (1/8)" data-qid="qz-occupation-1" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">1 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">戦後日本を占領した連合国軍最高司令官総司令部の略称は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">IMTFE</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">GHQ</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">国連(UN)</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">大本営</span></button></div>
+      <div class="expl hidden-until">💡 GHQ(General Headquarters)は連合国軍最高司令官総司令部の略称で、マッカーサーが戦後日本の占領統治を主導しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-occupation-2" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">2 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">GHQの最高司令官は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ローズベルト</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">アイゼンハワー</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">ウィルソン</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">マッカーサー</span></button></div>
+      <div class="expl hidden-until">💡 アメリカ陸軍の元帥マッカーサーが、1945年から1951年までGHQ最高司令官として戦後日本の民主化改革を主導しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-occupation-3" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">3 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">1947年に制定され、機会均等・男女共学など戦後の新しい理念を定めた法律は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">義務教育法</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">国民学校令</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">学校教育法</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">教育基本法</span></button></div>
+      <div class="expl hidden-until">💡 1947年制定の教育基本法が戦後の教育理念を定め、教育の機会均等・男女共学・義務教育9年などが制度化されました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-occupation-4" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">4 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">戦後の学校制度は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">六・三・三・四制</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">四・四・六制</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">六・五・三制</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">八・四制</span></button></div>
+      <div class="expl hidden-until">💡 1947年の学校教育法で六・三・三・四制が定められ、小学校6年・中学校3年の計9年が義務教育となりました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-occupation-5" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">5 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">GHQが戦争を指導した軍人・政治家・財界人などを政府や企業の要職から退かせた政策は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">公職追放</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">思想統制</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">治安維持</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">戦犯指定</span></button></div>
+      <div class="expl hidden-until">💡 1946年から行われた公職追放によって、戦争を指導した軍人・政治家・財界人ら約21万人が政府や企業の要職から退かされました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-occupation-6" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">6 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">GHQの統治方式は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">直接統治</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">保護領</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">間接統治</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">軍政</span></button></div>
+      <div class="expl hidden-until">💡 GHQは日本政府に指令を出して命令を実行させる間接統治方式をとり、ドイツの直接統治とは対照的でした。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-occupation-7" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">7 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">労働三法に含まれないのは？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">労働基準法</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">職業安定法</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">労働関係調整法</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">労働組合法</span></button></div>
+      <div class="expl hidden-until">💡 労働三法は労働組合法・労働関係調整法・労働基準法の三つ。職業安定法（1947年制定）は同じ時期に作られたが三法には含まれません。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-occupation-8" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">8 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">東京裁判で死刑になった日本の戦時中の首相は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">鈴木貫太郎</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">小磯国昭</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">東条英機</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">近衛文麿</span></button></div>
+      <div class="expl hidden-until">💡 1941年に首相となり太平洋戦争開戦を主導した東条英機が、東京裁判でA級戦犯として死刑判決を受け1948年に処刑されました。</div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-occupation-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">1 / 3　文章で説明しよう</span></div>
+      <div class="q-text">GHQが行った農地改革の目的を簡単に説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">小作人</span><span class="kw-chip">自作農</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">地主の農地を政府が買い上げて小作人に安く売り渡し、自分の土地を持つ自作農を増やして農村の民主化を進めること。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%8D%A0%E9%A0%98%E3%81%A8%E6%B0%91%E4%B8%BB%E5%8C%96" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (2/3)" data-qid="wr-occupation-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">2 / 3　文章で説明しよう</span></div>
+      <div class="q-text">GHQによる日本占領の統治方式を、ドイツの場合と比較して説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">間接統治</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">GHQは日本政府に指令を出し実行させる間接統治を行ったが、ドイツは占領軍が直接統治する方式だった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%8D%A0%E9%A0%98%E3%81%A8%E6%B0%91%E4%B8%BB%E5%8C%96" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (3/3)" data-qid="wr-occupation-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">3 / 3　文章で説明しよう</span></div>
+      <div class="q-text">経済の民主化のためにGHQが行った財閥解体とは、どのような改革か説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">三井・三菱</span><span class="kw-chip">経済の民主化</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">三井・三菱などの大企業集団を分割し、少数の大企業が経済を支配する状態を改めて経済の民主化を進めた改革。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%8D%A0%E9%A0%98%E3%81%A8%E6%B0%91%E4%B8%BB%E5%8C%96" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step" data-label="E 資料問題">
+      <div class="sec-h"><span class="sec-tag">E</span>資料問題<span class="sec-note">写真を見て答えよう</span></div>
+      <figure class="s-img"><img src="img/land-reform-bar.webp" alt="" loading="lazy"><figcaption>自作地と小作地の割合の変化</figcaption></figure>
+      <div class="s-q"><span class="qa-no">(1)</span>グラフのように、政府が地主の土地を買い上げ、小作人に安く売りわたした戦後の民主化改革を何というか。<button class="blank s-blank" type="button"><span class="ba">農地改革</span><span class="bl" style="width:8em"></span><span class="tap-hint">タップで答え</span></button></div><div class="s-q"><span class="qa-no">(2)</span>グラフから、1940年から1950年にかけて自作地の割合はどのように変化したか、数値を用いて説明しなさい。<button class="blank s-blank" type="button"><span class="ba">約55%から約90%に増えた。（例）</span><span class="bl" style="width:8em"></span><span class="tap-hint">タップで答え</span></button></div><div class="s-q"><span class="qa-no">(3)</span>この改革によって、多くの小作人はどのような立場に変わったか、「自作農」の語を使って説明しなさい。<button class="blank s-blank" type="button"><span class="ba">自分の土地を持つ自作農になった。（例）</span><span class="bl" style="width:8em"></span><span class="tap-hint">タップで答え</span></button></div>
+    </div>
+    <div class="step done-step" data-label="結果">
+      <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「占領と民主化」おつかれさま！</span></div>
+      <div class="score-box" data-score></div>
+      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%8D%A0%E9%A0%98%E3%81%A8%E6%B0%91%E4%B8%BB%E5%8C%96" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
+      <a class="big-btn ref-btn" href="../../ref/17/index.html#t1">📖 参考書でおさらいする</a>
+      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元をもう一度とく</button>
+    </div>
+</section>
+<section class="view" data-t="3">
+  <div class="tband"><span class="tno">2</span><h2>日本国憲法と民主化</h2><img class="wchar tchar" src="img/characters_manabi_think_sm.png" alt=""></div>
+  
+    <div class="step" data-label="A 要点まとめ">
+      <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
+      <a class="ref-link" href="../../ref/17/index.html#t2">📖 先に参考書で理解する</a>
+      <div class="summary">1889年に定められた<button class="blank" type="button"><span class="bno">①</span><span class="ba">大日本帝国憲法</span><span class="bl" style="width:6.3em"></span></button>では主権が天皇にあったが、敗戦後、GHQが作成した<button class="blank" type="button"><span class="bno">②</span><span class="ba">マッカーサー草案</span><span class="bl" style="width:7.2em"></span></button>をもとに新しい憲法づくりが進められ、1946年11月3日に<button class="blank" type="button"><span class="bno">③</span><span class="ba">日本国憲法</span><span class="bl" style="width:4.5em"></span></button>が公布され、1947年5月3日に<button class="blank" type="button"><span class="bno">④</span><span class="ba">施行</span><span class="bl" style="width:2.7em"></span></button>された。この憲法は、政治のあり方を国民が決める<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">国民主権</span><span class="bl" style="width:3.6em"></span></button>、人が生まれながらに持つ権利を守る<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">基本的人権の尊重</span><span class="bl" style="width:7.2em"></span></button>、第9条で戦争放棄などを定めた<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">平和主義</span><span class="bl" style="width:3.6em"></span></button>を三大原則とし、天皇は政治の実権を持たない<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">象徴</span><span class="bl" style="width:2.7em"></span></button>と位置づけられた。第25条では「健康で文化的な最低限度の生活を営む権利」である<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">生存権</span><span class="bl" style="width:2.7em"></span></button>も定められた。あわせて民法が改正され、<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">戸主制度</span><span class="bl" style="width:3.6em"></span></button>が廃止されて男女平等の家族制度に改められた。</div>
+      <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (1/11)" data-qid="qa-postwar-constitution-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">1 / 11</span></div>
+      <div class="q-text">1946年11月3日に公布、1947年5月3日に施行された憲法は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>日本国<rt>にほんこく</rt></ruby><ruby>憲法<rt>けんぽう</rt></ruby></div>
+        <div class="qa-expl">1946年11月3日に公布、1947年5月3日に施行された憲法で、国民主権・基本的人権の尊重・平和主義の三大原則を基本原理とします。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (2/11)" data-qid="qa-postwar-constitution-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">2 / 11</span></div>
+      <div class="q-text">日本国憲法が公布された日は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">1946<ruby>年<rt>ねん</rt></ruby>11<ruby>月<rt>がつ</rt></ruby>3<ruby>日<rt>にち</rt></ruby></div>
+        <div class="qa-expl">日本国憲法を国民に発表した日で、今は「自由と平和を愛し文化をすすめる」文化の日として祝日になっています。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (3/11)" data-qid="qa-postwar-constitution-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">3 / 11</span></div>
+      <div class="q-text">日本国憲法が施行された日は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">1947<ruby>年<rt>ねん</rt></ruby>5<ruby>月<rt>がつ</rt></ruby>3<ruby>日<rt>にち</rt></ruby></div>
+        <div class="qa-expl">日本国憲法が施行され実際に効力を持ち始めた日で、現在は憲法記念日として国民の祝日になっています。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (4/11)" data-qid="qa-postwar-constitution-4" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">4 / 11</span></div>
+      <div class="q-text">日本国憲法の三大原則の一つで、政治のあり方を国民が決めるという原則は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>国民<rt>こくみん</rt></ruby><ruby>主権<rt>しゅけん</rt></ruby></div>
+        <div class="qa-expl">日本国憲法の三大原則の一つで、大日本帝国憲法の天皇主権から国民主権へ転換し、政治のあり方を国民が決める原則です。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (5/11)" data-qid="qa-postwar-constitution-5" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">5 / 11</span></div>
+      <div class="q-text">日本国憲法の三大原則の一つで、人が生まれながらに持つ権利を守る原則は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">基本的<ruby>人権<rt>じんけん</rt></ruby>の<ruby>尊重<rt>そんちょう</rt></ruby></div>
+        <div class="qa-expl">日本国憲法の三大原則の一つで、自由・平等・健康な生活・政治参加など、人が生まれながらに持つ権利を守ります。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (6/11)" data-qid="qa-postwar-constitution-6" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">6 / 11</span></div>
+      <div class="q-text">日本国憲法の三大原則の一つで、戦争放棄を定めた原則は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">平和<ruby>主義<rt>しゅぎ</rt></ruby></div>
+        <div class="qa-expl">日本国憲法の三大原則の一つで、第9条で戦争放棄・戦力不保持・交戦権の否認を定め、二度と戦争をしないと誓った原則です。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (7/11)" data-qid="qa-postwar-constitution-7" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">7 / 11</span></div>
+      <div class="q-text">日本国憲法における天皇の地位は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>象徴<rt>しょうちょう</rt></ruby></div>
+        <div class="qa-expl">日本国憲法では、天皇は「日本国の象徴であり日本国民統合の象徴」と定められました。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (8/11)" data-qid="qa-postwar-constitution-8" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">8 / 11</span></div>
+      <div class="q-text">戦争の放棄や、戦力を持たないことを定めた日本国憲法の第何条？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>第<rt>だい</rt></ruby>9<ruby>条<rt>じょう</rt></ruby></div>
+        <div class="qa-expl">日本国憲法第9条は、戦争の放棄・戦力の不保持・交戦権の否認を定めた、平和主義の中心となる条文です。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (9/11)" data-qid="qa-postwar-constitution-9" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">9 / 11</span></div>
+      <div class="q-text">新しい法律や憲法を国民に知らせることを何という？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>公布<rt>こうふ</rt></ruby></div>
+        <div class="qa-expl">新しい法律や憲法を「こういう内容で決まりました」と国民に正式に知らせること。日本国憲法は1946年11月3日に公布されました。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (10/11)" data-qid="qa-postwar-constitution-10" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">10 / 11</span></div>
+      <div class="q-text">新しい法律や憲法が実際に効力を持つようになることを何という？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>施行<rt>しこう</rt></ruby></div>
+        <div class="qa-expl">新しい法律や憲法が実際に効力を持ち始めることで、日本国憲法は1947年5月3日に施行され、現在の憲法記念日となっています。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (11/11)" data-qid="qa-postwar-constitution-11" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">11 / 11</span></div>
+      <div class="q-text">日本国憲法の前にあった、1889年制定の憲法は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>大日本帝国<rt>だいにほんていこく</rt></ruby><ruby>憲法<rt>けんぽう</rt></ruby></div>
+        <div class="qa-expl">1889年に発布、1890年から効力を持った日本初の近代憲法で、天皇が国民に与える形の憲法で、主権は天皇にありました。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (1/8)" data-qid="qz-postwar-constitution-1" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">1 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">日本国憲法が施行された日は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">12月8日</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">11月3日</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">8月15日</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">5月3日</span></button></div>
+      <div class="expl hidden-until">💡 日本国憲法は1947年5月3日に施行され、現在この日は憲法記念日として国民の祝日になっています。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-postwar-constitution-2" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">2 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">日本国憲法が公布された日は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">11月3日</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">8月15日</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">12月8日</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">5月3日</span></button></div>
+      <div class="expl hidden-until">💡 日本国憲法は1946年11月3日に公布され、現在この日は文化の日として国民の祝日になっています。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-postwar-constitution-3" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">3 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">日本国憲法の三大原則は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">基本的人権の尊重・象徴天皇制・平和主義</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">国民主権・基本的人権の尊重・平和主義</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">立憲主義・議会制民主主義・平和主義</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">国民主権・三権分立・地方自治</span></button></div>
+      <div class="expl hidden-until">💡 日本国憲法の三大原則は国民主権・基本的人権の尊重・平和主義で、それぞれ前文や条文で具体的に保障されています。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-postwar-constitution-4" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">4 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">1947年改正の民法で廃止されたのは？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">婚姻制度</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">養子制度</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">戸主制度</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">私有財産制</span></button></div>
+      <div class="expl hidden-until">💡 1947年改正の民法で戸主制度や長子相続が廃止され、男女平等・夫婦の同等の権利に基づく新しい家族制度に改められました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-postwar-constitution-5" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">5 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">日本国憲法の第9条が示す三大原則の一つは？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">基本的人権の尊重</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">平和主義</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">国民主権</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">象徴天皇制</span></button></div>
+      <div class="expl hidden-until">💡 第9条は戦争放棄・戦力不保持・交戦権の否認を定めており、三大原則のうち「平和主義」を具体的に示した条文です。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-postwar-constitution-6" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">6 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">日本国憲法の原案を作成したのは？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">日本政府</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">国連</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">GHQ</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">天皇</span></button></div>
+      <div class="expl hidden-until">💡 日本政府の改正案が保守的すぎたため、GHQが1946年に原案（マッカーサー草案）を作成し、日本政府がこれを修正して制定しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-postwar-constitution-7" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">7 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">大日本帝国憲法が制定された年は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">1925年</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">1868年</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">1889年</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">1900年</span></button></div>
+      <div class="expl hidden-until">💡 1889年(明治22年)に大日本帝国憲法が発布され、翌1890年に施行された日本初の近代憲法で、天皇主権の欽定憲法でした。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-postwar-constitution-8" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">8 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">日本国憲法の第25条が定めているのは？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">戦争放棄</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">教育の権利</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">天皇の地位</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">生存権</span></button></div>
+      <div class="expl hidden-until">💡 日本国憲法第25条は「健康で文化的な最低限度の生活を営む権利」すなわち生存権を定めており、社会権の中心となる条文です。</div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-postwar-constitution-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">1 / 3　文章で説明しよう</span></div>
+      <div class="q-text">大日本帝国憲法と日本国憲法とでは、主権のあり方がどのように違うか説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">天皇主権</span><span class="kw-chip">国民主権</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">大日本帝国憲法では天皇主権だったが、日本国憲法では国民主権に変わり、政治のあり方を国民が決めるようになった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E6%97%A5%E6%9C%AC%E5%9B%BD%E6%86%B2%E6%B3%95%E3%81%A8%E6%B0%91%E4%B8%BB%E5%8C%96" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (2/3)" data-qid="wr-postwar-constitution-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">2 / 3　文章で説明しよう</span></div>
+      <div class="q-text">1947年の民法改正によって、日本の家族制度はどのように変わったか説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">戸主制度</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">戸主制度が廃止され、男女平等の考え方に基づいて夫婦が同等の権利を持つ新しい家族制度に改められた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E6%97%A5%E6%9C%AC%E5%9B%BD%E6%86%B2%E6%B3%95%E3%81%A8%E6%B0%91%E4%B8%BB%E5%8C%96" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (3/3)" data-qid="wr-postwar-constitution-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">3 / 3　文章で説明しよう</span></div>
+      <div class="q-text">日本国憲法の三つの基本原則を挙げ、それぞれどのような内容か説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">国民主権</span><span class="kw-chip">平和主義</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">政治のあり方を国民が決める国民主権、生まれながらの権利を守る基本的人権の尊重、戦争を放棄する平和主義の三つを基本原則としている。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E6%97%A5%E6%9C%AC%E5%9B%BD%E6%86%B2%E6%B3%95%E3%81%A8%E6%B0%91%E4%B8%BB%E5%8C%96" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step done-step" data-label="結果">
+      <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「日本国憲法と民主化」おつかれさま！</span></div>
+      <div class="score-box" data-score></div>
+      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E6%97%A5%E6%9C%AC%E5%9B%BD%E6%86%B2%E6%B3%95%E3%81%A8%E6%B0%91%E4%B8%BB%E5%8C%96" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
+      <a class="big-btn ref-btn" href="../../ref/17/index.html#t2">📖 参考書でおさらいする</a>
+      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元をもう一度とく</button>
+    </div>
+</section>
+<section class="print-answers print-only">
+  <h2 class="ans-band">解答</h2>
+  <div class="a-topic"><div class="a-title">年表でチェック</div><div class="a-group"><span class="a-item">財閥解体</span>　<span class="a-item">労働組合法</span>　<span class="a-item">婦人参政権</span>　<span class="a-item">農地改革</span>　<span class="a-item">公職追放</span>　<span class="a-item">極東国際軍事裁判</span>　<span class="a-item">マッカーサー草案</span>　<span class="a-item">日本国憲法</span>　<span class="a-item">労働基準法</span>　<span class="a-item">教育基本法</span>　<span class="a-item">学校教育法</span>　<span class="a-item">戸主制度</span>　<span class="a-item">施行</span>　<span class="a-item">東条英機</span></div></div><div class="a-topic"><div class="a-title">1　占領と民主化</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① マッカーサー</span>　<span class="a-item">② GHQ</span>　<span class="a-item">③ 間接統治</span>　<span class="a-item">④ 財閥解体</span>　<span class="a-item">⑤ 農地改革</span>　<span class="a-item">⑥ 労働三法</span>　<span class="a-item">⑦ 教育基本法</span>　<span class="a-item">⑧ 学校教育法</span>　<span class="a-item">⑨ 婦人参政権</span>　<span class="a-item">⑩ 極東国際軍事裁判</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) GHQ</span>　<span class="a-item">(2) マッカーサー</span>　<span class="a-item">(3) 間接統治</span>　<span class="a-item">(4) 財閥解体</span>　<span class="a-item">(5) 農地改革</span>　<span class="a-item">(6) 労働三法</span>　<span class="a-item">(7) 労働組合法</span>　<span class="a-item">(8) 教育基本法</span>　<span class="a-item">(9) 学校教育法</span>　<span class="a-item">(10) 1945年</span>　<span class="a-item">(11) 極東国際軍事裁判</span>　<span class="a-item">(12) 東京裁判</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) イ（GHQ）</span>　<span class="a-item">(2) エ（マッカーサー）</span>　<span class="a-item">(3) エ（教育基本法）</span>　<span class="a-item">(4) ア（六・三・三・四制）</span>　<span class="a-item">(5) ア（公職追放）</span>　<span class="a-item">(6) ウ（間接統治）</span>　<span class="a-item">(7) イ（職業安定法）</span>　<span class="a-item">(8) ウ（東条英機）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 地主の農地を政府が買い上げて小作人に安く売り渡し、自分の土地を持つ自作農を増やして農村の民主化を進めること。</div><div class="a-written">(2) GHQは日本政府に指令を出し実行させる間接統治を行ったが、ドイツは占領軍が直接統治する方式だった。</div><div class="a-written">(3) 三井・三菱などの大企業集団を分割し、少数の大企業が経済を支配する状態を改めて経済の民主化を進めた改革。</div></div><div class="a-group"><span class="a-label">E 資料問題</span><span class="a-item">(1) 農地改革</span>　<span class="a-item">(2) 約55%から約90%に増えた。（例）</span>　<span class="a-item">(3) 自分の土地を持つ自作農になった。（例）</span></div></div><div class="a-topic"><div class="a-title">2　日本国憲法と民主化</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 大日本帝国憲法</span>　<span class="a-item">② マッカーサー草案</span>　<span class="a-item">③ 日本国憲法</span>　<span class="a-item">④ 施行</span>　<span class="a-item">⑤ 国民主権</span>　<span class="a-item">⑥ 基本的人権の尊重</span>　<span class="a-item">⑦ 平和主義</span>　<span class="a-item">⑧ 象徴</span>　<span class="a-item">⑨ 生存権</span>　<span class="a-item">⑩ 戸主制度</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 日本国憲法</span>　<span class="a-item">(2) 1946年11月3日</span>　<span class="a-item">(3) 1947年5月3日</span>　<span class="a-item">(4) 国民主権</span>　<span class="a-item">(5) 基本的人権の尊重</span>　<span class="a-item">(6) 平和主義</span>　<span class="a-item">(7) 象徴</span>　<span class="a-item">(8) 第9条</span>　<span class="a-item">(9) 公布</span>　<span class="a-item">(10) 施行</span>　<span class="a-item">(11) 大日本帝国憲法</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) エ（5月3日）</span>　<span class="a-item">(2) ア（11月3日）</span>　<span class="a-item">(3) イ（国民主権・基本的人権の尊重・平和主義）</span>　<span class="a-item">(4) ウ（戸主制度）</span>　<span class="a-item">(5) イ（平和主義）</span>　<span class="a-item">(6) ウ（GHQ）</span>　<span class="a-item">(7) ウ（1889年）</span>　<span class="a-item">(8) エ（生存権）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 大日本帝国憲法では天皇主権だったが、日本国憲法では国民主権に変わり、政治のあり方を国民が決めるようになった。</div><div class="a-written">(2) 戸主制度が廃止され、男女平等の考え方に基づいて夫婦が同等の権利を持つ新しい家族制度に改められた。</div><div class="a-written">(3) 政治のあり方を国民が決める国民主権、生まれながらの権利を守る基本的人権の尊重、戦争を放棄する平和主義の三つを基本原則としている。</div></div></div>
+</section>
+</main>
+<div class="navbar" id="navbar" hidden><div class="navbar-in">
+  <button class="nb nb-prev" id="btnPrev">← まえへ</button>
+  <button class="nb nb-next" id="btnNext">つぎへ →</button>
+</div></div>
+<script>
+(function () {
+  var KEY = 'tzmwb-17';
+  var views = [].slice.call(document.querySelectorAll('.view'));
+  var tabs = [].slice.call(document.querySelectorAll('.tab'));
+  var N = views.length - 1;
+  var state = { t: 0, s: 0 };
+  var lastDir = 1;
+  var rendered = null; // 直前に表示していた {t, s}（ページめくり演出用）
+
+  function store() {
+    try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; }
+  }
+  function save(obj) { try { localStorage.setItem(KEY, JSON.stringify(obj)); } catch (e) {} }
+  function stepsOf(t) { return views[t].querySelectorAll('.step'); }
+
+  function renderScore(view) {
+    var st = store(), r = st.r || {};
+    var box = view.querySelector('[data-score]');
+    if (!box) return;
+    function count(sel) {
+      var ids = [].map.call(view.querySelectorAll(sel), function (el) { return el.dataset.qid; });
+      var done = ids.filter(function (id) { return r[id] === 1; }).length;
+      var tried = ids.filter(function (id) { return id in r; }).length;
+      return { total: ids.length, done: done, tried: tried };
+    }
+    var qa = count('.qa-step'), qz = count('.qz-step'), wr = count('.wr-step');
+    var rows = [];
+    if (qa.total) rows.push('<div class="score-row"><span>B 一問一答</span><b>⭕ ' + qa.done + ' / ' + qa.total + '</b></div>');
+    if (qz.total) rows.push('<div class="score-row"><span>C 実戦4択</span><b>正解 ' + qz.done + ' / ' + qz.total + '</b></div>');
+    if (wr.total) rows.push('<div class="score-row"><span>D 記述</span><b>⭕ ' + wr.done + ' / ' + wr.total + '</b></div>');
+    box.innerHTML = rows.join('') || 'このページの問題はタップ形式だよ。';
+  }
+
+  function render() {
+    var t = state.t, s = state.s;
+    views.forEach(function (v, i) { v.classList.toggle('on', i === t); });
+    tabs.forEach(function (b) {
+      var bt = +b.dataset.go;
+      b.classList.toggle('on', bt === t);
+      b.classList.toggle('done', bt > 0 && store()['d' + bt] === 1);
+    });
+    var tabEl = tabs[t];
+    if (tabEl && tabEl.scrollIntoView) tabEl.scrollIntoView({ block: 'nearest', inline: 'center' });
+    var navbar = document.getElementById('navbar');
+    var barStep = document.getElementById('barStep');
+    var pfill = document.getElementById('pfill');
+    if (t === 0) {
+      navbar.hidden = true; barStep.textContent = ''; pfill.style.width = '0';
+      renderHome();
+    } else {
+      var steps = stepsOf(t);
+      // 同じ単元内のページ送りだけ「めくり」演出（古いページと新しいページを重ねる）
+      var animFrom = rendered && rendered.t === t && rendered.s !== s ? rendered.s : null;
+      [].forEach.call(steps, function (el, i) {
+        el.classList.remove('turn-out', 'turn-in', 'turn-under');
+        el.classList.toggle('on', i === s);
+      });
+      if (animFrom !== null && steps[animFrom] && steps[s]) {
+        var oldEl = steps[animFrom], newEl = steps[s];
+        var clear = function () {
+          oldEl.classList.remove('turn-out', 'turn-under');
+          newEl.classList.remove('turn-in');
+        };
+        if (lastDir > 0) {
+          oldEl.classList.add('turn-out');      // 今のページがめくれて去る
+          oldEl.addEventListener('animationend', clear, { once: true });
+        } else {
+          oldEl.classList.add('turn-under');    // 下に敷いたまま
+          newEl.classList.add('turn-in');       // 前のページがめくり戻ってくる
+          newEl.addEventListener('animationend', clear, { once: true });
+        }
+        setTimeout(clear, 700); // アニメ未発火時の保険
+      }
+      navbar.hidden = false;
+      barStep.textContent = (s + 1) + ' / ' + steps.length;
+      pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
+      document.getElementById('btnPrev').textContent = s === 0 ? '🏠 目次' : '← まえへ';
+      var next = document.getElementById('btnNext');
+      if (s < steps.length - 1) next.textContent = 'つぎへ →';
+      else next.textContent = t < N ? '次の単元へ →' : '🏠 目次にもどる';
+      if (steps[s] && steps[s].classList.contains('done-step')) renderScore(views[t]);
+      var st = store();
+      st.last = { t: t, s: s };
+      if (s === steps.length - 1) st['d' + t] = 1;
+      save(st);
+    }
+    window.scrollTo(0, 0);
+    var h = '#t' + t + (t > 0 && s > 0 ? 's' + s : '');
+    if (location.hash !== h) history.replaceState(null, '', t === 0 ? '#' : h);
+    rendered = { t: t, s: s };
+  }
+
+  function renderHome() {
+    var st = store();
+    [].forEach.call(document.querySelectorAll('.toc-state'), function (el) {
+      var t = +el.dataset.stateT;
+      el.className = 'toc-state';
+      if (st['d' + t] === 1) { el.classList.add('done'); el.textContent = '✓ といた'; }
+      else if (st.last && st.last.t === t && st.last.s > 0) {
+        el.classList.add('doing'); el.textContent = 'つづき';
+      } else { el.textContent = ''; }
+    });
+    var btn = document.getElementById('resumeBtn');
+    if (st.last && st.last.t > 0) {
+      btn.hidden = false;
+      var name = views[st.last.t].querySelector('.tband h2').textContent;
+      document.getElementById('resumeWhere').textContent =
+        name + '（' + (st.last.s + 1) + '問目）';
+      btn.onclick = function () { go(st.last.t, st.last.s, 1); };
+    } else { btn.hidden = true; }
+  }
+
+  function go(t, s, dir) {
+    lastDir = dir || 1;
+    state.t = Math.max(0, Math.min(N, t));
+    state.s = Math.max(0, s || 0);
+    if (state.t > 0) state.s = Math.min(state.s, stepsOf(state.t).length - 1);
+    else state.s = 0;
+    render();
+  }
+  function next() {
+    var t = state.t, s = state.s;
+    if (t === 0) return;
+    if (s < stepsOf(t).length - 1) go(t, s + 1, 1);
+    else if (t < N) go(t + 1, 0, 1);
+    else go(0, 0, 1);
+  }
+  function prev() {
+    var t = state.t, s = state.s;
+    if (t === 0) return;
+    if (s > 0) go(t, s - 1, -1);
+    else go(0, 0, -1);
+  }
+
+  document.getElementById('btnNext').addEventListener('click', next);
+  document.getElementById('btnPrev').addEventListener('click', prev);
+
+  document.addEventListener('click', function (e) {
+    var go_ = e.target.closest('[data-go]');
+    if (go_) { go(+go_.dataset.go, 0, 1); return; }
+
+    var blank = e.target.closest('.blank');
+    if (blank) { blank.classList.toggle('open'); return; }
+
+    var rall = e.target.closest('.reveal-all');
+    if (rall) {
+      var step = rall.closest('.step');
+      var opened = step.querySelectorAll('.blank.open').length;
+      var all = step.querySelectorAll('.blank');
+      var open = opened < all.length;
+      [].forEach.call(all, function (b) { b.classList.toggle('open', open); });
+      rall.textContent = open ? 'すべての答えを隠す' : 'すべての答えを表示';
+      return;
+    }
+
+    var rev = e.target.closest('.reveal');
+    if (rev) { rev.closest('.step').classList.add('show'); return; }
+
+    var mk = e.target.closest('.mk');
+    if (mk) {
+      var stp = mk.closest('.step');
+      var st = store(); st.r = st.r || {};
+      st.r[stp.dataset.qid] = +mk.dataset.v;
+      save(st);
+      setTimeout(next, 220);
+      return;
+    }
+
+    var opt = e.target.closest('.qopt');
+    if (opt) {
+      var qstep = opt.closest('.qz-step');
+      if (qstep.classList.contains('answered')) return;
+      qstep.classList.add('answered');
+      var c = +qstep.dataset.c, chosen = +opt.dataset.i;
+      [].forEach.call(qstep.querySelectorAll('.qopt'), function (b, i) {
+        if (i === c) b.classList.add('correct');
+        else if (i === chosen) b.classList.add('wrong');
+        else b.classList.add('dim');
+      });
+      var ex = qstep.querySelector('.expl');
+      if (ex) ex.style.display = 'block';
+      var st2 = store(); st2.r = st2.r || {};
+      st2.r[qstep.dataset.qid] = chosen === c ? 1 : 0;
+      save(st2);
+      return;
+    }
+
+    var mopt = e.target.closest('.mopt');
+    if (mopt) {
+      var item = mopt.closest('.m-item');
+      if (item.dataset.done) return;
+      var ok = mopt.dataset.l === item.dataset.a;
+      mopt.classList.add(ok ? 'correct' : 'wrong');
+      if (!ok) {
+        [].forEach.call(item.querySelectorAll('.mopt'), function (b) {
+          if (b.dataset.l === item.dataset.a) b.classList.add('correct');
+        });
+      }
+      item.dataset.done = '1';
+      return;
+    }
+
+    var retry = e.target.closest('[data-retry]');
+    if (retry) {
+      var view = retry.closest('.view');
+      var st3 = store(); st3.r = st3.r || {};
+      [].forEach.call(view.querySelectorAll('[data-qid]'), function (el) {
+        delete st3.r[el.dataset.qid];
+      });
+      delete st3['d' + state.t];
+      save(st3);
+      [].forEach.call(view.querySelectorAll('.step'), function (el) {
+        el.classList.remove('show', 'answered');
+      });
+      [].forEach.call(view.querySelectorAll('.qopt'), function (b) {
+        b.classList.remove('correct', 'wrong', 'dim');
+      });
+      [].forEach.call(view.querySelectorAll('.m-item'), function (it) {
+        delete it.dataset.done;
+        [].forEach.call(it.querySelectorAll('.mopt'), function (b) {
+          b.classList.remove('correct', 'wrong');
+        });
+      });
+      [].forEach.call(view.querySelectorAll('.blank.open'), function (b) {
+        b.classList.remove('open');
+      });
+      go(state.t, 0, -1);
+      return;
+    }
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight') next();
+    if (e.key === 'ArrowLeft') prev();
+  });
+  var tx = 0, ty = 0;
+  document.addEventListener('touchstart', function (e) {
+    tx = e.changedTouches[0].clientX; ty = e.changedTouches[0].clientY;
+  }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    var dx = e.changedTouches[0].clientX - tx;
+    var dy = e.changedTouches[0].clientY - ty;
+    if (Math.abs(dx) > 64 && Math.abs(dy) < 48 && state.t > 0) {
+      if (dx < 0) next(); else prev();
+    }
+  }, { passive: true });
+
+  function fromHash() {
+    var m = /#t(\d+)(?:s(\d+))?/.exec(location.hash);
+    if (m) go(+m[1], +(m[2] || 0), 1); else go(0, 0, 1);
+  }
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
+})();
+</script>
+</body></html>

@@ -52,9 +52,8 @@ const OUT_PATH = join(
 );
 
 async function main(): Promise<void> {
-  const { initializeApp, applicationDefault, getApps } = await import(
-    'firebase-admin/app'
-  );
+  const { initializeApp, applicationDefault, getApps } =
+    await import('firebase-admin/app');
   const { getFirestore } = await import('firebase-admin/firestore');
   if (getApps().length === 0) {
     initializeApp({
@@ -98,6 +97,14 @@ async function main(): Promise<void> {
       skipped++;
       skippedReasons[`grade:${String(grade)}`] =
         (skippedReasons[`grade:${String(grade)}`] ?? 0) + 1;
+      continue;
+    }
+    // 印刷ワーク専用問題（q-wb-*、syncSource: workbook-pdf-v1）は毎日配信の
+    // 出題候補に入れない。ワーク経路は workbook-question-index.generated.ts を使う。
+    if (doc.id.startsWith('q-wb-')) {
+      skipped++;
+      skippedReasons['workbook-pdf'] =
+        (skippedReasons['workbook-pdf'] ?? 0) + 1;
       continue;
     }
     const topicStr = typeof topic === 'string' ? topic : '';

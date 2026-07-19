@@ -12,262 +12,381 @@
     "questions": [
       {
         "id": "math-g3-parallel-lines-ratio-q1",
-        "question": "△ABC で，辺AB の中点を D，辺AC の中点を E とする。BC=10cm のとき，線分DE の長さを求めなさい。",
-        "options": [
-          "5cm",
-          "10cm",
-          "2.5cm",
-          "20cm"
-        ],
-        "correctIndex": 0,
-        "explanation": "$DE=\\frac{1}{2}BC=\\frac{1}{2}\\times10=5$（cm）。\n中点連結定理より，2辺の中点を結ぶ線分は第3辺の半分になります。",
+        "question": "下の図の△ABC で，DE∥BC である。AD=4cm，DB=6cm，BC=15cm のとき，線分DE の長さを求めなさい。",
+        "options": ["10cm", "6cm", "9cm", "7.5cm"],
+        "correctIndex": 1,
+        "explanation": "$DE:BC=AD:AB=4:10=2:5$ なので $DE=15\\times\\frac{2}{5}=6$（cm）。\nDE∥BC のとき $AD:AB=DE:BC$ が成り立ちます。",
+        "image": {
+          "kind": "triangle-parallel",
+          "vertexNames": ["A", "B", "C"],
+          "cuts": [0.4],
+          "pointNames": [["D", "E"]],
+          "segLabels": [
+            {"seg": ["A", "D"], "text": "4cm"},
+            {"seg": ["D", "B"], "text": "6cm"},
+            {"seg": ["D", "E"], "text": "x"},
+            {"seg": ["B", "C"], "text": "15cm"}
+          ]
+        },
         "difficulty": "basic"
       },
       {
         "id": "math-g3-parallel-lines-ratio-q2",
-        "question": "△ABC で，辺AB の中点を M，辺AC の中点を N とする。MN=6cm のとき，辺BC の長さを求めなさい。",
-        "options": [
-          "6cm",
-          "12cm",
-          "24cm",
-          "3cm"
-        ],
+        "question": "下の図の△ABC で，DE∥BC である。AD=6cm，DB=4cm，AE=9cm のとき，線分EC の長さを求めなさい。",
+        "options": ["13.5cm", "6cm", "15cm", "3cm"],
         "correctIndex": 1,
-        "explanation": "$MN=\\frac{1}{2}BC$ より $BC=2\\times MN=2\\times6=12$（cm）。\n中点を結んだ線分は第3辺の半分なので，第3辺はその2倍です。",
+        "explanation": "$AD:DB=AE:EC$ より $6:4=9:EC$，$EC=\\frac{4\\times9}{6}=6$（cm）。\nDE∥BC のとき，2辺は同じ比に分けられます。",
+        "image": {
+          "kind": "triangle-parallel",
+          "vertexNames": ["A", "B", "C"],
+          "cuts": [0.6],
+          "pointNames": [["D", "E"]],
+          "segLabels": [
+            {"seg": ["A", "D"], "text": "6cm"},
+            {"seg": ["D", "B"], "text": "4cm"},
+            {"seg": ["A", "E"], "text": "9cm"},
+            {"seg": ["E", "C"], "text": "x"}
+          ]
+        },
         "difficulty": "basic"
       },
       {
         "id": "math-g3-parallel-lines-ratio-q3",
-        "question": "△ABC で，辺AB 上に点D，辺AC 上に点E があり，DE∥BC である。AD=6cm，DB=4cm，AE=9cm のとき，線分EC の長さを求めなさい。",
-        "options": [
-          "13.5cm",
-          "4cm",
-          "9cm",
-          "6cm"
-        ],
-        "correctIndex": 3,
-        "explanation": "$DE\\parallel BC$ より $AD:DB=AE:EC$。$6:4=9:EC$，$EC=\\frac{4\\times9}{6}=6$（cm）。",
-        "difficulty": "basic"
+        "question": "下の図の△ABC で，DE∥BC である。DB=6cm，AE=8cm，EC=4cm のとき，線分AD の長さを求めなさい。",
+        "options": ["3cm", "6cm", "12cm", "8cm"],
+        "correctIndex": 2,
+        "explanation": "$AD:DB=AE:EC$ より $AD:6=8:4=2:1$，$AD=6\\times2=12$（cm）。\n$AD:DB$ と $AE:EC$ は等しくなります。",
+        "image": {
+          "kind": "triangle-parallel",
+          "vertexNames": ["A", "B", "C"],
+          "cuts": [0.667],
+          "pointNames": [["D", "E"]],
+          "segLabels": [
+            {"seg": ["A", "D"], "text": "x"},
+            {"seg": ["D", "B"], "text": "6cm"},
+            {"seg": ["A", "E"], "text": "8cm"},
+            {"seg": ["E", "C"], "text": "4cm"}
+          ]
+        },
+        "difficulty": "standard"
       },
       {
         "id": "math-g3-parallel-lines-ratio-q4",
-        "question": "△ABC で，辺AB 上に点D，辺AC 上に点E があり，DE∥BC である。AD=3cm，AB=9cm，BC=12cm のとき，線分DE の長さを求めなさい。",
-        "options": [
-          "4cm",
-          "6cm",
-          "8cm",
-          "36cm"
-        ],
-        "correctIndex": 0,
-        "explanation": "$DE\\parallel BC$ より $AD:AB=DE:BC$。$3:9=DE:12$，$DE=\\frac{3\\times12}{9}=4$（cm）。",
-        "difficulty": "basic"
+        "question": "下の図の△ABC で，DE∥BC である。AD=8cm，DB=4cm，DE=6cm のとき，辺BC の長さを求めなさい。",
+        "options": ["12cm", "9cm", "3cm", "4cm"],
+        "correctIndex": 1,
+        "explanation": "$DE:BC=AD:AB=8:12=2:3$ なので $BC=6\\times\\frac{3}{2}=9$（cm）。\nDE と BC の比は AD と AB の比に等しくなります。",
+        "image": {
+          "kind": "triangle-parallel",
+          "vertexNames": ["A", "B", "C"],
+          "cuts": [0.667],
+          "pointNames": [["D", "E"]],
+          "segLabels": [
+            {"seg": ["A", "D"], "text": "8cm"},
+            {"seg": ["D", "B"], "text": "4cm"},
+            {"seg": ["D", "E"], "text": "6cm"},
+            {"seg": ["B", "C"], "text": "x"}
+          ]
+        },
+        "difficulty": "standard"
       },
       {
         "id": "math-g3-parallel-lines-ratio-q5",
-        "question": "3本の平行な直線がある。1本の直線がこれらと上から順に点A，B，C で交わり，もう1本の直線が上から順に点D，E，F で交わっている。AB=4cm，BC=6cm，DE=6cm のとき，線分EF の長さを求めなさい。",
-        "options": [
-          "4cm",
-          "9cm",
-          "6cm",
-          "8cm"
-        ],
-        "correctIndex": 1,
-        "explanation": "平行線にはさまれた線分の比は等しいので $AB:BC=DE:EF$。$4:6=6:EF$，$EF=\\frac{6\\times6}{4}=9$（cm）。",
-        "difficulty": "basic"
+        "question": "下の図の△ABC で，DE∥BC である。DB=6cm，DE=6cm，BC=15cm のとき，線分AD の長さを求めなさい。",
+        "options": ["9cm", "6cm", "4cm", "3cm"],
+        "correctIndex": 2,
+        "explanation": "$DE:BC=6:15=2:5$ より $AD:DB=2:3$，$AD=6\\times\\frac{2}{3}=4$（cm）。\n$AD:DB=DE:(BC-DE)$ を使います。",
+        "image": {
+          "kind": "triangle-parallel",
+          "vertexNames": ["A", "B", "C"],
+          "cuts": [0.4],
+          "pointNames": [["D", "E"]],
+          "segLabels": [
+            {"seg": ["A", "D"], "text": "x"},
+            {"seg": ["D", "B"], "text": "6cm"},
+            {"seg": ["D", "E"], "text": "6cm"},
+            {"seg": ["B", "C"], "text": "15cm"}
+          ]
+        },
+        "difficulty": "standard"
       },
       {
         "id": "math-g3-parallel-lines-ratio-q6",
-        "question": "3本の平行な直線が，1本の直線と上から順に点A，B，C で交わり，もう1本の直線と上から順に点D，E，F で交わっている。AB=3cm，DE=4cm，EF=8cm のとき，線分BC の長さを求めなさい。",
-        "options": [
-          "12cm",
-          "4cm",
-          "6cm",
-          "1.5cm"
-        ],
-        "correctIndex": 2,
-        "explanation": "$AB:BC=DE:EF$ より $3:BC=4:8$，$BC=\\frac{3\\times8}{4}=6$（cm）。",
-        "difficulty": "standard"
+        "question": "下の図の△ABC で，DE∥BC である。AD=9cm，DB=6cm，BC=20cm のとき，線分DE の長さを求めなさい。",
+        "options": ["30cm", "12cm", "8cm", "10cm"],
+        "correctIndex": 1,
+        "explanation": "$DE:BC=AD:AB=9:15=3:5$ なので $DE=20\\times\\frac{3}{5}=12$（cm）。\n$AD:DB$ ではなく $AD:AB$ と $DE:BC$ が等しいことに注意します。",
+        "image": {
+          "kind": "triangle-parallel",
+          "vertexNames": ["A", "B", "C"],
+          "cuts": [0.6],
+          "pointNames": [["D", "E"]],
+          "segLabels": [
+            {"seg": ["A", "D"], "text": "9cm"},
+            {"seg": ["D", "B"], "text": "6cm"},
+            {"seg": ["D", "E"], "text": "x"},
+            {"seg": ["B", "C"], "text": "20cm"}
+          ]
+        },
+        "difficulty": "advanced"
       },
       {
         "id": "math-g3-parallel-lines-ratio-q7",
-        "question": "△ABC で，辺AB 上に点D，辺AC 上に点E があり，DE∥BC である。AD=6cm，DB=4cm，DE=9cm のとき，辺BC の長さを求めなさい。",
-        "options": [
-          "6cm",
-          "13.5cm",
-          "15cm",
-          "12cm"
-        ],
+        "question": "下の図の△ABC で，DE∥BC である。DB=8cm，AE=6cm，EC=12cm のとき，線分AD の長さを求めなさい。",
+        "options": ["16cm", "8cm", "4cm", "6cm"],
         "correctIndex": 2,
-        "explanation": "$DE\\parallel BC$ より $AD:AB=DE:BC$。$AB=6+4=10$ だから $6:10=9:BC$，$BC=\\frac{10\\times9}{6}=15$（cm）。\nDE と BC が対応するので，AD ではなく AB（=AD+DB）を使います。",
-        "difficulty": "standard"
+        "explanation": "$AD:DB=AE:EC$ より $AD:8=6:12=1:2$，$AD=8\\times\\frac{1}{2}=4$（cm）。\nDE∥BC のとき両辺は同じ比に分けられます。",
+        "image": {
+          "kind": "triangle-parallel",
+          "vertexNames": ["A", "B", "C"],
+          "cuts": [0.333],
+          "pointNames": [["D", "E"]],
+          "segLabels": [
+            {"seg": ["A", "D"], "text": "x"},
+            {"seg": ["D", "B"], "text": "8cm"},
+            {"seg": ["A", "E"], "text": "6cm"},
+            {"seg": ["E", "C"], "text": "12cm"}
+          ]
+        },
+        "difficulty": "advanced"
       },
       {
         "id": "math-g3-parallel-lines-ratio-q8",
-        "question": "△ABC で，辺AB 上に点D，辺AC 上に点E があり，DE∥BC である。AD=5cm，DB=3cm，AE=10cm のとき，辺AC の長さを求めなさい。",
-        "options": [
-          "6cm",
-          "10cm",
-          "13cm",
-          "16cm"
-        ],
-        "correctIndex": 3,
-        "explanation": "$DE\\parallel BC$ より $AD:AB=AE:AC$。$AB=5+3=8$ だから $5:8=10:AC$，$AC=\\frac{8\\times10}{5}=16$（cm）。",
-        "difficulty": "standard"
+        "question": "下の図の△ABC で，DE∥BC である。AD=8cm，AE=6cm，EC=12cm のとき，線分DB の長さを求めなさい。",
+        "options": ["4cm", "6cm", "16cm", "12cm"],
+        "correctIndex": 2,
+        "explanation": "$AD:DB=AE:EC$ より $8:DB=6:12=1:2$，$DB=8\\times2=16$（cm）。\n$AD:DB$ と $AE:EC$ が等しいことを使います。",
+        "image": {
+          "kind": "triangle-parallel",
+          "vertexNames": ["A", "B", "C"],
+          "cuts": [0.333],
+          "pointNames": [["D", "E"]],
+          "segLabels": [
+            {"seg": ["A", "D"], "text": "8cm"},
+            {"seg": ["D", "B"], "text": "x"},
+            {"seg": ["A", "E"], "text": "6cm"},
+            {"seg": ["E", "C"], "text": "12cm"}
+          ]
+        },
+        "difficulty": "advanced"
       },
       {
         "id": "math-g3-parallel-lines-ratio-q9",
-        "question": "△ABC で，辺AB の中点を D，辺AC の中点を E とする。BC=14cm のとき，線分DE の長さを求めなさい。",
-        "options": [
-          "7cm",
-          "14cm",
-          "28cm",
-          "3.5cm"
-        ],
-        "correctIndex": 0,
-        "explanation": "$DE=\\frac{1}{2}BC=\\frac{1}{2}\\times14=7$（cm）。\n中点連結定理より，DE は BC の半分です。",
-        "difficulty": "basic"
+        "question": "下の図で AB∥DC であり，対角線が点P で交わっている。AB=12cm，DC=8cm，AP=9cm のとき，線分PC の長さを求めなさい。",
+        "options": ["13.5cm", "6cm", "12cm", "8cm"],
+        "correctIndex": 1,
+        "explanation": "AB∥DC より △PAB∽△PCD，$AP:PC=AB:DC=12:8=3:2$。$PC=9\\times\\frac{2}{3}=6$（cm）。\n砂時計型では交点から対応する辺の比が等しくなります。",
+        "image": {
+          "kind": "hourglass",
+          "names": {"tl": "A", "tr": "B", "bl": "D", "br": "C"},
+          "intersectName": "P",
+          "segLabels": [
+            {"seg": ["A", "B"], "text": "12cm"},
+            {"seg": ["D", "C"], "text": "8cm"},
+            {"seg": ["A", "P"], "text": "9cm"},
+            {"seg": ["P", "C"], "text": "x"}
+          ]
+        },
+        "difficulty": "standard"
       },
       {
         "id": "math-g3-parallel-lines-ratio-q10",
-        "question": "△ABC で，辺AB の中点を M，辺AC の中点を N とする。BC=9cm のとき，線分MN の長さを求めなさい。",
-        "options": [
-          "18cm",
-          "9cm",
-          "4.5cm",
-          "2.25cm"
-        ],
+        "question": "下の図で AB∥DC であり，対角線が点P で交わっている。AB=15cm，AP=10cm，PC=4cm のとき，線分DC の長さを求めなさい。",
+        "options": ["37.5cm", "4cm", "6cm", "10cm"],
         "correctIndex": 2,
-        "explanation": "$MN=\\frac{1}{2}BC=\\frac{1}{2}\\times9=4.5$（cm）。\n中点連結定理より，MN は BC の半分になります。",
-        "difficulty": "basic"
+        "explanation": "△PAB∽△PCD より $AB:DC=AP:PC=10:4=5:2$。$DC=15\\times\\frac{2}{5}=6$（cm）。\n上下の三角形は相似で，対応する辺の比が等しくなります。",
+        "image": {
+          "kind": "hourglass",
+          "names": {"tl": "A", "tr": "B", "bl": "D", "br": "C"},
+          "intersectName": "P",
+          "segLabels": [
+            {"seg": ["A", "B"], "text": "15cm"},
+            {"seg": ["A", "P"], "text": "10cm"},
+            {"seg": ["P", "C"], "text": "4cm"},
+            {"seg": ["D", "C"], "text": "x"}
+          ]
+        },
+        "difficulty": "standard"
       },
       {
         "id": "math-g3-parallel-lines-ratio-q11",
-        "question": "△ABC で，辺AB 上に点D，辺AC 上に点E があり，DE∥BC である。DB=6cm，AE=4cm，EC=8cm で，AD=$x$ cm とする。$x$ の値を求めなさい。",
-        "options": [
-          "12",
-          "6",
-          "2",
-          "3"
-        ],
-        "correctIndex": 3,
-        "explanation": "$DE\\parallel BC$ より $AD:DB=AE:EC$。$x:6=4:8$，$x=\\frac{6\\times4}{8}=3$。",
+        "question": "下の図で AB∥DC であり，対角線が点P で交わっている。AB=10cm，DC=6cm，PD=9cm のとき，線分BP の長さを求めなさい。",
+        "options": ["5.4cm", "15cm", "9cm", "6cm"],
+        "correctIndex": 1,
+        "explanation": "△PAB∽△PCD より $BP:PD=AB:DC=10:6=5:3$。$BP=9\\times\\frac{5}{3}=15$（cm）。\nもう一方の対角線も同じ比に分けられます。",
+        "image": {
+          "kind": "hourglass",
+          "names": {"tl": "A", "tr": "B", "bl": "D", "br": "C"},
+          "intersectName": "P",
+          "segLabels": [
+            {"seg": ["A", "B"], "text": "10cm"},
+            {"seg": ["D", "C"], "text": "6cm"},
+            {"seg": ["P", "D"], "text": "9cm"},
+            {"seg": ["B", "P"], "text": "x"}
+          ]
+        },
         "difficulty": "standard"
       },
       {
         "id": "math-g3-parallel-lines-ratio-q12",
-        "question": "△ABC で，辺AB 上に点D，辺AC 上に点E があり，DE∥BC である。AD=8cm，AB=12cm，BC=15cm のとき，線分DE の長さを求めなさい。",
-        "options": [
-          "22.5cm",
-          "10cm",
-          "7.5cm",
-          "12cm"
-        ],
-        "correctIndex": 1,
-        "explanation": "$DE\\parallel BC$ より $AD:AB=DE:BC$。$8:12=DE:15$，$DE=\\frac{8\\times15}{12}=10$（cm）。",
-        "difficulty": "standard"
+        "question": "下の図で AB∥DC であり，対角線が点P で交わっている。DC=9cm，AP=8cm，PC=12cm のとき，線分AB の長さを求めなさい。",
+        "options": ["13.5cm", "12cm", "6cm", "8cm"],
+        "correctIndex": 2,
+        "explanation": "△PAB∽△PCD より $AB:DC=AP:PC=8:12=2:3$。$AB=9\\times\\frac{2}{3}=6$（cm）。\n交点から測った対角線の比が上下の辺の比に等しくなります。",
+        "image": {
+          "kind": "hourglass",
+          "names": {"tl": "A", "tr": "B", "bl": "D", "br": "C"},
+          "intersectName": "P",
+          "segLabels": [
+            {"seg": ["D", "C"], "text": "9cm"},
+            {"seg": ["A", "P"], "text": "8cm"},
+            {"seg": ["P", "C"], "text": "12cm"},
+            {"seg": ["A", "B"], "text": "x"}
+          ]
+        },
+        "difficulty": "advanced"
       },
       {
         "id": "math-g3-parallel-lines-ratio-q13",
-        "question": "3本の平行な直線が，1本の直線と上から順に点A，B，C で交わり，もう1本の直線と上から順に点D，E，F で交わっている。AB=$x$ cm，BC=10cm，DE=6cm，EF=15cm である。$x$ の値を求めなさい。",
-        "options": [
-          "25",
-          "4",
-          "9",
-          "6"
-        ],
+        "question": "下の図で，3本の平行線に2本の直線が交わっている。左の直線が上から6cm，x，右の直線が上から8cm，12cm に分けられているとき，x を求めなさい。",
+        "options": ["16cm", "9cm", "10cm", "8cm"],
         "correctIndex": 1,
-        "explanation": "$AB:BC=DE:EF$ より $x:10=6:15$，$x=\\frac{10\\times6}{15}=4$。",
-        "difficulty": "advanced"
+        "explanation": "平行線にはさまれた線分の比は等しいので $6:x=8:12$，$x=\\frac{6\\times12}{8}=9$（cm）。\n3本の平行線では，各直線が同じ比に分けられます。",
+        "image": {
+          "kind": "parallel-segments",
+          "nLines": 3,
+          "lineNames": ["p", "q", "r"],
+          "leftLabels": ["6", "x"],
+          "rightLabels": ["8", "12"]
+        },
+        "difficulty": "basic"
       },
       {
         "id": "math-g3-parallel-lines-ratio-q14",
-        "question": "△ABC で，辺AB，BC，CA のそれぞれの中点を P，Q，R とする。AB=8cm，BC=12cm，CA=10cm のとき，△PQR の周の長さを求めなさい。",
-        "options": [
-          "30cm",
-          "20cm",
-          "60cm",
-          "15cm"
-        ],
-        "correctIndex": 3,
-        "explanation": "中点連結定理より，3つの中点を結んだ線分はそれぞれ向かい合う辺の半分。$PQ=\\frac{1}{2}CA=5$，$QR=\\frac{1}{2}AB=4$，$RP=\\frac{1}{2}BC=6$。\n周の長さは $5+4+6=15$（cm）で，もとの三角形の周の半分になります。",
-        "difficulty": "advanced"
+        "question": "下の図で，3本の平行線に2本の直線が交わっている。左の直線が上から x，10cm，右の直線が上から6cm，15cm に分けられているとき，x を求めなさい。",
+        "options": ["25cm", "9cm", "4cm", "6cm"],
+        "correctIndex": 2,
+        "explanation": "$x:10=6:15$ なので $x=\\frac{10\\times6}{15}=4$（cm）。\n平行線が作る対応する区間の比は等しくなります。",
+        "image": {
+          "kind": "parallel-segments",
+          "nLines": 3,
+          "lineNames": ["p", "q", "r"],
+          "leftLabels": ["x", "10"],
+          "rightLabels": ["6", "15"]
+        },
+        "difficulty": "standard"
       },
       {
         "id": "math-g3-parallel-lines-ratio-q15",
-        "question": "△ABC で，辺AB 上に点D，辺AC 上に点E があり，DE∥BC である。AD:DB=2:3，BC=20cm のとき，線分DE の長さを求めなさい。",
-        "options": [
-          "12cm",
-          "30cm",
-          "50cm",
-          "8cm"
-        ],
-        "correctIndex": 3,
-        "explanation": "$AD:DB=2:3$ より $AD:AB=2:5$。$DE\\parallel BC$ だから $DE:BC=AD:AB=2:5$，$DE=20\\times\\frac{2}{5}=8$（cm）。",
+        "question": "下の図で，3本の平行線に2本の直線が交わっている。左の直線が上から8cm，6cm，右の直線が上から12cm，x に分けられているとき，x を求めなさい。",
+        "options": ["16cm", "9cm", "10cm", "12cm"],
+        "correctIndex": 1,
+        "explanation": "$8:6=12:x$ なので $x=\\frac{6\\times12}{8}=9$（cm）。\n左右の直線が同じ比に分けられることを使います。",
+        "image": {
+          "kind": "parallel-segments",
+          "nLines": 3,
+          "lineNames": ["p", "q", "r"],
+          "leftLabels": ["8", "6"],
+          "rightLabels": ["12", "x"]
+        },
         "difficulty": "standard"
       },
       {
         "id": "math-g3-parallel-lines-ratio-q16",
-        "question": "△ABC で，辺AB 上に点D，辺AC 上に点E があり，DE∥BC である。AD:DB=3:2，DE=12cm のとき，辺BC の長さを求めなさい。",
-        "options": [
-          "20cm",
-          "18cm",
-          "7.2cm",
-          "30cm"
-        ],
-        "correctIndex": 0,
-        "explanation": "$AD:DB=3:2$ より $AD:AB=3:5$。$DE:BC=AD:AB=3:5$ だから $12:BC=3:5$，$BC=12\\times\\frac{5}{3}=20$（cm）。",
+        "question": "下の図で，3本の平行線に2本の直線が交わっている。左の直線が上から12cm，x，右の直線が上から9cm，6cm に分けられているとき，x を求めなさい。",
+        "options": ["18cm", "9cm", "8cm", "3cm"],
+        "correctIndex": 2,
+        "explanation": "$12:x=9:6=3:2$ なので $x=12\\times\\frac{2}{3}=8$（cm）。\n平行線にはさまれた線分の比が等しいことを使います。",
+        "image": {
+          "kind": "parallel-segments",
+          "nLines": 3,
+          "lineNames": ["p", "q", "r"],
+          "leftLabels": ["12", "x"],
+          "rightLabels": ["9", "6"]
+        },
         "difficulty": "advanced"
       },
       {
         "id": "math-g3-parallel-lines-ratio-q17",
-        "question": "3本の平行な直線が，1本の直線と上から順に点A，B，C で交わり，もう1本の直線と上から順に点D，E，F で交わっている。AB=6cm，BC=9cm，DF=20cm のとき，線分DE の長さを求めなさい。",
-        "options": [
-          "8cm",
-          "12cm",
-          "10cm",
-          "13cm"
-        ],
-        "correctIndex": 0,
-        "explanation": "$DE:EF=AB:BC=6:9=2:3$。DF=DE+EF=20cm なので，DE は全体の $\\frac{2}{5}$。$DE=20\\times\\frac{2}{5}=8$（cm）。",
-        "difficulty": "standard"
-      },
-      {
-        "id": "math-g3-parallel-lines-ratio-q18",
-        "question": "△ABC で，辺AB 上に点D，辺AC 上に点E があり，DE∥BC である。AE=6cm，EC=4cm，DE=9cm のとき，辺BC の長さを求めなさい。",
-        "options": [
-          "6cm",
-          "15cm",
-          "13.5cm",
-          "22.5cm"
-        ],
+        "question": "下の図の△ABC で，点M，N はそれぞれ辺AB，AC の中点である。BC=14cm のとき，線分MN の長さを求めなさい。",
+        "options": ["28cm", "7cm", "14cm", "3.5cm"],
         "correctIndex": 1,
-        "explanation": "$DE\\parallel BC$ より $AE:AC=DE:BC$。$AC=6+4=10$ だから $6:10=9:BC$，$BC=\\frac{10\\times9}{6}=15$（cm）。\nDE と BC が対応するので，EC ではなく AC（=AE+EC）を使います。",
+        "explanation": "中点連結定理より $MN=\\frac{1}{2}BC=\\frac{1}{2}\\times14=7$（cm）。\n2辺の中点を結ぶ線分は第3辺に平行で，その長さの半分です。",
+        "image": {
+          "kind": "triangle-parallel",
+          "vertexNames": ["A", "B", "C"],
+          "cuts": [0.5],
+          "pointNames": [["M", "N"]],
+          "ticks": [
+            {"seg": ["A", "M"], "n": 1},
+            {"seg": ["M", "B"], "n": 1},
+            {"seg": ["A", "N"], "n": 2},
+            {"seg": ["N", "C"], "n": 2}
+          ],
+          "segLabels": [
+            {"seg": ["M", "N"], "text": "x"},
+            {"seg": ["B", "C"], "text": "14cm"}
+          ]
+        },
         "difficulty": "basic"
       },
       {
+        "id": "math-g3-parallel-lines-ratio-q18",
+        "question": "下の図の△ABC で，点M，N はそれぞれ辺AB，AC の中点である。MN=9cm のとき，辺BC の長さを求めなさい。",
+        "options": ["9cm", "18cm", "4.5cm", "27cm"],
+        "correctIndex": 1,
+        "explanation": "$MN=\\frac{1}{2}BC$ より $BC=2\\times MN=2\\times9=18$（cm）。\n中点を結んだ線分の2倍が第3辺の長さになります。",
+        "image": {
+          "kind": "triangle-parallel",
+          "vertexNames": ["A", "B", "C"],
+          "cuts": [0.5],
+          "pointNames": [["M", "N"]],
+          "ticks": [
+            {"seg": ["A", "M"], "n": 1},
+            {"seg": ["M", "B"], "n": 1},
+            {"seg": ["A", "N"], "n": 2},
+            {"seg": ["N", "C"], "n": 2}
+          ],
+          "segLabels": [
+            {"seg": ["M", "N"], "text": "9cm"},
+            {"seg": ["B", "C"], "text": "x"}
+          ]
+        },
+        "difficulty": "standard"
+      },
+      {
         "id": "math-g3-parallel-lines-ratio-q19",
-        "question": "△ABC で，辺AB の中点を D とし，D を通って辺BC に平行な直線が辺AC と交わる点を E とする。BC=18cm のとき，線分DE の長さを求めなさい。",
-        "options": [
-          "18cm",
-          "36cm",
-          "9cm",
-          "6cm"
-        ],
-        "correctIndex": 2,
-        "explanation": "D は AB の中点で $DE\\parallel BC$ だから，E は AC の中点になり，DE は中点連結定理が使えます。$DE=\\frac{1}{2}BC=\\frac{1}{2}\\times18=9$（cm）。",
+        "question": "下の図の△ABC で，点D，E，F はそれぞれ辺AB，AC，BC の中点である。BC=16cm のとき，線分DE の長さを求めなさい。",
+        "options": ["16cm", "8cm", "32cm", "4cm"],
+        "correctIndex": 1,
+        "explanation": "中点連結定理より $DE=\\frac{1}{2}BC=\\frac{1}{2}\\times16=8$（cm）。\nDE∥BC で，DE は BC の半分の長さです。",
+        "image": {
+          "kind": "midpoint-triangle",
+          "vertexNames": ["A", "B", "C"],
+          "midNames": ["D", "E", "F"],
+          "segLabels": [
+            {"seg": ["B", "C"], "text": "16cm"},
+            {"seg": ["D", "E"], "text": "x"}
+          ]
+        },
         "difficulty": "standard"
       },
       {
         "id": "math-g3-parallel-lines-ratio-q20",
-        "question": "△ABC で，辺AB 上に点D，辺AC 上に点E がある。AD=4cm，DB=6cm，AE=6cm のとき，DE∥BC となるためには線分EC の長さがいくらであればよいか求めなさい。",
-        "options": [
-          "4cm",
-          "6cm",
-          "9cm",
-          "2.7cm"
-        ],
-        "correctIndex": 2,
-        "explanation": "$DE\\parallel BC$ となるのは $AD:DB=AE:EC$ のとき。$4:6=6:EC$，$EC=\\frac{6\\times6}{4}=9$（cm）。",
+        "question": "下の図の△ABC で，点D，E，F はそれぞれ辺AB，AC，BC の中点である。AB=10cm，BC=14cm，CA=12cm のとき，中点を結んでできる△DEF の周の長さを求めなさい。",
+        "options": ["36cm", "18cm", "9cm", "12cm"],
+        "correctIndex": 1,
+        "explanation": "中点三角形の各辺は対辺の半分なので，周ももとの三角形の半分。$(10+14+12)\\div2=18$（cm）。\n中点三角形の周の長さは，もとの三角形の周の半分になります。",
+        "image": {
+          "kind": "midpoint-triangle",
+          "vertexNames": ["A", "B", "C"],
+          "midNames": ["D", "E", "F"],
+          "segLabels": [
+            {"seg": ["A", "B"], "text": "10cm"},
+            {"seg": ["B", "C"], "text": "14cm"},
+            {"seg": ["C", "A"], "text": "12cm"}
+          ]
+        },
         "difficulty": "advanced"
       }
     ]

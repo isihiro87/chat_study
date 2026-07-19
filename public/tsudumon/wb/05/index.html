@@ -1,0 +1,2088 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>歴史 ⑤ 武士と鎌倉幕府｜つづもん問題集</title>
+<style>
+  :root { --brand:#b45309; --deep:#7c2d12; --amber:#f59e0b; --cream:#fffdf8; --line:#fde68a;
+          --ok:#16a34a; --ng:#dc2626; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { -webkit-text-size-adjust:100%; }
+  body { font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;
+         font-size:16px; line-height:1.95; color:#1c1917; background:var(--cream);
+         padding-bottom:86px; }
+  .wrap { max-width:640px; margin:0 auto; padding:0 16px 24px; }
+  ruby rt { font-size:0.5em; }
+  .print-only { display:none; }
+
+  /* ── 上部バー ── */
+  .bar { position:sticky; top:0; z-index:10; background:rgba(255,253,248,.96);
+         backdrop-filter:blur(6px); border-bottom:1px solid #f0e6d2; }
+  .bar-in { max-width:640px; margin:0 auto; padding:8px 16px 0; }
+  .bar-row { display:flex; align-items:center; gap:8px; }
+  .bar-title { font-weight:bold; color:var(--deep); font-size:14px; flex:1;
+               white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .bar-step { flex:none; font-size:12px; font-weight:bold; color:var(--brand); }
+  .tabs { display:flex; gap:6px; overflow-x:auto; padding:8px 0; scrollbar-width:none; }
+  .tabs::-webkit-scrollbar { display:none; }
+  .tab { flex:none; width:36px; height:36px; border-radius:50%; border:1.5px solid var(--line);
+         background:#fffbeb; color:var(--brand); font-size:14px; font-weight:bold;
+         display:inline-flex; align-items:center; justify-content:center; cursor:pointer; }
+  .tab.done { background:#fef3c7; }
+  .tab.on { background:var(--brand); border-color:var(--brand); color:#fff;
+            box-shadow:0 2px 6px rgba(180,83,9,.35); }
+  .pbar { height:3px; background:#f5ecd8; border-radius:2px; overflow:hidden; }
+  .pfill { height:100%; width:0; background:linear-gradient(90deg,var(--amber),#fbbf24);
+           transition:width .25s ease; }
+
+  .view { display:none; }
+  .view.on { display:block; position:relative; animation:vfade .18s ease; }
+  @keyframes vfade { from { opacity:.6; } to { opacity:1; } }
+  .step { display:none; }
+  .step.on { display:block; }
+  /* 本物っぽいページめくり（2枚重ね・参考書Web版と共通）:
+     進む = 今のページ自体が左とじに沿って手前にめくれて去り、下から次のページが現れる。
+     戻る = 前のページが手前からめくり戻されて上に着地する。 */
+  /* min-height:100% = 下に敷かれた新ページ全体を覆う（絶対配置なので view の実高さに解決される。
+     これが無いと、めくれるページより新ページが長いとき下端が透けて見える） */
+  .step.turn-out { display:block; position:absolute; top:0; left:0; width:100%; min-height:100%;
+                   z-index:3; pointer-events:none; background:var(--cream);
+                   transform-origin:left center;
+                   animation:turnOut .45s cubic-bezier(.55,.06,.68,.19) forwards; }
+  @keyframes turnOut {
+    0%   { transform:perspective(1200px) rotateY(0); opacity:1; }
+    75%  { opacity:1; }
+    100% { transform:perspective(1200px) rotateY(-88deg); opacity:0; } }
+  .step.turn-out::after { content:""; position:absolute; inset:0; pointer-events:none;
+                          background:linear-gradient(to right, transparent 55%, rgba(124,45,18,.12)); }
+  .step.on.turn-in { position:relative; z-index:3; background:var(--cream);
+                     transform-origin:left center;
+                     animation:turnIn .45s cubic-bezier(.22,.72,.32,1); }
+  @keyframes turnIn {
+    from { transform:perspective(1200px) rotateY(-88deg); }
+    to   { transform:perspective(1200px) rotateY(0); } }
+  .step.turn-under { display:block; position:absolute; top:0; left:0; width:100%; z-index:1;
+                     pointer-events:none; max-height:100%; overflow:hidden; }
+
+  /* ── ホーム ── */
+  .top { text-align:center; padding:26px 0 6px; }
+  .badge { display:inline-block; background:var(--brand); color:#fff; font-weight:bold;
+           padding:4px 16px; border-radius:20px; font-size:13px; }
+  .webtag { background:rgba(255,255,255,.25); border-radius:10px; padding:1px 8px; font-size:11px; margin-left:4px; }
+  .top h1 { font-size:29px; color:var(--deep); margin-top:12px; line-height:1.4; }
+  .sub { color:#92400e; font-size:14px; margin-top:2px; }
+  .howto { font-size:13.5px; color:#57534e; }
+  .home-howto { margin-top:14px; background:#fffbeb; border:1.5px dashed var(--line);
+                border-radius:12px; padding:10px 14px; text-align:left; }
+  .resume { display:block; width:100%; margin:16px 0 0; background:var(--brand); color:#fff;
+            border:none; border-radius:14px; padding:13px; font-size:15px; font-weight:bold;
+            cursor:pointer; box-shadow:0 3px 8px rgba(180,83,9,.3); font-family:inherit; }
+  .resume span { font-weight:normal; font-size:12px; opacity:.9; margin-left:8px; }
+  .toc { margin:16px 0 12px; background:#fff; border:2px solid var(--line); border-radius:14px; padding:14px; }
+  .toc-h { font-weight:bold; color:var(--deep); margin-bottom:6px; font-size:15px; }
+  .toc-item { display:flex; align-items:center; gap:10px; width:100%; padding:11px 6px;
+              background:none; border:none; border-top:1px solid #faf1dc; cursor:pointer;
+              color:#44403c; font-weight:bold; font-size:15px; text-align:left;
+              font-family:inherit; line-height:1.5; }
+  .toc-item:first-of-type { border-top:none; }
+  .toc-no { flex:none; min-width:24px; height:24px; border-radius:50%; background:var(--amber);
+            color:#fff; display:inline-flex; align-items:center; justify-content:center;
+            font-size:12px; padding:0 4px; }
+  .toc-name { flex:1; }
+  .toc-state { flex:none; font-size:11px; font-weight:bold; }
+  .toc-state.done { color:var(--ok); }
+  .toc-state.doing { color:var(--brand); background:#fffbeb; border:1px solid var(--line);
+                     border-radius:10px; padding:1px 8px; }
+
+  /* ── マスコット ── */
+  .wchar { flex:none; object-fit:contain; }
+  .home-cheer { display:flex; align-items:center; justify-content:center; gap:8px; margin-top:12px; }
+  .home-cheer .wchar { height:58px; }
+  .sp-bubble { position:relative; display:inline-block; background:#fffbeb; border:1.5px solid #f0b558;
+               border-radius:12px; padding:5px 12px; font-size:13px; font-weight:bold; color:#92400e; }
+  .sp-bubble.sp-taill::before { content:""; position:absolute; left:-7px; top:50%; transform:translateY(-50%);
+               border:5px solid transparent; border-right-color:#f0b558; }
+  .tchar { height:38px; margin-left:auto; }
+  .done-char { height:52px; vertical-align:middle; margin-right:6px; }
+
+  /* ── 単元 ── */
+  .tband { display:flex; align-items:center; gap:10px; margin:18px 0 14px; }
+  .tno, .ttag { flex:none; min-width:34px; height:34px; border-radius:50%; background:var(--brand); color:#fff;
+         display:inline-flex; align-items:center; justify-content:center; font-size:16px;
+         font-weight:bold; box-shadow:0 2px 4px rgba(180,83,9,.3); padding:0 6px; }
+  .tband h2 { font-size:20px; color:var(--deep); border-bottom:3px solid var(--line);
+              padding-bottom:2px; flex:1; line-height:1.4; }
+  .sec-h { display:flex; align-items:center; gap:8px; font-size:16px; font-weight:bold;
+           color:var(--deep); margin-bottom:10px; }
+  .sec-tag { flex:none; background:var(--brand); color:#fff; border-radius:8px; width:26px; height:26px;
+             display:inline-flex; align-items:center; justify-content:center; font-size:14px; }
+  .sec-note { font-size:12px; font-weight:normal; color:#a8a29e; }
+  .ref-link { display:inline-block; font-size:13px; font-weight:bold; color:var(--brand);
+              text-decoration:none; border:1.5px solid var(--line); background:#fffbeb;
+              border-radius:16px; padding:5px 14px; margin-bottom:10px; }
+
+  /* 穴埋めチップ */
+  .summary { background:#fff; border:1.5px solid #e2d5bd; border-radius:12px; padding:12px 14px;
+             text-align:justify; }
+  .blank { display:inline; border:none; background:none; font:inherit; cursor:pointer; padding:0; }
+  .blank .bno { color:var(--brand); font-weight:bold; }
+  .blank .ba { display:none; font-weight:bold; color:var(--brand);
+               background:linear-gradient(transparent 55%, var(--line) 55%); padding:0 2px; }
+  .blank .bl { display:inline-block; border-bottom:2px solid #a8a29e; height:1em;
+               vertical-align:-2px; max-width:9em; background:#fffbeb; }
+  .blank.open .ba { display:inline; }
+  .blank.open .bl { display:none; }
+  .tap-hint { display:none; }
+  .reveal-all-row { margin-top:10px; text-align:right; }
+  .reveal-all { border:1.5px solid var(--line); background:#fffbeb; color:var(--brand);
+                font-weight:bold; font-size:13px; border-radius:16px; padding:6px 14px;
+                cursor:pointer; font-family:inherit; }
+
+  /* 年表 */
+  .tl-table { width:100%; border-collapse:collapse; background:#fff; font-size:14px; }
+  .tl-table th, .tl-table td { border:1px solid #d6cbb2; padding:6px 10px; }
+  .tl-table th { background:#faf5eb; font-size:13px; }
+  .tl-year { width:74px; text-align:center; white-space:nowrap; }
+
+  /* 問題共通 */
+  .q-text { font-size:16.5px; font-weight:bold; line-height:1.9; }
+  .qa-no { font-weight:bold; margin-right:6px; color:var(--brand); }
+  .reveal { display:block; width:100%; margin-top:14px; border:none; border-radius:12px;
+            background:var(--amber); color:#fff; font-weight:bold; font-size:15px;
+            padding:12px; cursor:pointer; font-family:inherit; box-shadow:0 2px 6px rgba(245,158,11,.3); }
+  .hidden-until { display:none; }
+  .show .hidden-until { display:block; }
+  .show .reveal { display:none; }
+  .qa-a { margin-top:12px; background:#fff; border:2px solid var(--amber); border-radius:12px;
+          padding:10px 14px; font-size:18px; font-weight:bold; color:var(--deep); text-align:center; }
+  .qa-expl { font-size:13.5px; color:#57534e; background:#fffbeb; border-radius:10px;
+             padding:8px 12px; margin-top:8px; line-height:1.8; }
+  .marks { display:flex; gap:10px; margin-top:12px; }
+  .mk { flex:1; border:2px solid; border-radius:12px; background:#fff; font-weight:bold;
+        font-size:15px; padding:10px; cursor:pointer; font-family:inherit; }
+  .mk-ok { border-color:#bbe3cc; color:var(--ok); }
+  .mk-ng { border-color:#fecaca; color:var(--ng); }
+
+  /* 4択 */
+  .qopts { display:flex; flex-direction:column; gap:8px; margin-top:12px; }
+  .qopt { display:flex; align-items:center; gap:10px; text-align:left; background:#fff;
+          border:1.5px solid #e2d5bd; border-radius:12px; padding:10px 12px; font-size:14.5px;
+          cursor:pointer; font-family:inherit; line-height:1.7; }
+  .opt-k { flex:none; width:26px; height:26px; border-radius:50%; border:1.5px solid #a8a29e;
+           display:inline-flex; align-items:center; justify-content:center; font-size:13px; font-weight:bold; }
+  .qz-step.answered .qopt { cursor:default; }
+  .qopt.correct { border-color:var(--ok); background:#f0fdf4; }
+  .qopt.correct .opt-k { background:var(--ok); border-color:var(--ok); color:#fff; }
+  .qopt.wrong { border-color:var(--ng); background:#fef2f2; }
+  .qopt.wrong .opt-k { background:var(--ng); border-color:var(--ng); color:#fff; }
+  .qopt.dim { opacity:.55; }
+  .expl { margin-top:10px; font-size:13.5px; color:#57534e; background:#fffbeb;
+          border-radius:10px; padding:8px 12px; line-height:1.8; }
+  .qz-step.answered .expl { display:block; }
+
+  /* 記述 */
+  .kw-note { font-size:13px; color:#57534e; margin-top:6px; }
+  .kw-chip { display:inline-block; border:1px solid var(--brand); color:var(--brand);
+             border-radius:6px; padding:0 8px; margin-left:6px; font-size:12.5px; }
+  .w-input { width:100%; margin-top:12px; border:1.5px solid #e2d5bd; border-radius:12px;
+             padding:10px 12px; font:inherit; font-size:14.5px; background:#fff; resize:vertical; }
+  .line-mini { display:block; margin-top:10px; text-align:center; font-size:13px; font-weight:bold;
+               color:#06c755; text-decoration:none; border:1.5px solid #bbe3cc; border-radius:12px;
+               padding:8px; background:#f0fdf4; }
+
+  /* 資料 */
+  .s-img { margin-bottom:12px; }
+  .s-img img { width:100%; border-radius:12px; border:1px solid #e2d5bd; display:block; }
+  .s-img figcaption { font-size:12px; color:#a8a29e; text-align:center; margin-top:4px; }
+  .s-q { margin-bottom:14px; font-size:15px; line-height:1.8; }
+  .s-blank { display:block; margin:6px 0 0 26px; text-align:left; }
+  .s-blank .tap-hint { display:inline; font-size:11px; color:#b8b0a6; margin-left:8px; }
+  .s-blank.open .tap-hint { display:none; }
+  .m-res-row { display:flex; gap:8px; margin-bottom:14px; }
+  .m-res { flex:1; text-align:center; }
+  .m-res img { width:100%; border-radius:10px; border:1px solid #e2d5bd; }
+  .m-lab { display:block; font-weight:bold; color:var(--brand); font-size:14px; }
+  .m-item { background:#fff; border:1.5px solid #e2d5bd; border-radius:12px; padding:10px 12px;
+            margin-bottom:10px; }
+  .m-text { font-size:14.5px; line-height:1.8; }
+  .m-btns { display:flex; gap:8px; margin-top:8px; }
+  .mopt { flex:1; border:1.5px solid #e2d5bd; background:#fffbeb; border-radius:10px;
+          font-weight:bold; font-size:15px; padding:8px; cursor:pointer; font-family:inherit; }
+  .mopt.correct { border-color:var(--ok); background:#f0fdf4; color:var(--ok); }
+  .mopt.wrong { border-color:var(--ng); background:#fef2f2; color:var(--ng); }
+
+  /* 結果 */
+  .done { text-align:center; font-size:17px; font-weight:bold; color:var(--deep); margin:14px 0; }
+  .score-box { background:#fff; border:2px solid var(--line); border-radius:14px; padding:14px;
+               margin-bottom:12px; font-size:14.5px; }
+  .score-row { display:flex; justify-content:space-between; padding:4px 2px; }
+  .score-row b { color:var(--brand); }
+  .big-btn { display:block; width:100%; text-align:center; margin-top:10px; border:none;
+             border-radius:14px; padding:13px 16px; font-size:15px; font-weight:bold;
+             cursor:pointer; font-family:inherit; text-decoration:none; }
+  .line-btn { background:#06c755; color:#fff; box-shadow:0 3px 8px rgba(6,199,85,.3); }
+  .btn-sub { display:block; font-weight:normal; font-size:12px; opacity:.9; }
+  .ref-btn { background:#fffbeb; color:var(--brand); border:1.5px solid var(--line); }
+  .retry-btn { background:#fff; color:#57534e; border:1.5px solid #e2d5bd; }
+  .print-btn { background:#fff; color:#57534e; border:1.5px solid #e2d5bd; }
+
+  .foot { text-align:center; margin-top:32px; color:#a8a29e; font-size:13px; }
+  .foot-note { margin-top:4px; font-size:12px; }
+
+  /* ── 下部ナビ ── */
+  .navbar { position:fixed; left:0; right:0; bottom:0; z-index:10;
+            background:rgba(255,253,248,.97); border-top:1px solid #f0e6d2;
+            padding:10px 16px calc(10px + env(safe-area-inset-bottom)); }
+  .navbar-in { max-width:640px; margin:0 auto; display:flex; align-items:center; gap:10px; }
+  .nb { border:none; border-radius:14px; padding:12px 0; font-size:15px; font-weight:bold;
+        cursor:pointer; font-family:inherit; }
+  .nb-prev { flex:1; background:#fff; color:var(--brand); border:1.5px solid var(--line); }
+  .nb-next { flex:2; background:var(--brand); color:#fff; box-shadow:0 3px 8px rgba(180,83,9,.3); }
+
+  /* ── 印刷（紙のワークとして使える） ── */
+  @media print {
+    body { background:#fff; padding-bottom:0; font-size:10.5pt; line-height:1.8; }
+    .bar, .navbar, .resume, .reveal, .marks, .reveal-all-row, .w-input, .line-mini,
+    .big-btn, .qa-expl, .expl, .tap-hint, .toc-state, .home-howto, .howto, .m-btns { display:none !important; }
+    .print-only { display:block !important; }
+    .view { display:block !important; }
+    .step { display:block !important; margin-bottom:14px; break-inside:avoid; }
+    .hidden-until { display:none !important; }
+    .blank .ba { display:none !important; }
+    .blank .bl { display:inline-block !important; background:none; }
+    .qopt { border:none; padding:1px 0; background:none; }
+    .qopt .opt-k { width:18px; height:18px; font-size:10px; }
+    .qopt.correct, .qopt.wrong { background:none; border:none; }
+    .qopt.correct .opt-k, .qopt.wrong .opt-k { background:none; color:#1c1917; border-color:#a8a29e; }
+    .qopts { gap:2px; margin-top:4px; }
+    .wline { border-bottom:1px solid #78716c; height:9mm; margin-top:2mm; }
+    .toc-item, .tab { cursor:default; }
+    .top { padding-top:0; }
+    .tband { margin-top:8mm; break-after:avoid; }
+    .m-item { break-inside:avoid; }
+    .m-item::after { content:"〔　　〕"; color:#44403c; }
+    .print-answers { page-break-before:always; font-size:9pt; line-height:1.9; }
+    .ans-band { background:#44403c; color:#fff; text-align:center; padding:2px 0; border-radius:4px;
+                margin-bottom:8px; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .a-topic { border-bottom:1px dashed #a8a29e; padding:4px 0; }
+    .a-title { font-weight:bold; background:#f5f5f4; padding:0 6px; border-left:8px solid var(--brand);
+               -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .a-label { font-weight:bold; color:var(--brand); margin-right:6px; }
+    .a-item { display:inline-block; margin-right:4px; }
+    .a-written { padding-left:6px; }
+    .credits { font-size:7.5pt; color:#78716c; border-top:1px solid #d6d3d1; margin-top:8px; }
+  }
+  .credits { font-size:11px; color:#a8a29e; margin-top:20px; }
+</style></head><body>
+<div class="bar"><div class="bar-in">
+  <div class="bar-row">
+    <div class="bar-title">歴史 ⑤ 武士と鎌倉幕府（問題集）</div>
+    <div class="bar-step" id="barStep"></div>
+  </div>
+  <nav class="tabs" id="tabs"><button class="tab tab-home" data-go="0" aria-label="目次">🏠</button><button class="tab" data-go="1" aria-label="年表">年</button><button class="tab" data-go="2" aria-label="武士の成長">1</button><button class="tab" data-go="3" aria-label="院政と平氏の政治">2</button><button class="tab" data-go="4" aria-label="鎌倉幕府の成立">3</button><button class="tab" data-go="5" aria-label="鎌倉時代の社会">4</button><button class="tab" data-go="6" aria-label="鎌倉文化と新しい仏教">5</button></nav>
+  <div class="pbar"><div class="pfill" id="pfill"></div></div>
+</div></div>
+<main class="wrap" id="views">
+
+<section class="view home" data-t="0">
+  <header class="top">
+    <div class="badge">歴史 ⑤　問題集 <span class="webtag">Web版</span></div>
+    <h1>武士と鎌倉幕府</h1>
+    <div class="sub">平安時代末期 〜 鎌倉時代</div>
+    <div class="home-cheer"><img class="wchar" src="img/characters_char_manabi_sm.png" alt=""><span class="sp-bubble sp-taill">いっしょに がんばろう！</span></div>
+    <div class="howto home-howto">タブか下のリストから選んで、1問ずつ解いていこう！<br>
+    要点まとめ → 一問一答 → 4択 → 記述の順で力がつくよ。</div>
+  </header>
+  <button class="resume" id="resumeBtn" hidden>▶ つづきから解く<span id="resumeWhere"></span></button>
+  <nav class="toc">
+    <div class="toc-h">✏️ この本の問題</div>
+    <button class="toc-item" data-go="1"><span class="toc-no">年</span><span class="toc-name">年表でチェック</span><span class="toc-state" data-state-t="1"></span></button><button class="toc-item" data-go="2"><span class="toc-no">1</span><span class="toc-name">武士の成長</span><span class="toc-state" data-state-t="2"></span></button><button class="toc-item" data-go="3"><span class="toc-no">2</span><span class="toc-name">院政と平氏の政治</span><span class="toc-state" data-state-t="3"></span></button><button class="toc-item" data-go="4"><span class="toc-no">3</span><span class="toc-name">鎌倉幕府の成立</span><span class="toc-state" data-state-t="4"></span></button><button class="toc-item" data-go="5"><span class="toc-no">4</span><span class="toc-name">鎌倉時代の社会</span><span class="toc-state" data-state-t="5"></span></button><button class="toc-item" data-go="6"><span class="toc-no">5</span><span class="toc-name">鎌倉文化と新しい仏教</span><span class="toc-state" data-state-t="6"></span></button>
+  </nav>
+  <a class="big-btn ref-btn" href="../../ref/05/index.html">📖 参考書Web版を開く</a>
+  <button class="big-btn print-btn" type="button" onclick="window.print()">🖨 紙に印刷して解く（解答つき）</button>
+  
+  <footer class="foot">
+    <div>つづもん 問題集 Web版</div>
+    <div class="foot-note">ダウンロード済みのA4版PDF（書き込みレイアウト）もあわせてどうぞ。</div>
+  </footer>
+</section>
+<section class="view" data-t="1">
+  <div class="tband"><span class="ttag">年</span><h2>年表でチェック</h2></div>
+  <div class="step" data-label="年表でチェック">
+    <div class="howto">（　）をタップすると答えが出るよ。まずは自分で言ってから確かめよう！</div>
+    <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    <table class="tl-table"><tr><th class="tl-year">年代</th><th>できごと</th></tr><tr><td class='tl-year'>10世紀ごろ</td><td>地方の治安の乱れの中で<button class="blank" type="button"><span class="bno">①</span><span class="ba">武士</span><span class="bl" style="width:2.7em"></span></button>が成長する</td></tr><tr><td class='tl-year'>935年ごろ</td><td>関東で<button class="blank" type="button"><span class="bno">②</span><span class="ba">平将門</span><span class="bl" style="width:2.7em"></span></button>が反乱を起こす</td></tr><tr><td class='tl-year'>939年ごろ</td><td>瀬戸内海で<button class="blank" type="button"><span class="bno">③</span><span class="ba">藤原純友</span><span class="bl" style="width:3.6em"></span></button>が反乱を起こす</td></tr><tr><td class='tl-year'>11世紀後半</td><td>前九年合戦・後三年合戦で<button class="blank" type="button"><span class="bno">④</span><span class="ba">源義家</span><span class="bl" style="width:2.7em"></span></button>が活躍する</td></tr><tr><td class='tl-year'>11世紀後半</td><td>東北で<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">奥州藤原氏</span><span class="bl" style="width:4.5em"></span></button>が平泉を拠点に栄え始める</td></tr><tr><td class='tl-year'>11世紀後半</td><td>白河上皇が<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">院政</span><span class="bl" style="width:2.7em"></span></button>を始める</td></tr><tr><td class='tl-year'>1156年</td><td><button class="blank" type="button"><span class="bno">⑦</span><span class="ba">保元の乱</span><span class="bl" style="width:3.6em"></span></button>が起こる</td></tr><tr><td class='tl-year'>1159年</td><td><button class="blank" type="button"><span class="bno">⑧</span><span class="ba">平治の乱</span><span class="bl" style="width:3.6em"></span></button>で平清盛が源義朝を破る</td></tr><tr><td class='tl-year'>1167年</td><td><button class="blank" type="button"><span class="bno">⑨</span><span class="ba">平清盛</span><span class="bl" style="width:2.7em"></span></button>が武士として初めて太政大臣となる</td></tr><tr><td class='tl-year'>1185年</td><td><button class="blank" type="button"><span class="bno">⑩</span><span class="ba">壇ノ浦の戦い</span><span class="bl" style="width:5.4em"></span></button>で平氏がほろびる</td></tr><tr><td class='tl-year'>12世紀末</td><td>源頼朝が<button class="blank" type="button"><span class="bno">⑪</span><span class="ba">征夷大将軍</span><span class="bl" style="width:4.5em"></span></button>に任命され鎌倉幕府を開く</td></tr><tr><td class='tl-year'>1221年</td><td><button class="blank" type="button"><span class="bno">⑫</span><span class="ba">承久の乱</span><span class="bl" style="width:3.6em"></span></button>が起こり幕府が勝利する</td></tr><tr><td class='tl-year'>1232年</td><td>北条泰時が<button class="blank" type="button"><span class="bno">⑬</span><span class="ba">御成敗式目</span><span class="bl" style="width:4.5em"></span></button>を定める</td></tr><tr><td class='tl-year'>鎌倉時代</td><td><button class="blank" type="button"><span class="bno">⑭</span><span class="ba">法然</span><span class="bl" style="width:2.7em"></span></button>が念仏を唱える浄土宗を開く</td></tr><tr><td class='tl-year'>鎌倉時代</td><td>運慶・快慶らが東大寺南大門に<button class="blank" type="button"><span class="bno">⑮</span><span class="ba">金剛力士像</span><span class="bl" style="width:4.5em"></span></button>をつくる</td></tr></table>
+  </div>
+</section>
+<section class="view" data-t="2">
+  <div class="tband"><span class="tno">1</span><h2>武士の成長</h2><img class="wchar tchar" src="img/characters_char_pencil_sm.png" alt=""></div>
+  
+    <div class="step" data-label="A 要点まとめ">
+      <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
+      <a class="ref-link" href="../../ref/05/index.html#t1">📖 先に参考書で理解する</a>
+      <div class="summary">10世紀ごろ、地方の治安の乱れを背景に、弓矢や馬の技にすぐれた者たちが<button class="blank" type="button"><span class="bno">①</span><span class="ba">武士</span><span class="bl" style="width:2.7em"></span></button>として成長した。武士は一族と家来を血縁と主従関係で結んだ軍事組織である<button class="blank" type="button"><span class="bno">②</span><span class="ba">武士団</span><span class="bl" style="width:2.7em"></span></button>をつくった。天皇の子孫である<button class="blank" type="button"><span class="bno">③</span><span class="ba">源氏</span><span class="bl" style="width:2.7em"></span></button>は東日本を、<button class="blank" type="button"><span class="bno">④</span><span class="ba">平氏</span><span class="bl" style="width:2.7em"></span></button>は西日本を中心に勢力を広げていった。935年ごろ関東で<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">平将門</span><span class="bl" style="width:2.7em"></span></button>が反乱を起こし、ほぼ同時期に瀬戸内海では<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">藤原純友</span><span class="bl" style="width:3.6em"></span></button>が反乱を起こした。11世紀後半には前九年合戦・後三年合戦で<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">源義家</span><span class="bl" style="width:2.7em"></span></button>が活躍し、東日本の武士の信頼を集めた。同じころ東北地方では<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">奥州藤原氏</span><span class="bl" style="width:4.5em"></span></button>が平泉を拠点に約100年にわたって栄えた。また、地方の開発領主が有力な貴族に土地を差し出したことで、税を免除された私有地である<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">荘園</span><span class="bl" style="width:2.7em"></span></button>が各地に広がっていった。</div>
+      <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-rise-of-bushi-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">1 / 14</span></div>
+      <div class="q-text">弓矢や馬の技術にすぐれ、10世紀ごろに成長した者を何という？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>武士<rt>ぶし</rt></ruby></div>
+        <div class="qa-expl">地方の有力者や農民が武器を持ち10世紀ごろから成長した人々。治安の乱れの中で弓馬の技を磨いて力をつけた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (2/14)" data-qid="qa-rise-of-bushi-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">2 / 14</span></div>
+      <div class="q-text">武士が一族や家来を従えてつくった軍事組織は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>武士団<rt>ぶしだん</rt></ruby></div>
+        <div class="qa-expl">血のつながりと主人と家来の関係で結ばれた組織で、惣領が長としてまとめた。源氏・平氏が代表。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (3/14)" data-qid="qa-rise-of-bushi-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">3 / 14</span></div>
+      <div class="q-text">武士団のなかで一族をまとめた長は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>惣領<rt>そうりょう</rt></ruby></div>
+        <div class="qa-expl">武士団の長で、土地の管理や戦の指揮、一族のもめごとの仲裁を行った人物。武士団の中心となった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (4/14)" data-qid="qa-rise-of-bushi-4" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">4 / 14</span></div>
+      <div class="q-text">東日本を中心に勢力を広げた武士団は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>源氏<rt>げんじ</rt></ruby></div>
+        <div class="qa-expl">天皇の子孫の家系の武士団。源義家らの活躍で東日本に広がり、後に鎌倉幕府を開く源頼朝の先祖となる。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (5/14)" data-qid="qa-rise-of-bushi-5" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">5 / 14</span></div>
+      <div class="q-text">西日本を中心に勢力を広げた武士団は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>平氏<rt>へいし</rt></ruby></div>
+        <div class="qa-expl">天皇の子孫の家系の武士団。瀬戸内海の海賊をしずめて西日本に広がり、平清盛の時代に政治を動かした。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (6/14)" data-qid="qa-rise-of-bushi-6" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">6 / 14</span></div>
+      <div class="q-text">前九年合戦・後三年合戦で活躍し、東日本に勢力を広げた人物は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>源義家<rt>みなもとのよしいえ</rt></ruby></div>
+        <div class="qa-expl">11世紀後半の前九年合戦・後三年合戦で活躍し、東北の戦乱をしずめて東日本の武士の信頼を得た源氏の武将。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (7/14)" data-qid="qa-rise-of-bushi-7" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">7 / 14</span></div>
+      <div class="q-text">東北地方の平泉を拠点に約100年さかえた一族は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>奥州<rt>おうしゅう</rt></ruby><ruby>藤原氏<rt>ふじわらし</rt></ruby></div>
+        <div class="qa-expl">11世紀後半から平泉を拠点に約100年栄えた一族。金や馬の交易で富を築き、中尊寺金色堂を建てた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (8/14)" data-qid="qa-rise-of-bushi-8" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">8 / 14</span></div>
+      <div class="q-text">935年ごろに関東で反乱を起こしたのはだれ？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>平将門<rt>たいらのまさかど</rt></ruby></div>
+        <div class="qa-expl">935年ごろ関東で反乱を起こした武士。自ら「新皇」を名乗ったが、朝廷側の武士にしずめられた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (9/14)" data-qid="qa-rise-of-bushi-9" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">9 / 14</span></div>
+      <div class="q-text">939年ごろ、瀬戸内海で反乱を起こしたのはだれ？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>藤原純友<rt>ふじわらのすみとも</rt></ruby></div>
+        <div class="qa-expl">939年ごろ、平将門の乱とほぼ同時期に瀬戸内海で海賊を率いて反乱を起こした人物。武士の力が現れた事件。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (10/14)" data-qid="qa-rise-of-bushi-10" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">10 / 14</span></div>
+      <div class="q-text">11世紀後半に東北地方で起こった二つの戦乱は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>前九年<rt>ぜんくねん</rt></ruby><ruby>合戦<rt>かっせん</rt></ruby>・<ruby>後三年<rt>ごさんねん</rt></ruby><ruby>合戦<rt>かっせん</rt></ruby></div>
+        <div class="qa-expl">11世紀後半に東北で起きた二つの戦乱。源義家が活躍し、源氏が東日本の武士の信頼を得るきっかけとなった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (11/14)" data-qid="qa-rise-of-bushi-11" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">11 / 14</span></div>
+      <div class="q-text">貴族や寺社が私有した土地は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>荘園<rt>しょうえん</rt></ruby></div>
+        <div class="qa-expl">貴族や寺社が持っていた土地。地方の有力者が開墾して貴族に寄進したもので、税を免除される特権を持った。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (12/14)" data-qid="qa-rise-of-bushi-12" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">12 / 14</span></div>
+      <div class="q-text">国司が支配する土地を何という？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>公領<rt>こうりょう</rt></ruby></div>
+        <div class="qa-expl">国司が支配する土地で、税が課された。税が免除される荘園と対比され、両方が並び立つ社会となった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (13/14)" data-qid="qa-rise-of-bushi-13" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">13 / 14</span></div>
+      <div class="q-text">奥州藤原氏が建て、金箔でかざられた平泉の建物は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>中尊寺<rt>ちゅうそんじ</rt></ruby><ruby>金色堂<rt>こんじきどう</rt></ruby></div>
+        <div class="qa-expl">奥州藤原氏が平泉に建てた、全体を金箔でおおった豪華な仏堂。一族の栄えた様子を今に伝える世界遺産。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (14/14)" data-qid="qa-rise-of-bushi-14" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">14 / 14</span></div>
+      <div class="q-text">荘園の税をまぬがれることができる権利を何という？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>不輸<rt>ふゆ</rt></ruby>の<ruby>権<rt>けん</rt></ruby></div>
+        <div class="qa-expl">荘園にかかる税が免除される権利。有力な貴族が朝廷から認められた特権で、荘園が広がる大きな理由となった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (1/8)" data-qid="qz-rise-of-bushi-1" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">1 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">武士団を結びつけていた2つの関係はどれ？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">血縁関係と主従関係</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">商取引と同盟</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">地縁関係と宗教</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">師弟関係と友情</span></button></div>
+      <div class="expl hidden-until">💡 武士団は血縁関係（一族のつながり）と主従関係（惣領と家来のつながり）で結ばれた組織でした。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-rise-of-bushi-2" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">2 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">有力な武士団の中心となった源氏と平氏は、もともとどのような身分の子孫？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">天皇の子孫</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">渡来人の子孫</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">藤原氏の分家</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">有力豪族の子孫</span></button></div>
+      <div class="expl hidden-until">💡 源氏と平氏はどちらも天皇の子孫（皇族が臣下に降りた家系）で、その家柄を背景に武士団の中心となりました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-rise-of-bushi-3" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">3 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">平氏が西日本で勢力を広げるきっかけとなったのは何を鎮めたこと？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">蝦夷の反乱</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">関東の平将門の乱</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">瀬戸内海の海賊</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">大宰府の交易を独占したこと</span></button></div>
+      <div class="expl hidden-until">💡 平氏は12世紀前半に瀬戸内海の海賊をしずめたことで朝廷から認められ、西日本に勢力を広げて後の平清盛の台頭につながりました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-rise-of-bushi-4" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">4 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">不輸の権と不入の権の両方を持つ荘園の利点は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">宋や朝鮮との交易ができる特権を持つ</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">朝廷に出入りして天皇に直接仕える</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">税を納めず役人の介入も受けない</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">独自の軍隊を組織できる権利を得る</span></button></div>
+      <div class="expl hidden-until">💡 不輸の権で税が免除され、不入の権で役人が立ち入れないため、領主が自由に荘園を支配できました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-rise-of-bushi-5" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">5 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">中尊寺金色堂がある現在の都道府県は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">秋田県</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">岩手県</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">山形県</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">宮城県</span></button></div>
+      <div class="expl hidden-until">💡 中尊寺金色堂は現在の岩手県平泉にあり、奥州藤原氏の栄華を今に伝える世界遺産です。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-rise-of-bushi-6" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">6 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">平将門の乱と藤原純友の乱は、ともに何世紀の出来事？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">11世紀</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">12世紀</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">9世紀</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">10世紀</span></button></div>
+      <div class="expl hidden-until">💡 平将門の乱（935年）と藤原純友の乱（939年）はともに10世紀中ごろに起きたほぼ同時期の反乱です。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-rise-of-bushi-7" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">7 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">平将門が関東で自ら名乗った称号は何？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">国司</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">征夷大将軍</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">太政大臣</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">新皇</span></button></div>
+      <div class="expl hidden-until">💡 平将門は自ら「新皇」を名乗り、関東で独立した国を建てようとしましたが鎮圧されました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-rise-of-bushi-8" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">8 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">前九年合戦が起こった地域はどこ？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">九州地方</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">近畿地方</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">東北地方</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">関東地方</span></button></div>
+      <div class="expl hidden-until">💡 前九年合戦は東北地方（陸奥国）で起こった戦乱で、源義家が活躍して東国武士の信頼を得ました。</div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (1/2)" data-qid="wr-rise-of-bushi-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">1 / 2　文章で説明しよう</span></div>
+      <div class="q-text">10世紀ごろ、地方で武士が成長した背景を説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">弓矢</span><span class="kw-chip">農民</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">地方の治安が乱れる中で、弓矢や馬の技にすぐれた地方の有力者や農民が武器を持ち、力をつけていったから。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E6%AD%A6%E5%A3%AB%E3%81%AE%E6%88%90%E9%95%B7" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (2/2)" data-qid="wr-rise-of-bushi-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">2 / 2　文章で説明しよう</span></div>
+      <div class="q-text">荘園はどのようにして各地に広がっていったか、そのしくみを説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">寄進</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">地方の開発領主が税をのがれるため、開墾した土地を有力な貴族に寄進し、現地の管理は続けながら荘園が広まっていった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E6%AD%A6%E5%A3%AB%E3%81%AE%E6%88%90%E9%95%B7" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step done-step" data-label="結果">
+      <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「武士の成長」おつかれさま！</span></div>
+      <div class="score-box" data-score></div>
+      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E6%AD%A6%E5%A3%AB%E3%81%AE%E6%88%90%E9%95%B7" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
+      <a class="big-btn ref-btn" href="../../ref/05/index.html#t1">📖 参考書でおさらいする</a>
+      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元をもう一度とく</button>
+    </div>
+</section>
+<section class="view" data-t="3">
+  <div class="tband"><span class="tno">2</span><h2>院政と平氏の政治</h2><img class="wchar tchar" src="img/characters_manabi_think_sm.png" alt=""></div>
+  
+    <div class="step" data-label="A 要点まとめ">
+      <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
+      <a class="ref-link" href="../../ref/05/index.html#t2">📖 先に参考書で理解する</a>
+      <div class="summary">11世紀後半、白河上皇は藤原氏の摂関政治に代わって自ら政治を動かす<button class="blank" type="button"><span class="bno">①</span><span class="ba">院政</span><span class="bl" style="width:2.7em"></span></button>を始め、院の警備には<button class="blank" type="button"><span class="bno">②</span><span class="ba">北面の武士</span><span class="bl" style="width:4.5em"></span></button>を置いた。1156年、崇徳上皇と後白河天皇の対立から<button class="blank" type="button"><span class="bno">③</span><span class="ba">保元の乱</span><span class="bl" style="width:3.6em"></span></button>が起こり、源氏・平氏の武士が動員されて武士の地位が高まった。1159年の<button class="blank" type="button"><span class="bno">④</span><span class="ba">平治の乱</span><span class="bl" style="width:3.6em"></span></button>で<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">平清盛</span><span class="bl" style="width:2.7em"></span></button>が源義朝を破ると、平氏は武士の頂点に立った。1167年、清盛は武士として初めて<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">太政大臣</span><span class="bl" style="width:3.6em"></span></button>となり、大輪田泊を整備して<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">日宋貿易</span><span class="bl" style="width:3.6em"></span></button>を進め大きな利益を得た。しかし平氏の勢力独占は「平氏にあらずんば人にあらず」といわれるほどの反発を招いた。伊豆で挙兵した<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">源頼朝</span><span class="bl" style="width:2.7em"></span></button>は弟の源義経らを率い、1185年の<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">壇ノ浦の戦い</span><span class="bl" style="width:5.4em"></span></button>で平氏をほろぼした。</div>
+      <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-insei-taira-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">1 / 14</span></div>
+      <div class="q-text">天皇が位をしりぞいたあとの称号を何という？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>上皇<rt>じょうこう</rt></ruby></div>
+        <div class="qa-expl">天皇が位を退いたあとの呼び方。出家すると法皇とも呼ばれ、政治を動かす院政の中心となった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (2/14)" data-qid="qa-insei-taira-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">2 / 14</span></div>
+      <div class="q-text">上皇が中心となって政治を動かす仕組みを何という？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>院政<rt>いんせい</rt></ruby></div>
+        <div class="qa-expl">上皇が院で政治を行うしくみ。藤原氏の摂関政治に代わる仕組みとして白河上皇が始めた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (3/14)" data-qid="qa-insei-taira-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">3 / 14</span></div>
+      <div class="q-text">院政を最初に始めた上皇はだれ？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>白河<rt>しらかわ</rt></ruby><ruby>上皇<rt>じょうこう</rt></ruby></div>
+        <div class="qa-expl">退位後も政治を動かし、北面の武士を置いて武士の力を使った。藤原氏の力をおさえようとした。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (4/14)" data-qid="qa-insei-taira-4" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">4 / 14</span></div>
+      <div class="q-text">白河上皇が院の警備のために置いた武士を何という？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>北面<rt>ほくめん</rt></ruby>の<ruby>武士<rt>ぶし</rt></ruby></div>
+        <div class="qa-expl">院の北側を守った武士で、白河上皇が置いた。上皇直属の家来として武士が中央政治で活躍するきっかけとなった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (5/14)" data-qid="qa-insei-taira-5" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">5 / 14</span></div>
+      <div class="q-text">1156年、崇徳上皇と後白河天皇の対立から起こった内乱は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>保元<rt>ほうげん</rt></ruby>の<ruby>乱<rt>らん</rt></ruby></div>
+        <div class="qa-expl">1156年、天皇家や藤原氏の内輪もめに源氏・平氏が動員されて起きた争い。武士の地位が大きく高まる出来事となった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (6/14)" data-qid="qa-insei-taira-6" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">6 / 14</span></div>
+      <div class="q-text">1159年、清盛と義朝が戦った内乱は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>平治<rt>へいじ</rt></ruby>の<ruby>乱<rt>らん</rt></ruby></div>
+        <div class="qa-expl">1159年、保元の乱の後に平清盛が源義朝を破った争い。平氏が武士の頂点に立ち、清盛が政治を動かすようになった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (7/14)" data-qid="qa-insei-taira-7" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">7 / 14</span></div>
+      <div class="q-text">武士として初めて太政大臣になったのはだれ？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>平清盛<rt>たいらのきよもり</rt></ruby></div>
+        <div class="qa-expl">保元・平治の乱に勝利し、1167年に武士初の太政大臣となって平氏の全盛期を築いた。大輪田泊を整備して日宋貿易も進めた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (8/14)" data-qid="qa-insei-taira-8" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">8 / 14</span></div>
+      <div class="q-text">平清盛が1167年に就任した、武士初の最高の官職は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>太政大臣<rt>だいじょうだいじん</rt></ruby></div>
+        <div class="qa-expl">朝廷の最高位の役職で、もとは貴族だけが就いた。1167年に平清盛が武士として初めてこの地位についた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (9/14)" data-qid="qa-insei-taira-9" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">9 / 14</span></div>
+      <div class="q-text">平清盛が整備した兵庫県神戸市の港は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>大輪田泊<rt>おおわだのとまり</rt></ruby></div>
+        <div class="qa-expl">平清盛が整備した港。日宋貿易の拠点として大きく整え、平氏が栄えるお金のもととなった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (10/14)" data-qid="qa-insei-taira-10" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">10 / 14</span></div>
+      <div class="q-text">平清盛が大輪田泊を拠点に行った宋との貿易は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>日宋<rt>にっそう</rt></ruby><ruby>貿易<rt>ぼうえき</rt></ruby></div>
+        <div class="qa-expl">平清盛が進めた宋との貿易。宋銭や陶磁器を輸入し、得た大きな利益が平氏が栄えるもととなった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (11/14)" data-qid="qa-insei-taira-11" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">11 / 14</span></div>
+      <div class="q-text">鎌倉を本拠地に平氏打倒のため挙兵した人物は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>源頼朝<rt>みなもとのよりとも</rt></ruby></div>
+        <div class="qa-expl">平治の乱で敗れた源義朝の子。伊豆に流された後に挙兵し、弟の義経らを率いて平氏をほろぼし、のちに鎌倉幕府を開いた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (12/14)" data-qid="qa-insei-taira-12" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">12 / 14</span></div>
+      <div class="q-text">源頼朝の弟で、壇ノ浦の戦いで平氏を破った人物は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>源義経<rt>みなもとのよしつね</rt></ruby></div>
+        <div class="qa-expl">源頼朝の弟。一ノ谷・屋島・壇ノ浦と各地で平氏を破る軍事的才能を発揮したが、後に頼朝と対立し奥州で命を落とした。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (13/14)" data-qid="qa-insei-taira-13" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">13 / 14</span></div>
+      <div class="q-text">1185年、平氏が源氏に敗れてほろんだ戦いは？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>壇<rt>だん</rt></ruby>ノ<ruby>浦<rt>うら</rt></ruby>の<ruby>戦<rt>たたか</rt></ruby>い</div>
+        <div class="qa-expl">1185年、現在の山口県下関市で行われた海戦。源義経率いる源氏軍に敗れて平氏一門が滅亡し、源平の争乱が終結した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (14/14)" data-qid="qa-insei-taira-14" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">14 / 14</span></div>
+      <div class="q-text">平清盛が航海の安全を祈り、整備した広島県の神社は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>厳島<rt>いつくしま</rt></ruby><ruby>神社<rt>じんじゃ</rt></ruby></div>
+        <div class="qa-expl">広島県の宮島にあり、瀬戸内海の海上交通を重視した平清盛が一族の繁栄を祈り整備した。現在は世界遺産に登録されている。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (1/8)" data-qid="qz-insei-taira-1" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">1 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">保元の乱の後に起き、平氏が力を強めるきっかけとなった争いはどれですか。</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">元寇</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">平治の乱</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">前九年合戦</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">承久の乱</span></button></div>
+      <div class="expl hidden-until">💡 1159年の平治の乱で平清盛が源義朝を破ったことが、平氏の勢力が一気に強まる転換点となり、清盛の太政大臣就任につながりました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-insei-taira-2" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">2 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">平清盛が一族の権力を独占するために用いた方法として正しいのは？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">娘を天皇のきさきにし一族を要職に就けた</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">全国各地に多くの荘園を開墾して勢力を広げた</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">延暦寺や興福寺の僧兵を自分の配下に組織した</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">全国の寺院を通じて仏教の教えを民衆に広めた</span></button></div>
+      <div class="expl hidden-until">💡 平清盛は娘を天皇のきさきにし、一族を政府の要職に就けることで権力を独占しました。藤原氏と同じ手法です。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-insei-taira-3" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">3 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">壇ノ浦の戦いで源氏の軍を率いて平氏を破った人物はだれ？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">源頼朝</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">源義経</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">源義家</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">北条政子</span></button></div>
+      <div class="expl hidden-until">💡 源義経は源頼朝の弟で、1185年の壇ノ浦の戦いで源氏の軍を率いて平氏を破りました。一ノ谷・屋島でも活躍しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-insei-taira-4" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">4 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">日宋貿易で日本に輸入されたおもな品物として正しいのは？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">刀剣と馬</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">宋銭と陶磁器</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">米と布</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">絹と香辛料</span></button></div>
+      <div class="expl hidden-until">💡 日宋貿易では宋銭と陶磁器が主に輸入されました。宋銭は日本の貨幣経済の発展を促しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-insei-taira-5" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">5 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">平氏が栄えた主な経済的基盤は何？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">金山の経営</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">米の生産</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">日宋貿易の利益</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">荘園からの年貢</span></button></div>
+      <div class="expl hidden-until">💡 平氏は大輪田泊を整備して宋銭や陶磁器を輸入する日宋貿易を進め、得られた莫大な利益を一族繁栄の経済的基盤としました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-insei-taira-6" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">6 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">平清盛が航海の安全を祈り整備した広島県の神社は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">伊勢神宮</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">春日大社</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">厳島神社</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">出雲大社</span></button></div>
+      <div class="expl hidden-until">💡 厳島神社は広島県の宮島にあり、瀬戸内海の海上交通を重視した平清盛が航海の安全と一族の繁栄を祈って整備しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-insei-taira-7" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">7 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">天皇家や藤原氏の対立に武士が関わり、武士の地位が高まるきっかけとなった争いはどれですか。</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">壬申の乱</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">大化の改新</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">保元の乱</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">白村江の戦い</span></button></div>
+      <div class="expl hidden-until">💡 1156年の保元の乱では崇徳上皇と後白河天皇の対立に源氏・平氏が動員され、貴族社会における武士の重要性が大きく高まりました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-insei-taira-8" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">8 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">出来事を古い順に正しく並べたものはどれですか？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">平治の乱→保元の乱→院政開始→壇ノ浦</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">壇ノ浦→院政開始→保元の乱→平治の乱</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">保元の乱→院政開始→壇ノ浦→平治の乱</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">院政開始→保元の乱→平治の乱→壇ノ浦の戦い</span></button></div>
+      <div class="expl hidden-until">💡 白河上皇が院政を開始→保元の乱（1156年）→平治の乱（1159年）→壇ノ浦の戦い（1185年）の順です。</div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (1/2)" data-qid="wr-insei-taira-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">1 / 2　文章で説明しよう</span></div>
+      <div class="q-text">白河上皇が院政を始めた目的を説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">摂関政治</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">藤原氏による摂関政治に代わって、上皇自らが政治を動かす院政を始め、実権をにぎり続けるため。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E9%99%A2%E6%94%BF%E3%81%A8%E5%B9%B3%E6%B0%8F%E3%81%AE%E6%94%BF%E6%B2%BB" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (2/2)" data-qid="wr-insei-taira-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">2 / 2　文章で説明しよう</span></div>
+      <div class="q-text">平氏の政治が「平氏にあらずんば人にあらず」と言われるほど反発を招いたのはなぜか、説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">独占</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">平氏が朝廷の重要な役職や全国の荘園などの領地を一族で独占し、他の貴族や武士の不満を招いたから。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E9%99%A2%E6%94%BF%E3%81%A8%E5%B9%B3%E6%B0%8F%E3%81%AE%E6%94%BF%E6%B2%BB" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step done-step" data-label="結果">
+      <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「院政と平氏の政治」おつかれさま！</span></div>
+      <div class="score-box" data-score></div>
+      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E9%99%A2%E6%94%BF%E3%81%A8%E5%B9%B3%E6%B0%8F%E3%81%AE%E6%94%BF%E6%B2%BB" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
+      <a class="big-btn ref-btn" href="../../ref/05/index.html#t2">📖 参考書でおさらいする</a>
+      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元をもう一度とく</button>
+    </div>
+</section>
+<section class="view" data-t="4">
+  <div class="tband"><span class="tno">3</span><h2>鎌倉幕府の成立</h2><img class="wchar tchar" src="img/characters_char_neko_sm.png" alt=""></div>
+  
+    <div class="step" data-label="A 要点まとめ">
+      <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
+      <a class="ref-link" href="../../ref/05/index.html#t3">📖 先に参考書で理解する</a>
+      <div class="summary">源頼朝は平氏をほろぼした後、<button class="blank" type="button"><span class="bno">①</span><span class="ba">征夷大将軍</span><span class="bl" style="width:4.5em"></span></button>に任命されて鎌倉に武士の政権である鎌倉幕府を開いた。頼朝は国ごとに軍事・警察を担う<button class="blank" type="button"><span class="bno">②</span><span class="ba">守護</span><span class="bl" style="width:2.7em"></span></button>を、荘園や公領ごとに年貢の取り立てなどを行う<button class="blank" type="button"><span class="bno">③</span><span class="ba">地頭</span><span class="bl" style="width:2.7em"></span></button>を置いて全国支配を固めた。将軍と主従関係を結んだ武士は<button class="blank" type="button"><span class="bno">④</span><span class="ba">御家人</span><span class="bl" style="width:2.7em"></span></button>と呼ばれ、将軍が領地を保護する<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">御恩</span><span class="bl" style="width:2.7em"></span></button>に対し軍役や警護をつとめる<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">奉公</span><span class="bl" style="width:2.7em"></span></button>で応じる関係が幕府の基礎となった。頼朝の死後は北条氏が<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">執権</span><span class="bl" style="width:2.7em"></span></button>として実権をにぎり、1221年には後鳥羽上皇が幕府をたおそうとした<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">承久の乱</span><span class="bl" style="width:3.6em"></span></button>が起こったが、御家人の団結によって幕府側が勝利した。その後京都には朝廷を監視する<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">六波羅探題</span><span class="bl" style="width:4.5em"></span></button>が置かれ、1232年には北条泰時が武士の慣習に基づく法である<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">御成敗式目</span><span class="bl" style="width:4.5em"></span></button>を定めた。</div>
+      <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-kamakura-bakufu-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">1 / 14</span></div>
+      <div class="q-text">源頼朝が鎌倉に開いた武士の政権は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>鎌倉<rt>かまくら</rt></ruby><ruby>幕府<rt>ばくふ</rt></ruby></div>
+        <div class="qa-expl">源頼朝が開いた日本初の武士の政権。守護・地頭を全国に置き、御恩と奉公による武士の政治を始めた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (2/14)" data-qid="qa-kamakura-bakufu-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">2 / 14</span></div>
+      <div class="q-text">鎌倉幕府を開き、征夷大将軍に任命された人物は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>源頼朝<rt>みなもとのよりとも</rt></ruby></div>
+        <div class="qa-expl">平治の乱で敗れて伊豆に流されたが挙兵し、弟の義経らと平氏を滅ぼした後、鎌倉を本拠地に武士の政権を開いた人物。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (3/14)" data-qid="qa-kamakura-bakufu-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">3 / 14</span></div>
+      <div class="q-text">1185年に源氏が平氏をほろぼした戦いは？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>壇<rt>だん</rt></ruby>ノ<ruby>浦<rt>うら</rt></ruby>の<ruby>戦<rt>たたか</rt></ruby>い</div>
+        <div class="qa-expl">1185年、山口県下関市の壇ノ浦で源義経率いる源氏軍と平氏が戦った海戦。平氏一門が滅亡し源平の争乱が終結した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (4/14)" data-qid="qa-kamakura-bakufu-4" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">4 / 14</span></div>
+      <div class="q-text">鎌倉幕府が国ごとに置き、軍事や警察の仕事をさせた役職は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>守護<rt>しゅご</rt></ruby></div>
+        <div class="qa-expl">国ごとに置かれ治安を守る役。地頭とともに幕府の全国支配を支え、御家人をまとめる役目も果たした。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (5/14)" data-qid="qa-kamakura-bakufu-5" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">5 / 14</span></div>
+      <div class="q-text">鎌倉幕府が荘園や公領ごとに置き、年貢の取り立てなどを行った役職は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>地頭<rt>じとう</rt></ruby></div>
+        <div class="qa-expl">荘園や公領ごとに置かれ、年貢の取り立てや土地の管理を行った役。武力を持ち、荘園領主と争うことも増えた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (6/14)" data-qid="qa-kamakura-bakufu-6" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">6 / 14</span></div>
+      <div class="q-text">将軍に忠誠をちかい、家来となった武士は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>御家人<rt>ごけにん</rt></ruby></div>
+        <div class="qa-expl">将軍と直接、主人と家来の関係を結んだ武士。一大事には「いざ鎌倉」と駆けつける覚悟を持っていた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (7/14)" data-qid="qa-kamakura-bakufu-7" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">7 / 14</span></div>
+      <div class="q-text">将軍が御家人の領地を認めたり、新たな土地をあたえたりすることは？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>御恩<rt>ごおん</rt></ruby></div>
+        <div class="qa-expl">将軍が御家人に与える恩。先祖から伝わる領地を認めることや、新しい土地を与えることを指す。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (8/14)" data-qid="qa-kamakura-bakufu-8" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">8 / 14</span></div>
+      <div class="q-text">御家人が将軍のために戦いや警護を行うことは？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>奉公<rt>ほうこう</rt></ruby></div>
+        <div class="qa-expl">御家人が将軍のために行うつとめ。戦いに出陣したり京都や鎌倉を警備したりすることを指す。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (9/14)" data-qid="qa-kamakura-bakufu-9" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">9 / 14</span></div>
+      <div class="q-text">鎌倉幕府の将軍と御家人の主従関係のしくみは？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>御恩<rt>ごおん</rt></ruby>と<ruby>奉公<rt>ほうこう</rt></ruby></div>
+        <div class="qa-expl">鎌倉幕府の基本的な主従関係。将軍が御家人の領地を保護し、御家人が軍役や警備で将軍に仕える関係。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (10/14)" data-qid="qa-kamakura-bakufu-10" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">10 / 14</span></div>
+      <div class="q-text">源頼朝が朝廷から任命された、武家の最高位を示す役職は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>征夷大将軍<rt>せいいたいしょうぐん</rt></ruby></div>
+        <div class="qa-expl">もとは蝦夷を討つ軍の総大将の役職。源頼朝のあとは武士のかしらを意味し、幕府の将軍の称号となった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (11/14)" data-qid="qa-kamakura-bakufu-11" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">11 / 14</span></div>
+      <div class="q-text">鎌倉幕府で御家人の統率を行った役所は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>侍所<rt>さむらいどころ</rt></ruby></div>
+        <div class="qa-expl">鎌倉幕府で御家人の管理や軍事を担当した役所。最初の長官は和田義盛で、のちに北条氏が長官を兼ねた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (12/14)" data-qid="qa-kamakura-bakufu-12" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">12 / 14</span></div>
+      <div class="q-text">鎌倉幕府で政務や財政を担当した役所は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>政所<rt>まんどころ</rt></ruby></div>
+        <div class="qa-expl">鎌倉幕府で政治や財政を担当した役所。最初の長官は大江広元で、侍所・問注所とともに幕府の中心となった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (13/14)" data-qid="qa-kamakura-bakufu-13" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">13 / 14</span></div>
+      <div class="q-text">鎌倉幕府で裁判を担当した役所は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>問注所<rt>もんちゅうじょ</rt></ruby></div>
+        <div class="qa-expl">鎌倉幕府で裁判を担当した役所。御家人どうしの争いや、地頭と荘園領主の土地争いを裁いた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (14/14)" data-qid="qa-kamakura-bakufu-14" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">14 / 14</span></div>
+      <div class="q-text">鎌倉幕府で将軍を補佐し、実権をにぎった役職は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>執権<rt>しっけん</rt></ruby></div>
+        <div class="qa-expl">源氏の将軍が3代で絶えた後、北条氏がこの役職で幕府の政治を動かした。北条時政・北条泰時など。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (1/8)" data-qid="qz-kamakura-bakufu-1" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">1 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">鎌倉幕府で御家人どうしの訴訟や荘園領主と地頭の争いを扱った役所は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">政所</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">六波羅探題</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">問注所</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">侍所</span></button></div>
+      <div class="expl hidden-until">💡 問注所は鎌倉幕府で裁判を担当した役所で、御家人間の訴訟や荘園領主と地頭の争いを裁きました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-kamakura-bakufu-2" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">2 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">御成敗式目について正しいものはどれですか。</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">武士の慣習に基づいた裁判の基準</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">寺社の僧侶が守るべき戒律</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">朝廷が御家人に課した新しい税法</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">律令を補う形で定められた追加法</span></button></div>
+      <div class="expl hidden-until">💡 御成敗式目は1232年に北条泰時が定めた、武士の慣習に基づいた裁判の基準で、51か条からなる武家法です。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-kamakura-bakufu-3" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">3 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">御家人の「奉公」に含まれるものはどれ？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">将軍からの本領安堵の保障</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">朝廷への直接的な年貢納入</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">御家人どうしの土地争いの裁定</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">戦時の参戦と京都・鎌倉の警護</span></button></div>
+      <div class="expl hidden-until">💡 奉公とは御家人が将軍のために戦いに参加したり、京都や鎌倉の警護にあたったりする軍事的な奉仕のことです。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-kamakura-bakufu-4" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">4 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">承久の乱で敗れた後鳥羽上皇が流された場所は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">対馬</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">土佐</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">佐渡</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">隠岐</span></button></div>
+      <div class="expl hidden-until">💡 後鳥羽上皇は1221年の承久の乱で敗れた後、隠岐（現在の島根県）に流されました。京都には六波羅探題が置かれました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-kamakura-bakufu-5" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">5 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">将軍と御家人の御恩と奉公にみられる、ヨーロッパ中世とも共通する社会の仕組みを何という？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">封建制度</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">律令制度</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">摂関制度</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">荘園制度</span></button></div>
+      <div class="expl hidden-until">💡 封建制度は土地を仲立ちとした主従関係で、御恩と奉公が基本となります。ヨーロッパ中世の領主と騎士の関係も同様の封建制度として知られています。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-kamakura-bakufu-6" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">6 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">守護と地頭の違いとして正しいのはどれ？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">守護は国ごとで軍事・警察、地頭は荘園ごとで年貢徴収</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">守護は荘園ごとで治安維持、地頭は国ごとで御家人の動員</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">守護は荘園ごとで年貢徴収、地頭は国ごとで軍事・警察</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">守護は六波羅探題の指揮下、地頭は朝廷の国司の指揮下</span></button></div>
+      <div class="expl hidden-until">💡 守護は国ごとに置かれて軍事・警察を担当し、地頭は荘園・公領ごとに置かれて年貢徴収・土地管理を担当しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-kamakura-bakufu-7" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">7 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">承久の乱が幕府に与えた最大の影響は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">御家人の反乱で執権政治が終わった</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">院政が復活し上皇が政治の実権を取り戻した</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">朝廷側が勝利し幕府が解体された</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">幕府の優位が確立し支配が広がった</span></button></div>
+      <div class="expl hidden-until">💡 1221年の承久の乱で幕府が勝利して朝廷への優位が確立し、支配が西日本にも広がりました。京都には六波羅探題が置かれました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-kamakura-bakufu-8" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">8 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">鎌倉幕府の初代執権はだれ？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">北条時宗</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">北条時政</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">北条泰時</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">北条義時</span></button></div>
+      <div class="expl hidden-until">💡 北条時政は鎌倉幕府の初代執権で、頼朝の妻・北条政子の父にあたります。北条氏による執権政治の基礎を築きました。</div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-kamakura-bakufu-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">1 / 3　文章で説明しよう</span></div>
+      <div class="q-text">将軍と御家人を結びつけた御恩と奉公の関係のしくみを説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">御恩</span><span class="kw-chip">奉公</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">将軍が御家人の領地を保護したり新しい土地を与えたりする御恩に対し、御家人は軍役や警護をつとめる奉公で応じる関係。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E9%8E%8C%E5%80%89%E5%B9%95%E5%BA%9C%E3%81%AE%E6%88%90%E7%AB%8B" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (2/3)" data-qid="wr-kamakura-bakufu-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">2 / 3　文章で説明しよう</span></div>
+      <div class="q-text">承久の乱のあと、幕府が京都に六波羅探題を置いた目的を説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">承久の乱</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">承久の乱に勝利した幕府が、京都の朝廷の動きを監視し、幕府の支配を西日本にも広げるために置いた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E9%8E%8C%E5%80%89%E5%B9%95%E5%BA%9C%E3%81%AE%E6%88%90%E7%AB%8B" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (3/3)" data-qid="wr-kamakura-bakufu-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">3 / 3　文章で説明しよう</span></div>
+      <div class="q-text">源頼朝は、国ごとと荘園・公領ごとにそれぞれどのような役職を置いたか、説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">守護</span><span class="kw-chip">地頭</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">国ごとに軍事や警察を担当する守護を置き、荘園や公領ごとに年貢の取り立てや土地の管理を行う地頭を置いた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E9%8E%8C%E5%80%89%E5%B9%95%E5%BA%9C%E3%81%AE%E6%88%90%E7%AB%8B" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step" data-label="E 資料問題">
+      <div class="sec-h"><span class="sec-tag">E</span>資料問題<span class="sec-note">写真を見て答えよう</span></div>
+      <figure class="s-img"><img src="img/goon-hoko-relation.webp" alt="" loading="lazy"><figcaption>将軍と御家人の関係</figcaption></figure>
+      <div class="s-q"><span class="qa-no">(1)</span>図中の①の、将軍が御家人の領地を守ったり与えたりすることを何というか。<button class="blank s-blank" type="button"><span class="ba">御恩</span><span class="bl" style="width:8em"></span><span class="tap-hint">タップで答え</span></button></div><div class="s-q"><span class="qa-no">(2)</span>図中の②の、御家人が将軍のために戦いや警備に参加することを何というか。<button class="blank s-blank" type="button"><span class="ba">奉公</span><span class="bl" style="width:8em"></span><span class="tap-hint">タップで答え</span></button></div>
+    </div>
+    <div class="step" data-label="E 資料問題">
+      <div class="sec-h"><span class="sec-tag">E</span>資料問題<span class="sec-note">写真を見て答えよう</span></div>
+      <figure class="s-img"><img src="img/kamakura-bakufu-org.webp" alt="" loading="lazy"><figcaption>鎌倉幕府のしくみ</figcaption></figure>
+      <div class="s-q"><span class="qa-no">(3)</span>図中の①は、将軍を補佐して政治を行った役職である。①にあてはまる役職を答えなさい。<button class="blank s-blank" type="button"><span class="ba">執権</span><span class="bl" style="width:8em"></span><span class="tap-hint">タップで答え</span></button></div><div class="s-q"><span class="qa-no">(4)</span>図中の②は、国ごとに置かれ、軍事・警察を担当した役職である。②にあてはまる役職を答えなさい。<button class="blank s-blank" type="button"><span class="ba">守護</span><span class="bl" style="width:8em"></span><span class="tap-hint">タップで答え</span></button></div><div class="s-q"><span class="qa-no">(5)</span>図中の③は、荘園や公領ごとに置かれ、年貢の取り立てなどを行った役職である。③にあてはまる役職を答えなさい。<button class="blank s-blank" type="button"><span class="ba">地頭</span><span class="bl" style="width:8em"></span><span class="tap-hint">タップで答え</span></button></div>
+    </div>
+    <div class="step done-step" data-label="結果">
+      <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「鎌倉幕府の成立」おつかれさま！</span></div>
+      <div class="score-box" data-score></div>
+      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E9%8E%8C%E5%80%89%E5%B9%95%E5%BA%9C%E3%81%AE%E6%88%90%E7%AB%8B" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
+      <a class="big-btn ref-btn" href="../../ref/05/index.html#t3">📖 参考書でおさらいする</a>
+      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元をもう一度とく</button>
+    </div>
+</section>
+<section class="view" data-t="5">
+  <div class="tband"><span class="tno">4</span><h2>鎌倉時代の社会</h2><img class="wchar tchar" src="img/characters_char_owl_sm.png" alt=""></div>
+  
+    <div class="step" data-label="A 要点まとめ">
+      <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
+      <a class="ref-link" href="../../ref/05/index.html#t4">📖 先に参考書で理解する</a>
+      <div class="summary">鎌倉時代には農業技術が進み、同じ田で米と麦を交互に作る<button class="blank" type="button"><span class="bno">①</span><span class="ba">二毛作</span><span class="bl" style="width:2.7em"></span></button>が西日本を中心に広まり、<button class="blank" type="button"><span class="bno">②</span><span class="ba">鉄製農具</span><span class="bl" style="width:3.6em"></span></button>や牛馬耕、草木灰などの肥料の利用で収穫量が高まった。商業も発達し、寺社の門前などで月3回開かれる<button class="blank" type="button"><span class="bno">③</span><span class="ba">定期市</span><span class="bl" style="width:2.7em"></span></button>（三斎市）が各地に広がり、日宋貿易で入ってきた<button class="blank" type="button"><span class="bno">④</span><span class="ba">宋銭</span><span class="bl" style="width:2.7em"></span></button>が売買や年貢の支払いに使われる貨幣経済が進んだ。地頭が荘園で力を強めると荘園領主との争いが増え、土地を半分ずつ分け合う<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">下地中分</span><span class="bl" style="width:3.6em"></span></button>で解決することもあった。武士は名誉を重んじ恥をきらう<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">武士道</span><span class="bl" style="width:2.7em"></span></button>の心がまえを持ち、弓や馬の技を磨く<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">弓馬の道</span><span class="bl" style="width:3.6em"></span></button>を何より大切にし、一大事には「<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">いざ鎌倉</span><span class="bl" style="width:3.6em"></span></button>」と将軍のもとへ駆けつける覚悟を持っていた。</div>
+      <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-kamakura-society-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">1 / 14</span></div>
+      <div class="q-text">同じ田で米と麦を交互に作る農業は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>二毛作<rt>にもうさく</rt></ruby></div>
+        <div class="qa-expl">秋に米を、冬に麦を作る農業。鎌倉時代に西日本を中心に広まり、収穫量を大きく増やした。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (2/14)" data-qid="qa-kamakura-society-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">2 / 14</span></div>
+      <div class="q-text">寺社の門前や交通の便利な場所で、決まった日に開かれた市場は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>定期市<rt>ていきいち</rt></ruby></div>
+        <div class="qa-expl">寺社の門前や交通の要所で月3回開かれた三斎市が代表例。宋銭の広まりとともに商業の発展を支えた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (3/14)" data-qid="qa-kamakura-society-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">3 / 14</span></div>
+      <div class="q-text">鎌倉時代に月3回開催された定期市の呼び方は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>三斎市<rt>さんさいいち</rt></ruby></div>
+        <div class="qa-expl">寺社の門前などで月3回開かれた定期市。室町時代には月6回の六斎市に増え、商業はさらに発展した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (4/14)" data-qid="qa-kamakura-society-4" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">4 / 14</span></div>
+      <div class="q-text">中国の宋から入ってきた銭で、鎌倉時代に商業や年貢の支払いに使われたお金は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>宋銭<rt>そうせん</rt></ruby></div>
+        <div class="qa-expl">平清盛の日宋貿易で大量に入った中国の銭。年貢の支払いにも使われ、お金中心の経済を広めた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (5/14)" data-qid="qa-kamakura-society-5" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">5 / 14</span></div>
+      <div class="q-text">農民が領主に毎年納めた米や布などの税は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>年貢<rt>ねんぐ</rt></ruby></div>
+        <div class="qa-expl">荘園や公領の農民が領主に毎年納めた米や布などの税。宋銭の広まりで、お金で払うことも増えた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (6/14)" data-qid="qa-kamakura-society-6" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">6 / 14</span></div>
+      <div class="q-text">鎌倉時代に普及した、耕作効率を大幅に上げた道具は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>鉄製<rt>てっせい</rt></ruby><ruby>農具<rt>のうぐ</rt></ruby></div>
+        <div class="qa-expl">鎌倉時代に各地に広まった農具。木や石より硬くて丈夫で、深く耕せたため農業の収穫量を大きく高めた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (7/14)" data-qid="qa-kamakura-society-7" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">7 / 14</span></div>
+      <div class="q-text">牛や馬を使って田を耕す方法を何という？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>牛馬耕<rt>ぎゅうばこう</rt></ruby></div>
+        <div class="qa-expl">牛や馬を使って田を耕す方法。人だけより深く効率よく耕せたため、鎌倉時代に広まり収穫量を高めた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (8/14)" data-qid="qa-kamakura-society-8" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">8 / 14</span></div>
+      <div class="q-text">草木を焼いた灰で、鎌倉時代に肥料として使われたのは？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>草木灰<rt>そうもくばい</rt></ruby></div>
+        <div class="qa-expl">草木を焼いて作った灰を田畑にまく肥料。鎌倉時代に広く使われ、二毛作とともに農業の収穫量を高めた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (9/14)" data-qid="qa-kamakura-society-9" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">9 / 14</span></div>
+      <div class="q-text">鎌倉時代に馬を利用して荷物を運んだ運送業者は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>馬借<rt>ばしゃく</rt></ruby></div>
+        <div class="qa-expl">馬を使って各地の産物を定期市や港に運んだ運送業者。宋銭の広まりとともに商業の発展を支えた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (10/14)" data-qid="qa-kamakura-society-10" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">10 / 14</span></div>
+      <div class="q-text">名誉を大切にし、はじをきらう武士の心がまえは？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>武士道<rt>ぶしどう</rt></ruby></div>
+        <div class="qa-expl">鎌倉時代の武士の生き方の基本。名誉を重んじはじをきらい、弓や馬の技を磨くことを大切にした。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (11/14)" data-qid="qa-kamakura-society-11" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">11 / 14</span></div>
+      <div class="q-text">鎌倉時代の武士が重んじた、弓術や馬術などの武芸を中心とする考え方は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>弓馬<rt>きゅうば</rt></ruby>の道</div>
+        <div class="qa-expl">鎌倉時代の武士が大切にした考え方。弓と馬の技を磨くことが武士のもっとも大切なつとめとされた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (12/14)" data-qid="qa-kamakura-society-12" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">12 / 14</span></div>
+      <div class="q-text">地頭と荘園領主が土地を半分ずつ分けることを何という？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>下地中分<rt>したじちゅうぶん</rt></ruby></div>
+        <div class="qa-expl">地頭と荘園領主の土地争いが裁判でも決着しないとき、土地を半分ずつ分けて支配した取り決め。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (13/14)" data-qid="qa-kamakura-society-13" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">13 / 14</span></div>
+      <div class="q-text">宋銭の流通で物々交換から変化した、お金を使う経済のしくみは？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>貨幣<rt>かへい</rt></ruby><ruby>経済<rt>けいざい</rt></ruby></div>
+        <div class="qa-expl">日宋貿易で入った宋銭の広まりにより、物々交換に代わってお金で品物を売り買いする仕組みが広がった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (14/14)" data-qid="qa-kamakura-society-14" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">14 / 14</span></div>
+      <div class="q-text">鎌倉幕府で地頭と荘園領主の争いなどを裁判で扱った機関は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>問注所<rt>もんちゅうじょ</rt></ruby></div>
+        <div class="qa-expl">鎌倉幕府で裁判を担当した役所。御家人どうしの争いや、地頭と荘園領主の土地争いを裁いた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (1/8)" data-qid="qz-kamakura-society-1" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">1 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">鎌倉時代に商業が発達した理由として適切なものはどれですか。</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">楽市楽座と城下町の発達</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">銀座・金座の設置と南蛮貿易</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">宋銭の流通や定期市の発達</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">藩札の流通や株仲間の発達</span></button></div>
+      <div class="expl hidden-until">💡 宋銭の流通と定期市の発達は鎌倉時代の商業発達の原動力で、寺社の門前や交通の要所で月3回の三斎市が広く開かれました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-kamakura-society-2" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">2 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">二毛作で栽培されたおもな2つの作物は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">米と麦</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">麦と野菜</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">米と大豆</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">米と綿</span></button></div>
+      <div class="expl hidden-until">💡 二毛作では秋に米をとったあと冬に麦を作り、同じ土地で年に二度の収穫を得ました。鎌倉時代に西日本を中心に広まりました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-kamakura-society-3" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">3 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">二毛作が主に広まった地域はどこ？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">北海道</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">西日本</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">東北地方</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">関東地方</span></button></div>
+      <div class="expl hidden-until">💡 二毛作は気候が温暖な西日本を中心に広まり、同じ田で米と麦を交互に作って年に二度の収穫を得ることを可能にしました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-kamakura-society-4" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">4 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">鎌倉時代に最も広く使われた肥料はどれ？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">金肥</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">油かす</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">干鰯</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">草木灰</span></button></div>
+      <div class="expl hidden-until">💡 草木灰は草木を焼いて作った灰を土地にまく肥料で、養分を補い農業の生産力を高める働きをし、鎌倉時代に広く利用されました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-kamakura-society-5" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">5 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">地頭が荘園で勢力を強めた理由として正しいのは？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">朝廷の命令で荘園を管理したため</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">農民の選挙で地頭に選ばれたため</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">武力を持ち年貢徴収を行ったため</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">荘園領主から土地を寄進されたため</span></button></div>
+      <div class="expl hidden-until">💡 武力を持つ地頭が年貢の徴収を担当するうちに、農民や土地への支配力を増していきました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-kamakura-society-6" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">6 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">鎌倉時代の社会を特徴づける3つのキーワードとして正しいのは？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">寝殿造・かな文字・摂関政治</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">金閣・能・水墨画</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">城下町・楽市楽座・南蛮貿易</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">二毛作・定期市・御恩と奉公</span></button></div>
+      <div class="expl hidden-until">💡 鎌倉時代の社会は二毛作（農業の発展）、定期市（商業の広がり）、御恩と奉公（武士社会のしくみ）の3点で特徴づけられます。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-kamakura-society-7" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">7 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">鎌倉時代の定期市が開かれた頻度は月に何回？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">毎日</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">月に3回</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">月に1回</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">月に6回</span></button></div>
+      <div class="expl hidden-until">💡 鎌倉時代の定期市は月に3回開催される三斎市が一般的で、寺社の門前や交通の要所で開かれて商業の発達を支えました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-kamakura-society-8" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">8 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">鎌倉時代の武士の生活が質素だった理由は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">贅沢を禁じる法律があったため</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">武芸を重んじ戦いに備えたため</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">年貢収入が全くなかったため</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">禅宗が全国に広まったため</span></button></div>
+      <div class="expl hidden-until">💡 鎌倉時代の武士は弓馬の道など武芸を磨くことを第一として常に戦いに備える生活をしていたため、贅沢を避けて質素な暮らしを保ちました。</div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (1/2)" data-qid="wr-kamakura-society-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">1 / 2　文章で説明しよう</span></div>
+      <div class="q-text">鎌倉時代に農業の収穫量が高まった理由を説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">二毛作</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">米と麦を交互に作る二毛作が広まり、鉄製農具や牛馬耕、草木灰などの肥料の利用も進んで収穫量が高まったから。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E9%8E%8C%E5%80%89%E6%99%82%E4%BB%A3%E3%81%AE%E7%A4%BE%E4%BC%9A" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (2/2)" data-qid="wr-kamakura-society-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">2 / 2　文章で説明しよう</span></div>
+      <div class="q-text">地頭と荘園領主の土地争いが下地中分によってどのように解決されたか、説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">下地中分</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">地頭が荘園で力を強めて荘園領主との争いが増えたため、土地を半分ずつ分け合う下地中分で解決することもあった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E9%8E%8C%E5%80%89%E6%99%82%E4%BB%A3%E3%81%AE%E7%A4%BE%E4%BC%9A" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step done-step" data-label="結果">
+      <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「鎌倉時代の社会」おつかれさま！</span></div>
+      <div class="score-box" data-score></div>
+      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E9%8E%8C%E5%80%89%E6%99%82%E4%BB%A3%E3%81%AE%E7%A4%BE%E4%BC%9A" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
+      <a class="big-btn ref-btn" href="../../ref/05/index.html#t4">📖 参考書でおさらいする</a>
+      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元をもう一度とく</button>
+    </div>
+</section>
+<section class="view" data-t="6">
+  <div class="tband"><span class="tno">5</span><h2>鎌倉文化と新しい仏教</h2><img class="wchar tchar" src="img/characters_manabi_ok_sm.png" alt=""></div>
+  
+    <div class="step" data-label="A 要点まとめ">
+      <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
+      <a class="ref-link" href="../../ref/05/index.html#t5">📖 先に参考書で理解する</a>
+      <div class="summary">鎌倉時代には力強く写実的な文化が生まれ、東大寺南大門には運慶・快慶らが手がけた<button class="blank" type="button"><span class="bno">①</span><span class="ba">金剛力士像</span><span class="bl" style="width:4.5em"></span></button>が置かれた。文学では、源平の争乱をえがき琵琶法師が語り伝えた軍記物語の<button class="blank" type="button"><span class="bno">②</span><span class="ba">平家物語</span><span class="bl" style="width:3.6em"></span></button>、鴨長明が世のはかなさを記した随筆<button class="blank" type="button"><span class="bno">③</span><span class="ba">方丈記</span><span class="bl" style="width:2.7em"></span></button>、兼好法師が人々の暮らしをつづった随筆<button class="blank" type="button"><span class="bno">④</span><span class="ba">徒然草</span><span class="bl" style="width:2.7em"></span></button>が生まれ、後鳥羽上皇の命で藤原定家らが<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">新古今和歌集</span><span class="bl" style="width:5.4em"></span></button>を編集した。仏教では、念仏を唱えれば救われると説いた<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">法然</span><span class="bl" style="width:2.7em"></span></button>が浄土宗を開き、その弟子<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">親鸞</span><span class="bl" style="width:2.7em"></span></button>は浄土真宗を、一遍は踊念仏を広めて時宗を開いた。日蓮は法華経の題目を唱える<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">日蓮宗</span><span class="bl" style="width:2.7em"></span></button>を、栄西は宋から伝えた<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">臨済宗</span><span class="bl" style="width:2.7em"></span></button>を、道元はひたすら座禅を行う<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">曹洞宗</span><span class="bl" style="width:2.7em"></span></button>を開いた。</div>
+      <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-kamakura-culture-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">1 / 14</span></div>
+      <div class="q-text">鎌倉時代に再建された東大寺の門は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>東大寺<rt>とうだいじ</rt></ruby><ruby>南大門<rt>なんだいもん</rt></ruby></div>
+        <div class="qa-expl">源平の争乱で焼けた東大寺を鎌倉時代に建て直した門。宋から伝わった力強い建築様式が特徴。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (2/14)" data-qid="qa-kamakura-culture-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">2 / 14</span></div>
+      <div class="q-text">東大寺南大門にある、運慶・快慶らが作った力強い彫刻は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>金剛力士像<rt>こんごうりきしぞう</rt></ruby></div>
+        <div class="qa-expl">運慶・快慶らが作った二体一対の木の彫刻。本物そっくりで筋肉の表現が力強く、鎌倉文化を代表する作品。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (3/14)" data-qid="qa-kamakura-culture-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">3 / 14</span></div>
+      <div class="q-text">運慶とともに金剛力士像を制作した仏師は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>快慶<rt>かいけい</rt></ruby></div>
+        <div class="qa-expl">運慶の弟子で、東大寺南大門の金剛力士像を運慶らと一緒に制作した仏師。整った作風で知られる。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (4/14)" data-qid="qa-kamakura-culture-4" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">4 / 14</span></div>
+      <div class="q-text">源氏と平氏の戦いをえがいた軍記物語は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>平家物語<rt>へいけものがたり</rt></ruby></div>
+        <div class="qa-expl">源氏と平氏の戦いと栄枯盛衰を描いた物語。琵琶法師が語り伝え「祇園精舎の鐘の声」の書き出しが有名。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (5/14)" data-qid="qa-kamakura-culture-5" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">5 / 14</span></div>
+      <div class="q-text">平家物語を琵琶の伴奏で各地に語り歩いた芸能者は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>琵琶法師<rt>びわほうし</rt></ruby></div>
+        <div class="qa-expl">琵琶の音に合わせて平家物語を語り歩いた、目の見えない僧の姿の人々。文字が読めない人にも物語を届けた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (6/14)" data-qid="qa-kamakura-culture-6" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">6 / 14</span></div>
+      <div class="q-text">鴨長明が書いた随筆は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>方丈記<rt>ほうじょうき</rt></ruby></div>
+        <div class="qa-expl">鴨長明が小さな庵で書いた随筆。災害や世のはかなさを記し「ゆく河の流れは絶えずして」の書き出しが有名。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (7/14)" data-qid="qa-kamakura-culture-7" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">7 / 14</span></div>
+      <div class="q-text">方丈記を書いた人物は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>鴨長明<rt>かものちょうめい</rt></ruby></div>
+        <div class="qa-expl">鎌倉時代初めの歌人・随筆家。四畳半ほどの小さな庵に住みながら方丈記を書き、世のはかなさを記した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (8/14)" data-qid="qa-kamakura-culture-8" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">8 / 14</span></div>
+      <div class="q-text">兼好法師が書いた随筆は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>徒然草<rt>つれづれぐさ</rt></ruby></div>
+        <div class="qa-expl">兼好法師が書いた随筆。「つれづれなるままに」で始まり、人々の暮らしや人生観を述べた作品。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (9/14)" data-qid="qa-kamakura-culture-9" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">9 / 14</span></div>
+      <div class="q-text">徒然草を書いた人物は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>兼好法師<rt>けんこうほうし</rt></ruby></div>
+        <div class="qa-expl">鎌倉末期から南北朝時代の随筆家で、吉田兼好ともいう。徒然草で人々の暮らしや人生観を描いた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (10/14)" data-qid="qa-kamakura-culture-10" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">10 / 14</span></div>
+      <div class="q-text">後鳥羽上皇の命令で編集された和歌集は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>新古今<rt>しんこきん</rt></ruby><ruby>和歌集<rt>わかしゅう</rt></ruby></div>
+        <div class="qa-expl">後鳥羽上皇の命令で藤原定家らが編集した和歌集。定家や西行らの歌が収められた貴族文化の代表作。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (11/14)" data-qid="qa-kamakura-culture-11" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">11 / 14</span></div>
+      <div class="q-text">「南無阿弥陀仏」と念仏を唱えれば救われると説いた浄土宗の開祖は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>法然<rt>ほうねん</rt></ruby></div>
+        <div class="qa-expl">比叡山で修行した僧で、浄土宗を開いた人物。念仏を唱えるだけで救われるという分かりやすい教えで広まった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (12/14)" data-qid="qa-kamakura-culture-12" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">12 / 14</span></div>
+      <div class="q-text">法然の弟子で、阿弥陀如来を信じる浄土真宗を開いたのは？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>親鸞<rt>しんらん</rt></ruby></div>
+        <div class="qa-expl">法然の弟子で浄土真宗を開いた人物。阿弥陀仏を信じれば悪人でも救われるという「悪人正機」を説いた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (13/14)" data-qid="qa-kamakura-culture-13" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">13 / 14</span></div>
+      <div class="q-text">「踊念仏」を広め、時宗を開いた人物は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>一遍<rt>いっぺん</rt></ruby></div>
+        <div class="qa-expl">時宗を開いた僧。踊りながら念仏を唱える「踊念仏」で全国を巡り、人々に広く受け入れられた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (14/14)" data-qid="qa-kamakura-culture-14" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">14 / 14</span></div>
+      <div class="q-text">法華経の題目「南無妙法蓮華経」を唱えて救われると説いたのは？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>日蓮<rt>にちれん</rt></ruby></div>
+        <div class="qa-expl">日蓮宗を開いた僧。法華経だけが正しい教えだと主張し、他の宗派を批判して幕府からも何度も罰された。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (1/8)" data-qid="qz-kamakura-culture-1" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">1 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">鎌倉新仏教について正しい組み合わせはどれですか。</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">法然—曹洞宗</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">日蓮—浄土宗</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">親鸞—浄土真宗</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">栄西—時宗</span></button></div>
+      <div class="expl hidden-until">💡 親鸞は法然の弟子で浄土真宗を開きました。法然は浄土宗、栄西は臨済宗（禅宗）、日蓮は日蓮宗を開いた人物です。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-kamakura-culture-2" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">2 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">日蓮の教えとして正しいものはどれですか。</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">「南無妙法蓮華経」の題目を唱える</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">座禅をひたすら行い悟りを目指す</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">踊念仏で各地を巡って布教する</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">「南無阿弥陀仏」と念仏を唱える</span></button></div>
+      <div class="expl hidden-until">💡 日蓮は「南無妙法蓮華経」と法華経の題目を唱えることを説き、日蓮宗を開きました。座禅は曹洞宗、念仏は浄土宗系、踊念仏は時宗の特徴です。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-kamakura-culture-3" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">3 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">金剛力士像の作風の特徴として正しいのは？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">抽象的な幾何学模様</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">小さく繊細な作品</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">写実的で力強い表現</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">優美でおだやかな表現</span></button></div>
+      <div class="expl hidden-until">💡 金剛力士像は運慶・快慶らが制作した木造彫刻で、写実的で力強く、筋肉や動きの描写に優れる鎌倉文化を象徴する作品です。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-kamakura-culture-4" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">4 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">中国の宋から伝わり、自力での修行を重んじたことから武士に広く受け入れられた仏教の系統は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">浄土宗</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">禅宗</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">日蓮宗</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">時宗</span></button></div>
+      <div class="expl hidden-until">💡 禅宗（臨済宗・曹洞宗）は宋から伝わり、座禅による自力の修行で悟りを目指す教えで、武士の精神に合い広く支持されました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-kamakura-culture-5" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">5 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">鎌倉新仏教を大きく分けると、どの3つの系統になる？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">戒律系・修行系・信仰系</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">天台系・真言系・禅系</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">密教系・顕教系・浄土系</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">念仏系・題目系・座禅系</span></button></div>
+      <div class="expl hidden-until">💡 鎌倉新仏教は念仏系（浄土宗・浄土真宗・時宗）、題目系（日蓮宗）、座禅系（臨済宗・曹洞宗）の3系統に分けられます。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-kamakura-culture-6" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">6 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">鎌倉新仏教のうち、阿弥陀仏に頼ることで救われると説いた宗派の組み合わせは？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">臨済宗・曹洞宗・日蓮宗</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">浄土宗・浄土真宗・時宗</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">浄土宗・臨済宗・日蓮宗</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">浄土真宗・曹洞宗・時宗</span></button></div>
+      <div class="expl hidden-until">💡 浄土宗（法然）・浄土真宗（親鸞）・時宗（一遍）はいずれも阿弥陀仏に頼ることで救われると説いた念仏系の宗派です。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-kamakura-culture-7" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">7 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">臨済宗と曹洞宗の違いとして正しいのは？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">臨済宗は農民に、曹洞宗は朝廷に支持された</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">臨済宗は問答を重視し、曹洞宗はひたすら座禅を行う</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">臨済宗は座禅のみ、曹洞宗は座禅と問答を行う</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">臨済宗は中国の元から、曹洞宗は朝鮮から伝わった</span></button></div>
+      <div class="expl hidden-until">💡 臨済宗は座禅に加えて問答（公案）を重視し、曹洞宗はひたすら座禅を行う（只管打坐）ことを重視しました。両宗派ともに宋から伝わった禅宗です。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-kamakura-culture-8" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">8 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">平家物語の冒頭の有名な一節として正しいのは？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ゆく河の流れは絶えずして</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">つれづれなるままに</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">春はあけぼの</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">祇園精舎の鐘の声</span></button></div>
+      <div class="expl hidden-until">💡 「祇園精舎の鐘の声、諸行無常の響きあり」は平家物語の冒頭の一節で、万物の移り変わりを象徴する名句として有名です。</div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-kamakura-culture-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">1 / 3　文章で説明しよう</span></div>
+      <div class="q-text">法然と親鸞の教えの違いを説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">浄土宗</span><span class="kw-chip">浄土真宗</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">法然は念仏を唱えれば誰でも救われると説いて浄土宗を開き、弟子の親鸞は悪人正機を説いて浄土真宗を開いた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E9%8E%8C%E5%80%89%E6%96%87%E5%8C%96%E3%81%A8%E6%96%B0%E3%81%97%E3%81%84%E4%BB%8F%E6%95%99" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (2/3)" data-qid="wr-kamakura-culture-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">2 / 3　文章で説明しよう</span></div>
+      <div class="q-text">平家物語が文字を読めない人々にも広く伝わったのはなぜか、説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">琵琶法師</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">琵琶法師が琵琶の伴奏に合わせて平家物語を各地で語り歩き、文字が読めない人々にも物語を伝えたから。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E9%8E%8C%E5%80%89%E6%96%87%E5%8C%96%E3%81%A8%E6%96%B0%E3%81%97%E3%81%84%E4%BB%8F%E6%95%99" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (3/3)" data-qid="wr-kamakura-culture-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">3 / 3　文章で説明しよう</span></div>
+      <div class="q-text">金剛力士像は運慶・快慶らによってつくられた。この像に見られる鎌倉文化の特色を説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">写実的</span><span class="kw-chip">武士</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">金剛力士像は、写実的で力強く表現されており、武士の気風を反映した鎌倉文化の特色がよく表れている。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E9%8E%8C%E5%80%89%E6%96%87%E5%8C%96%E3%81%A8%E6%96%B0%E3%81%97%E3%81%84%E4%BB%8F%E6%95%99" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step done-step" data-label="結果">
+      <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「鎌倉文化と新しい仏教」おつかれさま！</span></div>
+      <div class="score-box" data-score></div>
+      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E9%8E%8C%E5%80%89%E6%96%87%E5%8C%96%E3%81%A8%E6%96%B0%E3%81%97%E3%81%84%E4%BB%8F%E6%95%99" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
+      <a class="big-btn ref-btn" href="../../ref/05/index.html#t5">📖 参考書でおさらいする</a>
+      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元をもう一度とく</button>
+    </div>
+</section>
+<section class="print-answers print-only">
+  <h2 class="ans-band">解答</h2>
+  <div class="a-topic"><div class="a-title">年表でチェック</div><div class="a-group"><span class="a-item">武士</span>　<span class="a-item">平将門</span>　<span class="a-item">藤原純友</span>　<span class="a-item">源義家</span>　<span class="a-item">奥州藤原氏</span>　<span class="a-item">院政</span>　<span class="a-item">保元の乱</span>　<span class="a-item">平治の乱</span>　<span class="a-item">平清盛</span>　<span class="a-item">壇ノ浦の戦い</span>　<span class="a-item">征夷大将軍</span>　<span class="a-item">承久の乱</span>　<span class="a-item">御成敗式目</span>　<span class="a-item">法然</span>　<span class="a-item">金剛力士像</span></div></div><div class="a-topic"><div class="a-title">1　武士の成長</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 武士</span>　<span class="a-item">② 武士団</span>　<span class="a-item">③ 源氏</span>　<span class="a-item">④ 平氏</span>　<span class="a-item">⑤ 平将門</span>　<span class="a-item">⑥ 藤原純友</span>　<span class="a-item">⑦ 源義家</span>　<span class="a-item">⑧ 奥州藤原氏</span>　<span class="a-item">⑨ 荘園</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 武士</span>　<span class="a-item">(2) 武士団</span>　<span class="a-item">(3) 惣領</span>　<span class="a-item">(4) 源氏</span>　<span class="a-item">(5) 平氏</span>　<span class="a-item">(6) 源義家</span>　<span class="a-item">(7) 奥州藤原氏</span>　<span class="a-item">(8) 平将門</span>　<span class="a-item">(9) 藤原純友</span>　<span class="a-item">(10) 前九年合戦・後三年合戦</span>　<span class="a-item">(11) 荘園</span>　<span class="a-item">(12) 公領</span>　<span class="a-item">(13) 中尊寺金色堂</span>　<span class="a-item">(14) 不輸の権</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) ア（血縁関係と主従関係）</span>　<span class="a-item">(2) ア（天皇の子孫）</span>　<span class="a-item">(3) ウ（瀬戸内海の海賊）</span>　<span class="a-item">(4) ウ（税を納めず役人の介入も受けない）</span>　<span class="a-item">(5) イ（岩手県）</span>　<span class="a-item">(6) エ（10世紀）</span>　<span class="a-item">(7) エ（新皇）</span>　<span class="a-item">(8) ウ（東北地方）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 地方の治安が乱れる中で、弓矢や馬の技にすぐれた地方の有力者や農民が武器を持ち、力をつけていったから。</div><div class="a-written">(2) 地方の開発領主が税をのがれるため、開墾した土地を有力な貴族に寄進し、現地の管理は続けながら荘園が広まっていった。</div></div></div><div class="a-topic"><div class="a-title">2　院政と平氏の政治</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 院政</span>　<span class="a-item">② 北面の武士</span>　<span class="a-item">③ 保元の乱</span>　<span class="a-item">④ 平治の乱</span>　<span class="a-item">⑤ 平清盛</span>　<span class="a-item">⑥ 太政大臣</span>　<span class="a-item">⑦ 日宋貿易</span>　<span class="a-item">⑧ 源頼朝</span>　<span class="a-item">⑨ 壇ノ浦の戦い</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 上皇</span>　<span class="a-item">(2) 院政</span>　<span class="a-item">(3) 白河上皇</span>　<span class="a-item">(4) 北面の武士</span>　<span class="a-item">(5) 保元の乱</span>　<span class="a-item">(6) 平治の乱</span>　<span class="a-item">(7) 平清盛</span>　<span class="a-item">(8) 太政大臣</span>　<span class="a-item">(9) 大輪田泊</span>　<span class="a-item">(10) 日宋貿易</span>　<span class="a-item">(11) 源頼朝</span>　<span class="a-item">(12) 源義経</span>　<span class="a-item">(13) 壇ノ浦の戦い</span>　<span class="a-item">(14) 厳島神社</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) イ（平治の乱）</span>　<span class="a-item">(2) ア（娘を天皇のきさきにし一族を要職に就けた）</span>　<span class="a-item">(3) イ（源義経）</span>　<span class="a-item">(4) イ（宋銭と陶磁器）</span>　<span class="a-item">(5) ウ（日宋貿易の利益）</span>　<span class="a-item">(6) ウ（厳島神社）</span>　<span class="a-item">(7) ウ（保元の乱）</span>　<span class="a-item">(8) エ（院政開始→保元の乱→平治の乱→壇ノ浦の戦い）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 藤原氏による摂関政治に代わって、上皇自らが政治を動かす院政を始め、実権をにぎり続けるため。</div><div class="a-written">(2) 平氏が朝廷の重要な役職や全国の荘園などの領地を一族で独占し、他の貴族や武士の不満を招いたから。</div></div></div><div class="a-topic"><div class="a-title">3　鎌倉幕府の成立</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 征夷大将軍</span>　<span class="a-item">② 守護</span>　<span class="a-item">③ 地頭</span>　<span class="a-item">④ 御家人</span>　<span class="a-item">⑤ 御恩</span>　<span class="a-item">⑥ 奉公</span>　<span class="a-item">⑦ 執権</span>　<span class="a-item">⑧ 承久の乱</span>　<span class="a-item">⑨ 六波羅探題</span>　<span class="a-item">⑩ 御成敗式目</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 鎌倉幕府</span>　<span class="a-item">(2) 源頼朝</span>　<span class="a-item">(3) 壇ノ浦の戦い</span>　<span class="a-item">(4) 守護</span>　<span class="a-item">(5) 地頭</span>　<span class="a-item">(6) 御家人</span>　<span class="a-item">(7) 御恩</span>　<span class="a-item">(8) 奉公</span>　<span class="a-item">(9) 御恩と奉公</span>　<span class="a-item">(10) 征夷大将軍</span>　<span class="a-item">(11) 侍所</span>　<span class="a-item">(12) 政所</span>　<span class="a-item">(13) 問注所</span>　<span class="a-item">(14) 執権</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) ウ（問注所）</span>　<span class="a-item">(2) ア（武士の慣習に基づいた裁判の基準）</span>　<span class="a-item">(3) エ（戦時の参戦と京都・鎌倉の警護）</span>　<span class="a-item">(4) エ（隠岐）</span>　<span class="a-item">(5) ア（封建制度）</span>　<span class="a-item">(6) ア（守護は国ごとで軍事・警察、地頭は荘園ごとで年貢徴収）</span>　<span class="a-item">(7) エ（幕府の優位が確立し支配が広がった）</span>　<span class="a-item">(8) イ（北条時政）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 将軍が御家人の領地を保護したり新しい土地を与えたりする御恩に対し、御家人は軍役や警護をつとめる奉公で応じる関係。</div><div class="a-written">(2) 承久の乱に勝利した幕府が、京都の朝廷の動きを監視し、幕府の支配を西日本にも広げるために置いた。</div><div class="a-written">(3) 国ごとに軍事や警察を担当する守護を置き、荘園や公領ごとに年貢の取り立てや土地の管理を行う地頭を置いた。</div></div><div class="a-group"><span class="a-label">E 資料問題</span><span class="a-item">(1) 御恩</span>　<span class="a-item">(2) 奉公</span>　<span class="a-item">(3) 執権</span>　<span class="a-item">(4) 守護</span>　<span class="a-item">(5) 地頭</span></div></div><div class="a-topic"><div class="a-title">4　鎌倉時代の社会</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 二毛作</span>　<span class="a-item">② 鉄製農具</span>　<span class="a-item">③ 定期市</span>　<span class="a-item">④ 宋銭</span>　<span class="a-item">⑤ 下地中分</span>　<span class="a-item">⑥ 武士道</span>　<span class="a-item">⑦ 弓馬の道</span>　<span class="a-item">⑧ いざ鎌倉</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 二毛作</span>　<span class="a-item">(2) 定期市</span>　<span class="a-item">(3) 三斎市</span>　<span class="a-item">(4) 宋銭</span>　<span class="a-item">(5) 年貢</span>　<span class="a-item">(6) 鉄製農具</span>　<span class="a-item">(7) 牛馬耕</span>　<span class="a-item">(8) 草木灰</span>　<span class="a-item">(9) 馬借</span>　<span class="a-item">(10) 武士道</span>　<span class="a-item">(11) 弓馬の道</span>　<span class="a-item">(12) 下地中分</span>　<span class="a-item">(13) 貨幣経済</span>　<span class="a-item">(14) 問注所</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) ウ（宋銭の流通や定期市の発達）</span>　<span class="a-item">(2) ア（米と麦）</span>　<span class="a-item">(3) イ（西日本）</span>　<span class="a-item">(4) エ（草木灰）</span>　<span class="a-item">(5) ウ（武力を持ち年貢徴収を行ったため）</span>　<span class="a-item">(6) エ（二毛作・定期市・御恩と奉公）</span>　<span class="a-item">(7) イ（月に3回）</span>　<span class="a-item">(8) イ（武芸を重んじ戦いに備えたため）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 米と麦を交互に作る二毛作が広まり、鉄製農具や牛馬耕、草木灰などの肥料の利用も進んで収穫量が高まったから。</div><div class="a-written">(2) 地頭が荘園で力を強めて荘園領主との争いが増えたため、土地を半分ずつ分け合う下地中分で解決することもあった。</div></div></div><div class="a-topic"><div class="a-title">5　鎌倉文化と新しい仏教</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 金剛力士像</span>　<span class="a-item">② 平家物語</span>　<span class="a-item">③ 方丈記</span>　<span class="a-item">④ 徒然草</span>　<span class="a-item">⑤ 新古今和歌集</span>　<span class="a-item">⑥ 法然</span>　<span class="a-item">⑦ 親鸞</span>　<span class="a-item">⑧ 日蓮宗</span>　<span class="a-item">⑨ 臨済宗</span>　<span class="a-item">⑩ 曹洞宗</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 東大寺南大門</span>　<span class="a-item">(2) 金剛力士像</span>　<span class="a-item">(3) 快慶</span>　<span class="a-item">(4) 平家物語</span>　<span class="a-item">(5) 琵琶法師</span>　<span class="a-item">(6) 方丈記</span>　<span class="a-item">(7) 鴨長明</span>　<span class="a-item">(8) 徒然草</span>　<span class="a-item">(9) 兼好法師</span>　<span class="a-item">(10) 新古今和歌集</span>　<span class="a-item">(11) 法然</span>　<span class="a-item">(12) 親鸞</span>　<span class="a-item">(13) 一遍</span>　<span class="a-item">(14) 日蓮</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) ウ（親鸞—浄土真宗）</span>　<span class="a-item">(2) ア（「南無妙法蓮華経」の題目を唱える）</span>　<span class="a-item">(3) ウ（写実的で力強い表現）</span>　<span class="a-item">(4) イ（禅宗）</span>　<span class="a-item">(5) エ（念仏系・題目系・座禅系）</span>　<span class="a-item">(6) イ（浄土宗・浄土真宗・時宗）</span>　<span class="a-item">(7) イ（臨済宗は問答を重視し、曹洞宗はひたすら座禅を行う）</span>　<span class="a-item">(8) エ（祇園精舎の鐘の声）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 法然は念仏を唱えれば誰でも救われると説いて浄土宗を開き、弟子の親鸞は悪人正機を説いて浄土真宗を開いた。</div><div class="a-written">(2) 琵琶法師が琵琶の伴奏に合わせて平家物語を各地で語り歩き、文字が読めない人々にも物語を伝えたから。</div><div class="a-written">(3) 金剛力士像は、写実的で力強く表現されており、武士の気風を反映した鎌倉文化の特色がよく表れている。</div></div></div>
+</section>
+</main>
+<div class="navbar" id="navbar" hidden><div class="navbar-in">
+  <button class="nb nb-prev" id="btnPrev">← まえへ</button>
+  <button class="nb nb-next" id="btnNext">つぎへ →</button>
+</div></div>
+<script>
+(function () {
+  var KEY = 'tzmwb-05';
+  var views = [].slice.call(document.querySelectorAll('.view'));
+  var tabs = [].slice.call(document.querySelectorAll('.tab'));
+  var N = views.length - 1;
+  var state = { t: 0, s: 0 };
+  var lastDir = 1;
+  var rendered = null; // 直前に表示していた {t, s}（ページめくり演出用）
+
+  function store() {
+    try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; }
+  }
+  function save(obj) { try { localStorage.setItem(KEY, JSON.stringify(obj)); } catch (e) {} }
+  function stepsOf(t) { return views[t].querySelectorAll('.step'); }
+
+  function renderScore(view) {
+    var st = store(), r = st.r || {};
+    var box = view.querySelector('[data-score]');
+    if (!box) return;
+    function count(sel) {
+      var ids = [].map.call(view.querySelectorAll(sel), function (el) { return el.dataset.qid; });
+      var done = ids.filter(function (id) { return r[id] === 1; }).length;
+      var tried = ids.filter(function (id) { return id in r; }).length;
+      return { total: ids.length, done: done, tried: tried };
+    }
+    var qa = count('.qa-step'), qz = count('.qz-step'), wr = count('.wr-step');
+    var rows = [];
+    if (qa.total) rows.push('<div class="score-row"><span>B 一問一答</span><b>⭕ ' + qa.done + ' / ' + qa.total + '</b></div>');
+    if (qz.total) rows.push('<div class="score-row"><span>C 実戦4択</span><b>正解 ' + qz.done + ' / ' + qz.total + '</b></div>');
+    if (wr.total) rows.push('<div class="score-row"><span>D 記述</span><b>⭕ ' + wr.done + ' / ' + wr.total + '</b></div>');
+    box.innerHTML = rows.join('') || 'このページの問題はタップ形式だよ。';
+  }
+
+  function render() {
+    var t = state.t, s = state.s;
+    views.forEach(function (v, i) { v.classList.toggle('on', i === t); });
+    tabs.forEach(function (b) {
+      var bt = +b.dataset.go;
+      b.classList.toggle('on', bt === t);
+      b.classList.toggle('done', bt > 0 && store()['d' + bt] === 1);
+    });
+    var tabEl = tabs[t];
+    if (tabEl && tabEl.scrollIntoView) tabEl.scrollIntoView({ block: 'nearest', inline: 'center' });
+    var navbar = document.getElementById('navbar');
+    var barStep = document.getElementById('barStep');
+    var pfill = document.getElementById('pfill');
+    if (t === 0) {
+      navbar.hidden = true; barStep.textContent = ''; pfill.style.width = '0';
+      renderHome();
+    } else {
+      var steps = stepsOf(t);
+      // 同じ単元内のページ送りだけ「めくり」演出（古いページと新しいページを重ねる）
+      var animFrom = rendered && rendered.t === t && rendered.s !== s ? rendered.s : null;
+      [].forEach.call(steps, function (el, i) {
+        el.classList.remove('turn-out', 'turn-in', 'turn-under');
+        el.classList.toggle('on', i === s);
+      });
+      if (animFrom !== null && steps[animFrom] && steps[s]) {
+        var oldEl = steps[animFrom], newEl = steps[s];
+        var clear = function () {
+          oldEl.classList.remove('turn-out', 'turn-under');
+          newEl.classList.remove('turn-in');
+        };
+        if (lastDir > 0) {
+          oldEl.classList.add('turn-out');      // 今のページがめくれて去る
+          oldEl.addEventListener('animationend', clear, { once: true });
+        } else {
+          oldEl.classList.add('turn-under');    // 下に敷いたまま
+          newEl.classList.add('turn-in');       // 前のページがめくり戻ってくる
+          newEl.addEventListener('animationend', clear, { once: true });
+        }
+        setTimeout(clear, 700); // アニメ未発火時の保険
+      }
+      navbar.hidden = false;
+      barStep.textContent = (s + 1) + ' / ' + steps.length;
+      pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
+      document.getElementById('btnPrev').textContent = s === 0 ? '🏠 目次' : '← まえへ';
+      var next = document.getElementById('btnNext');
+      if (s < steps.length - 1) next.textContent = 'つぎへ →';
+      else next.textContent = t < N ? '次の単元へ →' : '🏠 目次にもどる';
+      if (steps[s] && steps[s].classList.contains('done-step')) renderScore(views[t]);
+      var st = store();
+      st.last = { t: t, s: s };
+      if (s === steps.length - 1) st['d' + t] = 1;
+      save(st);
+    }
+    window.scrollTo(0, 0);
+    var h = '#t' + t + (t > 0 && s > 0 ? 's' + s : '');
+    if (location.hash !== h) history.replaceState(null, '', t === 0 ? '#' : h);
+    rendered = { t: t, s: s };
+  }
+
+  function renderHome() {
+    var st = store();
+    [].forEach.call(document.querySelectorAll('.toc-state'), function (el) {
+      var t = +el.dataset.stateT;
+      el.className = 'toc-state';
+      if (st['d' + t] === 1) { el.classList.add('done'); el.textContent = '✓ といた'; }
+      else if (st.last && st.last.t === t && st.last.s > 0) {
+        el.classList.add('doing'); el.textContent = 'つづき';
+      } else { el.textContent = ''; }
+    });
+    var btn = document.getElementById('resumeBtn');
+    if (st.last && st.last.t > 0) {
+      btn.hidden = false;
+      var name = views[st.last.t].querySelector('.tband h2').textContent;
+      document.getElementById('resumeWhere').textContent =
+        name + '（' + (st.last.s + 1) + '問目）';
+      btn.onclick = function () { go(st.last.t, st.last.s, 1); };
+    } else { btn.hidden = true; }
+  }
+
+  function go(t, s, dir) {
+    lastDir = dir || 1;
+    state.t = Math.max(0, Math.min(N, t));
+    state.s = Math.max(0, s || 0);
+    if (state.t > 0) state.s = Math.min(state.s, stepsOf(state.t).length - 1);
+    else state.s = 0;
+    render();
+  }
+  function next() {
+    var t = state.t, s = state.s;
+    if (t === 0) return;
+    if (s < stepsOf(t).length - 1) go(t, s + 1, 1);
+    else if (t < N) go(t + 1, 0, 1);
+    else go(0, 0, 1);
+  }
+  function prev() {
+    var t = state.t, s = state.s;
+    if (t === 0) return;
+    if (s > 0) go(t, s - 1, -1);
+    else go(0, 0, -1);
+  }
+
+  document.getElementById('btnNext').addEventListener('click', next);
+  document.getElementById('btnPrev').addEventListener('click', prev);
+
+  document.addEventListener('click', function (e) {
+    var go_ = e.target.closest('[data-go]');
+    if (go_) { go(+go_.dataset.go, 0, 1); return; }
+
+    var blank = e.target.closest('.blank');
+    if (blank) { blank.classList.toggle('open'); return; }
+
+    var rall = e.target.closest('.reveal-all');
+    if (rall) {
+      var step = rall.closest('.step');
+      var opened = step.querySelectorAll('.blank.open').length;
+      var all = step.querySelectorAll('.blank');
+      var open = opened < all.length;
+      [].forEach.call(all, function (b) { b.classList.toggle('open', open); });
+      rall.textContent = open ? 'すべての答えを隠す' : 'すべての答えを表示';
+      return;
+    }
+
+    var rev = e.target.closest('.reveal');
+    if (rev) { rev.closest('.step').classList.add('show'); return; }
+
+    var mk = e.target.closest('.mk');
+    if (mk) {
+      var stp = mk.closest('.step');
+      var st = store(); st.r = st.r || {};
+      st.r[stp.dataset.qid] = +mk.dataset.v;
+      save(st);
+      setTimeout(next, 220);
+      return;
+    }
+
+    var opt = e.target.closest('.qopt');
+    if (opt) {
+      var qstep = opt.closest('.qz-step');
+      if (qstep.classList.contains('answered')) return;
+      qstep.classList.add('answered');
+      var c = +qstep.dataset.c, chosen = +opt.dataset.i;
+      [].forEach.call(qstep.querySelectorAll('.qopt'), function (b, i) {
+        if (i === c) b.classList.add('correct');
+        else if (i === chosen) b.classList.add('wrong');
+        else b.classList.add('dim');
+      });
+      var ex = qstep.querySelector('.expl');
+      if (ex) ex.style.display = 'block';
+      var st2 = store(); st2.r = st2.r || {};
+      st2.r[qstep.dataset.qid] = chosen === c ? 1 : 0;
+      save(st2);
+      return;
+    }
+
+    var mopt = e.target.closest('.mopt');
+    if (mopt) {
+      var item = mopt.closest('.m-item');
+      if (item.dataset.done) return;
+      var ok = mopt.dataset.l === item.dataset.a;
+      mopt.classList.add(ok ? 'correct' : 'wrong');
+      if (!ok) {
+        [].forEach.call(item.querySelectorAll('.mopt'), function (b) {
+          if (b.dataset.l === item.dataset.a) b.classList.add('correct');
+        });
+      }
+      item.dataset.done = '1';
+      return;
+    }
+
+    var retry = e.target.closest('[data-retry]');
+    if (retry) {
+      var view = retry.closest('.view');
+      var st3 = store(); st3.r = st3.r || {};
+      [].forEach.call(view.querySelectorAll('[data-qid]'), function (el) {
+        delete st3.r[el.dataset.qid];
+      });
+      delete st3['d' + state.t];
+      save(st3);
+      [].forEach.call(view.querySelectorAll('.step'), function (el) {
+        el.classList.remove('show', 'answered');
+      });
+      [].forEach.call(view.querySelectorAll('.qopt'), function (b) {
+        b.classList.remove('correct', 'wrong', 'dim');
+      });
+      [].forEach.call(view.querySelectorAll('.m-item'), function (it) {
+        delete it.dataset.done;
+        [].forEach.call(it.querySelectorAll('.mopt'), function (b) {
+          b.classList.remove('correct', 'wrong');
+        });
+      });
+      [].forEach.call(view.querySelectorAll('.blank.open'), function (b) {
+        b.classList.remove('open');
+      });
+      go(state.t, 0, -1);
+      return;
+    }
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight') next();
+    if (e.key === 'ArrowLeft') prev();
+  });
+  var tx = 0, ty = 0;
+  document.addEventListener('touchstart', function (e) {
+    tx = e.changedTouches[0].clientX; ty = e.changedTouches[0].clientY;
+  }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    var dx = e.changedTouches[0].clientX - tx;
+    var dy = e.changedTouches[0].clientY - ty;
+    if (Math.abs(dx) > 64 && Math.abs(dy) < 48 && state.t > 0) {
+      if (dx < 0) next(); else prev();
+    }
+  }, { passive: true });
+
+  function fromHash() {
+    var m = /#t(\d+)(?:s(\d+))?/.exec(location.hash);
+    if (m) go(+m[1], +(m[2] || 0), 1); else go(0, 0, 1);
+  }
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
+})();
+</script>
+</body></html>

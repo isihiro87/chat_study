@@ -20,7 +20,8 @@
     "test:ui": "vitest --ui",
     "content-coverage": "tsx scripts/content-coverage.ts",
     "sync:content": "tsx scripts/sync-content.ts",
-    "sync:content:dry": "tsx scripts/sync-content.ts --dry-run"
+    "sync:content:dry": "tsx scripts/sync-content.ts --dry-run",
+    "ai-qa": "vitest run functions/src/__tests__/aiChatPrompt.test.ts && tsx scripts/eval-ai-chat.ts"
   },
   "keywords": [
     "spec-driven-development",

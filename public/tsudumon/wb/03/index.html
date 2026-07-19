@@ -1,0 +1,1497 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>歴史 ③ 日本の始まり｜つづもん問題集</title>
+<style>
+  :root { --brand:#b45309; --deep:#7c2d12; --amber:#f59e0b; --cream:#fffdf8; --line:#fde68a;
+          --ok:#16a34a; --ng:#dc2626; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { -webkit-text-size-adjust:100%; }
+  body { font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;
+         font-size:16px; line-height:1.95; color:#1c1917; background:var(--cream);
+         padding-bottom:86px; }
+  .wrap { max-width:640px; margin:0 auto; padding:0 16px 24px; }
+  ruby rt { font-size:0.5em; }
+  .print-only { display:none; }
+
+  /* ── 上部バー ── */
+  .bar { position:sticky; top:0; z-index:10; background:rgba(255,253,248,.96);
+         backdrop-filter:blur(6px); border-bottom:1px solid #f0e6d2; }
+  .bar-in { max-width:640px; margin:0 auto; padding:8px 16px 0; }
+  .bar-row { display:flex; align-items:center; gap:8px; }
+  .bar-title { font-weight:bold; color:var(--deep); font-size:14px; flex:1;
+               white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .bar-step { flex:none; font-size:12px; font-weight:bold; color:var(--brand); }
+  .tabs { display:flex; gap:6px; overflow-x:auto; padding:8px 0; scrollbar-width:none; }
+  .tabs::-webkit-scrollbar { display:none; }
+  .tab { flex:none; width:36px; height:36px; border-radius:50%; border:1.5px solid var(--line);
+         background:#fffbeb; color:var(--brand); font-size:14px; font-weight:bold;
+         display:inline-flex; align-items:center; justify-content:center; cursor:pointer; }
+  .tab.done { background:#fef3c7; }
+  .tab.on { background:var(--brand); border-color:var(--brand); color:#fff;
+            box-shadow:0 2px 6px rgba(180,83,9,.35); }
+  .pbar { height:3px; background:#f5ecd8; border-radius:2px; overflow:hidden; }
+  .pfill { height:100%; width:0; background:linear-gradient(90deg,var(--amber),#fbbf24);
+           transition:width .25s ease; }
+
+  .view { display:none; }
+  .view.on { display:block; position:relative; animation:vfade .18s ease; }
+  @keyframes vfade { from { opacity:.6; } to { opacity:1; } }
+  .step { display:none; }
+  .step.on { display:block; }
+  /* 本物っぽいページめくり（2枚重ね・参考書Web版と共通）:
+     進む = 今のページ自体が左とじに沿って手前にめくれて去り、下から次のページが現れる。
+     戻る = 前のページが手前からめくり戻されて上に着地する。 */
+  /* min-height:100% = 下に敷かれた新ページ全体を覆う（絶対配置なので view の実高さに解決される。
+     これが無いと、めくれるページより新ページが長いとき下端が透けて見える） */
+  .step.turn-out { display:block; position:absolute; top:0; left:0; width:100%; min-height:100%;
+                   z-index:3; pointer-events:none; background:var(--cream);
+                   transform-origin:left center;
+                   animation:turnOut .45s cubic-bezier(.55,.06,.68,.19) forwards; }
+  @keyframes turnOut {
+    0%   { transform:perspective(1200px) rotateY(0); opacity:1; }
+    75%  { opacity:1; }
+    100% { transform:perspective(1200px) rotateY(-88deg); opacity:0; } }
+  .step.turn-out::after { content:""; position:absolute; inset:0; pointer-events:none;
+                          background:linear-gradient(to right, transparent 55%, rgba(124,45,18,.12)); }
+  .step.on.turn-in { position:relative; z-index:3; background:var(--cream);
+                     transform-origin:left center;
+                     animation:turnIn .45s cubic-bezier(.22,.72,.32,1); }
+  @keyframes turnIn {
+    from { transform:perspective(1200px) rotateY(-88deg); }
+    to   { transform:perspective(1200px) rotateY(0); } }
+  .step.turn-under { display:block; position:absolute; top:0; left:0; width:100%; z-index:1;
+                     pointer-events:none; max-height:100%; overflow:hidden; }
+
+  /* ── ホーム ── */
+  .top { text-align:center; padding:26px 0 6px; }
+  .badge { display:inline-block; background:var(--brand); color:#fff; font-weight:bold;
+           padding:4px 16px; border-radius:20px; font-size:13px; }
+  .webtag { background:rgba(255,255,255,.25); border-radius:10px; padding:1px 8px; font-size:11px; margin-left:4px; }
+  .top h1 { font-size:29px; color:var(--deep); margin-top:12px; line-height:1.4; }
+  .sub { color:#92400e; font-size:14px; margin-top:2px; }
+  .howto { font-size:13.5px; color:#57534e; }
+  .home-howto { margin-top:14px; background:#fffbeb; border:1.5px dashed var(--line);
+                border-radius:12px; padding:10px 14px; text-align:left; }
+  .resume { display:block; width:100%; margin:16px 0 0; background:var(--brand); color:#fff;
+            border:none; border-radius:14px; padding:13px; font-size:15px; font-weight:bold;
+            cursor:pointer; box-shadow:0 3px 8px rgba(180,83,9,.3); font-family:inherit; }
+  .resume span { font-weight:normal; font-size:12px; opacity:.9; margin-left:8px; }
+  .toc { margin:16px 0 12px; background:#fff; border:2px solid var(--line); border-radius:14px; padding:14px; }
+  .toc-h { font-weight:bold; color:var(--deep); margin-bottom:6px; font-size:15px; }
+  .toc-item { display:flex; align-items:center; gap:10px; width:100%; padding:11px 6px;
+              background:none; border:none; border-top:1px solid #faf1dc; cursor:pointer;
+              color:#44403c; font-weight:bold; font-size:15px; text-align:left;
+              font-family:inherit; line-height:1.5; }
+  .toc-item:first-of-type { border-top:none; }
+  .toc-no { flex:none; min-width:24px; height:24px; border-radius:50%; background:var(--amber);
+            color:#fff; display:inline-flex; align-items:center; justify-content:center;
+            font-size:12px; padding:0 4px; }
+  .toc-name { flex:1; }
+  .toc-state { flex:none; font-size:11px; font-weight:bold; }
+  .toc-state.done { color:var(--ok); }
+  .toc-state.doing { color:var(--brand); background:#fffbeb; border:1px solid var(--line);
+                     border-radius:10px; padding:1px 8px; }
+
+  /* ── マスコット ── */
+  .wchar { flex:none; object-fit:contain; }
+  .home-cheer { display:flex; align-items:center; justify-content:center; gap:8px; margin-top:12px; }
+  .home-cheer .wchar { height:58px; }
+  .sp-bubble { position:relative; display:inline-block; background:#fffbeb; border:1.5px solid #f0b558;
+               border-radius:12px; padding:5px 12px; font-size:13px; font-weight:bold; color:#92400e; }
+  .sp-bubble.sp-taill::before { content:""; position:absolute; left:-7px; top:50%; transform:translateY(-50%);
+               border:5px solid transparent; border-right-color:#f0b558; }
+  .tchar { height:38px; margin-left:auto; }
+  .done-char { height:52px; vertical-align:middle; margin-right:6px; }
+
+  /* ── 単元 ── */
+  .tband { display:flex; align-items:center; gap:10px; margin:18px 0 14px; }
+  .tno, .ttag { flex:none; min-width:34px; height:34px; border-radius:50%; background:var(--brand); color:#fff;
+         display:inline-flex; align-items:center; justify-content:center; font-size:16px;
+         font-weight:bold; box-shadow:0 2px 4px rgba(180,83,9,.3); padding:0 6px; }
+  .tband h2 { font-size:20px; color:var(--deep); border-bottom:3px solid var(--line);
+              padding-bottom:2px; flex:1; line-height:1.4; }
+  .sec-h { display:flex; align-items:center; gap:8px; font-size:16px; font-weight:bold;
+           color:var(--deep); margin-bottom:10px; }
+  .sec-tag { flex:none; background:var(--brand); color:#fff; border-radius:8px; width:26px; height:26px;
+             display:inline-flex; align-items:center; justify-content:center; font-size:14px; }
+  .sec-note { font-size:12px; font-weight:normal; color:#a8a29e; }
+  .ref-link { display:inline-block; font-size:13px; font-weight:bold; color:var(--brand);
+              text-decoration:none; border:1.5px solid var(--line); background:#fffbeb;
+              border-radius:16px; padding:5px 14px; margin-bottom:10px; }
+
+  /* 穴埋めチップ */
+  .summary { background:#fff; border:1.5px solid #e2d5bd; border-radius:12px; padding:12px 14px;
+             text-align:justify; }
+  .blank { display:inline; border:none; background:none; font:inherit; cursor:pointer; padding:0; }
+  .blank .bno { color:var(--brand); font-weight:bold; }
+  .blank .ba { display:none; font-weight:bold; color:var(--brand);
+               background:linear-gradient(transparent 55%, var(--line) 55%); padding:0 2px; }
+  .blank .bl { display:inline-block; border-bottom:2px solid #a8a29e; height:1em;
+               vertical-align:-2px; max-width:9em; background:#fffbeb; }
+  .blank.open .ba { display:inline; }
+  .blank.open .bl { display:none; }
+  .tap-hint { display:none; }
+  .reveal-all-row { margin-top:10px; text-align:right; }
+  .reveal-all { border:1.5px solid var(--line); background:#fffbeb; color:var(--brand);
+                font-weight:bold; font-size:13px; border-radius:16px; padding:6px 14px;
+                cursor:pointer; font-family:inherit; }
+
+  /* 年表 */
+  .tl-table { width:100%; border-collapse:collapse; background:#fff; font-size:14px; }
+  .tl-table th, .tl-table td { border:1px solid #d6cbb2; padding:6px 10px; }
+  .tl-table th { background:#faf5eb; font-size:13px; }
+  .tl-year { width:74px; text-align:center; white-space:nowrap; }
+
+  /* 問題共通 */
+  .q-text { font-size:16.5px; font-weight:bold; line-height:1.9; }
+  .qa-no { font-weight:bold; margin-right:6px; color:var(--brand); }
+  .reveal { display:block; width:100%; margin-top:14px; border:none; border-radius:12px;
+            background:var(--amber); color:#fff; font-weight:bold; font-size:15px;
+            padding:12px; cursor:pointer; font-family:inherit; box-shadow:0 2px 6px rgba(245,158,11,.3); }
+  .hidden-until { display:none; }
+  .show .hidden-until { display:block; }
+  .show .reveal { display:none; }
+  .qa-a { margin-top:12px; background:#fff; border:2px solid var(--amber); border-radius:12px;
+          padding:10px 14px; font-size:18px; font-weight:bold; color:var(--deep); text-align:center; }
+  .qa-expl { font-size:13.5px; color:#57534e; background:#fffbeb; border-radius:10px;
+             padding:8px 12px; margin-top:8px; line-height:1.8; }
+  .marks { display:flex; gap:10px; margin-top:12px; }
+  .mk { flex:1; border:2px solid; border-radius:12px; background:#fff; font-weight:bold;
+        font-size:15px; padding:10px; cursor:pointer; font-family:inherit; }
+  .mk-ok { border-color:#bbe3cc; color:var(--ok); }
+  .mk-ng { border-color:#fecaca; color:var(--ng); }
+
+  /* 4択 */
+  .qopts { display:flex; flex-direction:column; gap:8px; margin-top:12px; }
+  .qopt { display:flex; align-items:center; gap:10px; text-align:left; background:#fff;
+          border:1.5px solid #e2d5bd; border-radius:12px; padding:10px 12px; font-size:14.5px;
+          cursor:pointer; font-family:inherit; line-height:1.7; }
+  .opt-k { flex:none; width:26px; height:26px; border-radius:50%; border:1.5px solid #a8a29e;
+           display:inline-flex; align-items:center; justify-content:center; font-size:13px; font-weight:bold; }
+  .qz-step.answered .qopt { cursor:default; }
+  .qopt.correct { border-color:var(--ok); background:#f0fdf4; }
+  .qopt.correct .opt-k { background:var(--ok); border-color:var(--ok); color:#fff; }
+  .qopt.wrong { border-color:var(--ng); background:#fef2f2; }
+  .qopt.wrong .opt-k { background:var(--ng); border-color:var(--ng); color:#fff; }
+  .qopt.dim { opacity:.55; }
+  .expl { margin-top:10px; font-size:13.5px; color:#57534e; background:#fffbeb;
+          border-radius:10px; padding:8px 12px; line-height:1.8; }
+  .qz-step.answered .expl { display:block; }
+
+  /* 記述 */
+  .kw-note { font-size:13px; color:#57534e; margin-top:6px; }
+  .kw-chip { display:inline-block; border:1px solid var(--brand); color:var(--brand);
+             border-radius:6px; padding:0 8px; margin-left:6px; font-size:12.5px; }
+  .w-input { width:100%; margin-top:12px; border:1.5px solid #e2d5bd; border-radius:12px;
+             padding:10px 12px; font:inherit; font-size:14.5px; background:#fff; resize:vertical; }
+  .line-mini { display:block; margin-top:10px; text-align:center; font-size:13px; font-weight:bold;
+               color:#06c755; text-decoration:none; border:1.5px solid #bbe3cc; border-radius:12px;
+               padding:8px; background:#f0fdf4; }
+
+  /* 資料 */
+  .s-img { margin-bottom:12px; }
+  .s-img img { width:100%; border-radius:12px; border:1px solid #e2d5bd; display:block; }
+  .s-img figcaption { font-size:12px; color:#a8a29e; text-align:center; margin-top:4px; }
+  .s-q { margin-bottom:14px; font-size:15px; line-height:1.8; }
+  .s-blank { display:block; margin:6px 0 0 26px; text-align:left; }
+  .s-blank .tap-hint { display:inline; font-size:11px; color:#b8b0a6; margin-left:8px; }
+  .s-blank.open .tap-hint { display:none; }
+  .m-res-row { display:flex; gap:8px; margin-bottom:14px; }
+  .m-res { flex:1; text-align:center; }
+  .m-res img { width:100%; border-radius:10px; border:1px solid #e2d5bd; }
+  .m-lab { display:block; font-weight:bold; color:var(--brand); font-size:14px; }
+  .m-item { background:#fff; border:1.5px solid #e2d5bd; border-radius:12px; padding:10px 12px;
+            margin-bottom:10px; }
+  .m-text { font-size:14.5px; line-height:1.8; }
+  .m-btns { display:flex; gap:8px; margin-top:8px; }
+  .mopt { flex:1; border:1.5px solid #e2d5bd; background:#fffbeb; border-radius:10px;
+          font-weight:bold; font-size:15px; padding:8px; cursor:pointer; font-family:inherit; }
+  .mopt.correct { border-color:var(--ok); background:#f0fdf4; color:var(--ok); }
+  .mopt.wrong { border-color:var(--ng); background:#fef2f2; color:var(--ng); }
+
+  /* 結果 */
+  .done { text-align:center; font-size:17px; font-weight:bold; color:var(--deep); margin:14px 0; }
+  .score-box { background:#fff; border:2px solid var(--line); border-radius:14px; padding:14px;
+               margin-bottom:12px; font-size:14.5px; }
+  .score-row { display:flex; justify-content:space-between; padding:4px 2px; }
+  .score-row b { color:var(--brand); }
+  .big-btn { display:block; width:100%; text-align:center; margin-top:10px; border:none;
+             border-radius:14px; padding:13px 16px; font-size:15px; font-weight:bold;
+             cursor:pointer; font-family:inherit; text-decoration:none; }
+  .line-btn { background:#06c755; color:#fff; box-shadow:0 3px 8px rgba(6,199,85,.3); }
+  .btn-sub { display:block; font-weight:normal; font-size:12px; opacity:.9; }
+  .ref-btn { background:#fffbeb; color:var(--brand); border:1.5px solid var(--line); }
+  .retry-btn { background:#fff; color:#57534e; border:1.5px solid #e2d5bd; }
+  .print-btn { background:#fff; color:#57534e; border:1.5px solid #e2d5bd; }
+
+  .foot { text-align:center; margin-top:32px; color:#a8a29e; font-size:13px; }
+  .foot-note { margin-top:4px; font-size:12px; }
+
+  /* ── 下部ナビ ── */
+  .navbar { position:fixed; left:0; right:0; bottom:0; z-index:10;
+            background:rgba(255,253,248,.97); border-top:1px solid #f0e6d2;
+            padding:10px 16px calc(10px + env(safe-area-inset-bottom)); }
+  .navbar-in { max-width:640px; margin:0 auto; display:flex; align-items:center; gap:10px; }
+  .nb { border:none; border-radius:14px; padding:12px 0; font-size:15px; font-weight:bold;
+        cursor:pointer; font-family:inherit; }
+  .nb-prev { flex:1; background:#fff; color:var(--brand); border:1.5px solid var(--line); }
+  .nb-next { flex:2; background:var(--brand); color:#fff; box-shadow:0 3px 8px rgba(180,83,9,.3); }
+
+  /* ── 印刷（紙のワークとして使える） ── */
+  @media print {
+    body { background:#fff; padding-bottom:0; font-size:10.5pt; line-height:1.8; }
+    .bar, .navbar, .resume, .reveal, .marks, .reveal-all-row, .w-input, .line-mini,
+    .big-btn, .qa-expl, .expl, .tap-hint, .toc-state, .home-howto, .howto, .m-btns { display:none !important; }
+    .print-only { display:block !important; }
+    .view { display:block !important; }
+    .step { display:block !important; margin-bottom:14px; break-inside:avoid; }
+    .hidden-until { display:none !important; }
+    .blank .ba { display:none !important; }
+    .blank .bl { display:inline-block !important; background:none; }
+    .qopt { border:none; padding:1px 0; background:none; }
+    .qopt .opt-k { width:18px; height:18px; font-size:10px; }
+    .qopt.correct, .qopt.wrong { background:none; border:none; }
+    .qopt.correct .opt-k, .qopt.wrong .opt-k { background:none; color:#1c1917; border-color:#a8a29e; }
+    .qopts { gap:2px; margin-top:4px; }
+    .wline { border-bottom:1px solid #78716c; height:9mm; margin-top:2mm; }
+    .toc-item, .tab { cursor:default; }
+    .top { padding-top:0; }
+    .tband { margin-top:8mm; break-after:avoid; }
+    .m-item { break-inside:avoid; }
+    .m-item::after { content:"〔　　〕"; color:#44403c; }
+    .print-answers { page-break-before:always; font-size:9pt; line-height:1.9; }
+    .ans-band { background:#44403c; color:#fff; text-align:center; padding:2px 0; border-radius:4px;
+                margin-bottom:8px; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .a-topic { border-bottom:1px dashed #a8a29e; padding:4px 0; }
+    .a-title { font-weight:bold; background:#f5f5f4; padding:0 6px; border-left:8px solid var(--brand);
+               -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .a-label { font-weight:bold; color:var(--brand); margin-right:6px; }
+    .a-item { display:inline-block; margin-right:4px; }
+    .a-written { padding-left:6px; }
+    .credits { font-size:7.5pt; color:#78716c; border-top:1px solid #d6d3d1; margin-top:8px; }
+  }
+  .credits { font-size:11px; color:#a8a29e; margin-top:20px; }
+</style></head><body>
+<div class="bar"><div class="bar-in">
+  <div class="bar-row">
+    <div class="bar-title">歴史 ③ 日本の始まり（問題集）</div>
+    <div class="bar-step" id="barStep"></div>
+  </div>
+  <nav class="tabs" id="tabs"><button class="tab tab-home" data-go="0" aria-label="目次">🏠</button><button class="tab" data-go="1" aria-label="年表">年</button><button class="tab" data-go="2" aria-label="旧石器時代と縄文時代">1</button><button class="tab" data-go="3" aria-label="弥生時代">2</button><button class="tab" data-go="4" aria-label="古墳時代と大和政権">3</button></nav>
+  <div class="pbar"><div class="pfill" id="pfill"></div></div>
+</div></div>
+<main class="wrap" id="views">
+
+<section class="view home" data-t="0">
+  <header class="top">
+    <div class="badge">歴史 ③　問題集 <span class="webtag">Web版</span></div>
+    <h1>日本の始まり</h1>
+    <div class="sub">旧石器時代 〜 古墳時代</div>
+    <div class="home-cheer"><img class="wchar" src="img/characters_char_manabi_sm.png" alt=""><span class="sp-bubble sp-taill">いっしょに がんばろう！</span></div>
+    <div class="howto home-howto">タブか下のリストから選んで、1問ずつ解いていこう！<br>
+    要点まとめ → 一問一答 → 4択 → 記述の順で力がつくよ。</div>
+  </header>
+  <button class="resume" id="resumeBtn" hidden>▶ つづきから解く<span id="resumeWhere"></span></button>
+  <nav class="toc">
+    <div class="toc-h">✏️ この本の問題</div>
+    <button class="toc-item" data-go="1"><span class="toc-no">年</span><span class="toc-name">年表でチェック</span><span class="toc-state" data-state-t="1"></span></button><button class="toc-item" data-go="2"><span class="toc-no">1</span><span class="toc-name">旧石器時代と縄文時代</span><span class="toc-state" data-state-t="2"></span></button><button class="toc-item" data-go="3"><span class="toc-no">2</span><span class="toc-name">弥生時代</span><span class="toc-state" data-state-t="3"></span></button><button class="toc-item" data-go="4"><span class="toc-no">3</span><span class="toc-name">古墳時代と大和政権</span><span class="toc-state" data-state-t="4"></span></button>
+  </nav>
+  <a class="big-btn ref-btn" href="../../ref/03/index.html">📖 参考書Web版を開く</a>
+  <button class="big-btn print-btn" type="button" onclick="window.print()">🖨 紙に印刷して解く（解答つき）</button>
+  
+  <footer class="foot">
+    <div>つづもん 問題集 Web版</div>
+    <div class="foot-note">ダウンロード済みのA4版PDF（書き込みレイアウト）もあわせてどうぞ。</div>
+  </footer>
+</section>
+<section class="view" data-t="1">
+  <div class="tband"><span class="ttag">年</span><h2>年表でチェック</h2></div>
+  <div class="step" data-label="年表でチェック">
+    <div class="howto">（　）をタップすると答えが出るよ。まずは自分で言ってから確かめよう！</div>
+    <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    <table class="tl-table"><tr><th class="tl-year">年代</th><th>できごと</th></tr><tr><td class='tl-year'>氷期(氷河時代)</td><td>大陸と陸続きになった日本列島に、大型動物の<button class="blank" type="button"><span class="bno">①</span><span class="ba">ナウマンゾウ</span><span class="bl" style="width:5.4em"></span></button>などが渡ってきた</td></tr><tr><td class='tl-year'>旧石器時代</td><td>群馬県の<button class="blank" type="button"><span class="bno">②</span><span class="ba">岩宿遺跡</span><span class="bl" style="width:3.6em"></span></button>で打製石器が発見され、日本にも旧石器時代があったことが証明された</td></tr><tr><td class='tl-year'>約1万年前</td><td>気候が温暖になり海面が上昇して日本列島が大陸から切り離され、<button class="blank" type="button"><span class="bno">③</span><span class="ba">縄文時代</span><span class="bl" style="width:3.6em"></span></button>が始まった</td></tr><tr><td class='tl-year'>縄文時代</td><td>人々は地面を掘り下げた<button class="blank" type="button"><span class="bno">④</span><span class="ba">たて穴住居</span><span class="bl" style="width:4.5em"></span></button>に住み、祈りのために<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">土偶</span><span class="bl" style="width:2.7em"></span></button>を作った</td></tr><tr><td class='tl-year'>紀元前4世紀ごろ</td><td>大陸から九州北部に<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">稲作</span><span class="bl" style="width:2.7em"></span></button>が伝わり、弥生時代が始まった</td></tr><tr><td class='tl-year'>弥生時代</td><td>収穫した稲を湿気やねずみから守るために<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">高床倉庫</span><span class="bl" style="width:3.6em"></span></button>が造られた</td></tr><tr><td class='tl-year'>1世紀</td><td><button class="blank" type="button"><span class="bno">⑧</span><span class="ba">奴国</span><span class="bl" style="width:2.7em"></span></button>の王が後漢の皇帝から<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">金印</span><span class="bl" style="width:2.7em"></span></button>を授かった</td></tr><tr><td class='tl-year'>3世紀ごろ</td><td>邪馬台国の女王<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">卑弥呼</span><span class="bl" style="width:2.7em"></span></button>が魏に使いを送り、<button class="blank" type="button"><span class="bno">⑪</span><span class="ba">親魏倭王</span><span class="bl" style="width:3.6em"></span></button>の称号を得た</td></tr><tr><td class='tl-year'>3世紀後半</td><td>近畿地方を中心に<button class="blank" type="button"><span class="bno">⑫</span><span class="ba">大和政権</span><span class="bl" style="width:3.6em"></span></button>が成立した</td></tr><tr><td class='tl-year'>古墳時代</td><td>大王や豪族の力を示す<button class="blank" type="button"><span class="bno">⑬</span><span class="ba">前方後円墳</span><span class="bl" style="width:4.5em"></span></button>が各地に造られた</td></tr><tr><td class='tl-year'>5世紀</td><td>中国の南朝に使いを送った倭の五王の記録が中国の歴史書『<button class="blank" type="button"><span class="bno">⑭</span><span class="ba">宋書</span><span class="bl" style="width:2.7em"></span></button>』に残された</td></tr><tr><td class='tl-year'>5世紀後半</td><td><button class="blank" type="button"><span class="bno">⑮</span><span class="ba">ワカタケル大王</span><span class="bl" style="width:6.3em"></span></button>の名が刻まれた鉄剣・鉄刀が稲荷山古墳と江田船山古墳から出土した</td></tr><tr><td class='tl-year'>古墳時代</td><td>大陸から移り住んだ<button class="blank" type="button"><span class="bno">⑯</span><span class="ba">渡来人</span><span class="bl" style="width:2.7em"></span></button>が須恵器や漢字などの技術・文化を伝えた</td></tr><tr><td class='tl-year'>6世紀半ば</td><td>渡来人によって百済から日本へ<button class="blank" type="button"><span class="bno">⑰</span><span class="ba">仏教</span><span class="bl" style="width:2.7em"></span></button>が伝えられた</td></tr></table>
+  </div>
+</section>
+<section class="view" data-t="2">
+  <div class="tband"><span class="tno">1</span><h2>旧石器時代と縄文時代</h2><img class="wchar tchar" src="img/characters_char_pencil_sm.png" alt=""></div>
+  
+    <div class="step" data-label="A 要点まとめ">
+      <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
+      <a class="ref-link" href="../../ref/03/index.html#t1">📖 先に参考書で理解する</a>
+      <div class="summary">今から数万年前、日本列島がまだ大陸と陸続きだった<button class="blank" type="button"><span class="bno">①</span><span class="ba">氷期</span><span class="bl" style="width:2.7em"></span></button>（氷河時代）には、大陸から渡ってきた<button class="blank" type="button"><span class="bno">②</span><span class="ba">ナウマンゾウ</span><span class="bl" style="width:5.4em"></span></button>やオオツノジカが人々の狩りの対象となった。石を打ち欠いて作った<button class="blank" type="button"><span class="bno">③</span><span class="ba">打製石器</span><span class="bl" style="width:3.6em"></span></button>を使うこの時代を旧石器時代といい、群馬県の<button class="blank" type="button"><span class="bno">④</span><span class="ba">岩宿遺跡</span><span class="bl" style="width:3.6em"></span></button>で相沢忠洋が打製石器を発見したことで、日本にも旧石器時代があったことが証明された。約1万年前に気候が温暖になり海面が上昇して大陸から切り離されると<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">縄文時代</span><span class="bl" style="width:3.6em"></span></button>が始まり、人々は表面に縄目の文様がある<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">縄文土器</span><span class="bl" style="width:3.6em"></span></button>を使い、地面を掘り下げて柱を立てた<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">たて穴住居</span><span class="bl" style="width:4.5em"></span></button>に定住して<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">狩猟・採集</span><span class="bl" style="width:4.5em"></span></button>の生活を送った。食べ終えた貝殻や骨を捨てた<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">貝塚</span><span class="bl" style="width:2.7em"></span></button>や、祈りのために作られた<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">土偶</span><span class="bl" style="width:2.7em"></span></button>から、当時の暮らしの様子がわかる。</div>
+      <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-jomon-era-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">1 / 14</span></div>
+      <div class="q-text">打製石器を使い移動しながら生活した最も古い時代は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>旧<rt>きゅう</rt></ruby><ruby>石器<rt>せっき</rt></ruby>時代</div>
+        <div class="qa-expl">日本列島がまだ大陸とつながっていたころ、打製石器を使って狩りや採集をしていた時代。縄文時代より前で、土器はまだ本格的に使われない。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (2/14)" data-qid="qa-jomon-era-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">2 / 14</span></div>
+      <div class="q-text">日本が大陸と陸続きだった寒い時期を何という？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>氷期<rt>ひょうき</rt></ruby>（<ruby>氷河<rt>ひょうが</rt></ruby>時代）</div>
+        <div class="qa-expl">海面が低く、日本列島が大陸とつながっていた時期。ナウマンゾウなど大型動物が渡ってきた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (3/14)" data-qid="qa-jomon-era-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">3 / 14</span></div>
+      <div class="q-text">氷河時代に大陸から渡ってきた大型のゾウは？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">ナウマンゾウ</div>
+        <div class="qa-expl">氷河時代に大陸から渡ってきた大型のゾウ。長野県の野尻湖で化石が発見され、旧石器時代の狩猟対象だった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (4/14)" data-qid="qa-jomon-era-4" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">4 / 14</span></div>
+      <div class="q-text">氷河時代に大陸から渡ってきた大きな角を持つシカは？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">オオツノジカ</div>
+        <div class="qa-expl">氷河時代に大陸から渡ってきた、大きな角を持つシカ。ナウマンゾウと並ぶ旧石器時代の代表的な狩りの対象。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (5/14)" data-qid="qa-jomon-era-5" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">5 / 14</span></div>
+      <div class="q-text">石を打ち欠いて作った旧石器時代の石器は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>打製<rt>だせい</rt></ruby><ruby>石器<rt>せっき</rt></ruby></div>
+        <div class="qa-expl">石を打ち欠いて作った最も原始的な石器。旧石器時代の代表的な道具で、狩りや調理に使われた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (6/14)" data-qid="qa-jomon-era-6" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">6 / 14</span></div>
+      <div class="q-text">群馬県で打製石器が発見され、日本の旧石器時代を証明した遺跡は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>岩宿<rt>いわじゅく</rt></ruby><ruby>遺跡<rt>いせき</rt></ruby></div>
+        <div class="qa-expl">相沢忠洋が打製石器を発見し、日本にも旧石器時代があったことを証明した重要な遺跡。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (7/14)" data-qid="qa-jomon-era-7" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">7 / 14</span></div>
+      <div class="q-text">岩宿遺跡で打製石器を発見した人物は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>相沢忠洋<rt>あいざわただひろ</rt></ruby></div>
+        <div class="qa-expl">行商をしながら独学で考古学を学び、群馬県の岩宿遺跡で打製石器を発見し、日本の旧石器時代を証明した人物。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (8/14)" data-qid="qa-jomon-era-8" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">8 / 14</span></div>
+      <div class="q-text">石器の材料として重宝された黒いガラス質の石は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>黒曜石<rt>こくようせき</rt></ruby></div>
+        <div class="qa-expl">黒いガラス質の石で鋭い刃を作れた。長野県の和田峠などが産地で、遠方からも出土し広域交易の証拠となる。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (9/14)" data-qid="qa-jomon-era-9" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">9 / 14</span></div>
+      <div class="q-text">旧石器時代の石器の材料となった香川県の石は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">サヌカイト</div>
+        <div class="qa-expl">香川県で産出される黒っぽい安山岩で、石器の材料となった。旧石器時代から縄文時代まで広く道具作りに使われた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (10/14)" data-qid="qa-jomon-era-10" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">10 / 14</span></div>
+      <div class="q-text">約1万数千年前から日本で土器を使い始めた時代は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>縄文<rt>じょうもん</rt></ruby>時代</div>
+        <div class="qa-expl">縄文土器を使い、狩り・採集・漁を中心に生活した時代。稲作が広がる弥生時代と区別。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (11/14)" data-qid="qa-jomon-era-11" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">11 / 14</span></div>
+      <div class="q-text">表面に縄目のような文様がある土器は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>縄文<rt>じょうもん</rt></ruby><ruby>土器<rt>どき</rt></ruby></div>
+        <div class="qa-expl">縄を転がしてつけた縄目文様が特徴で、厚手で黒っぽいものが多く装飾が豊か。低温で焼かれもろい。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (12/14)" data-qid="qa-jomon-era-12" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">12 / 14</span></div>
+      <div class="q-text">縄文人が地面を掘り柱を立てて造った家は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>竪穴<rt>たてあな</rt></ruby><ruby>住居<rt>じゅうきょ</rt></ruby>（たて<ruby>穴<rt>あな</rt></ruby><ruby>住居<rt>じゅうきょ</rt></ruby>）</div>
+        <div class="qa-expl">地面を50cmほど掘り下げ、柱を立てて屋根をかけた住居。縄文時代から弥生時代まで広く使われた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (13/14)" data-qid="qa-jomon-era-13" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">13 / 14</span></div>
+      <div class="q-text">食べ終わった貝殻や魚の骨を捨てた場所は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>貝塚<rt>かいづか</rt></ruby></div>
+        <div class="qa-expl">縄文人が食べた貝殻や魚・動物の骨を捨てた場所。当時の食生活や自然環境を知る貴重な手がかりとなる。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (14/14)" data-qid="qa-jomon-era-14" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">14 / 14</span></div>
+      <div class="q-text">祈りや魔よけのために作られた土の人形は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>土偶<rt>どぐう</rt></ruby></div>
+        <div class="qa-expl">縄文時代に作られた人形のような土製品。女性をかたどったものが多く、安産や豊作の祈り・まじないに使われたとされる。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (1/8)" data-qid="qz-jomon-era-1" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">1 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">岩宿遺跡を発見した人物はだれか？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">浜田耕作</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">相沢忠洋</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">喜田貞吉</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">鳥居龍蔵</span></button></div>
+      <div class="expl hidden-until">💡 相沢忠洋は行商をしながら独学で考古学を学び、群馬県の岩宿遺跡で打製石器を発見し、日本にも旧石器時代があったことを証明しました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-jomon-era-2" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">2 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">旧石器時代の道具について正しい説明はどれか？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">鉄製の農具や武器が広く使われていた</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">縄目の文様がついた土器が広く使われていた</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">石を打ち欠いて作った打製石器が使われていた</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">銅鐸や銅剣などの青銅器が使われていた</span></button></div>
+      <div class="expl hidden-until">💡 旧石器時代の代表的な道具は石を打ち欠いて作った打製石器で、土器や金属器はまだ作られず、狩りや調理に石器が使われました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-jomon-era-3" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">3 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">香川県特産の石器の材料は何か？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">サヌカイト</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">ヒスイ</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">花崗岩</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">黒曜石</span></button></div>
+      <div class="expl hidden-until">💡 サヌカイトは香川県特産の黒っぽい安山岩で、旧石器時代から縄文時代にかけて広く石器の材料として使われました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-jomon-era-4" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">4 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">縄文時代に死者を埋葬する際の方法は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">火葬</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">水葬</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">屈葬</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">伸展葬</span></button></div>
+      <div class="expl hidden-until">💡 縄文時代には死者の手足を折り曲げて埋葬する屈葬が行われ、霊が戻ってこないようにとの意味があったとされる。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-jomon-era-5" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">5 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">ナウマンゾウの化石が発見された長野県の湖は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">浜名湖</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">諏訪湖</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">琵琶湖</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">野尻湖</span></button></div>
+      <div class="expl hidden-until">💡 長野県北部の野尻湖ではナウマンゾウやオオツノジカの化石が発見され、旧石器時代の人々の狩りの様子がわかります。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-jomon-era-6" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">6 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">縄文土器の特徴として最も適切なものはどれか？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">厚みがあり、縄目の文様で装飾が豊かである</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">ろくろを使って作られ、表面がなめらかである</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">薄手で硬く、シンプルな形をしている</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">高温で焼かれた灰色の硬い土器である</span></button></div>
+      <div class="expl hidden-until">💡 縄文土器は厚みがあり、縄を転がしてつけた縄目文様で装飾が豊かなのが特徴です。低温で焼かれもろく、黒っぽい色をしています。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-jomon-era-7" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">7 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">気候が温暖になると海面はどうなったか？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">海水の温度だけが変わり地形は変わらなかった</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">海面が上昇して日本列島が大陸から離れた</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">海面は変わらず島の形だけが変わった</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">海面が低下して大陸とさらにつながった</span></button></div>
+      <div class="expl hidden-until">💡 約1万年前に氷河時代が終わって気候が温暖になると海面が上昇し、日本列島は大陸から切り離されて現在の形になりました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-jomon-era-8" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">8 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">黒曜石が遠く離れた場所でも発見されることから何がわかるか？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">人々が広い範囲を移動していたこと</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">大きな地震が頻繁にあったこと</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">遠方との交易が行われていたこと</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">黒曜石がどこでも採れたこと</span></button></div>
+      <div class="expl hidden-until">💡 遠方の黒曜石が見つかることから、すでに広い範囲での物の交換（交易）が行われていたとわかります。</div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (1/2)" data-qid="wr-jomon-era-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">1 / 2　文章で説明しよう</span></div>
+      <div class="q-text">岩宿遺跡が発見されたことで、日本の歴史について何が明らかになったか説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">打製石器</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">群馬県の岩宿遺跡で相沢忠洋が打製石器を発見したことで、日本にも旧石器時代があったことが明らかになった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E6%97%A7%E7%9F%B3%E5%99%A8%E6%99%82%E4%BB%A3%E3%81%A8%E7%B8%84%E6%96%87%E6%99%82%E4%BB%A3" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (2/2)" data-qid="wr-jomon-era-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">2 / 2　文章で説明しよう</span></div>
+      <div class="q-text">縄文時代の人々が土偶を作った目的を簡単に書きなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">土偶</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">女性をかたどったものが多く、安産や豊作を願うための祈りやまじないの道具として土偶が作られた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E6%97%A7%E7%9F%B3%E5%99%A8%E6%99%82%E4%BB%A3%E3%81%A8%E7%B8%84%E6%96%87%E6%99%82%E4%BB%A3" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step done-step" data-label="結果">
+      <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「旧石器時代と縄文時代」おつかれさま！</span></div>
+      <div class="score-box" data-score></div>
+      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E6%97%A7%E7%9F%B3%E5%99%A8%E6%99%82%E4%BB%A3%E3%81%A8%E7%B8%84%E6%96%87%E6%99%82%E4%BB%A3" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
+      <a class="big-btn ref-btn" href="../../ref/03/index.html#t1">📖 参考書でおさらいする</a>
+      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元をもう一度とく</button>
+    </div>
+</section>
+<section class="view" data-t="3">
+  <div class="tband"><span class="tno">2</span><h2>弥生時代</h2><img class="wchar tchar" src="img/characters_manabi_think_sm.png" alt=""></div>
+  
+    <div class="step" data-label="A 要点まとめ">
+      <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
+      <a class="ref-link" href="../../ref/03/index.html#t2">📖 先に参考書で理解する</a>
+      <div class="summary">紀元前4世紀ごろ、大陸から九州北部に<button class="blank" type="button"><span class="bno">①</span><span class="ba">稲作</span><span class="bl" style="width:2.7em"></span></button>が伝わり、東北地方まで広がって弥生時代が始まった。人々は収穫した稲を湿気やねずみから守るため<button class="blank" type="button"><span class="bno">②</span><span class="ba">高床倉庫</span><span class="bl" style="width:3.6em"></span></button>を建て、稲の穂をつみ取るための石包丁を使った。大陸からは実用品として使われた鉄器と、祭りの宝物とされた<button class="blank" type="button"><span class="bno">③</span><span class="ba">青銅器</span><span class="bl" style="width:2.7em"></span></button>も伝わり、銅鐸や銅剣・銅鏡が作られた。1世紀には<button class="blank" type="button"><span class="bno">④</span><span class="ba">奴国</span><span class="bl" style="width:2.7em"></span></button>の王が後漢の皇帝から「漢委奴国王」と刻まれた<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">金印</span><span class="bl" style="width:2.7em"></span></button>を授かり、3世紀ごろには<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">邪馬台国</span><span class="bl" style="width:3.6em"></span></button>の女王<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">卑弥呼</span><span class="bl" style="width:2.7em"></span></button>が魏に使いを送って<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">親魏倭王</span><span class="bl" style="width:3.6em"></span></button>の称号を得た。この頃の様子は中国の歴史書『<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">魏志倭人伝</span><span class="bl" style="width:4.5em"></span></button>』に記されている。佐賀県の<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">吉野ヶ里遺跡</span><span class="bl" style="width:5.4em"></span></button>には堀をめぐらせた環濠集落が見られ、むらどうしの争いがあったことがわかる。</div>
+      <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-yayoi-era-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">1 / 14</span></div>
+      <div class="q-text">稲作が伝わり金属器が普及したのは何時代？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>弥生<rt>やよい</rt></ruby>時代</div>
+        <div class="qa-expl">稲作が広まり、金属器が使われ、むらが発達した時代。縄文時代との違いは稲作・金属器・身分差。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (2/14)" data-qid="qa-yayoi-era-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">2 / 14</span></div>
+      <div class="q-text">九州北部に伝わり東北まで広がった農業は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>稲作<rt>いなさく</rt></ruby></div>
+        <div class="qa-expl">紀元前4世紀ごろ大陸から九州北部に伝わり、東北まで広がった。余剰の蓄積と身分差を生み、社会を大きく変えた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (3/14)" data-qid="qa-yayoi-era-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">3 / 14</span></div>
+      <div class="q-text">収穫した稲を収め、湿気やねずみを防ぐために建てられた倉庫は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>高床<rt>たかゆか</rt></ruby><ruby>倉庫<rt>そうこ</rt></ruby></div>
+        <div class="qa-expl">床を高くして湿気やねずみから稲を守った。弥生時代の代表的な建造物で、稲作と関係が深い。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (4/14)" data-qid="qa-yayoi-era-4" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">4 / 14</span></div>
+      <div class="q-text">弥生時代に使われた薄手で硬くシンプルな形の土器は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>弥生<rt>やよい</rt></ruby><ruby>土器<rt>どき</rt></ruby></div>
+        <div class="qa-expl">縄文土器に比べ薄手で硬く、シンプルな形が特徴。赤褐色で、実用的な貯蔵・煮炊き目的に作られた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (5/14)" data-qid="qa-yayoi-era-5" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">5 / 14</span></div>
+      <div class="q-text">稲の穂をつみ取るために使われた半月形の石器は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>石包丁<rt>いしぼうちょう</rt></ruby></div>
+        <div class="qa-expl">半月形をした石器で、稲穂を一本ずつつみ取るために使われた。弥生時代の稲作を象徴する代表的な農具。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (6/14)" data-qid="qa-yayoi-era-6" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">6 / 14</span></div>
+      <div class="q-text">武器や工具、農具に用いられた実用的な金属器は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>鉄器<rt>てっき</rt></ruby></div>
+        <div class="qa-expl">弥生時代に大陸から伝わった硬くて丈夫な金属器。農具や武器などの実用品として使われ、生産力を大きく高めた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (7/14)" data-qid="qa-yayoi-era-7" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">7 / 14</span></div>
+      <div class="q-text">銅とすずを混ぜて作った金属器は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>青銅器<rt>せいどうき</rt></ruby></div>
+        <div class="qa-expl">銅とすずを混ぜ合わせた合金で作った金属器。銅鐸・銅剣・銅鏡などがあり、主に祭りや儀式に使われた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (8/14)" data-qid="qa-yayoi-era-8" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">8 / 14</span></div>
+      <div class="q-text">祭りの宝物として使われた、つりがね形の青銅器は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>銅鐸<rt>どうたく</rt></ruby></div>
+        <div class="qa-expl">弥生時代に祭りで使われたと考えられる、つりがね形の青銅器。近畿地方を中心に多く出土し、表面に絵が描かれることもある。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (9/14)" data-qid="qa-yayoi-era-9" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">9 / 14</span></div>
+      <div class="q-text">弥生時代に祭りや儀式に使われた青銅製の鏡は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>銅鏡<rt>どうきょう</rt></ruby></div>
+        <div class="qa-expl">弥生時代から古墳時代に作られた青銅製の鏡。祭りや儀式に用いられ、王や有力者の権威の象徴でもあった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (10/14)" data-qid="qa-yayoi-era-10" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">10 / 14</span></div>
+      <div class="q-text">弥生時代に祭りや儀式に使われた青銅製の武器は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>銅剣<rt>どうけん</rt></ruby></div>
+        <div class="qa-expl">弥生時代に作られた青銅製の剣。実戦用ではなく、祭りや儀式に用いられ、王や有力者の権威を示した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (11/14)" data-qid="qa-yayoi-era-11" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">11 / 14</span></div>
+      <div class="q-text">3世紀ごろ、30あまりの国をまとめた女王は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>卑弥呼<rt>ひみこ</rt></ruby></div>
+        <div class="qa-expl">邪馬台国の女王。魏に使いを送り、親魏倭王の称号を得た。まじないの力で人々を治めた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (12/14)" data-qid="qa-yayoi-era-12" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">12 / 14</span></div>
+      <div class="q-text">卑弥呼が都を置いていたとされる国は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>邪馬台国<rt>やまたいこく</rt></ruby></div>
+        <div class="qa-expl">3世紀ごろ、女王卑弥呼が治めたとされる国。『魏志』倭人伝に記されている。畿内説と九州説が議論。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (13/14)" data-qid="qa-yayoi-era-13" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">13 / 14</span></div>
+      <div class="q-text">卑弥呼が魏の皇帝から授かった称号は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>親魏倭王<rt>しんぎわおう</rt></ruby></div>
+        <div class="qa-expl">3世紀に魏の皇帝が卑弥呼に与えた称号。金印などとともに授けられ、邪馬台国と中国との外交関係を示す。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (14/14)" data-qid="qa-yayoi-era-14" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">14 / 14</span></div>
+      <div class="q-text">卑弥呼と邪馬台国のことが記されている中国の歴史書は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">『<ruby>魏志<rt>ぎし</rt></ruby>』<ruby>倭人伝<rt>わじんでん</rt></ruby></div>
+        <div class="qa-expl">中国の歴史書『三国志』の一部で、倭や邪馬台国について記している。卑弥呼・邪馬台国を知る重要資料。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (1/8)" data-qid="qz-yayoi-era-1" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">1 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">縄文時代と弥生時代の違いとして正しいものはどれですか。</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">縄文時代に身分の差が生まれ、弥生時代に平等な社会となった</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">縄文時代に狩り・採集が中心で、弥生時代に稲作が広まった</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">縄文時代に金属器が広まり、弥生時代に磨製石器が使われた</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">縄文時代に水田農業が始まり、弥生時代に貝塚がつくられた</span></button></div>
+      <div class="expl hidden-until">💡 縄文時代は狩り・採集が中心で、弥生時代に稲作が大陸から伝わり広まりました。金属器の使用や身分差も弥生の特徴で、貝塚は縄文時代のものです。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-yayoi-era-2" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">2 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">弥生時代に祭りや儀式に使われた青銅製の鏡は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">銅鐸</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">金印</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">銅剣</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">銅鏡</span></button></div>
+      <div class="expl hidden-until">💡 銅鏡は弥生時代から古墳時代に祭りや儀式に使われた青銅製の鏡で、王や有力者の権威の象徴ともされました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-yayoi-era-3" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">3 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">稲の穂をつみ取るために使われた半月形の石器は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">磨製石器</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">石斧</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">石包丁</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">打製石器</span></button></div>
+      <div class="expl hidden-until">💡 石包丁は弥生時代に稲の穂を一本ずつつみ取るために使われた半月形の石器で、当時の稲作を象徴する代表的な農具です。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-yayoi-era-4" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">4 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">卑弥呼が使いを送った中国の国はどこか？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">魏</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">宋</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">漢</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">唐</span></button></div>
+      <div class="expl hidden-until">💡 3世紀ごろ邪馬台国の女王卑弥呼は中国の魏に使いを送り、親魏倭王の称号と金印・銅鏡などを授かりました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-yayoi-era-5" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">5 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">弥生土器は縄文土器と比べてどのような特徴があるか？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">厚手で装飾が豊か</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">黒色で光沢がある</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">高温で焼かれた灰色の土器</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">薄手で硬くシンプル</span></button></div>
+      <div class="expl hidden-until">💡 弥生土器は縄文土器と比べ薄手で硬く、シンプルな赤褐色の形が特徴で、貯蔵や煮炊きに実用的に使われました。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-yayoi-era-6" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">6 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">金印が発見された場所はどこか？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">静岡県の登呂</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">福岡県の志賀島</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">佐賀県の吉野ヶ里</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">群馬県の岩宿</span></button></div>
+      <div class="expl hidden-until">💡 「漢委奴国王」と刻まれた金印は1784年に福岡県の志賀島で発見され、1世紀に奴国が後漢から授かったものとされています。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-yayoi-era-7" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">7 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">周囲に堀をめぐらせた弥生時代の集落から読み取れることはどれですか。</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">むらどうしの争いや防御の必要があった</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">集落内での祭りの広場として使われた</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">大陸との交易が盛んで関税の徴収が行われた</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">水田の用水を引くための堀として作られた</span></button></div>
+      <div class="expl hidden-until">💡 環濠集落は周囲に堀や柵をめぐらせ、敵の侵入を防ぐ構造になっており、むらどうしの争いや防御の必要があったことを示します。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-yayoi-era-8" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">8 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">邪馬台国の場所について議論されている2つの説は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">畿内説と九州説</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">大和説と出雲説</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">吉備説と東国説</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">越前説と筑紫説</span></button></div>
+      <div class="expl hidden-until">💡 邪馬台国の場所については、近畿地方を中心とする畿内説と、北部九州を中心とする九州説の2説が現在も議論されています。</div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-yayoi-era-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">1 / 3　文章で説明しよう</span></div>
+      <div class="q-text">縄文時代と弥生時代の生活の違いを説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">稲作</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">縄文時代は狩猟・採集を中心に生活していたが、弥生時代になると稲作が広まり、金属器も使われるようになった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%BC%A5%E7%94%9F%E6%99%82%E4%BB%A3" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (2/3)" data-qid="wr-yayoi-era-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">2 / 3　文章で説明しよう</span></div>
+      <div class="q-text">弥生時代のむらの周りに堀や柵がめぐらされていたことから、当時の様子について何がわかるか説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">環濠</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">環濠集落のように堀や柵で集落を囲んでいたことから、むらどうしの争いがあり、防御の必要があったことがわかる。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%BC%A5%E7%94%9F%E6%99%82%E4%BB%A3" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (3/3)" data-qid="wr-yayoi-era-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">3 / 3　文章で説明しよう</span></div>
+      <div class="q-text">3世紀ごろ、邪馬台国の女王卑弥呼が魏に使いを送った目的を説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">親魏倭王</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">魏の皇帝から親魏倭王の称号を授かり、倭の王としての地位を認めてもらおうとしたため。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%BC%A5%E7%94%9F%E6%99%82%E4%BB%A3" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step" data-label="E 資料問題">
+      <div class="sec-h"><span class="sec-tag">E</span>資料問題<span class="sec-note">写真を見て答えよう</span></div>
+      <figure class="s-img"><img src="img/jomon-yayoi-housing.webp" alt="" loading="lazy"><figcaption>縄文時代と弥生時代の住居・倉庫</figcaption></figure>
+      <div class="s-q"><span class="qa-no">(1)</span>図中の①の住居が使われた縄文時代に、人々が主な食料を得ていた方法を、「狩り」のほかに一つ答えなさい。<button class="blank s-blank" type="button"><span class="ba">採集（漁）</span><span class="bl" style="width:8em"></span><span class="tap-hint">タップで答え</span></button></div><div class="s-q"><span class="qa-no">(2)</span>図中の②の高床倉庫がつくられるようになった弥生時代に、大陸から伝わって広まった、米をつくる農業を何というか。<button class="blank s-blank" type="button"><span class="ba">稲作（米づくり）</span><span class="bl" style="width:8em"></span><span class="tap-hint">タップで答え</span></button></div>
+    </div>
+    <div class="step done-step" data-label="結果">
+      <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「弥生時代」おつかれさま！</span></div>
+      <div class="score-box" data-score></div>
+      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%BC%A5%E7%94%9F%E6%99%82%E4%BB%A3" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
+      <a class="big-btn ref-btn" href="../../ref/03/index.html#t2">📖 参考書でおさらいする</a>
+      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元をもう一度とく</button>
+    </div>
+</section>
+<section class="view" data-t="4">
+  <div class="tband"><span class="tno">3</span><h2>古墳時代と大和政権</h2><img class="wchar tchar" src="img/characters_char_neko_sm.png" alt=""></div>
+  
+    <div class="step" data-label="A 要点まとめ">
+      <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
+      <a class="ref-link" href="../../ref/03/index.html#t3">📖 先に参考書で理解する</a>
+      <div class="summary">3世紀後半から7世紀まで続いた古墳時代には、近畿地方を中心に<button class="blank" type="button"><span class="bno">①</span><span class="ba">大和政権</span><span class="bl" style="width:3.6em"></span></button>が成立し、その頂点に立つ<button class="blank" type="button"><span class="bno">②</span><span class="ba">大王</span><span class="bl" style="width:2.7em"></span></button>のもとに各地の豪族がまとめられた。大王や豪族の力を示す巨大な墓として<button class="blank" type="button"><span class="bno">③</span><span class="ba">前方後円墳</span><span class="bl" style="width:4.5em"></span></button>が各地に造られ、大阪府堺市の<button class="blank" type="button"><span class="bno">④</span><span class="ba">大仙古墳</span><span class="bl" style="width:3.6em"></span></button>はその代表である。古墳の上には人や動物をかたどった<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">埴輪</span><span class="bl" style="width:2.7em"></span></button>が並べられた。埼玉県の稲荷山古墳と熊本県の江田船山古墳からは<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">ワカタケル大王</span><span class="bl" style="width:6.3em"></span></button>の名が刻まれた鉄剣・鉄刀が出土し、大和政権の支配が広い範囲に及んでいたことがわかる。倭の五王が中国の南朝に使いを送ったことは中国の歴史書『<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">宋書</span><span class="bl" style="width:2.7em"></span></button>』に記されている。朝鮮半島や中国大陸からは<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">渡来人</span><span class="bl" style="width:2.7em"></span></button>が移り住み、硬い土器である須恵器や<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">漢字</span><span class="bl" style="width:2.7em"></span></button>、6世紀半ばには<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">仏教</span><span class="bl" style="width:2.7em"></span></button>なども伝えた。</div>
+      <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-kofun-era-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">1 / 14</span></div>
+      <div class="q-text">巨大な墓が各地で盛んに造られたのは何時代？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>古墳<rt>こふん</rt></ruby>時代</div>
+        <div class="qa-expl">3世紀後半から7世紀まで続いた時代。大きな墓である古墳が各地につくられ、大和政権の広がりと関係する。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (2/14)" data-qid="qa-kofun-era-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">2 / 14</span></div>
+      <div class="q-text">奈良盆地を中心に現れた強大な勢力は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>大和<rt>やまと</rt></ruby><ruby>政権<rt>せいけん</rt></ruby></div>
+        <div class="qa-expl">3世紀後半ごろから近畿地方を中心に成立した政治勢力。大王を中心に豪族をまとめた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (3/14)" data-qid="qa-kofun-era-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">3 / 14</span></div>
+      <div class="q-text">大和政権の頂点に立つ王を何と呼んだ？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>大王<rt>おおきみ</rt></ruby></div>
+        <div class="qa-expl">大和政権の中心となった王。各地の豪族をまとめる頂点に立ち、のちの天皇号につながる存在となった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (4/14)" data-qid="qa-kofun-era-4" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">4 / 14</span></div>
+      <div class="q-text">円形と方形を組み合わせた日本独自の大きな墓は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>前方後円墳<rt>ぜんぽうこうえんふん</rt></ruby></div>
+        <div class="qa-expl">前が四角（方形）、後ろが円形を組み合わせた鍵穴のような形の日本独自の古墳。大王や豪族の権力の大きさを示す。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (5/14)" data-qid="qa-kofun-era-5" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">5 / 14</span></div>
+      <div class="q-text">堺市にある日本最大級の前方後円墳は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>大仙<rt>だいせん</rt></ruby><ruby>古墳<rt>こふん</rt></ruby></div>
+        <div class="qa-expl">大阪府堺市にある日本最大級の前方後円墳で、全長約486m。仁徳天皇の墓と伝えられ、大王の絶大な権力を示す。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (6/14)" data-qid="qa-kofun-era-6" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">6 / 14</span></div>
+      <div class="q-text">古墳の表面に並べられた人や動物の焼き物は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>埴輪<rt>はにわ</rt></ruby></div>
+        <div class="qa-expl">古墳の上や周りに並べられた素焼きの土製品。人物・馬・家・円筒などの形があり、死者の魂を守ったとされる。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (7/14)" data-qid="qa-kofun-era-7" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">7 / 14</span></div>
+      <div class="q-text">稲荷山古墳の鉄剣に刻まれた大王の名は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">ワカタケル<ruby>大王<rt>おおきみ</rt></ruby></div>
+        <div class="qa-expl">5世紀後半の大王。埼玉の稲荷山古墳と熊本の江田船山古墳の鉄剣・鉄刀に名が刻まれ、大和政権の広い支配を示す。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (8/14)" data-qid="qa-kofun-era-8" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">8 / 14</span></div>
+      <div class="q-text">埼玉県にある、ワカタケル大王の名が刻まれた鉄剣が出土した古墳は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>稲荷山<rt>いなりやま</rt></ruby><ruby>古墳<rt>こふん</rt></ruby></div>
+        <div class="qa-expl">埼玉県行田市にある古墳。ワカタケル大王の名が刻まれた鉄剣が出土し、大和政権の支配が関東まで及んだことを示す。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (9/14)" data-qid="qa-kofun-era-9" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">9 / 14</span></div>
+      <div class="q-text">倭の五王の活動が記録されている中国の歴史書は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>宋書<rt>そうじょ</rt></ruby></div>
+        <div class="qa-expl">5世紀の倭の五王が中国の南朝に使いを送った活動が記録されている中国の歴史書。当時の日本と中国の関係がわかる。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (10/14)" data-qid="qa-kofun-era-10" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">10 / 14</span></div>
+      <div class="q-text">大陸から移り住み技術や文化を伝えた人々は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>渡来人<rt>とらいじん</rt></ruby></div>
+        <div class="qa-expl">朝鮮半島や中国大陸から日本に移り住み、技術や文化を伝えた人々。漢字・仏教・須恵器・機織りなどを伝えた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (11/14)" data-qid="qa-kofun-era-11" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">11 / 14</span></div>
+      <div class="q-text">渡来人が伝えた高温で焼く硬い灰色の土器は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>須恵器<rt>すえき</rt></ruby></div>
+        <div class="qa-expl">渡来人が朝鮮半島から伝えた技術で作られた灰色の硬い土器。ろくろを使って成形し、高温で焼かれるのが特徴。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (12/14)" data-qid="qa-kofun-era-12" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">12 / 14</span></div>
+      <div class="q-text">渡来人が書類作成や記録のために伝えた文字は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">漢字</div>
+        <div class="qa-expl">渡来人が中国・朝鮮から伝えた文字。書類作成や記録に使われ、日本の文字文化の基盤となった。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (13/14)" data-qid="qa-kofun-era-13" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">13 / 14</span></div>
+      <div class="q-text">渡来人が6世紀半ばに日本へ伝えた宗教は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>仏教<rt>ぶっきょう</rt></ruby></div>
+        <div class="qa-expl">6世紀半ばに朝鮮半島の百済から日本に伝えられた宗教。寺院建築や仏像彫刻など、のちの日本文化に大きな影響を与えた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qa-step" data-label="B 一問一答 (14/14)" data-qid="qa-kofun-era-14" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">14 / 14</span></div>
+      <div class="q-text">古墳時代に朝鮮半島北部にあった強国は？</div>
+      <div class="wline print-only"></div>
+      <button class="reveal" type="button">こたえを見る</button>
+      <div class="hidden-until">
+        <div class="qa-a"><ruby>高句麗<rt>こうくり</rt></ruby></div>
+        <div class="qa-expl">古墳時代に朝鮮半島の北部から中国東北部にかけてあった強国。南へ勢力を広げ、大和政権と対立した。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+      </div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (1/8)" data-qid="qz-kofun-era-1" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">1 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">3世紀後半ごろ、近畿地方を中心に成立した政治勢力はどれですか。</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">出雲政権</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">大和政権</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">毛野国</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">邪馬台国</span></button></div>
+      <div class="expl hidden-until">💡 大和政権は3世紀後半ごろから近畿地方（奈良盆地）を中心に成立し、大王のもとに各地の豪族をまとめた政治勢力です。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-kofun-era-2" data-kind="qz" data-c="0">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">2 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">前方後円墳を上から見るとどのような形をしているか？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">鍵穴のような形</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">四角形</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">円形</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">三角形</span></button></div>
+      <div class="expl hidden-until">💡 前方後円墳は前が四角（方形）、後ろが円形を組み合わせた鍵穴のような形をしており、日本独自の墓の形式です。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-kofun-era-3" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">3 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">渡来人が伝えた技術として正しくないものは？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">機織り</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">打製石器の製作</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">須恵器の製作</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">仏教</span></button></div>
+      <div class="expl hidden-until">💡 打製石器は石を打ち欠いて作る最も原始的な道具で、旧石器時代の技術。古墳時代に渡来人が伝えた技術ではありません。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-kofun-era-4" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">4 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">古墳に埴輪を並べた目的は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">古墳を装飾するため</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">敵の侵入を防ぐため</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">死者の魂を守るため</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">食料を保存するため</span></button></div>
+      <div class="expl hidden-until">💡 埴輪は死者の魂を守り、あの世での生活に役立てるために並べられたと考えられています。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-kofun-era-5" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">5 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">古墳が巨大であるほど何を示すと考えられるか？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">外国との交流</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">人口の多さ</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">権力の大きさ</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">時代が古いこと</span></button></div>
+      <div class="expl hidden-until">💡 古墳が巨大であるほど、それを造らせた墓の主（大王や豪族）の権力や富が大きかったことを示すと考えられます。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-kofun-era-6" data-kind="qz" data-c="1">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">6 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">熊本県の江田船山古墳から出土したものは？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">祭りに使われたとされる銅鐸</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">ワカタケル大王の名が刻まれた鉄刀</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">漢委奴国王と刻まれた金印</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">縄文時代の模様がある土器</span></button></div>
+      <div class="expl hidden-until">💡 熊本県の江田船山古墳からはワカタケル大王の名が刻まれた鉄刀が出土し、大和政権の支配が九州まで及んだことを示します。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-kofun-era-7" data-kind="qz" data-c="3">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">7 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">前方後円墳が東北から九州まで分布していることから何がわかるか？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">稲作が全国に広まっていたこと</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">弥生時代が非常に長く続いたこと</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">渡来人が日本の各地にいたこと</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">大和政権の勢力が広がっていたこと</span></button></div>
+      <div class="expl hidden-until">💡 前方後円墳が各地に分布していることから、大和政権の勢力が日本各地に及んでいたことがわかります。</div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-kofun-era-8" data-kind="qz" data-c="2">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">8 / 8　正しいものを選ぼう</span></div>
+      <div class="q-text">大和政権が朝鮮半島に進出した主な目的は？</div>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">領土を拡大するため</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">仏教を広めるため</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">鉄を確保するため</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">金を手に入れるため</span></button></div>
+      <div class="expl hidden-until">💡 大和政権は武器や農具に欠かせない鉄の資源を確保するため、朝鮮半島南部の伽耶地域などに進出しました。</div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-kofun-era-1" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">1 / 3　文章で説明しよう</span></div>
+      <div class="q-text">稲荷山古墳と江田船山古墳から出土した鉄剣・鉄刀からどのようなことがわかるか説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">ワカタケル大王</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">どちらの古墳からもワカタケル大王の名が刻まれた鉄剣・鉄刀が出土しており、大和政権の支配が関東から九州まで及んでいたことがわかる。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%8F%A4%E5%A2%B3%E6%99%82%E4%BB%A3%E3%81%A8%E5%A4%A7%E5%92%8C%E6%94%BF%E6%A8%A9" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (2/3)" data-qid="wr-kofun-era-2" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">2 / 3　文章で説明しよう</span></div>
+      <div class="q-text">古墳に埴輪が並べられた目的を簡単に書きなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">埴輪</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">人や動物などをかたどった埴輪を古墳の上に並べ、古墳を飾るためにつくられた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%8F%A4%E5%A2%B3%E6%99%82%E4%BB%A3%E3%81%A8%E5%A4%A7%E5%92%8C%E6%94%BF%E6%A8%A9" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step wr-step" data-label="D 記述問題 (3/3)" data-qid="wr-kofun-era-3" data-kind="qa">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">3 / 3　文章で説明しよう</span></div>
+      <div class="q-text">古墳時代に大陸から日本へ移り住んだ渡来人は、どのようなものを伝えたか説明しなさい。</div>
+      <div class="kw-note">指定語句 <span class="kw-chip">須恵器</span><span class="kw-chip">漢字</span></div>
+      <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
+      <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="reveal" type="button">模範解答を見る</button>
+      <div class="hidden-until">
+        <div class="qa-a">渡来人は、須恵器とよばれる硬い土器や漢字、6世紀半ばには仏教などの技術や文化を伝えた。</div>
+        <div class="marks">
+          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
+          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+        </div>
+        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%8F%A4%E5%A2%B3%E6%99%82%E4%BB%A3%E3%81%A8%E5%A4%A7%E5%92%8C%E6%94%BF%E6%A8%A9" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
+      </div>
+    </div>
+    <div class="step done-step" data-label="結果">
+      <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「古墳時代と大和政権」おつかれさま！</span></div>
+      <div class="score-box" data-score></div>
+      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%8F%A4%E5%A2%B3%E6%99%82%E4%BB%A3%E3%81%A8%E5%A4%A7%E5%92%8C%E6%94%BF%E6%A8%A9" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
+      <a class="big-btn ref-btn" href="../../ref/03/index.html#t3">📖 参考書でおさらいする</a>
+      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元をもう一度とく</button>
+    </div>
+</section>
+<section class="print-answers print-only">
+  <h2 class="ans-band">解答</h2>
+  <div class="a-topic"><div class="a-title">年表でチェック</div><div class="a-group"><span class="a-item">ナウマンゾウ</span>　<span class="a-item">岩宿遺跡</span>　<span class="a-item">縄文時代</span>　<span class="a-item">たて穴住居</span>　<span class="a-item">土偶</span>　<span class="a-item">稲作</span>　<span class="a-item">高床倉庫</span>　<span class="a-item">奴国</span>　<span class="a-item">金印</span>　<span class="a-item">卑弥呼</span>　<span class="a-item">親魏倭王</span>　<span class="a-item">大和政権</span>　<span class="a-item">前方後円墳</span>　<span class="a-item">宋書</span>　<span class="a-item">ワカタケル大王</span>　<span class="a-item">渡来人</span>　<span class="a-item">仏教</span></div></div><div class="a-topic"><div class="a-title">1　旧石器時代と縄文時代</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 氷期</span>　<span class="a-item">② ナウマンゾウ</span>　<span class="a-item">③ 打製石器</span>　<span class="a-item">④ 岩宿遺跡</span>　<span class="a-item">⑤ 縄文時代</span>　<span class="a-item">⑥ 縄文土器</span>　<span class="a-item">⑦ たて穴住居</span>　<span class="a-item">⑧ 狩猟・採集</span>　<span class="a-item">⑨ 貝塚</span>　<span class="a-item">⑩ 土偶</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 旧石器時代</span>　<span class="a-item">(2) 氷期（氷河時代）</span>　<span class="a-item">(3) ナウマンゾウ</span>　<span class="a-item">(4) オオツノジカ</span>　<span class="a-item">(5) 打製石器</span>　<span class="a-item">(6) 岩宿遺跡</span>　<span class="a-item">(7) 相沢忠洋</span>　<span class="a-item">(8) 黒曜石</span>　<span class="a-item">(9) サヌカイト</span>　<span class="a-item">(10) 縄文時代</span>　<span class="a-item">(11) 縄文土器</span>　<span class="a-item">(12) 竪穴住居（たて穴住居）</span>　<span class="a-item">(13) 貝塚</span>　<span class="a-item">(14) 土偶</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) イ（相沢忠洋）</span>　<span class="a-item">(2) ウ（石を打ち欠いて作った打製石器が使われていた）</span>　<span class="a-item">(3) ア（サヌカイト）</span>　<span class="a-item">(4) ウ（屈葬）</span>　<span class="a-item">(5) エ（野尻湖）</span>　<span class="a-item">(6) ア（厚みがあり、縄目の文様で装飾が豊かである）</span>　<span class="a-item">(7) イ（海面が上昇して日本列島が大陸から離れた）</span>　<span class="a-item">(8) ウ（遠方との交易が行われていたこと）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 群馬県の岩宿遺跡で相沢忠洋が打製石器を発見したことで、日本にも旧石器時代があったことが明らかになった。</div><div class="a-written">(2) 女性をかたどったものが多く、安産や豊作を願うための祈りやまじないの道具として土偶が作られた。</div></div></div><div class="a-topic"><div class="a-title">2　弥生時代</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 稲作</span>　<span class="a-item">② 高床倉庫</span>　<span class="a-item">③ 青銅器</span>　<span class="a-item">④ 奴国</span>　<span class="a-item">⑤ 金印</span>　<span class="a-item">⑥ 邪馬台国</span>　<span class="a-item">⑦ 卑弥呼</span>　<span class="a-item">⑧ 親魏倭王</span>　<span class="a-item">⑨ 魏志倭人伝</span>　<span class="a-item">⑩ 吉野ヶ里遺跡</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 弥生時代</span>　<span class="a-item">(2) 稲作</span>　<span class="a-item">(3) 高床倉庫</span>　<span class="a-item">(4) 弥生土器</span>　<span class="a-item">(5) 石包丁</span>　<span class="a-item">(6) 鉄器</span>　<span class="a-item">(7) 青銅器</span>　<span class="a-item">(8) 銅鐸</span>　<span class="a-item">(9) 銅鏡</span>　<span class="a-item">(10) 銅剣</span>　<span class="a-item">(11) 卑弥呼</span>　<span class="a-item">(12) 邪馬台国</span>　<span class="a-item">(13) 親魏倭王</span>　<span class="a-item">(14) 『魏志』倭人伝</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) イ（縄文時代に狩り・採集が中心で、弥生時代に稲作が広まった）</span>　<span class="a-item">(2) エ（銅鏡）</span>　<span class="a-item">(3) ウ（石包丁）</span>　<span class="a-item">(4) ア（魏）</span>　<span class="a-item">(5) エ（薄手で硬くシンプル）</span>　<span class="a-item">(6) イ（福岡県の志賀島）</span>　<span class="a-item">(7) ア（むらどうしの争いや防御の必要があった）</span>　<span class="a-item">(8) ア（畿内説と九州説）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 縄文時代は狩猟・採集を中心に生活していたが、弥生時代になると稲作が広まり、金属器も使われるようになった。</div><div class="a-written">(2) 環濠集落のように堀や柵で集落を囲んでいたことから、むらどうしの争いがあり、防御の必要があったことがわかる。</div><div class="a-written">(3) 魏の皇帝から親魏倭王の称号を授かり、倭の王としての地位を認めてもらおうとしたため。</div></div><div class="a-group"><span class="a-label">E 資料問題</span><span class="a-item">(1) 採集（漁）</span>　<span class="a-item">(2) 稲作（米づくり）</span></div></div><div class="a-topic"><div class="a-title">3　古墳時代と大和政権</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 大和政権</span>　<span class="a-item">② 大王</span>　<span class="a-item">③ 前方後円墳</span>　<span class="a-item">④ 大仙古墳</span>　<span class="a-item">⑤ 埴輪</span>　<span class="a-item">⑥ ワカタケル大王</span>　<span class="a-item">⑦ 宋書</span>　<span class="a-item">⑧ 渡来人</span>　<span class="a-item">⑨ 漢字</span>　<span class="a-item">⑩ 仏教</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 古墳時代</span>　<span class="a-item">(2) 大和政権</span>　<span class="a-item">(3) 大王</span>　<span class="a-item">(4) 前方後円墳</span>　<span class="a-item">(5) 大仙古墳</span>　<span class="a-item">(6) 埴輪</span>　<span class="a-item">(7) ワカタケル大王</span>　<span class="a-item">(8) 稲荷山古墳</span>　<span class="a-item">(9) 宋書</span>　<span class="a-item">(10) 渡来人</span>　<span class="a-item">(11) 須恵器</span>　<span class="a-item">(12) 漢字</span>　<span class="a-item">(13) 仏教</span>　<span class="a-item">(14) 高句麗</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) イ（大和政権）</span>　<span class="a-item">(2) ア（鍵穴のような形）</span>　<span class="a-item">(3) イ（打製石器の製作）</span>　<span class="a-item">(4) ウ（死者の魂を守るため）</span>　<span class="a-item">(5) ウ（権力の大きさ）</span>　<span class="a-item">(6) イ（ワカタケル大王の名が刻まれた鉄刀）</span>　<span class="a-item">(7) エ（大和政権の勢力が広がっていたこと）</span>　<span class="a-item">(8) ウ（鉄を確保するため）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) どちらの古墳からもワカタケル大王の名が刻まれた鉄剣・鉄刀が出土しており、大和政権の支配が関東から九州まで及んでいたことがわかる。</div><div class="a-written">(2) 人や動物などをかたどった埴輪を古墳の上に並べ、古墳を飾るためにつくられた。</div><div class="a-written">(3) 渡来人は、須恵器とよばれる硬い土器や漢字、6世紀半ばには仏教などの技術や文化を伝えた。</div></div></div>
+</section>
+</main>
+<div class="navbar" id="navbar" hidden><div class="navbar-in">
+  <button class="nb nb-prev" id="btnPrev">← まえへ</button>
+  <button class="nb nb-next" id="btnNext">つぎへ →</button>
+</div></div>
+<script>
+(function () {
+  var KEY = 'tzmwb-03';
+  var views = [].slice.call(document.querySelectorAll('.view'));
+  var tabs = [].slice.call(document.querySelectorAll('.tab'));
+  var N = views.length - 1;
+  var state = { t: 0, s: 0 };
+  var lastDir = 1;
+  var rendered = null; // 直前に表示していた {t, s}（ページめくり演出用）
+
+  function store() {
+    try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; }
+  }
+  function save(obj) { try { localStorage.setItem(KEY, JSON.stringify(obj)); } catch (e) {} }
+  function stepsOf(t) { return views[t].querySelectorAll('.step'); }
+
+  function renderScore(view) {
+    var st = store(), r = st.r || {};
+    var box = view.querySelector('[data-score]');
+    if (!box) return;
+    function count(sel) {
+      var ids = [].map.call(view.querySelectorAll(sel), function (el) { return el.dataset.qid; });
+      var done = ids.filter(function (id) { return r[id] === 1; }).length;
+      var tried = ids.filter(function (id) { return id in r; }).length;
+      return { total: ids.length, done: done, tried: tried };
+    }
+    var qa = count('.qa-step'), qz = count('.qz-step'), wr = count('.wr-step');
+    var rows = [];
+    if (qa.total) rows.push('<div class="score-row"><span>B 一問一答</span><b>⭕ ' + qa.done + ' / ' + qa.total + '</b></div>');
+    if (qz.total) rows.push('<div class="score-row"><span>C 実戦4択</span><b>正解 ' + qz.done + ' / ' + qz.total + '</b></div>');
+    if (wr.total) rows.push('<div class="score-row"><span>D 記述</span><b>⭕ ' + wr.done + ' / ' + wr.total + '</b></div>');
+    box.innerHTML = rows.join('') || 'このページの問題はタップ形式だよ。';
+  }
+
+  function render() {
+    var t = state.t, s = state.s;
+    views.forEach(function (v, i) { v.classList.toggle('on', i === t); });
+    tabs.forEach(function (b) {
+      var bt = +b.dataset.go;
+      b.classList.toggle('on', bt === t);
+      b.classList.toggle('done', bt > 0 && store()['d' + bt] === 1);
+    });
+    var tabEl = tabs[t];
+    if (tabEl && tabEl.scrollIntoView) tabEl.scrollIntoView({ block: 'nearest', inline: 'center' });
+    var navbar = document.getElementById('navbar');
+    var barStep = document.getElementById('barStep');
+    var pfill = document.getElementById('pfill');
+    if (t === 0) {
+      navbar.hidden = true; barStep.textContent = ''; pfill.style.width = '0';
+      renderHome();
+    } else {
+      var steps = stepsOf(t);
+      // 同じ単元内のページ送りだけ「めくり」演出（古いページと新しいページを重ねる）
+      var animFrom = rendered && rendered.t === t && rendered.s !== s ? rendered.s : null;
+      [].forEach.call(steps, function (el, i) {
+        el.classList.remove('turn-out', 'turn-in', 'turn-under');
+        el.classList.toggle('on', i === s);
+      });
+      if (animFrom !== null && steps[animFrom] && steps[s]) {
+        var oldEl = steps[animFrom], newEl = steps[s];
+        var clear = function () {
+          oldEl.classList.remove('turn-out', 'turn-under');
+          newEl.classList.remove('turn-in');
+        };
+        if (lastDir > 0) {
+          oldEl.classList.add('turn-out');      // 今のページがめくれて去る
+          oldEl.addEventListener('animationend', clear, { once: true });
+        } else {
+          oldEl.classList.add('turn-under');    // 下に敷いたまま
+          newEl.classList.add('turn-in');       // 前のページがめくり戻ってくる
+          newEl.addEventListener('animationend', clear, { once: true });
+        }
+        setTimeout(clear, 700); // アニメ未発火時の保険
+      }
+      navbar.hidden = false;
+      barStep.textContent = (s + 1) + ' / ' + steps.length;
+      pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
+      document.getElementById('btnPrev').textContent = s === 0 ? '🏠 目次' : '← まえへ';
+      var next = document.getElementById('btnNext');
+      if (s < steps.length - 1) next.textContent = 'つぎへ →';
+      else next.textContent = t < N ? '次の単元へ →' : '🏠 目次にもどる';
+      if (steps[s] && steps[s].classList.contains('done-step')) renderScore(views[t]);
+      var st = store();
+      st.last = { t: t, s: s };
+      if (s === steps.length - 1) st['d' + t] = 1;
+      save(st);
+    }
+    window.scrollTo(0, 0);
+    var h = '#t' + t + (t > 0 && s > 0 ? 's' + s : '');
+    if (location.hash !== h) history.replaceState(null, '', t === 0 ? '#' : h);
+    rendered = { t: t, s: s };
+  }
+
+  function renderHome() {
+    var st = store();
+    [].forEach.call(document.querySelectorAll('.toc-state'), function (el) {
+      var t = +el.dataset.stateT;
+      el.className = 'toc-state';
+      if (st['d' + t] === 1) { el.classList.add('done'); el.textContent = '✓ といた'; }
+      else if (st.last && st.last.t === t && st.last.s > 0) {
+        el.classList.add('doing'); el.textContent = 'つづき';
+      } else { el.textContent = ''; }
+    });
+    var btn = document.getElementById('resumeBtn');
+    if (st.last && st.last.t > 0) {
+      btn.hidden = false;
+      var name = views[st.last.t].querySelector('.tband h2').textContent;
+      document.getElementById('resumeWhere').textContent =
+        name + '（' + (st.last.s + 1) + '問目）';
+      btn.onclick = function () { go(st.last.t, st.last.s, 1); };
+    } else { btn.hidden = true; }
+  }
+
+  function go(t, s, dir) {
+    lastDir = dir || 1;
+    state.t = Math.max(0, Math.min(N, t));
+    state.s = Math.max(0, s || 0);
+    if (state.t > 0) state.s = Math.min(state.s, stepsOf(state.t).length - 1);
+    else state.s = 0;
+    render();
+  }
+  function next() {
+    var t = state.t, s = state.s;
+    if (t === 0) return;
+    if (s < stepsOf(t).length - 1) go(t, s + 1, 1);
+    else if (t < N) go(t + 1, 0, 1);
+    else go(0, 0, 1);
+  }
+  function prev() {
+    var t = state.t, s = state.s;
+    if (t === 0) return;
+    if (s > 0) go(t, s - 1, -1);
+    else go(0, 0, -1);
+  }
+
+  document.getElementById('btnNext').addEventListener('click', next);
+  document.getElementById('btnPrev').addEventListener('click', prev);
+
+  document.addEventListener('click', function (e) {
+    var go_ = e.target.closest('[data-go]');
+    if (go_) { go(+go_.dataset.go, 0, 1); return; }
+
+    var blank = e.target.closest('.blank');
+    if (blank) { blank.classList.toggle('open'); return; }
+
+    var rall = e.target.closest('.reveal-all');
+    if (rall) {
+      var step = rall.closest('.step');
+      var opened = step.querySelectorAll('.blank.open').length;
+      var all = step.querySelectorAll('.blank');
+      var open = opened < all.length;
+      [].forEach.call(all, function (b) { b.classList.toggle('open', open); });
+      rall.textContent = open ? 'すべての答えを隠す' : 'すべての答えを表示';
+      return;
+    }
+
+    var rev = e.target.closest('.reveal');
+    if (rev) { rev.closest('.step').classList.add('show'); return; }
+
+    var mk = e.target.closest('.mk');
+    if (mk) {
+      var stp = mk.closest('.step');
+      var st = store(); st.r = st.r || {};
+      st.r[stp.dataset.qid] = +mk.dataset.v;
+      save(st);
+      setTimeout(next, 220);
+      return;
+    }
+
+    var opt = e.target.closest('.qopt');
+    if (opt) {
+      var qstep = opt.closest('.qz-step');
+      if (qstep.classList.contains('answered')) return;
+      qstep.classList.add('answered');
+      var c = +qstep.dataset.c, chosen = +opt.dataset.i;
+      [].forEach.call(qstep.querySelectorAll('.qopt'), function (b, i) {
+        if (i === c) b.classList.add('correct');
+        else if (i === chosen) b.classList.add('wrong');
+        else b.classList.add('dim');
+      });
+      var ex = qstep.querySelector('.expl');
+      if (ex) ex.style.display = 'block';
+      var st2 = store(); st2.r = st2.r || {};
+      st2.r[qstep.dataset.qid] = chosen === c ? 1 : 0;
+      save(st2);
+      return;
+    }
+
+    var mopt = e.target.closest('.mopt');
+    if (mopt) {
+      var item = mopt.closest('.m-item');
+      if (item.dataset.done) return;
+      var ok = mopt.dataset.l === item.dataset.a;
+      mopt.classList.add(ok ? 'correct' : 'wrong');
+      if (!ok) {
+        [].forEach.call(item.querySelectorAll('.mopt'), function (b) {
+          if (b.dataset.l === item.dataset.a) b.classList.add('correct');
+        });
+      }
+      item.dataset.done = '1';
+      return;
+    }
+
+    var retry = e.target.closest('[data-retry]');
+    if (retry) {
+      var view = retry.closest('.view');
+      var st3 = store(); st3.r = st3.r || {};
+      [].forEach.call(view.querySelectorAll('[data-qid]'), function (el) {
+        delete st3.r[el.dataset.qid];
+      });
+      delete st3['d' + state.t];
+      save(st3);
+      [].forEach.call(view.querySelectorAll('.step'), function (el) {
+        el.classList.remove('show', 'answered');
+      });
+      [].forEach.call(view.querySelectorAll('.qopt'), function (b) {
+        b.classList.remove('correct', 'wrong', 'dim');
+      });
+      [].forEach.call(view.querySelectorAll('.m-item'), function (it) {
+        delete it.dataset.done;
+        [].forEach.call(it.querySelectorAll('.mopt'), function (b) {
+          b.classList.remove('correct', 'wrong');
+        });
+      });
+      [].forEach.call(view.querySelectorAll('.blank.open'), function (b) {
+        b.classList.remove('open');
+      });
+      go(state.t, 0, -1);
+      return;
+    }
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight') next();
+    if (e.key === 'ArrowLeft') prev();
+  });
+  var tx = 0, ty = 0;
+  document.addEventListener('touchstart', function (e) {
+    tx = e.changedTouches[0].clientX; ty = e.changedTouches[0].clientY;
+  }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    var dx = e.changedTouches[0].clientX - tx;
+    var dy = e.changedTouches[0].clientY - ty;
+    if (Math.abs(dx) > 64 && Math.abs(dy) < 48 && state.t > 0) {
+      if (dx < 0) next(); else prev();
+    }
+  }, { passive: true });
+
+  function fromHash() {
+    var m = /#t(\d+)(?:s(\d+))?/.exec(location.hash);
+    if (m) go(+m[1], +(m[2] || 0), 1); else go(0, 0, 1);
+  }
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
+})();
+</script>
+</body></html>
