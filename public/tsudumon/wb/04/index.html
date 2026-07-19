@@ -37,12 +37,13 @@
   .view { display:none; }
   .view.on { display:block; }
   .step { display:none; }
-  /* ページをめくるアニメーション（進む=左とじ・戻る=右とじ。参考書Web版と共通） */
-  .step.on { display:block; animation:page .3s ease; transform-origin:left center; }
-  @keyframes page { from { opacity:0; transform:perspective(1000px) rotateY(32deg); }
+  /* ページをめくるアニメーション（参考書Web版と共通）。
+     めくった紙が「手前に浮いた状態からパタンと寝る」動き（奥からではなく手前から）。 */
+  .step.on { display:block; animation:page .32s ease-out; transform-origin:left center; }
+  @keyframes page { from { opacity:0; transform:perspective(1000px) rotateY(-38deg); }
                     to { opacity:1; transform:none; } }
-  .step.on.back { animation:pageb .3s ease; transform-origin:right center; }
-  @keyframes pageb { from { opacity:0; transform:perspective(1000px) rotateY(-32deg); }
+  .step.on.back { animation:pageb .32s ease-out; transform-origin:right center; }
+  @keyframes pageb { from { opacity:0; transform:perspective(1000px) rotateY(38deg); }
                      to { opacity:1; transform:none; } }
 
   /* ── ホーム ── */
