@@ -109,7 +109,10 @@
             color:#fff; display:inline-flex; align-items:center; justify-content:center;
             font-size:13px; }
   .toc-name { flex:1; }
-  .toc-state { flex:none; font-size:11px; font-weight:bold; }
+  /* 高さを固定して、✓（環境により絵文字グリフで行ボックスが太る）でも
+     行の高さが他の行と変わらないようにする */
+  .toc-state { flex:none; font-size:11px; font-weight:bold; line-height:1;
+               display:inline-flex; align-items:center; height:20px; }
   .toc-state.done { color:#16a34a; }
   .toc-state.doing { color:var(--brand); background:#fffbeb; border:1px solid var(--line);
                      border-radius:10px; padding:1px 8px; }
@@ -166,11 +169,24 @@
   /* 重要語チェック */
   .terms-h { font-size:18px; font-weight:bold; color:var(--deep); }
   .terms-sub { font-size:12px; font-weight:normal; color:#a8a29e; margin-left:8px; }
-  .terms-tools { display:flex; justify-content:flex-end; margin:6px 0 10px; }
+  .terms-tools { display:flex; align-items:center; justify-content:space-between; gap:8px;
+                 flex-wrap:wrap; margin:6px 0 10px; }
+  .tt-btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .shuffle-btn, .swap-btn { flex:none; display:inline-flex; align-items:center; gap:4px;
+                 font-family:inherit; font-size:13px; font-weight:bold; cursor:pointer;
+                 border-radius:16px; padding:6px 13px; }
+  .shuffle-btn { color:#fff; background:var(--brand); border:none; box-shadow:0 2px 6px rgba(180,83,9,.3); }
+  .swap-btn { color:var(--brand); background:#fffbeb; border:1.5px solid var(--line); }
+  .swap-btn.on { color:#fff; background:var(--brand); border-color:var(--brand); box-shadow:0 2px 6px rgba(180,83,9,.3); }
+  .shuffle-btn:active, .swap-btn:active { transform:translateY(1px); }
   .both-toggle { display:inline-flex; align-items:center; gap:6px; font-size:13px;
                  font-weight:bold; color:#57534e; cursor:pointer; }
   .both-toggle input { width:16px; height:16px; accent-color:var(--brand); }
   .tgrid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  /* シャッフル時のふわっと再配置アニメ */
+  .tgrid.shuffling .tcard { animation:tshuffle .34s ease; }
+  @keyframes tshuffle { 0% { opacity:.25; transform:scale(.92); }
+                        100% { opacity:1; transform:none; } }
   @media (max-width:400px) { .tgrid { grid-template-columns:1fr; } }
   /* フラッシュカード（タップで表裏。両面表示チェックで従来の一覧に）
      ─ めくりモード: 全カード同じ高さ（150px）・面は絶対配置で重ねて3D回転
@@ -179,27 +195,32 @@
            cursor:pointer; font-family:inherit; text-align:left; perspective:800px; }
   .tcard-inner { display:block; position:absolute; inset:0; transition:transform .35s;
                  transform-style:preserve-3d; }
-  .tc-face { position:absolute; inset:0; display:block; overflow:hidden;
+  .tc-face { position:absolute; inset:0; display:flex; flex-direction:column;
+             align-items:center; justify-content:center; text-align:center; overflow:hidden;
              backface-visibility:hidden; -webkit-backface-visibility:hidden;
              border:1.5px solid var(--line); border-radius:10px; padding:10px; background:#fff; }
-  .tc-front { display:flex; flex-direction:column; align-items:center; justify-content:center;
-              text-align:center; }
-  .tc-term { font-weight:bold; font-size:16px; color:var(--deep); line-height:1.5; }
-  .tc-rd { display:block; font-weight:normal; font-size:11px; color:#b8b0a6; }
+  /* 表＝説明（読んで用語を当てる） */
+  .tc-front { background:#fffbeb; overflow-y:auto; }
+  .tc-desc { font-size:13px; color:#44403c; line-height:1.6; font-weight:500; }
+  /* 裏＝用語（こたえ） */
+  .tc-back { transform:rotateY(180deg); }
+  .tc-term { font-weight:bold; font-size:17px; color:var(--deep); line-height:1.5; }
+  .tc-rd { display:block; font-weight:normal; font-size:11px; color:#b8b0a6; margin-top:2px; }
   .tc-tap { font-size:10px; color:#d6c9a8; margin-top:6px; }
-  .tc-back { transform:rotateY(180deg); background:#fffbeb; overflow-y:auto; }
-  .tc-bterm { display:block; font-weight:bold; font-size:12.5px; color:var(--brand); margin-bottom:2px; }
-  .tc-desc { display:block; font-size:12.5px; color:#44403c; line-height:1.65; }
   .tcard.flipped .tcard-inner { transform:rotateY(180deg); }
-  /* 両面表示モード */
+  /* 裏表入れ替え: 用語を先に見せる（意味→用語 ⇄ 用語→意味） */
+  .tgrid.term-first .tcard-inner { transform:rotateY(180deg); }
+  .tgrid.term-first .tcard.flipped .tcard-inner { transform:rotateY(0deg); }
+  /* 両面表示モード（用語→説明の順に縦並べ） */
   .tgrid.both .tcard { cursor:default; height:auto; perspective:none; }
-  .tgrid.both .tcard-inner { position:static; transform:none !important; transform-style:flat; }
-  .tgrid.both .tc-face { position:static; overflow:visible;
+  .tgrid.both .tcard-inner { position:static; transform:none !important; transform-style:flat;
+                             display:flex; flex-direction:column; }
+  .tgrid.both .tc-face { position:static; overflow:visible; align-items:flex-start; text-align:left;
                          backface-visibility:visible; -webkit-backface-visibility:visible; }
-  .tgrid.both .tc-front { border-bottom:none; border-radius:10px 10px 0 0; padding-bottom:4px;
-                          align-items:flex-start; text-align:left; }
-  .tgrid.both .tc-back { transform:none; border-top:none; border-radius:0 0 10px 10px; }
-  .tgrid.both .tc-bterm { display:none; }
+  .tgrid.both .tc-back { order:0; transform:none; border-bottom:none; border-radius:10px 10px 0 0;
+                         padding-bottom:4px; background:#fff; }
+  .tgrid.both .tc-front { order:1; border-top:none; border-radius:0 0 10px 10px; }
+  .tgrid.both .tc-term { font-size:14px; }
   .tgrid.both .tc-tap { display:none; }
 
   /* まとめ・完了 */
@@ -240,6 +261,56 @@
   .nb-prev { flex:1; background:#fff; color:var(--brand); border:1.5px solid var(--line); }
   .nb-next { flex:2; background:var(--brand); color:#fff; box-shadow:0 3px 8px rgba(180,83,9,.3); }
   .nav-label { position:absolute; left:-9999px; }
+
+  /* ── ページ内チャット（スタ先生）── */
+  .chat-fab { position:fixed; right:14px; bottom:calc(84px + env(safe-area-inset-bottom));
+              z-index:20; width:56px; height:56px; border-radius:50%;
+              border:none; background:var(--brand); color:#fff; font-size:26px;
+              cursor:pointer; box-shadow:0 4px 12px rgba(180,83,9,.4); }
+  .chat-fab.hidden { display:none; }
+  .chat-panel { position:fixed; right:12px; bottom:calc(84px + env(safe-area-inset-bottom));
+                z-index:21; width:min(400px, calc(100vw - 24px));
+                height:min(540px, calc(100vh - 160px));
+                display:flex; flex-direction:column; background:var(--cream);
+                border:2px solid var(--line); border-radius:16px;
+                box-shadow:0 10px 30px rgba(68,55,46,.25); overflow:hidden; }
+  .chat-head { display:flex; align-items:center; gap:8px; padding:10px 12px;
+               background:var(--brand); color:#fff; }
+  .chat-title { font-weight:bold; font-size:14px; }
+  .chat-topic { flex:1; font-size:11px; opacity:.9; white-space:nowrap;
+                overflow:hidden; text-overflow:ellipsis; }
+  .chat-close { border:none; background:none; color:#fff; font-size:22px;
+                line-height:1; cursor:pointer; padding:0 4px; }
+  .chat-note { font-size:11px; color:#92400e; background:#fffbeb;
+               border-bottom:1px solid #f0e6d2; padding:6px 12px; }
+  .chat-body { flex:1; overflow-y:auto; padding:12px; display:flex;
+               flex-direction:column; gap:8px; }
+  .chat-msg { max-width:85%; padding:8px 12px; border-radius:14px; font-size:13.5px;
+              line-height:1.7; white-space:pre-wrap; word-break:break-word; }
+  .chat-msg.user { align-self:flex-end; background:var(--brand); color:#fff;
+                   border-bottom-right-radius:4px; }
+  .chat-msg.model { align-self:flex-start; background:#fff; color:#1c1917;
+                    border:1.5px solid var(--line); border-bottom-left-radius:4px; }
+  .chat-msg.sys { align-self:center; background:none; color:#a8a29e; font-size:11.5px;
+                  text-align:center; }
+  .chat-login { padding:16px; text-align:center; border-top:1px solid #f0e6d2; }
+  .chat-login p { font-size:12.5px; color:#57534e; margin-bottom:10px; }
+  .chat-login-btn { display:inline-block; background:#06c755; color:#fff; font-weight:bold;
+                    font-size:14px; padding:10px 22px; border-radius:12px;
+                    text-decoration:none; }
+  .chat-input { display:flex; gap:8px; padding:10px 12px;
+                border-top:1px solid #f0e6d2; background:#fff; }
+  .chat-input input { flex:1; border:1.5px solid var(--line); border-radius:12px;
+                      padding:9px 12px; font-size:14px; font-family:inherit; }
+  .chat-input input:focus { outline:none; border-color:var(--amber); }
+  .chat-input button { border:none; background:var(--brand); color:#fff; font-weight:bold;
+                       font-size:14px; padding:0 18px; border-radius:12px;
+                       cursor:pointer; font-family:inherit; }
+  .chat-input button:disabled { opacity:.5; }
+  .chat-foot { font-size:10.5px; color:#a8a29e; text-align:center; padding:4px 8px 7px;
+               background:#fff; }
+  /* display:flex 指定が UA の [hidden]{display:none} に勝ってしまうのを防ぐ */
+  .chat-panel[hidden], .chat-input[hidden], .chat-login[hidden] { display:none; }
 </style></head><body>
 <div class="bar"><div class="bar-in">
   <div class="bar-row">
@@ -305,101 +376,101 @@
     </div>
     <div class="step" data-label="重要語チェック">
       <div class="terms-h">📖 重要語チェック<span class="terms-sub">意味を言えるかな？</span></div>
-      <div class="terms-tools"><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示にする</label></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">推古天皇の摂政となり、天皇中心の政治を目指した人物。冠位十二階・十七条の憲法・遣隋使を進めた。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">聖徳太子</span>
           <span class="tc-rd">しょうとくたいし</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">聖徳太子</span>
-          <span class="tc-desc">推古天皇の摂政となり、天皇中心の政治を目指した人物。冠位十二階・十七条の憲法・遣隋使を進めた。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">日本初の女性天皇。593年から聖徳太子を摂政として政治を任せた。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">推古天皇</span>
           <span class="tc-rd">すいこてんのう</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">推古天皇</span>
-          <span class="tc-desc">日本初の女性天皇。593年から聖徳太子を摂政として政治を任せた。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">家柄にとらわれず、才能や功績で役人を取り立てる制度。冠の色で位を示した。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">冠位十二階</span>
           <span class="tc-rd">かんいじゅうにかい</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">冠位十二階</span>
-          <span class="tc-desc">家柄にとらわれず、才能や功績で役人を取り立てる制度。冠の色で位を示した。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">役人の心構えを示した法。「和を以て貴しとなす」で始まる。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">十七条の憲法</span>
           <span class="tc-rd">じゅうしちじょうのけんぽう</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">十七条の憲法</span>
-          <span class="tc-desc">役人の心構えを示した法。「和を以て貴しとなす」で始まる。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">隋の制度や文化を学び、対等な国交を目指して派遣された使節。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">遣隋使</span>
           <span class="tc-rd">けんずいし</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">遣隋使</span>
-          <span class="tc-desc">隋の制度や文化を学び、対等な国交を目指して派遣された使節。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">607年に遣隋使として隋に派遣された人物。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">小野妹子</span>
           <span class="tc-rd">おののいもこ</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">小野妹子</span>
-          <span class="tc-desc">607年に遣隋使として隋に派遣された人物。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">聖徳太子が建てたと伝えられる、現存する世界最古の木造建築。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">法隆寺</span>
           <span class="tc-rd">ほうりゅうじ</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">法隆寺</span>
-          <span class="tc-desc">聖徳太子が建てたと伝えられる、現存する世界最古の木造建築。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
-          <span class="tc-term">飛鳥文化</span>
-          <span class="tc-rd">あすかぶんか</span>
-          <span class="tc-tap">タップで意味</span>
+          <span class="tc-desc">法隆寺に代表される、日本で最初の仏教文化。</span>
+          <span class="tc-tap">タップで用語</span>
         </span>
         <span class="tc-face tc-back">
-          <span class="tc-bterm">飛鳥文化</span>
-          <span class="tc-desc">法隆寺に代表される、日本で最初の仏教文化。</span>
+          <span class="tc-term">飛鳥文化</span>
+          <span class="tc-rd">あすかぶんか</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button></div>
@@ -417,7 +488,7 @@
       <a class="wb-btn" href="../../wb/04/index.html#t2"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=04-shotoku-asuka" target="_blank" rel="noopener">
         <span class="ai-ico">🤖</span>
-        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます（無料）</span></span>
+        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
     </div>
@@ -456,89 +527,89 @@
     </div>
     <div class="step" data-label="重要語チェック">
       <div class="terms-h">📖 重要語チェック<span class="terms-sub">意味を言えるかな？</span></div>
-      <div class="terms-tools"><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示にする</label></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">645年、中大兄皇子と中臣鎌足が蘇我氏を倒して始めた政治改革。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">大化の改新</span>
           <span class="tc-rd">たいかのかいしん</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">大化の改新</span>
-          <span class="tc-desc">645年、中大兄皇子と中臣鎌足が蘇我氏を倒して始めた政治改革。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">大化の改新を主導し、のちに天智天皇として即位した人物。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">中大兄皇子</span>
           <span class="tc-rd">なかのおおえのおうじ</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">中大兄皇子</span>
-          <span class="tc-desc">大化の改新を主導し、のちに天智天皇として即位した人物。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">大化の改新に協力し、のちに藤原の姓を賜り藤原氏の祖となった人物。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">中臣鎌足</span>
           <span class="tc-rd">なかとみのかまたり</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">中臣鎌足</span>
-          <span class="tc-desc">大化の改新に協力し、のちに藤原の姓を賜り藤原氏の祖となった人物。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">土地と人民を国家(天皇)が直接支配するという方針。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">公地公民</span>
           <span class="tc-rd">こうちこうみん</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">公地公民</span>
-          <span class="tc-desc">土地と人民を国家(天皇)が直接支配するという方針。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">663年、百済救援のため出兵した日本が唐・新羅の連合軍に敗れた戦い。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">白村江の戦い</span>
           <span class="tc-rd">はくすきのえのたたかい</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">白村江の戦い</span>
-          <span class="tc-desc">663年、百済救援のため出兵した日本が唐・新羅の連合軍に敗れた戦い。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">672年に起きた皇位継承をめぐる争い。大海人皇子が勝利した。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">壬申の乱</span>
           <span class="tc-rd">じんしんのらん</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">壬申の乱</span>
-          <span class="tc-desc">672年に起きた皇位継承をめぐる争い。大海人皇子が勝利した。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
-          <span class="tc-term">天武天皇</span>
-          <span class="tc-rd">てんむてんのう</span>
-          <span class="tc-tap">タップで意味</span>
+          <span class="tc-desc">壬申の乱に勝利して即位し、律令国家の基礎を整えた天皇。</span>
+          <span class="tc-tap">タップで用語</span>
         </span>
         <span class="tc-face tc-back">
-          <span class="tc-bterm">天武天皇</span>
-          <span class="tc-desc">壬申の乱に勝利して即位し、律令国家の基礎を整えた天皇。</span>
+          <span class="tc-term">天武天皇</span>
+          <span class="tc-rd">てんむてんのう</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button></div>
@@ -556,7 +627,7 @@
       <a class="wb-btn" href="../../wb/04/index.html#t3"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=04-taika-reform" target="_blank" rel="noopener">
         <span class="ai-ico">🤖</span>
-        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます（無料）</span></span>
+        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
     </div>
@@ -588,89 +659,89 @@
     </div>
     <div class="step" data-label="重要語チェック">
       <div class="terms-h">📖 重要語チェック<span class="terms-sub">意味を言えるかな？</span></div>
-      <div class="terms-tools"><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示にする</label></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">701年に完成した、唐の制度を手本にした法律。律令国家の体制を整えた。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">大宝律令</span>
           <span class="tc-rd">たいほうりつりょう</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">大宝律令</span>
-          <span class="tc-desc">701年に完成した、唐の制度を手本にした法律。律令国家の体制を整えた。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">律令のうち、刑罰についての決まり。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">律</span>
           <span class="tc-rd">りつ</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">律</span>
-          <span class="tc-desc">律令のうち、刑罰についての決まり。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">律令のうち、政治のしくみについての決まり。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">令</span>
           <span class="tc-rd">りょう</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">令</span>
-          <span class="tc-desc">律令のうち、政治のしくみについての決まり。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">律令国家で政治を担当した中央の最高機関。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">太政官</span>
           <span class="tc-rd">だいじょうかん</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">太政官</span>
-          <span class="tc-desc">律令国家で政治を担当した中央の最高機関。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">都から地方の国に派遣され、政治を監督した役人。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">国司</span>
           <span class="tc-rd">こくし</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">国司</span>
-          <span class="tc-desc">都から地方の国に派遣され、政治を監督した役人。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">710年に奈良につくられた、唐の長安をモデルにした都。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">平城京</span>
           <span class="tc-rd">へいじょうきょう</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">平城京</span>
-          <span class="tc-desc">710年に奈良につくられた、唐の長安をモデルにした都。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
-          <span class="tc-term">和同開珎</span>
-          <span class="tc-rd">わどうかいちん</span>
-          <span class="tc-tap">タップで意味</span>
+          <span class="tc-desc">唐の貨幣を手本に発行された、奈良時代の貨幣。</span>
+          <span class="tc-tap">タップで用語</span>
         </span>
         <span class="tc-face tc-back">
-          <span class="tc-bterm">和同開珎</span>
-          <span class="tc-desc">唐の貨幣を手本に発行された、奈良時代の貨幣。</span>
+          <span class="tc-term">和同開珎</span>
+          <span class="tc-rd">わどうかいちん</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button></div>
@@ -688,7 +759,7 @@
       <a class="wb-btn" href="../../wb/04/index.html#t4"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=04-ritsuryo-nara" target="_blank" rel="noopener">
         <span class="ai-ico">🤖</span>
-        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます（無料）</span></span>
+        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
     </div>
@@ -727,101 +798,101 @@
     </div>
     <div class="step" data-label="重要語チェック">
       <div class="terms-h">📖 重要語チェック<span class="terms-sub">意味を言えるかな？</span></div>
-      <div class="terms-tools"><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示にする</label></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">戸籍にもとづき6歳以上の男女に口分田を与え、死ねば国に返させた制度。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">班田収授法</span>
           <span class="tc-rd">はんでんしゅうじゅほう</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">班田収授法</span>
-          <span class="tc-desc">戸籍にもとづき6歳以上の男女に口分田を与え、死ねば国に返させた制度。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">班田収授法によって人々に与えられた田。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">口分田</span>
           <span class="tc-rd">くぶんでん</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">口分田</span>
-          <span class="tc-desc">班田収授法によって人々に与えられた田。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">口分田の収穫量の約3%を稲で納める税。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">租</span>
           <span class="tc-rd">そ</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">租</span>
-          <span class="tc-desc">口分田の収穫量の約3%を稲で納める税。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">布や各地の特産物を都へ納める税。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">調</span>
           <span class="tc-rd">ちょう</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">調</span>
-          <span class="tc-desc">布や各地の特産物を都へ納める税。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">都での労役の代わりに布を納める税。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">庸</span>
           <span class="tc-rd">よう</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">庸</span>
-          <span class="tc-desc">都での労役の代わりに布を納める税。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">九州北部の守りについた兵士。おもに東国の農民から選ばれた。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">防人</span>
           <span class="tc-rd">さきもり</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">防人</span>
-          <span class="tc-desc">九州北部の守りについた兵士。おもに東国の農民から選ばれた。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">743年に出された、開墾地の永久私有を認める法。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">墾田永年私財法</span>
           <span class="tc-rd">こんでんえいねんしざいほう</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">墾田永年私財法</span>
-          <span class="tc-desc">743年に出された、開墾地の永久私有を認める法。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
-          <span class="tc-term">荘園</span>
-          <span class="tc-rd">しょうえん</span>
-          <span class="tc-tap">タップで意味</span>
+          <span class="tc-desc">貴族や寺社が開墾や寄進によって広げた私有地。</span>
+          <span class="tc-tap">タップで用語</span>
         </span>
         <span class="tc-face tc-back">
-          <span class="tc-bterm">荘園</span>
-          <span class="tc-desc">貴族や寺社が開墾や寄進によって広げた私有地。</span>
+          <span class="tc-term">荘園</span>
+          <span class="tc-rd">しょうえん</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button></div>
@@ -839,7 +910,7 @@
       <a class="wb-btn" href="../../wb/04/index.html#t5"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=04-handen-tax" target="_blank" rel="noopener">
         <span class="ai-ico">🤖</span>
-        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます（無料）</span></span>
+        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
     </div>
@@ -878,89 +949,89 @@
     </div>
     <div class="step" data-label="重要語チェック">
       <div class="terms-h">📖 重要語チェック<span class="terms-sub">意味を言えるかな？</span></div>
-      <div class="terms-tools"><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示にする</label></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">仏教の力で国を守ろうと、国分寺や東大寺の大仏を造らせた天皇。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">聖武天皇</span>
           <span class="tc-rd">しょうむてんのう</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">聖武天皇</span>
-          <span class="tc-desc">仏教の力で国を守ろうと、国分寺や東大寺の大仏を造らせた天皇。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">聖武天皇のころ栄えた、唐の影響を強く受けた国際色豊かな仏教文化。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">天平文化</span>
           <span class="tc-rd">てんぴょうぶんか</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">天平文化</span>
-          <span class="tc-desc">聖武天皇のころ栄えた、唐の影響を強く受けた国際色豊かな仏教文化。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">聖武天皇が建立し、大仏(盧舎那仏)が安置された寺。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">東大寺</span>
           <span class="tc-rd">とうだいじ</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">東大寺</span>
-          <span class="tc-desc">聖武天皇が建立し、大仏(盧舎那仏)が安置された寺。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">聖武天皇の遺品などが納められた東大寺の宝物庫。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">正倉院</span>
           <span class="tc-rd">しょうそういん</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">正倉院</span>
-          <span class="tc-desc">聖武天皇の遺品などが納められた東大寺の宝物庫。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">何度も渡航に失敗しながら来日し、正式な戒律を伝えた唐の僧。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">鑑真</span>
           <span class="tc-rd">がんじん</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">鑑真</span>
-          <span class="tc-desc">何度も渡航に失敗しながら来日し、正式な戒律を伝えた唐の僧。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">天皇から農民まで幅広い身分の歌を収めた、日本最古の和歌集。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">万葉集</span>
           <span class="tc-rd">まんようしゅう</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">万葉集</span>
-          <span class="tc-desc">天皇から農民まで幅広い身分の歌を収めた、日本最古の和歌集。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
-          <span class="tc-term">国分寺</span>
-          <span class="tc-rd">こくぶんじ</span>
-          <span class="tc-tap">タップで意味</span>
+          <span class="tc-desc">仏教の力で国を守るため、聖武天皇が国ごとに建てさせた寺。</span>
+          <span class="tc-tap">タップで用語</span>
         </span>
         <span class="tc-face tc-back">
-          <span class="tc-bterm">国分寺</span>
-          <span class="tc-desc">仏教の力で国を守るため、聖武天皇が国ごとに建てさせた寺。</span>
+          <span class="tc-term">国分寺</span>
+          <span class="tc-rd">こくぶんじ</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button></div>
@@ -978,7 +1049,7 @@
       <a class="wb-btn" href="../../wb/04/index.html#t6"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=04-tenpyo-culture" target="_blank" rel="noopener">
         <span class="ai-ico">🤖</span>
-        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます（無料）</span></span>
+        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
     </div>
@@ -1017,101 +1088,101 @@
     </div>
     <div class="step" data-label="重要語チェック">
       <div class="terms-h">📖 重要語チェック<span class="terms-sub">意味を言えるかな？</span></div>
-      <div class="terms-tools"><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示にする</label></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">律令政治を立て直すため、平安京に都を移した天皇。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">桓武天皇</span>
           <span class="tc-rd">かんむてんのう</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">桓武天皇</span>
-          <span class="tc-desc">律令政治を立て直すため、平安京に都を移した天皇。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">794年に桓武天皇が移した都。約400年間日本の都となった。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">平安京</span>
           <span class="tc-rd">へいあんきょう</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">平安京</span>
-          <span class="tc-desc">794年に桓武天皇が移した都。約400年間日本の都となった。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">征夷大将軍として東北の蝦夷を平定した人物。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">坂上田村麻呂</span>
           <span class="tc-rd">さかのうえのたむらまろ</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">坂上田村麻呂</span>
-          <span class="tc-desc">征夷大将軍として東北の蝦夷を平定した人物。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">東北の蝦夷を征討するために任命された役職。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">征夷大将軍</span>
           <span class="tc-rd">せいいたいしょうぐん</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">征夷大将軍</span>
-          <span class="tc-desc">東北の蝦夷を征討するために任命された役職。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">唐から帰国後、比叡山延暦寺に天台宗を開いた僧。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">最澄</span>
           <span class="tc-rd">さいちょう</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">最澄</span>
-          <span class="tc-desc">唐から帰国後、比叡山延暦寺に天台宗を開いた僧。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">最澄が比叡山延暦寺で開いた仏教の宗派。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">天台宗</span>
           <span class="tc-rd">てんだいしゅう</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">天台宗</span>
-          <span class="tc-desc">最澄が比叡山延暦寺で開いた仏教の宗派。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">唐で密教を学び、高野山金剛峯寺に真言宗を開いた僧。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">空海</span>
           <span class="tc-rd">くうかい</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">空海</span>
-          <span class="tc-desc">唐で密教を学び、高野山金剛峯寺に真言宗を開いた僧。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
-          <span class="tc-term">真言宗</span>
-          <span class="tc-rd">しんごんしゅう</span>
-          <span class="tc-tap">タップで意味</span>
+          <span class="tc-desc">空海が高野山金剛峯寺で開いた密教の宗派。</span>
+          <span class="tc-tap">タップで用語</span>
         </span>
         <span class="tc-face tc-back">
-          <span class="tc-bterm">真言宗</span>
-          <span class="tc-desc">空海が高野山金剛峯寺で開いた密教の宗派。</span>
+          <span class="tc-term">真言宗</span>
+          <span class="tc-rd">しんごんしゅう</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button></div>
@@ -1129,7 +1200,7 @@
       <a class="wb-btn" href="../../wb/04/index.html#t7"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=04-heian-capital" target="_blank" rel="noopener">
         <span class="ai-ico">🤖</span>
-        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます（無料）</span></span>
+        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
     </div>
@@ -1168,101 +1239,101 @@
     </div>
     <div class="step" data-label="重要語チェック">
       <div class="terms-h">📖 重要語チェック<span class="terms-sub">意味を言えるかな？</span></div>
-      <div class="terms-tools"><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示にする</label></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">藤原氏が娘を天皇の后にし、摂政・関白として実権を握った政治。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">摂関政治</span>
           <span class="tc-rd">せっかんせいじ</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">摂関政治</span>
-          <span class="tc-desc">藤原氏が娘を天皇の后にし、摂政・関白として実権を握った政治。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">天皇が幼いときなどに代わって政治を行う役職。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">摂政</span>
           <span class="tc-rd">せっしょう</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">摂政</span>
-          <span class="tc-desc">天皇が幼いときなどに代わって政治を行う役職。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">成人した天皇を補佐して政治を行う役職。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">関白</span>
           <span class="tc-rd">かんぱく</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">関白</span>
-          <span class="tc-desc">成人した天皇を補佐して政治を行う役職。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">天皇の母方の親戚のこと。藤原氏はこの立場を利用した。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">外戚</span>
           <span class="tc-rd">がいせき</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">外戚</span>
-          <span class="tc-desc">天皇の母方の親戚のこと。藤原氏はこの立場を利用した。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">摂関政治の全盛期を築いた人物。望月の歌で知られる。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">藤原道長</span>
           <span class="tc-rd">ふじわらのみちなが</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">藤原道長</span>
-          <span class="tc-desc">摂関政治の全盛期を築いた人物。望月の歌で知られる。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">藤原道長の子で、平等院鳳凰堂を建立した人物。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">藤原頼通</span>
           <span class="tc-rd">ふじわらのよりみち</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">藤原頼通</span>
-          <span class="tc-desc">藤原道長の子で、平等院鳳凰堂を建立した人物。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">1053年に藤原頼通が宇治に建てた阿弥陀堂。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">平等院鳳凰堂</span>
           <span class="tc-rd">びょうどういんほうおうどう</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">平等院鳳凰堂</span>
-          <span class="tc-desc">1053年に藤原頼通が宇治に建てた阿弥陀堂。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
-          <span class="tc-term">院政</span>
-          <span class="tc-rd">いんせい</span>
-          <span class="tc-tap">タップで意味</span>
+          <span class="tc-desc">退位した天皇(上皇)が実権を握って行う政治。</span>
+          <span class="tc-tap">タップで用語</span>
         </span>
         <span class="tc-face tc-back">
-          <span class="tc-bterm">院政</span>
-          <span class="tc-desc">退位した天皇(上皇)が実権を握って行う政治。</span>
+          <span class="tc-term">院政</span>
+          <span class="tc-rd">いんせい</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button></div>
@@ -1280,7 +1351,7 @@
       <a class="wb-btn" href="../../wb/04/index.html#t8"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=04-sekkan-politics" target="_blank" rel="noopener">
         <span class="ai-ico">🤖</span>
-        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます（無料）</span></span>
+        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
     </div>
@@ -1319,101 +1390,101 @@
     </div>
     <div class="step" data-label="重要語チェック">
       <div class="terms-h">📖 重要語チェック<span class="terms-sub">意味を言えるかな？</span></div>
-      <div class="terms-tools"><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示にする</label></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">唐の文化をふまえながら、日本の風土や生活に合わせて発達した文化。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">国風文化</span>
           <span class="tc-rd">こくふうぶんか</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">国風文化</span>
-          <span class="tc-desc">唐の文化をふまえながら、日本の風土や生活に合わせて発達した文化。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">894年、遣唐使の停止を意見した人物。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">菅原道真</span>
           <span class="tc-rd">すがわらのみちざね</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">菅原道真</span>
-          <span class="tc-desc">894年、遣唐使の停止を意見した人物。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">唐に制度や文化を学ぶために派遣された使節。894年に停止された。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">遣唐使</span>
           <span class="tc-rd">けんとうし</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">遣唐使</span>
-          <span class="tc-desc">唐に制度や文化を学ぶために派遣された使節。894年に停止された。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">漢字をもとに作られた、日本語を書き表すための文字。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">仮名文字</span>
           <span class="tc-rd">かなもじ</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">仮名文字</span>
-          <span class="tc-desc">漢字をもとに作られた、日本語を書き表すための文字。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">長編物語『源氏物語』を書いた女性。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">紫式部</span>
           <span class="tc-rd">むらさきしきぶ</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">紫式部</span>
-          <span class="tc-desc">長編物語『源氏物語』を書いた女性。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">紫式部が書いた、貴族社会を描いた長編物語。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">源氏物語</span>
           <span class="tc-rd">げんじものがたり</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">源氏物語</span>
-          <span class="tc-desc">紫式部が書いた、貴族社会を描いた長編物語。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
+          <span class="tc-desc">随筆『枕草子』を書いた女性。</span>
+          <span class="tc-tap">タップで用語</span>
+        </span>
+        <span class="tc-face tc-back">
           <span class="tc-term">清少納言</span>
           <span class="tc-rd">せいしょうなごん</span>
-          <span class="tc-tap">タップで意味</span>
-        </span>
-        <span class="tc-face tc-back">
-          <span class="tc-bterm">清少納言</span>
-          <span class="tc-desc">随筆『枕草子』を書いた女性。</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
-          <span class="tc-term">枕草子</span>
-          <span class="tc-rd">まくらのそうし</span>
-          <span class="tc-tap">タップで意味</span>
+          <span class="tc-desc">清少納言が宮中の暮らしをつづった随筆。</span>
+          <span class="tc-tap">タップで用語</span>
         </span>
         <span class="tc-face tc-back">
-          <span class="tc-bterm">枕草子</span>
-          <span class="tc-desc">清少納言が宮中の暮らしをつづった随筆。</span>
+          <span class="tc-term">枕草子</span>
+          <span class="tc-rd">まくらのそうし</span>
+          <span class="tc-tap">タップで説明</span>
         </span>
       </span>
     </button></div>
@@ -1431,7 +1502,7 @@
       <a class="wb-btn" href="../../wb/04/index.html#t9"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=04-kokufu-culture" target="_blank" rel="noopener">
         <span class="ai-ico">🤖</span>
-        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます（無料）</span></span>
+        <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
     </div>
@@ -1441,6 +1512,25 @@
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
 </div></div>
+<button class="chat-fab" id="chatFab" aria-label="スタ先生に質問する">🤖</button>
+<section class="chat-panel" id="chatPanel" hidden>
+  <header class="chat-head">
+    <span class="chat-title">🤖 スタ先生に質問</span>
+    <span class="chat-topic" id="chatTopic"></span>
+    <button class="chat-close" id="chatClose" aria-label="閉じる">×</button>
+  </header>
+  <div class="chat-note">公式LINEと同じAI。会話はLINEのトークとつながるよ。</div>
+  <div class="chat-body" id="chatBody"></div>
+  <div class="chat-login" id="chatLogin" hidden>
+    <p>LINEログインすると、このページでスタ先生に質問できるよ。<br>会話のつづきは公式LINEでも話せる！</p>
+    <a class="chat-login-btn" id="chatLoginBtn" href="/welcome">LINEでログイン</a>
+  </div>
+  <form class="chat-input" id="chatForm" hidden>
+    <input type="text" id="chatText" placeholder="この単元の質問をどうぞ！" maxlength="300" autocomplete="off">
+    <button type="submit" id="chatSend">送信</button>
+  </form>
+  <div class="chat-foot" id="chatFoot"></div>
+</section>
 <script>
 (function () {
   var KEY = 'tzmref-04';
@@ -1531,7 +1621,7 @@
     [].forEach.call(document.querySelectorAll('.toc-state'), function (el) {
       var t = +el.dataset.stateT;
       el.className = 'toc-state';
-      if (st['d' + t] === 1) { el.classList.add('done'); el.textContent = '✓ 読んだ'; }
+      if (st['d' + t] === 1) { el.classList.add('done'); el.textContent = '✓︎ 読んだ'; }
       else if (st.last && st.last.t === t && st.last.s > 0) {
         el.classList.add('doing'); el.textContent = 'つづき';
       } else { el.textContent = ''; }
@@ -1579,6 +1669,32 @@
   document.addEventListener('click', function (e) {
     var b = e.target.closest('[data-go]');
     if (b) { go(+b.dataset.go, 0, 1); return; }
+    // 重要語チェックのシャッフル: カードの並びをランダムに入れ替える
+    var sh = e.target.closest('.shuffle-btn');
+    if (sh) {
+      var grid = sh.closest('.step').querySelector('.tgrid');
+      if (grid) {
+        var cards = [].slice.call(grid.querySelectorAll('.tcard'));
+        for (var i = cards.length - 1; i > 0; i--) {
+          var j = Math.floor(Math.random() * (i + 1));
+          var tmp = cards[i]; cards[i] = cards[j]; cards[j] = tmp;
+        }
+        cards.forEach(function (c) { c.classList.remove('flipped'); grid.appendChild(c); });
+        grid.classList.remove('shuffling');
+        void grid.offsetWidth;              // リフローでアニメを再始動
+        grid.classList.add('shuffling');
+      }
+      return;
+    }
+    // 裏表入れ替え（説明→用語 ⇄ 用語→説明）。設定は保存し全単元に反映
+    var sw = e.target.closest('.swap-btn');
+    if (sw) {
+      var g0 = document.querySelector('.tgrid');
+      var on = !(g0 && g0.classList.contains('term-first'));
+      applySwap(on);
+      var st2 = store(); st2.swap = on ? 1 : 0; save(st2);
+      return;
+    }
     // 重要語カード: タップで表裏（両面表示中はめくらない）
     var card = e.target.closest('.tcard');
     if (card && !card.closest('.tgrid').classList.contains('both')) {
@@ -1601,6 +1717,16 @@
   });
   applyBoth(store().both === 1);
 
+  // 裏表入れ替え（用語⇄説明のどちらを先に見せるか。全カード共通・保存）
+  function applySwap(on) {
+    [].forEach.call(document.querySelectorAll('.tgrid'), function (g) {
+      [].forEach.call(g.querySelectorAll('.tcard.flipped'), function (c) { c.classList.remove('flipped'); });
+      g.classList.toggle('term-first', on);
+    });
+    [].forEach.call(document.querySelectorAll('.swap-btn'), function (b) { b.classList.toggle('on', on); });
+  }
+  applySwap(store().swap === 1);
+
   // 左右スワイプでページ送り（縦スクロールと誤爆しないよう横優位のみ）
   var tx = 0, ty = 0;
   document.addEventListener('touchstart', function (e) {
@@ -1622,5 +1748,158 @@
   window.addEventListener('hashchange', fromHash);
   fromHash();
 })();
+</script>
+<script type="module">
+// ── ページ内チャット（スタ先生）──
+// 公式LINEの参考書AI（ref_ask）と知識・会話履歴・1日回数枠を共有する。
+// 認証は www.chatstudy.jp の LINE Login（Firebase Auth）。marutto-study の
+// SPA と同じ localStorage 永続化なので、一度 /welcome でログインすれば共有される。
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js';
+import {
+  initializeAuth, browserLocalPersistence, browserSessionPersistence,
+  inMemoryPersistence, onAuthStateChanged,
+} from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js';
+
+var TOPIC_KEYS = ["04-shotoku-asuka", "04-taika-reform", "04-ritsuryo-nara", "04-handen-tax", "04-tenpyo-culture", "04-heian-capital", "04-sekkan-politics", "04-kokufu-culture"];
+var API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/referenceChat';
+
+var app = initializeApp({
+  apiKey: 'AIzaSyBJuODbPmpu_fiJ8a1ffzDIUwEFszol5Cc',
+  authDomain: 'chatstudy-63477.firebaseapp.com',
+  projectId: 'chatstudy-63477',
+  appId: '1:283901969847:web:9efd3b421e8cdb16091432',
+});
+var auth = initializeAuth(app, {
+  persistence: [browserLocalPersistence, browserSessionPersistence, inMemoryPersistence],
+});
+
+var fab = document.getElementById('chatFab');
+var panel = document.getElementById('chatPanel');
+var body = document.getElementById('chatBody');
+var loginBox = document.getElementById('chatLogin');
+var form = document.getElementById('chatForm');
+var input = document.getElementById('chatText');
+var sendBtn = document.getElementById('chatSend');
+var foot = document.getElementById('chatFoot');
+var topicEl = document.getElementById('chatTopic');
+
+var user = null;
+var loadedTopic = null;   // 履歴取得済みの topicKey
+var busy = false;
+
+function currentTopicKey() {
+  var m = /#t(\d+)/.exec(location.hash);
+  var t = m ? +m[1] : 0;
+  var idx = Math.max(1, Math.min(t, TOPIC_KEYS.length)) - 1;
+  return TOPIC_KEYS[idx];
+}
+function msg(role, text) {
+  var el = document.createElement('div');
+  el.className = 'chat-msg ' + role;
+  el.textContent = text;
+  body.appendChild(el);
+  body.scrollTop = body.scrollHeight;
+  return el;
+}
+function setFoot(remaining) {
+  foot.textContent = remaining != null ? 'きょう あと' + remaining + '回 質問できるよ' : '';
+}
+function showLogin() {
+  loginBox.hidden = false;
+  form.hidden = true;
+  document.getElementById('chatLoginBtn').href =
+    '/welcome?next=' + encodeURIComponent(location.pathname + location.hash);
+}
+function showChat() { loginBox.hidden = true; form.hidden = false; }
+
+async function callApi(payload) {
+  var idToken = await user.getIdToken();
+  var res = await fetch(API, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(Object.assign({ idToken: idToken }, payload)),
+  });
+  var data = null;
+  try { data = await res.json(); } catch (e) { /* no body */ }
+  return { status: res.status, data: data || {} };
+}
+
+async function loadHistory() {
+  var topicKey = currentTopicKey();
+  loadedTopic = topicKey;
+  body.innerHTML = '';
+  var loading = msg('sys', '読み込み中…');
+  try {
+    var r = await callApi({ topicKey: topicKey, action: 'history' });
+    loading.remove();
+    if (r.status === 402) { msg('sys', r.data.message || 'この単元は購入者向けです'); form.hidden = true; return; }
+    if (r.status !== 200) { msg('sys', 'うまく読み込めなかった。開き直してみてね'); return; }
+    topicEl.textContent = r.data.topicName || '';
+    var h = r.data.history || [];
+    if (h.length === 0) {
+      msg('model', 'こんにちは！「' + (r.data.topicName || 'この単元') + '」でわからないことがあったら、なんでも聞いてね😊');
+    } else {
+      msg('sys', '── ここまでの会話（LINEと共有）──');
+      h.forEach(function (turn) { msg(turn.role === 'user' ? 'user' : 'model', turn.text); });
+    }
+    setFoot(r.data.remaining);
+    showChat();
+  } catch (e) {
+    loading.textContent = '通信エラー。電波のよいところで開き直してみてね';
+  }
+}
+
+async function send(text) {
+  if (busy) return;
+  busy = true;
+  sendBtn.disabled = true;
+  msg('user', text);
+  var waiting = msg('sys', 'スタ先生が考え中…');
+  try {
+    var r = await callApi({ topicKey: loadedTopic || currentTopicKey(), action: 'send', text: text });
+    waiting.remove();
+    if (r.status === 200) {
+      msg('model', r.data.answer);
+      setFoot(r.data.remaining);
+    } else if (r.data && r.data.message) {
+      msg('sys', r.data.message);
+    } else {
+      msg('sys', 'ごめんね、いまうまく答えられなかった。もう一度送ってみてね');
+    }
+  } catch (e) {
+    waiting.textContent = '通信エラー。もう一度送ってみてね';
+  }
+  busy = false;
+  sendBtn.disabled = false;
+}
+
+fab.addEventListener('click', function () {
+  panel.hidden = false;
+  fab.classList.add('hidden');
+  if (!user) { showLogin(); return; }
+  if (loadedTopic !== currentTopicKey()) loadHistory();
+});
+document.getElementById('chatClose').addEventListener('click', function () {
+  panel.hidden = true;
+  fab.classList.remove('hidden');
+});
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  var text = input.value.trim();
+  if (!text) return;
+  input.value = '';
+  send(text);
+});
+// 単元を移動したら（パネルを開いたまま）その単元の会話に切り替える
+window.addEventListener('hashchange', function () {
+  if (!panel.hidden && user && loadedTopic !== currentTopicKey()) loadHistory();
+});
+
+onAuthStateChanged(auth, function (u) {
+  user = u;
+  if (panel.hidden) return;
+  if (!u) { showLogin(); return; }
+  loadHistory();
+});
 </script>
 </body></html>
