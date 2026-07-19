@@ -88,7 +88,9 @@
             color:#fff; display:inline-flex; align-items:center; justify-content:center;
             font-size:12px; padding:0 4px; }
   .toc-name { flex:1; }
-  .toc-state { flex:none; font-size:11px; font-weight:bold; }
+  /* 高さ固定: ✓ が絵文字グリフで描画される環境でも行高が揺れないように */
+  .toc-state { flex:none; font-size:11px; font-weight:bold; line-height:1;
+               display:inline-flex; align-items:center; height:20px; }
   .toc-state.done { color:var(--ok); }
   .toc-state.doing { color:var(--brand); background:#fffbeb; border:1px solid var(--line);
                      border-radius:10px; padding:1px 8px; }
@@ -119,6 +121,52 @@
   .ref-link { display:inline-block; font-size:13px; font-weight:bold; color:var(--brand);
               text-decoration:none; border:1.5px solid var(--line); background:#fffbeb;
               border-radius:16px; padding:5px 14px; margin-bottom:10px; }
+
+  /* ── やり方（モード）選択 ── */
+  .mode-btn { display:block; width:100%; text-align:left; margin-top:10px; border:1.5px solid #e2d5bd;
+              border-radius:14px; padding:12px 16px; font-size:15px; font-weight:bold; color:#44403c;
+              background:#fff; cursor:pointer; font-family:inherit; line-height:1.5; }
+  .mode-btn .mode-sub { display:block; font-weight:normal; font-size:12px; color:#a8a29e; margin-top:2px; }
+  .mode-reco { background:var(--brand); border-color:var(--brand); color:#fff;
+               box-shadow:0 3px 8px rgba(180,83,9,.3); }
+  .mode-reco .mode-sub { color:rgba(255,255,255,.85); }
+  .mode-opts { margin:6px 0 2px 10px; display:flex; flex-direction:column; gap:5px; }
+  .opt-row { font-size:12.5px; font-weight:bold; color:#78716c; display:flex; align-items:center; gap:6px; }
+  .opt-chip { border:1.5px solid #e2d5bd; background:#fff; color:#78716c; border-radius:14px;
+              padding:3px 12px; font-size:12px; font-weight:bold; cursor:pointer; font-family:inherit; }
+  .opt-chip.on { background:#fffbeb; border-color:var(--amber); color:var(--brand); }
+
+  /* ── 一問一答 まとめて採点 ── */
+  .bq-item { border-top:1px dashed #e2d5bd; padding:10px 0; }
+  .bq-item:first-of-type { border-top:none; }
+  .bq-q { font-weight:bold; }
+  .bq-item .marks { margin-top:8px; }
+  .mk.sel { background:#fffbeb; box-shadow:inset 0 0 0 2px currentColor; }
+
+  /* ── 一問一答 入力して判定（.view.ans-type のときだけ入力UIを出す）── */
+  .b-inrow { display:none; gap:8px; margin-top:10px; }
+  .b-in { flex:1; min-width:0; border:1.5px solid #e2d5bd; border-radius:12px; padding:10px 12px;
+          font-size:16px; font-family:inherit; background:#fff; }
+  .b-in:focus { outline:none; border-color:var(--amber); }
+  .b-judge { flex:none; border:none; border-radius:12px; background:var(--brand); color:#fff;
+             font-weight:bold; font-size:14px; padding:0 18px; cursor:pointer; font-family:inherit; }
+  .b-idk { display:none; margin-top:8px; background:none; border:none; color:#a8a29e;
+           font-size:12.5px; text-decoration:underline; cursor:pointer; font-family:inherit; }
+  .b-batch-judge { display:none; width:100%; margin-top:14px; border:none; border-radius:12px;
+                   background:var(--brand); color:#fff; font-weight:bold; font-size:15px;
+                   padding:12px; cursor:pointer; font-family:inherit;
+                   box-shadow:0 2px 6px rgba(180,83,9,.3); }
+  .ans-type .qa-step .b-inrow, .ans-type .qa-batch-step .b-inrow { display:flex; }
+  .ans-type .qa-step .b-idk { display:inline-block; }
+  .ans-type .qa-step .reveal, .ans-type .batch-grade { display:none; }
+  .ans-type .qa-step .marks, .ans-type .qa-batch-step .marks { display:none; }
+  .ans-type .b-batch-judge { display:block; }
+  .show .b-batch-judge, .show .b-inrow .b-judge { display:none; }
+  .show .b-in { pointer-events:none; background:#faf8f2; }
+  .b-result { font-weight:bold; font-size:16px; margin-bottom:4px; }
+  .b-result:empty { display:none; }
+  .b-result.ok { color:var(--ok); }
+  .b-result.ng { color:var(--ng); }
 
   /* 穴埋めチップ */
   .summary { background:#fff; border:1.5px solid #e2d5bd; border-radius:12px; padding:12px 14px;
@@ -223,7 +271,23 @@
   .btn-sub { display:block; font-weight:normal; font-size:12px; opacity:.9; }
   .ref-btn { background:#fffbeb; color:var(--brand); border:1.5px solid var(--line); }
   .retry-btn { background:#fff; color:#57534e; border:1.5px solid #e2d5bd; }
+  .home-btn { background:#fff; color:#57534e; border:1.5px solid #e2d5bd; }
   .print-btn { background:#fff; color:#57534e; border:1.5px solid #e2d5bd; }
+  /* すごろく（本一覧）へ戻るリンク */
+  .home-link { display:inline-block; margin:10px 0 0; font-size:13px; font-weight:bold;
+               color:var(--brand); text-decoration:none; background:#fffbeb;
+               border:1.5px solid var(--line); border-radius:16px; padding:6px 14px; }
+  /* まちがえた問題だけやり直す */
+  .wrong-btn { background:#fef2f2; color:var(--ng); border:1.5px solid #fecaca; }
+  .wrong-btn[hidden] { display:none; }
+  /* ほかの解き方でもう一度（形式チップ） */
+  .next-modes { margin-top:14px; background:#fff; border:1.5px solid var(--line); border-radius:14px;
+                padding:12px 14px; }
+  .nm-h { font-size:13px; font-weight:bold; color:var(--deep); margin-bottom:8px; }
+  .nm-chips { display:flex; flex-wrap:wrap; gap:8px; }
+  .chip-mode { flex:1 1 auto; min-width:calc(50% - 4px); border:1.5px solid #e2d5bd; background:#fffbeb;
+               color:var(--brand); border-radius:12px; padding:10px 8px; font-size:14px; font-weight:bold;
+               cursor:pointer; font-family:inherit; }
 
   .foot { text-align:center; margin-top:32px; color:#a8a29e; font-size:13px; }
   .foot-note { margin-top:4px; font-size:12px; }
@@ -238,11 +302,32 @@
   .nb-prev { flex:1; background:#fff; color:var(--brand); border:1.5px solid var(--line); }
   .nb-next { flex:2; background:var(--brand); color:#fff; box-shadow:0 3px 8px rgba(180,83,9,.3); }
 
+  /* ── ホバー: マウスを乗せると「押せる」ことが分かる（タッチ端末では固着しないよう hover 端末限定）── */
+  @media (hover: hover) {
+    .tab, .toc-item, .reveal, .reveal-all, .batch-grade, .mk, .mopt, .blank,
+    .big-btn, .nb, .resume, .mode-btn, .opt-chip, .b-judge, .b-idk, .b-batch-judge,
+    .ref-link, .line-mini, .b-in, .reveal-all,
+    .qz-step:not(.answered) .qopt {
+      transition: filter .12s ease, background-color .12s ease; }
+    /* 色つき（塗り）ボタンは少し濃くして「押せる」感を出す */
+    .tab:hover, .reveal:hover, .batch-grade:hover, .big-btn:hover, .nb:hover,
+    .resume:hover, .mode-reco:hover, .b-judge:hover, .b-batch-judge:hover,
+    .mk:hover, .mopt:hover, .line-mini:hover { filter: brightness(0.94); }
+    /* 白・枠線ボタン／リストは薄いアンバーで下地を変えて分かりやすく */
+    .toc-item:hover, .mode-btn:hover, .opt-chip:hover, .reveal-all:hover,
+    .ref-link:hover, .b-idk:hover, .blank:hover,
+    .qz-step:not(.answered) .qopt:hover { background-color: #fff8ec; }
+    .b-in:hover { border-color: var(--amber); }
+    /* 回答済みの4択・対応は押せないのでカーソルも通常に */
+    .qz-step.answered .qopt, .m-item[data-done] .mopt { cursor: default; }
+  }
+
   /* ── 印刷（紙のワークとして使える） ── */
   @media print {
     body { background:#fff; padding-bottom:0; font-size:10.5pt; line-height:1.8; }
     .bar, .navbar, .resume, .reveal, .marks, .reveal-all-row, .w-input, .line-mini,
     .big-btn, .qa-expl, .expl, .tap-hint, .toc-state, .home-howto, .howto, .m-btns { display:none !important; }
+    .mode-step, .qa-batch-step, .b-inrow, .b-idk, .b-batch-judge, .b-result { display:none !important; }
     .print-only { display:block !important; }
     .view { display:block !important; }
     .step { display:block !important; margin-bottom:14px; break-inside:avoid; }
@@ -284,13 +369,14 @@
 <main class="wrap" id="views">
 
 <section class="view home" data-t="0">
+  <a class="home-link" href="../../index.html">🗺 すごろく（本一覧）へもどる</a>
   <header class="top">
     <div class="badge">歴史 ⑲　問題集 <span class="webtag">Web版</span></div>
     <h1>現代の世界</h1>
     <div class="sub">冷戦終結 〜 令和</div>
     <div class="home-cheer"><img class="wchar" src="img/characters_char_manabi_sm.png" alt=""><span class="sp-bubble sp-taill">いっしょに がんばろう！</span></div>
-    <div class="howto home-howto">タブか下のリストから選んで、1問ずつ解いていこう！<br>
-    要点まとめ → 一問一答 → 4択 → 記述の順で力がつくよ。</div>
+    <div class="howto home-howto">タブか下のリストから単元を選ぼう！<br>
+    やり方（おすすめ順・穴埋め・一問一答・4択・記述）は単元を開いてから選べるよ。</div>
   </header>
   <button class="resume" id="resumeBtn" hidden>▶ つづきから解く<span id="resumeWhere"></span></button>
   <nav class="toc">
@@ -316,18 +402,37 @@
 <section class="view" data-t="2">
   <div class="tband"><span class="tno">1</span><h2>冷戦の終結</h2><img class="wchar tchar" src="img/characters_char_pencil_sm.png" alt=""></div>
   
-    <div class="step" data-label="A 要点まとめ">
+    <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
+      <div class="sec-h"><span class="sec-tag">▶</span>やり方をえらぼう<span class="sec-note">目次にもどれば何度でも変えられるよ</span></div>
+      <button class="mode-btn mode-reco" type="button" data-mode="all">⭐ おすすめ順でぜんぶ解く<span class="mode-sub">要点まとめ → 一問一答 → 4択 → 記述</span></button>
+      <button class="mode-btn" type="button" data-mode="A">🕳 穴埋め（要点まとめ）だけ<span class="mode-sub">（　）をタップして確かめる</span></button>
+      <button class="mode-btn" type="button" data-mode="B">✍️ 一問一答（短答）だけ<span class="mode-sub">14問・入力して自動で正誤判定</span></button>
+      <div class="mode-opts">
+        <div class="opt-row">解答：<button class="opt-chip on" type="button" data-opt="ansB" data-val="0">⌨️ 入力して判定</button><button class="opt-chip" type="button" data-opt="ansB" data-val="1">入力せず答えだけ確認</button></div>
+        <div class="opt-row">採点：<button class="opt-chip on" type="button" data-opt="batch" data-val="0">一問ずつ</button><button class="opt-chip" type="button" data-opt="batch" data-val="1">まとめて</button></div>
+        <div class="opt-row">順番：<button class="opt-chip on" type="button" data-opt="shufB" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufB" data-val="1">シャッフル</button></div>
+      </div>
+      <button class="mode-btn" type="button" data-mode="C">✅ 4択（選択）だけ<span class="mode-sub">8問・タップで即判定</span></button>
+      <div class="mode-opts">
+        <div class="opt-row">順番：<button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
+      </div>
+      <button class="mode-btn" type="button" data-mode="D">📝 記述だけ<span class="mode-sub">3問・模範解答つき</span></button>
+    </div>
+    <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/19/index.html#t1">📖 先に参考書で理解する</a>
       <div class="summary">1989年、東西ドイツを分けていた<button class="blank" type="button"><span class="bno">①</span><span class="ba">ベルリンの壁</span><span class="bl" style="width:5.4em"></span></button>が崩壊した。同じ年、ソ連の指導者<button class="blank" type="button"><span class="bno">②</span><span class="ba">ゴルバチョフ</span><span class="bl" style="width:5.4em"></span></button>とアメリカの首脳は<button class="blank" type="button"><span class="bno">③</span><span class="ba">マルタ会談</span><span class="bl" style="width:4.5em"></span></button>を開き、長く続いた冷戦の終結を宣言した。1990年には東西の<button class="blank" type="button"><span class="bno">④</span><span class="ba">ドイツ</span><span class="bl" style="width:2.7em"></span></button>が統一され、1991年には<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">ソ連</span><span class="bl" style="width:2.7em"></span></button>が解体して15の共和国に分かれた。同じ年、イラクのクウェート侵攻をきっかけに<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">湾岸戦争</span><span class="bl" style="width:3.6em"></span></button>が起こった。1993年にはヨーロッパの統合を進める<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">EU</span><span class="bl" style="width:2.7em"></span></button>が発足し、のちに共通通貨も導入された。2001年にはアメリカで<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">同時多発テロ</span><span class="bl" style="width:5.4em"></span></button>が起こり、その後の戦争を経て2003年の<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">イラク戦争</span><span class="bl" style="width:4.5em"></span></button>では独裁政権が倒された。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-cold-war-end-1" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">1 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-cold-war-end-1" data-kind="qa" data-sec="B" data-a="冷戦" data-r="れいせん">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 14</span></span></div>
       <div class="q-text">1989年のマルタ会談で、アメリカとソ連の首脳が終結を宣言した対立は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>冷戦<rt>れいせん</rt></ruby></div>
         <div class="qa-expl">1989年のマルタ会談で、アメリカとソ連の首脳が、長く続いた冷戦を終わらせると宣言しました。</div>
         <div class="marks">
@@ -336,12 +441,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (2/14)" data-qid="qa-cold-war-end-2" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">2 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (2/14)" data-qid="qa-cold-war-end-2" data-kind="qa" data-sec="B" data-a="1989年" data-r="1989年">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">2 / 14</span></span></div>
       <div class="q-text">ベルリンの壁崩壊・マルタ会談の年は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1989年</div>
         <div class="qa-expl">1989年は、ベルリンの壁が崩れ、マルタ会談で冷戦の終結が宣言された、世界が大きく変わった年です。</div>
         <div class="marks">
@@ -350,12 +458,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (3/14)" data-qid="qa-cold-war-end-3" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">3 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (3/14)" data-qid="qa-cold-war-end-3" data-kind="qa" data-sec="B" data-a="ベルリンの壁崩壊" data-r="ベルリンの壁ほうかい">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">3 / 14</span></span></div>
       <div class="q-text">1989年11月、東西ドイツを隔てる壁が壊された出来事は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ベルリンの壁<ruby>崩壊<rt>ほうかい</rt></ruby></div>
         <div class="qa-expl">1989年11月、東西ドイツを分けていたベルリンの壁が崩れ、翌1990年のドイツ統一につながりました。</div>
         <div class="marks">
@@ -364,12 +475,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (4/14)" data-qid="qa-cold-war-end-4" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">4 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (4/14)" data-qid="qa-cold-war-end-4" data-kind="qa" data-sec="B" data-a="ゴルバチョフ" data-r="ゴルバチョフ">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">4 / 14</span></span></div>
       <div class="q-text">ソ連で改革を進め冷戦終結を主導した最後の指導者は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ゴルバチョフ</div>
         <div class="qa-expl">ゴルバチョフはソ連最後の指導者です。国内改革を進め、1989年のマルタ会談で冷戦終結を宣言しました。</div>
         <div class="marks">
@@ -378,12 +492,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (5/14)" data-qid="qa-cold-war-end-5" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">5 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (5/14)" data-qid="qa-cold-war-end-5" data-kind="qa" data-sec="B" data-a="ペレストロイカ" data-r="ペレストロイカ">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">5 / 14</span></span></div>
       <div class="q-text">ゴルバチョフが進めた政治・経済の改革は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ペレストロイカ</div>
         <div class="qa-expl">ペレストロイカは、1980年代後半にゴルバチョフが進めたソ連の改革です。「建て直し」という意味です。</div>
         <div class="marks">
@@ -392,12 +509,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (6/14)" data-qid="qa-cold-war-end-6" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">6 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (6/14)" data-qid="qa-cold-war-end-6" data-kind="qa" data-sec="B" data-a="ドイツ" data-r="ドイツ">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">6 / 14</span></span></div>
       <div class="q-text">1990年に、東西に分かれていたものが再統一された国は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ドイツ</div>
         <div class="qa-expl">1990年、東ドイツと西ドイツが一つの国に戻りました。冷戦が終わる時代を表す大きな出来事です。</div>
         <div class="marks">
@@ -406,12 +526,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (7/14)" data-qid="qa-cold-war-end-7" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">7 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (7/14)" data-qid="qa-cold-war-end-7" data-kind="qa" data-sec="B" data-a="ソ連" data-r="ソれん">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">7 / 14</span></span></div>
       <div class="q-text">1991年に解体し、15の共和国に分かれた国は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ソ<ruby>連<rt>れん</rt></ruby></div>
         <div class="qa-expl">1991年、ソ連は解体してロシアなど15の共和国に分かれました。世界の国どうしの関係も大きく変わりました。</div>
         <div class="marks">
@@ -420,12 +543,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (8/14)" data-qid="qa-cold-war-end-8" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">8 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (8/14)" data-qid="qa-cold-war-end-8" data-kind="qa" data-sec="B" data-a="1991年" data-r="1991年">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">8 / 14</span></span></div>
       <div class="q-text">ソ連が解体した年は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1991年</div>
         <div class="qa-expl">1991年12月にソ連が解体し、ロシアなど15の共和国に分かれました。冷戦の時代が終わった年です。</div>
         <div class="marks">
@@ -434,12 +560,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (9/14)" data-qid="qa-cold-war-end-9" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">9 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (9/14)" data-qid="qa-cold-war-end-9" data-kind="qa" data-sec="B" data-a="湾岸戦争" data-r="わんがんせんそう">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">9 / 14</span></span></div>
       <div class="q-text">1991年、イラクのクウェート侵攻を受けて多国籍軍がイラクを攻撃した戦争は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>湾岸<rt>わんがん</rt></ruby><ruby>戦争<rt>せんそう</rt></ruby></div>
         <div class="qa-expl">湾岸戦争は、イラクがクウェートに攻めこんだことをきっかけに、1991年に起こった戦争です。</div>
         <div class="marks">
@@ -448,12 +577,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (10/14)" data-qid="qa-cold-war-end-10" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">10 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (10/14)" data-qid="qa-cold-war-end-10" data-kind="qa" data-sec="B" data-a="EU（ヨーロッパ連合）" data-r="EU（ヨーロッパれんごう）">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">10 / 14</span></span></div>
       <div class="q-text">1993年に発足したヨーロッパの統合機構は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">EU（ヨーロッパ<ruby>連合<rt>れんごう</rt></ruby>）</div>
         <div class="qa-expl">EUは1993年に発足した、ヨーロッパの国々のまとまりです。経済や政治で協力を進めています。</div>
         <div class="marks">
@@ -462,12 +594,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (11/14)" data-qid="qa-cold-war-end-11" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">11 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (11/14)" data-qid="qa-cold-war-end-11" data-kind="qa" data-sec="B" data-a="1993年" data-r="1993年">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">11 / 14</span></span></div>
       <div class="q-text">EUが発足した年は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1993年</div>
         <div class="qa-expl">1993年、EU（ヨーロッパ連合）が発足しました。ヨーロッパの国々がより強く協力するしくみです。</div>
         <div class="marks">
@@ -476,12 +611,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (12/14)" data-qid="qa-cold-war-end-12" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">12 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (12/14)" data-qid="qa-cold-war-end-12" data-kind="qa" data-sec="B" data-a="ユーロ" data-r="ユーロ">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">12 / 14</span></span></div>
       <div class="q-text">EUで導入された共通通貨は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ユーロ</div>
         <div class="qa-expl">ユーロはEUの共通通貨です。1999年に使われ始め、2002年から紙幣や硬貨も広く使われました。</div>
         <div class="marks">
@@ -490,12 +628,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (13/14)" data-qid="qa-cold-war-end-13" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">13 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (13/14)" data-qid="qa-cold-war-end-13" data-kind="qa" data-sec="B" data-a="アメリカ同時多発テロ" data-r="アメリカどうじたはつテロ">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">13 / 14</span></span></div>
       <div class="q-text">2001年9月11日に起きたテロ事件は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">アメリカ<ruby>同時<rt>どうじ</rt></ruby><ruby>多発<rt>たはつ</rt></ruby>テロ</div>
         <div class="qa-expl">2001年9月11日にアメリカで起きた大きなテロ事件です。その後のアフガニスタン戦争などにつながりました。</div>
         <div class="marks">
@@ -504,12 +645,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (14/14)" data-qid="qa-cold-war-end-14" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">14 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (14/14)" data-qid="qa-cold-war-end-14" data-kind="qa" data-sec="B" data-a="2001年9月11日" data-r="2001年9月11日">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">14 / 14</span></span></div>
       <div class="q-text">アメリカ同時多発テロが起きた日は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">2001年9月11日</div>
         <div class="qa-expl">2001年9月11日、ニューヨークのビルなどが旅客機で攻撃され、アメリカ同時多発テロが起きました。</div>
         <div class="marks">
@@ -518,56 +662,247 @@
         </div>
       </div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (1/8)" data-qid="qz-cold-war-end-1" data-kind="qz" data-c="3">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">1 / 8　正しいものを選ぼう</span></div>
+    <div class="step qa-batch-step" data-label="B 一問一答（まとめて採点）" data-sec="BB">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">全14問・まとめて採点</span></div>
+      <div class="howto">まず全部の問題にこたえてから、下のボタンでまとめて答え合わせしよう！</div>
+      
+      <div class="bq-item" data-qid="qa-cold-war-end-1" data-a="冷戦" data-r="れいせん">
+        <div class="bq-q"><span class="qa-no">(1)</span>1989年のマルタ会談で、アメリカとソ連の首脳が終結を宣言した対立は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a"><ruby>冷戦<rt>れいせん</rt></ruby></div>
+          <div class="qa-expl">1989年のマルタ会談で、アメリカとソ連の首脳が、長く続いた冷戦を終わらせると宣言しました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-cold-war-end-2" data-a="1989年" data-r="1989年">
+        <div class="bq-q"><span class="qa-no">(2)</span>ベルリンの壁崩壊・マルタ会談の年は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">1989年</div>
+          <div class="qa-expl">1989年は、ベルリンの壁が崩れ、マルタ会談で冷戦の終結が宣言された、世界が大きく変わった年です。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-cold-war-end-3" data-a="ベルリンの壁崩壊" data-r="ベルリンの壁ほうかい">
+        <div class="bq-q"><span class="qa-no">(3)</span>1989年11月、東西ドイツを隔てる壁が壊された出来事は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">ベルリンの壁<ruby>崩壊<rt>ほうかい</rt></ruby></div>
+          <div class="qa-expl">1989年11月、東西ドイツを分けていたベルリンの壁が崩れ、翌1990年のドイツ統一につながりました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-cold-war-end-4" data-a="ゴルバチョフ" data-r="ゴルバチョフ">
+        <div class="bq-q"><span class="qa-no">(4)</span>ソ連で改革を進め冷戦終結を主導した最後の指導者は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">ゴルバチョフ</div>
+          <div class="qa-expl">ゴルバチョフはソ連最後の指導者です。国内改革を進め、1989年のマルタ会談で冷戦終結を宣言しました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-cold-war-end-5" data-a="ペレストロイカ" data-r="ペレストロイカ">
+        <div class="bq-q"><span class="qa-no">(5)</span>ゴルバチョフが進めた政治・経済の改革は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">ペレストロイカ</div>
+          <div class="qa-expl">ペレストロイカは、1980年代後半にゴルバチョフが進めたソ連の改革です。「建て直し」という意味です。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-cold-war-end-6" data-a="ドイツ" data-r="ドイツ">
+        <div class="bq-q"><span class="qa-no">(6)</span>1990年に、東西に分かれていたものが再統一された国は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">ドイツ</div>
+          <div class="qa-expl">1990年、東ドイツと西ドイツが一つの国に戻りました。冷戦が終わる時代を表す大きな出来事です。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-cold-war-end-7" data-a="ソ連" data-r="ソれん">
+        <div class="bq-q"><span class="qa-no">(7)</span>1991年に解体し、15の共和国に分かれた国は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">ソ<ruby>連<rt>れん</rt></ruby></div>
+          <div class="qa-expl">1991年、ソ連は解体してロシアなど15の共和国に分かれました。世界の国どうしの関係も大きく変わりました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-cold-war-end-8" data-a="1991年" data-r="1991年">
+        <div class="bq-q"><span class="qa-no">(8)</span>ソ連が解体した年は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">1991年</div>
+          <div class="qa-expl">1991年12月にソ連が解体し、ロシアなど15の共和国に分かれました。冷戦の時代が終わった年です。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-cold-war-end-9" data-a="湾岸戦争" data-r="わんがんせんそう">
+        <div class="bq-q"><span class="qa-no">(9)</span>1991年、イラクのクウェート侵攻を受けて多国籍軍がイラクを攻撃した戦争は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a"><ruby>湾岸<rt>わんがん</rt></ruby><ruby>戦争<rt>せんそう</rt></ruby></div>
+          <div class="qa-expl">湾岸戦争は、イラクがクウェートに攻めこんだことをきっかけに、1991年に起こった戦争です。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-cold-war-end-10" data-a="EU（ヨーロッパ連合）" data-r="EU（ヨーロッパれんごう）">
+        <div class="bq-q"><span class="qa-no">(10)</span>1993年に発足したヨーロッパの統合機構は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">EU（ヨーロッパ<ruby>連合<rt>れんごう</rt></ruby>）</div>
+          <div class="qa-expl">EUは1993年に発足した、ヨーロッパの国々のまとまりです。経済や政治で協力を進めています。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-cold-war-end-11" data-a="1993年" data-r="1993年">
+        <div class="bq-q"><span class="qa-no">(11)</span>EUが発足した年は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">1993年</div>
+          <div class="qa-expl">1993年、EU（ヨーロッパ連合）が発足しました。ヨーロッパの国々がより強く協力するしくみです。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-cold-war-end-12" data-a="ユーロ" data-r="ユーロ">
+        <div class="bq-q"><span class="qa-no">(12)</span>EUで導入された共通通貨は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">ユーロ</div>
+          <div class="qa-expl">ユーロはEUの共通通貨です。1999年に使われ始め、2002年から紙幣や硬貨も広く使われました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-cold-war-end-13" data-a="アメリカ同時多発テロ" data-r="アメリカどうじたはつテロ">
+        <div class="bq-q"><span class="qa-no">(13)</span>2001年9月11日に起きたテロ事件は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">アメリカ<ruby>同時<rt>どうじ</rt></ruby><ruby>多発<rt>たはつ</rt></ruby>テロ</div>
+          <div class="qa-expl">2001年9月11日にアメリカで起きた大きなテロ事件です。その後のアフガニスタン戦争などにつながりました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-cold-war-end-14" data-a="2001年9月11日" data-r="2001年9月11日">
+        <div class="bq-q"><span class="qa-no">(14)</span>アメリカ同時多発テロが起きた日は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">2001年9月11日</div>
+          <div class="qa-expl">2001年9月11日、ニューヨークのビルなどが旅客機で攻撃され、アメリカ同時多発テロが起きました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="reveal-all-row">
+        <button class="reveal batch-grade" type="button">こたえをまとめて表示して採点する</button>
+        <button class="b-batch-judge" type="button">入力したこたえをまとめて採点する</button>
+      </div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (1/8)" data-qid="qz-cold-war-end-1" data-kind="qz" data-c="3" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">1 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">ベルリンの壁が崩壊した年は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">1985年</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">1993年</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">1991年</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">1989年</span></button></div>
       <div class="expl hidden-until">💡 1989年11月にベルリンの壁が崩れました。これが翌1990年のドイツ統一や冷戦終結への大きな流れになりました。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-cold-war-end-2" data-kind="qz" data-c="2">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">2 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-cold-war-end-2" data-kind="qz" data-c="2" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">2 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">ゴルバチョフが進めた改革は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">グラスノスチ</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">改革開放</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">ペレストロイカ</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">五か年計画</span></button></div>
       <div class="expl hidden-until">💡 ペレストロイカは、1980年代後半にゴルバチョフが進めたソ連改革です。「建て直し」という意味です。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-cold-war-end-3" data-kind="qz" data-c="3">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">3 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-cold-war-end-3" data-kind="qz" data-c="3" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">3 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">東西ドイツ統一の年は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">1989年</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">1993年</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">1991年</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">1990年</span></button></div>
       <div class="expl hidden-until">💡 1989年にベルリンの壁が崩れたあと、1990年に東西ドイツが統一されました。冷戦終結を表す出来事です。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-cold-war-end-4" data-kind="qz" data-c="2">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">4 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-cold-war-end-4" data-kind="qz" data-c="2" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">4 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">EUの共通通貨は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">マルク</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">ドル</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">ユーロ</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">ポンド</span></button></div>
       <div class="expl hidden-until">💡 EUの共通通貨はユーロです。1999年に導入され、2002年から紙幣や硬貨も広く使われるようになりました。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-cold-war-end-5" data-kind="qz" data-c="2">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">5 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-cold-war-end-5" data-kind="qz" data-c="2" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">5 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">湾岸戦争のきっかけとなった、1990年にイラクが侵攻した国は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">サウジアラビア</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">トルコ</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">クウェート</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">イラン</span></button></div>
       <div class="expl hidden-until">💡 1990年にイラクがクウェートに攻めこんだことがきっかけで、翌1991年に湾岸戦争が起こりました。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-cold-war-end-6" data-kind="qz" data-c="0">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">6 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-cold-war-end-6" data-kind="qz" data-c="0" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">6 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">2003年にアメリカが「大量破壊兵器の保有」を理由に始め、中東の独裁政権を崩壊させた戦争は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">イラク戦争</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">湾岸戦争</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">アフガニスタン戦争</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">第4次中東戦争</span></button></div>
       <div class="expl hidden-until">💡 2003年、アメリカはイラクに攻めこみ、フセイン政権を倒しました。これがイラク戦争です。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-cold-war-end-7" data-kind="qz" data-c="1">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">7 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-cold-war-end-7" data-kind="qz" data-c="1" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">7 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">冷戦終結を宣言した会談は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ポツダム会談</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">マルタ会談</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">プラザ合意</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">ヤルタ会談</span></button></div>
       <div class="expl hidden-until">💡 1989年12月のマルタ会談で、アメリカとソ連の首脳が会い、冷戦を終わらせることを宣言しました。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-cold-war-end-8" data-kind="qz" data-c="0">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">8 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-cold-war-end-8" data-kind="qz" data-c="0" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">8 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">アフガニスタン戦争のきっかけとなった事件は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">アメリカ同時多発テロ</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">湾岸戦争</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">クウェート侵攻</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">ソ連解体</span></button></div>
       <div class="expl hidden-until">💡 2001年9月11日の同時多発テロのあと、アメリカはアフガニスタンを攻撃し、戦争が始まりました。</div>
     </div>
-    <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-cold-war-end-1" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">1 / 3　文章で説明しよう</span></div>
+    <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-cold-war-end-1" data-kind="qa" data-sec="D">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">1 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">1991年に湾岸戦争が起こったのはなぜか、説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">クウェート</span></div>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
@@ -582,8 +917,8 @@
         <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%86%B7%E6%88%A6%E3%81%AE%E7%B5%82%E7%B5%90" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
       </div>
     </div>
-    <div class="step wr-step" data-label="D 記述問題 (2/3)" data-qid="wr-cold-war-end-2" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">2 / 3　文章で説明しよう</span></div>
+    <div class="step wr-step" data-label="D 記述問題 (2/3)" data-qid="wr-cold-war-end-2" data-kind="qa" data-sec="D">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">2 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">2001年の同時多発テロの後、アメリカが大量破壊兵器の保有を理由に2003年に攻撃した国はどこか。その後の経過にふれて説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">イラク戦争</span><span class="kw-chip">大量破壊兵器</span></div>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
@@ -598,8 +933,8 @@
         <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%86%B7%E6%88%A6%E3%81%AE%E7%B5%82%E7%B5%90" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
       </div>
     </div>
-    <div class="step wr-step" data-label="D 記述問題 (3/3)" data-qid="wr-cold-war-end-3" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">3 / 3　文章で説明しよう</span></div>
+    <div class="step wr-step" data-label="D 記述問題 (3/3)" data-qid="wr-cold-war-end-3" data-kind="qa" data-sec="D">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">3 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">冷戦の終結はどのように宣言されたか、説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">ベルリンの壁</span><span class="kw-chip">マルタ会談</span></div>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
@@ -614,29 +949,54 @@
         <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%86%B7%E6%88%A6%E3%81%AE%E7%B5%82%E7%B5%90" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
       </div>
     </div>
-    <div class="step done-step" data-label="結果">
+    <div class="step done-step" data-label="結果" data-sec="Z">
       <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「冷戦の終結」おつかれさま！</span></div>
       <div class="score-box" data-score></div>
-      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%86%B7%E6%88%A6%E3%81%AE%E7%B5%82%E7%B5%90" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
+      <button class="big-btn wrong-btn" type="button" data-mode="wrong" hidden>🔴 まちがえた問題だけやり直す<span class="btn-sub" data-wrong-sub></span></button>
+      <div class="next-modes">
+        <div class="nm-h">ほかの解き方でもう一度</div>
+        <div class="nm-chips"><button class="chip-mode" type="button" data-mode="A">🕳 穴埋め</button><button class="chip-mode" type="button" data-mode="B">✍️ 短答</button><button class="chip-mode" type="button" data-mode="C">✅ 4択</button><button class="chip-mode" type="button" data-mode="D">📝 記述</button></div>
+      </div>
       <a class="big-btn ref-btn" href="../../ref/19/index.html#t1">📖 参考書でおさらいする</a>
-      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元をもう一度とく</button>
+      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%86%B7%E6%88%A6%E3%81%AE%E7%B5%82%E7%B5%90" target="_blank" rel="noopener">🤖 LINEでこの単元を出題してもらう<span class="btn-sub">公式LINEに問題が届く→答えるとAIがすぐ丸つけ。すきま時間の復習に</span></a>
+      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元を最初から</button>
+      <button class="big-btn home-btn" type="button" data-go="0">🏠 目次にもどる</button>
     </div>
 </section>
 <section class="view" data-t="3">
   <div class="tband"><span class="tno">2</span><h2>平成の日本</h2><img class="wchar tchar" src="img/characters_manabi_think_sm.png" alt=""></div>
   
-    <div class="step" data-label="A 要点まとめ">
+    <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
+      <div class="sec-h"><span class="sec-tag">▶</span>やり方をえらぼう<span class="sec-note">目次にもどれば何度でも変えられるよ</span></div>
+      <button class="mode-btn mode-reco" type="button" data-mode="all">⭐ おすすめ順でぜんぶ解く<span class="mode-sub">要点まとめ → 一問一答 → 4択 → 記述 → 資料</span></button>
+      <button class="mode-btn" type="button" data-mode="A">🕳 穴埋め（要点まとめ）だけ<span class="mode-sub">（　）をタップして確かめる</span></button>
+      <button class="mode-btn" type="button" data-mode="B">✍️ 一問一答（短答）だけ<span class="mode-sub">14問・入力して自動で正誤判定</span></button>
+      <div class="mode-opts">
+        <div class="opt-row">解答：<button class="opt-chip on" type="button" data-opt="ansB" data-val="0">⌨️ 入力して判定</button><button class="opt-chip" type="button" data-opt="ansB" data-val="1">入力せず答えだけ確認</button></div>
+        <div class="opt-row">採点：<button class="opt-chip on" type="button" data-opt="batch" data-val="0">一問ずつ</button><button class="opt-chip" type="button" data-opt="batch" data-val="1">まとめて</button></div>
+        <div class="opt-row">順番：<button class="opt-chip on" type="button" data-opt="shufB" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufB" data-val="1">シャッフル</button></div>
+      </div>
+      <button class="mode-btn" type="button" data-mode="C">✅ 4択（選択）だけ<span class="mode-sub">8問・タップで即判定</span></button>
+      <div class="mode-opts">
+        <div class="opt-row">順番：<button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
+      </div>
+      <button class="mode-btn" type="button" data-mode="D">📝 記述だけ<span class="mode-sub">3問・模範解答つき</span></button>
+    </div>
+    <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/19/index.html#t2">📖 先に参考書で理解する</a>
       <div class="summary">1980年代後半、日本では株価や地価が異常に高騰する<button class="blank" type="button"><span class="bno">①</span><span class="ba">バブル経済</span><span class="bl" style="width:4.5em"></span></button>が起こったが、1991年ごろに崩壊し、長い不況が続いた。1992年には自衛隊の海外派遣を可能にする<button class="blank" type="button"><span class="bno">②</span><span class="ba">PKO協力法</span><span class="bl" style="width:5.4em"></span></button>が成立し、1993年には<button class="blank" type="button"><span class="bno">③</span><span class="ba">細川護熙</span><span class="bl" style="width:3.6em"></span></button>を首相とする連立政権が誕生して55年体制が終わった。1995年1月には兵庫県南部で<button class="blank" type="button"><span class="bno">④</span><span class="ba">阪神・淡路大震災</span><span class="bl" style="width:7.2em"></span></button>が起こり、同じ年3月にはオウム真理教による<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">地下鉄サリン事件</span><span class="bl" style="width:7.2em"></span></button>が発生した。2011年3月11日には東北地方で<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">東日本大震災</span><span class="bl" style="width:5.4em"></span></button>が起こり、大津波によって<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">福島第一原発事故</span><span class="bl" style="width:7.2em"></span></button>が引き起こされた。近年の日本は、子どもの数が減る<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">少子化</span><span class="bl" style="width:2.7em"></span></button>と高齢者の割合が増える<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">高齢化</span><span class="bl" style="width:2.7em"></span></button>という課題に直面している。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-heisei-japan-1" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">1 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-heisei-japan-1" data-kind="qa" data-sec="B" data-a="バブル経済" data-r="バブルけいざい">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 14</span></span></div>
       <div class="q-text">1980年代後半に、株価や地価が異常に高騰した経済現象は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">バブル<ruby>経済<rt>けいざい</rt></ruby></div>
         <div class="qa-expl">バブル経済は、1980年代後半に株価や土地の値段が大きく上がった状態です。1991年ごろに崩れ、不景気が続きました。</div>
         <div class="marks">
@@ -645,12 +1005,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (2/14)" data-qid="qa-heisei-japan-2" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">2 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (2/14)" data-qid="qa-heisei-japan-2" data-kind="qa" data-sec="B" data-a="バブル崩壊" data-r="バブルほうかい">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">2 / 14</span></span></div>
       <div class="q-text">1991年に株価・地価が下落し、日本経済が長期不況に陥った出来事は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">バブル<ruby>崩壊<rt>ほうかい</rt></ruby></div>
         <div class="qa-expl">1991年ごろ、株価や土地の値段が大きく下がり、日本は長い不景気に入りました。これをバブル崩壊といいます。</div>
         <div class="marks">
@@ -659,12 +1022,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (3/14)" data-qid="qa-heisei-japan-3" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">3 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (3/14)" data-qid="qa-heisei-japan-3" data-kind="qa" data-sec="B" data-a="1991年" data-r="1991年">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">3 / 14</span></span></div>
       <div class="q-text">バブル崩壊・ソ連解体・湾岸戦争の年は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1991年</div>
         <div class="qa-expl">1991年は、日本ではバブル崩壊、世界ではソ連解体や湾岸戦争があり、社会が大きく変わった年です。</div>
         <div class="marks">
@@ -673,12 +1039,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (4/14)" data-qid="qa-heisei-japan-4" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">4 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (4/14)" data-qid="qa-heisei-japan-4" data-kind="qa" data-sec="B" data-a="1993年" data-r="1993年">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">4 / 14</span></span></div>
       <div class="q-text">55年体制が終わった年は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1993年</div>
         <div class="qa-expl">1993年、長く続いた自民党中心の政治がいったん終わり、細川護熙を首相とする連立政権ができました。</div>
         <div class="marks">
@@ -687,12 +1056,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (5/14)" data-qid="qa-heisei-japan-5" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">5 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (5/14)" data-qid="qa-heisei-japan-5" data-kind="qa" data-sec="B" data-a="細川護熙" data-r="ほそかわもりひろ">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">5 / 14</span></span></div>
       <div class="q-text">1993年に55年体制を終わらせた首相は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>細川護熙<rt>ほそかわもりひろ</rt></ruby></div>
         <div class="qa-expl">細川護熙は日本新党を率いた政治家です。1993年に首相となり、自民党だけの長い政権を終わらせました。</div>
         <div class="marks">
@@ -701,12 +1073,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (6/14)" data-qid="qa-heisei-japan-6" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">6 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (6/14)" data-qid="qa-heisei-japan-6" data-kind="qa" data-sec="B" data-a="阪神・淡路大震災" data-r="はんしん・あわじだいしんさい">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">6 / 14</span></span></div>
       <div class="q-text">1995年1月17日に発生した兵庫県南部の大地震は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>阪神<rt>はんしん</rt></ruby>・<ruby>淡路<rt>あわじ</rt></ruby><ruby>大震災<rt>だいしんさい</rt></ruby></div>
         <div class="qa-expl">阪神・淡路大震災は、1995年1月17日に起きた大地震です。神戸などで大きな被害が出ました。</div>
         <div class="marks">
@@ -715,12 +1090,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (7/14)" data-qid="qa-heisei-japan-7" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">7 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (7/14)" data-qid="qa-heisei-japan-7" data-kind="qa" data-sec="B" data-a="1995年" data-r="1995年">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">7 / 14</span></span></div>
       <div class="q-text">阪神・淡路大震災・地下鉄サリン事件の年は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1995年</div>
         <div class="qa-expl">1995年は、阪神・淡路大震災と地下鉄サリン事件が起きた年です。日本社会に大きな不安を与えました。</div>
         <div class="marks">
@@ -729,12 +1107,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (8/14)" data-qid="qa-heisei-japan-8" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">8 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (8/14)" data-qid="qa-heisei-japan-8" data-kind="qa" data-sec="B" data-a="地下鉄サリン事件" data-r="地下鉄サリンじけん">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">8 / 14</span></span></div>
       <div class="q-text">1995年3月にオウム真理教が東京の地下鉄で起こしたテロ事件は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">地下鉄サリン<ruby>事件<rt>じけん</rt></ruby></div>
         <div class="qa-expl">地下鉄サリン事件は、1995年3月に東京の地下鉄で起きたテロ事件です。多くの人が被害を受けました。</div>
         <div class="marks">
@@ -743,12 +1124,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (9/14)" data-qid="qa-heisei-japan-9" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">9 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (9/14)" data-qid="qa-heisei-japan-9" data-kind="qa" data-sec="B" data-a="PKO協力法" data-r="PKOきょうりょくほう">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">9 / 14</span></span></div>
       <div class="q-text">1992年に成立し、自衛隊の海外派遣を可能にした法律は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">PKO<ruby>協力法<rt>きょうりょくほう</rt></ruby></div>
         <div class="qa-expl">PKO協力法は、1992年にできた法律です。自衛隊が国連の平和維持活動に参加できるようになりました。</div>
         <div class="marks">
@@ -757,12 +1141,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (10/14)" data-qid="qa-heisei-japan-10" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">10 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (10/14)" data-qid="qa-heisei-japan-10" data-kind="qa" data-sec="B" data-a="PKO" data-r="PKO">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">10 / 14</span></span></div>
       <div class="q-text">国連が紛争地域で行う平和維持活動の略称は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">PKO</div>
         <div class="qa-expl">PKOは国連の平和維持活動です。争いが起きた地域で、停戦の見守りなどを行います。</div>
         <div class="marks">
@@ -771,12 +1158,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (11/14)" data-qid="qa-heisei-japan-11" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">11 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (11/14)" data-qid="qa-heisei-japan-11" data-kind="qa" data-sec="B" data-a="東日本大震災" data-r="ひがしにほんだいしんさい">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">11 / 14</span></span></div>
       <div class="q-text">2011年3月11日に発生した東北地方太平洋沖の大地震は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>東日本<rt>ひがしにほん</rt></ruby><ruby>大震災<rt>だいしんさい</rt></ruby></div>
         <div class="qa-expl">東日本大震災は、2011年3月11日に起きた大地震です。大津波と福島第一原発事故も起こりました。</div>
         <div class="marks">
@@ -785,12 +1175,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (12/14)" data-qid="qa-heisei-japan-12" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">12 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (12/14)" data-qid="qa-heisei-japan-12" data-kind="qa" data-sec="B" data-a="2011年3月11日" data-r="2011年3月11日">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">12 / 14</span></span></div>
       <div class="q-text">東日本大震災が発生した日は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">2011年3月11日</div>
         <div class="qa-expl">2011年3月11日、東北地方の太平洋沖で大地震が起こり、大津波が東北地方を襲いました。</div>
         <div class="marks">
@@ -799,12 +1192,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (13/14)" data-qid="qa-heisei-japan-13" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">13 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (13/14)" data-qid="qa-heisei-japan-13" data-kind="qa" data-sec="B" data-a="高齢化社会" data-r="こうれいか社会">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">13 / 14</span></span></div>
       <div class="q-text">65歳以上の人口割合が増えていく社会は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>高齢化<rt>こうれいか</rt></ruby>社会</div>
         <div class="qa-expl">高齢化社会とは、高齢者の割合が高くなる社会のことです。日本では高齢化が大きな課題になっています。</div>
         <div class="marks">
@@ -813,12 +1209,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (14/14)" data-qid="qa-heisei-japan-14" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">14 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (14/14)" data-qid="qa-heisei-japan-14" data-kind="qa" data-sec="B" data-a="少子化" data-r="しょうしか">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">14 / 14</span></span></div>
       <div class="q-text">出生数が減り続ける現象は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>少子化<rt>しょうしか</rt></ruby></div>
         <div class="qa-expl">少子化とは、生まれる子どもの数が少なくなることです。働く人の減少など、日本の大きな課題です。</div>
         <div class="marks">
@@ -827,56 +1226,247 @@
         </div>
       </div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (1/8)" data-qid="qz-heisei-japan-1" data-kind="qz" data-c="2">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">1 / 8　正しいものを選ぼう</span></div>
+    <div class="step qa-batch-step" data-label="B 一問一答（まとめて採点）" data-sec="BB">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">全14問・まとめて採点</span></div>
+      <div class="howto">まず全部の問題にこたえてから、下のボタンでまとめて答え合わせしよう！</div>
+      
+      <div class="bq-item" data-qid="qa-heisei-japan-1" data-a="バブル経済" data-r="バブルけいざい">
+        <div class="bq-q"><span class="qa-no">(1)</span>1980年代後半に、株価や地価が異常に高騰した経済現象は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">バブル<ruby>経済<rt>けいざい</rt></ruby></div>
+          <div class="qa-expl">バブル経済は、1980年代後半に株価や土地の値段が大きく上がった状態です。1991年ごろに崩れ、不景気が続きました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-heisei-japan-2" data-a="バブル崩壊" data-r="バブルほうかい">
+        <div class="bq-q"><span class="qa-no">(2)</span>1991年に株価・地価が下落し、日本経済が長期不況に陥った出来事は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">バブル<ruby>崩壊<rt>ほうかい</rt></ruby></div>
+          <div class="qa-expl">1991年ごろ、株価や土地の値段が大きく下がり、日本は長い不景気に入りました。これをバブル崩壊といいます。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-heisei-japan-3" data-a="1991年" data-r="1991年">
+        <div class="bq-q"><span class="qa-no">(3)</span>バブル崩壊・ソ連解体・湾岸戦争の年は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">1991年</div>
+          <div class="qa-expl">1991年は、日本ではバブル崩壊、世界ではソ連解体や湾岸戦争があり、社会が大きく変わった年です。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-heisei-japan-4" data-a="1993年" data-r="1993年">
+        <div class="bq-q"><span class="qa-no">(4)</span>55年体制が終わった年は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">1993年</div>
+          <div class="qa-expl">1993年、長く続いた自民党中心の政治がいったん終わり、細川護熙を首相とする連立政権ができました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-heisei-japan-5" data-a="細川護熙" data-r="ほそかわもりひろ">
+        <div class="bq-q"><span class="qa-no">(5)</span>1993年に55年体制を終わらせた首相は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a"><ruby>細川護熙<rt>ほそかわもりひろ</rt></ruby></div>
+          <div class="qa-expl">細川護熙は日本新党を率いた政治家です。1993年に首相となり、自民党だけの長い政権を終わらせました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-heisei-japan-6" data-a="阪神・淡路大震災" data-r="はんしん・あわじだいしんさい">
+        <div class="bq-q"><span class="qa-no">(6)</span>1995年1月17日に発生した兵庫県南部の大地震は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a"><ruby>阪神<rt>はんしん</rt></ruby>・<ruby>淡路<rt>あわじ</rt></ruby><ruby>大震災<rt>だいしんさい</rt></ruby></div>
+          <div class="qa-expl">阪神・淡路大震災は、1995年1月17日に起きた大地震です。神戸などで大きな被害が出ました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-heisei-japan-7" data-a="1995年" data-r="1995年">
+        <div class="bq-q"><span class="qa-no">(7)</span>阪神・淡路大震災・地下鉄サリン事件の年は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">1995年</div>
+          <div class="qa-expl">1995年は、阪神・淡路大震災と地下鉄サリン事件が起きた年です。日本社会に大きな不安を与えました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-heisei-japan-8" data-a="地下鉄サリン事件" data-r="地下鉄サリンじけん">
+        <div class="bq-q"><span class="qa-no">(8)</span>1995年3月にオウム真理教が東京の地下鉄で起こしたテロ事件は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">地下鉄サリン<ruby>事件<rt>じけん</rt></ruby></div>
+          <div class="qa-expl">地下鉄サリン事件は、1995年3月に東京の地下鉄で起きたテロ事件です。多くの人が被害を受けました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-heisei-japan-9" data-a="PKO協力法" data-r="PKOきょうりょくほう">
+        <div class="bq-q"><span class="qa-no">(9)</span>1992年に成立し、自衛隊の海外派遣を可能にした法律は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">PKO<ruby>協力法<rt>きょうりょくほう</rt></ruby></div>
+          <div class="qa-expl">PKO協力法は、1992年にできた法律です。自衛隊が国連の平和維持活動に参加できるようになりました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-heisei-japan-10" data-a="PKO" data-r="PKO">
+        <div class="bq-q"><span class="qa-no">(10)</span>国連が紛争地域で行う平和維持活動の略称は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">PKO</div>
+          <div class="qa-expl">PKOは国連の平和維持活動です。争いが起きた地域で、停戦の見守りなどを行います。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-heisei-japan-11" data-a="東日本大震災" data-r="ひがしにほんだいしんさい">
+        <div class="bq-q"><span class="qa-no">(11)</span>2011年3月11日に発生した東北地方太平洋沖の大地震は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a"><ruby>東日本<rt>ひがしにほん</rt></ruby><ruby>大震災<rt>だいしんさい</rt></ruby></div>
+          <div class="qa-expl">東日本大震災は、2011年3月11日に起きた大地震です。大津波と福島第一原発事故も起こりました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-heisei-japan-12" data-a="2011年3月11日" data-r="2011年3月11日">
+        <div class="bq-q"><span class="qa-no">(12)</span>東日本大震災が発生した日は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">2011年3月11日</div>
+          <div class="qa-expl">2011年3月11日、東北地方の太平洋沖で大地震が起こり、大津波が東北地方を襲いました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-heisei-japan-13" data-a="高齢化社会" data-r="こうれいか社会">
+        <div class="bq-q"><span class="qa-no">(13)</span>65歳以上の人口割合が増えていく社会は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a"><ruby>高齢化<rt>こうれいか</rt></ruby>社会</div>
+          <div class="qa-expl">高齢化社会とは、高齢者の割合が高くなる社会のことです。日本では高齢化が大きな課題になっています。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-heisei-japan-14" data-a="少子化" data-r="しょうしか">
+        <div class="bq-q"><span class="qa-no">(14)</span>出生数が減り続ける現象は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a"><ruby>少子化<rt>しょうしか</rt></ruby></div>
+          <div class="qa-expl">少子化とは、生まれる子どもの数が少なくなることです。働く人の減少など、日本の大きな課題です。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="reveal-all-row">
+        <button class="reveal batch-grade" type="button">こたえをまとめて表示して採点する</button>
+        <button class="b-batch-judge" type="button">入力したこたえをまとめて採点する</button>
+      </div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (1/8)" data-qid="qz-heisei-japan-1" data-kind="qz" data-c="2" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">1 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">バブル経済が崩壊したのは何年代初頭？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">2010年代初頭</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">1980年代初頭</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">1990年代初頭</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">2000年代初頭</span></button></div>
       <div class="expl hidden-until">💡 1991年ごろにバブル経済が崩れ、株価や土地の値段が下がりました。その後、日本では長い不景気が続きました。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-heisei-japan-2" data-kind="qz" data-c="2">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">2 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-heisei-japan-2" data-kind="qz" data-c="2" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">2 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">1995年に発生した大地震は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">東日本大震災</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">新潟県中越地震</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">阪神・淡路大震災</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">関東大震災</span></button></div>
       <div class="expl hidden-until">💡 1995年1月17日に阪神・淡路大震災が起こりました。神戸など都市部で大きな被害が出た地震です。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-heisei-japan-3" data-kind="qz" data-c="3">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">3 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-heisei-japan-3" data-kind="qz" data-c="3" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">3 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">1992年に成立した自衛隊海外派遣の法律は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">安保関連法</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">自衛隊法</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">国家総動員法</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">PKO協力法</span></button></div>
       <div class="expl hidden-until">💡 1992年のPKO協力法により、自衛隊は国連の平和維持活動に参加できるようになりました。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-heisei-japan-4" data-kind="qz" data-c="3">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">4 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-heisei-japan-4" data-kind="qz" data-c="3" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">4 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">1995年に東京の地下鉄でオウム真理教が起こし、多数の死傷者を出した化学兵器テロは？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">青酸ガス事件</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">VXガス事件</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">炭疽菌テロ事件</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">地下鉄サリン事件</span></button></div>
       <div class="expl hidden-until">💡 地下鉄サリン事件は、1995年3月に東京の地下鉄で起きたテロ事件です。多くの人が被害を受けました。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-heisei-japan-5" data-kind="qz" data-c="2">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">5 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-heisei-japan-5" data-kind="qz" data-c="2" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">5 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">55年体制を終わらせた首相は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">村山富市</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">竹下登</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">細川護熙</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">羽田孜</span></button></div>
       <div class="expl hidden-until">💡 細川護熙は日本新党を率いた政治家です。1993年に首相となり、自民党だけの長い政権を終わらせました。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-heisei-japan-6" data-kind="qz" data-c="0">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">6 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-heisei-japan-6" data-kind="qz" data-c="0" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">6 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">福島第一原発事故で起きた、原子炉の燃料が高温で溶け落ちる現象を何という？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">メルトダウン</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">スクラム</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">リコール</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">フェイルセーフ</span></button></div>
       <div class="expl hidden-until">💡 メルトダウンは原子炉の燃料が高熱で溶け落ちること。冷却装置が止まり燃料が冷やせず福島第一原発で起きました。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-heisei-japan-7" data-kind="qz" data-c="1">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">7 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-heisei-japan-7" data-kind="qz" data-c="1" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">7 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">阪神・淡路大震災の発生日は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">3月11日</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">1月17日</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">11月3日</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">9月1日</span></button></div>
       <div class="expl hidden-until">💡 1995年1月17日、兵庫県南部で大地震が起こりました。これが阪神・淡路大震災です。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-heisei-japan-8" data-kind="qz" data-c="3">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">8 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-heisei-japan-8" data-kind="qz" data-c="3" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">8 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">PKOは何を意味する言葉？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">国連教育文化活動</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">国連保健活動</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">国連難民活動</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">国連平和維持活動</span></button></div>
       <div class="expl hidden-until">💡 PKOは国連の平和維持活動です。争いが起きた地域で、停戦の見守りなどを行います。</div>
     </div>
-    <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-heisei-japan-1" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">1 / 3　文章で説明しよう</span></div>
+    <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-heisei-japan-1" data-kind="qa" data-sec="D">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">1 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">東日本大震災で福島第一原発事故が起きたしくみを説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">津波</span><span class="kw-chip">メルトダウン</span></div>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
@@ -891,8 +1481,8 @@
         <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%B9%B3%E6%88%90%E3%81%AE%E6%97%A5%E6%9C%AC" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
       </div>
     </div>
-    <div class="step wr-step" data-label="D 記述問題 (2/3)" data-qid="wr-heisei-japan-2" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">2 / 3　文章で説明しよう</span></div>
+    <div class="step wr-step" data-label="D 記述問題 (2/3)" data-qid="wr-heisei-japan-2" data-kind="qa" data-sec="D">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">2 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">1992年にPKO協力法が成立した目的を簡単に書きなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">自衛隊</span><span class="kw-chip">平和維持活動</span></div>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
@@ -907,8 +1497,8 @@
         <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%B9%B3%E6%88%90%E3%81%AE%E6%97%A5%E6%9C%AC" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
       </div>
     </div>
-    <div class="step wr-step" data-label="D 記述問題 (3/3)" data-qid="wr-heisei-japan-3" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">3 / 3　文章で説明しよう</span></div>
+    <div class="step wr-step" data-label="D 記述問題 (3/3)" data-qid="wr-heisei-japan-3" data-kind="qa" data-sec="D">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">3 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">1980年代後半に起こったバブル経済とはどのような現象か、説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">株価</span><span class="kw-chip">地価</span></div>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
@@ -923,34 +1513,59 @@
         <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%B9%B3%E6%88%90%E3%81%AE%E6%97%A5%E6%9C%AC" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
       </div>
     </div>
-    <div class="step" data-label="E 資料問題">
+    <div class="step" data-label="E 資料問題" data-sec="E">
       <div class="sec-h"><span class="sec-tag">E</span>資料問題<span class="sec-note">写真を見て答えよう</span></div>
       <figure class="s-img"><img src="img/bubble-economy-graph.webp" alt="" loading="lazy"><figcaption>株価と地価の推移</figcaption></figure>
       <div class="s-q"><span class="qa-no">(1)</span>グラフの①が示す、1980年代後半に株価と地価が実際の価値以上に高騰した好景気を何というか。<button class="blank s-blank" type="button"><span class="ba">バブル経済</span><span class="bl" style="width:8em"></span><span class="tap-hint">タップで答え</span></button></div><div class="s-q"><span class="qa-no">(2)</span>グラフの②の、1990年代初めに株価と地価が急落したできごとを何というか。<button class="blank s-blank" type="button"><span class="ba">バブル崩壊</span><span class="bl" style="width:8em"></span><span class="tap-hint">タップで答え</span></button></div>
     </div>
-    <div class="step done-step" data-label="結果">
+    <div class="step done-step" data-label="結果" data-sec="Z">
       <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「平成の日本」おつかれさま！</span></div>
       <div class="score-box" data-score></div>
-      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%B9%B3%E6%88%90%E3%81%AE%E6%97%A5%E6%9C%AC" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
+      <button class="big-btn wrong-btn" type="button" data-mode="wrong" hidden>🔴 まちがえた問題だけやり直す<span class="btn-sub" data-wrong-sub></span></button>
+      <div class="next-modes">
+        <div class="nm-h">ほかの解き方でもう一度</div>
+        <div class="nm-chips"><button class="chip-mode" type="button" data-mode="A">🕳 穴埋め</button><button class="chip-mode" type="button" data-mode="B">✍️ 短答</button><button class="chip-mode" type="button" data-mode="C">✅ 4択</button><button class="chip-mode" type="button" data-mode="D">📝 記述</button></div>
+      </div>
       <a class="big-btn ref-btn" href="../../ref/19/index.html#t2">📖 参考書でおさらいする</a>
-      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元をもう一度とく</button>
+      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%B9%B3%E6%88%90%E3%81%AE%E6%97%A5%E6%9C%AC" target="_blank" rel="noopener">🤖 LINEでこの単元を出題してもらう<span class="btn-sub">公式LINEに問題が届く→答えるとAIがすぐ丸つけ。すきま時間の復習に</span></a>
+      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元を最初から</button>
+      <button class="big-btn home-btn" type="button" data-go="0">🏠 目次にもどる</button>
     </div>
 </section>
 <section class="view" data-t="4">
   <div class="tband"><span class="tno">3</span><h2>現代の課題</h2><img class="wchar tchar" src="img/characters_char_neko_sm.png" alt=""></div>
   
-    <div class="step" data-label="A 要点まとめ">
+    <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
+      <div class="sec-h"><span class="sec-tag">▶</span>やり方をえらぼう<span class="sec-note">目次にもどれば何度でも変えられるよ</span></div>
+      <button class="mode-btn mode-reco" type="button" data-mode="all">⭐ おすすめ順でぜんぶ解く<span class="mode-sub">要点まとめ → 一問一答 → 4択 → 記述</span></button>
+      <button class="mode-btn" type="button" data-mode="A">🕳 穴埋め（要点まとめ）だけ<span class="mode-sub">（　）をタップして確かめる</span></button>
+      <button class="mode-btn" type="button" data-mode="B">✍️ 一問一答（短答）だけ<span class="mode-sub">14問・入力して自動で正誤判定</span></button>
+      <div class="mode-opts">
+        <div class="opt-row">解答：<button class="opt-chip on" type="button" data-opt="ansB" data-val="0">⌨️ 入力して判定</button><button class="opt-chip" type="button" data-opt="ansB" data-val="1">入力せず答えだけ確認</button></div>
+        <div class="opt-row">採点：<button class="opt-chip on" type="button" data-opt="batch" data-val="0">一問ずつ</button><button class="opt-chip" type="button" data-opt="batch" data-val="1">まとめて</button></div>
+        <div class="opt-row">順番：<button class="opt-chip on" type="button" data-opt="shufB" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufB" data-val="1">シャッフル</button></div>
+      </div>
+      <button class="mode-btn" type="button" data-mode="C">✅ 4択（選択）だけ<span class="mode-sub">8問・タップで即判定</span></button>
+      <div class="mode-opts">
+        <div class="opt-row">順番：<button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
+      </div>
+      <button class="mode-btn" type="button" data-mode="D">📝 記述だけ<span class="mode-sub">2問・模範解答つき</span></button>
+    </div>
+    <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/19/index.html#t3">📖 先に参考書で理解する</a>
       <div class="summary">1990年代以降、人や物、お金、情報が国境を越えて結びつく<button class="blank" type="button"><span class="bno">①</span><span class="ba">グローバル化</span><span class="bl" style="width:5.4em"></span></button>が進み、<button class="blank" type="button"><span class="bno">②</span><span class="ba">インターネット</span><span class="bl" style="width:6.3em"></span></button>も急速に普及した。一方で、二酸化炭素などが原因で地球の気温が上がる<button class="blank" type="button"><span class="bno">③</span><span class="ba">地球温暖化</span><span class="bl" style="width:4.5em"></span></button>が深刻な問題となり、1997年には温室効果ガスの削減を定めた<button class="blank" type="button"><span class="bno">④</span><span class="ba">京都議定書</span><span class="bl" style="width:4.5em"></span></button>が、2015年にはより多くの国が参加する<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">パリ協定</span><span class="bl" style="width:3.6em"></span></button>が採択された。同じ2015年、国連は貧困や環境など17の目標からなる<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">SDGs</span><span class="bl" style="width:3.6em"></span></button>を採択した。2001年のアメリカ同時多発テロ以降、<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">国際テロ</span><span class="bl" style="width:3.6em"></span></button>も世界の脅威となり、戦争や迫害で住む場所を追われる<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">難民問題</span><span class="bl" style="width:3.6em"></span></button>も深刻化している。2019年末からは<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">新型コロナウイルス感染症</span><span class="bl" style="width:9.0em"></span></button>が世界的に流行し、人々の生活に大きな影響を与えた。日本も北方領土や<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">竹島</span><span class="bl" style="width:2.7em"></span></button>、尖閣諸島などの領土問題を抱えている。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-modern-issues-1" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">1 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-modern-issues-1" data-kind="qa" data-sec="B" data-a="グローバル化" data-r="グローバル化">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 14</span></span></div>
       <div class="q-text">人・物・お金・情報が国境を超えて世界規模で広がることは？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">グローバル化</div>
         <div class="qa-expl">グローバル化は、人・物・お金・情報が国境をこえて広がる動きです。1990年代以降、世界の結びつきが強まりました。</div>
         <div class="marks">
@@ -959,12 +1574,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (2/14)" data-qid="qa-modern-issues-2" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">2 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (2/14)" data-qid="qa-modern-issues-2" data-kind="qa" data-sec="B" data-a="情報化社会" data-r="じょうほうか社会">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">2 / 14</span></span></div>
       <div class="q-text">コンピュータ・インターネットが日常生活に欠かせない社会は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>情報化<rt>じょうほうか</rt></ruby>社会</div>
         <div class="qa-expl">情報化社会は、コンピュータやインターネットが生活に欠かせない社会です。人々の暮らし方も大きく変わりました。</div>
         <div class="marks">
@@ -973,12 +1591,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (3/14)" data-qid="qa-modern-issues-3" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">3 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (3/14)" data-qid="qa-modern-issues-3" data-kind="qa" data-sec="B" data-a="インターネット" data-r="インターネット">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">3 / 14</span></span></div>
       <div class="q-text">1990年代から急速に普及した世界規模のコンピュータネットワークは？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">インターネット</div>
         <div class="qa-expl">インターネットは、世界中のコンピュータをつなぐしくみです。1990年代から急速に広まりました。</div>
         <div class="marks">
@@ -987,12 +1608,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (4/14)" data-qid="qa-modern-issues-4" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">4 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (4/14)" data-qid="qa-modern-issues-4" data-kind="qa" data-sec="B" data-a="地球温暖化" data-r="ちきゅうおんだんか">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">4 / 14</span></span></div>
       <div class="q-text">二酸化炭素などの温室効果ガスで地球の気温が上がる問題は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>地球<rt>ちきゅう</rt></ruby><ruby>温暖化<rt>おんだんか</rt></ruby></div>
         <div class="qa-expl">地球温暖化は、二酸化炭素などが増えて地球の気温が上がる問題です。気候や災害にも影響します。</div>
         <div class="marks">
@@ -1001,12 +1625,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (5/14)" data-qid="qa-modern-issues-5" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">5 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (5/14)" data-qid="qa-modern-issues-5" data-kind="qa" data-sec="B" data-a="温室効果ガス" data-r="おんしつこうかガス">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">5 / 14</span></span></div>
       <div class="q-text">地球温暖化の原因となる、熱を閉じ込めるガスは？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>温室<rt>おんしつ</rt></ruby><ruby>効果<rt>こうか</rt></ruby>ガス</div>
         <div class="qa-expl">温室効果ガスは、地球の熱を大気中に閉じこめるガスです。二酸化炭素やメタンなどがあります。</div>
         <div class="marks">
@@ -1015,12 +1642,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (6/14)" data-qid="qa-modern-issues-6" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">6 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (6/14)" data-qid="qa-modern-issues-6" data-kind="qa" data-sec="B" data-a="京都議定書" data-r="きょうとぎていしょ">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">6 / 14</span></span></div>
       <div class="q-text">1997年、京都で採択された温室効果ガス削減の国際条約は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>京都<rt>きょうと</rt></ruby><ruby>議定書<rt>ぎていしょ</rt></ruby></div>
         <div class="qa-expl">京都議定書は、1997年に京都で決められた温暖化対策の約束です。温室効果ガスを減らすことを目指しました。</div>
         <div class="marks">
@@ -1029,12 +1659,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (7/14)" data-qid="qa-modern-issues-7" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">7 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (7/14)" data-qid="qa-modern-issues-7" data-kind="qa" data-sec="B" data-a="1997年" data-r="1997年">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">7 / 14</span></span></div>
       <div class="q-text">京都議定書が採択された年は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1997年</div>
         <div class="qa-expl">1997年には京都で国際会議が開かれ、京都議定書が採択されました。温暖化対策が進むきっかけになりました。</div>
         <div class="marks">
@@ -1043,12 +1676,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (8/14)" data-qid="qa-modern-issues-8" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">8 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (8/14)" data-qid="qa-modern-issues-8" data-kind="qa" data-sec="B" data-a="パリ協定" data-r="パリきょうてい">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">8 / 14</span></span></div>
       <div class="q-text">2015年に採択された温室効果ガス削減の新たな国際枠組みは？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">パリ<ruby>協定<rt>きょうてい</rt></ruby></div>
         <div class="qa-expl">パリ協定は、2015年に決められた温暖化対策の国際的な約束です。多くの国が削減目標を持ちます。</div>
         <div class="marks">
@@ -1057,12 +1693,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (9/14)" data-qid="qa-modern-issues-9" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">9 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (9/14)" data-qid="qa-modern-issues-9" data-kind="qa" data-sec="B" data-a="2015年" data-r="2015年">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">9 / 14</span></span></div>
       <div class="q-text">パリ協定が採択され、SDGsが採択された年は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">2015年</div>
         <div class="qa-expl">2015年は、パリ協定とSDGsが採択された年です。世界が協力して課題に取り組む流れが強まりました。</div>
         <div class="marks">
@@ -1071,12 +1710,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (10/14)" data-qid="qa-modern-issues-10" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">10 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (10/14)" data-qid="qa-modern-issues-10" data-kind="qa" data-sec="B" data-a="SDGs" data-r="SDGs">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">10 / 14</span></span></div>
       <div class="q-text">2015年に国連で採択された持続可能な開発目標は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">SDGs</div>
         <div class="qa-expl">SDGsは、2015年に国連で決められた世界共通の目標です。貧困や環境など17の目標があります。</div>
         <div class="marks">
@@ -1085,12 +1727,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (11/14)" data-qid="qa-modern-issues-11" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">11 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (11/14)" data-qid="qa-modern-issues-11" data-kind="qa" data-sec="B" data-a="難民問題" data-r="なんみん問題">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">11 / 14</span></span></div>
       <div class="q-text">戦争・迫害・自然災害で国を追われる人々の問題は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>難民<rt>なんみん</rt></ruby>問題</div>
         <div class="qa-expl">難民問題は、戦争や迫害などで住む場所を追われる人々の問題です。世界各地で深刻になっています。</div>
         <div class="marks">
@@ -1099,12 +1744,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (12/14)" data-qid="qa-modern-issues-12" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">12 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (12/14)" data-qid="qa-modern-issues-12" data-kind="qa" data-sec="B" data-a="新型コロナウイルス感染症" data-r="しんがたコロナウイルスかんせんしょう">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">12 / 14</span></span></div>
       <div class="q-text">2019年末から世界的に流行した感染症は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>新型<rt>しんがた</rt></ruby>コロナウイルス<ruby>感染症<rt>かんせんしょう</rt></ruby></div>
         <div class="qa-expl">新型コロナウイルス感染症は、2019年末から世界に広がった感染症です。生活や経済に大きな影響を与えました。</div>
         <div class="marks">
@@ -1113,12 +1761,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (13/14)" data-qid="qa-modern-issues-13" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">13 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (13/14)" data-qid="qa-modern-issues-13" data-kind="qa" data-sec="B" data-a="領土問題" data-r="りょうど問題">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">13 / 14</span></span></div>
       <div class="q-text">北方領土・竹島・尖閣諸島など、日本が抱える国境問題は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>領土<rt>りょうど</rt></ruby>問題</div>
         <div class="qa-expl">領土問題は、国どうしで土地や島の所属をめぐって意見が分かれる問題です。日本にもいくつかの課題があります。</div>
         <div class="marks">
@@ -1127,12 +1778,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (14/14)" data-qid="qa-modern-issues-14" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">14 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (14/14)" data-qid="qa-modern-issues-14" data-kind="qa" data-sec="B" data-a="北方領土" data-r="ほっぽうりょうど">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">14 / 14</span></span></div>
       <div class="q-text">歯舞群島・色丹島・国後島・択捉島の総称は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>北方<rt>ほっぽう</rt></ruby><ruby>領土<rt>りょうど</rt></ruby></div>
         <div class="qa-expl">北方領土は、歯舞群島・色丹島・国後島・択捉島の4島です。日本は返還を求めています。</div>
         <div class="marks">
@@ -1141,56 +1795,247 @@
         </div>
       </div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (1/8)" data-qid="qz-modern-issues-1" data-kind="qz" data-c="1">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">1 / 8　正しいものを選ぼう</span></div>
+    <div class="step qa-batch-step" data-label="B 一問一答（まとめて採点）" data-sec="BB">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">全14問・まとめて採点</span></div>
+      <div class="howto">まず全部の問題にこたえてから、下のボタンでまとめて答え合わせしよう！</div>
+      
+      <div class="bq-item" data-qid="qa-modern-issues-1" data-a="グローバル化" data-r="グローバル化">
+        <div class="bq-q"><span class="qa-no">(1)</span>人・物・お金・情報が国境を超えて世界規模で広がることは？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">グローバル化</div>
+          <div class="qa-expl">グローバル化は、人・物・お金・情報が国境をこえて広がる動きです。1990年代以降、世界の結びつきが強まりました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-modern-issues-2" data-a="情報化社会" data-r="じょうほうか社会">
+        <div class="bq-q"><span class="qa-no">(2)</span>コンピュータ・インターネットが日常生活に欠かせない社会は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a"><ruby>情報化<rt>じょうほうか</rt></ruby>社会</div>
+          <div class="qa-expl">情報化社会は、コンピュータやインターネットが生活に欠かせない社会です。人々の暮らし方も大きく変わりました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-modern-issues-3" data-a="インターネット" data-r="インターネット">
+        <div class="bq-q"><span class="qa-no">(3)</span>1990年代から急速に普及した世界規模のコンピュータネットワークは？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">インターネット</div>
+          <div class="qa-expl">インターネットは、世界中のコンピュータをつなぐしくみです。1990年代から急速に広まりました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-modern-issues-4" data-a="地球温暖化" data-r="ちきゅうおんだんか">
+        <div class="bq-q"><span class="qa-no">(4)</span>二酸化炭素などの温室効果ガスで地球の気温が上がる問題は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a"><ruby>地球<rt>ちきゅう</rt></ruby><ruby>温暖化<rt>おんだんか</rt></ruby></div>
+          <div class="qa-expl">地球温暖化は、二酸化炭素などが増えて地球の気温が上がる問題です。気候や災害にも影響します。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-modern-issues-5" data-a="温室効果ガス" data-r="おんしつこうかガス">
+        <div class="bq-q"><span class="qa-no">(5)</span>地球温暖化の原因となる、熱を閉じ込めるガスは？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a"><ruby>温室<rt>おんしつ</rt></ruby><ruby>効果<rt>こうか</rt></ruby>ガス</div>
+          <div class="qa-expl">温室効果ガスは、地球の熱を大気中に閉じこめるガスです。二酸化炭素やメタンなどがあります。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-modern-issues-6" data-a="京都議定書" data-r="きょうとぎていしょ">
+        <div class="bq-q"><span class="qa-no">(6)</span>1997年、京都で採択された温室効果ガス削減の国際条約は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a"><ruby>京都<rt>きょうと</rt></ruby><ruby>議定書<rt>ぎていしょ</rt></ruby></div>
+          <div class="qa-expl">京都議定書は、1997年に京都で決められた温暖化対策の約束です。温室効果ガスを減らすことを目指しました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-modern-issues-7" data-a="1997年" data-r="1997年">
+        <div class="bq-q"><span class="qa-no">(7)</span>京都議定書が採択された年は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">1997年</div>
+          <div class="qa-expl">1997年には京都で国際会議が開かれ、京都議定書が採択されました。温暖化対策が進むきっかけになりました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-modern-issues-8" data-a="パリ協定" data-r="パリきょうてい">
+        <div class="bq-q"><span class="qa-no">(8)</span>2015年に採択された温室効果ガス削減の新たな国際枠組みは？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">パリ<ruby>協定<rt>きょうてい</rt></ruby></div>
+          <div class="qa-expl">パリ協定は、2015年に決められた温暖化対策の国際的な約束です。多くの国が削減目標を持ちます。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-modern-issues-9" data-a="2015年" data-r="2015年">
+        <div class="bq-q"><span class="qa-no">(9)</span>パリ協定が採択され、SDGsが採択された年は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">2015年</div>
+          <div class="qa-expl">2015年は、パリ協定とSDGsが採択された年です。世界が協力して課題に取り組む流れが強まりました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-modern-issues-10" data-a="SDGs" data-r="SDGs">
+        <div class="bq-q"><span class="qa-no">(10)</span>2015年に国連で採択された持続可能な開発目標は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">SDGs</div>
+          <div class="qa-expl">SDGsは、2015年に国連で決められた世界共通の目標です。貧困や環境など17の目標があります。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-modern-issues-11" data-a="難民問題" data-r="なんみん問題">
+        <div class="bq-q"><span class="qa-no">(11)</span>戦争・迫害・自然災害で国を追われる人々の問題は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a"><ruby>難民<rt>なんみん</rt></ruby>問題</div>
+          <div class="qa-expl">難民問題は、戦争や迫害などで住む場所を追われる人々の問題です。世界各地で深刻になっています。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-modern-issues-12" data-a="新型コロナウイルス感染症" data-r="しんがたコロナウイルスかんせんしょう">
+        <div class="bq-q"><span class="qa-no">(12)</span>2019年末から世界的に流行した感染症は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a"><ruby>新型<rt>しんがた</rt></ruby>コロナウイルス<ruby>感染症<rt>かんせんしょう</rt></ruby></div>
+          <div class="qa-expl">新型コロナウイルス感染症は、2019年末から世界に広がった感染症です。生活や経済に大きな影響を与えました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-modern-issues-13" data-a="領土問題" data-r="りょうど問題">
+        <div class="bq-q"><span class="qa-no">(13)</span>北方領土・竹島・尖閣諸島など、日本が抱える国境問題は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a"><ruby>領土<rt>りょうど</rt></ruby>問題</div>
+          <div class="qa-expl">領土問題は、国どうしで土地や島の所属をめぐって意見が分かれる問題です。日本にもいくつかの課題があります。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-modern-issues-14" data-a="北方領土" data-r="ほっぽうりょうど">
+        <div class="bq-q"><span class="qa-no">(14)</span>歯舞群島・色丹島・国後島・択捉島の総称は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a"><ruby>北方<rt>ほっぽう</rt></ruby><ruby>領土<rt>りょうど</rt></ruby></div>
+          <div class="qa-expl">北方領土は、歯舞群島・色丹島・国後島・択捉島の4島です。日本は返還を求めています。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="reveal-all-row">
+        <button class="reveal batch-grade" type="button">こたえをまとめて表示して採点する</button>
+        <button class="b-batch-judge" type="button">入力したこたえをまとめて採点する</button>
+      </div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (1/8)" data-qid="qz-modern-issues-1" data-kind="qz" data-c="1" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">1 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">1990年代以降、各国の経済や文化が国境を越えて結びつき、相互依存が強まる動きを何という？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">高度経済成長</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">グローバル化</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">情報革命</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">産業革命</span></button></div>
       <div class="expl hidden-until">💡 1990年代以降、人・物・お金・情報が国境をこえて動くようになりました。この動きをグローバル化といいます。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-modern-issues-2" data-kind="qz" data-c="0">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">2 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-modern-issues-2" data-kind="qz" data-c="0" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">2 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">2015年に国連で採択された持続可能な開発目標は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">SDGs</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">パリ協定</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">京都議定書</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">MDGs</span></button></div>
       <div class="expl hidden-until">💡 SDGsは2015年に国連で決められた世界共通の目標です。2030年までに17の目標達成を目指します。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-modern-issues-3" data-kind="qz" data-c="1">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">3 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-modern-issues-3" data-kind="qz" data-c="1" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">3 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">北方領土を構成する4つの島の組み合わせとして正しいものは？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">歯舞群島・対馬・隠岐諸島・色丹島</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">歯舞群島・色丹島・国後島・択捉島</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">歯舞群島・色丹島・尖閣諸島・竹島</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">国後島・択捉島・対馬・佐渡島</span></button></div>
       <div class="expl hidden-until">💡 北方領土は、歯舞群島・色丹島・国後島・択捉島の4島です。日本は返還を求めています。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-modern-issues-4" data-kind="qz" data-c="3">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">4 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-modern-issues-4" data-kind="qz" data-c="3" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">4 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">温室効果ガスの代表例として正しい組み合わせは？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">水素・アルゴン</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">酸素・窒素</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">ヘリウム・ネオン</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">二酸化炭素・メタン</span></button></div>
       <div class="expl hidden-until">💡 二酸化炭素やメタンは温室効果ガスです。大気中に熱を閉じこめ、地球温暖化の原因になります。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-modern-issues-5" data-kind="qz" data-c="0">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">5 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-modern-issues-5" data-kind="qz" data-c="0" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">5 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">SDGsの目標数は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">17個</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">15個</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">20個</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">10個</span></button></div>
       <div class="expl hidden-until">💡 SDGsには17の目標があります。貧困、教育、環境などの問題を2030年までに改善することを目指します。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-modern-issues-6" data-kind="qz" data-c="2">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">6 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-modern-issues-6" data-kind="qz" data-c="2" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">6 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">韓国との領土問題のある島は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">北方領土</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">尖閣諸島</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">竹島</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">対馬</span></button></div>
       <div class="expl hidden-until">💡 竹島は島根県に属する島です。現在は韓国が実際に管理しており、日本は領有権を主張しています。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-modern-issues-7" data-kind="qz" data-c="3">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">7 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-modern-issues-7" data-kind="qz" data-c="3" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">7 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">中国との領土問題のある諸島は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">小笠原諸島</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">北方領土</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">竹島</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">尖閣諸島</span></button></div>
       <div class="expl hidden-until">💡 尖閣諸島は沖縄県に属する島々です。日本が実際に管理していますが、中国なども領有権を主張しています。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-modern-issues-8" data-kind="qz" data-c="2">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">8 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-modern-issues-8" data-kind="qz" data-c="2" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">8 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">戦争・迫害・自然災害などで自国を追われ、他国へ逃れる人々の問題を何という？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">貿易問題</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">労働問題</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">難民問題</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">人口問題</span></button></div>
       <div class="expl hidden-until">💡 難民問題は、戦争や迫害などで住む場所を追われる人々の問題です。世界で深刻な課題になっています。</div>
     </div>
-    <div class="step wr-step" data-label="D 記述問題 (1/2)" data-qid="wr-modern-issues-1" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">1 / 2　文章で説明しよう</span></div>
+    <div class="step wr-step" data-label="D 記述問題 (1/2)" data-qid="wr-modern-issues-1" data-kind="qa" data-sec="D">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">1 / 2</span>　文章で説明しよう</span></div>
       <div class="q-text">竹島をめぐる問題と尖閣諸島をめぐる問題の違いを説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">韓国</span><span class="kw-chip">中国</span></div>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
@@ -1205,8 +2050,8 @@
         <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E7%8F%BE%E4%BB%A3%E3%81%AE%E8%AA%B2%E9%A1%8C" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
       </div>
     </div>
-    <div class="step wr-step" data-label="D 記述問題 (2/2)" data-qid="wr-modern-issues-2" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">2 / 2　文章で説明しよう</span></div>
+    <div class="step wr-step" data-label="D 記述問題 (2/2)" data-qid="wr-modern-issues-2" data-kind="qa" data-sec="D">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">2 / 2</span>　文章で説明しよう</span></div>
       <div class="q-text">地球温暖化がなぜ問題になっているか、説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">温室効果ガス</span></div>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
@@ -1221,12 +2066,18 @@
         <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E7%8F%BE%E4%BB%A3%E3%81%AE%E8%AA%B2%E9%A1%8C" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
       </div>
     </div>
-    <div class="step done-step" data-label="結果">
+    <div class="step done-step" data-label="結果" data-sec="Z">
       <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「現代の課題」おつかれさま！</span></div>
       <div class="score-box" data-score></div>
-      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E7%8F%BE%E4%BB%A3%E3%81%AE%E8%AA%B2%E9%A1%8C" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
+      <button class="big-btn wrong-btn" type="button" data-mode="wrong" hidden>🔴 まちがえた問題だけやり直す<span class="btn-sub" data-wrong-sub></span></button>
+      <div class="next-modes">
+        <div class="nm-h">ほかの解き方でもう一度</div>
+        <div class="nm-chips"><button class="chip-mode" type="button" data-mode="A">🕳 穴埋め</button><button class="chip-mode" type="button" data-mode="B">✍️ 短答</button><button class="chip-mode" type="button" data-mode="C">✅ 4択</button><button class="chip-mode" type="button" data-mode="D">📝 記述</button></div>
+      </div>
       <a class="big-btn ref-btn" href="../../ref/19/index.html#t3">📖 参考書でおさらいする</a>
-      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元をもう一度とく</button>
+      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E7%8F%BE%E4%BB%A3%E3%81%AE%E8%AA%B2%E9%A1%8C" target="_blank" rel="noopener">🤖 LINEでこの単元を出題してもらう<span class="btn-sub">公式LINEに問題が届く→答えるとAIがすぐ丸つけ。すきま時間の復習に</span></a>
+      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元を最初から</button>
+      <button class="big-btn home-btn" type="button" data-go="0">🏠 目次にもどる</button>
     </div>
 </section>
 <section class="print-answers print-only">
@@ -1252,7 +2103,132 @@
     try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; }
   }
   function save(obj) { try { localStorage.setItem(KEY, JSON.stringify(obj)); } catch (e) {} }
-  function stepsOf(t) { return views[t].querySelectorAll('.step'); }
+  function domSteps(t) { return [].slice.call(views[t].querySelectorAll('.step')); }
+  function modeCfg(t) { return store()['m' + t] || null; }
+
+  // ── プレイリスト（選んだ「やり方」に応じたステップ列）──
+  // mode: 'all'=おすすめ順（従来の全ステップ）/ 'A'=穴埋め / 'B'=一問一答 /
+  //       'C'=4択 / 'D'=記述。B は batch（まとめて採点）と shuf、C は shuf を持つ。
+  // シャッフル順（order）は保存するので、つづきから再開しても順番は変わらない。
+  var plCache = {};
+  function orderBy(arr, order) {
+    if (!order || order.length !== arr.length) return arr;
+    return order.map(function (i) { return arr[i]; });
+  }
+  function shuffledOrder(n) {
+    var a = []; for (var i = 0; i < n; i++) a.push(i);
+    for (var j = n - 1; j > 0; j--) {
+      var k = Math.floor(Math.random() * (j + 1));
+      var tmp = a[j]; a[j] = a[k]; a[k] = tmp;
+    }
+    return a;
+  }
+
+  // ── 一問一答の入力採点（LINE 側 workbookTopic.judgeTermAnswer と同じ規則）──
+  // 表記（漢字）でも読み（ひらがな/カタカナ）でも正解。かっこ書き「絹（シルク）」は
+  // 全体・かっこ前・かっこ内のどれでも正解。NFKC・空白/記号除去で表記ゆれを吸収。
+  function normTerm(s) {
+    var t = (s || '').normalize('NFKC').trim().toLowerCase();
+    t = t.replace(/[ァ-ヶ]/g, function (ch) {
+      return String.fromCharCode(ch.charCodeAt(0) - 0x60);
+    });
+    return t.replace(/[\s・･「」『』()（）。、.,ー?？!！]/g, '');
+  }
+  function stripParen(s) { return (s || '').replace(/[（(][^（）()]*[）)]/g, ''); }
+  function parenIn(s) {
+    var out = [], re = /[（(]([^（）()]*)[）)]/g, m;
+    while ((m = re.exec(s || '')) !== null) { if (m[1]) out.push(m[1]); }
+    return out;
+  }
+  function judgeTerm(input, a, r) {
+    var targets = {};
+    [a, r].forEach(function (raw) {
+      if (!raw) return;
+      [raw, stripParen(raw)].concat(parenIn(raw)).forEach(function (v) {
+        var n = normTerm(v); if (n) targets[n] = 1;
+      });
+    });
+    return [input, stripParen(input)].map(normTerm).some(function (x) {
+      return x && targets[x];
+    });
+  }
+  function showJudged(scopeEl, ok) {
+    var banner = scopeEl.querySelector('.b-result');
+    if (banner) {
+      banner.textContent = ok ? '⭕ せいかい！' : '❌ おしい！';
+      banner.className = 'b-result ' + (ok ? 'ok' : 'ng');
+    }
+    scopeEl.classList.add('show');
+  }
+  function playlist(t) {
+    if (plCache[t]) return plCache[t];
+    var all = domSteps(t);
+    var modeStep = all.filter(function (s) { return s.dataset.sec === 'M'; })[0];
+    if (!modeStep) { plCache[t] = all; return all; } // 年表など（モード無し）
+    function sec(k) { return all.filter(function (s) { return s.dataset.sec === k; }); }
+    var cfg = modeCfg(t);
+    var list = [modeStep];
+    if (cfg) {
+      var body = [];
+      var tail = sec('Z');
+      if (cfg.mode === 'all') {
+        body = all.filter(function (s) {
+          return s.dataset.sec !== 'M' && s.dataset.sec !== 'BB';
+        });
+        tail = [];
+        // 以前のシャッフルで振り直した番号を元に戻す
+        ['B', 'C'].forEach(function (k) {
+          var arr = sec(k);
+          arr.forEach(function (el, i) {
+            var q = el.querySelector('.qnum');
+            if (q) q.textContent = (i + 1) + ' / ' + arr.length;
+          });
+        });
+      } else if (cfg.mode === 'A') { body = sec('A'); }
+      else if (cfg.mode === 'B') {
+        body = cfg.batch ? sec('BB') : orderBy(sec('B'), cfg.order);
+      } else if (cfg.mode === 'C') { body = orderBy(sec('C'), cfg.order); }
+      else if (cfg.mode === 'D') { body = sec('D'); }
+      else if (cfg.mode === 'wrong') {
+        // まちがえた問題だけ（B/C/D で r===0 のもの）を集めて出し直す
+        var rw = store().r || {};
+        body = all.filter(function (s) {
+          return ['B', 'C', 'D'].indexOf(s.dataset.sec) >= 0
+            && s.dataset.qid && rw[s.dataset.qid] === 0;
+        });
+      }
+      // 単独/やり直しモードは表示順に合わせて「n / 全」を振り直す
+      if ((cfg.mode === 'B' && !cfg.batch) || cfg.mode === 'C' || cfg.mode === 'wrong') {
+        body.forEach(function (el, i) {
+          var q = el.querySelector('.qnum');
+          if (q) q.textContent = (i + 1) + ' / ' + body.length;
+        });
+      }
+      list = [modeStep].concat(body, tail);
+    }
+    plCache[t] = list;
+    return list;
+  }
+  function stepsOf(t) { return playlist(t); }
+  function applyMode(t, cfg) {
+    var st = store(); st['m' + t] = cfg; save(st);
+    delete plCache[t];
+    go(t, 1, 1);
+  }
+
+  // 指定形式(secs)の該当ステップを再挑戦できる状態に戻す（見た目リセット、必要ならスコアも）
+  function resetTypeSteps(view, secs, pred, clearR, st) {
+    [].forEach.call(view.querySelectorAll('.step'), function (el) {
+      if (secs.indexOf(el.dataset.sec) < 0 || !pred(el)) return;
+      el.classList.remove('show', 'answered');
+      [].forEach.call(el.querySelectorAll('.qopt'), function (b) { b.classList.remove('correct', 'wrong', 'dim'); });
+      [].forEach.call(el.querySelectorAll('.b-in'), function (i) { i.value = ''; });
+      [].forEach.call(el.querySelectorAll('.b-result'), function (b) { b.textContent = ''; b.className = 'b-result'; });
+      [].forEach.call(el.querySelectorAll('.mk.sel'), function (b) { b.classList.remove('sel'); });
+      [].forEach.call(el.querySelectorAll('.blank.open'), function (b) { b.classList.remove('open'); });
+      if (clearR && el.dataset.qid) delete st.r[el.dataset.qid];
+    });
+  }
 
   function renderScore(view) {
     var st = store(), r = st.r || {};
@@ -1270,6 +2246,17 @@
     if (qz.total) rows.push('<div class="score-row"><span>C 実戦4択</span><b>正解 ' + qz.done + ' / ' + qz.total + '</b></div>');
     if (wr.total) rows.push('<div class="score-row"><span>D 記述</span><b>⭕ ' + wr.done + ' / ' + wr.total + '</b></div>');
     box.innerHTML = rows.join('') || 'このページの問題はタップ形式だよ。';
+    // 「まちがえた問題だけやり直す」ボタン: B/C/D で r===0 の数だけ表示
+    var wrongBtn = view.querySelector('.wrong-btn');
+    if (wrongBtn) {
+      var wrongN = [].filter.call(
+        view.querySelectorAll('.qa-step[data-qid], .qz-step[data-qid], .wr-step[data-qid]'),
+        function (el) { return r[el.dataset.qid] === 0; }
+      ).length;
+      wrongBtn.hidden = wrongN === 0;
+      var sub = wrongBtn.querySelector('[data-wrong-sub]');
+      if (sub) sub.textContent = wrongN + '問';
+    }
   }
 
   function render() {
@@ -1290,42 +2277,43 @@
       renderHome();
     } else {
       var steps = stepsOf(t);
-      // 同じ単元内のページ送りだけ「めくり」演出（古いページと新しいページを重ねる）
-      var animFrom = rendered && rendered.t === t && rendered.s !== s ? rendered.s : null;
-      [].forEach.call(steps, function (el, i) {
-        el.classList.remove('turn-out', 'turn-in', 'turn-under');
-        el.classList.toggle('on', i === s);
+      // 一問一答「入力して判定」モードのときだけ入力UIを出す（CSS は .ans-type 起点）
+      var cfgB = modeCfg(t);
+      views[t].classList.toggle(
+        'ans-type',
+        !!(cfgB && cfgB.mode === 'B' && cfgB.ans !== 'check')
+      );
+      // 問題の切り替えは即時（めくりアニメ無し）。リズムよく次々と解けるように。
+      domSteps(t).forEach(function (el) {
+        el.classList.remove('turn-out', 'turn-in', 'turn-under', 'on');
       });
-      if (animFrom !== null && steps[animFrom] && steps[s]) {
-        var oldEl = steps[animFrom], newEl = steps[s];
-        var clear = function () {
-          oldEl.classList.remove('turn-out', 'turn-under');
-          newEl.classList.remove('turn-in');
-        };
-        if (lastDir > 0) {
-          oldEl.classList.add('turn-out');      // 今のページがめくれて去る
-          oldEl.addEventListener('animationend', clear, { once: true });
-        } else {
-          oldEl.classList.add('turn-under');    // 下に敷いたまま
-          newEl.classList.add('turn-in');       // 前のページがめくり戻ってくる
-          newEl.addEventListener('animationend', clear, { once: true });
-        }
-        setTimeout(clear, 700); // アニメ未発火時の保険
-      }
+      if (steps[s]) steps[s].classList.add('on');
       navbar.hidden = false;
-      barStep.textContent = (s + 1) + ' / ' + steps.length;
+      var onModeStep = steps[s] && steps[s].dataset.sec === 'M';
+      barStep.textContent = onModeStep
+        ? 'やり方をえらぼう'
+        : (s + 1) + ' / ' + steps.length;
       pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
       document.getElementById('btnPrev').textContent = s === 0 ? '🏠 目次' : '← まえへ';
       var next = document.getElementById('btnNext');
-      if (s < steps.length - 1) next.textContent = 'つぎへ →';
+      if (onModeStep && steps.length === 1) next.textContent = '⭐ おすすめ順で始める →';
+      else if (s < steps.length - 1) next.textContent = 'つぎへ →';
       else next.textContent = t < N ? '次の単元へ →' : '🏠 目次にもどる';
       if (steps[s] && steps[s].classList.contains('done-step')) renderScore(views[t]);
       var st = store();
       st.last = { t: t, s: s };
-      if (s === steps.length - 1) st['d' + t] = 1;
+      if (steps.length > 1 && s === steps.length - 1) st['d' + t] = 1;
       save(st);
     }
     window.scrollTo(0, 0);
+    // 短答「入力して判定」モードは、毎回クリックしなくて済むよう答え入力欄へ自動フォーカス
+    if (t > 0 && steps[s] && !steps[s].classList.contains('show')
+        && views[t].classList.contains('ans-type')) {
+      var focusIn = steps[s].querySelector('.b-inrow .b-in');
+      if (focusIn) {
+        try { focusIn.focus({ preventScroll: true }); } catch (err) { focusIn.focus(); }
+      }
+    }
     var h = '#t' + t + (t > 0 && s > 0 ? 's' + s : '');
     if (location.hash !== h) history.replaceState(null, '', t === 0 ? '#' : h);
     rendered = { t: t, s: s };
@@ -1362,7 +2350,13 @@
   function next() {
     var t = state.t, s = state.s;
     if (t === 0) return;
-    if (s < stepsOf(t).length - 1) go(t, s + 1, 1);
+    var pl = stepsOf(t);
+    // モード未選択のまま「つぎへ」= おすすめ順で開始
+    if (s === 0 && pl.length === 1 && pl[0].dataset.sec === 'M') {
+      applyMode(t, { mode: 'all' });
+      return;
+    }
+    if (s < pl.length - 1) go(t, s + 1, 1);
     else if (t < N) go(t + 1, 0, 1);
     else go(0, 0, 1);
   }
@@ -1380,6 +2374,60 @@
     var go_ = e.target.closest('[data-go]');
     if (go_) { go(+go_.dataset.go, 0, 1); return; }
 
+    // 結果画面: 「ほかの解き方」チップ /「まちがえた問題だけやり直す」
+    var rchip = e.target.closest('.chip-mode, .wrong-btn');
+    if (rchip) {
+      var rm = rchip.dataset.mode;
+      var vw = views[state.t];
+      var stR = store(); stR.r = stR.r || {};
+      if (rm === 'wrong') {
+        // まちがい(r===0)の問題を再挑戦できるよう見た目だけ戻す（rは維持＝集合を保つ）
+        resetTypeSteps(vw, ['B', 'C', 'D'], function (el) {
+          return el.dataset.qid && stR.r[el.dataset.qid] === 0;
+        }, false, stR);
+      } else {
+        // その形式を最初からやり直せるよう見た目とスコアを戻す
+        resetTypeSteps(vw, [rm], function () { return true; }, true, stR);
+      }
+      save(stR);
+      var rcfg = { mode: rm };
+      if (rm === 'B') { rcfg.ans = 'type'; rcfg.batch = false; rcfg.shuf = false; rcfg.order = null; }
+      if (rm === 'C') { rcfg.shuf = false; rcfg.order = null; }
+      applyMode(state.t, rcfg);
+      return;
+    }
+
+    // やり方（モード）選択
+    var chipBtn = e.target.closest('.opt-chip');
+    if (chipBtn) {
+      [].forEach.call(chipBtn.parentElement.querySelectorAll('.opt-chip'), function (b) {
+        b.classList.toggle('on', b === chipBtn);
+      });
+      return;
+    }
+    var mb = e.target.closest('.mode-btn');
+    if (mb) {
+      var mstep = mb.closest('.mode-step');
+      var mt = state.t;
+      function chip(name) {
+        var c = mstep.querySelector('.opt-chip.on[data-opt="' + name + '"]');
+        return c ? +c.dataset.val : 0;
+      }
+      var cfg = { mode: mb.dataset.mode };
+      if (cfg.mode === 'B') {
+        cfg.ans = chip('ansB') === 1 ? 'check' : 'type';
+        cfg.batch = chip('batch') === 1;
+        cfg.shuf = chip('shufB') === 1;
+      }
+      if (cfg.mode === 'C') { cfg.shuf = chip('shufC') === 1; }
+      if ((cfg.mode === 'B' && !cfg.batch) || cfg.mode === 'C') {
+        var cnt = views[mt].querySelectorAll('.step[data-sec="' + cfg.mode + '"]').length;
+        cfg.order = cfg.shuf ? shuffledOrder(cnt) : null;
+      }
+      applyMode(mt, cfg);
+      return;
+    }
+
     var blank = e.target.closest('.blank');
     if (blank) { blank.classList.toggle('open'); return; }
 
@@ -1394,16 +2442,71 @@
       return;
     }
 
+    // 一問一答: 入力して判定（一問ずつ）
+    var bj = e.target.closest('.b-judge');
+    if (bj) {
+      var jstep = bj.closest('.qa-step');
+      if (jstep.classList.contains('show')) return;  // 判定済みは無視
+      var jin = jstep.querySelector('.b-in');
+      if (!jin.value.trim()) { jin.focus(); return; }  // 未入力なら何もしない
+      var ok = judgeTerm(jin.value, jstep.dataset.a, jstep.dataset.r);
+      showJudged(jstep, ok);
+      var stJ = store(); stJ.r = stJ.r || {};
+      stJ.r[jstep.dataset.qid] = ok ? 1 : 0;
+      save(stJ);
+      // 自動では進まない。「つぎへ」ボタンか Enter で次の問題へ。
+      return;
+    }
+    var idk = e.target.closest('.b-idk');
+    if (idk) {
+      var istep = idk.closest('.qa-step');
+      showJudged(istep, false);
+      var bn = istep.querySelector('.b-result');
+      if (bn) { bn.textContent = '👇 こたえはこちら。次はきっと書けるよ！'; bn.className = 'b-result ng'; }
+      var stI = store(); stI.r = stI.r || {};
+      stI.r[istep.dataset.qid] = 0;
+      save(stI);
+      return;
+    }
+    // 一問一答: 入力して判定（まとめて）
+    var bbj = e.target.closest('.b-batch-judge');
+    if (bbj) {
+      var bstep = bbj.closest('.step');
+      var stB = store(); stB.r = stB.r || {};
+      [].forEach.call(bstep.querySelectorAll('.bq-item'), function (it) {
+        var ok2 = judgeTerm(it.querySelector('.b-in').value, it.dataset.a, it.dataset.r);
+        showJudged(it, ok2);
+        stB.r[it.dataset.qid] = ok2 ? 1 : 0;
+      });
+      bstep.classList.add('show');
+      save(stB);
+      window.scrollTo(0, 0);  // 上から答え合わせを見返せるように
+      return;
+    }
+
     var rev = e.target.closest('.reveal');
     if (rev) { rev.closest('.step').classList.add('show'); return; }
 
     var mk = e.target.closest('.mk');
     if (mk) {
-      var stp = mk.closest('.step');
       var st = store(); st.r = st.r || {};
+      // まとめて採点（バッチ）内の○△: 記録して選択表示するだけで、進まない
+      var bq = mk.closest('.bq-item');
+      if (bq) {
+        st.r[bq.dataset.qid] = +mk.dataset.v;
+        save(st);
+        [].forEach.call(bq.querySelectorAll('.mk'), function (b) {
+          b.classList.toggle('sel', b === mk);
+        });
+        return;
+      }
+      var stp = mk.closest('.step');
       st.r[stp.dataset.qid] = +mk.dataset.v;
       save(st);
-      setTimeout(next, 220);
+      // 自動では進まない。選んだ印を付けて「つぎへ」ボタンか Enter で次へ。
+      [].forEach.call(stp.querySelectorAll('.marks .mk'), function (b) {
+        b.classList.toggle('sel', b === mk);
+      });
       return;
     }
 
@@ -1449,6 +2552,18 @@
         delete st3.r[el.dataset.qid];
       });
       delete st3['d' + state.t];
+      delete st3['m' + state.t];  // やり方選択からやり直す
+      delete plCache[state.t];
+      [].forEach.call(view.querySelectorAll('.mk.sel'), function (b) {
+        b.classList.remove('sel');
+      });
+      [].forEach.call(view.querySelectorAll('.bq-item.show'), function (it) {
+        it.classList.remove('show');
+      });
+      [].forEach.call(view.querySelectorAll('.b-in'), function (inp) { inp.value = ''; });
+      [].forEach.call(view.querySelectorAll('.b-result'), function (b) {
+        b.textContent = ''; b.className = 'b-result';
+      });
       save(st3);
       [].forEach.call(view.querySelectorAll('.step'), function (el) {
         el.classList.remove('show', 'answered');
@@ -1471,6 +2586,26 @@
   });
 
   document.addEventListener('keydown', function (e) {
+    var tag = e.target && e.target.tagName;
+    var inField = tag === 'INPUT' || tag === 'TEXTAREA';
+    if (e.key === 'Enter') {
+      // 一問一答の短答入力欄: 未判定＆入力あり=判定 / 判定済み=次へ / 未入力=何もしない
+      if (inField && e.target.classList.contains('b-in')) {
+        var stp = e.target.closest('.qa-step');
+        if (stp && stp.classList.contains('show')) next();
+        else if (e.target.value.trim() && stp) stp.querySelector('.b-judge').click();
+        // 未入力のときは何もしない（誤操作で先に進めない）
+        e.preventDefault();
+        return;
+      }
+      // 記述の textarea 内 Enter は改行のまま（次へにしない）
+      if (inField) return;
+      // それ以外は Enter で次へ
+      next();
+      e.preventDefault();
+      return;
+    }
+    if (inField) return;  // 入力中の矢印キーではページ送りしない
     if (e.key === 'ArrowRight') next();
     if (e.key === 'ArrowLeft') prev();
   });

@@ -88,7 +88,9 @@
             color:#fff; display:inline-flex; align-items:center; justify-content:center;
             font-size:12px; padding:0 4px; }
   .toc-name { flex:1; }
-  .toc-state { flex:none; font-size:11px; font-weight:bold; }
+  /* 高さ固定: ✓ が絵文字グリフで描画される環境でも行高が揺れないように */
+  .toc-state { flex:none; font-size:11px; font-weight:bold; line-height:1;
+               display:inline-flex; align-items:center; height:20px; }
   .toc-state.done { color:var(--ok); }
   .toc-state.doing { color:var(--brand); background:#fffbeb; border:1px solid var(--line);
                      border-radius:10px; padding:1px 8px; }
@@ -119,6 +121,52 @@
   .ref-link { display:inline-block; font-size:13px; font-weight:bold; color:var(--brand);
               text-decoration:none; border:1.5px solid var(--line); background:#fffbeb;
               border-radius:16px; padding:5px 14px; margin-bottom:10px; }
+
+  /* ── やり方（モード）選択 ── */
+  .mode-btn { display:block; width:100%; text-align:left; margin-top:10px; border:1.5px solid #e2d5bd;
+              border-radius:14px; padding:12px 16px; font-size:15px; font-weight:bold; color:#44403c;
+              background:#fff; cursor:pointer; font-family:inherit; line-height:1.5; }
+  .mode-btn .mode-sub { display:block; font-weight:normal; font-size:12px; color:#a8a29e; margin-top:2px; }
+  .mode-reco { background:var(--brand); border-color:var(--brand); color:#fff;
+               box-shadow:0 3px 8px rgba(180,83,9,.3); }
+  .mode-reco .mode-sub { color:rgba(255,255,255,.85); }
+  .mode-opts { margin:6px 0 2px 10px; display:flex; flex-direction:column; gap:5px; }
+  .opt-row { font-size:12.5px; font-weight:bold; color:#78716c; display:flex; align-items:center; gap:6px; }
+  .opt-chip { border:1.5px solid #e2d5bd; background:#fff; color:#78716c; border-radius:14px;
+              padding:3px 12px; font-size:12px; font-weight:bold; cursor:pointer; font-family:inherit; }
+  .opt-chip.on { background:#fffbeb; border-color:var(--amber); color:var(--brand); }
+
+  /* ── 一問一答 まとめて採点 ── */
+  .bq-item { border-top:1px dashed #e2d5bd; padding:10px 0; }
+  .bq-item:first-of-type { border-top:none; }
+  .bq-q { font-weight:bold; }
+  .bq-item .marks { margin-top:8px; }
+  .mk.sel { background:#fffbeb; box-shadow:inset 0 0 0 2px currentColor; }
+
+  /* ── 一問一答 入力して判定（.view.ans-type のときだけ入力UIを出す）── */
+  .b-inrow { display:none; gap:8px; margin-top:10px; }
+  .b-in { flex:1; min-width:0; border:1.5px solid #e2d5bd; border-radius:12px; padding:10px 12px;
+          font-size:16px; font-family:inherit; background:#fff; }
+  .b-in:focus { outline:none; border-color:var(--amber); }
+  .b-judge { flex:none; border:none; border-radius:12px; background:var(--brand); color:#fff;
+             font-weight:bold; font-size:14px; padding:0 18px; cursor:pointer; font-family:inherit; }
+  .b-idk { display:none; margin-top:8px; background:none; border:none; color:#a8a29e;
+           font-size:12.5px; text-decoration:underline; cursor:pointer; font-family:inherit; }
+  .b-batch-judge { display:none; width:100%; margin-top:14px; border:none; border-radius:12px;
+                   background:var(--brand); color:#fff; font-weight:bold; font-size:15px;
+                   padding:12px; cursor:pointer; font-family:inherit;
+                   box-shadow:0 2px 6px rgba(180,83,9,.3); }
+  .ans-type .qa-step .b-inrow, .ans-type .qa-batch-step .b-inrow { display:flex; }
+  .ans-type .qa-step .b-idk { display:inline-block; }
+  .ans-type .qa-step .reveal, .ans-type .batch-grade { display:none; }
+  .ans-type .qa-step .marks, .ans-type .qa-batch-step .marks { display:none; }
+  .ans-type .b-batch-judge { display:block; }
+  .show .b-batch-judge, .show .b-inrow .b-judge { display:none; }
+  .show .b-in { pointer-events:none; background:#faf8f2; }
+  .b-result { font-weight:bold; font-size:16px; margin-bottom:4px; }
+  .b-result:empty { display:none; }
+  .b-result.ok { color:var(--ok); }
+  .b-result.ng { color:var(--ng); }
 
   /* 穴埋めチップ */
   .summary { background:#fff; border:1.5px solid #e2d5bd; border-radius:12px; padding:12px 14px;
@@ -223,7 +271,23 @@
   .btn-sub { display:block; font-weight:normal; font-size:12px; opacity:.9; }
   .ref-btn { background:#fffbeb; color:var(--brand); border:1.5px solid var(--line); }
   .retry-btn { background:#fff; color:#57534e; border:1.5px solid #e2d5bd; }
+  .home-btn { background:#fff; color:#57534e; border:1.5px solid #e2d5bd; }
   .print-btn { background:#fff; color:#57534e; border:1.5px solid #e2d5bd; }
+  /* すごろく（本一覧）へ戻るリンク */
+  .home-link { display:inline-block; margin:10px 0 0; font-size:13px; font-weight:bold;
+               color:var(--brand); text-decoration:none; background:#fffbeb;
+               border:1.5px solid var(--line); border-radius:16px; padding:6px 14px; }
+  /* まちがえた問題だけやり直す */
+  .wrong-btn { background:#fef2f2; color:var(--ng); border:1.5px solid #fecaca; }
+  .wrong-btn[hidden] { display:none; }
+  /* ほかの解き方でもう一度（形式チップ） */
+  .next-modes { margin-top:14px; background:#fff; border:1.5px solid var(--line); border-radius:14px;
+                padding:12px 14px; }
+  .nm-h { font-size:13px; font-weight:bold; color:var(--deep); margin-bottom:8px; }
+  .nm-chips { display:flex; flex-wrap:wrap; gap:8px; }
+  .chip-mode { flex:1 1 auto; min-width:calc(50% - 4px); border:1.5px solid #e2d5bd; background:#fffbeb;
+               color:var(--brand); border-radius:12px; padding:10px 8px; font-size:14px; font-weight:bold;
+               cursor:pointer; font-family:inherit; }
 
   .foot { text-align:center; margin-top:32px; color:#a8a29e; font-size:13px; }
   .foot-note { margin-top:4px; font-size:12px; }
@@ -238,11 +302,32 @@
   .nb-prev { flex:1; background:#fff; color:var(--brand); border:1.5px solid var(--line); }
   .nb-next { flex:2; background:var(--brand); color:#fff; box-shadow:0 3px 8px rgba(180,83,9,.3); }
 
+  /* ── ホバー: マウスを乗せると「押せる」ことが分かる（タッチ端末では固着しないよう hover 端末限定）── */
+  @media (hover: hover) {
+    .tab, .toc-item, .reveal, .reveal-all, .batch-grade, .mk, .mopt, .blank,
+    .big-btn, .nb, .resume, .mode-btn, .opt-chip, .b-judge, .b-idk, .b-batch-judge,
+    .ref-link, .line-mini, .b-in, .reveal-all,
+    .qz-step:not(.answered) .qopt {
+      transition: filter .12s ease, background-color .12s ease; }
+    /* 色つき（塗り）ボタンは少し濃くして「押せる」感を出す */
+    .tab:hover, .reveal:hover, .batch-grade:hover, .big-btn:hover, .nb:hover,
+    .resume:hover, .mode-reco:hover, .b-judge:hover, .b-batch-judge:hover,
+    .mk:hover, .mopt:hover, .line-mini:hover { filter: brightness(0.94); }
+    /* 白・枠線ボタン／リストは薄いアンバーで下地を変えて分かりやすく */
+    .toc-item:hover, .mode-btn:hover, .opt-chip:hover, .reveal-all:hover,
+    .ref-link:hover, .b-idk:hover, .blank:hover,
+    .qz-step:not(.answered) .qopt:hover { background-color: #fff8ec; }
+    .b-in:hover { border-color: var(--amber); }
+    /* 回答済みの4択・対応は押せないのでカーソルも通常に */
+    .qz-step.answered .qopt, .m-item[data-done] .mopt { cursor: default; }
+  }
+
   /* ── 印刷（紙のワークとして使える） ── */
   @media print {
     body { background:#fff; padding-bottom:0; font-size:10.5pt; line-height:1.8; }
     .bar, .navbar, .resume, .reveal, .marks, .reveal-all-row, .w-input, .line-mini,
     .big-btn, .qa-expl, .expl, .tap-hint, .toc-state, .home-howto, .howto, .m-btns { display:none !important; }
+    .mode-step, .qa-batch-step, .b-inrow, .b-idk, .b-batch-judge, .b-result { display:none !important; }
     .print-only { display:block !important; }
     .view { display:block !important; }
     .step { display:block !important; margin-bottom:14px; break-inside:avoid; }
@@ -284,13 +369,14 @@
 <main class="wrap" id="views">
 
 <section class="view home" data-t="0">
+  <a class="home-link" href="../../index.html">🗺 すごろく（本一覧）へもどる</a>
   <header class="top">
     <div class="badge">歴史 ⑯　問題集 <span class="webtag">Web版</span></div>
     <h1>第二次世界大戦と日本</h1>
     <div class="sub">第二次世界大戦の始まり 〜 日本の敗戦</div>
     <div class="home-cheer"><img class="wchar" src="img/characters_char_manabi_sm.png" alt=""><span class="sp-bubble sp-taill">いっしょに がんばろう！</span></div>
-    <div class="howto home-howto">タブか下のリストから選んで、1問ずつ解いていこう！<br>
-    要点まとめ → 一問一答 → 4択 → 記述の順で力がつくよ。</div>
+    <div class="howto home-howto">タブか下のリストから単元を選ぼう！<br>
+    やり方（おすすめ順・穴埋め・一問一答・4択・記述）は単元を開いてから選べるよ。</div>
   </header>
   <button class="resume" id="resumeBtn" hidden>▶ つづきから解く<span id="resumeWhere"></span></button>
   <nav class="toc">
@@ -316,18 +402,37 @@
 <section class="view" data-t="2">
   <div class="tband"><span class="tno">1</span><h2>第二次世界大戦の勃発</h2><img class="wchar tchar" src="img/characters_char_pencil_sm.png" alt=""></div>
   
-    <div class="step" data-label="A 要点まとめ">
+    <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
+      <div class="sec-h"><span class="sec-tag">▶</span>やり方をえらぼう<span class="sec-note">目次にもどれば何度でも変えられるよ</span></div>
+      <button class="mode-btn mode-reco" type="button" data-mode="all">⭐ おすすめ順でぜんぶ解く<span class="mode-sub">要点まとめ → 一問一答 → 4択 → 記述</span></button>
+      <button class="mode-btn" type="button" data-mode="A">🕳 穴埋め（要点まとめ）だけ<span class="mode-sub">（　）をタップして確かめる</span></button>
+      <button class="mode-btn" type="button" data-mode="B">✍️ 一問一答（短答）だけ<span class="mode-sub">10問・入力して自動で正誤判定</span></button>
+      <div class="mode-opts">
+        <div class="opt-row">解答：<button class="opt-chip on" type="button" data-opt="ansB" data-val="0">⌨️ 入力して判定</button><button class="opt-chip" type="button" data-opt="ansB" data-val="1">入力せず答えだけ確認</button></div>
+        <div class="opt-row">採点：<button class="opt-chip on" type="button" data-opt="batch" data-val="0">一問ずつ</button><button class="opt-chip" type="button" data-opt="batch" data-val="1">まとめて</button></div>
+        <div class="opt-row">順番：<button class="opt-chip on" type="button" data-opt="shufB" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufB" data-val="1">シャッフル</button></div>
+      </div>
+      <button class="mode-btn" type="button" data-mode="C">✅ 4択（選択）だけ<span class="mode-sub">8問・タップで即判定</span></button>
+      <div class="mode-opts">
+        <div class="opt-row">順番：<button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
+      </div>
+      <button class="mode-btn" type="button" data-mode="D">📝 記述だけ<span class="mode-sub">3問・模範解答つき</span></button>
+    </div>
+    <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/16/index.html#t1">📖 先に参考書で理解する</a>
       <div class="summary">1939年8月、対立していたドイツとソ連は<button class="blank" type="button"><span class="bno">①</span><span class="ba">独ソ不可侵条約</span><span class="bl" style="width:6.3em"></span></button>を結び、同年9月1日、ドイツが<button class="blank" type="button"><span class="bno">②</span><span class="ba">ポーランド</span><span class="bl" style="width:4.5em"></span></button>に侵攻すると、イギリスとフランスがドイツに宣戦布告して第二次世界大戦が始まった。1940年6月にはドイツが<button class="blank" type="button"><span class="bno">③</span><span class="ba">フランス</span><span class="bl" style="width:3.6em"></span></button>を降伏させ、同年9月には日本・ドイツ・イタリアが<button class="blank" type="button"><span class="bno">④</span><span class="ba">日独伊三国同盟</span><span class="bl" style="width:6.3em"></span></button>を結んで<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">枢軸国</span><span class="bl" style="width:2.7em"></span></button>の中心となった。これに対しアメリカ・イギリス・ソ連・中国などは<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">連合国</span><span class="bl" style="width:2.7em"></span></button>として対抗した。1941年6月、ドイツは条約を破って<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">ソ連</span><span class="bl" style="width:2.7em"></span></button>に攻め込み独ソ戦が始まり、戦争は世界規模に拡大した。またこの間、ナチス・ドイツはユダヤ人を計画的に迫害し、<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">アウシュビッツ</span><span class="bl" style="width:6.3em"></span></button>などの強制収容所で命を奪う<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">ホロコースト</span><span class="bl" style="width:5.4em"></span></button>を行った。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (1/10)" data-qid="qa-ww2-outbreak-1" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">1 / 10</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (1/10)" data-qid="qa-ww2-outbreak-1" data-kind="qa" data-sec="B" data-a="第二次世界大戦" data-r="だいにじ世界たいせん">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 10</span></span></div>
       <div class="q-text">1939〜45年に世界規模で行われた戦争は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>第二次<rt>だいにじ</rt></ruby>世界<ruby>大戦<rt>たいせん</rt></ruby></div>
         <div class="qa-expl">1939年9月のドイツのポーランド侵攻で始まり1945年まで続いた、日独伊などの側と米英ソなどの側の戦争で、約6000万人が亡くなりました。</div>
         <div class="marks">
@@ -336,12 +441,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (2/10)" data-qid="qa-ww2-outbreak-2" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">2 / 10</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (2/10)" data-qid="qa-ww2-outbreak-2" data-kind="qa" data-sec="B" data-a="1939年9月1日" data-r="1939年9月1日">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">2 / 10</span></span></div>
       <div class="q-text">第二次世界大戦が始まった日は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1939年9月1日</div>
         <div class="qa-expl">1939年9月1日、ヒトラー率いるナチス・ドイツがポーランドに攻め込み、第二次世界大戦が始まった日です。</div>
         <div class="marks">
@@ -350,12 +458,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (3/10)" data-qid="qa-ww2-outbreak-3" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">3 / 10</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (3/10)" data-qid="qa-ww2-outbreak-3" data-kind="qa" data-sec="B" data-a="ポーランド侵攻" data-r="ポーランドしんこう">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">3 / 10</span></span></div>
       <div class="q-text">1939年9月、ドイツが始めた軍事行動は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ポーランド<ruby>侵攻<rt>しんこう</rt></ruby></div>
         <div class="qa-expl">1939年9月1日、ドイツがポーランドに攻め込み、イギリスとフランスがドイツに戦争を宣言して第二次世界大戦が始まりました。</div>
         <div class="marks">
@@ -364,12 +475,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (4/10)" data-qid="qa-ww2-outbreak-4" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">4 / 10</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (4/10)" data-qid="qa-ww2-outbreak-4" data-kind="qa" data-sec="B" data-a="独ソ不可侵条約" data-r="独ソふかしんじょうやく">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">4 / 10</span></span></div>
       <div class="q-text">1939年8月、ドイツとソ連が結んだ条約は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">独ソ<ruby>不可侵<rt>ふかしん</rt></ruby><ruby>条約<rt>じょうやく</rt></ruby></div>
         <div class="qa-expl">1939年8月、対立していたドイツとソ連が「お互いに戦争しない」と約束した条約で、ヒトラーがポーランド侵攻を決めるきっかけになりました。</div>
         <div class="marks">
@@ -378,12 +492,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (5/10)" data-qid="qa-ww2-outbreak-5" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">5 / 10</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (5/10)" data-qid="qa-ww2-outbreak-5" data-kind="qa" data-sec="B" data-a="枢軸国" data-r="すうじくこく">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">5 / 10</span></span></div>
       <div class="q-text">第二次世界大戦でドイツ・イタリア・日本など中心国は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>枢軸国<rt>すうじくこく</rt></ruby></div>
         <div class="qa-expl">第二次世界大戦でドイツ・イタリア・日本を中心とする側のこと。1940年の日独伊三国同盟で手を結び、独裁色の強い国々が集まりました。</div>
         <div class="marks">
@@ -392,12 +509,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (6/10)" data-qid="qa-ww2-outbreak-6" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">6 / 10</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (6/10)" data-qid="qa-ww2-outbreak-6" data-kind="qa" data-sec="B" data-a="連合国" data-r="れんごうこく">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">6 / 10</span></span></div>
       <div class="q-text">第二次世界大戦でアメリカ・イギリス・ソ連・中国など反枢軸国は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>連合国<rt>れんごうこく</rt></ruby></div>
         <div class="qa-expl">第二次世界大戦で枢軸国と戦った米英ソ中などの側のこと。考え方の違う国どうしが独裁に反対するために手を結びました。</div>
         <div class="marks">
@@ -406,12 +526,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (7/10)" data-qid="qa-ww2-outbreak-7" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">7 / 10</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (7/10)" data-qid="qa-ww2-outbreak-7" data-kind="qa" data-sec="B" data-a="1940年" data-r="1940年">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">7 / 10</span></span></div>
       <div class="q-text">ドイツがフランスを降伏させ、日独伊三国同盟が結ばれた年は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1940年</div>
         <div class="qa-expl">1940年はドイツが6月にフランスを降伏させ、9月に日独伊三国同盟が結ばれた年で、ナチス・ドイツが一番強かった時期です。</div>
         <div class="marks">
@@ -420,12 +543,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (8/10)" data-qid="qa-ww2-outbreak-8" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">8 / 10</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (8/10)" data-qid="qa-ww2-outbreak-8" data-kind="qa" data-sec="B" data-a="1941年" data-r="1941年">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">8 / 10</span></span></div>
       <div class="q-text">独ソ戦と太平洋戦争が始まった年は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1941年</div>
         <div class="qa-expl">1941年6月にドイツが約束を破ってソ連に攻め込み、12月には太平洋戦争が始まって、戦争が世界中に広がった年です。</div>
         <div class="marks">
@@ -434,12 +560,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (9/10)" data-qid="qa-ww2-outbreak-9" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">9 / 10</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (9/10)" data-qid="qa-ww2-outbreak-9" data-kind="qa" data-sec="B" data-a="ホロコースト" data-r="ホロコースト">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">9 / 10</span></span></div>
       <div class="q-text">ナチス・ドイツによるユダヤ人大量虐殺は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ホロコースト</div>
         <div class="qa-expl">ナチス・ドイツがユダヤ人を計画的に迫害して殺した政策で、強制収容所などで約600万人が命を奪われたとされます。</div>
         <div class="marks">
@@ -448,12 +577,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (10/10)" data-qid="qa-ww2-outbreak-10" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">10 / 10</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (10/10)" data-qid="qa-ww2-outbreak-10" data-kind="qa" data-sec="B" data-a="アウシュビッツ" data-r="アウシュビッツ">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">10 / 10</span></span></div>
       <div class="q-text">ナチスが作った最大の強制収容所は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">アウシュビッツ</div>
         <div class="qa-expl">今のポーランド南部にあったナチス最大の強制収容所で、約110万人のユダヤ人などが命を奪われた場所です。</div>
         <div class="marks">
@@ -462,56 +594,195 @@
         </div>
       </div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (1/8)" data-qid="qz-ww2-outbreak-1" data-kind="qz" data-c="2">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">1 / 8　正しいものを選ぼう</span></div>
+    <div class="step qa-batch-step" data-label="B 一問一答（まとめて採点）" data-sec="BB">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">全10問・まとめて採点</span></div>
+      <div class="howto">まず全部の問題にこたえてから、下のボタンでまとめて答え合わせしよう！</div>
+      
+      <div class="bq-item" data-qid="qa-ww2-outbreak-1" data-a="第二次世界大戦" data-r="だいにじ世界たいせん">
+        <div class="bq-q"><span class="qa-no">(1)</span>1939〜45年に世界規模で行われた戦争は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a"><ruby>第二次<rt>だいにじ</rt></ruby>世界<ruby>大戦<rt>たいせん</rt></ruby></div>
+          <div class="qa-expl">1939年9月のドイツのポーランド侵攻で始まり1945年まで続いた、日独伊などの側と米英ソなどの側の戦争で、約6000万人が亡くなりました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-ww2-outbreak-2" data-a="1939年9月1日" data-r="1939年9月1日">
+        <div class="bq-q"><span class="qa-no">(2)</span>第二次世界大戦が始まった日は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">1939年9月1日</div>
+          <div class="qa-expl">1939年9月1日、ヒトラー率いるナチス・ドイツがポーランドに攻め込み、第二次世界大戦が始まった日です。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-ww2-outbreak-3" data-a="ポーランド侵攻" data-r="ポーランドしんこう">
+        <div class="bq-q"><span class="qa-no">(3)</span>1939年9月、ドイツが始めた軍事行動は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">ポーランド<ruby>侵攻<rt>しんこう</rt></ruby></div>
+          <div class="qa-expl">1939年9月1日、ドイツがポーランドに攻め込み、イギリスとフランスがドイツに戦争を宣言して第二次世界大戦が始まりました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-ww2-outbreak-4" data-a="独ソ不可侵条約" data-r="独ソふかしんじょうやく">
+        <div class="bq-q"><span class="qa-no">(4)</span>1939年8月、ドイツとソ連が結んだ条約は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">独ソ<ruby>不可侵<rt>ふかしん</rt></ruby><ruby>条約<rt>じょうやく</rt></ruby></div>
+          <div class="qa-expl">1939年8月、対立していたドイツとソ連が「お互いに戦争しない」と約束した条約で、ヒトラーがポーランド侵攻を決めるきっかけになりました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-ww2-outbreak-5" data-a="枢軸国" data-r="すうじくこく">
+        <div class="bq-q"><span class="qa-no">(5)</span>第二次世界大戦でドイツ・イタリア・日本など中心国は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a"><ruby>枢軸国<rt>すうじくこく</rt></ruby></div>
+          <div class="qa-expl">第二次世界大戦でドイツ・イタリア・日本を中心とする側のこと。1940年の日独伊三国同盟で手を結び、独裁色の強い国々が集まりました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-ww2-outbreak-6" data-a="連合国" data-r="れんごうこく">
+        <div class="bq-q"><span class="qa-no">(6)</span>第二次世界大戦でアメリカ・イギリス・ソ連・中国など反枢軸国は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a"><ruby>連合国<rt>れんごうこく</rt></ruby></div>
+          <div class="qa-expl">第二次世界大戦で枢軸国と戦った米英ソ中などの側のこと。考え方の違う国どうしが独裁に反対するために手を結びました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-ww2-outbreak-7" data-a="1940年" data-r="1940年">
+        <div class="bq-q"><span class="qa-no">(7)</span>ドイツがフランスを降伏させ、日独伊三国同盟が結ばれた年は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">1940年</div>
+          <div class="qa-expl">1940年はドイツが6月にフランスを降伏させ、9月に日独伊三国同盟が結ばれた年で、ナチス・ドイツが一番強かった時期です。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-ww2-outbreak-8" data-a="1941年" data-r="1941年">
+        <div class="bq-q"><span class="qa-no">(8)</span>独ソ戦と太平洋戦争が始まった年は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">1941年</div>
+          <div class="qa-expl">1941年6月にドイツが約束を破ってソ連に攻め込み、12月には太平洋戦争が始まって、戦争が世界中に広がった年です。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-ww2-outbreak-9" data-a="ホロコースト" data-r="ホロコースト">
+        <div class="bq-q"><span class="qa-no">(9)</span>ナチス・ドイツによるユダヤ人大量虐殺は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">ホロコースト</div>
+          <div class="qa-expl">ナチス・ドイツがユダヤ人を計画的に迫害して殺した政策で、強制収容所などで約600万人が命を奪われたとされます。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-ww2-outbreak-10" data-a="アウシュビッツ" data-r="アウシュビッツ">
+        <div class="bq-q"><span class="qa-no">(10)</span>ナチスが作った最大の強制収容所は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">アウシュビッツ</div>
+          <div class="qa-expl">今のポーランド南部にあったナチス最大の強制収容所で、約110万人のユダヤ人などが命を奪われた場所です。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="reveal-all-row">
+        <button class="reveal batch-grade" type="button">こたえをまとめて表示して採点する</button>
+        <button class="b-batch-judge" type="button">入力したこたえをまとめて採点する</button>
+      </div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (1/8)" data-qid="qz-ww2-outbreak-1" data-kind="qz" data-c="2" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">1 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">第二次世界大戦が始まった年は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">1941年</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">1937年</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">1939年</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">1945年</span></button></div>
       <div class="expl hidden-until">💡 1939年9月1日、ドイツのポーランド侵攻に対し英仏が宣戦布告して第二次世界大戦が始まりました。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-ww2-outbreak-2" data-kind="qz" data-c="3">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">2 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-ww2-outbreak-2" data-kind="qz" data-c="3" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">2 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">1939年に結ばれたドイツとソ連の条約は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ベルリン条約</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">独ソ同盟条約</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">リガ条約</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">独ソ不可侵条約</span></button></div>
       <div class="expl hidden-until">💡 1939年8月の独ソ不可侵条約で両国の戦争回避が約束され、これがヒトラーによるポーランド侵攻の前提となりました。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-ww2-outbreak-3" data-kind="qz" data-c="2">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">3 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-ww2-outbreak-3" data-kind="qz" data-c="2" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">3 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">ドイツがソ連に攻め込んだ年は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">1939年</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">1943年</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">1941年</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">1940年</span></button></div>
       <div class="expl hidden-until">💡 1941年6月、ドイツは独ソ不可侵条約を破ってソ連へ侵攻し独ソ戦が始まり、戦争が世界規模に拡大しました。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-ww2-outbreak-4" data-kind="qz" data-c="1">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">4 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-ww2-outbreak-4" data-kind="qz" data-c="1" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">4 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">ナチスが作った最大の強制収容所は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ダッハウ</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">アウシュビッツ</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">ブッヘンヴァルト</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">トレブリンカ</span></button></div>
       <div class="expl hidden-until">💡 現在のポーランド南部にあったアウシュビッツはナチス最大の強制収容所で、約110万人が殺害されたとされます。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-ww2-outbreak-5" data-kind="qz" data-c="3">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">5 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-ww2-outbreak-5" data-kind="qz" data-c="3" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">5 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">第二次世界大戦で連合国に含まれない国は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">イギリス</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">ソ連</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">アメリカ</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">イタリア</span></button></div>
       <div class="expl hidden-until">💡 イタリアはドイツ・日本とともに1940年に日独伊三国同盟を結んだ枢軸国側で、連合国には含まれません。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-ww2-outbreak-6" data-kind="qz" data-c="0">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">6 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-ww2-outbreak-6" data-kind="qz" data-c="0" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">6 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">ポーランド侵攻に対してイギリス・フランスが取った行動は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ドイツに宣戦布告した</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">国際連盟に加盟した</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">ソ連に宣戦布告した</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">宥和政策を続けた</span></button></div>
       <div class="expl hidden-until">💡 1939年、ドイツがポーランドに侵攻すると、イギリスとフランスはドイツに宣戦布告しました。これにより第二次世界大戦が始まりました。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-ww2-outbreak-7" data-kind="qz" data-c="1">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">7 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-ww2-outbreak-7" data-kind="qz" data-c="1" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">7 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">ドイツがフランスを降伏させた年は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">1939年</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">1940年</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">1941年</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">1944年</span></button></div>
       <div class="expl hidden-until">💡 1940年6月、ナチス・ドイツは電撃戦でフランスを降伏させ、ヨーロッパ大陸の大部分を制圧しました。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-ww2-outbreak-8" data-kind="qz" data-c="3">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">8 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-ww2-outbreak-8" data-kind="qz" data-c="3" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">8 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">ホロコーストで殺害されたユダヤ人の数はおよそ？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">100万人</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">10万人</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">5000万人</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">600万人</span></button></div>
       <div class="expl hidden-until">💡 ナチス・ドイツのホロコーストで、強制収容所などにより殺害されたユダヤ人は約600万人とされています。</div>
     </div>
-    <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-ww2-outbreak-1" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">1 / 3　文章で説明しよう</span></div>
+    <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-ww2-outbreak-1" data-kind="qa" data-sec="D">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">1 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">独ソ不可侵条約が結ばれたことは、その後のポーランド侵攻にどうつながったか説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">独ソ不可侵条約</span></div>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
@@ -526,8 +797,8 @@
         <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%B8%96%E7%95%8C%E5%A4%A7%E6%88%A6%E3%81%AE%E5%8B%83%E7%99%BA" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
       </div>
     </div>
-    <div class="step wr-step" data-label="D 記述問題 (2/3)" data-qid="wr-ww2-outbreak-2" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">2 / 3　文章で説明しよう</span></div>
+    <div class="step wr-step" data-label="D 記述問題 (2/3)" data-qid="wr-ww2-outbreak-2" data-kind="qa" data-sec="D">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">2 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">第二次世界大戦における枢軸国と連合国の違いを説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">枢軸国</span><span class="kw-chip">連合国</span></div>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
@@ -542,8 +813,8 @@
         <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%B8%96%E7%95%8C%E5%A4%A7%E6%88%A6%E3%81%AE%E5%8B%83%E7%99%BA" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
       </div>
     </div>
-    <div class="step wr-step" data-label="D 記述問題 (3/3)" data-qid="wr-ww2-outbreak-3" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">3 / 3　文章で説明しよう</span></div>
+    <div class="step wr-step" data-label="D 記述問題 (3/3)" data-qid="wr-ww2-outbreak-3" data-kind="qa" data-sec="D">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">3 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">ナチス・ドイツが行ったホロコーストとはどのようなできごとか説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">ユダヤ人</span><span class="kw-chip">強制収容所</span></div>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
@@ -558,29 +829,54 @@
         <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%B8%96%E7%95%8C%E5%A4%A7%E6%88%A6%E3%81%AE%E5%8B%83%E7%99%BA" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
       </div>
     </div>
-    <div class="step done-step" data-label="結果">
+    <div class="step done-step" data-label="結果" data-sec="Z">
       <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「第二次世界大戦の勃発」おつかれさま！</span></div>
       <div class="score-box" data-score></div>
-      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%B8%96%E7%95%8C%E5%A4%A7%E6%88%A6%E3%81%AE%E5%8B%83%E7%99%BA" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
+      <button class="big-btn wrong-btn" type="button" data-mode="wrong" hidden>🔴 まちがえた問題だけやり直す<span class="btn-sub" data-wrong-sub></span></button>
+      <div class="next-modes">
+        <div class="nm-h">ほかの解き方でもう一度</div>
+        <div class="nm-chips"><button class="chip-mode" type="button" data-mode="A">🕳 穴埋め</button><button class="chip-mode" type="button" data-mode="B">✍️ 短答</button><button class="chip-mode" type="button" data-mode="C">✅ 4択</button><button class="chip-mode" type="button" data-mode="D">📝 記述</button></div>
+      </div>
       <a class="big-btn ref-btn" href="../../ref/16/index.html#t1">📖 参考書でおさらいする</a>
-      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元をもう一度とく</button>
+      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%B8%96%E7%95%8C%E5%A4%A7%E6%88%A6%E3%81%AE%E5%8B%83%E7%99%BA" target="_blank" rel="noopener">🤖 LINEでこの単元を出題してもらう<span class="btn-sub">公式LINEに問題が届く→答えるとAIがすぐ丸つけ。すきま時間の復習に</span></a>
+      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元を最初から</button>
+      <button class="big-btn home-btn" type="button" data-go="0">🏠 目次にもどる</button>
     </div>
 </section>
 <section class="view" data-t="3">
   <div class="tband"><span class="tno">2</span><h2>太平洋戦争と日本の敗退</h2><img class="wchar tchar" src="img/characters_manabi_think_sm.png" alt=""></div>
   
-    <div class="step" data-label="A 要点まとめ">
+    <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
+      <div class="sec-h"><span class="sec-tag">▶</span>やり方をえらぼう<span class="sec-note">目次にもどれば何度でも変えられるよ</span></div>
+      <button class="mode-btn mode-reco" type="button" data-mode="all">⭐ おすすめ順でぜんぶ解く<span class="mode-sub">要点まとめ → 一問一答 → 4択 → 記述 → 資料</span></button>
+      <button class="mode-btn" type="button" data-mode="A">🕳 穴埋め（要点まとめ）だけ<span class="mode-sub">（　）をタップして確かめる</span></button>
+      <button class="mode-btn" type="button" data-mode="B">✍️ 一問一答（短答）だけ<span class="mode-sub">14問・入力して自動で正誤判定</span></button>
+      <div class="mode-opts">
+        <div class="opt-row">解答：<button class="opt-chip on" type="button" data-opt="ansB" data-val="0">⌨️ 入力して判定</button><button class="opt-chip" type="button" data-opt="ansB" data-val="1">入力せず答えだけ確認</button></div>
+        <div class="opt-row">採点：<button class="opt-chip on" type="button" data-opt="batch" data-val="0">一問ずつ</button><button class="opt-chip" type="button" data-opt="batch" data-val="1">まとめて</button></div>
+        <div class="opt-row">順番：<button class="opt-chip on" type="button" data-opt="shufB" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufB" data-val="1">シャッフル</button></div>
+      </div>
+      <button class="mode-btn" type="button" data-mode="C">✅ 4択（選択）だけ<span class="mode-sub">8問・タップで即判定</span></button>
+      <div class="mode-opts">
+        <div class="opt-row">順番：<button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
+      </div>
+      <button class="mode-btn" type="button" data-mode="D">📝 記述だけ<span class="mode-sub">3問・模範解答つき</span></button>
+    </div>
+    <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/16/index.html#t2">📖 先に参考書で理解する</a>
       <div class="summary">1941年12月8日、<button class="blank" type="button"><span class="bno">①</span><span class="ba">東条英機</span><span class="bl" style="width:3.6em"></span></button>内閣のもとで日本海軍がハワイの<button class="blank" type="button"><span class="bno">②</span><span class="ba">真珠湾</span><span class="bl" style="width:2.7em"></span></button>を奇襲し、太平洋戦争が始まった。日本はアメリカ・イギリス・中国・オランダによる石油や鉄の輸出停止、いわゆる<button class="blank" type="button"><span class="bno">③</span><span class="ba">ABCD包囲網</span><span class="bl" style="width:6.3em"></span></button>に追いつめられ、アジアを欧米から解放すると唱える<button class="blank" type="button"><span class="bno">④</span><span class="ba">大東亜共栄圏</span><span class="bl" style="width:5.4em"></span></button>を掲げて開戦した。しかし1942年6月の<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">ミッドウェー海戦</span><span class="bl" style="width:7.2em"></span></button>で主力空母4隻を失うと戦局は不利に転じ、<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">ガダルカナル島</span><span class="bl" style="width:6.3em"></span></button>の戦いで初めて撤退に追い込まれた。1944年に<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">サイパン島</span><span class="bl" style="width:4.5em"></span></button>が陥落すると東条内閣は退陣し、翌年3月10日にはB-29による<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">東京大空襲</span><span class="bl" style="width:4.5em"></span></button>で多くの命が失われた。1945年4月から6月には日本本土で唯一の地上戦となる<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">沖縄戦</span><span class="bl" style="width:2.7em"></span></button>が行われ、<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">ひめゆり学徒隊</span><span class="bl" style="width:6.3em"></span></button>など多くの学生も動員された。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-pacific-war-1" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">1 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-pacific-war-1" data-kind="qa" data-sec="B" data-a="太平洋戦争" data-r="たいへいようせんそう">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 14</span></span></div>
       <div class="q-text">1941〜45年に日本がアメリカ・イギリスなどと戦った戦争は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>太平洋<rt>たいへいよう</rt></ruby><ruby>戦争<rt>せんそう</rt></ruby></div>
         <div class="qa-expl">1941年12月8日の真珠湾攻撃で始まり、1945年8月にポツダム宣言を受け入れて終わった日本と米英の戦争です。</div>
         <div class="marks">
@@ -589,12 +885,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (2/14)" data-qid="qa-pacific-war-2" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">2 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (2/14)" data-qid="qa-pacific-war-2" data-kind="qa" data-sec="B" data-a="真珠湾攻撃" data-r="しんじゅわんこうげき">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">2 / 14</span></span></div>
       <div class="q-text">1941年12月8日、日本海軍がアメリカ海軍基地を奇襲した攻撃は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>真珠湾<rt>しんじゅわん</rt></ruby><ruby>攻撃<rt>こうげき</rt></ruby></div>
         <div class="qa-expl">1941年12月8日、日本海軍がハワイのオアフ島にあるアメリカ海軍基地を不意打ちし、太平洋戦争が始まりました。</div>
         <div class="marks">
@@ -603,12 +902,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (3/14)" data-qid="qa-pacific-war-3" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">3 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (3/14)" data-qid="qa-pacific-war-3" data-kind="qa" data-sec="B" data-a="1941年12月8日" data-r="1941ねん12がつ8にち">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">3 / 14</span></span></div>
       <div class="q-text">太平洋戦争が始まった日は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1941<ruby>年<rt>ねん</rt></ruby>12<ruby>月<rt>がつ</rt></ruby>8<ruby>日<rt>にち</rt></ruby></div>
         <div class="qa-expl">1941年12月8日、日本軍は真珠湾攻撃と同時にイギリス領のマレー半島にも上陸し、太平洋戦争が始まりました。</div>
         <div class="marks">
@@ -617,12 +919,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (4/14)" data-qid="qa-pacific-war-4" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">4 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (4/14)" data-qid="qa-pacific-war-4" data-kind="qa" data-sec="B" data-a="東条英機" data-r="とうじょうひでき">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">4 / 14</span></span></div>
       <div class="q-text">真珠湾攻撃時の日本の首相は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>東条英機<rt>とうじょうひでき</rt></ruby></div>
         <div class="qa-expl">1941年10月に陸軍出身で首相となり、真珠湾攻撃から戦争を引っ張ったが、1944年にサイパン島が落ちて辞めました。</div>
         <div class="marks">
@@ -631,12 +936,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (5/14)" data-qid="qa-pacific-war-5" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">5 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (5/14)" data-qid="qa-pacific-war-5" data-kind="qa" data-sec="B" data-a="ABCD包囲網" data-r="ABCDほういもう">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">5 / 14</span></span></div>
       <div class="q-text">アメリカ・イギリス・中国・オランダが日本に対して行った経済包囲は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ABCD<ruby>包囲網<rt>ほういもう</rt></ruby></div>
         <div class="qa-expl">米英中蘭4か国が石油や鉄の輸出を止めて日本を経済的に追いつめ、戦争が始まるきっかけとなりました。</div>
         <div class="marks">
@@ -645,12 +953,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (6/14)" data-qid="qa-pacific-war-6" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">6 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (6/14)" data-qid="qa-pacific-war-6" data-kind="qa" data-sec="B" data-a="大東亜共栄圏" data-r="だいとうあきょうえいけん">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">6 / 14</span></span></div>
       <div class="q-text">日本がアジアを欧米から解放すると唱えた構想は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>大東亜<rt>だいとうあ</rt></ruby><ruby>共栄圏<rt>きょうえいけん</rt></ruby></div>
         <div class="qa-expl">日本が「欧米からアジアを解放する」と唱えた考えですが、実際は日本がアジアを支配しようとするものでした。</div>
         <div class="marks">
@@ -659,12 +970,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (7/14)" data-qid="qa-pacific-war-7" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">7 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (7/14)" data-qid="qa-pacific-war-7" data-kind="qa" data-sec="B" data-a="ミッドウェー海戦" data-r="ミッドウェーかいせん">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">7 / 14</span></span></div>
       <div class="q-text">1942年6月、日本海軍が大敗北を喫した海戦は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ミッドウェー<ruby>海戦<rt>かいせん</rt></ruby></div>
         <div class="qa-expl">1942年6月、日本海軍が中心となる空母4隻を失う大敗北を喫し、戦争の流れが日本に不利に変わった海戦です。</div>
         <div class="marks">
@@ -673,12 +987,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (8/14)" data-qid="qa-pacific-war-8" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">8 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (8/14)" data-qid="qa-pacific-war-8" data-kind="qa" data-sec="B" data-a="1942年" data-r="1942年">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">8 / 14</span></span></div>
       <div class="q-text">ミッドウェー海戦が起きた年は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1942年</div>
         <div class="qa-expl">1942年は6月のミッドウェー海戦で日本海軍が中心の空母4隻を失い、戦いが不利になっていった年です。</div>
         <div class="marks">
@@ -687,12 +1004,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (9/14)" data-qid="qa-pacific-war-9" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">9 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (9/14)" data-qid="qa-pacific-war-9" data-kind="qa" data-sec="B" data-a="ガダルカナル" data-r="ガダルカナル">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">9 / 14</span></span></div>
       <div class="q-text">1942〜43年、日本軍が太平洋戦争で初めて撤退に追い込まれた南太平洋ソロモン諸島の島は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ガダルカナル</div>
         <div class="qa-expl">1942〜43年のガダルカナル島の戦いで日本軍は初めて引き返すことになり、攻めから守りへと立場が変わりました。</div>
         <div class="marks">
@@ -701,12 +1021,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (10/14)" data-qid="qa-pacific-war-10" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">10 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (10/14)" data-qid="qa-pacific-war-10" data-kind="qa" data-sec="B" data-a="サイパン島" data-r="サイパンとう">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">10 / 14</span></span></div>
       <div class="q-text">1944年に日本軍が失い、B-29による日本本土爆撃の拠点となった島は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">サイパン<ruby>島<rt>とう</rt></ruby></div>
         <div class="qa-expl">サイパン島を失ったことで、日本本土がB-29による空襲の範囲に入りました。また、東条英機内閣退陣のきっかけにもなりました。</div>
         <div class="marks">
@@ -715,12 +1038,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (11/14)" data-qid="qa-pacific-war-11" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">11 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (11/14)" data-qid="qa-pacific-war-11" data-kind="qa" data-sec="B" data-a="東京大空襲" data-r="東京だいくうしゅう">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">11 / 14</span></span></div>
       <div class="q-text">1945年3月10日にアメリカ軍が東京を焼夷弾で大規模爆撃した攻撃は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">東京<ruby>大空襲<rt>だいくうしゅう</rt></ruby></div>
         <div class="qa-expl">1945年3月10日未明、米軍B-29が東京の下町を焼夷弾で大規模爆撃し、約10万人が犠牲となった。</div>
         <div class="marks">
@@ -729,12 +1055,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (12/14)" data-qid="qa-pacific-war-12" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">12 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (12/14)" data-qid="qa-pacific-war-12" data-kind="qa" data-sec="B" data-a="B-29" data-r="B-29">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">12 / 14</span></span></div>
       <div class="q-text">アメリカ軍が日本本土爆撃に使用した大型爆撃機は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">B-29</div>
         <div class="qa-expl">アメリカ軍が日本本土爆撃に使った大型爆撃機で、焼夷弾を大量に投下し東京・大阪など各都市を焼き尽くした。</div>
         <div class="marks">
@@ -743,12 +1072,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (13/14)" data-qid="qa-pacific-war-13" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">13 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (13/14)" data-qid="qa-pacific-war-13" data-kind="qa" data-sec="B" data-a="沖縄戦" data-r="おきなわせん">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">13 / 14</span></span></div>
       <div class="q-text">1945年4〜6月、唯一日本本土で行われた地上戦は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>沖縄戦<rt>おきなわせん</rt></ruby></div>
         <div class="qa-expl">1945年4〜6月の唯一日本本土での地上戦。県民の4分の1以上が犠牲となり、ひめゆり学徒隊なども動員された。</div>
         <div class="marks">
@@ -757,12 +1089,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (14/14)" data-qid="qa-pacific-war-14" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">14 / 14</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (14/14)" data-qid="qa-pacific-war-14" data-kind="qa" data-sec="B" data-a="ひめゆり学徒隊" data-r="ひめゆりがくとたい">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">14 / 14</span></span></div>
       <div class="q-text">沖縄戦で看護要員として動員された女子学生たちは？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ひめゆり<ruby>学徒隊<rt>がくとたい</rt></ruby></div>
         <div class="qa-expl">1945年の沖縄戦で看護要員として動員された沖縄師範学校女子部などの女子学生隊で、多くが命を落とした。</div>
         <div class="marks">
@@ -771,56 +1106,247 @@
         </div>
       </div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (1/8)" data-qid="qz-pacific-war-1" data-kind="qz" data-c="0">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">1 / 8　正しいものを選ぼう</span></div>
+    <div class="step qa-batch-step" data-label="B 一問一答（まとめて採点）" data-sec="BB">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">全14問・まとめて採点</span></div>
+      <div class="howto">まず全部の問題にこたえてから、下のボタンでまとめて答え合わせしよう！</div>
+      
+      <div class="bq-item" data-qid="qa-pacific-war-1" data-a="太平洋戦争" data-r="たいへいようせんそう">
+        <div class="bq-q"><span class="qa-no">(1)</span>1941〜45年に日本がアメリカ・イギリスなどと戦った戦争は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a"><ruby>太平洋<rt>たいへいよう</rt></ruby><ruby>戦争<rt>せんそう</rt></ruby></div>
+          <div class="qa-expl">1941年12月8日の真珠湾攻撃で始まり、1945年8月にポツダム宣言を受け入れて終わった日本と米英の戦争です。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-pacific-war-2" data-a="真珠湾攻撃" data-r="しんじゅわんこうげき">
+        <div class="bq-q"><span class="qa-no">(2)</span>1941年12月8日、日本海軍がアメリカ海軍基地を奇襲した攻撃は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a"><ruby>真珠湾<rt>しんじゅわん</rt></ruby><ruby>攻撃<rt>こうげき</rt></ruby></div>
+          <div class="qa-expl">1941年12月8日、日本海軍がハワイのオアフ島にあるアメリカ海軍基地を不意打ちし、太平洋戦争が始まりました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-pacific-war-3" data-a="1941年12月8日" data-r="1941ねん12がつ8にち">
+        <div class="bq-q"><span class="qa-no">(3)</span>太平洋戦争が始まった日は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">1941<ruby>年<rt>ねん</rt></ruby>12<ruby>月<rt>がつ</rt></ruby>8<ruby>日<rt>にち</rt></ruby></div>
+          <div class="qa-expl">1941年12月8日、日本軍は真珠湾攻撃と同時にイギリス領のマレー半島にも上陸し、太平洋戦争が始まりました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-pacific-war-4" data-a="東条英機" data-r="とうじょうひでき">
+        <div class="bq-q"><span class="qa-no">(4)</span>真珠湾攻撃時の日本の首相は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a"><ruby>東条英機<rt>とうじょうひでき</rt></ruby></div>
+          <div class="qa-expl">1941年10月に陸軍出身で首相となり、真珠湾攻撃から戦争を引っ張ったが、1944年にサイパン島が落ちて辞めました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-pacific-war-5" data-a="ABCD包囲網" data-r="ABCDほういもう">
+        <div class="bq-q"><span class="qa-no">(5)</span>アメリカ・イギリス・中国・オランダが日本に対して行った経済包囲は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">ABCD<ruby>包囲網<rt>ほういもう</rt></ruby></div>
+          <div class="qa-expl">米英中蘭4か国が石油や鉄の輸出を止めて日本を経済的に追いつめ、戦争が始まるきっかけとなりました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-pacific-war-6" data-a="大東亜共栄圏" data-r="だいとうあきょうえいけん">
+        <div class="bq-q"><span class="qa-no">(6)</span>日本がアジアを欧米から解放すると唱えた構想は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a"><ruby>大東亜<rt>だいとうあ</rt></ruby><ruby>共栄圏<rt>きょうえいけん</rt></ruby></div>
+          <div class="qa-expl">日本が「欧米からアジアを解放する」と唱えた考えですが、実際は日本がアジアを支配しようとするものでした。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-pacific-war-7" data-a="ミッドウェー海戦" data-r="ミッドウェーかいせん">
+        <div class="bq-q"><span class="qa-no">(7)</span>1942年6月、日本海軍が大敗北を喫した海戦は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">ミッドウェー<ruby>海戦<rt>かいせん</rt></ruby></div>
+          <div class="qa-expl">1942年6月、日本海軍が中心となる空母4隻を失う大敗北を喫し、戦争の流れが日本に不利に変わった海戦です。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-pacific-war-8" data-a="1942年" data-r="1942年">
+        <div class="bq-q"><span class="qa-no">(8)</span>ミッドウェー海戦が起きた年は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">1942年</div>
+          <div class="qa-expl">1942年は6月のミッドウェー海戦で日本海軍が中心の空母4隻を失い、戦いが不利になっていった年です。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-pacific-war-9" data-a="ガダルカナル" data-r="ガダルカナル">
+        <div class="bq-q"><span class="qa-no">(9)</span>1942〜43年、日本軍が太平洋戦争で初めて撤退に追い込まれた南太平洋ソロモン諸島の島は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">ガダルカナル</div>
+          <div class="qa-expl">1942〜43年のガダルカナル島の戦いで日本軍は初めて引き返すことになり、攻めから守りへと立場が変わりました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-pacific-war-10" data-a="サイパン島" data-r="サイパンとう">
+        <div class="bq-q"><span class="qa-no">(10)</span>1944年に日本軍が失い、B-29による日本本土爆撃の拠点となった島は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">サイパン<ruby>島<rt>とう</rt></ruby></div>
+          <div class="qa-expl">サイパン島を失ったことで、日本本土がB-29による空襲の範囲に入りました。また、東条英機内閣退陣のきっかけにもなりました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-pacific-war-11" data-a="東京大空襲" data-r="東京だいくうしゅう">
+        <div class="bq-q"><span class="qa-no">(11)</span>1945年3月10日にアメリカ軍が東京を焼夷弾で大規模爆撃した攻撃は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">東京<ruby>大空襲<rt>だいくうしゅう</rt></ruby></div>
+          <div class="qa-expl">1945年3月10日未明、米軍B-29が東京の下町を焼夷弾で大規模爆撃し、約10万人が犠牲となった。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-pacific-war-12" data-a="B-29" data-r="B-29">
+        <div class="bq-q"><span class="qa-no">(12)</span>アメリカ軍が日本本土爆撃に使用した大型爆撃機は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">B-29</div>
+          <div class="qa-expl">アメリカ軍が日本本土爆撃に使った大型爆撃機で、焼夷弾を大量に投下し東京・大阪など各都市を焼き尽くした。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-pacific-war-13" data-a="沖縄戦" data-r="おきなわせん">
+        <div class="bq-q"><span class="qa-no">(13)</span>1945年4〜6月、唯一日本本土で行われた地上戦は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a"><ruby>沖縄戦<rt>おきなわせん</rt></ruby></div>
+          <div class="qa-expl">1945年4〜6月の唯一日本本土での地上戦。県民の4分の1以上が犠牲となり、ひめゆり学徒隊なども動員された。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-pacific-war-14" data-a="ひめゆり学徒隊" data-r="ひめゆりがくとたい">
+        <div class="bq-q"><span class="qa-no">(14)</span>沖縄戦で看護要員として動員された女子学生たちは？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">ひめゆり<ruby>学徒隊<rt>がくとたい</rt></ruby></div>
+          <div class="qa-expl">1945年の沖縄戦で看護要員として動員された沖縄師範学校女子部などの女子学生隊で、多くが命を落とした。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="reveal-all-row">
+        <button class="reveal batch-grade" type="button">こたえをまとめて表示して採点する</button>
+        <button class="b-batch-judge" type="button">入力したこたえをまとめて採点する</button>
+      </div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (1/8)" data-qid="qz-pacific-war-1" data-kind="qz" data-c="0" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">1 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">日本が「アジアの解放」を掲げて唱えた構想は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">大東亜共栄圏</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">ワシントン体制</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">国際連盟</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">日独伊三国同盟</span></button></div>
       <div class="expl hidden-until">💡 日本は欧米の植民地支配からアジアを解放する名目で大東亜共栄圏を唱えましたが、実際は日本の支配を正当化する考えでした。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-pacific-war-2" data-kind="qz" data-c="1">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">2 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-pacific-war-2" data-kind="qz" data-c="1" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">2 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">1944年に陥落しB-29本土爆撃の拠点となった島は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">沖縄</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">サイパン</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">グアム</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">硫黄島</span></button></div>
       <div class="expl hidden-until">💡 1944年のサイパン陥落で日本本土がB-29の航続距離内に入り、本土爆撃が本格化しました。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-pacific-war-3" data-kind="qz" data-c="2">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">3 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-pacific-war-3" data-kind="qz" data-c="2" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">3 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">1945年3月10日にあった大空襲は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">大阪大空襲</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">広島大空襲</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">東京大空襲</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">横浜大空襲</span></button></div>
       <div class="expl hidden-until">💡 1945年3月10日未明、米軍B-29が東京の下町を焼夷弾で爆撃した東京大空襲で約10万人が犠牲となりました。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-pacific-war-4" data-kind="qz" data-c="1">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">4 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-pacific-war-4" data-kind="qz" data-c="1" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">4 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">ABCD包囲網を構成した4か国の組み合わせとして正しいものは？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">アメリカ・ベルギー・カナダ・オランダ</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">アメリカ・イギリス・中国・オランダ</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">オーストラリア・ブラジル・カナダ・デンマーク</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">オーストラリア・ブラジル・中国・ドイツ</span></button></div>
       <div class="expl hidden-until">💡 ABCD包囲網はアメリカ・イギリス・中国・オランダの頭文字をとった対日経済包囲で、石油や鉄の輸出制限が日本を苦しめました。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-pacific-war-5" data-kind="qz" data-c="0">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">5 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-pacific-war-5" data-kind="qz" data-c="0" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">5 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">アメリカ軍が本土爆撃に使った爆撃機は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">B-29</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">B-17</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">F-4</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">P-51</span></button></div>
       <div class="expl hidden-until">💡 アメリカ軍は大型爆撃機B-29で焼夷弾を大量に投下し、東京・大阪など日本各地を爆撃しました。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-pacific-war-6" data-kind="qz" data-c="2">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">6 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-pacific-war-6" data-kind="qz" data-c="2" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">6 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">沖縄戦で動員された女子学生隊は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">桜花隊</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">白虎隊</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">ひめゆり学徒隊</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">婦人挺身隊</span></button></div>
       <div class="expl hidden-until">💡 1945年の沖縄戦で、沖縄師範学校女子部などの女子学生がひめゆり学徒隊として看護要員に動員されました。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-pacific-war-7" data-kind="qz" data-c="0">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">7 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-pacific-war-7" data-kind="qz" data-c="0" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">7 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">サイパン陥落をきっかけに退陣した内閣は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">東条内閣</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">鈴木内閣</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">近衛内閣</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">小磯内閣</span></button></div>
       <div class="expl hidden-until">💡 1944年7月、サイパン陥落で本土爆撃の脅威が現実となり、東条英機内閣は責任を負って総辞職しました。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-pacific-war-8" data-kind="qz" data-c="3">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">8 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-pacific-war-8" data-kind="qz" data-c="3" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">8 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">沖縄戦で犠牲となった県民の割合はおよそ？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">半数</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">10分の1</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">ほぼ全員</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">4分の1</span></button></div>
       <div class="expl hidden-until">💡 1945年の沖縄戦では激しい地上戦と集団自決などで、沖縄県民の4分の1以上が犠牲になりました。</div>
     </div>
-    <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-pacific-war-1" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">1 / 3　文章で説明しよう</span></div>
+    <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-pacific-war-1" data-kind="qa" data-sec="D">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">1 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">日本が太平洋戦争を始めるに至った理由を、ABCD包囲網の内容にふれて説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">ABCD包囲網</span></div>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
@@ -835,8 +1361,8 @@
         <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%A4%AA%E5%B9%B3%E6%B4%8B%E6%88%A6%E4%BA%89%E3%81%A8%E6%97%A5%E6%9C%AC%E3%81%AE%E6%95%97%E9%80%80" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
       </div>
     </div>
-    <div class="step wr-step" data-label="D 記述問題 (2/3)" data-qid="wr-pacific-war-2" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">2 / 3　文章で説明しよう</span></div>
+    <div class="step wr-step" data-label="D 記述問題 (2/3)" data-qid="wr-pacific-war-2" data-kind="qa" data-sec="D">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">2 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">大東亜共栄圏という考えの、表向きの目的と実際の姿の違いを説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">アジア</span><span class="kw-chip">支配</span></div>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
@@ -851,8 +1377,8 @@
         <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%A4%AA%E5%B9%B3%E6%B4%8B%E6%88%A6%E4%BA%89%E3%81%A8%E6%97%A5%E6%9C%AC%E3%81%AE%E6%95%97%E9%80%80" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
       </div>
     </div>
-    <div class="step wr-step" data-label="D 記述問題 (3/3)" data-qid="wr-pacific-war-3" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">3 / 3　文章で説明しよう</span></div>
+    <div class="step wr-step" data-label="D 記述問題 (3/3)" data-qid="wr-pacific-war-3" data-kind="qa" data-sec="D">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">3 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">太平洋戦争の戦局が日本に不利へと転じる転機となった海戦を挙げ、その影響を説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">ミッドウェー海戦</span><span class="kw-chip">空母</span></div>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
@@ -867,34 +1393,59 @@
         <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%A4%AA%E5%B9%B3%E6%B4%8B%E6%88%A6%E4%BA%89%E3%81%A8%E6%97%A5%E6%9C%AC%E3%81%AE%E6%95%97%E9%80%80" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
       </div>
     </div>
-    <div class="step" data-label="E 資料問題">
+    <div class="step" data-label="E 資料問題" data-sec="E">
       <div class="sec-h"><span class="sec-tag">E</span>資料問題<span class="sec-note">写真を見て答えよう</span></div>
       <figure class="s-img"><img src="img/pacific-war-relations.webp" alt="" loading="lazy"><figcaption>太平洋戦争をめぐる国際関係</figcaption></figure>
       <div class="s-q"><span class="qa-no">(1)</span>図中で、日本がドイツ・イタリアと結んだ同盟を何というか。<button class="blank s-blank" type="button"><span class="ba">日独伊三国同盟</span><span class="bl" style="width:8em"></span><span class="tap-hint">タップで答え</span></button></div><div class="s-q"><span class="qa-no">(2)</span>図中で、日本を経済的に封じこめるためにアメリカ・イギリス・中国・オランダがとった包囲網を何というか。<button class="blank s-blank" type="button"><span class="ba">ABCD包囲網（ABCDライン）</span><span class="bl" style="width:8em"></span><span class="tap-hint">タップで答え</span></button></div>
     </div>
-    <div class="step done-step" data-label="結果">
+    <div class="step done-step" data-label="結果" data-sec="Z">
       <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「太平洋戦争と日本の敗退」おつかれさま！</span></div>
       <div class="score-box" data-score></div>
-      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%A4%AA%E5%B9%B3%E6%B4%8B%E6%88%A6%E4%BA%89%E3%81%A8%E6%97%A5%E6%9C%AC%E3%81%AE%E6%95%97%E9%80%80" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
+      <button class="big-btn wrong-btn" type="button" data-mode="wrong" hidden>🔴 まちがえた問題だけやり直す<span class="btn-sub" data-wrong-sub></span></button>
+      <div class="next-modes">
+        <div class="nm-h">ほかの解き方でもう一度</div>
+        <div class="nm-chips"><button class="chip-mode" type="button" data-mode="A">🕳 穴埋め</button><button class="chip-mode" type="button" data-mode="B">✍️ 短答</button><button class="chip-mode" type="button" data-mode="C">✅ 4択</button><button class="chip-mode" type="button" data-mode="D">📝 記述</button></div>
+      </div>
       <a class="big-btn ref-btn" href="../../ref/16/index.html#t2">📖 参考書でおさらいする</a>
-      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元をもう一度とく</button>
+      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%A4%AA%E5%B9%B3%E6%B4%8B%E6%88%A6%E4%BA%89%E3%81%A8%E6%97%A5%E6%9C%AC%E3%81%AE%E6%95%97%E9%80%80" target="_blank" rel="noopener">🤖 LINEでこの単元を出題してもらう<span class="btn-sub">公式LINEに問題が届く→答えるとAIがすぐ丸つけ。すきま時間の復習に</span></a>
+      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元を最初から</button>
+      <button class="big-btn home-btn" type="button" data-go="0">🏠 目次にもどる</button>
     </div>
 </section>
 <section class="view" data-t="4">
   <div class="tband"><span class="tno">3</span><h2>銃後の苦しみと総動員</h2><img class="wchar tchar" src="img/characters_char_neko_sm.png" alt=""></div>
   
-    <div class="step" data-label="A 要点まとめ">
+    <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
+      <div class="sec-h"><span class="sec-tag">▶</span>やり方をえらぼう<span class="sec-note">目次にもどれば何度でも変えられるよ</span></div>
+      <button class="mode-btn mode-reco" type="button" data-mode="all">⭐ おすすめ順でぜんぶ解く<span class="mode-sub">要点まとめ → 一問一答 → 4択 → 記述</span></button>
+      <button class="mode-btn" type="button" data-mode="A">🕳 穴埋め（要点まとめ）だけ<span class="mode-sub">（　）をタップして確かめる</span></button>
+      <button class="mode-btn" type="button" data-mode="B">✍️ 一問一答（短答）だけ<span class="mode-sub">8問・入力して自動で正誤判定</span></button>
+      <div class="mode-opts">
+        <div class="opt-row">解答：<button class="opt-chip on" type="button" data-opt="ansB" data-val="0">⌨️ 入力して判定</button><button class="opt-chip" type="button" data-opt="ansB" data-val="1">入力せず答えだけ確認</button></div>
+        <div class="opt-row">採点：<button class="opt-chip on" type="button" data-opt="batch" data-val="0">一問ずつ</button><button class="opt-chip" type="button" data-opt="batch" data-val="1">まとめて</button></div>
+        <div class="opt-row">順番：<button class="opt-chip on" type="button" data-opt="shufB" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufB" data-val="1">シャッフル</button></div>
+      </div>
+      <button class="mode-btn" type="button" data-mode="C">✅ 4択（選択）だけ<span class="mode-sub">7問・タップで即判定</span></button>
+      <div class="mode-opts">
+        <div class="opt-row">順番：<button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
+      </div>
+      <button class="mode-btn" type="button" data-mode="D">📝 記述だけ<span class="mode-sub">3問・模範解答つき</span></button>
+    </div>
+    <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/16/index.html#t3">📖 先に参考書で理解する</a>
       <div class="summary">戦争が長引くと国内の生活は厳しく統制された。米や砂糖、衣料品などの物資は国が国民に割り当てる<button class="blank" type="button"><span class="bno">①</span><span class="ba">配給制</span><span class="bl" style="width:2.7em"></span></button>となり、1940年からは<button class="blank" type="button"><span class="bno">②</span><span class="ba">切符制</span><span class="bl" style="width:2.7em"></span></button>と組み合わせて分配された。1941年には尋常小学校が<button class="blank" type="button"><span class="bno">③</span><span class="ba">国民学校</span><span class="bl" style="width:3.6em"></span></button>に改称され、天皇に尽くす国民を育てることが目指された。1943年には兵力不足を補うため文系大学生らが繰り上げ卒業で出征する<button class="blank" type="button"><span class="bno">④</span><span class="ba">学徒出陣</span><span class="bl" style="width:3.6em"></span></button>が始まり、男性の労働力が失われた工場では中学生や女学生を動員する<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">勤労動員</span><span class="bl" style="width:3.6em"></span></button>が行われた。1944年からは空襲を避けるため都市の小学生を地方へ送る<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">学童疎開</span><span class="bl" style="width:3.6em"></span></button>も実施された。また植民地の朝鮮や台湾では日本人化を強いる<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">皇民化政策</span><span class="bl" style="width:4.5em"></span></button>が進められ、1940年には朝鮮の人々に日本式の姓名を名乗らせる<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">創氏改名</span><span class="bl" style="width:3.6em"></span></button>も行われた。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (1/8)" data-qid="qa-wartime-life-1" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">1 / 8</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (1/8)" data-qid="qa-wartime-life-1" data-kind="qa" data-sec="B" data-a="配給制" data-r="はいきゅうせい">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 8</span></span></div>
       <div class="q-text">戦時下に米・砂糖・衣料品などを国が割り当てた制度は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>配給制<rt>はいきゅうせい</rt></ruby></div>
         <div class="qa-expl">戦時下に物資が不足する中、国が米・砂糖・衣料品などを国民に最小限ずつ割り当てて分配した制度。</div>
         <div class="marks">
@@ -903,12 +1454,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (2/8)" data-qid="qa-wartime-life-2" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">2 / 8</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (2/8)" data-qid="qa-wartime-life-2" data-kind="qa" data-sec="B" data-a="切符制" data-r="きっぷせい">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">2 / 8</span></span></div>
       <div class="q-text">衣料品や砂糖などを配給するために用いられたチケット制度は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>切符制<rt>きっぷせい</rt></ruby></div>
         <div class="qa-expl">1940年から実施。衣料品や砂糖など不足物資の配給を受け取るためのチケット制度で、配給制と組み合わせて運用された。</div>
         <div class="marks">
@@ -917,12 +1471,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (3/8)" data-qid="qa-wartime-life-3" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">3 / 8</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (3/8)" data-qid="qa-wartime-life-3" data-kind="qa" data-sec="B" data-a="学徒出陣" data-r="がくとしゅつじん">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">3 / 8</span></span></div>
       <div class="q-text">戦争末期、文系大学生らが繰り上げ卒業で出征したことは？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>学徒<rt>がくと</rt></ruby><ruby>出陣<rt>しゅつじん</rt></ruby></div>
         <div class="qa-expl">1943年に開始され、兵力不足を補うため文系大学生らが繰り上げ卒業で出征し、多くの若者が戦地に送られた。</div>
         <div class="marks">
@@ -931,12 +1488,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (4/8)" data-qid="qa-wartime-life-4" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">4 / 8</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (4/8)" data-qid="qa-wartime-life-4" data-kind="qa" data-sec="B" data-a="勤労動員" data-r="きんろうどういん">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">4 / 8</span></span></div>
       <div class="q-text">中学生や女学生も工場で働くようになったことは？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>勤労<rt>きんろう</rt></ruby><ruby>動員<rt>どういん</rt></ruby></div>
         <div class="qa-expl">戦争末期、男性が出征した労働力不足を補うため、中学生や女学生も軍需工場で働くよう動員された制度。</div>
         <div class="marks">
@@ -945,12 +1505,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (5/8)" data-qid="qa-wartime-life-5" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">5 / 8</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (5/8)" data-qid="qa-wartime-life-5" data-kind="qa" data-sec="B" data-a="学童疎開" data-r="がくどうそかい">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">5 / 8</span></span></div>
       <div class="q-text">都市の小学生を空襲から守るため地方へ送ったことは？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>学童<rt>がくどう</rt></ruby><ruby>疎開<rt>そかい</rt></ruby></div>
         <div class="qa-expl">1944年から実施。都市の小学生を空襲被害から守るため地方の寺などへ送り、親元を離れた集団疎開生活を強いた。</div>
         <div class="marks">
@@ -959,12 +1522,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (6/8)" data-qid="qa-wartime-life-6" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">6 / 8</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (6/8)" data-qid="qa-wartime-life-6" data-kind="qa" data-sec="B" data-a="創氏改名" data-r="そうしかいめい">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">6 / 8</span></span></div>
       <div class="q-text">朝鮮人に日本式の姓名を名乗らせた政策は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>創氏改名<rt>そうしかいめい</rt></ruby></div>
         <div class="qa-expl">1940年に朝鮮で実施。日本人化を進める政策の一つで、朝鮮の人々に日本式の姓名を名乗らせ、民族の誇りを奪いました。</div>
         <div class="marks">
@@ -973,12 +1539,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (7/8)" data-qid="qa-wartime-life-7" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">7 / 8</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (7/8)" data-qid="qa-wartime-life-7" data-kind="qa" data-sec="B" data-a="皇民化政策" data-r="こうみんかせいさく">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">7 / 8</span></span></div>
       <div class="q-text">朝鮮・台湾の人々に日本人化を強要した政策は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>皇民化<rt>こうみんか</rt></ruby><ruby>政策<rt>せいさく</rt></ruby></div>
         <div class="qa-expl">植民地だった朝鮮・台湾の人々に日本人になるよう求めた政策で、日本語使用・神社参拝・創氏改名などを押しつけました。</div>
         <div class="marks">
@@ -987,12 +1556,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (8/8)" data-qid="qa-wartime-life-8" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">8 / 8</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (8/8)" data-qid="qa-wartime-life-8" data-kind="qa" data-sec="B" data-a="国民学校" data-r="こくみん学校">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">8 / 8</span></span></div>
       <div class="q-text">1941年から尋常小学校が改称されたものは？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>国民<rt>こくみん</rt></ruby>学校</div>
         <div class="qa-expl">1941年に尋常小学校が名前を変えたもの。戦争中、天皇のために尽くす国民を育てることを目的としました。</div>
         <div class="marks">
@@ -1001,50 +1573,163 @@
         </div>
       </div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (1/7)" data-qid="qz-wartime-life-1" data-kind="qz" data-c="0">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">1 / 7　正しいものを選ぼう</span></div>
+    <div class="step qa-batch-step" data-label="B 一問一答（まとめて採点）" data-sec="BB">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">全8問・まとめて採点</span></div>
+      <div class="howto">まず全部の問題にこたえてから、下のボタンでまとめて答え合わせしよう！</div>
+      
+      <div class="bq-item" data-qid="qa-wartime-life-1" data-a="配給制" data-r="はいきゅうせい">
+        <div class="bq-q"><span class="qa-no">(1)</span>戦時下に米・砂糖・衣料品などを国が割り当てた制度は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a"><ruby>配給制<rt>はいきゅうせい</rt></ruby></div>
+          <div class="qa-expl">戦時下に物資が不足する中、国が米・砂糖・衣料品などを国民に最小限ずつ割り当てて分配した制度。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-wartime-life-2" data-a="切符制" data-r="きっぷせい">
+        <div class="bq-q"><span class="qa-no">(2)</span>衣料品や砂糖などを配給するために用いられたチケット制度は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a"><ruby>切符制<rt>きっぷせい</rt></ruby></div>
+          <div class="qa-expl">1940年から実施。衣料品や砂糖など不足物資の配給を受け取るためのチケット制度で、配給制と組み合わせて運用された。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-wartime-life-3" data-a="学徒出陣" data-r="がくとしゅつじん">
+        <div class="bq-q"><span class="qa-no">(3)</span>戦争末期、文系大学生らが繰り上げ卒業で出征したことは？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a"><ruby>学徒<rt>がくと</rt></ruby><ruby>出陣<rt>しゅつじん</rt></ruby></div>
+          <div class="qa-expl">1943年に開始され、兵力不足を補うため文系大学生らが繰り上げ卒業で出征し、多くの若者が戦地に送られた。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-wartime-life-4" data-a="勤労動員" data-r="きんろうどういん">
+        <div class="bq-q"><span class="qa-no">(4)</span>中学生や女学生も工場で働くようになったことは？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a"><ruby>勤労<rt>きんろう</rt></ruby><ruby>動員<rt>どういん</rt></ruby></div>
+          <div class="qa-expl">戦争末期、男性が出征した労働力不足を補うため、中学生や女学生も軍需工場で働くよう動員された制度。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-wartime-life-5" data-a="学童疎開" data-r="がくどうそかい">
+        <div class="bq-q"><span class="qa-no">(5)</span>都市の小学生を空襲から守るため地方へ送ったことは？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a"><ruby>学童<rt>がくどう</rt></ruby><ruby>疎開<rt>そかい</rt></ruby></div>
+          <div class="qa-expl">1944年から実施。都市の小学生を空襲被害から守るため地方の寺などへ送り、親元を離れた集団疎開生活を強いた。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-wartime-life-6" data-a="創氏改名" data-r="そうしかいめい">
+        <div class="bq-q"><span class="qa-no">(6)</span>朝鮮人に日本式の姓名を名乗らせた政策は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a"><ruby>創氏改名<rt>そうしかいめい</rt></ruby></div>
+          <div class="qa-expl">1940年に朝鮮で実施。日本人化を進める政策の一つで、朝鮮の人々に日本式の姓名を名乗らせ、民族の誇りを奪いました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-wartime-life-7" data-a="皇民化政策" data-r="こうみんかせいさく">
+        <div class="bq-q"><span class="qa-no">(7)</span>朝鮮・台湾の人々に日本人化を強要した政策は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a"><ruby>皇民化<rt>こうみんか</rt></ruby><ruby>政策<rt>せいさく</rt></ruby></div>
+          <div class="qa-expl">植民地だった朝鮮・台湾の人々に日本人になるよう求めた政策で、日本語使用・神社参拝・創氏改名などを押しつけました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-wartime-life-8" data-a="国民学校" data-r="こくみん学校">
+        <div class="bq-q"><span class="qa-no">(8)</span>1941年から尋常小学校が改称されたものは？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a"><ruby>国民<rt>こくみん</rt></ruby>学校</div>
+          <div class="qa-expl">1941年に尋常小学校が名前を変えたもの。戦争中、天皇のために尽くす国民を育てることを目的としました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="reveal-all-row">
+        <button class="reveal batch-grade" type="button">こたえをまとめて表示して採点する</button>
+        <button class="b-batch-judge" type="button">入力したこたえをまとめて採点する</button>
+      </div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (1/7)" data-qid="qz-wartime-life-1" data-kind="qz" data-c="0" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">1 / 7</span>　正しいものを選ぼう</span></div>
       <div class="q-text">戦時下、米・砂糖などを国が国民に分配した制度は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">配給制</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">統制経済</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">専売制</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">切符制</span></button></div>
       <div class="expl hidden-until">💡 戦時下の物資不足を受け、国が米・砂糖・衣料品などを国民に最小限ずつ割り当てて分配する配給制が実施されました。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (2/7)" data-qid="qz-wartime-life-2" data-kind="qz" data-c="2">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">2 / 7　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (2/7)" data-qid="qz-wartime-life-2" data-kind="qz" data-c="2" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">2 / 7</span>　正しいものを選ぼう</span></div>
       <div class="q-text">1943年から大学生が戦地に送られたことを？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">勤労動員</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">徴用</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">学徒出陣</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">学童疎開</span></button></div>
       <div class="expl hidden-until">💡 1943年、兵力不足を補うため文系大学生らが繰り上げ卒業で出征する学徒出陣が始まり、多くの若者が戦地に送られました。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (3/7)" data-qid="qz-wartime-life-3" data-kind="qz" data-c="0">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">3 / 7　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (3/7)" data-qid="qz-wartime-life-3" data-kind="qz" data-c="0" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">3 / 7</span>　正しいものを選ぼう</span></div>
       <div class="q-text">都市の小学生を空襲から守るため地方へ送ったことは？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">学童疎開</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">学徒出陣</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">勤労動員</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">徴兵</span></button></div>
       <div class="expl hidden-until">💡 1944年から都市の小学生を空襲被害から守るため地方の寺などへ送る学童疎開が行われ、親元を離れた集団生活を強いられました。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (4/7)" data-qid="qz-wartime-life-4" data-kind="qz" data-c="1">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">4 / 7　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (4/7)" data-qid="qz-wartime-life-4" data-kind="qz" data-c="1" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">4 / 7</span>　正しいものを選ぼう</span></div>
       <div class="q-text">中学生らも工場で働くことになったのは？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">学徒出陣</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">勤労動員</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">学童疎開</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">徴用</span></button></div>
       <div class="expl hidden-until">💡 戦争末期、男性が出征した労働力不足を補うため、中学生や女学生も軍需工場で働く勤労動員が実施されました。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (5/7)" data-qid="qz-wartime-life-5" data-kind="qz" data-c="0">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">5 / 7　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (5/7)" data-qid="qz-wartime-life-5" data-kind="qz" data-c="0" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">5 / 7</span>　正しいものを選ぼう</span></div>
       <div class="q-text">朝鮮の人々に対し、皇民化政策の一環として日本式の姓名を名乗らせた政策は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">創氏改名</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">皇民化政策</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">同化政策</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">内鮮一体</span></button></div>
       <div class="expl hidden-until">💡 1940年、皇民化政策の一つとして朝鮮の人々に日本式の姓名を名乗らせた創氏改名が実施され、民族のアイデンティティを奪いました。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (6/7)" data-qid="qz-wartime-life-6" data-kind="qz" data-c="3">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">6 / 7　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (6/7)" data-qid="qz-wartime-life-6" data-kind="qz" data-c="3" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">6 / 7</span>　正しいものを選ぼう</span></div>
       <div class="q-text">朝鮮・台湾の人々に日本人化を強要した政策の総称は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">強制連行</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">同化政策</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">創氏改名</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">皇民化政策</span></button></div>
       <div class="expl hidden-until">💡 皇民化政策は朝鮮・台湾の人々に日本人化を強要した政策の総称で、日本語使用・神社参拝・創氏改名なども含まれます。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (7/7)" data-qid="qz-wartime-life-7" data-kind="qz" data-c="1">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">7 / 7　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (7/7)" data-qid="qz-wartime-life-7" data-kind="qz" data-c="1" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">7 / 7</span>　正しいものを選ぼう</span></div>
       <div class="q-text">1941年から改称された小学校は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">高等学校</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">国民学校</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">尋常学校</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">皇国学校</span></button></div>
       <div class="expl hidden-until">💡 1941年に国民学校令により尋常小学校が国民学校に改称され、戦時下の皇国民育成を目的としました。</div>
     </div>
-    <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-wartime-life-1" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">1 / 3　文章で説明しよう</span></div>
+    <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-wartime-life-1" data-kind="qa" data-sec="D">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">1 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">配給制と切符制はどのようなしくみだったか説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">配給制</span><span class="kw-chip">切符制</span></div>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
@@ -1059,8 +1744,8 @@
         <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E9%8A%83%E5%BE%8C%E3%81%AE%E8%8B%A6%E3%81%97%E3%81%BF%E3%81%A8%E7%B7%8F%E5%8B%95%E5%93%A1" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
       </div>
     </div>
-    <div class="step wr-step" data-label="D 記述問題 (2/3)" data-qid="wr-wartime-life-2" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">2 / 3　文章で説明しよう</span></div>
+    <div class="step wr-step" data-label="D 記述問題 (2/3)" data-qid="wr-wartime-life-2" data-kind="qa" data-sec="D">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">2 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">学童疎開はどのような目的で行われたか説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">空襲</span><span class="kw-chip">疎開</span></div>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
@@ -1075,8 +1760,8 @@
         <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E9%8A%83%E5%BE%8C%E3%81%AE%E8%8B%A6%E3%81%97%E3%81%BF%E3%81%A8%E7%B7%8F%E5%8B%95%E5%93%A1" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
       </div>
     </div>
-    <div class="step wr-step" data-label="D 記述問題 (3/3)" data-qid="wr-wartime-life-3" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">3 / 3　文章で説明しよう</span></div>
+    <div class="step wr-step" data-label="D 記述問題 (3/3)" data-qid="wr-wartime-life-3" data-kind="qa" data-sec="D">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">3 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">戦争中、植民地の朝鮮などで日本語や日本式の名前を強制した政策を何というか、その内容を説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">皇民化政策</span><span class="kw-chip">創氏改名</span></div>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
@@ -1091,29 +1776,54 @@
         <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E9%8A%83%E5%BE%8C%E3%81%AE%E8%8B%A6%E3%81%97%E3%81%BF%E3%81%A8%E7%B7%8F%E5%8B%95%E5%93%A1" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
       </div>
     </div>
-    <div class="step done-step" data-label="結果">
+    <div class="step done-step" data-label="結果" data-sec="Z">
       <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「銃後の苦しみと総動員」おつかれさま！</span></div>
       <div class="score-box" data-score></div>
-      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E9%8A%83%E5%BE%8C%E3%81%AE%E8%8B%A6%E3%81%97%E3%81%BF%E3%81%A8%E7%B7%8F%E5%8B%95%E5%93%A1" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
+      <button class="big-btn wrong-btn" type="button" data-mode="wrong" hidden>🔴 まちがえた問題だけやり直す<span class="btn-sub" data-wrong-sub></span></button>
+      <div class="next-modes">
+        <div class="nm-h">ほかの解き方でもう一度</div>
+        <div class="nm-chips"><button class="chip-mode" type="button" data-mode="A">🕳 穴埋め</button><button class="chip-mode" type="button" data-mode="B">✍️ 短答</button><button class="chip-mode" type="button" data-mode="C">✅ 4択</button><button class="chip-mode" type="button" data-mode="D">📝 記述</button></div>
+      </div>
       <a class="big-btn ref-btn" href="../../ref/16/index.html#t3">📖 参考書でおさらいする</a>
-      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元をもう一度とく</button>
+      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E9%8A%83%E5%BE%8C%E3%81%AE%E8%8B%A6%E3%81%97%E3%81%BF%E3%81%A8%E7%B7%8F%E5%8B%95%E5%93%A1" target="_blank" rel="noopener">🤖 LINEでこの単元を出題してもらう<span class="btn-sub">公式LINEに問題が届く→答えるとAIがすぐ丸つけ。すきま時間の復習に</span></a>
+      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元を最初から</button>
+      <button class="big-btn home-btn" type="button" data-go="0">🏠 目次にもどる</button>
     </div>
 </section>
 <section class="view" data-t="5">
   <div class="tband"><span class="tno">4</span><h2>終戦への道</h2><img class="wchar tchar" src="img/characters_char_owl_sm.png" alt=""></div>
   
-    <div class="step" data-label="A 要点まとめ">
+    <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
+      <div class="sec-h"><span class="sec-tag">▶</span>やり方をえらぼう<span class="sec-note">目次にもどれば何度でも変えられるよ</span></div>
+      <button class="mode-btn mode-reco" type="button" data-mode="all">⭐ おすすめ順でぜんぶ解く<span class="mode-sub">要点まとめ → 一問一答 → 4択 → 記述</span></button>
+      <button class="mode-btn" type="button" data-mode="A">🕳 穴埋め（要点まとめ）だけ<span class="mode-sub">（　）をタップして確かめる</span></button>
+      <button class="mode-btn" type="button" data-mode="B">✍️ 一問一答（短答）だけ<span class="mode-sub">10問・入力して自動で正誤判定</span></button>
+      <div class="mode-opts">
+        <div class="opt-row">解答：<button class="opt-chip on" type="button" data-opt="ansB" data-val="0">⌨️ 入力して判定</button><button class="opt-chip" type="button" data-opt="ansB" data-val="1">入力せず答えだけ確認</button></div>
+        <div class="opt-row">採点：<button class="opt-chip on" type="button" data-opt="batch" data-val="0">一問ずつ</button><button class="opt-chip" type="button" data-opt="batch" data-val="1">まとめて</button></div>
+        <div class="opt-row">順番：<button class="opt-chip on" type="button" data-opt="shufB" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufB" data-val="1">シャッフル</button></div>
+      </div>
+      <button class="mode-btn" type="button" data-mode="C">✅ 4択（選択）だけ<span class="mode-sub">8問・タップで即判定</span></button>
+      <div class="mode-opts">
+        <div class="opt-row">順番：<button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
+      </div>
+      <button class="mode-btn" type="button" data-mode="D">📝 記述だけ<span class="mode-sub">3問・模範解答つき</span></button>
+    </div>
+    <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/16/index.html#t4">📖 先に参考書で理解する</a>
       <div class="summary">1945年2月、アメリカ・イギリス・ソ連の首脳は<button class="blank" type="button"><span class="bno">①</span><span class="ba">ヤルタ会談</span><span class="bl" style="width:4.5em"></span></button>を開き、ドイツ降伏の3か月後にソ連が日本と戦うことを秘密に約束した。同年7月には米英中(のちにソ連も)が日本に無条件降伏を求める<button class="blank" type="button"><span class="bno">②</span><span class="ba">ポツダム宣言</span><span class="bl" style="width:5.4em"></span></button>を出したが、日本がこれを無視したため、8月6日にアメリカ軍は<button class="blank" type="button"><span class="bno">③</span><span class="ba">広島</span><span class="bl" style="width:2.7em"></span></button>に原子爆弾を投下し、約14万人が犠牲となった。8月8日にはソ連が<button class="blank" type="button"><span class="bno">④</span><span class="ba">日ソ中立条約</span><span class="bl" style="width:5.4em"></span></button>を破って<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">満州</span><span class="bl" style="width:2.7em"></span></button>に攻め込み対日参戦し、翌9日には<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">長崎</span><span class="bl" style="width:2.7em"></span></button>にも原爆が投下され約7万人が犠牲になった。追いつめられた日本は8月15日、<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">昭和天皇</span><span class="bl" style="width:3.6em"></span></button>が<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">玉音放送</span><span class="bl" style="width:3.6em"></span></button>でポツダム宣言の受け入れと終戦を国民に伝え、長い戦争がようやく終わった。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (1/10)" data-qid="qa-end-of-war-1" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">1 / 10</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (1/10)" data-qid="qa-end-of-war-1" data-kind="qa" data-sec="B" data-a="ヤルタ会談" data-r="ヤルタかいだん">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 10</span></span></div>
       <div class="q-text">1945年2月、米英ソが戦後処理を話し合った会談は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ヤルタ<ruby>会談<rt>かいだん</rt></ruby></div>
         <div class="qa-expl">1945年2月、米英ソの首脳がソ連南部のヤルタに集まり、ドイツ降伏の3か月後にソ連が日本と戦うと密かに約束しました。</div>
         <div class="marks">
@@ -1122,12 +1832,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (2/10)" data-qid="qa-end-of-war-2" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">2 / 10</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (2/10)" data-qid="qa-end-of-war-2" data-kind="qa" data-sec="B" data-a="ポツダム宣言" data-r="ポツダムせんげん">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">2 / 10</span></span></div>
       <div class="q-text">1945年7月、米英中（後にソ連も）が日本に降伏を勧告した宣言は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ポツダム<ruby>宣言<rt>せんげん</rt></ruby></div>
         <div class="qa-expl">1945年7月、米英中が日本に降伏を求めた宣言。日本が無視したため原爆投下とソ連参戦を招きました。</div>
         <div class="marks">
@@ -1136,12 +1849,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (3/10)" data-qid="qa-end-of-war-3" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">3 / 10</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (3/10)" data-qid="qa-end-of-war-3" data-kind="qa" data-sec="B" data-a="1945年" data-r="1945年">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">3 / 10</span></span></div>
       <div class="q-text">ポツダム宣言・原爆投下・終戦の年は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1945年</div>
         <div class="qa-expl">1945年は第二次世界大戦が終わり、日本がポツダム宣言を受け入れて降伏した年です。</div>
         <div class="marks">
@@ -1150,12 +1866,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (4/10)" data-qid="qa-end-of-war-4" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">4 / 10</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (4/10)" data-qid="qa-end-of-war-4" data-kind="qa" data-sec="B" data-a="広島原爆" data-r="ひろしまげんばく">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">4 / 10</span></span></div>
       <div class="q-text">1945年8月6日に原子爆弾が投下された都市は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>広島<rt>ひろしま</rt></ruby><ruby>原爆<rt>げんばく</rt></ruby></div>
         <div class="qa-expl">1945年8月6日、アメリカ軍が広島に原子爆弾を投下。世界で初めて戦争で使われた核兵器で、約14万人が犠牲になりました。</div>
         <div class="marks">
@@ -1164,12 +1883,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (5/10)" data-qid="qa-end-of-war-5" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">5 / 10</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (5/10)" data-qid="qa-end-of-war-5" data-kind="qa" data-sec="B" data-a="1945年8月6日" data-r="1945ねん8がつ6にち">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">5 / 10</span></span></div>
       <div class="q-text">広島に原爆が投下された日は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1945<ruby>年<rt>ねん</rt></ruby>8<ruby>月<rt>がつ</rt></ruby>6<ruby>日<rt>にち</rt></ruby></div>
         <div class="qa-expl">1945年8月6日、アメリカの爆撃機B-29が広島に原爆を落とした日。毎年この日に平和記念式典が開かれます。</div>
         <div class="marks">
@@ -1178,12 +1900,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (6/10)" data-qid="qa-end-of-war-6" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">6 / 10</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (6/10)" data-qid="qa-end-of-war-6" data-kind="qa" data-sec="B" data-a="長崎原爆" data-r="ながさきげんばく">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">6 / 10</span></span></div>
       <div class="q-text">1945年8月9日に原子爆弾が投下された都市は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>長崎<rt>ながさき</rt></ruby><ruby>原爆<rt>げんばく</rt></ruby></div>
         <div class="qa-expl">1945年8月9日、アメリカ軍が長崎に原子爆弾を投下し、約7万人が犠牲になりました。</div>
         <div class="marks">
@@ -1192,12 +1917,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (7/10)" data-qid="qa-end-of-war-7" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">7 / 10</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (7/10)" data-qid="qa-end-of-war-7" data-kind="qa" data-sec="B" data-a="1945年8月9日" data-r="1945年8月9日">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">7 / 10</span></span></div>
       <div class="q-text">長崎に原爆が投下された日は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1945年8月9日</div>
         <div class="qa-expl">1945年8月9日、長崎に原爆が投下された日。前日のソ連の参戦と重なり、日本の降伏が決定的になりました。</div>
         <div class="marks">
@@ -1206,12 +1934,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (8/10)" data-qid="qa-end-of-war-8" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">8 / 10</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (8/10)" data-qid="qa-end-of-war-8" data-kind="qa" data-sec="B" data-a="ソ連参戦" data-r="ソれんさんせん">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">8 / 10</span></span></div>
       <div class="q-text">1945年8月8日に日ソ中立条約を破棄して日本に攻め込んだソ連の行動は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ソ<ruby>連<rt>れん</rt></ruby><ruby>参戦<rt>さんせん</rt></ruby></div>
         <div class="qa-expl">1945年8月8日、ソ連はヤルタでの密約に従い、日ソ中立条約を破って日本に戦争を宣言し、満州に攻め込みました。</div>
         <div class="marks">
@@ -1220,12 +1951,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (9/10)" data-qid="qa-end-of-war-9" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">9 / 10</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (9/10)" data-qid="qa-end-of-war-9" data-kind="qa" data-sec="B" data-a="8月15日" data-r="8月15日">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">9 / 10</span></span></div>
       <div class="q-text">昭和天皇が玉音放送で終戦を国民に伝えた日は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">8月15日</div>
         <div class="qa-expl">1945年8月15日、昭和天皇がラジオ放送でポツダム宣言を受け入れ、戦争が終わったことを国民に伝えた日です。</div>
         <div class="marks">
@@ -1234,12 +1968,15 @@
         </div>
       </div>
     </div>
-    <div class="step qa-step" data-label="B 一問一答 (10/10)" data-qid="qa-end-of-war-10" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">10 / 10</span></div>
+    <div class="step qa-step" data-label="B 一問一答 (10/10)" data-qid="qa-end-of-war-10" data-kind="qa" data-sec="B" data-a="玉音放送" data-r="ぎょくおんほうそう">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">10 / 10</span></span></div>
       <div class="q-text">昭和天皇が直接ラジオで国民に終戦を伝えた放送は？</div>
       <div class="wline print-only"></div>
+      <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
+      <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
       <div class="hidden-until">
+        <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>玉音<rt>ぎょくおん</rt></ruby><ruby>放送<rt>ほうそう</rt></ruby></div>
         <div class="qa-expl">1945年8月15日正午、昭和天皇がラジオで終戦を伝えた放送で、「苦しくても我慢して」と語った言葉が有名です。</div>
         <div class="marks">
@@ -1248,56 +1985,195 @@
         </div>
       </div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (1/8)" data-qid="qz-end-of-war-1" data-kind="qz" data-c="3">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">1 / 8　正しいものを選ぼう</span></div>
+    <div class="step qa-batch-step" data-label="B 一問一答（まとめて採点）" data-sec="BB">
+      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">全10問・まとめて採点</span></div>
+      <div class="howto">まず全部の問題にこたえてから、下のボタンでまとめて答え合わせしよう！</div>
+      
+      <div class="bq-item" data-qid="qa-end-of-war-1" data-a="ヤルタ会談" data-r="ヤルタかいだん">
+        <div class="bq-q"><span class="qa-no">(1)</span>1945年2月、米英ソが戦後処理を話し合った会談は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">ヤルタ<ruby>会談<rt>かいだん</rt></ruby></div>
+          <div class="qa-expl">1945年2月、米英ソの首脳がソ連南部のヤルタに集まり、ドイツ降伏の3か月後にソ連が日本と戦うと密かに約束しました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-end-of-war-2" data-a="ポツダム宣言" data-r="ポツダムせんげん">
+        <div class="bq-q"><span class="qa-no">(2)</span>1945年7月、米英中（後にソ連も）が日本に降伏を勧告した宣言は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">ポツダム<ruby>宣言<rt>せんげん</rt></ruby></div>
+          <div class="qa-expl">1945年7月、米英中が日本に降伏を求めた宣言。日本が無視したため原爆投下とソ連参戦を招きました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-end-of-war-3" data-a="1945年" data-r="1945年">
+        <div class="bq-q"><span class="qa-no">(3)</span>ポツダム宣言・原爆投下・終戦の年は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">1945年</div>
+          <div class="qa-expl">1945年は第二次世界大戦が終わり、日本がポツダム宣言を受け入れて降伏した年です。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-end-of-war-4" data-a="広島原爆" data-r="ひろしまげんばく">
+        <div class="bq-q"><span class="qa-no">(4)</span>1945年8月6日に原子爆弾が投下された都市は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a"><ruby>広島<rt>ひろしま</rt></ruby><ruby>原爆<rt>げんばく</rt></ruby></div>
+          <div class="qa-expl">1945年8月6日、アメリカ軍が広島に原子爆弾を投下。世界で初めて戦争で使われた核兵器で、約14万人が犠牲になりました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-end-of-war-5" data-a="1945年8月6日" data-r="1945ねん8がつ6にち">
+        <div class="bq-q"><span class="qa-no">(5)</span>広島に原爆が投下された日は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">1945<ruby>年<rt>ねん</rt></ruby>8<ruby>月<rt>がつ</rt></ruby>6<ruby>日<rt>にち</rt></ruby></div>
+          <div class="qa-expl">1945年8月6日、アメリカの爆撃機B-29が広島に原爆を落とした日。毎年この日に平和記念式典が開かれます。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-end-of-war-6" data-a="長崎原爆" data-r="ながさきげんばく">
+        <div class="bq-q"><span class="qa-no">(6)</span>1945年8月9日に原子爆弾が投下された都市は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a"><ruby>長崎<rt>ながさき</rt></ruby><ruby>原爆<rt>げんばく</rt></ruby></div>
+          <div class="qa-expl">1945年8月9日、アメリカ軍が長崎に原子爆弾を投下し、約7万人が犠牲になりました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-end-of-war-7" data-a="1945年8月9日" data-r="1945年8月9日">
+        <div class="bq-q"><span class="qa-no">(7)</span>長崎に原爆が投下された日は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">1945年8月9日</div>
+          <div class="qa-expl">1945年8月9日、長崎に原爆が投下された日。前日のソ連の参戦と重なり、日本の降伏が決定的になりました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-end-of-war-8" data-a="ソ連参戦" data-r="ソれんさんせん">
+        <div class="bq-q"><span class="qa-no">(8)</span>1945年8月8日に日ソ中立条約を破棄して日本に攻め込んだソ連の行動は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">ソ<ruby>連<rt>れん</rt></ruby><ruby>参戦<rt>さんせん</rt></ruby></div>
+          <div class="qa-expl">1945年8月8日、ソ連はヤルタでの密約に従い、日ソ中立条約を破って日本に戦争を宣言し、満州に攻め込みました。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-end-of-war-9" data-a="8月15日" data-r="8月15日">
+        <div class="bq-q"><span class="qa-no">(9)</span>昭和天皇が玉音放送で終戦を国民に伝えた日は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a">8月15日</div>
+          <div class="qa-expl">1945年8月15日、昭和天皇がラジオ放送でポツダム宣言を受け入れ、戦争が終わったことを国民に伝えた日です。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="bq-item" data-qid="qa-end-of-war-10" data-a="玉音放送" data-r="ぎょくおんほうそう">
+        <div class="bq-q"><span class="qa-no">(10)</span>昭和天皇が直接ラジオで国民に終戦を伝えた放送は？</div>
+        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
+        <div class="hidden-until">
+          <div class="b-result" aria-live="polite"></div>
+          <div class="qa-a"><ruby>玉音<rt>ぎょくおん</rt></ruby><ruby>放送<rt>ほうそう</rt></ruby></div>
+          <div class="qa-expl">1945年8月15日正午、昭和天皇がラジオで終戦を伝えた放送で、「苦しくても我慢して」と語った言葉が有名です。</div>
+          <div class="marks">
+            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
+            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          </div>
+        </div>
+      </div>
+      <div class="reveal-all-row">
+        <button class="reveal batch-grade" type="button">こたえをまとめて表示して採点する</button>
+        <button class="b-batch-judge" type="button">入力したこたえをまとめて採点する</button>
+      </div>
+    </div>
+    <div class="step qz-step" data-label="C 実戦問題 (1/8)" data-qid="qz-end-of-war-1" data-kind="qz" data-c="3" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">1 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">広島に原爆が投下された日は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">8月15日</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">8月9日</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">9月2日</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">8月6日</span></button></div>
       <div class="expl hidden-until">💡 1945年8月6日、米軍B-29が広島にウラン型原爆を投下し、約14万人が犠牲となりました。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-end-of-war-2" data-kind="qz" data-c="2">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">2 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-end-of-war-2" data-kind="qz" data-c="2" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">2 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">長崎に原爆が投下された日は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">8月6日</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">9月2日</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">8月9日</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">8月15日</span></button></div>
       <div class="expl hidden-until">💡 1945年8月9日、米軍がプルトニウム型原爆を長崎に投下し、約7万人が犠牲となりました。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-end-of-war-3" data-kind="qz" data-c="0">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">3 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-end-of-war-3" data-kind="qz" data-c="0" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">3 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">昭和天皇が玉音放送で終戦を伝えた日は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">8月15日</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">9月2日</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">8月9日</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">8月6日</span></button></div>
       <div class="expl hidden-until">💡 1945年8月15日、昭和天皇が玉音放送でポツダム宣言受諾と終戦を国民に伝えました。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-end-of-war-4" data-kind="qz" data-c="2">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">4 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-end-of-war-4" data-kind="qz" data-c="2" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">4 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">1945年7月に日本に降伏を勧告した宣言は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">カイロ宣言</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">サンフランシスコ宣言</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">ポツダム宣言</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">ヤルタ協定</span></button></div>
       <div class="expl hidden-until">💡 1945年7月、米英中（後にソ連も）が日本に無条件降伏を勧告したのがポツダム宣言です。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-end-of-war-5" data-kind="qz" data-c="2">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">5 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-end-of-war-5" data-kind="qz" data-c="2" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">5 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">1945年2月に米英ソが戦後処理を話し合った会談は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">テヘラン会談</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">ポツダム会談</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">ヤルタ会談</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">カイロ会談</span></button></div>
       <div class="expl hidden-until">💡 1945年2月のヤルタ会談で米英ソが戦後処理を協議し、ソ連の対日参戦が秘密協定で決められました。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-end-of-war-6" data-kind="qz" data-c="3">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">6 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-end-of-war-6" data-kind="qz" data-c="3" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">6 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">ソ連が対日参戦した日は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">8月15日</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">8月6日</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">9月2日</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">8月8日</span></button></div>
       <div class="expl hidden-until">💡 1945年8月8日、ソ連はヤルタ秘密協定に基づき日ソ中立条約を破って対日宣戦布告しました。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-end-of-war-7" data-kind="qz" data-c="0">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">7 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-end-of-war-7" data-kind="qz" data-c="0" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">7 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">広島原爆の犠牲者はおよそ？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">14万人</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">4万人</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">22万人</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">7万人</span></button></div>
       <div class="expl hidden-until">💡 1945年末までに広島では約14万人が犠牲となりました。なお7万人は長崎原爆の犠牲者数なので混同に注意。</div>
     </div>
-    <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-end-of-war-8" data-kind="qz" data-c="1">
-      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note">8 / 8　正しいものを選ぼう</span></div>
+    <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-end-of-war-8" data-kind="qz" data-c="1" data-sec="C">
+      <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">8 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">ソ連参戦の根拠となった連合国側の取り決めは？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">テヘラン会談決議</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">ヤルタ秘密協定</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">カイロ宣言</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">ポツダム宣言</span></button></div>
       <div class="expl hidden-until">💡 1945年2月のヤルタ会談で、ドイツ降伏の3か月後にソ連が対日参戦することが秘密協定で決められました。</div>
     </div>
-    <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-end-of-war-1" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">1 / 3　文章で説明しよう</span></div>
+    <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-end-of-war-1" data-kind="qa" data-sec="D">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">1 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">アメリカが広島に原子爆弾を投下した理由を説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">ポツダム宣言</span></div>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
@@ -1312,8 +2188,8 @@
         <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E7%B5%82%E6%88%A6%E3%81%B8%E3%81%AE%E9%81%93" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
       </div>
     </div>
-    <div class="step wr-step" data-label="D 記述問題 (2/3)" data-qid="wr-end-of-war-2" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">2 / 3　文章で説明しよう</span></div>
+    <div class="step wr-step" data-label="D 記述問題 (2/3)" data-qid="wr-end-of-war-2" data-kind="qa" data-sec="D">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">2 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">ヤルタ会談での取り決めは、その後のソ連の行動にどのような影響を与えたか説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">対日参戦</span><span class="kw-chip">日ソ中立条約</span></div>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
@@ -1328,8 +2204,8 @@
         <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E7%B5%82%E6%88%A6%E3%81%B8%E3%81%AE%E9%81%93" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
       </div>
     </div>
-    <div class="step wr-step" data-label="D 記述問題 (3/3)" data-qid="wr-end-of-war-3" data-kind="qa">
-      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note">3 / 3　文章で説明しよう</span></div>
+    <div class="step wr-step" data-label="D 記述問題 (3/3)" data-qid="wr-end-of-war-3" data-kind="qa" data-sec="D">
+      <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">3 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">1945年8月15日に日本が戦争を終えるまでのいきさつを、玉音放送にふれて説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">ポツダム宣言</span><span class="kw-chip">玉音放送</span></div>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
@@ -1344,12 +2220,18 @@
         <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E7%B5%82%E6%88%A6%E3%81%B8%E3%81%AE%E9%81%93" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
       </div>
     </div>
-    <div class="step done-step" data-label="結果">
+    <div class="step done-step" data-label="結果" data-sec="Z">
       <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「終戦への道」おつかれさま！</span></div>
       <div class="score-box" data-score></div>
-      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E7%B5%82%E6%88%A6%E3%81%B8%E3%81%AE%E9%81%93" target="_blank" rel="noopener">🤖 LINEでAI採点つきで復習する<span class="btn-sub">まちがえた問題は自動で再出題</span></a>
+      <button class="big-btn wrong-btn" type="button" data-mode="wrong" hidden>🔴 まちがえた問題だけやり直す<span class="btn-sub" data-wrong-sub></span></button>
+      <div class="next-modes">
+        <div class="nm-h">ほかの解き方でもう一度</div>
+        <div class="nm-chips"><button class="chip-mode" type="button" data-mode="A">🕳 穴埋め</button><button class="chip-mode" type="button" data-mode="B">✍️ 短答</button><button class="chip-mode" type="button" data-mode="C">✅ 4択</button><button class="chip-mode" type="button" data-mode="D">📝 記述</button></div>
+      </div>
       <a class="big-btn ref-btn" href="../../ref/16/index.html#t4">📖 参考書でおさらいする</a>
-      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元をもう一度とく</button>
+      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E7%B5%82%E6%88%A6%E3%81%B8%E3%81%AE%E9%81%93" target="_blank" rel="noopener">🤖 LINEでこの単元を出題してもらう<span class="btn-sub">公式LINEに問題が届く→答えるとAIがすぐ丸つけ。すきま時間の復習に</span></a>
+      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元を最初から</button>
+      <button class="big-btn home-btn" type="button" data-go="0">🏠 目次にもどる</button>
     </div>
 </section>
 <section class="print-answers print-only">
@@ -1375,7 +2257,132 @@
     try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; }
   }
   function save(obj) { try { localStorage.setItem(KEY, JSON.stringify(obj)); } catch (e) {} }
-  function stepsOf(t) { return views[t].querySelectorAll('.step'); }
+  function domSteps(t) { return [].slice.call(views[t].querySelectorAll('.step')); }
+  function modeCfg(t) { return store()['m' + t] || null; }
+
+  // ── プレイリスト（選んだ「やり方」に応じたステップ列）──
+  // mode: 'all'=おすすめ順（従来の全ステップ）/ 'A'=穴埋め / 'B'=一問一答 /
+  //       'C'=4択 / 'D'=記述。B は batch（まとめて採点）と shuf、C は shuf を持つ。
+  // シャッフル順（order）は保存するので、つづきから再開しても順番は変わらない。
+  var plCache = {};
+  function orderBy(arr, order) {
+    if (!order || order.length !== arr.length) return arr;
+    return order.map(function (i) { return arr[i]; });
+  }
+  function shuffledOrder(n) {
+    var a = []; for (var i = 0; i < n; i++) a.push(i);
+    for (var j = n - 1; j > 0; j--) {
+      var k = Math.floor(Math.random() * (j + 1));
+      var tmp = a[j]; a[j] = a[k]; a[k] = tmp;
+    }
+    return a;
+  }
+
+  // ── 一問一答の入力採点（LINE 側 workbookTopic.judgeTermAnswer と同じ規則）──
+  // 表記（漢字）でも読み（ひらがな/カタカナ）でも正解。かっこ書き「絹（シルク）」は
+  // 全体・かっこ前・かっこ内のどれでも正解。NFKC・空白/記号除去で表記ゆれを吸収。
+  function normTerm(s) {
+    var t = (s || '').normalize('NFKC').trim().toLowerCase();
+    t = t.replace(/[ァ-ヶ]/g, function (ch) {
+      return String.fromCharCode(ch.charCodeAt(0) - 0x60);
+    });
+    return t.replace(/[\s・･「」『』()（）。、.,ー?？!！]/g, '');
+  }
+  function stripParen(s) { return (s || '').replace(/[（(][^（）()]*[）)]/g, ''); }
+  function parenIn(s) {
+    var out = [], re = /[（(]([^（）()]*)[）)]/g, m;
+    while ((m = re.exec(s || '')) !== null) { if (m[1]) out.push(m[1]); }
+    return out;
+  }
+  function judgeTerm(input, a, r) {
+    var targets = {};
+    [a, r].forEach(function (raw) {
+      if (!raw) return;
+      [raw, stripParen(raw)].concat(parenIn(raw)).forEach(function (v) {
+        var n = normTerm(v); if (n) targets[n] = 1;
+      });
+    });
+    return [input, stripParen(input)].map(normTerm).some(function (x) {
+      return x && targets[x];
+    });
+  }
+  function showJudged(scopeEl, ok) {
+    var banner = scopeEl.querySelector('.b-result');
+    if (banner) {
+      banner.textContent = ok ? '⭕ せいかい！' : '❌ おしい！';
+      banner.className = 'b-result ' + (ok ? 'ok' : 'ng');
+    }
+    scopeEl.classList.add('show');
+  }
+  function playlist(t) {
+    if (plCache[t]) return plCache[t];
+    var all = domSteps(t);
+    var modeStep = all.filter(function (s) { return s.dataset.sec === 'M'; })[0];
+    if (!modeStep) { plCache[t] = all; return all; } // 年表など（モード無し）
+    function sec(k) { return all.filter(function (s) { return s.dataset.sec === k; }); }
+    var cfg = modeCfg(t);
+    var list = [modeStep];
+    if (cfg) {
+      var body = [];
+      var tail = sec('Z');
+      if (cfg.mode === 'all') {
+        body = all.filter(function (s) {
+          return s.dataset.sec !== 'M' && s.dataset.sec !== 'BB';
+        });
+        tail = [];
+        // 以前のシャッフルで振り直した番号を元に戻す
+        ['B', 'C'].forEach(function (k) {
+          var arr = sec(k);
+          arr.forEach(function (el, i) {
+            var q = el.querySelector('.qnum');
+            if (q) q.textContent = (i + 1) + ' / ' + arr.length;
+          });
+        });
+      } else if (cfg.mode === 'A') { body = sec('A'); }
+      else if (cfg.mode === 'B') {
+        body = cfg.batch ? sec('BB') : orderBy(sec('B'), cfg.order);
+      } else if (cfg.mode === 'C') { body = orderBy(sec('C'), cfg.order); }
+      else if (cfg.mode === 'D') { body = sec('D'); }
+      else if (cfg.mode === 'wrong') {
+        // まちがえた問題だけ（B/C/D で r===0 のもの）を集めて出し直す
+        var rw = store().r || {};
+        body = all.filter(function (s) {
+          return ['B', 'C', 'D'].indexOf(s.dataset.sec) >= 0
+            && s.dataset.qid && rw[s.dataset.qid] === 0;
+        });
+      }
+      // 単独/やり直しモードは表示順に合わせて「n / 全」を振り直す
+      if ((cfg.mode === 'B' && !cfg.batch) || cfg.mode === 'C' || cfg.mode === 'wrong') {
+        body.forEach(function (el, i) {
+          var q = el.querySelector('.qnum');
+          if (q) q.textContent = (i + 1) + ' / ' + body.length;
+        });
+      }
+      list = [modeStep].concat(body, tail);
+    }
+    plCache[t] = list;
+    return list;
+  }
+  function stepsOf(t) { return playlist(t); }
+  function applyMode(t, cfg) {
+    var st = store(); st['m' + t] = cfg; save(st);
+    delete plCache[t];
+    go(t, 1, 1);
+  }
+
+  // 指定形式(secs)の該当ステップを再挑戦できる状態に戻す（見た目リセット、必要ならスコアも）
+  function resetTypeSteps(view, secs, pred, clearR, st) {
+    [].forEach.call(view.querySelectorAll('.step'), function (el) {
+      if (secs.indexOf(el.dataset.sec) < 0 || !pred(el)) return;
+      el.classList.remove('show', 'answered');
+      [].forEach.call(el.querySelectorAll('.qopt'), function (b) { b.classList.remove('correct', 'wrong', 'dim'); });
+      [].forEach.call(el.querySelectorAll('.b-in'), function (i) { i.value = ''; });
+      [].forEach.call(el.querySelectorAll('.b-result'), function (b) { b.textContent = ''; b.className = 'b-result'; });
+      [].forEach.call(el.querySelectorAll('.mk.sel'), function (b) { b.classList.remove('sel'); });
+      [].forEach.call(el.querySelectorAll('.blank.open'), function (b) { b.classList.remove('open'); });
+      if (clearR && el.dataset.qid) delete st.r[el.dataset.qid];
+    });
+  }
 
   function renderScore(view) {
     var st = store(), r = st.r || {};
@@ -1393,6 +2400,17 @@
     if (qz.total) rows.push('<div class="score-row"><span>C 実戦4択</span><b>正解 ' + qz.done + ' / ' + qz.total + '</b></div>');
     if (wr.total) rows.push('<div class="score-row"><span>D 記述</span><b>⭕ ' + wr.done + ' / ' + wr.total + '</b></div>');
     box.innerHTML = rows.join('') || 'このページの問題はタップ形式だよ。';
+    // 「まちがえた問題だけやり直す」ボタン: B/C/D で r===0 の数だけ表示
+    var wrongBtn = view.querySelector('.wrong-btn');
+    if (wrongBtn) {
+      var wrongN = [].filter.call(
+        view.querySelectorAll('.qa-step[data-qid], .qz-step[data-qid], .wr-step[data-qid]'),
+        function (el) { return r[el.dataset.qid] === 0; }
+      ).length;
+      wrongBtn.hidden = wrongN === 0;
+      var sub = wrongBtn.querySelector('[data-wrong-sub]');
+      if (sub) sub.textContent = wrongN + '問';
+    }
   }
 
   function render() {
@@ -1413,42 +2431,43 @@
       renderHome();
     } else {
       var steps = stepsOf(t);
-      // 同じ単元内のページ送りだけ「めくり」演出（古いページと新しいページを重ねる）
-      var animFrom = rendered && rendered.t === t && rendered.s !== s ? rendered.s : null;
-      [].forEach.call(steps, function (el, i) {
-        el.classList.remove('turn-out', 'turn-in', 'turn-under');
-        el.classList.toggle('on', i === s);
+      // 一問一答「入力して判定」モードのときだけ入力UIを出す（CSS は .ans-type 起点）
+      var cfgB = modeCfg(t);
+      views[t].classList.toggle(
+        'ans-type',
+        !!(cfgB && cfgB.mode === 'B' && cfgB.ans !== 'check')
+      );
+      // 問題の切り替えは即時（めくりアニメ無し）。リズムよく次々と解けるように。
+      domSteps(t).forEach(function (el) {
+        el.classList.remove('turn-out', 'turn-in', 'turn-under', 'on');
       });
-      if (animFrom !== null && steps[animFrom] && steps[s]) {
-        var oldEl = steps[animFrom], newEl = steps[s];
-        var clear = function () {
-          oldEl.classList.remove('turn-out', 'turn-under');
-          newEl.classList.remove('turn-in');
-        };
-        if (lastDir > 0) {
-          oldEl.classList.add('turn-out');      // 今のページがめくれて去る
-          oldEl.addEventListener('animationend', clear, { once: true });
-        } else {
-          oldEl.classList.add('turn-under');    // 下に敷いたまま
-          newEl.classList.add('turn-in');       // 前のページがめくり戻ってくる
-          newEl.addEventListener('animationend', clear, { once: true });
-        }
-        setTimeout(clear, 700); // アニメ未発火時の保険
-      }
+      if (steps[s]) steps[s].classList.add('on');
       navbar.hidden = false;
-      barStep.textContent = (s + 1) + ' / ' + steps.length;
+      var onModeStep = steps[s] && steps[s].dataset.sec === 'M';
+      barStep.textContent = onModeStep
+        ? 'やり方をえらぼう'
+        : (s + 1) + ' / ' + steps.length;
       pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
       document.getElementById('btnPrev').textContent = s === 0 ? '🏠 目次' : '← まえへ';
       var next = document.getElementById('btnNext');
-      if (s < steps.length - 1) next.textContent = 'つぎへ →';
+      if (onModeStep && steps.length === 1) next.textContent = '⭐ おすすめ順で始める →';
+      else if (s < steps.length - 1) next.textContent = 'つぎへ →';
       else next.textContent = t < N ? '次の単元へ →' : '🏠 目次にもどる';
       if (steps[s] && steps[s].classList.contains('done-step')) renderScore(views[t]);
       var st = store();
       st.last = { t: t, s: s };
-      if (s === steps.length - 1) st['d' + t] = 1;
+      if (steps.length > 1 && s === steps.length - 1) st['d' + t] = 1;
       save(st);
     }
     window.scrollTo(0, 0);
+    // 短答「入力して判定」モードは、毎回クリックしなくて済むよう答え入力欄へ自動フォーカス
+    if (t > 0 && steps[s] && !steps[s].classList.contains('show')
+        && views[t].classList.contains('ans-type')) {
+      var focusIn = steps[s].querySelector('.b-inrow .b-in');
+      if (focusIn) {
+        try { focusIn.focus({ preventScroll: true }); } catch (err) { focusIn.focus(); }
+      }
+    }
     var h = '#t' + t + (t > 0 && s > 0 ? 's' + s : '');
     if (location.hash !== h) history.replaceState(null, '', t === 0 ? '#' : h);
     rendered = { t: t, s: s };
@@ -1485,7 +2504,13 @@
   function next() {
     var t = state.t, s = state.s;
     if (t === 0) return;
-    if (s < stepsOf(t).length - 1) go(t, s + 1, 1);
+    var pl = stepsOf(t);
+    // モード未選択のまま「つぎへ」= おすすめ順で開始
+    if (s === 0 && pl.length === 1 && pl[0].dataset.sec === 'M') {
+      applyMode(t, { mode: 'all' });
+      return;
+    }
+    if (s < pl.length - 1) go(t, s + 1, 1);
     else if (t < N) go(t + 1, 0, 1);
     else go(0, 0, 1);
   }
@@ -1503,6 +2528,60 @@
     var go_ = e.target.closest('[data-go]');
     if (go_) { go(+go_.dataset.go, 0, 1); return; }
 
+    // 結果画面: 「ほかの解き方」チップ /「まちがえた問題だけやり直す」
+    var rchip = e.target.closest('.chip-mode, .wrong-btn');
+    if (rchip) {
+      var rm = rchip.dataset.mode;
+      var vw = views[state.t];
+      var stR = store(); stR.r = stR.r || {};
+      if (rm === 'wrong') {
+        // まちがい(r===0)の問題を再挑戦できるよう見た目だけ戻す（rは維持＝集合を保つ）
+        resetTypeSteps(vw, ['B', 'C', 'D'], function (el) {
+          return el.dataset.qid && stR.r[el.dataset.qid] === 0;
+        }, false, stR);
+      } else {
+        // その形式を最初からやり直せるよう見た目とスコアを戻す
+        resetTypeSteps(vw, [rm], function () { return true; }, true, stR);
+      }
+      save(stR);
+      var rcfg = { mode: rm };
+      if (rm === 'B') { rcfg.ans = 'type'; rcfg.batch = false; rcfg.shuf = false; rcfg.order = null; }
+      if (rm === 'C') { rcfg.shuf = false; rcfg.order = null; }
+      applyMode(state.t, rcfg);
+      return;
+    }
+
+    // やり方（モード）選択
+    var chipBtn = e.target.closest('.opt-chip');
+    if (chipBtn) {
+      [].forEach.call(chipBtn.parentElement.querySelectorAll('.opt-chip'), function (b) {
+        b.classList.toggle('on', b === chipBtn);
+      });
+      return;
+    }
+    var mb = e.target.closest('.mode-btn');
+    if (mb) {
+      var mstep = mb.closest('.mode-step');
+      var mt = state.t;
+      function chip(name) {
+        var c = mstep.querySelector('.opt-chip.on[data-opt="' + name + '"]');
+        return c ? +c.dataset.val : 0;
+      }
+      var cfg = { mode: mb.dataset.mode };
+      if (cfg.mode === 'B') {
+        cfg.ans = chip('ansB') === 1 ? 'check' : 'type';
+        cfg.batch = chip('batch') === 1;
+        cfg.shuf = chip('shufB') === 1;
+      }
+      if (cfg.mode === 'C') { cfg.shuf = chip('shufC') === 1; }
+      if ((cfg.mode === 'B' && !cfg.batch) || cfg.mode === 'C') {
+        var cnt = views[mt].querySelectorAll('.step[data-sec="' + cfg.mode + '"]').length;
+        cfg.order = cfg.shuf ? shuffledOrder(cnt) : null;
+      }
+      applyMode(mt, cfg);
+      return;
+    }
+
     var blank = e.target.closest('.blank');
     if (blank) { blank.classList.toggle('open'); return; }
 
@@ -1517,16 +2596,71 @@
       return;
     }
 
+    // 一問一答: 入力して判定（一問ずつ）
+    var bj = e.target.closest('.b-judge');
+    if (bj) {
+      var jstep = bj.closest('.qa-step');
+      if (jstep.classList.contains('show')) return;  // 判定済みは無視
+      var jin = jstep.querySelector('.b-in');
+      if (!jin.value.trim()) { jin.focus(); return; }  // 未入力なら何もしない
+      var ok = judgeTerm(jin.value, jstep.dataset.a, jstep.dataset.r);
+      showJudged(jstep, ok);
+      var stJ = store(); stJ.r = stJ.r || {};
+      stJ.r[jstep.dataset.qid] = ok ? 1 : 0;
+      save(stJ);
+      // 自動では進まない。「つぎへ」ボタンか Enter で次の問題へ。
+      return;
+    }
+    var idk = e.target.closest('.b-idk');
+    if (idk) {
+      var istep = idk.closest('.qa-step');
+      showJudged(istep, false);
+      var bn = istep.querySelector('.b-result');
+      if (bn) { bn.textContent = '👇 こたえはこちら。次はきっと書けるよ！'; bn.className = 'b-result ng'; }
+      var stI = store(); stI.r = stI.r || {};
+      stI.r[istep.dataset.qid] = 0;
+      save(stI);
+      return;
+    }
+    // 一問一答: 入力して判定（まとめて）
+    var bbj = e.target.closest('.b-batch-judge');
+    if (bbj) {
+      var bstep = bbj.closest('.step');
+      var stB = store(); stB.r = stB.r || {};
+      [].forEach.call(bstep.querySelectorAll('.bq-item'), function (it) {
+        var ok2 = judgeTerm(it.querySelector('.b-in').value, it.dataset.a, it.dataset.r);
+        showJudged(it, ok2);
+        stB.r[it.dataset.qid] = ok2 ? 1 : 0;
+      });
+      bstep.classList.add('show');
+      save(stB);
+      window.scrollTo(0, 0);  // 上から答え合わせを見返せるように
+      return;
+    }
+
     var rev = e.target.closest('.reveal');
     if (rev) { rev.closest('.step').classList.add('show'); return; }
 
     var mk = e.target.closest('.mk');
     if (mk) {
-      var stp = mk.closest('.step');
       var st = store(); st.r = st.r || {};
+      // まとめて採点（バッチ）内の○△: 記録して選択表示するだけで、進まない
+      var bq = mk.closest('.bq-item');
+      if (bq) {
+        st.r[bq.dataset.qid] = +mk.dataset.v;
+        save(st);
+        [].forEach.call(bq.querySelectorAll('.mk'), function (b) {
+          b.classList.toggle('sel', b === mk);
+        });
+        return;
+      }
+      var stp = mk.closest('.step');
       st.r[stp.dataset.qid] = +mk.dataset.v;
       save(st);
-      setTimeout(next, 220);
+      // 自動では進まない。選んだ印を付けて「つぎへ」ボタンか Enter で次へ。
+      [].forEach.call(stp.querySelectorAll('.marks .mk'), function (b) {
+        b.classList.toggle('sel', b === mk);
+      });
       return;
     }
 
@@ -1572,6 +2706,18 @@
         delete st3.r[el.dataset.qid];
       });
       delete st3['d' + state.t];
+      delete st3['m' + state.t];  // やり方選択からやり直す
+      delete plCache[state.t];
+      [].forEach.call(view.querySelectorAll('.mk.sel'), function (b) {
+        b.classList.remove('sel');
+      });
+      [].forEach.call(view.querySelectorAll('.bq-item.show'), function (it) {
+        it.classList.remove('show');
+      });
+      [].forEach.call(view.querySelectorAll('.b-in'), function (inp) { inp.value = ''; });
+      [].forEach.call(view.querySelectorAll('.b-result'), function (b) {
+        b.textContent = ''; b.className = 'b-result';
+      });
       save(st3);
       [].forEach.call(view.querySelectorAll('.step'), function (el) {
         el.classList.remove('show', 'answered');
@@ -1594,6 +2740,26 @@
   });
 
   document.addEventListener('keydown', function (e) {
+    var tag = e.target && e.target.tagName;
+    var inField = tag === 'INPUT' || tag === 'TEXTAREA';
+    if (e.key === 'Enter') {
+      // 一問一答の短答入力欄: 未判定＆入力あり=判定 / 判定済み=次へ / 未入力=何もしない
+      if (inField && e.target.classList.contains('b-in')) {
+        var stp = e.target.closest('.qa-step');
+        if (stp && stp.classList.contains('show')) next();
+        else if (e.target.value.trim() && stp) stp.querySelector('.b-judge').click();
+        // 未入力のときは何もしない（誤操作で先に進めない）
+        e.preventDefault();
+        return;
+      }
+      // 記述の textarea 内 Enter は改行のまま（次へにしない）
+      if (inField) return;
+      // それ以外は Enter で次へ
+      next();
+      e.preventDefault();
+      return;
+    }
+    if (inField) return;  // 入力中の矢印キーではページ送りしない
     if (e.key === 'ArrowRight') next();
     if (e.key === 'ArrowLeft') prev();
   });
