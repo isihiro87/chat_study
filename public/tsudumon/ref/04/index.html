@@ -44,8 +44,11 @@
   /* 本物っぽいページめくり（2枚重ね）:
      進む = 今のページ自体が左とじに沿って手前にめくれて去り、下から次のページが現れる。
      戻る = 前のページが手前からめくり戻されて上に着地する。 */
-  .step.turn-out { display:block; position:absolute; top:0; left:0; width:100%; z-index:3;
-                   pointer-events:none; background:var(--cream); transform-origin:left center;
+  /* min-height:100% = 下に敷かれた新ページ全体を覆う（絶対配置なので view の実高さに解決される。
+     これが無いと、めくれるページより新ページが長いとき下端が透けて見える） */
+  .step.turn-out { display:block; position:absolute; top:0; left:0; width:100%; min-height:100%;
+                   z-index:3; pointer-events:none; background:var(--cream);
+                   transform-origin:left center;
                    animation:turnOut .45s cubic-bezier(.55,.06,.68,.19) forwards; }
   @keyframes turnOut {
     0%   { transform:perspective(1200px) rotateY(0); opacity:1; }
@@ -60,7 +63,7 @@
     from { transform:perspective(1200px) rotateY(-88deg); }
     to   { transform:perspective(1200px) rotateY(0); } }
   .step.turn-under { display:block; position:absolute; top:0; left:0; width:100%; z-index:1;
-                     pointer-events:none; }
+                     pointer-events:none; max-height:100%; overflow:hidden; }
 
   /* ホーム */
   .top { text-align:center; padding:26px 0 6px; }
@@ -249,7 +252,7 @@
     <div class="badge">歴史 ④　参考書 <span class="webtag">Web版</span></div>
     <h1>古代の国家</h1>
     <div class="sub">飛鳥時代 〜 平安時代</div>
-    <div class="cover-navi"><img class="navi navi-char" src="img/navi-teacher.webp" alt="">
+    <div class="cover-navi"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt="">
       <div class="bubble">こんにちは！タブか下の単元をえらんで、1ページずつ読み進めよう！</div>
     </div>
   </header>
@@ -265,10 +268,10 @@
   </footer>
 </section>
 <section class="view" data-t="1">
-  <div class="tband"><span class="tno">1</span><h2>聖徳太子と飛鳥文化</h2></div>
+  <div class="tband"><span class="tno">1</span><h2>聖徳太子と飛鳥文化</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
   
     <div class="step" data-label="この単元でわかること">
-      <div class="hook"><img class="navi navi-char" src="img/navi-teacher.webp" alt=""><div class="bubble">天皇を中心にした国づくりが、この時代に始まったんだ。小さな国だった日本が、大陸の国々と肩を並べようとした一歩を見てみよう。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">天皇を中心にした国づくりが、この時代に始まったんだ。小さな国だった日本が、大陸の国々と肩を並べようとした一歩を見てみよう。</div></div>
       <div class="overview">
         <div class="ov-h">🎯 この単元でわかること</div>
         <ul class="ov-list"><li><span class="ov-num">1</span><span>聖徳太子が行った政治の改革（冠位十二階・十七条の憲法）</span></li><li><span class="ov-num">2</span><span>遣隋使を送って隋と対等な国交を目指したこと</span></li><li><span class="ov-num">3</span><span>法隆寺に代表される飛鳥文化のとくちょう</span></li></ul>
@@ -403,7 +406,7 @@
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
         <div class="sum30-body"><span class="mark">聖徳太子</span>は、天皇中心の政治を目指して<span class="mark">冠位十二階</span>と<span class="mark">十七条の憲法</span>を定め、<span class="mark">遣隋使</span>を送って隋と対等な交流を築いたよ。このころ栄えた<span class="mark">飛鳥文化</span>は、<span class="mark">法隆寺</span>に代表される日本最初の仏教文化なんだ。</div>
         
-        <div class="sum30-navi">
+        <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
       <div class="done">🎉 この単元はこれで完了！</div>
@@ -416,10 +419,10 @@
     </div>
 </section>
 <section class="view" data-t="2">
-  <div class="tband"><span class="tno">2</span><h2>大化の改新</h2></div>
+  <div class="tband"><span class="tno">2</span><h2>大化の改新</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
   
     <div class="step" data-label="この単元でわかること">
-      <div class="hook"><img class="navi navi-char" src="img/navi-teacher.webp" alt=""><div class="bubble">天皇をしのぐほどの力を持った豪族を倒し、国のしくみをまるごと作り直そうとした大事件があったんだ。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">天皇をしのぐほどの力を持った豪族を倒し、国のしくみをまるごと作り直そうとした大事件があったんだ。</div></div>
       <div class="overview">
         <div class="ov-h">🎯 この単元でわかること</div>
         <ul class="ov-list"><li><span class="ov-num">1</span><span>中大兄皇子・中臣鎌足が行った大化の改新と公地公民の方針</span></li><li><span class="ov-num">2</span><span>白村江の戦いの敗北と、そのあとの九州防衛の強化</span></li><li><span class="ov-num">3</span><span>壬申の乱に勝利した天武天皇による律令国家づくり</span></li></ul>
@@ -542,7 +545,7 @@
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
         <div class="sum30-body">645年、<span class="mark">中大兄皇子</span>と<span class="mark">中臣鎌足</span>は蘇我氏を倒して<span class="mark">大化の改新</span>を始め、天皇中心の政治を目指したんだ。<span class="mark">白村江の戦い</span>の敗北を経て、<span class="mark">壬申の乱</span>に勝利した<span class="mark">天武天皇</span>のもとで律令国家づくりが本格化していったよ。</div>
         
-        <div class="sum30-navi">
+        <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
       <div class="done">🎉 この単元はこれで完了！</div>
@@ -555,10 +558,10 @@
     </div>
 </section>
 <section class="view" data-t="3">
-  <div class="tband"><span class="tno">3</span><h2>律令国家と奈良時代</h2></div>
+  <div class="tband"><span class="tno">3</span><h2>律令国家と奈良時代</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
   
     <div class="step" data-label="この単元でわかること">
-      <div class="hook"><img class="navi navi-char" src="img/navi-teacher.webp" alt=""><div class="bubble">中国にならった本格的な法律と、碁盤の目のような大きな都を持つ国へ、日本が大きく近づいた時代だよ。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">中国にならった本格的な法律と、碁盤の目のような大きな都を持つ国へ、日本が大きく近づいた時代だよ。</div></div>
       <div class="overview">
         <div class="ov-h">🎯 この単元でわかること</div>
         <ul class="ov-list"><li><span class="ov-num">1</span><span>刑罰の律と政治の令からなる大宝律令と国のしくみ</span></li><li><span class="ov-num">2</span><span>唐の長安をモデルにした奈良時代の都・平城京の誕生</span></li></ul>
@@ -674,7 +677,7 @@
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
         <div class="sum30-body">701年に<span class="mark">大宝律令</span>が完成して<span class="mark">律令国家</span>の体制が整い、710年には唐の長安を手本にした<span class="mark">平城京</span>に都が移されたんだ。この平城京を中心とした時代を<span class="mark">奈良時代</span>というんだよ。</div>
         
-        <div class="sum30-navi">
+        <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
       <div class="done">🎉 この単元はこれで完了！</div>
@@ -687,10 +690,10 @@
     </div>
 </section>
 <section class="view" data-t="4">
-  <div class="tband"><span class="tno">4</span><h2>班田収授法と税制度</h2></div>
+  <div class="tband"><span class="tno">4</span><h2>班田収授法と税制度</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
   
     <div class="step" data-label="この単元でわかること">
-      <div class="hook"><img class="navi navi-char" src="img/navi-teacher.webp" alt=""><div class="bubble">土地をもらえる代わりに、人々は重い税や兵役の義務も背負うことになったんだ。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">土地をもらえる代わりに、人々は重い税や兵役の義務も背負うことになったんだ。</div></div>
       <div class="overview">
         <div class="ov-h">🎯 この単元でわかること</div>
         <ul class="ov-list"><li><span class="ov-num">1</span><span>6歳以上に口分田を与える班田収授法のしくみ</span></li><li><span class="ov-num">2</span><span>租・調・庸などの税と防人などの兵役の重い負担</span></li><li><span class="ov-num">3</span><span>墾田永年私財法をきっかけに荘園が生まれたこと</span></li></ul>
@@ -825,7 +828,7 @@
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
         <div class="sum30-body">律令国家は<span class="mark">班田収授法</span>で口分田を与える代わりに、<span class="mark">租・調・庸</span>などの重い税や<span class="mark">防人</span>などの兵役を課したんだ。人口が増えて口分田が不足すると<span class="mark">墾田永年私財法</span>が出され、それが<span class="mark">荘園</span>が生まれるきっかけとなったんだよ。</div>
         
-        <div class="sum30-navi">
+        <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
       <div class="done">🎉 この単元はこれで完了！</div>
@@ -838,10 +841,10 @@
     </div>
 </section>
 <section class="view" data-t="5">
-  <div class="tband"><span class="tno">5</span><h2>天平文化</h2></div>
+  <div class="tband"><span class="tno">5</span><h2>天平文化</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
   
     <div class="step" data-label="この単元でわかること">
-      <div class="hook"><img class="navi navi-char" src="img/navi-teacher.webp" alt=""><div class="bubble">仏教の力にすがって国を守ろうとした天皇の願いが、国際色豊かな文化を生んだんだ。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">仏教の力にすがって国を守ろうとした天皇の願いが、国際色豊かな文化を生んだんだ。</div></div>
       <div class="overview">
         <div class="ov-h">🎯 この単元でわかること</div>
         <ul class="ov-list"><li><span class="ov-num">1</span><span>聖武天皇が仏教の力で国を守ろうとした鎮護国家の考え方</span></li><li><span class="ov-num">2</span><span>正倉院や鑑真の来日にみる国際色豊かな天平文化</span></li><li><span class="ov-num">3</span><span>古事記・日本書紀・万葉集という奈良時代の書物</span></li></ul>
@@ -964,7 +967,7 @@
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
         <div class="sum30-body"><span class="mark">聖武天皇</span>は仏教の力で国を守ろうと<span class="mark">東大寺</span>の大仏や国分寺を造らせ、このころ国際色豊かな<span class="mark">天平文化</span>が栄えたんだ。<span class="mark">正倉院</span>の宝物や<span class="mark">万葉集</span>は、当時の国際的な交流と人々の暮らしを今に伝えてくれているんだよ。</div>
         
-        <div class="sum30-navi">
+        <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
       <div class="done">🎉 この単元はこれで完了！</div>
@@ -977,10 +980,10 @@
     </div>
 </section>
 <section class="view" data-t="6">
-  <div class="tband"><span class="tno">6</span><h2>平安京と新しい仏教</h2></div>
+  <div class="tband"><span class="tno">6</span><h2>平安京と新しい仏教</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
   
     <div class="step" data-label="この単元でわかること">
-      <div class="hook"><img class="navi navi-char" src="img/navi-teacher.webp" alt=""><div class="bubble">都を移し、東北を平定し、新しい仏教を迎え入れる。桓武天皇の時代に、平安の世が幕を開けたんだ。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">都を移し、東北を平定し、新しい仏教を迎え入れる。桓武天皇の時代に、平安の世が幕を開けたんだ。</div></div>
       <div class="overview">
         <div class="ov-h">🎯 この単元でわかること</div>
         <ul class="ov-list"><li><span class="ov-num">1</span><span>桓武天皇が律令政治を立て直すために行った平安京への遷都</span></li><li><span class="ov-num">2</span><span>坂上田村麻呂による東北地方の蝦夷の平定</span></li><li><span class="ov-num">3</span><span>最澄の天台宗と空海の真言宗という新しい山岳仏教</span></li></ul>
@@ -1115,7 +1118,7 @@
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
         <div class="sum30-body"><span class="mark">桓武天皇</span>は律令政治の立て直しのため<span class="mark">平安京</span>に都を移し、<span class="mark">坂上田村麻呂</span>に東北の蝦夷を平定させたんだ。同じころ、<span class="mark">最澄</span>・<span class="mark">空海</span>が唐から新しい仏教を伝え、山奥で修行する山岳仏教が広まっていったよ。</div>
         
-        <div class="sum30-navi">
+        <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
       <div class="done">🎉 この単元はこれで完了！</div>
@@ -1128,10 +1131,10 @@
     </div>
 </section>
 <section class="view" data-t="7">
-  <div class="tband"><span class="tno">7</span><h2>摂関政治</h2></div>
+  <div class="tband"><span class="tno">7</span><h2>摂関政治</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
   
     <div class="step" data-label="この単元でわかること">
-      <div class="hook"><img class="navi navi-char" src="img/navi-teacher.webp" alt=""><div class="bubble">天皇の親戚という立場を使って、一つの一族が政治を思うままに動かした時代があったんだ。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">天皇の親戚という立場を使って、一つの一族が政治を思うままに動かした時代があったんだ。</div></div>
       <div class="overview">
         <div class="ov-h">🎯 この単元でわかること</div>
         <ul class="ov-list"><li><span class="ov-num">1</span><span>藤原氏が外戚として実権を握った摂関政治のしくみ</span></li><li><span class="ov-num">2</span><span>藤原道長・頼通のころに全盛期を迎えた摂関政治</span></li><li><span class="ov-num">3</span><span>摂関政治から上皇が実権を握る院政へ移り変わったこと</span></li></ul>
@@ -1266,7 +1269,7 @@
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
         <div class="sum30-body"><span class="mark">藤原氏</span>は娘を天皇の后にする<span class="mark">外戚</span>の立場を利用して、摂政・関白として<span class="mark">摂関政治</span>を行ったんだ。11世紀の<span class="mark">藤原道長</span>・<span class="mark">藤原頼通</span>のとき全盛期を迎えたけれど、その後は上皇が実権を握る<span class="mark">院政</span>へと移っていったんだよ。</div>
         
-        <div class="sum30-navi">
+        <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
       <div class="done">🎉 この単元はこれで完了！</div>
@@ -1279,10 +1282,10 @@
     </div>
 </section>
 <section class="view" data-t="8">
-  <div class="tband"><span class="tno">8</span><h2>国風文化</h2></div>
+  <div class="tband"><span class="tno">8</span><h2>国風文化</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
   
     <div class="step" data-label="この単元でわかること">
-      <div class="hook"><img class="navi navi-char" src="img/navi-teacher.webp" alt=""><div class="bubble">中国のお手本から少し離れ、日本らしい感性で書かれた文学が花開いた時代だよ。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">中国のお手本から少し離れ、日本らしい感性で書かれた文学が花開いた時代だよ。</div></div>
       <div class="overview">
         <div class="ov-h">🎯 この単元でわかること</div>
         <ul class="ov-list"><li><span class="ov-num">1</span><span>遣唐使の停止をきっかけに発展した国風文化</span></li><li><span class="ov-num">2</span><span>かな文字で書かれた源氏物語・枕草子などの女性文学</span></li><li><span class="ov-num">3</span><span>寝殿造の貴族のくらしと、極楽浄土を願う浄土信仰</span></li></ul>
@@ -1417,7 +1420,7 @@
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
         <div class="sum30-body">894年に<span class="mark">遣唐使</span>が停止されると、日本独自の<span class="mark">国風文化</span>が栄えたんだ。かな文字によって<span class="mark">紫式部</span>・<span class="mark">清少納言</span>らの女性文学が花開き、寝殿造や<span class="mark">浄土信仰</span>など貴族の暮らしと信仰にも独自の文化が広がっていったんだよ。</div>
         
-        <div class="sum30-navi">
+        <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
       <div class="done">🎉 この単元はこれで完了！</div>

@@ -42,8 +42,11 @@
   /* 本物っぽいページめくり（2枚重ね・参考書Web版と共通）:
      進む = 今のページ自体が左とじに沿って手前にめくれて去り、下から次のページが現れる。
      戻る = 前のページが手前からめくり戻されて上に着地する。 */
-  .step.turn-out { display:block; position:absolute; top:0; left:0; width:100%; z-index:3;
-                   pointer-events:none; background:var(--cream); transform-origin:left center;
+  /* min-height:100% = 下に敷かれた新ページ全体を覆う（絶対配置なので view の実高さに解決される。
+     これが無いと、めくれるページより新ページが長いとき下端が透けて見える） */
+  .step.turn-out { display:block; position:absolute; top:0; left:0; width:100%; min-height:100%;
+                   z-index:3; pointer-events:none; background:var(--cream);
+                   transform-origin:left center;
                    animation:turnOut .45s cubic-bezier(.55,.06,.68,.19) forwards; }
   @keyframes turnOut {
     0%   { transform:perspective(1200px) rotateY(0); opacity:1; }
@@ -58,7 +61,7 @@
     from { transform:perspective(1200px) rotateY(-88deg); }
     to   { transform:perspective(1200px) rotateY(0); } }
   .step.turn-under { display:block; position:absolute; top:0; left:0; width:100%; z-index:1;
-                     pointer-events:none; }
+                     pointer-events:none; max-height:100%; overflow:hidden; }
 
   /* ── ホーム ── */
   .top { text-align:center; padding:26px 0 6px; }
