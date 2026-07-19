@@ -133,7 +133,10 @@
   .ov-list li { display:flex; align-items:center; gap:9px; background:#fff;
                 border:1.5px solid var(--line); border-radius:10px; padding:8px 10px;
                 font-size:14px; font-weight:bold; color:#44403c; line-height:1.6; }
-  .ov-num { flex:none; width:22px; height:22px; border-radius:50%; background:var(--amber); color:#fff;
+  /* わかること・節番号は「白地に茶文字」= タブ（茶地に白文字）と見た目を分けて
+     単元タブの番号との対応と誤認させない */
+  .ov-num { flex:none; width:22px; height:22px; border-radius:50%; background:#fff;
+            border:1.5px solid var(--line); color:var(--brand); font-weight:bold;
             display:inline-flex; align-items:center; justify-content:center; font-size:12px; }
 
   .hero { margin:0 0 8px; }
@@ -142,7 +145,8 @@
 
   /* 節 */
   .step h3 { font-size:18px; color:var(--deep); display:flex; align-items:center; gap:8px; line-height:1.5; }
-  .sec-no { flex:none; width:22px; height:22px; border-radius:50%; background:var(--brand); color:#fff;
+  .sec-no { flex:none; width:22px; height:22px; border-radius:50%; background:#fff;
+            border:1.5px solid var(--line); color:var(--brand); font-weight:bold;
             display:inline-flex; align-items:center; justify-content:center; font-size:12px; }
   .sec-lead { font-size:13px; color:var(--brand); font-weight:bold; margin:2px 0 4px 30px; }
   .step p { margin-top:8px; text-align:justify; }
