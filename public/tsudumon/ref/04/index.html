@@ -39,10 +39,13 @@
   .view { display:none; }
   .view.on { display:block; }
   .step { display:none; }
-  .step.on { display:block; animation:in .28s ease; }
-  @keyframes in { from { opacity:0; transform:translateX(24px); } to { opacity:1; transform:none; } }
-  .step.on.back { animation:inb .28s ease; }
-  @keyframes inb { from { opacity:0; transform:translateX(-24px); } to { opacity:1; transform:none; } }
+  /* ページをめくるアニメーション（進む=左とじ・戻る=右とじ） */
+  .step.on { display:block; animation:page .3s ease; transform-origin:left center; }
+  @keyframes page { from { opacity:0; transform:perspective(1000px) rotateY(32deg); }
+                    to { opacity:1; transform:none; } }
+  .step.on.back { animation:pageb .3s ease; transform-origin:right center; }
+  @keyframes pageb { from { opacity:0; transform:perspective(1000px) rotateY(-32deg); }
+                     to { opacity:1; transform:none; } }
 
   /* ホーム */
   .top { text-align:center; padding:26px 0 6px; }
@@ -128,14 +131,37 @@
   .w-desc { color:#57534e; }
 
   /* 重要語チェック */
-  .terms-h { font-size:18px; font-weight:bold; color:var(--deep); margin-bottom:10px; }
+  .terms-h { font-size:18px; font-weight:bold; color:var(--deep); }
   .terms-sub { font-size:12px; font-weight:normal; color:#a8a29e; margin-left:8px; }
+  .terms-tools { display:flex; justify-content:flex-end; margin:6px 0 10px; }
+  .both-toggle { display:inline-flex; align-items:center; gap:6px; font-size:13px;
+                 font-weight:bold; color:#57534e; cursor:pointer; }
+  .both-toggle input { width:16px; height:16px; accent-color:var(--brand); }
   .tgrid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
   @media (max-width:400px) { .tgrid { grid-template-columns:1fr; } }
-  .tcard { background:#fff; border:1.5px solid var(--line); border-radius:10px; padding:10px; }
-  .tc-term { font-weight:bold; font-size:15px; color:var(--deep); }
+  /* フラッシュカード（タップで表裏。両面表示チェックで従来の一覧に） */
+  .tcard { background:none; border:none; padding:0; cursor:pointer; font-family:inherit;
+           text-align:left; perspective:800px; }
+  .tcard-inner { display:grid; width:100%; transition:transform .35s; transform-style:preserve-3d; }
+  .tc-face { display:block; grid-area:1/1; backface-visibility:hidden; -webkit-backface-visibility:hidden;
+             border:1.5px solid var(--line); border-radius:10px; padding:10px; background:#fff; }
+  .tc-front { display:flex; flex-direction:column; align-items:center; justify-content:center;
+              text-align:center; min-height:76px; }
+  .tc-term { font-weight:bold; font-size:16px; color:var(--deep); line-height:1.5; }
   .tc-rd { display:block; font-weight:normal; font-size:11px; color:#b8b0a6; }
-  .tc-desc { font-size:13px; color:#44403c; line-height:1.7; margin-top:4px; }
+  .tc-tap { font-size:10px; color:#d6c9a8; margin-top:4px; }
+  .tc-back { transform:rotateY(180deg); background:#fffbeb; }
+  .tc-bterm { display:block; font-weight:bold; font-size:12.5px; color:var(--brand); margin-bottom:2px; }
+  .tc-desc { display:block; font-size:13px; color:#44403c; line-height:1.7; }
+  .tcard.flipped .tcard-inner { transform:rotateY(180deg); }
+  .tgrid.both .tcard { cursor:default; }
+  .tgrid.both .tcard-inner { display:block; transform:none !important; }
+  .tgrid.both .tc-face { backface-visibility:visible; -webkit-backface-visibility:visible; }
+  .tgrid.both .tc-front { min-height:0; align-items:flex-start; text-align:left;
+                          border-bottom:none; border-radius:10px 10px 0 0; padding-bottom:4px; }
+  .tgrid.both .tc-back { transform:none; border-top:none; border-radius:0 0 10px 10px; }
+  .tgrid.both .tc-bterm { display:none; }
+  .tgrid.both .tc-tap { display:none; }
 
   /* まとめ・完了 */
   .sum30 { border:2px solid var(--amber); border-radius:14px; overflow:hidden;
@@ -239,32 +265,105 @@
       <div class="words"><div class="word"><span class="w-term">法隆寺<span class="w-rd">ほうりゅうじ</span></span><span class="w-desc">聖徳太子が建てたと伝えられる、現存する世界最古の木造建築。</span></div><div class="word"><span class="w-term">飛鳥文化<span class="w-rd">あすかぶんか</span></span><span class="w-desc">法隆寺に代表される、日本で最初の仏教文化。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">大切な言葉をおさえよう！</span></div>
-      <div class="tgrid"><div class="tcard">
-      <div class="tc-term">聖徳太子<span class="tc-rd">しょうとくたいし</span></div>
-      <div class="tc-desc">推古天皇の摂政となり、天皇中心の政治を目指した人物。冠位十二階・十七条の憲法・遣隋使を進めた。</div>
-    </div><div class="tcard">
-      <div class="tc-term">推古天皇<span class="tc-rd">すいこてんのう</span></div>
-      <div class="tc-desc">日本初の女性天皇。593年から聖徳太子を摂政として政治を任せた。</div>
-    </div><div class="tcard">
-      <div class="tc-term">冠位十二階<span class="tc-rd">かんいじゅうにかい</span></div>
-      <div class="tc-desc">家柄にとらわれず、才能や功績で役人を取り立てる制度。冠の色で位を示した。</div>
-    </div><div class="tcard">
-      <div class="tc-term">十七条の憲法<span class="tc-rd">じゅうしちじょうのけんぽう</span></div>
-      <div class="tc-desc">役人の心構えを示した法。「和を以て貴しとなす」で始まる。</div>
-    </div><div class="tcard">
-      <div class="tc-term">遣隋使<span class="tc-rd">けんずいし</span></div>
-      <div class="tc-desc">隋の制度や文化を学び、対等な国交を目指して派遣された使節。</div>
-    </div><div class="tcard">
-      <div class="tc-term">小野妹子<span class="tc-rd">おののいもこ</span></div>
-      <div class="tc-desc">607年に遣隋使として隋に派遣された人物。</div>
-    </div><div class="tcard">
-      <div class="tc-term">法隆寺<span class="tc-rd">ほうりゅうじ</span></div>
-      <div class="tc-desc">聖徳太子が建てたと伝えられる、現存する世界最古の木造建築。</div>
-    </div><div class="tcard">
-      <div class="tc-term">飛鳥文化<span class="tc-rd">あすかぶんか</span></div>
-      <div class="tc-desc">法隆寺に代表される、日本で最初の仏教文化。</div>
-    </div></div>
+      <div class="terms-h">📖 重要語チェック<span class="terms-sub">意味を言えるかな？</span></div>
+      <div class="terms-tools"><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示にする</label></div>
+      <div class="tgrid"><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">聖徳太子</span>
+          <span class="tc-rd">しょうとくたいし</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">聖徳太子</span>
+          <span class="tc-desc">推古天皇の摂政となり、天皇中心の政治を目指した人物。冠位十二階・十七条の憲法・遣隋使を進めた。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">推古天皇</span>
+          <span class="tc-rd">すいこてんのう</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">推古天皇</span>
+          <span class="tc-desc">日本初の女性天皇。593年から聖徳太子を摂政として政治を任せた。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">冠位十二階</span>
+          <span class="tc-rd">かんいじゅうにかい</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">冠位十二階</span>
+          <span class="tc-desc">家柄にとらわれず、才能や功績で役人を取り立てる制度。冠の色で位を示した。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">十七条の憲法</span>
+          <span class="tc-rd">じゅうしちじょうのけんぽう</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">十七条の憲法</span>
+          <span class="tc-desc">役人の心構えを示した法。「和を以て貴しとなす」で始まる。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">遣隋使</span>
+          <span class="tc-rd">けんずいし</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">遣隋使</span>
+          <span class="tc-desc">隋の制度や文化を学び、対等な国交を目指して派遣された使節。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">小野妹子</span>
+          <span class="tc-rd">おののいもこ</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">小野妹子</span>
+          <span class="tc-desc">607年に遣隋使として隋に派遣された人物。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">法隆寺</span>
+          <span class="tc-rd">ほうりゅうじ</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">法隆寺</span>
+          <span class="tc-desc">聖徳太子が建てたと伝えられる、現存する世界最古の木造建築。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">飛鳥文化</span>
+          <span class="tc-rd">あすかぶんか</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">飛鳥文化</span>
+          <span class="tc-desc">法隆寺に代表される、日本で最初の仏教文化。</span>
+        </span>
+      </span>
+    </button></div>
     </div>
     <div class="step" data-label="30秒まとめ">
       
@@ -314,29 +413,93 @@
       <div class="words"><div class="word"><span class="w-term">壬申の乱<span class="w-rd">じんしんのらん</span></span><span class="w-desc">672年に起きた皇位継承をめぐる争い。大海人皇子が勝利した。</span></div><div class="word"><span class="w-term">天武天皇<span class="w-rd">てんむてんのう</span></span><span class="w-desc">壬申の乱に勝利して即位し、律令国家の基礎を整えた天皇。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">大切な言葉をおさえよう！</span></div>
-      <div class="tgrid"><div class="tcard">
-      <div class="tc-term">大化の改新<span class="tc-rd">たいかのかいしん</span></div>
-      <div class="tc-desc">645年、中大兄皇子と中臣鎌足が蘇我氏を倒して始めた政治改革。</div>
-    </div><div class="tcard">
-      <div class="tc-term">中大兄皇子<span class="tc-rd">なかのおおえのおうじ</span></div>
-      <div class="tc-desc">大化の改新を主導し、のちに天智天皇として即位した人物。</div>
-    </div><div class="tcard">
-      <div class="tc-term">中臣鎌足<span class="tc-rd">なかとみのかまたり</span></div>
-      <div class="tc-desc">大化の改新に協力し、のちに藤原の姓を賜り藤原氏の祖となった人物。</div>
-    </div><div class="tcard">
-      <div class="tc-term">公地公民<span class="tc-rd">こうちこうみん</span></div>
-      <div class="tc-desc">土地と人民を国家(天皇)が直接支配するという方針。</div>
-    </div><div class="tcard">
-      <div class="tc-term">白村江の戦い<span class="tc-rd">はくすきのえのたたかい</span></div>
-      <div class="tc-desc">663年、百済救援のため出兵した日本が唐・新羅の連合軍に敗れた戦い。</div>
-    </div><div class="tcard">
-      <div class="tc-term">壬申の乱<span class="tc-rd">じんしんのらん</span></div>
-      <div class="tc-desc">672年に起きた皇位継承をめぐる争い。大海人皇子が勝利した。</div>
-    </div><div class="tcard">
-      <div class="tc-term">天武天皇<span class="tc-rd">てんむてんのう</span></div>
-      <div class="tc-desc">壬申の乱に勝利して即位し、律令国家の基礎を整えた天皇。</div>
-    </div></div>
+      <div class="terms-h">📖 重要語チェック<span class="terms-sub">意味を言えるかな？</span></div>
+      <div class="terms-tools"><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示にする</label></div>
+      <div class="tgrid"><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">大化の改新</span>
+          <span class="tc-rd">たいかのかいしん</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">大化の改新</span>
+          <span class="tc-desc">645年、中大兄皇子と中臣鎌足が蘇我氏を倒して始めた政治改革。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">中大兄皇子</span>
+          <span class="tc-rd">なかのおおえのおうじ</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">中大兄皇子</span>
+          <span class="tc-desc">大化の改新を主導し、のちに天智天皇として即位した人物。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">中臣鎌足</span>
+          <span class="tc-rd">なかとみのかまたり</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">中臣鎌足</span>
+          <span class="tc-desc">大化の改新に協力し、のちに藤原の姓を賜り藤原氏の祖となった人物。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">公地公民</span>
+          <span class="tc-rd">こうちこうみん</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">公地公民</span>
+          <span class="tc-desc">土地と人民を国家(天皇)が直接支配するという方針。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">白村江の戦い</span>
+          <span class="tc-rd">はくすきのえのたたかい</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">白村江の戦い</span>
+          <span class="tc-desc">663年、百済救援のため出兵した日本が唐・新羅の連合軍に敗れた戦い。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">壬申の乱</span>
+          <span class="tc-rd">じんしんのらん</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">壬申の乱</span>
+          <span class="tc-desc">672年に起きた皇位継承をめぐる争い。大海人皇子が勝利した。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">天武天皇</span>
+          <span class="tc-rd">てんむてんのう</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">天武天皇</span>
+          <span class="tc-desc">壬申の乱に勝利して即位し、律令国家の基礎を整えた天皇。</span>
+        </span>
+      </span>
+    </button></div>
     </div>
     <div class="step" data-label="30秒まとめ">
       
@@ -379,29 +542,93 @@
       <div class="words"><div class="word"><span class="w-term">平城京<span class="w-rd">へいじょうきょう</span></span><span class="w-desc">710年に奈良につくられた、唐の長安をモデルにした都。</span></div><div class="word"><span class="w-term">和同開珎<span class="w-rd">わどうかいちん</span></span><span class="w-desc">唐の貨幣を手本に発行された、奈良時代の貨幣。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">大切な言葉をおさえよう！</span></div>
-      <div class="tgrid"><div class="tcard">
-      <div class="tc-term">大宝律令<span class="tc-rd">たいほうりつりょう</span></div>
-      <div class="tc-desc">701年に完成した、唐の制度を手本にした法律。律令国家の体制を整えた。</div>
-    </div><div class="tcard">
-      <div class="tc-term">律<span class="tc-rd">りつ</span></div>
-      <div class="tc-desc">律令のうち、刑罰についての決まり。</div>
-    </div><div class="tcard">
-      <div class="tc-term">令<span class="tc-rd">りょう</span></div>
-      <div class="tc-desc">律令のうち、政治のしくみについての決まり。</div>
-    </div><div class="tcard">
-      <div class="tc-term">太政官<span class="tc-rd">だいじょうかん</span></div>
-      <div class="tc-desc">律令国家で政治を担当した中央の最高機関。</div>
-    </div><div class="tcard">
-      <div class="tc-term">国司<span class="tc-rd">こくし</span></div>
-      <div class="tc-desc">都から地方の国に派遣され、政治を監督した役人。</div>
-    </div><div class="tcard">
-      <div class="tc-term">平城京<span class="tc-rd">へいじょうきょう</span></div>
-      <div class="tc-desc">710年に奈良につくられた、唐の長安をモデルにした都。</div>
-    </div><div class="tcard">
-      <div class="tc-term">和同開珎<span class="tc-rd">わどうかいちん</span></div>
-      <div class="tc-desc">唐の貨幣を手本に発行された、奈良時代の貨幣。</div>
-    </div></div>
+      <div class="terms-h">📖 重要語チェック<span class="terms-sub">意味を言えるかな？</span></div>
+      <div class="terms-tools"><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示にする</label></div>
+      <div class="tgrid"><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">大宝律令</span>
+          <span class="tc-rd">たいほうりつりょう</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">大宝律令</span>
+          <span class="tc-desc">701年に完成した、唐の制度を手本にした法律。律令国家の体制を整えた。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">律</span>
+          <span class="tc-rd">りつ</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">律</span>
+          <span class="tc-desc">律令のうち、刑罰についての決まり。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">令</span>
+          <span class="tc-rd">りょう</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">令</span>
+          <span class="tc-desc">律令のうち、政治のしくみについての決まり。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">太政官</span>
+          <span class="tc-rd">だいじょうかん</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">太政官</span>
+          <span class="tc-desc">律令国家で政治を担当した中央の最高機関。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">国司</span>
+          <span class="tc-rd">こくし</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">国司</span>
+          <span class="tc-desc">都から地方の国に派遣され、政治を監督した役人。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">平城京</span>
+          <span class="tc-rd">へいじょうきょう</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">平城京</span>
+          <span class="tc-desc">710年に奈良につくられた、唐の長安をモデルにした都。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">和同開珎</span>
+          <span class="tc-rd">わどうかいちん</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">和同開珎</span>
+          <span class="tc-desc">唐の貨幣を手本に発行された、奈良時代の貨幣。</span>
+        </span>
+      </span>
+    </button></div>
     </div>
     <div class="step" data-label="30秒まとめ">
       
@@ -451,32 +678,105 @@
       <div class="words"><div class="word"><span class="w-term">墾田永年私財法<span class="w-rd">こんでんえいねんしざいほう</span></span><span class="w-desc">743年に出された、開墾地の永久私有を認める法。</span></div><div class="word"><span class="w-term">荘園<span class="w-rd">しょうえん</span></span><span class="w-desc">貴族や寺社が開墾や寄進によって広げた私有地。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">大切な言葉をおさえよう！</span></div>
-      <div class="tgrid"><div class="tcard">
-      <div class="tc-term">班田収授法<span class="tc-rd">はんでんしゅうじゅほう</span></div>
-      <div class="tc-desc">戸籍にもとづき6歳以上の男女に口分田を与え、死ねば国に返させた制度。</div>
-    </div><div class="tcard">
-      <div class="tc-term">口分田<span class="tc-rd">くぶんでん</span></div>
-      <div class="tc-desc">班田収授法によって人々に与えられた田。</div>
-    </div><div class="tcard">
-      <div class="tc-term">租<span class="tc-rd">そ</span></div>
-      <div class="tc-desc">口分田の収穫量の約3%を稲で納める税。</div>
-    </div><div class="tcard">
-      <div class="tc-term">調<span class="tc-rd">ちょう</span></div>
-      <div class="tc-desc">布や各地の特産物を都へ納める税。</div>
-    </div><div class="tcard">
-      <div class="tc-term">庸<span class="tc-rd">よう</span></div>
-      <div class="tc-desc">都での労役の代わりに布を納める税。</div>
-    </div><div class="tcard">
-      <div class="tc-term">防人<span class="tc-rd">さきもり</span></div>
-      <div class="tc-desc">九州北部の守りについた兵士。おもに東国の農民から選ばれた。</div>
-    </div><div class="tcard">
-      <div class="tc-term">墾田永年私財法<span class="tc-rd">こんでんえいねんしざいほう</span></div>
-      <div class="tc-desc">743年に出された、開墾地の永久私有を認める法。</div>
-    </div><div class="tcard">
-      <div class="tc-term">荘園<span class="tc-rd">しょうえん</span></div>
-      <div class="tc-desc">貴族や寺社が開墾や寄進によって広げた私有地。</div>
-    </div></div>
+      <div class="terms-h">📖 重要語チェック<span class="terms-sub">意味を言えるかな？</span></div>
+      <div class="terms-tools"><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示にする</label></div>
+      <div class="tgrid"><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">班田収授法</span>
+          <span class="tc-rd">はんでんしゅうじゅほう</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">班田収授法</span>
+          <span class="tc-desc">戸籍にもとづき6歳以上の男女に口分田を与え、死ねば国に返させた制度。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">口分田</span>
+          <span class="tc-rd">くぶんでん</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">口分田</span>
+          <span class="tc-desc">班田収授法によって人々に与えられた田。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">租</span>
+          <span class="tc-rd">そ</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">租</span>
+          <span class="tc-desc">口分田の収穫量の約3%を稲で納める税。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">調</span>
+          <span class="tc-rd">ちょう</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">調</span>
+          <span class="tc-desc">布や各地の特産物を都へ納める税。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">庸</span>
+          <span class="tc-rd">よう</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">庸</span>
+          <span class="tc-desc">都での労役の代わりに布を納める税。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">防人</span>
+          <span class="tc-rd">さきもり</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">防人</span>
+          <span class="tc-desc">九州北部の守りについた兵士。おもに東国の農民から選ばれた。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">墾田永年私財法</span>
+          <span class="tc-rd">こんでんえいねんしざいほう</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">墾田永年私財法</span>
+          <span class="tc-desc">743年に出された、開墾地の永久私有を認める法。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">荘園</span>
+          <span class="tc-rd">しょうえん</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">荘園</span>
+          <span class="tc-desc">貴族や寺社が開墾や寄進によって広げた私有地。</span>
+        </span>
+      </span>
+    </button></div>
     </div>
     <div class="step" data-label="30秒まとめ">
       
@@ -526,29 +826,93 @@
       <div class="words"><div class="word"><span class="w-term">万葉集<span class="w-rd">まんようしゅう</span></span><span class="w-desc">天皇から農民まで幅広い身分の歌を収めた、日本最古の和歌集。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">大切な言葉をおさえよう！</span></div>
-      <div class="tgrid"><div class="tcard">
-      <div class="tc-term">聖武天皇<span class="tc-rd">しょうむてんのう</span></div>
-      <div class="tc-desc">仏教の力で国を守ろうと、国分寺や東大寺の大仏を造らせた天皇。</div>
-    </div><div class="tcard">
-      <div class="tc-term">天平文化<span class="tc-rd">てんぴょうぶんか</span></div>
-      <div class="tc-desc">聖武天皇のころ栄えた、唐の影響を強く受けた国際色豊かな仏教文化。</div>
-    </div><div class="tcard">
-      <div class="tc-term">東大寺<span class="tc-rd">とうだいじ</span></div>
-      <div class="tc-desc">聖武天皇が建立し、大仏(盧舎那仏)が安置された寺。</div>
-    </div><div class="tcard">
-      <div class="tc-term">正倉院<span class="tc-rd">しょうそういん</span></div>
-      <div class="tc-desc">聖武天皇の遺品などが納められた東大寺の宝物庫。</div>
-    </div><div class="tcard">
-      <div class="tc-term">鑑真<span class="tc-rd">がんじん</span></div>
-      <div class="tc-desc">何度も渡航に失敗しながら来日し、正式な戒律を伝えた唐の僧。</div>
-    </div><div class="tcard">
-      <div class="tc-term">万葉集<span class="tc-rd">まんようしゅう</span></div>
-      <div class="tc-desc">天皇から農民まで幅広い身分の歌を収めた、日本最古の和歌集。</div>
-    </div><div class="tcard">
-      <div class="tc-term">国分寺<span class="tc-rd">こくぶんじ</span></div>
-      <div class="tc-desc">仏教の力で国を守るため、聖武天皇が国ごとに建てさせた寺。</div>
-    </div></div>
+      <div class="terms-h">📖 重要語チェック<span class="terms-sub">意味を言えるかな？</span></div>
+      <div class="terms-tools"><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示にする</label></div>
+      <div class="tgrid"><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">聖武天皇</span>
+          <span class="tc-rd">しょうむてんのう</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">聖武天皇</span>
+          <span class="tc-desc">仏教の力で国を守ろうと、国分寺や東大寺の大仏を造らせた天皇。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">天平文化</span>
+          <span class="tc-rd">てんぴょうぶんか</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">天平文化</span>
+          <span class="tc-desc">聖武天皇のころ栄えた、唐の影響を強く受けた国際色豊かな仏教文化。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">東大寺</span>
+          <span class="tc-rd">とうだいじ</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">東大寺</span>
+          <span class="tc-desc">聖武天皇が建立し、大仏(盧舎那仏)が安置された寺。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">正倉院</span>
+          <span class="tc-rd">しょうそういん</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">正倉院</span>
+          <span class="tc-desc">聖武天皇の遺品などが納められた東大寺の宝物庫。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">鑑真</span>
+          <span class="tc-rd">がんじん</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">鑑真</span>
+          <span class="tc-desc">何度も渡航に失敗しながら来日し、正式な戒律を伝えた唐の僧。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">万葉集</span>
+          <span class="tc-rd">まんようしゅう</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">万葉集</span>
+          <span class="tc-desc">天皇から農民まで幅広い身分の歌を収めた、日本最古の和歌集。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">国分寺</span>
+          <span class="tc-rd">こくぶんじ</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">国分寺</span>
+          <span class="tc-desc">仏教の力で国を守るため、聖武天皇が国ごとに建てさせた寺。</span>
+        </span>
+      </span>
+    </button></div>
     </div>
     <div class="step" data-label="30秒まとめ">
       
@@ -598,32 +962,105 @@
       <div class="words"><div class="word"><span class="w-term">最澄<span class="w-rd">さいちょう</span></span><span class="w-desc">唐から帰国後、比叡山延暦寺に天台宗を開いた僧。</span></div><div class="word"><span class="w-term">天台宗<span class="w-rd">てんだいしゅう</span></span><span class="w-desc">最澄が比叡山延暦寺で開いた仏教の宗派。</span></div><div class="word"><span class="w-term">空海<span class="w-rd">くうかい</span></span><span class="w-desc">唐で密教を学び、高野山金剛峯寺に真言宗を開いた僧。</span></div><div class="word"><span class="w-term">真言宗<span class="w-rd">しんごんしゅう</span></span><span class="w-desc">空海が高野山金剛峯寺で開いた密教の宗派。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">大切な言葉をおさえよう！</span></div>
-      <div class="tgrid"><div class="tcard">
-      <div class="tc-term">桓武天皇<span class="tc-rd">かんむてんのう</span></div>
-      <div class="tc-desc">律令政治を立て直すため、平安京に都を移した天皇。</div>
-    </div><div class="tcard">
-      <div class="tc-term">平安京<span class="tc-rd">へいあんきょう</span></div>
-      <div class="tc-desc">794年に桓武天皇が移した都。約400年間日本の都となった。</div>
-    </div><div class="tcard">
-      <div class="tc-term">坂上田村麻呂<span class="tc-rd">さかのうえのたむらまろ</span></div>
-      <div class="tc-desc">征夷大将軍として東北の蝦夷を平定した人物。</div>
-    </div><div class="tcard">
-      <div class="tc-term">征夷大将軍<span class="tc-rd">せいいたいしょうぐん</span></div>
-      <div class="tc-desc">東北の蝦夷を征討するために任命された役職。</div>
-    </div><div class="tcard">
-      <div class="tc-term">最澄<span class="tc-rd">さいちょう</span></div>
-      <div class="tc-desc">唐から帰国後、比叡山延暦寺に天台宗を開いた僧。</div>
-    </div><div class="tcard">
-      <div class="tc-term">天台宗<span class="tc-rd">てんだいしゅう</span></div>
-      <div class="tc-desc">最澄が比叡山延暦寺で開いた仏教の宗派。</div>
-    </div><div class="tcard">
-      <div class="tc-term">空海<span class="tc-rd">くうかい</span></div>
-      <div class="tc-desc">唐で密教を学び、高野山金剛峯寺に真言宗を開いた僧。</div>
-    </div><div class="tcard">
-      <div class="tc-term">真言宗<span class="tc-rd">しんごんしゅう</span></div>
-      <div class="tc-desc">空海が高野山金剛峯寺で開いた密教の宗派。</div>
-    </div></div>
+      <div class="terms-h">📖 重要語チェック<span class="terms-sub">意味を言えるかな？</span></div>
+      <div class="terms-tools"><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示にする</label></div>
+      <div class="tgrid"><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">桓武天皇</span>
+          <span class="tc-rd">かんむてんのう</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">桓武天皇</span>
+          <span class="tc-desc">律令政治を立て直すため、平安京に都を移した天皇。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">平安京</span>
+          <span class="tc-rd">へいあんきょう</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">平安京</span>
+          <span class="tc-desc">794年に桓武天皇が移した都。約400年間日本の都となった。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">坂上田村麻呂</span>
+          <span class="tc-rd">さかのうえのたむらまろ</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">坂上田村麻呂</span>
+          <span class="tc-desc">征夷大将軍として東北の蝦夷を平定した人物。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">征夷大将軍</span>
+          <span class="tc-rd">せいいたいしょうぐん</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">征夷大将軍</span>
+          <span class="tc-desc">東北の蝦夷を征討するために任命された役職。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">最澄</span>
+          <span class="tc-rd">さいちょう</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">最澄</span>
+          <span class="tc-desc">唐から帰国後、比叡山延暦寺に天台宗を開いた僧。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">天台宗</span>
+          <span class="tc-rd">てんだいしゅう</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">天台宗</span>
+          <span class="tc-desc">最澄が比叡山延暦寺で開いた仏教の宗派。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">空海</span>
+          <span class="tc-rd">くうかい</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">空海</span>
+          <span class="tc-desc">唐で密教を学び、高野山金剛峯寺に真言宗を開いた僧。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">真言宗</span>
+          <span class="tc-rd">しんごんしゅう</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">真言宗</span>
+          <span class="tc-desc">空海が高野山金剛峯寺で開いた密教の宗派。</span>
+        </span>
+      </span>
+    </button></div>
     </div>
     <div class="step" data-label="30秒まとめ">
       
@@ -673,32 +1110,105 @@
       <div class="words"><div class="word"><span class="w-term">院政<span class="w-rd">いんせい</span></span><span class="w-desc">退位した天皇(上皇)が実権を握って行う政治。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">大切な言葉をおさえよう！</span></div>
-      <div class="tgrid"><div class="tcard">
-      <div class="tc-term">摂関政治<span class="tc-rd">せっかんせいじ</span></div>
-      <div class="tc-desc">藤原氏が娘を天皇の后にし、摂政・関白として実権を握った政治。</div>
-    </div><div class="tcard">
-      <div class="tc-term">摂政<span class="tc-rd">せっしょう</span></div>
-      <div class="tc-desc">天皇が幼いときなどに代わって政治を行う役職。</div>
-    </div><div class="tcard">
-      <div class="tc-term">関白<span class="tc-rd">かんぱく</span></div>
-      <div class="tc-desc">成人した天皇を補佐して政治を行う役職。</div>
-    </div><div class="tcard">
-      <div class="tc-term">外戚<span class="tc-rd">がいせき</span></div>
-      <div class="tc-desc">天皇の母方の親戚のこと。藤原氏はこの立場を利用した。</div>
-    </div><div class="tcard">
-      <div class="tc-term">藤原道長<span class="tc-rd">ふじわらのみちなが</span></div>
-      <div class="tc-desc">摂関政治の全盛期を築いた人物。望月の歌で知られる。</div>
-    </div><div class="tcard">
-      <div class="tc-term">藤原頼通<span class="tc-rd">ふじわらのよりみち</span></div>
-      <div class="tc-desc">藤原道長の子で、平等院鳳凰堂を建立した人物。</div>
-    </div><div class="tcard">
-      <div class="tc-term">平等院鳳凰堂<span class="tc-rd">びょうどういんほうおうどう</span></div>
-      <div class="tc-desc">1053年に藤原頼通が宇治に建てた阿弥陀堂。</div>
-    </div><div class="tcard">
-      <div class="tc-term">院政<span class="tc-rd">いんせい</span></div>
-      <div class="tc-desc">退位した天皇(上皇)が実権を握って行う政治。</div>
-    </div></div>
+      <div class="terms-h">📖 重要語チェック<span class="terms-sub">意味を言えるかな？</span></div>
+      <div class="terms-tools"><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示にする</label></div>
+      <div class="tgrid"><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">摂関政治</span>
+          <span class="tc-rd">せっかんせいじ</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">摂関政治</span>
+          <span class="tc-desc">藤原氏が娘を天皇の后にし、摂政・関白として実権を握った政治。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">摂政</span>
+          <span class="tc-rd">せっしょう</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">摂政</span>
+          <span class="tc-desc">天皇が幼いときなどに代わって政治を行う役職。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">関白</span>
+          <span class="tc-rd">かんぱく</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">関白</span>
+          <span class="tc-desc">成人した天皇を補佐して政治を行う役職。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">外戚</span>
+          <span class="tc-rd">がいせき</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">外戚</span>
+          <span class="tc-desc">天皇の母方の親戚のこと。藤原氏はこの立場を利用した。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">藤原道長</span>
+          <span class="tc-rd">ふじわらのみちなが</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">藤原道長</span>
+          <span class="tc-desc">摂関政治の全盛期を築いた人物。望月の歌で知られる。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">藤原頼通</span>
+          <span class="tc-rd">ふじわらのよりみち</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">藤原頼通</span>
+          <span class="tc-desc">藤原道長の子で、平等院鳳凰堂を建立した人物。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">平等院鳳凰堂</span>
+          <span class="tc-rd">びょうどういんほうおうどう</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">平等院鳳凰堂</span>
+          <span class="tc-desc">1053年に藤原頼通が宇治に建てた阿弥陀堂。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">院政</span>
+          <span class="tc-rd">いんせい</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">院政</span>
+          <span class="tc-desc">退位した天皇(上皇)が実権を握って行う政治。</span>
+        </span>
+      </span>
+    </button></div>
     </div>
     <div class="step" data-label="30秒まとめ">
       
@@ -748,32 +1258,105 @@
       
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">大切な言葉をおさえよう！</span></div>
-      <div class="tgrid"><div class="tcard">
-      <div class="tc-term">国風文化<span class="tc-rd">こくふうぶんか</span></div>
-      <div class="tc-desc">唐の文化をふまえながら、日本の風土や生活に合わせて発達した文化。</div>
-    </div><div class="tcard">
-      <div class="tc-term">菅原道真<span class="tc-rd">すがわらのみちざね</span></div>
-      <div class="tc-desc">894年、遣唐使の停止を意見した人物。</div>
-    </div><div class="tcard">
-      <div class="tc-term">遣唐使<span class="tc-rd">けんとうし</span></div>
-      <div class="tc-desc">唐に制度や文化を学ぶために派遣された使節。894年に停止された。</div>
-    </div><div class="tcard">
-      <div class="tc-term">仮名文字<span class="tc-rd">かなもじ</span></div>
-      <div class="tc-desc">漢字をもとに作られた、日本語を書き表すための文字。</div>
-    </div><div class="tcard">
-      <div class="tc-term">紫式部<span class="tc-rd">むらさきしきぶ</span></div>
-      <div class="tc-desc">長編物語『源氏物語』を書いた女性。</div>
-    </div><div class="tcard">
-      <div class="tc-term">源氏物語<span class="tc-rd">げんじものがたり</span></div>
-      <div class="tc-desc">紫式部が書いた、貴族社会を描いた長編物語。</div>
-    </div><div class="tcard">
-      <div class="tc-term">清少納言<span class="tc-rd">せいしょうなごん</span></div>
-      <div class="tc-desc">随筆『枕草子』を書いた女性。</div>
-    </div><div class="tcard">
-      <div class="tc-term">枕草子<span class="tc-rd">まくらのそうし</span></div>
-      <div class="tc-desc">清少納言が宮中の暮らしをつづった随筆。</div>
-    </div></div>
+      <div class="terms-h">📖 重要語チェック<span class="terms-sub">意味を言えるかな？</span></div>
+      <div class="terms-tools"><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示にする</label></div>
+      <div class="tgrid"><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">国風文化</span>
+          <span class="tc-rd">こくふうぶんか</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">国風文化</span>
+          <span class="tc-desc">唐の文化をふまえながら、日本の風土や生活に合わせて発達した文化。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">菅原道真</span>
+          <span class="tc-rd">すがわらのみちざね</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">菅原道真</span>
+          <span class="tc-desc">894年、遣唐使の停止を意見した人物。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">遣唐使</span>
+          <span class="tc-rd">けんとうし</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">遣唐使</span>
+          <span class="tc-desc">唐に制度や文化を学ぶために派遣された使節。894年に停止された。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">仮名文字</span>
+          <span class="tc-rd">かなもじ</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">仮名文字</span>
+          <span class="tc-desc">漢字をもとに作られた、日本語を書き表すための文字。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">紫式部</span>
+          <span class="tc-rd">むらさきしきぶ</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">紫式部</span>
+          <span class="tc-desc">長編物語『源氏物語』を書いた女性。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">源氏物語</span>
+          <span class="tc-rd">げんじものがたり</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">源氏物語</span>
+          <span class="tc-desc">紫式部が書いた、貴族社会を描いた長編物語。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">清少納言</span>
+          <span class="tc-rd">せいしょうなごん</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">清少納言</span>
+          <span class="tc-desc">随筆『枕草子』を書いた女性。</span>
+        </span>
+      </span>
+    </button><button class="tcard" type="button">
+      <span class="tcard-inner">
+        <span class="tc-face tc-front">
+          <span class="tc-term">枕草子</span>
+          <span class="tc-rd">まくらのそうし</span>
+          <span class="tc-tap">タップで意味</span>
+        </span>
+        <span class="tc-face tc-back">
+          <span class="tc-bterm">枕草子</span>
+          <span class="tc-desc">清少納言が宮中の暮らしをつづった随筆。</span>
+        </span>
+      </span>
+    </button></div>
     </div>
     <div class="step" data-label="30秒まとめ">
       
@@ -912,8 +1495,28 @@
   document.getElementById('btnPrev').addEventListener('click', prev);
   document.addEventListener('click', function (e) {
     var b = e.target.closest('[data-go]');
-    if (b) go(+b.dataset.go, 0, 1);
+    if (b) { go(+b.dataset.go, 0, 1); return; }
+    // 重要語カード: タップで表裏（両面表示中はめくらない）
+    var card = e.target.closest('.tcard');
+    if (card && !card.closest('.tgrid').classList.contains('both')) {
+      card.classList.toggle('flipped');
+    }
   });
+
+  // 「両面表示にする」チェック（設定は保存して全単元・次回にも反映）
+  function applyBoth(on) {
+    [].forEach.call(document.querySelectorAll('.both-chk'), function (c) { c.checked = on; });
+    [].forEach.call(document.querySelectorAll('.tgrid'), function (g) {
+      g.classList.toggle('both', on);
+    });
+  }
+  document.addEventListener('change', function (e) {
+    if (e.target.classList && e.target.classList.contains('both-chk')) {
+      applyBoth(e.target.checked);
+      var st = store(); st.both = e.target.checked ? 1 : 0; save(st);
+    }
+  });
+  applyBoth(store().both === 1);
 
   // 左右スワイプでページ送り（縦スクロールと誤爆しないよう横優位のみ）
   var tx = 0, ty = 0;
