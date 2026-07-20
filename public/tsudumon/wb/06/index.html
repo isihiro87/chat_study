@@ -17,14 +17,47 @@
   /* ── 上部バー ── */
   .bar { position:sticky; top:0; z-index:10; background:rgba(255,253,248,.96);
          backdrop-filter:blur(6px); border-bottom:1px solid #f0e6d2; }
-  .bar-in { max-width:640px; margin:0 auto; padding:8px 16px 0; }
+  .bar-in { max-width:640px; margin:0 auto; padding:5px 12px 0; }
   .bar-row { display:flex; align-items:center; gap:8px; }
+  /* 問題集⇄参考書の切替（どのページからでも1タップ・相手側は読みかけの位置に着地） */
+  /* どのページからでも「本の一覧（すごろく）」へ戻れる常設ボタン。
+     タブ列の 🏠 は「この本の目次」なので、こちらは 🗺＋文字でトップだと分かるようにする。 */
+  .tophome { flex:none; height:30px; padding:0 12px; font-size:11.5px; font-weight:bold;
+             color:#fff; background:var(--deep); border-radius:15px; text-decoration:none;
+             display:inline-flex; align-items:center; white-space:nowrap;
+             box-shadow:0 2px 0 #5b1e0b; }
+  .swap { flex:none; display:inline-flex; border:1.5px solid var(--line); border-radius:20px;
+          overflow:hidden; background:#fffbeb; }
+  .sw { font-size:11px; font-weight:bold; color:var(--brand); padding:3px 7px; text-decoration:none;
+        white-space:nowrap; cursor:pointer; }
+  .sw.on { background:var(--brand); color:#fff; }
+  .sw[hidden] { display:none; }
+  /* 設問ごとの「解説を見る」（その問題の根拠になる節へ直行） */
+  .sec-help { display:inline-flex; align-items:center; gap:4px; font-size:11.5px; font-weight:bold;
+              color:var(--brand); background:#fffbeb; border:1.5px solid var(--line);
+              border-radius:14px; padding:3px 10px; text-decoration:none; margin-top:8px; }
   .bar-title { font-weight:bold; color:var(--deep); font-size:14px; flex:1;
                white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .bar-step { flex:none; font-size:12px; font-weight:bold; color:var(--brand); }
-  .tabs { display:flex; gap:6px; overflow-x:auto; padding:8px 0; scrollbar-width:none; }
+  .bar-step { flex:none; font-size:11px; font-weight:bold; color:var(--brand); }
+  /* 初回だけ出す操作ヒント（PCはキー、スマホはスワイプ） */
+  .hintbar { position:fixed; left:50%; transform:translateX(-50%); bottom:78px; z-index:35;
+             background:rgba(28,25,23,.88); color:#fff; font-size:12.5px; font-weight:bold;
+             border-radius:20px; padding:8px 16px; box-shadow:0 4px 14px rgba(0,0,0,.3);
+             animation:hintIn .3s ease; }
+  .hintbar[hidden] { display:none; }
+  @keyframes hintIn { from { opacity:0; transform:translate(-50%,10px); }
+                      to { opacity:1; transform:translate(-50%,0); } }
+  .tabs-wrap { position:relative; flex:1; min-width:0; }
+  /* 端のフェード＋矢印＝「まだ右に単元がある」と一目で分かるようにする */
+  .tscroll { position:absolute; top:0; bottom:0; width:20px; border:none; cursor:pointer;
+             font-size:17px; font-weight:bold; color:var(--brand); line-height:1; padding:0;
+             display:flex; align-items:center; justify-content:center; font-family:inherit; }
+  .tscroll[hidden] { display:none; }
+  .tsl { left:0; background:linear-gradient(to right, #fffdf8 62%, rgba(255,253,248,0)); }
+  .tsr { right:0; background:linear-gradient(to left, #fffdf8 62%, rgba(255,253,248,0)); }
+  .tabs { display:flex; gap:5px; overflow-x:auto; padding:4px 0; width:100%; scrollbar-width:none; }
   .tabs::-webkit-scrollbar { display:none; }
-  .tab { flex:none; width:36px; height:36px; border-radius:50%; border:1.5px solid var(--line);
+  .tab { flex:none; width:30px; height:30px; border-radius:50%; border:1.5px solid var(--line);
          background:#fffbeb; color:var(--brand); font-size:14px; font-weight:bold;
          display:inline-flex; align-items:center; justify-content:center; cursor:pointer; }
   .tab.done { background:#fef3c7; }
@@ -360,16 +393,22 @@
 </style></head><body>
 <div class="bar"><div class="bar-in">
   <div class="bar-row">
-    <div class="bar-title">歴史 ⑥ 室町時代と中世の世界（問題集）</div>
+    <a class="tophome" href="../../index.html" aria-label="単元一覧へもどる">単元一覧</a>
+    <div class="swap"><a class="sw" id="swRef">📖 参考書</a><span class="sw on">✏️ 問題</span></div>
+    <div class="tabs-wrap">
+      <nav class="tabs" id="tabs"><button class="tab tab-home" data-go="0" aria-label="目次">🏠</button><button class="tab" data-go="1" aria-label="年表">年</button><button class="tab" data-go="2" aria-label="モンゴル帝国">1</button><button class="tab" data-go="3" aria-label="元寇と鎌倉幕府の滅亡">2</button><button class="tab" data-go="4" aria-label="室町幕府の成立">3</button><button class="tab" data-go="5" aria-label="東アジアとの交流">4</button><button class="tab" data-go="6" aria-label="室町時代の産業">5</button><button class="tab" data-go="7" aria-label="室町時代の民衆">6</button><button class="tab" data-go="8" aria-label="北山文化と能楽">7</button><button class="tab" data-go="9" aria-label="東山文化と民衆の文化">8</button></nav>
+      <button class="tscroll tsl" id="tabsL" type="button" hidden aria-label="単元タブを左へ">‹</button>
+      <button class="tscroll tsr" id="tabsR" type="button" hidden aria-label="単元タブを右へ">›</button>
+    </div>
     <div class="bar-step" id="barStep"></div>
   </div>
-  <nav class="tabs" id="tabs"><button class="tab tab-home" data-go="0" aria-label="目次">🏠</button><button class="tab" data-go="1" aria-label="年表">年</button><button class="tab" data-go="2" aria-label="モンゴル帝国">1</button><button class="tab" data-go="3" aria-label="元寇と鎌倉幕府の滅亡">2</button><button class="tab" data-go="4" aria-label="室町幕府の成立">3</button><button class="tab" data-go="5" aria-label="東アジアとの交流">4</button><button class="tab" data-go="6" aria-label="室町時代の産業">5</button><button class="tab" data-go="7" aria-label="室町時代の民衆">6</button><button class="tab" data-go="8" aria-label="北山文化と能楽">7</button><button class="tab" data-go="9" aria-label="東山文化と民衆の文化">8</button></nav>
+  <div class="bar-title" hidden>歴史 ⑥ 室町時代と中世の世界（問題集）</div>
   <div class="pbar"><div class="pfill" id="pfill"></div></div>
 </div></div>
 <main class="wrap" id="views">
 
 <section class="view home" data-t="0">
-  <a class="home-link" href="../../index.html">🗺 すごろく（本一覧）へもどる</a>
+  <a class="home-link" href="../../index.html">単元一覧にもどる</a>
   <header class="top">
     <div class="badge">歴史 ⑥　問題集 <span class="webtag">Web版</span></div>
     <h1>室町時代と中世の世界</h1>
@@ -431,6 +470,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t1s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">チンギス・ハン</div>
@@ -448,6 +488,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t1s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">フビライ・ハン</div>
@@ -465,6 +506,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t1s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>元<rt>げん</rt></ruby></div>
@@ -482,6 +524,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t1s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>大都<rt>だいと</rt></ruby>（現在の<ruby>北京<rt>ペキン</rt></ruby>）</div>
@@ -499,6 +542,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t1s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">モンゴル<ruby>帝国<rt>ていこく</rt></ruby></div>
@@ -516,6 +560,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t1s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>高麗<rt>こうらい</rt></ruby></div>
@@ -533,6 +578,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t1s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">マルコ・ポーロ</div>
@@ -550,6 +596,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t1s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>黄金<rt>おうごん</rt></ruby>の国ジパング</div>
@@ -567,6 +614,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t1s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">世界の<ruby>記述<rt>きじゅつ</rt></ruby>（<ruby>東方見聞録<rt>とうほうけんぶんろく</rt></ruby>）</div>
@@ -584,6 +632,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t1s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ムスリム<ruby>商人<rt>しょうにん</rt></ruby></div>
@@ -601,6 +650,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t1s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">オスマン<ruby>帝国<rt>ていこく</rt></ruby></div>
@@ -618,6 +668,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t1s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>大航海<rt>だいこうかい</rt></ruby>時代</div>
@@ -635,6 +686,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t1s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ユーラシア<ruby>大陸<rt>たいりく</rt></ruby></div>
@@ -652,6 +704,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t1s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">イタリア</div>
@@ -858,53 +911,62 @@
       <div class="q-text">フビライ・ハンはチンギス・ハンとどのような関係か？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">叔父と甥</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">兄と弟</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">祖父と孫</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">父と子</span></button></div>
       <div class="expl hidden-until">💡 フビライ・ハンはチンギス・ハンの孫にあたり、モンゴル帝国の第5代皇帝として国号を元と定め、大都に都を置きました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-mongol-empire-2" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">2 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">モンゴル帝国が東西交流を活発にするために行ったことは？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">言語を統一した</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">海軍を整備した</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">宗教を統一した</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">交通路を整備した</span></button></div>
       <div class="expl hidden-until">💡 モンゴル帝国は広大な領域内の交通路を整備し、東西の人・物・文化の交流を活発にしました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t1s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-mongol-empire-3" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">3 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">マルコ・ポーロが日本に実際に来たことはあるか？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">来ていない</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">何度も来日した</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">天皇に謁見した</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">一度来日した</span></button></div>
       <div class="expl hidden-until">💡 マルコ・ポーロは実際には日本に来ておらず、元で得た伝聞をもとに『東方見聞録』で日本を「黄金の国ジパング」として紹介しました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t1s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-mongol-empire-4" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">4 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">フビライ・ハンが日本に求めたことは何？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">軍事同盟の締結</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">貿易と朝貢</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">仏教の布教</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">職人の派遣</span></button></div>
       <div class="expl hidden-until">💡 フビライ・ハンは日本に使者を送り、貿易や朝貢（服属）を求めました。北条時宗が拒否したため、元寇が起こる原因となりました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t1s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-mongol-empire-5" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">5 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">モンゴル帝国がまたがった大陸は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">インド亜大陸</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">ユーラシア大陸</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">アジア大陸</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">ヨーロッパ大陸</span></button></div>
       <div class="expl hidden-until">💡 モンゴル帝国は東アジアからヨーロッパにいたるユーラシア大陸にまたがる史上最大級の帝国でした。アジア・ヨーロッパはその一部にすぎません。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t1s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-mongol-empire-6" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">6 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">モンゴル帝国が成立した世紀は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">14世紀</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">11世紀</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">13世紀</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">12世紀</span></button></div>
       <div class="expl hidden-until">💡 モンゴル帝国は13世紀初めにチンギス・ハンがモンゴル高原の遊牧民を統一して建国し、騎兵の機動力で領土を拡大しました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t1s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-mongol-empire-7" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">7 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">「東方見聞録」のもう一つの呼び方は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">大航海日誌</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">世界の記述</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">西遊記</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">天竺物語</span></button></div>
       <div class="expl hidden-until">💡 東方見聞録は「世界の記述」ともいい、マルコ・ポーロが元での見聞を口述してまとめさせた書物で、ヨーロッパにアジア観をもたらしました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t1s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-mongol-empire-8" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">8 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">高麗があった地域は現在のどこ？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">日本</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">モンゴル</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">朝鮮半島</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">中国</span></button></div>
       <div class="expl hidden-until">💡 高麗は10世紀から14世紀にかけて朝鮮半島にあった王朝で、13世紀には元に従属し、元寇では元軍とともに日本を攻撃しました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t1s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (1/1)" data-qid="wr-mongol-empire-1" data-kind="qa" data-sec="D">
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">1 / 1</span>　文章で説明しよう</span></div>
       <div class="q-text">チンギス・ハンが建てたモンゴル帝国が、短期間でユーラシア大陸にまたがる大帝国になれた理由を説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">遊牧民</span><span class="kw-chip">騎馬軍</span></div>
+      <a class="sec-help" href="../../ref/06/index.html#t1s1">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -963,6 +1025,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t2s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>元寇<rt>げんこう</rt></ruby></div>
@@ -980,6 +1043,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t2s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>北条時宗<rt>ほうじょうときむね</rt></ruby></div>
@@ -997,6 +1061,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t2s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>文永<rt>ぶんえい</rt></ruby>の<ruby>役<rt>えき</rt></ruby></div>
@@ -1014,6 +1079,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t2s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>弘安<rt>こうあん</rt></ruby>の<ruby>役<rt>えき</rt></ruby></div>
@@ -1031,6 +1097,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t2s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">てつはう</div>
@@ -1048,6 +1115,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t2s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>石塁<rt>せきるい</rt></ruby></div>
@@ -1065,6 +1133,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t2s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>蒙古襲来絵詞<rt>もうこしゅうらいえことば</rt></ruby></div>
@@ -1082,6 +1151,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t2s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>永仁<rt>えいにん</rt></ruby>の<ruby>徳政令<rt>とくせいれい</rt></ruby></div>
@@ -1099,6 +1169,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t2s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>悪党<rt>あくとう</rt></ruby></div>
@@ -1116,6 +1187,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t2s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>後醍醐<rt>ごだいご</rt></ruby><ruby>天皇<rt>てんのう</rt></ruby></div>
@@ -1133,6 +1205,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t2s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>足利尊氏<rt>あしかがたかうじ</rt></ruby></div>
@@ -1150,6 +1223,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t2s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>新田義貞<rt>にったよしさだ</rt></ruby></div>
@@ -1167,6 +1241,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t2s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1333年</div>
@@ -1184,6 +1259,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t2s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>建武<rt>けんむ</rt></ruby>の<ruby>新政<rt>しんせい</rt></ruby></div>
@@ -1390,53 +1466,62 @@
       <div class="q-text">御家人を救うため、借金の帳消しなどを認めた法令はどれですか。</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">武家諸法度</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">御成敗式目</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">大宝律令</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">永仁の徳政令</span></button></div>
       <div class="expl hidden-until">💡 永仁の徳政令は1297年に幕府が御家人救済を目的に出した法令で、借金帳消しを認めましたが効果は一時的にとどまりました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t2s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-mongol-invasion-2" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">2 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">鎌倉時代末期、荘園領主や幕府に従わず活動した武士を何といいますか。</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">守護大名</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">悪党</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">御家人</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">僧兵</span></button></div>
       <div class="expl hidden-until">💡 悪党は鎌倉時代末期に幕府や荘園領主の支配に従わず、実力で活動した新興武士です。鎌倉幕府の衰退を象徴する存在でした。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t2s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-mongol-invasion-3" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">3 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">元軍が日本の武士を苦しめた戦い方として正しいものはどれですか。</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">武士同士の一騎打ちを中心に挑んだ</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">騎馬隊だけで博多湾まで陸路から攻めた</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">集団戦法や火薬の武器を使った</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">弓矢を持たず長槍で接近戦のみを行った</span></button></div>
       <div class="expl hidden-until">💡 元軍は集団戦法や「てつはう」（火薬を使った武器）で、一騎打ちを中心とする日本の武士を苦しめました。陸路や長槍のみの戦法はとっていません。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t2s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-mongol-invasion-4" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">4 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">建武の新政が短期間で崩れた理由として正しいものはどれですか。</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">鎌倉幕府が再び強くなったため</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">武士より貴族を重視したため</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">守護が全員廃止されたため</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">元軍が京都を占領したため</span></button></div>
       <div class="expl hidden-until">💡 建武の新政は後醍醐天皇が貴族を重視したため、武士の不満を招きました。足利尊氏の離反で約2年で崩壊しました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t2s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-mongol-invasion-5" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">5 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">文永の役で元軍が最初に攻撃した地域は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">対馬・壱岐</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">四国</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">本州</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">九州北部</span></button></div>
       <div class="expl hidden-until">💡 1274年の文永の役で元軍はまず対馬と壱岐を攻撃して大きな被害を与え、その後博多湾に上陸しました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t2s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-mongol-invasion-6" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">6 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">鎌倉幕府が滅亡した年は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">1333年</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">1281年</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">1297年</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">1338年</span></button></div>
       <div class="expl hidden-until">💡 1333年、後醍醐天皇の挙兵に呼応した足利尊氏が六波羅探題を、新田義貞が鎌倉を攻めて鎌倉幕府が滅亡しました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t2s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-mongol-invasion-7" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">7 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">御家人の領地が次第に減少していった原因となった相続の方法は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">長子相続</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">一括相続</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">養子相続</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">分割相続</span></button></div>
       <div class="expl hidden-until">💡 分割相続により世代を重ねるごとに一人あたりの領地が減少し、御家人の生活困窮の一因となって鎌倉幕府の衰退につながりました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t2s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-mongol-invasion-8" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">8 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">石塁はどこに築かれた？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">壇ノ浦</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">鎌倉</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">博多湾</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">対馬</span></button></div>
       <div class="expl hidden-until">💡 石塁は北条時宗の指示で弘安の役に備えて博多湾沿岸約20kmに築かれ、元軍の上陸を効果的に防ぎました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t2s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-mongol-invasion-1" data-kind="qa" data-sec="D">
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">1 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">元寇のあと、御家人の生活が苦しくなっていった理由を説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">分割相続</span></div>
+      <a class="sec-help" href="../../ref/06/index.html#t2s2">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -1453,6 +1538,7 @@
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">2 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">元軍の戦い方は、それまでの日本の武士の戦い方とどう違っていたか、説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">集団戦法</span><span class="kw-chip">てつはう</span></div>
+      <a class="sec-help" href="../../ref/06/index.html#t2s1">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -1469,6 +1555,7 @@
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">3 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">二度にわたる元軍の襲来を、日本が退けることができた理由を説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">防塁</span><span class="kw-chip">暴風雨</span></div>
+      <a class="sec-help" href="../../ref/06/index.html#t2s1">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -1532,6 +1619,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t3s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>建武<rt>けんむ</rt></ruby>の<ruby>新政<rt>しんせい</rt></ruby></div>
@@ -1549,6 +1637,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t3s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>足利尊氏<rt>あしかがたかうじ</rt></ruby></div>
@@ -1566,6 +1655,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t3s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>南北朝<rt>なんぼくちょう</rt></ruby>時代</div>
@@ -1583,6 +1673,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t3s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>北朝<rt>ほくちょう</rt></ruby></div>
@@ -1600,6 +1691,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t3s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>南朝<rt>なんちょう</rt></ruby></div>
@@ -1617,6 +1709,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t3s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>室町<rt>むろまち</rt></ruby><ruby>幕府<rt>ばくふ</rt></ruby></div>
@@ -1634,6 +1727,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t3s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>足利義満<rt>あしかがよしみつ</rt></ruby></div>
@@ -1651,6 +1745,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t3s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">花の<ruby>御所<rt>ごしょ</rt></ruby></div>
@@ -1668,6 +1763,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t3s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>管領<rt>かんれい</rt></ruby></div>
@@ -1685,6 +1781,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t3s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>守護<rt>しゅご</rt></ruby><ruby>大名<rt>だいみょう</rt></ruby></div>
@@ -1702,6 +1799,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t3s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>土倉<rt>どそう</rt></ruby>・<ruby>酒屋<rt>さかや</rt></ruby></div>
@@ -1719,6 +1817,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>明<rt>みん</rt></ruby></div>
@@ -1736,6 +1835,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t3s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>侍所<rt>さむらいどころ</rt></ruby></div>
@@ -1753,6 +1853,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t3s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>政所<rt>まんどころ</rt></ruby></div>
@@ -1959,53 +2060,62 @@
       <div class="q-text">室町時代の守護大名について正しい説明はどれですか。</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">任地に赴かず京都に住み、現地は代官に任せる慣習だった</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">任期が3年と決められ、世襲は認められなかった</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">国内の武士を家来としてまとめ、一国を支配する力を持った</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">鎌倉時代と同じく軍事・警察だけを担当した</span></button></div>
       <div class="expl hidden-until">💡 守護大名は鎌倉時代の守護より強い権限を持ち、国内の武士を家来としてまとめて一国を支配しました。土地支配や年貢徴収も行いました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t3s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-muromachi-bakufu-2" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">2 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">建武の新政はおよそ何年で崩壊した？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">約5年</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">約20年</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">約10年</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">約2年</span></button></div>
       <div class="expl hidden-until">💡 建武の新政は1334年から始まりましたが、公家を優遇して武士の不満を招き、足利尊氏の離反により約2年で崩壊しました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t3s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-muromachi-bakufu-3" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">3 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">管領に交代で就任した三つの家はどれ？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">上杉・武田・今川</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">山名・大内・赤松</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">細川・斯波・畠山</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">北条・足利・源</span></button></div>
       <div class="expl hidden-until">💡 管領には細川・斯波・畠山の三家（三管領）が交代で就任し、室町幕府で将軍を補佐する重要な役職を担いました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t3s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-muromachi-bakufu-4" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">4 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">関東の統治のために幕府が鎌倉に置いた機関は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">問注所</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">鎌倉府</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">政所</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">六波羅探題</span></button></div>
       <div class="expl hidden-until">💡 鎌倉府は京都の幕府が遠く離れた関東8か国などを統治するために置いた出先機関で、足利氏一族の鎌倉公方が長官を務めました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t3s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-muromachi-bakufu-5" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">5 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">足利尊氏が征夷大将軍に任命されたのは何年？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">1333年</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">1338年</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">1336年</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">1392年</span></button></div>
       <div class="expl hidden-until">💡 足利尊氏は1338年に征夷大将軍に任命され、京都に室町幕府を開きました。鎌倉幕府滅亡から5年後の出来事です。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t3s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-muromachi-bakufu-6" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">6 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">南北朝時代がおよそ何年間続いた？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">約200年</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">約60年</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">約30年</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">約100年</span></button></div>
       <div class="expl hidden-until">💡 南北朝時代は1336年頃から1392年まで約60年間続き、第3代将軍足利義満が1392年に統一を実現しました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t3s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-muromachi-bakufu-7" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">7 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">後醍醐天皇が吉野に朝廷を開いた理由は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">足利尊氏が京都に別の天皇を立てたため</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">吉野が経済の中心だったから</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">古来からの慣例だったから</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">吉野が仏教勢力の拠点で安全だったから</span></button></div>
       <div class="expl hidden-until">💡 建武の新政に反旗を翻した足利尊氏が京都に別の天皇を立てたため、後醍醐天皇は山深い吉野に逃れて南朝を開きました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t3s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-muromachi-bakufu-8" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">8 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">室町幕府と鎌倉幕府で将軍を補佐する役職名は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">室町は管領、鎌倉は執権</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">どちらも管領</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">室町は執権、鎌倉は管領</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">どちらも執権</span></button></div>
       <div class="expl hidden-until">💡 室町幕府では管領、鎌倉幕府では執権が将軍を補佐しました。管領は細川・斯波・畠山、執権は北条氏が世襲しました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t3s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (1/2)" data-qid="wr-muromachi-bakufu-1" data-kind="qa" data-sec="D">
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">1 / 2</span>　文章で説明しよう</span></div>
       <div class="q-text">鎌倉幕府と室町幕府で、将軍を補佐した役職のしくみの違いを説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">執権</span><span class="kw-chip">管領</span></div>
+      <a class="sec-help" href="../../ref/06/index.html#t3s2">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -2022,6 +2132,7 @@
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">2 / 2</span>　文章で説明しよう</span></div>
       <div class="q-text">室町幕府が土倉や酒屋の営業を保護した目的を説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">財源</span></div>
+      <a class="sec-help" href="../../ref/06/index.html#t3s2">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -2080,6 +2191,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t4s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>倭寇<rt>わこう</rt></ruby></div>
@@ -2097,6 +2209,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t4s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>日明<rt>にちみん</rt></ruby><ruby>貿易<rt>ぼうえき</rt></ruby>（<ruby>勘合<rt>かんごう</rt></ruby><ruby>貿易<rt>ぼうえき</rt></ruby>）</div>
@@ -2114,6 +2227,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t4s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>勘合<rt>かんごう</rt></ruby><ruby>貿易<rt>ぼうえき</rt></ruby></div>
@@ -2131,6 +2245,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t4s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>勘合<rt>かんごう</rt></ruby></div>
@@ -2148,6 +2263,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t4s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>足利義満<rt>あしかがよしみつ</rt></ruby></div>
@@ -2165,6 +2281,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t4s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>明<rt>みん</rt></ruby></div>
@@ -2182,6 +2299,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t4s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>李成桂<rt>りせいけい</rt></ruby></div>
@@ -2199,6 +2317,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t4s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>朝鮮国<rt>ちょうせんこく</rt></ruby></div>
@@ -2216,6 +2335,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t4s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ハングル</div>
@@ -2233,6 +2353,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t4s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>琉球<rt>りゅうきゅう</rt></ruby><ruby>王国<rt>おうこく</rt></ruby></div>
@@ -2250,6 +2371,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t4s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>尚氏<rt>しょうし</rt></ruby></div>
@@ -2267,6 +2389,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t4s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>首里<rt>しゅり</rt></ruby></div>
@@ -2284,6 +2407,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t4s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>中継<rt>なかつぎ</rt></ruby><ruby>貿易<rt>ぼうえき</rt></ruby></div>
@@ -2301,6 +2425,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t4s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">アイヌ<ruby>民族<rt>みんぞく</rt></ruby></div>
@@ -2507,53 +2632,62 @@
       <div class="q-text">日明貿易で正式な貿易船を区別するために使われた証明書はどれですか。</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">御成敗式目</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">勘合</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">徳政令</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">宋銭</span></button></div>
       <div class="expl hidden-until">💡 勘合は一枚の札を二つに割って日本と明で半分ずつ持ち、合わせて正式な貿易船を倭寇と区別しました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t4s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-east-asia-trade-2" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">2 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">日宋貿易と日明貿易の組み合わせとして正しいものはどれですか。</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">日宋貿易—平清盛、日明貿易—足利義満</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">日宋貿易—足利義満、日明貿易—平清盛</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">日宋貿易—源頼朝、日明貿易—北条泰時</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">日宋貿易—後醍醐天皇、日明貿易—足利尊氏</span></button></div>
       <div class="expl hidden-until">💡 12世紀に平清盛が日宋貿易を進め、14世紀末からは足利義満が勘合を用いた日明貿易を始めました。両者の組み合わせを混同しないようにしましょう。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t4s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-east-asia-trade-3" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">3 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">琉球王国が栄えた理由として最も適切なものはどれですか。</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">元寇を防いだから</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">中継貿易を行ったから</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">守護大名を任命したから</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">鎌倉幕府を倒したから</span></button></div>
       <div class="expl hidden-until">💡 琉球王国は地理的な位置を生かし、日本・中国・朝鮮・東南アジアの産物を別の地域へ運んで売る中継貿易で15世紀に栄えました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t4s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-east-asia-trade-4" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">4 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">15世紀半ば、和人との交易をめぐって戦ったアイヌ民族の首長はだれですか。</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">足利義政</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">李成桂</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">尚氏</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">コシャマイン</span></button></div>
       <div class="expl hidden-until">💡 コシャマインは1457年、和人との交易をめぐる対立から蝦夷地で蜂起したアイヌの首長で、和人を一時追い詰めたが鎮圧されました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t4s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-east-asia-trade-5" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">5 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">明を建国した民族は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">満州族</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">トルコ族</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">漢民族</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">モンゴル族</span></button></div>
       <div class="expl hidden-until">💡 明は14世紀に漢民族の朱元璋がモンゴル系の元を北方に退けて建国した王朝で、室町幕府と勘合貿易を行いました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t4s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-east-asia-trade-6" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">6 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">勘合の仕組みとして正しいのは？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">一枚の札を二つに割って合わせて確認する</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">船に金属の官印を押して役人が確認する</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">船に掲げる旗の色と模様で区別する</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">船長が暗号を記した書状を提示する</span></button></div>
       <div class="expl hidden-until">💡 勘合は一枚の札を二つに割って日本と明で半分ずつ持ち、合わせることで正式な船と証明しました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t4s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-east-asia-trade-7" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">7 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">ハングルの正式名称は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">漢文字</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">万葉仮名</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">梵字文字</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">訓民正音</span></button></div>
       <div class="expl hidden-until">💡 ハングルの正式名称は訓民正音で「民を教える正しい音」という意味。15世紀に朝鮮国の世宗が漢字を読めない民衆のために制定しました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t4">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-east-asia-trade-8" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">8 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">日明貿易で日本から輸出された品物として正しいのは？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">銅・刀剣・硫黄</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">茶・米・塩</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">金・銀・真珠</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">銅銭・生糸・絹織物</span></button></div>
       <div class="expl hidden-until">💡 日明貿易では日本から銅・刀剣・硫黄などが輸出され、明から銅銭（永楽通宝）・生糸・絹織物・書物などが輸入されました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t4s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (1/2)" data-qid="wr-east-asia-trade-1" data-kind="qa" data-sec="D">
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">1 / 2</span>　文章で説明しよう</span></div>
       <div class="q-text">日明貿易で勘合が使われたしくみを説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">勘合</span></div>
+      <a class="sec-help" href="../../ref/06/index.html#t4s1">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -2570,6 +2704,7 @@
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">2 / 2</span>　文章で説明しよう</span></div>
       <div class="q-text">琉球王国が中継貿易で栄えた理由を説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">中継貿易</span></div>
+      <a class="sec-help" href="../../ref/06/index.html#t4s2">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -2633,6 +2768,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t5s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>二毛作<rt>にもうさく</rt></ruby></div>
@@ -2650,6 +2786,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t5s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>三毛作<rt>さんもうさく</rt></ruby></div>
@@ -2667,6 +2804,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t5s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>水車<rt>すいしゃ</rt></ruby></div>
@@ -2684,6 +2822,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t5s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>堆肥<rt>たいひ</rt></ruby></div>
@@ -2701,6 +2840,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t5s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">商品作物</div>
@@ -2718,6 +2858,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t5s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>馬借<rt>ばしゃく</rt></ruby></div>
@@ -2735,6 +2876,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t5s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>問<rt>とい</rt></ruby></div>
@@ -2752,6 +2894,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t5s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>座<rt>ざ</rt></ruby></div>
@@ -2769,6 +2912,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t5s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>六斎市<rt>ろくさいいち</rt></ruby></div>
@@ -2786,6 +2930,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t5s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>宋銭<rt>そうせん</rt></ruby></div>
@@ -2803,6 +2948,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t5s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>西陣<rt>にしじん</rt></ruby></div>
@@ -2820,6 +2966,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t5s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>博多<rt>はかた</rt></ruby></div>
@@ -2837,6 +2984,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t5s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>土倉<rt>どそう</rt></ruby></div>
@@ -2854,6 +3002,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t5s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>酒屋<rt>さかや</rt></ruby></div>
@@ -3060,53 +3209,62 @@
       <div class="q-text">室町時代に栽培が増加した商品作物として正しいのは？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">米・麦・大豆</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">じゃがいも・さつまいも</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">麻・桑・茶</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">綿花・とうもろこし</span></button></div>
       <div class="expl hidden-until">💡 麻・桑・茶・漆などの商品作物の栽培が増加し、市場で売るための農業が広がりました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t5s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-muromachi-industry-2" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">2 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">運送業と倉庫業を兼ねた業者を何という？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">馬借業者</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">問</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">座の商人</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">土倉業者</span></button></div>
       <div class="expl hidden-until">💡 問（とい）は港や交通の要地で運送業と倉庫業を兼ねた業者で、馬借とともに室町時代の流通の発達を支えました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t5s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-muromachi-industry-3" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">3 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">桑の栽培が増えた理由は何の生産に関係している？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">和紙の生産</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">藍染め</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">養蚕業</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">漢方薬の製造</span></button></div>
       <div class="expl hidden-until">💡 桑は蚕の餌となるため、絹織物の原料である生糸を得る養蚕業の発展に伴い、室町時代に各地で栽培が増えました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t5s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-muromachi-industry-4" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">4 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">質物を取って金を貸す高利貸しの業者を何という？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">土倉</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">座敷</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">馬借</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">問屋</span></button></div>
       <div class="expl hidden-until">💡 土倉は質物を取って金を貸す高利貸しの業者で、幕府の財源にもなりました。一方で農民を苦しめ、土一揆の攻撃対象となりました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t5s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-muromachi-industry-5" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">5 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">座が自由な商業の発展を妨げた面として正しいのは？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">取り扱う商品が同業者間で限定され、品揃えが乏しくなった</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">寺社への上納金が重く、座の利益が圧迫された</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">同業者間の価格競争が激しすぎて経営が安定しなかった</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">新しい商人の参入を制限し、自由な競争を妨げた</span></button></div>
       <div class="expl hidden-until">💡 座は寺社の保護を受けて営業を独占し、新しい商人の参入を制限したため、自由な競争を妨げる面がありました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t5s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-muromachi-industry-6" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">6 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">室町時代に各地で生産が盛んになった手工業製品として正しくないのは？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">和紙</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">鋳物類</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">陶器</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">綿織物</span></button></div>
       <div class="expl hidden-until">💡 陶器（瀬戸物）・鋳物類（鍋・釜・農具）・和紙（美濃・越前）は室町時代に各地で生産されました。綿織物の普及は戦国〜江戸時代以降です。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t5s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-muromachi-industry-7" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">7 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">博多（福岡県）で盛んだった手工業製品は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">絹織物</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">和紙</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">陶器</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">刀剣</span></button></div>
       <div class="expl hidden-until">💡 博多では絹織物の生産が盛んで、博多織として知られています。日明貿易など大陸との貿易拠点としても栄えた港町です。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t5s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-muromachi-industry-8" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">8 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">室町時代の一部地域で行われた、年に3回作物を栽培する方法は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">混作</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">輪作</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">二毛作</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">三毛作</span></button></div>
       <div class="expl hidden-until">💡 三毛作は西日本などの温暖な一部地域で行われた、年に3回作物を栽培する農法で、二毛作をさらに発展させたものです。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t5s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-muromachi-industry-1" data-kind="qa" data-sec="D">
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">1 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">商工業者が座をつくった目的を説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">同業者</span><span class="kw-chip">独占</span></div>
+      <a class="sec-help" href="../../ref/06/index.html#t5s2">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -3123,6 +3281,7 @@
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">2 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">座が営業を独占したことが、自由な商業にどのような影響をあたえたか、説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">独占</span></div>
+      <a class="sec-help" href="../../ref/06/index.html#t5s2">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -3139,6 +3298,7 @@
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">3 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">室町時代に開かれた定期市の回数は、鎌倉時代と比べてどのように変化したか、説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">六斎市</span></div>
+      <a class="sec-help" href="../../ref/06/index.html#t5s2">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -3197,6 +3357,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t6s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>惣<rt>そう</rt></ruby>（そう）</div>
@@ -3214,6 +3375,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t6s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>土一揆<rt>つちいっき</rt></ruby></div>
@@ -3231,6 +3393,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t6s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>町衆<rt>まちしゅう</rt></ruby></div>
@@ -3248,6 +3411,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t6s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>正長<rt>しょうちょう</rt></ruby>の<ruby>土一揆<rt>つちいっき</rt></ruby></div>
@@ -3265,6 +3429,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t6s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>寄合<rt>よりあい</rt></ruby></div>
@@ -3282,6 +3447,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t6s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>徳政令<rt>とくせいれい</rt></ruby></div>
@@ -3299,6 +3465,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t6">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">おきて（<ruby>掟<rt>おきて</rt></ruby>）</div>
@@ -3316,6 +3483,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t6s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>会合衆<rt>えごうしゅう</rt></ruby></div>
@@ -3333,6 +3501,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t6s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>入会地<rt>いりあいち</rt></ruby></div>
@@ -3350,6 +3519,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t6s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>祇園祭<rt>ぎおんまつり</rt></ruby></div>
@@ -3367,6 +3537,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t6s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>堺<rt>さかい</rt></ruby></div>
@@ -3384,6 +3555,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t6s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>博多<rt>はかた</rt></ruby></div>
@@ -3401,6 +3573,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t6s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>年行司<rt>としぎょうじ</rt></ruby></div>
@@ -3418,6 +3591,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t6s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1428年</div>
@@ -3624,53 +3798,62 @@
       <div class="q-text">1441年に幕府が初めて徳政令を出すきっかけとなった土一揆は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">山城の国一揆</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">加賀の一向一揆</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">正長の土一揆</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">嘉吉の土一揆</span></button></div>
       <div class="expl hidden-until">💡 嘉吉の土一揆（1441年）では幕府が初めて徳政令を出して農民の要求に応じました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t6s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-muromachi-people-2" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">2 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">博多で自治を担った有力商人の組織を何という？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">町衆</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">年行司</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">会合衆</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">座</span></button></div>
       <div class="expl hidden-until">💡 年行司は博多で自治を担った有力商人の組織で、堺の会合衆に相当し、日明貿易など港町の運営を担いました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t6s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-muromachi-people-3" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">3 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">惣が用水の管理を共同で行った理由は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">水を分配するため</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">雨乞いのため</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">外敵に備えるため</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">年貢を増やすため</span></button></div>
       <div class="expl hidden-until">💡 農業に欠かせない水を公平に分配し、効率的に利用するために共同管理が行われました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t6s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-muromachi-people-4" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">4 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">室町時代に港町として発展し自治が行われた代表的な都市を2つ選ぶと？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">平戸と長崎</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">京都と奈良</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">大宰府と鎌倉</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">堺と博多</span></button></div>
       <div class="expl hidden-until">💡 堺（大阪府）と博多（福岡県）はともに貿易で栄えた港町で、有力商人による自治が行われました。平戸・長崎の南蛮貿易は近世以降です。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t6s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-muromachi-people-5" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">5 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">正長の土一揆が近畿地方一帯に広がった攻撃対象は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">朝廷と幕府</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">土倉と酒屋</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">城と砦</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">寺社と神社</span></button></div>
       <div class="expl hidden-until">💡 正長の土一揆では近畿地方一帯で高利貸しの土倉や酒屋が襲撃され、農民や馬借が借金帳消しを求めて立ち上がりました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t6s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-muromachi-people-6" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">6 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">堺の周りに掘られた防御設備は何？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">濠</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">石垣</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">土塁</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">城壁</span></button></div>
       <div class="expl hidden-until">💡 堺は周囲に濠を掘って防御し、自治を守る「自由都市」として独自の運営を行いました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t6">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-muromachi-people-7" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">7 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">永仁の徳政令の具体的な内容は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">一定額以上の利息の取り立て禁止</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">借金の帳消しと土地の取り戻し</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">土倉・酒屋への年貢の引き下げ</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">商人どうしの貸し借りの記録義務化</span></button></div>
       <div class="expl hidden-until">💡 徳政令は借金の帳消しと売却した土地の取り戻しを命じる法令で、土一揆の農民たちが幕府に発布を求めました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t6s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-muromachi-people-8" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">8 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">町衆が復興した京都の有名な祭りは？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">葵祭</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">時代祭</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">祇園祭</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">天神祭</span></button></div>
       <div class="expl hidden-until">💡 祇園祭は応仁の乱で中断した後、町衆の力で復活した京都の八坂神社の祭礼で、現在まで続く日本を代表する祭りです。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t6s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (1/2)" data-qid="wr-muromachi-people-1" data-kind="qa" data-sec="D">
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">1 / 2</span>　文章で説明しよう</span></div>
       <div class="q-text">正長の土一揆で、農民や馬借が土倉や酒屋をおそった目的を説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">徳政令</span></div>
+      <a class="sec-help" href="../../ref/06/index.html#t6s2">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -3687,6 +3870,7 @@
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">2 / 2</span>　文章で説明しよう</span></div>
       <div class="q-text">惣では、どのようなしくみで村の自治が行われたか、説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">寄合</span></div>
+      <a class="sec-help" href="../../ref/06/index.html#t6s1">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -3745,6 +3929,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t7s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>北山<rt>きたやま</rt></ruby><ruby>文化<rt>ぶんか</rt></ruby></div>
@@ -3762,6 +3947,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t7s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>金閣<rt>きんかく</rt></ruby></div>
@@ -3779,6 +3965,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t7s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>能<rt>のう</rt></ruby></div>
@@ -3796,6 +3983,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t7s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>狂言<rt>きょうげん</rt></ruby></div>
@@ -3813,6 +4001,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t7s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>観阿弥<rt>かんあみ</rt></ruby>・<ruby>世阿弥<rt>ぜあみ</rt></ruby></div>
@@ -3830,6 +4019,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t7s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>鹿苑寺<rt>ろくおんじ</rt></ruby></div>
@@ -3847,6 +4037,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t7s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>猿楽<rt>さるがく</rt></ruby></div>
@@ -3864,6 +4055,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t7s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>足利義満<rt>あしかがよしみつ</rt></ruby></div>
@@ -3881,6 +4073,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t7s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>日明<rt>にちみん</rt></ruby><ruby>貿易<rt>ぼうえき</rt></ruby>（<ruby>勘合<rt>かんごう</rt></ruby><ruby>貿易<rt>ぼうえき</rt></ruby>）</div>
@@ -3898,6 +4091,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t7s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>寝殿造<rt>しんでんづくり</rt></ruby></div>
@@ -3915,6 +4109,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t7s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>禅宗<rt>ぜんしゅう</rt></ruby></div>
@@ -3932,6 +4127,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t7s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>世阿弥<rt>ぜあみ</rt></ruby></div>
@@ -3949,6 +4145,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t7s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>観阿弥<rt>かんあみ</rt></ruby></div>
@@ -3966,6 +4163,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t7s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">京都の<ruby>北山<rt>きたやま</rt></ruby></div>
@@ -4172,53 +4370,62 @@
       <div class="q-text">室町文化に大きな影響を与えた仏教の宗派は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">日蓮宗</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">浄土宗</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">天台宗</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">禅宗</span></button></div>
       <div class="expl hidden-until">💡 禅宗は鎌倉時代に栄西・道元が伝えた仏教の宗派で、室町文化に大きな影響を与え、金閣の3層目や水墨画などに反映されています。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t7s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-kitayama-culture-2" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">2 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">金閣を建てた足利義満は室町幕府の第何代将軍？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">第15代</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">初代</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">第3代</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">第8代</span></button></div>
       <div class="expl hidden-until">💡 足利義満は室町幕府の第3代将軍で、1392年の南北朝統一、日明貿易、金閣建立など多くの功績を残しました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t7s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-kitayama-culture-3" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">3 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">金閣が建てられた場所は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">鎌倉</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">京都の北山</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">奈良</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">京都の東山</span></button></div>
       <div class="expl hidden-until">💡 金閣は足利義満が京都の北山に建てた建物で、その地名が北山文化の名前の由来になりました。鹿苑寺金閣ともいいます。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t7s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-kitayama-culture-4" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">4 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">能は現在どのような文化遺産に登録されている？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">世界自然遺産</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">国定公園</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">ユネスコ無形文化遺産</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">日本の国宝</span></button></div>
       <div class="expl hidden-until">💡 能は観阿弥・世阿弥親子が大成した日本の伝統芸能で、現在もユネスコ無形文化遺産に登録され世界的に評価されています。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t7">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-kitayama-culture-5" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">5 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">狂言はどのような場面で演じられた？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">能の合間に演じた</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">能と別の場所で演じた</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">祭りの時に演じた</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">能の前に演じた</span></button></div>
       <div class="expl hidden-until">💡 狂言は能の合間に演じられ、能の格式高い世界と対照的な庶民的な笑いを提供しました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t7s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-kitayama-culture-6" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">6 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">金閣と銀閣を建てた人物はそれぞれだれ？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">どちらも足利義満</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">金閣は足利尊氏、銀閣は足利義満</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">どちらも足利義政</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">金閣は足利義満、銀閣は足利義政</span></button></div>
       <div class="expl hidden-until">💡 金閣は第3代将軍足利義満が京都の北山に、銀閣は第8代将軍足利義政が京都の東山に建てました。両者は対比してよく問われます。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t7s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-kitayama-culture-7" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">7 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">猿楽から能が大成した過程で重要だった人物の組み合わせは？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">観阿弥・世阿弥</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">雪舟・一休</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">法然・親鸞</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">足利尊氏・足利義政</span></button></div>
       <div class="expl hidden-until">💡 観阿弥・世阿弥親子が猿楽から能を大成し、足利義満が保護しました。世阿弥は「風姿花伝」を著して能の美学を理論化しました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t7s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-kitayama-culture-8" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">8 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">北山文化と東山文化を象徴する建物の組み合わせとして正しいものは？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">北山文化は銀閣、東山文化は金閣</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">北山文化は龍安寺、東山文化は天龍寺</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">北山文化は金閣、東山文化は銀閣</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">北山文化は平等院、東山文化は東大寺</span></button></div>
       <div class="expl hidden-until">💡 足利義満が京都の北山に建てた金閣は北山文化、足利義政が京都の東山に建てた銀閣は東山文化を象徴する建物です。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t7s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (1/2)" data-qid="wr-kitayama-culture-1" data-kind="qa" data-sec="D">
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">1 / 2</span>　文章で説明しよう</span></div>
       <div class="q-text">金閣の建築が三つの様式を組み合わせていることは、何を表しているか、説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">公家</span><span class="kw-chip">武家</span></div>
+      <a class="sec-help" href="../../ref/06/index.html#t7s1">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -4235,6 +4442,7 @@
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">2 / 2</span>　文章で説明しよう</span></div>
       <div class="q-text">能と狂言はそれぞれどのような芸能か、その違いを説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">狂言</span></div>
+      <a class="sec-help" href="../../ref/06/index.html#t7s2">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -4293,6 +4501,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t8s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>東山<rt>ひがしやま</rt></ruby><ruby>文化<rt>ぶんか</rt></ruby></div>
@@ -4310,6 +4519,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t8s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>銀閣<rt>ぎんかく</rt></ruby></div>
@@ -4327,6 +4537,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t8s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>足利義政<rt>あしかがよしまさ</rt></ruby></div>
@@ -4344,6 +4555,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t8s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>書院造<rt>しょいんづくり</rt></ruby></div>
@@ -4361,6 +4573,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t8s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>水墨画<rt>すいぼくが</rt></ruby></div>
@@ -4378,6 +4591,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t8s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>雪舟<rt>せっしゅう</rt></ruby></div>
@@ -4395,6 +4609,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t8s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>枯山水<rt>かれさんすい</rt></ruby></div>
@@ -4412,6 +4627,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t8s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">茶の湯</div>
@@ -4429,6 +4645,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t8s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">生け花</div>
@@ -4446,6 +4663,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t8s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>連歌<rt>れんが</rt></ruby></div>
@@ -4463,6 +4681,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t8s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>御伽草子<rt>おとぎぞうし</rt></ruby></div>
@@ -4480,6 +4699,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t8s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>足利<rt>あしかが</rt></ruby>学校</div>
@@ -4497,6 +4717,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t8s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>慈照寺<rt>じしょうじ</rt></ruby></div>
@@ -4514,6 +4735,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/06/index.html#t8s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">わび</div>
@@ -4720,53 +4942,62 @@
       <div class="q-text">東山文化に大きな影響を与えた仏教の宗派は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">時宗</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">日蓮宗</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">浄土宗</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">禅宗</span></button></div>
       <div class="expl hidden-until">💡 禅宗の簡素さと精神性を重んじる教えは東山文化に大きな影響を与え、書院造・枯山水・水墨画・茶の湯などの基盤となりました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t8s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-higashiyama-culture-2" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">2 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">雪舟が水墨画を学ぶために渡った国は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ベトナム</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">明</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">インド</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">朝鮮</span></button></div>
       <div class="expl hidden-until">💡 雪舟はもとは禅僧で、明（中国）に渡って本場の水墨画の技法を学び、帰国後に日本の自然を題材に独自の画風を確立しました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t8s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-higashiyama-culture-3" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">3 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">書院造に使われている要素として正しいものは？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">三角材・高床・通気構造</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">蔀戸・御簾・板敷</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">畳・障子・ふすま</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">躙り口・土壁・面皮柱</span></button></div>
       <div class="expl hidden-until">💡 書院造は畳・障子・ふすまを使った建築様式で、床の間や違い棚も特徴です。東山文化を代表し、現在の和室の原型となりました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t8s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-higashiyama-culture-4" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">4 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">銀閣の正式名称は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">慈照寺</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">天龍寺</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">鹿苑寺</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">龍安寺</span></button></div>
       <div class="expl hidden-until">💡 銀閣の正式名称は慈照寺で、足利義政の法号「慈照院殿」に由来します。金閣の鹿苑寺と混同しないよう注意。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t8s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-higashiyama-culture-5" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">5 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">足利学校で主に教えられた学問は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">医学</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">儒学</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">天文学</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">仏教</span></button></div>
       <div class="expl hidden-until">💡 栃木県の足利学校では主に儒学が教えられました。室町時代に上杉憲実が再興し、全国から僧侶や武士の子弟が集まりました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t8s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-higashiyama-culture-6" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">6 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">東山文化から現代に受け継がれている文化を3つ選ぶと？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">水墨画・枯山水・連歌</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">茶の湯・生け花・歌舞伎</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">書院造・茶の湯・生け花</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">書院造・狂言・浮世絵</span></button></div>
       <div class="expl hidden-until">💡 書院造（和室）・茶の湯（茶道）・生け花（華道）は東山文化から現代に受け継がれた代表例です。狂言は北山文化、歌舞伎・浮世絵は江戸時代の文化。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t8s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-higashiyama-culture-7" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">7 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">茶の湯に込められた精神を何という？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">風流</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">雅</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">わび</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">幽玄</span></button></div>
       <div class="expl hidden-until">💡 わびは質素で静かな美を追求する精神で、茶の湯の根本的な考え方です。安土桃山時代に千利休が完成させ、後の茶道に受け継がれました。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t8s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-higashiyama-culture-8" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">8 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">室町時代に始まった生け花は後に何として発展した？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">華道</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">武道</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">書道</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">茶道</span></button></div>
       <div class="expl hidden-until">💡 室町時代に禅宗の影響で始まった生け花は、池坊などによって体系化され、後に華道として発展して現代まで受け継がれています。</div>
+      <a class="sec-help" href="../../ref/06/index.html#t8s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-higashiyama-culture-1" data-kind="qa" data-sec="D">
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">1 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">書院造は、現代の住宅にどのような影響をあたえているか、説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">書院造</span></div>
+      <a class="sec-help" href="../../ref/06/index.html#t8s1">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -4783,6 +5014,7 @@
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">2 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">枯山水の庭園は何を用いて、どのように自然を表現しているか、説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">石</span><span class="kw-chip">砂</span></div>
+      <a class="sec-help" href="../../ref/06/index.html#t8s1">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -4799,6 +5031,7 @@
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">3 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">雪舟は、明で学んだ技法をもとに日本でどのような絵画を大成したか、説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">水墨画</span></div>
+      <a class="sec-help" href="../../ref/06/index.html#t8s2">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -4830,6 +5063,7 @@
   <div class="a-topic"><div class="a-title">年表でチェック</div><div class="a-group"><span class="a-item">チンギス・ハン</span>　<span class="a-item">フビライ・ハン</span>　<span class="a-item">元</span>　<span class="a-item">文永の役</span>　<span class="a-item">弘安の役</span>　<span class="a-item">永仁の徳政令</span>　<span class="a-item">鎌倉幕府</span>　<span class="a-item">後醍醐天皇</span>　<span class="a-item">建武の新政</span>　<span class="a-item">南北朝時代</span>　<span class="a-item">足利尊氏</span>　<span class="a-item">室町幕府</span>　<span class="a-item">足利義満</span>　<span class="a-item">朝鮮国</span>　<span class="a-item">正長の土一揆</span>　<span class="a-item">嘉吉の土一揆</span>　<span class="a-item">コシャマイン</span>　<span class="a-item">応仁の乱</span></div></div><div class="a-topic"><div class="a-title">1　モンゴル帝国</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① チンギス・ハン</span>　<span class="a-item">② モンゴル帝国</span>　<span class="a-item">③ フビライ・ハン</span>　<span class="a-item">④ 元</span>　<span class="a-item">⑤ 高麗</span>　<span class="a-item">⑥ マルコ・ポーロ</span>　<span class="a-item">⑦ 東方見聞録</span>　<span class="a-item">⑧ 大航海時代</span>　<span class="a-item">⑨ ムスリム商人</span>　<span class="a-item">⑩ オスマン帝国</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) チンギス・ハン</span>　<span class="a-item">(2) フビライ・ハン</span>　<span class="a-item">(3) 元</span>　<span class="a-item">(4) 大都（現在の北京）</span>　<span class="a-item">(5) モンゴル帝国</span>　<span class="a-item">(6) 高麗</span>　<span class="a-item">(7) マルコ・ポーロ</span>　<span class="a-item">(8) 黄金の国ジパング</span>　<span class="a-item">(9) 世界の記述（東方見聞録）</span>　<span class="a-item">(10) ムスリム商人</span>　<span class="a-item">(11) オスマン帝国</span>　<span class="a-item">(12) 大航海時代</span>　<span class="a-item">(13) ユーラシア大陸</span>　<span class="a-item">(14) イタリア</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) ウ（祖父と孫）</span>　<span class="a-item">(2) エ（交通路を整備した）</span>　<span class="a-item">(3) ア（来ていない）</span>　<span class="a-item">(4) イ（貿易と朝貢）</span>　<span class="a-item">(5) イ（ユーラシア大陸）</span>　<span class="a-item">(6) ウ（13世紀）</span>　<span class="a-item">(7) イ（世界の記述）</span>　<span class="a-item">(8) ウ（朝鮮半島）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) モンゴル高原の遊牧民を統一したチンギス・ハンが、機動力にすぐれた騎馬軍を率いて広い地域を次々に征服していったから。</div></div></div><div class="a-topic"><div class="a-title">2　元寇と鎌倉幕府の滅亡</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 文永の役</span>　<span class="a-item">② 弘安の役</span>　<span class="a-item">③ 北条時宗</span>　<span class="a-item">④ てつはう</span>　<span class="a-item">⑤ 分割相続</span>　<span class="a-item">⑥ 永仁の徳政令</span>　<span class="a-item">⑦ 悪党</span>　<span class="a-item">⑧ 後醍醐天皇</span>　<span class="a-item">⑨ 建武の新政</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 元寇</span>　<span class="a-item">(2) 北条時宗</span>　<span class="a-item">(3) 文永の役</span>　<span class="a-item">(4) 弘安の役</span>　<span class="a-item">(5) てつはう</span>　<span class="a-item">(6) 石塁</span>　<span class="a-item">(7) 蒙古襲来絵詞</span>　<span class="a-item">(8) 永仁の徳政令</span>　<span class="a-item">(9) 悪党</span>　<span class="a-item">(10) 後醍醐天皇</span>　<span class="a-item">(11) 足利尊氏</span>　<span class="a-item">(12) 新田義貞</span>　<span class="a-item">(13) 1333年</span>　<span class="a-item">(14) 建武の新政</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) エ（永仁の徳政令）</span>　<span class="a-item">(2) イ（悪党）</span>　<span class="a-item">(3) ウ（集団戦法や火薬の武器を使った）</span>　<span class="a-item">(4) イ（武士より貴族を重視したため）</span>　<span class="a-item">(5) ア（対馬・壱岐）</span>　<span class="a-item">(6) ア（1333年）</span>　<span class="a-item">(7) エ（分割相続）</span>　<span class="a-item">(8) ウ（博多湾）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 元寇の恩賞が十分でなかったことに加え、分割相続で領地が代々細分化されたため、御家人の生活が苦しくなったから。</div><div class="a-written">(2) 武士が一騎打ちを中心とする戦い方をしていたのに対し、元軍は集団戦法や火薬を使うてつはうで攻めてきた。</div><div class="a-written">(3) 1274年の文永の役では、御家人は集団戦法やてつはうに苦しんだが、暴風雨などによって元軍が撤退し、その後に博多湾に防塁を築いた。1281年の弘安の役では、この防塁が上陸を防ぎ、さらに暴風雨によって元軍が大きな損害を受けて引きあげたから。</div></div><div class="a-group"><span class="a-label">E 資料問題</span><span class="a-item">(1) 対馬</span>　<span class="a-item">(2) 博多湾</span></div></div><div class="a-topic"><div class="a-title">3　室町幕府の成立</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 建武の新政</span>　<span class="a-item">② 足利尊氏</span>　<span class="a-item">③ 室町幕府</span>　<span class="a-item">④ 北朝</span>　<span class="a-item">⑤ 南朝</span>　<span class="a-item">⑥ 足利義満</span>　<span class="a-item">⑦ 明</span>　<span class="a-item">⑧ 管領</span>　<span class="a-item">⑨ 守護大名</span>　<span class="a-item">⑩ 土倉</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 建武の新政</span>　<span class="a-item">(2) 足利尊氏</span>　<span class="a-item">(3) 南北朝時代</span>　<span class="a-item">(4) 北朝</span>　<span class="a-item">(5) 南朝</span>　<span class="a-item">(6) 室町幕府</span>　<span class="a-item">(7) 足利義満</span>　<span class="a-item">(8) 花の御所</span>　<span class="a-item">(9) 管領</span>　<span class="a-item">(10) 守護大名</span>　<span class="a-item">(11) 土倉・酒屋</span>　<span class="a-item">(12) 明</span>　<span class="a-item">(13) 侍所</span>　<span class="a-item">(14) 政所</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) ウ（国内の武士を家来としてまとめ、一国を支配する力を持った）</span>　<span class="a-item">(2) エ（約2年）</span>　<span class="a-item">(3) ウ（細川・斯波・畠山）</span>　<span class="a-item">(4) イ（鎌倉府）</span>　<span class="a-item">(5) イ（1338年）</span>　<span class="a-item">(6) イ（約60年）</span>　<span class="a-item">(7) ア（足利尊氏が京都に別の天皇を立てたため）</span>　<span class="a-item">(8) ア（室町は管領、鎌倉は執権）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 鎌倉幕府では北条氏が世襲する執権が、室町幕府では細川・斯波・畠山の三家が交代でつく管領が、それぞれ将軍を補佐した。</div><div class="a-written">(2) 室町幕府は、金融業を営む土倉や酒屋を保護するかわりに税を納めさせ、幕府の重要な財源としたから。</div></div></div><div class="a-topic"><div class="a-title">4　東アジアとの交流</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 倭寇</span>　<span class="a-item">② 日明貿易</span>　<span class="a-item">③ 勘合</span>　<span class="a-item">④ 李成桂</span>　<span class="a-item">⑤ 朝鮮国</span>　<span class="a-item">⑥ ハングル</span>　<span class="a-item">⑦ 琉球王国</span>　<span class="a-item">⑧ 中継貿易</span>　<span class="a-item">⑨ コシャマイン</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 倭寇</span>　<span class="a-item">(2) 日明貿易（勘合貿易）</span>　<span class="a-item">(3) 勘合貿易</span>　<span class="a-item">(4) 勘合</span>　<span class="a-item">(5) 足利義満</span>　<span class="a-item">(6) 明</span>　<span class="a-item">(7) 李成桂</span>　<span class="a-item">(8) 朝鮮国</span>　<span class="a-item">(9) ハングル</span>　<span class="a-item">(10) 琉球王国</span>　<span class="a-item">(11) 尚氏</span>　<span class="a-item">(12) 首里</span>　<span class="a-item">(13) 中継貿易</span>　<span class="a-item">(14) アイヌ民族</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) イ（勘合）</span>　<span class="a-item">(2) ア（日宋貿易—平清盛、日明貿易—足利義満）</span>　<span class="a-item">(3) イ（中継貿易を行ったから）</span>　<span class="a-item">(4) エ（コシャマイン）</span>　<span class="a-item">(5) ウ（漢民族）</span>　<span class="a-item">(6) ア（一枚の札を二つに割って合わせて確認する）</span>　<span class="a-item">(7) エ（訓民正音）</span>　<span class="a-item">(8) ア（銅・刀剣・硫黄）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 一枚の札を日本と明で半分ずつ持ち、合わせることで正式な貿易船と倭寇を区別するために勘合を用いた。</div><div class="a-written">(2) 日本・中国・朝鮮・東南アジアを結ぶ地理的な位置を生かし、各地の産物を運んで利益を得る中継貿易を行ったから。</div></div><div class="a-group"><span class="a-label">E 資料問題</span><span class="a-item">(1) 勘合</span>　<span class="a-item">(2) 勘合貿易（日明貿易）</span></div></div><div class="a-topic"><div class="a-title">5　室町時代の産業</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 二毛作</span>　<span class="a-item">② 三毛作</span>　<span class="a-item">③ 水車</span>　<span class="a-item">④ 堆肥</span>　<span class="a-item">⑤ 養蚕業</span>　<span class="a-item">⑥ 馬借</span>　<span class="a-item">⑦ 座</span>　<span class="a-item">⑧ 六斎市</span>　<span class="a-item">⑨ 西陣</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 二毛作</span>　<span class="a-item">(2) 三毛作</span>　<span class="a-item">(3) 水車</span>　<span class="a-item">(4) 堆肥</span>　<span class="a-item">(5) 商品作物</span>　<span class="a-item">(6) 馬借</span>　<span class="a-item">(7) 問</span>　<span class="a-item">(8) 座</span>　<span class="a-item">(9) 六斎市</span>　<span class="a-item">(10) 宋銭</span>　<span class="a-item">(11) 西陣</span>　<span class="a-item">(12) 博多</span>　<span class="a-item">(13) 土倉</span>　<span class="a-item">(14) 酒屋</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) ウ（麻・桑・茶）</span>　<span class="a-item">(2) イ（問）</span>　<span class="a-item">(3) ウ（養蚕業）</span>　<span class="a-item">(4) ア（土倉）</span>　<span class="a-item">(5) エ（新しい商人の参入を制限し、自由な競争を妨げた）</span>　<span class="a-item">(6) エ（綿織物）</span>　<span class="a-item">(7) ア（絹織物）</span>　<span class="a-item">(8) エ（三毛作）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 商工業者が同業者ごとに座をつくり、寺社に税を納める代わりに営業の独占権を得ることを目指した。</div><div class="a-written">(2) 座は寺社の保護のもとで営業を独占したため、新しい商人が自由に参入して競争することを妨げる面があった。</div><div class="a-written">(3) 鎌倉時代には月3回開かれた三斎市が、室町時代には月6回開かれる六斎市へと増え、商業がいっそう活発になった。</div></div></div><div class="a-topic"><div class="a-title">6　室町時代の民衆</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 惣</span>　<span class="a-item">② 寄合</span>　<span class="a-item">③ おきて</span>　<span class="a-item">④ 正長の土一揆</span>　<span class="a-item">⑤ 馬借</span>　<span class="a-item">⑥ 嘉吉の土一揆</span>　<span class="a-item">⑦ 徳政令</span>　<span class="a-item">⑧ 町衆</span>　<span class="a-item">⑨ 会合衆</span>　<span class="a-item">⑩ 自由都市</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 惣（そう）</span>　<span class="a-item">(2) 土一揆</span>　<span class="a-item">(3) 町衆</span>　<span class="a-item">(4) 正長の土一揆</span>　<span class="a-item">(5) 寄合</span>　<span class="a-item">(6) 徳政令</span>　<span class="a-item">(7) おきて（掟）</span>　<span class="a-item">(8) 会合衆</span>　<span class="a-item">(9) 入会地</span>　<span class="a-item">(10) 祇園祭</span>　<span class="a-item">(11) 堺</span>　<span class="a-item">(12) 博多</span>　<span class="a-item">(13) 年行司</span>　<span class="a-item">(14) 1428年</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) エ（嘉吉の土一揆）</span>　<span class="a-item">(2) イ（年行司）</span>　<span class="a-item">(3) ア（水を分配するため）</span>　<span class="a-item">(4) エ（堺と博多）</span>　<span class="a-item">(5) イ（土倉と酒屋）</span>　<span class="a-item">(6) ア（濠）</span>　<span class="a-item">(7) イ（借金の帳消しと土地の取り戻し）</span>　<span class="a-item">(8) ウ（祇園祭）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 借金の帳消しを命じる徳政令を幕府に出させるため、農民や馬借が土倉や酒屋を襲って抵抗したから。</div><div class="a-written">(2) 惣では有力な農民を中心に寄合を開いて話し合い、おきてを定めて村人みずから村を運営するしくみがとられた。</div></div></div><div class="a-topic"><div class="a-title">7　北山文化と能楽</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 足利義満</span>　<span class="a-item">② 北山文化</span>　<span class="a-item">③ 金閣</span>　<span class="a-item">④ 鹿苑寺</span>　<span class="a-item">⑤ 猿楽</span>　<span class="a-item">⑥ 観阿弥</span>　<span class="a-item">⑦ 世阿弥</span>　<span class="a-item">⑧ 能</span>　<span class="a-item">⑨ 狂言</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 北山文化</span>　<span class="a-item">(2) 金閣</span>　<span class="a-item">(3) 能</span>　<span class="a-item">(4) 狂言</span>　<span class="a-item">(5) 観阿弥・世阿弥</span>　<span class="a-item">(6) 鹿苑寺</span>　<span class="a-item">(7) 猿楽</span>　<span class="a-item">(8) 足利義満</span>　<span class="a-item">(9) 日明貿易（勘合貿易）</span>　<span class="a-item">(10) 寝殿造</span>　<span class="a-item">(11) 禅宗</span>　<span class="a-item">(12) 世阿弥</span>　<span class="a-item">(13) 観阿弥</span>　<span class="a-item">(14) 京都の北山</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) エ（禅宗）</span>　<span class="a-item">(2) ウ（第3代）</span>　<span class="a-item">(3) イ（京都の北山）</span>　<span class="a-item">(4) ウ（ユネスコ無形文化遺産）</span>　<span class="a-item">(5) ア（能の合間に演じた）</span>　<span class="a-item">(6) エ（金閣は足利義満、銀閣は足利義政）</span>　<span class="a-item">(7) ア（観阿弥・世阿弥）</span>　<span class="a-item">(8) ウ（北山文化は金閣、東山文化は銀閣）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 金閣は1層が寝殿造、2層が武家造、3層が禅宗様となっており、公家と武家の文化が融合したことを表している。</div><div class="a-written">(2) 能は面をつけて舞う格調高い舞台芸術であるのに対し、狂言は庶民の日常をこっけいに描く喜劇である。</div></div></div><div class="a-topic"><div class="a-title">8　東山文化と民衆の文化</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 足利義政</span>　<span class="a-item">② 東山文化</span>　<span class="a-item">③ 銀閣</span>　<span class="a-item">④ 書院造</span>　<span class="a-item">⑤ 雪舟</span>　<span class="a-item">⑥ 水墨画</span>　<span class="a-item">⑦ 枯山水</span>　<span class="a-item">⑧ 茶の湯</span>　<span class="a-item">⑨ 連歌</span>　<span class="a-item">⑩ 御伽草子</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 東山文化</span>　<span class="a-item">(2) 銀閣</span>　<span class="a-item">(3) 足利義政</span>　<span class="a-item">(4) 書院造</span>　<span class="a-item">(5) 水墨画</span>　<span class="a-item">(6) 雪舟</span>　<span class="a-item">(7) 枯山水</span>　<span class="a-item">(8) 茶の湯</span>　<span class="a-item">(9) 生け花</span>　<span class="a-item">(10) 連歌</span>　<span class="a-item">(11) 御伽草子</span>　<span class="a-item">(12) 足利学校</span>　<span class="a-item">(13) 慈照寺</span>　<span class="a-item">(14) わび</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) エ（禅宗）</span>　<span class="a-item">(2) イ（明）</span>　<span class="a-item">(3) ウ（畳・障子・ふすま）</span>　<span class="a-item">(4) ア（慈照寺）</span>　<span class="a-item">(5) イ（儒学）</span>　<span class="a-item">(6) ウ（書院造・茶の湯・生け花）</span>　<span class="a-item">(7) ウ（わび）</span>　<span class="a-item">(8) ア（華道）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 畳や床の間、障子などを備えた書院造は、現在の和風住宅である和室のもとになり、今の生活にも影響を残している。</div><div class="a-written">(2) 水を使わず、石や砂を用いて山や水などの自然の風景を表現する、禅宗の影響を受けた室町時代の庭園である。</div><div class="a-written">(3) 雪舟は、明で学んだ技法をもとに、墨一色の濃淡で自然の風景をえがく水墨画を日本で大成した。</div></div></div>
 </section>
 </main>
+<div class="hintbar" id="hintBar" hidden></div>
 <div class="navbar" id="navbar" hidden><div class="navbar-in">
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
@@ -4837,12 +5071,76 @@
 <script>
 (function () {
   var KEY = 'tzmwb-06';
+  var CH = '06';
+  var REF_VIEWS = [0, 0, 1, 2, 3, 4, 5, 6, 7, 8];        // 問題集のビューt → 参考書の単元番号（0＝対応なし）
   var views = [].slice.call(document.querySelectorAll('.view'));
   var tabs = [].slice.call(document.querySelectorAll('.tab'));
   var N = views.length - 1;
   var state = { t: 0, s: 0 };
   var lastDir = 1;
   var rendered = null; // 直前に表示していた {t, s}（ページめくり演出用）
+
+  // ── 問題集 ⇄ 参考書の行き来（相手側の読みかけページに着地） ──
+  function refHref(t) {
+    var base = '../../ref/' + CH + '/index.html';
+    var v = REF_VIEWS[t] || 0;
+    if (!v) return base;
+    var s = 0;
+    try {
+      var st = JSON.parse(localStorage.getItem('tzmref-' + CH) || '{}');
+      if (st.last && st.last.t === v && st.last.s > 0) s = st.last.s;
+    } catch (e) {}
+    return base + '#t' + v + (s ? 's' + s : '');
+  }
+  function updateSwap() {
+    var a = document.getElementById('swRef');
+    a.href = refHref(state.t);
+  }
+
+  // ── 操作ヒント（初回のみ）＋タブ列のホイール操作 ──
+  (function () {
+    var el = document.getElementById('tabs');
+    if (el) el.addEventListener('wheel', function (e) {
+      // PC でも横スクロールできるよう、縦ホイールを横移動に変換する
+      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) { el.scrollLeft += e.deltaY; e.preventDefault(); }
+    }, { passive: false });
+
+    var bar = document.getElementById('hintBar');
+    if (!bar) return;
+    try { if (localStorage.getItem('tzmhint') === '1') return; } catch (e) { return; }
+    var canHover = window.matchMedia && window.matchMedia('(hover:hover)').matches;
+    bar.textContent = canHover ? '⌨️ ← → キーでもページをめくれるよ'
+                               : '👆 よこにスワイプでもページをめくれるよ';
+    var shown = false;
+    window.showHint = function () {
+      if (shown || state.t === 0) return;
+      shown = true; bar.hidden = false;
+      try { localStorage.setItem('tzmhint', '1'); } catch (e) {}
+      setTimeout(function () { bar.hidden = true; }, 5000);
+    };
+    bar.addEventListener('click', function () { bar.hidden = true; });
+  })();
+
+  // 単元タブの左右矢印: まだ隠れているタブがある側だけ出す
+  function updateTabArrows() {
+    var el = document.getElementById('tabs');
+    var L = document.getElementById('tabsL'), R = document.getElementById('tabsR');
+    if (!el || !L || !R) return;
+    var max = el.scrollWidth - el.clientWidth;
+    L.hidden = el.scrollLeft <= 2;
+    R.hidden = el.scrollLeft >= max - 2;
+  }
+  (function () {
+    var el = document.getElementById('tabs');
+    var L = document.getElementById('tabsL'), R = document.getElementById('tabsR');
+    if (!el || !L || !R) return;
+    function by(d) { el.scrollBy({ left: d * Math.max(80, el.clientWidth * 0.7), behavior: 'smooth' }); }
+    L.addEventListener('click', function (e) { e.stopPropagation(); by(-1); });
+    R.addEventListener('click', function (e) { e.stopPropagation(); by(1); });
+    el.addEventListener('scroll', updateTabArrows, { passive: true });
+    window.addEventListener('resize', updateTabArrows);
+    setTimeout(updateTabArrows, 0);
+  })();
 
   function store() {
     try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; }
@@ -5035,9 +5333,8 @@
       if (steps[s]) steps[s].classList.add('on');
       navbar.hidden = false;
       var onModeStep = steps[s] && steps[s].dataset.sec === 'M';
-      barStep.textContent = onModeStep
-        ? 'やり方をえらぼう'
-        : (s + 1) + ' / ' + steps.length;
+      // 「やり方をえらぼう」は本文にも大きく出るのでヘッダーには出さない（単元タブの幅を優先）
+      barStep.textContent = onModeStep ? '' : (s + 1) + ' / ' + steps.length;
       pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
       document.getElementById('btnPrev').textContent = s === 0 ? '🏠 目次' : '← まえへ';
       var next = document.getElementById('btnNext');
@@ -5060,7 +5357,9 @@
       }
     }
     var h = '#t' + t + (t > 0 && s > 0 ? 's' + s : '');
-    if (location.hash !== h) history.replaceState(null, '', t === 0 ? '#' : h);
+    // クエリが付いていても落とさない（URL共有時の情報を保つ）
+    if (location.hash !== h) history.replaceState(null, '', location.search + (t === 0 ? '#' : h));
+    updateSwap();
     rendered = { t: t, s: s };
   }
 
@@ -5351,8 +5650,9 @@
       return;
     }
     if (inField) return;  // 入力中の矢印キーではページ送りしない
-    if (e.key === 'ArrowRight') next();
-    if (e.key === 'ArrowLeft') prev();
+    if (e.key === 'ArrowRight' || e.key === 'PageDown') { next(); e.preventDefault(); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { prev(); e.preventDefault(); }
+    else if (e.key === 'Home') { go(0, 0, -1); e.preventDefault(); }
   });
   var tx = 0, ty = 0;
   document.addEventListener('touchstart', function (e) {

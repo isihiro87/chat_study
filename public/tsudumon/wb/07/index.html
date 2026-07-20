@@ -17,14 +17,47 @@
   /* ── 上部バー ── */
   .bar { position:sticky; top:0; z-index:10; background:rgba(255,253,248,.96);
          backdrop-filter:blur(6px); border-bottom:1px solid #f0e6d2; }
-  .bar-in { max-width:640px; margin:0 auto; padding:8px 16px 0; }
+  .bar-in { max-width:640px; margin:0 auto; padding:5px 12px 0; }
   .bar-row { display:flex; align-items:center; gap:8px; }
+  /* 問題集⇄参考書の切替（どのページからでも1タップ・相手側は読みかけの位置に着地） */
+  /* どのページからでも「本の一覧（すごろく）」へ戻れる常設ボタン。
+     タブ列の 🏠 は「この本の目次」なので、こちらは 🗺＋文字でトップだと分かるようにする。 */
+  .tophome { flex:none; height:30px; padding:0 12px; font-size:11.5px; font-weight:bold;
+             color:#fff; background:var(--deep); border-radius:15px; text-decoration:none;
+             display:inline-flex; align-items:center; white-space:nowrap;
+             box-shadow:0 2px 0 #5b1e0b; }
+  .swap { flex:none; display:inline-flex; border:1.5px solid var(--line); border-radius:20px;
+          overflow:hidden; background:#fffbeb; }
+  .sw { font-size:11px; font-weight:bold; color:var(--brand); padding:3px 7px; text-decoration:none;
+        white-space:nowrap; cursor:pointer; }
+  .sw.on { background:var(--brand); color:#fff; }
+  .sw[hidden] { display:none; }
+  /* 設問ごとの「解説を見る」（その問題の根拠になる節へ直行） */
+  .sec-help { display:inline-flex; align-items:center; gap:4px; font-size:11.5px; font-weight:bold;
+              color:var(--brand); background:#fffbeb; border:1.5px solid var(--line);
+              border-radius:14px; padding:3px 10px; text-decoration:none; margin-top:8px; }
   .bar-title { font-weight:bold; color:var(--deep); font-size:14px; flex:1;
                white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .bar-step { flex:none; font-size:12px; font-weight:bold; color:var(--brand); }
-  .tabs { display:flex; gap:6px; overflow-x:auto; padding:8px 0; scrollbar-width:none; }
+  .bar-step { flex:none; font-size:11px; font-weight:bold; color:var(--brand); }
+  /* 初回だけ出す操作ヒント（PCはキー、スマホはスワイプ） */
+  .hintbar { position:fixed; left:50%; transform:translateX(-50%); bottom:78px; z-index:35;
+             background:rgba(28,25,23,.88); color:#fff; font-size:12.5px; font-weight:bold;
+             border-radius:20px; padding:8px 16px; box-shadow:0 4px 14px rgba(0,0,0,.3);
+             animation:hintIn .3s ease; }
+  .hintbar[hidden] { display:none; }
+  @keyframes hintIn { from { opacity:0; transform:translate(-50%,10px); }
+                      to { opacity:1; transform:translate(-50%,0); } }
+  .tabs-wrap { position:relative; flex:1; min-width:0; }
+  /* 端のフェード＋矢印＝「まだ右に単元がある」と一目で分かるようにする */
+  .tscroll { position:absolute; top:0; bottom:0; width:20px; border:none; cursor:pointer;
+             font-size:17px; font-weight:bold; color:var(--brand); line-height:1; padding:0;
+             display:flex; align-items:center; justify-content:center; font-family:inherit; }
+  .tscroll[hidden] { display:none; }
+  .tsl { left:0; background:linear-gradient(to right, #fffdf8 62%, rgba(255,253,248,0)); }
+  .tsr { right:0; background:linear-gradient(to left, #fffdf8 62%, rgba(255,253,248,0)); }
+  .tabs { display:flex; gap:5px; overflow-x:auto; padding:4px 0; width:100%; scrollbar-width:none; }
   .tabs::-webkit-scrollbar { display:none; }
-  .tab { flex:none; width:36px; height:36px; border-radius:50%; border:1.5px solid var(--line);
+  .tab { flex:none; width:30px; height:30px; border-radius:50%; border:1.5px solid var(--line);
          background:#fffbeb; color:var(--brand); font-size:14px; font-weight:bold;
          display:inline-flex; align-items:center; justify-content:center; cursor:pointer; }
   .tab.done { background:#fef3c7; }
@@ -360,16 +393,22 @@
 </style></head><body>
 <div class="bar"><div class="bar-in">
   <div class="bar-row">
-    <div class="bar-title">歴史 ⑦ ヨーロッパと天下統一（問題集）</div>
+    <a class="tophome" href="../../index.html" aria-label="単元一覧へもどる">単元一覧</a>
+    <div class="swap"><a class="sw" id="swRef">📖 参考書</a><span class="sw on">✏️ 問題</span></div>
+    <div class="tabs-wrap">
+      <nav class="tabs" id="tabs"><button class="tab tab-home" data-go="0" aria-label="目次">🏠</button><button class="tab" data-go="1" aria-label="年表">年</button><button class="tab" data-go="2" aria-label="ヨーロッパの変革">1</button><button class="tab" data-go="3" aria-label="大航海時代">2</button><button class="tab" data-go="4" aria-label="南蛮貿易とキリスト教">3</button><button class="tab" data-go="5" aria-label="信長・秀吉の天下統一">4</button><button class="tab" data-go="6" aria-label="秀吉の政策と朝鮮出兵">5</button><button class="tab" data-go="7" aria-label="桃山文化">6</button></nav>
+      <button class="tscroll tsl" id="tabsL" type="button" hidden aria-label="単元タブを左へ">‹</button>
+      <button class="tscroll tsr" id="tabsR" type="button" hidden aria-label="単元タブを右へ">›</button>
+    </div>
     <div class="bar-step" id="barStep"></div>
   </div>
-  <nav class="tabs" id="tabs"><button class="tab tab-home" data-go="0" aria-label="目次">🏠</button><button class="tab" data-go="1" aria-label="年表">年</button><button class="tab" data-go="2" aria-label="ヨーロッパの変革">1</button><button class="tab" data-go="3" aria-label="大航海時代">2</button><button class="tab" data-go="4" aria-label="南蛮貿易とキリスト教">3</button><button class="tab" data-go="5" aria-label="信長・秀吉の天下統一">4</button><button class="tab" data-go="6" aria-label="秀吉の政策と朝鮮出兵">5</button><button class="tab" data-go="7" aria-label="桃山文化">6</button></nav>
+  <div class="bar-title" hidden>歴史 ⑦ ヨーロッパと天下統一（問題集）</div>
   <div class="pbar"><div class="pfill" id="pfill"></div></div>
 </div></div>
 <main class="wrap" id="views">
 
 <section class="view home" data-t="0">
-  <a class="home-link" href="../../index.html">🗺 すごろく（本一覧）へもどる</a>
+  <a class="home-link" href="../../index.html">単元一覧にもどる</a>
   <header class="top">
     <div class="badge">歴史 ⑦　問題集 <span class="webtag">Web版</span></div>
     <h1>ヨーロッパと天下統一</h1>
@@ -431,6 +470,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t1s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ローマ<ruby>教皇<rt>きょうこう</rt></ruby></div>
@@ -448,6 +488,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t1s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">カトリック<ruby>教会<rt>きょうかい</rt></ruby></div>
@@ -465,6 +506,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>正教会<rt>せいきょうかい</rt></ruby></div>
@@ -482,6 +524,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t1s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">イスラム<ruby>教<rt>きょう</rt></ruby></div>
@@ -499,6 +542,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ムスリム</div>
@@ -516,6 +560,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t1s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>十字軍<rt>じゅうじぐん</rt></ruby></div>
@@ -533,6 +578,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t1s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ルネサンス</div>
@@ -550,6 +596,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t1s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>宗教<rt>しゅうきょう</rt></ruby><ruby>改革<rt>かいかく</rt></ruby></div>
@@ -567,6 +614,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t1s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>免罪符<rt>めんざいふ</rt></ruby>（<ruby>贖宥状<rt>しょくゆうじょう</rt></ruby>）</div>
@@ -584,6 +632,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t1s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ルター</div>
@@ -601,6 +650,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t1s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">カルバン</div>
@@ -618,6 +668,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t1s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">プロテスタント</div>
@@ -635,6 +686,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t1s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">イエズス<ruby>会<rt>かい</rt></ruby></div>
@@ -652,6 +704,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t1s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>活版<rt>かっぱん</rt></ruby><ruby>印刷<rt>いんさつ</rt></ruby></div>
@@ -858,53 +911,62 @@
       <div class="q-text">十字軍の遠征がヨーロッパに与えた影響として最も適切なものはどれですか。</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">東西の交流が活発になった</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">ヨーロッパからイスラム教徒が完全に追放された</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">イスラム王朝が滅亡した</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">ローマ教皇の権威が強化された</span></button></div>
       <div class="expl hidden-until">💡 十字軍は聖地奪還に失敗し教皇の権威はむしろ低下しましたが、イスラム世界との交流が活発になり文化や物産・東方の知識がヨーロッパへ伝わりました。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t1s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-europe-change-2" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">2 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">イエズス会について正しい説明はどれですか。</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">カトリックの修道会組織</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">正教会の対抗組織として設立</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">教皇の権威を否定して独立した教会</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">プロテスタントの宗教改革を推進した組織</span></button></div>
       <div class="expl hidden-until">💡 イエズス会は宗教改革に対抗してカトリック教会側が結成した修道会です。ザビエルなどをアジア・南米へ派遣し、カトリックの巻き返しを図りました。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-europe-change-3" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">3 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">14〜16世紀に、古代文化を見直し人間らしさを表現しようとした動きを何といいますか。</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ヘレニズム</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">啓蒙思想</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">産業革命</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">ルネサンス</span></button></div>
       <div class="expl hidden-until">💡 ルネサンスは「文芸復興」とも呼ばれ、14世紀にイタリアから広がりました。啓蒙思想は18世紀、産業革命は18〜19世紀のもので時代が違います。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t1s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-europe-change-4" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">4 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">ルターの宗教改革を支持しスイスで活動した改革者は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ミケランジェロ</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">ザビエル</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">カルバン</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">ルター</span></button></div>
       <div class="expl hidden-until">💡 カルバンはスイスで宗教改革を進め、勤勉と質素を重んじる教えを広めて商工業者に支持された改革者です。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t1s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-europe-change-5" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">5 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">十字軍の遠征は最終的にどのような結果に終わったか？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">聖地を完全に奪還した</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">一部の領土を確保した</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">イスラム教に改宗した</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">失敗に終わった</span></button></div>
       <div class="expl hidden-until">💡 11世紀末から約200年続いた十字軍は最終的に聖地奪還に失敗し、教皇の権威は低下しました。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t1s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-europe-change-6" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">6 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">ルネサンスの時代に発明され、知識の普及に貢献した印刷技術は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">石版印刷</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">活版印刷</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">木版印刷</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">銅版印刷</span></button></div>
       <div class="expl hidden-until">💡 15世紀にドイツのグーテンベルクが活版印刷を実用化し、書物が安く大量に作られ知識の普及が加速しました。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t1s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-europe-change-7" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">7 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">ルネサンスを代表する「最後の審判」で知られる芸術家は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ボッティチェリ</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">ラファエロ</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">ミケランジェロ</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">レオナルド・ダ・ヴィンチ</span></button></div>
       <div class="expl hidden-until">💡 ミケランジェロは「最後の審判」や「ダビデ像」、システィーナ礼拝堂の天井画で知られるイタリア・ルネサンスの巨匠です。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t1s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-europe-change-8" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">8 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">15世紀にビザンツ帝国を滅ぼしたイスラム教の大国は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">イスラム帝国</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">オスマン帝国</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">モンゴル帝国</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">ムガル帝国</span></button></div>
       <div class="expl hidden-until">💡 オスマン帝国は1453年にビザンツ帝国を滅ぼし、約600年にわたり東地中海の広大な領土を支配したイスラム教の大国です。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t1s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-europe-change-1" data-kind="qa" data-sec="D">
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">1 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">十字軍の遠征は、ヨーロッパにどのような影響をもたらしたか、説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">教皇</span></div>
+      <a class="sec-help" href="../../ref/07/index.html#t1s1">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -921,6 +983,7 @@
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">2 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">ルターが宗教改革を始めたきっかけは何か、説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">免罪符</span></div>
+      <a class="sec-help" href="../../ref/07/index.html#t1s3">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -937,6 +1000,7 @@
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">3 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">14世紀ごろのイタリアから広まったルネサンスとは、どのような文化の動きか、説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">ギリシャ・ローマ</span></div>
+      <a class="sec-help" href="../../ref/07/index.html#t1s2">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -1000,6 +1064,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t2s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>大航海<rt>だいこうかい</rt></ruby>時代</div>
@@ -1017,6 +1082,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t2s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">バスコ・ダ・ガマ</div>
@@ -1034,6 +1100,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t2s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">コロンブス</div>
@@ -1051,6 +1118,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t2s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">マゼランの<ruby>船隊<rt>せんたい</rt></ruby></div>
@@ -1068,6 +1136,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t2s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>三角<rt>さんかく</rt></ruby><ruby>貿易<rt>ぼうえき</rt></ruby></div>
@@ -1085,6 +1154,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t2s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>東<rt>ひがし</rt></ruby>インド<ruby>会社<rt>がいしゃ</rt></ruby></div>
@@ -1102,6 +1172,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t2s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>香辛料<rt>こうしんりょう</rt></ruby></div>
@@ -1119,6 +1190,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t2s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">インカ<ruby>帝国<rt>ていこく</rt></ruby></div>
@@ -1136,6 +1208,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t2s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">アステカ<ruby>帝国<rt>ていこく</rt></ruby></div>
@@ -1153,6 +1226,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t2s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ポルトガル</div>
@@ -1170,6 +1244,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t2s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">スペイン</div>
@@ -1187,6 +1262,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t2s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1492年</div>
@@ -1204,6 +1280,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t2s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1498年</div>
@@ -1221,6 +1298,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t2s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1522年</div>
@@ -1427,53 +1505,62 @@
       <div class="q-text">アフリカ南端を回る航路でインドに到達した人物はだれですか。</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ルター</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">マゼラン</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">コロンブス</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">バスコ・ダ・ガマ</span></button></div>
       <div class="expl hidden-until">💡 バスコ・ダ・ガマは1498年にアフリカ南端の喜望峰を回り、ヨーロッパからのインド航路を開いたポルトガル人です。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t2s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-europe-spread-2" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">2 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">マゼランの船隊について正しいものはどれですか。</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">アメリカ大陸が新大陸であると最初に発見した</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">ポルトガル国王の援助を受けて世界一周に出発した</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">本人は航海中に亡くなったが船隊が世界一周を達成した</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">ヨーロッパからインドへの航路を最初に開拓した</span></button></div>
       <div class="expl hidden-until">💡 マゼランはスペイン国王の援助で出航しましたがフィリピンで死亡し、残った船隊が1522年にスペインへ帰還して世界一周を達成しました。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t2s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-europe-spread-3" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">3 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">ヨーロッパ・アフリカ・アメリカ大陸を結び、奴隷貿易を含んだ貿易を何といいますか。</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">朱印船貿易</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">三角貿易</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">勘合貿易</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">南蛮貿易</span></button></div>
       <div class="expl hidden-until">💡 三角貿易ではアフリカの人々が奴隷としてアメリカ大陸の農園へ送られ、ヨーロッパ・アフリカ・アメリカを結ぶ貿易が成立しました。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t2s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-europe-spread-4" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">4 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">スペインが征服したメキシコの帝国は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">インカ帝国</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">オルメカ文明</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">アステカ帝国</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">マヤ文明</span></button></div>
       <div class="expl hidden-until">💡 アステカ帝国はメキシコ高原に栄えた帝国でテノチティトランを首都とし、16世紀にスペインのコルテスに征服されました。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t2s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-europe-spread-5" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">5 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">マゼランの世界一周によって証明されたことは？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">地球が丸いこと</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">アフリカの大きさ</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">新大陸の存在</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">太平洋の深さ</span></button></div>
       <div class="expl hidden-until">💡 マゼランの船隊が1522年に世界一周を達成し、地球が球体であることが航海によって実際に証明されました。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t2s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-europe-spread-6" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">6 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">三角貿易でアフリカからアメリカ大陸へ送られたのは？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">奴隷</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">金銀</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">武器</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">香辛料</span></button></div>
       <div class="expl hidden-until">💡 三角貿易ではアフリカから多くの人々がアメリカ大陸に奴隷として送られ、農園で過酷な労働を強いられました。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t2s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-europe-spread-7" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">7 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">コロンブス・バスコ＝ダ＝ガマ・マゼランの説明として正しい組み合わせはどれですか。</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">コロンブス＝インド航路、ガマ＝世界一周、マゼラン＝宗教改革</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">コロンブス＝日本来航、ガマ＝鉄砲伝来、マゼラン＝南蛮貿易</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">コロンブス＝宗教改革、ガマ＝キリスト教伝来、マゼラン＝十字軍</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">コロンブス＝カリブ海、ガマ＝インド航路、マゼランの船隊＝世界一周</span></button></div>
       <div class="expl hidden-until">💡 コロンブスは1492年にカリブ海、ガマは1498年にインド航路、マゼランの船隊は1522年に世界一周を達成しました。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t2s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-europe-spread-8" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">8 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">イエズス会の宣教師が主に派遣された地域は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">北ヨーロッパや北米</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">オーストラリアや南太平洋</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">北アフリカや西アジア</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">アジアや南米</span></button></div>
       <div class="expl hidden-until">💡 イエズス会はカトリックの対抗改革で設立され、宣教師をアジアや南米に派遣して布教を行いました。日本にはザビエルが来日。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t2s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (1/2)" data-qid="wr-europe-spread-1" data-kind="qa" data-sec="D">
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">1 / 2</span>　文章で説明しよう</span></div>
       <div class="q-text">コロンブスが到達した場所について、本人はどのように思い込んでいたか、説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">アジア</span></div>
+      <a class="sec-help" href="../../ref/07/index.html#t2s1">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -1490,6 +1577,7 @@
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">2 / 2</span>　文章で説明しよう</span></div>
       <div class="q-text">三角貿易とは、どのようなしくみの貿易か、説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">奴隷</span></div>
+      <a class="sec-help" href="../../ref/07/index.html#t2s2">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -1548,6 +1636,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t3s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>鉄砲<rt>てっぽう</rt></ruby></div>
@@ -1565,6 +1654,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t3s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>種子島<rt>たねがしま</rt></ruby></div>
@@ -1582,6 +1672,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t3s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ザビエル</div>
@@ -1599,6 +1690,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t3s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>南蛮<rt>なんばん</rt></ruby><ruby>貿易<rt>ぼうえき</rt></ruby></div>
@@ -1616,6 +1708,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t3s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">キリシタン<ruby>大名<rt>だいみょう</rt></ruby></div>
@@ -1633,6 +1726,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t3s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>天正<rt>てんしょう</rt></ruby><ruby>遣欧使節<rt>けんおうしせつ</rt></ruby></div>
@@ -1650,6 +1744,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t3s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ポルトガル</div>
@@ -1667,6 +1762,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t3s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>国友<rt>くにとも</rt></ruby></div>
@@ -1684,6 +1780,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t3s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>堺<rt>さかい</rt></ruby></div>
@@ -1701,6 +1798,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t3s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>生糸<rt>きいと</rt></ruby></div>
@@ -1718,6 +1816,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t3s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>長崎<rt>ながさき</rt></ruby></div>
@@ -1735,6 +1834,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t3s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">イエズス<ruby>会<rt>かい</rt></ruby></div>
@@ -1752,6 +1852,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>南蛮人<rt>なんばんじん</rt></ruby></div>
@@ -1769,6 +1870,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t3s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1543年</div>
@@ -1975,53 +2077,62 @@
       <div class="q-text">南蛮貿易で日本が主に輸出したものはどれですか。</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">香辛料</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">生糸</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">銀</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">綿織物</span></button></div>
       <div class="expl hidden-until">💡 南蛮貿易で日本は主に銀を輸出し、明の生糸や絹織物、鉄砲・火薬・南蛮の品々などを輸入しました。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t3s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-nanban-trade-2" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">2 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">九州でキリシタン大名が現れた理由として適切なものはどれですか。</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">領内の仏教勢力を弾圧するため</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">朝廷から官位を得るため</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">朝鮮との交易を独占するため</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">貿易の利益を得るため</span></button></div>
       <div class="expl hidden-until">💡 九州の大名がキリスト教を受け入れた主な理由は、南蛮貿易で得られる鉄砲や生糸などの利益を確保することでした。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t3s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-nanban-trade-3" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">3 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">大友宗麟らが1582年にローマへ送った少年使節を何といいますか。</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">天正遣欧使節</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">遣唐使</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">朝鮮通信使</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">岩倉使節団</span></button></div>
       <div class="expl hidden-until">💡 天正遣欧使節は1582年に大友宗麟ら九州のキリシタン大名がローマ教皇のもとへ送った4人の少年使節で、8年後に帰国しました。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t3s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-nanban-trade-4" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">4 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">次の出来事を古い順に並べたものとして正しいものはどれですか。①鉄砲伝来 ②宗教改革の開始 ③ザビエル来日</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">②→①→③</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">②→③→①</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">①→②→③</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">③→②→①</span></button></div>
       <div class="expl hidden-until">💡 宗教改革の開始は1517年、鉄砲伝来は1543年、ザビエル来日は1549年なので、②→①→③の順となります。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t3s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-nanban-trade-5" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">5 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">1580年にイエズス会に寄進された港町は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">平戸港</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">長崎</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">堺港</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">博多港</span></button></div>
       <div class="expl hidden-until">💡 1580年にキリシタン大名の大村純忠が長崎をイエズス会に寄進し、長崎は南蛮貿易の中心地として繁栄しました。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t3s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-nanban-trade-6" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">6 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">キリシタン大名として知られる九州の大名は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">島津義久</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">立花宗茂</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">龍造寺隆信</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">大友宗麟</span></button></div>
       <div class="expl hidden-until">💡 大友宗麟は豊後（大分）の大名でキリスト教を受け入れ、1582年に天正遣欧使節をローマへ派遣したことで知られます。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t3s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-nanban-trade-7" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">7 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">鉄砲の生産地として発展した和泉の都市は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">博多</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">堺</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">京</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">奈良</span></button></div>
       <div class="expl hidden-until">💡 和泉（大阪府）の堺は近江の国友とともに鉄砲の量産地として発展し、商業都市としても繁栄しました。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t3s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-nanban-trade-8" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">8 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">南蛮貿易で日本に輸入された衣料の高級原料は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">木綿</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">麻</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">生糸</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">羊毛</span></button></div>
       <div class="expl hidden-until">💡 南蛮貿易では中国産の生糸が主な輸入品で、日本の絹織物産業を支え、その対価として日本からは主に銀が輸出されました。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t3s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-nanban-trade-1" data-kind="qa" data-sec="D">
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">1 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">鉄砲が日本に伝来したことは、戦国大名の戦い方にどのような影響を与えたか、説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">足軽</span><span class="kw-chip">集団戦法</span></div>
+      <a class="sec-help" href="../../ref/07/index.html#t3s1">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -2038,6 +2149,7 @@
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">2 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">九州の大名の中にキリスト教を受け入れる者が現れたのはなぜか、説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">南蛮貿易</span></div>
+      <a class="sec-help" href="../../ref/07/index.html#t3s2">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -2054,6 +2166,7 @@
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">3 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">1549年に日本へ初めてキリスト教を伝えた人物と、そのできごとを説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">ザビエル</span></div>
+      <a class="sec-help" href="../../ref/07/index.html#t3s2">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -2112,6 +2225,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t4s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>織田信長<rt>おだのぶなが</rt></ruby></div>
@@ -2129,6 +2243,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t4s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>桶狭間<rt>おけはざま</rt></ruby>の<ruby>戦<rt>たたか</rt></ruby>い</div>
@@ -2146,6 +2261,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t4s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>足利義昭<rt>あしかがよしあき</rt></ruby></div>
@@ -2163,6 +2279,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t4s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>室町<rt>むろまち</rt></ruby><ruby>幕府<rt>ばくふ</rt></ruby></div>
@@ -2180,6 +2297,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t4s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>比叡山<rt>ひえいざん</rt></ruby><ruby>延暦寺<rt>えんりゃくじ</rt></ruby></div>
@@ -2197,6 +2315,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t4s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>長篠<rt>ながしの</rt></ruby>の<ruby>戦<rt>たたか</rt></ruby>い</div>
@@ -2214,6 +2333,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t4s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>楽市<rt>らくいち</rt></ruby>・<ruby>楽座<rt>らくざ</rt></ruby></div>
@@ -2231,6 +2351,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t4s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>安土城<rt>あづちじょう</rt></ruby></div>
@@ -2248,6 +2369,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t4s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>本能寺<rt>ほんのうじ</rt></ruby>の<ruby>変<rt>へん</rt></ruby></div>
@@ -2265,6 +2387,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t4s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>明智光秀<rt>あけちみつひで</rt></ruby></div>
@@ -2282,6 +2405,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t4s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>豊臣秀吉<rt>とよとみひでよし</rt></ruby></div>
@@ -2299,6 +2423,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t4s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>大阪城<rt>おおさかじょう</rt></ruby></div>
@@ -2316,6 +2441,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t4s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>関白<rt>かんぱく</rt></ruby></div>
@@ -2333,6 +2459,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t4s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>安土桃山<rt>あづちももやま</rt></ruby>時代</div>
@@ -2539,53 +2666,62 @@
       <div class="q-text">桶狭間の戦いで今川義元を破った戦国大名はだれですか。</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">徳川家康</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">豊臣秀吉</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">織田信長</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">武田勝頼</span></button></div>
       <div class="expl hidden-until">💡 尾張の戦国大名・織田信長は1560年の桶狭間の戦いで少数の兵で今川義元を奇襲して破り、勢力を広げました。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t4s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-nobunaga-hideyoshi-2" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">2 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">楽市・楽座の目的として最も適切なものはどれですか。</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">キリスト教を禁止するため</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">朝鮮へ出兵するため</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">農民から武器を取り上げるため</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">商工業の発展をうながすため</span></button></div>
       <div class="expl hidden-until">💡 楽市・楽座は信長が安土城下などで税や座の特権をなくし、商工業の発展をうながして城下を活発にした経済政策です。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t4s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-nobunaga-hideyoshi-3" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">3 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">秀吉が天皇から任命された官職はどれですか。</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">征夷大将軍</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">執権</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">関白</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">太政大臣</span></button></div>
       <div class="expl hidden-until">💡 秀吉は1585年に天皇から関白に任命され、全国の大名に停戦を命じて天下統一を進めました。征夷大将軍ではない点に注意。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t4s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-nobunaga-hideyoshi-4" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">4 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">1587年に豊臣秀吉がキリスト教に対して出した法令の内容として正しいものはどれですか。</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">長崎をイエズス会から取り戻すための法令</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">宣教師を国外へ追放しようとした命令</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">南蛮貿易を全面禁止した法令</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">キリスト教徒の信仰を公認した法令</span></button></div>
       <div class="expl hidden-until">💡 1587年のこの法令は「バテレン追放令」と呼ばれ、秀吉が宣教師（バテレン）の国外追放を命じたもの。南蛮貿易自体は継続されました。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t4s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-nobunaga-hideyoshi-5" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">5 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">信長・秀吉の時代を何時代と呼ぶ？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">安土桃山時代</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">江戸時代</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">戦国時代</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">室町時代</span></button></div>
       <div class="expl hidden-until">💡 信長と秀吉が政権を握った時代を安土桃山時代と呼び、信長の安土城と秀吉の伏見桃山城にちなんだ時代の名称です。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t4s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-nobunaga-hideyoshi-6" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">6 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">信長が敵対して焼き討ちにした比叡山の寺は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">延暦寺</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">金閣寺</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">本願寺</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">東大寺</span></button></div>
       <div class="expl hidden-until">💡 信長は1571年に敵対する天台宗の総本山・比叡山延暦寺を焼き討ちにし、強い仏教勢力を弱体化させました。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t4s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-nobunaga-hideyoshi-7" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">7 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">信長が流通を活発にするために廃止した施設は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">組合</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">市場</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">関所</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">城郭</span></button></div>
       <div class="expl hidden-until">💡 信長は各地の関所を廃止して物の行き来を自由にし、楽市・楽座と並ぶ経済政策で物流の自由化と活性化を図りました。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t4s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-nobunaga-hideyoshi-8" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">8 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">秀吉のもともとの身分は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">公家</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">農民</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">武士</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">商人</span></button></div>
       <div class="expl hidden-until">💡 秀吉は尾張の農民出身で、信長に仕えて出世し、1590年に北条氏を滅ぼして天下統一を達成しました。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t4s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-nobunaga-hideyoshi-1" data-kind="qa" data-sec="D">
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">1 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">信長が行った楽市・楽座の目的を、簡単に説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">商工業</span></div>
+      <a class="sec-help" href="../../ref/07/index.html#t4s2">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -2602,6 +2738,7 @@
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">2 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">1587年に秀吉が出したバテレン追放令の内容について、貿易との関係にふれて説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">宣教師</span></div>
+      <a class="sec-help" href="../../ref/07/index.html#t4s3">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -2618,6 +2755,7 @@
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">3 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">1575年の長篠の戦いで、信長がとった新しい戦法を説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">鉄砲</span><span class="kw-chip">足軽</span></div>
+      <a class="sec-help" href="../../ref/07/index.html#t4s2">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -2676,6 +2814,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t5s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>太閤<rt>たいこう</rt></ruby><ruby>検地<rt>けんち</rt></ruby></div>
@@ -2693,6 +2832,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t5s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>石高<rt>こくだか</rt></ruby></div>
@@ -2710,6 +2850,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t5s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>刀狩<rt>かたながり</rt></ruby></div>
@@ -2727,6 +2868,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t5s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>兵農<rt>へいのう</rt></ruby><ruby>分離<rt>ぶんり</rt></ruby></div>
@@ -2744,6 +2886,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t5s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>文禄<rt>ぶんろく</rt></ruby>・<ruby>慶長<rt>けいちょう</rt></ruby>の<ruby>役<rt>えき</rt></ruby></div>
@@ -2761,6 +2904,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t5s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>文禄<rt>ぶんろく</rt></ruby>の<ruby>役<rt>えき</rt></ruby></div>
@@ -2778,6 +2922,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t5s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>慶長<rt>けいちょう</rt></ruby>の<ruby>役<rt>えき</rt></ruby></div>
@@ -2795,6 +2940,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t5s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>李舜臣<rt>りしゅんしん</rt></ruby></div>
@@ -2812,6 +2958,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t5s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>亀甲船<rt>きっこうせん</rt></ruby></div>
@@ -2829,6 +2976,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t5s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>有田焼<rt>ありたやき</rt></ruby>・<ruby>薩摩焼<rt>さつまやき</rt></ruby>・<ruby>萩焼<rt>はぎやき</rt></ruby></div>
@@ -2846,6 +2994,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t5s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>百姓<rt>ひゃくしょう</rt></ruby></div>
@@ -2863,6 +3012,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t5s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>明<rt>みん</rt></ruby></div>
@@ -2880,6 +3030,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t5s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>年貢<rt>ねんぐ</rt></ruby></div>
@@ -2897,6 +3048,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t5s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1588年</div>
@@ -3103,53 +3255,62 @@
       <div class="q-text">太閤検地と刀狩によって進んだ社会の変化はどれですか。</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">民主化</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">兵農分離</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">王政復古</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">幕藩体制の崩壊</span></button></div>
       <div class="expl hidden-until">💡 太閤検地と1588年の刀狩によって武士と農民の身分の区別が明確になり、兵農分離が進んで近世社会の基盤となりました。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t5s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-hideyoshi-policy-2" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">2 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">秀吉が明の征服をめざして朝鮮へ出兵した戦いを何といいますか。</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">文禄・慶長の役</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">蒙古襲来</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">文永・弘安の役</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">応永の外寇</span></button></div>
       <div class="expl hidden-until">💡 文禄・慶長の役は1592年と1597年に秀吉が明の征服をめざして朝鮮へ出兵した戦いで、1598年の秀吉の死により撤退しました。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t5s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-hideyoshi-policy-3" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">3 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">朝鮮出兵で亀甲船を率い、日本軍の補給路を断った朝鮮の英雄は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">世宗大王</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">李成桂</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">李舜臣</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">明の皇帝</span></button></div>
       <div class="expl hidden-until">💡 李舜臣は文禄・慶長の役で朝鮮水軍を率い、亀甲船を駆使して日本水軍を破り、海上補給路を断った英雄です。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t5s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-hideyoshi-policy-4" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">4 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">1597年の秀吉の二度目の朝鮮出兵は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">壬辰倭乱</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">文禄の役</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">丁酉再乱</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">慶長の役</span></button></div>
       <div class="expl hidden-until">💡 慶長の役は1597年に秀吉が再び朝鮮へ大軍を派遣した二度目の戦いで、1598年の秀吉の死により日本軍は撤退しました。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t5s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-hideyoshi-policy-5" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">5 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">太閤検地で統一された計量器は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">尺貫法</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">大坂枡</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">江戸尺</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">京ます</span></button></div>
       <div class="expl hidden-until">💡 秀吉は太閤検地の際に京ますを統一基準として全国の計量を統一し、公平な年貢徴収を可能にしました。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t5s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-hideyoshi-policy-6" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">6 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">朝鮮出兵の際に日本に連行された陶工が伝えた工芸品は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">織物</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">有田焼</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">和紙</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">漆器</span></button></div>
       <div class="expl hidden-until">💡 文禄・慶長の役で連れてこられた朝鮮人陶工の技術により、佐賀の有田焼や薩摩焼・萩焼など九州各地の焼き物が発展しました。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t5s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-hideyoshi-policy-7" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">7 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">太閤検地で百姓に保障された権利は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">年貢を免除される権利</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">土地の耕作権</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">武器を持つ権利</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">自由に移住する権利</span></button></div>
       <div class="expl hidden-until">💡 太閤検地により百姓は土地を耕作する権利が保障される代わりに、石高に応じて領主に年貢を納める義務を負いました。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t5s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-hideyoshi-policy-8" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">8 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">刀狩が行われた年は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">1585年</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">1587年</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">1588年</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">1590年</span></button></div>
       <div class="expl hidden-until">💡 1588年に秀吉は刀狩令を出し、百姓から刀・弓・鉄砲を取り上げて一揆を防ぎ、兵農分離を進めました。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t5s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (1/2)" data-qid="wr-hideyoshi-policy-1" data-kind="qa" data-sec="D">
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">1 / 2</span>　文章で説明しよう</span></div>
       <div class="q-text">太閤検地によって、百姓にはどのような権利と義務が生じたか、説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">石高</span><span class="kw-chip">年貢</span></div>
+      <a class="sec-help" href="../../ref/07/index.html#t5s1">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -3166,6 +3327,7 @@
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">2 / 2</span>　文章で説明しよう</span></div>
       <div class="q-text">秀吉が刀狩を行った目的を、説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">兵農分離</span></div>
+      <a class="sec-help" href="../../ref/07/index.html#t5s1">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -3224,6 +3386,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t6s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>桃山<rt>ももやま</rt></ruby><ruby>文化<rt>ぶんか</rt></ruby></div>
@@ -3241,6 +3404,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t6s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>狩野永徳<rt>かのうえいとく</rt></ruby></div>
@@ -3258,6 +3422,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t6s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>唐獅子図屏風<rt>からじしずびょうぶ</rt></ruby></div>
@@ -3275,6 +3440,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t6s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>障壁画<rt>しょうへきが</rt></ruby></div>
@@ -3292,6 +3458,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t6s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>千利休<rt>せんのりきゅう</rt></ruby></div>
@@ -3309,6 +3476,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t6s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">わび<ruby>茶<rt>ちゃ</rt></ruby></div>
@@ -3326,6 +3494,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t6s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>待庵<rt>たいあん</rt></ruby></div>
@@ -3343,6 +3512,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t6s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>姫路城<rt>ひめじじょう</rt></ruby></div>
@@ -3360,6 +3530,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t6s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>天守閣<rt>てんしゅかく</rt></ruby></div>
@@ -3377,6 +3548,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t6s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">かぶきおどり</div>
@@ -3394,6 +3566,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t6s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>出雲<rt>いずも</rt></ruby>の<ruby>阿国<rt>おくに</rt></ruby></div>
@@ -3411,6 +3584,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t6s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>浄瑠璃<rt>じょうるり</rt></ruby></div>
@@ -3428,6 +3602,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t6s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>活版<rt>かっぱん</rt></ruby><ruby>印刷術<rt>いんさつじゅつ</rt></ruby></div>
@@ -3445,6 +3620,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/07/index.html#t6s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>木綿<rt>もめん</rt></ruby></div>
@@ -3651,53 +3827,62 @@
       <div class="q-text">千利休が造った究極のわびを表現した二畳の茶室は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">待庵</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">同仁斎</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">如庵</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">黄金の茶室</span></button></div>
       <div class="expl hidden-until">💡 待庵は千利休が造ったわずか二畳の茶室で、現存する最古の茶室として知られ、わびの精神が凝縮された国宝です。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t6s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-momoyama-culture-2" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">2 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">三味線に合わせて語り、桃山時代に人気を集めた芸能は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">浄瑠璃</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">狂言</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">歌舞伎</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">能楽</span></button></div>
       <div class="expl hidden-until">💡 浄瑠璃は三味線の伴奏で物語を語る桃山時代に人気を集めた芸能で、後に人形と組み合わさり江戸時代に人形浄瑠璃へ発展しました。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t6s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-momoyama-culture-3" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">3 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">桃山時代に庶民の衣料として普及し始めた素材は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">絹</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">麻</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">毛織物</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">木綿</span></button></div>
       <div class="expl hidden-until">💡 木綿は桃山時代に庶民の衣料として普及し始めた素材で、麻に比べて肌触りがよく温かいことから国内栽培も進みました。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t6s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-momoyama-culture-4" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">4 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">活版印刷機でローマ字印刷された日本の古典は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">枕草子</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">平家物語</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">源氏物語</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">徒然草</span></button></div>
       <div class="expl hidden-until">💡 天草版平家物語は宣教師が持ち込んだ活版印刷機でローマ字印刷された日本の古典で、宣教師の日本語学習に役立てられました。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t6s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-momoyama-culture-5" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">5 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">城の中心にそびえる、桃山文化を象徴する建築物は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">書院</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">天守閣</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">御殿</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">茶室</span></button></div>
       <div class="expl hidden-until">💡 天守閣は城の中心にそびえる高層建築で、大名の権威と富を示す桃山文化を代表する建築物。姫路城や安土城が代表例です。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t6s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-momoyama-culture-6" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">6 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">わび茶の茶室のにじり口が表している精神は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">威厳</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">平等の精神</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">厳しい戒律</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">強い権威</span></button></div>
       <div class="expl hidden-until">💡 にじり口は身分を問わず屈んで入る設計で、茶の湯における平等の精神を表しています。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t6s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-momoyama-culture-7" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">7 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">織田信長と豊臣秀吉の政策の組み合わせとして正しいものはどれですか。</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">信長＝太閤検地、秀吉＝関所の廃止</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">信長＝刀狩、秀吉＝楽市・楽座</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">信長＝楽市・楽座、秀吉＝刀狩</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">信長＝バテレン追放令、秀吉＝比叡山焼き討ち</span></button></div>
       <div class="expl hidden-until">💡 信長は楽市・楽座で商工業を促進し、秀吉は1588年の刀狩で百姓から武器を取り上げ兵農分離を進めました。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t6s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-momoyama-culture-8" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">8 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">次の出来事を古い順に並べたものとして正しいものはどれですか。①本能寺の変 ②室町幕府の滅亡 ③全国統一</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">②→①→③</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">①→②→③</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">②→③→①</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">③→②→①</span></button></div>
       <div class="expl hidden-until">💡 室町幕府滅亡は1573年、本能寺の変は1582年、秀吉の全国統一は1590年です。</div>
+      <a class="sec-help" href="../../ref/07/index.html#t6">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-momoyama-culture-1" data-kind="qa" data-sec="D">
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">1 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">茶室の入り口にある「にじり口」には、どのような意味が込められているか、説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">身分</span></div>
+      <a class="sec-help" href="../../ref/07/index.html#t6s2">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -3714,6 +3899,7 @@
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">2 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">千利休が完成させた「わび茶」は、桃山文化の中でどのような特徴を持つ様式か、説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">質素</span></div>
+      <a class="sec-help" href="../../ref/07/index.html#t6s1">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -3730,6 +3916,7 @@
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">3 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">狩野永徳らがえがいた、桃山文化を代表する絵画について説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">障壁画</span></div>
+      <a class="sec-help" href="../../ref/07/index.html#t6s1">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -3761,6 +3948,7 @@
   <div class="a-topic"><div class="a-title">年表でチェック</div><div class="a-group"><span class="a-item">オスマン帝国</span>　<span class="a-item">コロンブス</span>　<span class="a-item">バスコ・ダ・ガマ</span>　<span class="a-item">ルター</span>　<span class="a-item">宗教改革</span>　<span class="a-item">マゼランの船隊</span>　<span class="a-item">鉄砲</span>　<span class="a-item">ザビエル</span>　<span class="a-item">桶狭間の戦い</span>　<span class="a-item">比叡山延暦寺</span>　<span class="a-item">室町幕府</span>　<span class="a-item">長篠の戦い</span>　<span class="a-item">本能寺の変</span>　<span class="a-item">刀狩</span>　<span class="a-item">北条氏</span>　<span class="a-item">文禄の役</span></div></div><div class="a-topic"><div class="a-title">1　ヨーロッパの変革</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① ローマ教皇</span>　<span class="a-item">② カトリック教会</span>　<span class="a-item">③ 十字軍</span>　<span class="a-item">④ ルネサンス</span>　<span class="a-item">⑤ レオナルド・ダ・ヴィンチ</span>　<span class="a-item">⑥ ルター</span>　<span class="a-item">⑦ 宗教改革</span>　<span class="a-item">⑧ プロテスタント</span>　<span class="a-item">⑨ イエズス会</span>　<span class="a-item">⑩ 活版印刷</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) ローマ教皇</span>　<span class="a-item">(2) カトリック教会</span>　<span class="a-item">(3) 正教会</span>　<span class="a-item">(4) イスラム教</span>　<span class="a-item">(5) ムスリム</span>　<span class="a-item">(6) 十字軍</span>　<span class="a-item">(7) ルネサンス</span>　<span class="a-item">(8) 宗教改革</span>　<span class="a-item">(9) 免罪符（贖宥状）</span>　<span class="a-item">(10) ルター</span>　<span class="a-item">(11) カルバン</span>　<span class="a-item">(12) プロテスタント</span>　<span class="a-item">(13) イエズス会</span>　<span class="a-item">(14) 活版印刷</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) ア（東西の交流が活発になった）</span>　<span class="a-item">(2) ア（カトリックの修道会組織）</span>　<span class="a-item">(3) エ（ルネサンス）</span>　<span class="a-item">(4) ウ（カルバン）</span>　<span class="a-item">(5) エ（失敗に終わった）</span>　<span class="a-item">(6) イ（活版印刷）</span>　<span class="a-item">(7) ウ（ミケランジェロ）</span>　<span class="a-item">(8) イ（オスマン帝国）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 聖地の奪還には失敗して教皇の権威はかえって低下したが、東西の交流が活発になるきっかけとなった。</div><div class="a-written">(2) ローマ教会が資金集めのために売り出した、買えば罪が許されるとされる免罪符の販売をルターが批判したから。</div><div class="a-written">(3) 古代ギリシャ・ローマの文化を理想として学び直し、人間そのもののあり方を見つめ直そうとする文化の動きである。</div></div><div class="a-group"><span class="a-label">E 資料問題</span><span class="a-item">(1) コロンブス</span>　<span class="a-item">(2) バスコ・ダ・ガマ</span></div></div><div class="a-topic"><div class="a-title">2　大航海時代</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 大航海時代</span>　<span class="a-item">② バスコ・ダ・ガマ</span>　<span class="a-item">③ コロンブス</span>　<span class="a-item">④ マゼランの船隊</span>　<span class="a-item">⑤ インカ帝国</span>　<span class="a-item">⑥ アステカ帝国</span>　<span class="a-item">⑦ 三角貿易</span>　<span class="a-item">⑧ 奴隷</span>　<span class="a-item">⑨ 東インド会社</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 大航海時代</span>　<span class="a-item">(2) バスコ・ダ・ガマ</span>　<span class="a-item">(3) コロンブス</span>　<span class="a-item">(4) マゼランの船隊</span>　<span class="a-item">(5) 三角貿易</span>　<span class="a-item">(6) 東インド会社</span>　<span class="a-item">(7) 香辛料</span>　<span class="a-item">(8) インカ帝国</span>　<span class="a-item">(9) アステカ帝国</span>　<span class="a-item">(10) ポルトガル</span>　<span class="a-item">(11) スペイン</span>　<span class="a-item">(12) 1492年</span>　<span class="a-item">(13) 1498年</span>　<span class="a-item">(14) 1522年</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) エ（バスコ・ダ・ガマ）</span>　<span class="a-item">(2) ウ（本人は航海中に亡くなったが船隊が世界一周を達成した）</span>　<span class="a-item">(3) イ（三角貿易）</span>　<span class="a-item">(4) ウ（アステカ帝国）</span>　<span class="a-item">(5) ア（地球が丸いこと）</span>　<span class="a-item">(6) ア（奴隷）</span>　<span class="a-item">(7) エ（コロンブス＝カリブ海、ガマ＝インド航路、マゼランの船隊＝世界一周）</span>　<span class="a-item">(8) エ（アジアや南米）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) コロンブスは大西洋を横断してカリブ海の島に到達したが、本人は最後までそこをアジアだと信じていた。</div><div class="a-written">(2) ヨーロッパが武器などをアフリカへ運び、アフリカの人々を奴隷として強制的にアメリカ大陸へ送る貿易のしくみである。</div></div></div><div class="a-topic"><div class="a-title">3　南蛮貿易とキリスト教</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 種子島</span>　<span class="a-item">② 鉄砲</span>　<span class="a-item">③ ザビエル</span>　<span class="a-item">④ キリスト教</span>　<span class="a-item">⑤ 南蛮貿易</span>　<span class="a-item">⑥ キリシタン大名</span>　<span class="a-item">⑦ 長崎</span>　<span class="a-item">⑧ 天正遣欧使節</span>　<span class="a-item">⑨ 南蛮文化</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 鉄砲</span>　<span class="a-item">(2) 種子島</span>　<span class="a-item">(3) ザビエル</span>　<span class="a-item">(4) 南蛮貿易</span>　<span class="a-item">(5) キリシタン大名</span>　<span class="a-item">(6) 天正遣欧使節</span>　<span class="a-item">(7) ポルトガル</span>　<span class="a-item">(8) 国友</span>　<span class="a-item">(9) 堺</span>　<span class="a-item">(10) 生糸</span>　<span class="a-item">(11) 長崎</span>　<span class="a-item">(12) イエズス会</span>　<span class="a-item">(13) 南蛮人</span>　<span class="a-item">(14) 1543年</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) ウ（銀）</span>　<span class="a-item">(2) エ（貿易の利益を得るため）</span>　<span class="a-item">(3) ア（天正遣欧使節）</span>　<span class="a-item">(4) ア（②→①→③）</span>　<span class="a-item">(5) イ（長崎）</span>　<span class="a-item">(6) エ（大友宗麟）</span>　<span class="a-item">(7) イ（堺）</span>　<span class="a-item">(8) ウ（生糸）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 足軽による鉄砲隊を用いた集団戦法が広まり、騎馬武者中心の戦いから足軽鉄砲隊中心の戦いへと変化した。長篠の戦いはその代表例であり、城づくりも鉄砲に備えた構えへと変わっていった。</div><div class="a-written">(2) 南蛮貿易によって得られる鉄砲や生糸などの利益を確保することを目的として、キリスト教を受け入れる大名が現れたから。</div><div class="a-written">(3) イエズス会の宣教師フランシスコ・ザビエルが鹿児島に来て、日本に初めてキリスト教を伝えた。</div></div></div><div class="a-topic"><div class="a-title">4　信長・秀吉の天下統一</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 織田信長</span>　<span class="a-item">② 桶狭間の戦い</span>　<span class="a-item">③ 室町幕府</span>　<span class="a-item">④ 長篠の戦い</span>　<span class="a-item">⑤ 楽市・楽座</span>　<span class="a-item">⑥ 本能寺の変</span>　<span class="a-item">⑦ 豊臣秀吉</span>　<span class="a-item">⑧ 北条氏</span>　<span class="a-item">⑨ バテレン追放令</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 織田信長</span>　<span class="a-item">(2) 桶狭間の戦い</span>　<span class="a-item">(3) 足利義昭</span>　<span class="a-item">(4) 室町幕府</span>　<span class="a-item">(5) 比叡山延暦寺</span>　<span class="a-item">(6) 長篠の戦い</span>　<span class="a-item">(7) 楽市・楽座</span>　<span class="a-item">(8) 安土城</span>　<span class="a-item">(9) 本能寺の変</span>　<span class="a-item">(10) 明智光秀</span>　<span class="a-item">(11) 豊臣秀吉</span>　<span class="a-item">(12) 大阪城</span>　<span class="a-item">(13) 関白</span>　<span class="a-item">(14) 安土桃山時代</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) ウ（織田信長）</span>　<span class="a-item">(2) エ（商工業の発展をうながすため）</span>　<span class="a-item">(3) ウ（関白）</span>　<span class="a-item">(4) イ（宣教師を国外へ追放しようとした命令）</span>　<span class="a-item">(5) ア（安土桃山時代）</span>　<span class="a-item">(6) ア（延暦寺）</span>　<span class="a-item">(7) ウ（関所）</span>　<span class="a-item">(8) イ（農民）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 座の特権や関所の税をなくして商工業を自由に営めるようにし、城下町の発展をうながす目的があった。</div><div class="a-written">(2) 秀吉が宣教師の国外追放を命じた法令だが、南蛮貿易そのものはすぐには禁止されず、その後も継続して行われた。</div><div class="a-written">(3) 信長は足軽による鉄砲隊を組織し、大量の鉄砲を用いて武田氏の騎馬隊を破った。</div></div></div><div class="a-topic"><div class="a-title">5　秀吉の政策と朝鮮出兵</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 太閤検地</span>　<span class="a-item">② 石高</span>　<span class="a-item">③ 百姓</span>　<span class="a-item">④ 年貢</span>　<span class="a-item">⑤ 刀狩</span>　<span class="a-item">⑥ 兵農分離</span>　<span class="a-item">⑦ 明</span>　<span class="a-item">⑧ 李舜臣</span>　<span class="a-item">⑨ 有田焼</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 太閤検地</span>　<span class="a-item">(2) 石高</span>　<span class="a-item">(3) 刀狩</span>　<span class="a-item">(4) 兵農分離</span>　<span class="a-item">(5) 文禄・慶長の役</span>　<span class="a-item">(6) 文禄の役</span>　<span class="a-item">(7) 慶長の役</span>　<span class="a-item">(8) 李舜臣</span>　<span class="a-item">(9) 亀甲船</span>　<span class="a-item">(10) 有田焼・薩摩焼・萩焼</span>　<span class="a-item">(11) 百姓</span>　<span class="a-item">(12) 明</span>　<span class="a-item">(13) 年貢</span>　<span class="a-item">(14) 1588年</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) イ（兵農分離）</span>　<span class="a-item">(2) ア（文禄・慶長の役）</span>　<span class="a-item">(3) ウ（李舜臣）</span>　<span class="a-item">(4) エ（慶長の役）</span>　<span class="a-item">(5) エ（京ます）</span>　<span class="a-item">(6) イ（有田焼）</span>　<span class="a-item">(7) イ（土地の耕作権）</span>　<span class="a-item">(8) ウ（1588年）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 百姓は土地を耕作する権利を保障される代わりに、石高に応じて年貢を納める義務を負うことになった。</div><div class="a-written">(2) 百姓から刀や鉄砲などの武器を取り上げることで一揆を防ぎ、武士と農民の身分を分ける兵農分離を進める目的があった。</div></div></div><div class="a-topic"><div class="a-title">6　桃山文化</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 桃山文化</span>　<span class="a-item">② 障壁画</span>　<span class="a-item">③ 狩野永徳</span>　<span class="a-item">④ 天守閣</span>　<span class="a-item">⑤ 姫路城</span>　<span class="a-item">⑥ 千利休</span>　<span class="a-item">⑦ わび茶</span>　<span class="a-item">⑧ かぶきおどり</span>　<span class="a-item">⑨ カステラ</span>　<span class="a-item">⑩ 木綿</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 桃山文化</span>　<span class="a-item">(2) 狩野永徳</span>　<span class="a-item">(3) 唐獅子図屏風</span>　<span class="a-item">(4) 障壁画</span>　<span class="a-item">(5) 千利休</span>　<span class="a-item">(6) わび茶</span>　<span class="a-item">(7) 待庵</span>　<span class="a-item">(8) 姫路城</span>　<span class="a-item">(9) 天守閣</span>　<span class="a-item">(10) かぶきおどり</span>　<span class="a-item">(11) 出雲の阿国</span>　<span class="a-item">(12) 浄瑠璃</span>　<span class="a-item">(13) 活版印刷術</span>　<span class="a-item">(14) 木綿</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) ア（待庵）</span>　<span class="a-item">(2) ア（浄瑠璃）</span>　<span class="a-item">(3) エ（木綿）</span>　<span class="a-item">(4) イ（平家物語）</span>　<span class="a-item">(5) イ（天守閣）</span>　<span class="a-item">(6) イ（平等の精神）</span>　<span class="a-item">(7) ウ（信長＝楽市・楽座、秀吉＝刀狩）</span>　<span class="a-item">(8) ア（②→①→③）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 武士も商人も同じように屈んで入る小さな入り口で、身分を問わない茶の湯の平等の精神を表している。</div><div class="a-written">(2) 大名や豪商による豪華な文化が広がる中で、静かで質素な美しさを追い求める、はなやかさをおさえた茶道の様式である。</div><div class="a-written">(3) 城のふすまやびょうぶに、金ぱくを使って自然などを豪華にえがいた障壁画が、桃山文化を代表する絵画としてえがかれた。</div></div></div>
 </section>
 </main>
+<div class="hintbar" id="hintBar" hidden></div>
 <div class="navbar" id="navbar" hidden><div class="navbar-in">
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
@@ -3768,12 +3956,76 @@
 <script>
 (function () {
   var KEY = 'tzmwb-07';
+  var CH = '07';
+  var REF_VIEWS = [0, 0, 1, 2, 3, 4, 5, 6];        // 問題集のビューt → 参考書の単元番号（0＝対応なし）
   var views = [].slice.call(document.querySelectorAll('.view'));
   var tabs = [].slice.call(document.querySelectorAll('.tab'));
   var N = views.length - 1;
   var state = { t: 0, s: 0 };
   var lastDir = 1;
   var rendered = null; // 直前に表示していた {t, s}（ページめくり演出用）
+
+  // ── 問題集 ⇄ 参考書の行き来（相手側の読みかけページに着地） ──
+  function refHref(t) {
+    var base = '../../ref/' + CH + '/index.html';
+    var v = REF_VIEWS[t] || 0;
+    if (!v) return base;
+    var s = 0;
+    try {
+      var st = JSON.parse(localStorage.getItem('tzmref-' + CH) || '{}');
+      if (st.last && st.last.t === v && st.last.s > 0) s = st.last.s;
+    } catch (e) {}
+    return base + '#t' + v + (s ? 's' + s : '');
+  }
+  function updateSwap() {
+    var a = document.getElementById('swRef');
+    a.href = refHref(state.t);
+  }
+
+  // ── 操作ヒント（初回のみ）＋タブ列のホイール操作 ──
+  (function () {
+    var el = document.getElementById('tabs');
+    if (el) el.addEventListener('wheel', function (e) {
+      // PC でも横スクロールできるよう、縦ホイールを横移動に変換する
+      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) { el.scrollLeft += e.deltaY; e.preventDefault(); }
+    }, { passive: false });
+
+    var bar = document.getElementById('hintBar');
+    if (!bar) return;
+    try { if (localStorage.getItem('tzmhint') === '1') return; } catch (e) { return; }
+    var canHover = window.matchMedia && window.matchMedia('(hover:hover)').matches;
+    bar.textContent = canHover ? '⌨️ ← → キーでもページをめくれるよ'
+                               : '👆 よこにスワイプでもページをめくれるよ';
+    var shown = false;
+    window.showHint = function () {
+      if (shown || state.t === 0) return;
+      shown = true; bar.hidden = false;
+      try { localStorage.setItem('tzmhint', '1'); } catch (e) {}
+      setTimeout(function () { bar.hidden = true; }, 5000);
+    };
+    bar.addEventListener('click', function () { bar.hidden = true; });
+  })();
+
+  // 単元タブの左右矢印: まだ隠れているタブがある側だけ出す
+  function updateTabArrows() {
+    var el = document.getElementById('tabs');
+    var L = document.getElementById('tabsL'), R = document.getElementById('tabsR');
+    if (!el || !L || !R) return;
+    var max = el.scrollWidth - el.clientWidth;
+    L.hidden = el.scrollLeft <= 2;
+    R.hidden = el.scrollLeft >= max - 2;
+  }
+  (function () {
+    var el = document.getElementById('tabs');
+    var L = document.getElementById('tabsL'), R = document.getElementById('tabsR');
+    if (!el || !L || !R) return;
+    function by(d) { el.scrollBy({ left: d * Math.max(80, el.clientWidth * 0.7), behavior: 'smooth' }); }
+    L.addEventListener('click', function (e) { e.stopPropagation(); by(-1); });
+    R.addEventListener('click', function (e) { e.stopPropagation(); by(1); });
+    el.addEventListener('scroll', updateTabArrows, { passive: true });
+    window.addEventListener('resize', updateTabArrows);
+    setTimeout(updateTabArrows, 0);
+  })();
 
   function store() {
     try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; }
@@ -3966,9 +4218,8 @@
       if (steps[s]) steps[s].classList.add('on');
       navbar.hidden = false;
       var onModeStep = steps[s] && steps[s].dataset.sec === 'M';
-      barStep.textContent = onModeStep
-        ? 'やり方をえらぼう'
-        : (s + 1) + ' / ' + steps.length;
+      // 「やり方をえらぼう」は本文にも大きく出るのでヘッダーには出さない（単元タブの幅を優先）
+      barStep.textContent = onModeStep ? '' : (s + 1) + ' / ' + steps.length;
       pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
       document.getElementById('btnPrev').textContent = s === 0 ? '🏠 目次' : '← まえへ';
       var next = document.getElementById('btnNext');
@@ -3991,7 +4242,9 @@
       }
     }
     var h = '#t' + t + (t > 0 && s > 0 ? 's' + s : '');
-    if (location.hash !== h) history.replaceState(null, '', t === 0 ? '#' : h);
+    // クエリが付いていても落とさない（URL共有時の情報を保つ）
+    if (location.hash !== h) history.replaceState(null, '', location.search + (t === 0 ? '#' : h));
+    updateSwap();
     rendered = { t: t, s: s };
   }
 
@@ -4282,8 +4535,9 @@
       return;
     }
     if (inField) return;  // 入力中の矢印キーではページ送りしない
-    if (e.key === 'ArrowRight') next();
-    if (e.key === 'ArrowLeft') prev();
+    if (e.key === 'ArrowRight' || e.key === 'PageDown') { next(); e.preventDefault(); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { prev(); e.preventDefault(); }
+    else if (e.key === 'Home') { go(0, 0, -1); e.preventDefault(); }
   });
   var tx = 0, ty = 0;
   document.addEventListener('touchstart', function (e) {

@@ -17,14 +17,47 @@
   /* ── 上部バー ── */
   .bar { position:sticky; top:0; z-index:10; background:rgba(255,253,248,.96);
          backdrop-filter:blur(6px); border-bottom:1px solid #f0e6d2; }
-  .bar-in { max-width:640px; margin:0 auto; padding:8px 16px 0; }
+  .bar-in { max-width:640px; margin:0 auto; padding:5px 12px 0; }
   .bar-row { display:flex; align-items:center; gap:8px; }
+  /* 問題集⇄参考書の切替（どのページからでも1タップ・相手側は読みかけの位置に着地） */
+  /* どのページからでも「本の一覧（すごろく）」へ戻れる常設ボタン。
+     タブ列の 🏠 は「この本の目次」なので、こちらは 🗺＋文字でトップだと分かるようにする。 */
+  .tophome { flex:none; height:30px; padding:0 12px; font-size:11.5px; font-weight:bold;
+             color:#fff; background:var(--deep); border-radius:15px; text-decoration:none;
+             display:inline-flex; align-items:center; white-space:nowrap;
+             box-shadow:0 2px 0 #5b1e0b; }
+  .swap { flex:none; display:inline-flex; border:1.5px solid var(--line); border-radius:20px;
+          overflow:hidden; background:#fffbeb; }
+  .sw { font-size:11px; font-weight:bold; color:var(--brand); padding:3px 7px; text-decoration:none;
+        white-space:nowrap; cursor:pointer; }
+  .sw.on { background:var(--brand); color:#fff; }
+  .sw[hidden] { display:none; }
+  /* 設問ごとの「解説を見る」（その問題の根拠になる節へ直行） */
+  .sec-help { display:inline-flex; align-items:center; gap:4px; font-size:11.5px; font-weight:bold;
+              color:var(--brand); background:#fffbeb; border:1.5px solid var(--line);
+              border-radius:14px; padding:3px 10px; text-decoration:none; margin-top:8px; }
   .bar-title { font-weight:bold; color:var(--deep); font-size:14px; flex:1;
                white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .bar-step { flex:none; font-size:12px; font-weight:bold; color:var(--brand); }
-  .tabs { display:flex; gap:6px; overflow-x:auto; padding:8px 0; scrollbar-width:none; }
+  .bar-step { flex:none; font-size:11px; font-weight:bold; color:var(--brand); }
+  /* 初回だけ出す操作ヒント（PCはキー、スマホはスワイプ） */
+  .hintbar { position:fixed; left:50%; transform:translateX(-50%); bottom:78px; z-index:35;
+             background:rgba(28,25,23,.88); color:#fff; font-size:12.5px; font-weight:bold;
+             border-radius:20px; padding:8px 16px; box-shadow:0 4px 14px rgba(0,0,0,.3);
+             animation:hintIn .3s ease; }
+  .hintbar[hidden] { display:none; }
+  @keyframes hintIn { from { opacity:0; transform:translate(-50%,10px); }
+                      to { opacity:1; transform:translate(-50%,0); } }
+  .tabs-wrap { position:relative; flex:1; min-width:0; }
+  /* 端のフェード＋矢印＝「まだ右に単元がある」と一目で分かるようにする */
+  .tscroll { position:absolute; top:0; bottom:0; width:20px; border:none; cursor:pointer;
+             font-size:17px; font-weight:bold; color:var(--brand); line-height:1; padding:0;
+             display:flex; align-items:center; justify-content:center; font-family:inherit; }
+  .tscroll[hidden] { display:none; }
+  .tsl { left:0; background:linear-gradient(to right, #fffdf8 62%, rgba(255,253,248,0)); }
+  .tsr { right:0; background:linear-gradient(to left, #fffdf8 62%, rgba(255,253,248,0)); }
+  .tabs { display:flex; gap:5px; overflow-x:auto; padding:4px 0; width:100%; scrollbar-width:none; }
   .tabs::-webkit-scrollbar { display:none; }
-  .tab { flex:none; width:36px; height:36px; border-radius:50%; border:1.5px solid var(--line);
+  .tab { flex:none; width:30px; height:30px; border-radius:50%; border:1.5px solid var(--line);
          background:#fffbeb; color:var(--brand); font-size:14px; font-weight:bold;
          display:inline-flex; align-items:center; justify-content:center; cursor:pointer; }
   .tab.done { background:#fef3c7; }
@@ -360,16 +393,22 @@
 </style></head><body>
 <div class="bar"><div class="bar-in">
   <div class="bar-row">
-    <div class="bar-title">歴史 ⑨ 市民革命と近代化（問題集）</div>
+    <a class="tophome" href="../../index.html" aria-label="単元一覧へもどる">単元一覧</a>
+    <div class="swap"><a class="sw" id="swRef">📖 参考書</a><span class="sw on">✏️ 問題</span></div>
+    <div class="tabs-wrap">
+      <nav class="tabs" id="tabs"><button class="tab tab-home" data-go="0" aria-label="目次">🏠</button><button class="tab" data-go="1" aria-label="年表">年</button><button class="tab" data-go="2" aria-label="イギリスの革命">1</button><button class="tab" data-go="3" aria-label="アメリカの独立革命">2</button><button class="tab" data-go="4" aria-label="フランス革命">3</button><button class="tab" data-go="5" aria-label="ヨーロッパの国民意識の高まり">4</button><button class="tab" data-go="6" aria-label="ロシアの拡大と発展">5</button><button class="tab" data-go="7" aria-label="アメリカの拡大と発展">6</button><button class="tab" data-go="8" aria-label="産業革命と資本主義">7</button><button class="tab" data-go="9" aria-label="欧米のアジア侵略">8</button></nav>
+      <button class="tscroll tsl" id="tabsL" type="button" hidden aria-label="単元タブを左へ">‹</button>
+      <button class="tscroll tsr" id="tabsR" type="button" hidden aria-label="単元タブを右へ">›</button>
+    </div>
     <div class="bar-step" id="barStep"></div>
   </div>
-  <nav class="tabs" id="tabs"><button class="tab tab-home" data-go="0" aria-label="目次">🏠</button><button class="tab" data-go="1" aria-label="年表">年</button><button class="tab" data-go="2" aria-label="イギリスの革命">1</button><button class="tab" data-go="3" aria-label="アメリカの独立革命">2</button><button class="tab" data-go="4" aria-label="フランス革命">3</button><button class="tab" data-go="5" aria-label="ヨーロッパの国民意識の高まり">4</button><button class="tab" data-go="6" aria-label="ロシアの拡大と発展">5</button><button class="tab" data-go="7" aria-label="アメリカの拡大と発展">6</button><button class="tab" data-go="8" aria-label="産業革命と資本主義">7</button><button class="tab" data-go="9" aria-label="欧米のアジア侵略">8</button></nav>
+  <div class="bar-title" hidden>歴史 ⑨ 市民革命と近代化（問題集）</div>
   <div class="pbar"><div class="pfill" id="pfill"></div></div>
 </div></div>
 <main class="wrap" id="views">
 
 <section class="view home" data-t="0">
-  <a class="home-link" href="../../index.html">🗺 すごろく（本一覧）へもどる</a>
+  <a class="home-link" href="../../index.html">単元一覧にもどる</a>
   <header class="top">
     <div class="badge">歴史 ⑨　問題集 <span class="webtag">Web版</span></div>
     <h1>市民革命と近代化</h1>
@@ -431,6 +470,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t1s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>啓蒙<rt>けいもう</rt></ruby><ruby>思想<rt>しそう</rt></ruby></div>
@@ -448,6 +488,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t1s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ロック</div>
@@ -465,6 +506,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t1s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">モンテスキュー</div>
@@ -482,6 +524,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t1s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ルソー</div>
@@ -499,6 +542,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t1s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ピューリタン<ruby>革命<rt>かくめい</rt></ruby></div>
@@ -516,6 +560,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t1s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">クロムウェル</div>
@@ -533,6 +578,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t1s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>名誉<rt>めいよ</rt></ruby><ruby>革命<rt>かくめい</rt></ruby></div>
@@ -550,6 +596,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t1s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>権利<rt>けんり</rt></ruby><ruby>章典<rt>しょうてん</rt></ruby></div>
@@ -567,6 +614,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t1s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>立憲<rt>りっけん</rt></ruby><ruby>君主制<rt>くんしゅせい</rt></ruby></div>
@@ -584,6 +632,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t1s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>三権分立<rt>さんけんぶんりつ</rt></ruby></div>
@@ -601,6 +650,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t1s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">チャールズ1世</div>
@@ -618,6 +668,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t1s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ピューリタン</div>
@@ -635,6 +686,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t1s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">社会<ruby>契約<rt>けいやく</rt></ruby>説</div>
@@ -652,6 +704,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t1s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>抵抗権<rt>ていこうけん</rt></ruby></div>
@@ -858,53 +911,62 @@
       <div class="q-text">ピューリタン革命で議会派を率いた指導者は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ロック</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">クロムウェル</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">ルソー</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">ワシントン</span></button></div>
       <div class="expl hidden-until">💡 クロムウェルがピューリタンを中心とする議会派を率い、国王軍を破って1649年にチャールズ1世を処刑しました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t1s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-british-revolution-2" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">2 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">名誉革命後、国王が議会に従うことを約束した文書は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ナポレオン法典</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">権利章典</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">独立宣言</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">人権宣言</span></button></div>
       <div class="expl hidden-until">💡 1689年の権利章典で、国王は議会の同意なく税や法律を決められないと明文化され、議会重視の政治の土台ができました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t1s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-british-revolution-3" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">3 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">国民主権を唱えた思想家は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ルソー</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">モンテスキュー</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">クロムウェル</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">ロック</span></button></div>
       <div class="expl hidden-until">💡 18世紀フランスの啓蒙思想家ルソーは国民主権を唱え、その思想はフランス革命と人権宣言に大きな影響を与えました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t1s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-british-revolution-4" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">4 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">ピューリタン革命で処刑された国王は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ヘンリー8世</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">リチャード3世</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">エドワード6世</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">チャールズ1世</span></button></div>
       <div class="expl hidden-until">💡 議会を無視して独断で政治を進めたチャールズ1世は議会派と対立し、クロムウェルらに敗れて1649年に処刑されました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t1s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-british-revolution-5" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">5 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">ピューリタンとは何か？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ルター派の信者</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">イギリス国教会の信者</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">カルヴァン派のプロテスタント</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">カトリックの聖職者</span></button></div>
       <div class="expl hidden-until">💡 ピューリタンは16〜17世紀イギリスのカルヴァン派プロテスタント（清教徒）で、ピューリタン革命を主導しました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-british-revolution-6" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">6 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">ロックの思想が影響を与えた革命は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">産業革命と農業革命</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">ピューリタン革命と名誉革命</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">ロシア革命と中国革命</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">アメリカ独立革命とフランス革命</span></button></div>
       <div class="expl hidden-until">💡 17世紀イギリスのロックは国家は国民の合意で成り立つと唱え、その思想はアメリカ独立とフランス革命に大きな影響を与えました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t1s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-british-revolution-7" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">7 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">権利章典が制定された年は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">1689年</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">1776年</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">1688年</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">1649年</span></button></div>
       <div class="expl hidden-until">💡 1689年、名誉革命の翌年に権利章典が制定され、国王よりも議会が政治の中心となる仕組みの土台ができました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t1s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-british-revolution-8" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">8 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">三権分立に含まれないのは？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">司法権</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">行政権</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">軍事権</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">立法権</span></button></div>
       <div class="expl hidden-until">💡 三権分立は立法・行政・司法の三つに権力を分けるモンテスキューの考えで、軍事権は含まれません。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t1s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (1/2)" data-qid="wr-british-revolution-1" data-kind="qa" data-sec="D">
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">1 / 2</span>　文章で説明しよう</span></div>
       <div class="q-text">名誉革命が「血を流さない革命」と呼ばれるのはなぜか、説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">ジェームズ2世</span></div>
+      <a class="sec-help" href="../../ref/09/index.html#t1s3">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -921,6 +983,7 @@
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">2 / 2</span>　文章で説明しよう</span></div>
       <div class="q-text">立憲君主制とはどのようなしくみか、説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">憲法</span><span class="kw-chip">議会</span></div>
+      <a class="sec-help" href="../../ref/09/index.html#t1s3">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -979,6 +1042,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t2s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">代表なくして<ruby>課税<rt>かぜい</rt></ruby>なし</div>
@@ -996,6 +1060,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t2s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ワシントン</div>
@@ -1013,6 +1078,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t2s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>独立<rt>どくりつ</rt></ruby><ruby>宣言<rt>せんげん</rt></ruby></div>
@@ -1030,6 +1096,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t2s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>独立<rt>どくりつ</rt></ruby><ruby>戦争<rt>せんそう</rt></ruby></div>
@@ -1047,6 +1114,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t2s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ボストン<ruby>茶会<rt>ちゃかい</rt></ruby><ruby>事件<rt>じけん</rt></ruby></div>
@@ -1064,6 +1132,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t2s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>合衆国<rt>がっしゅうこく</rt></ruby><ruby>憲法<rt>けんぽう</rt></ruby></div>
@@ -1081,6 +1150,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t2s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">13<ruby>植民地<rt>しょくみんち</rt></ruby></div>
@@ -1098,6 +1168,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t2s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1776年</div>
@@ -1115,6 +1186,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t2s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>連邦制<rt>れんぽうせい</rt></ruby></div>
@@ -1132,6 +1204,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t2s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ロック</div>
@@ -1286,53 +1359,62 @@
       <div class="q-text">アメリカ独立戦争の総司令官で、初代大統領となった人物は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ジェファソン</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">アダムズ</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">ワシントン</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">フランクリン</span></button></div>
       <div class="expl hidden-until">💡 ワシントンは植民地軍の総司令官として独立戦争を勝利に導き、1789年に初代大統領となりました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t2s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-american-independence-2" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">2 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">アメリカ植民地の人々が掲げたスローガンは？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">王権は神から与えられる</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">自由・平等・友愛</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">代表なくして課税なし</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">万人は神の前で平等</span></button></div>
       <div class="expl hidden-until">💡 植民地の代表が出席していないイギリス議会で勝手に税を決められたことに反対するスローガンで、独立運動の合言葉となりました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t2s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-american-independence-3" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">3 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">1776年に発表された文書は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">人権宣言</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">独立宣言</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">合衆国憲法</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">権利章典</span></button></div>
       <div class="expl hidden-until">💡 1776年のアメリカ独立宣言はジェファソンらが起草し、「すべての人間は平等」と宣言した文書です。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t2s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-american-independence-4" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">4 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">独立宣言の理念に影響を与えた啓蒙思想家は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ビスマルク</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">モンテスキュー</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">ナポレオン</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">ロック</span></button></div>
       <div class="expl hidden-until">💡 ロックは生命や自由は生まれつきの権利で、守られなければ抵抗してよいと唱え、独立宣言の理念のもとになりました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t2s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-american-independence-5" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">5 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">独立戦争でアメリカ側を支援した国は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">フランス</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">スペイン</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">オランダ</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">ロシア</span></button></div>
       <div class="expl hidden-until">💡 イギリスと対立していたフランスは植民地軍に物資や兵を送り、アメリカ独立戦争の勝利を支援しました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t2s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-american-independence-6" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">6 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">アメリカ合衆国憲法が制定された年は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">1789年</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">1787年</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">1776年</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">1783年</span></button></div>
       <div class="expl hidden-until">💡 1787年に三権分立や連邦制を定めたアメリカ合衆国憲法が制定され、世界初の近代的成文憲法となりました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t2s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-american-independence-7" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">7 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">茶への課税に抗議して茶を海に投げ捨てた事件は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">パリ条約の締結</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">バスティーユ牢獄襲撃</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">ボストン茶会事件</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">独立宣言の発表</span></button></div>
       <div class="expl hidden-until">💡 1773年のボストン茶会事件で植民地の人々が茶への課税に抗議して茶を海に投げ捨て、独立戦争のきっかけとなりました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t2s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-american-independence-8" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">8 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">独立宣言で謳われた基本的な権利は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">選挙・住居・職業の自由</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">信教・表現・集会の自由</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">教育・労働・社会保障の権利</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">生命・自由・幸福追求の権利</span></button></div>
       <div class="expl hidden-until">💡 独立宣言は、生命・自由・幸福を求める権利は誰もが生まれつき持つものだとロックの考えをもとに掲げました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t2s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-american-independence-1" data-kind="qa" data-sec="D">
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">1 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">アメリカ植民地の人々が「代表なくして課税なし」と反発したのはなぜか、説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">議会</span><span class="kw-chip">税</span></div>
+      <a class="sec-help" href="../../ref/09/index.html#t2s1">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -1349,6 +1431,7 @@
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">2 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">合衆国憲法が定めた連邦制の目的を説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">連邦制</span></div>
+      <a class="sec-help" href="../../ref/09/index.html#t2s3">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -1365,6 +1448,7 @@
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">3 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">アメリカ独立宣言にはどのような考えが示されたか、説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">ロック</span><span class="kw-chip">権利</span></div>
+      <a class="sec-help" href="../../ref/09/index.html#t2s2">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -1423,6 +1507,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t3s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">フランス<ruby>革命<rt>かくめい</rt></ruby></div>
@@ -1440,6 +1525,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t3s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>人権<rt>じんけん</rt></ruby><ruby>宣言<rt>せんげん</rt></ruby></div>
@@ -1457,6 +1543,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t3s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">バスティーユ<ruby>牢獄<rt>ろうごく</rt></ruby></div>
@@ -1474,6 +1561,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t3s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>第三身分<rt>だいさんみぶん</rt></ruby></div>
@@ -1491,6 +1579,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t3s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ルイ16<ruby>世<rt>せい</rt></ruby></div>
@@ -1508,6 +1597,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t3s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ナポレオン</div>
@@ -1525,6 +1615,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t3s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ナポレオン<ruby>法典<rt>ほうてん</rt></ruby></div>
@@ -1542,6 +1633,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t3s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>三部会<rt>さんぶかい</rt></ruby></div>
@@ -1559,6 +1651,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t3s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ウィーン<ruby>会議<rt>かいぎ</rt></ruby></div>
@@ -1576,6 +1669,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t3s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>絶対<rt>ぜったい</rt></ruby><ruby>王政<rt>おうせい</rt></ruby></div>
@@ -1593,6 +1687,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t3s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>第一身分<rt>だいいちみぶん</rt></ruby></div>
@@ -1610,6 +1705,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t3s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>第二身分<rt>だいにみぶん</rt></ruby></div>
@@ -1627,6 +1723,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t3s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1789年</div>
@@ -1644,6 +1741,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t3s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">自由・平等・<ruby>友愛<rt>ゆうあい</rt></ruby></div>
@@ -1850,53 +1948,62 @@
       <div class="q-text">フランス革命で処刑された国王は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ルイ14世</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">ナポレオン</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">シャルル1世</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">ルイ16世</span></button></div>
       <div class="expl hidden-until">💡 フランス革命前の絶対王政の象徴であった国王ルイ16世は、1793年にギロチンで処刑されました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t3s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-french-revolution-2" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">2 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">革命後皇帝となったフランスの軍人は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ラ=ファイエット</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">ダントン</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">ナポレオン</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">ロベスピエール</span></button></div>
       <div class="expl hidden-until">💡 革命後の混乱を収拾したナポレオンは1804年に皇帝に即位し、遠征によりヨーロッパの大部分を支配しました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t3s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-french-revolution-3" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">3 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">ナポレオンが制定した民法は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">合衆国憲法</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">権利章典</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">ナポレオン法典</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">人権宣言</span></button></div>
       <div class="expl hidden-until">💡 1804年制定のナポレオン法典は一人ひとりの自由と財産を守ることを定め、その後の各国の法律のお手本となりました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t3s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-french-revolution-4" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">4 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">ルイ16世が召集した、聖職者・貴族・平民の代表からなる身分制議会は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">国民議会</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">ウィーン会議</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">制憲議会</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">三部会</span></button></div>
       <div class="expl hidden-until">💡 三部会は聖職者・貴族・平民の代表を集める身分別の議会で、1789年にルイ16世が呼び集めたことが革命のきっかけとなりました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t3s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-french-revolution-5" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">5 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">ナポレオン失脚後に開かれた国際会議は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ウィーン会議</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">ベルリン会議</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">ヤルタ会談</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">ヴェルサイユ会議</span></button></div>
       <div class="expl hidden-until">💡 1814〜15年に開かれたウィーン会議は、ナポレオン失脚後の革命前のヨーロッパの秩序に戻すために開かれました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t3s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-french-revolution-6" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">6 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">ナポレオンが失敗した遠征先は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ロシア</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">イギリス</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">エジプト</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">スペイン</span></button></div>
       <div class="expl hidden-until">💡 1812年のロシア遠征で厳しい冬と焦土戦術に苦しめられ、ナポレオンは大軍の大半を失って退却しました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t3s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-french-revolution-7" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">7 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">ルイ16世が処刑された年は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">1799年</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">1793年</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">1789年</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">1791年</span></button></div>
       <div class="expl hidden-until">💡 絶対王政の象徴であった国王ルイ16世は、1793年にギロチンで処刑され、フランスは共和制へ移行しました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t3s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-french-revolution-8" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">8 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">人権宣言に影響を与えた啓蒙思想家は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ロック</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">ルソー</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">モンテスキュー</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">ヴォルテール</span></button></div>
       <div class="expl hidden-until">💡 「国の政治を決めるのは国民」と唱えた18世紀フランスのルソーの考えが、1789年のフランス人権宣言に強く反映されました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t3s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-french-revolution-1" data-kind="qa" data-sec="D">
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">1 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">フランス革命が起こった理由を、当時の身分制度に注目して説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">第三身分</span></div>
+      <a class="sec-help" href="../../ref/09/index.html#t3s1">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -1913,6 +2020,7 @@
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">2 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">ナポレオン法典が制定されたことで、どのような影響があったか説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">自由</span><span class="kw-chip">財産権</span></div>
+      <a class="sec-help" href="../../ref/09/index.html#t3s3">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -1929,6 +2037,7 @@
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">3 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">フランス革命で発表された人権宣言には、どのような内容が示されたか説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">平等</span><span class="kw-chip">自由</span></div>
+      <a class="sec-help" href="../../ref/09/index.html#t3s2">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -1987,6 +2096,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t4s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>国民<rt>こくみん</rt></ruby><ruby>国家<rt>こっか</rt></ruby></div>
@@ -2004,6 +2114,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t4s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ビスマルク</div>
@@ -2021,6 +2132,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t4s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>鉄血<rt>てっけつ</rt></ruby><ruby>政策<rt>せいさく</rt></ruby></div>
@@ -2038,6 +2150,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t4s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>男性<rt>だんせい</rt></ruby><ruby>普通<rt>ふつう</rt></ruby><ruby>選挙<rt>せんきょ</rt></ruby></div>
@@ -2055,6 +2168,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t4s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ナショナリズム</div>
@@ -2072,6 +2186,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t4s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>中南米<rt>ちゅうなんべい</rt></ruby>の<ruby>独立<rt>どくりつ</rt></ruby></div>
@@ -2089,6 +2204,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t4s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">プロイセン</div>
@@ -2106,6 +2222,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t4s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1871年</div>
@@ -2123,6 +2240,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t4s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ドイツ<ruby>帝国<rt>ていこく</rt></ruby></div>
@@ -2140,6 +2258,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t4s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>徴兵制<rt>ちょうへいせい</rt></ruby></div>
@@ -2157,6 +2276,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t4s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>二大<rt>にだい</rt></ruby><ruby>政党制<rt>せいとうせい</rt></ruby></div>
@@ -2174,6 +2294,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t4s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">自由<ruby>主義<rt>しゅぎ</rt></ruby></div>
@@ -2354,53 +2475,62 @@
       <div class="q-text">「鉄血宰相」と呼ばれた人物は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">メッテルニヒ</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">ビスマルク</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">カヴール</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">ナポレオン3世</span></button></div>
       <div class="expl hidden-until">💡 ビスマルクはプロイセンの首相として鉄血政策で軍事力を強化し、1871年にドイツ統一を達成しました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t4s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-nationalism-europe-2" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">2 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">フランスで実現した選挙制度は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">制限選挙</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">間接選挙</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">男性普通選挙</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">身分制選挙</span></button></div>
       <div class="expl hidden-until">💡 19世紀のフランスでは財産による制限を撤廃した男性普通選挙が実現し、より多くの国民が政治に参加できるようになりました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t4s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-nationalism-europe-3" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">3 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">イギリスで発展した、複数の政党が議会で競う政治形態は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">絶対王政</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">政党政治</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">立憲君主制</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">共和制</span></button></div>
       <div class="expl hidden-until">💡 19世紀のイギリスでは保守党と自由党による二大政党制が発展し、政党が議会で競う近代的な政党政治が確立しました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t4s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-nationalism-europe-4" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">4 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">スペインやポルトガルから独立した地域は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">インド</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">中南米</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">東南アジア</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">アフリカ</span></button></div>
       <div class="expl hidden-until">💡 ナポレオン戦争によるヨーロッパの混乱に乗じて、19世紀前半に中南米のスペイン・ポルトガル植民地が次々と独立しました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t4s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-nationalism-europe-5" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">5 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">ドイツが統一された年は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">1890年</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">1861年</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">1848年</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">1871年</span></button></div>
       <div class="expl hidden-until">💡 1871年、プロイセンを中心に首相ビスマルクの鉄血政策でドイツ統一が達成され、ドイツ帝国が成立しました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t4s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-nationalism-europe-6" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">6 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">ナポレオン失脚後の体制を何という？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ウィーン体制</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">パリ体制</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">ロンドン体制</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">ベルリン体制</span></button></div>
       <div class="expl hidden-until">💡 ナポレオン失脚後の1814〜15年のウィーン会議で成立した国際秩序で、革命前のヨーロッパの状態に戻すことを目指しました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t4">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-nationalism-europe-7" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">7 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">19世紀のイギリス議会で、保守党と自由党が交互に政権を担った政治の仕組みは？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">多党連立制</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">一党独裁制</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">二大政党制</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">直接民主制</span></button></div>
       <div class="expl hidden-until">💡 19世紀のイギリスでは保守党と自由党による二大政党制が発展し、両党が議会で政策を競い交互に政権を担いました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t4s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-nationalism-europe-8" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">8 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">ドイツ統一後に成立した国は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ドイツ共和国</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">ドイツ連邦</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">プロイセン王国</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">ドイツ帝国</span></button></div>
       <div class="expl hidden-until">💡 1871年のドイツ統一後、プロイセン国王がドイツ皇帝となってドイツ帝国が成立し、ヨーロッパの強国となりました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t4s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (1/2)" data-qid="wr-nationalism-europe-1" data-kind="qa" data-sec="D">
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">1 / 2</span>　文章で説明しよう</span></div>
       <div class="q-text">ビスマルクが進めた鉄血政策とはどのような政策か、説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">軍備</span><span class="kw-chip">ドイツ統一</span></div>
+      <a class="sec-help" href="../../ref/09/index.html#t4s2">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -2417,6 +2547,7 @@
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">2 / 2</span>　文章で説明しよう</span></div>
       <div class="q-text">イギリスの二大政党制とはどのようなしくみか、説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">保守党</span><span class="kw-chip">自由党</span></div>
+      <a class="sec-help" href="../../ref/09/index.html#t4s3">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -2475,6 +2606,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t5s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>南下<rt>なんか</rt></ruby><ruby>政策<rt>せいさく</rt></ruby></div>
@@ -2492,6 +2624,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t5s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>不凍港<rt>ふとうこう</rt></ruby></div>
@@ -2509,6 +2642,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t5s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>農奴<rt>のうど</rt></ruby><ruby>解放令<rt>かいほうれい</rt></ruby></div>
@@ -2526,6 +2660,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t5s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">オスマン<ruby>帝国<rt>ていこく</rt></ruby></div>
@@ -2543,6 +2678,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t5s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">シベリア<ruby>鉄道<rt>てつどう</rt></ruby></div>
@@ -2560,6 +2696,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t5s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">アレクサンドル2<ruby>世<rt>せい</rt></ruby></div>
@@ -2577,6 +2714,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t5s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">イギリス</div>
@@ -2594,6 +2732,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t5s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>農奴<rt>のうど</rt></ruby></div>
@@ -2611,6 +2750,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t5s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1861年</div>
@@ -2628,6 +2768,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t5s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ツァーリ</div>
@@ -2782,53 +2923,62 @@
       <div class="q-text">ロシアが冬でも凍らない港を求めて進めた拡大政策は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">南下政策</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">鉄血政策</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">殖産興業</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">開国政策</span></button></div>
       <div class="expl hidden-until">💡 南下政策は19世紀のロシアが冬でも凍らない不凍港を求め、黒海や地中海への進出を目指した拡大政策です。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t5s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-russia-expansion-2" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">2 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">ロシアが南下政策で獲得を目指した戦略的に重要な港は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">軍港</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">不凍港</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">自由港</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">母港</span></button></div>
       <div class="expl hidden-until">💡 不凍港は冬でも凍らず一年中使える戦略的に重要な港で、19世紀のロシアが南下政策で獲得を目指しました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t5s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-russia-expansion-3" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">3 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">19世紀後半にロシアで行われた近代化改革の代表的なものは？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">義務教育の開始</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">普通選挙の導入</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">三権分立の確立</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">農奴解放令</span></button></div>
       <div class="expl hidden-until">💡 1861年、アレクサンドル2世が農奴解放令を出し、地主に隷属していた農奴を解放してロシア近代化の第一歩となりました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t5s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-russia-expansion-4" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">4 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">ロシアの大陸横断鉄道は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">東海道鉄道</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">大陸横断鉄道</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">シベリア鉄道</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">オリエント急行</span></button></div>
       <div class="expl hidden-until">💡 シベリア鉄道は19世紀末からロシアが建設した大陸横断鉄道で、東方進出と極東の支配を強める目的で敷設されました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t5s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-russia-expansion-5" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">5 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">ロシアの南下政策に最も警戒した国は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">イギリス</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">アメリカ</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">ドイツ</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">フランス</span></button></div>
       <div class="expl hidden-until">💡 19世紀の世界の覇権国イギリスは、ロシアの南下政策によって植民地インドへの通商路を脅かされることを恐れました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t5s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-russia-expansion-6" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">6 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">19世紀のロシアの政治体制は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">専制政治</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">立憲君主制</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">議院内閣制</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">共和制</span></button></div>
       <div class="expl hidden-until">💡 19世紀のロシアは皇帝ツァーリが議会や憲法に従わず税や法を一人で決める専制政治の体制でした。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t5s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-russia-expansion-7" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">7 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">農奴解放令を出した皇帝は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ピョートル1世</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">アレクサンドル3世</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">ニコライ1世</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">アレクサンドル2世</span></button></div>
       <div class="expl hidden-until">💡 ロシア皇帝アレクサンドル2世が1861年に農奴解放令を出し、地主に隷属する農奴を解放する近代化改革を進めました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t5s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-russia-expansion-8" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">8 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">ロシア皇帝の称号は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ファラオ</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">カイザー</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">ツァーリ</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">スルタン</span></button></div>
       <div class="expl hidden-until">💡 ツァーリはロシア皇帝の称号で、議会や憲法に従わず税や法を一人で決める強い権力を握ってロシアを統治しました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t5s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (1/1)" data-qid="wr-russia-expansion-1" data-kind="qa" data-sec="D">
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">1 / 1</span>　文章で説明しよう</span></div>
       <div class="q-text">ロシアが南下政策を進めた目的を説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">不凍港</span></div>
+      <a class="sec-help" href="../../ref/09/index.html#t5s1">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -2887,6 +3037,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t6s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>南北<rt>なんぼく</rt></ruby><ruby>戦争<rt>せんそう</rt></ruby></div>
@@ -2904,6 +3055,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t6s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">リンカン</div>
@@ -2921,6 +3073,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t6s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>奴隷<rt>どれい</rt></ruby><ruby>解放<rt>かいほう</rt></ruby><ruby>宣言<rt>せんげん</rt></ruby></div>
@@ -2938,6 +3091,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t6s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>保護<rt>ほご</rt></ruby><ruby>貿易<rt>ぼうえき</rt></ruby></div>
@@ -2955,6 +3109,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t6s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">自由<ruby>貿易<rt>ぼうえき</rt></ruby></div>
@@ -2972,6 +3127,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t6s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>綿花<rt>めんか</rt></ruby></div>
@@ -2989,6 +3145,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t6s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ゲティスバーグ<ruby>演説<rt>えんぜつ</rt></ruby></div>
@@ -3006,6 +3163,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t6s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1861年</div>
@@ -3023,6 +3181,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t6s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1863年</div>
@@ -3040,6 +3199,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t6s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">プランテーション</div>
@@ -3057,6 +3217,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t6s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>先住民<rt>せんじゅうみん</rt></ruby></div>
@@ -3224,53 +3385,62 @@
       <div class="q-text">南北戦争が始まった年は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">1789年</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">1776年</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">1840年</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">1861年</span></button></div>
       <div class="expl hidden-until">💡 1861年、リンカンの大統領就任をきっかけに南部諸州が合衆国を離脱して南北戦争が始まりました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t6s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-america-expansion-2" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">2 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">南北戦争の結果について正しいものはどれですか。</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">南部が勝利し、合衆国から独立して新たな国家を建てた</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">ヨーロッパ列強の仲介で和解が成立し、奴隷制度は維持された</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">両軍とも疲弊し、引き分けで戦争が終わった</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">北部が勝利し、奴隷制度が廃止された</span></button></div>
       <div class="expl hidden-until">💡 1861〜1865年の南北戦争は工業力で勝る北部が勝利し、1865年の憲法修正第13条で奴隷制度が廃止されました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t6s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-america-expansion-3" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">3 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">「人民の、人民による、人民のための政治」で知られるリンカンの演説は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">奴隷解放宣言</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">リンカンの就任演説</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">独立宣言</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">ゲティスバーグ演説</span></button></div>
       <div class="expl hidden-until">💡 ゲティスバーグ演説は1863年、南北戦争中の戦没者墓地でリンカンが行った演説で、民主主義の理念を表す言葉として広く知られます。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t6s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-america-expansion-4" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">4 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">奴隷解放宣言が出された年は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">1870年</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">1865年</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">1863年</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">1861年</span></button></div>
       <div class="expl hidden-until">💡 1863年、南北戦争の最中に第16代大統領リンカンが奴隷解放宣言を出し、国際世論を北部に引き寄せました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t6s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-america-expansion-5" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">5 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">アメリカ南部の大農園経営を何という？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ファゼンダ</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">ホームステッド</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">プランテーション</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">アシエンダ</span></button></div>
       <div class="expl hidden-until">💡 プランテーションはアメリカ南部で黒人奴隷の労働によって綿花などを大量栽培した大規模農園です。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t6s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-america-expansion-6" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">6 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">西部開拓で土地を奪われた人々は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">欧州からの移民</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">先住民</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">アジア系移民</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">アフリカ系住民</span></button></div>
       <div class="expl hidden-until">💡 19世紀の西部開拓ではヨーロッパからの移民が土地を求めて進出し、先住民は土地を奪われ強制移住させられました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t6s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-america-expansion-7" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">7 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">南部が支持した貿易政策は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">自由貿易</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">管理貿易</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">鎖国政策</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">保護貿易</span></button></div>
       <div class="expl hidden-until">💡 プランテーションで生産した綿花をイギリスに輸出していた南部は、関税の低い自由貿易を支持しました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t6s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-america-expansion-8" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">8 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">リンカンはアメリカの何代目の大統領か？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">第32代</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">第1代</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">第16代</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">第3代</span></button></div>
       <div class="expl hidden-until">💡 リンカンは1861年に就任した第16代大統領で、南北戦争を勝利に導き奴隷解放宣言を出しました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t6s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (1/2)" data-qid="wr-america-expansion-1" data-kind="qa" data-sec="D">
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">1 / 2</span>　文章で説明しよう</span></div>
       <div class="q-text">アメリカの北部と南部で貿易政策への考え方が違ったのはなぜか、説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">保護貿易</span><span class="kw-chip">自由貿易</span></div>
+      <a class="sec-help" href="../../ref/09/index.html#t6s1">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -3287,6 +3457,7 @@
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">2 / 2</span>　文章で説明しよう</span></div>
       <div class="q-text">奴隷解放宣言を出したことで、南北戦争にどのような影響があったか説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">国際世論</span><span class="kw-chip">北部</span></div>
+      <a class="sec-help" href="../../ref/09/index.html#t6s3">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -3345,6 +3516,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t7s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>産業<rt>さんぎょう</rt></ruby><ruby>革命<rt>かくめい</rt></ruby></div>
@@ -3362,6 +3534,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t7s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ワット</div>
@@ -3379,6 +3552,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t7s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>蒸気<rt>じょうき</rt></ruby><ruby>機関<rt>きかん</rt></ruby></div>
@@ -3396,6 +3570,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t7s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>世界<rt>せかい</rt></ruby>の<ruby>工場<rt>こうじょう</rt></ruby></div>
@@ -3413,6 +3588,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t7s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>資本<rt>しほん</rt></ruby><ruby>主義<rt>しゅぎ</rt></ruby></div>
@@ -3430,6 +3606,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t7s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>資本家<rt>しほんか</rt></ruby></div>
@@ -3447,6 +3624,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t7s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>労働<rt>ろうどう</rt></ruby><ruby>組合<rt>くみあい</rt></ruby></div>
@@ -3464,6 +3642,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t7s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>蒸気<rt>じょうき</rt></ruby><ruby>機関車<rt>きかんしゃ</rt></ruby></div>
@@ -3481,6 +3660,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t7s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>綿織物<rt>めんおりもの</rt></ruby><ruby>工業<rt>こうぎょう</rt></ruby></div>
@@ -3498,6 +3678,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t7s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">社会<ruby>主義<rt>しゅぎ</rt></ruby></div>
@@ -3515,6 +3696,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t7s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">マルクス</div>
@@ -3532,6 +3714,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t7s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>工場制<rt>こうじょうせい</rt></ruby><ruby>機械<rt>きかい</rt></ruby><ruby>工業<rt>こうぎょう</rt></ruby></div>
@@ -3549,6 +3732,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t7s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">スティーブンソン</div>
@@ -3566,6 +3750,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t7s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">18<ruby>世紀<rt>せいき</rt></ruby>後半</div>
@@ -3772,53 +3957,62 @@
       <div class="q-text">産業革命によって成立した、工場や機械の持ち主が労働者を雇い、利潤を追求する経済体制は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">社会主義</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">資本主義</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">重商主義</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">封建制</span></button></div>
       <div class="expl hidden-until">💡 資本主義は、工場や機械を持つ人が給料を払って人を雇い商品を売って利益を得るしくみで、産業革命によって広まりました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t7s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-industrial-revolution-2" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">2 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">労働者が権利を守るために作った団体は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">軍の組合</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">議会団体</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">労働組合</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">政治政党</span></button></div>
       <div class="expl hidden-until">💡 産業革命後の長時間労働や低賃金に対し、労働者は労働組合を結成して労働条件の改善や権利の保護を求めました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t7s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-industrial-revolution-3" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">3 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">イギリスの産業革命が最初に始まった工業分野は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">綿織物業</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">鉄鋼業</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">造船業</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">鉱業</span></button></div>
       <div class="expl hidden-until">💡 18世紀後半のイギリスでは紡績機や力織機の発明で綿織物の大量生産が可能となり、産業革命が始まりました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t7s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-industrial-revolution-4" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">4 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">蒸気機関車を実用化した技術者は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ニュートン</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">ワット</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">ダーウィン</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">スティーブンソン</span></button></div>
       <div class="expl hidden-until">💡 19世紀前半にイギリスのスティーブンソンが蒸気機関車を実用化し、鉄道網の発展により交通革命を引き起こしました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t7s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-industrial-revolution-5" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">5 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">「資本論」を著した思想家は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">マルクス</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">エンゲルス</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">ラサール</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">オーウェン</span></button></div>
       <div class="expl hidden-until">💡 19世紀ドイツのマルクスは『資本論』で資本主義の貧富の差などの問題を分析し、社会主義を理論にまとめました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t7s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-industrial-revolution-6" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">6 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">産業革命が世界に広がった結果、欧米列強が行ったことは？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">海外進出の停止と軍備縮小</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">農業中心の社会への回帰</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">国内市場の閉鎖と貿易制限</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">アジア・アフリカの植民地獲得</span></button></div>
       <div class="expl hidden-until">💡 19世紀の欧米列強は産業革命で必要となった原料の供給地と製品の市場を求め、アジア・アフリカを植民地化しました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t7s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-industrial-revolution-7" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">7 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">工場に機械を設置し労働者を雇って生産する方式は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">家内工業</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">工場制機械工業</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">問屋制家内工業</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">工場制手工業</span></button></div>
       <div class="expl hidden-until">💡 工場制機械工業は18世紀後半の産業革命で広まった生産方式で、工場に機械を置き労働者を雇って大量生産しました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t7s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-industrial-revolution-8" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">8 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">資本主義の矛盾を批判する思想は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">社会主義</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">民族主義</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">帝国主義</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">自由主義</span></button></div>
       <div class="expl hidden-until">💡 社会主義は19世紀にマルクスらが唱えた思想で、資本主義の貧富の差を批判し働く人々が平等な社会を目指しました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t7s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-industrial-revolution-1" data-kind="qa" data-sec="D">
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">1 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">資本主義とはどのようなしくみか、説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">資本家</span></div>
+      <a class="sec-help" href="../../ref/09/index.html#t7s2">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -3835,6 +4029,7 @@
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">2 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">産業革命後、労働者が労働組合を結成したのはなぜか、説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">労働条件</span><span class="kw-chip">権利</span></div>
+      <a class="sec-help" href="../../ref/09/index.html#t7s2">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -3851,6 +4046,7 @@
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">3 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">19世紀にマルクスが唱えた社会主義とはどのような考えか、説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">資本主義</span><span class="kw-chip">平等</span></div>
+      <a class="sec-help" href="../../ref/09/index.html#t7s3">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -3909,6 +4105,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t8s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">アヘン<ruby>戦争<rt>せんそう</rt></ruby></div>
@@ -3926,6 +4123,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t8s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>三角<rt>さんかく</rt></ruby><ruby>貿易<rt>ぼうえき</rt></ruby></div>
@@ -3943,6 +4141,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t8s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>南京<rt>ナンキン</rt></ruby><ruby>条約<rt>じょうやく</rt></ruby></div>
@@ -3960,6 +4159,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t8s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>関税<rt>かんぜい</rt></ruby><ruby>自主権<rt>じしゅけん</rt></ruby></div>
@@ -3977,6 +4177,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t8s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>領事<rt>りょうじ</rt></ruby><ruby>裁判権<rt>さいばんけん</rt></ruby></div>
@@ -3994,6 +4195,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t8s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>香港<rt>ホンコン</rt></ruby></div>
@@ -4011,6 +4213,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t8s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">インド<ruby>大反乱<rt>だいはんらん</rt></ruby></div>
@@ -4028,6 +4231,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t8s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">アヘン</div>
@@ -4045,6 +4249,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t8s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">不平等<ruby>条約<rt>じょうやく</rt></ruby></div>
@@ -4062,6 +4267,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t8s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>清<rt>しん</rt></ruby></div>
@@ -4079,6 +4285,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t8s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>太平天国<rt>たいへいてんごく</rt></ruby>の<ruby>乱<rt>らん</rt></ruby></div>
@@ -4096,6 +4303,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t8s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1840年</div>
@@ -4113,6 +4321,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/09/index.html#t8s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">セポイの<ruby>反乱<rt>はんらん</rt></ruby></div>
@@ -4306,53 +4515,62 @@
       <div class="q-text">アヘン戦争後の南京条約で清が失った、貿易上の重要な権利は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">最恵国待遇</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">領事裁判権</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">治外法権</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">関税自主権</span></button></div>
       <div class="expl hidden-until">💡 清は1842年の南京条約で関税自主権を失い、輸入品にかける税率を自国で決められず安価な工業製品が大量に流入しました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t8s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-western-asia-invasion-2" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">2 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">1857年にインドで起きた反乱は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">義和団事件</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">インド大反乱</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">太平天国の乱</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">ボクサーの乱</span></button></div>
       <div class="expl hidden-until">💡 1857年のインド大反乱はイギリス支配への反発からインド人傭兵セポイから始まり、鎮圧後にイギリスの直接統治が強化されました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t8s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-western-asia-invasion-3" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">3 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">アヘン戦争後イギリスに割譲された地域は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">香港</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">寧波</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">マカオ</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">広州</span></button></div>
       <div class="expl hidden-until">💡 中国南部の港湾都市香港は1842年の南京条約でイギリスに割譲され、1997年まで約150年間イギリスの植民地でした。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t8s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-western-asia-invasion-4" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">4 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">三角貿易でイギリスからインドに輸出されたものは？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">紅茶</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">銀貨</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">綿織物</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">アヘン</span></button></div>
       <div class="expl hidden-until">💡 イギリスは産業革命で大量生産した安い綿織物をインドに輸出し、インドの伝統的な綿織物産業を打撃しました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t8s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-western-asia-invasion-5" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">5 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">清で起きた大規模な農民反乱は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">義和団事件</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">白蓮教徒の乱</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">辛亥革命</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">太平天国の乱</span></button></div>
       <div class="expl hidden-until">💡 太平天国の乱は1851年に洪秀全が起こした清の大規模農民反乱で、アヘン戦争後の社会的混乱の中で清の支配を揺るがしました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t8s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-western-asia-invasion-6" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">6 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">南京条約で清がイギリスに認めた、イギリス人犯罪者を本国の領事が裁く制度は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">領事裁判権</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">朝貢制度</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">関税自主権</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">最恵国待遇</span></button></div>
       <div class="expl hidden-until">💡 領事裁判権は不平等条約の代表例で、南京条約により清国内のイギリス人犯罪者は清の法ではなくイギリス領事が裁くことになりました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t8s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-western-asia-invasion-7" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">7 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">インド大反乱の別名は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">マオリ戦争</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">太平天国の乱</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">セポイの反乱</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">ボクサーの乱</span></button></div>
       <div class="expl hidden-until">💡 1857年のインド大反乱はセポイ（傭兵）の反乱とも呼ばれ、イギリスに雇われたインド人傭兵から始まりました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t8s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-western-asia-invasion-8" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">8 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">南京条約で清が開港した港は何か所か？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">3か所</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">5か所</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">1か所</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">10か所</span></button></div>
       <div class="expl hidden-until">💡 1842年の南京条約により清は上海など5か所の港を開港させられ、香港の割譲と関税自主権の喪失も強いられました。</div>
+      <a class="sec-help" href="../../ref/09/index.html#t8s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-western-asia-invasion-1" data-kind="qa" data-sec="D">
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">1 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">イギリスが行った三角貿易とはどのようなしくみか、説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">アヘン</span><span class="kw-chip">綿織物</span></div>
+      <a class="sec-help" href="../../ref/09/index.html#t8s1">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -4369,6 +4587,7 @@
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">2 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">南京条約によって清はどのような不利益を受けたか、説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">関税自主権</span></div>
+      <a class="sec-help" href="../../ref/09/index.html#t8s2">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -4385,6 +4604,7 @@
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">3 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">1857年にインドで起こったインド大反乱とはどのような反乱で、その後どうなったか説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">反発</span><span class="kw-chip">直接統治</span></div>
+      <a class="sec-help" href="../../ref/09/index.html#t8s3">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -4421,6 +4641,7 @@
   <div class="a-topic"><div class="a-title">年表でチェック</div><div class="a-group"><span class="a-item">チャールズ1世</span>　<span class="a-item">名誉革命</span>　<span class="a-item">権利章典</span>　<span class="a-item">産業革命</span>　<span class="a-item">独立戦争</span>　<span class="a-item">独立宣言</span>　<span class="a-item">合衆国憲法</span>　<span class="a-item">フランス革命</span>　<span class="a-item">人権宣言</span>　<span class="a-item">ルイ16世</span>　<span class="a-item">ナポレオン</span>　<span class="a-item">ウィーン会議</span>　<span class="a-item">アヘン戦争</span>　<span class="a-item">南京条約</span>　<span class="a-item">インド大反乱</span>　<span class="a-item">農奴解放令</span>　<span class="a-item">南北戦争</span>　<span class="a-item">ドイツ帝国</span></div></div><div class="a-topic"><div class="a-title">1　イギリスの革命</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 啓蒙思想</span>　<span class="a-item">② ロック</span>　<span class="a-item">③ 抵抗権</span>　<span class="a-item">④ モンテスキュー</span>　<span class="a-item">⑤ ルソー</span>　<span class="a-item">⑥ ピューリタン革命</span>　<span class="a-item">⑦ 名誉革命</span>　<span class="a-item">⑧ 権利章典</span>　<span class="a-item">⑨ 立憲君主制</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 啓蒙思想</span>　<span class="a-item">(2) ロック</span>　<span class="a-item">(3) モンテスキュー</span>　<span class="a-item">(4) ルソー</span>　<span class="a-item">(5) ピューリタン革命</span>　<span class="a-item">(6) クロムウェル</span>　<span class="a-item">(7) 名誉革命</span>　<span class="a-item">(8) 権利章典</span>　<span class="a-item">(9) 立憲君主制</span>　<span class="a-item">(10) 三権分立</span>　<span class="a-item">(11) チャールズ1世</span>　<span class="a-item">(12) ピューリタン</span>　<span class="a-item">(13) 社会契約説</span>　<span class="a-item">(14) 抵抗権</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) イ（クロムウェル）</span>　<span class="a-item">(2) イ（権利章典）</span>　<span class="a-item">(3) ア（ルソー）</span>　<span class="a-item">(4) エ（チャールズ1世）</span>　<span class="a-item">(5) ウ（カルヴァン派のプロテスタント）</span>　<span class="a-item">(6) エ（アメリカ独立革命とフランス革命）</span>　<span class="a-item">(7) ア（1689年）</span>　<span class="a-item">(8) ウ（軍事権）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 独断で政治を行う国王ジェームズ2世を、武力による衝突なしに議会が追放した、無血の革命だったから。</div><div class="a-written">(2) 国王は国の象徴として残るが、実際の政治は憲法に基づいて議会と内閣が動かし、王の権力が制限されるしくみ。</div></div></div><div class="a-topic"><div class="a-title">2　アメリカの独立革命</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 代表なくして課税なし</span>　<span class="a-item">② ボストン茶会事件</span>　<span class="a-item">③ 独立戦争</span>　<span class="a-item">④ ワシントン</span>　<span class="a-item">⑤ 独立宣言</span>　<span class="a-item">⑥ 連邦制</span>　<span class="a-item">⑦ 合衆国憲法</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 代表なくして課税なし</span>　<span class="a-item">(2) ワシントン</span>　<span class="a-item">(3) 独立宣言</span>　<span class="a-item">(4) 独立戦争</span>　<span class="a-item">(5) ボストン茶会事件</span>　<span class="a-item">(6) 合衆国憲法</span>　<span class="a-item">(7) 13植民地</span>　<span class="a-item">(8) 1776年</span>　<span class="a-item">(9) 連邦制</span>　<span class="a-item">(10) ロック</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) ウ（ワシントン）</span>　<span class="a-item">(2) ウ（代表なくして課税なし）</span>　<span class="a-item">(3) イ（独立宣言）</span>　<span class="a-item">(4) エ（ロック）</span>　<span class="a-item">(5) ア（フランス）</span>　<span class="a-item">(6) イ（1787年）</span>　<span class="a-item">(7) ウ（ボストン茶会事件）</span>　<span class="a-item">(8) エ（生命・自由・幸福追求の権利）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 植民地からの代表が一人もいないイギリス本国の議会が、植民地に対して勝手に重い税を課したから。</div><div class="a-written">(2) 各州が自治権を持つ連邦制をとり、外交や軍事などは中央の連邦政府がまとめて担うようにするため。</div><div class="a-written">(3) ロックの思想の影響を受け、生命・自由・幸福を求める権利は生まれながらのものであると宣言した。</div></div></div><div class="a-topic"><div class="a-title">3　フランス革命</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 絶対王政</span>　<span class="a-item">② 第三身分</span>　<span class="a-item">③ 三部会</span>　<span class="a-item">④ バスティーユ牢獄</span>　<span class="a-item">⑤ フランス革命</span>　<span class="a-item">⑥ 人権宣言</span>　<span class="a-item">⑦ ナポレオン</span>　<span class="a-item">⑧ ナポレオン法典</span>　<span class="a-item">⑨ ウィーン会議</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) フランス革命</span>　<span class="a-item">(2) 人権宣言</span>　<span class="a-item">(3) バスティーユ牢獄</span>　<span class="a-item">(4) 第三身分</span>　<span class="a-item">(5) ルイ16世</span>　<span class="a-item">(6) ナポレオン</span>　<span class="a-item">(7) ナポレオン法典</span>　<span class="a-item">(8) 三部会</span>　<span class="a-item">(9) ウィーン会議</span>　<span class="a-item">(10) 絶対王政</span>　<span class="a-item">(11) 第一身分</span>　<span class="a-item">(12) 第二身分</span>　<span class="a-item">(13) 1789年</span>　<span class="a-item">(14) 自由・平等・友愛</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) エ（ルイ16世）</span>　<span class="a-item">(2) ウ（ナポレオン）</span>　<span class="a-item">(3) ウ（ナポレオン法典）</span>　<span class="a-item">(4) エ（三部会）</span>　<span class="a-item">(5) ア（ウィーン会議）</span>　<span class="a-item">(6) ア（ロシア）</span>　<span class="a-item">(7) イ（1793年）</span>　<span class="a-item">(8) イ（ルソー）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 聖職者と貴族は税を免除される一方、人口の98%を占める第三身分の平民だけが重い税を負担していたから。</div><div class="a-written">(2) 個人の自由と財産権が法律によって保障されるようになり、その内容はその後の各国の法律にも影響を与えた。</div><div class="a-written">(3) 人は生まれながらに自由で平等な権利を持つとし、「自由・平等・友愛」の理想を掲げた。</div></div></div><div class="a-topic"><div class="a-title">4　ヨーロッパの国民意識の高まり</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① ナショナリズム</span>　<span class="a-item">② 自由主義</span>　<span class="a-item">③ 国民国家</span>　<span class="a-item">④ ビスマルク</span>　<span class="a-item">⑤ 鉄血政策</span>　<span class="a-item">⑥ ドイツ帝国</span>　<span class="a-item">⑦ 男性普通選挙</span>　<span class="a-item">⑧ 二大政党制</span>　<span class="a-item">⑨ 徴兵制</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 国民国家</span>　<span class="a-item">(2) ビスマルク</span>　<span class="a-item">(3) 鉄血政策</span>　<span class="a-item">(4) 男性普通選挙</span>　<span class="a-item">(5) ナショナリズム</span>　<span class="a-item">(6) 中南米の独立</span>　<span class="a-item">(7) プロイセン</span>　<span class="a-item">(8) 1871年</span>　<span class="a-item">(9) ドイツ帝国</span>　<span class="a-item">(10) 徴兵制</span>　<span class="a-item">(11) 二大政党制</span>　<span class="a-item">(12) 自由主義</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) イ（ビスマルク）</span>　<span class="a-item">(2) ウ（男性普通選挙）</span>　<span class="a-item">(3) イ（政党政治）</span>　<span class="a-item">(4) イ（中南米）</span>　<span class="a-item">(5) エ（1871年）</span>　<span class="a-item">(6) ア（ウィーン体制）</span>　<span class="a-item">(7) ウ（二大政党制）</span>　<span class="a-item">(8) エ（ドイツ帝国）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 議会での話し合いよりも軍備の増強を重視し、軍事力によってドイツ統一を成し遂げようとする政策。</div><div class="a-written">(2) 保守党と自由党という二つの政党が議会で議席を争い、選挙の結果に応じて交互に政権を担当するしくみ。</div></div></div><div class="a-topic"><div class="a-title">5　ロシアの拡大と発展</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 不凍港</span>　<span class="a-item">② 南下政策</span>　<span class="a-item">③ オスマン帝国</span>　<span class="a-item">④ イギリス</span>　<span class="a-item">⑤ ツァーリ</span>　<span class="a-item">⑥ 農奴</span>　<span class="a-item">⑦ アレクサンドル2世</span>　<span class="a-item">⑧ 農奴解放令</span>　<span class="a-item">⑨ シベリア鉄道</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 南下政策</span>　<span class="a-item">(2) 不凍港</span>　<span class="a-item">(3) 農奴解放令</span>　<span class="a-item">(4) オスマン帝国</span>　<span class="a-item">(5) シベリア鉄道</span>　<span class="a-item">(6) アレクサンドル2世</span>　<span class="a-item">(7) イギリス</span>　<span class="a-item">(8) 農奴</span>　<span class="a-item">(9) 1861年</span>　<span class="a-item">(10) ツァーリ</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) ア（南下政策）</span>　<span class="a-item">(2) イ（不凍港）</span>　<span class="a-item">(3) エ（農奴解放令）</span>　<span class="a-item">(4) ウ（シベリア鉄道）</span>　<span class="a-item">(5) ア（イギリス）</span>　<span class="a-item">(6) ア（専制政治）</span>　<span class="a-item">(7) エ（アレクサンドル2世）</span>　<span class="a-item">(8) ウ（ツァーリ）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 冬でも凍らない不凍港を得るために、黒海や地中海、さらに東アジア方面まで勢力を広げようとしたため。</div></div></div><div class="a-topic"><div class="a-title">6　アメリカの拡大と発展</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 保護貿易</span>　<span class="a-item">② プランテーション</span>　<span class="a-item">③ リンカン</span>　<span class="a-item">④ 南北戦争</span>　<span class="a-item">⑤ 奴隷解放宣言</span>　<span class="a-item">⑥ ゲティスバーグ演説</span>　<span class="a-item">⑦ 先住民</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 南北戦争</span>　<span class="a-item">(2) リンカン</span>　<span class="a-item">(3) 奴隷解放宣言</span>　<span class="a-item">(4) 保護貿易</span>　<span class="a-item">(5) 自由貿易</span>　<span class="a-item">(6) 綿花</span>　<span class="a-item">(7) ゲティスバーグ演説</span>　<span class="a-item">(8) 1861年</span>　<span class="a-item">(9) 1863年</span>　<span class="a-item">(10) プランテーション</span>　<span class="a-item">(11) 先住民</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) エ（1861年）</span>　<span class="a-item">(2) エ（北部が勝利し、奴隷制度が廃止された）</span>　<span class="a-item">(3) エ（ゲティスバーグ演説）</span>　<span class="a-item">(4) ウ（1863年）</span>　<span class="a-item">(5) ウ（プランテーション）</span>　<span class="a-item">(6) イ（先住民）</span>　<span class="a-item">(7) ア（自由貿易）</span>　<span class="a-item">(8) ウ（第16代）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 商工業が発達した北部は国内産業を守る保護貿易を、綿花をイギリスに輸出する南部は自由貿易を支持したから。</div><div class="a-written">(2) 奴隷解放宣言によって国際世論が北部の側についたことで、工業力に勝る北部が南北戦争に勝利する助けとなった。</div></div></div><div class="a-topic"><div class="a-title">7　産業革命と資本主義</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 綿織物工業</span>　<span class="a-item">② ワット</span>　<span class="a-item">③ 蒸気機関</span>　<span class="a-item">④ 産業革命</span>　<span class="a-item">⑤ 工場制機械工業</span>　<span class="a-item">⑥ 世界の工場</span>　<span class="a-item">⑦ 資本主義</span>　<span class="a-item">⑧ 労働組合</span>　<span class="a-item">⑨ マルクス</span>　<span class="a-item">⑩ 社会主義</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 産業革命</span>　<span class="a-item">(2) ワット</span>　<span class="a-item">(3) 蒸気機関</span>　<span class="a-item">(4) 世界の工場</span>　<span class="a-item">(5) 資本主義</span>　<span class="a-item">(6) 資本家</span>　<span class="a-item">(7) 労働組合</span>　<span class="a-item">(8) 蒸気機関車</span>　<span class="a-item">(9) 綿織物工業</span>　<span class="a-item">(10) 社会主義</span>　<span class="a-item">(11) マルクス</span>　<span class="a-item">(12) 工場制機械工業</span>　<span class="a-item">(13) スティーブンソン</span>　<span class="a-item">(14) 18世紀後半</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) イ（資本主義）</span>　<span class="a-item">(2) ウ（労働組合）</span>　<span class="a-item">(3) ア（綿織物業）</span>　<span class="a-item">(4) エ（スティーブンソン）</span>　<span class="a-item">(5) ア（マルクス）</span>　<span class="a-item">(6) エ（アジア・アフリカの植民地獲得）</span>　<span class="a-item">(7) イ（工場制機械工業）</span>　<span class="a-item">(8) ア（社会主義）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 工場や機械などの生産手段を持つ資本家が、賃金を払って労働者を雇い、商品を売って利益を追求するしくみ。</div><div class="a-written">(2) 長時間労働や低賃金といった過酷な労働条件に苦しんだ労働者が、自分たちの権利を守る必要があったから。</div><div class="a-written">(3) 資本主義の下で広がった貧富の差をなくし、労働者を中心とした平等な社会をつくろうとする考え。</div></div></div><div class="a-topic"><div class="a-title">8　欧米のアジア侵略</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① アヘン</span>　<span class="a-item">② 三角貿易</span>　<span class="a-item">③ アヘン戦争</span>　<span class="a-item">④ 南京条約</span>　<span class="a-item">⑤ 香港</span>　<span class="a-item">⑥ 関税自主権</span>　<span class="a-item">⑦ 不平等条約</span>　<span class="a-item">⑧ 領事裁判権</span>　<span class="a-item">⑨ 太平天国の乱</span>　<span class="a-item">⑩ インド大反乱</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) アヘン戦争</span>　<span class="a-item">(2) 三角貿易</span>　<span class="a-item">(3) 南京条約</span>　<span class="a-item">(4) 関税自主権</span>　<span class="a-item">(5) 領事裁判権</span>　<span class="a-item">(6) 香港</span>　<span class="a-item">(7) インド大反乱</span>　<span class="a-item">(8) アヘン</span>　<span class="a-item">(9) 不平等条約</span>　<span class="a-item">(10) 清</span>　<span class="a-item">(11) 太平天国の乱</span>　<span class="a-item">(12) 1840年</span>　<span class="a-item">(13) セポイの反乱</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) エ（関税自主権）</span>　<span class="a-item">(2) イ（インド大反乱）</span>　<span class="a-item">(3) ア（香港）</span>　<span class="a-item">(4) ウ（綿織物）</span>　<span class="a-item">(5) エ（太平天国の乱）</span>　<span class="a-item">(6) ア（領事裁判権）</span>　<span class="a-item">(7) ウ（セポイの反乱）</span>　<span class="a-item">(8) イ（5か所）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) イギリスが綿織物をインドに、インドがアヘンを清に、清が茶をイギリスに輸出する貿易のしくみ。</div><div class="a-written">(2) 南京条約で清は香港を割譲し5港を開港させられたうえ、輸入品の税率を自国で決める関税自主権も失った。</div><div class="a-written">(3) イギリスの支配に反発したインドの人々が起こした大規模な反乱で、鎮圧後はイギリスによる直接統治が強められた。</div></div><div class="a-group"><span class="a-label">E 資料問題</span><span class="a-item">(1) 茶</span>　<span class="a-item">(2) 清から茶を買う代金として銀が大量に流出していたため、その埋め合わせにアヘンを売ろうとした。（例）</span></div></div>
 </section>
 </main>
+<div class="hintbar" id="hintBar" hidden></div>
 <div class="navbar" id="navbar" hidden><div class="navbar-in">
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
@@ -4428,12 +4649,76 @@
 <script>
 (function () {
   var KEY = 'tzmwb-09';
+  var CH = '09';
+  var REF_VIEWS = [0, 0, 1, 2, 3, 4, 5, 6, 7, 8];        // 問題集のビューt → 参考書の単元番号（0＝対応なし）
   var views = [].slice.call(document.querySelectorAll('.view'));
   var tabs = [].slice.call(document.querySelectorAll('.tab'));
   var N = views.length - 1;
   var state = { t: 0, s: 0 };
   var lastDir = 1;
   var rendered = null; // 直前に表示していた {t, s}（ページめくり演出用）
+
+  // ── 問題集 ⇄ 参考書の行き来（相手側の読みかけページに着地） ──
+  function refHref(t) {
+    var base = '../../ref/' + CH + '/index.html';
+    var v = REF_VIEWS[t] || 0;
+    if (!v) return base;
+    var s = 0;
+    try {
+      var st = JSON.parse(localStorage.getItem('tzmref-' + CH) || '{}');
+      if (st.last && st.last.t === v && st.last.s > 0) s = st.last.s;
+    } catch (e) {}
+    return base + '#t' + v + (s ? 's' + s : '');
+  }
+  function updateSwap() {
+    var a = document.getElementById('swRef');
+    a.href = refHref(state.t);
+  }
+
+  // ── 操作ヒント（初回のみ）＋タブ列のホイール操作 ──
+  (function () {
+    var el = document.getElementById('tabs');
+    if (el) el.addEventListener('wheel', function (e) {
+      // PC でも横スクロールできるよう、縦ホイールを横移動に変換する
+      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) { el.scrollLeft += e.deltaY; e.preventDefault(); }
+    }, { passive: false });
+
+    var bar = document.getElementById('hintBar');
+    if (!bar) return;
+    try { if (localStorage.getItem('tzmhint') === '1') return; } catch (e) { return; }
+    var canHover = window.matchMedia && window.matchMedia('(hover:hover)').matches;
+    bar.textContent = canHover ? '⌨️ ← → キーでもページをめくれるよ'
+                               : '👆 よこにスワイプでもページをめくれるよ';
+    var shown = false;
+    window.showHint = function () {
+      if (shown || state.t === 0) return;
+      shown = true; bar.hidden = false;
+      try { localStorage.setItem('tzmhint', '1'); } catch (e) {}
+      setTimeout(function () { bar.hidden = true; }, 5000);
+    };
+    bar.addEventListener('click', function () { bar.hidden = true; });
+  })();
+
+  // 単元タブの左右矢印: まだ隠れているタブがある側だけ出す
+  function updateTabArrows() {
+    var el = document.getElementById('tabs');
+    var L = document.getElementById('tabsL'), R = document.getElementById('tabsR');
+    if (!el || !L || !R) return;
+    var max = el.scrollWidth - el.clientWidth;
+    L.hidden = el.scrollLeft <= 2;
+    R.hidden = el.scrollLeft >= max - 2;
+  }
+  (function () {
+    var el = document.getElementById('tabs');
+    var L = document.getElementById('tabsL'), R = document.getElementById('tabsR');
+    if (!el || !L || !R) return;
+    function by(d) { el.scrollBy({ left: d * Math.max(80, el.clientWidth * 0.7), behavior: 'smooth' }); }
+    L.addEventListener('click', function (e) { e.stopPropagation(); by(-1); });
+    R.addEventListener('click', function (e) { e.stopPropagation(); by(1); });
+    el.addEventListener('scroll', updateTabArrows, { passive: true });
+    window.addEventListener('resize', updateTabArrows);
+    setTimeout(updateTabArrows, 0);
+  })();
 
   function store() {
     try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; }
@@ -4626,9 +4911,8 @@
       if (steps[s]) steps[s].classList.add('on');
       navbar.hidden = false;
       var onModeStep = steps[s] && steps[s].dataset.sec === 'M';
-      barStep.textContent = onModeStep
-        ? 'やり方をえらぼう'
-        : (s + 1) + ' / ' + steps.length;
+      // 「やり方をえらぼう」は本文にも大きく出るのでヘッダーには出さない（単元タブの幅を優先）
+      barStep.textContent = onModeStep ? '' : (s + 1) + ' / ' + steps.length;
       pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
       document.getElementById('btnPrev').textContent = s === 0 ? '🏠 目次' : '← まえへ';
       var next = document.getElementById('btnNext');
@@ -4651,7 +4935,9 @@
       }
     }
     var h = '#t' + t + (t > 0 && s > 0 ? 's' + s : '');
-    if (location.hash !== h) history.replaceState(null, '', t === 0 ? '#' : h);
+    // クエリが付いていても落とさない（URL共有時の情報を保つ）
+    if (location.hash !== h) history.replaceState(null, '', location.search + (t === 0 ? '#' : h));
+    updateSwap();
     rendered = { t: t, s: s };
   }
 
@@ -4942,8 +5228,9 @@
       return;
     }
     if (inField) return;  // 入力中の矢印キーではページ送りしない
-    if (e.key === 'ArrowRight') next();
-    if (e.key === 'ArrowLeft') prev();
+    if (e.key === 'ArrowRight' || e.key === 'PageDown') { next(); e.preventDefault(); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { prev(); e.preventDefault(); }
+    else if (e.key === 'Home') { go(0, 0, -1); e.preventDefault(); }
   });
   var tx = 0, ty = 0;
   document.addEventListener('touchstart', function (e) {

@@ -17,14 +17,47 @@
   /* ── 上部バー ── */
   .bar { position:sticky; top:0; z-index:10; background:rgba(255,253,248,.96);
          backdrop-filter:blur(6px); border-bottom:1px solid #f0e6d2; }
-  .bar-in { max-width:640px; margin:0 auto; padding:8px 16px 0; }
+  .bar-in { max-width:640px; margin:0 auto; padding:5px 12px 0; }
   .bar-row { display:flex; align-items:center; gap:8px; }
+  /* 問題集⇄参考書の切替（どのページからでも1タップ・相手側は読みかけの位置に着地） */
+  /* どのページからでも「本の一覧（すごろく）」へ戻れる常設ボタン。
+     タブ列の 🏠 は「この本の目次」なので、こちらは 🗺＋文字でトップだと分かるようにする。 */
+  .tophome { flex:none; height:30px; padding:0 12px; font-size:11.5px; font-weight:bold;
+             color:#fff; background:var(--deep); border-radius:15px; text-decoration:none;
+             display:inline-flex; align-items:center; white-space:nowrap;
+             box-shadow:0 2px 0 #5b1e0b; }
+  .swap { flex:none; display:inline-flex; border:1.5px solid var(--line); border-radius:20px;
+          overflow:hidden; background:#fffbeb; }
+  .sw { font-size:11px; font-weight:bold; color:var(--brand); padding:3px 7px; text-decoration:none;
+        white-space:nowrap; cursor:pointer; }
+  .sw.on { background:var(--brand); color:#fff; }
+  .sw[hidden] { display:none; }
+  /* 設問ごとの「解説を見る」（その問題の根拠になる節へ直行） */
+  .sec-help { display:inline-flex; align-items:center; gap:4px; font-size:11.5px; font-weight:bold;
+              color:var(--brand); background:#fffbeb; border:1.5px solid var(--line);
+              border-radius:14px; padding:3px 10px; text-decoration:none; margin-top:8px; }
   .bar-title { font-weight:bold; color:var(--deep); font-size:14px; flex:1;
                white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .bar-step { flex:none; font-size:12px; font-weight:bold; color:var(--brand); }
-  .tabs { display:flex; gap:6px; overflow-x:auto; padding:8px 0; scrollbar-width:none; }
+  .bar-step { flex:none; font-size:11px; font-weight:bold; color:var(--brand); }
+  /* 初回だけ出す操作ヒント（PCはキー、スマホはスワイプ） */
+  .hintbar { position:fixed; left:50%; transform:translateX(-50%); bottom:78px; z-index:35;
+             background:rgba(28,25,23,.88); color:#fff; font-size:12.5px; font-weight:bold;
+             border-radius:20px; padding:8px 16px; box-shadow:0 4px 14px rgba(0,0,0,.3);
+             animation:hintIn .3s ease; }
+  .hintbar[hidden] { display:none; }
+  @keyframes hintIn { from { opacity:0; transform:translate(-50%,10px); }
+                      to { opacity:1; transform:translate(-50%,0); } }
+  .tabs-wrap { position:relative; flex:1; min-width:0; }
+  /* 端のフェード＋矢印＝「まだ右に単元がある」と一目で分かるようにする */
+  .tscroll { position:absolute; top:0; bottom:0; width:20px; border:none; cursor:pointer;
+             font-size:17px; font-weight:bold; color:var(--brand); line-height:1; padding:0;
+             display:flex; align-items:center; justify-content:center; font-family:inherit; }
+  .tscroll[hidden] { display:none; }
+  .tsl { left:0; background:linear-gradient(to right, #fffdf8 62%, rgba(255,253,248,0)); }
+  .tsr { right:0; background:linear-gradient(to left, #fffdf8 62%, rgba(255,253,248,0)); }
+  .tabs { display:flex; gap:5px; overflow-x:auto; padding:4px 0; width:100%; scrollbar-width:none; }
   .tabs::-webkit-scrollbar { display:none; }
-  .tab { flex:none; width:36px; height:36px; border-radius:50%; border:1.5px solid var(--line);
+  .tab { flex:none; width:30px; height:30px; border-radius:50%; border:1.5px solid var(--line);
          background:#fffbeb; color:var(--brand); font-size:14px; font-weight:bold;
          display:inline-flex; align-items:center; justify-content:center; cursor:pointer; }
   .tab.done { background:#fef3c7; }
@@ -360,16 +393,22 @@
 </style></head><body>
 <div class="bar"><div class="bar-in">
   <div class="bar-row">
-    <div class="bar-title">歴史 ⑮ 昭和の危機（問題集）</div>
+    <a class="tophome" href="../../index.html" aria-label="単元一覧へもどる">単元一覧</a>
+    <div class="swap"><a class="sw" id="swRef">📖 参考書</a><span class="sw on">✏️ 問題</span></div>
+    <div class="tabs-wrap">
+      <nav class="tabs" id="tabs"><button class="tab tab-home" data-go="0" aria-label="目次">🏠</button><button class="tab" data-go="1" aria-label="年表">年</button><button class="tab" data-go="2" aria-label="世界恐慌とファシズムの台頭">1</button><button class="tab" data-go="3" aria-label="満州事変と軍部の暴走">2</button><button class="tab" data-go="4" aria-label="日中戦争の泥沼化">3</button></nav>
+      <button class="tscroll tsl" id="tabsL" type="button" hidden aria-label="単元タブを左へ">‹</button>
+      <button class="tscroll tsr" id="tabsR" type="button" hidden aria-label="単元タブを右へ">›</button>
+    </div>
     <div class="bar-step" id="barStep"></div>
   </div>
-  <nav class="tabs" id="tabs"><button class="tab tab-home" data-go="0" aria-label="目次">🏠</button><button class="tab" data-go="1" aria-label="年表">年</button><button class="tab" data-go="2" aria-label="世界恐慌とファシズムの台頭">1</button><button class="tab" data-go="3" aria-label="満州事変と軍部の暴走">2</button><button class="tab" data-go="4" aria-label="日中戦争の泥沼化">3</button></nav>
+  <div class="bar-title" hidden>歴史 ⑮ 昭和の危機（問題集）</div>
   <div class="pbar"><div class="pfill" id="pfill"></div></div>
 </div></div>
 <main class="wrap" id="views">
 
 <section class="view home" data-t="0">
-  <a class="home-link" href="../../index.html">🗺 すごろく（本一覧）へもどる</a>
+  <a class="home-link" href="../../index.html">単元一覧にもどる</a>
   <header class="top">
     <div class="badge">歴史 ⑮　問題集 <span class="webtag">Web版</span></div>
     <h1>昭和の危機</h1>
@@ -431,6 +470,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/15/index.html#t1s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">世界<ruby>恐慌<rt>きょうこう</rt></ruby></div>
@@ -448,6 +488,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/15/index.html#t1s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1929年</div>
@@ -465,6 +506,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/15/index.html#t1s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ニューディール<ruby>政策<rt>せいさく</rt></ruby></div>
@@ -482,6 +524,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/15/index.html#t1s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">フランクリン・ローズベルト</div>
@@ -499,6 +542,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/15/index.html#t1s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ブロック<ruby>経済<rt>けいざい</rt></ruby></div>
@@ -516,6 +560,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/15/index.html#t1s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ファシズム</div>
@@ -533,6 +578,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/15/index.html#t1s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ムッソリーニ</div>
@@ -550,6 +596,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/15/index.html#t1s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ヒトラー</div>
@@ -567,6 +614,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/15/index.html#t1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ナチス（ナチ<ruby>党<rt>とう</rt></ruby>）</div>
@@ -584,6 +632,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/15/index.html#t1s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1933年</div>
@@ -601,6 +650,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/15/index.html#t1s4">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>昭和<rt>しょうわ</rt></ruby><ruby>恐慌<rt>きょうこう</rt></ruby></div>
@@ -768,53 +818,62 @@
       <div class="q-text">1929年にアメリカから始まった経済危機は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">世界恐慌</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">リーマン・ショック</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">第一次オイルショック</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">金融恐慌</span></button></div>
       <div class="expl hidden-until">💡 1929年10月24日「暗黒の木曜日」のニューヨーク株式市場の大暴落から世界中に広がったのが世界恐慌です。</div>
+      <a class="sec-help" href="../../ref/15/index.html#t1s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-great-depression-2" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">2 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">ニューディール政策を行ったアメリカ大統領は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ウィルソン</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">リンカン</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">セオドア・ローズベルト</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">フランクリン・ローズベルト</span></button></div>
       <div class="expl hidden-until">💡 1933年就任のフランクリン・ローズベルト。ダム建設などの公共事業や農産物価格の支えで国が経済に深く関わりました。</div>
+      <a class="sec-help" href="../../ref/15/index.html#t1s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-great-depression-3" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">3 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">イタリアでファシスト党を率いた独裁者は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ヒトラー</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">スターリン</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">フランコ</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">ムッソリーニ</span></button></div>
       <div class="expl hidden-until">💡 1922年の「ローマ進軍」で政権を握ったムッソリーニが、ファシスト党による世界初のファシズム体制をイタリアに作りました。</div>
+      <a class="sec-help" href="../../ref/15/index.html#t1s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-great-depression-4" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">4 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">イギリス・フランスが採った恐慌対策は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ニューディール政策</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">ブロック経済</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">統制経済</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">金本位制への復帰</span></button></div>
       <div class="expl hidden-until">💡 イギリス・フランスは本国と植民地で経済の輪を作り、他国の商品に高い税をかけて排除し恐慌を乗り切ろうとしました。</div>
+      <a class="sec-help" href="../../ref/15/index.html#t1s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-great-depression-5" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">5 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">ヒトラーが政権を握ったのは？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">1939年</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">1922年</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">1933年</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">1929年</span></button></div>
       <div class="expl hidden-until">💡 ヒトラーは1933年にドイツ首相となり、議会に頼らず法を作れる権限を得て一党独裁のナチス体制を作りました。</div>
+      <a class="sec-help" href="../../ref/15/index.html#t1s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-great-depression-6" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">6 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">ナチスが行った人種差別政策は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ホロコースト</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">ジム・クロウ法</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">アパルトヘイト</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">排日移民法</span></button></div>
       <div class="expl hidden-until">💡 ホロコーストはナチスがユダヤ人を組織的に迫害・虐殺した政策で、強制収容所での虐殺などにより約600万人が犠牲となりました。</div>
+      <a class="sec-help" href="../../ref/15/index.html#t1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-great-depression-7" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">7 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">ニューディール政策の特徴は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">緊縮財政に戻した</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">国営工場で価格を決めた</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">公共事業で雇用を増やした</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">高関税で輸入を止めた</span></button></div>
       <div class="expl hidden-until">💡 ニューディール政策はダム建設などの公共事業で失業者を雇い、農産物の価格も国が支えて経済に深く関わりました。</div>
+      <a class="sec-help" href="../../ref/15/index.html#t1s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-great-depression-8" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">8 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">世界恐慌が始まった日「暗黒の木曜日」は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">10月24日</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">9月1日</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">11月11日</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">12月7日</span></button></div>
       <div class="expl hidden-until">💡 1929年10月24日「暗黒の木曜日」にニューヨーク株式市場で株価が大暴落し、これが世界恐慌の引き金となりました。</div>
+      <a class="sec-help" href="../../ref/15/index.html#t1s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-great-depression-1" data-kind="qa" data-sec="D">
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">1 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">アメリカでニューディール政策が行われた目的を、簡単に説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">失業者</span></div>
+      <a class="sec-help" href="../../ref/15/index.html#t1s2">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -831,6 +890,7 @@
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">2 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">イギリスやフランスが行ったブロック経済とはどのようなしくみか、説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">植民地</span><span class="kw-chip">関税</span></div>
+      <a class="sec-help" href="../../ref/15/index.html#t1s3">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -847,6 +907,7 @@
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">3 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">世界恐慌が重なって起きた昭和恐慌によって、日本の農村はどのような影響を受けたか説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">生糸</span><span class="kw-chip">農村</span></div>
+      <a class="sec-help" href="../../ref/15/index.html#t1s4">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -905,6 +966,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/15/index.html#t2s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>満州<rt>まんしゅう</rt></ruby><ruby>事変<rt>じへん</rt></ruby></div>
@@ -922,6 +984,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/15/index.html#t2s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>柳条湖<rt>りゅうじょうこ</rt></ruby><ruby>事件<rt>じけん</rt></ruby></div>
@@ -939,6 +1002,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/15/index.html#t2s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1931年</div>
@@ -956,6 +1020,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/15/index.html#t2s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>満州国<rt>まんしゅうこく</rt></ruby></div>
@@ -973,6 +1038,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/15/index.html#t2s4">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1932年</div>
@@ -990,6 +1056,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/15/index.html#t2s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>溥儀<rt>ふぎ</rt></ruby></div>
@@ -1007,6 +1074,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/15/index.html#t2s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">リットン<ruby>調査団<rt>ちょうさだん</rt></ruby></div>
@@ -1024,6 +1092,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/15/index.html#t2s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>国際<rt>こくさい</rt></ruby><ruby>連盟<rt>れんめい</rt></ruby><ruby>脱退<rt>だったい</rt></ruby></div>
@@ -1041,6 +1110,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/15/index.html#t2s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1933年</div>
@@ -1058,6 +1128,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/15/index.html#t2s4">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>五<rt>ご</rt></ruby>・<ruby>一五<rt>いちご</rt></ruby><ruby>事件<rt>じけん</rt></ruby></div>
@@ -1075,6 +1146,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/15/index.html#t2s4">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>犬養毅<rt>いぬかいつよし</rt></ruby></div>
@@ -1092,6 +1164,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/15/index.html#t2s4">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>二<rt>に</rt></ruby>・<ruby>二六<rt>にろく</rt></ruby><ruby>事件<rt>じけん</rt></ruby></div>
@@ -1109,6 +1182,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/15/index.html#t2s4">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1936年</div>
@@ -1126,6 +1200,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/15/index.html#t2s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>関東<rt>かんとう</rt></ruby>軍</div>
@@ -1332,53 +1407,62 @@
       <div class="q-text">国際連盟が派遣した満州事変の調査団は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">ハル調査団</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">リットン調査団</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">ウィルソン委員会</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">国際監視団</span></button></div>
       <div class="expl hidden-until">💡 1932年、国際連盟が派遣したリットン調査団は満州国を承認せず、日本軍の撤退を勧告する報告書を出しました。</div>
+      <a class="sec-help" href="../../ref/15/index.html#t2s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-manchurian-incident-2" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">2 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">日本が国際連盟を脱退した年は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">1936年</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">1933年</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">1932年</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">1931年</span></button></div>
       <div class="expl hidden-until">💡 1933年、リットン報告書の採択に反発した松岡洋右が国際連盟総会から退場し、日本は正式に脱退を通告して国際的に孤立しました。</div>
+      <a class="sec-help" href="../../ref/15/index.html#t2s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-manchurian-incident-3" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">3 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">満州国の元首となった人物は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">袁世凱</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">蒋介石</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">溥儀</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">孫文</span></button></div>
       <div class="expl hidden-until">💡 宣統帝として知られた清の最後の皇帝・溥儀が、1932年に関東軍によって満州国の元首となり、1934年からは皇帝になりました。</div>
+      <a class="sec-help" href="../../ref/15/index.html#t2s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-manchurian-incident-4" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">4 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">柳条湖事件で爆破されたのは？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">シベリア鉄道</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">南満州鉄道</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">朝鮮鉄道</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">京漢鉄道</span></button></div>
       <div class="expl hidden-until">💡 1931年9月、関東軍が奉天郊外の柳条湖で南満州鉄道を自ら爆破し、中国軍の仕業と偽って満州事変の引き金としました。</div>
+      <a class="sec-help" href="../../ref/15/index.html#t2s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-manchurian-incident-5" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">5 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">二・二六事件で暗殺された蔵相は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">鳩山一郎</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">犬養毅</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">高橋是清</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">浜口雄幸</span></button></div>
       <div class="expl hidden-until">💡 1936年の二・二六事件で、陸軍の若手将校らに高橋是清蔵相が暗殺されました。鎮圧後、軍の発言力が一気に強まりました。</div>
+      <a class="sec-help" href="../../ref/15/index.html#t2s4">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-manchurian-incident-6" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">6 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">満州事変を独断で進めた日本軍は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">支那派遣軍</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">朝鮮軍</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">南方軍</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">関東軍</span></button></div>
       <div class="expl hidden-until">💡 南満州鉄道や遼東半島南部を守るために置かれた関東軍が、1931年に柳条湖事件を起こして満州事変を独断で進めました。</div>
+      <a class="sec-help" href="../../ref/15/index.html#t2s1">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-manchurian-incident-7" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">7 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">満州国建国の年は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">1932年</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">1931年</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">1929年</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">1937年</span></button></div>
       <div class="expl hidden-until">💡 1932年、関東軍が占領した中国東北部に満州国を建国し、清の最後の皇帝・溥儀を元首として据えました。</div>
+      <a class="sec-help" href="../../ref/15/index.html#t2s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-manchurian-incident-8" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">8 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">五・一五事件以降の政治の変化は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">政党党首の首相が続いた</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">女性参政権が認められた</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">二大政党制が安定した</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">政党出身首相が途絶えた</span></button></div>
       <div class="expl hidden-until">💡 1932年の五・一五事件で犬養毅首相が暗殺された後、挙国一致内閣が続いて政党出身の首相が事実上途絶え、政党政治は終焉し軍部の発言力が強まりました。</div>
+      <a class="sec-help" href="../../ref/15/index.html#t2s4">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-manchurian-incident-1" data-kind="qa" data-sec="D">
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">1 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">関東軍が柳条湖事件を起こした目的を説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">南満州鉄道</span><span class="kw-chip">満州</span></div>
+      <a class="sec-help" href="../../ref/15/index.html#t2s1">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -1395,6 +1479,7 @@
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">2 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">五・一五事件が日本の政治に与えた影響を説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">政党政治</span></div>
+      <a class="sec-help" href="../../ref/15/index.html#t2s4">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -1411,6 +1496,7 @@
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">3 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">日本が国際連盟を脱退することになった理由を説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">リットン調査団</span><span class="kw-chip">満州国</span></div>
+      <a class="sec-help" href="../../ref/15/index.html#t2s3">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -1474,6 +1560,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/15/index.html#t3s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>日中<rt>にっちゅう</rt></ruby><ruby>戦争<rt>せんそう</rt></ruby></div>
@@ -1491,6 +1578,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/15/index.html#t3s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>盧溝橋<rt>ろこうきょう</rt></ruby><ruby>事件<rt>じけん</rt></ruby></div>
@@ -1508,6 +1596,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/15/index.html#t3s1">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1937年</div>
@@ -1525,6 +1614,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/15/index.html#t3s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>南京<rt>ナンキン</rt></ruby><ruby>事件<rt>じけん</rt></ruby></div>
@@ -1542,6 +1632,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/15/index.html#t3s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>国共<rt>こっきょう</rt></ruby><ruby>合作<rt>がっさく</rt></ruby></div>
@@ -1559,6 +1650,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/15/index.html#t3s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>蒋介石<rt>しょうかいせき</rt></ruby></div>
@@ -1576,6 +1668,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/15/index.html#t3s3">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>毛沢東<rt>もうたくとう</rt></ruby></div>
@@ -1593,6 +1686,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/15/index.html#t3s4">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>国家<rt>こっか</rt></ruby><ruby>総動員法<rt>そうどういんほう</rt></ruby></div>
@@ -1610,6 +1704,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/15/index.html#t3s4">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1938年</div>
@@ -1627,6 +1722,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/15/index.html#t3s4">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>近衛文麿<rt>このえふみまろ</rt></ruby></div>
@@ -1644,6 +1740,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/15/index.html#t3s4">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>大政<rt>たいせい</rt></ruby><ruby>翼賛会<rt>よくさんかい</rt></ruby></div>
@@ -1661,6 +1758,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/15/index.html#t3s4">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1940年</div>
@@ -1678,6 +1776,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/15/index.html#t3s4">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>日独伊<rt>にちどくい</rt></ruby><ruby>三国<rt>さんごく</rt></ruby><ruby>同盟<rt>どうめい</rt></ruby></div>
@@ -1695,6 +1794,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
+      <a class="sec-help" href="../../ref/15/index.html#t3s2">📖 解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>重慶<rt>じゅうけい</rt></ruby></div>
@@ -1901,53 +2001,62 @@
       <div class="q-text">1940年に結成された全国民組織は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">翼賛政治会</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">国民精神総動員会</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">国民義勇隊</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">大政翼賛会</span></button></div>
       <div class="expl hidden-until">💡 1940年、近衛文麿のもとで結成された大政翼賛会は、すべての政党が解散して合流し国民を一つにまとめあげた組織で、政党政治は完全に終わりました。</div>
+      <a class="sec-help" href="../../ref/15/index.html#t3s4">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-sino-japanese-war-showa-2" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">2 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">国民党と共産党の対日協力関係は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">連ソ容共</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">国共合作</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">国共内戦</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">中ソ同盟</span></button></div>
       <div class="expl hidden-until">💡 国共合作は、日本に対抗するため中国の国民党と共産党が結んだ協力関係で、蒋介石と毛沢東が手を結びました（第二次国共合作、1937年）。</div>
+      <a class="sec-help" href="../../ref/15/index.html#t3s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-sino-japanese-war-showa-3" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">3 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">中国国民党の指導者は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">袁世凱</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">毛沢東</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">蒋介石</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">孫文</span></button></div>
       <div class="expl hidden-until">💡 中華民国の国民党総裁・蒋介石が、日中戦争中は共産党と国共合作を結び、首都を南京から重慶へ移して日本への抵抗を続けました。</div>
+      <a class="sec-help" href="../../ref/15/index.html#t3s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-sino-japanese-war-showa-4" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">4 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">中国共産党の指導者で後に中華人民共和国を建国したのは？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">孫文</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">毛沢東</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">周恩来</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">蒋介石</span></button></div>
       <div class="expl hidden-until">💡 中国共産党を率いた毛沢東が、1937年に国民党と国共合作を結び抗日戦線に参加し、戦後の1949年に中華人民共和国を建国しました。</div>
+      <a class="sec-help" href="../../ref/15/index.html#t3s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-sino-japanese-war-showa-5" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">5 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">1937年12月、日本軍が中国の首都で多数の市民を殺害した事件は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">南京事件</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">通州事件</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">上海事変</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">盧溝橋事件</span></button></div>
       <div class="expl hidden-until">💡 1937年12月、日本軍が中華民国の首都・南京を占領した際に多数の市民や捕虜を殺害した南京事件は、国際的に大きな批判を受けました。</div>
+      <a class="sec-help" href="../../ref/15/index.html#t3s2">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-sino-japanese-war-showa-6" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">6 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">国家総動員法を制定した首相は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">犬養毅</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">東条英機</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">若槻礼次郎</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">近衛文麿</span></button></div>
       <div class="expl hidden-until">💡 1938年、近衛文麿内閣が国家総動員法を制定し、議会の承認なしに政府の命令で国民や物資を動かせる仕組みを整えました。</div>
+      <a class="sec-help" href="../../ref/15/index.html#t3s4">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-sino-japanese-war-showa-7" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">7 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">蒋介石政府が首都を移した場所は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">広州</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">重慶</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">香港</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">上海</span></button></div>
       <div class="expl hidden-until">💡 日中戦争で蒋介石率いる中華民国政府は首都を南京から重慶へ移し、日本軍の空爆を受けながらも臨時首都として抵抗を続けました。</div>
+      <a class="sec-help" href="../../ref/15/index.html#t3s3">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-sino-japanese-war-showa-8" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">8 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">大政翼賛会の特徴は？</div>
       <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">政党の自由な活動を進めた</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">普通選挙を実現するためにつくられた</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">軍部のみで構成された</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">国民を戦争に協力させるために統制した</span></button></div>
       <div class="expl hidden-until">💡 1940年に近衛文麿が結成した大政翼賛会は、政党を解散させ国民を一つの組織にまとめて統制する目的でつくられ、政党政治は事実上終わりました。</div>
+      <a class="sec-help" href="../../ref/15/index.html#t3s4">📖 解説を読む（ヒント）</a>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-sino-japanese-war-showa-1" data-kind="qa" data-sec="D">
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">1 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">国家総動員法とはどのようなしくみの法律か、説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">議会</span></div>
+      <a class="sec-help" href="../../ref/15/index.html#t3s4">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -1964,6 +2073,7 @@
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">2 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">国民党と共産党が国共合作を結んだ理由を説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">抗日</span></div>
+      <a class="sec-help" href="../../ref/15/index.html#t3s3">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -1980,6 +2090,7 @@
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">3 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">日中戦争が始まるきっかけとなったできごとを説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">盧溝橋事件</span></div>
+      <a class="sec-help" href="../../ref/15/index.html#t3s1">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
       <button class="reveal" type="button">模範解答を見る</button>
@@ -2011,6 +2122,7 @@
   <div class="a-topic"><div class="a-title">年表でチェック</div><div class="a-group"><span class="a-item">世界恐慌</span>　<span class="a-item">昭和恐慌</span>　<span class="a-item">柳条湖事件</span>　<span class="a-item">満州事変</span>　<span class="a-item">満州国</span>　<span class="a-item">五・一五事件</span>　<span class="a-item">ヒトラー</span>　<span class="a-item">国際連盟</span>　<span class="a-item">二・二六事件</span>　<span class="a-item">盧溝橋事件</span>　<span class="a-item">日中戦争</span>　<span class="a-item">国共合作</span>　<span class="a-item">南京事件</span>　<span class="a-item">国家総動員法</span>　<span class="a-item">大政翼賛会</span>　<span class="a-item">日独伊三国同盟</span></div></div><div class="a-topic"><div class="a-title">1　世界恐慌とファシズムの台頭</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 世界恐慌</span>　<span class="a-item">② フランクリン・ローズベルト</span>　<span class="a-item">③ ニューディール政策</span>　<span class="a-item">④ ブロック経済</span>　<span class="a-item">⑤ ファシズム</span>　<span class="a-item">⑥ ムッソリーニ</span>　<span class="a-item">⑦ ヒトラー</span>　<span class="a-item">⑧ ナチス</span>　<span class="a-item">⑨ 昭和恐慌</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 世界恐慌</span>　<span class="a-item">(2) 1929年</span>　<span class="a-item">(3) ニューディール政策</span>　<span class="a-item">(4) フランクリン・ローズベルト</span>　<span class="a-item">(5) ブロック経済</span>　<span class="a-item">(6) ファシズム</span>　<span class="a-item">(7) ムッソリーニ</span>　<span class="a-item">(8) ヒトラー</span>　<span class="a-item">(9) ナチス（ナチ党）</span>　<span class="a-item">(10) 1933年</span>　<span class="a-item">(11) 昭和恐慌</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) ア（世界恐慌）</span>　<span class="a-item">(2) エ（フランクリン・ローズベルト）</span>　<span class="a-item">(3) エ（ムッソリーニ）</span>　<span class="a-item">(4) イ（ブロック経済）</span>　<span class="a-item">(5) ウ（1933年）</span>　<span class="a-item">(6) ア（ホロコースト）</span>　<span class="a-item">(7) ウ（公共事業で雇用を増やした）</span>　<span class="a-item">(8) ア（10月24日）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 公共事業を増やして失業者に仕事を与え、国が経済に深く関わることで世界恐慌からの回復を図るため。</div><div class="a-written">(2) 本国と植民地で一つの経済圏をつくり、他国の商品には高い関税をかけて締め出すことで恐慌を乗り切ろうとするしくみ。</div><div class="a-written">(3) 生糸などの価格が暴落して収入が減り、農家が借金や娘の身売りに追い込まれるなど、農村が深刻な不況に苦しんだ。</div></div></div><div class="a-topic"><div class="a-title">2　満州事変と軍部の暴走</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 関東軍</span>　<span class="a-item">② 柳条湖事件</span>　<span class="a-item">③ 満州事変</span>　<span class="a-item">④ 満州国</span>　<span class="a-item">⑤ 溥儀</span>　<span class="a-item">⑥ リットン調査団</span>　<span class="a-item">⑦ 五・一五事件</span>　<span class="a-item">⑧ 二・二六事件</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 満州事変</span>　<span class="a-item">(2) 柳条湖事件</span>　<span class="a-item">(3) 1931年</span>　<span class="a-item">(4) 満州国</span>　<span class="a-item">(5) 1932年</span>　<span class="a-item">(6) 溥儀</span>　<span class="a-item">(7) リットン調査団</span>　<span class="a-item">(8) 国際連盟脱退</span>　<span class="a-item">(9) 1933年</span>　<span class="a-item">(10) 五・一五事件</span>　<span class="a-item">(11) 犬養毅</span>　<span class="a-item">(12) 二・二六事件</span>　<span class="a-item">(13) 1936年</span>　<span class="a-item">(14) 関東軍</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) イ（リットン調査団）</span>　<span class="a-item">(2) イ（1933年）</span>　<span class="a-item">(3) ウ（溥儀）</span>　<span class="a-item">(4) イ（南満州鉄道）</span>　<span class="a-item">(5) ウ（高橋是清）</span>　<span class="a-item">(6) エ（関東軍）</span>　<span class="a-item">(7) ア（1932年）</span>　<span class="a-item">(8) エ（政党出身首相が途絶えた）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 南満州鉄道を自ら爆破しながら中国軍の仕業と偽ることで、軍事行動を正当化し、満州の占領を進めるため。</div><div class="a-written">(2) 海軍青年将校らが犬養毅首相を暗殺し、これ以降政党出身の首相が続かなくなり、政党政治が事実上終わった。</div><div class="a-written">(3) 国際連盟がリットン調査団の報告にもとづいて満州国を認めず、日本軍の撤退を勧告したため、これに反発して脱退した。</div></div><div class="a-group"><span class="a-label">E 資料問題</span><span class="a-item">(1) 満州事変</span>　<span class="a-item">(2) 満州国</span>　<span class="a-item">(3) 盧溝橋事件</span></div></div><div class="a-topic"><div class="a-title">3　日中戦争の泥沼化</div><div class="a-group"><span class="a-label">A 要点まとめ</span><span class="a-item">① 盧溝橋事件</span>　<span class="a-item">② 日中戦争</span>　<span class="a-item">③ 南京事件</span>　<span class="a-item">④ 蒋介石</span>　<span class="a-item">⑤ 国共合作</span>　<span class="a-item">⑥ 重慶</span>　<span class="a-item">⑦ 近衛文麿</span>　<span class="a-item">⑧ 国家総動員法</span>　<span class="a-item">⑨ 大政翼賛会</span>　<span class="a-item">⑩ 日独伊三国同盟</span></div><div class="a-group"><span class="a-label">B 一問一答</span><span class="a-item">(1) 日中戦争</span>　<span class="a-item">(2) 盧溝橋事件</span>　<span class="a-item">(3) 1937年</span>　<span class="a-item">(4) 南京事件</span>　<span class="a-item">(5) 国共合作</span>　<span class="a-item">(6) 蒋介石</span>　<span class="a-item">(7) 毛沢東</span>　<span class="a-item">(8) 国家総動員法</span>　<span class="a-item">(9) 1938年</span>　<span class="a-item">(10) 近衛文麿</span>　<span class="a-item">(11) 大政翼賛会</span>　<span class="a-item">(12) 1940年</span>　<span class="a-item">(13) 日独伊三国同盟</span>　<span class="a-item">(14) 重慶</span></div><div class="a-group"><span class="a-label">C 実戦問題</span><span class="a-item">(1) エ（大政翼賛会）</span>　<span class="a-item">(2) イ（国共合作）</span>　<span class="a-item">(3) ウ（蒋介石）</span>　<span class="a-item">(4) イ（毛沢東）</span>　<span class="a-item">(5) ア（南京事件）</span>　<span class="a-item">(6) エ（近衛文麿）</span>　<span class="a-item">(7) イ（重慶）</span>　<span class="a-item">(8) エ（国民を戦争に協力させるために統制した）</span></div><div class="a-group"><span class="a-label">D 記述問題</span><div class="a-written">(1) 議会の承認を得ずに、政府の命令だけで国民や物資を戦争のために動員できるようにした戦時体制の法律。</div><div class="a-written">(2) 日本軍の侵略に対抗するため、対立していた国民党と共産党が手を結び、抗日で協力する必要があったから。</div><div class="a-written">(3) 1937年、北京郊外で日中両軍が武力衝突した盧溝橋事件をきっかけに、日本と中国の全面的な戦争である日中戦争が始まった。</div></div></div>
 </section>
 </main>
+<div class="hintbar" id="hintBar" hidden></div>
 <div class="navbar" id="navbar" hidden><div class="navbar-in">
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
@@ -2018,12 +2130,76 @@
 <script>
 (function () {
   var KEY = 'tzmwb-15';
+  var CH = '15';
+  var REF_VIEWS = [0, 0, 1, 2, 3];        // 問題集のビューt → 参考書の単元番号（0＝対応なし）
   var views = [].slice.call(document.querySelectorAll('.view'));
   var tabs = [].slice.call(document.querySelectorAll('.tab'));
   var N = views.length - 1;
   var state = { t: 0, s: 0 };
   var lastDir = 1;
   var rendered = null; // 直前に表示していた {t, s}（ページめくり演出用）
+
+  // ── 問題集 ⇄ 参考書の行き来（相手側の読みかけページに着地） ──
+  function refHref(t) {
+    var base = '../../ref/' + CH + '/index.html';
+    var v = REF_VIEWS[t] || 0;
+    if (!v) return base;
+    var s = 0;
+    try {
+      var st = JSON.parse(localStorage.getItem('tzmref-' + CH) || '{}');
+      if (st.last && st.last.t === v && st.last.s > 0) s = st.last.s;
+    } catch (e) {}
+    return base + '#t' + v + (s ? 's' + s : '');
+  }
+  function updateSwap() {
+    var a = document.getElementById('swRef');
+    a.href = refHref(state.t);
+  }
+
+  // ── 操作ヒント（初回のみ）＋タブ列のホイール操作 ──
+  (function () {
+    var el = document.getElementById('tabs');
+    if (el) el.addEventListener('wheel', function (e) {
+      // PC でも横スクロールできるよう、縦ホイールを横移動に変換する
+      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) { el.scrollLeft += e.deltaY; e.preventDefault(); }
+    }, { passive: false });
+
+    var bar = document.getElementById('hintBar');
+    if (!bar) return;
+    try { if (localStorage.getItem('tzmhint') === '1') return; } catch (e) { return; }
+    var canHover = window.matchMedia && window.matchMedia('(hover:hover)').matches;
+    bar.textContent = canHover ? '⌨️ ← → キーでもページをめくれるよ'
+                               : '👆 よこにスワイプでもページをめくれるよ';
+    var shown = false;
+    window.showHint = function () {
+      if (shown || state.t === 0) return;
+      shown = true; bar.hidden = false;
+      try { localStorage.setItem('tzmhint', '1'); } catch (e) {}
+      setTimeout(function () { bar.hidden = true; }, 5000);
+    };
+    bar.addEventListener('click', function () { bar.hidden = true; });
+  })();
+
+  // 単元タブの左右矢印: まだ隠れているタブがある側だけ出す
+  function updateTabArrows() {
+    var el = document.getElementById('tabs');
+    var L = document.getElementById('tabsL'), R = document.getElementById('tabsR');
+    if (!el || !L || !R) return;
+    var max = el.scrollWidth - el.clientWidth;
+    L.hidden = el.scrollLeft <= 2;
+    R.hidden = el.scrollLeft >= max - 2;
+  }
+  (function () {
+    var el = document.getElementById('tabs');
+    var L = document.getElementById('tabsL'), R = document.getElementById('tabsR');
+    if (!el || !L || !R) return;
+    function by(d) { el.scrollBy({ left: d * Math.max(80, el.clientWidth * 0.7), behavior: 'smooth' }); }
+    L.addEventListener('click', function (e) { e.stopPropagation(); by(-1); });
+    R.addEventListener('click', function (e) { e.stopPropagation(); by(1); });
+    el.addEventListener('scroll', updateTabArrows, { passive: true });
+    window.addEventListener('resize', updateTabArrows);
+    setTimeout(updateTabArrows, 0);
+  })();
 
   function store() {
     try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; }
@@ -2216,9 +2392,8 @@
       if (steps[s]) steps[s].classList.add('on');
       navbar.hidden = false;
       var onModeStep = steps[s] && steps[s].dataset.sec === 'M';
-      barStep.textContent = onModeStep
-        ? 'やり方をえらぼう'
-        : (s + 1) + ' / ' + steps.length;
+      // 「やり方をえらぼう」は本文にも大きく出るのでヘッダーには出さない（単元タブの幅を優先）
+      barStep.textContent = onModeStep ? '' : (s + 1) + ' / ' + steps.length;
       pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
       document.getElementById('btnPrev').textContent = s === 0 ? '🏠 目次' : '← まえへ';
       var next = document.getElementById('btnNext');
@@ -2241,7 +2416,9 @@
       }
     }
     var h = '#t' + t + (t > 0 && s > 0 ? 's' + s : '');
-    if (location.hash !== h) history.replaceState(null, '', t === 0 ? '#' : h);
+    // クエリが付いていても落とさない（URL共有時の情報を保つ）
+    if (location.hash !== h) history.replaceState(null, '', location.search + (t === 0 ? '#' : h));
+    updateSwap();
     rendered = { t: t, s: s };
   }
 
@@ -2532,8 +2709,9 @@
       return;
     }
     if (inField) return;  // 入力中の矢印キーではページ送りしない
-    if (e.key === 'ArrowRight') next();
-    if (e.key === 'ArrowLeft') prev();
+    if (e.key === 'ArrowRight' || e.key === 'PageDown') { next(); e.preventDefault(); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { prev(); e.preventDefault(); }
+    else if (e.key === 'Home') { go(0, 0, -1); e.preventDefault(); }
   });
   var tx = 0, ty = 0;
   document.addEventListener('touchstart', function (e) {
