@@ -61,3 +61,7 @@ public/graphs/*.svg
 # 図の一括確認用シート（一時ファイル）
 _figure-review.png
 _math-card-preview.png
+
+# 執筆用の元スキャン（市販教材PDF）。ビルド・アプリは未参照なので追跡しない。
+# JSON→生成TS だけがビルドに要る。ローカルには残す。
+data/content/**/*.pdf
