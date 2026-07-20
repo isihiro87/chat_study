@@ -65,3 +65,6 @@ _math-card-preview.png
 # 執筆用の元スキャン（市販教材PDF）。ビルド・アプリは未参照なので追跡しない。
 # JSON→生成TS だけがビルドに要る。ローカルには残す。
 data/content/**/*.pdf
+
+# src配下の元スキャン（同上・未参照）。ローカルには残す。
+src/data/subjects/**/*.pdf
