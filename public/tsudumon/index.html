@@ -1,138 +1,371 @@
 <!DOCTYPE html><html lang="ja"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex">
-<title>つづもん 歴史すごろく｜本一覧</title>
+<title>つづもん 歴史クエスト｜本一覧</title>
 <style>
-  :root { --brand:#b45309; --deep:#7c2d12; --amber:#f59e0b; --cream:#fffdf8; --line:#fde68a;
-          --ok:#16a34a; --ng:#dc2626;
-          --s-ref:#93c5fd; --s-some:#fcd34d; --s-all:#86efac; --s-perfect:#fbbf24; }
+  :root { --brand:#b45309; --deep:#7c2d12; --amber:#f59e0b; --line:#e8d3a8;
+          --paper:#fffaf0; --parch:#f5e6c8; --wood:#8b5a2b; --ink:#3b2b16;
+          --s-ref:#60a5fa; --s-some:#fbbf24; --s-all:#4ade80; --s-perfect:#f59e0b;
+          --era-ancient:#eadfbe; --era-medieval:#dfead9; --era-earlymod:#e3ddd0;
+          --era-modern:#dfd9e6; --era-current:#e6dcd2; }
   * { margin:0; padding:0; box-sizing:border-box; }
   html { -webkit-text-size-adjust:100%; }
-  body { font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;
-         color:#1c1917; background:linear-gradient(#fffdf8,#fef6e4); padding-bottom:40px; }
-  .wrap { max-width:720px; margin:0 auto; padding:0 14px; }
+  body { font-family:"Kiwi Maru","Zen Maru Gothic","Hiragino Maru Gothic ProN",
+                     "Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;
+         color:var(--ink);
+         padding-bottom:calc(40px + env(safe-area-inset-bottom));
+         background:#efe0c0;
+         /* 羊皮紙テクスチャ（img/quest-bg.webp）。無ければ下のグラデーションだけが見える */
+         background-image:
+           url("img/quest-bg.webp"),
+           radial-gradient(circle at 18% 12%, rgba(255,255,255,.55) 0 26%, transparent 26%),
+           radial-gradient(circle at 82% 68%, rgba(255,255,255,.4) 0 22%, transparent 22%),
+           linear-gradient(160deg,#f7ead0,#eddcb8 60%,#e6d2ab);
+         background-size:cover, auto, auto, auto;
+         background-position:top center;
+         background-attachment:fixed, scroll, scroll, scroll; }
+  .wrap { max-width:720px; margin:0 auto; padding:0 14px;
+          padding-top:calc(6px + env(safe-area-inset-top)); }
 
-  header.top { text-align:center; padding:22px 0 8px; }
-  .badge { display:inline-block; background:var(--brand); color:#fff; font-weight:bold;
-           padding:4px 16px; border-radius:20px; font-size:13px; }
-  header.top h1 { font-size:26px; color:var(--deep); margin-top:10px; }
-  header.top .sub { color:#92400e; font-size:13.5px; margin-top:4px; }
+  /* ───── ヘッダー ───── */
+  .head { position:relative; text-align:center; padding:8px 0 4px; }
+  .head-h1 { font-size:34px; font-weight:900; color:#fcd34d; letter-spacing:.03em;
+             -webkit-text-stroke:5px #6b3b12; paint-order:stroke fill;
+             text-shadow:0 3px 0 rgba(107,59,18,.45); }
+  /* ロゴ画像（img/quest-title.webp）が読めたら文字版と差し替える */
+  .title-img { display:none; width:min(78%,340px); height:auto; margin:0 auto; }
+  .head.has-logo .title-img { display:block; }
+  .head.has-logo .head-h1 { position:absolute; width:1px; height:1px; overflow:hidden;
+                            clip-path:inset(50%); white-space:nowrap; }
+  .head-sub { display:inline-block; margin-top:2px; background:linear-gradient(#5c3a17,#40260d);
+              color:#fdf3d9; font-size:13px; font-weight:bold; padding:5px 20px;
+              border-radius:6px; box-shadow:0 3px 0 rgba(60,34,10,.5); }
+  .ch-explorer { position:absolute; left:0; bottom:-2px; width:64px; height:auto; pointer-events:none; }
+  .ch-bird { position:absolute; right:0; bottom:-2px; width:64px; height:auto; pointer-events:none; }
 
-  /* 全体の進み具合 */
-  .overall { max-width:720px; margin:12px auto 4px; padding:0 14px; }
-  .ov-bar { height:12px; background:#f1e6cf; border-radius:8px; overflow:hidden; border:1px solid #f0deb0; }
-  .ov-fill { height:100%; width:0; background:linear-gradient(90deg,var(--amber),#fbbf24); transition:width .4s; }
-  .ov-txt { text-align:center; font-size:12.5px; font-weight:bold; color:#92400e; margin-top:5px; }
+  /* ───── 学年タブ（2学年以上のときだけ出る） ───── */
+  .gtabs { display:none; gap:8px; justify-content:center; margin:6px 0 0; }
+  .gtabs.show { display:flex; }
+  .gtab { border:2px solid #c9a978; background:#fffaf0; color:var(--brand); font-weight:bold;
+          border-radius:22px; padding:7px 22px; font-size:14px; cursor:pointer; font-family:inherit;
+          box-shadow:0 3px 0 #d8bd91; }
+  .gtab.on { background:linear-gradient(#b45309,#8a3f07); color:#fff8ec; border-color:#7c2d12;
+             box-shadow:0 3px 0 #5c2508; }
 
-  /* 凡例 */
+  /* ───── 巻物パネル ───── */
+  .panel { background:linear-gradient(#fffdf6,#f8eed9); border:2px solid #ddc39a;
+           border-radius:16px; padding:10px 14px 11px; margin-top:10px;
+           box-shadow:0 4px 0 #ddc39a, 0 6px 14px rgba(120,80,20,.14); }
+  .p-h { font-size:12.5px; font-weight:bold; color:var(--deep); text-align:center; }
+  .big { text-align:center; margin:2px 0 7px; font-weight:bold; color:var(--deep); }
+  .big b { font-size:30px; color:var(--brand); line-height:1; }
+  .big .sm { font-size:14px; }
+  .ov-bar { height:18px; background:#f1e6cf; border-radius:10px; overflow:hidden;
+            border:2px solid #ddc39a; position:relative; }
+  .ov-fill { height:100%; width:0; border-radius:8px; transition:width .5s cubic-bezier(.22,.72,.32,1);
+             background:linear-gradient(90deg,#fbbf24,#f59e0b 70%,#d97706); }
+
+  /* 凡例（2行に折り返す） */
   .legend { display:flex; flex-wrap:wrap; gap:8px 14px; justify-content:center;
-            margin:10px auto 6px; font-size:12px; color:#57534e; }
+            margin-top:10px; font-size:11.5px; color:#6b5a3c; }
   .lg { display:inline-flex; align-items:center; gap:5px; }
-  .dot { width:14px; height:14px; border-radius:4px; border:1.5px solid rgba(0,0,0,.12); }
+  .dot { width:14px; height:14px; border-radius:50%; border:2px solid rgba(0,0,0,.12); background:#fff; }
   .dot.d-ref { background:var(--s-ref); } .dot.d-some { background:var(--s-some); }
   .dot.d-all { background:var(--s-all); } .dot.d-perfect { background:var(--s-perfect); }
-  .dot.d-none { background:#fff; }
 
-  /* 3D すごろく盤 */
-  .board-wrap { perspective:1400px; margin:8px 0 4px; overflow-x:hidden; }
-  .board { transform:rotateX(16deg); transform-origin:top center; transform-style:preserve-3d;
-           padding:6px 2px 30px; }
-  .grade-band { display:flex; align-items:center; gap:8px; margin:16px 0 8px;
-                transform:translateZ(1px); }
-  .grade-tag { flex:none; background:var(--deep); color:#fff; font-weight:bold; font-size:14px;
-               border-radius:10px; padding:4px 14px; box-shadow:0 3px 0 #5b1e0b; }
-  .grade-line { flex:1; height:3px; background:repeating-linear-gradient(90deg,#e7d3ad 0 10px,transparent 10px 18px); }
+  /* ───── 今日のミッション ───── */
+  .mission { display:flex; align-items:center; gap:10px; margin-top:10px;
+             background:linear-gradient(#fffdf6,#fdf3e0);
+             border:2px dashed var(--amber); border-radius:14px; padding:8px 12px; }
+  .ch-mascot { width:42px; height:auto; flex:none; filter:drop-shadow(0 2px 3px rgba(0,0,0,.18)); }
+  .ms-body { flex:1; min-width:0; }
+  .ms-h { font-size:12px; font-weight:bold; color:#b45309; }
+  .ms-txt { font-size:14px; font-weight:bold; color:var(--deep); margin-top:2px; }
+  .ms-steps { display:flex; gap:6px; margin-top:7px; }
+  .ms-step { width:26px; height:26px; border-radius:50%; background:#fff; border:2px solid #ddc39a;
+             display:inline-flex; align-items:center; justify-content:center; font-size:13px; }
+  .ms-step.on { background:var(--amber); border-color:var(--brand); color:#fff; }
 
-  .row { display:flex; gap:10px; margin-bottom:10px; align-items:stretch; }
+  /* ───── マップ（島を縦に積む） ───── */
+  .board { margin-top:12px; }
+  /* いま表示していない学年のマスの置き場（画面には出さない） */
+  #cells { display:none; }
+  .era { position:relative; border-radius:20px; padding:10px 9px 12px; margin-bottom:12px;
+         border:3px solid rgba(124,45,18,.14);
+         box-shadow:inset 0 0 0 3px rgba(255,255,255,.45), 0 6px 16px rgba(120,80,20,.14); }
+  /* 島のイラスト（img/quest-island-*.png）を敷く。無ければ色だけになる。
+     マスと文字が読めるよう、白のベールを1枚かぶせている。 */
+  .era { background-repeat:no-repeat; background-position:center; background-size:cover; }
+  .era.e-ancient  { background-color:var(--era-ancient);
+                    background-image:linear-gradient(rgba(255,253,246,.40),rgba(255,253,246,.58)),url("img/quest-island-ancient.webp"); }
+  .era.e-medieval { background-color:var(--era-medieval);
+                    background-image:linear-gradient(rgba(255,253,246,.40),rgba(255,253,246,.58)),url("img/quest-island-medieval.webp"); }
+  .era.e-earlymod { background-color:var(--era-earlymod);
+                    background-image:linear-gradient(rgba(255,253,246,.40),rgba(255,253,246,.58)),url("img/quest-island-earlymod.webp"); }
+  .era.e-modern   { background-color:var(--era-modern);
+                    background-image:linear-gradient(rgba(255,253,246,.40),rgba(255,253,246,.58)),url("img/quest-island-modern.webp"); }
+  .era.e-current  { background-color:var(--era-current);
+                    background-image:linear-gradient(rgba(255,253,246,.40),rgba(255,253,246,.58)),url("img/quest-island-current.webp"); }
+  /* 島と島をつなぐ点線（次の島へ渡る道） */
+  .era::after { content:"⛵"; position:absolute; left:50%; bottom:-15px; transform:translateX(-50%);
+                font-size:15px; opacity:.75; }
+  .era:last-of-type::after { content:none; }
+  /* 時代の木の看板 */
+  .sign { display:inline-flex; align-items:center; gap:7px; background:linear-gradient(#c89a5b,#a97b3f);
+          color:#fff8ec; font-weight:bold; border-radius:9px; padding:4px 13px;
+          box-shadow:0 3px 0 #7d5a2b, 0 5px 8px rgba(90,60,20,.25); font-size:13.5px;
+          border:2px solid #8a6431; }
+  .sign .s-emoji { font-size:15px; }
+  .sign .s-range { font-size:10.5px; background:rgba(255,255,255,.25); border-radius:8px; padding:1px 6px; }
+  .era-hint { font-size:11px; color:#7c5a2a; margin:5px 2px 2px; font-weight:bold; }
+
+  /* マスは1行8個。単元名はマップには出さず、下の「単元一覧」で見せる。 */
+  .row { display:flex; gap:4px; align-items:flex-start; position:relative; margin:12px 0 6px; }
   .row.rev { flex-direction:row-reverse; }
+  /* マスをつなぐ点線の道。--span＝実際にマスがある幅の割合（端数の行で線が余らない） */
+  .row::before { content:""; position:absolute; left:5%; top:16px; height:5px; z-index:0;
+                 width:calc(var(--span,100%) - 10%);
+                 background:repeating-linear-gradient(90deg,#e0cb9c 0 9px, transparent 9px 17px);
+                 border-radius:3px; }
+  .row.rev::before { left:auto; right:5%; }
+  .cell { position:relative; z-index:1; flex:0 0 calc((100% - (var(--row,8) - 1) * 4px) / var(--row,8));
+          min-width:0; border:none; background:none;
+          cursor:pointer; font-family:inherit; padding:0; display:flex; flex-direction:column;
+          align-items:center; }
+  .tok { position:relative; width:min(100%,38px); aspect-ratio:1; border-radius:50%; background:#fffdf6;
+         border:2.5px solid #e2cfa4; display:flex; align-items:center; justify-content:center;
+         box-shadow:0 3px 0 #e2cfa4, 0 5px 7px rgba(120,80,20,.18);
+         transition:transform .12s, box-shadow .12s, background-color .2s, border-color .2s; }
+  .tok-no { font-weight:bold; font-size:15px; color:#7a6a4d; line-height:1; }
+  .tok-badge { position:absolute; right:-3px; bottom:-3px; font-size:12px; line-height:1;
+               filter:drop-shadow(0 1px 1px rgba(0,0,0,.2)); }
+  /* バッジ画像（img/quest-badge-*.webp）が使えるときだけ絵文字と差し替える */
+  .has-badges .tok-badge { font-size:0; width:16px; height:16px;
+                           background:center/contain no-repeat; }
+  .has-badges .cell.s-ref     .tok-badge { background-image:url("img/quest-badge-ref.webp"); }
+  .has-badges .cell.s-some    .tok-badge { background-image:url("img/quest-badge-some.webp"); }
+  .has-badges .cell.s-all     .tok-badge { background-image:url("img/quest-badge-all.webp"); }
+  .has-badges .cell.s-perfect .tok-badge { background-image:url("img/quest-badge-perfect.webp"); }
+  /* 島のイラストの上に乗るので、白いにじみで文字を浮かせる */
+  .era-hint { text-shadow:0 0 4px #fffdf6, 0 0 6px #fffdf6; }
 
-  .cell { position:relative; flex:1 1 0; min-width:0; border:none; background:none; cursor:pointer;
-          font-family:inherit; padding:0; }
-  /* マス＝立体ブロック（上面＋下の厚み） */
-  .cell-face { display:flex; flex-direction:column; align-items:center; justify-content:center;
-               background:#fff; border:2px solid #e7d3ad; border-radius:12px; padding:8px 4px 7px;
-               box-shadow:0 6px 0 #e2cfa4, 0 8px 10px rgba(120,80,20,.18);
-               transition:transform .12s, box-shadow .12s, background-color .2s, border-color .2s; }
-  .cell-no { font-weight:bold; font-size:15px; color:#78716c; line-height:1; }
-  .cell-badge { font-size:15px; line-height:1; margin-top:3px; min-height:16px; }
-  .cell-name { display:block; font-size:9.5px; color:#78716c; margin-top:4px; line-height:1.25;
-               max-height:2.5em; overflow:hidden; text-align:center; }
+  .cell.s-ref  .tok { background:#eff6ff; border-color:var(--s-ref); box-shadow:0 5px 0 #93c5fd,0 7px 10px rgba(59,130,246,.22); }
+  .cell.s-some .tok { background:#fffbeb; border-color:var(--s-some); box-shadow:0 5px 0 #f6d264,0 7px 10px rgba(245,158,11,.24); }
+  .cell.s-all  .tok { background:#f0fdf4; border-color:var(--s-all); box-shadow:0 5px 0 #86efac,0 7px 10px rgba(22,163,74,.22); }
+  .cell.s-perfect .tok { background:linear-gradient(#fffbe6,#fde68a); border-color:var(--amber);
+                         box-shadow:0 5px 0 #eab308,0 8px 12px rgba(234,179,8,.4); }
+  .cell.s-ref .tok-no, .cell.s-some .tok-no, .cell.s-all .tok-no, .cell.s-perfect .tok-no { color:var(--deep); }
+  .cell.s-perfect .tok::after { content:""; position:absolute; inset:-7px; border-radius:50%;
+                                border:2px dashed rgba(245,158,11,.55); animation:spin 9s linear infinite; }
+  @keyframes spin { to { transform:rotate(360deg); } }
 
-  /* 状態別の色 */
-  .cell.s-ref  .cell-face { background:#eff6ff; border-color:#bfdbfe; box-shadow:0 6px 0 #bfdbfe,0 8px 10px rgba(59,130,246,.2); }
-  .cell.s-some .cell-face { background:#fffbeb; border-color:#fcd34d; box-shadow:0 6px 0 #f6d264,0 8px 10px rgba(245,158,11,.22); }
-  .cell.s-all  .cell-face { background:#f0fdf4; border-color:#86efac; box-shadow:0 6px 0 #86efac,0 8px 10px rgba(22,163,74,.2); }
-  .cell.s-perfect .cell-face { background:linear-gradient(#fffbe6,#fef3c7); border-color:var(--amber);
-                     box-shadow:0 6px 0 #eab308,0 9px 12px rgba(234,179,8,.35); }
-  .cell.s-ref .cell-no, .cell.s-some .cell-no, .cell.s-all .cell-no, .cell.s-perfect .cell-no { color:var(--deep); }
-  /* いま挑戦中（つぎのマス）を光らせる */
-  .cell.current .cell-face { border-color:var(--brand); box-shadow:0 6px 0 var(--brand),0 0 0 3px rgba(180,83,9,.25),0 10px 14px rgba(180,83,9,.3); }
-  .cell.current::after { content:"つぎはここ"; position:absolute; top:-16px; left:50%; transform:translateX(-50%);
-                         background:var(--brand); color:#fff; font-size:10px; font-weight:bold;
-                         padding:2px 7px; border-radius:8px; white-space:nowrap; }
-  /* プレイヤーの駒 */
-  .cell.here .cell-face::before { content:"🧑‍🎓"; position:absolute; top:-20px; left:50%;
-                         transform:translateX(-50%); font-size:22px; filter:drop-shadow(0 2px 2px rgba(0,0,0,.25)); }
+  /* いま挑戦中のマス＝旗つきで光る */
+  .cell.current .tok { border-color:var(--brand); background:#fffdf6;
+                       box-shadow:0 5px 0 var(--brand), 0 0 0 4px rgba(180,83,9,.18), 0 10px 14px rgba(180,83,9,.3);
+                       animation:pulse 1.8s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-3px); } }
+  /* いまいるマスの上に立つ探検者。1行8マスなので吹き出しは出さない */
+  .cell.here .tok::before { content:"🧑‍🎓"; position:absolute; top:-17px; left:50%;
+                            transform:translateX(-50%); font-size:16px;
+                            filter:drop-shadow(0 2px 2px rgba(0,0,0,.25)); }
 
-  .start-flag, .goal-flag { text-align:center; font-size:22px; margin:4px 0; transform:translateZ(1px); }
-  .goal-flag .g-txt, .start-flag .s-txt { display:block; font-size:12px; font-weight:bold; color:var(--brand); }
+  @media (hover:hover) { .cell:hover .tok { transform:translateY(-3px); } }
+  .cell:active .tok { transform:translateY(3px); box-shadow:0 2px 0 #e2cfa4,0 3px 5px rgba(120,80,20,.18); }
 
-  @media (hover:hover) {
-    .cell:hover .cell-face { transform:translateY(-2px); }
-    .home-link:hover, .book-link:hover { filter:brightness(0.96); }
+  /* ゴール */
+  .goal { margin:8px 0 0; }
+  .goal .g-box { display:flex; align-items:center; gap:12px;
+                 background:linear-gradient(#fffdf6,#fdf0cf); border:2px solid var(--amber);
+                 border-radius:16px; padding:9px 14px; box-shadow:0 4px 0 #eab308; }
+  .g-chest { width:56px; height:auto; flex:none; }
+  .goal .g-flag { display:inline-block; background:linear-gradient(#e0453a,#b91c1c); color:#fff8ec;
+                  font-weight:bold; border-radius:5px; padding:2px 12px; font-size:12px;
+                  letter-spacing:.1em; box-shadow:0 2px 0 #7f1d1d; }
+  .goal .g-t { font-weight:bold; color:var(--deep); font-size:14.5px; margin-top:4px; }
+  .goal .g-s { font-size:11px; color:#92400e; }
+
+  /* ───── 単元一覧 ───── */
+  .books { margin-top:18px; }
+  .books-h { text-align:center; margin-bottom:10px; }
+  .books-h h2 { display:inline-block; font-size:16px; color:var(--deep);
+                background:linear-gradient(#fffdf6,#f4e7cd); border:2px solid #ddc39a;
+                border-radius:11px; padding:6px 22px; box-shadow:0 3px 0 #ddc39a; }
+  .book { background:var(--paper); border:2px solid #ddc39a; border-radius:12px; margin-bottom:8px;
+          overflow:hidden; box-shadow:0 3px 0 #e6d3ae; }
+  /* 章の帯（冒険N）。カンプの学年帯と同じ役目 */
+  .ch-band { display:flex; align-items:center; gap:6px; padding:6px 10px;
+             background:linear-gradient(#f0dcb4,#e7cd9c); border-bottom:2px solid #ddc39a; }
+  .cb-flag { flex:none; font-size:12px; }
+  .cb-no { flex:none; font-weight:bold; color:var(--deep); font-size:11.5px; white-space:nowrap; }
+  .cb-title { flex:1; font-size:12.5px; font-weight:bold; color:#4a3a22; min-width:0;
+              overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .bk-prog { flex:none; font-size:10.5px; color:#7c5a2a; font-weight:bold; }
+  .u-list { list-style:none; }
+  .u-row { display:flex; align-items:center; gap:6px; padding:5px 9px; }
+  .u-row + .u-row { border-top:1px dashed #ecdcbb; }
+  .u-no { flex:none; width:19px; height:19px; border-radius:6px; background:#fff; border:1.5px solid var(--line);
+          color:var(--brand); font-weight:bold; font-size:10.5px; display:inline-flex;
+          align-items:center; justify-content:center; }
+  .u-name { flex:1; font-size:12.5px; min-width:0; overflow:hidden;
+            text-overflow:ellipsis; white-space:nowrap; }
+  .u-state { flex:none; font-size:12px; width:15px; text-align:center; }
+  .u-btn { flex:none; text-decoration:none; font-size:10.5px; font-weight:bold; border-radius:7px;
+           padding:3px 9px; white-space:nowrap; }
+  .u-btn.wb { background:linear-gradient(#b45309,#8a3f07); color:#fff8ec; box-shadow:0 2px 0 #5c2508; }
+  .u-btn.ref { background:#fff; color:#1d4ed8; border:1.5px solid #bfdbfe; box-shadow:0 2px 0 #e6efff; }
+  .u-btn.off { color:#d6d3d1; border-color:#eee; box-shadow:none; background:#fff; }
+
+  /* ───── 冒険のきろく ───── */
+  .record { margin-top:22px; }
+  .rec-h { text-align:center; margin-bottom:10px; }
+  .rec-h h2 { display:inline-block; font-size:16px; color:var(--deep);
+              background:linear-gradient(#fffdf6,#f4e7cd); border:2px solid #ddc39a;
+              border-radius:12px; padding:6px 22px; box-shadow:0 3px 0 #ddc39a; }
+  .counts { display:flex; gap:8px; }
+  .cnt { flex:1; text-align:center; background:#fffdf6; border:2px solid #ddc39a; border-radius:12px;
+         padding:9px 2px 7px; box-shadow:0 3px 0 #e6d3ae; }
+  .cnt b { display:block; font-size:22px; color:var(--deep); line-height:1.2; }
+  .cnt span { font-size:10.5px; color:#8a7b62; }
+
+  footer { text-align:center; margin-top:26px; color:#9c8a6a; font-size:12px; }
+
+  /* 画面が広いときはマスを大きめに（1行の数は8個のまま） */
+  @media (min-width:640px) {
+    .tok { width:min(100%,56px); }
+    .tok-no { font-size:19px; }
+    .row { gap:8px; }
+    .row::before { top:25px; }
+    .cell { flex:0 0 calc((100% - (var(--row,8) - 1) * 8px) / var(--row,8)); }
+    .head-h1 { font-size:42px; }
   }
-  .cell:active .cell-face { transform:translateY(3px); box-shadow:0 3px 0 #e2cfa4,0 4px 6px rgba(120,80,20,.18); }
-
-  /* 章一覧（テキストリンク・すごろくが苦手な人向けの直リンク） */
-  .books { margin:18px 0 0; }
-  .books h2 { font-size:15px; color:var(--deep); text-align:center; margin-bottom:8px; }
-  .book-row { display:flex; align-items:center; gap:8px; background:#fff; border:1.5px solid var(--line);
-              border-radius:12px; padding:8px 12px; margin-bottom:7px; }
-  .book-row .bk-vol { flex:none; font-weight:bold; color:var(--brand); font-size:13px; min-width:52px; }
-  .book-row .bk-title { flex:1; font-size:14px; font-weight:bold; color:#44403c; }
-  .book-link { flex:none; text-decoration:none; font-size:12px; font-weight:bold; border-radius:10px;
-               padding:5px 10px; }
-  .book-link.wb { background:var(--brand); color:#fff; }
-  .book-link.ref { background:#fffbeb; color:var(--brand); border:1.5px solid var(--line); }
-  .grade-head { font-size:13px; font-weight:bold; color:var(--deep); margin:12px 0 6px; padding-left:2px; }
-
-  footer { text-align:center; margin-top:26px; color:#a8a29e; font-size:12px; }
 </style></head><body>
-<header class="top wrap">
-  <div class="badge">つづもん 歴史</div>
-  <h1>🗺 歴史すごろく</h1>
-  <div class="sub">マスを進めて日本の歴史を制覇しよう！ 解いたところがどんどんクリアに変わるよ。</div>
-</header>
-<div class="overall"><div class="ov-bar"><div class="ov-fill" id="ovFill"></div></div>
-  <div class="ov-txt" id="ovTxt"></div></div>
-<div class="legend">
-  <span class="lg"><span class="dot d-none"></span>まだ</span>
-  <span class="lg"><span class="dot d-ref"></span>📖 参考書を読んだ</span>
-  <span class="lg"><span class="dot d-some"></span>✏️ 一部を解いた</span>
-  <span class="lg"><span class="dot d-all"></span>✅ 全部解いた</span>
-  <span class="lg"><span class="dot d-perfect"></span>👑 全問正解</span>
-</div>
-<div class="board-wrap"><div class="wrap"><div class="board" id="board">
-  <div class="start-flag">🏁<span class="s-txt">スタート</span></div>
-  <div id="cells" style="display:none"><button class="cell" type="button" data-ch="01" data-tid="time-periods" data-wb="2" data-ref="1" data-nq="24" data-n="1" data-grade="中1" data-vol="歴史 ①" title="歴史 ① 時期や年代の表し方"><span class="cell-face"><span class="cell-no">1</span><span class="cell-badge"></span></span><span class="cell-name">時期や年代の表し方</span></button><button class="cell" type="button" data-ch="02" data-tid="human-origins" data-wb="2" data-ref="1" data-nq="24" data-n="2" data-grade="中1" data-vol="歴史 ②" title="歴史 ② 人類の出現と進化"><span class="cell-face"><span class="cell-no">2</span><span class="cell-badge"></span></span><span class="cell-name">人類の出現と進化</span></button><button class="cell" type="button" data-ch="02" data-tid="ancient-civilizations" data-wb="3" data-ref="2" data-nq="25" data-n="3" data-grade="中1" data-vol="歴史 ②" title="歴史 ② 古代文明の誕生"><span class="cell-face"><span class="cell-no">3</span><span class="cell-badge"></span></span><span class="cell-name">古代文明の誕生</span></button><button class="cell" type="button" data-ch="02" data-tid="chinese-civilization" data-wb="4" data-ref="3" data-nq="25" data-n="4" data-grade="中1" data-vol="歴史 ②" title="歴史 ② 中国文明の発展"><span class="cell-face"><span class="cell-no">4</span><span class="cell-badge"></span></span><span class="cell-name">中国文明の発展</span></button><button class="cell" type="button" data-ch="02" data-tid="greece-rome" data-wb="5" data-ref="4" data-nq="24" data-n="5" data-grade="中1" data-vol="歴史 ②" title="歴史 ② ギリシャ・ローマの世界"><span class="cell-face"><span class="cell-no">5</span><span class="cell-badge"></span></span><span class="cell-name">ギリシャ・ローマの世界</span></button><button class="cell" type="button" data-ch="02" data-tid="world-religions" data-wb="6" data-ref="5" data-nq="25" data-n="6" data-grade="中1" data-vol="歴史 ②" title="歴史 ② 世界の三大宗教"><span class="cell-face"><span class="cell-no">6</span><span class="cell-badge"></span></span><span class="cell-name">世界の三大宗教</span></button><button class="cell" type="button" data-ch="03" data-tid="jomon-era" data-wb="2" data-ref="1" data-nq="24" data-n="7" data-grade="中1" data-vol="歴史 ③" title="歴史 ③ 旧石器時代と縄文時代"><span class="cell-face"><span class="cell-no">7</span><span class="cell-badge"></span></span><span class="cell-name">旧石器時代と縄文時代</span></button><button class="cell" type="button" data-ch="03" data-tid="yayoi-era" data-wb="3" data-ref="2" data-nq="25" data-n="8" data-grade="中1" data-vol="歴史 ③" title="歴史 ③ 弥生時代"><span class="cell-face"><span class="cell-no">8</span><span class="cell-badge"></span></span><span class="cell-name">弥生時代</span></button><button class="cell" type="button" data-ch="03" data-tid="kofun-era" data-wb="4" data-ref="3" data-nq="25" data-n="9" data-grade="中1" data-vol="歴史 ③" title="歴史 ③ 古墳時代と大和政権"><span class="cell-face"><span class="cell-no">9</span><span class="cell-badge"></span></span><span class="cell-name">古墳時代と大和政権</span></button><button class="cell" type="button" data-ch="04" data-tid="shotoku-asuka" data-wb="2" data-ref="1" data-nq="25" data-n="10" data-grade="中1" data-vol="歴史 ④" title="歴史 ④ 聖徳太子と飛鳥文化"><span class="cell-face"><span class="cell-no">10</span><span class="cell-badge"></span></span><span class="cell-name">聖徳太子と飛鳥文化</span></button><button class="cell" type="button" data-ch="04" data-tid="taika-reform" data-wb="3" data-ref="2" data-nq="25" data-n="11" data-grade="中1" data-vol="歴史 ④" title="歴史 ④ 大化の改新"><span class="cell-face"><span class="cell-no">11</span><span class="cell-badge"></span></span><span class="cell-name">大化の改新</span></button><button class="cell" type="button" data-ch="04" data-tid="ritsuryo-nara" data-wb="4" data-ref="3" data-nq="25" data-n="12" data-grade="中1" data-vol="歴史 ④" title="歴史 ④ 律令国家と奈良時代"><span class="cell-face"><span class="cell-no">12</span><span class="cell-badge"></span></span><span class="cell-name">律令国家と奈良時代</span></button><button class="cell" type="button" data-ch="04" data-tid="handen-tax" data-wb="5" data-ref="4" data-nq="24" data-n="13" data-grade="中1" data-vol="歴史 ④" title="歴史 ④ 班田収授法と税制度"><span class="cell-face"><span class="cell-no">13</span><span class="cell-badge"></span></span><span class="cell-name">班田収授法と税制度</span></button><button class="cell" type="button" data-ch="04" data-tid="tenpyo-culture" data-wb="6" data-ref="5" data-nq="24" data-n="14" data-grade="中1" data-vol="歴史 ④" title="歴史 ④ 天平文化"><span class="cell-face"><span class="cell-no">14</span><span class="cell-badge"></span></span><span class="cell-name">天平文化</span></button><button class="cell" type="button" data-ch="04" data-tid="heian-capital" data-wb="7" data-ref="6" data-nq="24" data-n="15" data-grade="中1" data-vol="歴史 ④" title="歴史 ④ 平安京と新しい仏教"><span class="cell-face"><span class="cell-no">15</span><span class="cell-badge"></span></span><span class="cell-name">平安京と新しい仏教</span></button><button class="cell" type="button" data-ch="04" data-tid="sekkan-politics" data-wb="8" data-ref="7" data-nq="24" data-n="16" data-grade="中1" data-vol="歴史 ④" title="歴史 ④ 摂関政治"><span class="cell-face"><span class="cell-no">16</span><span class="cell-badge"></span></span><span class="cell-name">摂関政治</span></button><button class="cell" type="button" data-ch="04" data-tid="kokufu-culture" data-wb="9" data-ref="8" data-nq="24" data-n="17" data-grade="中1" data-vol="歴史 ④" title="歴史 ④ 国風文化"><span class="cell-face"><span class="cell-no">17</span><span class="cell-badge"></span></span><span class="cell-name">国風文化</span></button><button class="cell" type="button" data-ch="05" data-tid="rise-of-bushi" data-wb="2" data-ref="1" data-nq="24" data-n="18" data-grade="中1" data-vol="歴史 ⑤" title="歴史 ⑤ 武士の成長"><span class="cell-face"><span class="cell-no">18</span><span class="cell-badge"></span></span><span class="cell-name">武士の成長</span></button><button class="cell" type="button" data-ch="05" data-tid="insei-taira" data-wb="3" data-ref="2" data-nq="24" data-n="19" data-grade="中1" data-vol="歴史 ⑤" title="歴史 ⑤ 院政と平氏の政治"><span class="cell-face"><span class="cell-no">19</span><span class="cell-badge"></span></span><span class="cell-name">院政と平氏の政治</span></button><button class="cell" type="button" data-ch="05" data-tid="kamakura-bakufu" data-wb="4" data-ref="3" data-nq="25" data-n="20" data-grade="中1" data-vol="歴史 ⑤" title="歴史 ⑤ 鎌倉幕府の成立"><span class="cell-face"><span class="cell-no">20</span><span class="cell-badge"></span></span><span class="cell-name">鎌倉幕府の成立</span></button><button class="cell" type="button" data-ch="05" data-tid="kamakura-society" data-wb="5" data-ref="4" data-nq="24" data-n="21" data-grade="中1" data-vol="歴史 ⑤" title="歴史 ⑤ 鎌倉時代の社会"><span class="cell-face"><span class="cell-no">21</span><span class="cell-badge"></span></span><span class="cell-name">鎌倉時代の社会</span></button><button class="cell" type="button" data-ch="05" data-tid="kamakura-culture" data-wb="6" data-ref="5" data-nq="25" data-n="22" data-grade="中1" data-vol="歴史 ⑤" title="歴史 ⑤ 鎌倉文化と新しい仏教"><span class="cell-face"><span class="cell-no">22</span><span class="cell-badge"></span></span><span class="cell-name">鎌倉文化と新しい仏教</span></button><button class="cell" type="button" data-ch="06" data-tid="mongol-empire" data-wb="2" data-ref="1" data-nq="23" data-n="23" data-grade="中1" data-vol="歴史 ⑥" title="歴史 ⑥ モンゴル帝国"><span class="cell-face"><span class="cell-no">23</span><span class="cell-badge"></span></span><span class="cell-name">モンゴル帝国</span></button><button class="cell" type="button" data-ch="06" data-tid="mongol-invasion" data-wb="3" data-ref="2" data-nq="25" data-n="24" data-grade="中1" data-vol="歴史 ⑥" title="歴史 ⑥ 元寇と鎌倉幕府の滅亡"><span class="cell-face"><span class="cell-no">24</span><span class="cell-badge"></span></span><span class="cell-name">元寇と鎌倉幕府の滅亡</span></button><button class="cell" type="button" data-ch="06" data-tid="muromachi-bakufu" data-wb="4" data-ref="3" data-nq="24" data-n="25" data-grade="中1" data-vol="歴史 ⑥" title="歴史 ⑥ 室町幕府の成立"><span class="cell-face"><span class="cell-no">25</span><span class="cell-badge"></span></span><span class="cell-name">室町幕府の成立</span></button><button class="cell" type="button" data-ch="06" data-tid="east-asia-trade" data-wb="5" data-ref="4" data-nq="24" data-n="26" data-grade="中1" data-vol="歴史 ⑥" title="歴史 ⑥ 東アジアとの交流"><span class="cell-face"><span class="cell-no">26</span><span class="cell-badge"></span></span><span class="cell-name">東アジアとの交流</span></button><button class="cell" type="button" data-ch="06" data-tid="muromachi-industry" data-wb="6" data-ref="5" data-nq="25" data-n="27" data-grade="中1" data-vol="歴史 ⑥" title="歴史 ⑥ 室町時代の産業"><span class="cell-face"><span class="cell-no">27</span><span class="cell-badge"></span></span><span class="cell-name">室町時代の産業</span></button><button class="cell" type="button" data-ch="06" data-tid="muromachi-people" data-wb="7" data-ref="6" data-nq="24" data-n="28" data-grade="中1" data-vol="歴史 ⑥" title="歴史 ⑥ 室町時代の民衆"><span class="cell-face"><span class="cell-no">28</span><span class="cell-badge"></span></span><span class="cell-name">室町時代の民衆</span></button><button class="cell" type="button" data-ch="06" data-tid="kitayama-culture" data-wb="8" data-ref="7" data-nq="24" data-n="29" data-grade="中1" data-vol="歴史 ⑥" title="歴史 ⑥ 北山文化と能楽"><span class="cell-face"><span class="cell-no">29</span><span class="cell-badge"></span></span><span class="cell-name">北山文化と能楽</span></button><button class="cell" type="button" data-ch="06" data-tid="higashiyama-culture" data-wb="9" data-ref="8" data-nq="25" data-n="30" data-grade="中1" data-vol="歴史 ⑥" title="歴史 ⑥ 東山文化と民衆の文化"><span class="cell-face"><span class="cell-no">30</span><span class="cell-badge"></span></span><span class="cell-name">東山文化と民衆の文化</span></button><button class="cell" type="button" data-ch="07" data-tid="europe-change" data-wb="2" data-ref="1" data-nq="25" data-n="31" data-grade="中2" data-vol="歴史 ⑦" title="歴史 ⑦ ヨーロッパの変革"><span class="cell-face"><span class="cell-no">31</span><span class="cell-badge"></span></span><span class="cell-name">ヨーロッパの変革</span></button><button class="cell" type="button" data-ch="07" data-tid="europe-spread" data-wb="3" data-ref="2" data-nq="24" data-n="32" data-grade="中2" data-vol="歴史 ⑦" title="歴史 ⑦ 大航海時代"><span class="cell-face"><span class="cell-no">32</span><span class="cell-badge"></span></span><span class="cell-name">大航海時代</span></button><button class="cell" type="button" data-ch="07" data-tid="nanban-trade" data-wb="4" data-ref="3" data-nq="25" data-n="33" data-grade="中2" data-vol="歴史 ⑦" title="歴史 ⑦ 南蛮貿易とキリスト教"><span class="cell-face"><span class="cell-no">33</span><span class="cell-badge"></span></span><span class="cell-name">南蛮貿易とキリスト教</span></button><button class="cell" type="button" data-ch="07" data-tid="nobunaga-hideyoshi" data-wb="5" data-ref="4" data-nq="25" data-n="34" data-grade="中2" data-vol="歴史 ⑦" title="歴史 ⑦ 信長・秀吉の天下統一"><span class="cell-face"><span class="cell-no">34</span><span class="cell-badge"></span></span><span class="cell-name">信長・秀吉の天下統一</span></button><button class="cell" type="button" data-ch="07" data-tid="hideyoshi-policy" data-wb="6" data-ref="5" data-nq="24" data-n="35" data-grade="中2" data-vol="歴史 ⑦" title="歴史 ⑦ 秀吉の政策と朝鮮出兵"><span class="cell-face"><span class="cell-no">35</span><span class="cell-badge"></span></span><span class="cell-name">秀吉の政策と朝鮮出兵</span></button><button class="cell" type="button" data-ch="07" data-tid="momoyama-culture" data-wb="7" data-ref="6" data-nq="25" data-n="36" data-grade="中2" data-vol="歴史 ⑦" title="歴史 ⑦ 桃山文化"><span class="cell-face"><span class="cell-no">36</span><span class="cell-badge"></span></span><span class="cell-name">桃山文化</span></button><button class="cell" type="button" data-ch="08" data-tid="edo-bakufu" data-wb="2" data-ref="1" data-nq="25" data-n="37" data-grade="中2" data-vol="歴史 ⑧" title="歴史 ⑧ 江戸幕府の成立"><span class="cell-face"><span class="cell-no">37</span><span class="cell-badge"></span></span><span class="cell-name">江戸幕府の成立</span></button><button class="cell" type="button" data-ch="08" data-tid="sakoku" data-wb="3" data-ref="2" data-nq="25" data-n="38" data-grade="中2" data-vol="歴史 ⑧" title="歴史 ⑧ 鎖国への道"><span class="cell-face"><span class="cell-no">38</span><span class="cell-badge"></span></span><span class="cell-name">鎖国への道</span></button><button class="cell" type="button" data-ch="08" data-tid="foreign-relations-edo" data-wb="4" data-ref="3" data-nq="24" data-n="39" data-grade="中2" data-vol="歴史 ⑧" title="歴史 ⑧ 鎖国下の対外関係"><span class="cell-face"><span class="cell-no">39</span><span class="cell-badge"></span></span><span class="cell-name">鎖国下の対外関係</span></button><button class="cell" type="button" data-ch="08" data-tid="ryukyu-ainu" data-wb="5" data-ref="4" data-nq="24" data-n="40" data-grade="中2" data-vol="歴史 ⑧" title="歴史 ⑧ 琉球とアイヌ"><span class="cell-face"><span class="cell-no">40</span><span class="cell-badge"></span></span><span class="cell-name">琉球とアイヌ</span></button><button class="cell" type="button" data-ch="08" data-tid="social-classes" data-wb="6" data-ref="5" data-nq="25" data-n="41" data-grade="中2" data-vol="歴史 ⑧" title="歴史 ⑧ 江戸時代の身分制度"><span class="cell-face"><span class="cell-no">41</span><span class="cell-badge"></span></span><span class="cell-name">江戸時代の身分制度</span></button><button class="cell" type="button" data-ch="08" data-tid="edo-politics-reforms" data-wb="7" data-ref="6" data-nq="25" data-n="42" data-grade="中2" data-vol="歴史 ⑧" title="歴史 ⑧ 江戸幕府政治と三大改革"><span class="cell-face"><span class="cell-no">42</span><span class="cell-badge"></span></span><span class="cell-name">江戸幕府政治と三大改革</span></button><button class="cell" type="button" data-ch="08" data-tid="edo-transport-commerce" data-wb="8" data-ref="7" data-nq="24" data-n="43" data-grade="中2" data-vol="歴史 ⑧" title="歴史 ⑧ 江戸の交通と商業・都市"><span class="cell-face"><span class="cell-no">43</span><span class="cell-badge"></span></span><span class="cell-name">江戸の交通と商業・都市</span></button><button class="cell" type="button" data-ch="08" data-tid="edo-industry-society" data-wb="9" data-ref="8" data-nq="24" data-n="44" data-grade="中2" data-vol="歴史 ⑧" title="歴史 ⑧ 江戸の産業と社会不安"><span class="cell-face"><span class="cell-no">44</span><span class="cell-badge"></span></span><span class="cell-name">江戸の産業と社会不安</span></button><button class="cell" type="button" data-ch="08" data-tid="edo-culture-learning" data-wb="10" data-ref="9" data-nq="24" data-n="45" data-grade="中2" data-vol="歴史 ⑧" title="歴史 ⑧ 江戸の文化と学問・教育"><span class="cell-face"><span class="cell-no">45</span><span class="cell-badge"></span></span><span class="cell-name">江戸の文化と学問・教育</span></button><button class="cell" type="button" data-ch="09" data-tid="british-revolution" data-wb="2" data-ref="1" data-nq="24" data-n="46" data-grade="中2" data-vol="歴史 ⑨" title="歴史 ⑨ イギリスの革命"><span class="cell-face"><span class="cell-no">46</span><span class="cell-badge"></span></span><span class="cell-name">イギリスの革命</span></button><button class="cell" type="button" data-ch="09" data-tid="american-independence" data-wb="3" data-ref="2" data-nq="25" data-n="47" data-grade="中2" data-vol="歴史 ⑨" title="歴史 ⑨ アメリカの独立革命"><span class="cell-face"><span class="cell-no">47</span><span class="cell-badge"></span></span><span class="cell-name">アメリカの独立革命</span></button><button class="cell" type="button" data-ch="09" data-tid="french-revolution" data-wb="4" data-ref="3" data-nq="25" data-n="48" data-grade="中2" data-vol="歴史 ⑨" title="歴史 ⑨ フランス革命"><span class="cell-face"><span class="cell-no">48</span><span class="cell-badge"></span></span><span class="cell-name">フランス革命</span></button><button class="cell" type="button" data-ch="09" data-tid="nationalism-europe" data-wb="5" data-ref="4" data-nq="24" data-n="49" data-grade="中2" data-vol="歴史 ⑨" title="歴史 ⑨ ヨーロッパの国民意識の高まり"><span class="cell-face"><span class="cell-no">49</span><span class="cell-badge"></span></span><span class="cell-name">ヨーロッパの国民意識の高まり</span></button><button class="cell" type="button" data-ch="09" data-tid="russia-expansion" data-wb="6" data-ref="5" data-nq="23" data-n="50" data-grade="中2" data-vol="歴史 ⑨" title="歴史 ⑨ ロシアの拡大と発展"><span class="cell-face"><span class="cell-no">50</span><span class="cell-badge"></span></span><span class="cell-name">ロシアの拡大と発展</span></button><button class="cell" type="button" data-ch="09" data-tid="america-expansion" data-wb="7" data-ref="6" data-nq="24" data-n="51" data-grade="中2" data-vol="歴史 ⑨" title="歴史 ⑨ アメリカの拡大と発展"><span class="cell-face"><span class="cell-no">51</span><span class="cell-badge"></span></span><span class="cell-name">アメリカの拡大と発展</span></button><button class="cell" type="button" data-ch="09" data-tid="industrial-revolution" data-wb="8" data-ref="7" data-nq="25" data-n="52" data-grade="中2" data-vol="歴史 ⑨" title="歴史 ⑨ 産業革命と資本主義"><span class="cell-face"><span class="cell-no">52</span><span class="cell-badge"></span></span><span class="cell-name">産業革命と資本主義</span></button><button class="cell" type="button" data-ch="09" data-tid="western-asia-invasion" data-wb="9" data-ref="8" data-nq="25" data-n="53" data-grade="中2" data-vol="歴史 ⑨" title="歴史 ⑨ 欧米のアジア侵略"><span class="cell-face"><span class="cell-no">53</span><span class="cell-badge"></span></span><span class="cell-name">欧米のアジア侵略</span></button><button class="cell" type="button" data-ch="10" data-tid="opening-japan" data-wb="2" data-ref="1" data-nq="25" data-n="54" data-grade="中2" data-vol="歴史 ⑩" title="歴史 ⑩ 開国と不平等条約"><span class="cell-face"><span class="cell-no">54</span><span class="cell-badge"></span></span><span class="cell-name">開国と不平等条約</span></button><button class="cell" type="button" data-ch="10" data-tid="post-opening" data-wb="3" data-ref="2" data-nq="24" data-n="55" data-grade="中2" data-vol="歴史 ⑩" title="歴史 ⑩ 開国後の政治と経済"><span class="cell-face"><span class="cell-no">55</span><span class="cell-badge"></span></span><span class="cell-name">開国後の政治と経済</span></button><button class="cell" type="button" data-ch="10" data-tid="fall-of-bakufu" data-wb="4" data-ref="3" data-nq="25" data-n="56" data-grade="中2" data-vol="歴史 ⑩" title="歴史 ⑩ 江戸幕府の滅亡"><span class="cell-face"><span class="cell-no">56</span><span class="cell-badge"></span></span><span class="cell-name">江戸幕府の滅亡</span></button><button class="cell" type="button" data-ch="11" data-tid="meiji-restoration" data-wb="2" data-ref="1" data-nq="25" data-n="57" data-grade="中2" data-vol="歴史 ⑪" title="歴史 ⑪ 明治維新と新政府"><span class="cell-face"><span class="cell-no">57</span><span class="cell-badge"></span></span><span class="cell-name">明治維新と新政府</span></button><button class="cell" type="button" data-ch="11" data-tid="three-reforms" data-wb="3" data-ref="2" data-nq="25" data-n="58" data-grade="中2" data-vol="歴史 ⑪" title="歴史 ⑪ 三大改革"><span class="cell-face"><span class="cell-no">58</span><span class="cell-badge"></span></span><span class="cell-name">三大改革</span></button><button class="cell" type="button" data-ch="11" data-tid="fukoku-kyohei" data-wb="4" data-ref="3" data-nq="24" data-n="59" data-grade="中2" data-vol="歴史 ⑪" title="歴史 ⑪ 富国強兵と文明開化"><span class="cell-face"><span class="cell-no">59</span><span class="cell-badge"></span></span><span class="cell-name">富国強兵と文明開化</span></button><button class="cell" type="button" data-ch="11" data-tid="international-relations" data-wb="5" data-ref="4" data-nq="24" data-n="60" data-grade="中2" data-vol="歴史 ⑪" title="歴史 ⑪ 岩倉使節団と国境画定"><span class="cell-face"><span class="cell-no">60</span><span class="cell-badge"></span></span><span class="cell-name">岩倉使節団と国境画定</span></button><button class="cell" type="button" data-ch="11" data-tid="freedom-movement" data-wb="6" data-ref="5" data-nq="24" data-n="61" data-grade="中2" data-vol="歴史 ⑪" title="歴史 ⑪ 自由民権運動"><span class="cell-face"><span class="cell-no">61</span><span class="cell-badge"></span></span><span class="cell-name">自由民権運動</span></button><button class="cell" type="button" data-ch="11" data-tid="constitution" data-wb="7" data-ref="6" data-nq="25" data-n="62" data-grade="中2" data-vol="歴史 ⑪" title="歴史 ⑪ 大日本帝国憲法と議会"><span class="cell-face"><span class="cell-no">62</span><span class="cell-badge"></span></span><span class="cell-name">大日本帝国憲法と議会</span></button><button class="cell" type="button" data-ch="12" data-tid="treaty-revision" data-wb="2" data-ref="1" data-nq="24" data-n="63" data-grade="中2" data-vol="歴史 ⑫" title="歴史 ⑫ 条約改正"><span class="cell-face"><span class="cell-no">63</span><span class="cell-badge"></span></span><span class="cell-name">条約改正</span></button><button class="cell" type="button" data-ch="12" data-tid="sino-japanese-war" data-wb="3" data-ref="2" data-nq="25" data-n="64" data-grade="中2" data-vol="歴史 ⑫" title="歴史 ⑫ 日清戦争と三国干渉"><span class="cell-face"><span class="cell-no">64</span><span class="cell-badge"></span></span><span class="cell-name">日清戦争と三国干渉</span></button><button class="cell" type="button" data-ch="12" data-tid="russo-japanese-war" data-wb="4" data-ref="3" data-nq="25" data-n="65" data-grade="中2" data-vol="歴史 ⑫" title="歴史 ⑫ 日露戦争"><span class="cell-face"><span class="cell-no">65</span><span class="cell-badge"></span></span><span class="cell-name">日露戦争</span></button><button class="cell" type="button" data-ch="12" data-tid="korea-annexation" data-wb="5" data-ref="4" data-nq="24" data-n="66" data-grade="中2" data-vol="歴史 ⑫" title="歴史 ⑫ 韓国併合と中国の革命"><span class="cell-face"><span class="cell-no">66</span><span class="cell-badge"></span></span><span class="cell-name">韓国併合と中国の革命</span></button><button class="cell" type="button" data-ch="12" data-tid="industrial-revolution" data-wb="6" data-ref="5" data-nq="24" data-n="67" data-grade="中2" data-vol="歴史 ⑫" title="歴史 ⑫ 日本の産業革命"><span class="cell-face"><span class="cell-no">67</span><span class="cell-badge"></span></span><span class="cell-name">日本の産業革命</span></button><button class="cell" type="button" data-ch="12" data-tid="meiji-culture" data-wb="7" data-ref="6" data-nq="25" data-n="68" data-grade="中2" data-vol="歴史 ⑫" title="歴史 ⑫ 明治の文化"><span class="cell-face"><span class="cell-no">68</span><span class="cell-badge"></span></span><span class="cell-name">明治の文化</span></button><button class="cell" type="button" data-ch="13" data-tid="ww1-outbreak" data-wb="2" data-ref="1" data-nq="25" data-n="69" data-grade="中3" data-vol="歴史 ⑬" title="歴史 ⑬ 第一次世界大戦の勃発"><span class="cell-face"><span class="cell-no">69</span><span class="cell-badge"></span></span><span class="cell-name">第一次世界大戦の勃発</span></button><button class="cell" type="button" data-ch="13" data-tid="japan-in-ww1" data-wb="3" data-ref="2" data-nq="25" data-n="70" data-grade="中3" data-vol="歴史 ⑬" title="歴史 ⑬ 日本の参戦と二十一か条の要求"><span class="cell-face"><span class="cell-no">70</span><span class="cell-badge"></span></span><span class="cell-name">日本の参戦と二十一か条の要求</span></button><button class="cell" type="button" data-ch="13" data-tid="russian-revolution" data-wb="4" data-ref="3" data-nq="24" data-n="71" data-grade="中3" data-vol="歴史 ⑬" title="歴史 ⑬ ロシア革命とソ連の成立"><span class="cell-face"><span class="cell-no">71</span><span class="cell-badge"></span></span><span class="cell-name">ロシア革命とソ連の成立</span></button><button class="cell" type="button" data-ch="13" data-tid="postwar-order" data-wb="5" data-ref="4" data-nq="24" data-n="72" data-grade="中3" data-vol="歴史 ⑬" title="歴史 ⑬ 戦後秩序とアジアの抵抗"><span class="cell-face"><span class="cell-no">72</span><span class="cell-badge"></span></span><span class="cell-name">戦後秩序とアジアの抵抗</span></button><button class="cell" type="button" data-ch="14" data-tid="political-reform" data-wb="2" data-ref="1" data-nq="25" data-n="73" data-grade="中3" data-vol="歴史 ⑭" title="歴史 ⑭ 政治の変革"><span class="cell-face"><span class="cell-no">73</span><span class="cell-badge"></span></span><span class="cell-name">政治の変革</span></button><button class="cell" type="button" data-ch="14" data-tid="social-movements" data-wb="3" data-ref="2" data-nq="25" data-n="74" data-grade="中3" data-vol="歴史 ⑭" title="歴史 ⑭ 社会運動の広がり"><span class="cell-face"><span class="cell-no">74</span><span class="cell-badge"></span></span><span class="cell-name">社会運動の広がり</span></button><button class="cell" type="button" data-ch="14" data-tid="mass-culture" data-wb="4" data-ref="3" data-nq="24" data-n="75" data-grade="中3" data-vol="歴史 ⑭" title="歴史 ⑭ 大衆文化の成熟"><span class="cell-face"><span class="cell-no">75</span><span class="cell-badge"></span></span><span class="cell-name">大衆文化の成熟</span></button><button class="cell" type="button" data-ch="15" data-tid="great-depression" data-wb="2" data-ref="1" data-nq="25" data-n="76" data-grade="中3" data-vol="歴史 ⑮" title="歴史 ⑮ 世界恐慌とファシズムの台頭"><span class="cell-face"><span class="cell-no">76</span><span class="cell-badge"></span></span><span class="cell-name">世界恐慌とファシズムの台頭</span></button><button class="cell" type="button" data-ch="15" data-tid="manchurian-incident" data-wb="3" data-ref="2" data-nq="25" data-n="77" data-grade="中3" data-vol="歴史 ⑮" title="歴史 ⑮ 満州事変と軍部の暴走"><span class="cell-face"><span class="cell-no">77</span><span class="cell-badge"></span></span><span class="cell-name">満州事変と軍部の暴走</span></button><button class="cell" type="button" data-ch="15" data-tid="sino-japanese-war-showa" data-wb="4" data-ref="3" data-nq="25" data-n="78" data-grade="中3" data-vol="歴史 ⑮" title="歴史 ⑮ 日中戦争の泥沼化"><span class="cell-face"><span class="cell-no">78</span><span class="cell-badge"></span></span><span class="cell-name">日中戦争の泥沼化</span></button><button class="cell" type="button" data-ch="16" data-tid="ww2-outbreak" data-wb="2" data-ref="1" data-nq="25" data-n="79" data-grade="中3" data-vol="歴史 ⑯" title="歴史 ⑯ 第二次世界大戦の勃発"><span class="cell-face"><span class="cell-no">79</span><span class="cell-badge"></span></span><span class="cell-name">第二次世界大戦の勃発</span></button><button class="cell" type="button" data-ch="16" data-tid="pacific-war" data-wb="3" data-ref="2" data-nq="25" data-n="80" data-grade="中3" data-vol="歴史 ⑯" title="歴史 ⑯ 太平洋戦争と日本の敗退"><span class="cell-face"><span class="cell-no">80</span><span class="cell-badge"></span></span><span class="cell-name">太平洋戦争と日本の敗退</span></button><button class="cell" type="button" data-ch="16" data-tid="wartime-life" data-wb="4" data-ref="3" data-nq="25" data-n="81" data-grade="中3" data-vol="歴史 ⑯" title="歴史 ⑯ 銃後の苦しみと総動員"><span class="cell-face"><span class="cell-no">81</span><span class="cell-badge"></span></span><span class="cell-name">銃後の苦しみと総動員</span></button><button class="cell" type="button" data-ch="16" data-tid="end-of-war" data-wb="5" data-ref="4" data-nq="25" data-n="82" data-grade="中3" data-vol="歴史 ⑯" title="歴史 ⑯ 終戦への道"><span class="cell-face"><span class="cell-no">82</span><span class="cell-badge"></span></span><span class="cell-name">終戦への道</span></button><button class="cell" type="button" data-ch="17" data-tid="occupation" data-wb="2" data-ref="1" data-nq="25" data-n="83" data-grade="中3" data-vol="歴史 ⑰" title="歴史 ⑰ 占領と民主化"><span class="cell-face"><span class="cell-no">83</span><span class="cell-badge"></span></span><span class="cell-name">占領と民主化</span></button><button class="cell" type="button" data-ch="17" data-tid="postwar-constitution" data-wb="3" data-ref="2" data-nq="25" data-n="84" data-grade="中3" data-vol="歴史 ⑰" title="歴史 ⑰ 日本国憲法と民主化"><span class="cell-face"><span class="cell-no">84</span><span class="cell-badge"></span></span><span class="cell-name">日本国憲法と民主化</span></button><button class="cell" type="button" data-ch="18" data-tid="cold-war" data-wb="2" data-ref="1" data-nq="25" data-n="85" data-grade="中3" data-vol="歴史 ⑱" title="歴史 ⑱ 冷戦の始まり"><span class="cell-face"><span class="cell-no">85</span><span class="cell-badge"></span></span><span class="cell-name">冷戦の始まり</span></button><button class="cell" type="button" data-ch="18" data-tid="japan-independence" data-wb="3" data-ref="2" data-nq="25" data-n="86" data-grade="中3" data-vol="歴史 ⑱" title="歴史 ⑱ 日本の独立回復"><span class="cell-face"><span class="cell-no">86</span><span class="cell-badge"></span></span><span class="cell-name">日本の独立回復</span></button><button class="cell" type="button" data-ch="18" data-tid="postwar-international" data-wb="4" data-ref="3" data-nq="24" data-n="87" data-grade="中3" data-vol="歴史 ⑱" title="歴史 ⑱ 国際社会への復帰"><span class="cell-face"><span class="cell-no">87</span><span class="cell-badge"></span></span><span class="cell-name">国際社会への復帰</span></button><button class="cell" type="button" data-ch="18" data-tid="economic-growth" data-wb="5" data-ref="4" data-nq="25" data-n="88" data-grade="中3" data-vol="歴史 ⑱" title="歴史 ⑱ 高度経済成長"><span class="cell-face"><span class="cell-no">88</span><span class="cell-badge"></span></span><span class="cell-name">高度経済成長</span></button><button class="cell" type="button" data-ch="18" data-tid="postwar-culture" data-wb="6" data-ref="5" data-nq="24" data-n="89" data-grade="中3" data-vol="歴史 ⑱" title="歴史 ⑱ 戦後の文化"><span class="cell-face"><span class="cell-no">89</span><span class="cell-badge"></span></span><span class="cell-name">戦後の文化</span></button><button class="cell" type="button" data-ch="19" data-tid="cold-war-end" data-wb="2" data-ref="1" data-nq="25" data-n="90" data-grade="中3" data-vol="歴史 ⑲" title="歴史 ⑲ 冷戦の終結"><span class="cell-face"><span class="cell-no">90</span><span class="cell-badge"></span></span><span class="cell-name">冷戦の終結</span></button><button class="cell" type="button" data-ch="19" data-tid="heisei-japan" data-wb="3" data-ref="2" data-nq="25" data-n="91" data-grade="中3" data-vol="歴史 ⑲" title="歴史 ⑲ 平成の日本"><span class="cell-face"><span class="cell-no">91</span><span class="cell-badge"></span></span><span class="cell-name">平成の日本</span></button><button class="cell" type="button" data-ch="19" data-tid="modern-issues" data-wb="4" data-ref="3" data-nq="24" data-n="92" data-grade="中3" data-vol="歴史 ⑲" title="歴史 ⑲ 現代の課題"><span class="cell-face"><span class="cell-no">92</span><span class="cell-badge"></span></span><span class="cell-name">現代の課題</span></button></div>
-  <div class="goal-flag">🏆<span class="g-txt">ゴール（歴史マスター）</span></div>
-</div></div></div>
 
-<div class="wrap books" id="books"></div>
-<footer>つづもん 歴史すごろく　｜　全92単元</footer>
+<div class="wrap">
+  <header class="head" id="head">
+    <img class="ch-explorer" src="img/quest-explorer.webp" alt="" loading="lazy" onerror="this.remove()">
+    <img class="title-img" src="img/quest-title.webp" alt="歴史クエスト" loading="lazy" onerror="this.remove()">
+    <h1 class="head-h1">歴史クエスト</h1>
+    <div class="head-sub">中学歴史の冒険に出発しよう！</div>
+    <img class="ch-bird" src="img/quest-bird.webp" alt="" loading="lazy" onerror="this.remove()">
+  </header>
+
+  <div class="gtabs" id="gtabs"></div>
+
+  <div class="panel">
+    <div class="p-h">あなたの冒険の進み具合</div>
+    <div class="big"><b id="ovNum">0</b><span class="sm"> / <span id="ovTotal">0</span> マス</span>
+      <span class="sm" id="ovPct">（0%）</span></div>
+    <div class="ov-bar"><div class="ov-fill" id="ovFill"></div></div>
+    <div class="legend">
+      <span class="lg"><span class="dot"></span>まだ</span>
+      <span class="lg"><span class="dot d-ref"></span>参考書を読んだ</span>
+      <span class="lg"><span class="dot d-some"></span>一部を解いた</span>
+      <span class="lg"><span class="dot d-all"></span>全部解いた</span>
+      <span class="lg"><span class="dot d-perfect"></span>全問正解</span>
+    </div>
+  </div>
+
+  <div class="mission">
+    <img class="ch-mascot" src="img/char_manabi_sm.png" alt="" loading="lazy" onerror="this.remove()">
+    <div class="ms-body">
+      <div class="ms-h">🎯 今日のミッション</div>
+      <div class="ms-txt" id="msTxt">今日は 3マス すすめよう！</div>
+      <div class="ms-steps" id="msSteps"></div>
+    </div>
+  </div>
+
+  <div class="board" id="board">
+    <div id="cells"><button class="cell" type="button" data-ch="01" data-tid="time-periods" data-wb="2" data-ref="1" data-nq="24" data-n="1" data-gn="1" data-grade="中1" data-era="ancient" data-vol="歴史 ①" title="歴史 ① 時期や年代の表し方"><span class="tok"><span class="tok-no">1</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="02" data-tid="human-origins" data-wb="2" data-ref="1" data-nq="24" data-n="2" data-gn="2" data-grade="中1" data-era="ancient" data-vol="歴史 ②" title="歴史 ② 人類の出現と進化"><span class="tok"><span class="tok-no">2</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="02" data-tid="ancient-civilizations" data-wb="3" data-ref="2" data-nq="25" data-n="3" data-gn="3" data-grade="中1" data-era="ancient" data-vol="歴史 ②" title="歴史 ② 古代文明の誕生"><span class="tok"><span class="tok-no">3</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="02" data-tid="chinese-civilization" data-wb="4" data-ref="3" data-nq="25" data-n="4" data-gn="4" data-grade="中1" data-era="ancient" data-vol="歴史 ②" title="歴史 ② 中国文明の発展"><span class="tok"><span class="tok-no">4</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="02" data-tid="greece-rome" data-wb="5" data-ref="4" data-nq="24" data-n="5" data-gn="5" data-grade="中1" data-era="ancient" data-vol="歴史 ②" title="歴史 ② ギリシャ・ローマの世界"><span class="tok"><span class="tok-no">5</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="02" data-tid="world-religions" data-wb="6" data-ref="5" data-nq="25" data-n="6" data-gn="6" data-grade="中1" data-era="ancient" data-vol="歴史 ②" title="歴史 ② 世界の三大宗教"><span class="tok"><span class="tok-no">6</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="03" data-tid="jomon-era" data-wb="2" data-ref="1" data-nq="24" data-n="7" data-gn="7" data-grade="中1" data-era="ancient" data-vol="歴史 ③" title="歴史 ③ 旧石器時代と縄文時代"><span class="tok"><span class="tok-no">7</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="03" data-tid="yayoi-era" data-wb="3" data-ref="2" data-nq="25" data-n="8" data-gn="8" data-grade="中1" data-era="ancient" data-vol="歴史 ③" title="歴史 ③ 弥生時代"><span class="tok"><span class="tok-no">8</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="03" data-tid="kofun-era" data-wb="4" data-ref="3" data-nq="25" data-n="9" data-gn="9" data-grade="中1" data-era="ancient" data-vol="歴史 ③" title="歴史 ③ 古墳時代と大和政権"><span class="tok"><span class="tok-no">9</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="04" data-tid="shotoku-asuka" data-wb="2" data-ref="1" data-nq="25" data-n="10" data-gn="10" data-grade="中1" data-era="ancient" data-vol="歴史 ④" title="歴史 ④ 聖徳太子と飛鳥文化"><span class="tok"><span class="tok-no">10</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="04" data-tid="taika-reform" data-wb="3" data-ref="2" data-nq="25" data-n="11" data-gn="11" data-grade="中1" data-era="ancient" data-vol="歴史 ④" title="歴史 ④ 大化の改新"><span class="tok"><span class="tok-no">11</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="04" data-tid="ritsuryo-nara" data-wb="4" data-ref="3" data-nq="25" data-n="12" data-gn="12" data-grade="中1" data-era="ancient" data-vol="歴史 ④" title="歴史 ④ 律令国家と奈良時代"><span class="tok"><span class="tok-no">12</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="04" data-tid="handen-tax" data-wb="5" data-ref="4" data-nq="24" data-n="13" data-gn="13" data-grade="中1" data-era="ancient" data-vol="歴史 ④" title="歴史 ④ 班田収授法と税制度"><span class="tok"><span class="tok-no">13</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="04" data-tid="tenpyo-culture" data-wb="6" data-ref="5" data-nq="24" data-n="14" data-gn="14" data-grade="中1" data-era="ancient" data-vol="歴史 ④" title="歴史 ④ 天平文化"><span class="tok"><span class="tok-no">14</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="04" data-tid="heian-capital" data-wb="7" data-ref="6" data-nq="24" data-n="15" data-gn="15" data-grade="中1" data-era="ancient" data-vol="歴史 ④" title="歴史 ④ 平安京と新しい仏教"><span class="tok"><span class="tok-no">15</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="04" data-tid="sekkan-politics" data-wb="8" data-ref="7" data-nq="24" data-n="16" data-gn="16" data-grade="中1" data-era="ancient" data-vol="歴史 ④" title="歴史 ④ 摂関政治"><span class="tok"><span class="tok-no">16</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="04" data-tid="kokufu-culture" data-wb="9" data-ref="8" data-nq="24" data-n="17" data-gn="17" data-grade="中1" data-era="ancient" data-vol="歴史 ④" title="歴史 ④ 国風文化"><span class="tok"><span class="tok-no">17</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="05" data-tid="rise-of-bushi" data-wb="2" data-ref="1" data-nq="24" data-n="18" data-gn="18" data-grade="中1" data-era="medieval" data-vol="歴史 ⑤" title="歴史 ⑤ 武士の成長"><span class="tok"><span class="tok-no">18</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="05" data-tid="insei-taira" data-wb="3" data-ref="2" data-nq="24" data-n="19" data-gn="19" data-grade="中1" data-era="medieval" data-vol="歴史 ⑤" title="歴史 ⑤ 院政と平氏の政治"><span class="tok"><span class="tok-no">19</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="05" data-tid="kamakura-bakufu" data-wb="4" data-ref="3" data-nq="25" data-n="20" data-gn="20" data-grade="中1" data-era="medieval" data-vol="歴史 ⑤" title="歴史 ⑤ 鎌倉幕府の成立"><span class="tok"><span class="tok-no">20</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="05" data-tid="kamakura-society" data-wb="5" data-ref="4" data-nq="24" data-n="21" data-gn="21" data-grade="中1" data-era="medieval" data-vol="歴史 ⑤" title="歴史 ⑤ 鎌倉時代の社会"><span class="tok"><span class="tok-no">21</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="05" data-tid="kamakura-culture" data-wb="6" data-ref="5" data-nq="25" data-n="22" data-gn="22" data-grade="中1" data-era="medieval" data-vol="歴史 ⑤" title="歴史 ⑤ 鎌倉文化と新しい仏教"><span class="tok"><span class="tok-no">22</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="06" data-tid="mongol-empire" data-wb="2" data-ref="1" data-nq="23" data-n="23" data-gn="23" data-grade="中1" data-era="medieval" data-vol="歴史 ⑥" title="歴史 ⑥ モンゴル帝国"><span class="tok"><span class="tok-no">23</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="06" data-tid="mongol-invasion" data-wb="3" data-ref="2" data-nq="25" data-n="24" data-gn="24" data-grade="中1" data-era="medieval" data-vol="歴史 ⑥" title="歴史 ⑥ 元寇と鎌倉幕府の滅亡"><span class="tok"><span class="tok-no">24</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="06" data-tid="muromachi-bakufu" data-wb="4" data-ref="3" data-nq="24" data-n="25" data-gn="25" data-grade="中1" data-era="medieval" data-vol="歴史 ⑥" title="歴史 ⑥ 室町幕府の成立"><span class="tok"><span class="tok-no">25</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="06" data-tid="east-asia-trade" data-wb="5" data-ref="4" data-nq="24" data-n="26" data-gn="26" data-grade="中1" data-era="medieval" data-vol="歴史 ⑥" title="歴史 ⑥ 東アジアとの交流"><span class="tok"><span class="tok-no">26</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="06" data-tid="muromachi-industry" data-wb="6" data-ref="5" data-nq="25" data-n="27" data-gn="27" data-grade="中1" data-era="medieval" data-vol="歴史 ⑥" title="歴史 ⑥ 室町時代の産業"><span class="tok"><span class="tok-no">27</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="06" data-tid="muromachi-people" data-wb="7" data-ref="6" data-nq="24" data-n="28" data-gn="28" data-grade="中1" data-era="medieval" data-vol="歴史 ⑥" title="歴史 ⑥ 室町時代の民衆"><span class="tok"><span class="tok-no">28</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="06" data-tid="kitayama-culture" data-wb="8" data-ref="7" data-nq="24" data-n="29" data-gn="29" data-grade="中1" data-era="medieval" data-vol="歴史 ⑥" title="歴史 ⑥ 北山文化と能楽"><span class="tok"><span class="tok-no">29</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="06" data-tid="higashiyama-culture" data-wb="9" data-ref="8" data-nq="25" data-n="30" data-gn="30" data-grade="中1" data-era="medieval" data-vol="歴史 ⑥" title="歴史 ⑥ 東山文化と民衆の文化"><span class="tok"><span class="tok-no">30</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="07" data-tid="europe-change" data-wb="2" data-ref="1" data-nq="25" data-n="31" data-gn="1" data-grade="中2" data-era="earlymod" data-vol="歴史 ⑦" title="歴史 ⑦ ヨーロッパの変革"><span class="tok"><span class="tok-no">1</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="07" data-tid="europe-spread" data-wb="3" data-ref="2" data-nq="24" data-n="32" data-gn="2" data-grade="中2" data-era="earlymod" data-vol="歴史 ⑦" title="歴史 ⑦ 大航海時代"><span class="tok"><span class="tok-no">2</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="07" data-tid="nanban-trade" data-wb="4" data-ref="3" data-nq="25" data-n="33" data-gn="3" data-grade="中2" data-era="earlymod" data-vol="歴史 ⑦" title="歴史 ⑦ 南蛮貿易とキリスト教"><span class="tok"><span class="tok-no">3</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="07" data-tid="nobunaga-hideyoshi" data-wb="5" data-ref="4" data-nq="25" data-n="34" data-gn="4" data-grade="中2" data-era="earlymod" data-vol="歴史 ⑦" title="歴史 ⑦ 信長・秀吉の天下統一"><span class="tok"><span class="tok-no">4</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="07" data-tid="hideyoshi-policy" data-wb="6" data-ref="5" data-nq="24" data-n="35" data-gn="5" data-grade="中2" data-era="earlymod" data-vol="歴史 ⑦" title="歴史 ⑦ 秀吉の政策と朝鮮出兵"><span class="tok"><span class="tok-no">5</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="07" data-tid="momoyama-culture" data-wb="7" data-ref="6" data-nq="25" data-n="36" data-gn="6" data-grade="中2" data-era="earlymod" data-vol="歴史 ⑦" title="歴史 ⑦ 桃山文化"><span class="tok"><span class="tok-no">6</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="08" data-tid="edo-bakufu" data-wb="2" data-ref="1" data-nq="25" data-n="37" data-gn="7" data-grade="中2" data-era="earlymod" data-vol="歴史 ⑧" title="歴史 ⑧ 江戸幕府の成立"><span class="tok"><span class="tok-no">7</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="08" data-tid="sakoku" data-wb="3" data-ref="2" data-nq="25" data-n="38" data-gn="8" data-grade="中2" data-era="earlymod" data-vol="歴史 ⑧" title="歴史 ⑧ 鎖国への道"><span class="tok"><span class="tok-no">8</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="08" data-tid="foreign-relations-edo" data-wb="4" data-ref="3" data-nq="24" data-n="39" data-gn="9" data-grade="中2" data-era="earlymod" data-vol="歴史 ⑧" title="歴史 ⑧ 鎖国下の対外関係"><span class="tok"><span class="tok-no">9</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="08" data-tid="ryukyu-ainu" data-wb="5" data-ref="4" data-nq="24" data-n="40" data-gn="10" data-grade="中2" data-era="earlymod" data-vol="歴史 ⑧" title="歴史 ⑧ 琉球とアイヌ"><span class="tok"><span class="tok-no">10</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="08" data-tid="social-classes" data-wb="6" data-ref="5" data-nq="25" data-n="41" data-gn="11" data-grade="中2" data-era="earlymod" data-vol="歴史 ⑧" title="歴史 ⑧ 江戸時代の身分制度"><span class="tok"><span class="tok-no">11</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="08" data-tid="edo-politics-reforms" data-wb="7" data-ref="6" data-nq="25" data-n="42" data-gn="12" data-grade="中2" data-era="earlymod" data-vol="歴史 ⑧" title="歴史 ⑧ 江戸幕府政治と三大改革"><span class="tok"><span class="tok-no">12</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="08" data-tid="edo-transport-commerce" data-wb="8" data-ref="7" data-nq="24" data-n="43" data-gn="13" data-grade="中2" data-era="earlymod" data-vol="歴史 ⑧" title="歴史 ⑧ 江戸の交通と商業・都市"><span class="tok"><span class="tok-no">13</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="08" data-tid="edo-industry-society" data-wb="9" data-ref="8" data-nq="24" data-n="44" data-gn="14" data-grade="中2" data-era="earlymod" data-vol="歴史 ⑧" title="歴史 ⑧ 江戸の産業と社会不安"><span class="tok"><span class="tok-no">14</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="08" data-tid="edo-culture-learning" data-wb="10" data-ref="9" data-nq="24" data-n="45" data-gn="15" data-grade="中2" data-era="earlymod" data-vol="歴史 ⑧" title="歴史 ⑧ 江戸の文化と学問・教育"><span class="tok"><span class="tok-no">15</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="09" data-tid="british-revolution" data-wb="2" data-ref="1" data-nq="24" data-n="46" data-gn="16" data-grade="中2" data-era="earlymod" data-vol="歴史 ⑨" title="歴史 ⑨ イギリスの革命"><span class="tok"><span class="tok-no">16</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="09" data-tid="american-independence" data-wb="3" data-ref="2" data-nq="25" data-n="47" data-gn="17" data-grade="中2" data-era="earlymod" data-vol="歴史 ⑨" title="歴史 ⑨ アメリカの独立革命"><span class="tok"><span class="tok-no">17</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="09" data-tid="french-revolution" data-wb="4" data-ref="3" data-nq="25" data-n="48" data-gn="18" data-grade="中2" data-era="earlymod" data-vol="歴史 ⑨" title="歴史 ⑨ フランス革命"><span class="tok"><span class="tok-no">18</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="09" data-tid="nationalism-europe" data-wb="5" data-ref="4" data-nq="24" data-n="49" data-gn="19" data-grade="中2" data-era="earlymod" data-vol="歴史 ⑨" title="歴史 ⑨ ヨーロッパの国民意識の高まり"><span class="tok"><span class="tok-no">19</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="09" data-tid="russia-expansion" data-wb="6" data-ref="5" data-nq="23" data-n="50" data-gn="20" data-grade="中2" data-era="earlymod" data-vol="歴史 ⑨" title="歴史 ⑨ ロシアの拡大と発展"><span class="tok"><span class="tok-no">20</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="09" data-tid="america-expansion" data-wb="7" data-ref="6" data-nq="24" data-n="51" data-gn="21" data-grade="中2" data-era="earlymod" data-vol="歴史 ⑨" title="歴史 ⑨ アメリカの拡大と発展"><span class="tok"><span class="tok-no">21</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="09" data-tid="industrial-revolution" data-wb="8" data-ref="7" data-nq="25" data-n="52" data-gn="22" data-grade="中2" data-era="earlymod" data-vol="歴史 ⑨" title="歴史 ⑨ 産業革命と資本主義"><span class="tok"><span class="tok-no">22</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="09" data-tid="western-asia-invasion" data-wb="9" data-ref="8" data-nq="25" data-n="53" data-gn="23" data-grade="中2" data-era="earlymod" data-vol="歴史 ⑨" title="歴史 ⑨ 欧米のアジア侵略"><span class="tok"><span class="tok-no">23</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="10" data-tid="opening-japan" data-wb="2" data-ref="1" data-nq="25" data-n="54" data-gn="24" data-grade="中2" data-era="earlymod" data-vol="歴史 ⑩" title="歴史 ⑩ 開国と不平等条約"><span class="tok"><span class="tok-no">24</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="10" data-tid="post-opening" data-wb="3" data-ref="2" data-nq="24" data-n="55" data-gn="25" data-grade="中2" data-era="earlymod" data-vol="歴史 ⑩" title="歴史 ⑩ 開国後の政治と経済"><span class="tok"><span class="tok-no">25</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="10" data-tid="fall-of-bakufu" data-wb="4" data-ref="3" data-nq="25" data-n="56" data-gn="26" data-grade="中2" data-era="earlymod" data-vol="歴史 ⑩" title="歴史 ⑩ 江戸幕府の滅亡"><span class="tok"><span class="tok-no">26</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="11" data-tid="meiji-restoration" data-wb="2" data-ref="1" data-nq="25" data-n="57" data-gn="27" data-grade="中2" data-era="modern" data-vol="歴史 ⑪" title="歴史 ⑪ 明治維新と新政府"><span class="tok"><span class="tok-no">27</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="11" data-tid="three-reforms" data-wb="3" data-ref="2" data-nq="25" data-n="58" data-gn="28" data-grade="中2" data-era="modern" data-vol="歴史 ⑪" title="歴史 ⑪ 三大改革"><span class="tok"><span class="tok-no">28</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="11" data-tid="fukoku-kyohei" data-wb="4" data-ref="3" data-nq="24" data-n="59" data-gn="29" data-grade="中2" data-era="modern" data-vol="歴史 ⑪" title="歴史 ⑪ 富国強兵と文明開化"><span class="tok"><span class="tok-no">29</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="11" data-tid="international-relations" data-wb="5" data-ref="4" data-nq="24" data-n="60" data-gn="30" data-grade="中2" data-era="modern" data-vol="歴史 ⑪" title="歴史 ⑪ 岩倉使節団と国境画定"><span class="tok"><span class="tok-no">30</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="11" data-tid="freedom-movement" data-wb="6" data-ref="5" data-nq="24" data-n="61" data-gn="31" data-grade="中2" data-era="modern" data-vol="歴史 ⑪" title="歴史 ⑪ 自由民権運動"><span class="tok"><span class="tok-no">31</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="11" data-tid="constitution" data-wb="7" data-ref="6" data-nq="25" data-n="62" data-gn="32" data-grade="中2" data-era="modern" data-vol="歴史 ⑪" title="歴史 ⑪ 大日本帝国憲法と議会"><span class="tok"><span class="tok-no">32</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="12" data-tid="treaty-revision" data-wb="2" data-ref="1" data-nq="24" data-n="63" data-gn="33" data-grade="中2" data-era="modern" data-vol="歴史 ⑫" title="歴史 ⑫ 条約改正"><span class="tok"><span class="tok-no">33</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="12" data-tid="sino-japanese-war" data-wb="3" data-ref="2" data-nq="25" data-n="64" data-gn="34" data-grade="中2" data-era="modern" data-vol="歴史 ⑫" title="歴史 ⑫ 日清戦争と三国干渉"><span class="tok"><span class="tok-no">34</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="12" data-tid="russo-japanese-war" data-wb="4" data-ref="3" data-nq="25" data-n="65" data-gn="35" data-grade="中2" data-era="modern" data-vol="歴史 ⑫" title="歴史 ⑫ 日露戦争"><span class="tok"><span class="tok-no">35</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="12" data-tid="korea-annexation" data-wb="5" data-ref="4" data-nq="24" data-n="66" data-gn="36" data-grade="中2" data-era="modern" data-vol="歴史 ⑫" title="歴史 ⑫ 韓国併合と中国の革命"><span class="tok"><span class="tok-no">36</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="12" data-tid="industrial-revolution" data-wb="6" data-ref="5" data-nq="24" data-n="67" data-gn="37" data-grade="中2" data-era="modern" data-vol="歴史 ⑫" title="歴史 ⑫ 日本の産業革命"><span class="tok"><span class="tok-no">37</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="12" data-tid="meiji-culture" data-wb="7" data-ref="6" data-nq="25" data-n="68" data-gn="38" data-grade="中2" data-era="modern" data-vol="歴史 ⑫" title="歴史 ⑫ 明治の文化"><span class="tok"><span class="tok-no">38</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="13" data-tid="ww1-outbreak" data-wb="2" data-ref="1" data-nq="25" data-n="69" data-gn="1" data-grade="中3" data-era="modern" data-vol="歴史 ⑬" title="歴史 ⑬ 第一次世界大戦の勃発"><span class="tok"><span class="tok-no">1</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="13" data-tid="japan-in-ww1" data-wb="3" data-ref="2" data-nq="25" data-n="70" data-gn="2" data-grade="中3" data-era="modern" data-vol="歴史 ⑬" title="歴史 ⑬ 日本の参戦と二十一か条の要求"><span class="tok"><span class="tok-no">2</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="13" data-tid="russian-revolution" data-wb="4" data-ref="3" data-nq="24" data-n="71" data-gn="3" data-grade="中3" data-era="modern" data-vol="歴史 ⑬" title="歴史 ⑬ ロシア革命とソ連の成立"><span class="tok"><span class="tok-no">3</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="13" data-tid="postwar-order" data-wb="5" data-ref="4" data-nq="24" data-n="72" data-gn="4" data-grade="中3" data-era="modern" data-vol="歴史 ⑬" title="歴史 ⑬ 戦後秩序とアジアの抵抗"><span class="tok"><span class="tok-no">4</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="14" data-tid="political-reform" data-wb="2" data-ref="1" data-nq="25" data-n="73" data-gn="5" data-grade="中3" data-era="modern" data-vol="歴史 ⑭" title="歴史 ⑭ 政治の変革"><span class="tok"><span class="tok-no">5</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="14" data-tid="social-movements" data-wb="3" data-ref="2" data-nq="25" data-n="74" data-gn="6" data-grade="中3" data-era="modern" data-vol="歴史 ⑭" title="歴史 ⑭ 社会運動の広がり"><span class="tok"><span class="tok-no">6</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="14" data-tid="mass-culture" data-wb="4" data-ref="3" data-nq="24" data-n="75" data-gn="7" data-grade="中3" data-era="modern" data-vol="歴史 ⑭" title="歴史 ⑭ 大衆文化の成熟"><span class="tok"><span class="tok-no">7</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="15" data-tid="great-depression" data-wb="2" data-ref="1" data-nq="25" data-n="76" data-gn="8" data-grade="中3" data-era="modern" data-vol="歴史 ⑮" title="歴史 ⑮ 世界恐慌とファシズムの台頭"><span class="tok"><span class="tok-no">8</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="15" data-tid="manchurian-incident" data-wb="3" data-ref="2" data-nq="25" data-n="77" data-gn="9" data-grade="中3" data-era="modern" data-vol="歴史 ⑮" title="歴史 ⑮ 満州事変と軍部の暴走"><span class="tok"><span class="tok-no">9</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="15" data-tid="sino-japanese-war-showa" data-wb="4" data-ref="3" data-nq="25" data-n="78" data-gn="10" data-grade="中3" data-era="modern" data-vol="歴史 ⑮" title="歴史 ⑮ 日中戦争の泥沼化"><span class="tok"><span class="tok-no">10</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="16" data-tid="ww2-outbreak" data-wb="2" data-ref="1" data-nq="25" data-n="79" data-gn="11" data-grade="中3" data-era="modern" data-vol="歴史 ⑯" title="歴史 ⑯ 第二次世界大戦の勃発"><span class="tok"><span class="tok-no">11</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="16" data-tid="pacific-war" data-wb="3" data-ref="2" data-nq="25" data-n="80" data-gn="12" data-grade="中3" data-era="modern" data-vol="歴史 ⑯" title="歴史 ⑯ 太平洋戦争と日本の敗退"><span class="tok"><span class="tok-no">12</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="16" data-tid="wartime-life" data-wb="4" data-ref="3" data-nq="25" data-n="81" data-gn="13" data-grade="中3" data-era="modern" data-vol="歴史 ⑯" title="歴史 ⑯ 銃後の苦しみと総動員"><span class="tok"><span class="tok-no">13</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="16" data-tid="end-of-war" data-wb="5" data-ref="4" data-nq="25" data-n="82" data-gn="14" data-grade="中3" data-era="modern" data-vol="歴史 ⑯" title="歴史 ⑯ 終戦への道"><span class="tok"><span class="tok-no">14</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="17" data-tid="occupation" data-wb="2" data-ref="1" data-nq="25" data-n="83" data-gn="15" data-grade="中3" data-era="current" data-vol="歴史 ⑰" title="歴史 ⑰ 占領と民主化"><span class="tok"><span class="tok-no">15</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="17" data-tid="postwar-constitution" data-wb="3" data-ref="2" data-nq="25" data-n="84" data-gn="16" data-grade="中3" data-era="current" data-vol="歴史 ⑰" title="歴史 ⑰ 日本国憲法と民主化"><span class="tok"><span class="tok-no">16</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="18" data-tid="cold-war" data-wb="2" data-ref="1" data-nq="25" data-n="85" data-gn="17" data-grade="中3" data-era="current" data-vol="歴史 ⑱" title="歴史 ⑱ 冷戦の始まり"><span class="tok"><span class="tok-no">17</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="18" data-tid="japan-independence" data-wb="3" data-ref="2" data-nq="25" data-n="86" data-gn="18" data-grade="中3" data-era="current" data-vol="歴史 ⑱" title="歴史 ⑱ 日本の独立回復"><span class="tok"><span class="tok-no">18</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="18" data-tid="postwar-international" data-wb="4" data-ref="3" data-nq="24" data-n="87" data-gn="19" data-grade="中3" data-era="current" data-vol="歴史 ⑱" title="歴史 ⑱ 国際社会への復帰"><span class="tok"><span class="tok-no">19</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="18" data-tid="economic-growth" data-wb="5" data-ref="4" data-nq="25" data-n="88" data-gn="20" data-grade="中3" data-era="current" data-vol="歴史 ⑱" title="歴史 ⑱ 高度経済成長"><span class="tok"><span class="tok-no">20</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="18" data-tid="postwar-culture" data-wb="6" data-ref="5" data-nq="24" data-n="89" data-gn="21" data-grade="中3" data-era="current" data-vol="歴史 ⑱" title="歴史 ⑱ 戦後の文化"><span class="tok"><span class="tok-no">21</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="19" data-tid="cold-war-end" data-wb="2" data-ref="1" data-nq="25" data-n="90" data-gn="22" data-grade="中3" data-era="current" data-vol="歴史 ⑲" title="歴史 ⑲ 冷戦の終結"><span class="tok"><span class="tok-no">22</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="19" data-tid="heisei-japan" data-wb="3" data-ref="2" data-nq="25" data-n="91" data-gn="23" data-grade="中3" data-era="current" data-vol="歴史 ⑲" title="歴史 ⑲ 平成の日本"><span class="tok"><span class="tok-no">23</span><span class="tok-badge"></span></span></button><button class="cell" type="button" data-ch="19" data-tid="modern-issues" data-wb="4" data-ref="3" data-nq="24" data-n="92" data-gn="24" data-grade="中3" data-era="current" data-vol="歴史 ⑲" title="歴史 ⑲ 現代の課題"><span class="tok"><span class="tok-no">24</span><span class="tok-badge"></span></span></button></div>
+    <div class="goal">
+      <div class="g-box">
+        <img class="g-chest" src="img/quest-chest.webp" alt="" loading="lazy" onerror="this.remove()">
+        <div>
+          <span class="g-flag">ゴール！</span>
+          <div class="g-t">🏆 <span id="goalGrade">中1</span> 制覇！</div>
+          <div class="g-s">全<span id="goalTotal">0</span>マスを進めよう</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="books">
+    <div class="books-h"><h2>📖 単元一覧</h2></div>
+    <div id="bookList"><section class="book" data-grade="中1"><div class="ch-band"><span class="cb-flag">🚩</span><span class="cb-no">冒険 1</span><span class="cb-title">年代の表し方</span><span class="bk-prog" data-ch="01"></span></div><ul class="u-list"><li class="u-row" data-ch="01" data-tid="time-periods" data-ref="1"><span class="u-no">1</span><span class="u-name">時期や年代の表し方</span><span class="u-state"></span><a class="u-btn wb" href="wb/01/index.html#t2">問題</a><a class="u-btn ref" href="ref/01/index.html#t1">参考書</a></li></ul></section><section class="book" data-grade="中1"><div class="ch-band"><span class="cb-flag">🚩</span><span class="cb-no">冒険 2</span><span class="cb-title">古代の世界</span><span class="bk-prog" data-ch="02"></span></div><ul class="u-list"><li class="u-row" data-ch="02" data-tid="human-origins" data-ref="1"><span class="u-no">1</span><span class="u-name">人類の出現と進化</span><span class="u-state"></span><a class="u-btn wb" href="wb/02/index.html#t2">問題</a><a class="u-btn ref" href="ref/02/index.html#t1">参考書</a></li><li class="u-row" data-ch="02" data-tid="ancient-civilizations" data-ref="2"><span class="u-no">2</span><span class="u-name">古代文明の誕生</span><span class="u-state"></span><a class="u-btn wb" href="wb/02/index.html#t3">問題</a><a class="u-btn ref" href="ref/02/index.html#t2">参考書</a></li><li class="u-row" data-ch="02" data-tid="chinese-civilization" data-ref="3"><span class="u-no">3</span><span class="u-name">中国文明の発展</span><span class="u-state"></span><a class="u-btn wb" href="wb/02/index.html#t4">問題</a><a class="u-btn ref" href="ref/02/index.html#t3">参考書</a></li><li class="u-row" data-ch="02" data-tid="greece-rome" data-ref="4"><span class="u-no">4</span><span class="u-name">ギリシャ・ローマの世界</span><span class="u-state"></span><a class="u-btn wb" href="wb/02/index.html#t5">問題</a><a class="u-btn ref" href="ref/02/index.html#t4">参考書</a></li><li class="u-row" data-ch="02" data-tid="world-religions" data-ref="5"><span class="u-no">5</span><span class="u-name">世界の三大宗教</span><span class="u-state"></span><a class="u-btn wb" href="wb/02/index.html#t6">問題</a><a class="u-btn ref" href="ref/02/index.html#t5">参考書</a></li></ul></section><section class="book" data-grade="中1"><div class="ch-band"><span class="cb-flag">🚩</span><span class="cb-no">冒険 3</span><span class="cb-title">日本の始まり</span><span class="bk-prog" data-ch="03"></span></div><ul class="u-list"><li class="u-row" data-ch="03" data-tid="jomon-era" data-ref="1"><span class="u-no">1</span><span class="u-name">旧石器時代と縄文時代</span><span class="u-state"></span><a class="u-btn wb" href="wb/03/index.html#t2">問題</a><a class="u-btn ref" href="ref/03/index.html#t1">参考書</a></li><li class="u-row" data-ch="03" data-tid="yayoi-era" data-ref="2"><span class="u-no">2</span><span class="u-name">弥生時代</span><span class="u-state"></span><a class="u-btn wb" href="wb/03/index.html#t3">問題</a><a class="u-btn ref" href="ref/03/index.html#t2">参考書</a></li><li class="u-row" data-ch="03" data-tid="kofun-era" data-ref="3"><span class="u-no">3</span><span class="u-name">古墳時代と大和政権</span><span class="u-state"></span><a class="u-btn wb" href="wb/03/index.html#t4">問題</a><a class="u-btn ref" href="ref/03/index.html#t3">参考書</a></li></ul></section><section class="book" data-grade="中1"><div class="ch-band"><span class="cb-flag">🚩</span><span class="cb-no">冒険 4</span><span class="cb-title">古代の国家</span><span class="bk-prog" data-ch="04"></span></div><ul class="u-list"><li class="u-row" data-ch="04" data-tid="shotoku-asuka" data-ref="1"><span class="u-no">1</span><span class="u-name">聖徳太子と飛鳥文化</span><span class="u-state"></span><a class="u-btn wb" href="wb/04/index.html#t2">問題</a><a class="u-btn ref" href="ref/04/index.html#t1">参考書</a></li><li class="u-row" data-ch="04" data-tid="taika-reform" data-ref="2"><span class="u-no">2</span><span class="u-name">大化の改新</span><span class="u-state"></span><a class="u-btn wb" href="wb/04/index.html#t3">問題</a><a class="u-btn ref" href="ref/04/index.html#t2">参考書</a></li><li class="u-row" data-ch="04" data-tid="ritsuryo-nara" data-ref="3"><span class="u-no">3</span><span class="u-name">律令国家と奈良時代</span><span class="u-state"></span><a class="u-btn wb" href="wb/04/index.html#t4">問題</a><a class="u-btn ref" href="ref/04/index.html#t3">参考書</a></li><li class="u-row" data-ch="04" data-tid="handen-tax" data-ref="4"><span class="u-no">4</span><span class="u-name">班田収授法と税制度</span><span class="u-state"></span><a class="u-btn wb" href="wb/04/index.html#t5">問題</a><a class="u-btn ref" href="ref/04/index.html#t4">参考書</a></li><li class="u-row" data-ch="04" data-tid="tenpyo-culture" data-ref="5"><span class="u-no">5</span><span class="u-name">天平文化</span><span class="u-state"></span><a class="u-btn wb" href="wb/04/index.html#t6">問題</a><a class="u-btn ref" href="ref/04/index.html#t5">参考書</a></li><li class="u-row" data-ch="04" data-tid="heian-capital" data-ref="6"><span class="u-no">6</span><span class="u-name">平安京と新しい仏教</span><span class="u-state"></span><a class="u-btn wb" href="wb/04/index.html#t7">問題</a><a class="u-btn ref" href="ref/04/index.html#t6">参考書</a></li><li class="u-row" data-ch="04" data-tid="sekkan-politics" data-ref="7"><span class="u-no">7</span><span class="u-name">摂関政治</span><span class="u-state"></span><a class="u-btn wb" href="wb/04/index.html#t8">問題</a><a class="u-btn ref" href="ref/04/index.html#t7">参考書</a></li><li class="u-row" data-ch="04" data-tid="kokufu-culture" data-ref="8"><span class="u-no">8</span><span class="u-name">国風文化</span><span class="u-state"></span><a class="u-btn wb" href="wb/04/index.html#t9">問題</a><a class="u-btn ref" href="ref/04/index.html#t8">参考書</a></li></ul></section><section class="book" data-grade="中1"><div class="ch-band"><span class="cb-flag">🚩</span><span class="cb-no">冒険 5</span><span class="cb-title">武士と鎌倉幕府</span><span class="bk-prog" data-ch="05"></span></div><ul class="u-list"><li class="u-row" data-ch="05" data-tid="rise-of-bushi" data-ref="1"><span class="u-no">1</span><span class="u-name">武士の成長</span><span class="u-state"></span><a class="u-btn wb" href="wb/05/index.html#t2">問題</a><a class="u-btn ref" href="ref/05/index.html#t1">参考書</a></li><li class="u-row" data-ch="05" data-tid="insei-taira" data-ref="2"><span class="u-no">2</span><span class="u-name">院政と平氏の政治</span><span class="u-state"></span><a class="u-btn wb" href="wb/05/index.html#t3">問題</a><a class="u-btn ref" href="ref/05/index.html#t2">参考書</a></li><li class="u-row" data-ch="05" data-tid="kamakura-bakufu" data-ref="3"><span class="u-no">3</span><span class="u-name">鎌倉幕府の成立</span><span class="u-state"></span><a class="u-btn wb" href="wb/05/index.html#t4">問題</a><a class="u-btn ref" href="ref/05/index.html#t3">参考書</a></li><li class="u-row" data-ch="05" data-tid="kamakura-society" data-ref="4"><span class="u-no">4</span><span class="u-name">鎌倉時代の社会</span><span class="u-state"></span><a class="u-btn wb" href="wb/05/index.html#t5">問題</a><a class="u-btn ref" href="ref/05/index.html#t4">参考書</a></li><li class="u-row" data-ch="05" data-tid="kamakura-culture" data-ref="5"><span class="u-no">5</span><span class="u-name">鎌倉文化と新しい仏教</span><span class="u-state"></span><a class="u-btn wb" href="wb/05/index.html#t6">問題</a><a class="u-btn ref" href="ref/05/index.html#t5">参考書</a></li></ul></section><section class="book" data-grade="中1"><div class="ch-band"><span class="cb-flag">🚩</span><span class="cb-no">冒険 6</span><span class="cb-title">室町時代と中世の世界</span><span class="bk-prog" data-ch="06"></span></div><ul class="u-list"><li class="u-row" data-ch="06" data-tid="mongol-empire" data-ref="1"><span class="u-no">1</span><span class="u-name">モンゴル帝国</span><span class="u-state"></span><a class="u-btn wb" href="wb/06/index.html#t2">問題</a><a class="u-btn ref" href="ref/06/index.html#t1">参考書</a></li><li class="u-row" data-ch="06" data-tid="mongol-invasion" data-ref="2"><span class="u-no">2</span><span class="u-name">元寇と鎌倉幕府の滅亡</span><span class="u-state"></span><a class="u-btn wb" href="wb/06/index.html#t3">問題</a><a class="u-btn ref" href="ref/06/index.html#t2">参考書</a></li><li class="u-row" data-ch="06" data-tid="muromachi-bakufu" data-ref="3"><span class="u-no">3</span><span class="u-name">室町幕府の成立</span><span class="u-state"></span><a class="u-btn wb" href="wb/06/index.html#t4">問題</a><a class="u-btn ref" href="ref/06/index.html#t3">参考書</a></li><li class="u-row" data-ch="06" data-tid="east-asia-trade" data-ref="4"><span class="u-no">4</span><span class="u-name">東アジアとの交流</span><span class="u-state"></span><a class="u-btn wb" href="wb/06/index.html#t5">問題</a><a class="u-btn ref" href="ref/06/index.html#t4">参考書</a></li><li class="u-row" data-ch="06" data-tid="muromachi-industry" data-ref="5"><span class="u-no">5</span><span class="u-name">室町時代の産業</span><span class="u-state"></span><a class="u-btn wb" href="wb/06/index.html#t6">問題</a><a class="u-btn ref" href="ref/06/index.html#t5">参考書</a></li><li class="u-row" data-ch="06" data-tid="muromachi-people" data-ref="6"><span class="u-no">6</span><span class="u-name">室町時代の民衆</span><span class="u-state"></span><a class="u-btn wb" href="wb/06/index.html#t7">問題</a><a class="u-btn ref" href="ref/06/index.html#t6">参考書</a></li><li class="u-row" data-ch="06" data-tid="kitayama-culture" data-ref="7"><span class="u-no">7</span><span class="u-name">北山文化と能楽</span><span class="u-state"></span><a class="u-btn wb" href="wb/06/index.html#t8">問題</a><a class="u-btn ref" href="ref/06/index.html#t7">参考書</a></li><li class="u-row" data-ch="06" data-tid="higashiyama-culture" data-ref="8"><span class="u-no">8</span><span class="u-name">東山文化と民衆の文化</span><span class="u-state"></span><a class="u-btn wb" href="wb/06/index.html#t9">問題</a><a class="u-btn ref" href="ref/06/index.html#t8">参考書</a></li></ul></section><section class="book" data-grade="中2"><div class="ch-band"><span class="cb-flag">🚩</span><span class="cb-no">冒険 7</span><span class="cb-title">ヨーロッパと天下統一</span><span class="bk-prog" data-ch="07"></span></div><ul class="u-list"><li class="u-row" data-ch="07" data-tid="europe-change" data-ref="1"><span class="u-no">1</span><span class="u-name">ヨーロッパの変革</span><span class="u-state"></span><a class="u-btn wb" href="wb/07/index.html#t2">問題</a><a class="u-btn ref" href="ref/07/index.html#t1">参考書</a></li><li class="u-row" data-ch="07" data-tid="europe-spread" data-ref="2"><span class="u-no">2</span><span class="u-name">大航海時代</span><span class="u-state"></span><a class="u-btn wb" href="wb/07/index.html#t3">問題</a><a class="u-btn ref" href="ref/07/index.html#t2">参考書</a></li><li class="u-row" data-ch="07" data-tid="nanban-trade" data-ref="3"><span class="u-no">3</span><span class="u-name">南蛮貿易とキリスト教</span><span class="u-state"></span><a class="u-btn wb" href="wb/07/index.html#t4">問題</a><a class="u-btn ref" href="ref/07/index.html#t3">参考書</a></li><li class="u-row" data-ch="07" data-tid="nobunaga-hideyoshi" data-ref="4"><span class="u-no">4</span><span class="u-name">信長・秀吉の天下統一</span><span class="u-state"></span><a class="u-btn wb" href="wb/07/index.html#t5">問題</a><a class="u-btn ref" href="ref/07/index.html#t4">参考書</a></li><li class="u-row" data-ch="07" data-tid="hideyoshi-policy" data-ref="5"><span class="u-no">5</span><span class="u-name">秀吉の政策と朝鮮出兵</span><span class="u-state"></span><a class="u-btn wb" href="wb/07/index.html#t6">問題</a><a class="u-btn ref" href="ref/07/index.html#t5">参考書</a></li><li class="u-row" data-ch="07" data-tid="momoyama-culture" data-ref="6"><span class="u-no">6</span><span class="u-name">桃山文化</span><span class="u-state"></span><a class="u-btn wb" href="wb/07/index.html#t7">問題</a><a class="u-btn ref" href="ref/07/index.html#t6">参考書</a></li></ul></section><section class="book" data-grade="中2"><div class="ch-band"><span class="cb-flag">🚩</span><span class="cb-no">冒険 8</span><span class="cb-title">幕藩体制の確立</span><span class="bk-prog" data-ch="08"></span></div><ul class="u-list"><li class="u-row" data-ch="08" data-tid="edo-bakufu" data-ref="1"><span class="u-no">1</span><span class="u-name">江戸幕府の成立</span><span class="u-state"></span><a class="u-btn wb" href="wb/08/index.html#t2">問題</a><a class="u-btn ref" href="ref/08/index.html#t1">参考書</a></li><li class="u-row" data-ch="08" data-tid="sakoku" data-ref="2"><span class="u-no">2</span><span class="u-name">鎖国への道</span><span class="u-state"></span><a class="u-btn wb" href="wb/08/index.html#t3">問題</a><a class="u-btn ref" href="ref/08/index.html#t2">参考書</a></li><li class="u-row" data-ch="08" data-tid="foreign-relations-edo" data-ref="3"><span class="u-no">3</span><span class="u-name">鎖国下の対外関係</span><span class="u-state"></span><a class="u-btn wb" href="wb/08/index.html#t4">問題</a><a class="u-btn ref" href="ref/08/index.html#t3">参考書</a></li><li class="u-row" data-ch="08" data-tid="ryukyu-ainu" data-ref="4"><span class="u-no">4</span><span class="u-name">琉球とアイヌ</span><span class="u-state"></span><a class="u-btn wb" href="wb/08/index.html#t5">問題</a><a class="u-btn ref" href="ref/08/index.html#t4">参考書</a></li><li class="u-row" data-ch="08" data-tid="social-classes" data-ref="5"><span class="u-no">5</span><span class="u-name">江戸時代の身分制度</span><span class="u-state"></span><a class="u-btn wb" href="wb/08/index.html#t6">問題</a><a class="u-btn ref" href="ref/08/index.html#t5">参考書</a></li><li class="u-row" data-ch="08" data-tid="edo-politics-reforms" data-ref="6"><span class="u-no">6</span><span class="u-name">江戸幕府政治と三大改革</span><span class="u-state"></span><a class="u-btn wb" href="wb/08/index.html#t7">問題</a><a class="u-btn ref" href="ref/08/index.html#t6">参考書</a></li><li class="u-row" data-ch="08" data-tid="edo-transport-commerce" data-ref="7"><span class="u-no">7</span><span class="u-name">江戸の交通と商業・都市</span><span class="u-state"></span><a class="u-btn wb" href="wb/08/index.html#t8">問題</a><a class="u-btn ref" href="ref/08/index.html#t7">参考書</a></li><li class="u-row" data-ch="08" data-tid="edo-industry-society" data-ref="8"><span class="u-no">8</span><span class="u-name">江戸の産業と社会不安</span><span class="u-state"></span><a class="u-btn wb" href="wb/08/index.html#t9">問題</a><a class="u-btn ref" href="ref/08/index.html#t8">参考書</a></li><li class="u-row" data-ch="08" data-tid="edo-culture-learning" data-ref="9"><span class="u-no">9</span><span class="u-name">江戸の文化と学問・教育</span><span class="u-state"></span><a class="u-btn wb" href="wb/08/index.html#t10">問題</a><a class="u-btn ref" href="ref/08/index.html#t9">参考書</a></li></ul></section><section class="book" data-grade="中2"><div class="ch-band"><span class="cb-flag">🚩</span><span class="cb-no">冒険 9</span><span class="cb-title">市民革命と近代化</span><span class="bk-prog" data-ch="09"></span></div><ul class="u-list"><li class="u-row" data-ch="09" data-tid="british-revolution" data-ref="1"><span class="u-no">1</span><span class="u-name">イギリスの革命</span><span class="u-state"></span><a class="u-btn wb" href="wb/09/index.html#t2">問題</a><a class="u-btn ref" href="ref/09/index.html#t1">参考書</a></li><li class="u-row" data-ch="09" data-tid="american-independence" data-ref="2"><span class="u-no">2</span><span class="u-name">アメリカの独立革命</span><span class="u-state"></span><a class="u-btn wb" href="wb/09/index.html#t3">問題</a><a class="u-btn ref" href="ref/09/index.html#t2">参考書</a></li><li class="u-row" data-ch="09" data-tid="french-revolution" data-ref="3"><span class="u-no">3</span><span class="u-name">フランス革命</span><span class="u-state"></span><a class="u-btn wb" href="wb/09/index.html#t4">問題</a><a class="u-btn ref" href="ref/09/index.html#t3">参考書</a></li><li class="u-row" data-ch="09" data-tid="nationalism-europe" data-ref="4"><span class="u-no">4</span><span class="u-name">ヨーロッパの国民意識の高まり</span><span class="u-state"></span><a class="u-btn wb" href="wb/09/index.html#t5">問題</a><a class="u-btn ref" href="ref/09/index.html#t4">参考書</a></li><li class="u-row" data-ch="09" data-tid="russia-expansion" data-ref="5"><span class="u-no">5</span><span class="u-name">ロシアの拡大と発展</span><span class="u-state"></span><a class="u-btn wb" href="wb/09/index.html#t6">問題</a><a class="u-btn ref" href="ref/09/index.html#t5">参考書</a></li><li class="u-row" data-ch="09" data-tid="america-expansion" data-ref="6"><span class="u-no">6</span><span class="u-name">アメリカの拡大と発展</span><span class="u-state"></span><a class="u-btn wb" href="wb/09/index.html#t7">問題</a><a class="u-btn ref" href="ref/09/index.html#t6">参考書</a></li><li class="u-row" data-ch="09" data-tid="industrial-revolution" data-ref="7"><span class="u-no">7</span><span class="u-name">産業革命と資本主義</span><span class="u-state"></span><a class="u-btn wb" href="wb/09/index.html#t8">問題</a><a class="u-btn ref" href="ref/09/index.html#t7">参考書</a></li><li class="u-row" data-ch="09" data-tid="western-asia-invasion" data-ref="8"><span class="u-no">8</span><span class="u-name">欧米のアジア侵略</span><span class="u-state"></span><a class="u-btn wb" href="wb/09/index.html#t9">問題</a><a class="u-btn ref" href="ref/09/index.html#t8">参考書</a></li></ul></section><section class="book" data-grade="中2"><div class="ch-band"><span class="cb-flag">🚩</span><span class="cb-no">冒険 10</span><span class="cb-title">幕末の動乱</span><span class="bk-prog" data-ch="10"></span></div><ul class="u-list"><li class="u-row" data-ch="10" data-tid="opening-japan" data-ref="1"><span class="u-no">1</span><span class="u-name">開国と不平等条約</span><span class="u-state"></span><a class="u-btn wb" href="wb/10/index.html#t2">問題</a><a class="u-btn ref" href="ref/10/index.html#t1">参考書</a></li><li class="u-row" data-ch="10" data-tid="post-opening" data-ref="2"><span class="u-no">2</span><span class="u-name">開国後の政治と経済</span><span class="u-state"></span><a class="u-btn wb" href="wb/10/index.html#t3">問題</a><a class="u-btn ref" href="ref/10/index.html#t2">参考書</a></li><li class="u-row" data-ch="10" data-tid="fall-of-bakufu" data-ref="3"><span class="u-no">3</span><span class="u-name">江戸幕府の滅亡</span><span class="u-state"></span><a class="u-btn wb" href="wb/10/index.html#t4">問題</a><a class="u-btn ref" href="ref/10/index.html#t3">参考書</a></li></ul></section><section class="book" data-grade="中2"><div class="ch-band"><span class="cb-flag">🚩</span><span class="cb-no">冒険 11</span><span class="cb-title">明治維新と立憲国家</span><span class="bk-prog" data-ch="11"></span></div><ul class="u-list"><li class="u-row" data-ch="11" data-tid="meiji-restoration" data-ref="1"><span class="u-no">1</span><span class="u-name">明治維新と新政府</span><span class="u-state"></span><a class="u-btn wb" href="wb/11/index.html#t2">問題</a><a class="u-btn ref" href="ref/11/index.html#t1">参考書</a></li><li class="u-row" data-ch="11" data-tid="three-reforms" data-ref="2"><span class="u-no">2</span><span class="u-name">三大改革</span><span class="u-state"></span><a class="u-btn wb" href="wb/11/index.html#t3">問題</a><a class="u-btn ref" href="ref/11/index.html#t2">参考書</a></li><li class="u-row" data-ch="11" data-tid="fukoku-kyohei" data-ref="3"><span class="u-no">3</span><span class="u-name">富国強兵と文明開化</span><span class="u-state"></span><a class="u-btn wb" href="wb/11/index.html#t4">問題</a><a class="u-btn ref" href="ref/11/index.html#t3">参考書</a></li><li class="u-row" data-ch="11" data-tid="international-relations" data-ref="4"><span class="u-no">4</span><span class="u-name">岩倉使節団と国境画定</span><span class="u-state"></span><a class="u-btn wb" href="wb/11/index.html#t5">問題</a><a class="u-btn ref" href="ref/11/index.html#t4">参考書</a></li><li class="u-row" data-ch="11" data-tid="freedom-movement" data-ref="5"><span class="u-no">5</span><span class="u-name">自由民権運動</span><span class="u-state"></span><a class="u-btn wb" href="wb/11/index.html#t6">問題</a><a class="u-btn ref" href="ref/11/index.html#t5">参考書</a></li><li class="u-row" data-ch="11" data-tid="constitution" data-ref="6"><span class="u-no">6</span><span class="u-name">大日本帝国憲法と議会</span><span class="u-state"></span><a class="u-btn wb" href="wb/11/index.html#t7">問題</a><a class="u-btn ref" href="ref/11/index.html#t6">参考書</a></li></ul></section><section class="book" data-grade="中2"><div class="ch-band"><span class="cb-flag">🚩</span><span class="cb-no">冒険 12</span><span class="cb-title">日清・日露の時代</span><span class="bk-prog" data-ch="12"></span></div><ul class="u-list"><li class="u-row" data-ch="12" data-tid="treaty-revision" data-ref="1"><span class="u-no">1</span><span class="u-name">条約改正</span><span class="u-state"></span><a class="u-btn wb" href="wb/12/index.html#t2">問題</a><a class="u-btn ref" href="ref/12/index.html#t1">参考書</a></li><li class="u-row" data-ch="12" data-tid="sino-japanese-war" data-ref="2"><span class="u-no">2</span><span class="u-name">日清戦争と三国干渉</span><span class="u-state"></span><a class="u-btn wb" href="wb/12/index.html#t3">問題</a><a class="u-btn ref" href="ref/12/index.html#t2">参考書</a></li><li class="u-row" data-ch="12" data-tid="russo-japanese-war" data-ref="3"><span class="u-no">3</span><span class="u-name">日露戦争</span><span class="u-state"></span><a class="u-btn wb" href="wb/12/index.html#t4">問題</a><a class="u-btn ref" href="ref/12/index.html#t3">参考書</a></li><li class="u-row" data-ch="12" data-tid="korea-annexation" data-ref="4"><span class="u-no">4</span><span class="u-name">韓国併合と中国の革命</span><span class="u-state"></span><a class="u-btn wb" href="wb/12/index.html#t5">問題</a><a class="u-btn ref" href="ref/12/index.html#t4">参考書</a></li><li class="u-row" data-ch="12" data-tid="industrial-revolution" data-ref="5"><span class="u-no">5</span><span class="u-name">日本の産業革命</span><span class="u-state"></span><a class="u-btn wb" href="wb/12/index.html#t6">問題</a><a class="u-btn ref" href="ref/12/index.html#t5">参考書</a></li><li class="u-row" data-ch="12" data-tid="meiji-culture" data-ref="6"><span class="u-no">6</span><span class="u-name">明治の文化</span><span class="u-state"></span><a class="u-btn wb" href="wb/12/index.html#t7">問題</a><a class="u-btn ref" href="ref/12/index.html#t6">参考書</a></li></ul></section><section class="book" data-grade="中3"><div class="ch-band"><span class="cb-flag">🚩</span><span class="cb-no">冒険 13</span><span class="cb-title">第一次世界大戦と日本</span><span class="bk-prog" data-ch="13"></span></div><ul class="u-list"><li class="u-row" data-ch="13" data-tid="ww1-outbreak" data-ref="1"><span class="u-no">1</span><span class="u-name">第一次世界大戦の勃発</span><span class="u-state"></span><a class="u-btn wb" href="wb/13/index.html#t2">問題</a><a class="u-btn ref" href="ref/13/index.html#t1">参考書</a></li><li class="u-row" data-ch="13" data-tid="japan-in-ww1" data-ref="2"><span class="u-no">2</span><span class="u-name">日本の参戦と二十一か条の要求</span><span class="u-state"></span><a class="u-btn wb" href="wb/13/index.html#t3">問題</a><a class="u-btn ref" href="ref/13/index.html#t2">参考書</a></li><li class="u-row" data-ch="13" data-tid="russian-revolution" data-ref="3"><span class="u-no">3</span><span class="u-name">ロシア革命とソ連の成立</span><span class="u-state"></span><a class="u-btn wb" href="wb/13/index.html#t4">問題</a><a class="u-btn ref" href="ref/13/index.html#t3">参考書</a></li><li class="u-row" data-ch="13" data-tid="postwar-order" data-ref="4"><span class="u-no">4</span><span class="u-name">戦後秩序とアジアの抵抗</span><span class="u-state"></span><a class="u-btn wb" href="wb/13/index.html#t5">問題</a><a class="u-btn ref" href="ref/13/index.html#t4">参考書</a></li></ul></section><section class="book" data-grade="中3"><div class="ch-band"><span class="cb-flag">🚩</span><span class="cb-no">冒険 14</span><span class="cb-title">大正デモクラシー</span><span class="bk-prog" data-ch="14"></span></div><ul class="u-list"><li class="u-row" data-ch="14" data-tid="political-reform" data-ref="1"><span class="u-no">1</span><span class="u-name">政治の変革</span><span class="u-state"></span><a class="u-btn wb" href="wb/14/index.html#t2">問題</a><a class="u-btn ref" href="ref/14/index.html#t1">参考書</a></li><li class="u-row" data-ch="14" data-tid="social-movements" data-ref="2"><span class="u-no">2</span><span class="u-name">社会運動の広がり</span><span class="u-state"></span><a class="u-btn wb" href="wb/14/index.html#t3">問題</a><a class="u-btn ref" href="ref/14/index.html#t2">参考書</a></li><li class="u-row" data-ch="14" data-tid="mass-culture" data-ref="3"><span class="u-no">3</span><span class="u-name">大衆文化の成熟</span><span class="u-state"></span><a class="u-btn wb" href="wb/14/index.html#t4">問題</a><a class="u-btn ref" href="ref/14/index.html#t3">参考書</a></li></ul></section><section class="book" data-grade="中3"><div class="ch-band"><span class="cb-flag">🚩</span><span class="cb-no">冒険 15</span><span class="cb-title">昭和の危機</span><span class="bk-prog" data-ch="15"></span></div><ul class="u-list"><li class="u-row" data-ch="15" data-tid="great-depression" data-ref="1"><span class="u-no">1</span><span class="u-name">世界恐慌とファシズムの台頭</span><span class="u-state"></span><a class="u-btn wb" href="wb/15/index.html#t2">問題</a><a class="u-btn ref" href="ref/15/index.html#t1">参考書</a></li><li class="u-row" data-ch="15" data-tid="manchurian-incident" data-ref="2"><span class="u-no">2</span><span class="u-name">満州事変と軍部の暴走</span><span class="u-state"></span><a class="u-btn wb" href="wb/15/index.html#t3">問題</a><a class="u-btn ref" href="ref/15/index.html#t2">参考書</a></li><li class="u-row" data-ch="15" data-tid="sino-japanese-war-showa" data-ref="3"><span class="u-no">3</span><span class="u-name">日中戦争の泥沼化</span><span class="u-state"></span><a class="u-btn wb" href="wb/15/index.html#t4">問題</a><a class="u-btn ref" href="ref/15/index.html#t3">参考書</a></li></ul></section><section class="book" data-grade="中3"><div class="ch-band"><span class="cb-flag">🚩</span><span class="cb-no">冒険 16</span><span class="cb-title">第二次世界大戦と日本</span><span class="bk-prog" data-ch="16"></span></div><ul class="u-list"><li class="u-row" data-ch="16" data-tid="ww2-outbreak" data-ref="1"><span class="u-no">1</span><span class="u-name">第二次世界大戦の勃発</span><span class="u-state"></span><a class="u-btn wb" href="wb/16/index.html#t2">問題</a><a class="u-btn ref" href="ref/16/index.html#t1">参考書</a></li><li class="u-row" data-ch="16" data-tid="pacific-war" data-ref="2"><span class="u-no">2</span><span class="u-name">太平洋戦争と日本の敗退</span><span class="u-state"></span><a class="u-btn wb" href="wb/16/index.html#t3">問題</a><a class="u-btn ref" href="ref/16/index.html#t2">参考書</a></li><li class="u-row" data-ch="16" data-tid="wartime-life" data-ref="3"><span class="u-no">3</span><span class="u-name">銃後の苦しみと総動員</span><span class="u-state"></span><a class="u-btn wb" href="wb/16/index.html#t4">問題</a><a class="u-btn ref" href="ref/16/index.html#t3">参考書</a></li><li class="u-row" data-ch="16" data-tid="end-of-war" data-ref="4"><span class="u-no">4</span><span class="u-name">終戦への道</span><span class="u-state"></span><a class="u-btn wb" href="wb/16/index.html#t5">問題</a><a class="u-btn ref" href="ref/16/index.html#t4">参考書</a></li></ul></section><section class="book" data-grade="中3"><div class="ch-band"><span class="cb-flag">🚩</span><span class="cb-no">冒険 17</span><span class="cb-title">占領と日本国憲法</span><span class="bk-prog" data-ch="17"></span></div><ul class="u-list"><li class="u-row" data-ch="17" data-tid="occupation" data-ref="1"><span class="u-no">1</span><span class="u-name">占領と民主化</span><span class="u-state"></span><a class="u-btn wb" href="wb/17/index.html#t2">問題</a><a class="u-btn ref" href="ref/17/index.html#t1">参考書</a></li><li class="u-row" data-ch="17" data-tid="postwar-constitution" data-ref="2"><span class="u-no">2</span><span class="u-name">日本国憲法と民主化</span><span class="u-state"></span><a class="u-btn wb" href="wb/17/index.html#t3">問題</a><a class="u-btn ref" href="ref/17/index.html#t2">参考書</a></li></ul></section><section class="book" data-grade="中3"><div class="ch-band"><span class="cb-flag">🚩</span><span class="cb-no">冒険 18</span><span class="cb-title">冷戦と日本の復興</span><span class="bk-prog" data-ch="18"></span></div><ul class="u-list"><li class="u-row" data-ch="18" data-tid="cold-war" data-ref="1"><span class="u-no">1</span><span class="u-name">冷戦の始まり</span><span class="u-state"></span><a class="u-btn wb" href="wb/18/index.html#t2">問題</a><a class="u-btn ref" href="ref/18/index.html#t1">参考書</a></li><li class="u-row" data-ch="18" data-tid="japan-independence" data-ref="2"><span class="u-no">2</span><span class="u-name">日本の独立回復</span><span class="u-state"></span><a class="u-btn wb" href="wb/18/index.html#t3">問題</a><a class="u-btn ref" href="ref/18/index.html#t2">参考書</a></li><li class="u-row" data-ch="18" data-tid="postwar-international" data-ref="3"><span class="u-no">3</span><span class="u-name">国際社会への復帰</span><span class="u-state"></span><a class="u-btn wb" href="wb/18/index.html#t4">問題</a><a class="u-btn ref" href="ref/18/index.html#t3">参考書</a></li><li class="u-row" data-ch="18" data-tid="economic-growth" data-ref="4"><span class="u-no">4</span><span class="u-name">高度経済成長</span><span class="u-state"></span><a class="u-btn wb" href="wb/18/index.html#t5">問題</a><a class="u-btn ref" href="ref/18/index.html#t4">参考書</a></li><li class="u-row" data-ch="18" data-tid="postwar-culture" data-ref="5"><span class="u-no">5</span><span class="u-name">戦後の文化</span><span class="u-state"></span><a class="u-btn wb" href="wb/18/index.html#t6">問題</a><a class="u-btn ref" href="ref/18/index.html#t5">参考書</a></li></ul></section><section class="book" data-grade="中3"><div class="ch-band"><span class="cb-flag">🚩</span><span class="cb-no">冒険 19</span><span class="cb-title">現代の世界</span><span class="bk-prog" data-ch="19"></span></div><ul class="u-list"><li class="u-row" data-ch="19" data-tid="cold-war-end" data-ref="1"><span class="u-no">1</span><span class="u-name">冷戦の終結</span><span class="u-state"></span><a class="u-btn wb" href="wb/19/index.html#t2">問題</a><a class="u-btn ref" href="ref/19/index.html#t1">参考書</a></li><li class="u-row" data-ch="19" data-tid="heisei-japan" data-ref="2"><span class="u-no">2</span><span class="u-name">平成の日本</span><span class="u-state"></span><a class="u-btn wb" href="wb/19/index.html#t3">問題</a><a class="u-btn ref" href="ref/19/index.html#t2">参考書</a></li><li class="u-row" data-ch="19" data-tid="modern-issues" data-ref="3"><span class="u-no">3</span><span class="u-name">現代の課題</span><span class="u-state"></span><a class="u-btn wb" href="wb/19/index.html#t4">問題</a><a class="u-btn ref" href="ref/19/index.html#t3">参考書</a></li></ul></section></div>
+  </div>
+
+  <div class="record">
+    <div class="rec-h"><h2>冒険のきろく</h2></div>
+    <div class="counts">
+      <div class="cnt"><b id="cCleared">0</b><span>クリアマス数</span></div>
+      <div class="cnt"><b id="cStamp">0</b><span>集めたスタンプ</span></div>
+      <div class="cnt"><b id="cPerfect">0</b><span>全問正解</span></div>
+    </div>
+  </div>
+</div>
+<footer>つづもん 歴史クエスト　｜　全92単元</footer>
 
 <script>
 (function () {
-  var MANIFEST = [{"ch": "01", "grade": "中1", "vol": "歴史 ①", "title": "年代の表し方", "units": [{"n": 1}]}, {"ch": "02", "grade": "中1", "vol": "歴史 ②", "title": "古代の世界", "units": [{"n": 2}, {"n": 3}, {"n": 4}, {"n": 5}, {"n": 6}]}, {"ch": "03", "grade": "中1", "vol": "歴史 ③", "title": "日本の始まり", "units": [{"n": 7}, {"n": 8}, {"n": 9}]}, {"ch": "04", "grade": "中1", "vol": "歴史 ④", "title": "古代の国家", "units": [{"n": 10}, {"n": 11}, {"n": 12}, {"n": 13}, {"n": 14}, {"n": 15}, {"n": 16}, {"n": 17}]}, {"ch": "05", "grade": "中1", "vol": "歴史 ⑤", "title": "武士と鎌倉幕府", "units": [{"n": 18}, {"n": 19}, {"n": 20}, {"n": 21}, {"n": 22}]}, {"ch": "06", "grade": "中1", "vol": "歴史 ⑥", "title": "室町時代と中世の世界", "units": [{"n": 23}, {"n": 24}, {"n": 25}, {"n": 26}, {"n": 27}, {"n": 28}, {"n": 29}, {"n": 30}]}, {"ch": "07", "grade": "中2", "vol": "歴史 ⑦", "title": "ヨーロッパと天下統一", "units": [{"n": 31}, {"n": 32}, {"n": 33}, {"n": 34}, {"n": 35}, {"n": 36}]}, {"ch": "08", "grade": "中2", "vol": "歴史 ⑧", "title": "幕藩体制の確立", "units": [{"n": 37}, {"n": 38}, {"n": 39}, {"n": 40}, {"n": 41}, {"n": 42}, {"n": 43}, {"n": 44}, {"n": 45}]}, {"ch": "09", "grade": "中2", "vol": "歴史 ⑨", "title": "市民革命と近代化", "units": [{"n": 46}, {"n": 47}, {"n": 48}, {"n": 49}, {"n": 50}, {"n": 51}, {"n": 52}, {"n": 53}]}, {"ch": "10", "grade": "中2", "vol": "歴史 ⑩", "title": "幕末の動乱", "units": [{"n": 54}, {"n": 55}, {"n": 56}]}, {"ch": "11", "grade": "中2", "vol": "歴史 ⑪", "title": "明治維新と立憲国家", "units": [{"n": 57}, {"n": 58}, {"n": 59}, {"n": 60}, {"n": 61}, {"n": 62}]}, {"ch": "12", "grade": "中2", "vol": "歴史 ⑫", "title": "日清・日露の時代", "units": [{"n": 63}, {"n": 64}, {"n": 65}, {"n": 66}, {"n": 67}, {"n": 68}]}, {"ch": "13", "grade": "中3", "vol": "歴史 ⑬", "title": "第一次世界大戦と日本", "units": [{"n": 69}, {"n": 70}, {"n": 71}, {"n": 72}]}, {"ch": "14", "grade": "中3", "vol": "歴史 ⑭", "title": "大正デモクラシー", "units": [{"n": 73}, {"n": 74}, {"n": 75}]}, {"ch": "15", "grade": "中3", "vol": "歴史 ⑮", "title": "昭和の危機", "units": [{"n": 76}, {"n": 77}, {"n": 78}]}, {"ch": "16", "grade": "中3", "vol": "歴史 ⑯", "title": "第二次世界大戦と日本", "units": [{"n": 79}, {"n": 80}, {"n": 81}, {"n": 82}]}, {"ch": "17", "grade": "中3", "vol": "歴史 ⑰", "title": "占領と日本国憲法", "units": [{"n": 83}, {"n": 84}]}, {"ch": "18", "grade": "中3", "vol": "歴史 ⑱", "title": "冷戦と日本の復興", "units": [{"n": 85}, {"n": 86}, {"n": 87}, {"n": 88}, {"n": 89}]}, {"ch": "19", "grade": "中3", "vol": "歴史 ⑲", "title": "現代の世界", "units": [{"n": 90}, {"n": 91}, {"n": 92}]}];
-  var GRADE_STARTS = {"中1": 1, "中2": 31, "中3": 69};
-  var ROW = 4; // 1行のマス数（snake配置）
+  var MANIFEST = [{"ch": "01", "grade": "中1", "vol": "歴史 ①", "title": "年代の表し方", "n": 1}, {"ch": "02", "grade": "中1", "vol": "歴史 ②", "title": "古代の世界", "n": 5}, {"ch": "03", "grade": "中1", "vol": "歴史 ③", "title": "日本の始まり", "n": 3}, {"ch": "04", "grade": "中1", "vol": "歴史 ④", "title": "古代の国家", "n": 8}, {"ch": "05", "grade": "中1", "vol": "歴史 ⑤", "title": "武士と鎌倉幕府", "n": 5}, {"ch": "06", "grade": "中1", "vol": "歴史 ⑥", "title": "室町時代と中世の世界", "n": 8}, {"ch": "07", "grade": "中2", "vol": "歴史 ⑦", "title": "ヨーロッパと天下統一", "n": 6}, {"ch": "08", "grade": "中2", "vol": "歴史 ⑧", "title": "幕藩体制の確立", "n": 9}, {"ch": "09", "grade": "中2", "vol": "歴史 ⑨", "title": "市民革命と近代化", "n": 8}, {"ch": "10", "grade": "中2", "vol": "歴史 ⑩", "title": "幕末の動乱", "n": 3}, {"ch": "11", "grade": "中2", "vol": "歴史 ⑪", "title": "明治維新と立憲国家", "n": 6}, {"ch": "12", "grade": "中2", "vol": "歴史 ⑫", "title": "日清・日露の時代", "n": 6}, {"ch": "13", "grade": "中3", "vol": "歴史 ⑬", "title": "第一次世界大戦と日本", "n": 4}, {"ch": "14", "grade": "中3", "vol": "歴史 ⑭", "title": "大正デモクラシー", "n": 3}, {"ch": "15", "grade": "中3", "vol": "歴史 ⑮", "title": "昭和の危機", "n": 3}, {"ch": "16", "grade": "中3", "vol": "歴史 ⑯", "title": "第二次世界大戦と日本", "n": 4}, {"ch": "17", "grade": "中3", "vol": "歴史 ⑰", "title": "占領と日本国憲法", "n": 2}, {"ch": "18", "grade": "中3", "vol": "歴史 ⑱", "title": "冷戦と日本の復興", "n": 5}, {"ch": "19", "grade": "中3", "vol": "歴史 ⑲", "title": "現代の世界", "n": 3}];
+  var ERAS = [{"key": "ancient", "name": "原始・古代", "chapters": ["01", "02", "03", "04"], "emoji": "🏺", "hint": "人類のはじまりから、天皇中心の国づくりまで"}, {"key": "medieval", "name": "中世", "chapters": ["05", "06"], "emoji": "⚔️", "hint": "武士が力をもち、幕府が生まれた時代"}, {"key": "earlymod", "name": "近世", "chapters": ["07", "08", "09", "10"], "emoji": "🏯", "hint": "天下統一から、江戸幕府のおわりまで"}, {"key": "modern", "name": "近代", "chapters": ["11", "12", "13", "14", "15", "16"], "emoji": "🚂", "hint": "明治の新しい国づくりと、二つの世界大戦"}, {"key": "current", "name": "現代", "chapters": ["17", "18", "19"], "emoji": "🗼", "hint": "戦後の復興から、いまの世界へ"}];
+  var GRADES = ["中1", "中2", "中3"];
+  var GRADE_TOTAL = {"中1": 30, "中2": 38, "中3": 24};
+  var ROW = 8;   // 1行のマス数（snake配置）。カンプと同じ密度
 
   function ls(key) { try { return JSON.parse(localStorage.getItem(key) || '{}'); } catch (e) { return {}; } }
+  function lsRaw(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
+  function save(key, v) { try { localStorage.setItem(key, v); } catch (e) {} }
 
-  // 単元ごとのクリア種別を求める
-  function stateOf(cell) {
-    var ch = cell.dataset.ch, tid = cell.dataset.tid;
-    var nq = +cell.dataset.nq || 0;
+  /* ───── 登録学年 ─────
+     配布URLの ?g= で受け取り、localStorage['tzmgrades'] に保存する。
+       ?g=1,2 / ?g=中1,中2 / ?g=all
+     パラメータも保存もなければ全学年（体験・確認用）。 */
+  function parseGrades(raw) {
+    if (!raw) return null;
+    if (/^all$/i.test(raw.trim())) return GRADES.slice();
+    var out = [];
+    raw.split(/[,\s、]+/).forEach(function (t) {
+      var m = t.match(/([123])/);
+      if (!m) return;
+      var g = '中' + m[1];
+      if (GRADES.indexOf(g) >= 0 && out.indexOf(g) < 0) out.push(g);
+    });
+    return out.length ? out : null;
+  }
+  function myGrades() {
+    var q = parseGrades(new URLSearchParams(location.search).get('g'));
+    if (q) { save('tzmgrades', JSON.stringify(q)); return q; }
+    var saved = null;
+    try { saved = JSON.parse(lsRaw('tzmgrades') || 'null'); } catch (e) {}
+    if (saved && saved.length) {
+      var ok = saved.filter(function (g) { return GRADES.indexOf(g) >= 0; });
+      if (ok.length) return ok;
+    }
+    return GRADES.slice();
+  }
+
+  var MY = myGrades();
+  var cur = lsRaw('tzmgrade');
+  if (MY.indexOf(cur) < 0) cur = MY[0];
+
+  function renderTabs() {
+    var box = document.getElementById('gtabs');
+    box.innerHTML = '';
+    // 1学年しか持っていない人にはタブを出さない
+    if (MY.length < 2) return;
+    box.classList.add('show');
+    MY.forEach(function (g) {
+      var b = document.createElement('button');
+      b.className = 'gtab' + (g === cur ? ' on' : '');
+      b.type = 'button';
+      b.dataset.g = g;
+      b.textContent = g;
+      box.appendChild(b);
+    });
+  }
+
+  // 単元ごとのクリア種別を求める（保存形式は問題集/参考書 Web版と共通）
+  function stateOf(ch, tid, nq, refV) {
     var wb = ls('tzmwb-' + ch), r = wb.r || {};
     var done = 0, correct = 0;
     var pref = ['qa-' + tid + '-', 'qz-' + tid + '-', 'wr-' + tid + '-'];
@@ -141,7 +374,6 @@
         if (k.indexOf(pref[i]) === 0) { done++; if (r[k] === 1) correct++; break; }
       }
     });
-    var refV = cell.dataset.ref;
     var refRead = refV && ls('tzmref-' + ch)['d' + refV] === 1;
     if (nq > 0 && done >= nq && correct >= nq) return 'perfect';
     if (nq > 0 && done >= nq) return 'all';
@@ -149,92 +381,163 @@
     if (refRead) return 'ref';
     return 'none';
   }
+  function cellState(c) {
+    return stateOf(c.dataset.ch, c.dataset.tid, +c.dataset.nq || 0, c.dataset.ref);
+  }
 
-  // snake（うねうね）配置で盤を組む。学年の変わり目に見出しを入れる。
+  // いまの学年のマスだけを、時代エリアごとの島に snake 配置で並べる
   function layout() {
     var board = document.getElementById('board');
-    var all = [].slice.call(document.querySelectorAll('#cells .cell'));
-    var goal = board.querySelector('.goal-flag');
-    // 既存の行を消す（再描画対応）
-    [].forEach.call(board.querySelectorAll('.row, .grade-band'), function (el) { el.remove(); });
+    var goal = board.querySelector('.goal');
+    var pool = document.getElementById('cells');
+    var all = [].slice.call(document.querySelectorAll('.cell[data-tid]'));
+    // いったん全部プールへ戻してから、いまの学年ぶんだけ島に入れ直す
+    all.forEach(function (c) { if (c.parentNode !== pool) pool.appendChild(c); });
+    [].forEach.call(board.querySelectorAll('.era'), function (el) { el.remove(); });
 
-    var byGrade = {};
-    all.forEach(function (c) { (byGrade[c.dataset.grade] = byGrade[c.dataset.grade] || []).push(c); });
-    var order = ['中1', '中2', '中3'];
-    order.forEach(function (g) {
-      var list = byGrade[g]; if (!list || !list.length) return;
-      var band = document.createElement('div');
-      band.className = 'grade-band';
-      band.innerHTML = '<span class="grade-tag">' + g + '</span><span class="grade-line"></span>';
-      board.insertBefore(band, goal);
+    var mine = all.filter(function (c) { return c.dataset.grade === cur; });
+    ERAS.forEach(function (era) {
+      var list = mine.filter(function (c) { return c.dataset.era === era.key; });
+      if (!list.length) return;
+      var box = document.createElement('div');
+      box.className = 'era e-' + era.key;
+      var first = list[0].dataset.gn, last = list[list.length - 1].dataset.gn;
+      box.innerHTML = '<div><span class="sign"><span class="s-emoji">' + era.emoji + '</span>'
+        + era.name + '<span class="s-range">' + first + '〜' + last + '</span></span></div>'
+        + '<div class="era-hint">' + era.hint + '</div>';
       for (var i = 0; i < list.length; i += ROW) {
         var row = document.createElement('div');
         row.className = 'row' + ((i / ROW) % 2 === 1 ? ' rev' : '');
         var slice = list.slice(i, i + ROW);
         slice.forEach(function (c) { row.appendChild(c); });
-        // 端数は空マスで埋めて幅をそろえる
-        for (var f = slice.length; f < ROW; f++) {
-          var sp = document.createElement('span'); sp.className = 'cell'; sp.style.visibility = 'hidden';
-          row.appendChild(sp);
-        }
-        board.insertBefore(row, goal);
+        // マスの幅は常に1行ぶんで割る（端数の行でもマスが大きくならない）。
+        // 道の点線も実際にマスがあるぶんだけ伸ばす。
+        row.style.setProperty('--row', ROW);
+        row.style.setProperty('--span', (slice.length / ROW * 100) + '%');
+        box.appendChild(row);
       }
+      board.insertBefore(box, goal);
     });
+
+    // 本の一覧もいまの学年だけ
+    [].forEach.call(document.querySelectorAll('.book'), function (b) {
+      b.style.display = (b.dataset.grade === cur) ? '' : 'none';
+    });
+    document.getElementById('goalGrade').textContent = cur;
+    document.getElementById('goalTotal').textContent = GRADE_TOTAL[cur] || 0;
+    document.getElementById('ovTotal').textContent = GRADE_TOTAL[cur] || 0;
   }
 
   function paint() {
-    var cells = [].slice.call(document.querySelectorAll('.cell[data-tid]'));
+    // 進捗はいまの学年の中で数える（マップに並んでいるマス＝いまの学年）
+    var cells = [].slice.call(document.querySelectorAll('#board .era .cell[data-tid]'));
+    var n = { none: 0, ref: 0, some: 0, all: 0, perfect: 0 };
     var cleared = 0, lastCleared = -1;
+    var byCh = {};
+    // 章ごとの進み具合は全学年ぶん集計する（表示は絞られていても値は正しく）
+    [].forEach.call(document.querySelectorAll('.cell[data-tid]'), function (c) {
+      var s = cellState(c);
+      byCh[c.dataset.ch] = byCh[c.dataset.ch] || { done: 0, all: 0 };
+      byCh[c.dataset.ch].all++;
+      if (s !== 'none') byCh[c.dataset.ch].done++;
+    });
     cells.forEach(function (c, i) {
       c.classList.remove('s-ref', 's-some', 's-all', 's-perfect', 'here', 'current');
-      var s = stateOf(c);
-      var badge = c.querySelector('.cell-badge');
+      var s = cellState(c);
+      n[s]++;
+      var badge = c.querySelector('.tok-badge');
       if (s !== 'none') {
         c.classList.add('s-' + s);
         badge.textContent = s === 'perfect' ? '👑' : s === 'all' ? '✅' : s === 'some' ? '✏️' : '📖';
         cleared++; lastCleared = i;
       } else { badge.textContent = ''; }
     });
-    // 駒＝最後にクリアしたマス、つぎ＝その次の未クリアマス
     if (lastCleared >= 0) cells[lastCleared].classList.add('here');
     var nextIdx = lastCleared + 1;
     while (nextIdx < cells.length && cells[nextIdx].classList.contains('s-perfect')) nextIdx++;
     if (nextIdx < cells.length) cells[nextIdx].classList.add('current');
     else if (lastCleared < 0 && cells[0]) cells[0].classList.add('current');
-    // 全体進捗
+
     var pct = cells.length ? Math.round((cleared / cells.length) * 100) : 0;
     document.getElementById('ovFill').style.width = pct + '%';
-    document.getElementById('ovTxt').textContent =
-      'クリア ' + cleared + ' / ' + cells.length + ' マス（' + pct + '%）';
-  }
+    document.getElementById('ovNum').textContent = cleared;
+    document.getElementById('ovPct').textContent = '（' + pct + '%）';
 
-  // 章一覧（直リンク）
-  function books() {
-    var box = document.getElementById('books');
-    var html = '<h2>📚 本の一覧（直接ひらく）</h2>';
-    var curGrade = '';
-    MANIFEST.forEach(function (c) {
-      if (c.grade !== curGrade) { curGrade = c.grade; html += '<div class="grade-head">' + c.grade + '</div>'; }
-      html += '<div class="book-row"><span class="bk-vol">' + c.vol + '</span>'
-        + '<span class="bk-title">' + c.title + '</span>'
-        + '<a class="book-link wb" href="wb/' + c.ch + '/index.html">✏️ 問題</a>'
-        + '<a class="book-link ref" href="ref/' + c.ch + '/index.html">📖 参考書</a></div>';
+    // 冒険のきろく（いまの学年ぶん）
+    document.getElementById('cCleared').textContent = cleared;
+    document.getElementById('cStamp').textContent = n.all + n.perfect;
+    document.getElementById('cPerfect').textContent = n.perfect;
+
+    // 本の一覧: 章ごとの進み具合と、単元行の状態マーク
+    [].forEach.call(document.querySelectorAll('.bk-prog'), function (el) {
+      var b = byCh[el.dataset.ch] || { done: 0, all: 0 };
+      el.textContent = 'スタンプ ' + b.done + '/' + b.all;
     });
-    box.innerHTML = html;
+    [].forEach.call(document.querySelectorAll('.u-row'), function (el) {
+      var m = { perfect: '👑', all: '✅', some: '✏️', ref: '📖', none: '' };
+      var nq = 0;
+      var cell = document.querySelector('.cell[data-ch="' + el.dataset.ch + '"][data-tid="' + el.dataset.tid + '"]');
+      if (cell) nq = +cell.dataset.nq || 0;
+      el.querySelector('.u-state').textContent = m[stateOf(el.dataset.ch, el.dataset.tid, nq, el.dataset.ref)];
+    });
+
+    mission(cleared);
   }
 
-  // マスをタップ → その単元の問題集へ
+  // 今日のミッション: その日はじめてのアクセス時のクリア数を基準に、今日進めたマス数を数える
+  function mission(cleared) {
+    var GOAL = 3, today = new Date().toISOString().slice(0, 10), key = 'tzmportal-' + cur;
+    var st = ls(key);
+    if (st.date !== today) { st = { date: today, base: cleared }; save(key, JSON.stringify(st)); }
+    if (cleared < st.base) { st.base = cleared; save(key, JSON.stringify(st)); }
+    var got = Math.max(0, cleared - st.base);
+    var steps = document.getElementById('msSteps');
+    steps.innerHTML = '';
+    for (var i = 0; i < GOAL; i++) {
+      var s = document.createElement('span');
+      s.className = 'ms-step' + (i < got ? ' on' : '');
+      s.textContent = i < got ? '★' : (i + 1);
+      steps.appendChild(s);
+    }
+    document.getElementById('msTxt').textContent = got >= GOAL
+      ? '今日のミッション達成！ すごい！'
+      : '今日は あと ' + (GOAL - got) + 'マス すすめよう！';
+  }
+
   document.addEventListener('click', function (e) {
+    if (!e.target.closest) return;
+    // 学年タブ
+    var gtab = e.target.closest('.gtab');
+    if (gtab) {
+      cur = gtab.dataset.g;
+      save('tzmgrade', cur);
+      renderTabs(); layout(); paint();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    // マスをタップ → その単元の問題集へ
     var cell = e.target.closest('.cell[data-tid]');
-    if (!cell) return;
-    location.href = 'wb/' + cell.dataset.ch + '/index.html#t' + cell.dataset.wb;
+    if (cell) { location.href = 'wb/' + cell.dataset.ch + '/index.html#t' + cell.dataset.wb; return; }
   });
 
-  document.getElementById('cells').style.display = '';
+  // ロゴ画像が実際に表示できたときだけ、CSS文字版のタイトルと差し替える
+  var logo = document.querySelector('.title-img');
+  if (logo) {
+    if (logo.complete && logo.naturalWidth) document.getElementById('head').classList.add('has-logo');
+    else logo.addEventListener('load', function () {
+      document.getElementById('head').classList.add('has-logo');
+    });
+  }
+  // バッジ画像が置かれていれば、絵文字のバッジを画像に切り替える
+  (function () {
+    var probe = new Image();
+    probe.onload = function () { document.documentElement.classList.add('has-badges'); };
+    probe.src = 'img/quest-badge-all.webp';
+  })();
+
+  renderTabs();
   layout();
   paint();
-  books();
-  // 別タブで進めて戻ってきたら再集計
   window.addEventListener('focus', paint);
   window.addEventListener('pageshow', paint);
 })();
