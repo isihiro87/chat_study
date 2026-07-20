@@ -112,11 +112,15 @@
   .resume span { font-weight:normal; font-size:12px; opacity:.9; margin-left:8px; }
   .toc { margin:16px 0 12px; background:#fff; border:2px solid var(--line); border-radius:14px; padding:14px; }
   .toc-h { font-weight:bold; color:var(--deep); margin-bottom:6px; font-size:15px; }
-  .toc-item { display:flex; align-items:center; gap:10px; width:100%; padding:11px 6px;
+  .toc-item { display:flex; align-items:center; gap:10px; width:100%; padding:9px 6px;
               background:none; border:none; border-top:1px solid #faf1dc; cursor:pointer;
               color:#44403c; font-weight:bold; font-size:15px; text-align:left;
-              font-family:inherit; line-height:1.5; }
+              font-family:inherit; line-height:1.4; }
   .toc-item:first-of-type { border-top:none; }
+  /* 目次の単元サムネ（Codex製の水彩挿絵）。目次を絵入りで見やすく */
+  .toc-thumb { flex:none; width:56px; height:42px; border-radius:9px; object-fit:cover;
+               border:1.5px solid var(--line); background:#fff7e6; box-shadow:0 1px 3px rgba(120,80,20,.15); }
+  .toc-thumb.ph { background:linear-gradient(135deg,#fef3c7,#fde68a); }
   .toc-no { flex:none; min-width:24px; height:24px; border-radius:50%; background:var(--amber);
             color:#fff; display:inline-flex; align-items:center; justify-content:center;
             font-size:12px; padding:0 4px; }
@@ -420,7 +424,7 @@
   <button class="resume" id="resumeBtn" hidden>▶ つづきから解く<span id="resumeWhere"></span></button>
   <nav class="toc">
     <div class="toc-h">✏️ この本の問題</div>
-    <button class="toc-item" data-go="1"><span class="toc-no">年</span><span class="toc-name">年表でチェック</span><span class="toc-state" data-state-t="1"></span></button><button class="toc-item" data-go="2"><span class="toc-no">1</span><span class="toc-name">旧石器時代と縄文時代</span><span class="toc-state" data-state-t="2"></span></button><button class="toc-item" data-go="3"><span class="toc-no">2</span><span class="toc-name">弥生時代</span><span class="toc-state" data-state-t="3"></span></button><button class="toc-item" data-go="4"><span class="toc-no">3</span><span class="toc-name">古墳時代と大和政権</span><span class="toc-state" data-state-t="4"></span></button>
+    <button class="toc-item" data-go="1"><span class="toc-no">年</span><span class="toc-name">年表でチェック</span><span class="toc-state" data-state-t="1"></span></button><button class="toc-item" data-go="2"><img class="toc-thumb" src="img/reference_hist03-jomon.webp" alt="" loading="lazy"><span class="toc-no">1</span><span class="toc-name">旧石器時代と縄文時代</span><span class="toc-state" data-state-t="2"></span></button><button class="toc-item" data-go="3"><img class="toc-thumb" src="img/reference_hist03-yayoi.webp" alt="" loading="lazy"><span class="toc-no">2</span><span class="toc-name">弥生時代</span><span class="toc-state" data-state-t="3"></span></button><button class="toc-item" data-go="4"><img class="toc-thumb" src="img/reference_hist03-kofun.webp" alt="" loading="lazy"><span class="toc-no">3</span><span class="toc-name">古墳時代と大和政権</span><span class="toc-state" data-state-t="4"></span></button>
   </nav>
   <a class="big-btn ref-btn" href="../../ref/03/index.html">📖 参考書Web版を開く</a>
   <button class="big-btn print-btn" type="button" onclick="window.print()">🖨 紙に印刷して解く（解答つき）</button>

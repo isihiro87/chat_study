@@ -159,11 +159,15 @@
   .toc { margin:16px 0 8px; background:#fff; border:2px solid var(--line); border-radius:14px;
          padding:14px; }
   .toc-h { font-weight:bold; color:var(--deep); margin-bottom:6px; font-size:15px; }
-  .toc-item { display:flex; align-items:center; gap:10px; width:100%; padding:11px 6px;
+  .toc-item { display:flex; align-items:center; gap:10px; width:100%; padding:9px 6px;
               background:none; border:none; border-top:1px solid #faf1dc; cursor:pointer;
               color:#44403c; font-weight:bold; font-size:15px; text-align:left;
-              font-family:inherit; line-height:1.5; }
+              font-family:inherit; line-height:1.4; }
   .toc-item:first-of-type { border-top:none; }
+  /* 目次の単元サムネ（Codex製の水彩挿絵）。目次を絵入りで見やすく */
+  .toc-thumb { flex:none; width:56px; height:42px; border-radius:9px; object-fit:cover;
+               border:1.5px solid var(--line); background:#fff7e6; box-shadow:0 1px 3px rgba(120,80,20,.15); }
+  .toc-thumb.ph { background:linear-gradient(135deg,#fef3c7,#fde68a); }
   .toc-no { flex:none; width:24px; height:24px; border-radius:50%; background:var(--amber);
             color:#fff; display:inline-flex; align-items:center; justify-content:center;
             font-size:13px; }
@@ -440,7 +444,7 @@
   <button class="resume" id="resumeBtn" hidden>▶ つづきから読む<span id="resumeWhere"></span></button>
   <nav class="toc">
     <div class="toc-h">📚 この本の単元</div>
-    <button class="toc-item" data-go="1"><span class="toc-no">1</span><span class="toc-name">占領と民主化</span><span class="toc-state" data-state-t="1"></span></button><button class="toc-item" data-go="2"><span class="toc-no">2</span><span class="toc-name">日本国憲法と民主化</span><span class="toc-state" data-state-t="2"></span></button>
+    <button class="toc-item" data-go="1"><img class="toc-thumb" src="img/hist17-occupation.webp" alt="" loading="lazy"><span class="toc-no">1</span><span class="toc-name">占領と民主化</span><span class="toc-state" data-state-t="1"></span></button><button class="toc-item" data-go="2"><img class="toc-thumb" src="img/hist17-constitution.webp" alt="" loading="lazy"><span class="toc-no">2</span><span class="toc-name">日本国憲法と民主化</span><span class="toc-state" data-state-t="2"></span></button>
   </nav>
   <a class="wb-home" href="../../wb/17/index.html">✏️ 問題集Web版を開く（この本の問題を解く）</a>
   <footer class="foot">
