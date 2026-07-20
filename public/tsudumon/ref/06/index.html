@@ -13,6 +13,36 @@
 
   .mark { background:linear-gradient(transparent 55%, var(--line) 55%); font-weight:bold; padding:0 1px; }
 
+  /* ── 読み上げ（音声＋読んでいる句のハイライト）── */
+  .s { border-radius:6px; padding:.14em .12em; margin:0 -.12em;
+       -webkit-box-decoration-break:clone; box-decoration-break:clone;
+       transition:background-color .15s ease, color .15s ease; }
+  body.reading .s { cursor:pointer; }
+  .s.read { color:#8a8279; }
+  .s.now { background:#fcd34d; color:#1c1917; }
+  .s.now .mark { background:none; }
+  /* 単元見出しの再生ボタン */
+  .play-unit { display:inline-flex; align-items:center; gap:6px; margin-left:auto; flex:none;
+               background:#fff; color:var(--brand); border:1.5px solid var(--line);
+               border-radius:20px; padding:4px 12px; font-size:12px; font-weight:bold;
+               font-family:inherit; cursor:pointer; }
+  .play-unit[hidden] { display:none; }
+  /* 下部プレーヤー（再生中だけ出す。ナビバーの上に重ねる） */
+  .aplayer { position:fixed; left:0; right:0; bottom:58px; z-index:25;
+             background:rgba(255,253,248,.98); border-top:1px solid #f0e6d2;
+             box-shadow:0 -3px 12px rgba(120,80,20,.14); padding:7px 0 8px; }
+  .aplayer[hidden] { display:none; }
+  .ap-in { max-width:640px; margin:0 auto; padding:0 14px; display:flex; align-items:center; gap:9px; }
+  .ap-btn { flex:none; width:40px; height:40px; border-radius:50%; border:none; background:var(--brand);
+            color:#fff; font-size:16px; cursor:pointer; box-shadow:0 2px 6px rgba(180,83,9,.35); }
+  .ap-seek { flex:1; min-width:0; }
+  .ap-seek input { width:100%; accent-color:var(--brand); }
+  .ap-time { flex:none; font-size:11px; font-weight:bold; color:var(--brand); min-width:74px;
+             text-align:right; }
+  .ap-rate, .ap-close { flex:none; border:1.5px solid var(--line); background:#fffbeb; color:var(--brand);
+             font-weight:bold; border-radius:16px; padding:4px 9px; font-size:11.5px; cursor:pointer;
+             font-family:inherit; }
+
   /* ── 上部: タイトル＋単元タブ＋進捗バー ── */
   .bar { position:sticky; top:0; z-index:10; background:rgba(255,253,248,.96);
          backdrop-filter:blur(6px); border-bottom:1px solid #f0e6d2; }
@@ -35,7 +65,7 @@
                white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   .bar-step { flex:none; font-size:11px; font-weight:bold; color:var(--brand); }
   /* 初回だけ出す操作ヒント（PCはキー、スマホはスワイプ） */
-  .hintbar { position:fixed; left:50%; transform:translateX(-50%); bottom:78px; z-index:35;
+  .hintbar { position:fixed; left:50%; transform:translateX(-50%); bottom:132px; z-index:35;
              background:rgba(28,25,23,.88); color:#fff; font-size:12.5px; font-weight:bold;
              border-radius:20px; padding:8px 16px; box-shadow:0 4px 14px rgba(0,0,0,.3);
              animation:hintIn .3s ease; }
@@ -419,32 +449,33 @@
   </footer>
 </section>
 <section class="view" data-t="1">
-  <div class="tband"><span class="tno">1</span><h2>モンゴル帝国</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">1</span><h2>モンゴル帝国</h2>
+    <button class="play-unit" type="button" data-play="1" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-mongol-empire.webp"
            alt="モンゴル帝国（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">馬に乗った遊牧民が、まさか世界最大級の帝国を築くなんて。しかもその噂を聞いたヨーロッパ人が、新しい航路を目指すきっかけにもなったんだ。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">馬に乗った遊牧民が、</span><span class="s" data-i="1">まさか世界最大級の帝国を築くなんて。</span><span class="s" data-i="2">しかもその噂を聞いたヨーロッパ人が、</span><span class="s" data-i="3">新しい航路を目指すきっかけにもなったんだ。</span></div></div>
     </div>
     <div class="step" data-label="チンギス・ハンとモンゴル帝国の建国">
-      <h3><span class="sec-no">1</span>チンギス・ハンとモンゴル帝国の建国</h3>
-      <div class="sec-lead">チンギス・ハンが、大帝国を築き上げたよ。</div>
-      <p>13世紀の初め、<span class="mark">チンギス・ハン</span>はモンゴル高原の遊牧民たちをまとめ上げ、機動力にすぐれた騎馬軍を率いて周辺地域を次々に征服していったんだ。そうしてユーラシア大陸にまたがる<span class="mark">モンゴル帝国</span>を築き上げたんだよ。帝国は征服した地域の宗教や言語をそのまま認める柔軟な統治をしていて、無理に同化させるようなことはしなかったんだ。この方針こそ、多様な民族や文化を抱える広大な帝国をまとめる知恵だったといえるね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">チンギス・ハンが、ユーラシアにまたがるモンゴル帝国を築いたよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="4">チンギス・ハンとモンゴル帝国の建国</span></h3>
+      <div class="sec-lead"><span class="s" data-i="5">チンギス・ハンが、</span><span class="s" data-i="6">大帝国を築き上げたよ。</span></div>
+      <p><span class="s" data-i="7">13世紀の初め、</span><span class="s" data-i="8"><span class="mark">チンギス・ハン</span>はモンゴル高原の遊牧民たちをまとめ上げ、</span><span class="s" data-i="9">機動力にすぐれた騎馬軍を率いて周辺地域を次々に征服していったんだ。</span><span class="s" data-i="10">そうしてユーラシア大陸にまたがる<span class="mark">モンゴル帝国</span>を築き上げたんだよ。</span><span class="s" data-i="11">帝国は征服した地域の宗教や言語をそのまま認める柔軟な統治をしていて、</span><span class="s" data-i="12">無理に同化させるようなことはしなかったんだ。</span><span class="s" data-i="13">この方針こそ、多様な民族や文化を抱える広大な帝国をまとめる知恵だったといえるね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="14">チンギス・ハンが、</span><span class="s" data-i="15">ユーラシアにまたがるモンゴル帝国を築いたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">チンギス・ハン<span class="w-rd">ちんぎす・はん</span></span><span class="w-desc">モンゴル高原の遊牧民を統一し、モンゴル帝国を築いた人物。</span></div></div>
     </div>
     <div class="step" data-label="フビライ・ハンと元・日本への服属要求">
-      <h3><span class="sec-no">2</span>フビライ・ハンと元・日本への服属要求</h3>
-      <div class="sec-lead">フビライ・ハンが、日本にも服属を求めたよ。</div>
-      <p>チンギス・ハンの孫にあたる<span class="mark">フビライ・ハン</span>は、国号を<span class="mark">元</span>と定めて、<span class="mark">大都</span>(現在の北京)に都を置いたんだ。元は朝鮮半島の<span class="mark">高麗</span>を従えたうえで、日本にも使者を送って貿易と朝貢(服属)を求めてきたんだよ。この要求を鎌倉幕府が拒んだことが、のちの元寇につながっていくんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">フビライ・ハンは元を建て、日本にも服属を求めたよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="16">フビライ・ハンと元・日本への服属要求</span></h3>
+      <div class="sec-lead"><span class="s" data-i="17">フビライ・ハンが、</span><span class="s" data-i="18">日本にも服属を求めたよ。</span></div>
+      <p><span class="s" data-i="19">チンギス・ハンの孫にあたる<span class="mark">フビライ・ハン</span>は、</span><span class="s" data-i="20">国号を<span class="mark">元</span>と定めて、</span><span class="s" data-i="21"><span class="mark">大都</span>(現在の北京)に都を置いたんだ。</span><span class="s" data-i="22">元は朝鮮半島の<span class="mark">高麗</span>を従えたうえで、</span><span class="s" data-i="23">日本にも使者を送って貿易と朝貢(服属)を求めてきたんだよ。</span><span class="s" data-i="24">この要求を鎌倉幕府が拒んだことが、</span><span class="s" data-i="25">のちの元寇につながっていくんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="26">フビライ・ハンは元を建て、</span><span class="s" data-i="27">日本にも服属を求めたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">フビライ・ハン<span class="w-rd">ふびらい・はん</span></span><span class="w-desc">チンギス・ハンの孫で、国号を元と定め、日本に服属を求めた人物。</span></div><div class="word"><span class="w-term">元<span class="w-rd">げん</span></span><span class="w-desc">フビライ・ハンが建てた、中国を支配したモンゴル系の王朝。</span></div><div class="word"><span class="w-term">大都<span class="w-rd">だいと</span></span><span class="w-desc">フビライ・ハンが元の都を置いた場所。現在の北京にあたる。</span></div><div class="word"><span class="w-term">高麗<span class="w-rd">こうらい</span></span><span class="w-desc">フビライ・ハンが従えた朝鮮半島の国。元寇では元とともに日本を攻めた。</span></div></div>
     </div>
     <div class="step" data-label="マルコ・ポーロと東西交流の広がり">
-      <h3><span class="sec-no">3</span>マルコ・ポーロと東西交流の広がり</h3>
-      <div class="sec-lead">東方見聞録が、日本を世界に紹介したよ。</div>
-      <p>元に仕えたイタリア人の<span class="mark">マルコ・ポーロ</span>は、自分の見聞をもとに『<span class="mark">東方見聞録</span>』(世界の記述)を書き、実際には訪れていない日本を「黄金の国ジパング」としてヨーロッパに紹介したんだ。この書物がアジアへの関心を高め、のちのヨーロッパの大航海時代へとつながっていったんだよ。また、アラビア半島やインドを結ぶ海の交易では<span class="mark">ムスリム商人</span>が活躍していて、モンゴル帝国が13世紀末に分裂したあとのトルコには<span class="mark">オスマン帝国</span>が成立したんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">マルコ・ポーロの東方見聞録が、日本をヨーロッパに紹介したよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="28">マルコ・ポーロと東西交流の広がり</span></h3>
+      <div class="sec-lead"><span class="s" data-i="29">東方見聞録が、日本を世界に紹介したよ。</span></div>
+      <p><span class="s" data-i="30">元に仕えたイタリア人の<span class="mark">マルコ・ポーロ</span>は、</span><span class="s" data-i="31">自分の見聞をもとに『<span class="mark">東方見聞録</span>』(世界の記述)を書き、</span><span class="s" data-i="32">実際には訪れていない日本を「黄金の国ジパング」としてヨーロッパに紹介したんだ。</span><span class="s" data-i="33">この書物がアジアへの関心を高め、</span><span class="s" data-i="34">のちのヨーロッパの大航海時代へとつながっていったんだよ。</span><span class="s" data-i="35">また、アラビア半島やインドを結ぶ海の交易では<span class="mark">ムスリム商人</span>が活躍していて、</span><span class="s" data-i="36">モンゴル帝国が13世紀末に分裂したあとのトルコには<span class="mark">オスマン帝国</span>が成立したんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="37">マルコ・ポーロの東方見聞録が、</span><span class="s" data-i="38">日本をヨーロッパに紹介したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">マルコ・ポーロ<span class="w-rd">まるこ・ぽーろ</span></span><span class="w-desc">元に仕えたイタリア人。『東方見聞録』で日本をヨーロッパに紹介した。</span></div><div class="word"><span class="w-term">東方見聞録<span class="w-rd">とうほうけんぶんろく</span></span><span class="w-desc">マルコ・ポーロがアジアの見聞をまとめた書物。世界の記述ともいう。</span></div><div class="word"><span class="w-term">オスマン帝国<span class="w-rd">おすまんていこく</span></span><span class="w-desc">13世紀末、モンゴル帝国の分裂後にトルコで成立したイスラム教の国。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -552,7 +583,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body"><span class="mark">チンギス・ハン</span>が築いた<span class="mark">モンゴル帝国</span>は、孫の<span class="mark">フビライ・ハン</span>が<span class="mark">元</span>と定めてユーラシアの東西を結んだよ。<span class="mark">マルコ・ポーロ</span>の『東方見聞録』は日本をヨーロッパに紹介し、のちの大航海時代へつながっていったんだ。</div>
+        <div class="sum30-body"><span class="s" data-i="39"><span class="mark">チンギス・ハン</span>が築いた<span class="mark">モンゴル帝国</span>は、</span><span class="s" data-i="40">孫の<span class="mark">フビライ・ハン</span>が<span class="mark">元</span>と定めてユーラシアの東西を結んだよ。</span><span class="s" data-i="41"><span class="mark">マルコ・ポーロ</span>の『東方見聞録』は日本をヨーロッパに紹介し、</span><span class="s" data-i="42">のちの大航海時代へつながっていったんだ。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -567,32 +598,33 @@
     </div>
 </section>
 <section class="view" data-t="2">
-  <div class="tband"><span class="tno">2</span><h2>元寇と鎌倉幕府の滅亡</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">2</span><h2>元寇と鎌倉幕府の滅亡</h2>
+    <button class="play-unit" type="button" data-play="2" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-mongol-invasion.webp"
            alt="元寇と鎌倉幕府の滅亡（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">二度も攻めてきた元軍を退けたのに、幕府は御家人から感謝されるどころか恨まれてしまった。守り切った代償の重さを見てみよう。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">二度も攻めてきた元軍を退けたのに、</span><span class="s" data-i="1">幕府は御家人から感謝されるどころか恨まれてしまった。</span><span class="s" data-i="2">守り切った代償の重さを見てみよう。</span></div></div>
     </div>
     <div class="step" data-label="元寇 - 文永の役と弘安の役">
-      <h3><span class="sec-no">1</span>元寇 - 文永の役と弘安の役</h3>
-      <div class="sec-lead">元軍の二度の襲来を、日本は撃退したよ。</div>
-      <p>フビライ・ハンの服属要求を鎌倉幕府の第8代執権<span class="mark">北条時宗</span>が拒むと、元は1274年の<span class="mark">文永の役</span>、1281年の<span class="mark">弘安の役</span>と二度にわたって日本を攻めてきたんだ(合わせて<span class="mark">元寇</span>というよ)。元軍は集団戦法や火薬を使った<span class="mark">てつはう</span>で武士を苦しめたけれど、時宗が博多湾に築かせた石塁や暴風雨もあって、日本は二度とも撃退に成功したんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">元は文永の役・弘安の役の二度、日本を攻めたけど撃退されたよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="3">元寇 - 文永の役と弘安の役</span></h3>
+      <div class="sec-lead"><span class="s" data-i="4">元軍の二度の襲来を、</span><span class="s" data-i="5">日本は撃退したよ。</span></div>
+      <p><span class="s" data-i="6">フビライ・ハンの服属要求を鎌倉幕府の第8代執権<span class="mark">北条時宗</span>が拒むと、</span><span class="s" data-i="7">元は1274年の<span class="mark">文永の役</span>、</span><span class="s" data-i="8">1281年の<span class="mark">弘安の役</span>と二度にわたって日本を攻めてきたんだ(合わせて<span class="mark">元寇</span>というよ)。</span><span class="s" data-i="9">元軍は集団戦法や火薬を使った<span class="mark">てつはう</span>で武士を苦しめたけれど、</span><span class="s" data-i="10">時宗が博多湾に築かせた石塁や暴風雨もあって、</span><span class="s" data-i="11">日本は二度とも撃退に成功したんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="12">元は文永の役・弘安の役の二度、</span><span class="s" data-i="13">日本を攻めたけど撃退されたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">元寇<span class="w-rd">げんこう</span></span><span class="w-desc">13世紀後半、元が二度にわたり日本へ攻めてきたできごと。</span></div><div class="word"><span class="w-term">北条時宗<span class="w-rd">ほうじょうときむね</span></span><span class="w-desc">鎌倉幕府の第8代執権。二度の元寇を指揮して退けた。</span></div><div class="word"><span class="w-term">文永の役<span class="w-rd">ぶんえいのえき</span></span><span class="w-desc">1274年に起こった元軍の最初の襲来。</span></div><div class="word"><span class="w-term">弘安の役<span class="w-rd">こうあんのえき</span></span><span class="w-desc">1281年に起こった元軍の二度目の襲来。</span></div><div class="word"><span class="w-term">てつはう<span class="w-rd">てつはう</span></span><span class="w-desc">元軍が使った火薬を利用した武器。</span></div></div>
     </div>
     <div class="step" data-label="御家人の窮乏と幕府の衰え">
-      <h3><span class="sec-no">2</span>御家人の窮乏と幕府の衰え</h3>
-      <div class="sec-lead">恩賞不足で、御家人の生活が苦しくなったよ。</div>
-      <p>元寇で戦った御家人は、十分な恩賞をもらえなかったうえに、<span class="mark">分割相続</span>によって代々領地が細分化されて、生活がどんどん苦しくなっていったんだ。幕府は1297年に<span class="mark">永仁の徳政令</span>を出して借金の帳消しを認めたけれど、効果は一時的なものにとどまってしまったんだよ。荘園領主や幕府の命令に従わない悪党と呼ばれる新しい武士も現れて、幕府の力は次第に弱まっていったんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">恩賞不足と分割相続で、御家人の生活は苦しくなったよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="14">御家人の窮乏と幕府の衰え</span></h3>
+      <div class="sec-lead"><span class="s" data-i="15">恩賞不足で、御家人の生活が苦しくなったよ。</span></div>
+      <p><span class="s" data-i="16">元寇で戦った御家人は、</span><span class="s" data-i="17">十分な恩賞をもらえなかったうえに、</span><span class="s" data-i="18"><span class="mark">分割相続</span>によって代々領地が細分化されて、</span><span class="s" data-i="19">生活がどんどん苦しくなっていったんだ。</span><span class="s" data-i="20">幕府は1297年に<span class="mark">永仁の徳政令</span>を出して借金の帳消しを認めたけれど、</span><span class="s" data-i="21">効果は一時的なものにとどまってしまったんだよ。</span><span class="s" data-i="22">荘園領主や幕府の命令に従わない悪党と呼ばれる新しい武士も現れて、</span><span class="s" data-i="23">幕府の力は次第に弱まっていったんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="24">恩賞不足と分割相続で、</span><span class="s" data-i="25">御家人の生活は苦しくなったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">永仁の徳政令<span class="w-rd">えいにんのとくせいれい</span></span><span class="w-desc">1297年、幕府が御家人を救うために出した法令。効果は一時的だった。</span></div></div>
     </div>
     <div class="step" data-label="鎌倉幕府の滅亡と建武の新政">
-      <h3><span class="sec-no">3</span>鎌倉幕府の滅亡と建武の新政</h3>
-      <div class="sec-lead">幕府が滅び、天皇中心の政治が始まったよ。</div>
-      <p>御家人の不満が高まるなか、<span class="mark">後醍醐天皇</span>は<span class="mark">足利尊氏</span>や新田義貞らの協力を得て挙兵し、1333年、約150年続いた鎌倉幕府を滅ぼしたんだ。翌1334年、後醍醐天皇は天皇中心の政治である<span class="mark">建武の新政</span>を始めたけれど、貴族ばかりを優遇して武士の功績を認めなかったから武士の不満を招いてしまい、わずか約2年で崩れることになったんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">後醍醐天皇が幕府を滅ぼし、建武の新政を始めたよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="26">鎌倉幕府の滅亡と建武の新政</span></h3>
+      <div class="sec-lead"><span class="s" data-i="27">幕府が滅び、天皇中心の政治が始まったよ。</span></div>
+      <p><span class="s" data-i="28">御家人の不満が高まるなか、</span><span class="s" data-i="29"><span class="mark">後醍醐天皇</span>は<span class="mark">足利尊氏</span>や新田義貞らの協力を得て挙兵し、1333年、</span><span class="s" data-i="30">約150年続いた鎌倉幕府を滅ぼしたんだ。</span><span class="s" data-i="31">翌1334年、後醍醐天皇は天皇中心の政治である<span class="mark">建武の新政</span>を始めたけれど、</span><span class="s" data-i="32">貴族ばかりを優遇して武士の功績を認めなかったから武士の不満を招いてしまい、</span><span class="s" data-i="33">わずか約2年で崩れることになったんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="34">後醍醐天皇が幕府を滅ぼし、</span><span class="s" data-i="35">建武の新政を始めたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">後醍醐天皇<span class="w-rd">ごだいごてんのう</span></span><span class="w-desc">1333年に鎌倉幕府を倒し、建武の新政を始めた天皇。</span></div><div class="word"><span class="w-term">建武の新政<span class="w-rd">けんむのしんせい</span></span><span class="w-desc">後醍醐天皇が始めた天皇中心の政治。武士の不満で約2年で崩壊した。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -700,7 +732,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body"><span class="mark">北条時宗</span>が拒むと、元は二度にわたり日本を襲った<span class="mark">元寇</span>が起きたけど、日本はこれを撃退したよ。でも恩賞不足で<span class="mark">御家人</span>の生活は苦しくなり、1333年<span class="mark">後醍醐天皇</span>が<span class="mark">鎌倉幕府</span>を滅ぼして<span class="mark">建武の新政</span>を始めたものの、長続きしなかったんだ。</div>
+        <div class="sum30-body"><span class="s" data-i="36"><span class="mark">北条時宗</span>が拒むと、</span><span class="s" data-i="37">元は二度にわたり日本を襲った<span class="mark">元寇</span>が起きたけど、</span><span class="s" data-i="38">日本はこれを撃退したよ。</span><span class="s" data-i="39">でも恩賞不足で<span class="mark">御家人</span>の生活は苦しくなり、</span><span class="s" data-i="40">1333年<span class="mark">後醍醐天皇</span>が<span class="mark">鎌倉幕府</span>を滅ぼして<span class="mark">建武の新政</span>を始めたものの、</span><span class="s" data-i="41">長続きしなかったんだ。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -715,25 +747,26 @@
     </div>
 </section>
 <section class="view" data-t="3">
-  <div class="tband"><span class="tno">3</span><h2>室町幕府の成立</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">3</span><h2>室町幕府の成立</h2>
+    <button class="play-unit" type="button" data-play="3" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-muromachi-bakufu.webp"
            alt="室町幕府の成立（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">建武の新政が武士に見放されて崩れたあと、今度は京都で新しい武士の政権が生まれたんだ。鎌倉幕府とどこが違うのか比べてみよう。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">建武の新政が武士に見放されて崩れたあと、</span><span class="s" data-i="1">今度は京都で新しい武士の政権が生まれたんだ。</span><span class="s" data-i="2">鎌倉幕府とどこが違うのか比べてみよう。</span></div></div>
     </div>
     <div class="step" data-label="室町幕府の成立と南北朝の対立">
-      <h3><span class="sec-no">1</span>室町幕府の成立と南北朝の対立</h3>
-      <div class="sec-lead">尊氏が幕府を開き、朝廷も二つに分かれたよ。</div>
-      <p>建武の新政が武士の不満を招いて崩れると、<span class="mark">足利尊氏</span>は1338年に<span class="mark">征夷大将軍</span>となって、京都に<span class="mark">室町幕府</span>を開いたんだ。このころ、京都の<span class="mark">北朝</span>と、後醍醐天皇が吉野(奈良県)に開いた<span class="mark">南朝</span>が対立する<span class="mark">南北朝時代</span>が始まり、約60年にもわたって二つの朝廷が並び立つ状態が続いたんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">足利尊氏が室町幕府を開き、南北朝の対立が始まったよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="3">室町幕府の成立と南北朝の対立</span></h3>
+      <div class="sec-lead"><span class="s" data-i="4">尊氏が幕府を開き、</span><span class="s" data-i="5">朝廷も二つに分かれたよ。</span></div>
+      <p><span class="s" data-i="6">建武の新政が武士の不満を招いて崩れると、</span><span class="s" data-i="7"><span class="mark">足利尊氏</span>は1338年に<span class="mark">征夷大将軍</span>となって、</span><span class="s" data-i="8">京都に<span class="mark">室町幕府</span>を開いたんだ。</span><span class="s" data-i="9">このころ、京都の<span class="mark">北朝</span>と、</span><span class="s" data-i="10">後醍醐天皇が吉野(奈良県)に開いた<span class="mark">南朝</span>が対立する<span class="mark">南北朝時代</span>が始まり、</span><span class="s" data-i="11">約60年にもわたって二つの朝廷が並び立つ状態が続いたんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="12">足利尊氏が室町幕府を開き、</span><span class="s" data-i="13">南北朝の対立が始まったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">足利尊氏<span class="w-rd">あしかがたかうじ</span></span><span class="w-desc">1338年に征夷大将軍となり、京都に室町幕府を開いた人物。</span></div><div class="word"><span class="w-term">室町幕府<span class="w-rd">むろまちばくふ</span></span><span class="w-desc">足利尊氏が京都に開いた武家政権。約230年続いた。</span></div><div class="word"><span class="w-term">南北朝時代<span class="w-rd">なんぼくちょうじだい</span></span><span class="w-desc">京都の北朝と吉野の南朝が対立した、約60年続いた時代。</span></div><div class="word"><span class="w-term">北朝<span class="w-rd">ほくちょう</span></span><span class="w-desc">足利尊氏が京都に立てた天皇の朝廷。</span></div><div class="word"><span class="w-term">南朝<span class="w-rd">なんちょう</span></span><span class="w-desc">後醍醐天皇が吉野に開いた朝廷。</span></div></div>
     </div>
     <div class="step" data-label="足利義満と幕府のしくみ">
-      <h3><span class="sec-no">2</span>足利義満と幕府のしくみ</h3>
-      <div class="sec-lead">義満が南北朝を統一し、幕府を整えたよ。</div>
-      <p>第3代将軍<span class="mark">足利義満</span>は1392年に南北朝を統一し、京都の室町に建てた花の御所で政治を行って、幕府の全盛期を築き上げたんだ。幕府では将軍を補佐する<span class="mark">管領</span>に細川・斯波・畠山の三家が交代でついていて、地方では<span class="mark">守護大名</span>が国内の武士をまとめて一国を支配する力を強めていったんだよ。京都で金融業を営む<span class="mark">土倉</span>や酒屋は、幕府に税を納める大事な財源になったんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">足利義満は南北朝を統一し、管領や守護大名が幕府を支えたよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="14">足利義満と幕府のしくみ</span></h3>
+      <div class="sec-lead"><span class="s" data-i="15">義満が南北朝を統一し、</span><span class="s" data-i="16">幕府を整えたよ。</span></div>
+      <p><span class="s" data-i="17">第3代将軍<span class="mark">足利義満</span>は1392年に南北朝を統一し、</span><span class="s" data-i="18">京都の室町に建てた花の御所で政治を行って、</span><span class="s" data-i="19">幕府の全盛期を築き上げたんだ。</span><span class="s" data-i="20">幕府では将軍を補佐する<span class="mark">管領</span>に細川・斯波・畠山の三家が交代でついていて、</span><span class="s" data-i="21">地方では<span class="mark">守護大名</span>が国内の武士をまとめて一国を支配する力を強めていったんだよ。</span><span class="s" data-i="22">京都で金融業を営む<span class="mark">土倉</span>や酒屋は、</span><span class="s" data-i="23">幕府に税を納める大事な財源になったんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="24">足利義満は南北朝を統一し、</span><span class="s" data-i="25">管領や守護大名が幕府を支えたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">足利義満<span class="w-rd">あしかがよしみつ</span></span><span class="w-desc">室町幕府の第3代将軍。南北朝を統一し日明貿易を始めた。</span></div><div class="word"><span class="w-term">管領<span class="w-rd">かんれい</span></span><span class="w-desc">室町幕府で将軍を補佐した役職。細川・斯波・畠山の三家が交代でついた。</span></div><div class="word"><span class="w-term">守護大名<span class="w-rd">しゅごだいみょう</span></span><span class="w-desc">南北朝の動乱で領地を広げ、一国を支配する力を持った守護。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -841,7 +874,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">建武の新政が崩れたあと、<span class="mark">足利尊氏</span>は1338年に<span class="mark">室町幕府</span>を開いたよ。南北朝の対立は<span class="mark">足利義満</span>によって1392年に統一されたんだ。義満のもとで<span class="mark">管領</span>や<span class="mark">守護大名</span>からなる幕府のしくみが整い、全盛期を迎えたんだよ。</div>
+        <div class="sum30-body"><span class="s" data-i="26">建武の新政が崩れたあと、</span><span class="s" data-i="27"><span class="mark">足利尊氏</span>は1338年に<span class="mark">室町幕府</span>を開いたよ。</span><span class="s" data-i="28">南北朝の対立は<span class="mark">足利義満</span>によって1392年に統一されたんだ。</span><span class="s" data-i="29">義満のもとで<span class="mark">管領</span>や<span class="mark">守護大名</span>からなる幕府のしくみが整い、</span><span class="s" data-i="30">全盛期を迎えたんだよ。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -856,32 +889,33 @@
     </div>
 </section>
 <section class="view" data-t="4">
-  <div class="tband"><span class="tno">4</span><h2>東アジアとの交流</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">4</span><h2>東アジアとの交流</h2>
+    <button class="play-unit" type="button" data-play="4" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-east-asia-trade.webp"
            alt="東アジアとの交流（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">海賊を取り締まって貿易の道を開いた将軍。同じころ、朝鮮半島や沖縄でも新しい国が生まれていたんだ。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">海賊を取り締まって貿易の道を開いた将軍。</span><span class="s" data-i="1">同じころ、朝鮮半島や沖縄でも新しい国が生まれていたんだ。</span></div></div>
     </div>
     <div class="step" data-label="日明貿易と勘合">
-      <h3><span class="sec-no">1</span>日明貿易と勘合</h3>
-      <div class="sec-lead">義満が、勘合を使った明との貿易を始めたよ。</div>
-      <p>14世紀ごろ、朝鮮や中国の沿岸を<span class="mark">倭寇</span>と呼ばれる海賊が襲うようになると、足利義満は倭寇を取り締まる一方で、明との<span class="mark">日明貿易</span>(勘合貿易)を始めたんだ。正式な貿易船と倭寇を区別するために<span class="mark">勘合</span>という証明書(割札)が使われ、中国の皇帝に貢ぎ物を差し出す朝貢貿易という形がとられたんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">足利義満は勘合を使って、明との日明貿易を始めたよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="2">日明貿易と勘合</span></h3>
+      <div class="sec-lead"><span class="s" data-i="3">義満が、勘合を使った明との貿易を始めたよ。</span></div>
+      <p><span class="s" data-i="4">14世紀ごろ、朝鮮や中国の沿岸を<span class="mark">倭寇</span>と呼ばれる海賊が襲うようになると、</span><span class="s" data-i="5">足利義満は倭寇を取り締まる一方で、</span><span class="s" data-i="6">明との<span class="mark">日明貿易</span>(勘合貿易)を始めたんだ。</span><span class="s" data-i="7">正式な貿易船と倭寇を区別するために<span class="mark">勘合</span>という証明書(割札)が使われ、</span><span class="s" data-i="8">中国の皇帝に貢ぎ物を差し出す朝貢貿易という形がとられたんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="9">足利義満は勘合を使って、</span><span class="s" data-i="10">明との日明貿易を始めたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">倭寇<span class="w-rd">わこう</span></span><span class="w-desc">14世紀ごろ、朝鮮や中国の沿岸をおそった海賊。</span></div><div class="word"><span class="w-term">日明貿易<span class="w-rd">にちみんぼうえき</span></span><span class="w-desc">足利義満が始めた明との貿易。勘合貿易ともいう。</span></div><div class="word"><span class="w-term">勘合<span class="w-rd">かんごう</span></span><span class="w-desc">正式な貿易船と倭寇を区別するために使われた証明書(割札)。</span></div></div>
     </div>
     <div class="step" data-label="朝鮮国と琉球王国の成立">
-      <h3><span class="sec-no">2</span>朝鮮国と琉球王国の成立</h3>
-      <div class="sec-lead">朝鮮半島と沖縄に、新しい国が生まれたよ。</div>
-      <p>日明貿易が始まったのと同じ1392年、朝鮮半島では<span class="mark">李成桂</span>が高麗を滅ぼして<span class="mark">朝鮮国</span>を建てたんだ。のちに独自の文字である<span class="mark">ハングル</span>も作られたんだよ。一方、沖縄では尚氏が沖縄島を統一して<span class="mark">琉球王国</span>を建て、首里を都に日本・中国・朝鮮・東南アジアを結ぶ<span class="mark">中継貿易</span>で栄えたんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1392年、李成桂が朝鮮国を建て、琉球王国は中継貿易で栄えたよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="11">朝鮮国と琉球王国の成立</span></h3>
+      <div class="sec-lead"><span class="s" data-i="12">朝鮮半島と沖縄に、</span><span class="s" data-i="13">新しい国が生まれたよ。</span></div>
+      <p><span class="s" data-i="14">日明貿易が始まったのと同じ1392年、</span><span class="s" data-i="15">朝鮮半島では<span class="mark">李成桂</span>が高麗を滅ぼして<span class="mark">朝鮮国</span>を建てたんだ。</span><span class="s" data-i="16">のちに独自の文字である<span class="mark">ハングル</span>も作られたんだよ。</span><span class="s" data-i="17">一方、沖縄では尚氏が沖縄島を統一して<span class="mark">琉球王国</span>を建て、</span><span class="s" data-i="18">首里を都に日本・中国・朝鮮・東南アジアを結ぶ<span class="mark">中継貿易</span>で栄えたんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="19">1392年、李成桂が朝鮮国を建て、</span><span class="s" data-i="20">琉球王国は中継貿易で栄えたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">李成桂<span class="w-rd">りせいけい</span></span><span class="w-desc">1392年に高麗を滅ぼして朝鮮国を建てた人物。</span></div><div class="word"><span class="w-term">朝鮮国<span class="w-rd">ちょうせんこく</span></span><span class="w-desc">李成桂が高麗をほろぼして建てた国。</span></div><div class="word"><span class="w-term">ハングル<span class="w-rd">はんぐる</span></span><span class="w-desc">朝鮮国で作られた独自の文字。</span></div><div class="word"><span class="w-term">琉球王国<span class="w-rd">りゅうきゅうおうこく</span></span><span class="w-desc">尚氏が沖縄島を統一して建てた国。首里を都に中継貿易で栄えた。</span></div></div>
     </div>
     <div class="step" data-label="蝦夷地のアイヌ民族との関わり">
-      <h3><span class="sec-no">3</span>蝦夷地のアイヌ民族との関わり</h3>
-      <div class="sec-lead">蝦夷地では、アイヌ民族が暮らしていたよ。</div>
-      <p>北の蝦夷地(今の北海道)では、古くから<span class="mark">アイヌ民族</span>が狩りや漁、交易をしながら暮らしていたんだ。しかし和人との交易をめぐる対立が深まっていき、1457年には首長<span class="mark">コシャマイン</span>がアイヌを率いて和人と戦う出来事が起こったんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">蝦夷地のアイヌ民族は1457年、コシャマインを中心に和人と戦ったよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="21">蝦夷地のアイヌ民族との関わり</span></h3>
+      <div class="sec-lead"><span class="s" data-i="22">蝦夷地では、アイヌ民族が暮らしていたよ。</span></div>
+      <p><span class="s" data-i="23">北の蝦夷地(今の北海道)では、</span><span class="s" data-i="24">古くから<span class="mark">アイヌ民族</span>が狩りや漁、</span><span class="s" data-i="25">交易をしながら暮らしていたんだ。</span><span class="s" data-i="26">しかし和人との交易をめぐる対立が深まっていき、</span><span class="s" data-i="27">1457年には首長<span class="mark">コシャマイン</span>がアイヌを率いて和人と戦う出来事が起こったんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="28">蝦夷地のアイヌ民族は1457年、</span><span class="s" data-i="29">コシャマインを中心に和人と戦ったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">アイヌ民族<span class="w-rd">あいぬみんぞく</span></span><span class="w-desc">蝦夷地に住み、狩りや漁、交易を行っていた人々。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -989,7 +1023,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">足利義満は<span class="mark">倭寇</span>を取り締まりながら勘合を用いた<span class="mark">日明貿易</span>を始めたよ。同じころ朝鮮半島には<span class="mark">朝鮮国</span>、沖縄には中継貿易で栄えた<span class="mark">琉球王国</span>が成立したんだ。北海道の蝦夷地では<span class="mark">アイヌ民族</span>が暮らし、和人との交易をめぐる対立も起きたんだよ。</div>
+        <div class="sum30-body"><span class="s" data-i="30">足利義満は<span class="mark">倭寇</span>を取り締まりながら勘合を用いた<span class="mark">日明貿易</span>を始めたよ。</span><span class="s" data-i="31">同じころ朝鮮半島には<span class="mark">朝鮮国</span>、</span><span class="s" data-i="32">沖縄には中継貿易で栄えた<span class="mark">琉球王国</span>が成立したんだ。</span><span class="s" data-i="33">北海道の蝦夷地では<span class="mark">アイヌ民族</span>が暮らし、</span><span class="s" data-i="34">和人との交易をめぐる対立も起きたんだよ。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -1004,32 +1038,33 @@
     </div>
 </section>
 <section class="view" data-t="5">
-  <div class="tband"><span class="tno">5</span><h2>室町時代の産業</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">5</span><h2>室町時代の産業</h2>
+    <button class="play-unit" type="button" data-play="5" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-muromachi-industry.webp"
            alt="室町時代の産業（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">農業の技術が進歩し、物や情報が行き交うスピードが上がると、町にはお金を貸す商人まで現れたんだ。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">農業の技術が進歩し、</span><span class="s" data-i="1">物や情報が行き交うスピードが上がると、</span><span class="s" data-i="2">町にはお金を貸す商人まで現れたんだ。</span></div></div>
     </div>
     <div class="step" data-label="農業技術の進歩">
-      <h3><span class="sec-no">1</span>農業技術の進歩</h3>
-      <div class="sec-lead">二毛作や水車で、農業生産が向上したよ。</div>
-      <p>室町時代には、同じ土地で年に2回作物を作る<span class="mark">二毛作</span>がさらに広まっていって、温暖な地域では年3回作る三毛作も行われるようになったんだ。かんがいには<span class="mark">水車</span>が使われ、牛馬の糞から作る<span class="mark">堆肥</span>も普及して収穫量を高めていったんだよ。また、麻・桑・茶・漆など、市場で売るための商品作物の栽培も増えていったんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">二毛作・三毛作や水車・堆肥で、農業生産が向上したよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="3">農業技術の進歩</span></h3>
+      <div class="sec-lead"><span class="s" data-i="4">二毛作や水車で、</span><span class="s" data-i="5">農業生産が向上したよ。</span></div>
+      <p><span class="s" data-i="6">室町時代には、同じ土地で年に2回作物を作る<span class="mark">二毛作</span>がさらに広まっていって、</span><span class="s" data-i="7">温暖な地域では年3回作る三毛作も行われるようになったんだ。</span><span class="s" data-i="8">かんがいには<span class="mark">水車</span>が使われ、</span><span class="s" data-i="9">牛馬の糞から作る<span class="mark">堆肥</span>も普及して収穫量を高めていったんだよ。</span><span class="s" data-i="10">また、麻・桑・茶・漆など、</span><span class="s" data-i="11">市場で売るための商品作物の栽培も増えていったんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="12">二毛作・三毛作や水車・堆肥で、</span><span class="s" data-i="13">農業生産が向上したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">二毛作<span class="w-rd">にもうさく</span></span><span class="w-desc">同じ土地で年に2回、異なる作物を栽培する農業技術。</span></div><div class="word"><span class="w-term">三毛作<span class="w-rd">さんもうさく</span></span><span class="w-desc">温暖な地域で行われた、年に3回作物を栽培する農法。</span></div></div>
     </div>
     <div class="step" data-label="商業と流通の発展">
-      <h3><span class="sec-no">2</span>商業と流通の発展</h3>
-      <div class="sec-lead">座や定期市で、商業が発展していったよ。</div>
-      <p>物資の輸送は馬を使う<span class="mark">馬借</span>や、港で保管・運送を兼ねる問が担っていたんだ。商工業者は同業者組織である<span class="mark">座</span>をつくり、寺社の保護のもとで営業を独占したんだよ。定期市は鎌倉時代の月3回から室町時代には月6回の<span class="mark">六斎市</span>に増えていって、中国から輸入された宋銭や明銭が広く使われたんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">座という組織ができ、定期市も月6回の六斎市に増えたよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="14">商業と流通の発展</span></h3>
+      <div class="sec-lead"><span class="s" data-i="15">座や定期市で、商業が発展していったよ。</span></div>
+      <p><span class="s" data-i="16">物資の輸送は馬を使う<span class="mark">馬借</span>や、</span><span class="s" data-i="17">港で保管・運送を兼ねる問が担っていたんだ。</span><span class="s" data-i="18">商工業者は同業者組織である<span class="mark">座</span>をつくり、</span><span class="s" data-i="19">寺社の保護のもとで営業を独占したんだよ。</span><span class="s" data-i="20">定期市は鎌倉時代の月3回から室町時代には月6回の<span class="mark">六斎市</span>に増えていって、</span><span class="s" data-i="21">中国から輸入された宋銭や明銭が広く使われたんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="22">座という組織ができ、</span><span class="s" data-i="23">定期市も月6回の六斎市に増えたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">馬借<span class="w-rd">ばしゃく</span></span><span class="w-desc">馬を使って荷物を運んだ運送業者。</span></div><div class="word"><span class="w-term">座<span class="w-rd">ざ</span></span><span class="w-desc">商工業者が同業者ごとにつくった組織。営業の独占権を持った。</span></div><div class="word"><span class="w-term">六斎市<span class="w-rd">ろくさいいち</span></span><span class="w-desc">室町時代に月6回開かれるようになった定期市。</span></div></div>
     </div>
     <div class="step" data-label="手工業と金融業の発展">
-      <h3><span class="sec-no">3</span>手工業と金融業の発展</h3>
-      <div class="sec-lead">絹織物や金融業が、都市で栄えたよ。</div>
-      <p>桑の栽培が広がると、生糸を得る<span class="mark">養蚕業</span>の発展と結びついて、京都の<span class="mark">西陣</span>や博多では絹織物の生産が盛んになっていったんだ。都市では<span class="mark">土倉</span>や酒屋といった金融業者が現れ、質物を取って金を貸す土倉は、幕府に税を納める代わりに保護を受けていたんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">西陣は絹織物、土倉・酒屋は金融業で幕府を支えたよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="24">手工業と金融業の発展</span></h3>
+      <div class="sec-lead"><span class="s" data-i="25">絹織物や金融業が、</span><span class="s" data-i="26">都市で栄えたよ。</span></div>
+      <p><span class="s" data-i="27">桑の栽培が広がると、</span><span class="s" data-i="28">生糸を得る<span class="mark">養蚕業</span>の発展と結びついて、</span><span class="s" data-i="29">京都の<span class="mark">西陣</span>や博多では絹織物の生産が盛んになっていったんだ。</span><span class="s" data-i="30">都市では<span class="mark">土倉</span>や酒屋といった金融業者が現れ、</span><span class="s" data-i="31">質物を取って金を貸す土倉は、</span><span class="s" data-i="32">幕府に税を納める代わりに保護を受けていたんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="33">西陣は絹織物、土倉・酒屋は金融業で幕府を支えたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">西陣<span class="w-rd">にしじん</span></span><span class="w-desc">京都で絹織物の生産が盛んだった地域。</span></div><div class="word"><span class="w-term">養蚕業<span class="w-rd">ようさんぎょう</span></span><span class="w-desc">桑の栽培と結びついて発展した、生糸を得る産業。</span></div><div class="word"><span class="w-term">土倉<span class="w-rd">どそう</span></span><span class="w-desc">質物を取って金を貸す高利貸しの業者。幕府の財源となった。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -1137,7 +1172,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">室町時代には<span class="mark">二毛作</span>や水車・堆肥が広まって農業生産が高まり、<span class="mark">座</span>や<span class="mark">六斎市</span>など商業のしくみも発達したよ。<span class="mark">西陣</span>や博多の絹織物、<span class="mark">土倉</span>・酒屋の金融業なども栄えて、経済の発展を支えたんだ。</div>
+        <div class="sum30-body"><span class="s" data-i="34">室町時代には<span class="mark">二毛作</span>や水車・堆肥が広まって農業生産が高まり、</span><span class="s" data-i="35"><span class="mark">座</span>や<span class="mark">六斎市</span>など商業のしくみも発達したよ。</span><span class="s" data-i="36"><span class="mark">西陣</span>や博多の絹織物、</span><span class="s" data-i="37"><span class="mark">土倉</span>・酒屋の金融業なども栄えて、</span><span class="s" data-i="38">経済の発展を支えたんだ。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -1152,32 +1187,33 @@
     </div>
 </section>
 <section class="view" data-t="6">
-  <div class="tband"><span class="tno">6</span><h2>室町時代の民衆</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">6</span><h2>室町時代の民衆</h2>
+    <button class="play-unit" type="button" data-play="6" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-muromachi-people.webp"
            alt="室町時代の民衆（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">農民たちが自分たちで話し合って村のルールを決め、借金の帳消しを求めて立ち上がる。民衆の力が育っていった時代だよ。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">農民たちが自分たちで話し合って村のルールを決め、</span><span class="s" data-i="1">借金の帳消しを求めて立ち上がる。</span><span class="s" data-i="2">民衆の力が育っていった時代だよ。</span></div></div>
     </div>
     <div class="step" data-label="惣の自治と寄合">
-      <h3><span class="sec-no">1</span>惣の自治と寄合</h3>
-      <div class="sec-lead">農民が惣をつくり、村を自治で治めたよ。</div>
-      <p>村では有力な農民を中心に<span class="mark">惣</span>という自治組織がつくられて、村人は<span class="mark">寄合</span>で話し合い、おきてを定めて村を運営していったんだ。共同で利用する山林である入会地の管理も、惣が担った仕事の一つだったんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">農民は惣をつくり、寄合で話し合って村を治めたよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="3">惣の自治と寄合</span></h3>
+      <div class="sec-lead"><span class="s" data-i="4">農民が惣をつくり、</span><span class="s" data-i="5">村を自治で治めたよ。</span></div>
+      <p><span class="s" data-i="6">村では有力な農民を中心に<span class="mark">惣</span>という自治組織がつくられて、</span><span class="s" data-i="7">村人は<span class="mark">寄合</span>で話し合い、</span><span class="s" data-i="8">おきてを定めて村を運営していったんだ。</span><span class="s" data-i="9">共同で利用する山林である入会地の管理も、</span><span class="s" data-i="10">惣が担った仕事の一つだったんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="11">農民は惣をつくり、</span><span class="s" data-i="12">寄合で話し合って村を治めたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">惣<span class="w-rd">そう</span></span><span class="w-desc">村の有力な農民を中心に作られた自治組織。</span></div><div class="word"><span class="w-term">寄合<span class="w-rd">よりあい</span></span><span class="w-desc">惣の村人が集まって村の運営を話し合う会議。</span></div></div>
     </div>
     <div class="step" data-label="土一揆の広がり">
-      <h3><span class="sec-no">2</span>土一揆の広がり</h3>
-      <div class="sec-lead">農民たちが、借金の帳消しを求め立ち上がったよ。</div>
-      <p>1428年には近畿地方で日本最初の大規模な土一揆である<span class="mark">正長の土一揆</span>が起こって、農民や馬借が土倉や酒屋を襲い、借金の帳消しを求めたんだ。1441年の<span class="mark">嘉吉の土一揆</span>では、幕府が初めて<span class="mark">徳政令</span>を出し、農民の要求に応じたんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">正長の土一揆に続き、嘉吉の土一揆で幕府は徳政令を出したよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="13">土一揆の広がり</span></h3>
+      <div class="sec-lead"><span class="s" data-i="14">農民たちが、借金の帳消しを求め立ち上がったよ。</span></div>
+      <p><span class="s" data-i="15">1428年には近畿地方で日本最初の大規模な土一揆である<span class="mark">正長の土一揆</span>が起こって、</span><span class="s" data-i="16">農民や馬借が土倉や酒屋を襲い、</span><span class="s" data-i="17">借金の帳消しを求めたんだ。</span><span class="s" data-i="18">1441年の<span class="mark">嘉吉の土一揆</span>では、</span><span class="s" data-i="19">幕府が初めて<span class="mark">徳政令</span>を出し、</span><span class="s" data-i="20">農民の要求に応じたんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="21">正長の土一揆に続き、</span><span class="s" data-i="22">嘉吉の土一揆で幕府は徳政令を出したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">正長の土一揆<span class="w-rd">しょうちょうのつちいっき</span></span><span class="w-desc">1428年に近畿地方で起こった、日本最初の大規模な土一揆。</span></div><div class="word"><span class="w-term">嘉吉の土一揆<span class="w-rd">かきつのつちいっき</span></span><span class="w-desc">1441年に起こり、幕府が初めて徳政令を出すきっかけとなった土一揆。</span></div><div class="word"><span class="w-term">徳政令<span class="w-rd">とくせいれい</span></span><span class="w-desc">借金の帳消しを命じる法令。土一揆で農民が幕府に求めた。</span></div></div>
     </div>
     <div class="step" data-label="都市の自治">
-      <h3><span class="sec-no">3</span>都市の自治</h3>
-      <div class="sec-lead">堺や京都でも、自治が広がっていったよ。</div>
-      <p>京都では応仁の乱で荒れた町を<span class="mark">町衆</span>が復興させて、中断していた祇園祭を復活させたんだ。港町の堺では有力商人による<span class="mark">会合衆</span>が合議制で自治を行っていて、周りに濠をめぐらせた<span class="mark">自由都市</span>として知られ、博多でも年行司が自治を担っていたんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">京都は町衆、堺は会合衆が自治を行い都市が栄えたよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="23">都市の自治</span></h3>
+      <div class="sec-lead"><span class="s" data-i="24">堺や京都でも、自治が広がっていったよ。</span></div>
+      <p><span class="s" data-i="25">京都では応仁の乱で荒れた町を<span class="mark">町衆</span>が復興させて、</span><span class="s" data-i="26">中断していた祇園祭を復活させたんだ。</span><span class="s" data-i="27">港町の堺では有力商人による<span class="mark">会合衆</span>が合議制で自治を行っていて、</span><span class="s" data-i="28">周りに濠をめぐらせた<span class="mark">自由都市</span>として知られ、</span><span class="s" data-i="29">博多でも年行司が自治を担っていたんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="30">京都は町衆、堺は会合衆が自治を行い都市が栄えたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">町衆<span class="w-rd">まちしゅう</span></span><span class="w-desc">京都の自治を担い、祇園祭を復興させた裕福な商工業者。</span></div><div class="word"><span class="w-term">会合衆<span class="w-rd">えごうしゅう</span></span><span class="w-desc">堺で合議制の自治を行った有力商人の組織。</span></div><div class="word"><span class="w-term">自由都市<span class="w-rd">じゆうとし</span></span><span class="w-desc">大名に属さず、商人の自治で運営された都市。堺が代表。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -1285,7 +1321,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">村では<span class="mark">惣</span>による自治が広がり、寄合やおきてを通じて農民自身が村を運営したんだ。<span class="mark">正長の土一揆</span>や<span class="mark">嘉吉の土一揆</span>で農民は<span class="mark">徳政令</span>を勝ち取り、堺の<span class="mark">会合衆</span>や京都の<span class="mark">町衆</span>のように都市でも自治の力が育っていったよ。</div>
+        <div class="sum30-body"><span class="s" data-i="31">村では<span class="mark">惣</span>による自治が広がり、</span><span class="s" data-i="32">寄合やおきてを通じて農民自身が村を運営したんだ。</span><span class="s" data-i="33"><span class="mark">正長の土一揆</span>や<span class="mark">嘉吉の土一揆</span>で農民は<span class="mark">徳政令</span>を勝ち取り、</span><span class="s" data-i="34">堺の<span class="mark">会合衆</span>や京都の<span class="mark">町衆</span>のように都市でも自治の力が育っていったよ。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -1300,25 +1336,26 @@
     </div>
 </section>
 <section class="view" data-t="7">
-  <div class="tband"><span class="tno">7</span><h2>北山文化と能楽</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">7</span><h2>北山文化と能楽</h2>
+    <button class="play-unit" type="button" data-play="7" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-kitayama-culture.webp"
            alt="北山文化と能楽（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">貿易で得た莫大な富を背景に、貴族と武士の文化が混ざり合った。金色に輝く建物が、その象徴だよ。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">貿易で得た莫大な富を背景に、</span><span class="s" data-i="1">貴族と武士の文化が混ざり合った。</span><span class="s" data-i="2">金色に輝く建物が、その象徴だよ。</span></div></div>
     </div>
     <div class="step" data-label="足利義満と金閣">
-      <h3><span class="sec-no">1</span>足利義満と金閣</h3>
-      <div class="sec-lead">義満が建てた金閣が、北山文化を象徴するよ。</div>
-      <p>室町幕府第3代将軍<span class="mark">足利義満</span>のころ栄えた<span class="mark">北山文化</span>は、日明貿易による大きな富を背景に、公家と武家の文化が融合した華やかな文化なんだ。義満が京都の北山に建てた<span class="mark">金閣</span>は、1層が寝殿造、2層が武家造、3層が禅宗様という三つの様式からなっていて、正式には<span class="mark">鹿苑寺</span>というんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">足利義満のころ、公家と武家が融合した北山文化が栄えたよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="3">足利義満と金閣</span></h3>
+      <div class="sec-lead"><span class="s" data-i="4">義満が建てた金閣が、</span><span class="s" data-i="5">北山文化を象徴するよ。</span></div>
+      <p><span class="s" data-i="6">室町幕府第3代将軍<span class="mark">足利義満</span>のころ栄えた<span class="mark">北山文化</span>は、</span><span class="s" data-i="7">日明貿易による大きな富を背景に、</span><span class="s" data-i="8">公家と武家の文化が融合した華やかな文化なんだ。</span><span class="s" data-i="9">義満が京都の北山に建てた<span class="mark">金閣</span>は、1層が寝殿造、2層が武家造、</span><span class="s" data-i="10">3層が禅宗様という三つの様式からなっていて、</span><span class="s" data-i="11">正式には<span class="mark">鹿苑寺</span>というんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="12">足利義満のころ、</span><span class="s" data-i="13">公家と武家が融合した北山文化が栄えたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">足利義満<span class="w-rd">あしかがよしみつ</span></span><span class="w-desc">金閣を建て、能を保護した室町幕府の第3代将軍。</span></div><div class="word"><span class="w-term">北山文化<span class="w-rd">きたやまぶんか</span></span><span class="w-desc">足利義満のころ栄えた、公家と武家の文化が融合した華やかな文化。</span></div><div class="word"><span class="w-term">金閣<span class="w-rd">きんかく</span></span><span class="w-desc">足利義満が京都の北山に建てた、3層構造の建物。</span></div><div class="word"><span class="w-term">鹿苑寺<span class="w-rd">ろくおんじ</span></span><span class="w-desc">金閣がある寺の正式名称。</span></div></div>
     </div>
     <div class="step" data-label="能と狂言の大成">
-      <h3><span class="sec-no">2</span>能と狂言の大成</h3>
-      <div class="sec-lead">観阿弥・世阿弥が、能を大成させたよ。</div>
-      <p>芸能では、<span class="mark">猿楽</span>をもとに<span class="mark">観阿弥</span>・<span class="mark">世阿弥</span>の親子が<span class="mark">能</span>を大成して、義満の保護を受けて発展していったんだ。能の合間には庶民の日常をこっけいに描く<span class="mark">狂言</span>が演じられて、能とあわせて楽しまれていたんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">観阿弥・世阿弥が能を大成し、狂言もあわせて演じられたよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="14">能と狂言の大成</span></h3>
+      <div class="sec-lead"><span class="s" data-i="15">観阿弥・世阿弥が、</span><span class="s" data-i="16">能を大成させたよ。</span></div>
+      <p><span class="s" data-i="17">芸能では、<span class="mark">猿楽</span>をもとに<span class="mark">観阿弥</span>・<span class="mark">世阿弥</span>の親子が<span class="mark">能</span>を大成して、</span><span class="s" data-i="18">義満の保護を受けて発展していったんだ。</span><span class="s" data-i="19">能の合間には庶民の日常をこっけいに描く<span class="mark">狂言</span>が演じられて、</span><span class="s" data-i="20">能とあわせて楽しまれていたんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="21">観阿弥・世阿弥が能を大成し、</span><span class="s" data-i="22">狂言もあわせて演じられたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">猿楽<span class="w-rd">さるがく</span></span><span class="w-desc">能のもとになった、物まね中心の芸能。</span></div><div class="word"><span class="w-term">観阿弥<span class="w-rd">かんあみ</span></span><span class="w-desc">世阿弥の父。猿楽を洗練させ、能のもとを作った人物。</span></div><div class="word"><span class="w-term">世阿弥<span class="w-rd">ぜあみ</span></span><span class="w-desc">観阿弥の子。能を芸術として完成させた人物。</span></div><div class="word"><span class="w-term">狂言<span class="w-rd">きょうげん</span></span><span class="w-desc">能の合間に演じられた、庶民の日常をこっけいに描く芸能。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -1426,7 +1463,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">足利義満のころ、日明貿易の富を背景に公家と武家の文化が融合した<span class="mark">北山文化</span>が栄え、<span class="mark">金閣</span>がその象徴になったよ。<span class="mark">観阿弥</span>・<span class="mark">世阿弥</span>は猿楽から<span class="mark">能</span>を大成させ、<span class="mark">狂言</span>とともに義満の保護のもとで発展していったんだ。</div>
+        <div class="sum30-body"><span class="s" data-i="23">足利義満のころ、</span><span class="s" data-i="24">日明貿易の富を背景に公家と武家の文化が融合した<span class="mark">北山文化</span>が栄え、</span><span class="s" data-i="25"><span class="mark">金閣</span>がその象徴になったよ。</span><span class="s" data-i="26"><span class="mark">観阿弥</span>・<span class="mark">世阿弥</span>は猿楽から<span class="mark">能</span>を大成させ、</span><span class="s" data-i="27"><span class="mark">狂言</span>とともに義満の保護のもとで発展していったんだ。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -1441,32 +1478,33 @@
     </div>
 </section>
 <section class="view" data-t="8">
-  <div class="tband"><span class="tno">8</span><h2>東山文化と民衆の文化</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">8</span><h2>東山文化と民衆の文化</h2>
+    <button class="play-unit" type="button" data-play="8" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-higashiyama-culture.webp"
            alt="東山文化と民衆の文化（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">派手さより静けさを美しいと感じる心。今のわたしたちの和室や茶道につながる文化が、ここから生まれたんだ。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">派手さより静けさを美しいと感じる心。</span><span class="s" data-i="1">今のわたしたちの和室や茶道につながる文化が、</span><span class="s" data-i="2">ここから生まれたんだ。</span></div></div>
     </div>
     <div class="step" data-label="足利義政と銀閣・書院造">
-      <h3><span class="sec-no">1</span>足利義政と銀閣・書院造</h3>
-      <div class="sec-lead">義政が建てた銀閣が、東山文化を象徴するよ。</div>
-      <p>室町幕府第8代将軍<span class="mark">足利義政</span>のころ栄えた<span class="mark">東山文化</span>は、禅宗の影響を受けた簡素で落ち着いた美しさが特徴なんだ。義政が京都の東山に建てた<span class="mark">銀閣</span>は正式には慈照寺といって、畳や床の間を備えた<span class="mark">書院造</span>は現在の和風住宅のもとになったんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">足利義政のころ、簡素で落ち着いた東山文化が栄えたよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="3">足利義政と銀閣・書院造</span></h3>
+      <div class="sec-lead"><span class="s" data-i="4">義政が建てた銀閣が、</span><span class="s" data-i="5">東山文化を象徴するよ。</span></div>
+      <p><span class="s" data-i="6">室町幕府第8代将軍<span class="mark">足利義政</span>のころ栄えた<span class="mark">東山文化</span>は、</span><span class="s" data-i="7">禅宗の影響を受けた簡素で落ち着いた美しさが特徴なんだ。</span><span class="s" data-i="8">義政が京都の東山に建てた<span class="mark">銀閣</span>は正式には慈照寺といって、</span><span class="s" data-i="9">畳や床の間を備えた<span class="mark">書院造</span>は現在の和風住宅のもとになったんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="10">足利義政のころ、</span><span class="s" data-i="11">簡素で落ち着いた東山文化が栄えたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">足利義政<span class="w-rd">あしかがよしまさ</span></span><span class="w-desc">銀閣を建てた室町幕府の第8代将軍。</span></div><div class="word"><span class="w-term">東山文化<span class="w-rd">ひがしやまぶんか</span></span><span class="w-desc">足利義政のころ栄えた、簡素で落ち着いた美しさが特徴の文化。</span></div><div class="word"><span class="w-term">銀閣<span class="w-rd">ぎんかく</span></span><span class="w-desc">足利義政が京都の東山に建てた建物。正式には慈照寺という。</span></div><div class="word"><span class="w-term">書院造<span class="w-rd">しょいんづくり</span></span><span class="w-desc">畳・床の間・障子などを備え、現在の和風住宅のもとになった様式。</span></div></div>
     </div>
     <div class="step" data-label="水墨画と枯山水">
-      <h3><span class="sec-no">2</span>水墨画と枯山水</h3>
-      <div class="sec-lead">雪舟の水墨画や、枯山水の庭が生まれたよ。</div>
-      <p>絵画では、明に渡って学んだ<span class="mark">雪舟</span>が<span class="mark">水墨画</span>を大成して、庭園では石や砂で山水を表す<span class="mark">枯山水</span>が作られたんだ。生活文化では、わびの心を大切にする<span class="mark">茶の湯</span>や生け花が始まり、のちにそれぞれ茶道・華道として発展していったんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">雪舟が水墨画を大成し、枯山水の庭園もつくられたよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="12">水墨画と枯山水</span></h3>
+      <div class="sec-lead"><span class="s" data-i="13">雪舟の水墨画や、</span><span class="s" data-i="14">枯山水の庭が生まれたよ。</span></div>
+      <p><span class="s" data-i="15">絵画では、明に渡って学んだ<span class="mark">雪舟</span>が<span class="mark">水墨画</span>を大成して、</span><span class="s" data-i="16">庭園では石や砂で山水を表す<span class="mark">枯山水</span>が作られたんだ。</span><span class="s" data-i="17">生活文化では、わびの心を大切にする<span class="mark">茶の湯</span>や生け花が始まり、</span><span class="s" data-i="18">のちにそれぞれ茶道・華道として発展していったんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="19">雪舟が水墨画を大成し、</span><span class="s" data-i="20">枯山水の庭園もつくられたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">雪舟<span class="w-rd">せっしゅう</span></span><span class="w-desc">明に渡って学び、水墨画を大成した画家。</span></div><div class="word"><span class="w-term">水墨画<span class="w-rd">すいぼくが</span></span><span class="w-desc">墨の濃淡だけで自然を表現する絵画。</span></div><div class="word"><span class="w-term">枯山水<span class="w-rd">かれさんすい</span></span><span class="w-desc">水を使わず石や砂で山水の風景を表現する庭園。</span></div><div class="word"><span class="w-term">茶の湯<span class="w-rd">ちゃのゆ</span></span><span class="w-desc">わびの精神を大切にする、室町時代に始まった茶の文化。</span></div></div>
     </div>
     <div class="step" data-label="民衆に広がる文芸と学問">
-      <h3><span class="sec-no">3</span>民衆に広がる文芸と学問</h3>
-      <div class="sec-lead">連歌や学問が、地方にも広がっていったよ。</div>
-      <p>文芸では複数人で句を詠み継ぐ連歌や、庶民に親しまれた御伽草子が広まっていったんだ。学問では、栃木県の足利学校に全国から人が集まって儒学が学ばれていて、都だけでなく地方にも文化や学問が広がっていったことがわかるね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">御伽草子が庶民に広まり、足利学校では儒学が学ばれたよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="21">民衆に広がる文芸と学問</span></h3>
+      <div class="sec-lead"><span class="s" data-i="22">連歌や学問が、地方にも広がっていったよ。</span></div>
+      <p><span class="s" data-i="23">文芸では複数人で句を詠み継ぐ連歌や、</span><span class="s" data-i="24">庶民に親しまれた御伽草子が広まっていったんだ。</span><span class="s" data-i="25">学問では、栃木県の足利学校に全国から人が集まって儒学が学ばれていて、</span><span class="s" data-i="26">都だけでなく地方にも文化や学問が広がっていったことがわかるね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="27">御伽草子が庶民に広まり、</span><span class="s" data-i="28">足利学校では儒学が学ばれたよ。</span></div></div>
       
     </div>
     <div class="step" data-label="重要語チェック">
@@ -1574,7 +1612,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">足利義政のころ栄えた<span class="mark">東山文化</span>は、禅宗の影響を受けた簡素な美しさが特徴で、<span class="mark">銀閣</span>や<span class="mark">書院造</span>にその特色がよく表れているよ。<span class="mark">雪舟</span>の水墨画や<span class="mark">枯山水</span>の庭園、茶の湯や連歌など、今に続く日本文化の多くがこの時代に育まれていったんだ。</div>
+        <div class="sum30-body"><span class="s" data-i="29">足利義政のころ栄えた<span class="mark">東山文化</span>は、</span><span class="s" data-i="30">禅宗の影響を受けた簡素な美しさが特徴で、</span><span class="s" data-i="31"><span class="mark">銀閣</span>や<span class="mark">書院造</span>にその特色がよく表れているよ。</span><span class="s" data-i="32"><span class="mark">雪舟</span>の水墨画や<span class="mark">枯山水</span>の庭園、</span><span class="s" data-i="33">茶の湯や連歌など、</span><span class="s" data-i="34">今に続く日本文化の多くがこの時代に育まれていったんだ。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -1590,6 +1628,14 @@
 </section>
 </main>
 <div class="hintbar" id="hintBar" hidden></div>
+<div class="aplayer" id="aplayer" hidden><div class="ap-in">
+  <button class="ap-btn" id="apPlay" aria-label="再生／一時停止">❚❚</button>
+  <div class="ap-seek"><input type="range" id="apSeek" min="0" max="1000" value="0"></div>
+  <div class="ap-time" id="apTime">0:00 / 0:00</div>
+  <button class="ap-rate" id="apRate">1.0×</button>
+  <button class="ap-close" id="apClose" aria-label="読み上げを止める">×</button>
+</div></div>
+<audio id="audio" preload="none"></audio>
 <div class="navbar" id="navbar" hidden><div class="navbar-in">
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
@@ -1617,7 +1663,8 @@
 (function () {
   var KEY = 'tzmref-06';
   var CH = '06';
-  var WB_VIEWS = [0, 2, 3, 4, 5, 6, 7, 8, 9];          // 参考書の単元t → 問題集のビュー番号（0＝対応なし）
+  var WB_VIEWS = [0, 2, 3, 4, 5, 6, 7, 8, 9];
+  var AUDIO = {"1": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F06-mongol-empire.mp3?alt=media&token=a74df43d-4964-4e92-98b9-9783f650253f", "tl": [[0, 2.261, 0], [2.261, 3.619, 0], [6.16, 3.241, 0], [9.401, 3.199, 0], [13.25, 3.64, 1], [17.54, 1.376, 1], [18.916, 2.464, 1], [22.03, 1.98, 1], [24.01, 4.285, 1], [28.295, 5.615, 1], [34.19, 5.64, 1], [40.11, 6.422, 1], [46.532, 2.818, 1], [49.63, 6.96, 1], [57.24, 1.526, 1], [58.766, 3.394, 1], [62.81, 4.2, 2], [67.66, 1.498, 2], [69.158, 2.462, 2], [72.27, 3.186, 2], [75.456, 2.219, 2], [77.675, 3.275, 2], [81.23, 3.88, 2], [85.11, 5.2, 2], [90.59, 3.523, 2], [94.113, 2.517, 2], [97.28, 2.308, 2], [99.588, 2.292, 2], [102.53, 3.8, 3], [106.98, 3.92, 3], [111.55, 3.426, 3], [114.976, 5.678, 3], [120.654, 6.216, 3], [127.15, 3.673, 3], [130.823, 3.887, 3], [134.99, 7.28, 3], [142.27, 6.6, 3], [149.52, 2.712, 3], [152.232, 2.448, 3], [155.33, 2.906, 5], [158.236, 4.894, 5], [163.41, 4.806, 5], [168.216, 2.714, 5]]}, "2": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F06-mongol-invasion.mp3?alt=media&token=32e80d58-9ffd-4aa3-9848-39a2aa1d0f5f", "tl": [[0, 3.315, 0], [3.315, 3.965, 0], [7.56, 3.28, 0], [11.49, 3.96, 1], [16.1, 2.119, 1], [18.219, 1.601, 1], [20.47, 7.402, 1], [27.872, 2.84, 1], [30.712, 7.318, 1], [38.31, 5.622, 1], [43.932, 3.54, 1], [47.472, 3.358, 1], [51.48, 4.075, 1], [55.555, 2.525, 1], [58.73, 3.56, 2], [62.94, 4.16, 2], [67.75, 2.441, 2], [70.191, 2.666, 2], [72.857, 3.732, 2], [76.589, 2.761, 2], [79.63, 7.727, 2], [87.357, 2.873, 2], [90.51, 6.58, 2], [97.09, 2.86, 2], [100.6, 2.821, 2], [103.421, 2.499, 2], [106.57, 3.96, 3], [111.18, 3.92, 3], [115.75, 2.811, 3], [118.561, 7.984, 3], [126.545, 3.685, 3], [130.51, 7.796, 3], [138.306, 6.05, 3], [144.356, 2.794, 3], [147.8, 2.696, 3], [150.496, 2.024, 3], [153.17, 2.474, 5], [155.644, 3.85, 5], [159.494, 1.876, 5], [161.65, 4.566, 5], [166.216, 7.25, 5], [173.466, 1.744, 5]]}, "3": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F06-muromachi-bakufu.mp3?alt=media&token=40ab9b9e-1556-4618-84a9-6b31df06707f", "tl": [[0, 3.904, 0], [3.904, 3.616, 0], [7.8, 3.52, 0], [11.97, 3.88, 1], [16.5, 2.146, 1], [18.646, 2.174, 1], [21.47, 4.368, 1], [25.838, 4.899, 1], [30.737, 3.093, 1], [34.11, 1.327, 1], [35.437, 8.258, 1], [43.695, 5.375, 1], [49.72, 3.362, 1], [53.082, 2.438, 1], [56.17, 3.08, 2], [59.9, 2.732, 2], [62.632, 1.588, 2], [64.87, 6.413, 2], [71.283, 3.285, 2], [74.568, 2.862, 2], [77.71, 6.34, 2], [84.05, 7.82, 2], [92.15, 3.66, 2], [95.81, 3.38, 2], [99.84, 3.86, 2], [103.7, 3.22, 2], [107.57, 2.681, 4], [110.251, 5.399, 4], [115.93, 6.4, 4], [122.61, 5.07, 4], [127.68, 1.73, 4]]}, "4": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F06-east-asia-trade.mp3?alt=media&token=a27bd86b-8e82-416b-b75d-b30f52b827ef", "tl": [[0, 4.08, 0], [4.36, 5.2, 0], [10.21, 2.84, 1], [13.7, 4.88, 1], [19.23, 7.258, 1], [26.488, 3.586, 1], [30.074, 4.196, 1], [34.55, 7.563, 1], [42.113, 5.637, 1], [48.4, 2.864, 1], [51.264, 2.536, 1], [54.45, 3.2, 2], [58.3, 2.241, 2], [60.541, 1.959, 2], [63.15, 4.322, 2], [67.472, 5.558, 2], [73.31, 4, 2], [77.59, 6.114, 2], [83.704, 7.046, 2], [91.4, 4.762, 2], [96.162, 3.158, 2], [99.97, 2.96, 3], [103.58, 3.2, 3], [107.43, 3.362, 3], [110.792, 2.795, 3], [113.587, 2.043, 3], [115.91, 4.628, 3], [120.538, 7.052, 3], [128.24, 4.185, 3], [132.425, 2.935, 3], [136.01, 7.36, 5], [143.65, 3.34, 5], [146.99, 5.3, 5], [152.57, 3.81, 5], [156.38, 2.91, 5]]}, "5": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F06-muromachi-industry.mp3?alt=media&token=0cc39da1-8775-465c-9d44-95b423cf3fdf", "tl": [[0, 2.335, 0], [2.335, 2.986, 0], [5.321, 2.999, 0], [8.97, 2.28, 1], [11.9, 1.925, 1], [13.825, 2.155, 1], [16.63, 7.25, 1], [23.88, 4.99, 1], [29.15, 2.415, 1], [31.565, 4.385, 1], [36.23, 2.872, 1], [39.102, 5.928, 1], [45.68, 3.82, 1], [49.5, 2.06, 1], [52.21, 2.72, 2], [55.58, 3.8, 2], [60.03, 3.667, 2], [63.697, 3.853, 2], [67.83, 3.81, 2], [71.64, 3.03, 2], [74.95, 7.507, 2], [82.457, 4.253, 2], [87.36, 2.267, 2], [89.627, 3.373, 2], [93.65, 3.04, 3], [97.34, 2.305, 3], [99.645, 1.375, 3], [101.67, 2.133, 3], [103.803, 3.253, 3], [107.056, 5.054, 3], [112.39, 4.68, 3], [117.07, 2.844, 3], [119.914, 3.716, 3], [124.28, 5.8, 3], [130.73, 6.55, 5], [137.28, 4.17, 5], [141.73, 2.576, 5], [144.306, 2.799, 5], [147.105, 1.945, 5]]}, "6": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F06-muromachi-people.mp3?alt=media&token=0f15c872-d3ac-46f5-aee0-3233069edff7", "tl": [[0, 4.413, 0], [4.413, 2.547, 0], [7.24, 3.08, 0], [10.97, 2.84, 1], [14.46, 2.006, 1], [16.466, 1.994, 1], [19.11, 5.827, 1], [24.937, 2.132, 1], [27.069, 2.801, 1], [30.15, 3.985, 1], [34.135, 2.575, 1], [37.36, 2.337, 1], [39.697, 2.863, 1], [43.21, 2.04, 2], [45.9, 4.4, 2], [50.95, 8.267, 2], [59.217, 3.128, 2], [62.345, 2.085, 2], [64.71, 3.173, 2], [67.883, 2.938, 2], [70.821, 2.049, 2], [73.52, 2.428, 2], [75.948, 3.332, 2], [79.93, 1.72, 3], [82.3, 3.6, 3], [86.55, 4.813, 3], [91.363, 3.027, 3], [94.67, 5.7, 3], [100.37, 4.178, 3], [104.548, 3.162, 3], [108.36, 5.56, 3], [114.57, 3.298, 5], [117.868, 4.462, 5], [122.61, 5.716, 5], [128.326, 5.604, 5]]}, "7": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F06-kitayama-culture.mp3?alt=media&token=cebf6a87-ecc6-4362-b501-8ecf09a5ebaa", "tl": [[0, 3.19, 0], [3.19, 2.41, 0], [5.88, 3.4, 0], [9.93, 2.76, 1], [13.34, 2.347, 1], [15.687, 2.093, 1], [18.43, 5.785, 1], [24.215, 3.084, 1], [27.299, 3.611, 1], [31.19, 7.741, 1], [38.931, 4.313, 1], [43.244, 3.066, 1], [46.96, 2.093, 1], [49.053, 3.427, 1], [53.13, 2.44, 2], [56.22, 1.759, 2], [57.979, 1.881, 2], [60.51, 6.991, 2], [67.501, 2.849, 2], [70.63, 5.534, 2], [76.164, 2.346, 2], [79.16, 3.223, 2], [82.383, 2.217, 2], [85.25, 2.018, 4], [87.268, 6.27, 4], [93.538, 2.352, 4], [96.17, 4.468, 4], [100.638, 3.692, 4]]}, "8": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F06-higashiyama-culture.mp3?alt=media&token=c3c84b5d-0e71-4cf8-b86b-03903d676fb9", "tl": [[0, 4.36, 0], [4.64, 3.965, 0], [8.605, 1.475, 0], [10.73, 3.88, 1], [15.26, 2.248, 1], [17.508, 2.192, 1], [20.35, 6.236, 1], [26.586, 4.604, 1], [31.47, 5.842, 1], [37.312, 6.478, 1], [44.44, 2.124, 1], [46.564, 3.356, 1], [50.57, 2.96, 2], [54.18, 2.191, 2], [56.371, 2.249, 2], [59.27, 5.607, 2], [64.877, 5.353, 2], [70.51, 5.866, 2], [76.376, 4.054, 2], [81.08, 2.806, 2], [83.886, 2.514, 2], [87.05, 3.16, 3], [90.86, 3.56, 3], [95.07, 4.195, 3], [99.265, 3.285, 3], [102.83, 6.784, 3], [109.614, 5.096, 3], [115.36, 2.573, 3], [117.933, 2.787, 3], [121.37, 3.583, 5], [124.953, 3.798, 5], [128.751, 3.739, 5], [132.77, 3.131, 5], [135.901, 2.704, 5], [138.605, 4.565, 5]]}};          // {単元t: {url, tl:[[開始秒,長さ,ステップ], …]}}          // 参考書の単元t → 問題集のビュー番号（0＝対応なし）
   var views = [].slice.call(document.querySelectorAll('.view'));
   var tabs = [].slice.call(document.querySelectorAll('.tab'));
   var N = views.length - 1; // 単元数
@@ -1648,6 +1695,89 @@
     };
     bar.addEventListener('click', function () { bar.hidden = true; });
   })();
+
+
+  // ── 読み上げ（音声に合わせて句をハイライトし、ページも自動でめくる）──
+  var au = document.getElementById('audio');
+  var apl = document.getElementById('aplayer');
+  var reading = { t: 0, i: -1 };
+  var RATES = [1, 1.25, 1.5, 0.75], ri = 0;
+
+  function fmt(x) { x = Math.max(0, x | 0); return (x / 60 | 0) + ':' + ('0' + (x % 60)).slice(-2); }
+  function spansOf(t) { return [].slice.call(views[t].querySelectorAll('.s')); }
+
+  function startAudio(t) {
+    var a = AUDIO[t];
+    if (!a) return;
+    reading = { t: t, i: -1 };
+    if (au.dataset.t !== String(t)) { au.src = a.url; au.dataset.t = String(t); }
+    document.body.classList.add('reading');
+    apl.hidden = false;
+    au.playbackRate = RATES[ri];
+    au.play();
+  }
+  function stopAudio() {
+    au.pause();
+    document.body.classList.remove('reading');
+    apl.hidden = true;
+    if (reading.t) spansOf(reading.t).forEach(function (el) { el.classList.remove('now', 'read'); });
+    reading = { t: 0, i: -1 };
+  }
+  function paintAudio() {
+    var a = AUDIO[reading.t];
+    if (!a) return;
+    var tl = a.tl, k = -1;
+    for (var i = 0; i < tl.length; i++) { if (au.currentTime >= tl[i][0]) k = i; else break; }
+    if (k === reading.i) return;
+    reading.i = k;
+    // 読んでいる箇所が別のページなら、そのページへ自動でめくる
+    if (k >= 0 && tl[k][2] !== state.s && state.t === reading.t) go(reading.t, tl[k][2], tl[k][2] > state.s ? 1 : -1);
+    var sp = spansOf(reading.t);
+    sp.forEach(function (el, i) {
+      el.classList.toggle('now', i === k);
+      el.classList.toggle('read', i < k);
+    });
+    var el = sp[k];
+    if (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < 70 || r.bottom > innerHeight - 150) {
+        scrollTo({ top: scrollY + r.top - innerHeight * 0.4, behavior: 'smooth' });
+      }
+    }
+  }
+  function tickAudio() {
+    paintAudio();
+    if (au.duration) {
+      document.getElementById('apSeek').value = Math.round(au.currentTime / au.duration * 1000);
+      document.getElementById('apTime').textContent = fmt(au.currentTime) + ' / ' + fmt(au.duration);
+    }
+    if (!au.paused) requestAnimationFrame(tickAudio);
+  }
+  au.addEventListener('play', function () { document.getElementById('apPlay').textContent = '❚❚'; tickAudio(); });
+  au.addEventListener('pause', function () { document.getElementById('apPlay').textContent = '▶'; });
+  au.addEventListener('ended', stopAudio);
+  document.getElementById('apPlay').onclick = function () { au.paused ? au.play() : au.pause(); };
+  document.getElementById('apClose').onclick = stopAudio;
+  document.getElementById('apSeek').oninput = function () {
+    if (au.duration) { au.currentTime = this.value / 1000 * au.duration; reading.i = -1; paintAudio(); }
+  };
+  document.getElementById('apRate').onclick = function () {
+    ri = (ri + 1) % RATES.length; au.playbackRate = RATES[ri];
+    this.textContent = RATES[ri].toFixed(2).replace(/0$/, '') + '×';
+  };
+  // 単元見出しの「🔊 読み上げ」＋ 文字タップでその場所から読む
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('.play-unit');
+    if (b) { startAudio(+b.dataset.play); return; }
+    var sp = e.target.closest && e.target.closest('.s');
+    if (sp && AUDIO[state.t]) {
+      var k = +sp.dataset.i, a = AUDIO[state.t];
+      if (a.tl[k]) {
+        if (reading.t !== state.t) startAudio(state.t);
+        au.currentTime = a.tl[k][0]; reading.i = -1; paintAudio(); au.play();
+      }
+    }
+  });
 
   // 単元タブの左右矢印: まだ隠れているタブがある側だけ出す
   function updateTabArrows() {
@@ -1746,6 +1876,8 @@
     // クエリが付いていても落とさない（URL共有時の情報を保つ）
     if (location.hash !== h) history.replaceState(null, '', location.search + (t === 0 ? '#' : h));
     updateSwap();
+    var pb = views[t] && views[t].querySelector('.play-unit');
+    if (pb) pb.hidden = !AUDIO[t];
     rendered = { t: t, s: s };
   }
 

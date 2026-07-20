@@ -13,6 +13,36 @@
 
   .mark { background:linear-gradient(transparent 55%, var(--line) 55%); font-weight:bold; padding:0 1px; }
 
+  /* ── 読み上げ（音声＋読んでいる句のハイライト）── */
+  .s { border-radius:6px; padding:.14em .12em; margin:0 -.12em;
+       -webkit-box-decoration-break:clone; box-decoration-break:clone;
+       transition:background-color .15s ease, color .15s ease; }
+  body.reading .s { cursor:pointer; }
+  .s.read { color:#8a8279; }
+  .s.now { background:#fcd34d; color:#1c1917; }
+  .s.now .mark { background:none; }
+  /* 単元見出しの再生ボタン */
+  .play-unit { display:inline-flex; align-items:center; gap:6px; margin-left:auto; flex:none;
+               background:#fff; color:var(--brand); border:1.5px solid var(--line);
+               border-radius:20px; padding:4px 12px; font-size:12px; font-weight:bold;
+               font-family:inherit; cursor:pointer; }
+  .play-unit[hidden] { display:none; }
+  /* 下部プレーヤー（再生中だけ出す。ナビバーの上に重ねる） */
+  .aplayer { position:fixed; left:0; right:0; bottom:58px; z-index:25;
+             background:rgba(255,253,248,.98); border-top:1px solid #f0e6d2;
+             box-shadow:0 -3px 12px rgba(120,80,20,.14); padding:7px 0 8px; }
+  .aplayer[hidden] { display:none; }
+  .ap-in { max-width:640px; margin:0 auto; padding:0 14px; display:flex; align-items:center; gap:9px; }
+  .ap-btn { flex:none; width:40px; height:40px; border-radius:50%; border:none; background:var(--brand);
+            color:#fff; font-size:16px; cursor:pointer; box-shadow:0 2px 6px rgba(180,83,9,.35); }
+  .ap-seek { flex:1; min-width:0; }
+  .ap-seek input { width:100%; accent-color:var(--brand); }
+  .ap-time { flex:none; font-size:11px; font-weight:bold; color:var(--brand); min-width:74px;
+             text-align:right; }
+  .ap-rate, .ap-close { flex:none; border:1.5px solid var(--line); background:#fffbeb; color:var(--brand);
+             font-weight:bold; border-radius:16px; padding:4px 9px; font-size:11.5px; cursor:pointer;
+             font-family:inherit; }
+
   /* ── 上部: タイトル＋単元タブ＋進捗バー ── */
   .bar { position:sticky; top:0; z-index:10; background:rgba(255,253,248,.96);
          backdrop-filter:blur(6px); border-bottom:1px solid #f0e6d2; }
@@ -35,7 +65,7 @@
                white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   .bar-step { flex:none; font-size:11px; font-weight:bold; color:var(--brand); }
   /* 初回だけ出す操作ヒント（PCはキー、スマホはスワイプ） */
-  .hintbar { position:fixed; left:50%; transform:translateX(-50%); bottom:78px; z-index:35;
+  .hintbar { position:fixed; left:50%; transform:translateX(-50%); bottom:132px; z-index:35;
              background:rgba(28,25,23,.88); color:#fff; font-size:12.5px; font-weight:bold;
              border-radius:20px; padding:8px 16px; box-shadow:0 4px 14px rgba(0,0,0,.3);
              animation:hintIn .3s ease; }
@@ -419,32 +449,33 @@
   </footer>
 </section>
 <section class="view" data-t="1">
-  <div class="tband"><span class="tno">1</span><h2>江戸幕府の成立</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">1</span><h2>江戸幕府の成立</h2>
+    <button class="play-unit" type="button" data-play="1" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-edo-bakufu.webp"
            alt="江戸幕府の成立（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">戦国の世を勝ち抜いた徳川家康が開いた幕府は、大名を巧みに縛りつけるしくみを作り上げて、260年も続く安定を手に入れたんだ。すごいよね。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">戦国の世を勝ち抜いた徳川家康が開いた幕府は、</span><span class="s" data-i="1">大名を巧みに縛りつけるしくみを作り上げて、</span><span class="s" data-i="2">260年も続く安定を手に入れたんだ。</span><span class="s" data-i="3">すごいよね。</span></div></div>
     </div>
     <div class="step" data-label="関ヶ原の戦いと江戸幕府の成立">
-      <h3><span class="sec-no">1</span>関ヶ原の戦いと江戸幕府の成立</h3>
-      <div class="sec-lead">家康が天下を統一し、江戸に幕府を開いたよ。</div>
-      <p>1600年、<span class="mark">徳川家康</span>は石田三成らが率いる西軍を、天下分け目と呼ばれる<span class="mark">関ヶ原の戦い</span>で破って、全国支配の実権を握ったんだ。そして1603年には朝廷から<span class="mark">征夷大将軍</span>に任命されて、江戸に幕府を開いたよ。これが<span class="mark">江戸幕府</span>の始まりで、以後15代将軍慶喜まで、約260年も続く武家政権のスタートになったんだね。1614年から1615年にかけての<span class="mark">大坂の陣</span>では、対立していた豊臣氏を攻め滅ぼして、徳川氏による支配をゆるぎないものにしたんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">徳川家康は関ヶ原の戦いに勝ち、1603年に江戸幕府を開いたよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="4">関ヶ原の戦いと江戸幕府の成立</span></h3>
+      <div class="sec-lead"><span class="s" data-i="5">家康が天下を統一し、</span><span class="s" data-i="6">江戸に幕府を開いたよ。</span></div>
+      <p><span class="s" data-i="7">1600年、<span class="mark">徳川家康</span>は石田三成らが率いる西軍を、</span><span class="s" data-i="8">天下分け目と呼ばれる<span class="mark">関ヶ原の戦い</span>で破って、</span><span class="s" data-i="9">全国支配の実権を握ったんだ。</span><span class="s" data-i="10">そして1603年には朝廷から<span class="mark">征夷大将軍</span>に任命されて、</span><span class="s" data-i="11">江戸に幕府を開いたよ。</span><span class="s" data-i="12">これが<span class="mark">江戸幕府</span>の始まりで、</span><span class="s" data-i="13">以後15代将軍慶喜まで、</span><span class="s" data-i="14">約260年も続く武家政権のスタートになったんだね。</span><span class="s" data-i="15">1614年から1615年にかけての<span class="mark">大坂の陣</span>では、</span><span class="s" data-i="16">対立していた豊臣氏を攻め滅ぼして、</span><span class="s" data-i="17">徳川氏による支配をゆるぎないものにしたんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="18">徳川家康は関ヶ原の戦いに勝ち、</span><span class="s" data-i="19">1603年に江戸幕府を開いたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">徳川家康<span class="w-rd">とくがわいえやす</span></span><span class="w-desc">関ヶ原の戦いに勝ち、1603年に江戸幕府を開いた初代将軍。</span></div><div class="word"><span class="w-term">関ヶ原の戦い<span class="w-rd">せきがはらのたたかい</span></span><span class="w-desc">1600年、徳川家康が石田三成らの西軍を破った天下分け目の戦い。</span></div><div class="word"><span class="w-term">江戸幕府<span class="w-rd">えどばくふ</span></span><span class="w-desc">1603年に徳川家康が開き、約260年続いた武家政権。</span></div></div>
     </div>
     <div class="step" data-label="大名の統制のしくみ">
-      <h3><span class="sec-no">2</span>大名の統制のしくみ</h3>
-      <div class="sec-lead">大名を親藩・譜代・外様に分け、法で統制したよ。</div>
-      <p>将軍から1万石以上の領地をもらった武士のことを<span class="mark">大名</span>と呼ぶよ。大名は徳川家との関係によって、徳川家の親族である<span class="mark">親藩</span>、関ヶ原の戦い以前から従っていた<span class="mark">譜代大名</span>、関ヶ原の前後に従った<span class="mark">外様大名</span>の3つに分けられたんだ。外様大名は幕府に警戒されて、江戸から遠い地に置かれることが多かったんだよ。1615年には、大名を取りしまるための法である<span class="mark">武家諸法度</span>が定められて、城を勝手に修理したり大名どうしが結婚したりすることも制限されたんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">大名は親藩・譜代・外様に分けられ、武家諸法度で統制されたよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="20">大名の統制のしくみ</span></h3>
+      <div class="sec-lead"><span class="s" data-i="21">大名を親藩・譜代・外様に分け、</span><span class="s" data-i="22">法で統制したよ。</span></div>
+      <p><span class="s" data-i="23">将軍から1万石以上の領地をもらった武士のことを<span class="mark">大名</span>と呼ぶよ。</span><span class="s" data-i="24">大名は徳川家との関係によって、</span><span class="s" data-i="25">徳川家の親族である<span class="mark">親藩</span>、</span><span class="s" data-i="26">関ヶ原の戦い以前から従っていた<span class="mark">譜代大名</span>、</span><span class="s" data-i="27">関ヶ原の前後に従った<span class="mark">外様大名</span>の3つに分けられたんだ。</span><span class="s" data-i="28">外様大名は幕府に警戒されて、</span><span class="s" data-i="29">江戸から遠い地に置かれることが多かったんだよ。</span><span class="s" data-i="30">1615年には、</span><span class="s" data-i="31">大名を取りしまるための法である<span class="mark">武家諸法度</span>が定められて、</span><span class="s" data-i="32">城を勝手に修理したり大名どうしが結婚したりすることも制限されたんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="33">大名は親藩・譜代・外様に分けられ、</span><span class="s" data-i="34">武家諸法度で統制されたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">大名<span class="w-rd">だいみょう</span></span><span class="w-desc">将軍から1万石以上の領地を与えられた武士。親藩・譜代・外様に分けられた。</span></div><div class="word"><span class="w-term">外様大名<span class="w-rd">とざまだいみょう</span></span><span class="w-desc">関ヶ原の戦いの前後から徳川氏に従った大名。江戸から遠い地に配置された。</span></div><div class="word"><span class="w-term">武家諸法度<span class="w-rd">ぶけしょはっと</span></span><span class="w-desc">1615年に定められた、大名を統制するための法令。</span></div></div>
     </div>
     <div class="step" data-label="参勤交代と幕藩体制">
-      <h3><span class="sec-no">3</span>参勤交代と幕藩体制</h3>
-      <div class="sec-lead">参勤交代で大名を統制し、幕藩体制を築いたよ。</div>
-      <p>3代将軍<span class="mark">徳川家光</span>の時代には、武家諸法度の改定によって<span class="mark">参勤交代</span>が制度としてスタートしたんだ。これは大名に江戸と自分の領地を1年おきに行き来させて、江戸には妻子をずっと住まわせておく制度だよ。往復や江戸屋敷の維持にたくさんの費用がかかるから、大名の財政を圧迫して、幕府に逆らう力を弱める効果もあったんだね。こうして幕府が全国の大名(藩)を統制して、藩がそれぞれの領地を治める<span class="mark">幕藩体制</span>が確立し、江戸時代の政治の土台になったんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">徳川家光が参勤交代を制度化し、幕藩体制の土台を築いたよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="35">参勤交代と幕藩体制</span></h3>
+      <div class="sec-lead"><span class="s" data-i="36">参勤交代で大名を統制し、</span><span class="s" data-i="37">幕藩体制を築いたよ。</span></div>
+      <p><span class="s" data-i="38">3代将軍<span class="mark">徳川家光</span>の時代には、</span><span class="s" data-i="39">武家諸法度の改定によって<span class="mark">参勤交代</span>が制度としてスタートしたんだ。</span><span class="s" data-i="40">これは大名に江戸と自分の領地を1年おきに行き来させて、</span><span class="s" data-i="41">江戸には妻子をずっと住まわせておく制度だよ。</span><span class="s" data-i="42">往復や江戸屋敷の維持にたくさんの費用がかかるから、</span><span class="s" data-i="43">大名の財政を圧迫して、</span><span class="s" data-i="44">幕府に逆らう力を弱める効果もあったんだね。</span><span class="s" data-i="45">こうして幕府が全国の大名(藩)を統制して、</span><span class="s" data-i="46">藩がそれぞれの領地を治める<span class="mark">幕藩体制</span>が確立し、</span><span class="s" data-i="47">江戸時代の政治の土台になったんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="48">徳川家光が参勤交代を制度化し、</span><span class="s" data-i="49">幕藩体制の土台を築いたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">参勤交代<span class="w-rd">さんきんこうたい</span></span><span class="w-desc">大名に江戸と領地を1年おきに行き来させた制度。徳川家光が制度化した。</span></div><div class="word"><span class="w-term">幕藩体制<span class="w-rd">ばくはんたいせい</span></span><span class="w-desc">幕府が大名(藩)を統制し、藩が領地を治める江戸時代の政治体制。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -552,7 +583,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body"><span class="mark">徳川家康</span>は<span class="mark">関ヶ原の戦い</span>に勝って<span class="mark">江戸幕府</span>を開き、大坂の陣で豊臣氏を滅ぼしたよ。大名を親藩・譜代・外様に分けて<span class="mark">武家諸法度</span>で統制し、<span class="mark">参勤交代</span>によって<span class="mark">幕藩体制</span>を築いていったんだね。</div>
+        <div class="sum30-body"><span class="s" data-i="50"><span class="mark">徳川家康</span>は<span class="mark">関ヶ原の戦い</span>に勝って<span class="mark">江戸幕府</span>を開き、</span><span class="s" data-i="51">大坂の陣で豊臣氏を滅ぼしたよ。</span><span class="s" data-i="52">大名を親藩・譜代・外様に分けて<span class="mark">武家諸法度</span>で統制し、</span><span class="s" data-i="53"><span class="mark">参勤交代</span>によって<span class="mark">幕藩体制</span>を築いていったんだね。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -567,32 +598,33 @@
     </div>
 </section>
 <section class="view" data-t="2">
-  <div class="tband"><span class="tno">2</span><h2>鎖国への道</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">2</span><h2>鎖国への道</h2>
+    <button class="play-unit" type="button" data-play="2" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-sakoku.webp"
            alt="鎖国への道（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">貿易を奨励していたはずの幕府が、どうしてキリスト教を恐れて国を閉ざすようになったのか、その道すじを一緒にたどってみよう。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">貿易を奨励していたはずの幕府が、</span><span class="s" data-i="1">どうしてキリスト教を恐れて国を閉ざすようになったのか、</span><span class="s" data-i="2">その道すじを一緒にたどってみよう。</span></div></div>
     </div>
     <div class="step" data-label="朱印船貿易と禁教令">
-      <h3><span class="sec-no">1</span>朱印船貿易と禁教令</h3>
-      <div class="sec-lead">朱印船貿易を進める一方、禁教令で信仰を禁じたよ。</div>
-      <p>江戸時代の初め、幕府は<span class="mark">朱印状</span>を与えた船に東南アジアとの貿易をさせる<span class="mark">朱印船貿易</span>を奨励していて、タイのアユタヤなど各地に日本人が住む日本町も生まれたんだ。ところが1612年、徳川家康は幕領に対して<span class="mark">禁教令</span>を出して、キリスト教の信仰を禁じてしまうんだ。信者どうしの結びつきが強まって幕府の支配がゆらぐことを恐れたからで、翌年には禁教令が全国に広げられたよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">幕府は朱印船貿易を進める一方、1612年に禁教令を出したよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="3">朱印船貿易と禁教令</span></h3>
+      <div class="sec-lead"><span class="s" data-i="4">朱印船貿易を進める一方、</span><span class="s" data-i="5">禁教令で信仰を禁じたよ。</span></div>
+      <p><span class="s" data-i="6">江戸時代の初め、</span><span class="s" data-i="7">幕府は<span class="mark">朱印状</span>を与えた船に東南アジアとの貿易をさせる<span class="mark">朱印船貿易</span>を奨励していて、</span><span class="s" data-i="8">タイのアユタヤなど各地に日本人が住む日本町も生まれたんだ。</span><span class="s" data-i="9">ところが1612年、</span><span class="s" data-i="10">徳川家康は幕領に対して<span class="mark">禁教令</span>を出して、</span><span class="s" data-i="11">キリスト教の信仰を禁じてしまうんだ。</span><span class="s" data-i="12">信者どうしの結びつきが強まって幕府の支配がゆらぐことを恐れたからで、</span><span class="s" data-i="13">翌年には禁教令が全国に広げられたよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="14">幕府は朱印船貿易を進める一方、</span><span class="s" data-i="15">1612年に禁教令を出したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">朱印船貿易<span class="w-rd">しゅいんせんぼうえき</span></span><span class="w-desc">幕府から朱印状を受けた船が東南アジアと行った貿易。</span></div><div class="word"><span class="w-term">禁教令<span class="w-rd">きんきょうれい</span></span><span class="w-desc">1612年に徳川家康が幕領に出した、キリスト教の信仰を禁じる命令。</span></div></div>
     </div>
     <div class="step" data-label="絵踏と寺請制度による取りしまり">
-      <h3><span class="sec-no">2</span>絵踏と寺請制度による取りしまり</h3>
-      <div class="sec-lead">絵踏と寺請制度で信者を厳しく取り締まったよ。</div>
-      <p>幕府はキリスト教徒を見つけ出すために、キリストや聖母マリアの絵を踏ませる<span class="mark">絵踏</span>を行ったんだ。それに加えて、すべての人を必ずどこかの寺院に所属(檀家)させて、キリスト教徒でないことを証明させる<span class="mark">寺請制度</span>も整えたよ。この寺請制度は、人々を寺院に登録させて信仰を確認する宗門改とあわせて運用されて、幕府が国民の信仰を管理するしくみになっていったんだね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">絵踏と寺請制度で、キリスト教徒を厳しく取りしまったよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="16">絵踏と寺請制度による取りしまり</span></h3>
+      <div class="sec-lead"><span class="s" data-i="17">絵踏と寺請制度で信者を厳しく取り締まったよ。</span></div>
+      <p><span class="s" data-i="18">幕府はキリスト教徒を見つけ出すために、</span><span class="s" data-i="19">キリストや聖母マリアの絵を踏ませる<span class="mark">絵踏</span>を行ったんだ。</span><span class="s" data-i="20">それに加えて、すべての人を必ずどこかの寺院に所属(檀家)させて、</span><span class="s" data-i="21">キリスト教徒でないことを証明させる<span class="mark">寺請制度</span>も整えたよ。</span><span class="s" data-i="22">この寺請制度は、</span><span class="s" data-i="23">人々を寺院に登録させて信仰を確認する宗門改とあわせて運用されて、</span><span class="s" data-i="24">幕府が国民の信仰を管理するしくみになっていったんだね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="25">絵踏と寺請制度で、</span><span class="s" data-i="26">キリスト教徒を厳しく取りしまったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">絵踏<span class="w-rd">えふみ</span></span><span class="w-desc">キリストやマリアの絵を踏ませてキリスト教徒を見つけ出した取りしまり。</span></div><div class="word"><span class="w-term">寺請制度<span class="w-rd">てらうけせいど</span></span><span class="w-desc">すべての人を寺院に登録させ、キリシタンでないことを証明させた制度。</span></div></div>
     </div>
     <div class="step" data-label="島原・天草一揆と鎖国の完成">
-      <h3><span class="sec-no">3</span>島原・天草一揆と鎖国の完成</h3>
-      <div class="sec-lead">一揆を鎮圧し、鎖国が完成していったよ。</div>
-      <p>1637年、重い年貢とキリスト教弾圧に苦しんだ人々は、少年天草四郎を大将として<span class="mark">島原・天草一揆</span>を起こしたんだ。幕府はこれを鎮圧すると、禁教をいっそう強めていったよ。1639年には布教と結びついていた<span class="mark">ポルトガル</span>船の来航を禁止して、1641年にはオランダ商館を長崎の<span class="mark">出島</span>に移し、3代将軍徳川家光のもとで<span class="mark">鎖国</span>が完成したんだ。でも完全に交流を断ったわけではなくて、長崎・対馬・薩摩・松前の四つの窓口を通じた交流は続いていたんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1637年の島原・天草一揆ののち、鎖国が1641年に完成したよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="27">島原・天草一揆と鎖国の完成</span></h3>
+      <div class="sec-lead"><span class="s" data-i="28">一揆を鎮圧し、鎖国が完成していったよ。</span></div>
+      <p><span class="s" data-i="29">1637年、重い年貢とキリスト教弾圧に苦しんだ人々は、</span><span class="s" data-i="30">少年天草四郎を大将として<span class="mark">島原・天草一揆</span>を起こしたんだ。</span><span class="s" data-i="31">幕府はこれを鎮圧すると、</span><span class="s" data-i="32">禁教をいっそう強めていったよ。</span><span class="s" data-i="33">1639年には布教と結びついていた<span class="mark">ポルトガル</span>船の来航を禁止して、</span><span class="s" data-i="34">1641年にはオランダ商館を長崎の<span class="mark">出島</span>に移し、</span><span class="s" data-i="35">3代将軍徳川家光のもとで<span class="mark">鎖国</span>が完成したんだ。</span><span class="s" data-i="36">でも完全に交流を断ったわけではなくて、</span><span class="s" data-i="37">長崎・対馬・薩摩・松前の四つの窓口を通じた交流は続いていたんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="38">1637年の島原・天草一揆ののち、</span><span class="s" data-i="39">鎖国が1641年に完成したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">島原・天草一揆<span class="w-rd">しまばら・あまくさいっき</span></span><span class="w-desc">1637年、重い年貢とキリスト教弾圧に苦しんだ人々が起こした一揆。</span></div><div class="word"><span class="w-term">出島<span class="w-rd">でじま</span></span><span class="w-desc">1641年にオランダ商館が移された、長崎の扇形の人工島。</span></div><div class="word"><span class="w-term">鎖国<span class="w-rd">さこく</span></span><span class="w-desc">江戸幕府が海外との交流を制限した体制。3代将軍家光の時代に完成した。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -688,7 +720,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">幕府は<span class="mark">朱印船貿易</span>を進める一方、<span class="mark">禁教令</span>でキリスト教を禁じて、<span class="mark">絵踏</span>や<span class="mark">寺請制度</span>で信者を取りしまったよ。<span class="mark">島原・天草一揆</span>の鎮圧後、ポルトガル船来航を禁止し出島に商館を移して<span class="mark">鎖国</span>が完成したんだね。</div>
+        <div class="sum30-body"><span class="s" data-i="40">幕府は<span class="mark">朱印船貿易</span>を進める一方、</span><span class="s" data-i="41"><span class="mark">禁教令</span>でキリスト教を禁じて、</span><span class="s" data-i="42"><span class="mark">絵踏</span>や<span class="mark">寺請制度</span>で信者を取りしまったよ。</span><span class="s" data-i="43"><span class="mark">島原・天草一揆</span>の鎮圧後、</span><span class="s" data-i="44">ポルトガル船来航を禁止し出島に商館を移して<span class="mark">鎖国</span>が完成したんだね。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -703,32 +735,33 @@
     </div>
 </section>
 <section class="view" data-t="3">
-  <div class="tband"><span class="tno">3</span><h2>鎖国下の対外関係</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">3</span><h2>鎖国下の対外関係</h2>
+    <button class="play-unit" type="button" data-play="3" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-foreign-relations-edo.webp"
            alt="鎖国下の対外関係（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">国を閉ざしたはずの江戸時代にも、実は四つの窓口を通じて世界とつながり続けていたんだよ。知ってた?</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">国を閉ざしたはずの江戸時代にも、</span><span class="s" data-i="1">実は四つの窓口を通じて世界とつながり続けていたんだよ。</span><span class="s" data-i="2">知ってた?</span></div></div>
     </div>
     <div class="step" data-label="長崎の窓口―オランダと清">
-      <h3><span class="sec-no">1</span>長崎の窓口―オランダと清</h3>
-      <div class="sec-lead">長崎はオランダと清との貿易の窓口だったよ。</div>
-      <p>鎖国の間でも、長崎では<span class="mark">オランダ</span>が貿易を許されていたんだ。オランダはキリスト教の布教を行わず貿易だけに徹していたから幕府から信頼されて、出島に商館を置き、<span class="mark">オランダ風説書</span>で海外の情勢を幕府に伝えていたよ。同じ長崎には1689年に<span class="mark">唐人屋敷</span>が造られて、清の商人が住んで貿易を行っていたんだ。長崎貿易では、金銀が海外に流れ出るのを防ぐために、銀の代わりに干しなまこなどの<span class="mark">俵物</span>と呼ばれる海産物も輸出されたんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">長崎はオランダと清との貿易を許された窓口だよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="3">長崎の窓口―オランダと清</span></h3>
+      <div class="sec-lead"><span class="s" data-i="4">長崎はオランダと清との貿易の窓口だったよ。</span></div>
+      <p><span class="s" data-i="5">鎖国の間でも、長崎では<span class="mark">オランダ</span>が貿易を許されていたんだ。</span><span class="s" data-i="6">オランダはキリスト教の布教を行わず貿易だけに徹していたから幕府から信頼されて、</span><span class="s" data-i="7">出島に商館を置き、</span><span class="s" data-i="8"><span class="mark">オランダ風説書</span>で海外の情勢を幕府に伝えていたよ。</span><span class="s" data-i="9">同じ長崎には1689年に<span class="mark">唐人屋敷</span>が造られて、</span><span class="s" data-i="10">清の商人が住んで貿易を行っていたんだ。</span><span class="s" data-i="11">長崎貿易では、金銀が海外に流れ出るのを防ぐために、</span><span class="s" data-i="12">銀の代わりに干しなまこなどの<span class="mark">俵物</span>と呼ばれる海産物も輸出されたんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="13">長崎はオランダと清との貿易を許された窓口だよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">オランダ<span class="w-rd">おらんだ</span></span><span class="w-desc">布教を行わず貿易のみに徹し、鎖国下で長崎の出島での貿易を許された国。</span></div><div class="word"><span class="w-term">出島<span class="w-rd">でじま</span></span><span class="w-desc">長崎に築かれた人工島で、オランダとの貿易が行われた場所。</span></div><div class="word"><span class="w-term">唐人屋敷<span class="w-rd">とうじんやしき</span></span><span class="w-desc">1689年に長崎に造られた、清の商人が居住した施設。</span></div><div class="word"><span class="w-term">俵物<span class="w-rd">たわらもの</span></span><span class="w-desc">銀の代わりに長崎貿易で輸出された、干しなまこなどの海産物。</span></div></div>
     </div>
     <div class="step" data-label="対馬と朝鮮との交流">
-      <h3><span class="sec-no">2</span>対馬と朝鮮との交流</h3>
-      <div class="sec-lead">対馬藩が窓口となり、朝鮮と交流を続けたよ。</div>
-      <p>朝鮮とは<span class="mark">対馬藩</span>が窓口になって、朝鮮の釜山に設けた<span class="mark">倭館</span>で貿易や外交の実務を行っていたんだ。将軍の代替わりのたびに、朝鮮から<span class="mark">朝鮮通信使</span>が江戸を訪れて、両国の友好を示すとともに各地で文化の交流も行われたんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">対馬藩は朝鮮との窓口で、朝鮮通信使が江戸を訪れたよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="14">対馬と朝鮮との交流</span></h3>
+      <div class="sec-lead"><span class="s" data-i="15">対馬藩が窓口となり、</span><span class="s" data-i="16">朝鮮と交流を続けたよ。</span></div>
+      <p><span class="s" data-i="17">朝鮮とは<span class="mark">対馬藩</span>が窓口になって、</span><span class="s" data-i="18">朝鮮の釜山に設けた<span class="mark">倭館</span>で貿易や外交の実務を行っていたんだ。</span><span class="s" data-i="19">将軍の代替わりのたびに、</span><span class="s" data-i="20">朝鮮から<span class="mark">朝鮮通信使</span>が江戸を訪れて、</span><span class="s" data-i="21">両国の友好を示すとともに各地で文化の交流も行われたんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="22">対馬藩は朝鮮との窓口で、</span><span class="s" data-i="23">朝鮮通信使が江戸を訪れたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">対馬藩<span class="w-rd">つしまはん</span></span><span class="w-desc">朝鮮との外交・貿易の窓口となり、釜山に倭館を設けた藩。</span></div><div class="word"><span class="w-term">朝鮮通信使<span class="w-rd">ちょうせんつうしんし</span></span><span class="w-desc">将軍の代替わりごとに朝鮮から江戸幕府へ派遣された使節。</span></div></div>
     </div>
     <div class="step" data-label="薩摩と松前の窓口">
-      <h3><span class="sec-no">3</span>薩摩と松前の窓口</h3>
-      <div class="sec-lead">薩摩は琉球、松前はアイヌとの窓口だったよ。</div>
-      <p>琉球とは<span class="mark">薩摩藩</span>が窓口となり、蝦夷地のアイヌとは<span class="mark">松前藩</span>が窓口となっていたんだ。このように、鎖国の間も日本は長崎・対馬・薩摩・松前という四つの窓口を通じて海外や国内の異なる地域と交流を続けていて、完全に国を閉ざしていたわけではなかったんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">薩摩は琉球、松前はアイヌとの交流の窓口だったよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="24">薩摩と松前の窓口</span></h3>
+      <div class="sec-lead"><span class="s" data-i="25">薩摩は琉球、松前はアイヌとの窓口だったよ。</span></div>
+      <p><span class="s" data-i="26">琉球とは<span class="mark">薩摩藩</span>が窓口となり、</span><span class="s" data-i="27">蝦夷地のアイヌとは<span class="mark">松前藩</span>が窓口となっていたんだ。</span><span class="s" data-i="28">このように、鎖国の間も日本は長崎・対馬・薩摩・松前という四つの窓口を通じて海外や国内の異なる地域と交流を続けていて、</span><span class="s" data-i="29">完全に国を閉ざしていたわけではなかったんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="30">薩摩は琉球、松前はアイヌとの交流の窓口だったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">薩摩藩<span class="w-rd">さつまはん</span></span><span class="w-desc">琉球との窓口となった藩。</span></div><div class="word"><span class="w-term">松前藩<span class="w-rd">まつまえはん</span></span><span class="w-desc">蝦夷地のアイヌとの窓口となった藩。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -836,7 +869,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">鎖国の間も日本は<span class="mark">長崎</span>・<span class="mark">対馬</span>・<span class="mark">薩摩</span>・<span class="mark">松前</span>という四つの窓口を通じて交流を続けていたよ。長崎は<span class="mark">オランダ</span>と清、対馬は朝鮮、薩摩は琉球、松前はアイヌとの交流を担っていたんだね。</div>
+        <div class="sum30-body"><span class="s" data-i="31">鎖国の間も日本は<span class="mark">長崎</span>・<span class="mark">対馬</span>・<span class="mark">薩摩</span>・<span class="mark">松前</span>という四つの窓口を通じて交流を続けていたよ。</span><span class="s" data-i="32">長崎は<span class="mark">オランダ</span>と清、対馬は朝鮮、薩摩は琉球、</span><span class="s" data-i="33">松前はアイヌとの交流を担っていたんだね。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -851,25 +884,26 @@
     </div>
 </section>
 <section class="view" data-t="4">
-  <div class="tband"><span class="tno">4</span><h2>琉球とアイヌ</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">4</span><h2>琉球とアイヌ</h2>
+    <button class="play-unit" type="button" data-play="4" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-ryukyu-ainu.webp"
            alt="琉球とアイヌ（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">独立国のふりをさせられた琉球と、不公平な交易に立ち上がったアイヌ。二つの地域と藩との関係を一緒に見てみよう。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">独立国のふりをさせられた琉球と、</span><span class="s" data-i="1">不公平な交易に立ち上がったアイヌ。</span><span class="s" data-i="2">二つの地域と藩との関係を一緒に見てみよう。</span></div></div>
     </div>
     <div class="step" data-label="薩摩藩による琉球支配">
-      <h3><span class="sec-no">1</span>薩摩藩による琉球支配</h3>
-      <div class="sec-lead">薩摩藩は琉球を支配し、中継貿易を独占したよ。</div>
-      <p>1609年、島津氏の<span class="mark">薩摩藩</span>は<span class="mark">琉球王国</span>に武力で攻め込んで、支配下に置いたんだ。でも薩摩藩は琉球を独立国の形のまま残しておいて、中国の品を日本へ送る<span class="mark">中継貿易</span>の利益をしっかり独占したんだよ。琉球国王や将軍の代替わりには、薩摩藩を通じて<span class="mark">琉球使節</span>が江戸へ送られて、幕府の権威を国内外に示す役割も果たしていたんだね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">薩摩藩は1609年、琉球を支配し中継貿易を独占したよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="3">薩摩藩による琉球支配</span></h3>
+      <div class="sec-lead"><span class="s" data-i="4">薩摩藩は琉球を支配し、</span><span class="s" data-i="5">中継貿易を独占したよ。</span></div>
+      <p><span class="s" data-i="6">1609年、島津氏の<span class="mark">薩摩藩</span>は<span class="mark">琉球王国</span>に武力で攻め込んで、</span><span class="s" data-i="7">支配下に置いたんだ。</span><span class="s" data-i="8">でも薩摩藩は琉球を独立国の形のまま残しておいて、</span><span class="s" data-i="9">中国の品を日本へ送る<span class="mark">中継貿易</span>の利益をしっかり独占したんだよ。</span><span class="s" data-i="10">琉球国王や将軍の代替わりには、</span><span class="s" data-i="11">薩摩藩を通じて<span class="mark">琉球使節</span>が江戸へ送られて、</span><span class="s" data-i="12">幕府の権威を国内外に示す役割も果たしていたんだね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="13">薩摩藩は1609年、</span><span class="s" data-i="14">琉球を支配し中継貿易を独占したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">琉球王国<span class="w-rd">りゅうきゅうおうこく</span></span><span class="w-desc">薩摩藩に支配されながら、独立国の形を保ち中国とも関係を続けた王国。</span></div><div class="word"><span class="w-term">薩摩藩<span class="w-rd">さつまはん</span></span><span class="w-desc">1609年に琉球王国に侵攻し、中継貿易の利益を独占した藩。</span></div><div class="word"><span class="w-term">中継貿易<span class="w-rd">なかつぎぼうえき</span></span><span class="w-desc">琉球が中国の品を日本へ送るなどして利益を得た貿易。</span></div><div class="word"><span class="w-term">琉球使節<span class="w-rd">りゅうきゅうしせつ</span></span><span class="w-desc">琉球国王や将軍の代替わりに、薩摩藩を経由して江戸へ送られた使節。</span></div></div>
     </div>
     <div class="step" data-label="アイヌとの交易とシャクシャインの戦い">
-      <h3><span class="sec-no">2</span>アイヌとの交易とシャクシャインの戦い</h3>
-      <div class="sec-lead">松前藩の不公平な交易にシャクシャインが挙兵したよ。</div>
-      <p>北海道など蝦夷地に住む<span class="mark">アイヌ民族</span>との交易は<span class="mark">松前藩</span>が独占していて、鮭・昆布・毛皮などを手に入れていたんだ。でも不公平な交易条件がアイヌの人々の生活を圧迫したことから、1669年、アイヌの首長<span class="mark">シャクシャイン</span>が松前藩に対して立ち上がったんだよ。この戦いは鎮圧されてしまい、そのあとアイヌの人々に対する松前藩の支配はいっそう強まっていったんだね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">松前藩の不公平な交易に、シャクシャインが1669年に立ち上がったよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="15">アイヌとの交易とシャクシャインの戦い</span></h3>
+      <div class="sec-lead"><span class="s" data-i="16">松前藩の不公平な交易にシャクシャインが挙兵したよ。</span></div>
+      <p><span class="s" data-i="17">北海道など蝦夷地に住む<span class="mark">アイヌ民族</span>との交易は<span class="mark">松前藩</span>が独占していて、</span><span class="s" data-i="18">鮭・昆布・毛皮などを手に入れていたんだ。</span><span class="s" data-i="19">でも不公平な交易条件がアイヌの人々の生活を圧迫したことから、1669年、</span><span class="s" data-i="20">アイヌの首長<span class="mark">シャクシャイン</span>が松前藩に対して立ち上がったんだよ。</span><span class="s" data-i="21">この戦いは鎮圧されてしまい、</span><span class="s" data-i="22">そのあとアイヌの人々に対する松前藩の支配はいっそう強まっていったんだね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="23">松前藩の不公平な交易に、</span><span class="s" data-i="24">シャクシャインが1669年に立ち上がったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">アイヌ民族<span class="w-rd">あいぬみんぞく</span></span><span class="w-desc">北海道などに住み、独自の文化をもつ人々。</span></div><div class="word"><span class="w-term">松前藩<span class="w-rd">まつまえはん</span></span><span class="w-desc">アイヌとの交易を独占し、蝦夷地の窓口となった藩。</span></div><div class="word"><span class="w-term">シャクシャイン<span class="w-rd">しゃくしゃいん</span></span><span class="w-desc">1669年にアイヌの首長として松前藩に蜂起した人物。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -965,7 +999,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body"><span class="mark">薩摩藩</span>は<span class="mark">琉球王国</span>を支配下に置きつつ独立国の形を残し、<span class="mark">中継貿易</span>の利益を独占したよ。<span class="mark">松前藩</span>は<span class="mark">アイヌ</span>との交易を独占し、不満から<span class="mark">シャクシャイン</span>の戦いが起きたけど鎮圧されたんだね。</div>
+        <div class="sum30-body"><span class="s" data-i="25"><span class="mark">薩摩藩</span>は<span class="mark">琉球王国</span>を支配下に置きつつ独立国の形を残し、</span><span class="s" data-i="26"><span class="mark">中継貿易</span>の利益を独占したよ。</span><span class="s" data-i="27"><span class="mark">松前藩</span>は<span class="mark">アイヌ</span>との交易を独占し、</span><span class="s" data-i="28">不満から<span class="mark">シャクシャイン</span>の戦いが起きたけど鎮圧されたんだね。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -980,25 +1014,26 @@
     </div>
 </section>
 <section class="view" data-t="5">
-  <div class="tband"><span class="tno">5</span><h2>江戸時代の身分制度</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">5</span><h2>江戸時代の身分制度</h2>
+    <button class="play-unit" type="button" data-play="5" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-social-classes.webp"
            alt="江戸時代の身分制度（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">わずか7%の武士が、村の百姓や町の人々をどうやって支配していたんだろう?身分ごとの暮らしを見てみよう。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">わずか7%の武士が、</span><span class="s" data-i="1">村の百姓や町の人々をどうやって支配していたんだろう?身分ごとの暮らしを見てみよう。</span></div></div>
     </div>
     <div class="step" data-label="士農工商と身分ごとの暮らし">
-      <h3><span class="sec-no">1</span>士農工商と身分ごとの暮らし</h3>
-      <div class="sec-lead">士農工商という身分で人々を分けて支配したよ。</div>
-      <p>江戸時代の身分は大まかに<span class="mark">士農工商</span>と呼ばれる区分で分けられていたんだ。名字・帯刀の特権を持つ<span class="mark">武士</span>は全人口の約7%しかいなかったけれど、政治や軍事を独占して支配階級になっていたよ。人口の約85%を占めた<span class="mark">百姓</span>は村に住んで年貢を納め、都市に住み商工業を営む<span class="mark">町人</span>も税を負担していたんだ。このほかに、えた・ひにんという不当な差別を受けた身分もあったんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">武士(約7%)が支配し、百姓・町人などを士農工商に分けたよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="2">士農工商と身分ごとの暮らし</span></h3>
+      <div class="sec-lead"><span class="s" data-i="3">士農工商という身分で人々を分けて支配したよ。</span></div>
+      <p><span class="s" data-i="4">江戸時代の身分は大まかに<span class="mark">士農工商</span>と呼ばれる区分で分けられていたんだ。</span><span class="s" data-i="5">名字・帯刀の特権を持つ<span class="mark">武士</span>は全人口の約7%しかいなかったけれど、</span><span class="s" data-i="6">政治や軍事を独占して支配階級になっていたよ。</span><span class="s" data-i="7">人口の約85%を占めた<span class="mark">百姓</span>は村に住んで年貢を納め、</span><span class="s" data-i="8">都市に住み商工業を営む<span class="mark">町人</span>も税を負担していたんだ。</span><span class="s" data-i="9">このほかに、えた・ひにんという不当な差別を受けた身分もあったんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="10">武士(約7%)が支配し、</span><span class="s" data-i="11">百姓・町人などを士農工商に分けたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">士農工商<span class="w-rd">しのうこうしょう</span></span><span class="w-desc">江戸時代の身分の大まかな区分。武士・百姓・町人などに分けられた。</span></div><div class="word"><span class="w-term">武士<span class="w-rd">ぶし</span></span><span class="w-desc">名字・帯刀の特権を持ち、政治・軍事を独占した支配身分。全人口の約7%。</span></div><div class="word"><span class="w-term">百姓<span class="w-rd">ひゃくしょう</span></span><span class="w-desc">村に住んで年貢を納めた身分。全人口の約85%を占めた。</span></div><div class="word"><span class="w-term">町人<span class="w-rd">ちょうにん</span></span><span class="w-desc">都市に住み、商工業を営んで税を負担した身分。</span></div></div>
     </div>
     <div class="step" data-label="百姓の負担と村のしくみ">
-      <h3><span class="sec-no">2</span>百姓の負担と村のしくみ</h3>
-      <div class="sec-lead">百姓は重い年貢と五人組で統制されていたよ。</div>
-      <p>百姓は収穫の5割を領主に納める<span class="mark">五公五民</span>のような重い年貢を負わされることもあって、土地を持つ<span class="mark">本百姓</span>と、土地を持たず小作を行う水のみ百姓に分かれていたんだ。百姓は5戸を1組にまとめて年貢納入や犯罪防止の連帯責任を負わせる<span class="mark">五人組</span>によって統制されていて、負担に耐えかねた百姓が集団で行動する<span class="mark">百姓一揆</span>も各地で起こったんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">百姓は五公五民の重い年貢と、五人組の統制を受けたよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="12">百姓の負担と村のしくみ</span></h3>
+      <div class="sec-lead"><span class="s" data-i="13">百姓は重い年貢と五人組で統制されていたよ。</span></div>
+      <p><span class="s" data-i="14">百姓は収穫の5割を領主に納める<span class="mark">五公五民</span>のような重い年貢を負わされることもあって、</span><span class="s" data-i="15">土地を持つ<span class="mark">本百姓</span>と、</span><span class="s" data-i="16">土地を持たず小作を行う水のみ百姓に分かれていたんだ。</span><span class="s" data-i="17">百姓は5戸を1組にまとめて年貢納入や犯罪防止の連帯責任を負わせる<span class="mark">五人組</span>によって統制されていて、</span><span class="s" data-i="18">負担に耐えかねた百姓が集団で行動する<span class="mark">百姓一揆</span>も各地で起こったんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="19">百姓は五公五民の重い年貢と、</span><span class="s" data-i="20">五人組の統制を受けたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">五公五民<span class="w-rd">ごこうごみん</span></span><span class="w-desc">収穫の5割を年貢として領主に納める割合。年貢の重さを示す言葉。</span></div><div class="word"><span class="w-term">本百姓<span class="w-rd">ほんびゃくしょう</span></span><span class="w-desc">自分の土地を持ち、村役人を務めるなど村の自治を担った百姓。</span></div><div class="word"><span class="w-term">五人組<span class="w-rd">ごにんぐみ</span></span><span class="w-desc">百姓を5戸1組にまとめ、年貢納入や犯罪防止に連帯責任を負わせた制度。</span></div><div class="word"><span class="w-term">百姓一揆<span class="w-rd">ひゃくしょういっき</span></span><span class="w-desc">農民が年貢の軽減や役人の交代を求めて起こした集団行動。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -1106,7 +1141,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">江戸時代の身分は<span class="mark">士農工商</span>で分けられ、少数の<span class="mark">武士</span>が政治・軍事を独占して<span class="mark">百姓</span>・町人を支配していたよ。百姓は<span class="mark">五公五民</span>の重い年貢と<span class="mark">五人組</span>の統制を受け、不満は各地の<span class="mark">百姓一揆</span>となって表れたんだね。</div>
+        <div class="sum30-body"><span class="s" data-i="21">江戸時代の身分は<span class="mark">士農工商</span>で分けられ、</span><span class="s" data-i="22">少数の<span class="mark">武士</span>が政治・軍事を独占して<span class="mark">百姓</span>・町人を支配していたよ。</span><span class="s" data-i="23">百姓は<span class="mark">五公五民</span>の重い年貢と<span class="mark">五人組</span>の統制を受け、</span><span class="s" data-i="24">不満は各地の<span class="mark">百姓一揆</span>となって表れたんだね。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -1121,32 +1156,33 @@
     </div>
 </section>
 <section class="view" data-t="6">
-  <div class="tband"><span class="tno">6</span><h2>江戸幕府政治と三大改革</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">6</span><h2>江戸幕府政治と三大改革</h2>
+    <button class="play-unit" type="button" data-play="6" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-edo-politics-reforms.webp"
            alt="江戸幕府政治と三大改革（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">武力の時代が終わったあと、幕府はどうやって国を治めて、財政を立て直そうとしたんだろう?歴代の政治の移り変わりを一緒に追ってみよう。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">武力の時代が終わったあと、</span><span class="s" data-i="1">幕府はどうやって国を治めて、</span><span class="s" data-i="2">財政を立て直そうとしたんだろう?歴代の政治の移り変わりを一緒に追ってみよう。</span></div></div>
     </div>
     <div class="step" data-label="文治政治と元禄期の政治">
-      <h3><span class="sec-no">1</span>文治政治と元禄期の政治</h3>
-      <div class="sec-lead">武力でなく儒学を重んじる文治政治が進んだよ。</div>
-      <p>戦乱が終わった江戸前期には、武力ではなく儒学や法を重んじる<span class="mark">文治政治</span>が進められるようになったんだ。5代将軍<span class="mark">徳川綱吉</span>は儒学の一派である朱子学を重視して文治政治を進めて、生類憐みの令を出したことでも知られているよ。6代・7代将軍に仕えた<span class="mark">新井白石</span>は、貨幣の質を戻して長崎貿易を制限し、金銀が海外へ流れ出るのを防ごうとする<span class="mark">正徳の治</span>を行ったんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">徳川綱吉のあと、新井白石が正徳の治を行ったよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="3">文治政治と元禄期の政治</span></h3>
+      <div class="sec-lead"><span class="s" data-i="4">武力でなく儒学を重んじる文治政治が進んだよ。</span></div>
+      <p><span class="s" data-i="5">戦乱が終わった江戸前期には、</span><span class="s" data-i="6">武力ではなく儒学や法を重んじる<span class="mark">文治政治</span>が進められるようになったんだ。</span><span class="s" data-i="7">5代将軍<span class="mark">徳川綱吉</span>は儒学の一派である朱子学を重視して文治政治を進めて、</span><span class="s" data-i="8">生類憐みの令を出したことでも知られているよ。</span><span class="s" data-i="9">6代・7代将軍に仕えた<span class="mark">新井白石</span>は、</span><span class="s" data-i="10">貨幣の質を戻して長崎貿易を制限し、</span><span class="s" data-i="11">金銀が海外へ流れ出るのを防ごうとする<span class="mark">正徳の治</span>を行ったんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="12">徳川綱吉のあと、</span><span class="s" data-i="13">新井白石が正徳の治を行ったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">文治政治<span class="w-rd">ぶんちせいじ</span></span><span class="w-desc">武力ではなく儒学や法を重んじる政治。戦乱が終わった江戸前期に進められた。</span></div><div class="word"><span class="w-term">徳川綱吉<span class="w-rd">とくがわつなよし</span></span><span class="w-desc">朱子学を重視し、生類憐みの令を出した5代将軍。</span></div><div class="word"><span class="w-term">新井白石<span class="w-rd">あらいはくせき</span></span><span class="w-desc">6・7代将軍に仕え、正徳の治を進めた朱子学者。</span></div></div>
     </div>
     <div class="step" data-label="田沼意次の政治と批判">
-      <h3><span class="sec-no">2</span>田沼意次の政治と批判</h3>
-      <div class="sec-lead">田沼意次は商業重視の政治でわいろと批判されたよ。</div>
-      <p>老中<span class="mark">田沼意次</span>は、商人の同業者組合である<span class="mark">株仲間</span>を奨励するなど、商業の力を利用して幕府の収入を増やそうとしたんだ。でも、商人と役人の結びつきが強まってわいろが横行してしまったことから、田沼の政治は厳しく批判されるようになったんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">田沼意次は株仲間を奨励したが、わいろ政治と批判されたよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="14">田沼意次の政治と批判</span></h3>
+      <div class="sec-lead"><span class="s" data-i="15">田沼意次は商業重視の政治でわいろと批判されたよ。</span></div>
+      <p><span class="s" data-i="16">老中<span class="mark">田沼意次</span>は、</span><span class="s" data-i="17">商人の同業者組合である<span class="mark">株仲間</span>を奨励するなど、</span><span class="s" data-i="18">商業の力を利用して幕府の収入を増やそうとしたんだ。</span><span class="s" data-i="19">でも、商人と役人の結びつきが強まってわいろが横行してしまったことから、</span><span class="s" data-i="20">田沼の政治は厳しく批判されるようになったんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="21">田沼意次は株仲間を奨励したが、</span><span class="s" data-i="22">わいろ政治と批判されたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">田沼意次<span class="w-rd">たぬまおきつぐ</span></span><span class="w-desc">株仲間を奨励するなど商業の力で幕府収入を増やそうとした老中。</span></div><div class="word"><span class="w-term">株仲間<span class="w-rd">かぶなかま</span></span><span class="w-desc">営業の独占を認められた商人の同業者組合。</span></div></div>
     </div>
     <div class="step" data-label="江戸の三大改革">
-      <h3><span class="sec-no">3</span>江戸の三大改革</h3>
-      <div class="sec-lead">享保・寛政・天保の三大改革が順に行われたよ。</div>
-      <p>その後、8代将軍徳川吉宗による<span class="mark">享保の改革</span>、老中<span class="mark">松平定信</span>による寛政の改革、老中水野忠邦による<span class="mark">天保の改革</span>という、江戸の三大改革が行われたんだ。いずれも幕府財政の立て直しや社会の引きしめをめざした改革で、享保・寛政・天保の順に行われたんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">享保・寛政・天保の順に、江戸の三大改革が行われたよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="23">江戸の三大改革</span></h3>
+      <div class="sec-lead"><span class="s" data-i="24">享保・寛政・天保の三大改革が順に行われたよ。</span></div>
+      <p><span class="s" data-i="25">その後、8代将軍徳川吉宗による<span class="mark">享保の改革</span>、</span><span class="s" data-i="26">老中<span class="mark">松平定信</span>による寛政の改革、</span><span class="s" data-i="27">老中水野忠邦による<span class="mark">天保の改革</span>という、</span><span class="s" data-i="28">江戸の三大改革が行われたんだ。</span><span class="s" data-i="29">いずれも幕府財政の立て直しや社会の引きしめをめざした改革で、</span><span class="s" data-i="30">享保・寛政・天保の順に行われたんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="31">享保・寛政・天保の順に、</span><span class="s" data-i="32">江戸の三大改革が行われたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">享保の改革<span class="w-rd">きょうほうのかいかく</span></span><span class="w-desc">8代将軍徳川吉宗が行った、幕府財政の立て直しをめざす改革。</span></div><div class="word"><span class="w-term">松平定信<span class="w-rd">まつだいらさだのぶ</span></span><span class="w-desc">田沼政治のあと、寛政の改革を行った老中。</span></div><div class="word"><span class="w-term">天保の改革<span class="w-rd">てんぽうのかいかく</span></span><span class="w-desc">老中水野忠邦が幕府権威の回復をめざして行った改革。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -1254,7 +1290,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">江戸前期には<span class="mark">文治政治</span>が進み、<span class="mark">徳川綱吉</span>の朱子学重視や新井白石の正徳の治が行われたよ。<span class="mark">田沼意次</span>の商業重視の政治がわいろ政治と批判されたあと、<span class="mark">享保の改革</span>・寛政の改革・<span class="mark">天保の改革</span>の順に財政の立て直しがめざされたんだね。</div>
+        <div class="sum30-body"><span class="s" data-i="33">江戸前期には<span class="mark">文治政治</span>が進み、</span><span class="s" data-i="34"><span class="mark">徳川綱吉</span>の朱子学重視や新井白石の正徳の治が行われたよ。</span><span class="s" data-i="35"><span class="mark">田沼意次</span>の商業重視の政治がわいろ政治と批判されたあと、</span><span class="s" data-i="36"><span class="mark">享保の改革</span>・寛政の改革・<span class="mark">天保の改革</span>の順に財政の立て直しがめざされたんだね。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -1269,25 +1305,26 @@
     </div>
 </section>
 <section class="view" data-t="7">
-  <div class="tband"><span class="tno">7</span><h2>江戸の交通と商業・都市</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">7</span><h2>江戸の交通と商業・都市</h2>
+    <button class="play-unit" type="button" data-play="7" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-edo-transport-commerce.webp"
            alt="江戸の交通と商業・都市（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">参勤交代の大名行列が行き交った道と、全国の物資が集まった大坂の商業。江戸時代の交通と経済のつながりを一緒に見てみよう。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">参勤交代の大名行列が行き交った道と、</span><span class="s" data-i="1">全国の物資が集まった大坂の商業。</span><span class="s" data-i="2">江戸時代の交通と経済のつながりを一緒に見てみよう。</span></div></div>
     </div>
     <div class="step" data-label="五街道と宿場町">
-      <h3><span class="sec-no">1</span>五街道と宿場町</h3>
-      <div class="sec-lead">五街道が整備され、宿場町や関所も置かれたよ。</div>
-      <p>幕府は江戸の日本橋を起点に、東海道など五つの主要道路をまとめた<span class="mark">五街道</span>を整備したんだ。街道沿いには、旅人や大名行列が休んだり泊まったりする<span class="mark">宿場町</span>が発達して、人や物の通行を取りしまる<span class="mark">関所</span>も置かれ、江戸へ武器が持ち込まれることなどを警戒していたよ。手紙や荷物を運ぶ<span class="mark">飛脚</span>のしくみも発達して、情報や物資のやり取りを支えたんだね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">日本橋を起点に、五街道と宿場町・関所が整備されたよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="3">五街道と宿場町</span></h3>
+      <div class="sec-lead"><span class="s" data-i="4">五街道が整備され、</span><span class="s" data-i="5">宿場町や関所も置かれたよ。</span></div>
+      <p><span class="s" data-i="6">幕府は江戸の日本橋を起点に、</span><span class="s" data-i="7">東海道など五つの主要道路をまとめた<span class="mark">五街道</span>を整備したんだ。</span><span class="s" data-i="8">街道沿いには、旅人や大名行列が休んだり泊まったりする<span class="mark">宿場町</span>が発達して、</span><span class="s" data-i="9">人や物の通行を取りしまる<span class="mark">関所</span>も置かれ、</span><span class="s" data-i="10">江戸へ武器が持ち込まれることなどを警戒していたよ。</span><span class="s" data-i="11">手紙や荷物を運ぶ<span class="mark">飛脚</span>のしくみも発達して、</span><span class="s" data-i="12">情報や物資のやり取りを支えたんだね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="13">日本橋を起点に、</span><span class="s" data-i="14">五街道と宿場町・関所が整備されたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">五街道<span class="w-rd">ごかいどう</span></span><span class="w-desc">江戸の日本橋を起点に整備された、東海道など五つの主要道路。</span></div><div class="word"><span class="w-term">宿場町<span class="w-rd">しゅくばまち</span></span><span class="w-desc">街道沿いに発達した、旅人や大名行列が休泊した町。</span></div><div class="word"><span class="w-term">関所<span class="w-rd">せきしょ</span></span><span class="w-desc">街道に置かれ、人や物の通行を取りしまった施設。</span></div></div>
     </div>
     <div class="step" data-label="三都の繁栄と大坂の役割">
-      <h3><span class="sec-no">2</span>三都の繁栄と大坂の役割</h3>
-      <div class="sec-lead">大坂は蔵屋敷が集まる天下の台所と呼ばれたよ。</div>
-      <p>江戸・大坂・京都は<span class="mark">三都</span>と呼ばれていて、江戸は政治、京都は文化、大坂は商業の中心として栄えたんだ。大坂には諸藩が<span class="mark">蔵屋敷</span>を置いて年貢米や特産物を集めたことから、「<span class="mark">天下の台所</span>」と呼ばれるようになったんだよ。商業の発展にともなって、金貨と銀貨を交換する<span class="mark">両替商</span>も活躍し、貨幣経済のしくみが整えられていったんだね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">江戸は政治、京都は文化、大坂は商業の中心だったよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="15">三都の繁栄と大坂の役割</span></h3>
+      <div class="sec-lead"><span class="s" data-i="16">大坂は蔵屋敷が集まる天下の台所と呼ばれたよ。</span></div>
+      <p><span class="s" data-i="17">江戸・大坂・京都は<span class="mark">三都</span>と呼ばれていて、江戸は政治、京都は文化、</span><span class="s" data-i="18">大坂は商業の中心として栄えたんだ。</span><span class="s" data-i="19">大坂には諸藩が<span class="mark">蔵屋敷</span>を置いて年貢米や特産物を集めたことから、</span><span class="s" data-i="20">「<span class="mark">天下の台所</span>」と呼ばれるようになったんだよ。</span><span class="s" data-i="21">商業の発展にともなって、</span><span class="s" data-i="22">金貨と銀貨を交換する<span class="mark">両替商</span>も活躍し、</span><span class="s" data-i="23">貨幣経済のしくみが整えられていったんだね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="24">江戸は政治、京都は文化、</span><span class="s" data-i="25">大坂は商業の中心だったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">三都<span class="w-rd">さんと</span></span><span class="w-desc">江戸・大坂・京都の三つの大都市の呼び名。</span></div><div class="word"><span class="w-term">蔵屋敷<span class="w-rd">くらやしき</span></span><span class="w-desc">諸藩が大坂に置き、年貢米や特産物を保管・販売した施設。</span></div><div class="word"><span class="w-term">天下の台所<span class="w-rd">てんかのだいどころ</span></span><span class="w-desc">全国の物資が集まり商業が発展した大坂の呼び名。</span></div><div class="word"><span class="w-term">両替商<span class="w-rd">りょうがえしょう</span></span><span class="w-desc">金貨・銀貨などの交換を行った商人。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -1383,7 +1420,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">幕府は<span class="mark">五街道</span>を整備して<span class="mark">宿場町</span>や<span class="mark">関所</span>を置き、全国の交通を支えたよ。江戸・大坂・京都は<span class="mark">三都</span>と呼ばれ、諸藩の<span class="mark">蔵屋敷</span>が集まる大坂は「<span class="mark">天下の台所</span>」として商業の中心地になったんだね。</div>
+        <div class="sum30-body"><span class="s" data-i="26">幕府は<span class="mark">五街道</span>を整備して<span class="mark">宿場町</span>や<span class="mark">関所</span>を置き、</span><span class="s" data-i="27">全国の交通を支えたよ。</span><span class="s" data-i="28">江戸・大坂・京都は<span class="mark">三都</span>と呼ばれ、</span><span class="s" data-i="29">諸藩の<span class="mark">蔵屋敷</span>が集まる大坂は「<span class="mark">天下の台所</span>」として商業の中心地になったんだね。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -1398,25 +1435,26 @@
     </div>
 </section>
 <section class="view" data-t="8">
-  <div class="tband"><span class="tno">8</span><h2>江戸の産業と社会不安</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">8</span><h2>江戸の産業と社会不安</h2>
+    <button class="play-unit" type="button" data-play="8" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-edo-industry-society.webp"
            alt="江戸の産業と社会不安（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">田畑を広げて現金収入を得る工夫が進む一方で、ききんをきっかけに社会が揺れ動くようになったんだ。不思議だよね。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">田畑を広げて現金収入を得る工夫が進む一方で、</span><span class="s" data-i="1">ききんをきっかけに社会が揺れ動くようになったんだ。</span><span class="s" data-i="2">不思議だよね。</span></div></div>
     </div>
     <div class="step" data-label="新田開発と商品作物">
-      <h3><span class="sec-no">1</span>新田開発と商品作物</h3>
-      <div class="sec-lead">新田開発が進み、商品作物の栽培も広がったよ。</div>
-      <p>幕府や藩は年貢収入を増やすために、干拓や用水路の整備を進めて<span class="mark">新田開発</span>を行い、耕地面積を大きく広げていったんだ。農村では木綿や菜種など、売って現金収入を得るための<span class="mark">商品作物</span>の栽培が広がって、いわしを干して作った肥料である<span class="mark">干鰯</span>も広く使われるようになったよ。問屋が農家に原料や道具を貸して製品を作らせる<span class="mark">問屋制家内工業</span>も発達して、佐渡金山などの鉱山とともに、幕府や藩の財政を支えたんだね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">新田開発で耕地が広がり、商品作物の栽培も進んだよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="3">新田開発と商品作物</span></h3>
+      <div class="sec-lead"><span class="s" data-i="4">新田開発が進み、</span><span class="s" data-i="5">商品作物の栽培も広がったよ。</span></div>
+      <p><span class="s" data-i="6">幕府や藩は年貢収入を増やすために、</span><span class="s" data-i="7">干拓や用水路の整備を進めて<span class="mark">新田開発</span>を行い、</span><span class="s" data-i="8">耕地面積を大きく広げていったんだ。</span><span class="s" data-i="9">農村では木綿や菜種など、</span><span class="s" data-i="10">売って現金収入を得るための<span class="mark">商品作物</span>の栽培が広がって、</span><span class="s" data-i="11">いわしを干して作った肥料である<span class="mark">干鰯</span>も広く使われるようになったよ。</span><span class="s" data-i="12">問屋が農家に原料や道具を貸して製品を作らせる<span class="mark">問屋制家内工業</span>も発達して、</span><span class="s" data-i="13">佐渡金山などの鉱山とともに、</span><span class="s" data-i="14">幕府や藩の財政を支えたんだね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="15">新田開発で耕地が広がり、</span><span class="s" data-i="16">商品作物の栽培も進んだよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">新田開発<span class="w-rd">しんでんかいはつ</span></span><span class="w-desc">干拓や用水路の整備によって新しく田を開き、耕地を増やす取り組み。</span></div><div class="word"><span class="w-term">商品作物<span class="w-rd">しょうひんさくもつ</span></span><span class="w-desc">売って現金収入を得るために作られた木綿・菜種などの作物。</span></div><div class="word"><span class="w-term">干鰯<span class="w-rd">ほしか</span></span><span class="w-desc">いわしを干して作った、商品作物の栽培に使われた肥料。</span></div><div class="word"><span class="w-term">問屋制家内工業<span class="w-rd">といやせいかないこうぎょう</span></span><span class="w-desc">問屋が農家に原料や道具を貸して製品を作らせるしくみ。</span></div></div>
     </div>
     <div class="step" data-label="ききんと百姓一揆・打ちこわし">
-      <h3><span class="sec-no">2</span>ききんと百姓一揆・打ちこわし</h3>
-      <div class="sec-lead">ききんが続き、百姓一揆や打ちこわしが増えたよ。</div>
-      <p>江戸後期には冷害による<span class="mark">ききん</span>が相次いだんだ。1782年ごろから始まった天明のききんは田沼意次への批判を強めて、1830年代の<span class="mark">天保のききん</span>は米価の上昇と社会不安を引き起こしたよ。農民が年貢の軽減を求めて起こす<span class="mark">百姓一揆</span>や、都市の民衆が米を買いしめた商人を襲う<span class="mark">打ちこわし</span>が増えていって、1837年には大坂で元役人の<span class="mark">大塩平八郎</span>が反乱を起こすまでになったんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">天保のききんのあと、1837年に大塩平八郎の乱が起きたよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="17">ききんと百姓一揆・打ちこわし</span></h3>
+      <div class="sec-lead"><span class="s" data-i="18">ききんが続き、百姓一揆や打ちこわしが増えたよ。</span></div>
+      <p><span class="s" data-i="19">江戸後期には冷害による<span class="mark">ききん</span>が相次いだんだ。</span><span class="s" data-i="20">1782年ごろから始まった天明のききんは田沼意次への批判を強めて、</span><span class="s" data-i="21">1830年代の<span class="mark">天保のききん</span>は米価の上昇と社会不安を引き起こしたよ。</span><span class="s" data-i="22">農民が年貢の軽減を求めて起こす<span class="mark">百姓一揆</span>や、</span><span class="s" data-i="23">都市の民衆が米を買いしめた商人を襲う<span class="mark">打ちこわし</span>が増えていって、</span><span class="s" data-i="24">1837年には大坂で元役人の<span class="mark">大塩平八郎</span>が反乱を起こすまでになったんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="25">天保のききんのあと、</span><span class="s" data-i="26">1837年に大塩平八郎の乱が起きたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">天保のききん<span class="w-rd">てんぽうのききん</span></span><span class="w-desc">1830年代に起こり、米価上昇と打ちこわしをまねいた大ききん。</span></div><div class="word"><span class="w-term">百姓一揆<span class="w-rd">ひゃくしょういっき</span></span><span class="w-desc">農民が年貢の軽減などを求めて集団で起こした行動。</span></div><div class="word"><span class="w-term">打ちこわし<span class="w-rd">うちこわし</span></span><span class="w-desc">都市の民衆が米を買いしめた商人などを襲った行動。</span></div><div class="word"><span class="w-term">大塩平八郎<span class="w-rd">おおしおへいはちろう</span></span><span class="w-desc">1837年、天保のききんで困窮する民衆を救おうと大坂で反乱を起こした元役人。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -1524,7 +1562,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">幕府や藩は<span class="mark">新田開発</span>で耕地を広げ、<span class="mark">商品作物</span>や問屋制家内工業で農村にも貨幣経済が広がったよ。江戸後期には<span class="mark">天保のききん</span>をきっかけに<span class="mark">百姓一揆</span>や<span class="mark">打ちこわし</span>が増え、<span class="mark">大塩平八郎</span>の乱も起こったんだね。</div>
+        <div class="sum30-body"><span class="s" data-i="27">幕府や藩は<span class="mark">新田開発</span>で耕地を広げ、</span><span class="s" data-i="28"><span class="mark">商品作物</span>や問屋制家内工業で農村にも貨幣経済が広がったよ。</span><span class="s" data-i="29">江戸後期には<span class="mark">天保のききん</span>をきっかけに<span class="mark">百姓一揆</span>や<span class="mark">打ちこわし</span>が増え、</span><span class="s" data-i="30"><span class="mark">大塩平八郎</span>の乱も起こったんだね。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -1539,32 +1577,33 @@
     </div>
 </section>
 <section class="view" data-t="9">
-  <div class="tband"><span class="tno">9</span><h2>江戸の文化と学問・教育</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">9</span><h2>江戸の文化と学問・教育</h2>
+    <button class="play-unit" type="button" data-play="9" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-edo-culture-learning.webp"
            alt="江戸の文化と学問・教育（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">上方の町人が育てた文化、江戸の庶民が楽しんだ浮世絵、そして西洋や日本古来の学問を追い求めた人々。江戸時代の文化と学びの広がりを一緒に見てみよう。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">上方の町人が育てた文化、</span><span class="s" data-i="1">江戸の庶民が楽しんだ浮世絵、</span><span class="s" data-i="2">そして西洋や日本古来の学問を追い求めた人々。</span><span class="s" data-i="3">江戸時代の文化と学びの広がりを一緒に見てみよう。</span></div></div>
     </div>
     <div class="step" data-label="元禄文化と化政文化">
-      <h3><span class="sec-no">1</span>元禄文化と化政文化</h3>
-      <div class="sec-lead">上方の元禄文化と江戸の化政文化が栄えたよ。</div>
-      <p>17世紀後半、大坂や京都などの上方を中心に町人が担う<span class="mark">元禄文化</span>が栄えて、俳諧を芸術に高めた<span class="mark">松尾芭蕉</span>や、人形浄瑠璃の脚本を書いた<span class="mark">近松門左衛門</span>らが活躍したんだ。19世紀前半になると、江戸を中心に庶民文化である<span class="mark">化政文化</span>が広がって、葛飾北斎や歌川広重による風景画の<span class="mark">浮世絵</span>が人気を集めたんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">17世紀後半の元禄文化のあと、19世紀に化政文化が広がったよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="4">元禄文化と化政文化</span></h3>
+      <div class="sec-lead"><span class="s" data-i="5">上方の元禄文化と江戸の化政文化が栄えたよ。</span></div>
+      <p><span class="s" data-i="6">17世紀後半、大坂や京都などの上方を中心に町人が担う<span class="mark">元禄文化</span>が栄えて、</span><span class="s" data-i="7">俳諧を芸術に高めた<span class="mark">松尾芭蕉</span>や、</span><span class="s" data-i="8">人形浄瑠璃の脚本を書いた<span class="mark">近松門左衛門</span>らが活躍したんだ。</span><span class="s" data-i="9">19世紀前半になると、</span><span class="s" data-i="10">江戸を中心に庶民文化である<span class="mark">化政文化</span>が広がって、</span><span class="s" data-i="11">葛飾北斎や歌川広重による風景画の<span class="mark">浮世絵</span>が人気を集めたんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="12">17世紀後半の元禄文化のあと、</span><span class="s" data-i="13">19世紀に化政文化が広がったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">元禄文化<span class="w-rd">げんろくぶんか</span></span><span class="w-desc">17世紀後半、上方を中心に町人が担った文化。</span></div><div class="word"><span class="w-term">化政文化<span class="w-rd">かせいぶんか</span></span><span class="w-desc">19世紀前半、江戸を中心に広がった庶民文化。</span></div><div class="word"><span class="w-term">松尾芭蕉<span class="w-rd">まつおばしょう</span></span><span class="w-desc">俳諧を芸術に高めた元禄文化を代表する俳人。</span></div><div class="word"><span class="w-term">近松門左衛門<span class="w-rd">ちかまつもんざえもん</span></span><span class="w-desc">人形浄瑠璃の脚本を書いた元禄文化を代表する人物。</span></div><div class="word"><span class="w-term">浮世絵<span class="w-rd">うきよえ</span></span><span class="w-desc">町人の風俗や風景を題材にした絵。化政文化で風景画が発展した。</span></div></div>
     </div>
     <div class="step" data-label="蘭学・国学の発展">
-      <h3><span class="sec-no">2</span>蘭学・国学の発展</h3>
-      <div class="sec-lead">西洋を学ぶ蘭学と日本を探る国学が発展したよ。</div>
-      <p>学問では、幕府が重んじた儒学の一派である朱子学のほかに、オランダ語を通じて西洋の医学や科学を学ぶ<span class="mark">蘭学</span>、日本古来の考え方を明らかにしようとする<span class="mark">国学</span>が発展したんだ。杉田玄白らは1774年に西洋医学書「解体新書」を出版して、蘭学発展の基礎を築いたんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">蘭学は西洋の学問、国学は日本古来の考え方を学ぶ学問だよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="14">蘭学・国学の発展</span></h3>
+      <div class="sec-lead"><span class="s" data-i="15">西洋を学ぶ蘭学と日本を探る国学が発展したよ。</span></div>
+      <p><span class="s" data-i="16">学問では、幕府が重んじた儒学の一派である朱子学のほかに、</span><span class="s" data-i="17">オランダ語を通じて西洋の医学や科学を学ぶ<span class="mark">蘭学</span>、</span><span class="s" data-i="18">日本古来の考え方を明らかにしようとする<span class="mark">国学</span>が発展したんだ。</span><span class="s" data-i="19">杉田玄白らは1774年に西洋医学書「解体新書」を出版して、</span><span class="s" data-i="20">蘭学発展の基礎を築いたんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="21">蘭学は西洋の学問、</span><span class="s" data-i="22">国学は日本古来の考え方を学ぶ学問だよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">蘭学<span class="w-rd">らんがく</span></span><span class="w-desc">オランダ語を通じて西洋の医学や科学を学ぶ学問。</span></div><div class="word"><span class="w-term">国学<span class="w-rd">こくがく</span></span><span class="w-desc">古事記などを研究し、日本古来の考え方を明らかにしようとした学問。</span></div></div>
     </div>
     <div class="step" data-label="庶民の教育">
-      <h3><span class="sec-no">3</span>庶民の教育</h3>
-      <div class="sec-lead">寺子屋で庶民の子どもが読み書きを学んだよ。</div>
-      <p>庶民の子どもは<span class="mark">寺子屋</span>で読み書きやそろばんを学んでいて、僧侶や浪人などが教師を務めていたんだ。こうした教育の広がりが、江戸時代の庶民の生活水準や識字率の高さを支える土台になったんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">寺子屋では、庶民の子どもが読み書きを学んだよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="23">庶民の教育</span></h3>
+      <div class="sec-lead"><span class="s" data-i="24">寺子屋で庶民の子どもが読み書きを学んだよ。</span></div>
+      <p><span class="s" data-i="25">庶民の子どもは<span class="mark">寺子屋</span>で読み書きやそろばんを学んでいて、</span><span class="s" data-i="26">僧侶や浪人などが教師を務めていたんだ。</span><span class="s" data-i="27">こうした教育の広がりが、</span><span class="s" data-i="28">江戸時代の庶民の生活水準や識字率の高さを支える土台になったんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="29">寺子屋では、庶民の子どもが読み書きを学んだよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">寺子屋<span class="w-rd">てらこや</span></span><span class="w-desc">庶民の子どもが読み書きや計算を学んだ場所。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -1672,7 +1711,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">上方で栄えた<span class="mark">元禄文化</span>と江戸の<span class="mark">化政文化</span>は、それぞれ独自の芸術を育てたよ。学問では<span class="mark">蘭学</span>や<span class="mark">国学</span>が発展して、<span class="mark">寺子屋</span>を通じて庶民にも教育が広がっていったんだね。</div>
+        <div class="sum30-body"><span class="s" data-i="30">上方で栄えた<span class="mark">元禄文化</span>と江戸の<span class="mark">化政文化</span>は、</span><span class="s" data-i="31">それぞれ独自の芸術を育てたよ。</span><span class="s" data-i="32">学問では<span class="mark">蘭学</span>や<span class="mark">国学</span>が発展して、</span><span class="s" data-i="33"><span class="mark">寺子屋</span>を通じて庶民にも教育が広がっていったんだね。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -1688,6 +1727,14 @@
 </section>
 </main>
 <div class="hintbar" id="hintBar" hidden></div>
+<div class="aplayer" id="aplayer" hidden><div class="ap-in">
+  <button class="ap-btn" id="apPlay" aria-label="再生／一時停止">❚❚</button>
+  <div class="ap-seek"><input type="range" id="apSeek" min="0" max="1000" value="0"></div>
+  <div class="ap-time" id="apTime">0:00 / 0:00</div>
+  <button class="ap-rate" id="apRate">1.0×</button>
+  <button class="ap-close" id="apClose" aria-label="読み上げを止める">×</button>
+</div></div>
+<audio id="audio" preload="none"></audio>
 <div class="navbar" id="navbar" hidden><div class="navbar-in">
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
@@ -1715,7 +1762,8 @@
 (function () {
   var KEY = 'tzmref-08';
   var CH = '08';
-  var WB_VIEWS = [0, 2, 3, 4, 5, 6, 7, 8, 9, 10];          // 参考書の単元t → 問題集のビュー番号（0＝対応なし）
+  var WB_VIEWS = [0, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  var AUDIO = {"1": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F08-edo-bakufu.mp3?alt=media&token=fd1e5b9a-969d-4747-9a04-962ab90a4b34", "tl": [[0, 4.199, 0], [4.199, 3.025, 0], [7.224, 3.336, 0], [10.84, 2.12, 0], [13.61, 3.56, 1], [17.82, 2.573, 1], [20.393, 1.987, 1], [23.03, 5.361, 1], [28.391, 3.203, 1], [31.594, 2.756, 1], [34.63, 5.487, 1], [40.117, 1.713, 1], [42.11, 2.545, 1], [44.655, 2.511, 1], [47.166, 4.424, 1], [51.87, 5.332, 1], [57.202, 2.989, 1], [60.191, 3.159, 1], [64, 3.829, 1], [67.829, 2.931, 1], [71.41, 2.56, 2], [74.62, 4.409, 2], [79.029, 1.431, 2], [81.11, 5.88, 2], [87.27, 2.889, 2], [90.159, 3.228, 2], [93.387, 4.002, 2], [97.389, 4.521, 2], [102.19, 3.257, 2], [105.447, 2.983, 2], [108.71, 0.846, 2], [109.556, 6.025, 2], [115.581, 5.409, 2], [121.64, 4.79, 2], [126.43, 2.29, 2], [129.37, 3.48, 3], [133.5, 2.876, 3], [136.376, 1.884, 3], [138.91, 3.424, 3], [142.334, 4.816, 3], [147.43, 6.032, 3], [153.462, 3.568, 3], [157.31, 4.31, 3], [161.62, 2.164, 3], [163.784, 3.486, 3], [167.55, 4.669, 3], [172.219, 4.419, 3], [176.638, 2.352, 3], [179.64, 3.5, 3], [183.14, 2.5, 3], [186.29, 4.982, 5], [191.272, 2.778, 5], [194.33, 6.235, 5], [200.565, 3.765, 5]]}, "2": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F08-sakoku.mp3?alt=media&token=245cb2f6-dde7-4832-8101-928629730827", "tl": [[0, 3.173, 0], [3.173, 4.169, 0], [7.342, 2.458, 0], [10.45, 2.96, 1], [14.06, 2.866, 1], [16.926, 2.574, 1], [20.15, 1.747, 1], [21.897, 6.995, 1], [28.892, 4.578, 1], [33.75, 1.818, 1], [35.568, 5.295, 1], [40.863, 2.887, 1], [44.03, 5.866, 1], [49.896, 3.174, 1], [53.72, 3.833, 1], [57.553, 3.167, 1], [61.37, 3.56, 2], [65.58, 4.64, 2], [70.87, 3.396, 2], [74.266, 4.364, 2], [78.91, 6.012, 2], [84.922, 4.388, 2], [89.59, 2.055, 2], [91.645, 6.647, 2], [98.292, 4.018, 2], [102.96, 2.693, 2], [105.653, 2.707, 2], [109.01, 3.6, 3], [113.26, 3.92, 3], [117.83, 5.938, 3], [123.768, 5.382, 3], [129.43, 2.52, 3], [131.95, 2.64, 3], [134.87, 6.173, 3], [141.043, 5.198, 3], [146.241, 4.349, 3], [150.87, 3.849, 3], [154.719, 7.391, 3], [162.76, 4.481, 3], [167.241, 3.519, 3], [171.41, 3.609, 5], [175.019, 2.576, 5], [177.595, 3.295, 5], [181.17, 3.095, 5], [184.265, 6.145, 5]]}, "3": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F08-foreign-relations-edo.mp3?alt=media&token=a0bdeced-17d5-49c6-93f9-b30d2dd5c038", "tl": [[0, 2.732, 0], [2.732, 4.508, 0], [7.52, 1.2, 0], [9.37, 3.84, 1], [13.86, 4.16, 1], [18.67, 4.96, 1], [23.91, 7.067, 1], [30.977, 1.836, 1], [32.813, 3.977, 1], [37.07, 5.461, 1], [42.531, 3.059, 1], [45.87, 4.964, 1], [50.834, 5.636, 1], [57.12, 4.72, 1], [62.49, 2.68, 2], [65.82, 2.374, 2], [68.194, 2.186, 2], [71.03, 2.969, 2], [73.999, 5.711, 2], [79.99, 2.574, 2], [82.564, 3.391, 2], [85.955, 5.195, 2], [91.8, 2.959, 2], [94.759, 2.801, 2], [98.21, 2.6, 3], [101.46, 4.76, 3], [106.87, 3.42, 3], [110.29, 3.82, 3], [114.39, 13.031, 3], [127.421, 3.049, 3], [131.12, 4.96, 3], [136.73, 8.64, 5], [145.65, 6.039, 5], [151.689, 3.121, 5]]}, "4": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F08-ryukyu-ainu.mp3?alt=media&token=037c051b-729d-4f58-9cfe-23282d32716e", "tl": [[0, 3.324, 0], [3.324, 2.836, 0], [6.44, 3.72, 0], [10.81, 3, 1], [14.46, 2.958, 1], [17.418, 2.242, 1], [20.31, 6.077, 1], [26.387, 1.403, 1], [28.07, 5.494, 1], [33.564, 5.466, 1], [39.31, 3.003, 1], [42.313, 3.635, 1], [45.948, 3.922, 1], [50.52, 2.792, 1], [53.312, 3.728, 1], [57.69, 3.6, 2], [61.94, 4.32, 2], [66.91, 6.143, 2], [73.053, 3.417, 2], [76.75, 7.441, 2], [84.191, 4.559, 2], [89.03, 2.833, 2], [91.863, 5.727, 2], [98.24, 2.829, 2], [101.069, 3.691, 2], [105.41, 5.725, 4], [111.135, 2.555, 4], [113.97, 3.699, 4], [117.669, 3.981, 4]]}, "5": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F08-social-classes.mp3?alt=media&token=f5ce6c44-b9c0-4e2a-98f4-5aea6f762866", "tl": [[0, 2.545, 0], [2.545, 6.295, 0], [9.49, 3.16, 1], [13.3, 4.52, 1], [18.47, 5.4, 1], [24.15, 6.04, 1], [30.19, 3.68, 1], [34.15, 5.312, 1], [39.462, 4.408, 1], [44.15, 5.36, 1], [50.16, 3.078, 1], [53.238, 3.762, 1], [57.65, 3.28, 2], [61.58, 4.08, 2], [66.31, 6.92, 2], [73.23, 2.576, 2], [75.806, 3.984, 2], [80.07, 9.299, 2], [89.369, 5.741, 2], [95.76, 3.52, 2], [99.28, 2.2, 2], [102.13, 3.621, 4], [105.751, 5.819, 4], [111.85, 5.676, 4], [117.526, 3.284, 4]]}, "6": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F08-edo-politics-reforms.mp3?alt=media&token=7e3de819-499a-45f6-9b35-0a1fdb5c3106", "tl": [[0, 2.572, 0], [2.572, 2.252, 0], [4.824, 5.936, 0], [11.41, 3.32, 1], [15.38, 4.52, 1], [20.55, 2.58, 1], [23.13, 5.54, 1], [28.95, 7.253, 1], [36.203, 3.187, 1], [39.67, 4.218, 1], [43.888, 3.927, 1], [47.815, 5.015, 1], [53.48, 1.93, 1], [55.41, 3.07, 1], [59.13, 2.92, 2], [62.7, 5, 2], [68.35, 2.389, 2], [70.739, 4.106, 2], [74.845, 4.225, 2], [79.35, 6.167, 2], [85.517, 3.353, 2], [89.52, 3.192, 2], [92.712, 2.128, 2], [95.49, 2.16, 3], [98.3, 5.08, 3], [104.03, 5.173, 3], [109.203, 4.156, 3], [113.359, 4.371, 3], [117.73, 2.42, 3], [120.43, 6.4, 3], [126.83, 3, 3], [130.48, 2.465, 3], [132.945, 3.575, 3], [137.17, 3.273, 5], [140.443, 5.727, 5], [146.45, 5.785, 5], [152.235, 6.815, 5]]}, "7": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F08-edo-transport-commerce.mp3?alt=media&token=4f7719f6-ddb9-4aac-b6c0-687afa6934ae", "tl": [[0, 3.857, 0], [3.857, 3.383, 0], [7.52, 4.36, 0], [12.53, 2.32, 1], [15.5, 1.969, 1], [17.469, 2.391, 1], [20.51, 3.2, 1], [23.71, 5.08, 1], [29.07, 5.802, 1], [34.872, 4.345, 1], [39.217, 3.253, 1], [42.75, 3.705, 1], [46.455, 2.815, 1], [49.92, 1.923, 1], [51.843, 3.437, 1], [55.93, 3.2, 2], [59.78, 4.64, 2], [65.07, 6.514, 2], [71.584, 2.846, 2], [74.71, 6.58, 2], [81.29, 2.86, 2], [84.43, 1.859, 2], [86.289, 3.999, 2], [90.288, 2.982, 2], [93.92, 2.864, 2], [96.784, 2.456, 2], [99.89, 4.812, 4], [104.702, 2.148, 4], [107.13, 3.507, 4], [110.637, 6.213, 4]]}, "8": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F08-edo-industry-society.mp3?alt=media&token=3db42771-3129-4977-889f-ea60ba7d5566", "tl": [[0, 4.544, 0], [4.544, 3.336, 0], [8.16, 1.68, 0], [10.49, 2.88, 1], [14.02, 2.133, 1], [16.153, 2.387, 1], [19.19, 3.61, 1], [22.8, 4.626, 1], [27.426, 2.844, 1], [30.55, 2.999, 1], [33.549, 4.68, 1], [38.229, 5.001, 1], [43.51, 7.033, 1], [50.543, 2.329, 1], [52.872, 2.758, 1], [56.28, 2.689, 1], [58.969, 2.391, 1], [62.01, 3.84, 2], [66.5, 4.4, 2], [71.55, 4.2, 2], [76.03, 6.893, 2], [82.923, 6.267, 2], [89.47, 4.381, 2], [93.851, 5.033, 2], [98.884, 7.346, 2], [106.88, 1.842, 2], [108.722, 4.278, 2], [113.65, 4.067, 4], [117.717, 5.733, 4], [123.73, 6.084, 4], [129.814, 2.756, 4]]}, "9": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F08-edo-culture-learning.mp3?alt=media&token=0851886b-a857-418b-81b0-afe5ff711ea0", "tl": [[0, 3, 0], [3, 2.681, 0], [5.681, 4.399, 0], [10.36, 4.24, 0], [15.25, 2.6, 1], [18.5, 4.6, 1], [23.75, 8.383, 1], [32.133, 3.258, 1], [35.391, 4.919, 1], [40.59, 2.296, 1], [42.886, 3.435, 1], [46.321, 5.589, 1], [52.56, 3.342, 1], [55.902, 2.858, 1], [59.41, 2.72, 2], [62.78, 5, 2], [68.43, 5.454, 2], [73.884, 4.453, 2], [78.337, 4.373, 2], [82.99, 6.42, 2], [89.41, 3.34, 2], [93.4, 2.626, 2], [96.026, 3.974, 2], [100.65, 2, 3], [103.3, 3.92, 3], [107.87, 4.773, 3], [112.643, 3.187, 3], [116.11, 2.263, 3], [118.373, 5.537, 3], [124.56, 4.2, 3], [129.41, 4.237, 5], [133.647, 2.523, 5], [136.45, 3.155, 5], [139.605, 4.925, 5]]}};          // {単元t: {url, tl:[[開始秒,長さ,ステップ], …]}}          // 参考書の単元t → 問題集のビュー番号（0＝対応なし）
   var views = [].slice.call(document.querySelectorAll('.view'));
   var tabs = [].slice.call(document.querySelectorAll('.tab'));
   var N = views.length - 1; // 単元数
@@ -1746,6 +1794,89 @@
     };
     bar.addEventListener('click', function () { bar.hidden = true; });
   })();
+
+
+  // ── 読み上げ（音声に合わせて句をハイライトし、ページも自動でめくる）──
+  var au = document.getElementById('audio');
+  var apl = document.getElementById('aplayer');
+  var reading = { t: 0, i: -1 };
+  var RATES = [1, 1.25, 1.5, 0.75], ri = 0;
+
+  function fmt(x) { x = Math.max(0, x | 0); return (x / 60 | 0) + ':' + ('0' + (x % 60)).slice(-2); }
+  function spansOf(t) { return [].slice.call(views[t].querySelectorAll('.s')); }
+
+  function startAudio(t) {
+    var a = AUDIO[t];
+    if (!a) return;
+    reading = { t: t, i: -1 };
+    if (au.dataset.t !== String(t)) { au.src = a.url; au.dataset.t = String(t); }
+    document.body.classList.add('reading');
+    apl.hidden = false;
+    au.playbackRate = RATES[ri];
+    au.play();
+  }
+  function stopAudio() {
+    au.pause();
+    document.body.classList.remove('reading');
+    apl.hidden = true;
+    if (reading.t) spansOf(reading.t).forEach(function (el) { el.classList.remove('now', 'read'); });
+    reading = { t: 0, i: -1 };
+  }
+  function paintAudio() {
+    var a = AUDIO[reading.t];
+    if (!a) return;
+    var tl = a.tl, k = -1;
+    for (var i = 0; i < tl.length; i++) { if (au.currentTime >= tl[i][0]) k = i; else break; }
+    if (k === reading.i) return;
+    reading.i = k;
+    // 読んでいる箇所が別のページなら、そのページへ自動でめくる
+    if (k >= 0 && tl[k][2] !== state.s && state.t === reading.t) go(reading.t, tl[k][2], tl[k][2] > state.s ? 1 : -1);
+    var sp = spansOf(reading.t);
+    sp.forEach(function (el, i) {
+      el.classList.toggle('now', i === k);
+      el.classList.toggle('read', i < k);
+    });
+    var el = sp[k];
+    if (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < 70 || r.bottom > innerHeight - 150) {
+        scrollTo({ top: scrollY + r.top - innerHeight * 0.4, behavior: 'smooth' });
+      }
+    }
+  }
+  function tickAudio() {
+    paintAudio();
+    if (au.duration) {
+      document.getElementById('apSeek').value = Math.round(au.currentTime / au.duration * 1000);
+      document.getElementById('apTime').textContent = fmt(au.currentTime) + ' / ' + fmt(au.duration);
+    }
+    if (!au.paused) requestAnimationFrame(tickAudio);
+  }
+  au.addEventListener('play', function () { document.getElementById('apPlay').textContent = '❚❚'; tickAudio(); });
+  au.addEventListener('pause', function () { document.getElementById('apPlay').textContent = '▶'; });
+  au.addEventListener('ended', stopAudio);
+  document.getElementById('apPlay').onclick = function () { au.paused ? au.play() : au.pause(); };
+  document.getElementById('apClose').onclick = stopAudio;
+  document.getElementById('apSeek').oninput = function () {
+    if (au.duration) { au.currentTime = this.value / 1000 * au.duration; reading.i = -1; paintAudio(); }
+  };
+  document.getElementById('apRate').onclick = function () {
+    ri = (ri + 1) % RATES.length; au.playbackRate = RATES[ri];
+    this.textContent = RATES[ri].toFixed(2).replace(/0$/, '') + '×';
+  };
+  // 単元見出しの「🔊 読み上げ」＋ 文字タップでその場所から読む
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('.play-unit');
+    if (b) { startAudio(+b.dataset.play); return; }
+    var sp = e.target.closest && e.target.closest('.s');
+    if (sp && AUDIO[state.t]) {
+      var k = +sp.dataset.i, a = AUDIO[state.t];
+      if (a.tl[k]) {
+        if (reading.t !== state.t) startAudio(state.t);
+        au.currentTime = a.tl[k][0]; reading.i = -1; paintAudio(); au.play();
+      }
+    }
+  });
 
   // 単元タブの左右矢印: まだ隠れているタブがある側だけ出す
   function updateTabArrows() {
@@ -1844,6 +1975,8 @@
     // クエリが付いていても落とさない（URL共有時の情報を保つ）
     if (location.hash !== h) history.replaceState(null, '', location.search + (t === 0 ? '#' : h));
     updateSwap();
+    var pb = views[t] && views[t].querySelector('.play-unit');
+    if (pb) pb.hidden = !AUDIO[t];
     rendered = { t: t, s: s };
   }
 

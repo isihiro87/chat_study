@@ -13,6 +13,36 @@
 
   .mark { background:linear-gradient(transparent 55%, var(--line) 55%); font-weight:bold; padding:0 1px; }
 
+  /* ── 読み上げ（音声＋読んでいる句のハイライト）── */
+  .s { border-radius:6px; padding:.14em .12em; margin:0 -.12em;
+       -webkit-box-decoration-break:clone; box-decoration-break:clone;
+       transition:background-color .15s ease, color .15s ease; }
+  body.reading .s { cursor:pointer; }
+  .s.read { color:#8a8279; }
+  .s.now { background:#fcd34d; color:#1c1917; }
+  .s.now .mark { background:none; }
+  /* 単元見出しの再生ボタン */
+  .play-unit { display:inline-flex; align-items:center; gap:6px; margin-left:auto; flex:none;
+               background:#fff; color:var(--brand); border:1.5px solid var(--line);
+               border-radius:20px; padding:4px 12px; font-size:12px; font-weight:bold;
+               font-family:inherit; cursor:pointer; }
+  .play-unit[hidden] { display:none; }
+  /* 下部プレーヤー（再生中だけ出す。ナビバーの上に重ねる） */
+  .aplayer { position:fixed; left:0; right:0; bottom:58px; z-index:25;
+             background:rgba(255,253,248,.98); border-top:1px solid #f0e6d2;
+             box-shadow:0 -3px 12px rgba(120,80,20,.14); padding:7px 0 8px; }
+  .aplayer[hidden] { display:none; }
+  .ap-in { max-width:640px; margin:0 auto; padding:0 14px; display:flex; align-items:center; gap:9px; }
+  .ap-btn { flex:none; width:40px; height:40px; border-radius:50%; border:none; background:var(--brand);
+            color:#fff; font-size:16px; cursor:pointer; box-shadow:0 2px 6px rgba(180,83,9,.35); }
+  .ap-seek { flex:1; min-width:0; }
+  .ap-seek input { width:100%; accent-color:var(--brand); }
+  .ap-time { flex:none; font-size:11px; font-weight:bold; color:var(--brand); min-width:74px;
+             text-align:right; }
+  .ap-rate, .ap-close { flex:none; border:1.5px solid var(--line); background:#fffbeb; color:var(--brand);
+             font-weight:bold; border-radius:16px; padding:4px 9px; font-size:11.5px; cursor:pointer;
+             font-family:inherit; }
+
   /* ── 上部: タイトル＋単元タブ＋進捗バー ── */
   .bar { position:sticky; top:0; z-index:10; background:rgba(255,253,248,.96);
          backdrop-filter:blur(6px); border-bottom:1px solid #f0e6d2; }
@@ -35,7 +65,7 @@
                white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   .bar-step { flex:none; font-size:11px; font-weight:bold; color:var(--brand); }
   /* 初回だけ出す操作ヒント（PCはキー、スマホはスワイプ） */
-  .hintbar { position:fixed; left:50%; transform:translateX(-50%); bottom:78px; z-index:35;
+  .hintbar { position:fixed; left:50%; transform:translateX(-50%); bottom:132px; z-index:35;
              background:rgba(28,25,23,.88); color:#fff; font-size:12.5px; font-weight:bold;
              border-radius:20px; padding:8px 16px; box-shadow:0 4px 14px rgba(0,0,0,.3);
              animation:hintIn .3s ease; }
@@ -419,32 +449,33 @@
   </footer>
 </section>
 <section class="view" data-t="1">
-  <div class="tband"><span class="tno">1</span><h2>時期や年代の表し方</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">1</span><h2>時期や年代の表し方</h2>
+    <button class="play-unit" type="button" data-play="1" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-time-periods.webp"
            alt="時期や年代の表し方（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">歴史の教科書には「紀元前300年」とか「1970年代」とか、見慣れない年の表し方がたくさん出てくるよね。知ってた?このルールさえ覚えておけば、これからの歴史の勉強がぐっと分かりやすくなるよ。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">歴史の教科書には「紀元前300年」とか「1970年代」とか、</span><span class="s" data-i="1">見慣れない年の表し方がたくさん出てくるよね。</span><span class="s" data-i="2">知ってた?このルールさえ覚えておけば、</span><span class="s" data-i="3">これからの歴史の勉強がぐっと分かりやすくなるよ。</span></div></div>
     </div>
     <div class="step" data-label="西暦と紀元前・紀元後">
-      <h3><span class="sec-no">1</span>西暦と紀元前・紀元後</h3>
-      <div class="sec-lead">西暦を基準に、紀元前と紀元後で年を表すよ。</div>
-      <p>私たちがふだん使っている年の数え方は、イエス・キリストが生まれたと考えられた年を基準にしているんだ。この基準の年を<span class="mark">西暦</span>1年として、それより前の時代を<span class="mark">紀元前</span>、後の時代を<span class="mark">紀元後</span>と呼ぶよ。紀元前は「西暦1年の何年前か」を表す数え方だから、数字が大きいほど西暦1年から遠い、つまり古い時代を指すんだね。たとえば紀元前300年は、紀元前100年よりも200年も古い時代なんだよ。一方で紀元後は、数字が大きいほど新しい時代になる。紀元前と紀元後で数字の増え方の意味が逆になるところ、ちょっとややこしいから間違えないようにしようね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">紀元前は数字が大きいほど昔で、紀元後は逆に新しくなるよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="4">西暦と紀元前・紀元後</span></h3>
+      <div class="sec-lead"><span class="s" data-i="5">西暦を基準に、紀元前と紀元後で年を表すよ。</span></div>
+      <p><span class="s" data-i="6">私たちがふだん使っている年の数え方は、</span><span class="s" data-i="7">イエス・キリストが生まれたと考えられた年を基準にしているんだ。</span><span class="s" data-i="8">この基準の年を<span class="mark">西暦</span>1年として、</span><span class="s" data-i="9">それより前の時代を<span class="mark">紀元前</span>、</span><span class="s" data-i="10">後の時代を<span class="mark">紀元後</span>と呼ぶよ。</span><span class="s" data-i="11">紀元前は「西暦1年の何年前か」を表す数え方だから、</span><span class="s" data-i="12">数字が大きいほど西暦1年から遠い、</span><span class="s" data-i="13">つまり古い時代を指すんだね。</span><span class="s" data-i="14">たとえば紀元前300年は、</span><span class="s" data-i="15">紀元前100年よりも200年も古い時代なんだよ。</span><span class="s" data-i="16">一方で紀元後は、</span><span class="s" data-i="17">数字が大きいほど新しい時代になる。</span><span class="s" data-i="18">紀元前と紀元後で数字の増え方の意味が逆になるところ、</span><span class="s" data-i="19">ちょっとややこしいから間違えないようにしようね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="20">紀元前は数字が大きいほど昔で、</span><span class="s" data-i="21">紀元後は逆に新しくなるよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">西暦<span class="w-rd">せいれき</span></span><span class="w-desc">イエスが生まれたと考えられた年を1年とする、世界で広く使われる年の表し方。</span></div><div class="word"><span class="w-term">紀元前<span class="w-rd">きげんぜん</span></span><span class="w-desc">西暦1年より前の時代。数字が大きいほど古い時代を表す。</span></div><div class="word"><span class="w-term">紀元後<span class="w-rd">きげんご</span></span><span class="w-desc">西暦1年より後の時代。ふつう「西暦〇年」と表す。</span></div></div>
     </div>
     <div class="step" data-label="世紀と年代">
-      <h3><span class="sec-no">2</span>世紀と年代</h3>
-      <div class="sec-lead">100年区切りの世紀、10年区切りの年代を使い分けるよ。</div>
-      <p>100年をひとまとまりとして数える表し方を<span class="mark">世紀</span>というんだ。西暦には0年がないから、1年から100年までが<span class="mark">1世紀</span>、101年から200年までが2世紀にあたるよ。この数え方、実は西暦の上2桁に1を足すと世紀がわかるんだ。たとえば2001年なら20に1を足して21世紀、2001年から2100年までがこれにあたるよ。もうひとつ、10年をひとまとまりとする表し方を<span class="mark">年代</span>といって、1970年から1979年までは1970年代と呼ばれるんだ。世紀と年代は、区切る期間の長さが100年と10年で違うから、混同しないように気をつけようね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">世紀は100年区切り、年代は10年区切りで年を表すよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="22">世紀と年代</span></h3>
+      <div class="sec-lead"><span class="s" data-i="23">100年区切りの世紀、</span><span class="s" data-i="24">10年区切りの年代を使い分けるよ。</span></div>
+      <p><span class="s" data-i="25">100年をひとまとまりとして数える表し方を<span class="mark">世紀</span>というんだ。</span><span class="s" data-i="26">西暦には0年がないから、</span><span class="s" data-i="27">1年から100年までが<span class="mark">1世紀</span>、</span><span class="s" data-i="28">101年から200年までが2世紀にあたるよ。</span><span class="s" data-i="29">この数え方、実は西暦の上2桁に1を足すと世紀がわかるんだ。</span><span class="s" data-i="30">たとえば2001年なら20に1を足して21世紀、</span><span class="s" data-i="31">2001年から2100年までがこれにあたるよ。</span><span class="s" data-i="32">もうひとつ、10年をひとまとまりとする表し方を<span class="mark">年代</span>といって、</span><span class="s" data-i="33">1970年から1979年までは1970年代と呼ばれるんだ。</span><span class="s" data-i="34">世紀と年代は、区切る期間の長さが100年と10年で違うから、</span><span class="s" data-i="35">混同しないように気をつけようね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="36">世紀は100年区切り、</span><span class="s" data-i="37">年代は10年区切りで年を表すよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">世紀<span class="w-rd">せいき</span></span><span class="w-desc">100年をひとまとまりとする年の数え方。1世紀は1年〜100年にあたる。</span></div><div class="word"><span class="w-term">年代<span class="w-rd">ねんだい</span></span><span class="w-desc">10年をひとまとまりとする年の数え方。例として1970年代がある。</span></div></div>
     </div>
     <div class="step" data-label="干支と還暦">
-      <h3><span class="sec-no">3</span>干支と還暦</h3>
-      <div class="sec-lead">干支は60年で一巡し、還暦の由来になったよ。</div>
-      <p>日本や中国では古くから、十干と十二支を組み合わせて年を表す<span class="mark">干支</span>という方法も使われてきたんだよ。十干は甲・乙などの10種類、十二支は子・丑などの12種類があって、これらを順に組み合わせていくと60通りの組み合わせができるんだ。60年たつと、もとの干支にもどるんだね。この60年で一回りする周期にちなんで、満60歳を迎えたときの祝いを<span class="mark">還暦</span>というよ。西暦や世紀のような世界共通の数え方だけじゃなく、こうした干支のような日本独自の年の表し方も、歴史を学ぶうえで知っておくとおもしろいよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">干支は60年で一回りして、還暦の由来になったんだよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="38">干支と還暦</span></h3>
+      <div class="sec-lead"><span class="s" data-i="39">干支は60年で一巡し、</span><span class="s" data-i="40">還暦の由来になったよ。</span></div>
+      <p><span class="s" data-i="41">日本や中国では古くから、</span><span class="s" data-i="42">十干と十二支を組み合わせて年を表す<span class="mark">干支</span>という方法も使われてきたんだよ。</span><span class="s" data-i="43">十干は甲・乙などの10種類、</span><span class="s" data-i="44">十二支は子・丑などの12種類があって、</span><span class="s" data-i="45">これらを順に組み合わせていくと60通りの組み合わせができるんだ。</span><span class="s" data-i="46">60年たつと、もとの干支にもどるんだね。</span><span class="s" data-i="47">この60年で一回りする周期にちなんで、</span><span class="s" data-i="48">満60歳を迎えたときの祝いを<span class="mark">還暦</span>というよ。</span><span class="s" data-i="49">西暦や世紀のような世界共通の数え方だけじゃなく、</span><span class="s" data-i="50">こうした干支のような日本独自の年の表し方も、</span><span class="s" data-i="51">歴史を学ぶうえで知っておくとおもしろいよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="52">干支は60年で一回りして、</span><span class="s" data-i="53">還暦の由来になったんだよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">干支<span class="w-rd">えと</span></span><span class="w-desc">十干と十二支を組み合わせて年を表す方法。60年で一回りする。</span></div><div class="word"><span class="w-term">還暦<span class="w-rd">かんれき</span></span><span class="w-desc">干支が一回りする60年にちなんだ、満60歳を迎える祝い。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -540,7 +571,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body"><span class="mark">西暦</span>は、イエスが生まれたとされる年を基準にした数え方で、その前後を<span class="mark">紀元前</span>・紀元後と呼ぶよ。100年区切りの<span class="mark">世紀</span>と10年区切りの<span class="mark">年代</span>を使い分けると、時代をより細かく表せるんだ。日本独自の<span class="mark">干支</span>は60年で一巡し、それが<span class="mark">還暦</span>の由来になっているんだよ。</div>
+        <div class="sum30-body"><span class="s" data-i="54"><span class="mark">西暦</span>は、イエスが生まれたとされる年を基準にした数え方で、</span><span class="s" data-i="55">その前後を<span class="mark">紀元前</span>・紀元後と呼ぶよ。</span><span class="s" data-i="56">100年区切りの<span class="mark">世紀</span>と10年区切りの<span class="mark">年代</span>を使い分けると、</span><span class="s" data-i="57">時代をより細かく表せるんだ。</span><span class="s" data-i="58">日本独自の<span class="mark">干支</span>は60年で一巡し、</span><span class="s" data-i="59">それが<span class="mark">還暦</span>の由来になっているんだよ。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -556,6 +587,14 @@
 </section>
 </main>
 <div class="hintbar" id="hintBar" hidden></div>
+<div class="aplayer" id="aplayer" hidden><div class="ap-in">
+  <button class="ap-btn" id="apPlay" aria-label="再生／一時停止">❚❚</button>
+  <div class="ap-seek"><input type="range" id="apSeek" min="0" max="1000" value="0"></div>
+  <div class="ap-time" id="apTime">0:00 / 0:00</div>
+  <button class="ap-rate" id="apRate">1.0×</button>
+  <button class="ap-close" id="apClose" aria-label="読み上げを止める">×</button>
+</div></div>
+<audio id="audio" preload="none"></audio>
 <div class="navbar" id="navbar" hidden><div class="navbar-in">
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
@@ -583,7 +622,8 @@
 (function () {
   var KEY = 'tzmref-01';
   var CH = '01';
-  var WB_VIEWS = [0, 2];          // 参考書の単元t → 問題集のビュー番号（0＝対応なし）
+  var WB_VIEWS = [0, 2];
+  var AUDIO = {"1": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F01-time-periods.mp3?alt=media&token=d5afa731-0591-46a4-b78e-20100e6ccf8a", "tl": [[0, 5.867, 0], [5.867, 3.733, 0], [9.88, 3.673, 0], [13.553, 3.647, 0], [17.85, 3.88, 1], [22.38, 4.68, 1], [27.71, 3.418, 1], [31.128, 4.102, 1], [35.51, 3.522, 1], [39.032, 2.354, 1], [41.386, 2.364, 1], [44.03, 5.024, 1], [49.054, 3.152, 1], [52.206, 2.264, 1], [54.75, 2.996, 1], [57.746, 3.724, 1], [61.75, 2.132, 1], [63.882, 2.948, 1], [67.11, 4.615, 1], [71.725, 2.945, 1], [75.32, 3.373, 1], [78.693, 2.387, 1], [81.73, 2.56, 2], [84.94, 2.25, 2], [87.19, 2.83, 2], [90.67, 5.16, 2], [96.11, 2.835, 2], [98.945, 2.739, 2], [101.684, 3.146, 2], [105.11, 6.56, 2], [111.95, 5.301, 2], [117.251, 5.259, 2], [122.79, 5.755, 2], [128.545, 6.885, 2], [135.71, 5.299, 2], [141.009, 2.021, 2], [143.68, 2.195, 2], [145.875, 3.085, 2], [149.61, 2.4, 3], [152.66, 2.836, 3], [155.496, 1.844, 3], [157.99, 2.677, 3], [160.667, 6.083, 3], [167.03, 3.487, 3], [170.517, 3.142, 3], [173.659, 4.891, 3], [178.83, 3.8, 3], [182.91, 3.574, 3], [186.484, 4.306, 3], [191.07, 4.789, 3], [195.859, 3.791, 3], [199.65, 2.66, 3], [202.96, 3.125, 3], [206.085, 2.115, 3], [208.85, 4.899, 5], [213.749, 3.421, 5], [217.45, 4.821, 5], [222.271, 2.539, 5], [225.09, 3.697, 5], [228.787, 2.823, 5]]}};          // {単元t: {url, tl:[[開始秒,長さ,ステップ], …]}}          // 参考書の単元t → 問題集のビュー番号（0＝対応なし）
   var views = [].slice.call(document.querySelectorAll('.view'));
   var tabs = [].slice.call(document.querySelectorAll('.tab'));
   var N = views.length - 1; // 単元数
@@ -614,6 +654,89 @@
     };
     bar.addEventListener('click', function () { bar.hidden = true; });
   })();
+
+
+  // ── 読み上げ（音声に合わせて句をハイライトし、ページも自動でめくる）──
+  var au = document.getElementById('audio');
+  var apl = document.getElementById('aplayer');
+  var reading = { t: 0, i: -1 };
+  var RATES = [1, 1.25, 1.5, 0.75], ri = 0;
+
+  function fmt(x) { x = Math.max(0, x | 0); return (x / 60 | 0) + ':' + ('0' + (x % 60)).slice(-2); }
+  function spansOf(t) { return [].slice.call(views[t].querySelectorAll('.s')); }
+
+  function startAudio(t) {
+    var a = AUDIO[t];
+    if (!a) return;
+    reading = { t: t, i: -1 };
+    if (au.dataset.t !== String(t)) { au.src = a.url; au.dataset.t = String(t); }
+    document.body.classList.add('reading');
+    apl.hidden = false;
+    au.playbackRate = RATES[ri];
+    au.play();
+  }
+  function stopAudio() {
+    au.pause();
+    document.body.classList.remove('reading');
+    apl.hidden = true;
+    if (reading.t) spansOf(reading.t).forEach(function (el) { el.classList.remove('now', 'read'); });
+    reading = { t: 0, i: -1 };
+  }
+  function paintAudio() {
+    var a = AUDIO[reading.t];
+    if (!a) return;
+    var tl = a.tl, k = -1;
+    for (var i = 0; i < tl.length; i++) { if (au.currentTime >= tl[i][0]) k = i; else break; }
+    if (k === reading.i) return;
+    reading.i = k;
+    // 読んでいる箇所が別のページなら、そのページへ自動でめくる
+    if (k >= 0 && tl[k][2] !== state.s && state.t === reading.t) go(reading.t, tl[k][2], tl[k][2] > state.s ? 1 : -1);
+    var sp = spansOf(reading.t);
+    sp.forEach(function (el, i) {
+      el.classList.toggle('now', i === k);
+      el.classList.toggle('read', i < k);
+    });
+    var el = sp[k];
+    if (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < 70 || r.bottom > innerHeight - 150) {
+        scrollTo({ top: scrollY + r.top - innerHeight * 0.4, behavior: 'smooth' });
+      }
+    }
+  }
+  function tickAudio() {
+    paintAudio();
+    if (au.duration) {
+      document.getElementById('apSeek').value = Math.round(au.currentTime / au.duration * 1000);
+      document.getElementById('apTime').textContent = fmt(au.currentTime) + ' / ' + fmt(au.duration);
+    }
+    if (!au.paused) requestAnimationFrame(tickAudio);
+  }
+  au.addEventListener('play', function () { document.getElementById('apPlay').textContent = '❚❚'; tickAudio(); });
+  au.addEventListener('pause', function () { document.getElementById('apPlay').textContent = '▶'; });
+  au.addEventListener('ended', stopAudio);
+  document.getElementById('apPlay').onclick = function () { au.paused ? au.play() : au.pause(); };
+  document.getElementById('apClose').onclick = stopAudio;
+  document.getElementById('apSeek').oninput = function () {
+    if (au.duration) { au.currentTime = this.value / 1000 * au.duration; reading.i = -1; paintAudio(); }
+  };
+  document.getElementById('apRate').onclick = function () {
+    ri = (ri + 1) % RATES.length; au.playbackRate = RATES[ri];
+    this.textContent = RATES[ri].toFixed(2).replace(/0$/, '') + '×';
+  };
+  // 単元見出しの「🔊 読み上げ」＋ 文字タップでその場所から読む
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('.play-unit');
+    if (b) { startAudio(+b.dataset.play); return; }
+    var sp = e.target.closest && e.target.closest('.s');
+    if (sp && AUDIO[state.t]) {
+      var k = +sp.dataset.i, a = AUDIO[state.t];
+      if (a.tl[k]) {
+        if (reading.t !== state.t) startAudio(state.t);
+        au.currentTime = a.tl[k][0]; reading.i = -1; paintAudio(); au.play();
+      }
+    }
+  });
 
   // 単元タブの左右矢印: まだ隠れているタブがある側だけ出す
   function updateTabArrows() {
@@ -712,6 +835,8 @@
     // クエリが付いていても落とさない（URL共有時の情報を保つ）
     if (location.hash !== h) history.replaceState(null, '', location.search + (t === 0 ? '#' : h));
     updateSwap();
+    var pb = views[t] && views[t].querySelector('.play-unit');
+    if (pb) pb.hidden = !AUDIO[t];
     rendered = { t: t, s: s };
   }
 

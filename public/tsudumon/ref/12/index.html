@@ -13,6 +13,36 @@
 
   .mark { background:linear-gradient(transparent 55%, var(--line) 55%); font-weight:bold; padding:0 1px; }
 
+  /* ── 読み上げ（音声＋読んでいる句のハイライト）── */
+  .s { border-radius:6px; padding:.14em .12em; margin:0 -.12em;
+       -webkit-box-decoration-break:clone; box-decoration-break:clone;
+       transition:background-color .15s ease, color .15s ease; }
+  body.reading .s { cursor:pointer; }
+  .s.read { color:#8a8279; }
+  .s.now { background:#fcd34d; color:#1c1917; }
+  .s.now .mark { background:none; }
+  /* 単元見出しの再生ボタン */
+  .play-unit { display:inline-flex; align-items:center; gap:6px; margin-left:auto; flex:none;
+               background:#fff; color:var(--brand); border:1.5px solid var(--line);
+               border-radius:20px; padding:4px 12px; font-size:12px; font-weight:bold;
+               font-family:inherit; cursor:pointer; }
+  .play-unit[hidden] { display:none; }
+  /* 下部プレーヤー（再生中だけ出す。ナビバーの上に重ねる） */
+  .aplayer { position:fixed; left:0; right:0; bottom:58px; z-index:25;
+             background:rgba(255,253,248,.98); border-top:1px solid #f0e6d2;
+             box-shadow:0 -3px 12px rgba(120,80,20,.14); padding:7px 0 8px; }
+  .aplayer[hidden] { display:none; }
+  .ap-in { max-width:640px; margin:0 auto; padding:0 14px; display:flex; align-items:center; gap:9px; }
+  .ap-btn { flex:none; width:40px; height:40px; border-radius:50%; border:none; background:var(--brand);
+            color:#fff; font-size:16px; cursor:pointer; box-shadow:0 2px 6px rgba(180,83,9,.35); }
+  .ap-seek { flex:1; min-width:0; }
+  .ap-seek input { width:100%; accent-color:var(--brand); }
+  .ap-time { flex:none; font-size:11px; font-weight:bold; color:var(--brand); min-width:74px;
+             text-align:right; }
+  .ap-rate, .ap-close { flex:none; border:1.5px solid var(--line); background:#fffbeb; color:var(--brand);
+             font-weight:bold; border-radius:16px; padding:4px 9px; font-size:11.5px; cursor:pointer;
+             font-family:inherit; }
+
   /* ── 上部: タイトル＋単元タブ＋進捗バー ── */
   .bar { position:sticky; top:0; z-index:10; background:rgba(255,253,248,.96);
          backdrop-filter:blur(6px); border-bottom:1px solid #f0e6d2; }
@@ -35,7 +65,7 @@
                white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   .bar-step { flex:none; font-size:11px; font-weight:bold; color:var(--brand); }
   /* 初回だけ出す操作ヒント（PCはキー、スマホはスワイプ） */
-  .hintbar { position:fixed; left:50%; transform:translateX(-50%); bottom:78px; z-index:35;
+  .hintbar { position:fixed; left:50%; transform:translateX(-50%); bottom:132px; z-index:35;
              background:rgba(28,25,23,.88); color:#fff; font-size:12.5px; font-weight:bold;
              border-radius:20px; padding:8px 16px; box-shadow:0 4px 14px rgba(0,0,0,.3);
              animation:hintIn .3s ease; }
@@ -419,39 +449,40 @@
   </footer>
 </section>
 <section class="view" data-t="1">
-  <div class="tband"><span class="tno">1</span><h2>条約改正</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">1</span><h2>条約改正</h2>
+    <button class="play-unit" type="button" data-play="1" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-treaty-revision.webp"
            alt="条約改正（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">「治外法権」って聞いたことある?幕末に結ばれた不平等条約のせいで、日本は長いあいだ悔しい思いをしていたんだ。それを取り返すまでの、粘り強い外交物語を見てみよう。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">「治外法権」って聞いたことある?幕末に結ばれた不平等条約のせいで、</span><span class="s" data-i="1">日本は長いあいだ悔しい思いをしていたんだ。</span><span class="s" data-i="2">それを取り返すまでの、</span><span class="s" data-i="3">粘り強い外交物語を見てみよう。</span></div></div>
     </div>
     <div class="step" data-label="条約改正、2つの目標">
-      <h3><span class="sec-no">1</span>条約改正、2つの目標</h3>
-      <div class="sec-lead">領事裁判権の撤廃と関税自主権の回復が目標だったよ。</div>
-      <p>幕末に結んだ不平等条約には、実は2つの困った点があったんだ。ひとつは、日本にいる外国人が罪を犯しても日本の法律で裁けない<span class="mark">領事裁判権</span>(治外法権)。もうひとつは、輸入品にかける税率を自分の国で決められない、つまり<span class="mark">関税自主権</span>がないことだったんだよ。明治政府にとって、この2つを取り戻すことはまさに悲願だったんだ。どちらも「日本は一人前の国として扱われていない」ということを意味していたんだね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">領事裁判権の撤廃と関税自主権の回復、この2つが目標だったよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="4">条約改正、2つの目標</span></h3>
+      <div class="sec-lead"><span class="s" data-i="5">領事裁判権の撤廃と関税自主権の回復が目標だったよ。</span></div>
+      <p><span class="s" data-i="6">幕末に結んだ不平等条約には、</span><span class="s" data-i="7">実は2つの困った点があったんだ。</span><span class="s" data-i="8">ひとつは、日本にいる外国人が罪を犯しても日本の法律で裁けない<span class="mark">領事裁判権</span>(治外法権)。</span><span class="s" data-i="9">もうひとつは、輸入品にかける税率を自分の国で決められない、</span><span class="s" data-i="10">つまり<span class="mark">関税自主権</span>がないことだったんだよ。</span><span class="s" data-i="11">明治政府にとって、</span><span class="s" data-i="12">この2つを取り戻すことはまさに悲願だったんだ。</span><span class="s" data-i="13">どちらも「日本は一人前の国として扱われていない」ということを意味していたんだね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="14">領事裁判権の撤廃と関税自主権の回復、</span><span class="s" data-i="15">この2つが目標だったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">領事裁判権<span class="w-rd">りょうじさいばんけん</span></span><span class="w-desc">外国人が罪を犯しても、日本の法律で裁けなかった権利。1894年に撤廃された。</span></div><div class="word"><span class="w-term">関税自主権<span class="w-rd">かんぜいじしゅけん</span></span><span class="w-desc">輸入品の税率を自国で決める権利。1911年に完全回復した。</span></div></div>
     </div>
     <div class="step" data-label="鹿鳴館で舞踏会?井上馨の作戦">
-      <h3><span class="sec-no">2</span>鹿鳴館で舞踏会?井上馨の作戦</h3>
-      <div class="sec-lead">欧化政策で条約改正を目指したけど失敗したよ。</div>
-      <p>外相<span class="mark">井上馨</span>は、日本も欧米に負けない文明国だとアピールしようと考えたんだ。そこで建てたのが<span class="mark">鹿鳴館</span>。そこで舞踏会を開き、洋服を着て踊る<span class="mark">欧化政策</span>を進めたんだよ。すごい発想だよね。でも、あまりに極端な欧化だと国内から批判が噴出してしまい、交渉は失敗に終わってしまったんだ。さらに1886年には<span class="mark">ノルマントン号事件</span>が起き、日本人乗客が見殺しにされたのに裁判はイギリス領事が担当…領事裁判権の理不尽さを人々に強く印象づけることになったんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">井上馨の鹿鳴館外交は失敗し、ノルマントン号事件も起きたよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="16">鹿鳴館で舞踏会?井上馨の作戦</span></h3>
+      <div class="sec-lead"><span class="s" data-i="17">欧化政策で条約改正を目指したけど失敗したよ。</span></div>
+      <p><span class="s" data-i="18">外相<span class="mark">井上馨</span>は、日本も欧米に負けない文明国だとアピールしようと考えたんだ。</span><span class="s" data-i="19">そこで建てたのが<span class="mark">鹿鳴館</span>。</span><span class="s" data-i="20">そこで舞踏会を開き、</span><span class="s" data-i="21">洋服を着て踊る<span class="mark">欧化政策</span>を進めたんだよ。</span><span class="s" data-i="22">すごい発想だよね。</span><span class="s" data-i="23">でも、あまりに極端な欧化だと国内から批判が噴出してしまい、</span><span class="s" data-i="24">交渉は失敗に終わってしまったんだ。</span><span class="s" data-i="25">さらに1886年には<span class="mark">ノルマントン号事件</span>が起き、</span><span class="s" data-i="26">日本人乗客が見殺しにされたのに裁判はイギリス領事が担当…領事裁判権の理不尽さを人々に強く印象づけることになったんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="27">井上馨の鹿鳴館外交は失敗し、</span><span class="s" data-i="28">ノルマントン号事件も起きたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">鹿鳴館<span class="w-rd">ろくめいかん</span></span><span class="w-desc">井上馨が条約改正のために舞踏会を開いた、西洋風の社交場。</span></div><div class="word"><span class="w-term">欧化政策<span class="w-rd">おうかせいさく</span></span><span class="w-desc">井上馨が進めた、西洋風の生活様式を取り入れる政策。</span></div><div class="word"><span class="w-term">ノルマントン号事件<span class="w-rd">のるまんとんごうじけん</span></span><span class="w-desc">1886年、日本人乗客が見殺しにされ、領事裁判権の不平等が露呈した事件。</span></div></div>
     </div>
     <div class="step" data-label="陸奥宗光、ついに領事裁判権を撤廃">
-      <h3><span class="sec-no">3</span>陸奥宗光、ついに領事裁判権を撤廃</h3>
-      <div class="sec-lead">陸奥宗光がイギリスと条約を結び撤廃に成功したよ。</div>
-      <p>1894年、外相<span class="mark">陸奥宗光</span>はイギリスとの交渉に力を注ぎ、<span class="mark">日英通商航海条約</span>を結ぶことに成功したんだ。これでようやく<span class="mark">領事裁判権</span>が撤廃されたんだよ。ちょうど日清戦争が始まる直前のタイミングだったんだ。実はイギリスは、ロシアの南下を警戒していて、日本との関係を強めたいという事情もあったんだよ。両国の思惑が重なって、悲願の一歩がついにかなったというわけだね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1894年、陸奥宗光が日英通商航海条約を結んだよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="29">陸奥宗光、ついに領事裁判権を撤廃</span></h3>
+      <div class="sec-lead"><span class="s" data-i="30">陸奥宗光がイギリスと条約を結び撤廃に成功したよ。</span></div>
+      <p><span class="s" data-i="31">1894年、外相<span class="mark">陸奥宗光</span>はイギリスとの交渉に力を注ぎ、</span><span class="s" data-i="32"><span class="mark">日英通商航海条約</span>を結ぶことに成功したんだ。</span><span class="s" data-i="33">これでようやく<span class="mark">領事裁判権</span>が撤廃されたんだよ。</span><span class="s" data-i="34">ちょうど日清戦争が始まる直前のタイミングだったんだ。</span><span class="s" data-i="35">実はイギリスは、</span><span class="s" data-i="36">ロシアの南下を警戒していて、</span><span class="s" data-i="37">日本との関係を強めたいという事情もあったんだよ。</span><span class="s" data-i="38">両国の思惑が重なって、</span><span class="s" data-i="39">悲願の一歩がついにかなったというわけだね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="40">1894年、陸奥宗光が日英通商航海条約を結んだよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">陸奥宗光<span class="w-rd">むつむねみつ</span></span><span class="w-desc">1894年、イギリスと条約を結び領事裁判権の撤廃に成功した外相。</span></div><div class="word"><span class="w-term">日英通商航海条約<span class="w-rd">にちえいつうしょうこうかいじょうやく</span></span><span class="w-desc">1894年に陸奥宗光がイギリスと結んだ、領事裁判権を撤廃した条約。</span></div></div>
     </div>
     <div class="step" data-label="小村寿太郎が完成させた条約改正">
-      <h3><span class="sec-no">4</span>小村寿太郎が完成させた条約改正</h3>
-      <div class="sec-lead">小村寿太郎が関税自主権を完全に取り戻したよ。</div>
-      <p>残るは関税自主権。これを取り戻したのが外相<span class="mark">小村寿太郎</span>だったんだ。1911年、アメリカとの交渉によって<span class="mark">関税自主権</span>の完全回復に成功したんだよ。幕末の開国から数えると、なんと半世紀にもわたる悲願がついに達成された瞬間だったんだ。小村寿太郎は日露戦争後のポーツマス条約交渉でも活躍した、明治を代表する外交官なんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1911年、小村寿太郎がアメリカとの交渉で回復させたよ。</div></div>
+      <h3><span class="sec-no">4</span><span class="s" data-i="41">小村寿太郎が完成させた条約改正</span></h3>
+      <div class="sec-lead"><span class="s" data-i="42">小村寿太郎が関税自主権を完全に取り戻したよ。</span></div>
+      <p><span class="s" data-i="43">残るは関税自主権。</span><span class="s" data-i="44">これを取り戻したのが外相<span class="mark">小村寿太郎</span>だったんだ。</span><span class="s" data-i="45">1911年、アメリカとの交渉によって<span class="mark">関税自主権</span>の完全回復に成功したんだよ。</span><span class="s" data-i="46">幕末の開国から数えると、</span><span class="s" data-i="47">なんと半世紀にもわたる悲願がついに達成された瞬間だったんだ。</span><span class="s" data-i="48">小村寿太郎は日露戦争後のポーツマス条約交渉でも活躍した、</span><span class="s" data-i="49">明治を代表する外交官なんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="50">1911年、小村寿太郎がアメリカとの交渉で回復させたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">小村寿太郎<span class="w-rd">こむらじゅたろう</span></span><span class="w-desc">1911年、アメリカとの交渉で関税自主権の回復に成功した外相。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -559,7 +590,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">条約改正には<span class="mark">領事裁判権</span>の撤廃と<span class="mark">関税自主権</span>の回復という2つの目標があったよ。<span class="mark">井上馨</span>の鹿鳴館外交は失敗したけれど、1894年に<span class="mark">陸奥宗光</span>が領事裁判権を、1911年に<span class="mark">小村寿太郎</span>が関税自主権を取り戻し、半世紀越しの悲願がついにかなったんだ。</div>
+        <div class="sum30-body"><span class="s" data-i="51">条約改正には<span class="mark">領事裁判権</span>の撤廃と<span class="mark">関税自主権</span>の回復という2つの目標があったよ。</span><span class="s" data-i="52"><span class="mark">井上馨</span>の鹿鳴館外交は失敗したけれど、</span><span class="s" data-i="53">1894年に<span class="mark">陸奥宗光</span>が領事裁判権を、</span><span class="s" data-i="54">1911年に<span class="mark">小村寿太郎</span>が関税自主権を取り戻し、</span><span class="s" data-i="55">半世紀越しの悲願がついにかなったんだ。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -574,39 +605,40 @@
     </div>
 </section>
 <section class="view" data-t="2">
-  <div class="tband"><span class="tno">2</span><h2>日清戦争と三国干渉</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">2</span><h2>日清戦争と三国干渉</h2>
+    <button class="play-unit" type="button" data-play="2" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-sino-japanese-war.webp"
            alt="日清戦争と三国干渉（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">朝鮮をめぐって、日本と大国・清がついに正面衝突。勝った日本を待っていたのは、大きな喜びと、思わぬ屈辱だったんだ。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">朝鮮をめぐって、</span><span class="s" data-i="1">日本と大国・清がついに正面衝突。</span><span class="s" data-i="2">勝った日本を待っていたのは、大きな喜びと、</span><span class="s" data-i="3">思わぬ屈辱だったんだ。</span></div></div>
     </div>
     <div class="step" data-label="日清戦争のはじまり">
-      <h3><span class="sec-no">1</span>日清戦争のはじまり</h3>
-      <div class="sec-lead">朝鮮をめぐる対立から日清戦争が始まったよ。</div>
-      <p>1894年、朝鮮で<span class="mark">甲午農民戦争</span>(東学党の乱)という農民反乱が起きたんだ。これを鎮めるために日本と清がそれぞれ軍を送りこんだことがきっかけとなって、朝鮮の支配権をめぐる<span class="mark">日清戦争</span>が始まってしまったんだよ。明治維新から富国強兵を掲げて近代化を進めてきた日本は、清よりも軍備で優位に立っていて、戦いを優勢に進めていったんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1894年、甲午農民戦争をきっかけに日清戦争が始まったよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="4">日清戦争のはじまり</span></h3>
+      <div class="sec-lead"><span class="s" data-i="5">朝鮮をめぐる対立から日清戦争が始まったよ。</span></div>
+      <p><span class="s" data-i="6">1894年、朝鮮で<span class="mark">甲午農民戦争</span>(東学党の乱)という農民反乱が起きたんだ。</span><span class="s" data-i="7">これを鎮めるために日本と清がそれぞれ軍を送りこんだことがきっかけとなって、</span><span class="s" data-i="8">朝鮮の支配権をめぐる<span class="mark">日清戦争</span>が始まってしまったんだよ。</span><span class="s" data-i="9">明治維新から富国強兵を掲げて近代化を進めてきた日本は、</span><span class="s" data-i="10">清よりも軍備で優位に立っていて、</span><span class="s" data-i="11">戦いを優勢に進めていったんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="12">1894年、甲午農民戦争をきっかけに日清戦争が始まったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">日清戦争<span class="w-rd">にっしんせんそう</span></span><span class="w-desc">1894〜95年、朝鮮の支配権をめぐって日本と清が戦った戦争。</span></div><div class="word"><span class="w-term">甲午農民戦争<span class="w-rd">こうごのうみんせんそう</span></span><span class="w-desc">日清戦争のきっかけとなった、朝鮮で起きた農民反乱。東学党の乱ともいう。</span></div></div>
     </div>
     <div class="step" data-label="下関条約、日本の大きな成果">
-      <h3><span class="sec-no">2</span>下関条約、日本の大きな成果</h3>
-      <div class="sec-lead">下関条約で日本は台湾や賠償金を手に入れたよ。</div>
-      <p>1895年、山口県で講和会議が開かれ、<span class="mark">下関条約</span>が結ばれたんだ。日本側は伊藤博文と陸奥宗光、清側は<span class="mark">李鴻章</span>が交渉にあたったんだよ。この条約で日本は<span class="mark">遼東半島</span>と<span class="mark">台湾</span>、そして多額の賠償金を手に入れたんだ。まさに大勝利だよね。台湾には台湾総督府が置かれ、日本初の植民地となったんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1895年の下関条約で、日本は遼東半島・台湾・賠償金を得たよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="13">下関条約、日本の大きな成果</span></h3>
+      <div class="sec-lead"><span class="s" data-i="14">下関条約で日本は台湾や賠償金を手に入れたよ。</span></div>
+      <p><span class="s" data-i="15">1895年、山口県で講和会議が開かれ、</span><span class="s" data-i="16"><span class="mark">下関条約</span>が結ばれたんだ。</span><span class="s" data-i="17">日本側は伊藤博文と陸奥宗光、</span><span class="s" data-i="18">清側は<span class="mark">李鴻章</span>が交渉にあたったんだよ。</span><span class="s" data-i="19">この条約で日本は<span class="mark">遼東半島</span>と<span class="mark">台湾</span>、</span><span class="s" data-i="20">そして多額の賠償金を手に入れたんだ。</span><span class="s" data-i="21">まさに大勝利だよね。</span><span class="s" data-i="22">台湾には台湾総督府が置かれ、</span><span class="s" data-i="23">日本初の植民地となったんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="24">1895年の下関条約で、</span><span class="s" data-i="25">日本は遼東半島・台湾・賠償金を得たよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">下関条約<span class="w-rd">しものせきじょうやく</span></span><span class="w-desc">1895年に結ばれた日清戦争の講和条約。</span></div><div class="word"><span class="w-term">遼東半島<span class="w-rd">りょうとうはんとう</span></span><span class="w-desc">下関条約で獲得したが、三国干渉により清へ返還した半島。</span></div><div class="word"><span class="w-term">台湾<span class="w-rd">たいわん</span></span><span class="w-desc">下関条約で獲得した、日本初の植民地となった島。</span></div><div class="word"><span class="w-term">李鴻章<span class="w-rd">りこうしょう</span></span><span class="w-desc">下関条約で清側代表を務めた政治家。</span></div></div>
     </div>
     <div class="step" data-label="三国干渉という屈辱">
-      <h3><span class="sec-no">3</span>三国干渉という屈辱</h3>
-      <div class="sec-lead">三国干渉で遼東半島を清に返すことになったよ。</div>
-      <p>ところが、大喜びもつかの間。ロシアはドイツ・フランスを誘って、日本に<span class="mark">遼東半島</span>を清へ返すよう迫ってきたんだ。これを<span class="mark">三国干渉</span>というよ。大国3つに囲まれた日本は、悔しさをこらえて受け入れるしかなかったんだ。国民は<span class="mark">臥薪嘗胆</span>を合言葉に、この屈辱を忘れずロシアに対抗する力を蓄えていくことになるんだよ。不思議でしょ?この屈辱こそが、次の日露戦争へとつながっていくんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">三国干渉で遼東半島を返し、国民は臥薪嘗胆で耐えたよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="26">三国干渉という屈辱</span></h3>
+      <div class="sec-lead"><span class="s" data-i="27">三国干渉で遼東半島を清に返すことになったよ。</span></div>
+      <p><span class="s" data-i="28">ところが、大喜びもつかの間。</span><span class="s" data-i="29">ロシアはドイツ・フランスを誘って、</span><span class="s" data-i="30">日本に<span class="mark">遼東半島</span>を清へ返すよう迫ってきたんだ。</span><span class="s" data-i="31">これを<span class="mark">三国干渉</span>というよ。</span><span class="s" data-i="32">大国3つに囲まれた日本は、</span><span class="s" data-i="33">悔しさをこらえて受け入れるしかなかったんだ。</span><span class="s" data-i="34">国民は<span class="mark">臥薪嘗胆</span>を合言葉に、</span><span class="s" data-i="35">この屈辱を忘れずロシアに対抗する力を蓄えていくことになるんだよ。</span><span class="s" data-i="36">不思議でしょ?この屈辱こそが、</span><span class="s" data-i="37">次の日露戦争へとつながっていくんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="38">三国干渉で遼東半島を返し、</span><span class="s" data-i="39">国民は臥薪嘗胆で耐えたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">三国干渉<span class="w-rd">さんごくかんしょう</span></span><span class="w-desc">ロシア・ドイツ・フランスが遼東半島の返還を日本に迫った事件。</span></div><div class="word"><span class="w-term">臥薪嘗胆<span class="w-rd">がしんしょうたん</span></span><span class="w-desc">三国干渉の屈辱を耐え忍び、ロシアへの対抗心を表した合言葉。</span></div></div>
     </div>
     <div class="step" data-label="賠償金が生んだ八幡製鉄所">
-      <h3><span class="sec-no">4</span>賠償金が生んだ八幡製鉄所</h3>
-      <div class="sec-lead">賠償金の一部が八幡製鉄所の建設に使われたよ。</div>
-      <p>下関条約で得た賠償金は、ただ使われただけじゃないんだ。その一部は1901年に操業を始めた官営の<span class="mark">八幡製鉄所</span>の建設費にあてられたんだよ。これによって日本は鉄鋼を自分の国でつくれるようになり、重工業発展の大きな土台になったんだ。戦争の結果が、意外な形で日本の産業を後押ししたんだね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">賠償金の一部で、1901年に八幡製鉄所がつくられたよ。</div></div>
+      <h3><span class="sec-no">4</span><span class="s" data-i="40">賠償金が生んだ八幡製鉄所</span></h3>
+      <div class="sec-lead"><span class="s" data-i="41">賠償金の一部が八幡製鉄所の建設に使われたよ。</span></div>
+      <p><span class="s" data-i="42">下関条約で得た賠償金は、</span><span class="s" data-i="43">ただ使われただけじゃないんだ。</span><span class="s" data-i="44">その一部は1901年に操業を始めた官営の<span class="mark">八幡製鉄所</span>の建設費にあてられたんだよ。</span><span class="s" data-i="45">これによって日本は鉄鋼を自分の国でつくれるようになり、</span><span class="s" data-i="46">重工業発展の大きな土台になったんだ。</span><span class="s" data-i="47">戦争の結果が、意外な形で日本の産業を後押ししたんだね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="48">賠償金の一部で、</span><span class="s" data-i="49">1901年に八幡製鉄所がつくられたよ。</span></div></div>
       
     </div>
     <div class="step" data-label="重要語チェック">
@@ -714,7 +746,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">1894年、<span class="mark">甲午農民戦争</span>をきっかけに<span class="mark">日清戦争</span>が始まり、日本は勝利して<span class="mark">下関条約</span>で遼東半島・台湾・賠償金を得たよ。しかし<span class="mark">三国干渉</span>で遼東半島の返還を迫られ、国民は<span class="mark">臥薪嘗胆</span>の思いでロシアへの対抗心を強めていったんだ。</div>
+        <div class="sum30-body"><span class="s" data-i="50">1894年、<span class="mark">甲午農民戦争</span>をきっかけに<span class="mark">日清戦争</span>が始まり、</span><span class="s" data-i="51">日本は勝利して<span class="mark">下関条約</span>で遼東半島・台湾・賠償金を得たよ。</span><span class="s" data-i="52">しかし<span class="mark">三国干渉</span>で遼東半島の返還を迫られ、</span><span class="s" data-i="53">国民は<span class="mark">臥薪嘗胆</span>の思いでロシアへの対抗心を強めていったんだ。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -729,32 +761,33 @@
     </div>
 </section>
 <section class="view" data-t="3">
-  <div class="tband"><span class="tno">3</span><h2>日露戦争</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">3</span><h2>日露戦争</h2>
+    <button class="play-unit" type="button" data-play="3" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-russo-japanese-war.webp"
            alt="日露戦争（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">「臥薪嘗胆」で力を蓄えた日本が、ついに大国ロシアに挑む。世界中が驚いた、その結末を見てみよう。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">「臥薪嘗胆」で力を蓄えた日本が、</span><span class="s" data-i="1">ついに大国ロシアに挑む。</span><span class="s" data-i="2">世界中が驚いた、</span><span class="s" data-i="3">その結末を見てみよう。</span></div></div>
     </div>
     <div class="step" data-label="日英同盟という後ろ盾">
-      <h3><span class="sec-no">1</span>日英同盟という後ろ盾</h3>
-      <div class="sec-lead">ロシアに対抗するため日英同盟を結んだよ。</div>
-      <p>1900年、中国で外国勢力を追い出そうとする<span class="mark">義和団事件</span>が起こったんだ。鎮圧後もロシアは満州にとどまり続け、南へ勢力を広げようとしていたんだよ。これに危機感を持った日本は、1902年にイギリスと<span class="mark">日英同盟</span>を結んでロシアに対抗する準備を整えたんだ。強い味方を得たことで、日本は安心して次の一手に進めるようになったんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">ロシアの南下に対抗し、1902年に日英同盟を結んだよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="4">日英同盟という後ろ盾</span></h3>
+      <div class="sec-lead"><span class="s" data-i="5">ロシアに対抗するため日英同盟を結んだよ。</span></div>
+      <p><span class="s" data-i="6">1900年、中国で外国勢力を追い出そうとする<span class="mark">義和団事件</span>が起こったんだ。</span><span class="s" data-i="7">鎮圧後もロシアは満州にとどまり続け、</span><span class="s" data-i="8">南へ勢力を広げようとしていたんだよ。</span><span class="s" data-i="9">これに危機感を持った日本は、</span><span class="s" data-i="10">1902年にイギリスと<span class="mark">日英同盟</span>を結んでロシアに対抗する準備を整えたんだ。</span><span class="s" data-i="11">強い味方を得たことで、</span><span class="s" data-i="12">日本は安心して次の一手に進めるようになったんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="13">ロシアの南下に対抗し、</span><span class="s" data-i="14">1902年に日英同盟を結んだよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">日英同盟<span class="w-rd">にちえいどうめい</span></span><span class="w-desc">1902年、ロシアの南下に対抗するため日本とイギリスが結んだ同盟。</span></div><div class="word"><span class="w-term">義和団事件<span class="w-rd">ぎわだんじけん</span></span><span class="w-desc">1900年、中国で起きた外国勢力排除の運動。ロシアが満州に居座る原因となった。</span></div></div>
     </div>
     <div class="step" data-label="日露戦争と日本海海戦">
-      <h3><span class="sec-no">2</span>日露戦争と日本海海戦</h3>
-      <div class="sec-lead">東郷平八郎がバルチック艦隊を打ち破ったよ。</div>
-      <p>1904年、ついに<span class="mark">日露戦争</span>が始まったんだ。そして1905年、連合艦隊司令長官<span class="mark">東郷平八郎</span>が、はるばるやってきたロシアのバルチック艦隊を<span class="mark">日本海海戦</span>で打ち破ったんだよ。「東洋のネルソン」とまで呼ばれた東郷の活躍はすごいよね。ただし、内村鑑三や与謝野晶子のように、戦争そのものに反対する声を上げた人たちもいたことも忘れないでおこう。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1905年の日本海海戦で、東郷平八郎がロシア艦隊を破ったよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="15">日露戦争と日本海海戦</span></h3>
+      <div class="sec-lead"><span class="s" data-i="16">東郷平八郎がバルチック艦隊を打ち破ったよ。</span></div>
+      <p><span class="s" data-i="17">1904年、ついに<span class="mark">日露戦争</span>が始まったんだ。</span><span class="s" data-i="18">そして1905年、</span><span class="s" data-i="19">連合艦隊司令長官<span class="mark">東郷平八郎</span>が、</span><span class="s" data-i="20">はるばるやってきたロシアのバルチック艦隊を<span class="mark">日本海海戦</span>で打ち破ったんだよ。</span><span class="s" data-i="21">「東洋のネルソン」とまで呼ばれた東郷の活躍はすごいよね。</span><span class="s" data-i="22">ただし、内村鑑三や与謝野晶子のように、</span><span class="s" data-i="23">戦争そのものに反対する声を上げた人たちもいたことも忘れないでおこう。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="24">1905年の日本海海戦で、</span><span class="s" data-i="25">東郷平八郎がロシア艦隊を破ったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">日露戦争<span class="w-rd">にちろせんそう</span></span><span class="w-desc">1904〜05年に日本とロシアが戦った戦争。</span></div><div class="word"><span class="w-term">東郷平八郎<span class="w-rd">とうごうへいはちろう</span></span><span class="w-desc">日本海海戦でバルチック艦隊を破った連合艦隊司令長官。</span></div><div class="word"><span class="w-term">日本海海戦<span class="w-rd">にほんかいかいせん</span></span><span class="w-desc">1905年、東郷平八郎の連合艦隊がロシア艦隊を破った海戦。</span></div></div>
     </div>
     <div class="step" data-label="ポーツマス条約と国民の不満">
-      <h3><span class="sec-no">3</span>ポーツマス条約と国民の不満</h3>
-      <div class="sec-lead">賠償金が得られず国民の不満が爆発したよ。</div>
-      <p>1905年、アメリカ大統領セオドア・ルーズベルトの仲介で<span class="mark">ポーツマス条約</span>が結ばれ、日露戦争が終わったんだ。日本側全権は<span class="mark">小村寿太郎</span>。この条約で日本は<span class="mark">韓国の優越権</span>や<span class="mark">南満州鉄道</span>の権益、樺太の南半分を手に入れたんだよ。でも、賠償金は一切得られなかったんだ。多くの犠牲を払った国民は納得できず、怒りが爆発して<span class="mark">日比谷焼き打ち事件</span>という暴動まで起きてしまったんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">ポーツマス条約で賠償金がなく、日比谷焼き打ち事件が起きたよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="26">ポーツマス条約と国民の不満</span></h3>
+      <div class="sec-lead"><span class="s" data-i="27">賠償金が得られず国民の不満が爆発したよ。</span></div>
+      <p><span class="s" data-i="28">1905年、アメリカ大統領セオドア・ルーズベルトの仲介で<span class="mark">ポーツマス条約</span>が結ばれ、</span><span class="s" data-i="29">日露戦争が終わったんだ。</span><span class="s" data-i="30">日本側全権は<span class="mark">小村寿太郎</span>。</span><span class="s" data-i="31">この条約で日本は<span class="mark">韓国の優越権</span>や<span class="mark">南満州鉄道</span>の権益、</span><span class="s" data-i="32">樺太の南半分を手に入れたんだよ。</span><span class="s" data-i="33">でも、賠償金は一切得られなかったんだ。</span><span class="s" data-i="34">多くの犠牲を払った国民は納得できず、</span><span class="s" data-i="35">怒りが爆発して<span class="mark">日比谷焼き打ち事件</span>という暴動まで起きてしまったんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="36">ポーツマス条約で賠償金がなく、</span><span class="s" data-i="37">日比谷焼き打ち事件が起きたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">ポーツマス条約<span class="w-rd">ぽーつますじょうやく</span></span><span class="w-desc">1905年に結ばれた日露戦争の講和条約。</span></div><div class="word"><span class="w-term">小村寿太郎<span class="w-rd">こむらじゅたろう</span></span><span class="w-desc">ポーツマス条約交渉にあたった日本側全権大使。</span></div><div class="word"><span class="w-term">日比谷焼き打ち事件<span class="w-rd">ひびややきうちじけん</span></span><span class="w-desc">ポーツマス条約で賠償金を得られなかったことに怒った民衆が起こした暴動。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -862,7 +895,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body"><span class="mark">日英同盟</span>を後ろ盾に日本は1904年に<span class="mark">日露戦争</span>へ突入し、<span class="mark">東郷平八郎</span>の連合艦隊が<span class="mark">日本海海戦</span>でロシアを破ったよ。1905年の<span class="mark">ポーツマス条約</span>で満州や樺太の権益を得たけれど、賠償金は得られず日比谷焼き打ち事件が起きたんだ。</div>
+        <div class="sum30-body"><span class="s" data-i="38"><span class="mark">日英同盟</span>を後ろ盾に日本は1904年に<span class="mark">日露戦争</span>へ突入し、</span><span class="s" data-i="39"><span class="mark">東郷平八郎</span>の連合艦隊が<span class="mark">日本海海戦</span>でロシアを破ったよ。</span><span class="s" data-i="40">1905年の<span class="mark">ポーツマス条約</span>で満州や樺太の権益を得たけれど、</span><span class="s" data-i="41">賠償金は得られず日比谷焼き打ち事件が起きたんだ。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -877,32 +910,33 @@
     </div>
 </section>
 <section class="view" data-t="4">
-  <div class="tband"><span class="tno">4</span><h2>韓国併合と中国の革命</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">4</span><h2>韓国併合と中国の革命</h2>
+    <button class="play-unit" type="button" data-play="4" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-korea-annexation.webp"
            alt="韓国併合と中国の革命（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">日露戦争の勝利は、日本を朝鮮半島の支配へと向かわせたんだ。一方で隣の中国では、王朝を倒す大革命が起ころうとしていたんだよ。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">日露戦争の勝利は、</span><span class="s" data-i="1">日本を朝鮮半島の支配へと向かわせたんだ。</span><span class="s" data-i="2">一方で隣の中国では、</span><span class="s" data-i="3">王朝を倒す大革命が起ころうとしていたんだよ。</span></div></div>
     </div>
     <div class="step" data-label="韓国統監府から韓国併合へ">
-      <h3><span class="sec-no">1</span>韓国統監府から韓国併合へ</h3>
-      <div class="sec-lead">韓国は保護国を経て、日本の植民地にされたよ。</div>
-      <p>日露戦争後の1905年、日本は<span class="mark">韓国統監府</span>を置いて韓国を保護国としたんだ。初代統監に就任したのは<span class="mark">伊藤博文</span>。ところが1909年、伊藤博文は満州のハルビン駅で朝鮮の独立運動家<span class="mark">安重根</span>に暗殺されてしまうんだよ。そして1910年、日本はついに<span class="mark">韓国併合</span>を行い、韓国を植民地としてしまったんだ。統治のために置かれたのが<span class="mark">朝鮮総督府</span>だったんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1910年の韓国併合で、韓国は日本の植民地にされたよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="4">韓国統監府から韓国併合へ</span></h3>
+      <div class="sec-lead"><span class="s" data-i="5">韓国は保護国を経て、</span><span class="s" data-i="6">日本の植民地にされたよ。</span></div>
+      <p><span class="s" data-i="7">日露戦争後の1905年、</span><span class="s" data-i="8">日本は<span class="mark">韓国統監府</span>を置いて韓国を保護国としたんだ。</span><span class="s" data-i="9">初代統監に就任したのは<span class="mark">伊藤博文</span>。</span><span class="s" data-i="10">ところが1909年、</span><span class="s" data-i="11">伊藤博文は満州のハルビン駅で朝鮮の独立運動家<span class="mark">安重根</span>に暗殺されてしまうんだよ。</span><span class="s" data-i="12">そして1910年、</span><span class="s" data-i="13">日本はついに<span class="mark">韓国併合</span>を行い、</span><span class="s" data-i="14">韓国を植民地としてしまったんだ。</span><span class="s" data-i="15">統治のために置かれたのが<span class="mark">朝鮮総督府</span>だったんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="16">1910年の韓国併合で、</span><span class="s" data-i="17">韓国は日本の植民地にされたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">韓国統監府<span class="w-rd">かんこくとうかんふ</span></span><span class="w-desc">1905年、日本が韓国を保護国とするために置いた機関。</span></div><div class="word"><span class="w-term">伊藤博文<span class="w-rd">いとうひろぶみ</span></span><span class="w-desc">初代韓国統監。1909年、安重根に暗殺された。</span></div><div class="word"><span class="w-term">安重根<span class="w-rd">あんじゅうこん</span></span><span class="w-desc">1909年、ハルビン駅で伊藤博文を暗殺した朝鮮の独立運動家。</span></div><div class="word"><span class="w-term">韓国併合<span class="w-rd">かんこくへいごう</span></span><span class="w-desc">1910年、日本が韓国を植民地とした出来事。</span></div><div class="word"><span class="w-term">朝鮮総督府<span class="w-rd">ちょうせんそうとくふ</span></span><span class="w-desc">韓国併合後、朝鮮を統治するために置かれた機関。</span></div></div>
     </div>
     <div class="step" data-label="土地を失った朝鮮の農民">
-      <h3><span class="sec-no">2</span>土地を失った朝鮮の農民</h3>
-      <div class="sec-lead">土地調査事業で多くの朝鮮農民が土地を失ったよ。</div>
-      <p>朝鮮総督府は<span class="mark">土地調査事業</span>という政策を進めたんだ。これは土地の所有権を届け出てもらうしくみだったんだけど、手続きが複雑だったこともあり、多くの朝鮮の農民が結果的に土地を失ってしまったんだよ。知ってた?この土地調査事業は、植民地支配のつらい一面を物語る出来事なんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">土地調査事業によって、多くの朝鮮の農民が土地を失ったよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="18">土地を失った朝鮮の農民</span></h3>
+      <div class="sec-lead"><span class="s" data-i="19">土地調査事業で多くの朝鮮農民が土地を失ったよ。</span></div>
+      <p><span class="s" data-i="20">朝鮮総督府は<span class="mark">土地調査事業</span>という政策を進めたんだ。</span><span class="s" data-i="21">これは土地の所有権を届け出てもらうしくみだったんだけど、</span><span class="s" data-i="22">手続きが複雑だったこともあり、</span><span class="s" data-i="23">多くの朝鮮の農民が結果的に土地を失ってしまったんだよ。</span><span class="s" data-i="24">知ってた?この土地調査事業は、</span><span class="s" data-i="25">植民地支配のつらい一面を物語る出来事なんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="26">土地調査事業によって、</span><span class="s" data-i="27">多くの朝鮮の農民が土地を失ったよ。</span></div></div>
       
     </div>
     <div class="step" data-label="辛亥革命と中華民国の誕生">
-      <h3><span class="sec-no">3</span>辛亥革命と中華民国の誕生</h3>
-      <div class="sec-lead">孫文の革命で清が倒れ、中華民国が誕生したよ。</div>
-      <p>同じころ、隣の中国でも大きな変化が起きていたんだ。<span class="mark">孫文</span>が民族・民権・民生からなる<span class="mark">三民主義</span>を唱えて指導した<span class="mark">辛亥革命</span>が1911年に起こり、約260年続いた清王朝がついに倒されたんだよ。翌1912年には、アジアで初めての共和国<span class="mark">中華民国</span>が誕生したんだ。孫文が臨時大総統に就任したけど、その後まもなく実権は軍を率いる<span class="mark">袁世凱</span>へと移っていったんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1911年の辛亥革命で清が倒れ、中華民国が誕生したよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="28">辛亥革命と中華民国の誕生</span></h3>
+      <div class="sec-lead"><span class="s" data-i="29">孫文の革命で清が倒れ、</span><span class="s" data-i="30">中華民国が誕生したよ。</span></div>
+      <p><span class="s" data-i="31">同じころ、隣の中国でも大きな変化が起きていたんだ。</span><span class="s" data-i="32"><span class="mark">孫文</span>が民族・民権・民生からなる<span class="mark">三民主義</span>を唱えて指導した<span class="mark">辛亥革命</span>が1911年に起こり、</span><span class="s" data-i="33">約260年続いた清王朝がついに倒されたんだよ。</span><span class="s" data-i="34">翌1912年には、</span><span class="s" data-i="35">アジアで初めての共和国<span class="mark">中華民国</span>が誕生したんだ。</span><span class="s" data-i="36">孫文が臨時大総統に就任したけど、</span><span class="s" data-i="37">その後まもなく実権は軍を率いる<span class="mark">袁世凱</span>へと移っていったんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="38">1911年の辛亥革命で清が倒れ、</span><span class="s" data-i="39">中華民国が誕生したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">辛亥革命<span class="w-rd">しんがいかくめい</span></span><span class="w-desc">1911年、孫文の指導で清王朝を倒した革命。</span></div><div class="word"><span class="w-term">孫文<span class="w-rd">そんぶん</span></span><span class="w-desc">三民主義を唱え辛亥革命を指導し、中華民国を建国した革命家。</span></div><div class="word"><span class="w-term">中華民国<span class="w-rd">ちゅうかみんこく</span></span><span class="w-desc">1912年に成立した、アジア初の共和国。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -1010,7 +1044,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">日露戦争後、日本は<span class="mark">韓国統監府</span>を経て1910年に<span class="mark">韓国併合</span>を行い、<span class="mark">朝鮮総督府</span>による植民地支配を進めたよ。同じころ中国では<span class="mark">孫文</span>の指導する<span class="mark">辛亥革命</span>が起こり、1912年にアジア初の共和国・<span class="mark">中華民国</span>が誕生したんだ。</div>
+        <div class="sum30-body"><span class="s" data-i="40">日露戦争後、日本は<span class="mark">韓国統監府</span>を経て1910年に<span class="mark">韓国併合</span>を行い、</span><span class="s" data-i="41"><span class="mark">朝鮮総督府</span>による植民地支配を進めたよ。</span><span class="s" data-i="42">同じころ中国では<span class="mark">孫文</span>の指導する<span class="mark">辛亥革命</span>が起こり、</span><span class="s" data-i="43">1912年にアジア初の共和国・<span class="mark">中華民国</span>が誕生したんだ。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -1025,32 +1059,33 @@
     </div>
 </section>
 <section class="view" data-t="5">
-  <div class="tband"><span class="tno">5</span><h2>日本の産業革命</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">5</span><h2>日本の産業革命</h2>
+    <button class="play-unit" type="button" data-play="5" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-industrial-revolution.webp"
            alt="日本の産業革命（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">工場の機械が次々と動き出し、日本は一気に近代産業国家へと変わっていったんだ。でもその裏側では、見過ごせない社会問題も生まれていたんだよ。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">工場の機械が次々と動き出し、</span><span class="s" data-i="1">日本は一気に近代産業国家へと変わっていったんだ。</span><span class="s" data-i="2">でもその裏側では、</span><span class="s" data-i="3">見過ごせない社会問題も生まれていたんだよ。</span></div></div>
     </div>
     <div class="step" data-label="軽工業から重工業へ">
-      <h3><span class="sec-no">1</span>軽工業から重工業へ</h3>
-      <div class="sec-lead">軽工業に続いて重工業も発展していったよ。</div>
-      <p>明治後期、機械を使った工業生産が広がる<span class="mark">産業革命</span>が日本でも進んだんだ。まずは綿花から綿糸をつくる<span class="mark">紡績業</span>や、蚕の繭から生糸をつくる<span class="mark">製糸業</span>といった軽工業が発展し、生糸は日本最大の輸出品にまで成長したんだよ。そして1901年には、日清戦争の賠償金を活用した官営の<span class="mark">八幡製鉄所</span>が操業を開始し、鉄鋼や機械などの<span class="mark">重工業</span>も本格的に発展していったんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">軽工業に続き、1901年の八幡製鉄所操業で重工業も発展したよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="4">軽工業から重工業へ</span></h3>
+      <div class="sec-lead"><span class="s" data-i="5">軽工業に続いて重工業も発展していったよ。</span></div>
+      <p><span class="s" data-i="6">明治後期、機械を使った工業生産が広がる<span class="mark">産業革命</span>が日本でも進んだんだ。</span><span class="s" data-i="7">まずは綿花から綿糸をつくる<span class="mark">紡績業</span>や、</span><span class="s" data-i="8">蚕の繭から生糸をつくる<span class="mark">製糸業</span>といった軽工業が発展し、</span><span class="s" data-i="9">生糸は日本最大の輸出品にまで成長したんだよ。</span><span class="s" data-i="10">そして1901年には、</span><span class="s" data-i="11">日清戦争の賠償金を活用した官営の<span class="mark">八幡製鉄所</span>が操業を開始し、</span><span class="s" data-i="12">鉄鋼や機械などの<span class="mark">重工業</span>も本格的に発展していったんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="13">軽工業に続き、1901年の八幡製鉄所操業で重工業も発展したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">産業革命<span class="w-rd">さんぎょうかくめい</span></span><span class="w-desc">機械を用いた工業生産が広がる変化。日本では明治後期に進んだ。</span></div><div class="word"><span class="w-term">紡績業<span class="w-rd">ぼうせきぎょう</span></span><span class="w-desc">綿花から綿糸をつくる産業。</span></div><div class="word"><span class="w-term">製糸業<span class="w-rd">せいしぎょう</span></span><span class="w-desc">蚕の繭から生糸をつくる産業。明治期最大の輸出品だった。</span></div><div class="word"><span class="w-term">八幡製鉄所<span class="w-rd">やはたせいてつじょ</span></span><span class="w-desc">1901年に操業を開始した官営製鉄所。日本の重工業の基礎となった。</span></div></div>
     </div>
     <div class="step" data-label="財閥の力が強まる">
-      <h3><span class="sec-no">2</span>財閥の力が強まる</h3>
-      <div class="sec-lead">三井・三菱などの財閥が経済を支配したよ。</div>
-      <p>産業が発展するにつれて、三井・三菱・住友・安田といった<span class="mark">財閥</span>が金融や工業などさまざまな分野を支配するようになっていったんだよ。財閥は同族を中心にした巨大な企業グループで、日本の経済を大きく動かす存在になっていったんだ。すごい規模だよね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">三井・三菱・住友・安田の財閥が経済を支配していったよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="14">財閥の力が強まる</span></h3>
+      <div class="sec-lead"><span class="s" data-i="15">三井・三菱などの財閥が経済を支配したよ。</span></div>
+      <p><span class="s" data-i="16">産業が発展するにつれて、</span><span class="s" data-i="17">三井・三菱・住友・安田といった<span class="mark">財閥</span>が金融や工業などさまざまな分野を支配するようになっていったんだよ。</span><span class="s" data-i="18">財閥は同族を中心にした巨大な企業グループで、</span><span class="s" data-i="19">日本の経済を大きく動かす存在になっていったんだ。</span><span class="s" data-i="20">すごい規模だよね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="21">三井・三菱・住友・安田の財閥が経済を支配していったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">財閥<span class="w-rd">ざいばつ</span></span><span class="w-desc">三井・三菱・住友・安田など、経済を支配した同族中心の企業集団。</span></div></div>
     </div>
     <div class="step" data-label="足尾銅山鉱毒事件と社会問題">
-      <h3><span class="sec-no">3</span>足尾銅山鉱毒事件と社会問題</h3>
-      <div class="sec-lead">公害や労働問題など社会のひずみも生まれたよ。</div>
-      <p>急速な産業発展は、いいことばかりじゃなかったんだ。栃木県では、銅山から出た鉱毒が渡良瀬川に流れ込み、農作物や住民に深刻な被害をあたえる<span class="mark">足尾銅山鉱毒事件</span>が起きてしまったんだよ。衆議院議員の<span class="mark">田中正造</span>は、この被害の解決を求めて天皇に直訴までしたんだ。労働者たちも労働条件の改善を求めて労働組合をつくり、<span class="mark">幸徳秋水</span>らは平等な社会を目指す<span class="mark">社会主義</span>を唱えたけど、1910年の<span class="mark">大逆事件</span>で厳しく弾圧されてしまったんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">足尾銅山鉱毒事件を田中正造が直訴し、社会主義は弾圧されたよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="22">足尾銅山鉱毒事件と社会問題</span></h3>
+      <div class="sec-lead"><span class="s" data-i="23">公害や労働問題など社会のひずみも生まれたよ。</span></div>
+      <p><span class="s" data-i="24">急速な産業発展は、</span><span class="s" data-i="25">いいことばかりじゃなかったんだ。</span><span class="s" data-i="26">栃木県では、銅山から出た鉱毒が渡良瀬川に流れ込み、</span><span class="s" data-i="27">農作物や住民に深刻な被害をあたえる<span class="mark">足尾銅山鉱毒事件</span>が起きてしまったんだよ。</span><span class="s" data-i="28">衆議院議員の<span class="mark">田中正造</span>は、</span><span class="s" data-i="29">この被害の解決を求めて天皇に直訴までしたんだ。</span><span class="s" data-i="30">労働者たちも労働条件の改善を求めて労働組合をつくり、</span><span class="s" data-i="31"><span class="mark">幸徳秋水</span>らは平等な社会を目指す<span class="mark">社会主義</span>を唱えたけど、</span><span class="s" data-i="32">1910年の<span class="mark">大逆事件</span>で厳しく弾圧されてしまったんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="33">足尾銅山鉱毒事件を田中正造が直訴し、</span><span class="s" data-i="34">社会主義は弾圧されたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">足尾銅山鉱毒事件<span class="w-rd">あしおどうざんこうどくじけん</span></span><span class="w-desc">栃木県の渡良瀬川流域で起きた、日本初とされる公害事件。</span></div><div class="word"><span class="w-term">田中正造<span class="w-rd">たなかしょうぞう</span></span><span class="w-desc">足尾銅山鉱毒事件の解決を求めて天皇に直訴した衆議院議員。</span></div><div class="word"><span class="w-term">大逆事件<span class="w-rd">たいぎゃくじけん</span></span><span class="w-desc">1910年、幸徳秋水ら社会主義者が処刑された事件。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -1158,7 +1193,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">明治後期、<span class="mark">紡績業</span>や<span class="mark">製糸業</span>などの軽工業に続いて<span class="mark">八幡製鉄所</span>を中心とする重工業が発展し、<span class="mark">財閥</span>が経済を支配していったよ。一方で<span class="mark">足尾銅山鉱毒事件</span>のような社会問題も生まれ、社会主義を唱えた人々は<span class="mark">大逆事件</span>で厳しく弾圧されたんだ。</div>
+        <div class="sum30-body"><span class="s" data-i="35">明治後期、<span class="mark">紡績業</span>や<span class="mark">製糸業</span>などの軽工業に続いて<span class="mark">八幡製鉄所</span>を中心とする重工業が発展し、</span><span class="s" data-i="36"><span class="mark">財閥</span>が経済を支配していったよ。</span><span class="s" data-i="37">一方で<span class="mark">足尾銅山鉱毒事件</span>のような社会問題も生まれ、</span><span class="s" data-i="38">社会主義を唱えた人々は<span class="mark">大逆事件</span>で厳しく弾圧されたんだ。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -1173,32 +1208,33 @@
     </div>
 </section>
 <section class="view" data-t="6">
-  <div class="tband"><span class="tno">6</span><h2>明治の文化</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">6</span><h2>明治の文化</h2>
+    <button class="play-unit" type="button" data-play="6" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-meiji-culture.webp"
            alt="明治の文化（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">小説、医学、絵画、音楽…明治の終わりごろ、日本の近代文化がいっせいに花開いたんだ。どんな才能が活躍したのか、のぞいてみよう。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">小説、医学、絵画、</span><span class="s" data-i="1">音楽…明治の終わりごろ、</span><span class="s" data-i="2">日本の近代文化がいっせいに花開いたんだ。</span><span class="s" data-i="3">どんな才能が活躍したのか、</span><span class="s" data-i="4">のぞいてみよう。</span></div></div>
     </div>
     <div class="step" data-label="言文一致と近代文学">
-      <h3><span class="sec-no">1</span>言文一致と近代文学</h3>
-      <div class="sec-lead">話し言葉に近い文体で近代文学が花開いたよ。</div>
-      <p>それまでの文学は堅苦しい文語体で書かれていたんだけど、明治になると話し言葉に近い文体で書く<span class="mark">言文一致</span>の運動が広がっていったんだ。<span class="mark">夏目漱石</span>は「坊っちゃん」などで近代日本人の苦悩を描き、軍医でもあった<span class="mark">森鴎外</span>は「舞姫」を著したんだよ。女性作家の<span class="mark">樋口一葉</span>は「たけくらべ」を残し、歌人の与謝野晶子は情熱的な歌集「みだれ髪」で知られているんだ。すごいメンバーが同じ時代に活躍していたんだね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">言文一致が広がり、夏目漱石や森鴎外らが活躍したよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="5">言文一致と近代文学</span></h3>
+      <div class="sec-lead"><span class="s" data-i="6">話し言葉に近い文体で近代文学が花開いたよ。</span></div>
+      <p><span class="s" data-i="7">それまでの文学は堅苦しい文語体で書かれていたんだけど、</span><span class="s" data-i="8">明治になると話し言葉に近い文体で書く<span class="mark">言文一致</span>の運動が広がっていったんだ。</span><span class="s" data-i="9"><span class="mark">夏目漱石</span>は「坊っちゃん」などで近代日本人の苦悩を描き、</span><span class="s" data-i="10">軍医でもあった<span class="mark">森鴎外</span>は「舞姫」を著したんだよ。</span><span class="s" data-i="11">女性作家の<span class="mark">樋口一葉</span>は「たけくらべ」を残し、</span><span class="s" data-i="12">歌人の与謝野晶子は情熱的な歌集「みだれ髪」で知られているんだ。</span><span class="s" data-i="13">すごいメンバーが同じ時代に活躍していたんだね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="14">言文一致が広がり、</span><span class="s" data-i="15">夏目漱石や森鴎外らが活躍したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">言文一致<span class="w-rd">げんぶんいっち</span></span><span class="w-desc">話し言葉に近い文体で文学作品を書く運動。</span></div><div class="word"><span class="w-term">夏目漱石<span class="w-rd">なつめそうせき</span></span><span class="w-desc">「坊っちゃん」などで近代日本人の苦悩を描いた小説家。</span></div><div class="word"><span class="w-term">森鴎外<span class="w-rd">もりおうがい</span></span><span class="w-desc">「舞姫」を著した小説家・軍医。</span></div><div class="word"><span class="w-term">樋口一葉<span class="w-rd">ひぐちいちよう</span></span><span class="w-desc">「たけくらべ」を著した明治の女性作家。</span></div></div>
     </div>
     <div class="step" data-label="世界で活躍した医学者たち">
-      <h3><span class="sec-no">2</span>世界で活躍した医学者たち</h3>
-      <div class="sec-lead">北里柴三郎や野口英世が世界で活躍したよ。</div>
-      <p>医学の分野でも、日本人研究者が世界的な成果をあげていたんだよ。<span class="mark">北里柴三郎</span>は破傷風の血清療法を確立し、<span class="mark">野口英世</span>はアフリカで黄熱病の研究に打ち込んだんだ。二人とも新しい紙幣の肖像に選ばれるほど、今なお尊敬されている人物なんだよ。知ってた?こうした研究の多くは、当時最先端だったドイツなどへの留学を通じて培われたものなんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">北里柴三郎は血清療法、野口英世は黄熱病の研究で活躍したよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="16">世界で活躍した医学者たち</span></h3>
+      <div class="sec-lead"><span class="s" data-i="17">北里柴三郎や野口英世が世界で活躍したよ。</span></div>
+      <p><span class="s" data-i="18">医学の分野でも、</span><span class="s" data-i="19">日本人研究者が世界的な成果をあげていたんだよ。</span><span class="s" data-i="20"><span class="mark">北里柴三郎</span>は破傷風の血清療法を確立し、</span><span class="s" data-i="21"><span class="mark">野口英世</span>はアフリカで黄熱病の研究に打ち込んだんだ。</span><span class="s" data-i="22">二人とも新しい紙幣の肖像に選ばれるほど、</span><span class="s" data-i="23">今なお尊敬されている人物なんだよ。</span><span class="s" data-i="24">知ってた?こうした研究の多くは、</span><span class="s" data-i="25">当時最先端だったドイツなどへの留学を通じて培われたものなんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="26">北里柴三郎は血清療法、</span><span class="s" data-i="27">野口英世は黄熱病の研究で活躍したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">北里柴三郎<span class="w-rd">きたざとしばさぶろう</span></span><span class="w-desc">破傷風の血清療法を確立した細菌学者。</span></div><div class="word"><span class="w-term">野口英世<span class="w-rd">のぐちひでよ</span></span><span class="w-desc">アフリカで黄熱病を研究した細菌学者。</span></div></div>
     </div>
     <div class="step" data-label="美術と教育の広がり">
-      <h3><span class="sec-no">3</span>美術と教育の広がり</h3>
-      <div class="sec-lead">美術が発展し、義務教育も広がっていったよ。</div>
-      <p>美術の分野では、フランスで学んだ<span class="mark">黒田清輝</span>が「湖畔」を描き、明るい印象派の画風を日本に伝えたんだ。<span class="mark">岡倉天心</span>は東京美術学校の設立に力を尽くし、日本美術を世界へ紹介したんだよ。教育の面では、1890年に国民道徳の基本を示す<span class="mark">教育勅語</span>が発布され、1907年には義務教育の年限が6年に延長されて、就学率はほぼ100%にまで達したんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">黒田清輝・岡倉天心が美術で活躍し、義務教育も広がったよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="28">美術と教育の広がり</span></h3>
+      <div class="sec-lead"><span class="s" data-i="29">美術が発展し、義務教育も広がっていったよ。</span></div>
+      <p><span class="s" data-i="30">美術の分野では、</span><span class="s" data-i="31">フランスで学んだ<span class="mark">黒田清輝</span>が「湖畔」を描き、</span><span class="s" data-i="32">明るい印象派の画風を日本に伝えたんだ。</span><span class="s" data-i="33"><span class="mark">岡倉天心</span>は東京美術学校の設立に力を尽くし、</span><span class="s" data-i="34">日本美術を世界へ紹介したんだよ。</span><span class="s" data-i="35">教育の面では、1890年に国民道徳の基本を示す<span class="mark">教育勅語</span>が発布され、</span><span class="s" data-i="36">1907年には義務教育の年限が6年に延長されて、</span><span class="s" data-i="37">就学率はほぼ100%にまで達したんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="38">黒田清輝・岡倉天心が美術で活躍し、</span><span class="s" data-i="39">義務教育も広がったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">岡倉天心<span class="w-rd">おかくらてんしん</span></span><span class="w-desc">東京美術学校の設立に尽力し、日本美術を世界に紹介した美術指導者。</span></div><div class="word"><span class="w-term">教育勅語<span class="w-rd">きょういくちょくご</span></span><span class="w-desc">1890年に発布された、国民道徳の基本を示す文書。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -1306,7 +1342,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">明治後期には<span class="mark">言文一致</span>による近代文学、<span class="mark">北里柴三郎</span>や<span class="mark">野口英世</span>による世界的な医学研究、<span class="mark">黒田清輝</span>や<span class="mark">岡倉天心</span>による美術の発展など、近代日本の文化がいっせいに花開いたよ。教育勅語や義務教育の延長で、学校教育も大きく広がっていったんだ。</div>
+        <div class="sum30-body"><span class="s" data-i="40">明治後期には<span class="mark">言文一致</span>による近代文学、</span><span class="s" data-i="41"><span class="mark">北里柴三郎</span>や<span class="mark">野口英世</span>による世界的な医学研究、</span><span class="s" data-i="42"><span class="mark">黒田清輝</span>や<span class="mark">岡倉天心</span>による美術の発展など、</span><span class="s" data-i="43">近代日本の文化がいっせいに花開いたよ。</span><span class="s" data-i="44">教育勅語や義務教育の延長で、</span><span class="s" data-i="45">学校教育も大きく広がっていったんだ。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -1322,6 +1358,14 @@
 </section>
 </main>
 <div class="hintbar" id="hintBar" hidden></div>
+<div class="aplayer" id="aplayer" hidden><div class="ap-in">
+  <button class="ap-btn" id="apPlay" aria-label="再生／一時停止">❚❚</button>
+  <div class="ap-seek"><input type="range" id="apSeek" min="0" max="1000" value="0"></div>
+  <div class="ap-time" id="apTime">0:00 / 0:00</div>
+  <button class="ap-rate" id="apRate">1.0×</button>
+  <button class="ap-close" id="apClose" aria-label="読み上げを止める">×</button>
+</div></div>
+<audio id="audio" preload="none"></audio>
 <div class="navbar" id="navbar" hidden><div class="navbar-in">
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
@@ -1349,7 +1393,8 @@
 (function () {
   var KEY = 'tzmref-12';
   var CH = '12';
-  var WB_VIEWS = [0, 2, 3, 4, 5, 6, 7];          // 参考書の単元t → 問題集のビュー番号（0＝対応なし）
+  var WB_VIEWS = [0, 2, 3, 4, 5, 6, 7];
+  var AUDIO = {"1": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F12-treaty-revision.mp3?alt=media&token=17f6444a-a840-4b28-98d0-4fad9ba8d7d9", "tl": [[0, 6.197, 0], [6.197, 3.163, 0], [9.64, 2.065, 0], [11.705, 3.135, 0], [15.49, 3.16, 1], [19.3, 5.12, 1], [25.07, 3.104, 1], [28.174, 2.576, 1], [31.03, 9.04, 1], [40.35, 5.317, 1], [45.667, 3.163, 1], [49.11, 1.805, 1], [50.915, 3.675, 1], [54.87, 6.24, 1], [61.76, 4.273, 1], [66.033, 1.687, 1], [68.37, 4.8, 2], [73.82, 4.48, 2], [78.95, 6.44, 2], [85.67, 2.76, 2], [88.71, 2.166, 2], [90.876, 3.554, 2], [94.71, 2.52, 2], [97.51, 5.73, 2], [103.24, 2.43, 2], [105.95, 4.182, 2], [110.132, 11.858, 2], [122.64, 3.586, 2], [126.226, 2.174, 2], [129.05, 4.84, 3], [134.54, 5.12, 3], [140.31, 6.602, 3], [146.912, 4.038, 3], [151.23, 3.88, 3], [155.39, 4.2, 3], [159.87, 1.881, 3], [161.751, 2.311, 3], [164.062, 3.488, 3], [167.83, 2.572, 3], [170.402, 3.348, 3], [174.4, 6.36, 3], [181.41, 3.84, 4], [185.9, 4.36, 4], [190.91, 2.76, 4], [193.95, 4.4, 4], [198.63, 7.52, 4], [206.43, 2.548, 4], [208.978, 4.692, 4], [213.95, 5.409, 4], [219.359, 2.551, 4], [222.56, 5.72, 4], [228.93, 7.8, 6], [237.01, 4.197, 6], [241.207, 4.24, 6], [245.447, 5.536, 6], [250.983, 3.147, 6]]}, "2": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F12-sino-japanese-war.mp3?alt=media&token=6fafbf61-c88d-4a0e-bc6b-547dcc83bf52", "tl": [[0, 1.8, 0], [1.8, 3.84, 0], [5.92, 4.334, 0], [10.254, 2.266, 0], [13.17, 2.52, 1], [16.34, 4, 1], [20.99, 8.28, 1], [29.55, 5.48, 1], [35.03, 4.76, 1], [40.07, 5.215, 1], [45.285, 2.541, 1], [47.826, 2.164, 1], [50.64, 6.48, 1], [57.77, 4.24, 2], [62.66, 4.84, 2], [68.15, 4.38, 2], [72.53, 2.1, 2], [74.91, 3.633, 2], [78.543, 3.127, 2], [81.95, 3.998, 2], [85.948, 2.962, 2], [89.19, 2.48, 2], [91.95, 3.174, 2], [95.124, 2.466, 2], [98.24, 3.658, 2], [101.898, 4.102, 2], [106.65, 2.84, 3], [110.14, 4.72, 3], [115.51, 2.88, 3], [118.67, 2.961, 3], [121.631, 4.799, 3], [126.71, 3, 3], [129.99, 3.076, 3], [133.066, 2.964, 3], [136.31, 3.402, 3], [139.712, 4.918, 3], [144.91, 3.452, 3], [148.362, 3.068, 3], [152.08, 3.416, 3], [155.496, 2.624, 3], [158.77, 3.32, 4], [162.74, 4.68, 4], [168.07, 2.559, 4], [170.629, 2.201, 4], [173.11, 7.72, 4], [181.11, 4.788, 4], [185.898, 3.332, 4], [189.51, 5.2, 4], [195.36, 1.643, 4], [197.003, 3.597, 4], [201.25, 6.084, 6], [207.334, 6.276, 6], [213.89, 4.709, 6], [218.599, 5.171, 6]]}, "3": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F12-russo-japanese-war.mp3?alt=media&token=959c04e3-03ab-46dd-9a99-e18e93eb1d4e", "tl": [[0, 3.923, 0], [3.923, 2.037, 0], [6.24, 1.98, 0], [8.22, 1.94, 0], [10.81, 2.8, 1], [14.26, 4.24, 1], [19.15, 6.64, 1], [26.07, 3.551, 1], [29.621, 2.809, 1], [32.71, 2.559, 1], [35.269, 6.961, 1], [42.51, 2.165, 1], [44.675, 3.795, 1], [49.12, 2.419, 1], [51.539, 3.301, 1], [55.49, 3, 2], [59.14, 4.28, 2], [64.07, 4.44, 2], [68.79, 2.631, 2], [71.421, 3.383, 2], [74.804, 5.786, 2], [80.87, 5.04, 2], [86.19, 4.243, 2], [90.433, 5.277, 2], [96.36, 3.173, 2], [99.533, 3.307, 2], [103.49, 3.32, 3], [107.46, 4.08, 3], [112.19, 7.06, 3], [119.25, 1.82, 3], [121.35, 3.08, 3], [124.71, 5.81, 3], [130.52, 2.67, 3], [133.47, 3.44, 3], [137.19, 3.6, 3], [140.79, 5.2, 3], [146.64, 2.803, 3], [149.443, 2.277, 3], [152.37, 6.355, 5], [158.725, 4.885, 5], [163.89, 5.894, 5], [169.784, 3.946, 5]]}, "4": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F12-korea-annexation.mp3?alt=media&token=45f75e70-57ba-41b2-8f5c-733eebaafd2e", "tl": [[0, 2.033, 0], [2.033, 3.567, 0], [5.88, 2.404, 0], [8.284, 3.396, 0], [12.33, 3.2, 1], [16.18, 2.382, 1], [18.562, 1.938, 1], [21.15, 2.978, 1], [24.128, 4.382, 1], [28.79, 3.36, 1], [32.43, 2.132, 1], [34.562, 8.468, 1], [43.31, 2.216, 1], [45.526, 3.092, 1], [48.618, 2.412, 1], [51.31, 4.24, 1], [56.2, 2.993, 1], [59.193, 2.567, 1], [62.41, 3.28, 2], [66.34, 4.68, 2], [71.67, 4.96, 2], [76.91, 4.619, 2], [81.529, 2.385, 2], [83.914, 4.516, 2], [88.71, 3.213, 2], [91.923, 3.907, 2], [96.48, 1.99, 2], [98.47, 3.33, 2], [102.45, 3.48, 3], [106.58, 2.927, 3], [109.507, 2.153, 3], [112.31, 4.4, 3], [116.99, 9.333, 3], [126.323, 4.187, 3], [130.79, 2.619, 3], [133.409, 3.901, 3], [137.59, 3.389, 3], [140.979, 5.331, 3], [146.96, 4.036, 3], [150.996, 1.964, 3], [153.61, 7.388, 5], [160.998, 3.372, 5], [164.65, 5.202, 5], [169.852, 5.318, 5]]}, "5": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F12-industrial-revolution.mp3?alt=media&token=f8df7d27-20a2-4f1a-92bc-0cd89fdbf54a", "tl": [[0, 3.106, 0], [3.106, 3.854, 0], [7.24, 0.96, 0], [8.2, 4.44, 0], [13.29, 2.76, 1], [16.7, 4.12, 1], [21.47, 6.68, 1], [28.43, 3.771, 1], [32.201, 4.169, 1], [36.37, 4.3, 1], [40.95, 2.709, 1], [43.659, 6.268, 1], [49.927, 4.183, 1], [54.76, 7.2, 1], [62.61, 2.2, 2], [65.46, 4.4, 2], [70.51, 2.309, 2], [72.819, 8.411, 2], [81.51, 4.558, 2], [86.068, 3.762, 2], [90.11, 2.32, 2], [93.08, 6.4, 2], [100.13, 3.48, 3], [104.26, 4.44, 3], [109.35, 2.193, 3], [111.543, 1.967, 3], [113.79, 4.741, 3], [118.531, 6.659, 3], [125.47, 2.742, 3], [128.212, 4.098, 3], [132.59, 5.421, 3], [138.011, 4.509, 3], [142.52, 4.23, 3], [147.4, 4.212, 3], [151.612, 2.028, 3], [154.29, 8.627, 5], [162.917, 2.533, 5], [165.73, 4.913, 5], [170.643, 4.647, 5]]}, "6": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F12-meiji-culture.mp3?alt=media&token=951f56b3-e636-4641-aace-d545c373b829", "tl": [[0, 1.965, 0], [1.965, 3.356, 0], [5.321, 3.439, 0], [9.04, 2.271, 0], [11.311, 1.129, 0], [13.09, 3, 1], [16.74, 4.52, 1], [21.91, 4.513, 1], [26.423, 6.167, 1], [32.87, 5.264, 1], [38.134, 3.656, 1], [42.07, 4.45, 1], [46.52, 5.07, 1], [51.87, 3.68, 1], [56.2, 2.256, 1], [58.456, 3.424, 1], [62.53, 2.72, 2], [65.9, 4.24, 2], [70.79, 1.92, 2], [72.71, 3.76, 2], [76.75, 4.563, 2], [81.313, 3.837, 2], [85.43, 3.827, 2], [89.257, 2.693, 2], [92.23, 3.324, 2], [95.554, 4.996, 2], [101.2, 2.791, 2], [103.991, 3.249, 2], [107.89, 2.4, 3], [110.94, 4.2, 3], [115.79, 1.677, 3], [117.467, 3.749, 3], [121.216, 3.254, 3], [124.75, 4.697, 3], [129.447, 2.663, 3], [132.39, 7.287, 3], [139.677, 4.794, 3], [144.471, 3.039, 3], [148.16, 4.495, 3], [152.655, 1.945, 3], [155.25, 3.867, 5], [159.117, 5.192, 5], [164.309, 3.902, 5], [168.211, 3.079, 5], [171.57, 3.268, 5], [174.838, 2.972, 5]]}};          // {単元t: {url, tl:[[開始秒,長さ,ステップ], …]}}          // 参考書の単元t → 問題集のビュー番号（0＝対応なし）
   var views = [].slice.call(document.querySelectorAll('.view'));
   var tabs = [].slice.call(document.querySelectorAll('.tab'));
   var N = views.length - 1; // 単元数
@@ -1380,6 +1425,89 @@
     };
     bar.addEventListener('click', function () { bar.hidden = true; });
   })();
+
+
+  // ── 読み上げ（音声に合わせて句をハイライトし、ページも自動でめくる）──
+  var au = document.getElementById('audio');
+  var apl = document.getElementById('aplayer');
+  var reading = { t: 0, i: -1 };
+  var RATES = [1, 1.25, 1.5, 0.75], ri = 0;
+
+  function fmt(x) { x = Math.max(0, x | 0); return (x / 60 | 0) + ':' + ('0' + (x % 60)).slice(-2); }
+  function spansOf(t) { return [].slice.call(views[t].querySelectorAll('.s')); }
+
+  function startAudio(t) {
+    var a = AUDIO[t];
+    if (!a) return;
+    reading = { t: t, i: -1 };
+    if (au.dataset.t !== String(t)) { au.src = a.url; au.dataset.t = String(t); }
+    document.body.classList.add('reading');
+    apl.hidden = false;
+    au.playbackRate = RATES[ri];
+    au.play();
+  }
+  function stopAudio() {
+    au.pause();
+    document.body.classList.remove('reading');
+    apl.hidden = true;
+    if (reading.t) spansOf(reading.t).forEach(function (el) { el.classList.remove('now', 'read'); });
+    reading = { t: 0, i: -1 };
+  }
+  function paintAudio() {
+    var a = AUDIO[reading.t];
+    if (!a) return;
+    var tl = a.tl, k = -1;
+    for (var i = 0; i < tl.length; i++) { if (au.currentTime >= tl[i][0]) k = i; else break; }
+    if (k === reading.i) return;
+    reading.i = k;
+    // 読んでいる箇所が別のページなら、そのページへ自動でめくる
+    if (k >= 0 && tl[k][2] !== state.s && state.t === reading.t) go(reading.t, tl[k][2], tl[k][2] > state.s ? 1 : -1);
+    var sp = spansOf(reading.t);
+    sp.forEach(function (el, i) {
+      el.classList.toggle('now', i === k);
+      el.classList.toggle('read', i < k);
+    });
+    var el = sp[k];
+    if (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < 70 || r.bottom > innerHeight - 150) {
+        scrollTo({ top: scrollY + r.top - innerHeight * 0.4, behavior: 'smooth' });
+      }
+    }
+  }
+  function tickAudio() {
+    paintAudio();
+    if (au.duration) {
+      document.getElementById('apSeek').value = Math.round(au.currentTime / au.duration * 1000);
+      document.getElementById('apTime').textContent = fmt(au.currentTime) + ' / ' + fmt(au.duration);
+    }
+    if (!au.paused) requestAnimationFrame(tickAudio);
+  }
+  au.addEventListener('play', function () { document.getElementById('apPlay').textContent = '❚❚'; tickAudio(); });
+  au.addEventListener('pause', function () { document.getElementById('apPlay').textContent = '▶'; });
+  au.addEventListener('ended', stopAudio);
+  document.getElementById('apPlay').onclick = function () { au.paused ? au.play() : au.pause(); };
+  document.getElementById('apClose').onclick = stopAudio;
+  document.getElementById('apSeek').oninput = function () {
+    if (au.duration) { au.currentTime = this.value / 1000 * au.duration; reading.i = -1; paintAudio(); }
+  };
+  document.getElementById('apRate').onclick = function () {
+    ri = (ri + 1) % RATES.length; au.playbackRate = RATES[ri];
+    this.textContent = RATES[ri].toFixed(2).replace(/0$/, '') + '×';
+  };
+  // 単元見出しの「🔊 読み上げ」＋ 文字タップでその場所から読む
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('.play-unit');
+    if (b) { startAudio(+b.dataset.play); return; }
+    var sp = e.target.closest && e.target.closest('.s');
+    if (sp && AUDIO[state.t]) {
+      var k = +sp.dataset.i, a = AUDIO[state.t];
+      if (a.tl[k]) {
+        if (reading.t !== state.t) startAudio(state.t);
+        au.currentTime = a.tl[k][0]; reading.i = -1; paintAudio(); au.play();
+      }
+    }
+  });
 
   // 単元タブの左右矢印: まだ隠れているタブがある側だけ出す
   function updateTabArrows() {
@@ -1478,6 +1606,8 @@
     // クエリが付いていても落とさない（URL共有時の情報を保つ）
     if (location.hash !== h) history.replaceState(null, '', location.search + (t === 0 ? '#' : h));
     updateSwap();
+    var pb = views[t] && views[t].querySelector('.play-unit');
+    if (pb) pb.hidden = !AUDIO[t];
     rendered = { t: t, s: s };
   }
 

@@ -13,6 +13,36 @@
 
   .mark { background:linear-gradient(transparent 55%, var(--line) 55%); font-weight:bold; padding:0 1px; }
 
+  /* ── 読み上げ（音声＋読んでいる句のハイライト）── */
+  .s { border-radius:6px; padding:.14em .12em; margin:0 -.12em;
+       -webkit-box-decoration-break:clone; box-decoration-break:clone;
+       transition:background-color .15s ease, color .15s ease; }
+  body.reading .s { cursor:pointer; }
+  .s.read { color:#8a8279; }
+  .s.now { background:#fcd34d; color:#1c1917; }
+  .s.now .mark { background:none; }
+  /* 単元見出しの再生ボタン */
+  .play-unit { display:inline-flex; align-items:center; gap:6px; margin-left:auto; flex:none;
+               background:#fff; color:var(--brand); border:1.5px solid var(--line);
+               border-radius:20px; padding:4px 12px; font-size:12px; font-weight:bold;
+               font-family:inherit; cursor:pointer; }
+  .play-unit[hidden] { display:none; }
+  /* 下部プレーヤー（再生中だけ出す。ナビバーの上に重ねる） */
+  .aplayer { position:fixed; left:0; right:0; bottom:58px; z-index:25;
+             background:rgba(255,253,248,.98); border-top:1px solid #f0e6d2;
+             box-shadow:0 -3px 12px rgba(120,80,20,.14); padding:7px 0 8px; }
+  .aplayer[hidden] { display:none; }
+  .ap-in { max-width:640px; margin:0 auto; padding:0 14px; display:flex; align-items:center; gap:9px; }
+  .ap-btn { flex:none; width:40px; height:40px; border-radius:50%; border:none; background:var(--brand);
+            color:#fff; font-size:16px; cursor:pointer; box-shadow:0 2px 6px rgba(180,83,9,.35); }
+  .ap-seek { flex:1; min-width:0; }
+  .ap-seek input { width:100%; accent-color:var(--brand); }
+  .ap-time { flex:none; font-size:11px; font-weight:bold; color:var(--brand); min-width:74px;
+             text-align:right; }
+  .ap-rate, .ap-close { flex:none; border:1.5px solid var(--line); background:#fffbeb; color:var(--brand);
+             font-weight:bold; border-radius:16px; padding:4px 9px; font-size:11.5px; cursor:pointer;
+             font-family:inherit; }
+
   /* ── 上部: タイトル＋単元タブ＋進捗バー ── */
   .bar { position:sticky; top:0; z-index:10; background:rgba(255,253,248,.96);
          backdrop-filter:blur(6px); border-bottom:1px solid #f0e6d2; }
@@ -35,7 +65,7 @@
                white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   .bar-step { flex:none; font-size:11px; font-weight:bold; color:var(--brand); }
   /* 初回だけ出す操作ヒント（PCはキー、スマホはスワイプ） */
-  .hintbar { position:fixed; left:50%; transform:translateX(-50%); bottom:78px; z-index:35;
+  .hintbar { position:fixed; left:50%; transform:translateX(-50%); bottom:132px; z-index:35;
              background:rgba(28,25,23,.88); color:#fff; font-size:12.5px; font-weight:bold;
              border-radius:20px; padding:8px 16px; box-shadow:0 4px 14px rgba(0,0,0,.3);
              animation:hintIn .3s ease; }
@@ -419,32 +449,33 @@
   </footer>
 </section>
 <section class="view" data-t="1">
-  <div class="tband"><span class="tno">1</span><h2>冷戦の終結</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">1</span><h2>冷戦の終結</h2>
+    <button class="play-unit" type="button" data-play="1" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-cold-war-end.webp"
            alt="冷戦の終結（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">長く続いた東西の対立が、たった数年でガラッと変わったんだ。壁が壊れ、国がなくなる…そんな大きな変化を見ていこう。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">長く続いた東西の対立が、</span><span class="s" data-i="1">たった数年でガラッと変わったんだ。</span><span class="s" data-i="2">壁が壊れ、国がなくなる…そんな大きな変化を見ていこう。</span></div></div>
     </div>
     <div class="step" data-label="冷戦の終わりを告げたベルリンの壁崩壊">
-      <h3><span class="sec-no">1</span>冷戦の終わりを告げたベルリンの壁崩壊</h3>
-      <div class="sec-lead">ベルリンの壁が崩れ、冷戦の終結が宣言されたよ。</div>
-      <p>第二次世界大戦のあと、アメリカを中心とする西側とソ連を中心とする東側は、激しくにらみ合う<span class="mark">冷戦</span>という状態が長く続いていたんだ。でも1989年、東西ドイツを分けていた<span class="mark">ベルリンの壁</span>がついに崩れたんだよ。同じ年、ソ連の指導者<span class="mark">ゴルバチョフ</span>とアメリカの首脳が<span class="mark">マルタ会談</span>を開いて、長い冷戦の終結を宣言したんだ。壁が壊れる映像を見て、世界中が驚いたんだって。知ってた?ゴルバチョフはペレストロイカという国内改革も進めていたんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1989年、ベルリンの壁が崩れ冷戦の終結が宣言されたよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="3">冷戦の終わりを告げたベルリンの壁崩壊</span></h3>
+      <div class="sec-lead"><span class="s" data-i="4">ベルリンの壁が崩れ、</span><span class="s" data-i="5">冷戦の終結が宣言されたよ。</span></div>
+      <p><span class="s" data-i="6">第二次世界大戦のあと、</span><span class="s" data-i="7">アメリカを中心とする西側とソ連を中心とする東側は、</span><span class="s" data-i="8">激しくにらみ合う<span class="mark">冷戦</span>という状態が長く続いていたんだ。</span><span class="s" data-i="9">でも1989年、</span><span class="s" data-i="10">東西ドイツを分けていた<span class="mark">ベルリンの壁</span>がついに崩れたんだよ。</span><span class="s" data-i="11">同じ年、ソ連の指導者<span class="mark">ゴルバチョフ</span>とアメリカの首脳が<span class="mark">マルタ会談</span>を開いて、</span><span class="s" data-i="12">長い冷戦の終結を宣言したんだ。</span><span class="s" data-i="13">壁が壊れる映像を見て、</span><span class="s" data-i="14">世界中が驚いたんだって。</span><span class="s" data-i="15">知ってた?ゴルバチョフはペレストロイカという国内改革も進めていたんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="16">1989年、ベルリンの壁が崩れ冷戦の終結が宣言されたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">冷戦<span class="w-rd">れいせん</span></span><span class="w-desc">東西の陣営が激しく対立した状態。1989年のマルタ会談で終結が宣言されたよ。</span></div><div class="word"><span class="w-term">ベルリンの壁<span class="w-rd">べるりんのかべ</span></span><span class="w-desc">東西ドイツを分けていた壁。1989年に崩れて、世界を驚かせたんだ。</span></div><div class="word"><span class="w-term">ゴルバチョフ<span class="w-rd">ごるばちょふ</span></span><span class="w-desc">ソ連最後の指導者。改革を進め、冷戦終結を主導した人だよ。</span></div><div class="word"><span class="w-term">マルタ会談<span class="w-rd">まるたかいだん</span></span><span class="w-desc">1989年、アメリカとソ連の首脳が冷戦の終結を宣言した会談。</span></div><div class="word"><span class="w-term">ソ連<span class="w-rd">それん</span></span><span class="w-desc">1991年に解体して、ロシアなど15の共和国に分かれた国。</span></div></div>
     </div>
     <div class="step" data-label="ドイツ統一とソ連の解体">
-      <h3><span class="sec-no">2</span>ドイツ統一とソ連の解体</h3>
-      <div class="sec-lead">ドイツが統一し、ソ連はついに解体したよ。</div>
-      <p>ベルリンの壁が崩れた翌年の1990年、東西に分かれていた<span class="mark">ドイツ</span>が一つの国に統一されたんだ。そして1991年には、あの大国<span class="mark">ソ連</span>が解体して、ロシアなど15の共和国に分かれてしまったんだよ。すごいよね、たった数年で世界地図が変わってしまうくらいの出来事なんだ。同じ1991年、イラクがクウェートに攻めこんだことをきっかけに<span class="mark">湾岸戦争</span>が起こったよ。冷戦の終わりは、世界に平和だけでなく新しい対立も生んでしまったんだね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1990年にドイツが統一し、91年にソ連が解体したよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="17">ドイツ統一とソ連の解体</span></h3>
+      <div class="sec-lead"><span class="s" data-i="18">ドイツが統一し、</span><span class="s" data-i="19">ソ連はついに解体したよ。</span></div>
+      <p><span class="s" data-i="20">ベルリンの壁が崩れた翌年の1990年、</span><span class="s" data-i="21">東西に分かれていた<span class="mark">ドイツ</span>が一つの国に統一されたんだ。</span><span class="s" data-i="22">そして1991年には、</span><span class="s" data-i="23">あの大国<span class="mark">ソ連</span>が解体して、</span><span class="s" data-i="24">ロシアなど15の共和国に分かれてしまったんだよ。</span><span class="s" data-i="25">すごいよね、たった数年で世界地図が変わってしまうくらいの出来事なんだ。</span><span class="s" data-i="26">同じ1991年、</span><span class="s" data-i="27">イラクがクウェートに攻めこんだことをきっかけに<span class="mark">湾岸戦争</span>が起こったよ。</span><span class="s" data-i="28">冷戦の終わりは、</span><span class="s" data-i="29">世界に平和だけでなく新しい対立も生んでしまったんだね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="30">1990年にドイツが統一し、</span><span class="s" data-i="31">91年にソ連が解体したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">湾岸戦争<span class="w-rd">わんがんせんそう</span></span><span class="w-desc">1991年、イラクのクウェート侵攻をきっかけに起きた戦争。</span></div></div>
     </div>
     <div class="step" data-label="EUの発足と新しいテロとの戦い">
-      <h3><span class="sec-no">3</span>EUの発足と新しいテロとの戦い</h3>
-      <div class="sec-lead">EUが発足する一方、新たなテロも起きたよ。</div>
-      <p>1993年には、ヨーロッパの国々がまとまって協力する<span class="mark">EU</span>(ヨーロッパ連合)が発足したんだ。のちにユーロという共通のお金も使われるようになったよ。でも世界が平和になったわけではなくて、2001年9月11日には<span class="mark">アメリカ同時多発テロ</span>という大きな事件が起きてしまうんだ。このテロがきっかけでアフガニスタン戦争が始まり、2003年にはアメリカが<span class="mark">イラク戦争</span>を起こしてフセイン政権を倒したんだよ。冷戦のあとも、世界はいろいろな課題と向き合い続けているんだね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1993年にEUが発足し、2001年に同時多発テロが起きたよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="32">EUの発足と新しいテロとの戦い</span></h3>
+      <div class="sec-lead"><span class="s" data-i="33">EUが発足する一方、</span><span class="s" data-i="34">新たなテロも起きたよ。</span></div>
+      <p><span class="s" data-i="35">1993年には、</span><span class="s" data-i="36">ヨーロッパの国々がまとまって協力する<span class="mark">EU</span>(ヨーロッパ連合)が発足したんだ。</span><span class="s" data-i="37">のちにユーロという共通のお金も使われるようになったよ。</span><span class="s" data-i="38">でも世界が平和になったわけではなくて、</span><span class="s" data-i="39">2001年9月11日には<span class="mark">アメリカ同時多発テロ</span>という大きな事件が起きてしまうんだ。</span><span class="s" data-i="40">このテロがきっかけでアフガニスタン戦争が始まり、</span><span class="s" data-i="41">2003年にはアメリカが<span class="mark">イラク戦争</span>を起こしてフセイン政権を倒したんだよ。</span><span class="s" data-i="42">冷戦のあとも、世界はいろいろな課題と向き合い続けているんだね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="43">1993年にEUが発足し、</span><span class="s" data-i="44">2001年に同時多発テロが起きたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">EU<span class="w-rd">いーゆー</span></span><span class="w-desc">1993年に発足した、ヨーロッパの国々のまとまり。</span></div><div class="word"><span class="w-term">アメリカ同時多発テロ<span class="w-rd">あめりかどうじたはつてろ</span></span><span class="w-desc">2001年9月11日に起きた大きなテロ事件。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -552,7 +583,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">1989年の<span class="mark">ベルリンの壁</span>崩壊と<span class="mark">マルタ会談</span>で長い冷戦が終わり、1990年の<span class="mark">ドイツ</span>統一、1991年の<span class="mark">ソ連</span>解体へとつながっていったよ。その後も<span class="mark">EU</span>の発足や同時多発テロなど、世界は新しい協力と対立を経験してきたんだね。</div>
+        <div class="sum30-body"><span class="s" data-i="45">1989年の<span class="mark">ベルリンの壁</span>崩壊と<span class="mark">マルタ会談</span>で長い冷戦が終わり、</span><span class="s" data-i="46">1990年の<span class="mark">ドイツ</span>統一、</span><span class="s" data-i="47">1991年の<span class="mark">ソ連</span>解体へとつながっていったよ。</span><span class="s" data-i="48">その後も<span class="mark">EU</span>の発足や同時多発テロなど、</span><span class="s" data-i="49">世界は新しい協力と対立を経験してきたんだね。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -567,39 +598,40 @@
     </div>
 </section>
 <section class="view" data-t="2">
-  <div class="tband"><span class="tno">2</span><h2>平成の日本</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">2</span><h2>平成の日本</h2>
+    <button class="play-unit" type="button" data-play="2" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-heisei-japan.webp"
            alt="平成の日本（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">好景気に浮かれたと思ったら一気に不況へ…そして大きな地震や事件が日本を襲った、激動の平成という時代を見てみよう。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">好景気に浮かれたと思ったら一気に不況へ…そして大きな地震や事件が日本を襲った、</span><span class="s" data-i="1">激動の平成という時代を見てみよう。</span></div></div>
     </div>
     <div class="step" data-label="バブル経済とその崩壊">
-      <h3><span class="sec-no">1</span>バブル経済とその崩壊</h3>
-      <div class="sec-lead">好景気のバブル経済が崩壊し、不況が続いたよ。</div>
-      <p>1980年代後半、日本では株や土地の値段が実力以上にどんどん上がっていく<span class="mark">バブル経済</span>という現象が起きていたんだ。まるで泡(バブル)がふくらむみたいに景気が良くなっていったんだよ。でも1991年ごろ、そのバブルは崩壊してしまい、株価や地価が一気に下がって、日本は長い不況に入ってしまったんだ。不思議でしょ?あんなに好景気だったのに、あっという間に景色が変わってしまったんだね。この不況はその後何年も日本経済に影響を与え続けたよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1980年代のバブル経済は、1991年ごろ崩壊したよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="2">バブル経済とその崩壊</span></h3>
+      <div class="sec-lead"><span class="s" data-i="3">好景気のバブル経済が崩壊し、</span><span class="s" data-i="4">不況が続いたよ。</span></div>
+      <p><span class="s" data-i="5">1980年代後半、</span><span class="s" data-i="6">日本では株や土地の値段が実力以上にどんどん上がっていく<span class="mark">バブル経済</span>という現象が起きていたんだ。</span><span class="s" data-i="7">まるで泡(バブル)がふくらむみたいに景気が良くなっていったんだよ。</span><span class="s" data-i="8">でも1991年ごろ、</span><span class="s" data-i="9">そのバブルは崩壊してしまい、</span><span class="s" data-i="10">株価や地価が一気に下がって、</span><span class="s" data-i="11">日本は長い不況に入ってしまったんだ。</span><span class="s" data-i="12">不思議でしょ?あんなに好景気だったのに、</span><span class="s" data-i="13">あっという間に景色が変わってしまったんだね。</span><span class="s" data-i="14">この不況はその後何年も日本経済に影響を与え続けたよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="15">1980年代のバブル経済は、</span><span class="s" data-i="16">1991年ごろ崩壊したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">バブル経済<span class="w-rd">ばぶるけいざい</span></span><span class="w-desc">1980年代後半、株価や地価が異常に高騰した好景気。</span></div></div>
     </div>
     <div class="step" data-label="55年体制の終わりとPKO協力法">
-      <h3><span class="sec-no">2</span>55年体制の終わりとPKO協力法</h3>
-      <div class="sec-lead">55年体制が終わり、自衛隊も海外へ出たよ。</div>
-      <p>1993年、長く続いていた自民党中心の政治のしくみ(55年体制)がついに終わって、<span class="mark">細川護熙</span>を首相とする連立政権が生まれたんだ。政治の世界にも大きな変化が起きたんだね。また1992年には、自衛隊が海外に行けるようにする<span class="mark">PKO協力法</span>が成立したよ。これによって、日本の自衛隊も国連の平和維持活動(PKO)に参加できるようになったんだ。日本の役割が、国内だけでなく世界にも広がっていった時代なんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1992年にPKO協力法、93年に55年体制が終わったよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="17">55年体制の終わりとPKO協力法</span></h3>
+      <div class="sec-lead"><span class="s" data-i="18">55年体制が終わり、</span><span class="s" data-i="19">自衛隊も海外へ出たよ。</span></div>
+      <p><span class="s" data-i="20">1993年、長く続いていた自民党中心の政治のしくみ(55年体制)がついに終わって、</span><span class="s" data-i="21"><span class="mark">細川護熙</span>を首相とする連立政権が生まれたんだ。</span><span class="s" data-i="22">政治の世界にも大きな変化が起きたんだね。</span><span class="s" data-i="23">また1992年には、</span><span class="s" data-i="24">自衛隊が海外に行けるようにする<span class="mark">PKO協力法</span>が成立したよ。</span><span class="s" data-i="25">これによって、日本の自衛隊も国連の平和維持活動(PKO)に参加できるようになったんだ。</span><span class="s" data-i="26">日本の役割が、国内だけでなく世界にも広がっていった時代なんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="27">1992年にPKO協力法、</span><span class="s" data-i="28">93年に55年体制が終わったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">55年体制<span class="w-rd">ごじゅうごねんたいせい</span></span><span class="w-desc">長く続いた自民党中心の政治のしくみ。1993年に終わった。</span></div><div class="word"><span class="w-term">細川護熙<span class="w-rd">ほそかわもりひろ</span></span><span class="w-desc">1993年に首相となり、55年体制を終わらせた人物。</span></div><div class="word"><span class="w-term">PKO協力法<span class="w-rd">ぴーけーおーきょうりょくほう</span></span><span class="w-desc">1992年成立。自衛隊が国連の平和維持活動に参加できるようにした法律。</span></div></div>
     </div>
     <div class="step" data-label="阪神・淡路大震災と地下鉄サリン事件">
-      <h3><span class="sec-no">3</span>阪神・淡路大震災と地下鉄サリン事件</h3>
-      <div class="sec-lead">大震災とテロ事件が、同じ年に日本を襲ったよ。</div>
-      <p>1995年、日本は大きなショックに立て続けに見舞われたんだ。1月17日には兵庫県南部で<span class="mark">阪神・淡路大震災</span>が起こり、神戸などで大きな被害が出たんだよ。さらに3月には、オウム真理教が東京の地下鉄で<span class="mark">地下鉄サリン事件</span>というテロを引き起こしたんだ。同じ年にこれだけの出来事が重なるなんて、当時の人たちはとても不安な思いをしただろうね。この経験は、その後の防災や安全対策を見直すきっかけにもなったんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1995年、阪神・淡路大震災と地下鉄サリン事件が起きたよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="29">阪神・淡路大震災と地下鉄サリン事件</span></h3>
+      <div class="sec-lead"><span class="s" data-i="30">大震災とテロ事件が、</span><span class="s" data-i="31">同じ年に日本を襲ったよ。</span></div>
+      <p><span class="s" data-i="32">1995年、日本は大きなショックに立て続けに見舞われたんだ。</span><span class="s" data-i="33">1月17日には兵庫県南部で<span class="mark">阪神・淡路大震災</span>が起こり、</span><span class="s" data-i="34">神戸などで大きな被害が出たんだよ。</span><span class="s" data-i="35">さらに3月には、</span><span class="s" data-i="36">オウム真理教が東京の地下鉄で<span class="mark">地下鉄サリン事件</span>というテロを引き起こしたんだ。</span><span class="s" data-i="37">同じ年にこれだけの出来事が重なるなんて、</span><span class="s" data-i="38">当時の人たちはとても不安な思いをしただろうね。</span><span class="s" data-i="39">この経験は、その後の防災や安全対策を見直すきっかけにもなったんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="40">1995年、阪神・淡路大震災と地下鉄サリン事件が起きたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">阪神・淡路大震災<span class="w-rd">はんしんあわじだいしんさい</span></span><span class="w-desc">1995年1月17日に起きた、兵庫県南部の大地震。</span></div><div class="word"><span class="w-term">地下鉄サリン事件<span class="w-rd">ちかてつさりんじけん</span></span><span class="w-desc">1995年3月、オウム真理教が東京の地下鉄で起こしたテロ事件。</span></div></div>
     </div>
     <div class="step" data-label="東日本大震災と少子高齢化">
-      <h3><span class="sec-no">4</span>東日本大震災と少子高齢化</h3>
-      <div class="sec-lead">大震災と原発事故、そして少子高齢化が課題だよ。</div>
-      <p>2011年3月11日、東北地方で<span class="mark">東日本大震災</span>が起こったんだ。大きな津波が街をのみこみ、さらに<span class="mark">福島第一原発事故</span>も引き起こしてしまったんだよ。津波で電源が止まり、原子炉を冷やせなくなって燃料が溶け出す、メルトダウンという事態になったんだ。一方、今の日本は生まれる子どもが減る<span class="mark">少子化</span>と、お年寄りの割合が増える<span class="mark">高齢化</span>が同時に進む少子高齢化という課題にも向き合っているよ。どちらも、これからの日本を考えるうえでとても大事なテーマなんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">2011年の東日本大震災は、原発事故も引き起こしたよ。</div></div>
+      <h3><span class="sec-no">4</span><span class="s" data-i="41">東日本大震災と少子高齢化</span></h3>
+      <div class="sec-lead"><span class="s" data-i="42">大震災と原発事故、</span><span class="s" data-i="43">そして少子高齢化が課題だよ。</span></div>
+      <p><span class="s" data-i="44">2011年3月11日、</span><span class="s" data-i="45">東北地方で<span class="mark">東日本大震災</span>が起こったんだ。</span><span class="s" data-i="46">大きな津波が街をのみこみ、</span><span class="s" data-i="47">さらに<span class="mark">福島第一原発事故</span>も引き起こしてしまったんだよ。</span><span class="s" data-i="48">津波で電源が止まり、</span><span class="s" data-i="49">原子炉を冷やせなくなって燃料が溶け出す、</span><span class="s" data-i="50">メルトダウンという事態になったんだ。</span><span class="s" data-i="51">一方、今の日本は生まれる子どもが減る<span class="mark">少子化</span>と、</span><span class="s" data-i="52">お年寄りの割合が増える<span class="mark">高齢化</span>が同時に進む少子高齢化という課題にも向き合っているよ。</span><span class="s" data-i="53">どちらも、これからの日本を考えるうえでとても大事なテーマなんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="54">2011年の東日本大震災は、</span><span class="s" data-i="55">原発事故も引き起こしたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">東日本大震災<span class="w-rd">ひがしにほんだいしんさい</span></span><span class="w-desc">2011年3月11日に起きた大地震。大津波と原発事故を引き起こした。</span></div><div class="word"><span class="w-term">少子高齢化<span class="w-rd">しょうしこうれいか</span></span><span class="w-desc">子どもが減り、お年寄りの割合が増えていく現象。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -707,7 +739,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">平成は<span class="mark">バブル経済</span>の崩壊から始まり、政治の大きな転換や、<span class="mark">阪神・淡路大震災</span>、<span class="mark">地下鉄サリン事件</span>、<span class="mark">東日本大震災</span>など多くの試練を経験した時代だったよ。今の日本は<span class="mark">少子高齢化</span>という課題にも向き合い続けているんだね。</div>
+        <div class="sum30-body"><span class="s" data-i="56">平成は<span class="mark">バブル経済</span>の崩壊から始まり、</span><span class="s" data-i="57">政治の大きな転換や、</span><span class="s" data-i="58"><span class="mark">阪神・淡路大震災</span>、</span><span class="s" data-i="59"><span class="mark">地下鉄サリン事件</span>、</span><span class="s" data-i="60"><span class="mark">東日本大震災</span>など多くの試練を経験した時代だったよ。</span><span class="s" data-i="61">今の日本は<span class="mark">少子高齢化</span>という課題にも向き合い続けているんだね。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -722,39 +754,40 @@
     </div>
 </section>
 <section class="view" data-t="3">
-  <div class="tband"><span class="tno">3</span><h2>現代の課題</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">3</span><h2>現代の課題</h2>
+    <button class="play-unit" type="button" data-play="3" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-modern-issues.webp"
            alt="現代の課題（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">地球規模でつながる時代だからこそ生まれる、うれしい変化と難しい課題。世界が今どんな問題と向き合っているか、一緒に見てみよう。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">地球規模でつながる時代だからこそ生まれる、</span><span class="s" data-i="1">うれしい変化と難しい課題。</span><span class="s" data-i="2">世界が今どんな問題と向き合っているか、</span><span class="s" data-i="3">一緒に見てみよう。</span></div></div>
     </div>
     <div class="step" data-label="グローバル化と情報化社会">
-      <h3><span class="sec-no">1</span>グローバル化と情報化社会</h3>
-      <div class="sec-lead">グローバル化と情報化が、世界を大きく変えたよ。</div>
-      <p>1990年代以降、人・物・お金・情報が国境を越えて世界中に広がっていく<span class="mark">グローバル化</span>が急速に進んだんだ。同じころ、<span class="mark">インターネット</span>も一気に普及して、コンピュータが生活に欠かせない情報化社会がやってきたんだよ。世界のニュースがすぐに届いたり、遠くの人と簡単に連絡が取れたり…すごいよね。でも便利になった分、世界のどこかで起きた問題が、すぐに自分たちの生活にも影響するようになったとも言えるんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1990年代以降、グローバル化とネット普及が進んだよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="4">グローバル化と情報化社会</span></h3>
+      <div class="sec-lead"><span class="s" data-i="5">グローバル化と情報化が、</span><span class="s" data-i="6">世界を大きく変えたよ。</span></div>
+      <p><span class="s" data-i="7">1990年代以降、</span><span class="s" data-i="8">人・物・お金・情報が国境を越えて世界中に広がっていく<span class="mark">グローバル化</span>が急速に進んだんだ。</span><span class="s" data-i="9">同じころ、<span class="mark">インターネット</span>も一気に普及して、</span><span class="s" data-i="10">コンピュータが生活に欠かせない情報化社会がやってきたんだよ。</span><span class="s" data-i="11">世界のニュースがすぐに届いたり、</span><span class="s" data-i="12">遠くの人と簡単に連絡が取れたり…すごいよね。</span><span class="s" data-i="13">でも便利になった分、</span><span class="s" data-i="14">世界のどこかで起きた問題が、</span><span class="s" data-i="15">すぐに自分たちの生活にも影響するようになったとも言えるんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="16">1990年代以降、</span><span class="s" data-i="17">グローバル化とネット普及が進んだよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">グローバル化<span class="w-rd">ぐろーばるか</span></span><span class="w-desc">人・物・お金・情報が国境を越えて広がっていく動き。</span></div></div>
     </div>
     <div class="step" data-label="地球温暖化と世界の取り組み">
-      <h3><span class="sec-no">2</span>地球温暖化と世界の取り組み</h3>
-      <div class="sec-lead">地球温暖化に、世界が力を合わせているよ。</div>
-      <p>二酸化炭素などの<span class="mark">温室効果ガス</span>が増えることで地球の気温が上がってしまう<span class="mark">地球温暖化</span>は、今とても深刻な問題なんだ。このままだと気候や災害にも大きな影響が出てしまうんだよ。そこで1997年には温室効果ガスの削減を約束した<span class="mark">京都議定書</span>が、2015年にはもっと多くの国が参加する<span class="mark">パリ協定</span>が採択されたんだ。同じ2015年には、貧困や環境など17の目標をかかげる<span class="mark">SDGs</span>も国連で決められたよ。世界みんなで力を合わせようとしているんだね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1997年の京都議定書、2015年のパリ協定とSDGsだよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="18">地球温暖化と世界の取り組み</span></h3>
+      <div class="sec-lead"><span class="s" data-i="19">地球温暖化に、世界が力を合わせているよ。</span></div>
+      <p><span class="s" data-i="20">二酸化炭素などの<span class="mark">温室効果ガス</span>が増えることで地球の気温が上がってしまう<span class="mark">地球温暖化</span>は、</span><span class="s" data-i="21">今とても深刻な問題なんだ。</span><span class="s" data-i="22">このままだと気候や災害にも大きな影響が出てしまうんだよ。</span><span class="s" data-i="23">そこで1997年には温室効果ガスの削減を約束した<span class="mark">京都議定書</span>が、</span><span class="s" data-i="24">2015年にはもっと多くの国が参加する<span class="mark">パリ協定</span>が採択されたんだ。</span><span class="s" data-i="25">同じ2015年には、</span><span class="s" data-i="26">貧困や環境など17の目標をかかげる<span class="mark">SDGs</span>も国連で決められたよ。</span><span class="s" data-i="27">世界みんなで力を合わせようとしているんだね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="28">1997年の京都議定書、</span><span class="s" data-i="29">2015年のパリ協定とSDGsだよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">地球温暖化<span class="w-rd">ちきゅうおんだんか</span></span><span class="w-desc">温室効果ガスが増えて地球の気温が上がる問題。</span></div><div class="word"><span class="w-term">京都議定書<span class="w-rd">きょうときていしょ</span></span><span class="w-desc">1997年に採択された、温室効果ガス削減の国際的な約束。</span></div><div class="word"><span class="w-term">パリ協定<span class="w-rd">ぱりきょうてい</span></span><span class="w-desc">2015年に採択された、温暖化対策の新しい国際枠組み。</span></div><div class="word"><span class="w-term">SDGs<span class="w-rd">えすでぃーじーず</span></span><span class="w-desc">2015年に国連で採択された、17の目標からなる持続可能な開発目標。</span></div></div>
     </div>
     <div class="step" data-label="国際テロ・難民問題・感染症">
-      <h3><span class="sec-no">3</span>国際テロ・難民問題・感染症</h3>
-      <div class="sec-lead">テロや難民、感染症が世界の課題になったよ。</div>
-      <p>2001年のアメリカ同時多発テロ以降、国境を越えて人々を攻撃する<span class="mark">国際テロ</span>が世界の大きな脅威になっているんだ。また、戦争や迫害によって住む場所を追われる人々が増える<span class="mark">難民問題</span>も、世界各地で深刻になっているんだよ。つらい思いをしている人がたくさんいるんだね。そして2019年末からは<span class="mark">新型コロナウイルス感染症</span>が世界中で流行して、人々の生活や経済に大きな影響を与えたんだ。世界がひとつにつながっているからこそ、こうした問題もあっという間に広がってしまうんだね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">国際テロや難民問題、新型コロナが世界の課題になったよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="30">国際テロ・難民問題・感染症</span></h3>
+      <div class="sec-lead"><span class="s" data-i="31">テロや難民、感染症が世界の課題になったよ。</span></div>
+      <p><span class="s" data-i="32">2001年のアメリカ同時多発テロ以降、</span><span class="s" data-i="33">国境を越えて人々を攻撃する<span class="mark">国際テロ</span>が世界の大きな脅威になっているんだ。</span><span class="s" data-i="34">また、戦争や迫害によって住む場所を追われる人々が増える<span class="mark">難民問題</span>も、</span><span class="s" data-i="35">世界各地で深刻になっているんだよ。</span><span class="s" data-i="36">つらい思いをしている人がたくさんいるんだね。</span><span class="s" data-i="37">そして2019年末からは<span class="mark">新型コロナウイルス感染症</span>が世界中で流行して、</span><span class="s" data-i="38">人々の生活や経済に大きな影響を与えたんだ。</span><span class="s" data-i="39">世界がひとつにつながっているからこそ、</span><span class="s" data-i="40">こうした問題もあっという間に広がってしまうんだね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="41">国際テロや難民問題、</span><span class="s" data-i="42">新型コロナが世界の課題になったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">難民問題<span class="w-rd">なんみんもんだい</span></span><span class="w-desc">戦争や迫害で住む場所を追われる人々をめぐる問題。</span></div></div>
     </div>
     <div class="step" data-label="日本が抱える領土問題">
-      <h3><span class="sec-no">4</span>日本が抱える領土問題</h3>
-      <div class="sec-lead">日本には、いくつかの領土問題があるんだよ。</div>
-      <p>日本にはいくつかの<span class="mark">領土問題</span>があるんだよ。北方領土は歯舞群島・色丹島・国後島・択捉島の4島で、日本は返還を求めているんだ。<span class="mark">竹島</span>は日本が領有権を主張する一方でお隣の韓国が実際に管理していて、<span class="mark">尖閣諸島</span>は逆に日本が実際に管理しているけれど中国などが領有権を主張しているんだよ。似ているようで実は違う関係なんだね。こうした問題は、これからも冷静に話し合いを続けていく必要があるテーマなんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">竹島・尖閣諸島・北方領土という領土問題があるよ。</div></div>
+      <h3><span class="sec-no">4</span><span class="s" data-i="43">日本が抱える領土問題</span></h3>
+      <div class="sec-lead"><span class="s" data-i="44">日本には、いくつかの領土問題があるんだよ。</span></div>
+      <p><span class="s" data-i="45">日本にはいくつかの<span class="mark">領土問題</span>があるんだよ。</span><span class="s" data-i="46">北方領土は歯舞群島・色丹島・国後島・択捉島の4島で、</span><span class="s" data-i="47">日本は返還を求めているんだ。</span><span class="s" data-i="48"><span class="mark">竹島</span>は日本が領有権を主張する一方でお隣の韓国が実際に管理していて、</span><span class="s" data-i="49"><span class="mark">尖閣諸島</span>は逆に日本が実際に管理しているけれど中国などが領有権を主張しているんだよ。</span><span class="s" data-i="50">似ているようで実は違う関係なんだね。</span><span class="s" data-i="51">こうした問題は、</span><span class="s" data-i="52">これからも冷静に話し合いを続けていく必要があるテーマなんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="53">竹島・尖閣諸島・北方領土という領土問題があるよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">竹島<span class="w-rd">たけしま</span></span><span class="w-desc">日本が領有権を主張する一方、韓国が実効支配している島。</span></div><div class="word"><span class="w-term">尖閣諸島<span class="w-rd">せんかくしょとう</span></span><span class="w-desc">日本が実効支配しているが、中国なども領有権を主張する島々。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -862,7 +895,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">1990年代以降、<span class="mark">グローバル化</span>と情報化が世界を大きく変えたけれど、<span class="mark">地球温暖化</span>や国際テロ、<span class="mark">難民問題</span>など新しい課題も生まれたよ。日本も<span class="mark">竹島</span>や<span class="mark">尖閣諸島</span>などの領土問題を抱えながら、世界とともに未来を考え続けているんだね。</div>
+        <div class="sum30-body"><span class="s" data-i="54">1990年代以降、</span><span class="s" data-i="55"><span class="mark">グローバル化</span>と情報化が世界を大きく変えたけれど、</span><span class="s" data-i="56"><span class="mark">地球温暖化</span>や国際テロ、</span><span class="s" data-i="57"><span class="mark">難民問題</span>など新しい課題も生まれたよ。</span><span class="s" data-i="58">日本も<span class="mark">竹島</span>や<span class="mark">尖閣諸島</span>などの領土問題を抱えながら、</span><span class="s" data-i="59">世界とともに未来を考え続けているんだね。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -878,6 +911,14 @@
 </section>
 </main>
 <div class="hintbar" id="hintBar" hidden></div>
+<div class="aplayer" id="aplayer" hidden><div class="ap-in">
+  <button class="ap-btn" id="apPlay" aria-label="再生／一時停止">❚❚</button>
+  <div class="ap-seek"><input type="range" id="apSeek" min="0" max="1000" value="0"></div>
+  <div class="ap-time" id="apTime">0:00 / 0:00</div>
+  <button class="ap-rate" id="apRate">1.0×</button>
+  <button class="ap-close" id="apClose" aria-label="読み上げを止める">×</button>
+</div></div>
+<audio id="audio" preload="none"></audio>
 <div class="navbar" id="navbar" hidden><div class="navbar-in">
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
@@ -905,7 +946,8 @@
 (function () {
   var KEY = 'tzmref-19';
   var CH = '19';
-  var WB_VIEWS = [0, 2, 3, 4];          // 参考書の単元t → 問題集のビュー番号（0＝対応なし）
+  var WB_VIEWS = [0, 2, 3, 4];
+  var AUDIO = {"1": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F19-cold-war-end.mp3?alt=media&token=191eecd4-c7f2-4c70-86da-a464680e6df4", "tl": [[0, 3.015, 0], [3.015, 2.865, 0], [6.16, 5.2, 0], [12.01, 3.8, 1], [16.46, 1.874, 1], [18.334, 2.366, 1], [21.35, 2.656, 1], [24.006, 5.135, 1], [29.141, 4.089, 1], [33.51, 2.47, 1], [35.98, 4.97, 1], [41.23, 6.494, 1], [47.724, 2.826, 1], [50.83, 2.448, 1], [53.278, 2.112, 1], [55.67, 6.2, 1], [62.52, 5.96, 1], [69.13, 2.92, 2], [72.7, 1.778, 2], [74.478, 2.062, 2], [77.19, 3.657, 2], [80.847, 4.263, 2], [85.39, 2.189, 2], [87.579, 2.688, 2], [90.267, 4.603, 2], [95.15, 5.84, 2], [101.27, 2.721, 2], [103.991, 4.559, 2], [108.83, 1.788, 2], [110.618, 4.492, 2], [115.76, 3.203, 2], [118.963, 2.477, 2], [122.09, 3.88, 3], [126.62, 2.336, 3], [128.956, 1.624, 3], [131.23, 2.542, 3], [133.772, 6.058, 3], [140.11, 4.24, 3], [144.63, 3.396, 3], [148.026, 7.004, 3], [155.31, 3.977, 3], [159.287, 5.103, 3], [164.67, 5, 3], [170.32, 2.155, 3], [172.475, 4.525, 3], [177.65, 6.252, 5], [183.902, 2.559, 5], [186.461, 3.709, 5], [190.45, 4.343, 5], [194.793, 3.897, 5]]}, "2": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F19-heisei-japan.mp3?alt=media&token=9b5d889f-84b0-4058-b3c2-22ec5b7875cc", "tl": [[0, 8.035, 0], [8.035, 2.885, 0], [11.57, 2.76, 1], [14.98, 2.958, 1], [17.938, 1.442, 1], [20.03, 2.754, 1], [22.784, 7.366, 1], [30.43, 4.84, 1], [35.55, 1.871, 1], [37.421, 2.333, 1], [39.754, 3.047, 1], [42.801, 3.389, 1], [46.47, 4.01, 1], [50.48, 3.15, 1], [53.91, 4.76, 1], [59.32, 3.738, 1], [63.058, 3.062, 1], [66.77, 4.08, 2], [71.5, 2.176, 2], [73.676, 2.184, 2], [76.51, 8.857, 2], [85.367, 4.463, 2], [90.11, 3.72, 2], [94.11, 2.995, 2], [97.105, 5.445, 2], [102.83, 6.88, 2], [109.99, 5.6, 2], [116.24, 3.841, 2], [120.081, 3.159, 2], [123.89, 4.04, 3], [128.58, 2.319, 3], [130.899, 2.321, 3], [133.87, 5.92, 3], [140.07, 5.6, 3], [145.67, 2.64, 3], [148.59, 0.921, 3], [149.511, 6.919, 3], [156.71, 3.497, 3], [160.207, 3.423, 3], [163.91, 6.2, 3], [170.76, 6.28, 3], [177.69, 3.28, 4], [181.62, 2.195, 4], [183.815, 2.285, 4], [186.75, 3.033, 4], [189.783, 3.447, 4], [193.51, 2.846, 4], [196.356, 3.914, 4], [200.55, 2.749, 4], [203.299, 3.581, 4], [206.88, 2.23, 4], [209.39, 4.962, 4], [214.352, 6.878, 4], [221.51, 4.96, 4], [227.12, 3.32, 4], [230.44, 2.04, 4], [233.13, 3.839, 6], [236.969, 2.17, 6], [239.139, 1.99, 6], [241.129, 1.807, 6], [242.936, 4.634, 6], [247.85, 5.8, 6]]}, "3": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F19-modern-issues.mp3?alt=media&token=9e922dac-3a66-4ff1-a19b-30feddb5d823", "tl": [[0, 3.385, 0], [3.385, 2.655, 0], [6.32, 3.32, 0], [9.64, 1.36, 0], [11.65, 2.56, 1], [14.86, 2.09, 1], [16.95, 1.91, 1], [19.51, 2.612, 1], [22.122, 8.228, 1], [30.63, 3.831, 1], [34.461, 4.369, 1], [39.11, 2.82, 1], [41.93, 4.02, 1], [46.23, 1.679, 1], [47.909, 2.655, 1], [50.564, 4.026, 1], [55.24, 2.375, 1], [57.615, 2.425, 1], [60.69, 3.24, 2], [64.58, 3.64, 2], [68.87, 7.408, 2], [76.278, 2.112, 2], [78.67, 4.8, 2], [83.75, 6.52, 2], [90.27, 5.28, 2], [95.83, 2.088, 2], [97.918, 5.952, 2], [104.15, 3.56, 2], [108.36, 3.502, 2], [111.862, 3.458, 2], [115.97, 3.8, 3], [120.42, 4.6, 3], [125.67, 3.671, 3], [129.341, 5.689, 3], [135.31, 5.808, 3], [141.118, 2.352, 3], [143.75, 3.2, 3], [147.23, 6.756, 3], [153.986, 3.604, 3], [157.87, 3.189, 3], [161.059, 3.371, 3], [165.08, 2.559, 3], [167.639, 2.921, 3], [171.21, 2.84, 4], [174.7, 3.6, 4], [178.95, 3.24, 4], [182.47, 6.88, 4], [189.35, 2.28, 4], [191.91, 7.157, 4], [199.067, 7.003, 4], [206.35, 3.68, 4], [210.31, 1.704, 4], [212.014, 4.016, 4], [216.68, 5.28, 4], [222.61, 2.513, 6], [225.123, 3.734, 6], [228.857, 2.181, 6], [231.038, 2.972, 6], [234.29, 4.696, 6], [238.986, 2.984, 6]]}};          // {単元t: {url, tl:[[開始秒,長さ,ステップ], …]}}          // 参考書の単元t → 問題集のビュー番号（0＝対応なし）
   var views = [].slice.call(document.querySelectorAll('.view'));
   var tabs = [].slice.call(document.querySelectorAll('.tab'));
   var N = views.length - 1; // 単元数
@@ -936,6 +978,89 @@
     };
     bar.addEventListener('click', function () { bar.hidden = true; });
   })();
+
+
+  // ── 読み上げ（音声に合わせて句をハイライトし、ページも自動でめくる）──
+  var au = document.getElementById('audio');
+  var apl = document.getElementById('aplayer');
+  var reading = { t: 0, i: -1 };
+  var RATES = [1, 1.25, 1.5, 0.75], ri = 0;
+
+  function fmt(x) { x = Math.max(0, x | 0); return (x / 60 | 0) + ':' + ('0' + (x % 60)).slice(-2); }
+  function spansOf(t) { return [].slice.call(views[t].querySelectorAll('.s')); }
+
+  function startAudio(t) {
+    var a = AUDIO[t];
+    if (!a) return;
+    reading = { t: t, i: -1 };
+    if (au.dataset.t !== String(t)) { au.src = a.url; au.dataset.t = String(t); }
+    document.body.classList.add('reading');
+    apl.hidden = false;
+    au.playbackRate = RATES[ri];
+    au.play();
+  }
+  function stopAudio() {
+    au.pause();
+    document.body.classList.remove('reading');
+    apl.hidden = true;
+    if (reading.t) spansOf(reading.t).forEach(function (el) { el.classList.remove('now', 'read'); });
+    reading = { t: 0, i: -1 };
+  }
+  function paintAudio() {
+    var a = AUDIO[reading.t];
+    if (!a) return;
+    var tl = a.tl, k = -1;
+    for (var i = 0; i < tl.length; i++) { if (au.currentTime >= tl[i][0]) k = i; else break; }
+    if (k === reading.i) return;
+    reading.i = k;
+    // 読んでいる箇所が別のページなら、そのページへ自動でめくる
+    if (k >= 0 && tl[k][2] !== state.s && state.t === reading.t) go(reading.t, tl[k][2], tl[k][2] > state.s ? 1 : -1);
+    var sp = spansOf(reading.t);
+    sp.forEach(function (el, i) {
+      el.classList.toggle('now', i === k);
+      el.classList.toggle('read', i < k);
+    });
+    var el = sp[k];
+    if (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < 70 || r.bottom > innerHeight - 150) {
+        scrollTo({ top: scrollY + r.top - innerHeight * 0.4, behavior: 'smooth' });
+      }
+    }
+  }
+  function tickAudio() {
+    paintAudio();
+    if (au.duration) {
+      document.getElementById('apSeek').value = Math.round(au.currentTime / au.duration * 1000);
+      document.getElementById('apTime').textContent = fmt(au.currentTime) + ' / ' + fmt(au.duration);
+    }
+    if (!au.paused) requestAnimationFrame(tickAudio);
+  }
+  au.addEventListener('play', function () { document.getElementById('apPlay').textContent = '❚❚'; tickAudio(); });
+  au.addEventListener('pause', function () { document.getElementById('apPlay').textContent = '▶'; });
+  au.addEventListener('ended', stopAudio);
+  document.getElementById('apPlay').onclick = function () { au.paused ? au.play() : au.pause(); };
+  document.getElementById('apClose').onclick = stopAudio;
+  document.getElementById('apSeek').oninput = function () {
+    if (au.duration) { au.currentTime = this.value / 1000 * au.duration; reading.i = -1; paintAudio(); }
+  };
+  document.getElementById('apRate').onclick = function () {
+    ri = (ri + 1) % RATES.length; au.playbackRate = RATES[ri];
+    this.textContent = RATES[ri].toFixed(2).replace(/0$/, '') + '×';
+  };
+  // 単元見出しの「🔊 読み上げ」＋ 文字タップでその場所から読む
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('.play-unit');
+    if (b) { startAudio(+b.dataset.play); return; }
+    var sp = e.target.closest && e.target.closest('.s');
+    if (sp && AUDIO[state.t]) {
+      var k = +sp.dataset.i, a = AUDIO[state.t];
+      if (a.tl[k]) {
+        if (reading.t !== state.t) startAudio(state.t);
+        au.currentTime = a.tl[k][0]; reading.i = -1; paintAudio(); au.play();
+      }
+    }
+  });
 
   // 単元タブの左右矢印: まだ隠れているタブがある側だけ出す
   function updateTabArrows() {
@@ -1034,6 +1159,8 @@
     // クエリが付いていても落とさない（URL共有時の情報を保つ）
     if (location.hash !== h) history.replaceState(null, '', location.search + (t === 0 ? '#' : h));
     updateSwap();
+    var pb = views[t] && views[t].querySelector('.play-unit');
+    if (pb) pb.hidden = !AUDIO[t];
     rendered = { t: t, s: s };
   }
 

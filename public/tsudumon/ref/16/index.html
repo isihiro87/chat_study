@@ -13,6 +13,36 @@
 
   .mark { background:linear-gradient(transparent 55%, var(--line) 55%); font-weight:bold; padding:0 1px; }
 
+  /* ── 読み上げ（音声＋読んでいる句のハイライト）── */
+  .s { border-radius:6px; padding:.14em .12em; margin:0 -.12em;
+       -webkit-box-decoration-break:clone; box-decoration-break:clone;
+       transition:background-color .15s ease, color .15s ease; }
+  body.reading .s { cursor:pointer; }
+  .s.read { color:#8a8279; }
+  .s.now { background:#fcd34d; color:#1c1917; }
+  .s.now .mark { background:none; }
+  /* 単元見出しの再生ボタン */
+  .play-unit { display:inline-flex; align-items:center; gap:6px; margin-left:auto; flex:none;
+               background:#fff; color:var(--brand); border:1.5px solid var(--line);
+               border-radius:20px; padding:4px 12px; font-size:12px; font-weight:bold;
+               font-family:inherit; cursor:pointer; }
+  .play-unit[hidden] { display:none; }
+  /* 下部プレーヤー（再生中だけ出す。ナビバーの上に重ねる） */
+  .aplayer { position:fixed; left:0; right:0; bottom:58px; z-index:25;
+             background:rgba(255,253,248,.98); border-top:1px solid #f0e6d2;
+             box-shadow:0 -3px 12px rgba(120,80,20,.14); padding:7px 0 8px; }
+  .aplayer[hidden] { display:none; }
+  .ap-in { max-width:640px; margin:0 auto; padding:0 14px; display:flex; align-items:center; gap:9px; }
+  .ap-btn { flex:none; width:40px; height:40px; border-radius:50%; border:none; background:var(--brand);
+            color:#fff; font-size:16px; cursor:pointer; box-shadow:0 2px 6px rgba(180,83,9,.35); }
+  .ap-seek { flex:1; min-width:0; }
+  .ap-seek input { width:100%; accent-color:var(--brand); }
+  .ap-time { flex:none; font-size:11px; font-weight:bold; color:var(--brand); min-width:74px;
+             text-align:right; }
+  .ap-rate, .ap-close { flex:none; border:1.5px solid var(--line); background:#fffbeb; color:var(--brand);
+             font-weight:bold; border-radius:16px; padding:4px 9px; font-size:11.5px; cursor:pointer;
+             font-family:inherit; }
+
   /* ── 上部: タイトル＋単元タブ＋進捗バー ── */
   .bar { position:sticky; top:0; z-index:10; background:rgba(255,253,248,.96);
          backdrop-filter:blur(6px); border-bottom:1px solid #f0e6d2; }
@@ -35,7 +65,7 @@
                white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   .bar-step { flex:none; font-size:11px; font-weight:bold; color:var(--brand); }
   /* 初回だけ出す操作ヒント（PCはキー、スマホはスワイプ） */
-  .hintbar { position:fixed; left:50%; transform:translateX(-50%); bottom:78px; z-index:35;
+  .hintbar { position:fixed; left:50%; transform:translateX(-50%); bottom:132px; z-index:35;
              background:rgba(28,25,23,.88); color:#fff; font-size:12.5px; font-weight:bold;
              border-radius:20px; padding:8px 16px; box-shadow:0 4px 14px rgba(0,0,0,.3);
              animation:hintIn .3s ease; }
@@ -419,32 +449,33 @@
   </footer>
 </section>
 <section class="view" data-t="1">
-  <div class="tband"><span class="tno">1</span><h2>第二次世界大戦の勃発</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">1</span><h2>第二次世界大戦の勃発</h2>
+    <button class="play-unit" type="button" data-play="1" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-ww2-outbreak.webp"
            alt="第二次世界大戦の勃発（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">世界中を巻き込んだ戦争は、ヨーロッパの小さな国への侵攻から始まったんだ。どうしてこんなに大きな戦争になってしまったのか、順番に見ていこう。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">世界中を巻き込んだ戦争は、</span><span class="s" data-i="1">ヨーロッパの小さな国への侵攻から始まったんだ。</span><span class="s" data-i="2">どうしてこんなに大きな戦争になってしまったのか、</span><span class="s" data-i="3">順番に見ていこう。</span></div></div>
     </div>
     <div class="step" data-label="独ソ不可侵条約とポーランド侵攻">
-      <h3><span class="sec-no">1</span>独ソ不可侵条約とポーランド侵攻</h3>
-      <div class="sec-lead">一つの条約が世界大戦の引き金になったよ。</div>
-      <p>1939年8月、対立していたはずのドイツとソ連が、「お互いに戦争をしない」と約束する<span class="mark">独ソ不可侵条約</span>を結んだんだ。この条約でうしろを心配しなくてよくなったヒトラーは、同年9月1日、<span class="mark">ポーランド</span>への侵攻に踏み切ったよ。これに対してイギリスとフランスがドイツに宣戦布告し、こうして<span class="mark">第二次世界大戦</span>が始まってしまったんだ。たった一つの条約が、大きな戦争のきっかけになったんだね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1939年9月1日、ドイツのポーランド侵攻から第二次世界大戦が始まったよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="4">独ソ不可侵条約とポーランド侵攻</span></h3>
+      <div class="sec-lead"><span class="s" data-i="5">一つの条約が世界大戦の引き金になったよ。</span></div>
+      <p><span class="s" data-i="6">1939年8月、</span><span class="s" data-i="7">対立していたはずのドイツとソ連が、</span><span class="s" data-i="8">「お互いに戦争をしない」と約束する<span class="mark">独ソ不可侵条約</span>を結んだんだ。</span><span class="s" data-i="9">この条約でうしろを心配しなくてよくなったヒトラーは、同年9月1日、</span><span class="s" data-i="10"><span class="mark">ポーランド</span>への侵攻に踏み切ったよ。</span><span class="s" data-i="11">これに対してイギリスとフランスがドイツに宣戦布告し、</span><span class="s" data-i="12">こうして<span class="mark">第二次世界大戦</span>が始まってしまったんだ。</span><span class="s" data-i="13">たった一つの条約が、</span><span class="s" data-i="14">大きな戦争のきっかけになったんだね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="15">1939年9月1日、</span><span class="s" data-i="16">ドイツのポーランド侵攻から第二次世界大戦が始まったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">第二次世界大戦<span class="w-rd">だいにじせかいたいせん</span></span><span class="w-desc">1939年のドイツのポーランド侵攻で始まり、1945年まで続いた世界規模の戦争。</span></div><div class="word"><span class="w-term">独ソ不可侵条約<span class="w-rd">どくそふかしんじょうやく</span></span><span class="w-desc">1939年8月にドイツとソ連が結んだ、お互いに戦争しないという約束。</span></div></div>
     </div>
     <div class="step" data-label="枢軸国と連合国、そして世界大戦へ">
-      <h3><span class="sec-no">2</span>枢軸国と連合国、そして世界大戦へ</h3>
-      <div class="sec-lead">世界が二つの陣営に分かれて戦ったよ。</div>
-      <p>1940年、ドイツはフランスを降伏させて勢いに乗り、同じ年、日本・ドイツ・イタリアの3か国は<span class="mark">日独伊三国同盟</span>を結んで<span class="mark">枢軸国</span>と呼ばれる側の中心になった。これに対してアメリカ・イギリス・ソ連・中国などは<span class="mark">連合国</span>としてまとまっていったんだ。さらに1941年6月、ドイツは条約を破って<span class="mark">ソ連</span>に攻め込む<span class="mark">独ソ戦</span>を始め、戦争はどんどん世界規模に広がっていったんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">日独伊の枢軸国と、米英ソ中などの連合国が世界規模で戦ったよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="17">枢軸国と連合国、</span><span class="s" data-i="18">そして世界大戦へ</span></h3>
+      <div class="sec-lead"><span class="s" data-i="19">世界が二つの陣営に分かれて戦ったよ。</span></div>
+      <p><span class="s" data-i="20">1940年、ドイツはフランスを降伏させて勢いに乗り、同じ年、</span><span class="s" data-i="21">日本・ドイツ・イタリアの3か国は<span class="mark">日独伊三国同盟</span>を結んで<span class="mark">枢軸国</span>と呼ばれる側の中心になった。</span><span class="s" data-i="22">これに対してアメリカ・イギリス・ソ連・中国などは<span class="mark">連合国</span>としてまとまっていったんだ。</span><span class="s" data-i="23">さらに1941年6月、</span><span class="s" data-i="24">ドイツは条約を破って<span class="mark">ソ連</span>に攻め込む<span class="mark">独ソ戦</span>を始め、</span><span class="s" data-i="25">戦争はどんどん世界規模に広がっていったんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="26">日独伊の枢軸国と、</span><span class="s" data-i="27">米英ソ中などの連合国が世界規模で戦ったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">枢軸国<span class="w-rd">すうじくこく</span></span><span class="w-desc">日独伊三国同盟を軸にまとまった、ドイツ・イタリア・日本などの国々。</span></div><div class="word"><span class="w-term">連合国<span class="w-rd">れんごうこく</span></span><span class="w-desc">枢軸国と戦った、アメリカ・イギリス・ソ連・中国などの国々。</span></div><div class="word"><span class="w-term">日独伊三国同盟<span class="w-rd">にちどくいさんごくどうめい</span></span><span class="w-desc">1940年に日本・ドイツ・イタリアが結んだ同盟。</span></div></div>
     </div>
     <div class="step" data-label="ホロコースト">
-      <h3><span class="sec-no">3</span>ホロコースト</h3>
-      <div class="sec-lead">多くの命が組織的に奪われてしまったよ。</div>
-      <p>この戦争の裏で、ナチス・ドイツはユダヤ人を「敵」として計画的に迫害する恐ろしい政策を進めていた。これを<span class="mark">ホロコースト</span>と呼ぶよ。<span class="mark">アウシュビッツ</span>をはじめとする強制収容所に送られた人々の多くが命を奪われ、その数はおよそ600万人にものぼるとされているんだ。二度とこうしたことが起きないように、歴史からしっかり学んでおきたいね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">ナチス・ドイツはユダヤ人を組織的に迫害し、約600万人が犠牲になったんだ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="28">ホロコースト</span></h3>
+      <div class="sec-lead"><span class="s" data-i="29">多くの命が組織的に奪われてしまったよ。</span></div>
+      <p><span class="s" data-i="30">この戦争の裏で、</span><span class="s" data-i="31">ナチス・ドイツはユダヤ人を「敵」として計画的に迫害する恐ろしい政策を進めていた。</span><span class="s" data-i="32">これを<span class="mark">ホロコースト</span>と呼ぶよ。</span><span class="s" data-i="33"><span class="mark">アウシュビッツ</span>をはじめとする強制収容所に送られた人々の多くが命を奪われ、</span><span class="s" data-i="34">その数はおよそ600万人にものぼるとされているんだ。</span><span class="s" data-i="35">二度とこうしたことが起きないように、</span><span class="s" data-i="36">歴史からしっかり学んでおきたいね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="37">ナチス・ドイツはユダヤ人を組織的に迫害し、</span><span class="s" data-i="38">約600万人が犠牲になったんだ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">ホロコースト<span class="w-rd">ほろこーすと</span></span><span class="w-desc">ナチス・ドイツによるユダヤ人の組織的な迫害・虐殺。</span></div><div class="word"><span class="w-term">アウシュビッツ<span class="w-rd">あうしゅびっつ</span></span><span class="w-desc">ナチスが作った最大の強制収容所。約110万人が命を奪われた。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -552,7 +583,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">1939年、ドイツのポーランド侵攻をきっかけに<span class="mark">第二次世界大戦</span>が始まり、日独伊の<span class="mark">枢軸国</span>と米英ソ中などの<span class="mark">連合国</span>が世界規模で戦うことになったよ。その裏では、ナチス・ドイツによる<span class="mark">ホロコースト</span>という痛ましい迫害も行われていたんだ。</div>
+        <div class="sum30-body"><span class="s" data-i="39">1939年、ドイツのポーランド侵攻をきっかけに<span class="mark">第二次世界大戦</span>が始まり、</span><span class="s" data-i="40">日独伊の<span class="mark">枢軸国</span>と米英ソ中などの<span class="mark">連合国</span>が世界規模で戦うことになったよ。</span><span class="s" data-i="41">その裏では、ナチス・ドイツによる<span class="mark">ホロコースト</span>という痛ましい迫害も行われていたんだ。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -567,39 +598,40 @@
     </div>
 </section>
 <section class="view" data-t="2">
-  <div class="tband"><span class="tno">2</span><h2>太平洋戦争と日本の敗退</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">2</span><h2>太平洋戦争と日本の敗退</h2>
+    <button class="play-unit" type="button" data-play="2" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-pacific-war.webp"
            alt="太平洋戦争と日本の敗退（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">ハワイの真珠湾への奇襲から始まった戦争は、やがて日本の街まで焼き尽くすことになったんだ。日本がどんな道をたどったのか見ていこう。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">ハワイの真珠湾への奇襲から始まった戦争は、</span><span class="s" data-i="1">やがて日本の街まで焼き尽くすことになったんだ。</span><span class="s" data-i="2">日本がどんな道をたどったのか見ていこう。</span></div></div>
     </div>
     <div class="step" data-label="真珠湾攻撃と太平洋戦争の始まり">
-      <h3><span class="sec-no">1</span>真珠湾攻撃と太平洋戦争の始まり</h3>
-      <div class="sec-lead">奇襲攻撃から太平洋の戦争が始まったよ。</div>
-      <p>日本はアメリカ・イギリス・中国・オランダによる石油や鉄の輸出停止、いわゆる<span class="mark">ABCD包囲網</span>で経済的に追いつめられていた。<span class="mark">東条英機</span>内閣はこの状況を打開しようと、「アジアを欧米から解放する」と唱える大東亜共栄圏を掲げて開戦を決断したんだ。1941年12月8日、日本海軍はハワイの<span class="mark">真珠湾</span>を奇襲し、<span class="mark">太平洋戦争</span>が始まったよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1941年12月8日、東条英機内閣のもとで真珠湾攻撃が始まったよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="3">真珠湾攻撃と太平洋戦争の始まり</span></h3>
+      <div class="sec-lead"><span class="s" data-i="4">奇襲攻撃から太平洋の戦争が始まったよ。</span></div>
+      <p><span class="s" data-i="5">日本はアメリカ・イギリス・中国・オランダによる石油や鉄の輸出停止、</span><span class="s" data-i="6">いわゆる<span class="mark">ABCD包囲網</span>で経済的に追いつめられていた。</span><span class="s" data-i="7"><span class="mark">東条英機</span>内閣はこの状況を打開しようと、</span><span class="s" data-i="8">「アジアを欧米から解放する」と唱える大東亜共栄圏を掲げて開戦を決断したんだ。</span><span class="s" data-i="9">1941年12月8日、</span><span class="s" data-i="10">日本海軍はハワイの<span class="mark">真珠湾</span>を奇襲し、</span><span class="s" data-i="11"><span class="mark">太平洋戦争</span>が始まったよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="12">1941年12月8日、</span><span class="s" data-i="13">東条英機内閣のもとで真珠湾攻撃が始まったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">太平洋戦争<span class="w-rd">たいへいようせんそう</span></span><span class="w-desc">1941〜45年、日本がアメリカ・イギリスなどと戦った戦争。</span></div><div class="word"><span class="w-term">東条英機<span class="w-rd">とうじょうひでき</span></span><span class="w-desc">真珠湾攻撃を決断した、当時の日本の首相。</span></div><div class="word"><span class="w-term">ABCD包囲網<span class="w-rd">えーびーしーでぃーほういもう</span></span><span class="w-desc">アメリカ・イギリス・中国・オランダによる対日経済封鎖。</span></div></div>
     </div>
     <div class="step" data-label="ミッドウェー海戦と戦局の転換">
-      <h3><span class="sec-no">2</span>ミッドウェー海戦と戦局の転換</h3>
-      <div class="sec-lead">大敗北が攻守を逆転させてしまったよ。</div>
-      <p>開戦当初こそ優勢だった日本だけど、1942年6月の<span class="mark">ミッドウェー海戦</span>で主力空母4隻を失う大敗北を喫し、そこから戦況は一気に不利になっていったんだ。さらにガダルカナル島の戦いでは、日本軍は初めて撤退に追い込まれてしまう。攻める側から守る側へ、日本の立場が大きく変わってしまった瞬間だったんだね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1942年のミッドウェー海戦で空母を失い、戦況が不利になったよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="14">ミッドウェー海戦と戦局の転換</span></h3>
+      <div class="sec-lead"><span class="s" data-i="15">大敗北が攻守を逆転させてしまったよ。</span></div>
+      <p><span class="s" data-i="16">開戦当初こそ優勢だった日本だけど、</span><span class="s" data-i="17">1942年6月の<span class="mark">ミッドウェー海戦</span>で主力空母4隻を失う大敗北を喫し、</span><span class="s" data-i="18">そこから戦況は一気に不利になっていったんだ。</span><span class="s" data-i="19">さらにガダルカナル島の戦いでは、</span><span class="s" data-i="20">日本軍は初めて撤退に追い込まれてしまう。</span><span class="s" data-i="21">攻める側から守る側へ、</span><span class="s" data-i="22">日本の立場が大きく変わってしまった瞬間だったんだね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="23">1942年のミッドウェー海戦で空母を失い、</span><span class="s" data-i="24">戦況が不利になったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">ミッドウェー海戦<span class="w-rd">みっどうぇーかいせん</span></span><span class="w-desc">1942年、日本海軍が主力空母4隻を失った海戦。</span></div></div>
     </div>
     <div class="step" data-label="サイパン陥落と本土空襲">
-      <h3><span class="sec-no">3</span>サイパン陥落と本土空襲</h3>
-      <div class="sec-lead">戦いの被害が日本本土にも及び始めたよ。</div>
-      <p>1944年、<span class="mark">サイパン島</span>が陥落すると、日本本土はアメリカの爆撃機B-29の航続距離に入ってしまい、責任を取る形で東条内閣は退陣した。そして1945年3月10日、<span class="mark">東京大空襲</span>で東京の下町が焼夷弾によって焼き尽くされ、一夜にして多くの命が失われたんだ。空の上からの戦争の被害が、日本国内にも直接及ぶようになっていったよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1944年のサイパン陥落後、日本本土はB-29の空襲を受けたよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="25">サイパン陥落と本土空襲</span></h3>
+      <div class="sec-lead"><span class="s" data-i="26">戦いの被害が日本本土にも及び始めたよ。</span></div>
+      <p><span class="s" data-i="27">1944年、<span class="mark">サイパン島</span>が陥落すると、</span><span class="s" data-i="28">日本本土はアメリカの爆撃機B-29の航続距離に入ってしまい、</span><span class="s" data-i="29">責任を取る形で東条内閣は退陣した。</span><span class="s" data-i="30">そして1945年3月10日、</span><span class="s" data-i="31"><span class="mark">東京大空襲</span>で東京の下町が焼夷弾によって焼き尽くされ、</span><span class="s" data-i="32">一夜にして多くの命が失われたんだ。</span><span class="s" data-i="33">空の上からの戦争の被害が、</span><span class="s" data-i="34">日本国内にも直接及ぶようになっていったよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="35">1944年のサイパン陥落後、</span><span class="s" data-i="36">日本本土はB-29の空襲を受けたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">サイパン島<span class="w-rd">さいぱんとう</span></span><span class="w-desc">1944年に陥落し、日本本土空襲の拠点になった島。</span></div><div class="word"><span class="w-term">東京大空襲<span class="w-rd">とうきょうだいくうしゅう</span></span><span class="w-desc">1945年3月10日、アメリカ軍による東京への大規模爆撃。</span></div></div>
     </div>
     <div class="step" data-label="沖縄戦">
-      <h3><span class="sec-no">4</span>沖縄戦</h3>
-      <div class="sec-lead">地上戦が多くの命を奪ってしまったよ。</div>
-      <p>1945年4月から6月にかけて、日本本土で唯一の地上戦となる<span class="mark">沖縄戦</span>が行われた。看護要員として動員された女子学生たち「<span class="mark">ひめゆり学徒隊</span>」をはじめ、多くの沖縄県民が戦いに巻き込まれ、県民の4分の1以上が命を落としたとされているんだ。戦争は兵士だけでなく、そこに暮らす人々の日常をも奪ってしまうことを、心にとめておきたいね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">沖縄戦は日本本土で唯一の地上戦で、県民の4分の1以上が犠牲になったんだ。</div></div>
+      <h3><span class="sec-no">4</span><span class="s" data-i="37">沖縄戦</span></h3>
+      <div class="sec-lead"><span class="s" data-i="38">地上戦が多くの命を奪ってしまったよ。</span></div>
+      <p><span class="s" data-i="39">1945年4月から6月にかけて、</span><span class="s" data-i="40">日本本土で唯一の地上戦となる<span class="mark">沖縄戦</span>が行われた。</span><span class="s" data-i="41">看護要員として動員された女子学生たち「<span class="mark">ひめゆり学徒隊</span>」をはじめ、</span><span class="s" data-i="42">多くの沖縄県民が戦いに巻き込まれ、</span><span class="s" data-i="43">県民の4分の1以上が命を落としたとされているんだ。</span><span class="s" data-i="44">戦争は兵士だけでなく、</span><span class="s" data-i="45">そこに暮らす人々の日常をも奪ってしまうことを、</span><span class="s" data-i="46">心にとめておきたいね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="47">沖縄戦は日本本土で唯一の地上戦で、</span><span class="s" data-i="48">県民の4分の1以上が犠牲になったんだ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">沖縄戦<span class="w-rd">おきなわせん</span></span><span class="w-desc">1945年4〜6月に行われた、日本本土で唯一の地上戦。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -707,7 +739,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body"><span class="mark">太平洋戦争</span>は1941年の<span class="mark">真珠湾攻撃</span>で始まり、<span class="mark">ミッドウェー海戦</span>での敗北を境に日本は追いつめられていったよ。<span class="mark">サイパン島</span>陥落後は本土空襲が本格化し、<span class="mark">沖縄戦</span>では多くの県民が犠牲になるなど、戦争の被害は日本国内にも大きく広がっていったんだ。</div>
+        <div class="sum30-body"><span class="s" data-i="49"><span class="mark">太平洋戦争</span>は1941年の<span class="mark">真珠湾攻撃</span>で始まり、</span><span class="s" data-i="50"><span class="mark">ミッドウェー海戦</span>での敗北を境に日本は追いつめられていったよ。</span><span class="s" data-i="51"><span class="mark">サイパン島</span>陥落後は本土空襲が本格化し、</span><span class="s" data-i="52"><span class="mark">沖縄戦</span>では多くの県民が犠牲になるなど、</span><span class="s" data-i="53">戦争の被害は日本国内にも大きく広がっていったんだ。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -722,39 +754,40 @@
     </div>
 </section>
 <section class="view" data-t="3">
-  <div class="tband"><span class="tno">3</span><h2>銃後の苦しみと総動員</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">3</span><h2>銃後の苦しみと総動員</h2>
+    <button class="play-unit" type="button" data-play="3" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-wartime-life.webp"
            alt="銃後の苦しみと総動員（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">戦場に行かなかった人たちも、実は戦争と無縁ではいられなかったんだ。当時のふつうの暮らしがどう変わっていったのか、のぞいてみよう。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">戦場に行かなかった人たちも、</span><span class="s" data-i="1">実は戦争と無縁ではいられなかったんだ。</span><span class="s" data-i="2">当時のふつうの暮らしがどう変わっていったのか、</span><span class="s" data-i="3">のぞいてみよう。</span></div></div>
     </div>
     <div class="step" data-label="配給制と切符制">
-      <h3><span class="sec-no">1</span>配給制と切符制</h3>
-      <div class="sec-lead">限られた物資をやりくりする暮らしが続いたよ。</div>
-      <p>戦争が長引くと、物資はどんどん不足していった。そこで国は米や砂糖などを国民に割り当てて分配する<span class="mark">配給制</span>を始めたんだ。1940年からは、衣料品や砂糖などをチケットと引きかえに受け取る<span class="mark">切符制</span>も組み合わされ、限られた物資を何とかやりくりする暮らしが続いたよ。今のように、お店に行けば何でも買える時代とはまったく違っていたんだね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1940年から、物資を配る配給制と切符制が実施されたよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="4">配給制と切符制</span></h3>
+      <div class="sec-lead"><span class="s" data-i="5">限られた物資をやりくりする暮らしが続いたよ。</span></div>
+      <p><span class="s" data-i="6">戦争が長引くと、</span><span class="s" data-i="7">物資はどんどん不足していった。</span><span class="s" data-i="8">そこで国は米や砂糖などを国民に割り当てて分配する<span class="mark">配給制</span>を始めたんだ。</span><span class="s" data-i="9">1940年からは、</span><span class="s" data-i="10">衣料品や砂糖などをチケットと引きかえに受け取る<span class="mark">切符制</span>も組み合わされ、</span><span class="s" data-i="11">限られた物資を何とかやりくりする暮らしが続いたよ。</span><span class="s" data-i="12">今のように、お店に行けば何でも買える時代とはまったく違っていたんだね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="13">1940年から、</span><span class="s" data-i="14">物資を配る配給制と切符制が実施されたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">配給制<span class="w-rd">はいきゅうせい</span></span><span class="w-desc">米や砂糖などを国が国民に割り当てて分配した制度。</span></div><div class="word"><span class="w-term">切符制<span class="w-rd">きっぷせい</span></span><span class="w-desc">衣料品などをチケットと引きかえに配給する制度。1940年から実施。</span></div></div>
     </div>
     <div class="step" data-label="学徒出陣と勤労動員">
-      <h3><span class="sec-no">2</span>学徒出陣と勤労動員</h3>
-      <div class="sec-lead">学生たちの日常が戦争に奪われていったよ。</div>
-      <p>兵力が足りなくなると、1943年からは文系の大学生たちが繰り上げ卒業のまま戦場に送られる<span class="mark">学徒出陣</span>が始まった。同じころ、出征した男性の代わりに工場で働く人手も足りなくなり、中学生や女学生までもが軍需工場で働く<span class="mark">勤労動員</span>にかり出されたんだ。学生たちの学ぶ時間や日常が、戦争によって次々と奪われていった時代だったんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1943年、文系大学生の学徒出陣と学生の勤労動員が始まったよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="15">学徒出陣と勤労動員</span></h3>
+      <div class="sec-lead"><span class="s" data-i="16">学生たちの日常が戦争に奪われていったよ。</span></div>
+      <p><span class="s" data-i="17">兵力が足りなくなると、</span><span class="s" data-i="18">1943年からは文系の大学生たちが繰り上げ卒業のまま戦場に送られる<span class="mark">学徒出陣</span>が始まった。</span><span class="s" data-i="19">同じころ、出征した男性の代わりに工場で働く人手も足りなくなり、</span><span class="s" data-i="20">中学生や女学生までもが軍需工場で働く<span class="mark">勤労動員</span>にかり出されたんだ。</span><span class="s" data-i="21">学生たちの学ぶ時間や日常が、</span><span class="s" data-i="22">戦争によって次々と奪われていった時代だったんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="23">1943年、文系大学生の学徒出陣と学生の勤労動員が始まったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">学徒出陣<span class="w-rd">がくとしゅつじん</span></span><span class="w-desc">1943年、文系大学生が繰り上げ卒業で出征したこと。</span></div><div class="word"><span class="w-term">勤労動員<span class="w-rd">きんろうどういん</span></span><span class="w-desc">中学生や女学生も軍需工場で働かされたこと。</span></div></div>
     </div>
     <div class="step" data-label="学童疎開と国民学校">
-      <h3><span class="sec-no">3</span>学童疎開と国民学校</h3>
-      <div class="sec-lead">子どもたちの暮らしも大きく変わったよ。</div>
-      <p>1944年になると、空襲から都市の子どもたちを守るため、小学生を地方の寺などへ集団で避難させる<span class="mark">学童疎開</span>が行われた。親元を離れての生活は、幼い子どもたちにとって心細いものだったはずだよ。また1941年には、尋常小学校が<span class="mark">国民学校</span>という名前に変わり、天皇に尽くす国民を育てることが教育の目的にされていったんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1944年から学童疎開、1941年に国民学校へと改称されたよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="24">学童疎開と国民学校</span></h3>
+      <div class="sec-lead"><span class="s" data-i="25">子どもたちの暮らしも大きく変わったよ。</span></div>
+      <p><span class="s" data-i="26">1944年になると、</span><span class="s" data-i="27">空襲から都市の子どもたちを守るため、</span><span class="s" data-i="28">小学生を地方の寺などへ集団で避難させる<span class="mark">学童疎開</span>が行われた。</span><span class="s" data-i="29">親元を離れての生活は、</span><span class="s" data-i="30">幼い子どもたちにとって心細いものだったはずだよ。</span><span class="s" data-i="31">また1941年には、</span><span class="s" data-i="32">尋常小学校が<span class="mark">国民学校</span>という名前に変わり、</span><span class="s" data-i="33">天皇に尽くす国民を育てることが教育の目的にされていったんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="34">1944年から学童疎開、</span><span class="s" data-i="35">1941年に国民学校へと改称されたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">学童疎開<span class="w-rd">がくどうそかい</span></span><span class="w-desc">都市の小学生を空襲から守るため地方へ避難させたこと。</span></div><div class="word"><span class="w-term">国民学校<span class="w-rd">こくみんがっこう</span></span><span class="w-desc">1941年に尋常小学校から改称された学校。</span></div></div>
     </div>
     <div class="step" data-label="植民地の皇民化政策">
-      <h3><span class="sec-no">4</span>植民地の皇民化政策</h3>
-      <div class="sec-lead">名前や言葉まで奪おうとしてしまったよ。</div>
-      <p>日本の植民地だった朝鮮や台湾では、人々に日本語を使わせたり神社に参拝させたりして、無理やり「日本人」にしようとする<span class="mark">皇民化政策</span>が進められた。1940年には、朝鮮の人々に日本式の姓名を名乗らせる<span class="mark">創氏改名</span>も行われたんだ。自分たちの名前や言葉を奪われるというのは、想像以上につらいことだったんじゃないかな。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">朝鮮・台湾で皇民化政策が進められ、1940年に創氏改名も行われたよ。</div></div>
+      <h3><span class="sec-no">4</span><span class="s" data-i="36">植民地の皇民化政策</span></h3>
+      <div class="sec-lead"><span class="s" data-i="37">名前や言葉まで奪おうとしてしまったよ。</span></div>
+      <p><span class="s" data-i="38">日本の植民地だった朝鮮や台湾では、</span><span class="s" data-i="39">人々に日本語を使わせたり神社に参拝させたりして、</span><span class="s" data-i="40">無理やり「日本人」にしようとする<span class="mark">皇民化政策</span>が進められた。</span><span class="s" data-i="41">1940年には、</span><span class="s" data-i="42">朝鮮の人々に日本式の姓名を名乗らせる<span class="mark">創氏改名</span>も行われたんだ。</span><span class="s" data-i="43">自分たちの名前や言葉を奪われるというのは、</span><span class="s" data-i="44">想像以上につらいことだったんじゃないかな。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="45">朝鮮・台湾で皇民化政策が進められ、</span><span class="s" data-i="46">1940年に創氏改名も行われたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">皇民化政策<span class="w-rd">こうみんかせいさく</span></span><span class="w-desc">朝鮮・台湾の人々に日本人化を強要した政策。</span></div><div class="word"><span class="w-term">創氏改名<span class="w-rd">そうしかいめい</span></span><span class="w-desc">1940年、朝鮮の人々に日本式の姓名を名乗らせた政策。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -862,7 +895,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">戦争が長引くと、<span class="mark">配給制</span>や<span class="mark">切符制</span>で物資が制限され、<span class="mark">学徒出陣</span>や<span class="mark">勤労動員</span>で学生たちの日常も奪われていったよ。<span class="mark">学童疎開</span>で親元を離れた子どもたちも多く、植民地では<span class="mark">皇民化政策</span>や創氏改名が進められるなど、戦争は多くの人々の暮らしを大きく変えてしまったんだ。</div>
+        <div class="sum30-body"><span class="s" data-i="47">戦争が長引くと、</span><span class="s" data-i="48"><span class="mark">配給制</span>や<span class="mark">切符制</span>で物資が制限され、</span><span class="s" data-i="49"><span class="mark">学徒出陣</span>や<span class="mark">勤労動員</span>で学生たちの日常も奪われていったよ。</span><span class="s" data-i="50"><span class="mark">学童疎開</span>で親元を離れた子どもたちも多く、</span><span class="s" data-i="51">植民地では<span class="mark">皇民化政策</span>や創氏改名が進められるなど、</span><span class="s" data-i="52">戦争は多くの人々の暮らしを大きく変えてしまったんだ。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -877,32 +910,33 @@
     </div>
 </section>
 <section class="view" data-t="4">
-  <div class="tband"><span class="tno">4</span><h2>終戦への道</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">4</span><h2>終戦への道</h2>
+    <button class="play-unit" type="button" data-play="4" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-end-of-war.webp"
            alt="終戦への道（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">長く続いた戦争が、どのように終わりを迎えたのか。つらい出来事も含まれるけれど、しっかりと事実を見つめてみよう。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">長く続いた戦争が、</span><span class="s" data-i="1">どのように終わりを迎えたのか。</span><span class="s" data-i="2">つらい出来事も含まれるけれど、</span><span class="s" data-i="3">しっかりと事実を見つめてみよう。</span></div></div>
     </div>
     <div class="step" data-label="ヤルタ会談とポツダム宣言">
-      <h3><span class="sec-no">1</span>ヤルタ会談とポツダム宣言</h3>
-      <div class="sec-lead">降伏を求める宣言を日本は無視してしまったよ。</div>
-      <p>1945年2月、アメリカ・イギリス・ソ連の首脳は<span class="mark">ヤルタ会談</span>を開き、ドイツ降伏の3か月後にソ連が日本と戦争を始めることを、秘密のうちに約束していたんだ。同年7月には、アメリカ・イギリス・中国が日本に無条件降伏を求める<span class="mark">ポツダム宣言</span>を発表したよ。でも日本はこれをすぐには受け入れず、無視を続けてしまったんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1945年7月、米英中がポツダム宣言で無条件降伏を求めたよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="4">ヤルタ会談とポツダム宣言</span></h3>
+      <div class="sec-lead"><span class="s" data-i="5">降伏を求める宣言を日本は無視してしまったよ。</span></div>
+      <p><span class="s" data-i="6">1945年2月、</span><span class="s" data-i="7">アメリカ・イギリス・ソ連の首脳は<span class="mark">ヤルタ会談</span>を開き、</span><span class="s" data-i="8">ドイツ降伏の3か月後にソ連が日本と戦争を始めることを、</span><span class="s" data-i="9">秘密のうちに約束していたんだ。</span><span class="s" data-i="10">同年7月には、アメリカ・イギリス・中国が日本に無条件降伏を求める<span class="mark">ポツダム宣言</span>を発表したよ。</span><span class="s" data-i="11">でも日本はこれをすぐには受け入れず、</span><span class="s" data-i="12">無視を続けてしまったんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="13">1945年7月、</span><span class="s" data-i="14">米英中がポツダム宣言で無条件降伏を求めたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">ヤルタ会談<span class="w-rd">やるたかいだん</span></span><span class="w-desc">1945年2月、米英ソが戦後処理を話し合った会談。ソ連の対日参戦が秘密に決められた。</span></div><div class="word"><span class="w-term">ポツダム宣言<span class="w-rd">ぽつだむせんげん</span></span><span class="w-desc">1945年7月、米英中が日本に無条件降伏を求めた宣言。</span></div></div>
     </div>
     <div class="step" data-label="広島と長崎への原爆投下">
-      <h3><span class="sec-no">2</span>広島と長崎への原爆投下</h3>
-      <div class="sec-lead">一発の爆弾が多くの命を奪ってしまったよ。</div>
-      <p>日本がポツダム宣言を無視し続けたことで、アメリカは1945年8月6日、<span class="mark">広島</span>に人類史上初めてとなる原子爆弾を投下した。この爆撃で約14万人もの命が奪われたんだ。さらに8月9日には<span class="mark">長崎</span>にも原爆が投下され、約7万人が犠牲になった。一発の爆弾がこれほど多くの命を奪ってしまったという事実を、私たちはしっかり心に刻んでおく必要があるね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">8月6日に広島(約14万人)、9日に長崎(約7万人)が原爆の犠牲になったよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="15">広島と長崎への原爆投下</span></h3>
+      <div class="sec-lead"><span class="s" data-i="16">一発の爆弾が多くの命を奪ってしまったよ。</span></div>
+      <p><span class="s" data-i="17">日本がポツダム宣言を無視し続けたことで、</span><span class="s" data-i="18">アメリカは1945年8月6日、</span><span class="s" data-i="19"><span class="mark">広島</span>に人類史上初めてとなる原子爆弾を投下した。</span><span class="s" data-i="20">この爆撃で約14万人もの命が奪われたんだ。</span><span class="s" data-i="21">さらに8月9日には<span class="mark">長崎</span>にも原爆が投下され、</span><span class="s" data-i="22">約7万人が犠牲になった。</span><span class="s" data-i="23">一発の爆弾がこれほど多くの命を奪ってしまったという事実を、</span><span class="s" data-i="24">私たちはしっかり心に刻んでおく必要があるね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="25">8月6日に広島(約14万人)、</span><span class="s" data-i="26">9日に長崎(約7万人)が原爆の犠牲になったよ。</span></div></div>
       
     </div>
     <div class="step" data-label="ソ連参戦と玉音放送">
-      <h3><span class="sec-no">3</span>ソ連参戦と玉音放送</h3>
-      <div class="sec-lead">長い戦争にようやく終わりが来たよ。</div>
-      <p>8月8日、<span class="mark">ソ連</span>はヤルタでの秘密の約束にしたがい、日ソ中立条約を破って満州に攻め込み、日本への参戦に踏み切った。次々と追いつめられた日本は、8月15日についにポツダム宣言の受け入れを決断し、昭和天皇がラジオで国民に終戦を伝える<span class="mark">玉音放送</span>が行われたんだ。こうして、多くの犠牲を出した長い戦争が、ようやく終わりを迎えたんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">8月15日、玉音放送によって終戦が国民に伝えられたよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="27">ソ連参戦と玉音放送</span></h3>
+      <div class="sec-lead"><span class="s" data-i="28">長い戦争にようやく終わりが来たよ。</span></div>
+      <p><span class="s" data-i="29">8月8日、<span class="mark">ソ連</span>はヤルタでの秘密の約束にしたがい、</span><span class="s" data-i="30">日ソ中立条約を破って満州に攻め込み、</span><span class="s" data-i="31">日本への参戦に踏み切った。</span><span class="s" data-i="32">次々と追いつめられた日本は、</span><span class="s" data-i="33">8月15日についにポツダム宣言の受け入れを決断し、</span><span class="s" data-i="34">昭和天皇がラジオで国民に終戦を伝える<span class="mark">玉音放送</span>が行われたんだ。</span><span class="s" data-i="35">こうして、多くの犠牲を出した長い戦争が、</span><span class="s" data-i="36">ようやく終わりを迎えたんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="37">8月15日、玉音放送によって終戦が国民に伝えられたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">玉音放送<span class="w-rd">ぎょくおんほうそう</span></span><span class="w-desc">1945年8月15日、昭和天皇がラジオで終戦を国民に伝えた放送。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -986,7 +1020,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">1945年、<span class="mark">ポツダム宣言</span>を日本が無視し続けたことで<span class="mark">広島</span>・<span class="mark">長崎</span>に原爆が投下され、<span class="mark">ソ連参戦</span>もあって日本は追いつめられたよ。8月15日、<span class="mark">玉音放送</span>によってようやく終戦が伝えられ、多くの犠牲を出した戦争が幕を閉じたんだ。</div>
+        <div class="sum30-body"><span class="s" data-i="38">1945年、<span class="mark">ポツダム宣言</span>を日本が無視し続けたことで<span class="mark">広島</span>・<span class="mark">長崎</span>に原爆が投下され、</span><span class="s" data-i="39"><span class="mark">ソ連参戦</span>もあって日本は追いつめられたよ。</span><span class="s" data-i="40">8月15日、<span class="mark">玉音放送</span>によってようやく終戦が伝えられ、</span><span class="s" data-i="41">多くの犠牲を出した戦争が幕を閉じたんだ。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -1002,6 +1036,14 @@
 </section>
 </main>
 <div class="hintbar" id="hintBar" hidden></div>
+<div class="aplayer" id="aplayer" hidden><div class="ap-in">
+  <button class="ap-btn" id="apPlay" aria-label="再生／一時停止">❚❚</button>
+  <div class="ap-seek"><input type="range" id="apSeek" min="0" max="1000" value="0"></div>
+  <div class="ap-time" id="apTime">0:00 / 0:00</div>
+  <button class="ap-rate" id="apRate">1.0×</button>
+  <button class="ap-close" id="apClose" aria-label="読み上げを止める">×</button>
+</div></div>
+<audio id="audio" preload="none"></audio>
 <div class="navbar" id="navbar" hidden><div class="navbar-in">
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
@@ -1029,7 +1071,8 @@
 (function () {
   var KEY = 'tzmref-16';
   var CH = '16';
-  var WB_VIEWS = [0, 2, 3, 4, 5];          // 参考書の単元t → 問題集のビュー番号（0＝対応なし）
+  var WB_VIEWS = [0, 2, 3, 4, 5];
+  var AUDIO = {"1": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F16-ww2-outbreak.mp3?alt=media&token=80b7a002-73f7-44b7-bc2a-d0de31c51d2b", "tl": [[0, 2.675, 0], [2.675, 3.445, 0], [6.4, 3.509, 0], [9.909, 1.491, 0], [12.05, 3.64, 1], [16.34, 4.4, 1], [21.39, 1.687, 1], [23.077, 3.656, 1], [26.733, 4.977, 1], [31.99, 5.884, 1], [37.874, 2.316, 1], [40.47, 4.869, 1], [45.339, 3.771, 1], [49.39, 2.225, 1], [51.615, 2.655, 1], [54.92, 1.949, 1], [56.869, 5.331, 1], [62.85, 2.549, 2], [65.399, 1.931, 2], [67.98, 3.44, 2], [72.07, 5.549, 2], [77.619, 8.651, 2], [86.55, 7.64, 2], [94.47, 2.306, 2], [96.776, 4.578, 2], [101.354, 4.836, 2], [106.84, 2.455, 2], [109.295, 3.945, 2], [113.89, 1.36, 3], [115.9, 3.8, 3], [120.35, 1.982, 3], [122.332, 6.258, 3], [128.87, 2.84, 3], [131.99, 5.998, 3], [137.988, 3.722, 3], [141.99, 2.716, 3], [144.706, 2.724, 3], [148.08, 3.907, 3], [151.987, 2.613, 3], [155.25, 6.683, 5], [161.933, 6.197, 5], [168.41, 7, 5]]}, "2": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F16-pacific-war.mp3?alt=media&token=717862f0-ebae-4b3e-acc7-c679f2402825", "tl": [[0, 3.758, 0], [3.758, 3.242, 0], [7.28, 3.44, 0], [11.37, 3.92, 1], [15.94, 3.92, 1], [20.51, 7.704, 1], [28.214, 5.256, 1], [33.75, 4.298, 1], [38.048, 6.902, 1], [45.23, 2.258, 1], [47.488, 4.527, 1], [52.015, 2.055, 1], [54.72, 2.044, 1], [56.764, 5.556, 1], [62.97, 3.2, 2], [66.82, 3.44, 2], [70.91, 3.144, 2], [74.054, 6.773, 2], [80.827, 3.363, 2], [84.47, 3.232, 2], [87.702, 3.328, 2], [91.31, 2.631, 2], [93.941, 3.769, 2], [98.36, 4.53, 2], [102.89, 1.75, 2], [105.29, 3, 3], [108.94, 4.12, 3], [113.71, 4.165, 3], [117.875, 5.339, 3], [123.214, 3.296, 3], [126.79, 3.234, 3], [130.024, 5.717, 3], [135.741, 2.769, 3], [138.79, 2.506, 3], [141.296, 2.974, 3], [144.92, 3.506, 3], [148.426, 3.454, 3], [152.53, 1.44, 4], [154.62, 3.72, 4], [158.99, 4.492, 4], [163.482, 4.988, 4], [168.75, 5.582, 4], [174.332, 2.99, 4], [177.322, 3.788, 4], [181.39, 2.637, 4], [184.027, 3.444, 4], [187.471, 1.559, 4], [189.68, 4.446, 4], [194.126, 3.594, 4], [198.37, 5.683, 6], [204.053, 4.717, 6], [209.05, 4.384, 6], [213.434, 3.343, 6], [216.777, 4.073, 6]]}, "3": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F16-wartime-life.mp3?alt=media&token=78104c40-2508-4d00-85ae-8ada32a80858", "tl": [[0, 2.54, 0], [2.54, 2.94, 0], [5.76, 3.5, 0], [9.26, 1.18, 0], [11.09, 2.48, 1], [14.22, 3.6, 1], [18.47, 2.012, 1], [20.482, 2.228, 1], [22.99, 6.56, 1], [29.83, 2.419, 1], [32.249, 5.335, 1], [37.584, 3.766, 1], [41.63, 5.64, 1], [47.92, 2.165, 1], [50.085, 4.195, 1], [54.93, 2.84, 2], [58.42, 4.16, 2], [63.23, 2.42, 2], [65.65, 8.74, 2], [74.67, 5.73, 2], [80.4, 5.75, 2], [86.43, 3.05, 2], [89.48, 3.75, 2], [93.88, 7.8, 2], [102.33, 3, 3], [105.98, 3.4, 3], [110.03, 2.654, 3], [112.684, 2.702, 3], [115.386, 5.244, 3], [120.91, 2.462, 3], [123.372, 3.778, 3], [127.43, 1.791, 3], [129.221, 5.548, 3], [134.769, 4.741, 3], [140.16, 3.328, 3], [143.488, 3.872, 3], [148.01, 2.8, 4], [151.46, 3.32, 4], [155.43, 3.5, 4], [158.93, 4.326, 4], [163.256, 4.454, 4], [167.99, 2.193, 4], [170.183, 5.767, 4], [176.23, 3.524, 4], [179.754, 2.876, 4], [183.28, 4.179, 4], [187.459, 3.861, 4], [191.97, 1.91, 6], [193.88, 3.394, 6], [197.274, 5.176, 6], [202.73, 3.788, 6], [206.518, 4.366, 6], [210.884, 3.886, 6]]}, "4": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F16-end-of-war.mp3?alt=media&token=306057cd-8dc9-4fe4-9b4d-5dd1f0128898", "tl": [[0, 2.154, 0], [2.154, 2.206, 0], [4.64, 2.513, 0], [7.153, 2.407, 0], [10.21, 2.8, 1], [13.66, 4.08, 1], [18.39, 2.209, 1], [20.599, 3.048, 1], [23.647, 6.145, 1], [29.792, 2.158, 1], [32.23, 9, 1], [41.51, 3.202, 1], [44.712, 1.838, 1], [47.2, 2.875, 1], [50.075, 4.485, 1], [55.21, 3, 2], [58.86, 4, 2], [63.51, 3.608, 2], [67.118, 3.48, 2], [70.598, 4.432, 2], [75.31, 4.64, 2], [80.23, 4.546, 2], [84.776, 2.214, 2], [87.27, 5.804, 2], [93.074, 3.716, 2], [97.44, 3.942, 2], [101.382, 4.738, 2], [106.77, 3.2, 3], [110.62, 3.52, 3], [114.79, 4.919, 3], [119.709, 3.575, 3], [123.284, 2.106, 3], [125.67, 2.654, 3], [128.324, 4.501, 3], [132.825, 5.605, 3], [138.71, 4.284, 3], [142.994, 2.156, 3], [145.8, 5.76, 3], [152.21, 8.322, 5], [160.532, 3.238, 5], [164.05, 5.419, 5], [169.469, 3.101, 5]]}};          // {単元t: {url, tl:[[開始秒,長さ,ステップ], …]}}          // 参考書の単元t → 問題集のビュー番号（0＝対応なし）
   var views = [].slice.call(document.querySelectorAll('.view'));
   var tabs = [].slice.call(document.querySelectorAll('.tab'));
   var N = views.length - 1; // 単元数
@@ -1060,6 +1103,89 @@
     };
     bar.addEventListener('click', function () { bar.hidden = true; });
   })();
+
+
+  // ── 読み上げ（音声に合わせて句をハイライトし、ページも自動でめくる）──
+  var au = document.getElementById('audio');
+  var apl = document.getElementById('aplayer');
+  var reading = { t: 0, i: -1 };
+  var RATES = [1, 1.25, 1.5, 0.75], ri = 0;
+
+  function fmt(x) { x = Math.max(0, x | 0); return (x / 60 | 0) + ':' + ('0' + (x % 60)).slice(-2); }
+  function spansOf(t) { return [].slice.call(views[t].querySelectorAll('.s')); }
+
+  function startAudio(t) {
+    var a = AUDIO[t];
+    if (!a) return;
+    reading = { t: t, i: -1 };
+    if (au.dataset.t !== String(t)) { au.src = a.url; au.dataset.t = String(t); }
+    document.body.classList.add('reading');
+    apl.hidden = false;
+    au.playbackRate = RATES[ri];
+    au.play();
+  }
+  function stopAudio() {
+    au.pause();
+    document.body.classList.remove('reading');
+    apl.hidden = true;
+    if (reading.t) spansOf(reading.t).forEach(function (el) { el.classList.remove('now', 'read'); });
+    reading = { t: 0, i: -1 };
+  }
+  function paintAudio() {
+    var a = AUDIO[reading.t];
+    if (!a) return;
+    var tl = a.tl, k = -1;
+    for (var i = 0; i < tl.length; i++) { if (au.currentTime >= tl[i][0]) k = i; else break; }
+    if (k === reading.i) return;
+    reading.i = k;
+    // 読んでいる箇所が別のページなら、そのページへ自動でめくる
+    if (k >= 0 && tl[k][2] !== state.s && state.t === reading.t) go(reading.t, tl[k][2], tl[k][2] > state.s ? 1 : -1);
+    var sp = spansOf(reading.t);
+    sp.forEach(function (el, i) {
+      el.classList.toggle('now', i === k);
+      el.classList.toggle('read', i < k);
+    });
+    var el = sp[k];
+    if (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < 70 || r.bottom > innerHeight - 150) {
+        scrollTo({ top: scrollY + r.top - innerHeight * 0.4, behavior: 'smooth' });
+      }
+    }
+  }
+  function tickAudio() {
+    paintAudio();
+    if (au.duration) {
+      document.getElementById('apSeek').value = Math.round(au.currentTime / au.duration * 1000);
+      document.getElementById('apTime').textContent = fmt(au.currentTime) + ' / ' + fmt(au.duration);
+    }
+    if (!au.paused) requestAnimationFrame(tickAudio);
+  }
+  au.addEventListener('play', function () { document.getElementById('apPlay').textContent = '❚❚'; tickAudio(); });
+  au.addEventListener('pause', function () { document.getElementById('apPlay').textContent = '▶'; });
+  au.addEventListener('ended', stopAudio);
+  document.getElementById('apPlay').onclick = function () { au.paused ? au.play() : au.pause(); };
+  document.getElementById('apClose').onclick = stopAudio;
+  document.getElementById('apSeek').oninput = function () {
+    if (au.duration) { au.currentTime = this.value / 1000 * au.duration; reading.i = -1; paintAudio(); }
+  };
+  document.getElementById('apRate').onclick = function () {
+    ri = (ri + 1) % RATES.length; au.playbackRate = RATES[ri];
+    this.textContent = RATES[ri].toFixed(2).replace(/0$/, '') + '×';
+  };
+  // 単元見出しの「🔊 読み上げ」＋ 文字タップでその場所から読む
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('.play-unit');
+    if (b) { startAudio(+b.dataset.play); return; }
+    var sp = e.target.closest && e.target.closest('.s');
+    if (sp && AUDIO[state.t]) {
+      var k = +sp.dataset.i, a = AUDIO[state.t];
+      if (a.tl[k]) {
+        if (reading.t !== state.t) startAudio(state.t);
+        au.currentTime = a.tl[k][0]; reading.i = -1; paintAudio(); au.play();
+      }
+    }
+  });
 
   // 単元タブの左右矢印: まだ隠れているタブがある側だけ出す
   function updateTabArrows() {
@@ -1158,6 +1284,8 @@
     // クエリが付いていても落とさない（URL共有時の情報を保つ）
     if (location.hash !== h) history.replaceState(null, '', location.search + (t === 0 ? '#' : h));
     updateSwap();
+    var pb = views[t] && views[t].querySelector('.play-unit');
+    if (pb) pb.hidden = !AUDIO[t];
     rendered = { t: t, s: s };
   }
 

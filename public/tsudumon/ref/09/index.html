@@ -13,6 +13,36 @@
 
   .mark { background:linear-gradient(transparent 55%, var(--line) 55%); font-weight:bold; padding:0 1px; }
 
+  /* ── 読み上げ（音声＋読んでいる句のハイライト）── */
+  .s { border-radius:6px; padding:.14em .12em; margin:0 -.12em;
+       -webkit-box-decoration-break:clone; box-decoration-break:clone;
+       transition:background-color .15s ease, color .15s ease; }
+  body.reading .s { cursor:pointer; }
+  .s.read { color:#8a8279; }
+  .s.now { background:#fcd34d; color:#1c1917; }
+  .s.now .mark { background:none; }
+  /* 単元見出しの再生ボタン */
+  .play-unit { display:inline-flex; align-items:center; gap:6px; margin-left:auto; flex:none;
+               background:#fff; color:var(--brand); border:1.5px solid var(--line);
+               border-radius:20px; padding:4px 12px; font-size:12px; font-weight:bold;
+               font-family:inherit; cursor:pointer; }
+  .play-unit[hidden] { display:none; }
+  /* 下部プレーヤー（再生中だけ出す。ナビバーの上に重ねる） */
+  .aplayer { position:fixed; left:0; right:0; bottom:58px; z-index:25;
+             background:rgba(255,253,248,.98); border-top:1px solid #f0e6d2;
+             box-shadow:0 -3px 12px rgba(120,80,20,.14); padding:7px 0 8px; }
+  .aplayer[hidden] { display:none; }
+  .ap-in { max-width:640px; margin:0 auto; padding:0 14px; display:flex; align-items:center; gap:9px; }
+  .ap-btn { flex:none; width:40px; height:40px; border-radius:50%; border:none; background:var(--brand);
+            color:#fff; font-size:16px; cursor:pointer; box-shadow:0 2px 6px rgba(180,83,9,.35); }
+  .ap-seek { flex:1; min-width:0; }
+  .ap-seek input { width:100%; accent-color:var(--brand); }
+  .ap-time { flex:none; font-size:11px; font-weight:bold; color:var(--brand); min-width:74px;
+             text-align:right; }
+  .ap-rate, .ap-close { flex:none; border:1.5px solid var(--line); background:#fffbeb; color:var(--brand);
+             font-weight:bold; border-radius:16px; padding:4px 9px; font-size:11.5px; cursor:pointer;
+             font-family:inherit; }
+
   /* ── 上部: タイトル＋単元タブ＋進捗バー ── */
   .bar { position:sticky; top:0; z-index:10; background:rgba(255,253,248,.96);
          backdrop-filter:blur(6px); border-bottom:1px solid #f0e6d2; }
@@ -35,7 +65,7 @@
                white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   .bar-step { flex:none; font-size:11px; font-weight:bold; color:var(--brand); }
   /* 初回だけ出す操作ヒント（PCはキー、スマホはスワイプ） */
-  .hintbar { position:fixed; left:50%; transform:translateX(-50%); bottom:78px; z-index:35;
+  .hintbar { position:fixed; left:50%; transform:translateX(-50%); bottom:132px; z-index:35;
              background:rgba(28,25,23,.88); color:#fff; font-size:12.5px; font-weight:bold;
              border-radius:20px; padding:8px 16px; box-shadow:0 4px 14px rgba(0,0,0,.3);
              animation:hintIn .3s ease; }
@@ -419,32 +449,33 @@
   </footer>
 </section>
 <section class="view" data-t="1">
-  <div class="tband"><span class="tno">1</span><h2>イギリスの革命</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">1</span><h2>イギリスの革命</h2>
+    <button class="play-unit" type="button" data-play="1" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-british-revolution.webp"
            alt="イギリスの革命（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">「みんなで話し合って国を決める」——そんな今では当たり前のしくみは、国王を追放したイギリスの人々の戦いから生まれたんだよ。すごいよね。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">「みんなで話し合って国を決める」——そんな今では当たり前のしくみは、</span><span class="s" data-i="1">国王を追放したイギリスの人々の戦いから生まれたんだよ。</span><span class="s" data-i="2">すごいよね。</span></div></div>
     </div>
     <div class="step" data-label="啓蒙思想と近代政治の思想家たち">
-      <h3><span class="sec-no">1</span>啓蒙思想と近代政治の思想家たち</h3>
-      <div class="sec-lead">ロック・モンテスキュー・ルソーが啓蒙思想を唱えたよ。</div>
-      <p>17〜18世紀のヨーロッパでは、人間の理性を使えばもっと良い政治や社会をつくれるという<span class="mark">啓蒙思想</span>が広まっていったんだ。イギリスの<span class="mark">ロック</span>は、国家は人々の合意によって成り立つという社会契約説を唱え、政府が国民の権利を守らないなら従わなくていいという<span class="mark">抵抗権</span>を主張したんだよ。フランスの<span class="mark">モンテスキュー</span>は立法・行政・司法に権力を分ける<span class="mark">三権分立</span>を、<span class="mark">ルソー</span>は政治を決める権利は国民にあるという<span class="mark">国民主権</span>を唱えたんだ。これらの思想が、その後イギリス・アメリカ・フランスで起こる市民革命に大きな影響を与えていくことになるよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">ロックは抵抗権、モンテスキューは三権分立、ルソーは国民主権を唱えたよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="3">啓蒙思想と近代政治の思想家たち</span></h3>
+      <div class="sec-lead"><span class="s" data-i="4">ロック・モンテスキュー・ルソーが啓蒙思想を唱えたよ。</span></div>
+      <p><span class="s" data-i="5">17〜18世紀のヨーロッパでは、</span><span class="s" data-i="6">人間の理性を使えばもっと良い政治や社会をつくれるという<span class="mark">啓蒙思想</span>が広まっていったんだ。</span><span class="s" data-i="7">イギリスの<span class="mark">ロック</span>は、</span><span class="s" data-i="8">国家は人々の合意によって成り立つという社会契約説を唱え、</span><span class="s" data-i="9">政府が国民の権利を守らないなら従わなくていいという<span class="mark">抵抗権</span>を主張したんだよ。</span><span class="s" data-i="10">フランスの<span class="mark">モンテスキュー</span>は立法・行政・司法に権力を分ける<span class="mark">三権分立</span>を、</span><span class="s" data-i="11"><span class="mark">ルソー</span>は政治を決める権利は国民にあるという<span class="mark">国民主権</span>を唱えたんだ。</span><span class="s" data-i="12">これらの思想が、</span><span class="s" data-i="13">その後イギリス・アメリカ・フランスで起こる市民革命に大きな影響を与えていくことになるよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="14">ロックは抵抗権、</span><span class="s" data-i="15">モンテスキューは三権分立、</span><span class="s" data-i="16">ルソーは国民主権を唱えたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">啓蒙思想<span class="w-rd">けいもうしそう</span></span><span class="w-desc">人間の理性で政治や社会をより良くできるという、17〜18世紀に広まった考え方。</span></div><div class="word"><span class="w-term">ロック<span class="w-rd">ろっく</span></span><span class="w-desc">社会契約説と抵抗権を唱えたイギリスの思想家。</span></div><div class="word"><span class="w-term">モンテスキュー<span class="w-rd">もんてすきゅー</span></span><span class="w-desc">三権分立を提唱したフランスの啓蒙思想家。</span></div><div class="word"><span class="w-term">ルソー<span class="w-rd">るそー</span></span><span class="w-desc">国民主権を唱えたフランスの啓蒙思想家。</span></div></div>
     </div>
     <div class="step" data-label="ピューリタン革命">
-      <h3><span class="sec-no">2</span>ピューリタン革命</h3>
-      <div class="sec-lead">クロムウェルが国王を破りピューリタン革命が起きたよ。</div>
-      <p>17世紀のイギリスでは、議会を無視して独断で政治を行う国王<span class="mark">チャールズ1世</span>と議会派の対立がどんどん深まっていったんだ。清教徒(<span class="mark">ピューリタン</span>)を中心とする議会派を率いた<span class="mark">クロムウェル</span>が国王軍を破る<span class="mark">ピューリタン革命</span>が起こったんだよ。1649年、チャールズ1世は処刑され、クロムウェルの指導のもと一時的に共和制がしかれたんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">クロムウェルが1649年、国王チャールズ1世を処刑したよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="17">ピューリタン革命</span></h3>
+      <div class="sec-lead"><span class="s" data-i="18">クロムウェルが国王を破りピューリタン革命が起きたよ。</span></div>
+      <p><span class="s" data-i="19">17世紀のイギリスでは、</span><span class="s" data-i="20">議会を無視して独断で政治を行う国王<span class="mark">チャールズ1世</span>と議会派の対立がどんどん深まっていったんだ。</span><span class="s" data-i="21">清教徒(<span class="mark">ピューリタン</span>)を中心とする議会派を率いた<span class="mark">クロムウェル</span>が国王軍を破る<span class="mark">ピューリタン革命</span>が起こったんだよ。</span><span class="s" data-i="22">1649年、チャールズ1世は処刑され、</span><span class="s" data-i="23">クロムウェルの指導のもと一時的に共和制がしかれたんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="24">クロムウェルが1649年、</span><span class="s" data-i="25">国王チャールズ1世を処刑したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">ピューリタン革命<span class="w-rd">ぴゅーりたんかくめい</span></span><span class="w-desc">クロムウェル率いる議会派が国王チャールズ1世を破った革命。</span></div><div class="word"><span class="w-term">クロムウェル<span class="w-rd">くろむうぇる</span></span><span class="w-desc">ピューリタン革命で議会派を率い、国王処刑後に共和制を指導した人物。</span></div></div>
     </div>
     <div class="step" data-label="名誉革命と権利章典">
-      <h3><span class="sec-no">3</span>名誉革命と権利章典</h3>
-      <div class="sec-lead">名誉革命ののち権利章典で立憲君主制が確立したよ。</div>
-      <p>クロムウェルの死後も議会を無視する国王が続いたため、1688年、議会は武力衝突なしに国王ジェームズ2世を追放する<span class="mark">名誉革命</span>を実現したんだ。すごいよね、血を流さずに国王を追放できたんだよ。翌1689年には、国王が議会の同意なしに税や法律を決められないと定めた<span class="mark">権利章典</span>が制定され、国王の権力が憲法や議会によって制限される<span class="mark">立憲君主制</span>がイギリスに確立したんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1688年の名誉革命ののち、権利章典で立憲君主制が確立したよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="26">名誉革命と権利章典</span></h3>
+      <div class="sec-lead"><span class="s" data-i="27">名誉革命ののち権利章典で立憲君主制が確立したよ。</span></div>
+      <p><span class="s" data-i="28">クロムウェルの死後も議会を無視する国王が続いたため、1688年、</span><span class="s" data-i="29">議会は武力衝突なしに国王ジェームズ2世を追放する<span class="mark">名誉革命</span>を実現したんだ。</span><span class="s" data-i="30">すごいよね、血を流さずに国王を追放できたんだよ。</span><span class="s" data-i="31">翌1689年には、</span><span class="s" data-i="32">国王が議会の同意なしに税や法律を決められないと定めた<span class="mark">権利章典</span>が制定され、</span><span class="s" data-i="33">国王の権力が憲法や議会によって制限される<span class="mark">立憲君主制</span>がイギリスに確立したんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="34">1688年の名誉革命ののち、</span><span class="s" data-i="35">権利章典で立憲君主制が確立したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">名誉革命<span class="w-rd">めいよかくめい</span></span><span class="w-desc">1688年、血を流さず国王ジェームズ2世を追放した革命。</span></div><div class="word"><span class="w-term">権利章典<span class="w-rd">けんりしょうてん</span></span><span class="w-desc">1689年制定。国王が議会の同意なく税や法律を決められないと定めた文書。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -552,7 +583,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">17〜18世紀のヨーロッパで<span class="mark">啓蒙思想</span>が広まる中、イギリスでは<span class="mark">ピューリタン革命</span>で国王が処刑されたよ。その後の<span class="mark">名誉革命</span>と<span class="mark">権利章典</span>によって、国王の権力を議会が制限する<span class="mark">立憲君主制</span>が確立したんだね。</div>
+        <div class="sum30-body"><span class="s" data-i="36">17〜18世紀のヨーロッパで<span class="mark">啓蒙思想</span>が広まる中、</span><span class="s" data-i="37">イギリスでは<span class="mark">ピューリタン革命</span>で国王が処刑されたよ。</span><span class="s" data-i="38">その後の<span class="mark">名誉革命</span>と<span class="mark">権利章典</span>によって、</span><span class="s" data-i="39">国王の権力を議会が制限する<span class="mark">立憲君主制</span>が確立したんだね。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -567,32 +598,33 @@
     </div>
 </section>
 <section class="view" data-t="2">
-  <div class="tband"><span class="tno">2</span><h2>アメリカの独立革命</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">2</span><h2>アメリカの独立革命</h2>
+    <button class="play-unit" type="button" data-play="2" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-american-independence.webp"
            alt="アメリカの独立革命（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">代表もいない議会が勝手に税金を決める——そんな理不尽、許せないよね。その怒りが、新しい国アメリカを生み出したんだ。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">代表もいない議会が勝手に税金を決める——そんな理不尽、許せないよね。</span><span class="s" data-i="1">その怒りが、新しい国アメリカを生み出したんだ。</span></div></div>
     </div>
     <div class="step" data-label="課税への反発と独立への機運">
-      <h3><span class="sec-no">1</span>課税への反発と独立への機運</h3>
-      <div class="sec-lead">代表なくして課税なしと人々は反発を強めたよ。</div>
-      <p>18世紀後半、イギリス本国は北アメリカに築いた<span class="mark">13植民地</span>に対して、植民地の代表が一人もいない本国議会で勝手に重い税を課したんだ。人々は「<span class="mark">代表なくして課税なし</span>」を掲げて反発し、1773年には茶への課税に抗議した市民が茶箱を海に投げ捨てる<span class="mark">ボストン茶会事件</span>が起こったんだよ。この対立はやがて、植民地がイギリスからの独立を求める動きへとつながっていくことになるんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">植民地の人々は「代表なくして課税なし」と反発したよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="2">課税への反発と独立への機運</span></h3>
+      <div class="sec-lead"><span class="s" data-i="3">代表なくして課税なしと人々は反発を強めたよ。</span></div>
+      <p><span class="s" data-i="4">18世紀後半、イギリス本国は北アメリカに築いた<span class="mark">13植民地</span>に対して、</span><span class="s" data-i="5">植民地の代表が一人もいない本国議会で勝手に重い税を課したんだ。</span><span class="s" data-i="6">人々は「<span class="mark">代表なくして課税なし</span>」を掲げて反発し、</span><span class="s" data-i="7">1773年には茶への課税に抗議した市民が茶箱を海に投げ捨てる<span class="mark">ボストン茶会事件</span>が起こったんだよ。</span><span class="s" data-i="8">この対立はやがて、</span><span class="s" data-i="9">植民地がイギリスからの独立を求める動きへとつながっていくことになるんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="10">植民地の人々は「代表なくして課税なし」と反発したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">13植民地<span class="w-rd">じゅうさんしょくみんち</span></span><span class="w-desc">イギリスが北アメリカ東部に建設した植民地。独立戦争を経てアメリカ合衆国となった。</span></div><div class="word"><span class="w-term">代表なくして課税なし<span class="w-rd">だいひょうなくしてかぜいなし</span></span><span class="w-desc">植民地の人々が、本国議会に代表がいないまま課税されたことに反発したスローガン。</span></div><div class="word"><span class="w-term">ボストン茶会事件<span class="w-rd">ぼすとんちゃかいじけん</span></span><span class="w-desc">1773年、茶への課税に抗議した市民が茶を海に投げ捨てた事件。</span></div></div>
     </div>
     <div class="step" data-label="独立戦争と独立宣言">
-      <h3><span class="sec-no">2</span>独立戦争と独立宣言</h3>
-      <div class="sec-lead">ワシントンが独立戦争を戦い独立宣言が出されたよ。</div>
-      <p>1775年、ついに<span class="mark">独立戦争</span>が始まると、植民地軍は<span class="mark">ワシントン</span>を総司令官として戦ったんだ。イギリスと対立するフランスの支援も受けられたんだよ。1776年には、ロックの思想の影響を受けて、生命・自由・幸福を求める権利はだれもが生まれつき持っていると宣言する<span class="mark">独立宣言</span>が発表されたんだ。1783年のパリ条約でイギリスは独立を承認し、1789年にワシントンは初代大統領に就任したんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">ワシントンが率いた独立戦争のすえ、1776年に独立宣言が出たよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="11">独立戦争と独立宣言</span></h3>
+      <div class="sec-lead"><span class="s" data-i="12">ワシントンが独立戦争を戦い独立宣言が出されたよ。</span></div>
+      <p><span class="s" data-i="13">1775年、ついに<span class="mark">独立戦争</span>が始まると、</span><span class="s" data-i="14">植民地軍は<span class="mark">ワシントン</span>を総司令官として戦ったんだ。</span><span class="s" data-i="15">イギリスと対立するフランスの支援も受けられたんだよ。</span><span class="s" data-i="16">1776年には、</span><span class="s" data-i="17">ロックの思想の影響を受けて、</span><span class="s" data-i="18">生命・自由・幸福を求める権利はだれもが生まれつき持っていると宣言する<span class="mark">独立宣言</span>が発表されたんだ。</span><span class="s" data-i="19">1783年のパリ条約でイギリスは独立を承認し、</span><span class="s" data-i="20">1789年にワシントンは初代大統領に就任したんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="21">ワシントンが率いた独立戦争のすえ、</span><span class="s" data-i="22">1776年に独立宣言が出たよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">独立戦争<span class="w-rd">どくりつせんそう</span></span><span class="w-desc">1775年に始まり、1783年にイギリスがアメリカの独立を承認した戦争。</span></div><div class="word"><span class="w-term">ワシントン<span class="w-rd">わしんとん</span></span><span class="w-desc">独立戦争で植民地軍を率い、初代大統領となった人物。</span></div><div class="word"><span class="w-term">独立宣言<span class="w-rd">どくりつせんげん</span></span><span class="w-desc">1776年発表。生命・自由・幸福を求める権利は生まれつきのものだと宣言した文書。</span></div></div>
     </div>
     <div class="step" data-label="合衆国憲法と連邦制">
-      <h3><span class="sec-no">3</span>合衆国憲法と連邦制</h3>
-      <div class="sec-lead">世界初の成文憲法・合衆国憲法が制定されたよ。</div>
-      <p>1787年には、三権分立の考えを取り入れて、各州が自治権を持ちながら外交や軍事は中央の連邦政府がまとめて担う<span class="mark">連邦制</span>を定めた<span class="mark">合衆国憲法</span>が制定されたんだ。これは世界初の近代的な成文憲法なんだよ。その後の各国の憲法にも大きな影響を与えていったんだ。すごいことだよね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1787年、世界初の成文憲法である合衆国憲法が制定されたよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="23">合衆国憲法と連邦制</span></h3>
+      <div class="sec-lead"><span class="s" data-i="24">世界初の成文憲法・合衆国憲法が制定されたよ。</span></div>
+      <p><span class="s" data-i="25">1787年には、</span><span class="s" data-i="26">三権分立の考えを取り入れて、</span><span class="s" data-i="27">各州が自治権を持ちながら外交や軍事は中央の連邦政府がまとめて担う<span class="mark">連邦制</span>を定めた<span class="mark">合衆国憲法</span>が制定されたんだ。</span><span class="s" data-i="28">これは世界初の近代的な成文憲法なんだよ。</span><span class="s" data-i="29">その後の各国の憲法にも大きな影響を与えていったんだ。</span><span class="s" data-i="30">すごいことだよね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="31">1787年、世界初の成文憲法である合衆国憲法が制定されたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">合衆国憲法<span class="w-rd">がっしゅうこくけんぽう</span></span><span class="w-desc">1787年制定。三権分立と連邦制を定めた世界初の近代的成文憲法。</span></div><div class="word"><span class="w-term">連邦制<span class="w-rd">れんぽうせい</span></span><span class="w-desc">各州が自治権を持ち、外交や軍事は連邦政府がまとめて担うしくみ。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -700,7 +732,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">イギリスへの課税への反発から<span class="mark">独立戦争</span>が始まり、<span class="mark">ワシントン</span>の指導のもと<span class="mark">独立宣言</span>が発表されたよ。世界初の近代的成文憲法である<span class="mark">合衆国憲法</span>が制定され、<span class="mark">連邦制</span>のアメリカ合衆国が誕生したんだね。</div>
+        <div class="sum30-body"><span class="s" data-i="32">イギリスへの課税への反発から<span class="mark">独立戦争</span>が始まり、</span><span class="s" data-i="33"><span class="mark">ワシントン</span>の指導のもと<span class="mark">独立宣言</span>が発表されたよ。</span><span class="s" data-i="34">世界初の近代的成文憲法である<span class="mark">合衆国憲法</span>が制定され、</span><span class="s" data-i="35"><span class="mark">連邦制</span>のアメリカ合衆国が誕生したんだね。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -715,32 +747,33 @@
     </div>
 </section>
 <section class="view" data-t="3">
-  <div class="tband"><span class="tno">3</span><h2>フランス革命</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">3</span><h2>フランス革命</h2>
+    <button class="play-unit" type="button" data-play="3" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-french-revolution.webp"
            alt="フランス革命（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">王様が絶対的な力を持ち、平民だけが重税に苦しむ——そんな理不尽な社会、変えたいと思わない?市民たちが立ち上がった革命だよ。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">王様が絶対的な力を持ち、</span><span class="s" data-i="1">平民だけが重税に苦しむ——そんな理不尽な社会、</span><span class="s" data-i="2">変えたいと思わない?市民たちが立ち上がった革命だよ。</span></div></div>
     </div>
     <div class="step" data-label="身分制社会とフランス革命の始まり">
-      <h3><span class="sec-no">1</span>身分制社会とフランス革命の始まり</h3>
-      <div class="sec-lead">重税に苦しむ第三身分からフランス革命が始まったよ。</div>
-      <p>革命前のフランスは国王が絶対的な権力をもつ<span class="mark">絶対王政</span>の国だったんだ。聖職者の第一身分と貴族の第二身分は税を免除される一方で、人口の98%を占める平民の<span class="mark">第三身分</span>だけが重い税を負担していたんだよ。ひどい話だよね。財政難に陥った国王<span class="mark">ルイ16世</span>が1789年に聖職者・貴族・平民の代表を集める<span class="mark">三部会</span>を招集すると、同年7月14日、パリ市民が専制の象徴である<span class="mark">バスティーユ牢獄</span>を襲撃して、<span class="mark">フランス革命</span>が始まったんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1789年、バスティーユ牢獄襲撃からフランス革命が始まったよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="3">身分制社会とフランス革命の始まり</span></h3>
+      <div class="sec-lead"><span class="s" data-i="4">重税に苦しむ第三身分からフランス革命が始まったよ。</span></div>
+      <p><span class="s" data-i="5">革命前のフランスは国王が絶対的な権力をもつ<span class="mark">絶対王政</span>の国だったんだ。</span><span class="s" data-i="6">聖職者の第一身分と貴族の第二身分は税を免除される一方で、</span><span class="s" data-i="7">人口の98%を占める平民の<span class="mark">第三身分</span>だけが重い税を負担していたんだよ。</span><span class="s" data-i="8">ひどい話だよね。</span><span class="s" data-i="9">財政難に陥った国王<span class="mark">ルイ16世</span>が1789年に聖職者・貴族・平民の代表を集める<span class="mark">三部会</span>を招集すると、</span><span class="s" data-i="10">同年7月14日、</span><span class="s" data-i="11">パリ市民が専制の象徴である<span class="mark">バスティーユ牢獄</span>を襲撃して、</span><span class="s" data-i="12"><span class="mark">フランス革命</span>が始まったんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="13">1789年、バスティーユ牢獄襲撃からフランス革命が始まったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">絶対王政<span class="w-rd">ぜったいおうせい</span></span><span class="w-desc">国王が議会や法律に従わず、絶対的な権力を持つ政治体制。</span></div><div class="word"><span class="w-term">第三身分<span class="w-rd">だいさんみぶん</span></span><span class="w-desc">革命前のフランスで人口の98%を占め、重い税を負担していた平民。</span></div><div class="word"><span class="w-term">三部会<span class="w-rd">さんぶかい</span></span><span class="w-desc">聖職者・貴族・平民の代表からなる身分制議会。1789年の招集が革命の発端となった。</span></div><div class="word"><span class="w-term">バスティーユ牢獄<span class="w-rd">ばすてぃーゆろうごく</span></span><span class="w-desc">1789年7月14日、パリ市民が襲撃した専制の象徴の牢獄。</span></div><div class="word"><span class="w-term">ルイ16世<span class="w-rd">るいじゅうろくせい</span></span><span class="w-desc">フランス革命で1793年に処刑された絶対王政の国王。</span></div></div>
     </div>
     <div class="step" data-label="人権宣言と国王の処刑">
-      <h3><span class="sec-no">2</span>人権宣言と国王の処刑</h3>
-      <div class="sec-lead">人権宣言が出されルイ16世が処刑されたよ。</div>
-      <p>革命政府は、人は生まれながらに自由で平等な権利を持つとする<span class="mark">人権宣言</span>を発表して、「自由・平等・友愛」の理想を掲げたんだ。この考えには、国の政治を決める権利は国民にあるという国民主権を唱えたルソーの思想が反映されているんだよ。1793年、絶対王政の象徴であった国王<span class="mark">ルイ16世</span>は処刑され、フランスは大きな混乱に陥ってしまったんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">人権宣言のあと、1793年にルイ16世が処刑されたよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="14">人権宣言と国王の処刑</span></h3>
+      <div class="sec-lead"><span class="s" data-i="15">人権宣言が出されルイ16世が処刑されたよ。</span></div>
+      <p><span class="s" data-i="16">革命政府は、人は生まれながらに自由で平等な権利を持つとする<span class="mark">人権宣言</span>を発表して、</span><span class="s" data-i="17">「自由・平等・友愛」の理想を掲げたんだ。</span><span class="s" data-i="18">この考えには、国の政治を決める権利は国民にあるという国民主権を唱えたルソーの思想が反映されているんだよ。</span><span class="s" data-i="19">1793年、絶対王政の象徴であった国王<span class="mark">ルイ16世</span>は処刑され、</span><span class="s" data-i="20">フランスは大きな混乱に陥ってしまったんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="21">人権宣言のあと、</span><span class="s" data-i="22">1793年にルイ16世が処刑されたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">人権宣言<span class="w-rd">じんけんせんげん</span></span><span class="w-desc">1789年発表。人は生まれながらに自由で平等な権利を持つとした宣言。</span></div></div>
     </div>
     <div class="step" data-label="ナポレオンの登場とウィーン会議">
-      <h3><span class="sec-no">3</span>ナポレオンの登場とウィーン会議</h3>
-      <div class="sec-lead">ナポレオン失脚後にウィーン会議が開かれたよ。</div>
-      <p>革命後の混乱を収拾した軍人<span class="mark">ナポレオン</span>は、1804年に皇帝となったんだ。個人の自由と財産権を保障する<span class="mark">ナポレオン法典</span>を制定して、ヨーロッパの大部分を征服してしまうんだよ。すごい勢いだよね。しかしロシア遠征の失敗などをきっかけに失脚し、ナポレオン失脚後の1814〜15年には、革命前の秩序に戻すことを目指す<span class="mark">ウィーン会議</span>が開かれたんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">ナポレオンは1804年に皇帝となり、のちに失脚したよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="23">ナポレオンの登場とウィーン会議</span></h3>
+      <div class="sec-lead"><span class="s" data-i="24">ナポレオン失脚後にウィーン会議が開かれたよ。</span></div>
+      <p><span class="s" data-i="25">革命後の混乱を収拾した軍人<span class="mark">ナポレオン</span>は、</span><span class="s" data-i="26">1804年に皇帝となったんだ。</span><span class="s" data-i="27">個人の自由と財産権を保障する<span class="mark">ナポレオン法典</span>を制定して、</span><span class="s" data-i="28">ヨーロッパの大部分を征服してしまうんだよ。</span><span class="s" data-i="29">すごい勢いだよね。</span><span class="s" data-i="30">しかしロシア遠征の失敗などをきっかけに失脚し、</span><span class="s" data-i="31">ナポレオン失脚後の1814〜15年には、</span><span class="s" data-i="32">革命前の秩序に戻すことを目指す<span class="mark">ウィーン会議</span>が開かれたんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="33">ナポレオンは1804年に皇帝となり、</span><span class="s" data-i="34">のちに失脚したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">ナポレオン<span class="w-rd">なぽれおん</span></span><span class="w-desc">革命後の混乱を収拾し、1804年に皇帝となったフランスの軍人。</span></div><div class="word"><span class="w-term">ウィーン会議<span class="w-rd">うぃーんかいぎ</span></span><span class="w-desc">ナポレオン失脚後、革命前の秩序に戻すことを目指して開かれた国際会議。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -848,7 +881,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">フランスでは重税に苦しむ<span class="mark">第三身分</span>を中心に<span class="mark">フランス革命</span>が起こり、<span class="mark">人権宣言</span>が発表されて国王<span class="mark">ルイ16世</span>も処刑されたよ。混乱を収拾した<span class="mark">ナポレオン</span>は皇帝となったけれど失脚し、<span class="mark">ウィーン会議</span>で革命前の秩序が目指されたんだね。</div>
+        <div class="sum30-body"><span class="s" data-i="35">フランスでは重税に苦しむ<span class="mark">第三身分</span>を中心に<span class="mark">フランス革命</span>が起こり、</span><span class="s" data-i="36"><span class="mark">人権宣言</span>が発表されて国王<span class="mark">ルイ16世</span>も処刑されたよ。</span><span class="s" data-i="37">混乱を収拾した<span class="mark">ナポレオン</span>は皇帝となったけれど失脚し、</span><span class="s" data-i="38"><span class="mark">ウィーン会議</span>で革命前の秩序が目指されたんだね。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -863,32 +896,33 @@
     </div>
 </section>
 <section class="view" data-t="4">
-  <div class="tband"><span class="tno">4</span><h2>ヨーロッパの国民意識の高まり</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">4</span><h2>ヨーロッパの国民意識の高まり</h2>
+    <button class="play-unit" type="button" data-play="4" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-nationalism-europe.webp"
            alt="ヨーロッパの国民意識の高まり（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">同じ言葉、同じ文化を持つ人たちが一つの国にまとまろうとする——そんな熱い思いがヨーロッパ各地で燃え上がった時代なんだ。熱いよね。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">同じ言葉、同じ文化を持つ人たちが一つの国にまとまろうとする——そんな熱い思いがヨーロッパ各地で燃え上がった時代なんだ。</span><span class="s" data-i="1">熱いよね。</span></div></div>
     </div>
     <div class="step" data-label="ナショナリズムと国民国家">
-      <h3><span class="sec-no">1</span>ナショナリズムと国民国家</h3>
-      <div class="sec-lead">ナショナリズムが高まり国民国家を求める動きが強まったよ。</div>
-      <p>フランス革命とナポレオンの遠征を通じて自由・平等の理念がヨーロッパ各地に広まると、19世紀には同じ言語や文化を持つ人々が一つにまとまろうとする<span class="mark">ナショナリズム</span>が高まっていったんだ。個人の自由や権利を重んじる<span class="mark">自由主義</span>とともに、同じ国民による統一的な<span class="mark">国民国家</span>を求める動きが強まり、ナポレオン戦争の混乱に乗じて中南米ではスペイン・ポルトガルの植民地が次々と独立を果たしたんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">同じ言語・文化の人々がまとまるナショナリズムが高まったよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="2">ナショナリズムと国民国家</span></h3>
+      <div class="sec-lead"><span class="s" data-i="3">ナショナリズムが高まり国民国家を求める動きが強まったよ。</span></div>
+      <p><span class="s" data-i="4">フランス革命とナポレオンの遠征を通じて自由・平等の理念がヨーロッパ各地に広まると、</span><span class="s" data-i="5">19世紀には同じ言語や文化を持つ人々が一つにまとまろうとする<span class="mark">ナショナリズム</span>が高まっていったんだ。</span><span class="s" data-i="6">個人の自由や権利を重んじる<span class="mark">自由主義</span>とともに、</span><span class="s" data-i="7">同じ国民による統一的な<span class="mark">国民国家</span>を求める動きが強まり、</span><span class="s" data-i="8">ナポレオン戦争の混乱に乗じて中南米ではスペイン・ポルトガルの植民地が次々と独立を果たしたんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="9">同じ言語・文化の人々がまとまるナショナリズムが高まったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">ナショナリズム<span class="w-rd">なしょなりずむ</span></span><span class="w-desc">同じ言語や文化を持つ人々が一つにまとまろうとする考え方。</span></div><div class="word"><span class="w-term">自由主義<span class="w-rd">じゆうしゅぎ</span></span><span class="w-desc">個人の自由や権利を重んじる政治思想。</span></div><div class="word"><span class="w-term">国民国家<span class="w-rd">こくみんこっか</span></span><span class="w-desc">同じ国民による統一的なまとまりを持つ国家。19世紀ヨーロッパで広まった。</span></div></div>
     </div>
     <div class="step" data-label="ドイツの統一">
-      <h3><span class="sec-no">2</span>ドイツの統一</h3>
-      <div class="sec-lead">ビスマルクの鉄血政策でドイツ帝国が成立したよ。</div>
-      <p>ドイツでは、<span class="mark">プロイセン</span>の首相<span class="mark">ビスマルク</span>が議会での話し合いよりも軍備の増強を重視する<span class="mark">鉄血政策</span>を進めたんだ。1871年に統一を達成して<span class="mark">ドイツ帝国</span>が成立したんだよ。プロイセン国王がドイツ皇帝となり、ヨーロッパの新たな強国として台頭していったんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">ビスマルクの鉄血政策で、1871年にドイツ帝国が成立したよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="10">ドイツの統一</span></h3>
+      <div class="sec-lead"><span class="s" data-i="11">ビスマルクの鉄血政策でドイツ帝国が成立したよ。</span></div>
+      <p><span class="s" data-i="12">ドイツでは、<span class="mark">プロイセン</span>の首相<span class="mark">ビスマルク</span>が議会での話し合いよりも軍備の増強を重視する<span class="mark">鉄血政策</span>を進めたんだ。</span><span class="s" data-i="13">1871年に統一を達成して<span class="mark">ドイツ帝国</span>が成立したんだよ。</span><span class="s" data-i="14">プロイセン国王がドイツ皇帝となり、</span><span class="s" data-i="15">ヨーロッパの新たな強国として台頭していったんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="16">ビスマルクの鉄血政策で、</span><span class="s" data-i="17">1871年にドイツ帝国が成立したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">ビスマルク<span class="w-rd">びすまるく</span></span><span class="w-desc">鉄血政策でドイツ統一を主導したプロイセンの首相。</span></div><div class="word"><span class="w-term">鉄血政策<span class="w-rd">てっけつせいさく</span></span><span class="w-desc">ビスマルクが進めた、軍事力を重視するドイツ統一政策。</span></div><div class="word"><span class="w-term">ドイツ帝国<span class="w-rd">どいつていこく</span></span><span class="w-desc">1871年、ドイツ統一を経て成立した国。</span></div></div>
     </div>
     <div class="step" data-label="イギリス・フランスの政治の発展">
-      <h3><span class="sec-no">3</span>イギリス・フランスの政治の発展</h3>
-      <div class="sec-lead">イギリスでは二大政党制が発展していったよ。</div>
-      <p>フランスでは財産に関係なく成年男性全員に選挙権を与える<span class="mark">男性普通選挙</span>が実現したんだ。イギリスでは保守党と自由党という2つの政党が議席を争い政権を交代する<span class="mark">二大政党制</span>が発展していったんだよ。また、国を守るのは国民の務めだという考えから、成年男子を軍に集める<span class="mark">徴兵制</span>も各国に広まっていったんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">イギリスでは保守党と自由党の二大政党制が発展したよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="18">イギリス・フランスの政治の発展</span></h3>
+      <div class="sec-lead"><span class="s" data-i="19">イギリスでは二大政党制が発展していったよ。</span></div>
+      <p><span class="s" data-i="20">フランスでは財産に関係なく成年男性全員に選挙権を与える<span class="mark">男性普通選挙</span>が実現したんだ。</span><span class="s" data-i="21">イギリスでは保守党と自由党という2つの政党が議席を争い政権を交代する<span class="mark">二大政党制</span>が発展していったんだよ。</span><span class="s" data-i="22">また、国を守るのは国民の務めだという考えから、</span><span class="s" data-i="23">成年男子を軍に集める<span class="mark">徴兵制</span>も各国に広まっていったんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="24">イギリスでは保守党と自由党の二大政党制が発展したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">二大政党制<span class="w-rd">にだいせいとうせい</span></span><span class="w-desc">イギリスで発展した、保守党と自由党が交互に政権を担う仕組み。</span></div><div class="word"><span class="w-term">徴兵制<span class="w-rd">ちょうへいせい</span></span><span class="w-desc">成年男子を軍に集める制度。国民国家の形成とともに広まった。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -996,7 +1030,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">フランス革命の理念がヨーロッパに広がると<span class="mark">ナショナリズム</span>が高まり、<span class="mark">ビスマルク</span>の<span class="mark">鉄血政策</span>で<span class="mark">ドイツ帝国</span>が成立したよ。イギリスでは<span class="mark">二大政党制</span>が発展するなど、各国で<span class="mark">国民国家</span>づくりが進んでいったんだね。</div>
+        <div class="sum30-body"><span class="s" data-i="25">フランス革命の理念がヨーロッパに広がると<span class="mark">ナショナリズム</span>が高まり、</span><span class="s" data-i="26"><span class="mark">ビスマルク</span>の<span class="mark">鉄血政策</span>で<span class="mark">ドイツ帝国</span>が成立したよ。</span><span class="s" data-i="27">イギリスでは<span class="mark">二大政党制</span>が発展するなど、</span><span class="s" data-i="28">各国で<span class="mark">国民国家</span>づくりが進んでいったんだね。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -1011,32 +1045,33 @@
     </div>
 </section>
 <section class="view" data-t="5">
-  <div class="tband"><span class="tno">5</span><h2>ロシアの拡大と発展</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">5</span><h2>ロシアの拡大と発展</h2>
+    <button class="play-unit" type="button" data-play="5" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-russia-expansion.webp"
            alt="ロシアの拡大と発展（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">凍らない港を求めて、広大な国土を持つロシアが南へ南へと勢力を広げようとしたんだよ。不思議でしょ?</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">凍らない港を求めて、</span><span class="s" data-i="1">広大な国土を持つロシアが南へ南へと勢力を広げようとしたんだよ。</span><span class="s" data-i="2">不思議でしょ?</span></div></div>
     </div>
     <div class="step" data-label="南下政策とその対立">
-      <h3><span class="sec-no">1</span>南下政策とその対立</h3>
-      <div class="sec-lead">ロシアは不凍港を求め南下政策を進めたよ。</div>
-      <p>広大な領土を持つロシアは、冬でも凍らない港である<span class="mark">不凍港</span>を求めて黒海や地中海方面へ進出する<span class="mark">南下政策</span>を進めたんだ。これを阻止しようとする<span class="mark">オスマン帝国</span>と対立してしまうんだよ。世界の覇権国であった<span class="mark">イギリス</span>は、植民地インドへの通商路を脅かされることを恐れて、ロシアの南下に強く警戒したんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">ロシアは不凍港を求めて南下政策を進め、イギリスと対立したよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="3">南下政策とその対立</span></h3>
+      <div class="sec-lead"><span class="s" data-i="4">ロシアは不凍港を求め南下政策を進めたよ。</span></div>
+      <p><span class="s" data-i="5">広大な領土を持つロシアは、</span><span class="s" data-i="6">冬でも凍らない港である<span class="mark">不凍港</span>を求めて黒海や地中海方面へ進出する<span class="mark">南下政策</span>を進めたんだ。</span><span class="s" data-i="7">これを阻止しようとする<span class="mark">オスマン帝国</span>と対立してしまうんだよ。</span><span class="s" data-i="8">世界の覇権国であった<span class="mark">イギリス</span>は、</span><span class="s" data-i="9">植民地インドへの通商路を脅かされることを恐れて、</span><span class="s" data-i="10">ロシアの南下に強く警戒したんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="11">ロシアは不凍港を求めて南下政策を進め、</span><span class="s" data-i="12">イギリスと対立したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">南下政策<span class="w-rd">なんかせいさく</span></span><span class="w-desc">ロシアが不凍港を求めて黒海や地中海方面へ進出しようとした政策。</span></div><div class="word"><span class="w-term">不凍港<span class="w-rd">ふとうこう</span></span><span class="w-desc">冬でも凍らず一年中使える港。ロシアが南下政策で獲得を目指した。</span></div><div class="word"><span class="w-term">オスマン帝国<span class="w-rd">おすまんていこく</span></span><span class="w-desc">ロシアの南下政策を阻止しようとしたトルコ中心の帝国。</span></div></div>
     </div>
     <div class="step" data-label="専制政治と農奴解放令">
-      <h3><span class="sec-no">2</span>専制政治と農奴解放令</h3>
-      <div class="sec-lead">アレクサンドル2世が農奴解放令を出したよ。</div>
-      <p>ロシアでは、皇帝の称号である<span class="mark">ツァーリ</span>が議会や憲法に従わない専制政治を行っていたんだ。地主に隷属して自由のなかった農民である<span class="mark">農奴</span>も数多く存在していたんだよ。1861年、皇帝<span class="mark">アレクサンドル2世</span>は近代化改革の第一歩として<span class="mark">農奴解放令</span>を出して、農奴を解放したんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1861年、アレクサンドル2世が農奴解放令を出したよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="13">専制政治と農奴解放令</span></h3>
+      <div class="sec-lead"><span class="s" data-i="14">アレクサンドル2世が農奴解放令を出したよ。</span></div>
+      <p><span class="s" data-i="15">ロシアでは、皇帝の称号である<span class="mark">ツァーリ</span>が議会や憲法に従わない専制政治を行っていたんだ。</span><span class="s" data-i="16">地主に隷属して自由のなかった農民である<span class="mark">農奴</span>も数多く存在していたんだよ。</span><span class="s" data-i="17">1861年、皇帝<span class="mark">アレクサンドル2世</span>は近代化改革の第一歩として<span class="mark">農奴解放令</span>を出して、</span><span class="s" data-i="18">農奴を解放したんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="19">1861年、アレクサンドル2世が農奴解放令を出したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">ツァーリ<span class="w-rd">つぁーり</span></span><span class="w-desc">ロシア皇帝の称号。議会や憲法に従わない専制政治を行った。</span></div><div class="word"><span class="w-term">農奴<span class="w-rd">のうど</span></span><span class="w-desc">ロシアで地主に隷属し、自由のなかった農民。</span></div><div class="word"><span class="w-term">アレクサンドル2世<span class="w-rd">あれくさんどるにせい</span></span><span class="w-desc">1861年に農奴解放令を出したロシアの皇帝。</span></div><div class="word"><span class="w-term">農奴解放令<span class="w-rd">のうどかいほうれい</span></span><span class="w-desc">1861年、農奴を解放したロシア近代化改革の第一歩。</span></div></div>
     </div>
     <div class="step" data-label="東方進出とシベリア鉄道">
-      <h3><span class="sec-no">3</span>東方進出とシベリア鉄道</h3>
-      <div class="sec-lead">東方進出のためシベリア鉄道が建設されたよ。</div>
-      <p>19世紀末からは、東方への進出と極東支配の強化を目的として、大陸を横断する<span class="mark">シベリア鉄道</span>の建設も進められたんだ。ロシアの拡大は、ヨーロッパだけでなくアジア方面にも及んでいったんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">ロシアは東方進出のため、シベリア鉄道を建設したよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="20">東方進出とシベリア鉄道</span></h3>
+      <div class="sec-lead"><span class="s" data-i="21">東方進出のためシベリア鉄道が建設されたよ。</span></div>
+      <p><span class="s" data-i="22">19世紀末からは、</span><span class="s" data-i="23">東方への進出と極東支配の強化を目的として、</span><span class="s" data-i="24">大陸を横断する<span class="mark">シベリア鉄道</span>の建設も進められたんだ。</span><span class="s" data-i="25">ロシアの拡大は、</span><span class="s" data-i="26">ヨーロッパだけでなくアジア方面にも及んでいったんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="27">ロシアは東方進出のため、</span><span class="s" data-i="28">シベリア鉄道を建設したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">シベリア鉄道<span class="w-rd">しべりあてつどう</span></span><span class="w-desc">ロシアが東方進出のために建設した大陸横断鉄道。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -1144,7 +1179,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">ロシアは<span class="mark">不凍港</span>を求めて<span class="mark">南下政策</span>を進め、<span class="mark">オスマン帝国</span>やイギリスと対立したよ。国内では<span class="mark">アレクサンドル2世</span>が<span class="mark">農奴解放令</span>を出して近代化を進め、<span class="mark">シベリア鉄道</span>の建設で東方進出も強めていったんだね。</div>
+        <div class="sum30-body"><span class="s" data-i="29">ロシアは<span class="mark">不凍港</span>を求めて<span class="mark">南下政策</span>を進め、</span><span class="s" data-i="30"><span class="mark">オスマン帝国</span>やイギリスと対立したよ。</span><span class="s" data-i="31">国内では<span class="mark">アレクサンドル2世</span>が<span class="mark">農奴解放令</span>を出して近代化を進め、</span><span class="s" data-i="32"><span class="mark">シベリア鉄道</span>の建設で東方進出も強めていったんだね。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -1159,32 +1194,33 @@
     </div>
 </section>
 <section class="view" data-t="6">
-  <div class="tband"><span class="tno">6</span><h2>アメリカの拡大と発展</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">6</span><h2>アメリカの拡大と発展</h2>
+    <button class="play-unit" type="button" data-play="6" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-america-expansion.webp"
            alt="アメリカの拡大と発展（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">工業の北部と、綿花農園の南部。同じ国の中で正反対の経済を持つ2つの地域が、奴隷制をめぐって激突したんだよ。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">工業の北部と、綿花農園の南部。</span><span class="s" data-i="1">同じ国の中で正反対の経済を持つ2つの地域が、</span><span class="s" data-i="2">奴隷制をめぐって激突したんだよ。</span></div></div>
     </div>
     <div class="step" data-label="北部と南部の対立">
-      <h3><span class="sec-no">1</span>北部と南部の対立</h3>
-      <div class="sec-lead">保護貿易の北部と自由貿易の南部が対立したよ。</div>
-      <p>19世紀のアメリカでは、商工業が発達した北部は輸入品に関税をかけて国内産業を守る<span class="mark">保護貿易</span>を支持していたんだ。一方、黒人奴隷を使う<span class="mark">プランテーション</span>で綿花を栽培しイギリスに輸出する南部は関税の低い<span class="mark">自由貿易</span>を支持していて、両者は対立を深めていったんだよ。西部開拓が進む中では、もともと住んでいた<span class="mark">先住民</span>が土地を奪われ強制移住させられることも多かったんだ。悲しい話だよね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">貿易政策と奴隷制をめぐり、北部と南部が対立を深めたよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="3">北部と南部の対立</span></h3>
+      <div class="sec-lead"><span class="s" data-i="4">保護貿易の北部と自由貿易の南部が対立したよ。</span></div>
+      <p><span class="s" data-i="5">19世紀のアメリカでは、</span><span class="s" data-i="6">商工業が発達した北部は輸入品に関税をかけて国内産業を守る<span class="mark">保護貿易</span>を支持していたんだ。</span><span class="s" data-i="7">一方、黒人奴隷を使う<span class="mark">プランテーション</span>で綿花を栽培しイギリスに輸出する南部は関税の低い<span class="mark">自由貿易</span>を支持していて、</span><span class="s" data-i="8">両者は対立を深めていったんだよ。</span><span class="s" data-i="9">西部開拓が進む中では、</span><span class="s" data-i="10">もともと住んでいた<span class="mark">先住民</span>が土地を奪われ強制移住させられることも多かったんだ。</span><span class="s" data-i="11">悲しい話だよね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="12">貿易政策と奴隷制をめぐり、</span><span class="s" data-i="13">北部と南部が対立を深めたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">保護貿易<span class="w-rd">ほごぼうえき</span></span><span class="w-desc">関税をかけて国内産業を守る貿易政策。アメリカ北部が支持した。</span></div><div class="word"><span class="w-term">プランテーション<span class="w-rd">ぷらんてーしょん</span></span><span class="w-desc">黒人奴隷の労働により綿花などを栽培したアメリカ南部の大農園。</span></div><div class="word"><span class="w-term">自由貿易<span class="w-rd">じゆうぼうえき</span></span><span class="w-desc">関税を低くして自由に貿易を行う政策。アメリカ南部が支持した。</span></div><div class="word"><span class="w-term">先住民<span class="w-rd">せんじゅうみん</span></span><span class="w-desc">西部開拓の過程で土地を奪われ、強制移住させられた人々。</span></div></div>
     </div>
     <div class="step" data-label="南北戦争と奴隷解放宣言">
-      <h3><span class="sec-no">2</span>南北戦争と奴隷解放宣言</h3>
-      <div class="sec-lead">リンカンが奴隷解放宣言を出し南北戦争を戦ったよ。</div>
-      <p>1861年、奴隷制に反対する<span class="mark">リンカン</span>が大統領に就任すると南部諸州が合衆国から離脱してしまい、<span class="mark">南北戦争</span>が始まったんだ。1863年、リンカンは南部の奴隷を解放する<span class="mark">奴隷解放宣言</span>を出して国際世論を味方につけたんだよ。同年の<span class="mark">ゲティスバーグ演説</span>では「人民の、人民による、人民のための政治」と訴えたんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1861年に南北戦争が始まり、1863年に奴隷解放宣言が出たよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="14">南北戦争と奴隷解放宣言</span></h3>
+      <div class="sec-lead"><span class="s" data-i="15">リンカンが奴隷解放宣言を出し南北戦争を戦ったよ。</span></div>
+      <p><span class="s" data-i="16">1861年、奴隷制に反対する<span class="mark">リンカン</span>が大統領に就任すると南部諸州が合衆国から離脱してしまい、</span><span class="s" data-i="17"><span class="mark">南北戦争</span>が始まったんだ。</span><span class="s" data-i="18">1863年、リンカンは南部の奴隷を解放する<span class="mark">奴隷解放宣言</span>を出して国際世論を味方につけたんだよ。</span><span class="s" data-i="19">同年の<span class="mark">ゲティスバーグ演説</span>では「人民の、人民による、</span><span class="s" data-i="20">人民のための政治」と訴えたんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="21">1861年に南北戦争が始まり、</span><span class="s" data-i="22">1863年に奴隷解放宣言が出たよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">リンカン<span class="w-rd">りんかん</span></span><span class="w-desc">奴隷解放宣言を出した第16代アメリカ大統領。</span></div><div class="word"><span class="w-term">南北戦争<span class="w-rd">なんぼくせんそう</span></span><span class="w-desc">1861年に始まった、アメリカの北部と南部の内戦。</span></div><div class="word"><span class="w-term">奴隷解放宣言<span class="w-rd">どれいかいほうせんげん</span></span><span class="w-desc">1863年、リンカンが出した南部の奴隷を解放する宣言。</span></div><div class="word"><span class="w-term">ゲティスバーグ演説<span class="w-rd">げてぃすばーぐえんぜつ</span></span><span class="w-desc">リンカンが「人民の、人民による、人民のための政治」と述べた演説。</span></div></div>
     </div>
     <div class="step" data-label="北部の勝利とその後">
-      <h3><span class="sec-no">3</span>北部の勝利とその後</h3>
-      <div class="sec-lead">北部が勝利しアメリカは工業国へ発展したよ。</div>
-      <p>工業力に勝る北部が南北戦争に勝利して、戦後アメリカは急速な工業国へと発展していったんだ。奴隷制度は憲法修正によって正式に廃止され、その後のアメリカの発展の土台となったんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">工業力に勝る北部が勝ち、アメリカは工業国へ発展したよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="23">北部の勝利とその後</span></h3>
+      <div class="sec-lead"><span class="s" data-i="24">北部が勝利しアメリカは工業国へ発展したよ。</span></div>
+      <p><span class="s" data-i="25">工業力に勝る北部が南北戦争に勝利して、</span><span class="s" data-i="26">戦後アメリカは急速な工業国へと発展していったんだ。</span><span class="s" data-i="27">奴隷制度は憲法修正によって正式に廃止され、</span><span class="s" data-i="28">その後のアメリカの発展の土台となったんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="29">工業力に勝る北部が勝ち、</span><span class="s" data-i="30">アメリカは工業国へ発展したよ。</span></div></div>
       
     </div>
     <div class="step" data-label="重要語チェック">
@@ -1292,7 +1328,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">貿易政策や奴隷制をめぐり対立を深めた北部と南部は<span class="mark">南北戦争</span>へと突入し、<span class="mark">リンカン</span>の<span class="mark">奴隷解放宣言</span>を経て工業力に勝る北部が勝利したよ。戦後アメリカは急速な工業国として発展していったんだね。</div>
+        <div class="sum30-body"><span class="s" data-i="31">貿易政策や奴隷制をめぐり対立を深めた北部と南部は<span class="mark">南北戦争</span>へと突入し、</span><span class="s" data-i="32"><span class="mark">リンカン</span>の<span class="mark">奴隷解放宣言</span>を経て工業力に勝る北部が勝利したよ。</span><span class="s" data-i="33">戦後アメリカは急速な工業国として発展していったんだね。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -1307,32 +1343,33 @@
     </div>
 </section>
 <section class="view" data-t="7">
-  <div class="tband"><span class="tno">7</span><h2>産業革命と資本主義</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">7</span><h2>産業革命と資本主義</h2>
+    <button class="play-unit" type="button" data-play="7" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-industrial-revolution.webp"
            alt="産業革命と資本主義（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">蒸気の力が工場を動かし始めたとき、世界の暮らしと経済のしくみが根っこから変わり始めたんだよ。すごいよね。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">蒸気の力が工場を動かし始めたとき、</span><span class="s" data-i="1">世界の暮らしと経済のしくみが根っこから変わり始めたんだよ。</span><span class="s" data-i="2">すごいよね。</span></div></div>
     </div>
     <div class="step" data-label="産業革命の始まり">
-      <h3><span class="sec-no">1</span>産業革命の始まり</h3>
-      <div class="sec-lead">ワットの蒸気機関の改良で産業革命が起こったよ。</div>
-      <p>18世紀後半、イギリスの<span class="mark">綿織物工業</span>で紡績機や力織機による大量生産が始まり、技術者<span class="mark">ワット</span>が改良した<span class="mark">蒸気機関</span>が工場の動力として広まったことで<span class="mark">産業革命</span>が起こったんだ。工場に機械を設置し労働者を雇って生産する工場制機械工業が広まり、19世紀のイギリスは圧倒的な工業力から「<span class="mark">世界の工場</span>」と呼ばれるようになったんだよ。技術者スティーブンソンが実用化した蒸気機関車の登場は、鉄道網の発展とともに交通革命ももたらしたんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">ワットの蒸気機関の改良から、産業革命が起こったよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="3">産業革命の始まり</span></h3>
+      <div class="sec-lead"><span class="s" data-i="4">ワットの蒸気機関の改良で産業革命が起こったよ。</span></div>
+      <p><span class="s" data-i="5">18世紀後半、イギリスの<span class="mark">綿織物工業</span>で紡績機や力織機による大量生産が始まり、</span><span class="s" data-i="6">技術者<span class="mark">ワット</span>が改良した<span class="mark">蒸気機関</span>が工場の動力として広まったことで<span class="mark">産業革命</span>が起こったんだ。</span><span class="s" data-i="7">工場に機械を設置し労働者を雇って生産する工場制機械工業が広まり、</span><span class="s" data-i="8">19世紀のイギリスは圧倒的な工業力から「<span class="mark">世界の工場</span>」と呼ばれるようになったんだよ。</span><span class="s" data-i="9">技術者スティーブンソンが実用化した蒸気機関車の登場は、</span><span class="s" data-i="10">鉄道網の発展とともに交通革命ももたらしたんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="11">ワットの蒸気機関の改良から、</span><span class="s" data-i="12">産業革命が起こったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">産業革命<span class="w-rd">さんぎょうかくめい</span></span><span class="w-desc">18世紀後半のイギリスから始まった、技術革新による社会・経済の大変革。</span></div><div class="word"><span class="w-term">ワット<span class="w-rd">わっと</span></span><span class="w-desc">蒸気機関を改良し、産業革命を推進したイギリスの技術者。</span></div><div class="word"><span class="w-term">蒸気機関<span class="w-rd">じょうききかん</span></span><span class="w-desc">石炭を燃やして蒸気の力で動く装置。工場や交通機関の動力となった。</span></div><div class="word"><span class="w-term">世界の工場<span class="w-rd">せかいのこうじょう</span></span><span class="w-desc">産業革命後、圧倒的な工業力を持ったイギリスの呼び名。</span></div></div>
     </div>
     <div class="step" data-label="資本主義の広まりと労働問題">
-      <h3><span class="sec-no">2</span>資本主義の広まりと労働問題</h3>
-      <div class="sec-lead">資本主義が広まり労働組合が結成されたよ。</div>
-      <p>工場や機械を持つ資本家が労働者を雇って利益を追求する<span class="mark">資本主義</span>の仕組みが広まっていく一方で、長時間労働や低賃金に苦しむ労働者は権利を守るため<span class="mark">労働組合</span>を結成したんだ。産業革命は人々の暮らしを豊かにする一方で、新しい社会問題も生み出していったんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">資本主義が広まる一方、労働者は労働組合を結成したよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="13">資本主義の広まりと労働問題</span></h3>
+      <div class="sec-lead"><span class="s" data-i="14">資本主義が広まり労働組合が結成されたよ。</span></div>
+      <p><span class="s" data-i="15">工場や機械を持つ資本家が労働者を雇って利益を追求する<span class="mark">資本主義</span>の仕組みが広まっていく一方で、</span><span class="s" data-i="16">長時間労働や低賃金に苦しむ労働者は権利を守るため<span class="mark">労働組合</span>を結成したんだ。</span><span class="s" data-i="17">産業革命は人々の暮らしを豊かにする一方で、</span><span class="s" data-i="18">新しい社会問題も生み出していったんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="19">資本主義が広まる一方、</span><span class="s" data-i="20">労働者は労働組合を結成したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">資本主義<span class="w-rd">しほんしゅぎ</span></span><span class="w-desc">資本家が労働者を雇い、利益を追求する経済のしくみ。</span></div><div class="word"><span class="w-term">労働組合<span class="w-rd">ろうどうくみあい</span></span><span class="w-desc">労働者が過酷な労働条件に対抗し、権利を守るために作った団体。</span></div></div>
     </div>
     <div class="step" data-label="社会主義の誕生">
-      <h3><span class="sec-no">3</span>社会主義の誕生</h3>
-      <div class="sec-lead">マルクスが資本主義を批判し社会主義を唱えたよ。</div>
-      <p>19世紀にはドイツの<span class="mark">マルクス</span>が『資本論』で資本主義の問題点を分析して、貧富の差のない平等な社会を目指す<span class="mark">社会主義</span>を唱えたんだ。資本主義への批判から生まれたこの思想は、その後の世界の政治や経済に大きな影響を与えていくことになるんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">マルクスは資本主義を批判し、社会主義を唱えたよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="21">社会主義の誕生</span></h3>
+      <div class="sec-lead"><span class="s" data-i="22">マルクスが資本主義を批判し社会主義を唱えたよ。</span></div>
+      <p><span class="s" data-i="23">19世紀にはドイツの<span class="mark">マルクス</span>が『資本論』で資本主義の問題点を分析して、</span><span class="s" data-i="24">貧富の差のない平等な社会を目指す<span class="mark">社会主義</span>を唱えたんだ。</span><span class="s" data-i="25">資本主義への批判から生まれたこの思想は、</span><span class="s" data-i="26">その後の世界の政治や経済に大きな影響を与えていくことになるんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="27">マルクスは資本主義を批判し、</span><span class="s" data-i="28">社会主義を唱えたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">社会主義<span class="w-rd">しゃかいしゅぎ</span></span><span class="w-desc">資本主義の矛盾を批判し、貧富の差のない平等な社会を目指す思想。</span></div><div class="word"><span class="w-term">マルクス<span class="w-rd">まるくす</span></span><span class="w-desc">『資本論』を著し、社会主義を理論化したドイツの思想家。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -1440,7 +1477,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">イギリスで<span class="mark">蒸気機関</span>の改良をきっかけに<span class="mark">産業革命</span>が起こり、「<span class="mark">世界の工場</span>」と呼ばれる工業力を持ったよ。<span class="mark">資本主義</span>の広まりは労働問題を生み、<span class="mark">マルクス</span>の<span class="mark">社会主義</span>思想もこの時代に誕生したんだね。</div>
+        <div class="sum30-body"><span class="s" data-i="29">イギリスで<span class="mark">蒸気機関</span>の改良をきっかけに<span class="mark">産業革命</span>が起こり、</span><span class="s" data-i="30">「<span class="mark">世界の工場</span>」と呼ばれる工業力を持ったよ。</span><span class="s" data-i="31"><span class="mark">資本主義</span>の広まりは労働問題を生み、</span><span class="s" data-i="32"><span class="mark">マルクス</span>の<span class="mark">社会主義</span>思想もこの時代に誕生したんだね。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -1455,32 +1492,33 @@
     </div>
 </section>
 <section class="view" data-t="8">
-  <div class="tband"><span class="tno">8</span><h2>欧米のアジア侵略</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">8</span><h2>欧米のアジア侵略</h2>
+    <button class="play-unit" type="button" data-play="8" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-western-asia-invasion.webp"
            alt="欧米のアジア侵略（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">お茶と麻薬と綿織物——3つの国をまたぐ貿易のしくみが、やがて戦争と不平等条約を引き起こしたんだよ。怖いよね。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">お茶と麻薬と綿織物——3つの国をまたぐ貿易のしくみが、</span><span class="s" data-i="1">やがて戦争と不平等条約を引き起こしたんだよ。</span><span class="s" data-i="2">怖いよね。</span></div></div>
     </div>
     <div class="step" data-label="三角貿易とアヘン戦争">
-      <h3><span class="sec-no">1</span>三角貿易とアヘン戦争</h3>
-      <div class="sec-lead">三角貿易の末、イギリスがアヘン戦争を起こしたよ。</div>
-      <p>19世紀、イギリスは清に茶の代金として銀を払う代わりに、インド産の<span class="mark">アヘン</span>を清に密輸して、清の茶とイギリスの綿織物を組み合わせる<span class="mark">三角貿易</span>の仕組みを作ったんだ。清がアヘンの密輸を取り締まると、イギリスは1840年に<span class="mark">アヘン戦争</span>を起こしてこれを破ってしまったんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">三角貿易のすえ、1840年にアヘン戦争が起こったよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="3">三角貿易とアヘン戦争</span></h3>
+      <div class="sec-lead"><span class="s" data-i="4">三角貿易の末、イギリスがアヘン戦争を起こしたよ。</span></div>
+      <p><span class="s" data-i="5">19世紀、イギリスは清に茶の代金として銀を払う代わりに、</span><span class="s" data-i="6">インド産の<span class="mark">アヘン</span>を清に密輸して、</span><span class="s" data-i="7">清の茶とイギリスの綿織物を組み合わせる<span class="mark">三角貿易</span>の仕組みを作ったんだ。</span><span class="s" data-i="8">清がアヘンの密輸を取り締まると、</span><span class="s" data-i="9">イギリスは1840年に<span class="mark">アヘン戦争</span>を起こしてこれを破ってしまったんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="10">三角貿易のすえ、</span><span class="s" data-i="11">1840年にアヘン戦争が起こったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">三角貿易<span class="w-rd">さんかくぼうえき</span></span><span class="w-desc">イギリス・インド・清の間で行われた、綿織物・アヘン・茶を結ぶ貿易。</span></div><div class="word"><span class="w-term">アヘン戦争<span class="w-rd">あへんせんそう</span></span><span class="w-desc">1840年、イギリスが清に仕掛けた戦争。清が敗れ南京条約を結ばされた。</span></div></div>
     </div>
     <div class="step" data-label="南京条約と不平等な扱い">
-      <h3><span class="sec-no">2</span>南京条約と不平等な扱い</h3>
-      <div class="sec-lead">南京条約で清は不平等な扱いを受けたよ。</div>
-      <p>1842年、イギリスは清に<span class="mark">南京条約</span>を結ばせたんだ。この条約で清は<span class="mark">香港</span>を割譲し、上海など5港を開港し、輸入品の税率を自国で決める<span class="mark">関税自主権</span>を失うなど、一方的に不利な不平等条約を結ばされてしまったんだよ。さらに清国内での犯罪をイギリス側の法で裁く<span class="mark">領事裁判権</span>も認めさせられたんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1842年の南京条約で、清は香港を失い不平等な条約を結ばされたよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="12">南京条約と不平等な扱い</span></h3>
+      <div class="sec-lead"><span class="s" data-i="13">南京条約で清は不平等な扱いを受けたよ。</span></div>
+      <p><span class="s" data-i="14">1842年、イギリスは清に<span class="mark">南京条約</span>を結ばせたんだ。</span><span class="s" data-i="15">この条約で清は<span class="mark">香港</span>を割譲し、</span><span class="s" data-i="16">上海など5港を開港し、</span><span class="s" data-i="17">輸入品の税率を自国で決める<span class="mark">関税自主権</span>を失うなど、</span><span class="s" data-i="18">一方的に不利な不平等条約を結ばされてしまったんだよ。</span><span class="s" data-i="19">さらに清国内での犯罪をイギリス側の法で裁く<span class="mark">領事裁判権</span>も認めさせられたんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="20">1842年の南京条約で、</span><span class="s" data-i="21">清は香港を失い不平等な条約を結ばされたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">南京条約<span class="w-rd">なんきんじょうやく</span></span><span class="w-desc">1842年、アヘン戦争後に清がイギリスと結ばされた不平等条約。</span></div><div class="word"><span class="w-term">香港<span class="w-rd">ほんこん</span></span><span class="w-desc">南京条約でイギリスに割譲された中国南部の地域。</span></div><div class="word"><span class="w-term">関税自主権<span class="w-rd">かんぜいじしゅけん</span></span><span class="w-desc">輸入品の税率を自国で決める権利。清は南京条約でこれを失った。</span></div><div class="word"><span class="w-term">領事裁判権<span class="w-rd">りょうじさいばんけん</span></span><span class="w-desc">外国人の犯罪をその国の法律で裁く権利。清はイギリスに認めた。</span></div></div>
     </div>
     <div class="step" data-label="清とインドの混乱">
-      <h3><span class="sec-no">3</span>清とインドの混乱</h3>
-      <div class="sec-lead">清とインドで大規模な反乱が相次いだよ。</div>
-      <p>清国内では、アヘン戦争後の混乱の中で洪秀全が率いる<span class="mark">太平天国の乱</span>という大規模な農民反乱も起こったんだ。1857年には、インドでイギリス支配に反発した現地人傭兵から始まる<span class="mark">インド大反乱</span>が起こり、鎮圧後はイギリスによる直接統治が強化されたんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">清では太平天国の乱、インドでは1857年に大反乱が起きたよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="22">清とインドの混乱</span></h3>
+      <div class="sec-lead"><span class="s" data-i="23">清とインドで大規模な反乱が相次いだよ。</span></div>
+      <p><span class="s" data-i="24">清国内では、アヘン戦争後の混乱の中で洪秀全が率いる<span class="mark">太平天国の乱</span>という大規模な農民反乱も起こったんだ。</span><span class="s" data-i="25">1857年には、</span><span class="s" data-i="26">インドでイギリス支配に反発した現地人傭兵から始まる<span class="mark">インド大反乱</span>が起こり、</span><span class="s" data-i="27">鎮圧後はイギリスによる直接統治が強化されたんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="28">清では太平天国の乱、</span><span class="s" data-i="29">インドでは1857年に大反乱が起きたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">太平天国の乱<span class="w-rd">たいへいてんごくのらん</span></span><span class="w-desc">洪秀全が率いた、清で起きた大規模な農民反乱。</span></div><div class="word"><span class="w-term">インド大反乱<span class="w-rd">いんどだいはんらん</span></span><span class="w-desc">1857年、イギリス支配に反発した現地人傭兵から始まったインドの反乱。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -1588,7 +1626,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">イギリスは<span class="mark">三角貿易</span>のしくみを使って<span class="mark">アヘン戦争</span>を起こし、<span class="mark">南京条約</span>で清に不平等な条件を認めさせたよ。清では<span class="mark">太平天国の乱</span>、インドでは<span class="mark">インド大反乱</span>が起こるなど、アジア各地で混乱が広がっていったんだね。</div>
+        <div class="sum30-body"><span class="s" data-i="30">イギリスは<span class="mark">三角貿易</span>のしくみを使って<span class="mark">アヘン戦争</span>を起こし、</span><span class="s" data-i="31"><span class="mark">南京条約</span>で清に不平等な条件を認めさせたよ。</span><span class="s" data-i="32">清では<span class="mark">太平天国の乱</span>、</span><span class="s" data-i="33">インドでは<span class="mark">インド大反乱</span>が起こるなど、</span><span class="s" data-i="34">アジア各地で混乱が広がっていったんだね。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -1604,6 +1642,14 @@
 </section>
 </main>
 <div class="hintbar" id="hintBar" hidden></div>
+<div class="aplayer" id="aplayer" hidden><div class="ap-in">
+  <button class="ap-btn" id="apPlay" aria-label="再生／一時停止">❚❚</button>
+  <div class="ap-seek"><input type="range" id="apSeek" min="0" max="1000" value="0"></div>
+  <div class="ap-time" id="apTime">0:00 / 0:00</div>
+  <button class="ap-rate" id="apRate">1.0×</button>
+  <button class="ap-close" id="apClose" aria-label="読み上げを止める">×</button>
+</div></div>
+<audio id="audio" preload="none"></audio>
 <div class="navbar" id="navbar" hidden><div class="navbar-in">
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
@@ -1631,7 +1677,8 @@
 (function () {
   var KEY = 'tzmref-09';
   var CH = '09';
-  var WB_VIEWS = [0, 2, 3, 4, 5, 6, 7, 8, 9];          // 参考書の単元t → 問題集のビュー番号（0＝対応なし）
+  var WB_VIEWS = [0, 2, 3, 4, 5, 6, 7, 8, 9];
+  var AUDIO = {"1": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F09-british-revolution.mp3?alt=media&token=2a317ca2-6e4f-4c03-aaa4-2832ddbe2072", "tl": [[0, 6.106, 0], [6.106, 4.374, 0], [10.76, 1.96, 0], [13.37, 3.48, 1], [17.5, 4.88, 1], [23.03, 2.384, 1], [25.414, 7.936, 1], [33.63, 1.858, 1], [35.488, 4.792, 1], [40.28, 5.83, 1], [46.39, 6.807, 1], [53.197, 6.033, 1], [59.51, 1.541, 1], [61.051, 6.539, 1], [68.24, 1.605, 1], [69.845, 2.739, 1], [72.584, 2.376, 1], [75.61, 1.88, 2], [78.14, 4.36, 2], [83.15, 2.419, 2], [85.569, 7.141, 2], [92.99, 8.44, 2], [101.71, 4.145, 2], [105.855, 3.935, 2], [110.44, 3.373, 2], [113.813, 2.747, 2], [117.21, 2.96, 3], [120.82, 5.4, 3], [126.87, 6.635, 3], [133.505, 7.045, 3], [140.83, 5.24, 3], [146.35, 1.099, 3], [147.449, 8.158, 3], [155.607, 6.623, 3], [162.88, 3.653, 3], [166.533, 3.547, 3], [170.73, 4.661, 5], [175.391, 4.139, 5], [179.81, 3.458, 5], [183.268, 4.902, 5]]}, "2": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F09-american-independence.mp3?alt=media&token=bce21be8-903f-4541-b335-ca0c262dd416", "tl": [[0, 6.68, 0], [6.96, 4.6, 0], [12.21, 3.6, 1], [16.46, 4.64, 1], [21.75, 6.446, 1], [28.196, 5.514, 1], [33.99, 5.17, 1], [39.16, 8.59, 1], [48.03, 2.083, 1], [50.113, 5.397, 1], [56.16, 5.44, 1], [62.25, 3, 2], [65.9, 4.72, 2], [71.27, 4.587, 2], [75.857, 3.813, 2], [79.95, 3.84, 2], [84.07, 1.454, 2], [85.524, 3.444, 2], [88.968, 8.102, 2], [97.35, 5.441, 2], [102.791, 4.839, 2], [108.28, 3.203, 2], [111.483, 3.557, 2], [115.69, 3.12, 3], [119.46, 4.8, 3], [124.91, 1.467, 3], [126.377, 3.833, 3], [130.21, 10.66, 3], [141.15, 4.16, 3], [145.59, 4.56, 3], [150.43, 2.2, 3], [153.28, 6.72, 3], [160.65, 4.549, 5], [165.199, 3.771, 5], [169.25, 5.777, 5], [175.027, 3.223, 5]]}, "3": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F09-french-revolution.mp3?alt=media&token=8b07ac1e-5638-400c-9f7e-9c845ca56a1a", "tl": [[0, 2.778, 0], [2.778, 4.317, 0], [7.095, 4.145, 0], [11.89, 3.8, 1], [16.34, 4.72, 1], [21.71, 6.6, 1], [28.59, 6.289, 1], [34.879, 6.591, 1], [41.75, 2.28, 1], [44.31, 10.813, 1], [55.123, 1.462, 1], [56.585, 5.036, 1], [61.621, 2.009, 1], [64.28, 6.12, 1], [71.05, 3.48, 2], [75.18, 4.16, 2], [79.99, 8.618, 2], [88.608, 2.942, 2], [91.83, 9.56, 2], [101.67, 7.304, 2], [108.974, 2.936, 2], [112.56, 1.95, 2], [114.51, 4.49, 2], [119.65, 3.52, 3], [123.82, 4.04, 3], [128.51, 3.866, 3], [132.376, 2.854, 3], [135.51, 5.164, 3], [140.674, 2.836, 3], [143.79, 2.36, 3], [146.43, 3.858, 3], [150.288, 4.873, 3], [155.161, 4.749, 3], [160.56, 3.655, 3], [164.215, 1.865, 3], [166.73, 5.997, 5], [172.727, 5.003, 5], [178.01, 4.943, 5], [182.953, 3.457, 5]]}, "4": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F09-nationalism-europe.mp3?alt=media&token=a310d992-731a-41e1-a60e-f80dcb1a7c5a", "tl": [[0, 10.44, 0], [10.72, 1.72, 0], [13.09, 2.36, 1], [16.1, 4.76, 1], [21.51, 7.384, 1], [28.894, 7.456, 1], [36.63, 4.135, 1], [40.765, 4.817, 1], [45.582, 7.648, 1], [53.88, 5.04, 1], [59.57, 1.96, 2], [62.18, 4.36, 2], [67.19, 9, 2], [76.47, 5.76, 2], [82.51, 2.858, 2], [85.368, 3.102, 2], [89.12, 2.362, 2], [91.482, 3.878, 2], [96.01, 3.4, 3], [100.06, 3.68, 3], [104.39, 8.12, 3], [112.79, 9.84, 3], [122.91, 5.164, 3], [128.074, 4.636, 3], [133.36, 5.28, 3], [139.29, 5.215, 5], [144.505, 4.025, 5], [148.81, 4.185, 5], [152.995, 3.255, 5]]}, "5": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F09-russia-expansion.mp3?alt=media&token=515398a1-336e-4743-bfb8-5cbfecdd6e20", "tl": [[0, 2.141, 0], [2.141, 5.259, 0], [7.68, 1.56, 0], [9.89, 3, 1], [13.54, 4.28, 1], [18.47, 2.533, 1], [21.003, 8.227, 1], [29.51, 4.72, 1], [34.51, 2.789, 1], [37.299, 3.969, 1], [41.268, 2.522, 1], [44.44, 4.173, 1], [48.613, 1.667, 1], [50.93, 2.96, 2], [54.54, 4.08, 2], [59.27, 7.56, 2], [67.11, 6.32, 2], [73.71, 9.085, 2], [82.795, 1.795, 2], [85.24, 5.84, 2], [91.73, 3.08, 3], [95.46, 4.32, 3], [100.43, 2.12, 3], [102.55, 4.231, 3], [106.781, 4.169, 3], [111.23, 1.853, 3], [113.083, 3.667, 3], [117.4, 2.578, 3], [119.978, 2.302, 3], [122.93, 3.955, 5], [126.885, 2.725, 5], [129.89, 6.276, 5], [136.166, 4.684, 5]]}, "6": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F09-america-expansion.mp3?alt=media&token=2a651c31-bfb4-43b2-adde-e96610f8e1b4", "tl": [[0, 3.72, 0], [4, 4.738, 0], [8.738, 2.422, 0], [11.81, 2.32, 1], [14.78, 4.8, 1], [20.23, 2.195, 1], [22.425, 7.685, 1], [30.39, 9.968, 1], [40.358, 2.432, 1], [43.07, 2.348, 1], [45.418, 5.732, 1], [51.43, 2.6, 1], [54.68, 2.737, 1], [57.417, 2.623, 1], [60.69, 3.32, 2], [64.66, 5.36, 2], [70.67, 9.029, 2], [79.699, 1.931, 2], [81.91, 9.68, 2], [91.87, 5.06, 2], [96.93, 2.86, 2], [100.44, 3.931, 2], [104.371, 3.829, 2], [108.85, 2.52, 3], [112.02, 4.24, 3], [116.91, 4.302, 3], [121.212, 4.218, 3], [125.71, 4.292, 3], [130.002, 3.068, 3], [133.72, 2.923, 3], [136.643, 2.757, 3], [140.05, 7.195, 5], [147.245, 5.245, 5], [152.77, 4.44, 5]]}, "7": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F09-industrial-revolution.mp3?alt=media&token=76db0968-f78b-4596-85c8-5721867f634e", "tl": [[0, 3.555, 0], [3.555, 4.405, 0], [8.24, 1.68, 0], [10.57, 2.28, 1], [13.5, 4.16, 1], [18.31, 7.863, 1], [26.173, 7.137, 1], [33.59, 6.959, 1], [40.549, 6.681, 1], [47.51, 4.803, 1], [52.313, 3.757, 1], [56.72, 2.541, 1], [59.261, 1.899, 1], [61.81, 3.6, 2], [66.06, 4.16, 2], [70.87, 8.306, 2], [79.176, 6.814, 2], [86.27, 3.688, 2], [89.958, 3.592, 2], [94.2, 2.265, 2], [96.465, 2.895, 2], [100.01, 2.28, 3], [102.94, 4.6, 3], [108.19, 6.699, 3], [114.889, 4.421, 3], [119.59, 3.327, 3], [122.917, 4.953, 3], [128.52, 2.745, 3], [131.265, 1.695, 3], [133.61, 5.294, 5], [138.904, 3.426, 5], [142.61, 3.654, 5], [146.264, 3.626, 5]]}, "8": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F09-western-asia-invasion.mp3?alt=media&token=7f980cb8-d511-43b9-90f1-3ddf2a8a18e6", "tl": [[0, 5.683, 0], [5.683, 3.517, 0], [9.48, 1.84, 0], [11.97, 2.8, 1], [15.42, 4.44, 1], [20.51, 5.657, 1], [26.167, 2.895, 1], [29.062, 5.688, 1], [35.03, 2.977, 1], [38.007, 5.183, 1], [43.84, 2.016, 1], [45.856, 3.304, 1], [49.81, 2.96, 2], [53.42, 4.16, 2], [58.23, 5.76, 2], [64.27, 3.758, 2], [68.028, 1.134, 2], [69.162, 5.962, 2], [75.124, 3.986, 2], [79.39, 7.12, 2], [87.16, 3.309, 2], [90.469, 4.371, 2], [95.49, 2.72, 3], [98.86, 3.92, 3], [103.43, 9.76, 3], [113.47, 1.313, 3], [114.783, 6.95, 3], [121.733, 3.697, 3], [126.08, 2.82, 3], [128.9, 3.98, 3], [133.53, 4.733, 5], [138.263, 4.107, 5], [142.65, 3.136, 5], [145.786, 2.967, 5], [148.753, 2.897, 5]]}};          // {単元t: {url, tl:[[開始秒,長さ,ステップ], …]}}          // 参考書の単元t → 問題集のビュー番号（0＝対応なし）
   var views = [].slice.call(document.querySelectorAll('.view'));
   var tabs = [].slice.call(document.querySelectorAll('.tab'));
   var N = views.length - 1; // 単元数
@@ -1662,6 +1709,89 @@
     };
     bar.addEventListener('click', function () { bar.hidden = true; });
   })();
+
+
+  // ── 読み上げ（音声に合わせて句をハイライトし、ページも自動でめくる）──
+  var au = document.getElementById('audio');
+  var apl = document.getElementById('aplayer');
+  var reading = { t: 0, i: -1 };
+  var RATES = [1, 1.25, 1.5, 0.75], ri = 0;
+
+  function fmt(x) { x = Math.max(0, x | 0); return (x / 60 | 0) + ':' + ('0' + (x % 60)).slice(-2); }
+  function spansOf(t) { return [].slice.call(views[t].querySelectorAll('.s')); }
+
+  function startAudio(t) {
+    var a = AUDIO[t];
+    if (!a) return;
+    reading = { t: t, i: -1 };
+    if (au.dataset.t !== String(t)) { au.src = a.url; au.dataset.t = String(t); }
+    document.body.classList.add('reading');
+    apl.hidden = false;
+    au.playbackRate = RATES[ri];
+    au.play();
+  }
+  function stopAudio() {
+    au.pause();
+    document.body.classList.remove('reading');
+    apl.hidden = true;
+    if (reading.t) spansOf(reading.t).forEach(function (el) { el.classList.remove('now', 'read'); });
+    reading = { t: 0, i: -1 };
+  }
+  function paintAudio() {
+    var a = AUDIO[reading.t];
+    if (!a) return;
+    var tl = a.tl, k = -1;
+    for (var i = 0; i < tl.length; i++) { if (au.currentTime >= tl[i][0]) k = i; else break; }
+    if (k === reading.i) return;
+    reading.i = k;
+    // 読んでいる箇所が別のページなら、そのページへ自動でめくる
+    if (k >= 0 && tl[k][2] !== state.s && state.t === reading.t) go(reading.t, tl[k][2], tl[k][2] > state.s ? 1 : -1);
+    var sp = spansOf(reading.t);
+    sp.forEach(function (el, i) {
+      el.classList.toggle('now', i === k);
+      el.classList.toggle('read', i < k);
+    });
+    var el = sp[k];
+    if (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < 70 || r.bottom > innerHeight - 150) {
+        scrollTo({ top: scrollY + r.top - innerHeight * 0.4, behavior: 'smooth' });
+      }
+    }
+  }
+  function tickAudio() {
+    paintAudio();
+    if (au.duration) {
+      document.getElementById('apSeek').value = Math.round(au.currentTime / au.duration * 1000);
+      document.getElementById('apTime').textContent = fmt(au.currentTime) + ' / ' + fmt(au.duration);
+    }
+    if (!au.paused) requestAnimationFrame(tickAudio);
+  }
+  au.addEventListener('play', function () { document.getElementById('apPlay').textContent = '❚❚'; tickAudio(); });
+  au.addEventListener('pause', function () { document.getElementById('apPlay').textContent = '▶'; });
+  au.addEventListener('ended', stopAudio);
+  document.getElementById('apPlay').onclick = function () { au.paused ? au.play() : au.pause(); };
+  document.getElementById('apClose').onclick = stopAudio;
+  document.getElementById('apSeek').oninput = function () {
+    if (au.duration) { au.currentTime = this.value / 1000 * au.duration; reading.i = -1; paintAudio(); }
+  };
+  document.getElementById('apRate').onclick = function () {
+    ri = (ri + 1) % RATES.length; au.playbackRate = RATES[ri];
+    this.textContent = RATES[ri].toFixed(2).replace(/0$/, '') + '×';
+  };
+  // 単元見出しの「🔊 読み上げ」＋ 文字タップでその場所から読む
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('.play-unit');
+    if (b) { startAudio(+b.dataset.play); return; }
+    var sp = e.target.closest && e.target.closest('.s');
+    if (sp && AUDIO[state.t]) {
+      var k = +sp.dataset.i, a = AUDIO[state.t];
+      if (a.tl[k]) {
+        if (reading.t !== state.t) startAudio(state.t);
+        au.currentTime = a.tl[k][0]; reading.i = -1; paintAudio(); au.play();
+      }
+    }
+  });
 
   // 単元タブの左右矢印: まだ隠れているタブがある側だけ出す
   function updateTabArrows() {
@@ -1760,6 +1890,8 @@
     // クエリが付いていても落とさない（URL共有時の情報を保つ）
     if (location.hash !== h) history.replaceState(null, '', location.search + (t === 0 ? '#' : h));
     updateSwap();
+    var pb = views[t] && views[t].querySelector('.play-unit');
+    if (pb) pb.hidden = !AUDIO[t];
     rendered = { t: t, s: s };
   }
 

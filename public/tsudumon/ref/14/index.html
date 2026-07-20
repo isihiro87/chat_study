@@ -13,6 +13,36 @@
 
   .mark { background:linear-gradient(transparent 55%, var(--line) 55%); font-weight:bold; padding:0 1px; }
 
+  /* ── 読み上げ（音声＋読んでいる句のハイライト）── */
+  .s { border-radius:6px; padding:.14em .12em; margin:0 -.12em;
+       -webkit-box-decoration-break:clone; box-decoration-break:clone;
+       transition:background-color .15s ease, color .15s ease; }
+  body.reading .s { cursor:pointer; }
+  .s.read { color:#8a8279; }
+  .s.now { background:#fcd34d; color:#1c1917; }
+  .s.now .mark { background:none; }
+  /* 単元見出しの再生ボタン */
+  .play-unit { display:inline-flex; align-items:center; gap:6px; margin-left:auto; flex:none;
+               background:#fff; color:var(--brand); border:1.5px solid var(--line);
+               border-radius:20px; padding:4px 12px; font-size:12px; font-weight:bold;
+               font-family:inherit; cursor:pointer; }
+  .play-unit[hidden] { display:none; }
+  /* 下部プレーヤー（再生中だけ出す。ナビバーの上に重ねる） */
+  .aplayer { position:fixed; left:0; right:0; bottom:58px; z-index:25;
+             background:rgba(255,253,248,.98); border-top:1px solid #f0e6d2;
+             box-shadow:0 -3px 12px rgba(120,80,20,.14); padding:7px 0 8px; }
+  .aplayer[hidden] { display:none; }
+  .ap-in { max-width:640px; margin:0 auto; padding:0 14px; display:flex; align-items:center; gap:9px; }
+  .ap-btn { flex:none; width:40px; height:40px; border-radius:50%; border:none; background:var(--brand);
+            color:#fff; font-size:16px; cursor:pointer; box-shadow:0 2px 6px rgba(180,83,9,.35); }
+  .ap-seek { flex:1; min-width:0; }
+  .ap-seek input { width:100%; accent-color:var(--brand); }
+  .ap-time { flex:none; font-size:11px; font-weight:bold; color:var(--brand); min-width:74px;
+             text-align:right; }
+  .ap-rate, .ap-close { flex:none; border:1.5px solid var(--line); background:#fffbeb; color:var(--brand);
+             font-weight:bold; border-radius:16px; padding:4px 9px; font-size:11.5px; cursor:pointer;
+             font-family:inherit; }
+
   /* ── 上部: タイトル＋単元タブ＋進捗バー ── */
   .bar { position:sticky; top:0; z-index:10; background:rgba(255,253,248,.96);
          backdrop-filter:blur(6px); border-bottom:1px solid #f0e6d2; }
@@ -35,7 +65,7 @@
                white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   .bar-step { flex:none; font-size:11px; font-weight:bold; color:var(--brand); }
   /* 初回だけ出す操作ヒント（PCはキー、スマホはスワイプ） */
-  .hintbar { position:fixed; left:50%; transform:translateX(-50%); bottom:78px; z-index:35;
+  .hintbar { position:fixed; left:50%; transform:translateX(-50%); bottom:132px; z-index:35;
              background:rgba(28,25,23,.88); color:#fff; font-size:12.5px; font-weight:bold;
              border-radius:20px; padding:8px 16px; box-shadow:0 4px 14px rgba(0,0,0,.3);
              animation:hintIn .3s ease; }
@@ -419,39 +449,40 @@
   </footer>
 </section>
 <section class="view" data-t="1">
-  <div class="tband"><span class="tno">1</span><h2>政治の変革</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">1</span><h2>政治の変革</h2>
+    <button class="play-unit" type="button" data-play="1" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-political-reform.webp"
            alt="政治の変革（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">「みんなの声を政治に」——そんな空気が日本中に広がった時代、それが大正デモクラシーだよ。一部の人だけが握っていた政治の主役の座に、少しずつ民衆が近づいていくんだ。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">「みんなの声を政治に」——そんな空気が日本中に広がった時代、</span><span class="s" data-i="1">それが大正デモクラシーだよ。</span><span class="s" data-i="2">一部の人だけが握っていた政治の主役の座に、</span><span class="s" data-i="3">少しずつ民衆が近づいていくんだ。</span></div></div>
     </div>
     <div class="step" data-label="第一次護憲運動と大正デモクラシー">
-      <h3><span class="sec-no">1</span>第一次護憲運動と大正デモクラシー</h3>
-      <div class="sec-lead">民衆の声が政治を動かし始めたよ。</div>
-      <p>大正時代に入ると、「もっと国民の声を政治に生かしてほしい」という気運、つまり<span class="mark">大正デモクラシー</span>が日本中に広がっていったんだ。1912年から13年にかけて、尾崎行雄や犬養毅たちが「閥族打破・憲政擁護」を合言葉にした<span class="mark">第一次護憲運動</span>を起こしたのを知ってる?この運動、なんと藩閥政治の象徴だった第3次桂太郎内閣を退陣に追い込むほどの力を持っていたんだよ。一部の人たちだけで決めていた政治のあり方に、国民が「それはおかしい」と声を上げた、大きな一歩だったんだね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">第一次護憲運動で、桂太郎内閣が退陣に追い込まれたよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="4">第一次護憲運動と大正デモクラシー</span></h3>
+      <div class="sec-lead"><span class="s" data-i="5">民衆の声が政治を動かし始めたよ。</span></div>
+      <p><span class="s" data-i="6">大正時代に入ると、</span><span class="s" data-i="7">「もっと国民の声を政治に生かしてほしい」という気運、</span><span class="s" data-i="8">つまり<span class="mark">大正デモクラシー</span>が日本中に広がっていったんだ。</span><span class="s" data-i="9">1912年から13年にかけて、</span><span class="s" data-i="10">尾崎行雄や犬養毅たちが「閥族打破・憲政擁護」を合言葉にした<span class="mark">第一次護憲運動</span>を起こしたのを知ってる?この運動、</span><span class="s" data-i="11">なんと藩閥政治の象徴だった第3次桂太郎内閣を退陣に追い込むほどの力を持っていたんだよ。</span><span class="s" data-i="12">一部の人たちだけで決めていた政治のあり方に、</span><span class="s" data-i="13">国民が「それはおかしい」と声を上げた、</span><span class="s" data-i="14">大きな一歩だったんだね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="15">第一次護憲運動で、</span><span class="s" data-i="16">桂太郎内閣が退陣に追い込まれたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">大正デモクラシー<span class="w-rd">たいしょうデモクラシー</span></span><span class="w-desc">大正期に広まった、民主主義を求める風潮。</span></div><div class="word"><span class="w-term">第一次護憲運動<span class="w-rd">だいいちじごけんうんどう</span></span><span class="w-desc">1912〜13年、桂太郎内閣を退陣させた「憲政擁護」を掲げる運動。</span></div></div>
     </div>
     <div class="step" data-label="吉野作造の民本主義">
-      <h3><span class="sec-no">2</span>吉野作造の民本主義</h3>
-      <div class="sec-lead">天皇制のままで民衆の声を活かす考えだよ。</div>
-      <p>この大正デモクラシーの流れを理論の面から支えたのが、東京帝大教授の<span class="mark">吉野作造</span>なんだ。彼が唱えたのが<span class="mark">民本主義</span>という考え方。「主権は国民にある」とまでは言わなかったけど、「天皇が主権を持つ今の仕組みのままでも、政治にはできるだけ民衆の意思を反映させるべきだ」と説いたんだよ。少し控えめに聞こえるかもしれないけど、当時としてはとても新しい発想で、多くの人々に影響を与えたんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">民本主義は、天皇主権のままで民衆の意思を政治に生かす考えだよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="17">吉野作造の民本主義</span></h3>
+      <div class="sec-lead"><span class="s" data-i="18">天皇制のままで民衆の声を活かす考えだよ。</span></div>
+      <p><span class="s" data-i="19">この大正デモクラシーの流れを理論の面から支えたのが、</span><span class="s" data-i="20">東京帝大教授の<span class="mark">吉野作造</span>なんだ。</span><span class="s" data-i="21">彼が唱えたのが<span class="mark">民本主義</span>という考え方。</span><span class="s" data-i="22">「主権は国民にある」とまでは言わなかったけど、</span><span class="s" data-i="23">「天皇が主権を持つ今の仕組みのままでも、</span><span class="s" data-i="24">政治にはできるだけ民衆の意思を反映させるべきだ」と説いたんだよ。</span><span class="s" data-i="25">少し控えめに聞こえるかもしれないけど、</span><span class="s" data-i="26">当時としてはとても新しい発想で、</span><span class="s" data-i="27">多くの人々に影響を与えたんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="28">民本主義は、天皇主権のままで民衆の意思を政治に生かす考えだよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">吉野作造<span class="w-rd">よしのさくぞう</span></span><span class="w-desc">民本主義を唱え、大正デモクラシーを理論で支えた政治学者。</span></div><div class="word"><span class="w-term">民本主義<span class="w-rd">みんぽんしゅぎ</span></span><span class="w-desc">天皇主権のもとでも民衆の意思を政治に生かすべきという考え。</span></div></div>
     </div>
     <div class="step" data-label="原敬内閣と「平民宰相」">
-      <h3><span class="sec-no">3</span>原敬内閣と「平民宰相」</h3>
-      <div class="sec-lead">爵位のない首相が政党内閣を作ったよ。</div>
-      <p>1918年、米の値段が急に上がって人々の生活が苦しくなり、全国で米騒動が起きたんだ。この混乱で当時の内閣が退陣し、代わって立憲政友会の総裁<span class="mark">原敬</span>が内閣を組織したよ。原敬は華族の爵位を持たない衆議院議員だったことから、「<span class="mark">平民宰相</span>」と親しみを込めて呼ばれたんだ。すごいのは、この内閣がほとんどの大臣を政党員で固めた、日本で初めての本格的な政党内閣だったこと。政治が少しずつ、庶民に近づいていったのが分かるよね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">原敬は爵位を持たず、日本初の本格的な政党内閣を組織したよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="29">原敬内閣と「平民宰相」</span></h3>
+      <div class="sec-lead"><span class="s" data-i="30">爵位のない首相が政党内閣を作ったよ。</span></div>
+      <p><span class="s" data-i="31">1918年、米の値段が急に上がって人々の生活が苦しくなり、</span><span class="s" data-i="32">全国で米騒動が起きたんだ。</span><span class="s" data-i="33">この混乱で当時の内閣が退陣し、</span><span class="s" data-i="34">代わって立憲政友会の総裁<span class="mark">原敬</span>が内閣を組織したよ。</span><span class="s" data-i="35">原敬は華族の爵位を持たない衆議院議員だったことから、</span><span class="s" data-i="36">「<span class="mark">平民宰相</span>」と親しみを込めて呼ばれたんだ。</span><span class="s" data-i="37">すごいのは、この内閣がほとんどの大臣を政党員で固めた、</span><span class="s" data-i="38">日本で初めての本格的な政党内閣だったこと。</span><span class="s" data-i="39">政治が少しずつ、</span><span class="s" data-i="40">庶民に近づいていったのが分かるよね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="41">原敬は爵位を持たず、</span><span class="s" data-i="42">日本初の本格的な政党内閣を組織したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">原敬<span class="w-rd">はらたかし</span></span><span class="w-desc">1918年に日本初の本格的政党内閣を組織した首相。「平民宰相」と呼ばれた。</span></div></div>
     </div>
     <div class="step" data-label="普通選挙法と治安維持法">
-      <h3><span class="sec-no">4</span>普通選挙法と治安維持法</h3>
-      <div class="sec-lead">選挙権拡大と思想統制が同時に進んだよ。</div>
-      <p>1925年、<span class="mark">加藤高明</span>内閣のもとで大きな法律が2つ同時に生まれたんだ。ひとつは<span class="mark">普通選挙法</span>。これまであった納税額による制限がなくなり、<span class="mark">25歳以上の男子</span>なら誰でも選挙権を持てるようになったんだよ。でも同じ年、社会主義など国の仕組みを変えようとする考えを取り締まる<span class="mark">治安維持法</span>も制定されたんだ。政治参加の扉が大きく開かれた一方で、思想の自由には厳しい制限がかけられた——光と影が同時にやってきた年だったんだね。ちなみに女性にはまだ選挙権は与えられなかったよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1925年、普通選挙法と治安維持法が同時に制定されたよ。</div></div>
+      <h3><span class="sec-no">4</span><span class="s" data-i="43">普通選挙法と治安維持法</span></h3>
+      <div class="sec-lead"><span class="s" data-i="44">選挙権拡大と思想統制が同時に進んだよ。</span></div>
+      <p><span class="s" data-i="45">1925年、<span class="mark">加藤高明</span>内閣のもとで大きな法律が2つ同時に生まれたんだ。</span><span class="s" data-i="46">ひとつは<span class="mark">普通選挙法</span>。</span><span class="s" data-i="47">これまであった納税額による制限がなくなり、</span><span class="s" data-i="48"><span class="mark">25歳以上の男子</span>なら誰でも選挙権を持てるようになったんだよ。</span><span class="s" data-i="49">でも同じ年、社会主義など国の仕組みを変えようとする考えを取り締まる<span class="mark">治安維持法</span>も制定されたんだ。</span><span class="s" data-i="50">政治参加の扉が大きく開かれた一方で、</span><span class="s" data-i="51">思想の自由には厳しい制限がかけられた——光と影が同時にやってきた年だったんだね。</span><span class="s" data-i="52">ちなみに女性にはまだ選挙権は与えられなかったよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="53">1925年、普通選挙法と治安維持法が同時に制定されたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">普通選挙法<span class="w-rd">ふつうせんきょほう</span></span><span class="w-desc">1925年制定。25歳以上のすべての男子に選挙権を与えた法律。</span></div><div class="word"><span class="w-term">治安維持法<span class="w-rd">ちあんいじほう</span></span><span class="w-desc">1925年制定。社会主義など反体制の思想を取り締まる法律。</span></div><div class="word"><span class="w-term">加藤高明<span class="w-rd">かとうたかあき</span></span><span class="w-desc">1925年に普通選挙法と治安維持法を制定した首相。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -559,7 +590,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">大正時代、民主主義を求める<span class="mark">大正デモクラシー</span>が広がり、<span class="mark">民本主義</span>がそれを支えたよ。米騒動をきっかけに<span class="mark">原敬</span>の政党内閣が誕生し、1925年には<span class="mark">普通選挙法</span>と<span class="mark">治安維持法</span>が同時に制定されたんだ。</div>
+        <div class="sum30-body"><span class="s" data-i="54">大正時代、民主主義を求める<span class="mark">大正デモクラシー</span>が広がり、</span><span class="s" data-i="55"><span class="mark">民本主義</span>がそれを支えたよ。</span><span class="s" data-i="56">米騒動をきっかけに<span class="mark">原敬</span>の政党内閣が誕生し、</span><span class="s" data-i="57">1925年には<span class="mark">普通選挙法</span>と<span class="mark">治安維持法</span>が同時に制定されたんだ。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -574,39 +605,40 @@
     </div>
 </section>
 <section class="view" data-t="2">
-  <div class="tband"><span class="tno">2</span><h2>社会運動の広がり</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">2</span><h2>社会運動の広がり</h2>
+    <button class="play-unit" type="button" data-play="2" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-social-movements.webp"
            alt="社会運動の広がり（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">「もう黙っていられない」——労働者も、農民も、女性も、差別に苦しんできた人たちも、それぞれの立場から声を上げ始めたのが大正時代なんだ。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">「もう黙っていられない」——労働者も、農民も、女性も、</span><span class="s" data-i="1">差別に苦しんできた人たちも、</span><span class="s" data-i="2">それぞれの立場から声を上げ始めたのが大正時代なんだ。</span></div></div>
     </div>
     <div class="step" data-label="労働運動と農民運動">
-      <h3><span class="sec-no">1</span>労働運動と農民運動</h3>
-      <div class="sec-lead">働く人たちが自分たちの力で声を上げたよ。</div>
-      <p>工場で働く人が増えた大正時代、労働条件の改善を求める労働運動が各地で広がり、1921年には全国組織の<span class="mark">日本労働総同盟</span>がまとまったんだ。農村でも、小作料の引き下げを求める動きが強まり、1922年には<span class="mark">賀川豊彦</span>らが<span class="mark">日本農民組合</span>を結成したよ。地主に小作料の値下げを求める争い、つまり小作争議を全国で主導したんだ。働く人たちが「もっと生活を良くしたい」と、自分たちの力で立ち上がり始めた時代だったんだね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1921年日本労働総同盟、1922年賀川豊彦らが日本農民組合を結成したよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="3">労働運動と農民運動</span></h3>
+      <div class="sec-lead"><span class="s" data-i="4">働く人たちが自分たちの力で声を上げたよ。</span></div>
+      <p><span class="s" data-i="5">工場で働く人が増えた大正時代、</span><span class="s" data-i="6">労働条件の改善を求める労働運動が各地で広がり、</span><span class="s" data-i="7">1921年には全国組織の<span class="mark">日本労働総同盟</span>がまとまったんだ。</span><span class="s" data-i="8">農村でも、小作料の引き下げを求める動きが強まり、</span><span class="s" data-i="9">1922年には<span class="mark">賀川豊彦</span>らが<span class="mark">日本農民組合</span>を結成したよ。</span><span class="s" data-i="10">地主に小作料の値下げを求める争い、</span><span class="s" data-i="11">つまり小作争議を全国で主導したんだ。</span><span class="s" data-i="12">働く人たちが「もっと生活を良くしたい」と、</span><span class="s" data-i="13">自分たちの力で立ち上がり始めた時代だったんだね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="14">1921年日本労働総同盟、</span><span class="s" data-i="15">1922年賀川豊彦らが日本農民組合を結成したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">日本労働総同盟<span class="w-rd">にほんろうどうそうどうめい</span></span><span class="w-desc">1921年に成立した労働組合の全国組織。</span></div><div class="word"><span class="w-term">日本農民組合<span class="w-rd">にほんのうみんくみあい</span></span><span class="w-desc">1922年、賀川豊彦らが結成。小作争議を全国的に主導した。</span></div></div>
     </div>
     <div class="step" data-label="全国水平社と差別への抵抗">
-      <h3><span class="sec-no">2</span>全国水平社と差別への抵抗</h3>
-      <div class="sec-lead">差別をなくす決意を自らの手で示したよ。</div>
-      <p>長い間、被差別部落出身という理由だけで不当な差別を受けてきた人たちがいたんだ。1922年、その人たちが京都に集まり、<span class="mark">全国水平社</span>を結成したよ。結成大会で発表された<span class="mark">水平社宣言</span>は、「人の世に熱あれ、人間に光あれ」という有名な言葉で結ばれていて、誰かに差別をなくしてもらうのを待つのではなく、自分たちの手で差別をなくそうという強い決意が込められているんだ。すごい覚悟だと思わない?</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1922年、差別解消を目指す全国水平社が結成されたよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="16">全国水平社と差別への抵抗</span></h3>
+      <div class="sec-lead"><span class="s" data-i="17">差別をなくす決意を自らの手で示したよ。</span></div>
+      <p><span class="s" data-i="18">長い間、被差別部落出身という理由だけで不当な差別を受けてきた人たちがいたんだ。</span><span class="s" data-i="19">1922年、その人たちが京都に集まり、</span><span class="s" data-i="20"><span class="mark">全国水平社</span>を結成したよ。</span><span class="s" data-i="21">結成大会で発表された<span class="mark">水平社宣言</span>は、</span><span class="s" data-i="22">「人の世に熱あれ、</span><span class="s" data-i="23">人間に光あれ」という有名な言葉で結ばれていて、</span><span class="s" data-i="24">誰かに差別をなくしてもらうのを待つのではなく、</span><span class="s" data-i="25">自分たちの手で差別をなくそうという強い決意が込められているんだ。</span><span class="s" data-i="26">すごい覚悟だと思わない?</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="27">1922年、差別解消を目指す全国水平社が結成されたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">全国水平社<span class="w-rd">ぜんこくすいへいしゃ</span></span><span class="w-desc">1922年、被差別部落出身者が差別解消を目指し結成した組織。</span></div><div class="word"><span class="w-term">水平社宣言<span class="w-rd">すいへいしゃせんげん</span></span><span class="w-desc">全国水平社の結成大会で発表された、「人の世に熱あれ、人間に光あれ」で結ばれる宣言。</span></div></div>
     </div>
     <div class="step" data-label="女性解放運動の広がり">
-      <h3><span class="sec-no">3</span>女性解放運動の広がり</h3>
-      <div class="sec-lead">女性が声を上げる場所が広がっていったよ。</div>
-      <p>「もともと女性は太陽だった」——1911年、<span class="mark">平塚らいてう</span>はこんな言葉とともに女性誌「<span class="mark">青鞜</span>」を創刊し、女性の解放を訴えたんだ。1920年には<span class="mark">市川房枝</span>らとともに<span class="mark">新婦人協会</span>を結成し、女性が政治集会に参加することを禁じていた治安警察法第5条の改正を求めたよ。今では当たり前に思えることも、当時は法律で禁じられていたんだね。少しずつだけど、女性が声を上げられる場所が広がっていったんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">平塚らいてうの青鞜や、市川房枝らの新婦人協会は女性の政治参加を求めたよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="28">女性解放運動の広がり</span></h3>
+      <div class="sec-lead"><span class="s" data-i="29">女性が声を上げる場所が広がっていったよ。</span></div>
+      <p><span class="s" data-i="30">「もともと女性は太陽だった」——1911年、</span><span class="s" data-i="31"><span class="mark">平塚らいてう</span>はこんな言葉とともに女性誌「<span class="mark">青鞜</span>」を創刊し、</span><span class="s" data-i="32">女性の解放を訴えたんだ。</span><span class="s" data-i="33">1920年には<span class="mark">市川房枝</span>らとともに<span class="mark">新婦人協会</span>を結成し、</span><span class="s" data-i="34">女性が政治集会に参加することを禁じていた治安警察法第5条の改正を求めたよ。</span><span class="s" data-i="35">今では当たり前に思えることも、</span><span class="s" data-i="36">当時は法律で禁じられていたんだね。</span><span class="s" data-i="37">少しずつだけど、</span><span class="s" data-i="38">女性が声を上げられる場所が広がっていったんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="39">平塚らいてうの青鞜や、</span><span class="s" data-i="40">市川房枝らの新婦人協会は女性の政治参加を求めたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">平塚らいてう<span class="w-rd">ひらつからいてう</span></span><span class="w-desc">1911年に女性誌「青鞜」を創刊した女性運動家。</span></div><div class="word"><span class="w-term">青鞜<span class="w-rd">せいとう</span></span><span class="w-desc">1911年に平塚らいてうが創刊した女性誌。</span></div><div class="word"><span class="w-term">新婦人協会<span class="w-rd">しんふじんきょうかい</span></span><span class="w-desc">1920年に平塚らいてう・市川房枝らが結成した、女性の政治参加を求めた団体。</span></div></div>
     </div>
     <div class="step" data-label="関東大震災という試練">
-      <h3><span class="sec-no">4</span>関東大震災という試練</h3>
-      <div class="sec-lead">大災害の混乱がデマと悲劇を生んだよ。</div>
-      <p>1923年9月1日、<span class="mark">関東大震災</span>が関東地方を襲い、死者・行方不明者は10万人を超える大きな被害となったんだ。この混乱の中で、「朝鮮人が井戸に毒を入れた」といった根も葉もないデマが広まり、自警団によって多くの朝鮮人や中国人が命を奪われるという悲しい事件も起きてしまった。大きな災害のあとには、こうしたデマや差別が広がりやすいということを、私たちは歴史から学ばないといけないよね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1923年の関東大震災では、デマによって朝鮮人などが迫害されたよ。</div></div>
+      <h3><span class="sec-no">4</span><span class="s" data-i="41">関東大震災という試練</span></h3>
+      <div class="sec-lead"><span class="s" data-i="42">大災害の混乱がデマと悲劇を生んだよ。</span></div>
+      <p><span class="s" data-i="43">1923年9月1日、</span><span class="s" data-i="44"><span class="mark">関東大震災</span>が関東地方を襲い、</span><span class="s" data-i="45">死者・行方不明者は10万人を超える大きな被害となったんだ。</span><span class="s" data-i="46">この混乱の中で、</span><span class="s" data-i="47">「朝鮮人が井戸に毒を入れた」といった根も葉もないデマが広まり、</span><span class="s" data-i="48">自警団によって多くの朝鮮人や中国人が命を奪われるという悲しい事件も起きてしまった。</span><span class="s" data-i="49">大きな災害のあとには、</span><span class="s" data-i="50">こうしたデマや差別が広がりやすいということを、</span><span class="s" data-i="51">私たちは歴史から学ばないといけないよね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="52">1923年の関東大震災では、</span><span class="s" data-i="53">デマによって朝鮮人などが迫害されたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">関東大震災<span class="w-rd">かんとうだいしんさい</span></span><span class="w-desc">1923年9月1日に発生し、死者・行方不明者10万人以上を出した大地震。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -714,7 +746,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">大正時代には労働者・農民・被差別部落の人々・女性が、それぞれの立場から権利を求めて声を上げたよ。1921年の<span class="mark">日本労働総同盟</span>、1922年の<span class="mark">全国水平社</span>、1920年の<span class="mark">新婦人協会</span>などがその代表なんだ。1923年の<span class="mark">関東大震災</span>では大きな被害に加え、デマによる悲しい迫害も起きたんだよ。</div>
+        <div class="sum30-body"><span class="s" data-i="54">大正時代には労働者・農民・被差別部落の人々・女性が、</span><span class="s" data-i="55">それぞれの立場から権利を求めて声を上げたよ。</span><span class="s" data-i="56">1921年の<span class="mark">日本労働総同盟</span>、</span><span class="s" data-i="57">1922年の<span class="mark">全国水平社</span>、</span><span class="s" data-i="58">1920年の<span class="mark">新婦人協会</span>などがその代表なんだ。</span><span class="s" data-i="59">1923年の<span class="mark">関東大震災</span>では大きな被害に加え、</span><span class="s" data-i="60">デマによる悲しい迫害も起きたんだよ。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -729,32 +761,33 @@
     </div>
 </section>
 <section class="view" data-t="3">
-  <div class="tband"><span class="tno">3</span><h2>大衆文化の成熟</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">3</span><h2>大衆文化の成熟</h2>
+    <button class="play-unit" type="button" data-play="3" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-mass-culture.webp"
            alt="大衆文化の成熟（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">ラジオから流れる声、1冊1円の本、銀座を歩くおしゃれな若者たち——大正から昭和初めにかけて、庶民の暮らしがぐんと華やかになっていったんだよ。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">ラジオから流れる声、1冊1円の本、</span><span class="s" data-i="1">銀座を歩くおしゃれな若者たち——大正から昭和初めにかけて、</span><span class="s" data-i="2">庶民の暮らしがぐんと華やかになっていったんだよ。</span></div></div>
     </div>
     <div class="step" data-label="ラジオ放送と大衆文化の広がり">
-      <h3><span class="sec-no">1</span>ラジオ放送と大衆文化の広がり</h3>
-      <div class="sec-lead">ラジオが庶民の暮らしに娯楽を届けたよ。</div>
-      <p>1925年、東京・大阪・名古屋で<span class="mark">ラジオ放送</span>が始まったんだ。これは後の日本放送協会、つまりNHKへとつながっていくよ。新聞や雑誌、映画なども広く普及して、都市に暮らす一般の人々に親しまれる<span class="mark">大衆文化</span>が花開いた時代だったんだ。大正期には音のない無声映画が大人気になり、昭和の初めには音声付きのトーキーへと進化していったよ。家庭にいながら世の中の情報や娯楽を楽しめるようになった、大きな転換点だったんだね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1925年、東京・大阪・名古屋で始まったラジオ放送が大衆文化を広げたよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="3">ラジオ放送と大衆文化の広がり</span></h3>
+      <div class="sec-lead"><span class="s" data-i="4">ラジオが庶民の暮らしに娯楽を届けたよ。</span></div>
+      <p><span class="s" data-i="5">1925年、東京・大阪・名古屋で<span class="mark">ラジオ放送</span>が始まったんだ。</span><span class="s" data-i="6">これは後の日本放送協会、</span><span class="s" data-i="7">つまりNHKへとつながっていくよ。</span><span class="s" data-i="8">新聞や雑誌、映画なども広く普及して、</span><span class="s" data-i="9">都市に暮らす一般の人々に親しまれる<span class="mark">大衆文化</span>が花開いた時代だったんだ。</span><span class="s" data-i="10">大正期には音のない無声映画が大人気になり、</span><span class="s" data-i="11">昭和の初めには音声付きのトーキーへと進化していったよ。</span><span class="s" data-i="12">家庭にいながら世の中の情報や娯楽を楽しめるようになった、</span><span class="s" data-i="13">大きな転換点だったんだね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="14">1925年、東京・大阪・名古屋で始まったラジオ放送が大衆文化を広げたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">大衆文化<span class="w-rd">たいしゅうぶんか</span></span><span class="w-desc">ラジオ・映画・雑誌の普及を背景に、都市の一般の人々に広がった文化。</span></div><div class="word"><span class="w-term">ラジオ放送<span class="w-rd">らじおほうそう</span></span><span class="w-desc">1925年に東京・大阪・名古屋で始まった放送。後のNHKにつながる。</span></div></div>
     </div>
     <div class="step" data-label="円本とモボ・モガ">
-      <h3><span class="sec-no">2</span>円本とモボ・モガ</h3>
-      <div class="sec-lead">安い本と新しい流行が街にあふれたよ。</div>
-      <p>1926年、改造社という出版社が1冊1円という安さで文学全集を売り出したんだ。これが「<span class="mark">円本</span>」と呼ばれ、それまで高価だった本を庶民も気軽に買えるようになり、読書がぐっと身近になったんだよ。また、洋装に身を包んで銀座の街を闊歩する若者たちは「<span class="mark">モボ・モガ</span>」(モダンボーイ・モダンガール)と呼ばれ、新しい流行の象徴になったんだ。都市を中心に、和と洋が入り混じった文化住宅も広まっていったよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1926年の円本で読書が広まり、モボ・モガが新しい流行になったよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="15">円本とモボ・モガ</span></h3>
+      <div class="sec-lead"><span class="s" data-i="16">安い本と新しい流行が街にあふれたよ。</span></div>
+      <p><span class="s" data-i="17">1926年、改造社という出版社が1冊1円という安さで文学全集を売り出したんだ。</span><span class="s" data-i="18">これが「<span class="mark">円本</span>」と呼ばれ、</span><span class="s" data-i="19">それまで高価だった本を庶民も気軽に買えるようになり、</span><span class="s" data-i="20">読書がぐっと身近になったんだよ。</span><span class="s" data-i="21">また、洋装に身を包んで銀座の街を闊歩する若者たちは「<span class="mark">モボ・モガ</span>」(モダンボーイ・モダンガール)と呼ばれ、</span><span class="s" data-i="22">新しい流行の象徴になったんだ。</span><span class="s" data-i="23">都市を中心に、和と洋が入り混じった文化住宅も広まっていったよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="24">1926年の円本で読書が広まり、</span><span class="s" data-i="25">モボ・モガが新しい流行になったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">円本<span class="w-rd">えんぽん</span></span><span class="w-desc">1926年に改造社が売り出した、1冊1円の文学全集。</span></div><div class="word"><span class="w-term">モボ・モガ<span class="w-rd">モボ・モガ</span></span><span class="w-desc">洋装で銀座などを歩いた、大正末〜昭和初期の都市の若者。</span></div></div>
     </div>
     <div class="step" data-label="個性豊かな文学者たち">
-      <h3><span class="sec-no">3</span>個性豊かな文学者たち</h3>
-      <div class="sec-lead">作家それぞれが違うテーマを描いたよ。</div>
-      <p>この時代、個性的な作家たちが次々と作品を発表したんだ。<span class="mark">芥川龍之介</span>は「羅生門」「鼻」といった短編で人間の心の奥深さを鋭く描き出したよ。武者小路実篤や<span class="mark">志賀直哉</span>ら<span class="mark">白樺派</span>は、人間らしさや理想を大切にする作品を発表したんだ。そして1929年、<span class="mark">小林多喜二</span>は「蟹工船」という作品で、過酷な労働環境に苦しむ労働者の姿を描き、<span class="mark">プロレタリア文学</span>の代表作となったんだよ。同じ時代でも、書く人によって全然違うテーマに向き合っていたんだね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">芥川龍之介や白樺派、小林多喜二の「蟹工船」など個性的な文学が生まれたよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="26">個性豊かな文学者たち</span></h3>
+      <div class="sec-lead"><span class="s" data-i="27">作家それぞれが違うテーマを描いたよ。</span></div>
+      <p><span class="s" data-i="28">この時代、個性的な作家たちが次々と作品を発表したんだ。</span><span class="s" data-i="29"><span class="mark">芥川龍之介</span>は「羅生門」「鼻」といった短編で人間の心の奥深さを鋭く描き出したよ。</span><span class="s" data-i="30">武者小路実篤や<span class="mark">志賀直哉</span>ら<span class="mark">白樺派</span>は、</span><span class="s" data-i="31">人間らしさや理想を大切にする作品を発表したんだ。</span><span class="s" data-i="32">そして1929年、</span><span class="s" data-i="33"><span class="mark">小林多喜二</span>は「蟹工船」という作品で、</span><span class="s" data-i="34">過酷な労働環境に苦しむ労働者の姿を描き、</span><span class="s" data-i="35"><span class="mark">プロレタリア文学</span>の代表作となったんだよ。</span><span class="s" data-i="36">同じ時代でも、書く人によって全然違うテーマに向き合っていたんだね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="37">芥川龍之介や白樺派、</span><span class="s" data-i="38">小林多喜二の「蟹工船」など個性的な文学が生まれたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">芥川龍之介<span class="w-rd">あくたがわりゅうのすけ</span></span><span class="w-desc">「羅生門」「鼻」などの短編で人間心理を描いた作家。</span></div><div class="word"><span class="w-term">白樺派<span class="w-rd">しらかばは</span></span><span class="w-desc">武者小路実篤・志賀直哉らの、人道主義を大切にした文学グループ。</span></div><div class="word"><span class="w-term">小林多喜二<span class="w-rd">こばやしたきじ</span></span><span class="w-desc">「蟹工船」を著したプロレタリア文学の代表的作家。</span></div><div class="word"><span class="w-term">プロレタリア文学<span class="w-rd">ぷろれたりあぶんがく</span></span><span class="w-desc">労働者・農民の暮らしを描いた文学運動。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -862,7 +895,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">1925年の<span class="mark">ラジオ放送</span>開始をきっかけに<span class="mark">大衆文化</span>が花開き、<span class="mark">円本</span>やモボ・モガなど新しい流行も生まれたよ。文学では<span class="mark">芥川龍之介</span>や白樺派、そして<span class="mark">プロレタリア文学</span>の小林多喜二など、個性豊かな作家たちが活躍したんだ。</div>
+        <div class="sum30-body"><span class="s" data-i="39">1925年の<span class="mark">ラジオ放送</span>開始をきっかけに<span class="mark">大衆文化</span>が花開き、</span><span class="s" data-i="40"><span class="mark">円本</span>やモボ・モガなど新しい流行も生まれたよ。</span><span class="s" data-i="41">文学では<span class="mark">芥川龍之介</span>や白樺派、</span><span class="s" data-i="42">そして<span class="mark">プロレタリア文学</span>の小林多喜二など、</span><span class="s" data-i="43">個性豊かな作家たちが活躍したんだ。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -878,6 +911,14 @@
 </section>
 </main>
 <div class="hintbar" id="hintBar" hidden></div>
+<div class="aplayer" id="aplayer" hidden><div class="ap-in">
+  <button class="ap-btn" id="apPlay" aria-label="再生／一時停止">❚❚</button>
+  <div class="ap-seek"><input type="range" id="apSeek" min="0" max="1000" value="0"></div>
+  <div class="ap-time" id="apTime">0:00 / 0:00</div>
+  <button class="ap-rate" id="apRate">1.0×</button>
+  <button class="ap-close" id="apClose" aria-label="読み上げを止める">×</button>
+</div></div>
+<audio id="audio" preload="none"></audio>
 <div class="navbar" id="navbar" hidden><div class="navbar-in">
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
@@ -905,7 +946,8 @@
 (function () {
   var KEY = 'tzmref-14';
   var CH = '14';
-  var WB_VIEWS = [0, 2, 3, 4];          // 参考書の単元t → 問題集のビュー番号（0＝対応なし）
+  var WB_VIEWS = [0, 2, 3, 4];
+  var AUDIO = {"1": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F14-political-reform.mp3?alt=media&token=f5bf7471-41a5-4345-b748-e75d739d8936", "tl": [[0, 6.2, 0], [6.2, 1.76, 0], [8.24, 4.051, 0], [12.291, 2.749, 0], [15.69, 4.2, 1], [20.54, 3.6, 1], [24.79, 2.07, 1], [26.86, 4.14, 1], [31, 4.03, 1], [35.31, 3.232, 1], [38.542, 8.829, 1], [47.371, 7.739, 1], [55.39, 4.598, 1], [59.988, 2.686, 1], [62.674, 1.756, 1], [65.08, 2.467, 1], [67.547, 3.133, 1], [71.33, 2.8, 2], [74.78, 3.68, 2], [79.11, 4.527, 2], [83.637, 3.473, 2], [87.39, 3.84, 2], [91.51, 4.072, 2], [95.582, 3.213, 2], [98.795, 4.875, 2], [103.95, 3.017, 2], [106.967, 2.657, 2], [109.624, 2.366, 2], [112.64, 5.92, 2], [119.21, 3.24, 3], [123.1, 4.04, 3], [127.79, 6.468, 3], [134.258, 2.412, 3], [136.95, 4.052, 3], [141.002, 5.668, 3], [146.95, 4.899, 3], [151.849, 3.421, 3], [155.55, 5.671, 3], [161.221, 3.929, 3], [165.43, 1.888, 3], [167.318, 2.512, 3], [170.48, 2.587, 3], [173.067, 3.733, 3], [177.45, 3.08, 4], [181.18, 4.12, 4], [185.95, 7.16, 4], [193.39, 2.36, 4], [196.03, 3.616, 4], [199.646, 4.424, 4], [204.35, 9.16, 4], [213.79, 3.759, 4], [217.549, 6.881, 4], [224.71, 4.2, 4], [229.56, 5.96, 4], [236.17, 4.809, 6], [240.979, 2.231, 6], [243.49, 4.488, 6], [247.978, 5.472, 6]]}, "2": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F14-social-movements.mp3?alt=media&token=e2f2753b-02c7-4022-8851-a76663e271e8", "tl": [[0, 4.146, 0], [4.146, 3.147, 0], [7.293, 3.787, 0], [11.73, 3.08, 1], [15.46, 4.04, 1], [20.15, 3.274, 1], [23.424, 4.132, 1], [27.556, 5.714, 1], [33.55, 4.37, 1], [37.92, 5.83, 1], [44.03, 3.395, 1], [47.425, 3.245, 1], [50.95, 3.986, 1], [54.936, 3.254, 1], [58.84, 4.404, 1], [63.244, 5.516, 1], [69.41, 3.64, 2], [73.7, 3.56, 2], [77.91, 6.8, 2], [84.99, 3.78, 2], [88.77, 2.54, 2], [91.59, 3.719, 2], [95.309, 1.713, 2], [97.022, 4.061, 2], [101.083, 3.244, 2], [104.327, 4.543, 2], [109.15, 2.68, 2], [112.48, 6.2, 2], [119.33, 2.8, 3], [122.78, 3.36, 3], [126.79, 4.875, 3], [131.665, 5.231, 3], [136.896, 2.174, 3], [139.35, 6.018, 3], [145.368, 6.342, 3], [151.99, 2.542, 3], [154.532, 2.698, 3], [157.51, 1.114, 3], [158.624, 3.846, 3], [163.12, 2.583, 3], [165.703, 5.017, 3], [171.37, 2.28, 4], [174.3, 4.2, 4], [179.15, 2.836, 4], [181.986, 1.905, 4], [183.891, 6.099, 4], [190.27, 2.246, 4], [192.516, 5.52, 4], [198.036, 6.834, 4], [205.15, 2.19, 4], [207.34, 3.23, 4], [210.57, 2.94, 4], [214.16, 3.701, 4], [217.861, 3.179, 4], [221.69, 6.704, 6], [228.394, 3.696, 6], [232.37, 4.082, 6], [236.452, 3.353, 6], [239.805, 4.245, 6], [244.33, 5.248, 6], [249.578, 2.792, 6]]}, "3": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F14-mass-culture.mp3?alt=media&token=251d0ab4-dc70-4976-a8b3-3824233642f8", "tl": [[0, 4.336, 0], [4.336, 5.442, 0], [9.778, 3.182, 0], [13.61, 3.44, 1], [17.7, 3.4, 1], [21.75, 6.24, 1], [28.27, 2.992, 1], [31.262, 2.048, 1], [33.59, 3.843, 1], [37.433, 5.077, 1], [42.79, 4.25, 1], [47.04, 4.07, 1], [51.39, 4.792, 1], [56.182, 2.128, 1], [58.96, 7.56, 1], [67.17, 3.72, 2], [71.54, 4.12, 2], [76.31, 8.44, 2], [85.03, 1.707, 2], [86.737, 4.53, 2], [91.267, 2.363, 2], [93.91, 9.075, 2], [102.985, 2.565, 2], [105.83, 5.4, 2], [111.88, 3.932, 2], [115.812, 2.708, 2], [119.17, 2.24, 3], [122.06, 3.24, 3], [125.95, 5.28, 3], [131.51, 8.56, 3], [140.35, 3.568, 3], [143.918, 3.672, 3], [147.87, 1.183, 3], [149.053, 4.343, 3], [153.396, 5.191, 3], [158.587, 3.083, 3], [161.95, 5.4, 3], [168, 2.659, 3], [170.659, 4.661, 3], [175.97, 5.906, 5], [181.876, 3.894, 5], [186.05, 2.972, 5], [189.022, 4.692, 5], [193.714, 2.616, 5]]}};          // {単元t: {url, tl:[[開始秒,長さ,ステップ], …]}}          // 参考書の単元t → 問題集のビュー番号（0＝対応なし）
   var views = [].slice.call(document.querySelectorAll('.view'));
   var tabs = [].slice.call(document.querySelectorAll('.tab'));
   var N = views.length - 1; // 単元数
@@ -936,6 +978,89 @@
     };
     bar.addEventListener('click', function () { bar.hidden = true; });
   })();
+
+
+  // ── 読み上げ（音声に合わせて句をハイライトし、ページも自動でめくる）──
+  var au = document.getElementById('audio');
+  var apl = document.getElementById('aplayer');
+  var reading = { t: 0, i: -1 };
+  var RATES = [1, 1.25, 1.5, 0.75], ri = 0;
+
+  function fmt(x) { x = Math.max(0, x | 0); return (x / 60 | 0) + ':' + ('0' + (x % 60)).slice(-2); }
+  function spansOf(t) { return [].slice.call(views[t].querySelectorAll('.s')); }
+
+  function startAudio(t) {
+    var a = AUDIO[t];
+    if (!a) return;
+    reading = { t: t, i: -1 };
+    if (au.dataset.t !== String(t)) { au.src = a.url; au.dataset.t = String(t); }
+    document.body.classList.add('reading');
+    apl.hidden = false;
+    au.playbackRate = RATES[ri];
+    au.play();
+  }
+  function stopAudio() {
+    au.pause();
+    document.body.classList.remove('reading');
+    apl.hidden = true;
+    if (reading.t) spansOf(reading.t).forEach(function (el) { el.classList.remove('now', 'read'); });
+    reading = { t: 0, i: -1 };
+  }
+  function paintAudio() {
+    var a = AUDIO[reading.t];
+    if (!a) return;
+    var tl = a.tl, k = -1;
+    for (var i = 0; i < tl.length; i++) { if (au.currentTime >= tl[i][0]) k = i; else break; }
+    if (k === reading.i) return;
+    reading.i = k;
+    // 読んでいる箇所が別のページなら、そのページへ自動でめくる
+    if (k >= 0 && tl[k][2] !== state.s && state.t === reading.t) go(reading.t, tl[k][2], tl[k][2] > state.s ? 1 : -1);
+    var sp = spansOf(reading.t);
+    sp.forEach(function (el, i) {
+      el.classList.toggle('now', i === k);
+      el.classList.toggle('read', i < k);
+    });
+    var el = sp[k];
+    if (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < 70 || r.bottom > innerHeight - 150) {
+        scrollTo({ top: scrollY + r.top - innerHeight * 0.4, behavior: 'smooth' });
+      }
+    }
+  }
+  function tickAudio() {
+    paintAudio();
+    if (au.duration) {
+      document.getElementById('apSeek').value = Math.round(au.currentTime / au.duration * 1000);
+      document.getElementById('apTime').textContent = fmt(au.currentTime) + ' / ' + fmt(au.duration);
+    }
+    if (!au.paused) requestAnimationFrame(tickAudio);
+  }
+  au.addEventListener('play', function () { document.getElementById('apPlay').textContent = '❚❚'; tickAudio(); });
+  au.addEventListener('pause', function () { document.getElementById('apPlay').textContent = '▶'; });
+  au.addEventListener('ended', stopAudio);
+  document.getElementById('apPlay').onclick = function () { au.paused ? au.play() : au.pause(); };
+  document.getElementById('apClose').onclick = stopAudio;
+  document.getElementById('apSeek').oninput = function () {
+    if (au.duration) { au.currentTime = this.value / 1000 * au.duration; reading.i = -1; paintAudio(); }
+  };
+  document.getElementById('apRate').onclick = function () {
+    ri = (ri + 1) % RATES.length; au.playbackRate = RATES[ri];
+    this.textContent = RATES[ri].toFixed(2).replace(/0$/, '') + '×';
+  };
+  // 単元見出しの「🔊 読み上げ」＋ 文字タップでその場所から読む
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('.play-unit');
+    if (b) { startAudio(+b.dataset.play); return; }
+    var sp = e.target.closest && e.target.closest('.s');
+    if (sp && AUDIO[state.t]) {
+      var k = +sp.dataset.i, a = AUDIO[state.t];
+      if (a.tl[k]) {
+        if (reading.t !== state.t) startAudio(state.t);
+        au.currentTime = a.tl[k][0]; reading.i = -1; paintAudio(); au.play();
+      }
+    }
+  });
 
   // 単元タブの左右矢印: まだ隠れているタブがある側だけ出す
   function updateTabArrows() {
@@ -1034,6 +1159,8 @@
     // クエリが付いていても落とさない（URL共有時の情報を保つ）
     if (location.hash !== h) history.replaceState(null, '', location.search + (t === 0 ? '#' : h));
     updateSwap();
+    var pb = views[t] && views[t].querySelector('.play-unit');
+    if (pb) pb.hidden = !AUDIO[t];
     rendered = { t: t, s: s };
   }
 

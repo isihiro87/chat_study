@@ -13,6 +13,36 @@
 
   .mark { background:linear-gradient(transparent 55%, var(--line) 55%); font-weight:bold; padding:0 1px; }
 
+  /* ── 読み上げ（音声＋読んでいる句のハイライト）── */
+  .s { border-radius:6px; padding:.14em .12em; margin:0 -.12em;
+       -webkit-box-decoration-break:clone; box-decoration-break:clone;
+       transition:background-color .15s ease, color .15s ease; }
+  body.reading .s { cursor:pointer; }
+  .s.read { color:#8a8279; }
+  .s.now { background:#fcd34d; color:#1c1917; }
+  .s.now .mark { background:none; }
+  /* 単元見出しの再生ボタン */
+  .play-unit { display:inline-flex; align-items:center; gap:6px; margin-left:auto; flex:none;
+               background:#fff; color:var(--brand); border:1.5px solid var(--line);
+               border-radius:20px; padding:4px 12px; font-size:12px; font-weight:bold;
+               font-family:inherit; cursor:pointer; }
+  .play-unit[hidden] { display:none; }
+  /* 下部プレーヤー（再生中だけ出す。ナビバーの上に重ねる） */
+  .aplayer { position:fixed; left:0; right:0; bottom:58px; z-index:25;
+             background:rgba(255,253,248,.98); border-top:1px solid #f0e6d2;
+             box-shadow:0 -3px 12px rgba(120,80,20,.14); padding:7px 0 8px; }
+  .aplayer[hidden] { display:none; }
+  .ap-in { max-width:640px; margin:0 auto; padding:0 14px; display:flex; align-items:center; gap:9px; }
+  .ap-btn { flex:none; width:40px; height:40px; border-radius:50%; border:none; background:var(--brand);
+            color:#fff; font-size:16px; cursor:pointer; box-shadow:0 2px 6px rgba(180,83,9,.35); }
+  .ap-seek { flex:1; min-width:0; }
+  .ap-seek input { width:100%; accent-color:var(--brand); }
+  .ap-time { flex:none; font-size:11px; font-weight:bold; color:var(--brand); min-width:74px;
+             text-align:right; }
+  .ap-rate, .ap-close { flex:none; border:1.5px solid var(--line); background:#fffbeb; color:var(--brand);
+             font-weight:bold; border-radius:16px; padding:4px 9px; font-size:11.5px; cursor:pointer;
+             font-family:inherit; }
+
   /* ── 上部: タイトル＋単元タブ＋進捗バー ── */
   .bar { position:sticky; top:0; z-index:10; background:rgba(255,253,248,.96);
          backdrop-filter:blur(6px); border-bottom:1px solid #f0e6d2; }
@@ -35,7 +65,7 @@
                white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   .bar-step { flex:none; font-size:11px; font-weight:bold; color:var(--brand); }
   /* 初回だけ出す操作ヒント（PCはキー、スマホはスワイプ） */
-  .hintbar { position:fixed; left:50%; transform:translateX(-50%); bottom:78px; z-index:35;
+  .hintbar { position:fixed; left:50%; transform:translateX(-50%); bottom:132px; z-index:35;
              background:rgba(28,25,23,.88); color:#fff; font-size:12.5px; font-weight:bold;
              border-radius:20px; padding:8px 16px; box-shadow:0 4px 14px rgba(0,0,0,.3);
              animation:hintIn .3s ease; }
@@ -419,32 +449,33 @@
   </footer>
 </section>
 <section class="view" data-t="1">
-  <div class="tband"><span class="tno">1</span><h2>ヨーロッパの変革</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">1</span><h2>ヨーロッパの変革</h2>
+    <button class="play-unit" type="button" data-play="1" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-europe-change.webp"
            alt="ヨーロッパの変革（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">教会の力が絶対だったヨーロッパで、人々の考え方や信仰のあり方が大きく変わり始めたんだ。何がきっかけだったんだろう?</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">教会の力が絶対だったヨーロッパで、</span><span class="s" data-i="1">人々の考え方や信仰のあり方が大きく変わり始めたんだ。</span><span class="s" data-i="2">何がきっかけだったんだろう?</span></div></div>
     </div>
     <div class="step" data-label="十字軍とその影響">
-      <h3><span class="sec-no">1</span>十字軍とその影響</h3>
-      <div class="sec-lead">十字軍の遠征が、教皇の権威を揺るがせたよ。</div>
-      <p>西ヨーロッパでは、<span class="mark">ローマ教皇</span>を頂点とする<span class="mark">カトリック教会</span>が、国王をしのぐくらい大きな権威を持っていたんだ。11世紀末、教皇の呼びかけで聖地エルサレムを取り戻そうと<span class="mark">十字軍</span>の遠征が始まり、その後なんと約200年も繰り返されたんだよ。でも遠征は結局失敗に終わってしまい、教皇の権威はかえって下がってしまったんだ。その一方で、この間にイスラム世界との交流がさかんになって、進んだ文化や知識がヨーロッパに伝わる大きなきっかけにもなったんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">十字軍は聖地奪還に失敗したけど、教皇の権威は下がったよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="3">十字軍とその影響</span></h3>
+      <div class="sec-lead"><span class="s" data-i="4">十字軍の遠征が、</span><span class="s" data-i="5">教皇の権威を揺るがせたよ。</span></div>
+      <p><span class="s" data-i="6">西ヨーロッパでは、</span><span class="s" data-i="7"><span class="mark">ローマ教皇</span>を頂点とする<span class="mark">カトリック教会</span>が、</span><span class="s" data-i="8">国王をしのぐくらい大きな権威を持っていたんだ。</span><span class="s" data-i="9">11世紀末、教皇の呼びかけで聖地エルサレムを取り戻そうと<span class="mark">十字軍</span>の遠征が始まり、</span><span class="s" data-i="10">その後なんと約200年も繰り返されたんだよ。</span><span class="s" data-i="11">でも遠征は結局失敗に終わってしまい、</span><span class="s" data-i="12">教皇の権威はかえって下がってしまったんだ。</span><span class="s" data-i="13">その一方で、この間にイスラム世界との交流がさかんになって、</span><span class="s" data-i="14">進んだ文化や知識がヨーロッパに伝わる大きなきっかけにもなったんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="15">十字軍は聖地奪還に失敗したけど、</span><span class="s" data-i="16">教皇の権威は下がったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">ローマ教皇<span class="w-rd">ローマきょうこう</span></span><span class="w-desc">カトリック教会の頂点に立ち、西ヨーロッパで大きな権威を持った人物。</span></div><div class="word"><span class="w-term">カトリック教会<span class="w-rd">カトリックきょうかい</span></span><span class="w-desc">ローマ教皇を中心とするキリスト教の宗派。</span></div><div class="word"><span class="w-term">十字軍<span class="w-rd">じゅうじぐん</span></span><span class="w-desc">教皇の呼びかけで聖地エルサレム奪還のため派遣された遠征軍。</span></div></div>
     </div>
     <div class="step" data-label="ルネサンスの開花">
-      <h3><span class="sec-no">2</span>ルネサンスの開花</h3>
-      <div class="sec-lead">人間らしさを描く、ルネサンスが花開いたよ。</div>
-      <p>14世紀のイタリアでは、古代ギリシャ・ローマの文化をもう一度見直して、人間らしさを表現しようとする文化運動、<span class="mark">ルネサンス</span>(文芸復興)が始まったんだ。「モナ・リザ」を描いた<span class="mark">レオナルド・ダ・ヴィンチ</span>や、「最後の審判」で知られるミケランジェロなど、たくさんの芸術家が活躍したよ。また、このころ発明された<span class="mark">活版印刷</span>の技術のおかげで書物を安く大量に作れるようになり、新しい知識や考え方が人々の間にすばやく広く伝わるようになったんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">ルネサンスは、人間らしさを表現するイタリアの文化運動だよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="17">ルネサンスの開花</span></h3>
+      <div class="sec-lead"><span class="s" data-i="18">人間らしさを描く、</span><span class="s" data-i="19">ルネサンスが花開いたよ。</span></div>
+      <p><span class="s" data-i="20">14世紀のイタリアでは、</span><span class="s" data-i="21">古代ギリシャ・ローマの文化をもう一度見直して、</span><span class="s" data-i="22">人間らしさを表現しようとする文化運動、</span><span class="s" data-i="23"><span class="mark">ルネサンス</span>(文芸復興)が始まったんだ。</span><span class="s" data-i="24">「モナ・リザ」を描いた<span class="mark">レオナルド・ダ・ヴィンチ</span>や、</span><span class="s" data-i="25">「最後の審判」で知られるミケランジェロなど、</span><span class="s" data-i="26">たくさんの芸術家が活躍したよ。</span><span class="s" data-i="27">また、このころ発明された<span class="mark">活版印刷</span>の技術のおかげで書物を安く大量に作れるようになり、</span><span class="s" data-i="28">新しい知識や考え方が人々の間にすばやく広く伝わるようになったんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="29">ルネサンスは、人間らしさを表現するイタリアの文化運動だよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">ルネサンス<span class="w-rd">るねさんす</span></span><span class="w-desc">古代ギリシャ・ローマ文化を見直し、人間らしさを表現しようとした文化運動。</span></div><div class="word"><span class="w-term">レオナルド・ダ・ヴィンチ<span class="w-rd">れおなるど・だ・う゛ぃんち</span></span><span class="w-desc">「モナ・リザ」を描いたルネサンスの巨匠。</span></div></div>
     </div>
     <div class="step" data-label="宗教改革とカトリックの巻き返し">
-      <h3><span class="sec-no">3</span>宗教改革とカトリックの巻き返し</h3>
-      <div class="sec-lead">ルターの宗教改革から、対立が生まれたよ。</div>
-      <p>1517年、ドイツの<span class="mark">ルター</span>は、「これを買えば罪が許される」として売られていた免罪符をカトリック教会が売り出したことに疑問を持ち、批判して<span class="mark">宗教改革</span>を始めたんだ。この動きに賛同してカトリック教会に抗議する人々は<span class="mark">プロテスタント</span>と呼ばれ、スイスのカルバンも改革を進めたよ。教会の権威がゆらぐ中、カトリック教会側も<span class="mark">イエズス会</span>という組織をつくって信者を増やす活動に力を入れ、宣教師を海外へ送り出して巻き返しをはかったんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">ルターの宗教改革でプロテスタントが生まれ、教会も対抗したよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="30">宗教改革とカトリックの巻き返し</span></h3>
+      <div class="sec-lead"><span class="s" data-i="31">ルターの宗教改革から、</span><span class="s" data-i="32">対立が生まれたよ。</span></div>
+      <p><span class="s" data-i="33">1517年、ドイツの<span class="mark">ルター</span>は、</span><span class="s" data-i="34">「これを買えば罪が許される」として売られていた免罪符をカトリック教会が売り出したことに疑問を持ち、</span><span class="s" data-i="35">批判して<span class="mark">宗教改革</span>を始めたんだ。</span><span class="s" data-i="36">この動きに賛同してカトリック教会に抗議する人々は<span class="mark">プロテスタント</span>と呼ばれ、</span><span class="s" data-i="37">スイスのカルバンも改革を進めたよ。</span><span class="s" data-i="38">教会の権威がゆらぐ中、</span><span class="s" data-i="39">カトリック教会側も<span class="mark">イエズス会</span>という組織をつくって信者を増やす活動に力を入れ、</span><span class="s" data-i="40">宣教師を海外へ送り出して巻き返しをはかったんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="41">ルターの宗教改革でプロテスタントが生まれ、</span><span class="s" data-i="42">教会も対抗したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">ルター<span class="w-rd">るたー</span></span><span class="w-desc">免罪符販売を批判し、ドイツで宗教改革を始めた人物。</span></div><div class="word"><span class="w-term">プロテスタント<span class="w-rd">ぷろてすたんと</span></span><span class="w-desc">ルターやカルバンを支持し、カトリック教会に抗議した人々。</span></div><div class="word"><span class="w-term">イエズス会<span class="w-rd">いえずすかい</span></span><span class="w-desc">宗教改革に対抗して、カトリック教会側がつくった組織。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -552,7 +583,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body"><span class="mark">十字軍</span>は聖地奪還には失敗したけれど、教皇の権威を低下させ東西交流をさかんにしたよ。14世紀イタリアで始まった<span class="mark">ルネサンス</span>は人間らしさを重んじる文化を生み、1517年のルターの<span class="mark">宗教改革</span>は<span class="mark">プロテスタント</span>を誕生させたんだ。カトリック教会も<span class="mark">イエズス会</span>で対抗していったんだよ。</div>
+        <div class="sum30-body"><span class="s" data-i="43"><span class="mark">十字軍</span>は聖地奪還には失敗したけれど、</span><span class="s" data-i="44">教皇の権威を低下させ東西交流をさかんにしたよ。</span><span class="s" data-i="45">14世紀イタリアで始まった<span class="mark">ルネサンス</span>は人間らしさを重んじる文化を生み、</span><span class="s" data-i="46">1517年のルターの<span class="mark">宗教改革</span>は<span class="mark">プロテスタント</span>を誕生させたんだ。</span><span class="s" data-i="47">カトリック教会も<span class="mark">イエズス会</span>で対抗していったんだよ。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -567,25 +598,26 @@
     </div>
 </section>
 <section class="view" data-t="2">
-  <div class="tband"><span class="tno">2</span><h2>大航海時代</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">2</span><h2>大航海時代</h2>
+    <button class="play-unit" type="button" data-play="2" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-europe-spread.webp"
            alt="大航海時代（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">香辛料を求めて大海原へ乗り出したヨーロッパ人が、世界の姿をがらりと変えていったんだよ。想像できるかな?</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">香辛料を求めて大海原へ乗り出したヨーロッパ人が、</span><span class="s" data-i="1">世界の姿をがらりと変えていったんだよ。</span><span class="s" data-i="2">想像できるかな?</span></div></div>
     </div>
     <div class="step" data-label="新航路の開拓">
-      <h3><span class="sec-no">1</span>新航路の開拓</h3>
-      <div class="sec-lead">ヨーロッパ人が、新しい航路を切り開いたよ。</div>
-      <p>15世紀以降、香辛料やキリスト教の布教を求めたヨーロッパ人は、新しい航路を切り開いて世界各地へ進出する<span class="mark">大航海時代</span>を迎えたんだ。1498年、ポルトガル人の<span class="mark">バスコ・ダ・ガマ</span>はアフリカ南端を回ってインドにたどり着き、インド航路を開いたよ。1492年には<span class="mark">コロンブス</span>がスペインの支援を受けて大西洋を横断し、カリブ海の島に到達したんだけど、本人は最後まで「アジアに着いた」と信じていたんだって。面白いよね。1522年には<span class="mark">マゼランの船隊</span>が世界一周をなしとげ、地球が丸いことが実際に証明されたんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">バスコ・ダ・ガマ、コロンブス、マゼランが新航路を切り開いたよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="3">新航路の開拓</span></h3>
+      <div class="sec-lead"><span class="s" data-i="4">ヨーロッパ人が、</span><span class="s" data-i="5">新しい航路を切り開いたよ。</span></div>
+      <p><span class="s" data-i="6">15世紀以降、香辛料やキリスト教の布教を求めたヨーロッパ人は、</span><span class="s" data-i="7">新しい航路を切り開いて世界各地へ進出する<span class="mark">大航海時代</span>を迎えたんだ。</span><span class="s" data-i="8">1498年、ポルトガル人の<span class="mark">バスコ・ダ・ガマ</span>はアフリカ南端を回ってインドにたどり着き、</span><span class="s" data-i="9">インド航路を開いたよ。</span><span class="s" data-i="10">1492年には<span class="mark">コロンブス</span>がスペインの支援を受けて大西洋を横断し、</span><span class="s" data-i="11">カリブ海の島に到達したんだけど、</span><span class="s" data-i="12">本人は最後まで「アジアに着いた」と信じていたんだって。</span><span class="s" data-i="13">面白いよね。</span><span class="s" data-i="14">1522年には<span class="mark">マゼランの船隊</span>が世界一周をなしとげ、</span><span class="s" data-i="15">地球が丸いことが実際に証明されたんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="16">バスコ・ダ・ガマ、コロンブス、</span><span class="s" data-i="17">マゼランが新航路を切り開いたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">大航海時代<span class="w-rd">だいこうかいじだい</span></span><span class="w-desc">ヨーロッパ人が新しい航路を開き、世界各地へ進出した時代。</span></div><div class="word"><span class="w-term">バスコ・ダ・ガマ<span class="w-rd">ばすこ・だ・がま</span></span><span class="w-desc">アフリカ南端を回ってインドに到達したポルトガル人。</span></div><div class="word"><span class="w-term">コロンブス<span class="w-rd">ころんぶす</span></span><span class="w-desc">スペインの支援で大西洋を横断し、カリブ海の島に到達した人物。</span></div><div class="word"><span class="w-term">マゼランの船隊<span class="w-rd">まぜらんのせんたい</span></span><span class="w-desc">1522年に世界一周を達成した船隊。</span></div></div>
     </div>
     <div class="step" data-label="南北アメリカの征服と三角貿易">
-      <h3><span class="sec-no">2</span>南北アメリカの征服と三角貿易</h3>
-      <div class="sec-lead">アメリカ大陸の征服と、悲しい奴隷貿易だよ。</div>
-      <p>スペインは中南米へ進出し、ピサロが<span class="mark">インカ帝国</span>を、コルテスが<span class="mark">アステカ帝国</span>をそれぞれ滅ぼして、広大な植民地を築いたんだ。ヨーロッパ・アフリカ・アメリカ大陸を結ぶ<span class="mark">三角貿易</span>では、ヨーロッパが武器などをアフリカへ運び、多くのアフリカ人が奴隷としてアメリカ大陸へ無理やり送られてしまったんだよ。悲しい歴史だね。また、オランダは<span class="mark">東インド会社</span>を設立して、アジアの香辛料貿易を独占し、大きな利益を上げたんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">スペインは中南米を征服し、三角貿易で奴隷も送られたよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="18">南北アメリカの征服と三角貿易</span></h3>
+      <div class="sec-lead"><span class="s" data-i="19">アメリカ大陸の征服と、</span><span class="s" data-i="20">悲しい奴隷貿易だよ。</span></div>
+      <p><span class="s" data-i="21">スペインは中南米へ進出し、</span><span class="s" data-i="22">ピサロが<span class="mark">インカ帝国</span>を、</span><span class="s" data-i="23">コルテスが<span class="mark">アステカ帝国</span>をそれぞれ滅ぼして、</span><span class="s" data-i="24">広大な植民地を築いたんだ。</span><span class="s" data-i="25">ヨーロッパ・アフリカ・アメリカ大陸を結ぶ<span class="mark">三角貿易</span>では、</span><span class="s" data-i="26">ヨーロッパが武器などをアフリカへ運び、</span><span class="s" data-i="27">多くのアフリカ人が奴隷としてアメリカ大陸へ無理やり送られてしまったんだよ。</span><span class="s" data-i="28">悲しい歴史だね。</span><span class="s" data-i="29">また、オランダは<span class="mark">東インド会社</span>を設立して、</span><span class="s" data-i="30">アジアの香辛料貿易を独占し、</span><span class="s" data-i="31">大きな利益を上げたんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="32">スペインは中南米を征服し、</span><span class="s" data-i="33">三角貿易で奴隷も送られたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">インカ帝国<span class="w-rd">いんかていこく</span></span><span class="w-desc">スペインのピサロが滅ぼした南米の帝国。</span></div><div class="word"><span class="w-term">アステカ帝国<span class="w-rd">あすてかていこく</span></span><span class="w-desc">スペインのコルテスが滅ぼしたメキシコの帝国。</span></div><div class="word"><span class="w-term">三角貿易<span class="w-rd">さんかくぼうえき</span></span><span class="w-desc">ヨーロッパ・アフリカ・アメリカ大陸を結んだ、奴隷貿易を伴う貿易。</span></div><div class="word"><span class="w-term">東インド会社<span class="w-rd">ひがしいんどがいしゃ</span></span><span class="w-desc">オランダがアジア貿易のために設立した会社。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -693,7 +725,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">大航海時代、<span class="mark">バスコ・ダ・ガマ</span>はインド航路を、<span class="mark">コロンブス</span>はカリブ海への到達を、<span class="mark">マゼランの船隊</span>は世界一周を成しとげたよ。スペインは中南米のインカ・アステカ両帝国を滅ぼし、ヨーロッパ・アフリカ・アメリカを結ぶ<span class="mark">三角貿易</span>では、多くのアフリカ人が奴隷として送られてしまったんだ。</div>
+        <div class="sum30-body"><span class="s" data-i="34">大航海時代、<span class="mark">バスコ・ダ・ガマ</span>はインド航路を、</span><span class="s" data-i="35"><span class="mark">コロンブス</span>はカリブ海への到達を、</span><span class="s" data-i="36"><span class="mark">マゼランの船隊</span>は世界一周を成しとげたよ。</span><span class="s" data-i="37">スペインは中南米のインカ・アステカ両帝国を滅ぼし、</span><span class="s" data-i="38">ヨーロッパ・アフリカ・アメリカを結ぶ<span class="mark">三角貿易</span>では、</span><span class="s" data-i="39">多くのアフリカ人が奴隷として送られてしまったんだ。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -708,32 +740,33 @@
     </div>
 </section>
 <section class="view" data-t="3">
-  <div class="tband"><span class="tno">3</span><h2>南蛮貿易とキリスト教</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">3</span><h2>南蛮貿易とキリスト教</h2>
+    <button class="play-unit" type="button" data-play="3" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-nanban-trade.webp"
            alt="南蛮貿易とキリスト教（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">海の向こうから伝わった鉄砲と十字架が、戦国の日本を大きく揺さぶることになったんだよ。どんな変化が起きたか見てみよう。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">海の向こうから伝わった鉄砲と十字架が、</span><span class="s" data-i="1">戦国の日本を大きく揺さぶることになったんだよ。</span><span class="s" data-i="2">どんな変化が起きたか見てみよう。</span></div></div>
     </div>
     <div class="step" data-label="鉄砲伝来">
-      <h3><span class="sec-no">1</span>鉄砲伝来</h3>
-      <div class="sec-lead">種子島に鉄砲が伝わり、戦い方が変わったよ。</div>
-      <p>1543年、ポルトガル人を乗せた中国船が九州南方の<span class="mark">種子島</span>に流れ着いて、<span class="mark">鉄砲</span>が日本に伝えられたんだ。領主の種子島時尭が鉄砲の国産化を進め、その後鉄砲は近江の国友や和泉の堺でどんどん量産されるようになったよ。これによって、それまでの弓矢や刀を中心とした戦い方は大きく変わり、鉄砲をうまく使えるかどうかが戦国大名の勝敗を左右するようになっていったんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1543年、種子島に鉄砲が伝わり戦い方が変わったよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="3">鉄砲伝来</span></h3>
+      <div class="sec-lead"><span class="s" data-i="4">種子島に鉄砲が伝わり、</span><span class="s" data-i="5">戦い方が変わったよ。</span></div>
+      <p><span class="s" data-i="6">1543年、ポルトガル人を乗せた中国船が九州南方の<span class="mark">種子島</span>に流れ着いて、</span><span class="s" data-i="7"><span class="mark">鉄砲</span>が日本に伝えられたんだ。</span><span class="s" data-i="8">領主の種子島時尭が鉄砲の国産化を進め、</span><span class="s" data-i="9">その後鉄砲は近江の国友や和泉の堺でどんどん量産されるようになったよ。</span><span class="s" data-i="10">これによって、それまでの弓矢や刀を中心とした戦い方は大きく変わり、</span><span class="s" data-i="11">鉄砲をうまく使えるかどうかが戦国大名の勝敗を左右するようになっていったんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="12">1543年、種子島に鉄砲が伝わり戦い方が変わったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">鉄砲<span class="w-rd">てっぽう</span></span><span class="w-desc">1543年、種子島に伝えられ、戦国大名の戦い方を変えた武器。</span></div><div class="word"><span class="w-term">種子島<span class="w-rd">たねがしま</span></span><span class="w-desc">1543年に鉄砲が伝来した九州南方の島。</span></div></div>
     </div>
     <div class="step" data-label="ザビエルの来日と南蛮貿易">
-      <h3><span class="sec-no">2</span>ザビエルの来日と南蛮貿易</h3>
-      <div class="sec-lead">ザビエルが、キリスト教と貿易を伝えたよ。</div>
-      <p>1549年、イエズス会の宣教師<span class="mark">ザビエル</span>が鹿児島に上陸して、日本にキリスト教を伝えたんだ。それ以降、日本はポルトガル人・スペイン人との<span class="mark">南蛮貿易</span>を行い、銀を輸出して中国産の生糸などを輸入するようになったよ。貿易の利益を得ることなどを目的にキリスト教を受け入れる大名も現れて、<span class="mark">キリシタン大名</span>と呼ばれたんだ。1580年には大村純忠が<span class="mark">長崎</span>をイエズス会に寄進し、長崎は南蛮貿易の中心地としてにぎわうことになったんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">ザビエルがキリスト教を伝え、南蛮貿易も始まったよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="13">ザビエルの来日と南蛮貿易</span></h3>
+      <div class="sec-lead"><span class="s" data-i="14">ザビエルが、キリスト教と貿易を伝えたよ。</span></div>
+      <p><span class="s" data-i="15">1549年、イエズス会の宣教師<span class="mark">ザビエル</span>が鹿児島に上陸して、</span><span class="s" data-i="16">日本にキリスト教を伝えたんだ。</span><span class="s" data-i="17">それ以降、日本はポルトガル人・スペイン人との<span class="mark">南蛮貿易</span>を行い、</span><span class="s" data-i="18">銀を輸出して中国産の生糸などを輸入するようになったよ。</span><span class="s" data-i="19">貿易の利益を得ることなどを目的にキリスト教を受け入れる大名も現れて、</span><span class="s" data-i="20"><span class="mark">キリシタン大名</span>と呼ばれたんだ。</span><span class="s" data-i="21">1580年には大村純忠が<span class="mark">長崎</span>をイエズス会に寄進し、</span><span class="s" data-i="22">長崎は南蛮貿易の中心地としてにぎわうことになったんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="23">ザビエルがキリスト教を伝え、</span><span class="s" data-i="24">南蛮貿易も始まったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">ザビエル<span class="w-rd">ざびえる</span></span><span class="w-desc">1549年に日本へキリスト教を伝えたイエズス会の宣教師。</span></div><div class="word"><span class="w-term">南蛮貿易<span class="w-rd">なんばんぼうえき</span></span><span class="w-desc">ポルトガル人・スペイン人との貿易。日本は銀を輸出し生糸を輸入した。</span></div><div class="word"><span class="w-term">キリシタン大名<span class="w-rd">きりしたんだいみょう</span></span><span class="w-desc">南蛮貿易の利益などを目的にキリスト教を受け入れた大名。</span></div><div class="word"><span class="w-term">長崎<span class="w-rd">ながさき</span></span><span class="w-desc">1580年にイエズス会に寄進され、南蛮貿易の中心地として栄えた港町。</span></div></div>
     </div>
     <div class="step" data-label="天正遣欧使節と南蛮文化">
-      <h3><span class="sec-no">3</span>天正遣欧使節と南蛮文化</h3>
-      <div class="sec-lead">少年使節がローマへ、南蛮文化も伝わったよ。</div>
-      <p>1582年、キリシタン大名の大友宗麟らは、4人の少年をローマ教皇のもとへ送る<span class="mark">天正遣欧使節</span>を派遣したんだ。少年たちは実に8年後に日本へ帰ってきたんだよ。このころ、ヨーロッパの文物が日本に伝わる<span class="mark">南蛮文化</span>も広まっていって、宣教師が持ち込んだ活版印刷術によって「平家物語」などがローマ字で印刷されたり、カステラなどの南蛮の菓子も日本に伝えられたりしたんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">キリシタン大名が天正遣欧使節を送り、南蛮文化も広まったよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="25">天正遣欧使節と南蛮文化</span></h3>
+      <div class="sec-lead"><span class="s" data-i="26">少年使節がローマへ、</span><span class="s" data-i="27">南蛮文化も伝わったよ。</span></div>
+      <p><span class="s" data-i="28">1582年、キリシタン大名の大友宗麟らは、</span><span class="s" data-i="29">4人の少年をローマ教皇のもとへ送る<span class="mark">天正遣欧使節</span>を派遣したんだ。</span><span class="s" data-i="30">少年たちは実に8年後に日本へ帰ってきたんだよ。</span><span class="s" data-i="31">このころ、ヨーロッパの文物が日本に伝わる<span class="mark">南蛮文化</span>も広まっていって、</span><span class="s" data-i="32">宣教師が持ち込んだ活版印刷術によって「平家物語」などがローマ字で印刷されたり、</span><span class="s" data-i="33">カステラなどの南蛮の菓子も日本に伝えられたりしたんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="34">キリシタン大名が天正遣欧使節を送り、</span><span class="s" data-i="35">南蛮文化も広まったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">天正遣欧使節<span class="w-rd">てんしょうけんおうしせつ</span></span><span class="w-desc">1582年、キリシタン大名がローマ教皇のもとへ送った少年使節。</span></div><div class="word"><span class="w-term">南蛮文化<span class="w-rd">なんばんぶんか</span></span><span class="w-desc">ポルトガル人・スペイン人との交流で日本に広まった文化。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -841,7 +874,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">1543年に<span class="mark">種子島</span>へ<span class="mark">鉄砲</span>が伝わり戦国大名の戦い方を変え、1549年には<span class="mark">ザビエル</span>がキリスト教を伝えたよ。日本は<span class="mark">南蛮貿易</span>で銀を輸出し生糸を輸入するようになり、キリシタン大名も現れて<span class="mark">長崎</span>はその中心地としてにぎわい、<span class="mark">天正遣欧使節</span>も派遣されたんだ。</div>
+        <div class="sum30-body"><span class="s" data-i="36">1543年に<span class="mark">種子島</span>へ<span class="mark">鉄砲</span>が伝わり戦国大名の戦い方を変え、</span><span class="s" data-i="37">1549年には<span class="mark">ザビエル</span>がキリスト教を伝えたよ。</span><span class="s" data-i="38">日本は<span class="mark">南蛮貿易</span>で銀を輸出し生糸を輸入するようになり、</span><span class="s" data-i="39">キリシタン大名も現れて<span class="mark">長崎</span>はその中心地としてにぎわい、</span><span class="s" data-i="40"><span class="mark">天正遣欧使節</span>も派遣されたんだ。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -856,32 +889,33 @@
     </div>
 </section>
 <section class="view" data-t="4">
-  <div class="tband"><span class="tno">4</span><h2>信長・秀吉の天下統一</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">4</span><h2>信長・秀吉の天下統一</h2>
+    <button class="play-unit" type="button" data-play="4" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-nobunaga-hideyoshi.webp"
            alt="信長・秀吉の天下統一（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">尾張の一大名だった織田信長から、天下統一を成しとげた豊臣秀吉へ。時代が大きく動いた瞬間を、いっしょに見てみよう。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">尾張の一大名だった織田信長から、</span><span class="s" data-i="1">天下統一を成しとげた豊臣秀吉へ。</span><span class="s" data-i="2">時代が大きく動いた瞬間を、</span><span class="s" data-i="3">いっしょに見てみよう。</span></div></div>
     </div>
     <div class="step" data-label="織田信長の台頭">
-      <h3><span class="sec-no">1</span>織田信長の台頭</h3>
-      <div class="sec-lead">信長が桶狭間で勝ち、幕府を滅ぼしたよ。</div>
-      <p>尾張の戦国大名<span class="mark">織田信長</span>は、1560年の<span class="mark">桶狭間の戦い</span>で、少ない兵ながら今川義元の大軍を奇襲して打ち破り、大きく勢力を広げたんだ。1573年には、もともと味方だった第15代将軍足利義昭と対立してこれを京都から追放し、約240年も続いた<span class="mark">室町幕府</span>を滅ぼしてしまったんだよ。これによって戦国の世は大きな転機を迎え、信長による天下統一への歩みが本格的に始まっていったんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">信長は桶狭間の戦いで勝ち、室町幕府を滅ぼしたよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="4">織田信長の台頭</span></h3>
+      <div class="sec-lead"><span class="s" data-i="5">信長が桶狭間で勝ち、</span><span class="s" data-i="6">幕府を滅ぼしたよ。</span></div>
+      <p><span class="s" data-i="7">尾張の戦国大名<span class="mark">織田信長</span>は、</span><span class="s" data-i="8">1560年の<span class="mark">桶狭間の戦い</span>で、</span><span class="s" data-i="9">少ない兵ながら今川義元の大軍を奇襲して打ち破り、</span><span class="s" data-i="10">大きく勢力を広げたんだ。</span><span class="s" data-i="11">1573年には、</span><span class="s" data-i="12">もともと味方だった第15代将軍足利義昭と対立してこれを京都から追放し、</span><span class="s" data-i="13">約240年も続いた<span class="mark">室町幕府</span>を滅ぼしてしまったんだよ。</span><span class="s" data-i="14">これによって戦国の世は大きな転機を迎え、</span><span class="s" data-i="15">信長による天下統一への歩みが本格的に始まっていったんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="16">信長は桶狭間の戦いで勝ち、</span><span class="s" data-i="17">室町幕府を滅ぼしたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">織田信長<span class="w-rd">おだのぶなが</span></span><span class="w-desc">桶狭間の戦いで今川義元を破り、室町幕府を滅ぼした尾張の戦国大名。</span></div><div class="word"><span class="w-term">桶狭間の戦い<span class="w-rd">おけはざまのたたかい</span></span><span class="w-desc">1560年、織田信長が今川義元を破った戦い。</span></div><div class="word"><span class="w-term">室町幕府<span class="w-rd">むろまちばくふ</span></span><span class="w-desc">1573年、信長が足利義昭を追放して滅ぼした幕府。</span></div></div>
     </div>
     <div class="step" data-label="信長の戦いと経済政策">
-      <h3><span class="sec-no">2</span>信長の戦いと経済政策</h3>
-      <div class="sec-lead">鉄砲を活用し、楽市・楽座も行ったよ。</div>
-      <p>信長は敵対する仏教勢力の比叡山延暦寺を焼き討ちにする一方、1575年の<span class="mark">長篠の戦い</span>では鉄砲を効果的に使って、武田勝頼の騎馬軍団を打ち破ったんだ。また、税や座の特権をなくす<span class="mark">楽市・楽座</span>を行って商工業が自由に発展できるようにし、関所も廃止して物の行き来をさかんにしたんだよ。近江には壮大な安土城を築いて、天下統一の拠点にしたんだね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">信長は長篠の戦いで武田勝頼を破り、楽市・楽座も行ったよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="18">信長の戦いと経済政策</span></h3>
+      <div class="sec-lead"><span class="s" data-i="19">鉄砲を活用し、楽市・楽座も行ったよ。</span></div>
+      <p><span class="s" data-i="20">信長は敵対する仏教勢力の比叡山延暦寺を焼き討ちにする一方、</span><span class="s" data-i="21">1575年の<span class="mark">長篠の戦い</span>では鉄砲を効果的に使って、</span><span class="s" data-i="22">武田勝頼の騎馬軍団を打ち破ったんだ。</span><span class="s" data-i="23">また、税や座の特権をなくす<span class="mark">楽市・楽座</span>を行って商工業が自由に発展できるようにし、</span><span class="s" data-i="24">関所も廃止して物の行き来をさかんにしたんだよ。</span><span class="s" data-i="25">近江には壮大な安土城を築いて、</span><span class="s" data-i="26">天下統一の拠点にしたんだね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="27">信長は長篠の戦いで武田勝頼を破り、</span><span class="s" data-i="28">楽市・楽座も行ったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">長篠の戦い<span class="w-rd">ながしののたたかい</span></span><span class="w-desc">1575年、信長・家康連合軍が鉄砲を活用し武田勝頼を破った戦い。</span></div><div class="word"><span class="w-term">楽市・楽座<span class="w-rd">らくいち・らくざ</span></span><span class="w-desc">信長が税や座の特権をなくし、商工業の発展をうながした政策。</span></div></div>
     </div>
     <div class="step" data-label="本能寺の変と秀吉の統一">
-      <h3><span class="sec-no">3</span>本能寺の変と秀吉の統一</h3>
-      <div class="sec-lead">信長が倒れ、秀吉が天下を統一したよ。</div>
-      <p>1582年、信長は家臣の<span class="mark">明智光秀</span>に攻められて自害する<span class="mark">本能寺の変</span>が起こり、天下統一を目前にして倒れてしまったんだ。信長の後継者となった<span class="mark">豊臣秀吉</span>は山崎の戦いで光秀を討ち、大阪城を拠点に勢力を固めていったよ。1585年には関白に任じられ、1590年には関東の北条氏を滅ぼして全国統一を達成したんだ。信長・秀吉が政権を握ったこの時代を安土桃山時代と呼ぶんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">本能寺の変で信長が倒れ、秀吉が全国統一したよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="29">本能寺の変と秀吉の統一</span></h3>
+      <div class="sec-lead"><span class="s" data-i="30">信長が倒れ、秀吉が天下を統一したよ。</span></div>
+      <p><span class="s" data-i="31">1582年、信長は家臣の<span class="mark">明智光秀</span>に攻められて自害する<span class="mark">本能寺の変</span>が起こり、</span><span class="s" data-i="32">天下統一を目前にして倒れてしまったんだ。</span><span class="s" data-i="33">信長の後継者となった<span class="mark">豊臣秀吉</span>は山崎の戦いで光秀を討ち、</span><span class="s" data-i="34">大阪城を拠点に勢力を固めていったよ。</span><span class="s" data-i="35">1585年には関白に任じられ、</span><span class="s" data-i="36">1590年には関東の北条氏を滅ぼして全国統一を達成したんだ。</span><span class="s" data-i="37">信長・秀吉が政権を握ったこの時代を安土桃山時代と呼ぶんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="38">本能寺の変で信長が倒れ、</span><span class="s" data-i="39">秀吉が全国統一したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">本能寺の変<span class="w-rd">ほんのうじのへん</span></span><span class="w-desc">1582年、信長が家臣の明智光秀に攻められ自害した事件。</span></div><div class="word"><span class="w-term">明智光秀<span class="w-rd">あけちみつひで</span></span><span class="w-desc">本能寺の変で信長を討った家臣。直後に秀吉に討たれた。</span></div><div class="word"><span class="w-term">豊臣秀吉<span class="w-rd">とよとみひでよし</span></span><span class="w-desc">信長の後継者となり、1590年に全国統一を達成した人物。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -989,7 +1023,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">尾張の<span class="mark">織田信長</span>は<span class="mark">桶狭間の戦い</span>で勢力を広げ、1573年に<span class="mark">室町幕府</span>を滅ぼし、長篠の戦いや楽市・楽座で力を強めたよ。しかし1582年の<span class="mark">本能寺の変</span>で倒れてしまい、後継者の<span class="mark">豊臣秀吉</span>が1590年に北条氏を滅ぼして全国統一を成しとげたんだ。</div>
+        <div class="sum30-body"><span class="s" data-i="40">尾張の<span class="mark">織田信長</span>は<span class="mark">桶狭間の戦い</span>で勢力を広げ、</span><span class="s" data-i="41">1573年に<span class="mark">室町幕府</span>を滅ぼし、</span><span class="s" data-i="42">長篠の戦いや楽市・楽座で力を強めたよ。</span><span class="s" data-i="43">しかし1582年の<span class="mark">本能寺の変</span>で倒れてしまい、</span><span class="s" data-i="44">後継者の<span class="mark">豊臣秀吉</span>が1590年に北条氏を滅ぼして全国統一を成しとげたんだ。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -1004,25 +1038,26 @@
     </div>
 </section>
 <section class="view" data-t="5">
-  <div class="tband"><span class="tno">5</span><h2>秀吉の政策と朝鮮出兵</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">5</span><h2>秀吉の政策と朝鮮出兵</h2>
+    <button class="play-unit" type="button" data-play="5" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-hideyoshi-policy.webp"
            alt="秀吉の政策と朝鮮出兵（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">全国を統一した秀吉は、土地と人々の支配のしくみを大きく作り変えたんだ。そして海の向こうの朝鮮にも、大軍を送ることになるんだよ。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">全国を統一した秀吉は、</span><span class="s" data-i="1">土地と人々の支配のしくみを大きく作り変えたんだ。</span><span class="s" data-i="2">そして海の向こうの朝鮮にも、</span><span class="s" data-i="3">大軍を送ることになるんだよ。</span></div></div>
     </div>
     <div class="step" data-label="太閤検地と刀狩">
-      <h3><span class="sec-no">1</span>太閤検地と刀狩</h3>
-      <div class="sec-lead">検地と刀狩で、兵農分離が進んだよ。</div>
-      <p>秀吉は1582年から全国で<span class="mark">太閤検地</span>を行い、京ますという統一されたますを基準に田畑を測量して、その土地の収穫量を<span class="mark">石高</span>という基準で表したんだ。これによって百姓は土地を耕作する権利を保障してもらえる代わりに、石高に応じて<span class="mark">年貢</span>を納める義務を負うことになったんだよ。さらに1588年には、百姓から刀や鉄砲などの武器を取り上げる<span class="mark">刀狩</span>を行い、一揆を防ぐとともに武士と農民の身分をはっきり分ける<span class="mark">兵農分離</span>を進めていったんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">太閤検地と刀狩によって、兵農分離が進んでいったよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="4">太閤検地と刀狩</span></h3>
+      <div class="sec-lead"><span class="s" data-i="5">検地と刀狩で、兵農分離が進んだよ。</span></div>
+      <p><span class="s" data-i="6">秀吉は1582年から全国で<span class="mark">太閤検地</span>を行い、</span><span class="s" data-i="7">京ますという統一されたますを基準に田畑を測量して、</span><span class="s" data-i="8">その土地の収穫量を<span class="mark">石高</span>という基準で表したんだ。</span><span class="s" data-i="9">これによって百姓は土地を耕作する権利を保障してもらえる代わりに、</span><span class="s" data-i="10">石高に応じて<span class="mark">年貢</span>を納める義務を負うことになったんだよ。</span><span class="s" data-i="11">さらに1588年には、</span><span class="s" data-i="12">百姓から刀や鉄砲などの武器を取り上げる<span class="mark">刀狩</span>を行い、</span><span class="s" data-i="13">一揆を防ぐとともに武士と農民の身分をはっきり分ける<span class="mark">兵農分離</span>を進めていったんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="14">太閤検地と刀狩によって、</span><span class="s" data-i="15">兵農分離が進んでいったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">太閤検地<span class="w-rd">たいこうけんち</span></span><span class="w-desc">秀吉が全国の田畑を測量し、収穫量を石高で表した政策。</span></div><div class="word"><span class="w-term">石高<span class="w-rd">こくだか</span></span><span class="w-desc">米の収穫量で土地の価値を表す基準。</span></div><div class="word"><span class="w-term">年貢<span class="w-rd">ねんぐ</span></span><span class="w-desc">検地により百姓が納める義務を負った税。</span></div><div class="word"><span class="w-term">刀狩<span class="w-rd">かたながり</span></span><span class="w-desc">1588年、秀吉が百姓から刀や鉄砲などの武器を取り上げた政策。</span></div><div class="word"><span class="w-term">兵農分離<span class="w-rd">へいのうぶんり</span></span><span class="w-desc">太閤検地と刀狩により、武士と農民の身分がはっきり分けられたこと。</span></div></div>
     </div>
     <div class="step" data-label="朝鮮出兵">
-      <h3><span class="sec-no">2</span>朝鮮出兵</h3>
-      <div class="sec-lead">秀吉は、朝鮮に二度も大軍を送ったよ。</div>
-      <p>全国統一を果たした秀吉は、中国の<span class="mark">明</span>の征服をめざして、1592年の文禄の役と1597年の慶長の役の二度にわたって朝鮮へ大軍を送ったんだ。でも朝鮮の武将<span class="mark">李舜臣</span>が亀甲船を率いて日本軍の補給路を断つなど激しく抵抗し、日本軍は苦戦を強いられたんだよ。1598年に秀吉が亡くなると日本軍は朝鮮から撤退したんだけど、このとき日本へ連れてこられた朝鮮人陶工の技術によって、九州各地で<span class="mark">有田焼</span>などの焼き物が発展していったんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">秀吉は朝鮮に二度出兵したけど、秀吉の死で撤退したよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="16">朝鮮出兵</span></h3>
+      <div class="sec-lead"><span class="s" data-i="17">秀吉は、朝鮮に二度も大軍を送ったよ。</span></div>
+      <p><span class="s" data-i="18">全国統一を果たした秀吉は、</span><span class="s" data-i="19">中国の<span class="mark">明</span>の征服をめざして、</span><span class="s" data-i="20">1592年の文禄の役と1597年の慶長の役の二度にわたって朝鮮へ大軍を送ったんだ。</span><span class="s" data-i="21">でも朝鮮の武将<span class="mark">李舜臣</span>が亀甲船を率いて日本軍の補給路を断つなど激しく抵抗し、</span><span class="s" data-i="22">日本軍は苦戦を強いられたんだよ。</span><span class="s" data-i="23">1598年に秀吉が亡くなると日本軍は朝鮮から撤退したんだけど、</span><span class="s" data-i="24">このとき日本へ連れてこられた朝鮮人陶工の技術によって、</span><span class="s" data-i="25">九州各地で<span class="mark">有田焼</span>などの焼き物が発展していったんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="26">秀吉は朝鮮に二度出兵したけど、</span><span class="s" data-i="27">秀吉の死で撤退したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">明<span class="w-rd">みん</span></span><span class="w-desc">秀吉が朝鮮出兵で征服を目指した中国の王朝。</span></div><div class="word"><span class="w-term">李舜臣<span class="w-rd">りしゅんしん</span></span><span class="w-desc">朝鮮水軍を率い、亀甲船で日本軍の補給路を断った武将。</span></div><div class="word"><span class="w-term">有田焼<span class="w-rd">ありたやき</span></span><span class="w-desc">朝鮮出兵で連れてこられた陶工の技術で発展した九州の焼き物。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -1130,7 +1165,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">秀吉は<span class="mark">太閤検地</span>で<span class="mark">石高</span>により土地を把握し、<span class="mark">刀狩</span>で百姓から武器を取り上げて<span class="mark">兵農分離</span>を進めたよ。明の征服をめざした文禄・慶長の役では李舜臣らの抵抗にあって苦戦し秀吉の死で撤退したけれど、連れ帰られた陶工の技術は<span class="mark">有田焼</span>などの発展につながったんだ。</div>
+        <div class="sum30-body"><span class="s" data-i="28">秀吉は<span class="mark">太閤検地</span>で<span class="mark">石高</span>により土地を把握し、</span><span class="s" data-i="29"><span class="mark">刀狩</span>で百姓から武器を取り上げて<span class="mark">兵農分離</span>を進めたよ。</span><span class="s" data-i="30">明の征服をめざした文禄・慶長の役では李舜臣らの抵抗にあって苦戦し秀吉の死で撤退したけれど、</span><span class="s" data-i="31">連れ帰られた陶工の技術は<span class="mark">有田焼</span>などの発展につながったんだ。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -1145,32 +1180,33 @@
     </div>
 </section>
 <section class="view" data-t="6">
-  <div class="tband"><span class="tno">6</span><h2>桃山文化</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">6</span><h2>桃山文化</h2>
+    <button class="play-unit" type="button" data-play="6" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-momoyama-culture.webp"
            alt="桃山文化（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">戦国の世を勝ち抜いた大名や豪商の富と力が、豪華絢爛な文化を生み出したんだよ。どんな文化か、のぞいてみよう。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">戦国の世を勝ち抜いた大名や豪商の富と力が、</span><span class="s" data-i="1">豪華絢爛な文化を生み出したんだよ。</span><span class="s" data-i="2">どんな文化か、のぞいてみよう。</span></div></div>
     </div>
     <div class="step" data-label="豪壮な城と障壁画">
-      <h3><span class="sec-no">1</span>豪壮な城と障壁画</h3>
-      <div class="sec-lead">天守閣や障壁画が、権威を示したよ。</div>
-      <p>信長・秀吉の時代、大名や豪商の力を背景に、豪華で力強い<span class="mark">桃山文化</span>が花開いたんだ。城の中心にそびえる<span class="mark">天守閣</span>は大名の権威を示す象徴で、白壁が美しい<span class="mark">姫路城</span>はその代表例として知られているよ。城のふすまや屏風には金箔を使った<span class="mark">障壁画</span>が描かれ、なかでも<span class="mark">狩野永徳</span>の「唐獅子図屏風」は、力強い唐獅子を描いた桃山文化を代表する傑作として名高いんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">大名や豪商の力を背景に、豪華な桃山文化が栄えたよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="3">豪壮な城と障壁画</span></h3>
+      <div class="sec-lead"><span class="s" data-i="4">天守閣や障壁画が、</span><span class="s" data-i="5">権威を示したよ。</span></div>
+      <p><span class="s" data-i="6">信長・秀吉の時代、</span><span class="s" data-i="7">大名や豪商の力を背景に、</span><span class="s" data-i="8">豪華で力強い<span class="mark">桃山文化</span>が花開いたんだ。</span><span class="s" data-i="9">城の中心にそびえる<span class="mark">天守閣</span>は大名の権威を示す象徴で、</span><span class="s" data-i="10">白壁が美しい<span class="mark">姫路城</span>はその代表例として知られているよ。</span><span class="s" data-i="11">城のふすまや屏風には金箔を使った<span class="mark">障壁画</span>が描かれ、</span><span class="s" data-i="12">なかでも<span class="mark">狩野永徳</span>の「唐獅子図屏風」は、</span><span class="s" data-i="13">力強い唐獅子を描いた桃山文化を代表する傑作として名高いんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="14">大名や豪商の力を背景に、</span><span class="s" data-i="15">豪華な桃山文化が栄えたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">桃山文化<span class="w-rd">ももやまぶんか</span></span><span class="w-desc">大名や豪商の力を背景にした、豪華で力強い文化。</span></div><div class="word"><span class="w-term">狩野永徳<span class="w-rd">かのうえいとく</span></span><span class="w-desc">城の障壁画を描いた画家。代表作は「唐獅子図屏風」。</span></div><div class="word"><span class="w-term">天守閣<span class="w-rd">てんしゅかく</span></span><span class="w-desc">城の中心にそびえる、大名の権威を示す建築物。</span></div></div>
     </div>
     <div class="step" data-label="千利休のわび茶と新しい芸能">
-      <h3><span class="sec-no">2</span>千利休のわび茶と新しい芸能</h3>
-      <div class="sec-lead">利休のわび茶と、かぶきおどりが生まれたよ。</div>
-      <p>堺の商人<span class="mark">千利休</span>は、豪華な桃山文化のなかで、静かで質素な美を追い求める<span class="mark">わび茶</span>を完成させて、わずか二畳の茶室「待庵」を造ったんだ。茶室の小さな入り口である「にじり口」は、武士も商人も同じように屈んで入ることから、身分を問わない茶の湯の平等の精神を表しているんだよ。すてきな考え方だよね。また、<span class="mark">出雲の阿国</span>が京都で始めた「かぶきおどり」も人気を集め、のちの歌舞伎のもとになったんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">千利休はわび茶を完成させ、出雲の阿国はかぶきおどりを広めたよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="16">千利休のわび茶と新しい芸能</span></h3>
+      <div class="sec-lead"><span class="s" data-i="17">利休のわび茶と、</span><span class="s" data-i="18">かぶきおどりが生まれたよ。</span></div>
+      <p><span class="s" data-i="19">堺の商人<span class="mark">千利休</span>は、</span><span class="s" data-i="20">豪華な桃山文化のなかで、</span><span class="s" data-i="21">静かで質素な美を追い求める<span class="mark">わび茶</span>を完成させて、</span><span class="s" data-i="22">わずか二畳の茶室「待庵」を造ったんだ。</span><span class="s" data-i="23">茶室の小さな入り口である「にじり口」は、</span><span class="s" data-i="24">武士も商人も同じように屈んで入ることから、</span><span class="s" data-i="25">身分を問わない茶の湯の平等の精神を表しているんだよ。</span><span class="s" data-i="26">すてきな考え方だよね。</span><span class="s" data-i="27">また、<span class="mark">出雲の阿国</span>が京都で始めた「かぶきおどり」も人気を集め、</span><span class="s" data-i="28">のちの歌舞伎のもとになったんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="29">千利休はわび茶を完成させ、</span><span class="s" data-i="30">出雲の阿国はかぶきおどりを広めたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">千利休<span class="w-rd">せんのりきゅう</span></span><span class="w-desc">わび茶を完成させた堺の商人。</span></div><div class="word"><span class="w-term">わび茶<span class="w-rd">わびちゃ</span></span><span class="w-desc">千利休が完成させた、質素な美を重んじる茶道の様式。</span></div><div class="word"><span class="w-term">出雲の阿国<span class="w-rd">いずものおくに</span></span><span class="w-desc">「かぶきおどり」を始めた女性芸能者。</span></div></div>
     </div>
     <div class="step" data-label="南蛮文化とくらしの変化">
-      <h3><span class="sec-no">3</span>南蛮文化とくらしの変化</h3>
-      <div class="sec-lead">南蛮文化が、人々のくらしを変えたよ。</div>
-      <p>南蛮貿易を通じて、ポルトガルから<span class="mark">カステラ</span>などの菓子や、宣教師が持ち込んだ活版印刷術が伝わり、「平家物語」などがローマ字で印刷されたんだ。また、庶民の衣料には麻に比べて温かく肌触りのよい<span class="mark">木綿</span>が広まり始めて、人々のくらしにも変化をもたらしたんだよ。こうした南蛮文化は、桃山文化の国際色豊かな一面をつくりあげたんだね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">ヨーロッパとの交流で南蛮文化が伝わり、木綿も広まったよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="31">南蛮文化とくらしの変化</span></h3>
+      <div class="sec-lead"><span class="s" data-i="32">南蛮文化が、人々のくらしを変えたよ。</span></div>
+      <p><span class="s" data-i="33">南蛮貿易を通じて、</span><span class="s" data-i="34">ポルトガルから<span class="mark">カステラ</span>などの菓子や、</span><span class="s" data-i="35">宣教師が持ち込んだ活版印刷術が伝わり、</span><span class="s" data-i="36">「平家物語」などがローマ字で印刷されたんだ。</span><span class="s" data-i="37">また、庶民の衣料には麻に比べて温かく肌触りのよい<span class="mark">木綿</span>が広まり始めて、</span><span class="s" data-i="38">人々のくらしにも変化をもたらしたんだよ。</span><span class="s" data-i="39">こうした南蛮文化は、</span><span class="s" data-i="40">桃山文化の国際色豊かな一面をつくりあげたんだね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="41">ヨーロッパとの交流で南蛮文化が伝わり、</span><span class="s" data-i="42">木綿も広まったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">南蛮文化<span class="w-rd">なんばんぶんか</span></span><span class="w-desc">ポルトガル人・スペイン人との交流で日本に広まった文化。</span></div><div class="word"><span class="w-term">木綿<span class="w-rd">もめん</span></span><span class="w-desc">桃山時代に庶民の衣料として普及し始めた素材。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -1278,7 +1314,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">信長・秀吉の時代、大名や豪商の力を背景に豪壮な<span class="mark">桃山文化</span>が花開いたよ。<span class="mark">狩野永徳</span>の障壁画や<span class="mark">姫路城</span>の天守閣が力強さを示す一方、<span class="mark">千利休</span>は<span class="mark">わび茶</span>で質素な美を追い求め、出雲の阿国のかぶきおどりや南蛮文化も人々のくらしに彩りを添えたんだ。</div>
+        <div class="sum30-body"><span class="s" data-i="43">信長・秀吉の時代、</span><span class="s" data-i="44">大名や豪商の力を背景に豪壮な<span class="mark">桃山文化</span>が花開いたよ。</span><span class="s" data-i="45"><span class="mark">狩野永徳</span>の障壁画や<span class="mark">姫路城</span>の天守閣が力強さを示す一方、</span><span class="s" data-i="46"><span class="mark">千利休</span>は<span class="mark">わび茶</span>で質素な美を追い求め、</span><span class="s" data-i="47">出雲の阿国のかぶきおどりや南蛮文化も人々のくらしに彩りを添えたんだ。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -1294,6 +1330,14 @@
 </section>
 </main>
 <div class="hintbar" id="hintBar" hidden></div>
+<div class="aplayer" id="aplayer" hidden><div class="ap-in">
+  <button class="ap-btn" id="apPlay" aria-label="再生／一時停止">❚❚</button>
+  <div class="ap-seek"><input type="range" id="apSeek" min="0" max="1000" value="0"></div>
+  <div class="ap-time" id="apTime">0:00 / 0:00</div>
+  <button class="ap-rate" id="apRate">1.0×</button>
+  <button class="ap-close" id="apClose" aria-label="読み上げを止める">×</button>
+</div></div>
+<audio id="audio" preload="none"></audio>
 <div class="navbar" id="navbar" hidden><div class="navbar-in">
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
@@ -1321,7 +1365,8 @@
 (function () {
   var KEY = 'tzmref-07';
   var CH = '07';
-  var WB_VIEWS = [0, 2, 3, 4, 5, 6, 7];          // 参考書の単元t → 問題集のビュー番号（0＝対応なし）
+  var WB_VIEWS = [0, 2, 3, 4, 5, 6, 7];
+  var AUDIO = {"1": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F07-europe-change.mp3?alt=media&token=9854f9e6-d989-4f2d-b995-dd7d27e0ceb4", "tl": [[0, 3.202, 0], [3.202, 4.398, 0], [7.88, 2.32, 0], [10.85, 2.76, 1], [14.26, 2.014, 1], [16.274, 2.186, 1], [19.11, 1.724, 1], [20.834, 3.433, 1], [24.267, 3.323, 1], [27.87, 7.687, 1], [35.557, 3.753, 1], [39.59, 3.452, 1], [43.042, 2.948, 1], [46.27, 4.68, 1], [50.95, 5.52, 1], [57.12, 3.24, 1], [60.36, 2.16, 1], [63.17, 2.08, 2], [65.9, 2.115, 2], [68.015, 2.085, 2], [70.75, 2.181, 2], [72.931, 3.276, 2], [76.207, 3.048, 2], [79.255, 2.815, 2], [82.35, 3.508, 2], [85.858, 3.208, 2], [89.066, 2.444, 2], [91.79, 7.668, 2], [99.458, 5.892, 2], [106, 5.4, 2], [112.05, 3.28, 3], [115.98, 2.302, 3], [118.282, 1.498, 3], [120.43, 1.996, 3], [122.426, 8.604, 3], [131.03, 2.68, 3], [133.99, 6.244, 3], [140.234, 2.556, 3], [143.07, 2.401, 3], [145.471, 6.036, 3], [151.507, 3.923, 3], [156.08, 3.642, 3], [159.722, 1.638, 3], [162.01, 3.901, 5], [165.911, 4.099, 5], [170.29, 5.971, 5], [176.261, 5.189, 5], [181.73, 3.72, 5]]}, "2": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F07-europe-spread.mp3?alt=media&token=e9ea25ab-4997-4856-8878-716ac09c687e", "tl": [[0, 4.111, 0], [4.111, 2.929, 0], [7.32, 2.08, 0], [10.05, 2.12, 1], [12.82, 1.493, 1], [14.313, 2.347, 1], [17.31, 5.587, 1], [22.897, 5.653, 1], [28.83, 7.438, 1], [36.268, 1.602, 1], [38.15, 6.307, 1], [44.457, 2.431, 1], [46.888, 3.942, 1], [51.11, 1.48, 1], [52.87, 5.286, 1], [58.156, 3.274, 1], [62.08, 2.352, 1], [64.432, 2.648, 1], [67.73, 3.6, 2], [71.98, 2.368, 2], [74.348, 1.912, 2], [76.91, 3.208, 2], [80.118, 1.976, 2], [82.094, 3.581, 2], [85.675, 2.315, 2], [88.27, 5.089, 2], [93.359, 2.821, 2], [96.18, 4.85, 2], [101.31, 1.84, 2], [103.43, 4.012, 2], [107.442, 2.73, 2], [110.172, 1.938, 2], [112.76, 2.957, 2], [115.717, 3.003, 2], [119.37, 4.275, 4], [123.645, 2.892, 4], [126.537, 3.473, 4], [130.29, 5.494, 4], [135.784, 4.185, 4], [139.969, 3.321, 4]]}, "3": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F07-nanban-trade.mp3?alt=media&token=64c06e71-8ed3-4a45-b673-0ce458226bb7", "tl": [[0, 3.448, 0], [3.448, 3.352, 0], [7.08, 2.36, 0], [10.09, 1.6, 1], [12.34, 2.287, 1], [14.627, 1.793, 1], [17.07, 7.493, 1], [24.563, 2.187, 1], [27.03, 5.31, 1], [32.34, 6.09, 1], [38.71, 6.236, 1], [44.946, 6.004, 1], [51.6, 6.28, 1], [58.53, 3.4, 2], [62.58, 3.92, 2], [67.15, 6.455, 2], [73.605, 2.225, 2], [76.11, 5.401, 2], [81.511, 4.479, 2], [86.27, 6.356, 2], [92.626, 2.284, 2], [95.19, 5.559, 2], [100.749, 4.281, 2], [105.68, 2.678, 2], [108.358, 2.002, 2], [111.01, 3.36, 3], [115.02, 2.301, 3], [117.321, 2.019, 3], [119.99, 5.219, 3], [125.209, 6.061, 3], [131.55, 4.64, 3], [136.47, 5.213, 3], [141.683, 7.609, 3], [149.292, 3.898, 3], [153.84, 3.845, 3], [157.685, 1.875, 3], [160.21, 6.576, 5], [166.786, 4.264, 5], [171.33, 5.274, 5], [176.604, 4.317, 5], [180.921, 2.409, 5]]}, "4": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F07-nobunaga-hideyoshi.mp3?alt=media&token=0ca91e7d-4305-418f-8d0e-248baa504ccc", "tl": [[0, 3.426, 0], [3.426, 3.214, 0], [6.92, 2.748, 0], [9.668, 1.372, 0], [11.69, 2.12, 1], [14.46, 2.489, 1], [16.949, 1.631, 1], [19.23, 3.338, 1], [22.568, 3.193, 1], [25.761, 4.516, 1], [30.277, 1.873, 1], [32.43, 2.514, 1], [34.944, 7.103, 1], [42.047, 4.463, 1], [46.79, 4.306, 1], [51.096, 4.814, 1], [56.56, 2.909, 1], [59.469, 1.971, 1], [62.09, 3.12, 2], [65.86, 3.6, 2], [70.11, 6.09, 2], [76.2, 4.923, 2], [81.123, 3.427, 2], [84.83, 7.951, 2], [92.781, 3.649, 2], [96.71, 3.412, 2], [100.122, 2.268, 2], [103.04, 3.909, 2], [106.949, 2.051, 2], [109.65, 3.4, 3], [113.7, 3.8, 3], [118.15, 8.044, 3], [126.194, 3.316, 3], [129.79, 5.905, 3], [135.695, 2.975, 3], [138.95, 3.638, 3], [142.588, 5.882, 3], [148.75, 6.08, 3], [155.48, 2.754, 3], [158.234, 2.406, 3], [161.29, 4.757, 5], [166.047, 3.611, 5], [169.658, 3.712, 5], [173.65, 4.941, 5], [178.591, 7.059, 5]]}, "5": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F07-hideyoshi-policy.mp3?alt=media&token=9bc6cb93-a26e-4bf6-a391-1b33083d2dc7", "tl": [[0, 2.565, 0], [2.565, 3.875, 0], [6.72, 2.863, 0], [9.583, 2.177, 0], [12.41, 3.16, 1], [16.22, 3.84, 1], [20.71, 5.866, 1], [26.576, 4.768, 1], [31.344, 4.246, 1], [35.87, 5.395, 1], [41.265, 3.925, 1], [45.47, 1.975, 1], [47.445, 5.064, 1], [52.509, 8.201, 1], [61.36, 2.235, 1], [63.595, 2.405, 1], [66.65, 1.76, 2], [69.06, 4.04, 2], [73.75, 2.882, 2], [76.632, 2.597, 2], [79.229, 8.921, 2], [88.43, 8.818, 2], [97.248, 2.182, 2], [99.71, 6.214, 2], [105.924, 4.165, 2], [110.089, 4.461, 2], [115.2, 3.371, 2], [118.571, 2.029, 2], [121.25, 4.445, 4], [125.695, 4.395, 4], [130.37, 8.976, 4], [139.346, 4.704, 4]]}, "6": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F07-momoyama-culture.mp3?alt=media&token=a9d72a0f-06c0-405c-80ce-2ba0a248bdd8", "tl": [[0, 4.51, 0], [4.51, 2.65, 0], [7.44, 2.48, 0], [10.57, 2.68, 1], [13.9, 2.019, 1], [15.919, 1.381, 1], [17.95, 2.247, 1], [20.197, 2.763, 1], [22.96, 3.67, 1], [26.91, 5.404, 1], [32.314, 4.396, 1], [36.99, 5.107, 1], [42.097, 3.651, 1], [45.748, 5.642, 1], [52.04, 2.898, 1], [54.938, 2.582, 1], [58.17, 4.16, 2], [62.98, 1.527, 2], [64.507, 1.713, 2], [66.87, 1.609, 2], [68.479, 3.709, 2], [72.188, 4.414, 2], [76.602, 3.428, 2], [80.31, 3.985, 2], [84.295, 3.54, 2], [87.835, 4.075, 2], [92.19, 2.36, 2], [94.83, 5.217, 2], [100.047, 2.103, 2], [102.8, 3.001, 2], [105.801, 3.039, 2], [109.49, 2.84, 3], [112.98, 3.28, 3], [116.91, 2.214, 3], [119.124, 2.68, 3], [121.804, 3.443, 3], [125.247, 3.143, 3], [128.67, 7.072, 3], [135.742, 2.728, 3], [138.75, 2.025, 3], [140.775, 4.135, 3], [145.56, 3.578, 3], [149.138, 1.422, 3], [151.21, 2.575, 5], [153.785, 5.385, 5], [159.45, 5.89, 5], [165.34, 3.657, 5], [168.997, 5.373, 5]]}};          // {単元t: {url, tl:[[開始秒,長さ,ステップ], …]}}          // 参考書の単元t → 問題集のビュー番号（0＝対応なし）
   var views = [].slice.call(document.querySelectorAll('.view'));
   var tabs = [].slice.call(document.querySelectorAll('.tab'));
   var N = views.length - 1; // 単元数
@@ -1352,6 +1397,89 @@
     };
     bar.addEventListener('click', function () { bar.hidden = true; });
   })();
+
+
+  // ── 読み上げ（音声に合わせて句をハイライトし、ページも自動でめくる）──
+  var au = document.getElementById('audio');
+  var apl = document.getElementById('aplayer');
+  var reading = { t: 0, i: -1 };
+  var RATES = [1, 1.25, 1.5, 0.75], ri = 0;
+
+  function fmt(x) { x = Math.max(0, x | 0); return (x / 60 | 0) + ':' + ('0' + (x % 60)).slice(-2); }
+  function spansOf(t) { return [].slice.call(views[t].querySelectorAll('.s')); }
+
+  function startAudio(t) {
+    var a = AUDIO[t];
+    if (!a) return;
+    reading = { t: t, i: -1 };
+    if (au.dataset.t !== String(t)) { au.src = a.url; au.dataset.t = String(t); }
+    document.body.classList.add('reading');
+    apl.hidden = false;
+    au.playbackRate = RATES[ri];
+    au.play();
+  }
+  function stopAudio() {
+    au.pause();
+    document.body.classList.remove('reading');
+    apl.hidden = true;
+    if (reading.t) spansOf(reading.t).forEach(function (el) { el.classList.remove('now', 'read'); });
+    reading = { t: 0, i: -1 };
+  }
+  function paintAudio() {
+    var a = AUDIO[reading.t];
+    if (!a) return;
+    var tl = a.tl, k = -1;
+    for (var i = 0; i < tl.length; i++) { if (au.currentTime >= tl[i][0]) k = i; else break; }
+    if (k === reading.i) return;
+    reading.i = k;
+    // 読んでいる箇所が別のページなら、そのページへ自動でめくる
+    if (k >= 0 && tl[k][2] !== state.s && state.t === reading.t) go(reading.t, tl[k][2], tl[k][2] > state.s ? 1 : -1);
+    var sp = spansOf(reading.t);
+    sp.forEach(function (el, i) {
+      el.classList.toggle('now', i === k);
+      el.classList.toggle('read', i < k);
+    });
+    var el = sp[k];
+    if (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < 70 || r.bottom > innerHeight - 150) {
+        scrollTo({ top: scrollY + r.top - innerHeight * 0.4, behavior: 'smooth' });
+      }
+    }
+  }
+  function tickAudio() {
+    paintAudio();
+    if (au.duration) {
+      document.getElementById('apSeek').value = Math.round(au.currentTime / au.duration * 1000);
+      document.getElementById('apTime').textContent = fmt(au.currentTime) + ' / ' + fmt(au.duration);
+    }
+    if (!au.paused) requestAnimationFrame(tickAudio);
+  }
+  au.addEventListener('play', function () { document.getElementById('apPlay').textContent = '❚❚'; tickAudio(); });
+  au.addEventListener('pause', function () { document.getElementById('apPlay').textContent = '▶'; });
+  au.addEventListener('ended', stopAudio);
+  document.getElementById('apPlay').onclick = function () { au.paused ? au.play() : au.pause(); };
+  document.getElementById('apClose').onclick = stopAudio;
+  document.getElementById('apSeek').oninput = function () {
+    if (au.duration) { au.currentTime = this.value / 1000 * au.duration; reading.i = -1; paintAudio(); }
+  };
+  document.getElementById('apRate').onclick = function () {
+    ri = (ri + 1) % RATES.length; au.playbackRate = RATES[ri];
+    this.textContent = RATES[ri].toFixed(2).replace(/0$/, '') + '×';
+  };
+  // 単元見出しの「🔊 読み上げ」＋ 文字タップでその場所から読む
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('.play-unit');
+    if (b) { startAudio(+b.dataset.play); return; }
+    var sp = e.target.closest && e.target.closest('.s');
+    if (sp && AUDIO[state.t]) {
+      var k = +sp.dataset.i, a = AUDIO[state.t];
+      if (a.tl[k]) {
+        if (reading.t !== state.t) startAudio(state.t);
+        au.currentTime = a.tl[k][0]; reading.i = -1; paintAudio(); au.play();
+      }
+    }
+  });
 
   // 単元タブの左右矢印: まだ隠れているタブがある側だけ出す
   function updateTabArrows() {
@@ -1450,6 +1578,8 @@
     // クエリが付いていても落とさない（URL共有時の情報を保つ）
     if (location.hash !== h) history.replaceState(null, '', location.search + (t === 0 ? '#' : h));
     updateSwap();
+    var pb = views[t] && views[t].querySelector('.play-unit');
+    if (pb) pb.hidden = !AUDIO[t];
     rendered = { t: t, s: s };
   }
 

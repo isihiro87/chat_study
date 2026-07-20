@@ -13,6 +13,36 @@
 
   .mark { background:linear-gradient(transparent 55%, var(--line) 55%); font-weight:bold; padding:0 1px; }
 
+  /* ── 読み上げ（音声＋読んでいる句のハイライト）── */
+  .s { border-radius:6px; padding:.14em .12em; margin:0 -.12em;
+       -webkit-box-decoration-break:clone; box-decoration-break:clone;
+       transition:background-color .15s ease, color .15s ease; }
+  body.reading .s { cursor:pointer; }
+  .s.read { color:#8a8279; }
+  .s.now { background:#fcd34d; color:#1c1917; }
+  .s.now .mark { background:none; }
+  /* 単元見出しの再生ボタン */
+  .play-unit { display:inline-flex; align-items:center; gap:6px; margin-left:auto; flex:none;
+               background:#fff; color:var(--brand); border:1.5px solid var(--line);
+               border-radius:20px; padding:4px 12px; font-size:12px; font-weight:bold;
+               font-family:inherit; cursor:pointer; }
+  .play-unit[hidden] { display:none; }
+  /* 下部プレーヤー（再生中だけ出す。ナビバーの上に重ねる） */
+  .aplayer { position:fixed; left:0; right:0; bottom:58px; z-index:25;
+             background:rgba(255,253,248,.98); border-top:1px solid #f0e6d2;
+             box-shadow:0 -3px 12px rgba(120,80,20,.14); padding:7px 0 8px; }
+  .aplayer[hidden] { display:none; }
+  .ap-in { max-width:640px; margin:0 auto; padding:0 14px; display:flex; align-items:center; gap:9px; }
+  .ap-btn { flex:none; width:40px; height:40px; border-radius:50%; border:none; background:var(--brand);
+            color:#fff; font-size:16px; cursor:pointer; box-shadow:0 2px 6px rgba(180,83,9,.35); }
+  .ap-seek { flex:1; min-width:0; }
+  .ap-seek input { width:100%; accent-color:var(--brand); }
+  .ap-time { flex:none; font-size:11px; font-weight:bold; color:var(--brand); min-width:74px;
+             text-align:right; }
+  .ap-rate, .ap-close { flex:none; border:1.5px solid var(--line); background:#fffbeb; color:var(--brand);
+             font-weight:bold; border-radius:16px; padding:4px 9px; font-size:11.5px; cursor:pointer;
+             font-family:inherit; }
+
   /* ── 上部: タイトル＋単元タブ＋進捗バー ── */
   .bar { position:sticky; top:0; z-index:10; background:rgba(255,253,248,.96);
          backdrop-filter:blur(6px); border-bottom:1px solid #f0e6d2; }
@@ -35,7 +65,7 @@
                white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   .bar-step { flex:none; font-size:11px; font-weight:bold; color:var(--brand); }
   /* 初回だけ出す操作ヒント（PCはキー、スマホはスワイプ） */
-  .hintbar { position:fixed; left:50%; transform:translateX(-50%); bottom:78px; z-index:35;
+  .hintbar { position:fixed; left:50%; transform:translateX(-50%); bottom:132px; z-index:35;
              background:rgba(28,25,23,.88); color:#fff; font-size:12.5px; font-weight:bold;
              border-radius:20px; padding:8px 16px; box-shadow:0 4px 14px rgba(0,0,0,.3);
              animation:hintIn .3s ease; }
@@ -419,32 +449,33 @@
   </footer>
 </section>
 <section class="view" data-t="1">
-  <div class="tband"><span class="tno">1</span><h2>第一次世界大戦の勃発</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">1</span><h2>第一次世界大戦の勃発</h2>
+    <button class="play-unit" type="button" data-play="1" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-ww1-outbreak.webp"
            alt="第一次世界大戦の勃発（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">世界を巻き込む大きな戦争が、ヨーロッパのある事件をきっかけに始まったんだ。今まで見たことのない「総力戦」って、一体どんな戦争だったんだろう?</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">世界を巻き込む大きな戦争が、</span><span class="s" data-i="1">ヨーロッパのある事件をきっかけに始まったんだ。</span><span class="s" data-i="2">今まで見たことのない「総力戦」って、</span><span class="s" data-i="3">一体どんな戦争だったんだろう?</span></div></div>
     </div>
     <div class="step" data-label="ヨーロッパの対立と「火薬庫」">
-      <h3><span class="sec-no">1</span>ヨーロッパの対立と「火薬庫」</h3>
-      <div class="sec-lead">同盟関係が対立し、バルカン半島が緊張していたよ。</div>
-      <p>20世紀の初め、ヨーロッパでは大きな国どうしが手を組み合っていたんだ。イギリス・フランス・ロシアが結んだ<span class="mark">三国協商</span>と、ドイツ・オーストリア・イタリアが結んだ<span class="mark">三国同盟</span>が、にらみ合うような関係になっていたんだよ。とくに<span class="mark">バルカン半島</span>は、いろいろな民族や宗教が入り混じっていて対立が絶えず、「ヨーロッパの火薬庫」と呼ばれるほど危険な地域だったんだ。知ってた?小さな火種が、いつ大きな爆発になってもおかしくなかったんだね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">三国協商と三国同盟が対立し、バルカン半島は火薬庫と呼ばれたよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="4">ヨーロッパの対立と「火薬庫」</span></h3>
+      <div class="sec-lead"><span class="s" data-i="5">同盟関係が対立し、</span><span class="s" data-i="6">バルカン半島が緊張していたよ。</span></div>
+      <p><span class="s" data-i="7">20世紀の初め、</span><span class="s" data-i="8">ヨーロッパでは大きな国どうしが手を組み合っていたんだ。</span><span class="s" data-i="9">イギリス・フランス・ロシアが結んだ<span class="mark">三国協商</span>と、</span><span class="s" data-i="10">ドイツ・オーストリア・イタリアが結んだ<span class="mark">三国同盟</span>が、</span><span class="s" data-i="11">にらみ合うような関係になっていたんだよ。</span><span class="s" data-i="12">とくに<span class="mark">バルカン半島</span>は、</span><span class="s" data-i="13">いろいろな民族や宗教が入り混じっていて対立が絶えず、</span><span class="s" data-i="14">「ヨーロッパの火薬庫」と呼ばれるほど危険な地域だったんだ。</span><span class="s" data-i="15">知ってた?小さな火種が、</span><span class="s" data-i="16">いつ大きな爆発になってもおかしくなかったんだね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="17">三国協商と三国同盟が対立し、</span><span class="s" data-i="18">バルカン半島は火薬庫と呼ばれたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">三国協商<span class="w-rd">さんごくきょうしょう</span></span><span class="w-desc">20世紀初め、イギリス・フランス・ロシアが結んだ協力関係。</span></div><div class="word"><span class="w-term">三国同盟<span class="w-rd">さんごくどうめい</span></span><span class="w-desc">ドイツ・オーストリア・イタリアが1882年に結んだ同盟。</span></div><div class="word"><span class="w-term">バルカン半島<span class="w-rd">ばるかんはんとう</span></span><span class="w-desc">民族・宗教の対立が複雑で「ヨーロッパの火薬庫」と呼ばれた地域。</span></div></div>
     </div>
     <div class="step" data-label="サラエボ事件から開戦へ">
-      <h3><span class="sec-no">2</span>サラエボ事件から開戦へ</h3>
-      <div class="sec-lead">暗殺事件をきっかけに世界大戦が始まったよ。</div>
-      <p>1914年6月、そのバルカン半島のサラエボで、オーストリアの皇太子夫妻がセルビア人の青年に暗殺されるという事件が起きたんだ。これが<span class="mark">サラエボ事件</span>だよ。この事件をきっかけに、ドイツを中心とする<span class="mark">同盟国</span>と、三国協商にアメリカや日本が加わった<span class="mark">連合国</span>が対立し、ついに第一次世界大戦が始まってしまったんだ。ひとつの暗殺事件が、世界中を巻き込む大戦争に発展してしまうなんて、恐ろしいよね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1914年、サラエボ事件をきっかけに世界大戦が始まったよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="19">サラエボ事件から開戦へ</span></h3>
+      <div class="sec-lead"><span class="s" data-i="20">暗殺事件をきっかけに世界大戦が始まったよ。</span></div>
+      <p><span class="s" data-i="21">1914年6月、</span><span class="s" data-i="22">そのバルカン半島のサラエボで、</span><span class="s" data-i="23">オーストリアの皇太子夫妻がセルビア人の青年に暗殺されるという事件が起きたんだ。</span><span class="s" data-i="24">これが<span class="mark">サラエボ事件</span>だよ。</span><span class="s" data-i="25">この事件をきっかけに、</span><span class="s" data-i="26">ドイツを中心とする<span class="mark">同盟国</span>と、</span><span class="s" data-i="27">三国協商にアメリカや日本が加わった<span class="mark">連合国</span>が対立し、</span><span class="s" data-i="28">ついに第一次世界大戦が始まってしまったんだ。</span><span class="s" data-i="29">ひとつの暗殺事件が、</span><span class="s" data-i="30">世界中を巻き込む大戦争に発展してしまうなんて、恐ろしいよね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="31">1914年、サラエボ事件をきっかけに世界大戦が始まったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">サラエボ事件<span class="w-rd">さらえぼじけん</span></span><span class="w-desc">1914年、オーストリアの皇太子夫妻が暗殺された事件。第一次世界大戦のきっかけ。</span></div><div class="word"><span class="w-term">同盟国<span class="w-rd">どうめいこく</span></span><span class="w-desc">第一次世界大戦でドイツを中心とした陣営。</span></div><div class="word"><span class="w-term">連合国<span class="w-rd">れんごうこく</span></span><span class="w-desc">第一次世界大戦で同盟国と戦った、英・仏・露にアメリカ・日本が加わった陣営。</span></div></div>
     </div>
     <div class="step" data-label="総力戦という新しい戦い方">
-      <h3><span class="sec-no">3</span>総力戦という新しい戦い方</h3>
-      <div class="sec-lead">国のすべてを動員する総力戦が繰り広げられたよ。</div>
-      <p>この戦争では、兵士だけでなく国民・経済・科学技術のすべてを戦争のために使う<span class="mark">総力戦</span>という新しいスタイルが生まれたんだ。西部戦線では深い溝を掘って身を守る<span class="mark">塹壕戦</span>が続き、そこに<span class="mark">毒ガス</span>のような恐ろしい新兵器まで使われるようになったんだよ。1917年に<span class="mark">アメリカ</span>が連合国側で参戦すると戦況は大きく動き、1918年にドイツが降伏して、ようやく戦争は終わったんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">総力戦が繰り広げられ、1918年にドイツが降伏したよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="32">総力戦という新しい戦い方</span></h3>
+      <div class="sec-lead"><span class="s" data-i="33">国のすべてを動員する総力戦が繰り広げられたよ。</span></div>
+      <p><span class="s" data-i="34">この戦争では、兵士だけでなく国民・経済・科学技術のすべてを戦争のために使う<span class="mark">総力戦</span>という新しいスタイルが生まれたんだ。</span><span class="s" data-i="35">西部戦線では深い溝を掘って身を守る<span class="mark">塹壕戦</span>が続き、</span><span class="s" data-i="36">そこに<span class="mark">毒ガス</span>のような恐ろしい新兵器まで使われるようになったんだよ。</span><span class="s" data-i="37">1917年に<span class="mark">アメリカ</span>が連合国側で参戦すると戦況は大きく動き、</span><span class="s" data-i="38">1918年にドイツが降伏して、</span><span class="s" data-i="39">ようやく戦争は終わったんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="40">総力戦が繰り広げられ、</span><span class="s" data-i="41">1918年にドイツが降伏したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">総力戦<span class="w-rd">そうりょくせん</span></span><span class="w-desc">国民・経済・科学技術のすべてを動員する新しい戦争のかたち。</span></div><div class="word"><span class="w-term">塹壕戦<span class="w-rd">ざんごうせん</span></span><span class="w-desc">深い溝を掘って身を守る、西部戦線で行われた戦い方。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -552,7 +583,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body"><span class="mark">三国協商</span>と<span class="mark">三国同盟</span>が対立するなか、1914年の<span class="mark">サラエボ事件</span>をきっかけに<span class="mark">第一次世界大戦</span>が始まったんだ。国のすべてを動員する<span class="mark">総力戦</span>となり、アメリカの参戦を経て1918年にようやく終わりを迎えたよ。</div>
+        <div class="sum30-body"><span class="s" data-i="42"><span class="mark">三国協商</span>と<span class="mark">三国同盟</span>が対立するなか、</span><span class="s" data-i="43">1914年の<span class="mark">サラエボ事件</span>をきっかけに<span class="mark">第一次世界大戦</span>が始まったんだ。</span><span class="s" data-i="44">国のすべてを動員する<span class="mark">総力戦</span>となり、</span><span class="s" data-i="45">アメリカの参戦を経て1918年にようやく終わりを迎えたよ。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -567,39 +598,40 @@
     </div>
 </section>
 <section class="view" data-t="2">
-  <div class="tband"><span class="tno">2</span><h2>日本の参戦と二十一か条の要求</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">2</span><h2>日本の参戦と二十一か条の要求</h2>
+    <button class="play-unit" type="button" data-play="2" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-japan-in-ww1.webp"
            alt="日本の参戦と二十一か条の要求（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">日本はこの戦争にどうやって関わったんだろう?遠いヨーロッパの戦争が、日本の景気や中国との関係を大きく揺さぶることになるんだ。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">日本はこの戦争にどうやって関わったんだろう?遠いヨーロッパの戦争が、</span><span class="s" data-i="1">日本の景気や中国との関係を大きく揺さぶることになるんだ。</span></div></div>
     </div>
     <div class="step" data-label="日英同盟を理由にした参戦">
-      <h3><span class="sec-no">1</span>日英同盟を理由にした参戦</h3>
-      <div class="sec-lead">日英同盟を理由に参戦し、中国などを占領したよ。</div>
-      <p>日本は1902年に結んでいた<span class="mark">日英同盟</span>を理由に、1914年、第一次世界大戦へ連合国側として参戦したんだよ。そしてドイツが中国で租借していた<span class="mark">山東省</span>や、太平洋にあったドイツ領の<span class="mark">南洋諸島</span>を、またたく間に占領してしまったんだ。ヨーロッパから遠く離れた日本が、この戦争でこんなに大きく動くなんて、意外に思うかもしれないね。実はここに、日本のアジアへの野心が見え隠れしているんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">日英同盟を理由に参戦し、山東省と南洋諸島を占領したよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="2">日英同盟を理由にした参戦</span></h3>
+      <div class="sec-lead"><span class="s" data-i="3">日英同盟を理由に参戦し、</span><span class="s" data-i="4">中国などを占領したよ。</span></div>
+      <p><span class="s" data-i="5">日本は1902年に結んでいた<span class="mark">日英同盟</span>を理由に、1914年、</span><span class="s" data-i="6">第一次世界大戦へ連合国側として参戦したんだよ。</span><span class="s" data-i="7">そしてドイツが中国で租借していた<span class="mark">山東省</span>や、</span><span class="s" data-i="8">太平洋にあったドイツ領の<span class="mark">南洋諸島</span>を、</span><span class="s" data-i="9">またたく間に占領してしまったんだ。</span><span class="s" data-i="10">ヨーロッパから遠く離れた日本が、</span><span class="s" data-i="11">この戦争でこんなに大きく動くなんて、</span><span class="s" data-i="12">意外に思うかもしれないね。</span><span class="s" data-i="13">実はここに、日本のアジアへの野心が見え隠れしているんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="14">日英同盟を理由に参戦し、</span><span class="s" data-i="15">山東省と南洋諸島を占領したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">日英同盟<span class="w-rd">にちえいどうめい</span></span><span class="w-desc">1902年に結ばれた日本とイギリスの同盟。日本参戦の根拠となった。</span></div><div class="word"><span class="w-term">山東省<span class="w-rd">さんとうしょう</span></span><span class="w-desc">中国にあったドイツの租借地。日本が第一次世界大戦中に占領した。</span></div><div class="word"><span class="w-term">南洋諸島<span class="w-rd">なんようしょとう</span></span><span class="w-desc">太平洋にあったドイツ領。日本が占領し、戦後は国際連盟の委任統治領になった。</span></div></div>
     </div>
     <div class="step" data-label="二十一か条の要求">
-      <h3><span class="sec-no">2</span>二十一か条の要求</h3>
-      <div class="sec-lead">袁世凱政権に強引な要求を突きつけたよ。</div>
-      <p>1915年、日本の大隈内閣は中国(中華民国)の<span class="mark">袁世凱</span>政権に対して、<span class="mark">二十一か条の要求</span>を突きつけたんだ。山東省にあったドイツの権益を日本が引き継ぐことなどを認めさせようとする、かなり強引な内容だったんだよ。袁世凱はやむなくこれを受け入れたけれど、この要求は中国の人々の間に強い反日感情を生む原因になってしまったんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1915年、袁世凱政権に二十一か条の要求を突きつけたよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="16">二十一か条の要求</span></h3>
+      <div class="sec-lead"><span class="s" data-i="17">袁世凱政権に強引な要求を突きつけたよ。</span></div>
+      <p><span class="s" data-i="18">1915年、日本の大隈内閣は中国(中華民国)の<span class="mark">袁世凱</span>政権に対して、</span><span class="s" data-i="19"><span class="mark">二十一か条の要求</span>を突きつけたんだ。</span><span class="s" data-i="20">山東省にあったドイツの権益を日本が引き継ぐことなどを認めさせようとする、</span><span class="s" data-i="21">かなり強引な内容だったんだよ。</span><span class="s" data-i="22">袁世凱はやむなくこれを受け入れたけれど、</span><span class="s" data-i="23">この要求は中国の人々の間に強い反日感情を生む原因になってしまったんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="24">1915年、袁世凱政権に二十一か条の要求を突きつけたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">二十一か条の要求<span class="w-rd">にじゅういちかじょうのようきゅう</span></span><span class="w-desc">1915年、日本が袁世凱政権に突きつけた要求。中国に強い反日感情を生んだ。</span></div></div>
     </div>
     <div class="step" data-label="大戦景気と成金の誕生">
-      <h3><span class="sec-no">3</span>大戦景気と成金の誕生</h3>
-      <div class="sec-lead">輸出が伸び、日本は好景気に沸いたよ。</div>
-      <p>戦争でヨーロッパ諸国が輸出どころではなくなると、その隙に日本の製品がどんどん売れるようになり、<span class="mark">大戦景気</span>と呼ばれる好景気が訪れたんだ。この波に乗って急にお金持ちになった人たちは<span class="mark">成金</span>と呼ばれ、船で財を成した「船成金」なんて言葉まで生まれたんだよ。すごいよね、戦争が遠い日本の景気まで押し上げてしまうなんて。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">輸出が伸びて大戦景気となり、成金と呼ばれる人も現れたよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="25">大戦景気と成金の誕生</span></h3>
+      <div class="sec-lead"><span class="s" data-i="26">輸出が伸び、日本は好景気に沸いたよ。</span></div>
+      <p><span class="s" data-i="27">戦争でヨーロッパ諸国が輸出どころではなくなると、</span><span class="s" data-i="28">その隙に日本の製品がどんどん売れるようになり、</span><span class="s" data-i="29"><span class="mark">大戦景気</span>と呼ばれる好景気が訪れたんだ。</span><span class="s" data-i="30">この波に乗って急にお金持ちになった人たちは<span class="mark">成金</span>と呼ばれ、</span><span class="s" data-i="31">船で財を成した「船成金」なんて言葉まで生まれたんだよ。</span><span class="s" data-i="32">すごいよね、戦争が遠い日本の景気まで押し上げてしまうなんて。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="33">輸出が伸びて大戦景気となり、</span><span class="s" data-i="34">成金と呼ばれる人も現れたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">大戦景気<span class="w-rd">たいせんけいき</span></span><span class="w-desc">第一次世界大戦中、日本製品の需要拡大でおきた好景気。</span></div><div class="word"><span class="w-term">成金<span class="w-rd">なりきん</span></span><span class="w-desc">大戦景気で急に大金持ちになった人々。</span></div></div>
     </div>
     <div class="step" data-label="シベリア出兵と米騒動">
-      <h3><span class="sec-no">4</span>シベリア出兵と米騒動</h3>
-      <div class="sec-lead">米の買い占めから米騒動が全国に広がったよ。</div>
-      <p>1918年、日本はロシア革命に干渉しようと<span class="mark">シベリア出兵</span>を始めたんだ。ところが、この出兵を見越した米の買い占めが起こり、米の値段が急に跳ね上がってしまったんだよ。生活に困った人々の怒りは全国に広がり、<span class="mark">米騒動</span>という大きな騒ぎになったんだ。この責任を取るかたちで、寺内正毅内閣は退陣に追い込まれてしまったんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">シベリア出兵をきっかけに米騒動が起き、内閣が退陣したよ。</div></div>
+      <h3><span class="sec-no">4</span><span class="s" data-i="35">シベリア出兵と米騒動</span></h3>
+      <div class="sec-lead"><span class="s" data-i="36">米の買い占めから米騒動が全国に広がったよ。</span></div>
+      <p><span class="s" data-i="37">1918年、日本はロシア革命に干渉しようと<span class="mark">シベリア出兵</span>を始めたんだ。</span><span class="s" data-i="38">ところが、この出兵を見越した米の買い占めが起こり、</span><span class="s" data-i="39">米の値段が急に跳ね上がってしまったんだよ。</span><span class="s" data-i="40">生活に困った人々の怒りは全国に広がり、</span><span class="s" data-i="41"><span class="mark">米騒動</span>という大きな騒ぎになったんだ。</span><span class="s" data-i="42">この責任を取るかたちで、</span><span class="s" data-i="43">寺内正毅内閣は退陣に追い込まれてしまったんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="44">シベリア出兵をきっかけに米騒動が起き、</span><span class="s" data-i="45">内閣が退陣したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">米騒動<span class="w-rd">こめそうどう</span></span><span class="w-desc">1918年、米価高騰への抗議が全国に広がった騒動。寺内内閣退陣の原因となった。</span></div><div class="word"><span class="w-term">シベリア出兵<span class="w-rd">しべりあしゅっぺい</span></span><span class="w-desc">ロシア革命に干渉するため、日本が1918年から行った出兵。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -707,7 +739,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">日本は<span class="mark">日英同盟</span>を理由に参戦して中国や太平洋のドイツ領を占領し、<span class="mark">二十一か条の要求</span>で中国の反発も招いたんだ。国内では<span class="mark">大戦景気</span>にわいたものの、1918年には<span class="mark">米騒動</span>が起こって内閣が退陣に追い込まれたよ。</div>
+        <div class="sum30-body"><span class="s" data-i="46">日本は<span class="mark">日英同盟</span>を理由に参戦して中国や太平洋のドイツ領を占領し、</span><span class="s" data-i="47"><span class="mark">二十一か条の要求</span>で中国の反発も招いたんだ。</span><span class="s" data-i="48">国内では<span class="mark">大戦景気</span>にわいたものの、</span><span class="s" data-i="49">1918年には<span class="mark">米騒動</span>が起こって内閣が退陣に追い込まれたよ。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -722,32 +754,33 @@
     </div>
 </section>
 <section class="view" data-t="3">
-  <div class="tband"><span class="tno">3</span><h2>ロシア革命とソ連の成立</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">3</span><h2>ロシア革命とソ連の成立</h2>
+    <button class="play-unit" type="button" data-play="3" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-russian-revolution.webp"
            alt="ロシア革命とソ連の成立（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">戦争に疲れ果てた人々が、ついに立ち上がったんだ。世界で初めて社会主義の国が生まれた、その瞬間を見てみよう。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">戦争に疲れ果てた人々が、</span><span class="s" data-i="1">ついに立ち上がったんだ。</span><span class="s" data-i="2">世界で初めて社会主義の国が生まれた、</span><span class="s" data-i="3">その瞬間を見てみよう。</span></div></div>
     </div>
     <div class="step" data-label="ロシア革命の勃発">
-      <h3><span class="sec-no">1</span>ロシア革命の勃発</h3>
-      <div class="sec-lead">世界初の社会主義革命がロシアで起こったよ。</div>
-      <p>第一次世界大戦が長引くにつれ、ロシアでは物資も食糧も足りなくなり、人々の暮らしはどんどん苦しくなっていったんだ。そんな不満が爆発し、1917年、世界で初めての社会主義革命である<span class="mark">ロシア革命</span>が起こったんだよ。労働者・兵士・農民が集まってつくった<span class="mark">ソビエト</span>という組織を土台に、<span class="mark">レーニン</span>が率いる<span class="mark">ボリシェビキ</span>が政権をにぎったんだ。不思議でしょ?戦争がきっかけで、世界の歴史が大きく変わったんだね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1917年、レーニンらが世界初の社会主義革命を成功させたよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="4">ロシア革命の勃発</span></h3>
+      <div class="sec-lead"><span class="s" data-i="5">世界初の社会主義革命がロシアで起こったよ。</span></div>
+      <p><span class="s" data-i="6">第一次世界大戦が長引くにつれ、</span><span class="s" data-i="7">ロシアでは物資も食糧も足りなくなり、</span><span class="s" data-i="8">人々の暮らしはどんどん苦しくなっていったんだ。</span><span class="s" data-i="9">そんな不満が爆発し、1917年、</span><span class="s" data-i="10">世界で初めての社会主義革命である<span class="mark">ロシア革命</span>が起こったんだよ。</span><span class="s" data-i="11">労働者・兵士・農民が集まってつくった<span class="mark">ソビエト</span>という組織を土台に、</span><span class="s" data-i="12"><span class="mark">レーニン</span>が率いる<span class="mark">ボリシェビキ</span>が政権をにぎったんだ。</span><span class="s" data-i="13">不思議でしょ?戦争がきっかけで、</span><span class="s" data-i="14">世界の歴史が大きく変わったんだね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="15">1917年、レーニンらが世界初の社会主義革命を成功させたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">ロシア革命<span class="w-rd">ろしあかくめい</span></span><span class="w-desc">1917年、世界で初めて起こった社会主義革命。レーニンが指導した。</span></div><div class="word"><span class="w-term">レーニン<span class="w-rd">れーにん</span></span><span class="w-desc">ロシア革命を指導し、1922年にソ連を建国した人物。</span></div><div class="word"><span class="w-term">ソビエト<span class="w-rd">そびえと</span></span><span class="w-desc">労働者・兵士・農民の代表が集まった組織。ロシア革命の中心となった。</span></div><div class="word"><span class="w-term">ボリシェビキ<span class="w-rd">ぼりしぇびき</span></span><span class="w-desc">レーニンが率いたロシア社会民主労働党の多数派。のちのロシア共産党。</span></div></div>
     </div>
     <div class="step" data-label="各国の干渉とソ連の成立">
-      <h3><span class="sec-no">2</span>各国の干渉とソ連の成立</h3>
-      <div class="sec-lead">各国の干渉を退け、レーニンがソ連を建国したよ。</div>
-      <p>この社会主義革命の広がりを恐れた日本を含む列強は、革命をつぶそうとロシアへ<span class="mark">シベリア出兵</span>を行ったんだ。でも思うような成果は上げられず、多くの犠牲を出しただけで撤退することになってしまったんだよ。そして1922年、レーニンは世界で初めての社会主義国家である<span class="mark">ソ連</span>を建国したんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">列強のシベリア出兵は失敗し、1922年にソ連が誕生したよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="16">各国の干渉とソ連の成立</span></h3>
+      <div class="sec-lead"><span class="s" data-i="17">各国の干渉を退け、</span><span class="s" data-i="18">レーニンがソ連を建国したよ。</span></div>
+      <p><span class="s" data-i="19">この社会主義革命の広がりを恐れた日本を含む列強は、</span><span class="s" data-i="20">革命をつぶそうとロシアへ<span class="mark">シベリア出兵</span>を行ったんだ。</span><span class="s" data-i="21">でも思うような成果は上げられず、</span><span class="s" data-i="22">多くの犠牲を出しただけで撤退することになってしまったんだよ。</span><span class="s" data-i="23">そして1922年、</span><span class="s" data-i="24">レーニンは世界で初めての社会主義国家である<span class="mark">ソ連</span>を建国したんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="25">列強のシベリア出兵は失敗し、</span><span class="s" data-i="26">1922年にソ連が誕生したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">ソ連<span class="w-rd">それん</span></span><span class="w-desc">1922年に成立した、世界初の社会主義国家。</span></div><div class="word"><span class="w-term">シベリア出兵<span class="w-rd">しべりあしゅっぺい</span></span><span class="w-desc">ロシア革命に干渉するため列強が行った出兵。日本も参加したが成果なく撤退した。</span></div></div>
     </div>
     <div class="step" data-label="スターリンと五か年計画">
-      <h3><span class="sec-no">3</span>スターリンと五か年計画</h3>
-      <div class="sec-lead">五か年計画で急速な工業化が進められたよ。</div>
-      <p>1924年にレーニンが亡くなると、<span class="mark">スターリン</span>が新しい指導者になったんだ。1928年からは、国が生産の目標をすべて決めてしまう<span class="mark">五か年計画</span>という政策を進め、工場を建てたり農地をまとめたりして、ものすごい速さで国を工業化していったんだよ。ただしその裏では、独裁的な統治が行われていたことも忘れちゃいけないね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">スターリンは五か年計画で急速に工業化を進めたよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="27">スターリンと五か年計画</span></h3>
+      <div class="sec-lead"><span class="s" data-i="28">五か年計画で急速な工業化が進められたよ。</span></div>
+      <p><span class="s" data-i="29">1924年にレーニンが亡くなると、</span><span class="s" data-i="30"><span class="mark">スターリン</span>が新しい指導者になったんだ。</span><span class="s" data-i="31">1928年からは、</span><span class="s" data-i="32">国が生産の目標をすべて決めてしまう<span class="mark">五か年計画</span>という政策を進め、</span><span class="s" data-i="33">工場を建てたり農地をまとめたりして、</span><span class="s" data-i="34">ものすごい速さで国を工業化していったんだよ。</span><span class="s" data-i="35">ただしその裏では、</span><span class="s" data-i="36">独裁的な統治が行われていたことも忘れちゃいけないね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="37">スターリンは五か年計画で急速に工業化を進めたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">スターリン<span class="w-rd">すたーりん</span></span><span class="w-desc">レーニンの死後、ソ連の指導者となった人物。独裁的な統治で知られる。</span></div><div class="word"><span class="w-term">五か年計画<span class="w-rd">ごかねんけいかく</span></span><span class="w-desc">1928年からスターリンが進めた、生産目標を国が決める政策。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -855,7 +888,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">戦争で疲れ果てたロシアでは1917年に<span class="mark">ロシア革命</span>が起こり、<span class="mark">レーニン</span>が世界初の社会主義政権を築いたんだ。1922年には<span class="mark">ソ連</span>が誕生し、<span class="mark">スターリン</span>の時代には<span class="mark">五か年計画</span>で急速な工業化が進んだよ。</div>
+        <div class="sum30-body"><span class="s" data-i="38">戦争で疲れ果てたロシアでは1917年に<span class="mark">ロシア革命</span>が起こり、</span><span class="s" data-i="39"><span class="mark">レーニン</span>が世界初の社会主義政権を築いたんだ。</span><span class="s" data-i="40">1922年には<span class="mark">ソ連</span>が誕生し、</span><span class="s" data-i="41"><span class="mark">スターリン</span>の時代には<span class="mark">五か年計画</span>で急速な工業化が進んだよ。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -870,39 +903,40 @@
     </div>
 </section>
 <section class="view" data-t="4">
-  <div class="tband"><span class="tno">4</span><h2>戦後秩序とアジアの抵抗</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">4</span><h2>戦後秩序とアジアの抵抗</h2>
+    <button class="play-unit" type="button" data-play="4" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-postwar-order.webp"
            alt="戦後秩序とアジアの抵抗（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">戦争が終わったあと、世界はどんな形に生まれ変わったんだろう?そして、その新しい秩序に刺激されたアジアの人々は、どう動いたのかな。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">戦争が終わったあと、</span><span class="s" data-i="1">世界はどんな形に生まれ変わったんだろう?そして、</span><span class="s" data-i="2">その新しい秩序に刺激されたアジアの人々は、</span><span class="s" data-i="3">どう動いたのかな。</span></div></div>
     </div>
     <div class="step" data-label="パリ講和会議とベルサイユ条約">
-      <h3><span class="sec-no">1</span>パリ講和会議とベルサイユ条約</h3>
-      <div class="sec-lead">ドイツに厳しい処分を課す条約が結ばれたよ。</div>
-      <p>1919年、戦争に勝った国々はパリに集まって講和会議を開き、敗れたドイツへの処分を話し合ったんだ。そこで結ばれたのが<span class="mark">ベルサイユ条約</span>だよ。ドイツには巨額の賠償金の支払いや軍備の制限、そして領土の割譲まで課されたんだ。すごく厳しい内容だったんだよね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1919年のベルサイユ条約で、ドイツに厳しい処分が課されたよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="4">パリ講和会議とベルサイユ条約</span></h3>
+      <div class="sec-lead"><span class="s" data-i="5">ドイツに厳しい処分を課す条約が結ばれたよ。</span></div>
+      <p><span class="s" data-i="6">1919年、戦争に勝った国々はパリに集まって講和会議を開き、</span><span class="s" data-i="7">敗れたドイツへの処分を話し合ったんだ。</span><span class="s" data-i="8">そこで結ばれたのが<span class="mark">ベルサイユ条約</span>だよ。</span><span class="s" data-i="9">ドイツには巨額の賠償金の支払いや軍備の制限、</span><span class="s" data-i="10">そして領土の割譲まで課されたんだ。</span><span class="s" data-i="11">すごく厳しい内容だったんだよね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="12">1919年のベルサイユ条約で、</span><span class="s" data-i="13">ドイツに厳しい処分が課されたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">ベルサイユ条約<span class="w-rd">べるさいゆじょうやく</span></span><span class="w-desc">1919年、パリ講和会議で結ばれた第一次世界大戦の講和条約。</span></div></div>
     </div>
     <div class="step" data-label="国際連盟と民族自決">
-      <h3><span class="sec-no">2</span>国際連盟と民族自決</h3>
-      <div class="sec-lead">民族自決の考えのもと国際連盟が発足したよ。</div>
-      <p>アメリカの<span class="mark">ウィルソン</span>大統領は、それぞれの民族が自分たちの国を持つべきだという<span class="mark">民族自決</span>の考えを唱えたんだ。この考えをもとに、1920年には世界の平和を目指す<span class="mark">国際連盟</span>が発足し、日本も常任理事国に選ばれたんだよ。ただ、提唱者のアメリカ自身は参加しなかったというのが、なんとも不思議なところなんだけどね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">民族自決の考えのもと、1920年に国際連盟が発足したよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="14">国際連盟と民族自決</span></h3>
+      <div class="sec-lead"><span class="s" data-i="15">民族自決の考えのもと国際連盟が発足したよ。</span></div>
+      <p><span class="s" data-i="16">アメリカの<span class="mark">ウィルソン</span>大統領は、</span><span class="s" data-i="17">それぞれの民族が自分たちの国を持つべきだという<span class="mark">民族自決</span>の考えを唱えたんだ。</span><span class="s" data-i="18">この考えをもとに、</span><span class="s" data-i="19">1920年には世界の平和を目指す<span class="mark">国際連盟</span>が発足し、</span><span class="s" data-i="20">日本も常任理事国に選ばれたんだよ。</span><span class="s" data-i="21">ただ、提唱者のアメリカ自身は参加しなかったというのが、</span><span class="s" data-i="22">なんとも不思議なところなんだけどね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="23">民族自決の考えのもと、</span><span class="s" data-i="24">1920年に国際連盟が発足したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">国際連盟<span class="w-rd">こくさいれんめい</span></span><span class="w-desc">1920年に発足した、世界平和を目指す国際機関。日本も常任理事国となった。</span></div><div class="word"><span class="w-term">ウィルソン<span class="w-rd">うぃるそん</span></span><span class="w-desc">国際連盟の創設や民族自決を提唱したアメリカ大統領。</span></div><div class="word"><span class="w-term">民族自決<span class="w-rd">みんぞくじけつ</span></span><span class="w-desc">それぞれの民族が自らの国家を持つべきという考え方。</span></div></div>
     </div>
     <div class="step" data-label="アジアで広がる独立運動">
-      <h3><span class="sec-no">3</span>アジアで広がる独立運動</h3>
-      <div class="sec-lead">朝鮮や中国、インドで独立運動が広がったよ。</div>
-      <p>民族自決の考えは、日本や欧米の支配下にあったアジアの人々を大きく刺激したんだ。1919年、朝鮮では日本の植民地支配に抵抗する<span class="mark">三・一独立運動</span>が広がり、中国では二十一か条の要求などに抗議する<span class="mark">五・四運動</span>が起こったんだよ。インドでも、<span class="mark">ガンディー</span>が武力を使わない「非暴力・不服従」を掲げてイギリスからの独立を目指したんだ。世界中で人々が声を上げ始めた時代だったんだね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">朝鮮の三・一独立運動、中国の五・四運動などが広がったよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="25">アジアで広がる独立運動</span></h3>
+      <div class="sec-lead"><span class="s" data-i="26">朝鮮や中国、インドで独立運動が広がったよ。</span></div>
+      <p><span class="s" data-i="27">民族自決の考えは、</span><span class="s" data-i="28">日本や欧米の支配下にあったアジアの人々を大きく刺激したんだ。</span><span class="s" data-i="29">1919年、朝鮮では日本の植民地支配に抵抗する<span class="mark">三・一独立運動</span>が広がり、</span><span class="s" data-i="30">中国では二十一か条の要求などに抗議する<span class="mark">五・四運動</span>が起こったんだよ。</span><span class="s" data-i="31">インドでも、<span class="mark">ガンディー</span>が武力を使わない「非暴力・不服従」を掲げてイギリスからの独立を目指したんだ。</span><span class="s" data-i="32">世界中で人々が声を上げ始めた時代だったんだね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="33">朝鮮の三・一独立運動、</span><span class="s" data-i="34">中国の五・四運動などが広がったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">三・一独立運動<span class="w-rd">さんいちどくりつうんどう</span></span><span class="w-desc">1919年、朝鮮で広がった日本の植民地支配への抵抗運動。</span></div><div class="word"><span class="w-term">五・四運動<span class="w-rd">ごしうんどう</span></span><span class="w-desc">1919年、中国で起こった反日・反帝国主義の運動。</span></div><div class="word"><span class="w-term">ガンディー<span class="w-rd">がんでぃー</span></span><span class="w-desc">非暴力・不服従を掲げ、イギリスからのインド独立を目指した指導者。</span></div></div>
     </div>
     <div class="step" data-label="ワシントン会議と新しい秩序">
-      <h3><span class="sec-no">4</span>ワシントン会議と新しい秩序</h3>
-      <div class="sec-lead">海軍軍縮が決まり、日英同盟も解消されたよ。</div>
-      <p>1921〜22年に開かれた<span class="mark">ワシントン会議</span>では、各国の海軍の主力艦の数を制限する条約が結ばれ、日本とイギリスが長年結んでいた日英同盟もこのとき解消されたんだ。こうして戦争のあとの世界は、国際協調を土台にした新しい秩序をつくろうとしていたんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">ワシントン会議で軍縮が決まり、日英同盟も解消されたよ。</div></div>
+      <h3><span class="sec-no">4</span><span class="s" data-i="35">ワシントン会議と新しい秩序</span></h3>
+      <div class="sec-lead"><span class="s" data-i="36">海軍軍縮が決まり、</span><span class="s" data-i="37">日英同盟も解消されたよ。</span></div>
+      <p><span class="s" data-i="38">1921〜22年に開かれた<span class="mark">ワシントン会議</span>では、</span><span class="s" data-i="39">各国の海軍の主力艦の数を制限する条約が結ばれ、</span><span class="s" data-i="40">日本とイギリスが長年結んでいた日英同盟もこのとき解消されたんだ。</span><span class="s" data-i="41">こうして戦争のあとの世界は、</span><span class="s" data-i="42">国際協調を土台にした新しい秩序をつくろうとしていたんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="43">ワシントン会議で軍縮が決まり、</span><span class="s" data-i="44">日英同盟も解消されたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">ワシントン会議<span class="w-rd">わしんとんかいぎ</span></span><span class="w-desc">1921〜22年に開かれた、海軍軍縮と東アジア問題を話し合った国際会議。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -1010,7 +1044,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">1919年の<span class="mark">ベルサイユ条約</span>でドイツに厳しい処分が課される一方、<span class="mark">国際連盟</span>が発足して国際協調の時代が始まったんだ。<span class="mark">民族自決</span>の考えに刺激されたアジアでは独立運動が広がり、<span class="mark">ワシントン会議</span>では日英同盟も解消されて新しい秩序が築かれたよ。</div>
+        <div class="sum30-body"><span class="s" data-i="45">1919年の<span class="mark">ベルサイユ条約</span>でドイツに厳しい処分が課される一方、</span><span class="s" data-i="46"><span class="mark">国際連盟</span>が発足して国際協調の時代が始まったんだ。</span><span class="s" data-i="47"><span class="mark">民族自決</span>の考えに刺激されたアジアでは独立運動が広がり、</span><span class="s" data-i="48"><span class="mark">ワシントン会議</span>では日英同盟も解消されて新しい秩序が築かれたよ。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -1026,6 +1060,14 @@
 </section>
 </main>
 <div class="hintbar" id="hintBar" hidden></div>
+<div class="aplayer" id="aplayer" hidden><div class="ap-in">
+  <button class="ap-btn" id="apPlay" aria-label="再生／一時停止">❚❚</button>
+  <div class="ap-seek"><input type="range" id="apSeek" min="0" max="1000" value="0"></div>
+  <div class="ap-time" id="apTime">0:00 / 0:00</div>
+  <button class="ap-rate" id="apRate">1.0×</button>
+  <button class="ap-close" id="apClose" aria-label="読み上げを止める">×</button>
+</div></div>
+<audio id="audio" preload="none"></audio>
 <div class="navbar" id="navbar" hidden><div class="navbar-in">
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
@@ -1053,7 +1095,8 @@
 (function () {
   var KEY = 'tzmref-13';
   var CH = '13';
-  var WB_VIEWS = [0, 2, 3, 4, 5];          // 参考書の単元t → 問題集のビュー番号（0＝対応なし）
+  var WB_VIEWS = [0, 2, 3, 4, 5];
+  var AUDIO = {"1": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F13-ww1-outbreak.mp3?alt=media&token=a30b11a5-ac0c-46bc-9ead-140aa12f0d0c", "tl": [[0, 2.958, 0], [2.958, 3.122, 0], [6.36, 2.833, 0], [9.193, 2.687, 0], [12.53, 3.24, 1], [16.42, 2.242, 1], [18.662, 2.398, 1], [21.71, 1.951, 1], [23.661, 3.769, 1], [27.71, 4.774, 1], [32.484, 4.16, 1], [36.644, 2.506, 1], [39.43, 2.06, 1], [41.49, 4.479, 1], [45.969, 3.901, 1], [50.15, 2.909, 1], [53.059, 3.211, 1], [56.92, 3.353, 1], [60.273, 2.847, 1], [63.77, 2.64, 2], [67.06, 3.68, 2], [71.39, 1.61, 2], [73, 2.231, 2], [75.231, 6.999, 2], [82.51, 2.16, 2], [84.95, 2.011, 2], [86.961, 2.607, 2], [89.568, 5.208, 2], [94.776, 3.494, 2], [98.55, 2.207, 2], [100.757, 4.953, 2], [106.36, 5.72, 2], [112.73, 3.52, 3], [116.9, 4.24, 3], [121.79, 10.52, 3], [132.59, 5.225, 3], [137.815, 4.655, 3], [142.75, 6.57, 3], [149.32, 2.915, 3], [152.235, 1.795, 3], [154.68, 2.274, 3], [156.954, 3.366, 3], [160.97, 3.559, 5], [164.529, 5.441, 5], [170.25, 3.477, 5], [173.727, 5.163, 5]]}, "2": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F13-japan-in-ww1.mp3?alt=media&token=f2618e95-ca04-4fad-8bcd-2fe6a6d1b8cc", "tl": [[0, 5.903, 0], [5.903, 4.697, 0], [11.25, 3, 1], [14.9, 2.597, 1], [17.497, 1.763, 1], [19.91, 6.915, 1], [26.825, 4.045, 1], [31.15, 4.205, 1], [35.355, 2.919, 1], [38.274, 2.316, 1], [40.87, 3.123, 1], [43.993, 3.044, 1], [47.037, 1.993, 1], [49.31, 5.4, 1], [55.36, 2.847, 1], [58.207, 2.873, 1], [61.73, 2.48, 2], [64.86, 3.84, 2], [69.35, 8.304, 2], [77.654, 2.736, 2], [80.67, 5.965, 2], [86.635, 2.155, 2], [89.07, 3.11, 2], [92.18, 5.81, 2], [98.64, 6.08, 2], [105.37, 2.92, 3], [108.94, 3.8, 3], [113.39, 3.908, 3], [117.298, 3.57, 3], [120.868, 3.522, 3], [124.67, 5.074, 3], [129.744, 4.526, 3], [134.55, 5.6, 3], [140.8, 2.855, 3], [143.655, 2.585, 3], [146.89, 3.12, 4], [150.66, 4.32, 4], [155.63, 6.88, 4], [162.79, 5.034, 4], [167.824, 3.326, 4], [171.43, 4.064, 4], [175.494, 3.056, 4], [178.83, 2.304, 4], [181.134, 3.936, 4], [185.72, 3.555, 4], [189.275, 1.885, 4], [191.81, 6.619, 6], [198.429, 3.781, 6], [202.49, 3.078, 6], [205.568, 5.442, 6]]}, "3": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F13-russian-revolution.mp3?alt=media&token=30b27c31-da6b-414a-8a96-91e5c8e7d902", "tl": [[0, 2.54, 0], [2.54, 1.82, 0], [4.64, 3.442, 0], [8.082, 1.878, 0], [10.61, 2.36, 1], [13.62, 4, 1], [18.27, 2.729, 1], [20.999, 2.996, 1], [23.995, 3.075, 1], [27.35, 2.322, 1], [29.672, 6.158, 1], [36.11, 6.379, 1], [42.489, 3.941, 1], [46.71, 2.926, 1], [49.636, 3.474, 1], [53.76, 6.48, 1], [60.89, 3.12, 2], [64.66, 2.312, 2], [66.972, 2.168, 2], [69.79, 4.993, 2], [74.783, 4.287, 2], [79.35, 2.725, 2], [82.075, 3.955, 2], [86.31, 2.305, 2], [88.615, 4.855, 2], [94.12, 3.033, 2], [97.153, 3.127, 2], [100.93, 2.72, 3], [104.3, 3.84, 3], [108.79, 3.759, 3], [112.549, 2.481, 3], [115.31, 2.364, 3], [117.674, 5.814, 3], [123.488, 2.766, 3], [126.254, 3.136, 3], [129.67, 1.838, 3], [131.508, 4.042, 3], [136.2, 4.76, 3], [141.61, 6, 5], [147.61, 3.72, 5], [151.61, 3.425, 5], [155.035, 4.495, 5]]}, "4": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F13-postwar-order.mp3?alt=media&token=86f5e40f-5df2-4f65-9101-a328606fd0b4", "tl": [[0, 1.989, 0], [1.989, 4.025, 0], [6.014, 3.545, 0], [9.559, 1.241, 0], [11.45, 3.36, 1], [15.46, 4.12, 1], [20.23, 6.551, 1], [26.781, 2.729, 1], [29.79, 3.48, 1], [33.55, 5.128, 1], [38.678, 2.872, 1], [41.83, 3.2, 1], [45.68, 3.439, 1], [49.119, 2.401, 1], [52.17, 2.96, 2], [55.78, 4.64, 2], [61.07, 2.486, 2], [63.556, 6.634, 2], [70.47, 1.818, 2], [72.288, 5.164, 2], [77.452, 2.738, 2], [80.47, 4.921, 2], [85.391, 2.359, 2], [88.4, 2.397, 2], [90.797, 3.603, 2], [95.05, 3, 3], [98.7, 4.16, 3], [103.51, 2.208, 3], [105.718, 4.432, 3], [110.43, 8.444, 3], [118.874, 5.276, 3], [124.43, 8.4, 3], [133.11, 3.96, 3], [137.72, 2.774, 3], [140.494, 2.786, 3], [143.93, 3.52, 4], [148.1, 2.215, 4], [150.315, 2.305, 4], [153.27, 4.075, 4], [157.345, 5.633, 4], [162.978, 5.172, 4], [168.43, 2.565, 4], [170.995, 4.275, 4], [175.92, 2.557, 4], [178.477, 2.203, 4], [181.33, 5.411, 6], [186.741, 5.029, 6], [192.05, 5.306, 6], [197.356, 5.414, 6]]}};          // {単元t: {url, tl:[[開始秒,長さ,ステップ], …]}}          // 参考書の単元t → 問題集のビュー番号（0＝対応なし）
   var views = [].slice.call(document.querySelectorAll('.view'));
   var tabs = [].slice.call(document.querySelectorAll('.tab'));
   var N = views.length - 1; // 単元数
@@ -1084,6 +1127,89 @@
     };
     bar.addEventListener('click', function () { bar.hidden = true; });
   })();
+
+
+  // ── 読み上げ（音声に合わせて句をハイライトし、ページも自動でめくる）──
+  var au = document.getElementById('audio');
+  var apl = document.getElementById('aplayer');
+  var reading = { t: 0, i: -1 };
+  var RATES = [1, 1.25, 1.5, 0.75], ri = 0;
+
+  function fmt(x) { x = Math.max(0, x | 0); return (x / 60 | 0) + ':' + ('0' + (x % 60)).slice(-2); }
+  function spansOf(t) { return [].slice.call(views[t].querySelectorAll('.s')); }
+
+  function startAudio(t) {
+    var a = AUDIO[t];
+    if (!a) return;
+    reading = { t: t, i: -1 };
+    if (au.dataset.t !== String(t)) { au.src = a.url; au.dataset.t = String(t); }
+    document.body.classList.add('reading');
+    apl.hidden = false;
+    au.playbackRate = RATES[ri];
+    au.play();
+  }
+  function stopAudio() {
+    au.pause();
+    document.body.classList.remove('reading');
+    apl.hidden = true;
+    if (reading.t) spansOf(reading.t).forEach(function (el) { el.classList.remove('now', 'read'); });
+    reading = { t: 0, i: -1 };
+  }
+  function paintAudio() {
+    var a = AUDIO[reading.t];
+    if (!a) return;
+    var tl = a.tl, k = -1;
+    for (var i = 0; i < tl.length; i++) { if (au.currentTime >= tl[i][0]) k = i; else break; }
+    if (k === reading.i) return;
+    reading.i = k;
+    // 読んでいる箇所が別のページなら、そのページへ自動でめくる
+    if (k >= 0 && tl[k][2] !== state.s && state.t === reading.t) go(reading.t, tl[k][2], tl[k][2] > state.s ? 1 : -1);
+    var sp = spansOf(reading.t);
+    sp.forEach(function (el, i) {
+      el.classList.toggle('now', i === k);
+      el.classList.toggle('read', i < k);
+    });
+    var el = sp[k];
+    if (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < 70 || r.bottom > innerHeight - 150) {
+        scrollTo({ top: scrollY + r.top - innerHeight * 0.4, behavior: 'smooth' });
+      }
+    }
+  }
+  function tickAudio() {
+    paintAudio();
+    if (au.duration) {
+      document.getElementById('apSeek').value = Math.round(au.currentTime / au.duration * 1000);
+      document.getElementById('apTime').textContent = fmt(au.currentTime) + ' / ' + fmt(au.duration);
+    }
+    if (!au.paused) requestAnimationFrame(tickAudio);
+  }
+  au.addEventListener('play', function () { document.getElementById('apPlay').textContent = '❚❚'; tickAudio(); });
+  au.addEventListener('pause', function () { document.getElementById('apPlay').textContent = '▶'; });
+  au.addEventListener('ended', stopAudio);
+  document.getElementById('apPlay').onclick = function () { au.paused ? au.play() : au.pause(); };
+  document.getElementById('apClose').onclick = stopAudio;
+  document.getElementById('apSeek').oninput = function () {
+    if (au.duration) { au.currentTime = this.value / 1000 * au.duration; reading.i = -1; paintAudio(); }
+  };
+  document.getElementById('apRate').onclick = function () {
+    ri = (ri + 1) % RATES.length; au.playbackRate = RATES[ri];
+    this.textContent = RATES[ri].toFixed(2).replace(/0$/, '') + '×';
+  };
+  // 単元見出しの「🔊 読み上げ」＋ 文字タップでその場所から読む
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('.play-unit');
+    if (b) { startAudio(+b.dataset.play); return; }
+    var sp = e.target.closest && e.target.closest('.s');
+    if (sp && AUDIO[state.t]) {
+      var k = +sp.dataset.i, a = AUDIO[state.t];
+      if (a.tl[k]) {
+        if (reading.t !== state.t) startAudio(state.t);
+        au.currentTime = a.tl[k][0]; reading.i = -1; paintAudio(); au.play();
+      }
+    }
+  });
 
   // 単元タブの左右矢印: まだ隠れているタブがある側だけ出す
   function updateTabArrows() {
@@ -1182,6 +1308,8 @@
     // クエリが付いていても落とさない（URL共有時の情報を保つ）
     if (location.hash !== h) history.replaceState(null, '', location.search + (t === 0 ? '#' : h));
     updateSwap();
+    var pb = views[t] && views[t].querySelector('.play-unit');
+    if (pb) pb.hidden = !AUDIO[t];
     rendered = { t: t, s: s };
   }
 

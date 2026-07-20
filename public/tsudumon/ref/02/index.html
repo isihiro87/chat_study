@@ -13,6 +13,36 @@
 
   .mark { background:linear-gradient(transparent 55%, var(--line) 55%); font-weight:bold; padding:0 1px; }
 
+  /* ── 読み上げ（音声＋読んでいる句のハイライト）── */
+  .s { border-radius:6px; padding:.14em .12em; margin:0 -.12em;
+       -webkit-box-decoration-break:clone; box-decoration-break:clone;
+       transition:background-color .15s ease, color .15s ease; }
+  body.reading .s { cursor:pointer; }
+  .s.read { color:#8a8279; }
+  .s.now { background:#fcd34d; color:#1c1917; }
+  .s.now .mark { background:none; }
+  /* 単元見出しの再生ボタン */
+  .play-unit { display:inline-flex; align-items:center; gap:6px; margin-left:auto; flex:none;
+               background:#fff; color:var(--brand); border:1.5px solid var(--line);
+               border-radius:20px; padding:4px 12px; font-size:12px; font-weight:bold;
+               font-family:inherit; cursor:pointer; }
+  .play-unit[hidden] { display:none; }
+  /* 下部プレーヤー（再生中だけ出す。ナビバーの上に重ねる） */
+  .aplayer { position:fixed; left:0; right:0; bottom:58px; z-index:25;
+             background:rgba(255,253,248,.98); border-top:1px solid #f0e6d2;
+             box-shadow:0 -3px 12px rgba(120,80,20,.14); padding:7px 0 8px; }
+  .aplayer[hidden] { display:none; }
+  .ap-in { max-width:640px; margin:0 auto; padding:0 14px; display:flex; align-items:center; gap:9px; }
+  .ap-btn { flex:none; width:40px; height:40px; border-radius:50%; border:none; background:var(--brand);
+            color:#fff; font-size:16px; cursor:pointer; box-shadow:0 2px 6px rgba(180,83,9,.35); }
+  .ap-seek { flex:1; min-width:0; }
+  .ap-seek input { width:100%; accent-color:var(--brand); }
+  .ap-time { flex:none; font-size:11px; font-weight:bold; color:var(--brand); min-width:74px;
+             text-align:right; }
+  .ap-rate, .ap-close { flex:none; border:1.5px solid var(--line); background:#fffbeb; color:var(--brand);
+             font-weight:bold; border-radius:16px; padding:4px 9px; font-size:11.5px; cursor:pointer;
+             font-family:inherit; }
+
   /* ── 上部: タイトル＋単元タブ＋進捗バー ── */
   .bar { position:sticky; top:0; z-index:10; background:rgba(255,253,248,.96);
          backdrop-filter:blur(6px); border-bottom:1px solid #f0e6d2; }
@@ -35,7 +65,7 @@
                white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   .bar-step { flex:none; font-size:11px; font-weight:bold; color:var(--brand); }
   /* 初回だけ出す操作ヒント（PCはキー、スマホはスワイプ） */
-  .hintbar { position:fixed; left:50%; transform:translateX(-50%); bottom:78px; z-index:35;
+  .hintbar { position:fixed; left:50%; transform:translateX(-50%); bottom:132px; z-index:35;
              background:rgba(28,25,23,.88); color:#fff; font-size:12.5px; font-weight:bold;
              border-radius:20px; padding:8px 16px; box-shadow:0 4px 14px rgba(0,0,0,.3);
              animation:hintIn .3s ease; }
@@ -419,32 +449,33 @@
   </footer>
 </section>
 <section class="view" data-t="1">
-  <div class="tband"><span class="tno">1</span><h2>人類の出現と進化</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">1</span><h2>人類の出現と進化</h2>
+    <button class="play-unit" type="button" data-play="1" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-human-origins.webp"
            alt="人類の出現と進化（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">今から約700万年前、アフリカで一人の祖先が立ち上がったんだ。二本の足で歩き始めたその瞬間から、人類の長い歩みが始まったんだよ。想像してみて、すごいよね？</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">今から約700万年前、</span><span class="s" data-i="1">アフリカで一人の祖先が立ち上がったんだ。</span><span class="s" data-i="2">二本の足で歩き始めたその瞬間から、</span><span class="s" data-i="3">人類の長い歩みが始まったんだよ。</span><span class="s" data-i="4">想像してみて、すごいよね？</span></div></div>
     </div>
     <div class="step" data-label="猿人から新人への進化">
-      <h3><span class="sec-no">1</span>猿人から新人への進化</h3>
-      <div class="sec-lead">猿人→原人→新人の順に、人類は進化したよ。</div>
-      <p>約700万年前、アフリカで<span class="mark">猿人</span>が出現したんだ。直立二足歩行を始めたことで両手が自由になって、道具を作ったり使ったりできるようになったのが大きな特徴だよ。約240万年前になると<span class="mark">原人</span>が現れて、火を使い始めたんだ。火のおかげで食物を加熱したり暖を取ったりできるようになって、北京原人やジャワ原人がその代表例として知られているよ。そして約20万年前、今の人類の直接の祖先である<span class="mark">新人</span>(ホモ・サピエンス)がアフリカで出現したんだ。「知恵のある人」という意味を持つこの新人が、やがて世界中に広がっていったんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">猿人から原人、新人へと人類は進化していったんだよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="5">猿人から新人への進化</span></h3>
+      <div class="sec-lead"><span class="s" data-i="6">猿人→原人→新人の順に、</span><span class="s" data-i="7">人類は進化したよ。</span></div>
+      <p><span class="s" data-i="8">約700万年前、</span><span class="s" data-i="9">アフリカで<span class="mark">猿人</span>が出現したんだ。</span><span class="s" data-i="10">直立二足歩行を始めたことで両手が自由になって、</span><span class="s" data-i="11">道具を作ったり使ったりできるようになったのが大きな特徴だよ。</span><span class="s" data-i="12">約240万年前になると<span class="mark">原人</span>が現れて、</span><span class="s" data-i="13">火を使い始めたんだ。</span><span class="s" data-i="14">火のおかげで食物を加熱したり暖を取ったりできるようになって、</span><span class="s" data-i="15">北京原人やジャワ原人がその代表例として知られているよ。</span><span class="s" data-i="16">そして約20万年前、</span><span class="s" data-i="17">今の人類の直接の祖先である<span class="mark">新人</span>(ホモ・サピエンス)がアフリカで出現したんだ。</span><span class="s" data-i="18">「知恵のある人」という意味を持つこの新人が、</span><span class="s" data-i="19">やがて世界中に広がっていったんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="20">猿人から原人、新人へと人類は進化していったんだよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">猿人<span class="w-rd">えんじん</span></span><span class="w-desc">約700万年前にアフリカで出現した最古の人類。直立二足歩行を始めた。</span></div><div class="word"><span class="w-term">原人<span class="w-rd">げんじん</span></span><span class="w-desc">約240万年前に現れ、火を使うようになった人類。北京原人・ジャワ原人が代表。</span></div><div class="word"><span class="w-term">新人<span class="w-rd">しんじん</span></span><span class="w-desc">約20万年前に出現した現在の人類の直接の祖先。ホモ・サピエンスともいう。</span></div></div>
     </div>
     <div class="step" data-label="旧石器時代のくらし">
-      <h3><span class="sec-no">2</span>旧石器時代のくらし</h3>
-      <div class="sec-lead">打製石器を使い、狩りと採集で移動して暮らしたよ。</div>
-      <p>打製石器を使って、狩猟・採集で食料を得ながら移動生活を送った時代を<span class="mark">旧石器時代</span>というんだ。この時代は寒冷な時期が繰り返される氷河時代にあたっていて、海面が低下して大陸と島が陸続きになったことで、人類は新しい土地へと移動できたんだよ。人々は洞穴やテント状の住まいで暮らし、獲物を追って移動を続けたんだ。フランスのラスコーやスペインのアルタミラには、動物が描かれた見事な洞窟壁画が残されているよ。狩りの成功を祈って描いたと考えられているんだ。不思議だよね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">旧石器時代は、打製石器を使い狩りや採集で移動して暮らした時代だよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="21">旧石器時代のくらし</span></h3>
+      <div class="sec-lead"><span class="s" data-i="22">打製石器を使い、</span><span class="s" data-i="23">狩りと採集で移動して暮らしたよ。</span></div>
+      <p><span class="s" data-i="24">打製石器を使って、</span><span class="s" data-i="25">狩猟・採集で食料を得ながら移動生活を送った時代を<span class="mark">旧石器時代</span>というんだ。</span><span class="s" data-i="26">この時代は寒冷な時期が繰り返される氷河時代にあたっていて、</span><span class="s" data-i="27">海面が低下して大陸と島が陸続きになったことで、</span><span class="s" data-i="28">人類は新しい土地へと移動できたんだよ。</span><span class="s" data-i="29">人々は洞穴やテント状の住まいで暮らし、</span><span class="s" data-i="30">獲物を追って移動を続けたんだ。</span><span class="s" data-i="31">フランスのラスコーやスペインのアルタミラには、</span><span class="s" data-i="32">動物が描かれた見事な洞窟壁画が残されているよ。</span><span class="s" data-i="33">狩りの成功を祈って描いたと考えられているんだ。</span><span class="s" data-i="34">不思議だよね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="35">旧石器時代は、打製石器を使い狩りや採集で移動して暮らした時代だよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">旧石器時代<span class="w-rd">きゅうせっきじだい</span></span><span class="w-desc">打製石器を使い狩猟・採集で移動生活をした時代。</span></div><div class="word"><span class="w-term">打製石器<span class="w-rd">だせいせっき</span></span><span class="w-desc">石を打ち欠いて作った、旧石器時代の代表的な道具。</span></div></div>
     </div>
     <div class="step" data-label="新石器時代と農耕の始まり">
-      <h3><span class="sec-no">3</span>新石器時代と農耕の始まり</h3>
-      <div class="sec-lead">農耕や牧畜が始まり、定住生活が広がったよ。</div>
-      <p>約1万年前になると、表面をみがいて仕上げた<span class="mark">磨製石器</span>や、食物の煮炊き・貯蔵に使われた土器が使われ始めたんだ。この時代を<span class="mark">新石器時代</span>といって、<span class="mark">農耕・牧畜</span>が始まったことで人々は食料を安定して得られるようになったんだよ。これにより、移動をやめて村をつくる定住生活が広がって、人々が集まって暮らす集落が各地に生まれたんだ。集落はやがて指導者を生み出し、国のもとへとつながっていくんだね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">新石器時代は、農耕や牧畜が始まって定住が広がった時代だよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="36">新石器時代と農耕の始まり</span></h3>
+      <div class="sec-lead"><span class="s" data-i="37">農耕や牧畜が始まり、</span><span class="s" data-i="38">定住生活が広がったよ。</span></div>
+      <p><span class="s" data-i="39">約1万年前になると、</span><span class="s" data-i="40">表面をみがいて仕上げた<span class="mark">磨製石器</span>や、</span><span class="s" data-i="41">食物の煮炊き・貯蔵に使われた土器が使われ始めたんだ。</span><span class="s" data-i="42">この時代を<span class="mark">新石器時代</span>といって、</span><span class="s" data-i="43"><span class="mark">農耕・牧畜</span>が始まったことで人々は食料を安定して得られるようになったんだよ。</span><span class="s" data-i="44">これにより、移動をやめて村をつくる定住生活が広がって、</span><span class="s" data-i="45">人々が集まって暮らす集落が各地に生まれたんだ。</span><span class="s" data-i="46">集落はやがて指導者を生み出し、</span><span class="s" data-i="47">国のもとへとつながっていくんだね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="48">新石器時代は、農耕や牧畜が始まって定住が広がった時代だよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">新石器時代<span class="w-rd">しんせっきじだい</span></span><span class="w-desc">磨製石器や土器を使い、農耕・牧畜が始まった時代。</span></div><div class="word"><span class="w-term">磨製石器<span class="w-rd">ませいせっき</span></span><span class="w-desc">表面をみがいて作った、新石器時代の石器。</span></div><div class="word"><span class="w-term">農耕・牧畜<span class="w-rd">のうこう・ぼくちく</span></span><span class="w-desc">新石器時代に始まった、食料を安定して得る生産方法。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -552,7 +583,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body"><span class="mark">猿人</span>から<span class="mark">原人</span>、<span class="mark">新人</span>へと人類は進化を重ねてきたんだ。<span class="mark">旧石器時代</span>は打製石器を使う狩猟・採集の移動生活だったけど、<span class="mark">新石器時代</span>には磨製石器や土器が使われるようになり、<span class="mark">農耕・牧畜</span>の開始とともに定住生活が始まったんだよ。</div>
+        <div class="sum30-body"><span class="s" data-i="49"><span class="mark">猿人</span>から<span class="mark">原人</span>、<span class="mark">新人</span>へと人類は進化を重ねてきたんだ。</span><span class="s" data-i="50"><span class="mark">旧石器時代</span>は打製石器を使う狩猟・採集の移動生活だったけど、</span><span class="s" data-i="51"><span class="mark">新石器時代</span>には磨製石器や土器が使われるようになり、</span><span class="s" data-i="52"><span class="mark">農耕・牧畜</span>の開始とともに定住生活が始まったんだよ。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -567,32 +598,33 @@
     </div>
 </section>
 <section class="view" data-t="2">
-  <div class="tband"><span class="tno">2</span><h2>古代文明の誕生</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">2</span><h2>古代文明の誕生</h2>
+    <button class="play-unit" type="button" data-play="2" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-ancient-civilizations.webp"
            alt="古代文明の誕生（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">大きな川のほとりに人々が集まって暮らし始めると、そこから文字や都市を持つ「文明」が生まれていったんだ。知ってた？世界各地の大河文明を一緒に見てみよう。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">大きな川のほとりに人々が集まって暮らし始めると、</span><span class="s" data-i="1">そこから文字や都市を持つ「文明」が生まれていったんだ。</span><span class="s" data-i="2">知ってた？</span><span class="s" data-i="3">世界各地の大河文明を一緒に見てみよう。</span></div></div>
     </div>
     <div class="step" data-label="メソポタミア文明">
-      <h3><span class="sec-no">1</span>メソポタミア文明</h3>
-      <div class="sec-lead">くさび形文字やハンムラビ法典が生まれた文明だよ。</div>
-      <p>チグリス川とユーフラテス川の流域には<span class="mark">メソポタミア文明</span>が起こったんだ。「メソポタミア」とは「川の間の土地」という意味だよ。この地では、粘土板に刻む<span class="mark">くさび形文字</span>が発明されて、商業や行政の記録に使われたんだ。また月の満ち欠けを基準にした太陰暦や、時間や角度のもとになった60進法も生み出されたんだよ。紀元前18世紀ごろには、バビロニアの王が<span class="mark">ハンムラビ法典</span>を定めたんだ。「目には目を、歯には歯を」という言葉で知られているよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">メソポタミア文明はくさび形文字やハンムラビ法典で知られる文明だよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="4">メソポタミア文明</span></h3>
+      <div class="sec-lead"><span class="s" data-i="5">くさび形文字やハンムラビ法典が生まれた文明だよ。</span></div>
+      <p><span class="s" data-i="6">チグリス川とユーフラテス川の流域には<span class="mark">メソポタミア文明</span>が起こったんだ。</span><span class="s" data-i="7">「メソポタミア」とは「川の間の土地」という意味だよ。</span><span class="s" data-i="8">この地では、粘土板に刻む<span class="mark">くさび形文字</span>が発明されて、</span><span class="s" data-i="9">商業や行政の記録に使われたんだ。</span><span class="s" data-i="10">また月の満ち欠けを基準にした太陰暦や、</span><span class="s" data-i="11">時間や角度のもとになった60進法も生み出されたんだよ。</span><span class="s" data-i="12">紀元前18世紀ごろには、</span><span class="s" data-i="13">バビロニアの王が<span class="mark">ハンムラビ法典</span>を定めたんだ。</span><span class="s" data-i="14">「目には目を、歯には歯を」という言葉で知られているよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="15">メソポタミア文明はくさび形文字やハンムラビ法典で知られる文明だよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">メソポタミア文明<span class="w-rd">めそぽたみあぶんめい</span></span><span class="w-desc">チグリス・ユーフラテス川流域で発達した文明。くさび形文字や太陰暦が生まれた。</span></div><div class="word"><span class="w-term">くさび形文字<span class="w-rd">くさびがたもじ</span></span><span class="w-desc">メソポタミア文明で粘土板に刻まれた文字。</span></div><div class="word"><span class="w-term">ハンムラビ法典<span class="w-rd">はんむらびほうてん</span></span><span class="w-desc">紀元前18世紀ごろバビロニアの王が定めた、「目には目を」で知られる法律。</span></div></div>
     </div>
     <div class="step" data-label="エジプト文明">
-      <h3><span class="sec-no">2</span>エジプト文明</h3>
-      <div class="sec-lead">ナイル川流域に、ピラミッドの文明が栄えたよ。</div>
-      <p>ナイル川流域には<span class="mark">エジプト文明</span>が発達したんだ。ナイル川は定期的に洪水を起こしていて、上流から運ばれる肥沃な土が農業を支えていたんだよ。エジプトの王である<span class="mark">ファラオ</span>は自らの墓として巨大な<span class="mark">ピラミッド</span>を築かせ、近くには人の顔とライオンの体を持つスフィンクスも建てたんだ。文字としては絵のような<span class="mark">象形文字</span>(ヒエログリフ)が使われて、洪水の時期を正確に知るために1年365日の太陽暦もつくられたんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">エジプト文明はピラミッドや象形文字で知られる文明だよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="16">エジプト文明</span></h3>
+      <div class="sec-lead"><span class="s" data-i="17">ナイル川流域に、</span><span class="s" data-i="18">ピラミッドの文明が栄えたよ。</span></div>
+      <p><span class="s" data-i="19">ナイル川流域には<span class="mark">エジプト文明</span>が発達したんだ。</span><span class="s" data-i="20">ナイル川は定期的に洪水を起こしていて、</span><span class="s" data-i="21">上流から運ばれる肥沃な土が農業を支えていたんだよ。</span><span class="s" data-i="22">エジプトの王である<span class="mark">ファラオ</span>は自らの墓として巨大な<span class="mark">ピラミッド</span>を築かせ、</span><span class="s" data-i="23">近くには人の顔とライオンの体を持つスフィンクスも建てたんだ。</span><span class="s" data-i="24">文字としては絵のような<span class="mark">象形文字</span>(ヒエログリフ)が使われて、</span><span class="s" data-i="25">洪水の時期を正確に知るために1年365日の太陽暦もつくられたんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="26">エジプト文明はピラミッドや象形文字で知られる文明だよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">エジプト文明<span class="w-rd">えじぷとぶんめい</span></span><span class="w-desc">ナイル川流域で発達した文明。ピラミッド・象形文字が特徴。</span></div><div class="word"><span class="w-term">ピラミッド<span class="w-rd">ぴらみっど</span></span><span class="w-desc">エジプトの王ファラオの墓として築かれた巨大な石造建造物。</span></div><div class="word"><span class="w-term">象形文字<span class="w-rd">しょうけいもじ</span></span><span class="w-desc">エジプトで使われた絵のような文字。ヒエログリフともいう。</span></div></div>
     </div>
     <div class="step" data-label="インダス文明とその後">
-      <h3><span class="sec-no">3</span>インダス文明とその後</h3>
-      <div class="sec-lead">計画都市が栄え、のちに身分制度が生まれたよ。</div>
-      <p>インダス川流域には<span class="mark">インダス文明</span>が栄えて、<span class="mark">モヘンジョ=ダロ</span>やハラッパーといった、整然とした街路や排水設備を備えた計画都市が造られたんだ。しかし文明が衰えると、この地にはのちに<span class="mark">アーリヤ人</span>が侵入してきて、身分制度のもとがつくられていったんだよ。この身分制度は、のちのカースト制度へとつながっていくことになるんだね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">インダス文明はモヘンジョ=ダロなど計画都市で知られる文明だよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="27">インダス文明とその後</span></h3>
+      <div class="sec-lead"><span class="s" data-i="28">計画都市が栄え、</span><span class="s" data-i="29">のちに身分制度が生まれたよ。</span></div>
+      <p><span class="s" data-i="30">インダス川流域には<span class="mark">インダス文明</span>が栄えて、</span><span class="s" data-i="31"><span class="mark">モヘンジョ=ダロ</span>やハラッパーといった、</span><span class="s" data-i="32">整然とした街路や排水設備を備えた計画都市が造られたんだ。</span><span class="s" data-i="33">しかし文明が衰えると、</span><span class="s" data-i="34">この地にはのちに<span class="mark">アーリヤ人</span>が侵入してきて、</span><span class="s" data-i="35">身分制度のもとがつくられていったんだよ。</span><span class="s" data-i="36">この身分制度は、</span><span class="s" data-i="37">のちのカースト制度へとつながっていくことになるんだね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="38">インダス文明はモヘンジョ=ダロなど計画都市で知られる文明だよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">インダス文明<span class="w-rd">いんだすぶんめい</span></span><span class="w-desc">インダス川流域に栄えた文明。モヘンジョ=ダロなどの計画都市が特徴。</span></div><div class="word"><span class="w-term">アーリヤ人<span class="w-rd">あーりやじん</span></span><span class="w-desc">インダス文明衰退後にインドへ侵入し、身分制度のもとをつくった民族。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -700,7 +732,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">大河のほとりには、都市や文字を持つ文明が発達したんだ。<span class="mark">メソポタミア文明</span>はくさび形文字と<span class="mark">ハンムラビ法典</span>、<span class="mark">エジプト文明</span>はピラミッドと象形文字、<span class="mark">インダス文明</span>はモヘンジョ=ダロの計画都市で知られているよ。</div>
+        <div class="sum30-body"><span class="s" data-i="39">大河のほとりには、</span><span class="s" data-i="40">都市や文字を持つ文明が発達したんだ。</span><span class="s" data-i="41"><span class="mark">メソポタミア文明</span>はくさび形文字と<span class="mark">ハンムラビ法典</span>、</span><span class="s" data-i="42"><span class="mark">エジプト文明</span>はピラミッドと象形文字、</span><span class="s" data-i="43"><span class="mark">インダス文明</span>はモヘンジョ=ダロの計画都市で知られているよ。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -715,32 +747,33 @@
     </div>
 </section>
 <section class="view" data-t="3">
-  <div class="tband"><span class="tno">3</span><h2>中国文明の発展</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">3</span><h2>中国文明の発展</h2>
+    <button class="play-unit" type="button" data-play="3" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-chinese-civilization.webp"
            alt="中国文明の発展（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">黄河や長江のほとりで生まれた中国文明は、やがて漢字のもとになる文字や、今も学ばれる思想家の教えを生み出していったんだよ。すごいよね？</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">黄河や長江のほとりで生まれた中国文明は、</span><span class="s" data-i="1">やがて漢字のもとになる文字や、</span><span class="s" data-i="2">今も学ばれる思想家の教えを生み出していったんだよ。</span><span class="s" data-i="3">すごいよね？</span></div></div>
     </div>
     <div class="step" data-label="殷・周と甲骨文字">
-      <h3><span class="sec-no">1</span>殷・周と甲骨文字</h3>
-      <div class="sec-lead">甲骨文字を使った殷から、春秋戦国の争乱へ進んだよ。</div>
-      <p>黄河や長江の流域では中国文明が発生したんだ。中国最古の王朝とされる<span class="mark">殷</span>では、亀の甲羅や牛の骨に占いの結果を記す<span class="mark">甲骨文字</span>が使われていて、これがのちの漢字のもとになったんだよ。殷を滅ぼした周もやがて支配力を弱めていって、多くの国が争う春秋戦国時代に入っていったんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">殷では、漢字のもとになった甲骨文字が使われていたよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="4">殷・周と甲骨文字</span></h3>
+      <div class="sec-lead"><span class="s" data-i="5">甲骨文字を使った殷から、</span><span class="s" data-i="6">春秋戦国の争乱へ進んだよ。</span></div>
+      <p><span class="s" data-i="7">黄河や長江の流域では中国文明が発生したんだ。</span><span class="s" data-i="8">中国最古の王朝とされる<span class="mark">殷</span>では、</span><span class="s" data-i="9">亀の甲羅や牛の骨に占いの結果を記す<span class="mark">甲骨文字</span>が使われていて、</span><span class="s" data-i="10">これがのちの漢字のもとになったんだよ。</span><span class="s" data-i="11">殷を滅ぼした周もやがて支配力を弱めていって、</span><span class="s" data-i="12">多くの国が争う春秋戦国時代に入っていったんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="13">殷では、漢字のもとになった甲骨文字が使われていたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">殷<span class="w-rd">いん</span></span><span class="w-desc">甲骨文字が使われた、実在が確認されている中国最古の王朝。</span></div><div class="word"><span class="w-term">甲骨文字<span class="w-rd">こうこつもじ</span></span><span class="w-desc">殷で亀の甲羅や牛の骨に刻まれた、漢字のもとになった文字。</span></div><div class="word"><span class="w-term">漢<span class="w-rd">かん</span></span><span class="w-desc">秦の次に中国を統一し、儒教を国の学問とした大帝国。</span></div></div>
     </div>
     <div class="step" data-label="孔子と儒教の誕生">
-      <h3><span class="sec-no">2</span>孔子と儒教の誕生</h3>
-      <div class="sec-lead">孔子が仁と礼を説き、儒教のもとになったよ。</div>
-      <p>春秋戦国時代には、多くの思想家が活躍したんだ。<span class="mark">孔子</span>は人を思いやる心である「仁」と、社会の秩序を守る「礼」を説いて、その教えは弟子たちによって<span class="mark">論語</span>にまとめられたんだよ。この孔子の教えはのちに儒教と呼ばれる思想となって、東アジア各国に大きな影響を与えていったんだ。同じころ、老子は「あるがままに自然に従って生きる」ことを説いて、のちの道教のもととなったんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">孔子は仁と礼を説き、儒教のもとを作った思想家だよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="14">孔子と儒教の誕生</span></h3>
+      <div class="sec-lead"><span class="s" data-i="15">孔子が仁と礼を説き、</span><span class="s" data-i="16">儒教のもとになったよ。</span></div>
+      <p><span class="s" data-i="17">春秋戦国時代には、</span><span class="s" data-i="18">多くの思想家が活躍したんだ。</span><span class="s" data-i="19"><span class="mark">孔子</span>は人を思いやる心である「仁」と、</span><span class="s" data-i="20">社会の秩序を守る「礼」を説いて、</span><span class="s" data-i="21">その教えは弟子たちによって<span class="mark">論語</span>にまとめられたんだよ。</span><span class="s" data-i="22">この孔子の教えはのちに儒教と呼ばれる思想となって、</span><span class="s" data-i="23">東アジア各国に大きな影響を与えていったんだ。</span><span class="s" data-i="24">同じころ、老子は「あるがままに自然に従って生きる」ことを説いて、</span><span class="s" data-i="25">のちの道教のもととなったんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="26">孔子は仁と礼を説き、</span><span class="s" data-i="27">儒教のもとを作った思想家だよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">孔子<span class="w-rd">こうし</span></span><span class="w-desc">「仁」と「礼」を説いた春秋時代の思想家。儒教の祖。</span></div><div class="word"><span class="w-term">論語<span class="w-rd">ろんご</span></span><span class="w-desc">孔子の言行を弟子たちがまとめた書物。</span></div></div>
     </div>
     <div class="step" data-label="始皇帝の統一と秦・漢帝国">
-      <h3><span class="sec-no">3</span>始皇帝の統一と秦・漢帝国</h3>
-      <div class="sec-lead">始皇帝が中国を統一し、漢が交易を広げたよ。</div>
-      <p>紀元前221年、<span class="mark">始皇帝</span>は中国を初めて統一して、「皇帝」の称号を初めて用いたんだ。文字や度量衡を統一する一方、北方民族の侵入を防ぐために<span class="mark">万里の長城</span>を築き、思想を統一するために書物を焼いて学者を弾圧する焚書坑儒も行ったんだよ。しかし厳しい政治への反発から秦は短期間で滅んでしまい、劉邦が建てた<span class="mark">漢</span>では儒教が国の学問となって、西方と結ぶ交易路である<span class="mark">シルクロード</span>を通じて絹などが運ばれたんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">始皇帝は中国を統一し、万里の長城を築いた王だよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="28">始皇帝の統一と秦・漢帝国</span></h3>
+      <div class="sec-lead"><span class="s" data-i="29">始皇帝が中国を統一し、</span><span class="s" data-i="30">漢が交易を広げたよ。</span></div>
+      <p><span class="s" data-i="31">紀元前221年、</span><span class="s" data-i="32"><span class="mark">始皇帝</span>は中国を初めて統一して、</span><span class="s" data-i="33">「皇帝」の称号を初めて用いたんだ。</span><span class="s" data-i="34">文字や度量衡を統一する一方、</span><span class="s" data-i="35">北方民族の侵入を防ぐために<span class="mark">万里の長城</span>を築き、</span><span class="s" data-i="36">思想を統一するために書物を焼いて学者を弾圧する焚書坑儒も行ったんだよ。</span><span class="s" data-i="37">しかし厳しい政治への反発から秦は短期間で滅んでしまい、</span><span class="s" data-i="38">劉邦が建てた<span class="mark">漢</span>では儒教が国の学問となって、</span><span class="s" data-i="39">西方と結ぶ交易路である<span class="mark">シルクロード</span>を通じて絹などが運ばれたんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="40">始皇帝は中国を統一し、</span><span class="s" data-i="41">万里の長城を築いた王だよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">始皇帝<span class="w-rd">しこうてい</span></span><span class="w-desc">紀元前221年に中国を初めて統一し、「皇帝」の称号を初めて用いた王。</span></div><div class="word"><span class="w-term">万里の長城<span class="w-rd">ばんりのちょうじょう</span></span><span class="w-desc">始皇帝が北方民族の侵入を防ぐために築いた巨大な防壁。</span></div><div class="word"><span class="w-term">シルクロード<span class="w-rd">しるくろーど</span></span><span class="w-desc">中国と西方を結んだ、絹などが運ばれた東西交易路。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -848,7 +881,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">黄河・長江流域に生まれた中国文明では、<span class="mark">殷</span>の<span class="mark">甲骨文字</span>が漢字のもとになったんだ。<span class="mark">孔子</span>が説いた仁と礼の教えは儒教へと発展し、紀元前221年に<span class="mark">始皇帝</span>が中国を統一したよ。次の<span class="mark">漢</span>は<span class="mark">シルクロード</span>を通じて西方と交易したんだね。</div>
+        <div class="sum30-body"><span class="s" data-i="42">黄河・長江流域に生まれた中国文明では、</span><span class="s" data-i="43"><span class="mark">殷</span>の<span class="mark">甲骨文字</span>が漢字のもとになったんだ。</span><span class="s" data-i="44"><span class="mark">孔子</span>が説いた仁と礼の教えは儒教へと発展し、</span><span class="s" data-i="45">紀元前221年に<span class="mark">始皇帝</span>が中国を統一したよ。</span><span class="s" data-i="46">次の<span class="mark">漢</span>は<span class="mark">シルクロード</span>を通じて西方と交易したんだね。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -863,32 +896,33 @@
     </div>
 </section>
 <section class="view" data-t="4">
-  <div class="tband"><span class="tno">4</span><h2>ギリシャ・ローマの世界</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">4</span><h2>ギリシャ・ローマの世界</h2>
+    <button class="play-unit" type="button" data-play="4" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-greece-rome.webp"
            alt="ギリシャ・ローマの世界（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">地中海を舞台に、市民が政治に参加するポリスと、広大な地域を支配した大帝国が生まれたんだ。今の民主主義や法律のルーツ、一緒に探ってみよう。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">地中海を舞台に、</span><span class="s" data-i="1">市民が政治に参加するポリスと、</span><span class="s" data-i="2">広大な地域を支配した大帝国が生まれたんだ。</span><span class="s" data-i="3">今の民主主義や法律のルーツ、</span><span class="s" data-i="4">一緒に探ってみよう。</span></div></div>
     </div>
     <div class="step" data-label="ポリスとアテネの民主政">
-      <h3><span class="sec-no">1</span>ポリスとアテネの民主政</h3>
-      <div class="sec-lead">アテネは直接民主政、ペルシャ戦争にも勝利したよ。</div>
-      <p>古代ギリシャでは、都市を中心に独立した政治を行う<span class="mark">ポリス</span>が数多く形成されたんだ。ポリスの中心には丘の上の城塞であるアクロポリスが置かれていて、<span class="mark">アテネ</span>では成年男性の市民が民会に直接参加する<span class="mark">直接民主政</span>が行われたんだよ。一方、軍事を重視したスパルタは、少数の支配者が治める政治を行っていて、アテネとは対照的な国家だったんだ。紀元前5世紀には、これらポリスの連合軍が<span class="mark">ペルシャ戦争</span>で西アジアの大国ペルシャを撃退しているんだよ。すごいよね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">アテネは市民が参加する直接民主政を行ったポリスだよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="5">ポリスとアテネの民主政</span></h3>
+      <div class="sec-lead"><span class="s" data-i="6">アテネは直接民主政、</span><span class="s" data-i="7">ペルシャ戦争にも勝利したよ。</span></div>
+      <p><span class="s" data-i="8">古代ギリシャでは、</span><span class="s" data-i="9">都市を中心に独立した政治を行う<span class="mark">ポリス</span>が数多く形成されたんだ。</span><span class="s" data-i="10">ポリスの中心には丘の上の城塞であるアクロポリスが置かれていて、</span><span class="s" data-i="11"><span class="mark">アテネ</span>では成年男性の市民が民会に直接参加する<span class="mark">直接民主政</span>が行われたんだよ。</span><span class="s" data-i="12">一方、軍事を重視したスパルタは、</span><span class="s" data-i="13">少数の支配者が治める政治を行っていて、</span><span class="s" data-i="14">アテネとは対照的な国家だったんだ。</span><span class="s" data-i="15">紀元前5世紀には、</span><span class="s" data-i="16">これらポリスの連合軍が<span class="mark">ペルシャ戦争</span>で西アジアの大国ペルシャを撃退しているんだよ。</span><span class="s" data-i="17">すごいよね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="18">アテネは市民が参加する直接民主政を行ったポリスだよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">ポリス<span class="w-rd">ぽりす</span></span><span class="w-desc">古代ギリシャで都市を中心に形成された独立した都市国家。</span></div><div class="word"><span class="w-term">アテネ<span class="w-rd">あてね</span></span><span class="w-desc">直接民主政が行われた、ギリシャ最大のポリス。</span></div><div class="word"><span class="w-term">直接民主政<span class="w-rd">ちょくせつみんしゅせい</span></span><span class="w-desc">アテネで、成年男性の市民が民会に直接参加して行った政治。</span></div><div class="word"><span class="w-term">ペルシャ戦争<span class="w-rd">ぺるしゃせんそう</span></span><span class="w-desc">紀元前5世紀、ギリシャのポリス連合軍がペルシャを撃退した戦争。</span></div></div>
     </div>
     <div class="step" data-label="アレクサンドロス大王とヘレニズム文化">
-      <h3><span class="sec-no">2</span>アレクサンドロス大王とヘレニズム文化</h3>
-      <div class="sec-lead">東方遠征で、ヘレニズム文化が生まれたよ。</div>
-      <p>紀元前4世紀、マケドニアの<span class="mark">アレクサンドロス大王</span>はエジプトからインド北西部にまで及ぶ東方遠征を行ったんだ。この遠征によってギリシャの文化と東方(オリエント)の文化が融合して、<span class="mark">ヘレニズム文化</span>と呼ばれる新しい文化が生まれたんだよ。「ヘレニズム」とは「ギリシャ風」という意味なんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">東方遠征によって、ギリシャと東方の文化が混ざったヘレニズム文化が生まれたよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="19">アレクサンドロス大王とヘレニズム文化</span></h3>
+      <div class="sec-lead"><span class="s" data-i="20">東方遠征で、ヘレニズム文化が生まれたよ。</span></div>
+      <p><span class="s" data-i="21">紀元前4世紀、マケドニアの<span class="mark">アレクサンドロス大王</span>はエジプトからインド北西部にまで及ぶ東方遠征を行ったんだ。</span><span class="s" data-i="22">この遠征によってギリシャの文化と東方(オリエント)の文化が融合して、</span><span class="s" data-i="23"><span class="mark">ヘレニズム文化</span>と呼ばれる新しい文化が生まれたんだよ。</span><span class="s" data-i="24">「ヘレニズム」とは「ギリシャ風」という意味なんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="25">東方遠征によって、</span><span class="s" data-i="26">ギリシャと東方の文化が混ざったヘレニズム文化が生まれたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">アレクサンドロス大王<span class="w-rd">あれくさんどろすだいおう</span></span><span class="w-desc">東方遠征を行い、ヘレニズム文化を生んだマケドニアの王。</span></div><div class="word"><span class="w-term">ヘレニズム文化<span class="w-rd">へれにずむぶんか</span></span><span class="w-desc">ギリシャ文化と東方文化が融合して生まれた文化。</span></div></div>
     </div>
     <div class="step" data-label="ローマの共和政と帝政">
-      <h3><span class="sec-no">3</span>ローマの共和政と帝政</h3>
-      <div class="sec-lead">共和政から帝政へ移り、東西に分裂したよ。</div>
-      <p>一方ローマでは、王を置かず市民の代表が話し合う<span class="mark">共和政</span>がおよそ500年も続いたあと、皇帝が支配する<span class="mark">帝政</span>へと移っていったんだ。ローマ帝国は各地に水を運ぶ水道橋や、約5万人を収容する巨大な円形闘技場コロッセオを築いて、市民の権利を定めたローマ法を整えて広大な領土を治める基盤としたんだよ。395年に帝国は東西に分裂して、476年には西ローマ帝国が滅亡しているんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">ローマは共和政から帝政へ移り、のちに東西に分裂したよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="27">ローマの共和政と帝政</span></h3>
+      <div class="sec-lead"><span class="s" data-i="28">共和政から帝政へ移り、</span><span class="s" data-i="29">東西に分裂したよ。</span></div>
+      <p><span class="s" data-i="30">一方ローマでは、</span><span class="s" data-i="31">王を置かず市民の代表が話し合う<span class="mark">共和政</span>がおよそ500年も続いたあと、</span><span class="s" data-i="32">皇帝が支配する<span class="mark">帝政</span>へと移っていったんだ。</span><span class="s" data-i="33">ローマ帝国は各地に水を運ぶ水道橋や、</span><span class="s" data-i="34">約5万人を収容する巨大な円形闘技場コロッセオを築いて、</span><span class="s" data-i="35">市民の権利を定めたローマ法を整えて広大な領土を治める基盤としたんだよ。</span><span class="s" data-i="36">395年に帝国は東西に分裂して、</span><span class="s" data-i="37">476年には西ローマ帝国が滅亡しているんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="38">ローマは共和政から帝政へ移り、</span><span class="s" data-i="39">のちに東西に分裂したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">共和政<span class="w-rd">きょうわせい</span></span><span class="w-desc">王を置かず、市民の代表が話し合って行う古代ローマの政治。</span></div><div class="word"><span class="w-term">帝政<span class="w-rd">ていせい</span></span><span class="w-desc">共和政のあとローマで行われた、皇帝が支配する政治。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -996,7 +1030,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">ギリシャには都市国家<span class="mark">ポリス</span>が数多く生まれ、<span class="mark">アテネ</span>の<span class="mark">直接民主政</span>やペルシャ戦争の勝利がよく知られているよ。<span class="mark">アレクサンドロス大王</span>の東方遠征は<span class="mark">ヘレニズム文化</span>を生み出し、ローマは共和政から帝政へ移りながら地中海世界を支配していったんだ。</div>
+        <div class="sum30-body"><span class="s" data-i="40">ギリシャには都市国家<span class="mark">ポリス</span>が数多く生まれ、</span><span class="s" data-i="41"><span class="mark">アテネ</span>の<span class="mark">直接民主政</span>やペルシャ戦争の勝利がよく知られているよ。</span><span class="s" data-i="42"><span class="mark">アレクサンドロス大王</span>の東方遠征は<span class="mark">ヘレニズム文化</span>を生み出し、</span><span class="s" data-i="43">ローマは共和政から帝政へ移りながら地中海世界を支配していったんだ。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -1011,39 +1045,40 @@
     </div>
 </section>
 <section class="view" data-t="5">
-  <div class="tband"><span class="tno">5</span><h2>世界の三大宗教</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">5</span><h2>世界の三大宗教</h2>
+    <button class="play-unit" type="button" data-play="5" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-world-religions.webp"
            alt="世界の三大宗教（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">世界には多くの人々が信じる宗教があるんだよ。仏教・キリスト教・イスラームという三大宗教は、それぞれどんな人がどんな教えを説いて生まれたんだろう？一緒に見ていこう。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">世界には多くの人々が信じる宗教があるんだよ。</span><span class="s" data-i="1">仏教・キリスト教・イスラームという三大宗教は、</span><span class="s" data-i="2">それぞれどんな人がどんな教えを説いて生まれたんだろう？</span><span class="s" data-i="3">一緒に見ていこう。</span></div></div>
     </div>
     <div class="step" data-label="仏教の成立">
-      <h3><span class="sec-no">1</span>仏教の成立</h3>
-      <div class="sec-lead">シャカが仏教を開き、経典にまとめられたよ。</div>
-      <p>紀元前5世紀頃、インドでは<span class="mark">シャカ</span>が人々を苦しみから救う教えを説いて、<span class="mark">仏教</span>を開いたんだ。仏教の教えは経典と呼ばれる聖典にまとめられて、のちにシルクロードを通じて中国へ、さらに6世紀には日本にも伝わっていって、アジアを中心に広く信仰されるようになったんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">仏教は紀元前5世紀ごろ、シャカがインドで開いた宗教だよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="4">仏教の成立</span></h3>
+      <div class="sec-lead"><span class="s" data-i="5">シャカが仏教を開き、</span><span class="s" data-i="6">経典にまとめられたよ。</span></div>
+      <p><span class="s" data-i="7">紀元前5世紀頃、</span><span class="s" data-i="8">インドでは<span class="mark">シャカ</span>が人々を苦しみから救う教えを説いて、</span><span class="s" data-i="9"><span class="mark">仏教</span>を開いたんだ。</span><span class="s" data-i="10">仏教の教えは経典と呼ばれる聖典にまとめられて、</span><span class="s" data-i="11">のちにシルクロードを通じて中国へ、</span><span class="s" data-i="12">さらに6世紀には日本にも伝わっていって、</span><span class="s" data-i="13">アジアを中心に広く信仰されるようになったんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="14">仏教は紀元前5世紀ごろ、</span><span class="s" data-i="15">シャカがインドで開いた宗教だよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">シャカ<span class="w-rd">しゃか</span></span><span class="w-desc">紀元前5世紀頃、インドで仏教を開いた人物。</span></div><div class="word"><span class="w-term">仏教<span class="w-rd">ぶっきょう</span></span><span class="w-desc">シャカの教えをもとにインドでおこった宗教。聖典は経典。</span></div></div>
     </div>
     <div class="step" data-label="キリスト教の成立と広がり">
-      <h3><span class="sec-no">2</span>キリスト教の成立と広がり</h3>
-      <div class="sec-lead">イエスの教えが、ローマ帝国の国教になったよ。</div>
-      <p>1世紀のパレスチナでは、<span class="mark">イエス</span>が神の愛による救いを説いたんだ。イエスは十字架にかけられて処刑されてしまったけれど、その教えは弟子たちによって<span class="mark">キリスト教</span>としてまとめられて、聖書を聖典として信仰されるようになったんだよ。キリスト教は当初ローマ帝国から迫害を受けたけれど、信者が増え続けたことで、ついに4世紀末にはローマ帝国の国教として認められることになったんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">キリスト教はイエスの教えから生まれ、のちにローマの国教になったよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="16">キリスト教の成立と広がり</span></h3>
+      <div class="sec-lead"><span class="s" data-i="17">イエスの教えが、</span><span class="s" data-i="18">ローマ帝国の国教になったよ。</span></div>
+      <p><span class="s" data-i="19">1世紀のパレスチナでは、</span><span class="s" data-i="20"><span class="mark">イエス</span>が神の愛による救いを説いたんだ。</span><span class="s" data-i="21">イエスは十字架にかけられて処刑されてしまったけれど、</span><span class="s" data-i="22">その教えは弟子たちによって<span class="mark">キリスト教</span>としてまとめられて、</span><span class="s" data-i="23">聖書を聖典として信仰されるようになったんだよ。</span><span class="s" data-i="24">キリスト教は当初ローマ帝国から迫害を受けたけれど、</span><span class="s" data-i="25">信者が増え続けたことで、</span><span class="s" data-i="26">ついに4世紀末にはローマ帝国の国教として認められることになったんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="27">キリスト教はイエスの教えから生まれ、</span><span class="s" data-i="28">のちにローマの国教になったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">イエス<span class="w-rd">いえす</span></span><span class="w-desc">1世紀のパレスチナで神の愛による救いを説いた、キリスト教の開祖。</span></div><div class="word"><span class="w-term">キリスト教<span class="w-rd">きりすときょう</span></span><span class="w-desc">イエスの教えをもとに広がった宗教。4世紀末にローマ帝国の国教となった。</span></div></div>
     </div>
     <div class="step" data-label="イスラームの成立">
-      <h3><span class="sec-no">3</span>イスラームの成立</h3>
-      <div class="sec-lead">ムハンマドが開き、1日5回の礼拝を行うよ。</div>
-      <p>7世紀、アラビア半島では<span class="mark">ムハンマド</span>が唯一神アッラーを信じる<span class="mark">イスラーム</span>を開いたんだ。その教えは聖典である<span class="mark">クルアーン</span>(コーラン)にまとめられていて、信者であるムスリムは、メッカにあるカーバ神殿の方角に向かって1日5回の礼拝を行うことが定められているんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">イスラームは7世紀にムハンマドが開いた一神教だよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="29">イスラームの成立</span></h3>
+      <div class="sec-lead"><span class="s" data-i="30">ムハンマドが開き、</span><span class="s" data-i="31">1日5回の礼拝を行うよ。</span></div>
+      <p><span class="s" data-i="32">7世紀、アラビア半島では<span class="mark">ムハンマド</span>が唯一神アッラーを信じる<span class="mark">イスラーム</span>を開いたんだ。</span><span class="s" data-i="33">その教えは聖典である<span class="mark">クルアーン</span>(コーラン)にまとめられていて、</span><span class="s" data-i="34">信者であるムスリムは、</span><span class="s" data-i="35">メッカにあるカーバ神殿の方角に向かって1日5回の礼拝を行うことが定められているんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="36">イスラームは7世紀にムハンマドが開いた一神教だよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">ムハンマド<span class="w-rd">むはんまど</span></span><span class="w-desc">7世紀のアラビア半島でイスラームを開いた人物。</span></div><div class="word"><span class="w-term">イスラーム<span class="w-rd">いすらーむ</span></span><span class="w-desc">ムハンマドが始めた一神教。聖典はクルアーン、聖地はメッカ。</span></div><div class="word"><span class="w-term">クルアーン<span class="w-rd">くるあーん</span></span><span class="w-desc">ムハンマドへの啓示をまとめたイスラームの聖典。コーランともいう。</span></div></div>
     </div>
     <div class="step" data-label="一神教とエルサレム">
-      <h3><span class="sec-no">4</span>一神教とエルサレム</h3>
-      <div class="sec-lead">エルサレムは、三つの宗教に共通する聖地だよ。</div>
-      <p>仏教・キリスト教・イスラームを合わせて三大宗教というんだ。このうちキリスト教とイスラームは、唯一の神だけを信じる一神教の考え方を持っていて、その先駆けとなったのが、これらより古くから伝わるユダヤ教なんだよ。ユダヤ教・キリスト教・イスラームの三つの宗教にとって、<span class="mark">エルサレム</span>は共通の聖地となっているんだ。不思議でしょ？</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">エルサレムは、三つの宗教に共通する聖地なんだよ。</div></div>
+      <h3><span class="sec-no">4</span><span class="s" data-i="37">一神教とエルサレム</span></h3>
+      <div class="sec-lead"><span class="s" data-i="38">エルサレムは、三つの宗教に共通する聖地だよ。</span></div>
+      <p><span class="s" data-i="39">仏教・キリスト教・イスラームを合わせて三大宗教というんだ。</span><span class="s" data-i="40">このうちキリスト教とイスラームは、</span><span class="s" data-i="41">唯一の神だけを信じる一神教の考え方を持っていて、</span><span class="s" data-i="42">その先駆けとなったのが、</span><span class="s" data-i="43">これらより古くから伝わるユダヤ教なんだよ。</span><span class="s" data-i="44">ユダヤ教・キリスト教・イスラームの三つの宗教にとって、</span><span class="s" data-i="45"><span class="mark">エルサレム</span>は共通の聖地となっているんだ。</span><span class="s" data-i="46">不思議でしょ？</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="47">エルサレムは、三つの宗教に共通する聖地なんだよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">エルサレム<span class="w-rd">えるされむ</span></span><span class="w-desc">ユダヤ教・キリスト教・イスラーム共通の聖地。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -1151,7 +1186,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body"><span class="mark">仏教</span>は<span class="mark">シャカ</span>、キリスト教はイエス、<span class="mark">イスラーム</span>は<span class="mark">ムハンマド</span>の教えから成立して、合わせて三大宗教と呼ばれているんだ。キリスト教とイスラームは一神教のユダヤ教を先駆けとしていて、<span class="mark">エルサレム</span>は三つの宗教に共通する聖地となっているんだよ。</div>
+        <div class="sum30-body"><span class="s" data-i="48"><span class="mark">仏教</span>は<span class="mark">シャカ</span>、キリスト教はイエス、</span><span class="s" data-i="49"><span class="mark">イスラーム</span>は<span class="mark">ムハンマド</span>の教えから成立して、</span><span class="s" data-i="50">合わせて三大宗教と呼ばれているんだ。</span><span class="s" data-i="51">キリスト教とイスラームは一神教のユダヤ教を先駆けとしていて、</span><span class="s" data-i="52"><span class="mark">エルサレム</span>は三つの宗教に共通する聖地となっているんだよ。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -1167,6 +1202,14 @@
 </section>
 </main>
 <div class="hintbar" id="hintBar" hidden></div>
+<div class="aplayer" id="aplayer" hidden><div class="ap-in">
+  <button class="ap-btn" id="apPlay" aria-label="再生／一時停止">❚❚</button>
+  <div class="ap-seek"><input type="range" id="apSeek" min="0" max="1000" value="0"></div>
+  <div class="ap-time" id="apTime">0:00 / 0:00</div>
+  <button class="ap-rate" id="apRate">1.0×</button>
+  <button class="ap-close" id="apClose" aria-label="読み上げを止める">×</button>
+</div></div>
+<audio id="audio" preload="none"></audio>
 <div class="navbar" id="navbar" hidden><div class="navbar-in">
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
@@ -1194,7 +1237,8 @@
 (function () {
   var KEY = 'tzmref-02';
   var CH = '02';
-  var WB_VIEWS = [0, 2, 3, 4, 5, 6];          // 参考書の単元t → 問題集のビュー番号（0＝対応なし）
+  var WB_VIEWS = [0, 2, 3, 4, 5, 6];
+  var AUDIO = {"1": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F02-human-origins.mp3?alt=media&token=cc6a658e-b66d-48e3-9eda-97b90e6ef6ce", "tl": [[0, 2.953, 0], [2.953, 2.887, 0], [6.12, 3.5, 0], [9.62, 2.9, 0], [12.8, 2.64, 0], [16.09, 2.8, 1], [19.54, 3.793, 1], [23.333, 1.367, 1], [25.35, 1.911, 1], [27.261, 2.889, 1], [30.43, 4.472, 1], [34.902, 4.408, 1], [39.59, 4.699, 1], [44.289, 1.781, 1], [46.35, 4.883, 1], [51.233, 4.837, 1], [56.35, 2.66, 1], [59.01, 6.02, 1], [65.31, 4.036, 1], [69.346, 2.804, 1], [72.8, 4.52, 1], [77.97, 2.32, 2], [80.94, 1.909, 2], [82.849, 2.411, 2], [85.91, 1.961, 2], [87.871, 6.399, 2], [94.55, 5.323, 2], [99.873, 4.102, 2], [103.975, 2.975, 2], [107.23, 3.753, 2], [110.983, 2.327, 2], [113.59, 3.794, 2], [117.384, 4.006, 2], [121.67, 3.6, 2], [125.55, 1.68, 2], [127.88, 6.2, 2], [134.73, 3.48, 3], [138.86, 2.359, 3], [141.219, 2.001, 3], [143.87, 2.454, 3], [146.324, 2.553, 3], [148.877, 4.913, 3], [154.07, 3.148, 3], [157.218, 6.132, 3], [163.63, 4.773, 3], [168.403, 4.187, 3], [172.87, 3.023, 3], [175.893, 2.297, 3], [178.84, 5.88, 3], [185.37, 5.44, 5], [191.09, 5.602, 5], [196.692, 4.25, 5], [200.942, 3.868, 5]]}, "2": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F02-ancient-civilizations.mp3?alt=media&token=2f09a3cb-81ac-4334-ae35-8de010e39109", "tl": [[0, 4.337, 0], [4.337, 4.023, 0], [8.64, 1.12, 0], [10.04, 3.72, 0], [14.41, 1.92, 1], [16.98, 3.8, 1], [21.43, 5.48, 1], [27.19, 4.84, 1], [32.31, 4.85, 1], [37.16, 2.83, 1], [40.27, 4.208, 1], [44.478, 4.392, 1], [49.15, 2.504, 1], [51.654, 3.416, 1], [55.35, 4.4, 1], [60.4, 5.52, 1], [66.57, 1.64, 2], [68.86, 1.675, 2], [70.535, 2.445, 2], [73.63, 3.96, 2], [77.87, 3.747, 2], [81.617, 4.173, 2], [86.07, 6.516, 2], [92.586, 5.324, 2], [98.19, 5.589, 2], [103.779, 6.971, 2], [111.4, 4.4, 2], [116.45, 2.28, 3], [119.38, 1.855, 3], [121.235, 2.265, 3], [124.15, 3.727, 3], [127.877, 1.832, 3], [129.709, 5.161, 3], [135.15, 2.819, 3], [137.969, 3.205, 3], [141.174, 2.576, 3], [144.03, 1.68, 3], [145.71, 3.36, 3], [149.72, 5.04, 3], [155.41, 1.831, 5], [157.241, 3.169, 5], [160.69, 4.793, 5], [165.483, 3.542, 5], [169.025, 4.025, 5]]}, "3": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F02-chinese-civilization.mp3?alt=media&token=d69a3a74-2b2e-4694-88f6-26685e6fd3a9", "tl": [[0, 3.626, 0], [3.626, 2.428, 0], [6.054, 3.386, 0], [9.72, 2, 0], [12.37, 4.28, 1], [17.3, 2.295, 1], [19.595, 2.505, 1], [22.75, 4.84, 1], [27.87, 3.234, 1], [31.104, 5.521, 1], [36.625, 2.485, 1], [39.39, 4.166, 1], [43.556, 4.754, 1], [48.96, 4.8, 1], [54.41, 2.68, 2], [57.74, 2.704, 2], [60.444, 1.656, 2], [62.75, 2.034, 2], [64.784, 2.006, 2], [67.07, 3.355, 2], [70.425, 4.318, 2], [74.743, 3.927, 2], [78.95, 4.572, 2], [83.522, 3.388, 2], [87.19, 5.988, 2], [93.178, 2.292, 2], [96.12, 2.949, 2], [99.069, 2.531, 2], [102.25, 3.64, 3], [106.54, 2.591, 3], [109.131, 1.889, 3], [111.67, 2.39, 3], [114.06, 3.452, 3], [117.512, 2.998, 3], [120.79, 3.364, 3], [124.154, 4.752, 3], [128.906, 6.804, 3], [135.99, 5.676, 3], [141.666, 4.048, 3], [145.714, 5.836, 3], [152.2, 2.803, 3], [155.003, 2.597, 3], [158.25, 3.721, 5], [161.971, 3.039, 5], [165.29, 5.165, 5], [170.455, 4.475, 5], [175.21, 5.2, 5]]}, "4": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F02-greece-rome.mp3?alt=media&token=c52384cc-db1d-4800-b369-3382222465cc", "tl": [[0, 1.809, 0], [1.809, 2.686, 0], [4.495, 3.465, 0], [8.24, 2.783, 0], [11.023, 1.577, 0], [13.25, 2.64, 1], [16.54, 2.272, 1], [18.812, 2.128, 1], [21.59, 1.644, 1], [23.234, 5.596, 1], [29.11, 5.729, 1], [34.839, 7.151, 1], [42.27, 3.155, 1], [45.425, 3.251, 1], [48.676, 2.594, 1], [51.55, 2.088, 1], [53.638, 6.912, 1], [60.83, 1.92, 1], [63.4, 4.88, 1], [68.93, 3.52, 2], [73.1, 3.68, 2], [77.43, 8.92, 2], [86.63, 5.628, 2], [92.258, 3.772, 2], [96.31, 4.08, 2], [101.04, 1.517, 2], [102.557, 4.803, 2], [108.01, 3.04, 3], [111.7, 2.437, 3], [114.137, 1.683, 3], [116.47, 1.838, 3], [118.308, 6.47, 3], [124.778, 3.212, 3], [128.27, 4.242, 3], [132.512, 5.443, 3], [137.955, 5.795, 3], [144.03, 4.245, 3], [148.275, 4.115, 3], [153.04, 3.454, 3], [156.494, 2.266, 3], [159.41, 3.925, 5], [163.335, 4.515, 5], [168.13, 5.002, 5], [173.132, 5.198, 5]]}, "5": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F02-world-religions.mp3?alt=media&token=b7364551-4a44-4b94-8dde-68f41377c319", "tl": [[0, 4.12, 0], [4.4, 4.69, 0], [9.09, 3.75, 0], [13.12, 1.72, 0], [15.49, 2, 1], [18.14, 2.163, 1], [20.303, 1.677, 1], [22.63, 2.168, 1], [24.798, 4.505, 1], [29.303, 1.647, 1], [31.23, 4.682, 1], [35.912, 2.935, 1], [38.847, 2.748, 1], [41.595, 3.995, 1], [46.24, 3.073, 1], [49.313, 2.327, 1], [52.29, 2.92, 2], [55.86, 1.496, 2], [57.356, 2.304, 2], [60.31, 2.286, 2], [62.596, 3.114, 2], [65.99, 3.801, 2], [69.791, 3.852, 2], [73.643, 3.307, 2], [77.23, 4.637, 2], [81.867, 1.893, 2], [83.76, 5.71, 2], [90.12, 3.239, 2], [93.359, 2.481, 2], [96.49, 1.88, 3], [99.02, 1.833, 3], [100.853, 2.567, 3], [104.07, 7.84, 3], [112.19, 5.641, 3], [117.831, 1.747, 3], [119.578, 7.012, 3], [127.24, 4.76, 3], [132.65, 2.52, 4], [135.82, 4.08, 4], [140.55, 6, 4], [146.83, 3.252, 4], [150.082, 4.626, 4], [154.708, 1.777, 4], [156.485, 3.225, 4], [159.99, 4.275, 4], [164.265, 3.605, 4], [168.15, 1.44, 4], [170.24, 4.28, 4], [175.17, 3.265, 6], [178.435, 3.052, 6], [181.487, 2.683, 6], [184.45, 5.227, 6], [189.677, 4.213, 6]]}};          // {単元t: {url, tl:[[開始秒,長さ,ステップ], …]}}          // 参考書の単元t → 問題集のビュー番号（0＝対応なし）
   var views = [].slice.call(document.querySelectorAll('.view'));
   var tabs = [].slice.call(document.querySelectorAll('.tab'));
   var N = views.length - 1; // 単元数
@@ -1225,6 +1269,89 @@
     };
     bar.addEventListener('click', function () { bar.hidden = true; });
   })();
+
+
+  // ── 読み上げ（音声に合わせて句をハイライトし、ページも自動でめくる）──
+  var au = document.getElementById('audio');
+  var apl = document.getElementById('aplayer');
+  var reading = { t: 0, i: -1 };
+  var RATES = [1, 1.25, 1.5, 0.75], ri = 0;
+
+  function fmt(x) { x = Math.max(0, x | 0); return (x / 60 | 0) + ':' + ('0' + (x % 60)).slice(-2); }
+  function spansOf(t) { return [].slice.call(views[t].querySelectorAll('.s')); }
+
+  function startAudio(t) {
+    var a = AUDIO[t];
+    if (!a) return;
+    reading = { t: t, i: -1 };
+    if (au.dataset.t !== String(t)) { au.src = a.url; au.dataset.t = String(t); }
+    document.body.classList.add('reading');
+    apl.hidden = false;
+    au.playbackRate = RATES[ri];
+    au.play();
+  }
+  function stopAudio() {
+    au.pause();
+    document.body.classList.remove('reading');
+    apl.hidden = true;
+    if (reading.t) spansOf(reading.t).forEach(function (el) { el.classList.remove('now', 'read'); });
+    reading = { t: 0, i: -1 };
+  }
+  function paintAudio() {
+    var a = AUDIO[reading.t];
+    if (!a) return;
+    var tl = a.tl, k = -1;
+    for (var i = 0; i < tl.length; i++) { if (au.currentTime >= tl[i][0]) k = i; else break; }
+    if (k === reading.i) return;
+    reading.i = k;
+    // 読んでいる箇所が別のページなら、そのページへ自動でめくる
+    if (k >= 0 && tl[k][2] !== state.s && state.t === reading.t) go(reading.t, tl[k][2], tl[k][2] > state.s ? 1 : -1);
+    var sp = spansOf(reading.t);
+    sp.forEach(function (el, i) {
+      el.classList.toggle('now', i === k);
+      el.classList.toggle('read', i < k);
+    });
+    var el = sp[k];
+    if (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < 70 || r.bottom > innerHeight - 150) {
+        scrollTo({ top: scrollY + r.top - innerHeight * 0.4, behavior: 'smooth' });
+      }
+    }
+  }
+  function tickAudio() {
+    paintAudio();
+    if (au.duration) {
+      document.getElementById('apSeek').value = Math.round(au.currentTime / au.duration * 1000);
+      document.getElementById('apTime').textContent = fmt(au.currentTime) + ' / ' + fmt(au.duration);
+    }
+    if (!au.paused) requestAnimationFrame(tickAudio);
+  }
+  au.addEventListener('play', function () { document.getElementById('apPlay').textContent = '❚❚'; tickAudio(); });
+  au.addEventListener('pause', function () { document.getElementById('apPlay').textContent = '▶'; });
+  au.addEventListener('ended', stopAudio);
+  document.getElementById('apPlay').onclick = function () { au.paused ? au.play() : au.pause(); };
+  document.getElementById('apClose').onclick = stopAudio;
+  document.getElementById('apSeek').oninput = function () {
+    if (au.duration) { au.currentTime = this.value / 1000 * au.duration; reading.i = -1; paintAudio(); }
+  };
+  document.getElementById('apRate').onclick = function () {
+    ri = (ri + 1) % RATES.length; au.playbackRate = RATES[ri];
+    this.textContent = RATES[ri].toFixed(2).replace(/0$/, '') + '×';
+  };
+  // 単元見出しの「🔊 読み上げ」＋ 文字タップでその場所から読む
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('.play-unit');
+    if (b) { startAudio(+b.dataset.play); return; }
+    var sp = e.target.closest && e.target.closest('.s');
+    if (sp && AUDIO[state.t]) {
+      var k = +sp.dataset.i, a = AUDIO[state.t];
+      if (a.tl[k]) {
+        if (reading.t !== state.t) startAudio(state.t);
+        au.currentTime = a.tl[k][0]; reading.i = -1; paintAudio(); au.play();
+      }
+    }
+  });
 
   // 単元タブの左右矢印: まだ隠れているタブがある側だけ出す
   function updateTabArrows() {
@@ -1323,6 +1450,8 @@
     // クエリが付いていても落とさない（URL共有時の情報を保つ）
     if (location.hash !== h) history.replaceState(null, '', location.search + (t === 0 ? '#' : h));
     updateSwap();
+    var pb = views[t] && views[t].querySelector('.play-unit');
+    if (pb) pb.hidden = !AUDIO[t];
     rendered = { t: t, s: s };
   }
 

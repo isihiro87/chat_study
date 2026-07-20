@@ -13,6 +13,36 @@
 
   .mark { background:linear-gradient(transparent 55%, var(--line) 55%); font-weight:bold; padding:0 1px; }
 
+  /* ── 読み上げ（音声＋読んでいる句のハイライト）── */
+  .s { border-radius:6px; padding:.14em .12em; margin:0 -.12em;
+       -webkit-box-decoration-break:clone; box-decoration-break:clone;
+       transition:background-color .15s ease, color .15s ease; }
+  body.reading .s { cursor:pointer; }
+  .s.read { color:#8a8279; }
+  .s.now { background:#fcd34d; color:#1c1917; }
+  .s.now .mark { background:none; }
+  /* 単元見出しの再生ボタン */
+  .play-unit { display:inline-flex; align-items:center; gap:6px; margin-left:auto; flex:none;
+               background:#fff; color:var(--brand); border:1.5px solid var(--line);
+               border-radius:20px; padding:4px 12px; font-size:12px; font-weight:bold;
+               font-family:inherit; cursor:pointer; }
+  .play-unit[hidden] { display:none; }
+  /* 下部プレーヤー（再生中だけ出す。ナビバーの上に重ねる） */
+  .aplayer { position:fixed; left:0; right:0; bottom:58px; z-index:25;
+             background:rgba(255,253,248,.98); border-top:1px solid #f0e6d2;
+             box-shadow:0 -3px 12px rgba(120,80,20,.14); padding:7px 0 8px; }
+  .aplayer[hidden] { display:none; }
+  .ap-in { max-width:640px; margin:0 auto; padding:0 14px; display:flex; align-items:center; gap:9px; }
+  .ap-btn { flex:none; width:40px; height:40px; border-radius:50%; border:none; background:var(--brand);
+            color:#fff; font-size:16px; cursor:pointer; box-shadow:0 2px 6px rgba(180,83,9,.35); }
+  .ap-seek { flex:1; min-width:0; }
+  .ap-seek input { width:100%; accent-color:var(--brand); }
+  .ap-time { flex:none; font-size:11px; font-weight:bold; color:var(--brand); min-width:74px;
+             text-align:right; }
+  .ap-rate, .ap-close { flex:none; border:1.5px solid var(--line); background:#fffbeb; color:var(--brand);
+             font-weight:bold; border-radius:16px; padding:4px 9px; font-size:11.5px; cursor:pointer;
+             font-family:inherit; }
+
   /* ── 上部: タイトル＋単元タブ＋進捗バー ── */
   .bar { position:sticky; top:0; z-index:10; background:rgba(255,253,248,.96);
          backdrop-filter:blur(6px); border-bottom:1px solid #f0e6d2; }
@@ -35,7 +65,7 @@
                white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   .bar-step { flex:none; font-size:11px; font-weight:bold; color:var(--brand); }
   /* 初回だけ出す操作ヒント（PCはキー、スマホはスワイプ） */
-  .hintbar { position:fixed; left:50%; transform:translateX(-50%); bottom:78px; z-index:35;
+  .hintbar { position:fixed; left:50%; transform:translateX(-50%); bottom:132px; z-index:35;
              background:rgba(28,25,23,.88); color:#fff; font-size:12.5px; font-weight:bold;
              border-radius:20px; padding:8px 16px; box-shadow:0 4px 14px rgba(0,0,0,.3);
              animation:hintIn .3s ease; }
@@ -419,32 +449,33 @@
   </footer>
 </section>
 <section class="view" data-t="1">
-  <div class="tband"><span class="tno">1</span><h2>開国と不平等条約</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">1</span><h2>開国と不平等条約</h2>
+    <button class="play-unit" type="button" data-play="1" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-opening-japan.webp"
            alt="開国と不平等条約（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">黒船が来て、日本は大あわて!ここから時代が大きく動き出すよ。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">黒船が来て、日本は大あわて!ここから時代が大きく動き出すよ。</span></div></div>
     </div>
     <div class="step" data-label="黒船来航、日本大あわて!">
-      <h3><span class="sec-no">1</span>黒船来航、日本大あわて!</h3>
-      <div class="sec-lead">ペリーの黒船来航に日本中が大さわぎしたよ。</div>
-      <p>1853年、アメリカの<span class="mark">ペリー</span>が大きな軍艦を率いて浦賀にやってきたんだ。真っ黒な船体から蒸気を上げるその姿は、当時の人たちの目に「<span class="mark">黒船</span>」として映って、日本中が大さわぎになったんだよ。ペリーの目的は、太平洋で活動する捕鯨船や中国との貿易船に、燃料や食料、水を補給できる港を日本に開かせることだったんだ。幕府は返事を先延ばしにしたけど、翌年また来ると約束されて、どうするか大急ぎで考えることになったんだね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1853年、ペリーが黒船を率いて浦賀に来航したよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="1">黒船来航、日本大あわて!</span></h3>
+      <div class="sec-lead"><span class="s" data-i="2">ペリーの黒船来航に日本中が大さわぎしたよ。</span></div>
+      <p><span class="s" data-i="3">1853年、アメリカの<span class="mark">ペリー</span>が大きな軍艦を率いて浦賀にやってきたんだ。</span><span class="s" data-i="4">真っ黒な船体から蒸気を上げるその姿は、</span><span class="s" data-i="5">当時の人たちの目に「<span class="mark">黒船</span>」として映って、</span><span class="s" data-i="6">日本中が大さわぎになったんだよ。</span><span class="s" data-i="7">ペリーの目的は、</span><span class="s" data-i="8">太平洋で活動する捕鯨船や中国との貿易船に、燃料や食料、</span><span class="s" data-i="9">水を補給できる港を日本に開かせることだったんだ。</span><span class="s" data-i="10">幕府は返事を先延ばしにしたけど、</span><span class="s" data-i="11">翌年また来ると約束されて、</span><span class="s" data-i="12">どうするか大急ぎで考えることになったんだね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="13">1853年、ペリーが黒船を率いて浦賀に来航したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">ペリー<span class="w-rd">ぺりー</span></span><span class="w-desc">1853年に黒船で浦賀に来航し、日本に開国を求めたアメリカの軍人。</span></div><div class="word"><span class="w-term">黒船<span class="w-rd">くろふね</span></span><span class="w-desc">ペリーが率いてきた蒸気船。黒い船体と煙で人々を驚かせた。</span></div></div>
     </div>
     <div class="step" data-label="日米和親条約と鎖国の終わり">
-      <h3><span class="sec-no">2</span>日米和親条約と鎖国の終わり</h3>
-      <div class="sec-lead">日米和親条約が結ばれ鎖国が終わったよ。</div>
-      <p>翌1854年、ペリーは再び来航し、幕府はついに<span class="mark">日米和親条約</span>を結んだんだ。これで下田と函館の2つの港が開かれることになったよ。実は江戸幕府は約200年間、外国との行き来をほぼ閉ざす「鎖国」という政策を続けてきたんだけど、これでその鎖国もとうとう終わりを迎えたんだ。長く続いた仕組みが、黒船一つでこんなに大きく動くなんて、すごいことだよね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1854年、日米和親条約で下田・函館が開港されたよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="14">日米和親条約と鎖国の終わり</span></h3>
+      <div class="sec-lead"><span class="s" data-i="15">日米和親条約が結ばれ鎖国が終わったよ。</span></div>
+      <p><span class="s" data-i="16">翌1854年、ペリーは再び来航し、</span><span class="s" data-i="17">幕府はついに<span class="mark">日米和親条約</span>を結んだんだ。</span><span class="s" data-i="18">これで下田と函館の2つの港が開かれることになったよ。</span><span class="s" data-i="19">実は江戸幕府は約200年間、</span><span class="s" data-i="20">外国との行き来をほぼ閉ざす「鎖国」という政策を続けてきたんだけど、</span><span class="s" data-i="21">これでその鎖国もとうとう終わりを迎えたんだ。</span><span class="s" data-i="22">長く続いた仕組みが、</span><span class="s" data-i="23">黒船一つでこんなに大きく動くなんて、</span><span class="s" data-i="24">すごいことだよね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="25">1854年、日米和親条約で下田・函館が開港されたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">日米和親条約<span class="w-rd">にちべいわしんじょうやく</span></span><span class="w-desc">1854年に結ばれ、下田・函館の2港を開いて鎖国を終わらせた条約。</span></div></div>
     </div>
     <div class="step" data-label="不平等な日米修好通商条約">
-      <h3><span class="sec-no">3</span>不平等な日米修好通商条約</h3>
-      <div class="sec-lead">日米修好通商条約は日本に不利な内容だったよ。</div>
-      <p>その後、アメリカ総領事<span class="mark">ハリス</span>が下田に駐在して通商を求め、1858年、大老<span class="mark">井伊直弼</span>は天皇の許可である<span class="mark">勅許</span>を得ないまま<span class="mark">日米修好通商条約</span>を結んでしまったんだ。この条約には、外国人が日本で罪を犯しても外国の法律で裁く<span class="mark">領事裁判権</span>を認め、輸入品の税率を自分たちで決められない、つまり<span class="mark">関税自主権</span>を持たないという、日本にとって不利な内容が含まれていたんだよ。同じ年、他の4か国とも同じような条約を結んだんだ。不公平だと思わない?</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1858年、井伊直弼が不平等な日米修好通商条約を結んだよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="26">不平等な日米修好通商条約</span></h3>
+      <div class="sec-lead"><span class="s" data-i="27">日米修好通商条約は日本に不利な内容だったよ。</span></div>
+      <p><span class="s" data-i="28">その後、アメリカ総領事<span class="mark">ハリス</span>が下田に駐在して通商を求め、1858年、</span><span class="s" data-i="29">大老<span class="mark">井伊直弼</span>は天皇の許可である<span class="mark">勅許</span>を得ないまま<span class="mark">日米修好通商条約</span>を結んでしまったんだ。</span><span class="s" data-i="30">この条約には、外国人が日本で罪を犯しても外国の法律で裁く<span class="mark">領事裁判権</span>を認め、</span><span class="s" data-i="31">輸入品の税率を自分たちで決められない、</span><span class="s" data-i="32">つまり<span class="mark">関税自主権</span>を持たないという、</span><span class="s" data-i="33">日本にとって不利な内容が含まれていたんだよ。</span><span class="s" data-i="34">同じ年、他の4か国とも同じような条約を結んだんだ。</span><span class="s" data-i="35">不公平だと思わない?</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="36">1858年、井伊直弼が不平等な日米修好通商条約を結んだよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">日米修好通商条約<span class="w-rd">にちべいしゅうこうつうしょうじょうやく</span></span><span class="w-desc">1858年に井伊直弼が結んだ、不平等な内容を含む通商条約。</span></div><div class="word"><span class="w-term">井伊直弼<span class="w-rd">いいなおすけ</span></span><span class="w-desc">天皇の許可を得ないまま日米修好通商条約を結んだ大老。</span></div><div class="word"><span class="w-term">領事裁判権<span class="w-rd">りょうじさいばんけん</span></span><span class="w-desc">外国人が日本で罪を犯しても、外国の法律で裁く権利。</span></div><div class="word"><span class="w-term">関税自主権<span class="w-rd">かんぜいじしゅけん</span></span><span class="w-desc">輸入品の税率を自分の国で自由に決める権利。日本にはこれがなかった。</span></div><div class="word"><span class="w-term">ハリス<span class="w-rd">はりす</span></span><span class="w-desc">下田に駐在し、日米修好通商条約の交渉にあたったアメリカ総領事。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -552,7 +583,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body"><span class="mark">ペリー</span>来航をきっかけに、日本は<span class="mark">日米和親条約</span>で鎖国を終わらせたよ。でも<span class="mark">日米修好通商条約</span>は、<span class="mark">領事裁判権</span>を認め<span class="mark">関税自主権</span>を持たない不平等な内容で、この後の日本を苦しめることになるんだね。</div>
+        <div class="sum30-body"><span class="s" data-i="37"><span class="mark">ペリー</span>来航をきっかけに、</span><span class="s" data-i="38">日本は<span class="mark">日米和親条約</span>で鎖国を終わらせたよ。</span><span class="s" data-i="39">でも<span class="mark">日米修好通商条約</span>は、</span><span class="s" data-i="40"><span class="mark">領事裁判権</span>を認め<span class="mark">関税自主権</span>を持たない不平等な内容で、</span><span class="s" data-i="41">この後の日本を苦しめることになるんだね。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -567,32 +598,33 @@
     </div>
 </section>
 <section class="view" data-t="2">
-  <div class="tband"><span class="tno">2</span><h2>開国後の政治と経済</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">2</span><h2>開国後の政治と経済</h2>
+    <button class="play-unit" type="button" data-play="2" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-post-opening.webp"
            alt="開国後の政治と経済（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">開国したあと、幕府はますます苦しい立場に追い込まれていくよ。人々の怒りと生活の苦しさ、両方から見てみよう。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">開国したあと、幕府はますます苦しい立場に追い込まれていくよ。</span><span class="s" data-i="1">人々の怒りと生活の苦しさ、</span><span class="s" data-i="2">両方から見てみよう。</span></div></div>
     </div>
     <div class="step" data-label="尊王攘夷の高まりと安政の大獄">
-      <h3><span class="sec-no">1</span>尊王攘夷の高まりと安政の大獄</h3>
-      <div class="sec-lead">尊王攘夷派を井伊直弼が安政の大獄で弾圧したよ。</div>
-      <p>開国に反対する人々の間には、天皇を尊び外国勢力を追い払おうとする<span class="mark">尊王攘夷</span>という考えが広がっていったんだ。これに対して大老井伊直弼は、1858〜59年に反対派を厳しく取り締まる<span class="mark">安政の大獄</span>を行い、長州藩で<span class="mark">松下村塾</span>を開いて高杉晋作らを育てた思想家<span class="mark">吉田松陰</span>らを処刑してしまったんだよ。教育者まで処刑してしまうなんて、当時の緊張がどれほど激しかったか伝わってくるね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">井伊直弼は安政の大獄で、吉田松陰ら尊王攘夷派を処刑したよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="3">尊王攘夷の高まりと安政の大獄</span></h3>
+      <div class="sec-lead"><span class="s" data-i="4">尊王攘夷派を井伊直弼が安政の大獄で弾圧したよ。</span></div>
+      <p><span class="s" data-i="5">開国に反対する人々の間には、</span><span class="s" data-i="6">天皇を尊び外国勢力を追い払おうとする<span class="mark">尊王攘夷</span>という考えが広がっていったんだ。</span><span class="s" data-i="7">これに対して大老井伊直弼は、</span><span class="s" data-i="8">1858〜59年に反対派を厳しく取り締まる<span class="mark">安政の大獄</span>を行い、</span><span class="s" data-i="9">長州藩で<span class="mark">松下村塾</span>を開いて高杉晋作らを育てた思想家<span class="mark">吉田松陰</span>らを処刑してしまったんだよ。</span><span class="s" data-i="10">教育者まで処刑してしまうなんて、</span><span class="s" data-i="11">当時の緊張がどれほど激しかったか伝わってくるね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="12">井伊直弼は安政の大獄で、</span><span class="s" data-i="13">吉田松陰ら尊王攘夷派を処刑したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">尊王攘夷<span class="w-rd">そんのうじょうい</span></span><span class="w-desc">天皇を尊び、外国勢力を追い払おうとする幕末の考え方。</span></div><div class="word"><span class="w-term">安政の大獄<span class="w-rd">あんせいのたいごく</span></span><span class="w-desc">1858〜59年に井伊直弼が尊王攘夷派を処罰した事件。</span></div><div class="word"><span class="w-term">吉田松陰<span class="w-rd">よしだしょういん</span></span><span class="w-desc">松下村塾で多くの志士を育てたが、安政の大獄で処刑された思想家。</span></div><div class="word"><span class="w-term">松下村塾<span class="w-rd">しょうかそんじゅく</span></span><span class="w-desc">吉田松陰が開いた私塾。高杉晋作らを育てた。</span></div></div>
     </div>
     <div class="step" data-label="桜田門外の変と公武合体">
-      <h3><span class="sec-no">2</span>桜田門外の変と公武合体</h3>
-      <div class="sec-lead">桜田門外の変で井伊直弼が暗殺されたよ。</div>
-      <p>この弾圧への反発は大きく、1860年、井伊直弼は水戸藩の浪士らに江戸城の門の外で襲われて命を落としてしまうんだ。これが<span class="mark">桜田門外の変</span>だよ。大老が暗殺されるなんて、幕府の権威はガタ落ちだよね。その後、幕府は朝廷と力を合わせて信頼を取り戻そうとする<span class="mark">公武合体</span>という政策を進めたけど、残念ながらうまくはいかなかったんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1860年、桜田門外の変で井伊直弼が暗殺されたよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="14">桜田門外の変と公武合体</span></h3>
+      <div class="sec-lead"><span class="s" data-i="15">桜田門外の変で井伊直弼が暗殺されたよ。</span></div>
+      <p><span class="s" data-i="16">この弾圧への反発は大きく、1860年、</span><span class="s" data-i="17">井伊直弼は水戸藩の浪士らに江戸城の門の外で襲われて命を落としてしまうんだ。</span><span class="s" data-i="18">これが<span class="mark">桜田門外の変</span>だよ。</span><span class="s" data-i="19">大老が暗殺されるなんて、</span><span class="s" data-i="20">幕府の権威はガタ落ちだよね。</span><span class="s" data-i="21">その後、幕府は朝廷と力を合わせて信頼を取り戻そうとする<span class="mark">公武合体</span>という政策を進めたけど、</span><span class="s" data-i="22">残念ながらうまくはいかなかったんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="23">1860年、桜田門外の変で井伊直弼が暗殺されたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">桜田門外の変<span class="w-rd">さくらだもんがいのへん</span></span><span class="w-desc">1860年に井伊直弼が暗殺された事件。</span></div><div class="word"><span class="w-term">公武合体<span class="w-rd">こうぶがったい</span></span><span class="w-desc">幕府と朝廷が協力して政治を安定させようとした政策。</span></div></div>
     </div>
     <div class="step" data-label="貿易の混乱と人々の暮らし">
-      <h3><span class="sec-no">3</span>貿易の混乱と人々の暮らし</h3>
-      <div class="sec-lead">貿易開始で金の流出と物価上昇が起きたよ。</div>
-      <p>開港後、日本からは<span class="mark">生糸</span>や茶が横浜港から<span class="mark">イギリス</span>などへ大量に輸出されたんだ。でも国内では品物が足りなくなって、物価がどんどん上がってしまったんだよ。さらに、日本と海外で金と銀の交換比率が違ったことから<span class="mark">金の流出</span>も起こり、暮らしはますます苦しくなっていったんだ。人々の不満は「ええじゃないか」と叫んで熱狂的に踊る騒ぎにまで広がったんだよ。世の中が変わることへの期待と不安が入り混じっていたんだね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">開港後、金の流出と物価上昇で人々の暮らしは苦しくなったよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="24">貿易の混乱と人々の暮らし</span></h3>
+      <div class="sec-lead"><span class="s" data-i="25">貿易開始で金の流出と物価上昇が起きたよ。</span></div>
+      <p><span class="s" data-i="26">開港後、日本からは<span class="mark">生糸</span>や茶が横浜港から<span class="mark">イギリス</span>などへ大量に輸出されたんだ。</span><span class="s" data-i="27">でも国内では品物が足りなくなって、</span><span class="s" data-i="28">物価がどんどん上がってしまったんだよ。</span><span class="s" data-i="29">さらに、日本と海外で金と銀の交換比率が違ったことから<span class="mark">金の流出</span>も起こり、</span><span class="s" data-i="30">暮らしはますます苦しくなっていったんだ。</span><span class="s" data-i="31">人々の不満は「ええじゃないか」と叫んで熱狂的に踊る騒ぎにまで広がったんだよ。</span><span class="s" data-i="32">世の中が変わることへの期待と不安が入り混じっていたんだね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="33">開港後、金の流出と物価上昇で人々の暮らしは苦しくなったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">生糸<span class="w-rd">きいと</span></span><span class="w-desc">開港後、横浜港からイギリスなどへ大量に輸出された日本の主要産品。</span></div><div class="word"><span class="w-term">金の流出<span class="w-rd">きんのりゅうしゅつ</span></span><span class="w-desc">金銀の交換比率の違いから、大量の金が海外に持ち出された問題。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
@@ -700,7 +732,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">開国後、天皇を尊び外国を退けようとする<span class="mark">尊王攘夷</span>の動きが広がり、井伊直弼はこれを<span class="mark">安政の大獄</span>で弾圧したけど<span class="mark">桜田門外の変</span>で命を落としたよ。貿易が始まると<span class="mark">金の流出</span>や物価上昇で人々の暮らしは苦しくなっていったんだね。</div>
+        <div class="sum30-body"><span class="s" data-i="34">開国後、天皇を尊び外国を退けようとする<span class="mark">尊王攘夷</span>の動きが広がり、</span><span class="s" data-i="35">井伊直弼はこれを<span class="mark">安政の大獄</span>で弾圧したけど<span class="mark">桜田門外の変</span>で命を落としたよ。</span><span class="s" data-i="36">貿易が始まると<span class="mark">金の流出</span>や物価上昇で人々の暮らしは苦しくなっていったんだね。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -715,39 +747,40 @@
     </div>
 </section>
 <section class="view" data-t="3">
-  <div class="tband"><span class="tno">3</span><h2>江戸幕府の滅亡</h2><img class="navi-char tchar" src="img/char_char_owl_sm.png" alt=""></div>
+  <div class="tband"><span class="tno">3</span><h2>江戸幕府の滅亡</h2>
+    <button class="play-unit" type="button" data-play="3" hidden>🔊 読み上げ</button></div>
   
     <div class="step" data-label="この単元でわかること">
       <img class="cover-img" src="img/cover-fall-of-bakufu.webp"
            alt="江戸幕府の滅亡（この単元でわかること）">
-      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble">攘夷をあきらめ倒幕へ。敵だった薩摩と長州が手を組み、ついに260年続いた幕府が幕を閉じるよ。</div></div>
+      <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">攘夷をあきらめ倒幕へ。</span><span class="s" data-i="1">敵だった薩摩と長州が手を組み、</span><span class="s" data-i="2">ついに260年続いた幕府が幕を閉じるよ。</span></div></div>
     </div>
     <div class="step" data-label="攘夷から倒幕への方針転換">
-      <h3><span class="sec-no">1</span>攘夷から倒幕への方針転換</h3>
-      <div class="sec-lead">薩英戦争・下関戦争を経て倒幕へ方針転換したよ。</div>
-      <p>1862年、薩摩藩士がイギリス人を殺傷する生麦事件が起こり、翌1863年、薩摩藩はイギリスと<span class="mark">薩英戦争</span>を戦うことになったんだ。同じころ長州藩も外国の四国艦隊と<span class="mark">下関戦争</span>を戦ったよ。どちらの藩も、欧米の軍事力があまりに強いことを思い知らされて、「これはもう外国を追い払う攘夷どころじゃない」と気づいたんだ。長州藩では高杉晋作が、武士以外の人々も加わる<span class="mark">奇兵隊</span>という新しい軍隊を組織して、倒幕に向けて力をたくわえていったんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">薩英戦争・下関戦争を経て、薩長は倒幕へ方針転換したよ。</div></div>
+      <h3><span class="sec-no">1</span><span class="s" data-i="3">攘夷から倒幕への方針転換</span></h3>
+      <div class="sec-lead"><span class="s" data-i="4">薩英戦争・下関戦争を経て倒幕へ方針転換したよ。</span></div>
+      <p><span class="s" data-i="5">1862年、薩摩藩士がイギリス人を殺傷する生麦事件が起こり、翌1863年、</span><span class="s" data-i="6">薩摩藩はイギリスと<span class="mark">薩英戦争</span>を戦うことになったんだ。</span><span class="s" data-i="7">同じころ長州藩も外国の四国艦隊と<span class="mark">下関戦争</span>を戦ったよ。</span><span class="s" data-i="8">どちらの藩も、欧米の軍事力があまりに強いことを思い知らされて、</span><span class="s" data-i="9">「これはもう外国を追い払う攘夷どころじゃない」と気づいたんだ。</span><span class="s" data-i="10">長州藩では高杉晋作が、</span><span class="s" data-i="11">武士以外の人々も加わる<span class="mark">奇兵隊</span>という新しい軍隊を組織して、</span><span class="s" data-i="12">倒幕に向けて力をたくわえていったんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="13">薩英戦争・下関戦争を経て、</span><span class="s" data-i="14">薩長は倒幕へ方針転換したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">薩英戦争<span class="w-rd">さつえいせんそう</span></span><span class="w-desc">1863年、生麦事件をきっかけに薩摩藩とイギリスが戦った戦争。</span></div><div class="word"><span class="w-term">下関戦争<span class="w-rd">しものせきせんそう</span></span><span class="w-desc">1863〜64年、長州藩が四国艦隊と戦った戦争。</span></div><div class="word"><span class="w-term">奇兵隊<span class="w-rd">きへいたい</span></span><span class="w-desc">高杉晋作が長州藩で組織した、身分にとらわれない軍隊。</span></div></div>
     </div>
     <div class="step" data-label="薩長同盟の成立">
-      <h3><span class="sec-no">2</span>薩長同盟の成立</h3>
-      <div class="sec-lead">坂本龍馬の仲立ちで薩長同盟が結ばれたよ。</div>
-      <p>それまで対立していた薩摩藩と長州藩だったけど、1866年、土佐藩出身の<span class="mark">坂本龍馬</span>の仲立ちによって<span class="mark">薩長同盟</span>を結んだんだ。長州側は木戸孝允(桂小五郎)、薩摩側は西郷隆盛らが交渉にあたったんだよ。ライバル同士だった2つの藩が手を組むなんて、坂本龍馬の説得力はすごいよね。この同盟が、倒幕を実現する大きな力になっていくんだ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1866年、坂本龍馬の仲立ちで薩長同盟が結ばれたよ。</div></div>
+      <h3><span class="sec-no">2</span><span class="s" data-i="15">薩長同盟の成立</span></h3>
+      <div class="sec-lead"><span class="s" data-i="16">坂本龍馬の仲立ちで薩長同盟が結ばれたよ。</span></div>
+      <p><span class="s" data-i="17">それまで対立していた薩摩藩と長州藩だったけど、1866年、</span><span class="s" data-i="18">土佐藩出身の<span class="mark">坂本龍馬</span>の仲立ちによって<span class="mark">薩長同盟</span>を結んだんだ。</span><span class="s" data-i="19">長州側は木戸孝允(桂小五郎)、</span><span class="s" data-i="20">薩摩側は西郷隆盛らが交渉にあたったんだよ。</span><span class="s" data-i="21">ライバル同士だった2つの藩が手を組むなんて、</span><span class="s" data-i="22">坂本龍馬の説得力はすごいよね。</span><span class="s" data-i="23">この同盟が、倒幕を実現する大きな力になっていくんだ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="24">1866年、坂本龍馬の仲立ちで薩長同盟が結ばれたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">坂本龍馬<span class="w-rd">さかもとりょうま</span></span><span class="w-desc">薩長同盟を仲立ちした土佐藩出身の志士。</span></div><div class="word"><span class="w-term">薩長同盟<span class="w-rd">さっちょうどうめい</span></span><span class="w-desc">1866年に結ばれた薩摩藩と長州藩の同盟。倒幕の中心勢力となった。</span></div></div>
     </div>
     <div class="step" data-label="大政奉還と王政復古の大号令">
-      <h3><span class="sec-no">3</span>大政奉還と王政復古の大号令</h3>
-      <div class="sec-lead">徳川慶喜が大政奉還を行い幕府が幕を閉じたよ。</div>
-      <p>1867年、追い詰められた15代将軍<span class="mark">徳川慶喜</span>は、政権を朝廷に返す<span class="mark">大政奉還</span>を行ったんだ。約260年も続いた江戸幕府の政権が、ここで幕を閉じたんだよ。でも話はこれで終わらなくて、その後すぐ天皇中心の新しい政府をつくると宣言する<span class="mark">王政復古の大号令</span>が出されたんだ。慶喜はこれで政治の場から退けられることになったんだね。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">1867年、徳川慶喜が政権を朝廷に返す大政奉還を行ったよ。</div></div>
+      <h3><span class="sec-no">3</span><span class="s" data-i="25">大政奉還と王政復古の大号令</span></h3>
+      <div class="sec-lead"><span class="s" data-i="26">徳川慶喜が大政奉還を行い幕府が幕を閉じたよ。</span></div>
+      <p><span class="s" data-i="27">1867年、追い詰められた15代将軍<span class="mark">徳川慶喜</span>は、</span><span class="s" data-i="28">政権を朝廷に返す<span class="mark">大政奉還</span>を行ったんだ。</span><span class="s" data-i="29">約260年も続いた江戸幕府の政権が、</span><span class="s" data-i="30">ここで幕を閉じたんだよ。</span><span class="s" data-i="31">でも話はこれで終わらなくて、</span><span class="s" data-i="32">その後すぐ天皇中心の新しい政府をつくると宣言する<span class="mark">王政復古の大号令</span>が出されたんだ。</span><span class="s" data-i="33">慶喜はこれで政治の場から退けられることになったんだね。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="34">1867年、徳川慶喜が政権を朝廷に返す大政奉還を行ったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">徳川慶喜<span class="w-rd">とくがわよしのぶ</span></span><span class="w-desc">大政奉還を行った江戸幕府15代将軍。</span></div><div class="word"><span class="w-term">大政奉還<span class="w-rd">たいせいほうかん</span></span><span class="w-desc">1867年、徳川慶喜が政権を朝廷に返した出来事。</span></div><div class="word"><span class="w-term">王政復古の大号令<span class="w-rd">おうせいふっこのだいごうれい</span></span><span class="w-desc">大政奉還後に出された、天皇中心の新政府樹立を宣言する命令。</span></div></div>
     </div>
     <div class="step" data-label="戊辰戦争と江戸城無血開城">
-      <h3><span class="sec-no">4</span>戊辰戦争と江戸城無血開城</h3>
-      <div class="sec-lead">戊辰戦争のすえ江戸城は無血開城されたよ。</div>
-      <p>1868年、京都近くの鳥羽・伏見の戦いから<span class="mark">戊辰戦争</span>という内戦が始まったんだ。新政府軍と旧幕府軍が約1年半にわたって戦い、最終的に新政府軍が勝利したんだよ。江戸では、旧幕府側の勝海舟と新政府軍の<span class="mark">西郷隆盛</span>が話し合い、戦わずに<span class="mark">江戸城</span>を明け渡す無血開城が実現したんだ。戦いをせずに江戸の町を守ったこの決断、すごいと思わない?こうして明治政府が確立していったんだよ。</p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt">戊辰戦争のすえ、勝海舟と西郷隆盛の交渉で江戸城は無血開城されたよ。</div></div>
+      <h3><span class="sec-no">4</span><span class="s" data-i="35">戊辰戦争と江戸城無血開城</span></h3>
+      <div class="sec-lead"><span class="s" data-i="36">戊辰戦争のすえ江戸城は無血開城されたよ。</span></div>
+      <p><span class="s" data-i="37">1868年、京都近くの鳥羽・伏見の戦いから<span class="mark">戊辰戦争</span>という内戦が始まったんだ。</span><span class="s" data-i="38">新政府軍と旧幕府軍が約1年半にわたって戦い、</span><span class="s" data-i="39">最終的に新政府軍が勝利したんだよ。</span><span class="s" data-i="40">江戸では、旧幕府側の勝海舟と新政府軍の<span class="mark">西郷隆盛</span>が話し合い、</span><span class="s" data-i="41">戦わずに<span class="mark">江戸城</span>を明け渡す無血開城が実現したんだ。</span><span class="s" data-i="42">戦いをせずに江戸の町を守ったこの決断、</span><span class="s" data-i="43">すごいと思わない?こうして明治政府が確立していったんだよ。</span></p>
+      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="44">戊辰戦争のすえ、</span><span class="s" data-i="45">勝海舟と西郷隆盛の交渉で江戸城は無血開城されたよ。</span></div></div>
       
     </div>
     <div class="step" data-label="重要語チェック">
@@ -855,7 +888,7 @@
       
       <div class="sum30">
         <div class="sum30-h">⏱ 30秒まとめ<span class="sum30-tag">テスト前にここだけ！</span></div>
-        <div class="sum30-body">薩英戦争や下関戦争で欧米の力を思い知った薩摩・長州は、<span class="mark">坂本龍馬</span>の仲立ちで<span class="mark">薩長同盟</span>を結び倒幕へと動いたよ。<span class="mark">徳川慶喜</span>の<span class="mark">大政奉還</span>と王政復古の大号令を経て、翌年の<span class="mark">戊辰戦争</span>のすえ江戸幕府はついに幕を閉じたんだね。</div>
+        <div class="sum30-body"><span class="s" data-i="46">薩英戦争や下関戦争で欧米の力を思い知った薩摩・長州は、</span><span class="s" data-i="47"><span class="mark">坂本龍馬</span>の仲立ちで<span class="mark">薩長同盟</span>を結び倒幕へと動いたよ。</span><span class="s" data-i="48"><span class="mark">徳川慶喜</span>の<span class="mark">大政奉還</span>と王政復古の大号令を経て、</span><span class="s" data-i="49">翌年の<span class="mark">戊辰戦争</span>のすえ江戸幕府はついに幕を閉じたんだね。</span></div>
         
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
@@ -871,6 +904,14 @@
 </section>
 </main>
 <div class="hintbar" id="hintBar" hidden></div>
+<div class="aplayer" id="aplayer" hidden><div class="ap-in">
+  <button class="ap-btn" id="apPlay" aria-label="再生／一時停止">❚❚</button>
+  <div class="ap-seek"><input type="range" id="apSeek" min="0" max="1000" value="0"></div>
+  <div class="ap-time" id="apTime">0:00 / 0:00</div>
+  <button class="ap-rate" id="apRate">1.0×</button>
+  <button class="ap-close" id="apClose" aria-label="読み上げを止める">×</button>
+</div></div>
+<audio id="audio" preload="none"></audio>
 <div class="navbar" id="navbar" hidden><div class="navbar-in">
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
@@ -898,7 +939,8 @@
 (function () {
   var KEY = 'tzmref-10';
   var CH = '10';
-  var WB_VIEWS = [0, 2, 3, 4];          // 参考書の単元t → 問題集のビュー番号（0＝対応なし）
+  var WB_VIEWS = [0, 2, 3, 4];
+  var AUDIO = {"1": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F10-opening-japan.mp3?alt=media&token=2f224a25-2250-49e9-bf21-b11c33786c90", "tl": [[0, 6.76, 0], [7.41, 3.52, 1], [11.58, 4.4, 1], [16.63, 7.24, 1], [24.15, 3.653, 1], [27.803, 3.37, 1], [31.173, 2.497, 1], [33.95, 1.758, 1], [35.708, 5.985, 1], [41.693, 4.017, 1], [45.99, 2.883, 1], [48.873, 2.346, 1], [51.219, 3.131, 1], [55, 6, 1], [61.65, 3.44, 2], [65.74, 3.84, 2], [70.23, 4.473, 2], [74.703, 3.527, 2], [78.51, 4.8, 2], [83.59, 3.424, 2], [87.014, 5.699, 2], [92.713, 3.117, 2], [96.11, 2.073, 2], [98.183, 2.913, 2], [101.096, 1.574, 2], [103.32, 6.56, 2], [110.53, 3.92, 3], [115.1, 4.76, 3], [120.51, 7.665, 3], [128.175, 8.175, 3], [136.63, 8.236, 3], [144.866, 3.182, 3], [148.048, 2.795, 3], [150.843, 3.787, 3], [154.91, 4.6, 3], [159.79, 2.04, 3], [162.48, 7.36, 3], [170.49, 2.105, 5], [172.595, 3.895, 5], [176.77, 3.61, 5], [180.38, 5.43, 5], [185.81, 2.88, 5]]}, "2": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F10-post-opening.mp3?alt=media&token=cc929954-d739-4a27-9090-7741ffc044c7", "tl": [[0, 4.92, 0], [5.2, 3.15, 0], [8.35, 1.69, 0], [10.69, 4.16, 1], [15.5, 5.36, 1], [21.51, 2.922, 1], [24.432, 7.078, 1], [31.79, 3.37, 1], [35.16, 6.193, 1], [41.353, 9.317, 1], [50.95, 2.68, 1], [53.63, 3.84, 1], [58.12, 3.027, 1], [61.147, 3.173, 1], [64.97, 3.6, 2], [69.22, 4.48, 2], [74.35, 3.634, 2], [77.984, 8.206, 2], [86.47, 2.76, 2], [89.51, 2.715, 2], [92.225, 2.805, 2], [95.31, 8.392, 2], [103.702, 2.408, 2], [106.76, 6.12, 2], [113.53, 3.36, 3], [117.54, 4.32, 3], [122.51, 7.32, 3], [130.11, 2.704, 3], [132.814, 2.936, 3], [136.03, 6.882, 3], [142.912, 2.598, 3], [145.79, 6.08, 3], [152.15, 4.52, 3], [157.32, 5.76, 3], [163.73, 7.561, 5], [171.291, 7.519, 5], [179.09, 7.08, 5]]}, "3": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F10-fall-of-bakufu.mp3?alt=media&token=55beeb82-b309-4ef6-8d22-e46e2cf2a671", "tl": [[0, 2.76, 0], [3.04, 3.062, 0], [6.102, 4.098, 0], [10.85, 3.12, 1], [14.62, 5.44, 1], [20.71, 8.339, 1], [29.049, 4.301, 1], [33.63, 5.76, 1], [39.67, 5.848, 1], [45.518, 4.792, 1], [50.59, 3.107, 1], [53.697, 5.185, 1], [58.882, 2.788, 1], [62.32, 3.331, 1], [65.651, 2.789, 1], [69.09, 2.56, 2], [72.3, 4.4, 2], [77.35, 6.395, 2], [83.745, 5.365, 2], [89.39, 3.776, 2], [93.166, 4.264, 2], [97.71, 3.619, 2], [101.329, 3.341, 2], [104.95, 4.96, 2], [110.56, 5.68, 2], [116.89, 3.72, 3], [121.26, 4.96, 3], [126.87, 5.79, 3], [132.66, 3.65, 3], [136.59, 4.323, 3], [140.913, 2.037, 3], [143.23, 3.113, 3], [146.343, 7.967, 3], [154.59, 4.48, 3], [159.72, 7.24, 3], [167.61, 3.44, 4], [171.7, 4.12, 4], [176.47, 7.88, 4], [184.63, 4.656, 4], [189.286, 3.344, 4], [192.91, 6.451, 4], [199.361, 4.469, 4], [204.11, 3.679, 4], [207.789, 4.321, 4], [212.76, 1.81, 4], [214.57, 4.91, 4], [220.13, 6.196, 6], [226.326, 5.004, 6], [231.61, 5.159, 6], [236.769, 4.921, 6]]}};          // {単元t: {url, tl:[[開始秒,長さ,ステップ], …]}}          // 参考書の単元t → 問題集のビュー番号（0＝対応なし）
   var views = [].slice.call(document.querySelectorAll('.view'));
   var tabs = [].slice.call(document.querySelectorAll('.tab'));
   var N = views.length - 1; // 単元数
@@ -929,6 +971,89 @@
     };
     bar.addEventListener('click', function () { bar.hidden = true; });
   })();
+
+
+  // ── 読み上げ（音声に合わせて句をハイライトし、ページも自動でめくる）──
+  var au = document.getElementById('audio');
+  var apl = document.getElementById('aplayer');
+  var reading = { t: 0, i: -1 };
+  var RATES = [1, 1.25, 1.5, 0.75], ri = 0;
+
+  function fmt(x) { x = Math.max(0, x | 0); return (x / 60 | 0) + ':' + ('0' + (x % 60)).slice(-2); }
+  function spansOf(t) { return [].slice.call(views[t].querySelectorAll('.s')); }
+
+  function startAudio(t) {
+    var a = AUDIO[t];
+    if (!a) return;
+    reading = { t: t, i: -1 };
+    if (au.dataset.t !== String(t)) { au.src = a.url; au.dataset.t = String(t); }
+    document.body.classList.add('reading');
+    apl.hidden = false;
+    au.playbackRate = RATES[ri];
+    au.play();
+  }
+  function stopAudio() {
+    au.pause();
+    document.body.classList.remove('reading');
+    apl.hidden = true;
+    if (reading.t) spansOf(reading.t).forEach(function (el) { el.classList.remove('now', 'read'); });
+    reading = { t: 0, i: -1 };
+  }
+  function paintAudio() {
+    var a = AUDIO[reading.t];
+    if (!a) return;
+    var tl = a.tl, k = -1;
+    for (var i = 0; i < tl.length; i++) { if (au.currentTime >= tl[i][0]) k = i; else break; }
+    if (k === reading.i) return;
+    reading.i = k;
+    // 読んでいる箇所が別のページなら、そのページへ自動でめくる
+    if (k >= 0 && tl[k][2] !== state.s && state.t === reading.t) go(reading.t, tl[k][2], tl[k][2] > state.s ? 1 : -1);
+    var sp = spansOf(reading.t);
+    sp.forEach(function (el, i) {
+      el.classList.toggle('now', i === k);
+      el.classList.toggle('read', i < k);
+    });
+    var el = sp[k];
+    if (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < 70 || r.bottom > innerHeight - 150) {
+        scrollTo({ top: scrollY + r.top - innerHeight * 0.4, behavior: 'smooth' });
+      }
+    }
+  }
+  function tickAudio() {
+    paintAudio();
+    if (au.duration) {
+      document.getElementById('apSeek').value = Math.round(au.currentTime / au.duration * 1000);
+      document.getElementById('apTime').textContent = fmt(au.currentTime) + ' / ' + fmt(au.duration);
+    }
+    if (!au.paused) requestAnimationFrame(tickAudio);
+  }
+  au.addEventListener('play', function () { document.getElementById('apPlay').textContent = '❚❚'; tickAudio(); });
+  au.addEventListener('pause', function () { document.getElementById('apPlay').textContent = '▶'; });
+  au.addEventListener('ended', stopAudio);
+  document.getElementById('apPlay').onclick = function () { au.paused ? au.play() : au.pause(); };
+  document.getElementById('apClose').onclick = stopAudio;
+  document.getElementById('apSeek').oninput = function () {
+    if (au.duration) { au.currentTime = this.value / 1000 * au.duration; reading.i = -1; paintAudio(); }
+  };
+  document.getElementById('apRate').onclick = function () {
+    ri = (ri + 1) % RATES.length; au.playbackRate = RATES[ri];
+    this.textContent = RATES[ri].toFixed(2).replace(/0$/, '') + '×';
+  };
+  // 単元見出しの「🔊 読み上げ」＋ 文字タップでその場所から読む
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('.play-unit');
+    if (b) { startAudio(+b.dataset.play); return; }
+    var sp = e.target.closest && e.target.closest('.s');
+    if (sp && AUDIO[state.t]) {
+      var k = +sp.dataset.i, a = AUDIO[state.t];
+      if (a.tl[k]) {
+        if (reading.t !== state.t) startAudio(state.t);
+        au.currentTime = a.tl[k][0]; reading.i = -1; paintAudio(); au.play();
+      }
+    }
+  });
 
   // 単元タブの左右矢印: まだ隠れているタブがある側だけ出す
   function updateTabArrows() {
@@ -1027,6 +1152,8 @@
     // クエリが付いていても落とさない（URL共有時の情報を保つ）
     if (location.hash !== h) history.replaceState(null, '', location.search + (t === 0 ? '#' : h));
     updateSwap();
+    var pb = views[t] && views[t].querySelector('.play-unit');
+    if (pb) pb.hidden = !AUDIO[t];
     rendered = { t: t, s: s };
   }
 
