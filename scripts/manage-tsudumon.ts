@@ -36,6 +36,7 @@ const DEFAULT_BUCKETS = [
   `${FIREBASE_PROJECT_ID}.appspot.com`,
 ];
 const DL_BASE = 'https://www.chatstudy.jp/tsudumon/dl';
+const ACTIVATE_BASE = 'https://www.chatstudy.jp/tsudumon/activate/';
 const LINE_BASIC_ID = '@824cebif';
 
 // functions/ は CJS（"type":"module" なし）のため、ESM の named import だと
@@ -134,30 +135,41 @@ function printDeliveryTemplate(
   hasZip: boolean
 ) {
   const dlUrl = `${DL_BASE}?c=${code}`;
+  const activateUrl = `${ACTIVATE_BASE}?c=${code}`;
   const oaUrl = `https://line.me/R/oaMessage/${LINE_BASIC_ID}/?${encodeURIComponent(`つづもん登録 ${code}`)}`;
   console.log(
-    '\n────────── 購入者への案内文テンプレ（コピーして送る） ──────────\n'
+    '\n────────── 購入者への案内メール（コピーして送る） ──────────\n'
   );
-  console.log(`${buyerName} 様
+  console.log(`件名: 【つづもん】ライセンスのお受け取りと教材ダウンロードのご案内
+
+${buyerName} 様
 
 このたびは「つづもん」をご購入いただき、ありがとうございます！
 【${TSUDUMON_PLAN_LABEL[plan]}／利用期間 ${years}年】のご案内をお届けします。
+このメールは大切に保管してください（下のリンクからいつでもお受け取り・ダウンロードできます）。
 
-■ 1. 教材のダウンロード
+■ 1. ライセンスを受け取る（タップするだけ・約30秒）
+下のリンクを開いて「LINEでログイン」してください。コードの入力は不要で、そのままライセンスが有効になります。
+（はじめての方は、ログインと同時に公式LINEの友だち追加になります）
+
+受け取りリンク:
+${activateUrl}
+
+■ 2. 教材のダウンロード
 ${hasZip ? dlUrl : '（zip未アップロード: set-zip 実行後にこのリンクが有効になります）\n' + dlUrl}
-※ zipファイルを保存して解凍してください。中の「★はじめにお読みください.pdf」から始めるのがおすすめです。
+※ zipファイルを保存して解凍し、中の「★はじめにお読みください.pdf」から始めるのがおすすめです。
 ※ このリンクには回数制限があります。ご家族以外への共有はご遠慮ください。
 
-■ 2. LINEでAI採点を使えるようにする（30秒）
-公式LINE「チャットでスタディ」を友だち追加して、下のライセンスコードをトークにそのまま送ってください。
+──────────────
+◆ うまく受け取れないときは
+公式LINE「チャットでスタディ」（ID: ${LINE_BASIC_ID}）を友だち追加して、
+下のコードをトークにそのまま送っていただいても登録できます。
+・ライセンスコード: ${code}
+・かんたん登録リンク: ${oaUrl}
 
-ライセンスコード: ${code}
-
-かんたん登録リンク（タップで自動入力）:
-${oaUrl}
-
-※ ごきょうだいのスマホでも同じコードで登録できます（${TSUDUMON_DEFAULT_MAX_ACTIVATIONS}アカウントまで）。
+※ ごきょうだいのスマホでも同じリンク／コードで登録できます（${TSUDUMON_DEFAULT_MAX_ACTIVATIONS}アカウントまで）。
 ※ 利用期間は最初に登録した日から${years}年間です。
+※ コードが分からなくなったときは、このメールへの返信か公式LINEでお知らせください。すぐに再送します。
 
 わからないことがあれば、公式LINEにそのままメッセージを送ってください。
 それでは、楽しく続けていきましょう！
