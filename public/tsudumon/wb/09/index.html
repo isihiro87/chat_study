@@ -299,6 +299,35 @@
   .hidden-until { display:none; }
   .show .hidden-until { display:block; }
   .show .reveal { display:none; }
+
+  /* 記述のAIその場採点 */
+  .ai-grade { display:block; width:100%; margin-top:12px; border:none; border-radius:12px;
+              background:linear-gradient(#b45309,#8a3f07); color:#fff8ec; font-weight:bold;
+              font-size:15px; padding:12px; cursor:pointer; font-family:inherit;
+              box-shadow:0 2px 6px rgba(180,83,9,.3); }
+  .ai-grade:disabled { opacity:.6; cursor:default; }
+  @media (hover:hover) { .ai-grade:hover:not(:disabled) { filter:brightness(1.07); } }
+  .ai-result { margin-top:12px; border-radius:14px; padding:12px 14px; border:2px solid var(--line);
+               background:#fff; }
+  .ai-result[hidden] { display:none; }
+  .ai-result.v-correct { border-color:#bbe3cc; background:#f0fdf4; }
+  .ai-result.v-partial { border-color:#fde68a; background:#fffbeb; }
+  .ai-result.v-incorrect { border-color:#fecaca; background:#fef2f2; }
+  .ai-result.v-info { border-color:var(--line); background:#fffbeb; }
+  .air-head { display:flex; align-items:center; gap:8px; font-weight:bold; font-size:16px; }
+  .air-badge { flex:none; width:30px; height:30px; border-radius:50%; display:inline-flex;
+               align-items:center; justify-content:center; color:#fff; font-size:17px; }
+  .v-correct .air-badge { background:var(--ok); }
+  .v-partial .air-badge { background:var(--amber); }
+  .v-incorrect .air-badge { background:var(--ng); }
+  .air-line { margin-top:8px; font-size:13.5px; line-height:1.7; color:#44403c; }
+  .air-line b { color:var(--deep); }
+  .air-login { display:inline-block; margin-top:6px; color:var(--brand); font-weight:bold;
+               text-decoration:underline; cursor:pointer; }
+  .air-spin { display:inline-block; width:16px; height:16px; border:2px solid #e2d5bd;
+              border-top-color:var(--brand); border-radius:50%; animation:airspin .7s linear infinite;
+              vertical-align:-3px; margin-right:6px; }
+  @keyframes airspin { to { transform:rotate(360deg); } }
   .qa-a { margin-top:12px; background:#fff; border:2px solid var(--amber); border-radius:12px;
           padding:10px 14px; font-size:18px; font-weight:bold; color:var(--deep); text-align:center; }
   .qa-expl { font-size:13.5px; color:#57534e; background:#fffbeb; border-radius:10px;
@@ -429,7 +458,7 @@
     .mode-step, .qa-batch-step, .b-inrow, .b-idk, .b-batch-judge, .b-result { display:none !important; }
     /* 問題選択・短答のやり方・結果などの操作用ページは紙に出さない（問題と解答だけ印刷） */
     .mode-step, .mb-step, .done-step, .next-modes, .chip-mode, .print-btn,
-    .retry-btn, .home-btn, .wrong-btn { display:none !important; }
+    .retry-btn, .home-btn, .wrong-btn, .ai-grade, .ai-result, .print-hide { display:none !important; }
     .print-only { display:block !important; }
     .view { display:block !important; }
     .step { display:block !important; margin-bottom:14px; break-inside:avoid; }
@@ -1074,6 +1103,8 @@
       <a class="sec-help" href="../../ref/09/index.html#t1s3" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="ai-grade print-hide" type="button" data-bankid="q-wbw-history-09-british-revolution-1">🤖 AIに採点してもらう</button>
+      <div class="ai-result" hidden></div>
       <button class="reveal" type="button">模範解答を見る</button>
       <div class="hidden-until">
         <div class="qa-a">独断で政治を行う国王ジェームズ2世を、武力による衝突なしに議会が追放した、無血の革命だったから。</div>
@@ -1081,7 +1112,6 @@
           <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
           <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
         </div>
-        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E3%82%A4%E3%82%AE%E3%83%AA%E3%82%B9%E3%81%AE%E9%9D%A9%E5%91%BD" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
       </div>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (2/2)" data-qid="wr-british-revolution-2" data-kind="qa" data-sec="D">
@@ -1091,6 +1121,8 @@
       <a class="sec-help" href="../../ref/09/index.html#t1s3" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="ai-grade print-hide" type="button" data-bankid="q-wbw-history-09-british-revolution-2">🤖 AIに採点してもらう</button>
+      <div class="ai-result" hidden></div>
       <button class="reveal" type="button">模範解答を見る</button>
       <div class="hidden-until">
         <div class="qa-a">国王は国の象徴として残るが、実際の政治は憲法に基づいて議会と内閣が動かし、王の権力が制限されるしくみ。</div>
@@ -1098,7 +1130,6 @@
           <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
           <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
         </div>
-        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E3%82%A4%E3%82%AE%E3%83%AA%E3%82%B9%E3%81%AE%E9%9D%A9%E5%91%BD" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
       </div>
     </div>
     <div class="step done-step" data-label="結果" data-sec="Z">
@@ -1553,6 +1584,8 @@
       <a class="sec-help" href="../../ref/09/index.html#t2s1" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="ai-grade print-hide" type="button" data-bankid="q-wbw-history-09-american-independence-1">🤖 AIに採点してもらう</button>
+      <div class="ai-result" hidden></div>
       <button class="reveal" type="button">模範解答を見る</button>
       <div class="hidden-until">
         <div class="qa-a">植民地からの代表が一人もいないイギリス本国の議会が、植民地に対して勝手に重い税を課したから。</div>
@@ -1560,7 +1593,6 @@
           <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
           <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
         </div>
-        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E3%82%A2%E3%83%A1%E3%83%AA%E3%82%AB%E3%81%AE%E7%8B%AC%E7%AB%8B%E9%9D%A9%E5%91%BD" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
       </div>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (2/3)" data-qid="wr-american-independence-2" data-kind="qa" data-sec="D">
@@ -1570,6 +1602,8 @@
       <a class="sec-help" href="../../ref/09/index.html#t2s3" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="ai-grade print-hide" type="button" data-bankid="q-wbw-history-09-american-independence-2">🤖 AIに採点してもらう</button>
+      <div class="ai-result" hidden></div>
       <button class="reveal" type="button">模範解答を見る</button>
       <div class="hidden-until">
         <div class="qa-a">各州が自治権を持つ連邦制をとり、外交や軍事などは中央の連邦政府がまとめて担うようにするため。</div>
@@ -1577,7 +1611,6 @@
           <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
           <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
         </div>
-        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E3%82%A2%E3%83%A1%E3%83%AA%E3%82%AB%E3%81%AE%E7%8B%AC%E7%AB%8B%E9%9D%A9%E5%91%BD" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
       </div>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (3/3)" data-qid="wr-american-independence-3" data-kind="qa" data-sec="D">
@@ -1587,6 +1620,8 @@
       <a class="sec-help" href="../../ref/09/index.html#t2s2" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="ai-grade print-hide" type="button" data-bankid="q-wbw-history-09-american-independence-3">🤖 AIに採点してもらう</button>
+      <div class="ai-result" hidden></div>
       <button class="reveal" type="button">模範解答を見る</button>
       <div class="hidden-until">
         <div class="qa-a">ロックの思想の影響を受け、生命・自由・幸福を求める権利は生まれながらのものであると宣言した。</div>
@@ -1594,7 +1629,6 @@
           <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
           <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
         </div>
-        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E3%82%A2%E3%83%A1%E3%83%AA%E3%82%AB%E3%81%AE%E7%8B%AC%E7%AB%8B%E9%9D%A9%E5%91%BD" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
       </div>
     </div>
     <div class="step done-step" data-label="結果" data-sec="Z">
@@ -2173,6 +2207,8 @@
       <a class="sec-help" href="../../ref/09/index.html#t3s1" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="ai-grade print-hide" type="button" data-bankid="q-wbw-history-09-french-revolution-1">🤖 AIに採点してもらう</button>
+      <div class="ai-result" hidden></div>
       <button class="reveal" type="button">模範解答を見る</button>
       <div class="hidden-until">
         <div class="qa-a">聖職者と貴族は税を免除される一方、人口の98%を占める第三身分の平民だけが重い税を負担していたから。</div>
@@ -2180,7 +2216,6 @@
           <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
           <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
         </div>
-        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E3%83%95%E3%83%A9%E3%83%B3%E3%82%B9%E9%9D%A9%E5%91%BD" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
       </div>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (2/3)" data-qid="wr-french-revolution-2" data-kind="qa" data-sec="D">
@@ -2190,6 +2225,8 @@
       <a class="sec-help" href="../../ref/09/index.html#t3s3" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="ai-grade print-hide" type="button" data-bankid="q-wbw-history-09-french-revolution-2">🤖 AIに採点してもらう</button>
+      <div class="ai-result" hidden></div>
       <button class="reveal" type="button">模範解答を見る</button>
       <div class="hidden-until">
         <div class="qa-a">個人の自由と財産権が法律によって保障されるようになり、その内容はその後の各国の法律にも影響を与えた。</div>
@@ -2197,7 +2234,6 @@
           <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
           <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
         </div>
-        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E3%83%95%E3%83%A9%E3%83%B3%E3%82%B9%E9%9D%A9%E5%91%BD" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
       </div>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (3/3)" data-qid="wr-french-revolution-3" data-kind="qa" data-sec="D">
@@ -2207,6 +2243,8 @@
       <a class="sec-help" href="../../ref/09/index.html#t3s2" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="ai-grade print-hide" type="button" data-bankid="q-wbw-history-09-french-revolution-3">🤖 AIに採点してもらう</button>
+      <div class="ai-result" hidden></div>
       <button class="reveal" type="button">模範解答を見る</button>
       <div class="hidden-until">
         <div class="qa-a">人は生まれながらに自由で平等な権利を持つとし、「自由・平等・友愛」の理想を掲げた。</div>
@@ -2214,7 +2252,6 @@
           <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
           <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
         </div>
-        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E3%83%95%E3%83%A9%E3%83%B3%E3%82%B9%E9%9D%A9%E5%91%BD" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
       </div>
     </div>
     <div class="step done-step" data-label="結果" data-sec="Z">
@@ -2731,6 +2768,8 @@
       <a class="sec-help" href="../../ref/09/index.html#t4s2" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="ai-grade print-hide" type="button" data-bankid="q-wbw-history-09-nationalism-europe-1">🤖 AIに採点してもらう</button>
+      <div class="ai-result" hidden></div>
       <button class="reveal" type="button">模範解答を見る</button>
       <div class="hidden-until">
         <div class="qa-a">議会での話し合いよりも軍備の増強を重視し、軍事力によってドイツ統一を成し遂げようとする政策。</div>
@@ -2738,7 +2777,6 @@
           <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
           <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
         </div>
-        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E3%83%A8%E3%83%BC%E3%83%AD%E3%83%83%E3%83%91%E3%81%AE%E5%9B%BD%E6%B0%91%E6%84%8F%E8%AD%98%E3%81%AE%E9%AB%98%E3%81%BE%E3%82%8A" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
       </div>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (2/2)" data-qid="wr-nationalism-europe-2" data-kind="qa" data-sec="D">
@@ -2748,6 +2786,8 @@
       <a class="sec-help" href="../../ref/09/index.html#t4s3" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="ai-grade print-hide" type="button" data-bankid="q-wbw-history-09-nationalism-europe-2">🤖 AIに採点してもらう</button>
+      <div class="ai-result" hidden></div>
       <button class="reveal" type="button">模範解答を見る</button>
       <div class="hidden-until">
         <div class="qa-a">保守党と自由党という二つの政党が議会で議席を争い、選挙の結果に応じて交互に政権を担当するしくみ。</div>
@@ -2755,7 +2795,6 @@
           <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
           <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
         </div>
-        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E3%83%A8%E3%83%BC%E3%83%AD%E3%83%83%E3%83%91%E3%81%AE%E5%9B%BD%E6%B0%91%E6%84%8F%E8%AD%98%E3%81%AE%E9%AB%98%E3%81%BE%E3%82%8A" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
       </div>
     </div>
     <div class="step done-step" data-label="結果" data-sec="Z">
@@ -3210,6 +3249,8 @@
       <a class="sec-help" href="../../ref/09/index.html#t5s1" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="ai-grade print-hide" type="button" data-bankid="q-wbw-history-09-russia-expansion-1">🤖 AIに採点してもらう</button>
+      <div class="ai-result" hidden></div>
       <button class="reveal" type="button">模範解答を見る</button>
       <div class="hidden-until">
         <div class="qa-a">冬でも凍らない不凍港を得るために、黒海や地中海、さらに東アジア方面まで勢力を広げようとしたため。</div>
@@ -3217,7 +3258,6 @@
           <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
           <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
         </div>
-        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E3%83%AD%E3%82%B7%E3%82%A2%E3%81%AE%E6%8B%A1%E5%A4%A7%E3%81%A8%E7%99%BA%E5%B1%95" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
       </div>
     </div>
     <div class="step done-step" data-label="結果" data-sec="Z">
@@ -3703,6 +3743,8 @@
       <a class="sec-help" href="../../ref/09/index.html#t6s1" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="ai-grade print-hide" type="button" data-bankid="q-wbw-history-09-america-expansion-1">🤖 AIに採点してもらう</button>
+      <div class="ai-result" hidden></div>
       <button class="reveal" type="button">模範解答を見る</button>
       <div class="hidden-until">
         <div class="qa-a">商工業が発達した北部は国内産業を守る保護貿易を、綿花をイギリスに輸出する南部は自由貿易を支持したから。</div>
@@ -3710,7 +3752,6 @@
           <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
           <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
         </div>
-        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E3%82%A2%E3%83%A1%E3%83%AA%E3%82%AB%E3%81%AE%E6%8B%A1%E5%A4%A7%E3%81%A8%E7%99%BA%E5%B1%95" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
       </div>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (2/2)" data-qid="wr-america-expansion-2" data-kind="qa" data-sec="D">
@@ -3720,6 +3761,8 @@
       <a class="sec-help" href="../../ref/09/index.html#t6s3" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="ai-grade print-hide" type="button" data-bankid="q-wbw-history-09-america-expansion-2">🤖 AIに採点してもらう</button>
+      <div class="ai-result" hidden></div>
       <button class="reveal" type="button">模範解答を見る</button>
       <div class="hidden-until">
         <div class="qa-a">奴隷解放宣言によって国際世論が北部の側についたことで、工業力に勝る北部が南北戦争に勝利する助けとなった。</div>
@@ -3727,7 +3770,6 @@
           <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
           <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
         </div>
-        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E3%82%A2%E3%83%A1%E3%83%AA%E3%82%AB%E3%81%AE%E6%8B%A1%E5%A4%A7%E3%81%A8%E7%99%BA%E5%B1%95" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
       </div>
     </div>
     <div class="step done-step" data-label="結果" data-sec="Z">
@@ -4306,6 +4348,8 @@
       <a class="sec-help" href="../../ref/09/index.html#t7s2" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="ai-grade print-hide" type="button" data-bankid="q-wbw-history-09-industrial-revolution-1">🤖 AIに採点してもらう</button>
+      <div class="ai-result" hidden></div>
       <button class="reveal" type="button">模範解答を見る</button>
       <div class="hidden-until">
         <div class="qa-a">工場や機械などの生産手段を持つ資本家が、賃金を払って労働者を雇い、商品を売って利益を追求するしくみ。</div>
@@ -4313,7 +4357,6 @@
           <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
           <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
         </div>
-        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E7%94%A3%E6%A5%AD%E9%9D%A9%E5%91%BD%E3%81%A8%E8%B3%87%E6%9C%AC%E4%B8%BB%E7%BE%A9" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
       </div>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (2/3)" data-qid="wr-industrial-revolution-2" data-kind="qa" data-sec="D">
@@ -4323,6 +4366,8 @@
       <a class="sec-help" href="../../ref/09/index.html#t7s2" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="ai-grade print-hide" type="button" data-bankid="q-wbw-history-09-industrial-revolution-2">🤖 AIに採点してもらう</button>
+      <div class="ai-result" hidden></div>
       <button class="reveal" type="button">模範解答を見る</button>
       <div class="hidden-until">
         <div class="qa-a">長時間労働や低賃金といった過酷な労働条件に苦しんだ労働者が、自分たちの権利を守る必要があったから。</div>
@@ -4330,7 +4375,6 @@
           <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
           <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
         </div>
-        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E7%94%A3%E6%A5%AD%E9%9D%A9%E5%91%BD%E3%81%A8%E8%B3%87%E6%9C%AC%E4%B8%BB%E7%BE%A9" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
       </div>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (3/3)" data-qid="wr-industrial-revolution-3" data-kind="qa" data-sec="D">
@@ -4340,6 +4384,8 @@
       <a class="sec-help" href="../../ref/09/index.html#t7s3" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="ai-grade print-hide" type="button" data-bankid="q-wbw-history-09-industrial-revolution-3">🤖 AIに採点してもらう</button>
+      <div class="ai-result" hidden></div>
       <button class="reveal" type="button">模範解答を見る</button>
       <div class="hidden-until">
         <div class="qa-a">資本主義の下で広がった貧富の差をなくし、労働者を中心とした平等な社会をつくろうとする考え。</div>
@@ -4347,7 +4393,6 @@
           <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
           <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
         </div>
-        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E7%94%A3%E6%A5%AD%E9%9D%A9%E5%91%BD%E3%81%A8%E8%B3%87%E6%9C%AC%E4%B8%BB%E7%BE%A9" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
       </div>
     </div>
     <div class="step done-step" data-label="結果" data-sec="Z">
@@ -4895,6 +4940,8 @@
       <a class="sec-help" href="../../ref/09/index.html#t8s1" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="ai-grade print-hide" type="button" data-bankid="q-wbw-history-09-western-asia-invasion-1">🤖 AIに採点してもらう</button>
+      <div class="ai-result" hidden></div>
       <button class="reveal" type="button">模範解答を見る</button>
       <div class="hidden-until">
         <div class="qa-a">イギリスが綿織物をインドに、インドがアヘンを清に、清が茶をイギリスに輸出する貿易のしくみ。</div>
@@ -4902,7 +4949,6 @@
           <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
           <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
         </div>
-        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E6%AC%A7%E7%B1%B3%E3%81%AE%E3%82%A2%E3%82%B8%E3%82%A2%E4%BE%B5%E7%95%A5" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
       </div>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (2/3)" data-qid="wr-western-asia-invasion-2" data-kind="qa" data-sec="D">
@@ -4912,6 +4958,8 @@
       <a class="sec-help" href="../../ref/09/index.html#t8s2" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="ai-grade print-hide" type="button" data-bankid="q-wbw-history-09-western-asia-invasion-2">🤖 AIに採点してもらう</button>
+      <div class="ai-result" hidden></div>
       <button class="reveal" type="button">模範解答を見る</button>
       <div class="hidden-until">
         <div class="qa-a">南京条約で清は香港を割譲し5港を開港させられたうえ、輸入品の税率を自国で決める関税自主権も失った。</div>
@@ -4919,7 +4967,6 @@
           <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
           <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
         </div>
-        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E6%AC%A7%E7%B1%B3%E3%81%AE%E3%82%A2%E3%82%B8%E3%82%A2%E4%BE%B5%E7%95%A5" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
       </div>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (3/3)" data-qid="wr-western-asia-invasion-3" data-kind="qa" data-sec="D">
@@ -4929,6 +4976,8 @@
       <a class="sec-help" href="../../ref/09/index.html#t8s3" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
+      <button class="ai-grade print-hide" type="button" data-bankid="q-wbw-history-09-western-asia-invasion-3">🤖 AIに採点してもらう</button>
+      <div class="ai-result" hidden></div>
       <button class="reveal" type="button">模範解答を見る</button>
       <div class="hidden-until">
         <div class="qa-a">イギリスの支配に反発したインドの人々が起こした大規模な反乱で、鎮圧後はイギリスによる直接統治が強められた。</div>
@@ -4936,7 +4985,6 @@
           <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
           <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
         </div>
-        <a class="line-mini" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E6%AC%A7%E7%B1%B3%E3%81%AE%E3%82%A2%E3%82%B8%E3%82%A2%E4%BE%B5%E7%95%A5" target="_blank" rel="noopener">🤖 自分の答えをAIに採点してもらう（LINE）</a>
       </div>
     </div>
     <div class="step" data-label="E 資料問題" data-sec="E">
@@ -4968,10 +5016,41 @@
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
 </div></div>
+
+<script type="module">
+// 記述AI採点のログイン（www.chatstudy.jp の LINE Login＝Firebase Auth。参考書ページと同じ）。
+// 通常のスクリプトからは window.__tzmAuth 経由で使う（module は個別スコープのため）。
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js';
+import {
+  initializeAuth, browserLocalPersistence, browserSessionPersistence,
+  inMemoryPersistence, onAuthStateChanged,
+} from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js';
+try {
+  var app = initializeApp({"apiKey": "AIzaSyBJuODbPmpu_fiJ8a1ffzDIUwEFszol5Cc", "authDomain": "chatstudy-63477.firebaseapp.com", "projectId": "chatstudy-63477", "appId": "1:283901969847:web:9efd3b421e8cdb16091432"});
+  var auth = initializeAuth(app, {
+    persistence: [browserLocalPersistence, browserSessionPersistence, inMemoryPersistence],
+  });
+  window.__tzmAuth = {
+    ready: false,
+    user: null,
+    idToken: function () { return this.user ? this.user.getIdToken() : Promise.resolve(null); },
+    login: function () {
+      location.href = '/welcome?next=' + encodeURIComponent(location.pathname + location.hash);
+    },
+  };
+  onAuthStateChanged(auth, function (u) {
+    window.__tzmAuth.user = u;
+    window.__tzmAuth.ready = true;
+    document.dispatchEvent(new CustomEvent('tzm-auth'));
+  });
+} catch (e) { /* 設定が無ければ採点はフォールバック（自己採点）に倒れる */ }
+</script>
+
 <script>
 (function () {
   var KEY = 'tzmwb-09';
   var CH = '09';
+  var GRADE_API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/gradeWritten';      // 記述AI採点 Cloud Function
   var REF_VIEWS = [0, 0, 1, 2, 3, 4, 5, 6, 7, 8];        // 問題集のビューt → 参考書の単元番号（0＝対応なし）
   var views = [].slice.call(document.querySelectorAll('.view'));
   var tabs = [].slice.call(document.querySelectorAll('.tab'));
@@ -5020,6 +5099,109 @@
     };
     bar.addEventListener('click', function () { bar.hidden = true; });
   })();
+
+  // ───── 記述問題のAIその場採点 ─────
+  function escHtml(s) {
+    return String(s || '').replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  }
+  function setAiResult(step, cls, html) {
+    var box = step.querySelector('.ai-result');
+    if (!box) return;
+    box.className = 'ai-result ' + cls;
+    box.innerHTML = html;
+    box.hidden = false;
+  }
+  function aiFallback(step, msg) {
+    setAiResult(step, 'v-info', '<div class="air-line">' + escHtml(msg) + '</div>');
+    step.classList.add('show');   // 模範解答＋自己採点(○△)を出してフォロー
+  }
+  function renderGradeCard(step, r) {
+    var v = r.verdict;
+    var mark = v === 'correct' ? '○' : v === 'partial' ? '△' : '×';
+    var head = v === 'correct' ? 'よくできました！'
+             : v === 'partial' ? 'おしい！あと少し' : 'もう一度チャレンジ';
+    var h = '<div class="air-head"><span class="air-badge">' + mark + '</span>' + head + '</div>';
+    if (r.good) h += '<div class="air-line"><b>よかった点</b>：' + escHtml(r.good) + '</div>';
+    if (r.missing) h += '<div class="air-line"><b>足りない点</b>：' + escHtml(r.missing) + '</div>';
+    if (r.hint) h += '<div class="air-line"><b>つぎのヒント</b>：' + escHtml(r.hint) + '</div>';
+    setAiResult(step, 'v-' + v, h);
+  }
+  function loginPrompt(step) {
+    setAiResult(step, 'v-info',
+      '<div class="air-line">AI採点は、購入者ログインで使えます。</div>'
+      + '<span class="air-login" data-ai-login>ログインする</span>');
+  }
+  function gradeWritten(step, btn) {
+    if (!step || !btn) return;
+    var ta = step.querySelector('.w-input');
+    var answer = ta ? ta.value.trim() : '';
+    if (answer.length < 2) {
+      setAiResult(step, 'v-info', '<div class="air-line">まず自分の言葉で書いてみよう。書けたら採点するよ。</div>');
+      return;
+    }
+    var auth = window.__tzmAuth;
+    if (!auth) { aiFallback(step, 'いまAI採点を準備中です。模範解答を見て自己採点もできます。'); return; }
+    if (!auth.ready) {
+      setAiResult(step, 'v-info', '<span class="air-spin"></span>ログイン状態を確認中…');
+      document.addEventListener('tzm-auth', function once() {
+        document.removeEventListener('tzm-auth', once);
+        gradeWritten(step, btn);
+      });
+      return;
+    }
+    if (!auth.user) { loginPrompt(step); return; }
+    var bankid = btn.dataset.bankid;
+    btn.disabled = true;
+    setAiResult(step, 'v-info', '<span class="air-spin"></span>AIが採点しています…');
+    auth.idToken().then(function (token) {
+      if (!token) throw new Error('no token');
+      return fetch(GRADE_API, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ idToken: token, id: bankid, answer: answer.slice(0, 500) }),
+      });
+    }).then(function (res) {
+      return res.json().catch(function () { return {}; })
+        .then(function (data) { return { status: res.status, data: data }; });
+    }).then(function (r) {
+      btn.disabled = false;
+      if (r.status === 200 && r.data && r.data.result) {
+        var result = r.data.result;
+        renderGradeCard(step, result);
+        // 進捗保存: correct のみ 1（＝全問正解=perfect の対象）。
+        //          partial/incorrect は 0（解答済みだが正解ではない＝some/all には数える）。
+        var st = store(); st.r = st.r || {}; st.g = st.g || {};
+        st.r[step.dataset.qid] = result.verdict === 'correct' ? 1 : 0;
+        st.g[step.dataset.qid] = result;
+        save(st);
+        return;
+      }
+      if (r.status === 402) {
+        setAiResult(step, 'v-info', '<div class="air-line">'
+          + escHtml((r.data && r.data.message) || 'この単元は購入者向けです。') + '</div>');
+        return;
+      }
+      if (r.status === 401 || r.status === 403) { loginPrompt(step); return; }
+      if (r.status === 429) {
+        setAiResult(step, 'v-info', '<div class="air-line">'
+          + escHtml((r.data && r.data.message) || 'きょうのAI利用が上限に達しました。また明日どうぞ。') + '</div>');
+        return;
+      }
+      aiFallback(step, 'いまAI採点に失敗しました。模範解答を見て自己採点してね。');
+    }).catch(function () {
+      btn.disabled = false;
+      aiFallback(step, '通信に失敗しました。模範解答を見て自己採点してね。');
+    });
+  }
+  // 再訪時に、保存済みの採点結果カードを復元する
+  function restoreGradeCards() {
+    var g = (store() || {}).g || {};
+    [].forEach.call(document.querySelectorAll('.wr-step'), function (step) {
+      var r = g[step.dataset.qid];
+      if (r) renderGradeCard(step, r);
+    });
+  }
 
   // 単元タブの左右矢印: まだ隠れているタブがある側だけ出す
   function updateTabArrows() {
@@ -5447,6 +5629,11 @@
     var rev = e.target.closest('.reveal');
     if (rev) { rev.closest('.step').classList.add('show'); return; }
 
+    var ag = e.target.closest('.ai-grade');
+    if (ag) { gradeWritten(ag.closest('.wr-step'), ag); return; }
+    var aiLogin = e.target.closest('[data-ai-login]');
+    if (aiLogin) { if (window.__tzmAuth) window.__tzmAuth.login(); return; }
+
     var mk = e.target.closest('.mk');
     if (mk) {
       var st = store(); st.r = st.r || {};
@@ -5588,6 +5775,7 @@
   }
   window.addEventListener('hashchange', fromHash);
   fromHash();
+  restoreGradeCards();   // 再訪時に保存済みのAI採点カードを復元
 })();
 </script>
 </body></html>

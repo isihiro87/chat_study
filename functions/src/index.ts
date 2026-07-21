@@ -41,6 +41,9 @@ export { tsudumonActivate } from './tsudumonActivate';
 // 参考書Webページ内チャット（スタ先生。LINEの参考書AIと知識・履歴・回数枠を共有）
 export { referenceChat } from './referenceChat';
 
+// 記述問題のAIその場採点（問題集Web版。購入者ゲート＋LINEのAI枠を共有）
+export { gradeWritten } from './gradeWritten';
+
 // ムビスタ（授業動画アプリ）学習イベントの受け口（users/{uid}.mubista へ集約）
 export { recordMubistaProgress } from './recordMubistaProgress';
 // ムビスタ連携: LINE の link トークンを長命 session に交換する

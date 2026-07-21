@@ -86,7 +86,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-01-time-periods-1',
         q: '紀元前300年は紀元前100年よりも古い時代である。数字の大小と時代の古さの関係を説明しなさい。',
-        keywords: [],
+        keywords: ['紀元前', '西暦1年'],
         model:
           '紀元前は西暦1年に近づくほど数字が小さくなるしくみになっており、数字が大きいほど古い時代を表すから。',
       },
@@ -325,7 +325,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-02-human-origins-2',
         q: '旧石器時代と新石器時代の生活のちがいを、道具と食料の得方に注目して説明しなさい。',
-        keywords: [],
+        keywords: ['打製石器', '磨製石器'],
         model:
           '旧石器時代は打製石器を使い狩猟・採集で移動生活をしたが、新石器時代には磨製石器や土器を使い、農耕・牧畜を始めて定住するようになった。',
       },
@@ -445,9 +445,16 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-02-ancient-civilizations-2',
         q: 'エジプトで太陽暦がつくられた目的を説明しなさい。',
-        keywords: [],
+        keywords: ['ナイル川', '洪水'],
         model:
           'ナイル川の洪水がいつ起こるかを正確に予測し、農耕の準備や種まきの時期を知るためにつくられた。',
+      },
+      {
+        id: 'q-wbw-history-02-ancient-civilizations-3',
+        q: 'インダス文明の都市には、どのような特徴があったか説明しなさい。',
+        keywords: ['計画都市'],
+        model:
+          'モヘンジョ＝ダロに代表されるように、整然とした街路をもつ計画都市が造られていた点に特徴がある。',
       },
     ],
   },
@@ -558,7 +565,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-02-chinese-civilization-1',
         q: '秦が始皇帝の死後、短期間で滅亡した理由を説明しなさい。',
-        keywords: [],
+        keywords: ['法律', '反乱'],
         model:
           '始皇帝の厳しい法律や過酷な労役に人々が苦しみ、その死後各地で一斉に反乱が起こって秦は滅んだから。',
       },
@@ -568,6 +575,13 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
         keywords: ['北方民族'],
         model:
           '北方民族が中国内部へ侵入してくるのを防ぐために、それまで各地にあった長城をつなぎ合わせて築いた。',
+      },
+      {
+        id: 'q-wbw-history-02-chinese-civilization-3',
+        q: '孔子が説いた教えと、それがのちに与えた影響を説明しなさい。',
+        keywords: ['論語', '儒教'],
+        model:
+          '孔子は「仁」と「礼」を説き、その教えは弟子がまとめた論語にしるされ、のちの儒教のもとになった。',
       },
     ],
   },
@@ -685,7 +699,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-02-greece-rome-2',
         q: 'ローマ帝国が地中海周辺の広大な領土を長く維持できた理由を説明しなさい。',
-        keywords: [],
+        keywords: ['道路網', 'ローマ法'],
         model:
           '各地を結ぶ道路網を整備して人や軍隊の移動をしやすくし、市民の権利を定めたローマ法で統治の基盤を整えたから。',
       },
@@ -798,7 +812,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-02-world-religions-1',
         q: 'キリスト教が、最初はローマ帝国から迫害されていたにもかかわらず、4世紀末に国教となったのはなぜか、説明しなさい。',
-        keywords: [],
+        keywords: ['信者', '国教'],
         model:
           'キリスト教は迫害されても信者が増え続け、その広がりを止められなくなったため、ローマ帝国が4世紀末に国教として公認したから。',
       },
@@ -808,6 +822,13 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
         keywords: ['メッカ'],
         model:
           'ムスリムはメッカにあるカーバ神殿の方角に向かって、毎日欠かさず1日5回の礼拝を行うことになっている。',
+      },
+      {
+        id: 'q-wbw-history-02-world-religions-3',
+        q: 'エルサレムが、ユダヤ教・キリスト教・イスラームにとって重要な都市とされているのはなぜか説明しなさい。',
+        keywords: ['イエス', '神殿'],
+        model:
+          'エルサレムはイエスが処刑・復活した地であり、ユダヤ教の神殿があった場所で、ムハンマドが昇天したとされる地でもあり、キリスト教・ユダヤ教・イスラームの聖地が重なっているから。',
       },
     ],
   },
@@ -1037,9 +1058,9 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-03-jomon-era-1',
         q: '岩宿遺跡が発見されたことで、日本の歴史について何が明らかになったか説明しなさい。',
-        keywords: ['岩宿遺跡'],
+        keywords: ['打製石器'],
         model:
-          '群馬県の岩宿遺跡で相沢忠洋が打製石器を発見したことで、日本にも旧石器時代があったことが証明されたから。',
+          '群馬県の岩宿遺跡で相沢忠洋が打製石器を発見したことで、日本にも旧石器時代があったことが明らかになった。',
       },
       {
         id: 'q-wbw-history-03-jomon-era-2',
@@ -1168,6 +1189,13 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
         model:
           '環濠集落のように堀や柵で集落を囲んでいたことから、むらどうしの争いがあり、防御の必要があったことがわかる。',
       },
+      {
+        id: 'q-wbw-history-03-yayoi-era-3',
+        q: '3世紀ごろ、邪馬台国の女王卑弥呼が魏に使いを送った目的を説明しなさい。',
+        keywords: ['親魏倭王'],
+        model:
+          '魏の皇帝から親魏倭王の称号を授かり、倭の王としての地位を認めてもらおうとしたため。',
+      },
     ],
   },
   古墳時代と大和政権: {
@@ -1286,7 +1314,14 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
         q: '古墳に埴輪が並べられた目的を簡単に書きなさい。',
         keywords: ['埴輪'],
         model:
-          '人や動物、家などをかたどった埴輪を並べることで、死者の魂を守るためだったと考えられている。',
+          '人や動物などをかたどった埴輪を古墳の上に並べ、古墳を飾るためにつくられた。',
+      },
+      {
+        id: 'q-wbw-history-03-kofun-era-3',
+        q: '古墳時代に大陸から日本へ移り住んだ渡来人は、どのようなものを伝えたか説明しなさい。',
+        keywords: ['須恵器', '漢字'],
+        model:
+          '渡来人は、須恵器とよばれる硬い土器や漢字、6世紀半ばには仏教などの技術や文化を伝えた。',
       },
     ],
   },
@@ -1523,7 +1558,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-04-shotoku-asuka-1',
         q: 'なぜ聖徳太子は家柄によらない冠位十二階を定めたのか、理由を説明しなさい。',
-        keywords: [],
+        keywords: ['才能', '天皇中心'],
         model:
           '従来は家柄で役人の地位が決まっていたが、才能や功績のある人物を取り立てて天皇中心の政治を進めるため。',
       },
@@ -1533,6 +1568,13 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
         keywords: ['対等'],
         model:
           '「日出づる処の天子」という言葉を用いて、対等な立場で国交を結ぼうとする聖徳太子の意図が込められていた。',
+      },
+      {
+        id: 'q-wbw-history-04-shotoku-asuka-3',
+        q: '聖徳太子が十七条の憲法を定めた目的を説明しなさい。',
+        keywords: ['役人', '心構え'],
+        model:
+          '役人としての心構えを示し、天皇の命令に従わせて天皇中心の政治を整えるために定めた。',
       },
     ],
   },
@@ -1643,7 +1685,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-04-taika-reform-1',
         q: '大化の改新で示された公地・公民とはどのような方針か、説明しなさい。',
-        keywords: [],
+        keywords: ['土地', '人民'],
         model:
           '豪族が土地と人民を私有することをやめさせ、土地と人民を国家（天皇）が直接支配するという方針。',
       },
@@ -1653,6 +1695,13 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
         keywords: ['水城', '防人'],
         model:
           '唐・新羅の侵攻に備え、水城や防人を置くなど九州の防衛を強化し、天皇中心の律令国家づくりを急いだ。',
+      },
+      {
+        id: 'q-wbw-history-04-taika-reform-3',
+        q: '672年に起こった壬申の乱とは、どのような戦いか説明しなさい。',
+        keywords: ['天武天皇'],
+        model:
+          '天智天皇の死後、皇位をめぐって起こった戦いで、勝利した大海人皇子が天武天皇として即位した。',
       },
     ],
   },
@@ -1763,7 +1812,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-04-ritsuryo-nara-1',
         q: '律令とは何か、「律」と「令」の違いにふれて説明しなさい。',
-        keywords: [],
+        keywords: ['刑罰', '政治'],
         model:
           '律は刑罰についての決まり、令は政治のしくみについての決まりで、この2つを合わせて国を治める法である。',
       },
@@ -1773,6 +1822,13 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
         keywords: ['長安'],
         model:
           '唐の都・長安をモデルに、中央の朱雀大路を境に碁盤の目状に区画された、奈良時代の都として造られた。',
+      },
+      {
+        id: 'q-wbw-history-04-ritsuryo-nara-3',
+        q: '律令国家において、地方はどのように治められたか、説明しなさい。',
+        keywords: ['国司', '大宰府'],
+        model:
+          '地方には都から国司が派遣されて政治を行い、九州には外交と防衛を担う大宰府が置かれた。',
       },
     ],
   },
@@ -1890,7 +1946,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-04-handen-tax-2',
         q: '743年に墾田永年私財法が出されると、なぜ荘園が生まれるようになったのか説明しなさい。',
-        keywords: [],
+        keywords: ['永久私有', '私有地'],
         model:
           '開墾した土地の永久私有が認められたため、貴族や寺社が開墾を進めて私有地を広げ、荘園ができていった。',
       },
@@ -2010,7 +2066,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-04-tenpyo-culture-2',
         q: '鑑真が日本に来日するまでにどのような苦労があったか説明しなさい。',
-        keywords: [],
+        keywords: ['渡航', '失明'],
         model:
           '鑑真は日本への渡航に5度失敗し、失明するという苦難を経ながらも、6度目でついに来日を果たした。',
       },
@@ -2130,7 +2186,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-04-heian-capital-2',
         q: '最澄と空海が広めた仏教は、奈良時代の仏教とどのような点が違うか説明しなさい。',
-        keywords: [],
+        keywords: ['比叡山', '高野山'],
         model:
           '奈良時代の仏教が都の大寺院を中心としたのに対し、最澄・空海の仏教は比叡山や高野山など山奥で修行と学問を重んじる山岳仏教であった。',
       },
@@ -2249,10 +2305,10 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       },
       {
         id: 'q-wbw-history-04-sekkan-politics-2',
-        q: '摂関政治と院政の違いを説明しなさい。',
-        keywords: [],
+        q: '摂政と関白は、それぞれどのような立場で天皇を助けたか説明しなさい。',
+        keywords: ['摂政', '関白'],
         model:
-          '摂関政治は天皇の外戚となった藤原氏が実権を握った政治で、院政は退位した天皇である上皇が実権を握った政治である。',
+          '摂政は幼い天皇に代わって政治を行う立場であり、関白は成人した天皇を補佐する立場で天皇を助けた。',
       },
     ],
   },
@@ -2370,7 +2426,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-04-kokufu-culture-2',
         q: '紫式部の『源氏物語』と清少納言の『枕草子』は、それぞれどのような作品か、違いにふれて説明しなさい。',
-        keywords: [],
+        keywords: ['長編物語', '随筆'],
         model:
           '源氏物語は貴族社会を描いた長編物語であるのに対し、枕草子は宮中の暮らしをするどい感性でつづった随筆である。',
       },
@@ -2595,7 +2651,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-05-rise-of-bushi-1',
         q: '10世紀ごろ、地方で武士が成長した背景を説明しなさい。',
-        keywords: [],
+        keywords: ['弓矢', '農民'],
         model:
           '地方の治安が乱れる中で、弓矢や馬の技にすぐれた地方の有力者や農民が武器を持ち、力をつけていったから。',
       },
@@ -2722,7 +2778,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-05-insei-taira-2',
         q: '平氏の政治が「平氏にあらずんば人にあらず」と言われるほど反発を招いたのはなぜか、説明しなさい。',
-        keywords: [],
+        keywords: ['独占'],
         model:
           '平氏が朝廷の重要な役職や全国の荘園などの領地を一族で独占し、他の貴族や武士の不満を招いたから。',
       },
@@ -2842,9 +2898,16 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-05-kamakura-bakufu-2',
         q: '承久の乱のあと、幕府が京都に六波羅探題を置いた目的を説明しなさい。',
-        keywords: [],
+        keywords: ['承久の乱'],
         model:
           '承久の乱に勝利した幕府が、京都の朝廷の動きを監視し、幕府の支配を西日本にも広げるために置いた。',
+      },
+      {
+        id: 'q-wbw-history-05-kamakura-bakufu-3',
+        q: '源頼朝は、国ごとと荘園・公領ごとにそれぞれどのような役職を置いたか、説明しなさい。',
+        keywords: ['守護', '地頭'],
+        model:
+          '国ごとに軍事や警察を担当する守護を置き、荘園や公領ごとに年貢の取り立てや土地の管理を行う地頭を置いた。',
       },
     ],
   },
@@ -3075,7 +3138,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-05-kamakura-culture-1',
         q: '法然と親鸞の教えの違いを説明しなさい。',
-        keywords: [],
+        keywords: ['浄土宗', '浄土真宗'],
         model:
           '法然は念仏を唱えれば誰でも救われると説いて浄土宗を開き、弟子の親鸞は悪人正機を説いて浄土真宗を開いた。',
       },
@@ -3085,6 +3148,13 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
         keywords: ['琵琶法師'],
         model:
           '琵琶法師が琵琶の伴奏に合わせて平家物語を各地で語り歩き、文字が読めない人々にも物語を伝えたから。',
+      },
+      {
+        id: 'q-wbw-history-05-kamakura-culture-3',
+        q: '金剛力士像は運慶・快慶らによってつくられた。この像に見られる鎌倉文化の特色を説明しなさい。',
+        keywords: ['写実的', '武士'],
+        model:
+          '金剛力士像は、写実的で力強く表現されており、武士の気風を反映した鎌倉文化の特色がよく表れている。',
       },
     ],
   },
@@ -3307,16 +3377,9 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-06-mongol-empire-1',
         q: 'チンギス・ハンが建てたモンゴル帝国が、短期間でユーラシア大陸にまたがる大帝国になれた理由を説明しなさい。',
-        keywords: [],
+        keywords: ['遊牧民', '騎馬軍'],
         model:
           'モンゴル高原の遊牧民を統一したチンギス・ハンが、機動力にすぐれた騎馬軍を率いて広い地域を次々に征服していったから。',
-      },
-      {
-        id: 'q-wbw-history-06-mongol-empire-2',
-        q: 'モンゴル帝国が征服した地域を支配する際にとった統治のしくみを説明しなさい。',
-        keywords: [],
-        model:
-          'モンゴル帝国は征服した地域の宗教や言語をそのまま認め、無理に同化させない柔軟な統治を行った。',
       },
     ],
   },
@@ -3434,9 +3497,16 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-06-mongol-invasion-2',
         q: '元軍の戦い方は、それまでの日本の武士の戦い方とどう違っていたか、説明しなさい。',
-        keywords: [],
+        keywords: ['集団戦法', 'てつはう'],
         model:
           '武士が一騎打ちを中心とする戦い方をしていたのに対し、元軍は集団戦法や火薬を使うてつはうで攻めてきた。',
+      },
+      {
+        id: 'q-wbw-history-06-mongol-invasion-3',
+        q: '二度にわたる元軍の襲来を、日本が退けることができた理由を説明しなさい。',
+        keywords: ['防塁', '暴風雨'],
+        model:
+          '1274年の文永の役では、御家人は集団戦法やてつはうに苦しんだが、暴風雨などによって元軍が撤退し、その後に博多湾に防塁を築いた。1281年の弘安の役では、この防塁が上陸を防ぎ、さらに暴風雨によって元軍が大きな損害を受けて引きあげたから。',
       },
     ],
   },
@@ -3674,7 +3744,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-06-east-asia-trade-2',
         q: '琉球王国が中継貿易で栄えた理由を説明しなさい。',
-        keywords: [],
+        keywords: ['中継貿易'],
         model:
           '日本・中国・朝鮮・東南アジアを結ぶ地理的な位置を生かし、各地の産物を運んで利益を得る中継貿易を行ったから。',
       },
@@ -3787,16 +3857,23 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-06-muromachi-industry-1',
         q: '商工業者が座をつくった目的を説明しなさい。',
-        keywords: [],
+        keywords: ['同業者', '独占'],
         model:
           '商工業者が同業者ごとに座をつくり、寺社に税を納める代わりに営業の独占権を得ることを目指した。',
       },
       {
         id: 'q-wbw-history-06-muromachi-industry-2',
         q: '座が営業を独占したことが、自由な商業にどのような影響をあたえたか、説明しなさい。',
-        keywords: [],
+        keywords: ['独占'],
         model:
           '座は寺社の保護のもとで営業を独占したため、新しい商人が自由に参入して競争することを妨げる面があった。',
+      },
+      {
+        id: 'q-wbw-history-06-muromachi-industry-3',
+        q: '室町時代に開かれた定期市の回数は、鎌倉時代と比べてどのように変化したか、説明しなさい。',
+        keywords: ['六斎市'],
+        model:
+          '鎌倉時代には月3回開かれた三斎市が、室町時代には月6回開かれる六斎市へと増え、商業がいっそう活発になった。',
       },
     ],
   },
@@ -4027,7 +4104,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-06-kitayama-culture-1',
         q: '金閣の建築が三つの様式を組み合わせていることは、何を表しているか、説明しなさい。',
-        keywords: [],
+        keywords: ['公家', '武家'],
         model:
           '金閣は1層が寝殿造、2層が武家造、3層が禅宗様となっており、公家と武家の文化が融合したことを表している。',
       },
@@ -4154,9 +4231,16 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-06-higashiyama-culture-2',
         q: '枯山水の庭園は何を用いて、どのように自然を表現しているか、説明しなさい。',
-        keywords: [],
+        keywords: ['石', '砂'],
         model:
           '水を使わず、石や砂を用いて山や水などの自然の風景を表現する、禅宗の影響を受けた室町時代の庭園である。',
+      },
+      {
+        id: 'q-wbw-history-06-higashiyama-culture-3',
+        q: '雪舟は、明で学んだ技法をもとに日本でどのような絵画を大成したか、説明しなさい。',
+        keywords: ['水墨画'],
+        model:
+          '雪舟は、明で学んだ技法をもとに、墨一色の濃淡で自然の風景をえがく水墨画を日本で大成した。',
       },
     ],
   },
@@ -4400,7 +4484,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-07-europe-change-1',
         q: '十字軍の遠征は、ヨーロッパにどのような影響をもたらしたか、説明しなさい。',
-        keywords: [],
+        keywords: ['教皇'],
         model:
           '聖地の奪還には失敗して教皇の権威はかえって低下したが、東西の交流が活発になるきっかけとなった。',
       },
@@ -4410,6 +4494,13 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
         keywords: ['免罪符'],
         model:
           'ローマ教会が資金集めのために売り出した、買えば罪が許されるとされる免罪符の販売をルターが批判したから。',
+      },
+      {
+        id: 'q-wbw-history-07-europe-change-3',
+        q: '14世紀ごろのイタリアから広まったルネサンスとは、どのような文化の動きか、説明しなさい。',
+        keywords: ['ギリシャ・ローマ'],
+        model:
+          '古代ギリシャ・ローマの文化を理想として学び直し、人間そのもののあり方を見つめ直そうとする文化の動きである。',
       },
     ],
   },
@@ -4527,7 +4618,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-07-europe-spread-2',
         q: '三角貿易とは、どのようなしくみの貿易か、説明しなさい。',
-        keywords: [],
+        keywords: ['奴隷'],
         model:
           'ヨーロッパが武器などをアフリカへ運び、アフリカの人々を奴隷として強制的にアメリカ大陸へ送る貿易のしくみである。',
       },
@@ -4640,9 +4731,9 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-07-nanban-trade-1',
         q: '鉄砲が日本に伝来したことは、戦国大名の戦い方にどのような影響を与えたか、説明しなさい。',
-        keywords: [],
+        keywords: ['足軽', '集団戦法'],
         model:
-          '鉄砲が近江の国友や和泉の堺で量産されるようになり、戦国大名同士の戦い方が大きく変化していった。',
+          '足軽による鉄砲隊を用いた集団戦法が広まり、騎馬武者中心の戦いから足軽鉄砲隊中心の戦いへと変化した。長篠の戦いはその代表例であり、城づくりも鉄砲に備えた構えへと変わっていった。',
       },
       {
         id: 'q-wbw-history-07-nanban-trade-2',
@@ -4650,6 +4741,13 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
         keywords: ['南蛮貿易'],
         model:
           '南蛮貿易によって得られる鉄砲や生糸などの利益を確保することを目的として、キリスト教を受け入れる大名が現れたから。',
+      },
+      {
+        id: 'q-wbw-history-07-nanban-trade-3',
+        q: '1549年に日本へ初めてキリスト教を伝えた人物と、そのできごとを説明しなさい。',
+        keywords: ['ザビエル'],
+        model:
+          'イエズス会の宣教師フランシスコ・ザビエルが鹿児島に来て、日本に初めてキリスト教を伝えた。',
       },
     ],
   },
@@ -4767,9 +4865,16 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-07-nobunaga-hideyoshi-2',
         q: '1587年に秀吉が出したバテレン追放令の内容について、貿易との関係にふれて説明しなさい。',
-        keywords: [],
+        keywords: ['宣教師'],
         model:
           '秀吉が宣教師の国外追放を命じた法令だが、南蛮貿易そのものはすぐには禁止されず、その後も継続して行われた。',
+      },
+      {
+        id: 'q-wbw-history-07-nobunaga-hideyoshi-3',
+        q: '1575年の長篠の戦いで、信長がとった新しい戦法を説明しなさい。',
+        keywords: ['鉄砲', '足軽'],
+        model:
+          '信長は足軽による鉄砲隊を組織し、大量の鉄砲を用いて武田氏の騎馬隊を破った。',
       },
     ],
   },
@@ -4880,7 +4985,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-07-hideyoshi-policy-1',
         q: '太閤検地によって、百姓にはどのような権利と義務が生じたか、説明しなさい。',
-        keywords: [],
+        keywords: ['石高', '年貢'],
         model:
           '百姓は土地を耕作する権利を保障される代わりに、石高に応じて年貢を納める義務を負うことになった。',
       },
@@ -5007,9 +5112,16 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-07-momoyama-culture-2',
         q: '千利休が完成させた「わび茶」は、桃山文化の中でどのような特徴を持つ様式か、説明しなさい。',
-        keywords: [],
+        keywords: ['質素'],
         model:
           '大名や豪商による豪華な文化が広がる中で、静かで質素な美しさを追い求める、はなやかさをおさえた茶道の様式である。',
+      },
+      {
+        id: 'q-wbw-history-07-momoyama-culture-3',
+        q: '狩野永徳らがえがいた、桃山文化を代表する絵画について説明しなさい。',
+        keywords: ['障壁画'],
+        model:
+          '城のふすまやびょうぶに、金ぱくを使って自然などを豪華にえがいた障壁画が、桃山文化を代表する絵画としてえがかれた。',
       },
     ],
   },
@@ -5239,7 +5351,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-08-edo-bakufu-1',
         q: '参勤交代はどのような目的で行われたか、説明しなさい。',
-        keywords: [],
+        keywords: ['大名', '費用'],
         model:
           '大名に江戸と領地を1年おきに往復させることで多くの費用を負わせ、幕府に反抗する力を弱めるため。',
       },
@@ -5248,7 +5360,14 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
         q: '親藩・譜代大名・外様大名の違いを説明しなさい。',
         keywords: ['外様大名'],
         model:
-          '親藩は徳川家の一族、譜代は関ヶ原以前からの家臣で、外様大名は関ヶ原の前後に従った大名として江戸から遠い地に配置された。',
+          '親藩は徳川家の一族、譜代は関ヶ原の戦い以前からの家臣で、外様大名は関ヶ原の戦い以後に従った大名として江戸から遠い地に配置された。',
+      },
+      {
+        id: 'q-wbw-history-08-edo-bakufu-3',
+        q: '幕藩体制とはどのようなしくみか、説明しなさい。',
+        keywords: ['大名', '統制'],
+        model:
+          '幕府が大名（藩）を統制し、藩がそれぞれの領地を治めることで全国を支配するしくみ。',
       },
     ],
   },
@@ -5359,7 +5478,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-08-sakoku-1',
         q: '幕府が禁教令を出してキリスト教を禁止した理由を説明しなさい。',
-        keywords: [],
+        keywords: ['結びつき', '支配'],
         model:
           'キリスト教の信仰が広まって信者どうしの結びつきが強まり、幕府の支配がゆらぐことを恐れたため。',
       },
@@ -5369,6 +5488,13 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
         keywords: ['絵踏', '寺請制度'],
         model:
           'キリストやマリアの絵を踏ませる絵踏を行い、また人々を寺院に登録させる寺請制度によって信者でないことを証明させた。',
+      },
+      {
+        id: 'q-wbw-history-08-sakoku-3',
+        q: '1637年に起こった島原・天草一揆とはどのような一揆か、説明しなさい。',
+        keywords: ['天草四郎', '年貢'],
+        model:
+          '重い年貢とキリスト教への弾圧に苦しむ人々が、天草四郎を大将にして起こした大規模な一揆。',
       },
     ],
   },
@@ -5479,7 +5605,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-08-foreign-relations-edo-2',
         q: '長崎・対馬・薩摩・松前の四つの窓口が、それぞれどこと交流したかを説明しなさい。',
-        keywords: [],
+        keywords: ['朝鮮', 'アイヌ'],
         model:
           '長崎はオランダと清、対馬は朝鮮、薩摩は琉球、松前はアイヌとの交流をそれぞれ担当する窓口となった。',
       },
@@ -5599,7 +5725,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-08-ryukyu-ainu-2',
         q: 'シャクシャインがアイヌの人々を率いて松前藩に蜂起した理由を説明しなさい。',
-        keywords: [],
+        keywords: ['松前藩', '不公平'],
         model:
           '松前藩との交易条件が不公平で、アイヌの人々の生活を圧迫していることへの不満が高まったため。',
       },
@@ -5719,9 +5845,16 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-08-social-classes-2',
         q: '本百姓と水のみ百姓の違いを説明しなさい。',
-        keywords: [],
+        keywords: ['土地', '小作'],
         model:
           '本百姓は自分の土地を持ち年貢を負担して村役人も務めたが、水のみ百姓は土地を持たず小作を行い貧しい暮らしを強いられた。',
+      },
+      {
+        id: 'q-wbw-history-08-social-classes-3',
+        q: '江戸時代の百姓が負った年貢の負担について、「五公五民」の語を使って説明しなさい。',
+        keywords: ['五公五民'],
+        model:
+          '百姓は収穫の半分を年貢として領主に納める五公五民のような重い負担を課されることもあった。',
       },
     ],
   },
@@ -5818,9 +5951,16 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-08-edo-politics-reforms-2',
         q: '田沼意次の政治が批判された理由を説明しなさい。',
-        keywords: [],
+        keywords: ['株仲間', 'わいろ'],
         model:
           '株仲間を奨励するなど商業の力で幕府収入を増やそうとしたが、商人と役人の結びつきが強まりわいろが横行したため。',
+      },
+      {
+        id: 'q-wbw-history-08-edo-politics-reforms-3',
+        q: '8代将軍徳川吉宗が行った享保の改革の目的を説明しなさい。',
+        keywords: ['徳川吉宗', '財政'],
+        model:
+          '8代将軍徳川吉宗が、質素倹約や新田開発、上げ米などを進めて幕府の財政を立て直そうとした。',
       },
     ],
   },
@@ -6051,7 +6191,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-08-edo-industry-society-2',
         q: '江戸後期に百姓一揆や打ちこわしが増えた理由を説明しなさい。',
-        keywords: [],
+        keywords: ['ききん', '米価'],
         model:
           '冷害によるききんが相次いで米価が上がり、年貢の重さや生活の苦しさに対する人々の不満が高まったため。',
       },
@@ -6164,16 +6304,16 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-08-edo-culture-learning-1',
         q: '元禄文化と化政文化の違いを説明しなさい。',
-        keywords: [],
+        keywords: ['上方', '江戸'],
         model:
           '元禄文化は17世紀後半に上方を中心に栄えた文化で、化政文化は19世紀前半に江戸を中心に広がった庶民文化である。',
       },
       {
         id: 'q-wbw-history-08-edo-culture-learning-2',
-        q: '寺子屋とはどのような場所か、説明しなさい。',
-        keywords: ['寺子屋'],
+        q: '杉田玄白らがヨーロッパの解剖書を翻訳して出版した『解体新書』は、どのような学問が発展するきっかけとなったか、説明しなさい。',
+        keywords: ['蘭学', 'オランダ語'],
         model:
-          '僧侶や浪人などが教師となって、庶民の子どもが読み書きやそろばんを学んだ寺子屋という場所のこと。',
+          'オランダ語を通じて西洋の医学や科学を学ぶ蘭学が発展するきっかけとなった。',
       },
     ],
   },
@@ -6396,7 +6536,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-09-british-revolution-2',
         q: '立憲君主制とはどのようなしくみか、説明しなさい。',
-        keywords: [],
+        keywords: ['憲法', '議会'],
         model:
           '国王は国の象徴として残るが、実際の政治は憲法に基づいて議会と内閣が動かし、王の権力が制限されるしくみ。',
       },
@@ -6481,7 +6621,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-09-american-independence-1',
         q: 'アメリカ植民地の人々が「代表なくして課税なし」と反発したのはなぜか、説明しなさい。',
-        keywords: [],
+        keywords: ['議会', '税'],
         model:
           '植民地からの代表が一人もいないイギリス本国の議会が、植民地に対して勝手に重い税を課したから。',
       },
@@ -6491,6 +6631,13 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
         keywords: ['連邦制'],
         model:
           '各州が自治権を持つ連邦制をとり、外交や軍事などは中央の連邦政府がまとめて担うようにするため。',
+      },
+      {
+        id: 'q-wbw-history-09-american-independence-3',
+        q: 'アメリカ独立宣言にはどのような考えが示されたか、説明しなさい。',
+        keywords: ['ロック', '権利'],
+        model:
+          'ロックの思想の影響を受け、生命・自由・幸福を求める権利は生まれながらのものであると宣言した。',
       },
     ],
   },
@@ -6608,9 +6755,16 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-09-french-revolution-2',
         q: 'ナポレオン法典が制定されたことで、どのような影響があったか説明しなさい。',
-        keywords: [],
+        keywords: ['自由', '財産権'],
         model:
           '個人の自由と財産権が法律によって保障されるようになり、その内容はその後の各国の法律にも影響を与えた。',
+      },
+      {
+        id: 'q-wbw-history-09-french-revolution-3',
+        q: 'フランス革命で発表された人権宣言には、どのような内容が示されたか説明しなさい。',
+        keywords: ['平等', '自由'],
+        model:
+          '人は生まれながらに自由で平等な権利を持つとし、「自由・平等・友愛」の理想を掲げた。',
       },
     ],
   },
@@ -6707,7 +6861,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-09-nationalism-europe-1',
         q: 'ビスマルクが進めた鉄血政策とはどのような政策か、説明しなさい。',
-        keywords: [],
+        keywords: ['軍備', 'ドイツ統一'],
         model:
           '議会での話し合いよりも軍備の増強を重視し、軍事力によってドイツ統一を成し遂げようとする政策。',
       },
@@ -6802,13 +6956,6 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
         keywords: ['不凍港'],
         model:
           '冬でも凍らない不凍港を得るために、黒海や地中海、さらに東アジア方面まで勢力を広げようとしたため。',
-      },
-      {
-        id: 'q-wbw-history-09-russia-expansion-2',
-        q: 'イギリスがロシアの南下政策を強く警戒したのはなぜか、説明しなさい。',
-        keywords: [],
-        model:
-          'ロシアが南下に成功すると、イギリスの植民地であるインドへの通商路が脅かされることを恐れたから。',
       },
     ],
   },
@@ -6905,7 +7052,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-09-america-expansion-2',
         q: '奴隷解放宣言を出したことで、南北戦争にどのような影響があったか説明しなさい。',
-        keywords: [],
+        keywords: ['国際世論', '北部'],
         model:
           '奴隷解放宣言によって国際世論が北部の側についたことで、工業力に勝る北部が南北戦争に勝利する助けとなった。',
       },
@@ -7025,9 +7172,16 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-09-industrial-revolution-2',
         q: '産業革命後、労働者が労働組合を結成したのはなぜか、説明しなさい。',
-        keywords: [],
+        keywords: ['労働条件', '権利'],
         model:
           '長時間労働や低賃金といった過酷な労働条件に苦しんだ労働者が、自分たちの権利を守る必要があったから。',
+      },
+      {
+        id: 'q-wbw-history-09-industrial-revolution-3',
+        q: '19世紀にマルクスが唱えた社会主義とはどのような考えか、説明しなさい。',
+        keywords: ['資本主義', '平等'],
+        model:
+          '資本主義の下で広がった貧富の差をなくし、労働者を中心とした平等な社会をつくろうとする考え。',
       },
     ],
   },
@@ -7131,7 +7285,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-09-western-asia-invasion-1',
         q: 'イギリスが行った三角貿易とはどのようなしくみか、説明しなさい。',
-        keywords: [],
+        keywords: ['アヘン', '綿織物'],
         model:
           'イギリスが綿織物をインドに、インドがアヘンを清に、清が茶をイギリスに輸出する貿易のしくみ。',
       },
@@ -7141,6 +7295,13 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
         keywords: ['関税自主権'],
         model:
           '南京条約で清は香港を割譲し5港を開港させられたうえ、輸入品の税率を自国で決める関税自主権も失った。',
+      },
+      {
+        id: 'q-wbw-history-09-western-asia-invasion-3',
+        q: '1857年にインドで起こったインド大反乱とはどのような反乱で、その後どうなったか説明しなさい。',
+        keywords: ['反発', '直接統治'],
+        model:
+          'イギリスの支配に反発したインドの人々が起こした大規模な反乱で、鎮圧後はイギリスによる直接統治が強められた。',
       },
     ],
   },
@@ -7391,9 +7552,16 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-10-opening-japan-2',
         q: '日米和親条約と日米修好通商条約の内容の違いを説明しなさい。',
-        keywords: [],
+        keywords: ['領事裁判権', '関税自主権'],
         model:
           '和親条約は下田・函館の2港を開いただけだったが、修好通商条約はさらに開港を広げたうえ、領事裁判権を認め関税自主権を持たない不平等な条約だった。',
+      },
+      {
+        id: 'q-wbw-history-10-opening-japan-3',
+        q: '大老井伊直弼が結んだ日米修好通商条約は、手続きの面でどのような問題があったか説明しなさい。',
+        keywords: ['勅許', '朝廷'],
+        model:
+          '朝廷（天皇）の許可である勅許を得ないまま条約を結んだため、尊王攘夷派の反発を招いた。',
       },
     ],
   },
@@ -7511,7 +7679,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-10-post-opening-2',
         q: '開港後、日本から金が大量に海外へ流出した理由を説明しなさい。',
-        keywords: [],
+        keywords: ['交換比率', '金'],
         model:
           '日本と海外で金と銀の交換比率が大きく違ったため、外国商人が銀を持ち込んで日本の金を安く買い、大量に国外へ持ち出したから。',
       },
@@ -7631,9 +7799,16 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-10-fall-of-bakufu-2',
         q: '大政奉還と王政復古の大号令の違いを簡単に説明しなさい。',
-        keywords: [],
+        keywords: ['政権', '天皇'],
         model:
           '大政奉還は徳川慶喜が政権を朝廷に返したことで、王政復古の大号令はその後天皇中心の新政府の樹立を宣言したことである。',
+      },
+      {
+        id: 'q-wbw-history-10-fall-of-bakufu-3',
+        q: '1866年に結ばれた薩長同盟は、どのようにして成立し、どのような意味を持ったか説明しなさい。',
+        keywords: ['坂本龍馬', '倒幕'],
+        model:
+          '土佐藩出身の坂本龍馬の仲立ちで、対立していた薩摩藩と長州藩が同盟を結び、倒幕の中心勢力が固まった。',
       },
     ],
   },
@@ -7863,9 +8038,16 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-11-meiji-restoration-2',
         q: '四民平等によって、江戸時代の身分制度はどのようなしくみに変わったか説明しなさい。',
-        keywords: [],
+        keywords: ['華族', '平民'],
         model:
           '公家・大名を華族、武士を士族、農工商を平民とする身分に再編し、職業や結婚の自由を認めるしくみに変わった。',
+      },
+      {
+        id: 'q-wbw-history-11-meiji-restoration-3',
+        q: '1868年に出された五箇条の御誓文は、どのような目的で発表されたか説明しなさい。',
+        keywords: ['明治天皇', '方針'],
+        model:
+          '明治天皇が公家や諸侯に対して、新しい国づくりの政治の基本方針を示すために発表した。',
       },
     ],
   },
@@ -7976,7 +8158,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-11-three-reforms-1',
         q: '1872年に出された学制に対して、反対する人が多かったのはなぜか説明しなさい。',
-        keywords: [],
+        keywords: ['授業料'],
         model:
           '学制では6歳以上の子どもに教育を受けさせるための授業料を家庭が負担しなければならず、その負担が重かったから。',
       },
@@ -7986,6 +8168,13 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
         keywords: ['地価', '現金'],
         model:
           '土地の価格である地価の3%を土地所有者が現金で納めるしくみとし、米の収穫高や米価の変動に左右されず、政府の税収を安定させた。',
+      },
+      {
+        id: 'q-wbw-history-11-three-reforms-3',
+        q: '1873年に定められた徴兵令は、どのようなしくみの制度だったか説明しなさい。',
+        keywords: ['国民皆兵'],
+        model:
+          '満20歳になった男子に兵役を課し、士族・平民の区別なく兵役を負う国民皆兵の原則をとる制度だった。',
       },
     ],
   },
@@ -8103,7 +8292,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-11-fukoku-kyohei-2',
         q: '文明開化とは何か、人々の生活がどのように変化したか説明しなさい。',
-        keywords: [],
+        keywords: ['生活様式', 'ガス灯'],
         model:
           '欧米の文化や生活様式が都市を中心に広まり、ガス灯の設置や牛鍋を食べる習慣など、人々の暮らしが大きく変化したこと。',
       },
@@ -8216,7 +8405,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-11-international-relations-1',
         q: '1873年に征韓論が否決された結果、どのようなことが起こったか説明しなさい。',
-        keywords: [],
+        keywords: ['西郷隆盛'],
         model:
           '征韓論が岩倉具視・大久保利通らに否決され、これを主張していた西郷隆盛や板垣退助らが政府を去った。',
       },
@@ -8343,7 +8532,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-11-freedom-movement-2',
         q: '自由党と立憲改進党は、それぞれどの国を手本とし、どのような政治を理想としたか違いを説明しなさい。',
-        keywords: [],
+        keywords: ['フランス', 'イギリス'],
         model:
           '自由党はフランス流の急進的な自由主義で主権在民を理想としたのに対し、立憲改進党はイギリス流の穏健な立憲君主政を理想とした。',
       },
@@ -8456,7 +8645,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-11-constitution-1',
         q: '伊藤博文はなぜプロイセン(ドイツ)の憲法を手本にしたのか説明しなさい。',
-        keywords: [],
+        keywords: ['君主', '天皇主権'],
         model:
           'プロイセン憲法は君主の権限が強く議会の権限を制限していたため、天皇主権を維持したい明治政府の方針に合っていたから。',
       },
@@ -8466,6 +8655,13 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
         keywords: ['貴族院', '衆議院'],
         model:
           '皇族・華族や天皇の任命議員からなる貴族院と、直接国税15円以上を納める満25歳以上の男子が選ぶ衆議院からなる二院制の議会だった。',
+      },
+      {
+        id: 'q-wbw-history-11-constitution-3',
+        q: '大日本帝国憲法では、主権のあり方と国民の権利はどのように定められていたか説明しなさい。',
+        keywords: ['天皇', '臣民'],
+        model:
+          '主権は天皇にあり、国民は臣民と呼ばれ、その権利は法律の範囲内で認められるにとどまった。',
       },
     ],
   },
@@ -8702,7 +8898,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-12-treaty-revision-2',
         q: '条約改正における領事裁判権の撤廃と関税自主権の回復の違いを説明しなさい。',
-        keywords: [],
+        keywords: ['領事裁判権', '関税自主権'],
         model:
           '領事裁判権は外国人を日本の法律で裁けない権利の撤廃、関税自主権は輸入品の税率を自国で決める権利の回復で、内容が異なる。',
       },
@@ -8801,7 +8997,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-12-sino-japanese-war-1',
         q: '三国干渉でロシアがドイツ・フランスを誘って日本に迫った目的を説明しなさい。',
-        keywords: [],
+        keywords: ['遼東半島', '南下政策'],
         model:
           '満州や朝鮮への進出を狙うロシアが、自国の南下政策の妨げになる日本の遼東半島領有を阻止しようとしたから。',
       },
@@ -8811,6 +9007,12 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
         keywords: ['臥薪嘗胆'],
         model:
           '遼東半島返還の屈辱に国民は「臥薪嘗胆」を合言葉に耐え忍び、ロシアへの対抗心を強めていった。',
+      },
+      {
+        id: 'q-wbw-history-12-sino-japanese-war-3',
+        q: '1895年に結ばれた下関条約で、日本が清から得たものを説明しなさい。',
+        keywords: ['台湾', '賠償金'],
+        model: '日本は清から遼東半島や台湾などの領土と、多額の賠償金を得た。',
       },
     ],
   },
@@ -8928,9 +9130,16 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-12-russo-japanese-war-2',
         q: '日比谷焼き打ち事件が起こった理由を説明しなさい。',
-        keywords: [],
+        keywords: ['ポーツマス条約', '賠償金'],
         model:
           '多くの犠牲を払った戦争なのに、ポーツマス条約で賠償金を得られなかったことに民衆が怒りを爆発させたから。',
+      },
+      {
+        id: 'q-wbw-history-12-russo-japanese-war-3',
+        q: '日露戦争に対して、内村鑑三や与謝野晶子はどのような立場をとったか説明しなさい。',
+        keywords: ['内村鑑三', '与謝野晶子'],
+        model:
+          'キリスト教徒の内村鑑三や歌人の与謝野晶子は、戦争に反対する立場を表明した。',
       },
     ],
   },
@@ -9048,7 +9257,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-12-korea-annexation-2',
         q: '孫文が唱えた三民主義の内容を簡単に説明しなさい。',
-        keywords: [],
+        keywords: ['孫文', '三民主義'],
         model:
           '孫文が唱えた三民主義は、民族の独立、国民の政治参加、人々の生活安定を目指す3つの理念からなる考え方である。',
       },
@@ -9161,7 +9370,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-12-industrial-revolution-1',
         q: '八幡製鉄所はどのような目的、財源で建設されたか説明しなさい。',
-        keywords: [],
+        keywords: ['賠償金', '重工業'],
         model:
           '日清戦争で得た賠償金などを建設費に充てて1901年に操業を始め、日本の重工業と鉄鋼の自給を進めるために建設された。',
       },
@@ -9280,17 +9489,24 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
     written: [
       {
         id: 'q-wbw-history-12-meiji-culture-1',
+        q: '「坊っちゃん」などの小説を書き、近代日本人の心のあり方を描いた明治を代表する作家はだれか、その作品にもふれて説明しなさい。',
+        keywords: ['夏目漱石', '坊っちゃん'],
+        model:
+          '夏目漱石で、「坊っちゃん」や「吾輩は猫である」などの小説で近代日本人の苦悩を描いた。',
+      },
+      {
+        id: 'q-wbw-history-12-meiji-culture-2',
+        q: '破傷風の血清療法を確立し、日本の細菌学の発展に貢献した医学者はだれか説明しなさい。',
+        keywords: ['北里柴三郎'],
+        model:
+          '北里柴三郎で、破傷風の血清療法を確立するなど、細菌学の分野で世界的な業績をあげた。',
+      },
+      {
+        id: 'q-wbw-history-12-meiji-culture-3',
         q: '1907年の義務教育年限延長がもたらした影響を説明しなさい。',
         keywords: ['義務教育'],
         model:
           '義務教育が小学校4年から6年に延長され、就学率がほぼ100%に達するなど国民教育の普及が進んだ。',
-      },
-      {
-        id: 'q-wbw-history-12-meiji-culture-2',
-        q: '教育勅語が発布された目的を説明しなさい。',
-        keywords: [],
-        model:
-          '教育勅語は、国民道徳の基本を示すために発布され、忠君愛国を説いて戦前の国民教育の柱となる目的があった。',
       },
     ],
   },
@@ -9506,7 +9722,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-13-ww1-outbreak-1',
         q: 'バルカン半島が「ヨーロッパの火薬庫」と呼ばれたのはなぜか、説明しなさい。',
-        keywords: [],
+        keywords: ['民族', '宗教'],
         model:
           '民族や宗教の対立が複雑に絡み合い、周辺の大国の利害もからんで、いつ戦争が起きてもおかしくない地域だったから。',
       },
@@ -9516,6 +9732,13 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
         keywords: ['科学技術'],
         model:
           '兵士だけでなく国民・経済・科学技術など、国のあらゆる力を戦争のために総動員する戦争だったから。',
+      },
+      {
+        id: 'q-wbw-history-13-ww1-outbreak-3',
+        q: '第一次世界大戦のきっかけとなったサラエボ事件とはどのようなできごとか説明しなさい。',
+        keywords: ['オーストリア', '皇太子'],
+        model:
+          'バルカン半島のサラエボで、オーストリアの皇太子夫妻が暗殺された事件で、これをきっかけに第一次世界大戦が始まった。',
       },
     ],
   },
@@ -9605,7 +9828,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-13-japan-in-ww1-1',
         q: '日本が二十一か条の要求を中国に突きつけた目的を説明しなさい。',
-        keywords: [],
+        keywords: ['山東省', '権益'],
         model:
           '中国の山東省にあったドイツの権益を日本が引き継ぐことなどを認めさせ、中国での権益拡大をねらったこと。',
       },
@@ -9615,6 +9838,13 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
         keywords: ['シベリア出兵'],
         model:
           'シベリア出兵を見越した米の買い占めなどで米価が急騰し、生活に困った人々が抗議に立ち上がったから。',
+      },
+      {
+        id: 'q-wbw-history-13-japan-in-ww1-3',
+        q: '第一次世界大戦中に日本で大戦景気が起こったのはなぜか説明しなさい。',
+        keywords: ['輸出', '需要'],
+        model:
+          'ヨーロッパ諸国の輸出が滞ったことで、日本の製品の需要が拡大したから。',
       },
     ],
   },
@@ -9697,7 +9927,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-13-russian-revolution-1',
         q: '1917年にロシア革命が起こった背景を説明しなさい。',
-        keywords: [],
+        keywords: ['食糧', '疲弊'],
         model:
           '第一次世界大戦が長期化するなか、物資や食糧の不足で国民が疲弊し、政治への不満が高まっていたから。',
       },
@@ -9810,7 +10040,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-13-postwar-order-2',
         q: '民族自決の原則は、アジアの人々にどのような影響を与えたか、説明しなさい。',
-        keywords: [],
+        keywords: ['三・一独立運動', '五・四運動'],
         model:
           '民族自決の考えに刺激され、朝鮮の三・一独立運動や中国の五・四運動など、独立や反帝国主義を求める動きが広がった。',
       },
@@ -10056,9 +10286,16 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-14-political-reform-2',
         q: '1925年に普通選挙法と治安維持法が同時に制定されたことの影響を説明しなさい。',
-        keywords: [],
+        keywords: ['有権者', '社会主義'],
         model:
           '有権者が大幅に増えて政治参加が広がった一方、社会主義など反体制思想の取り締まりも強まった。',
+      },
+      {
+        id: 'q-wbw-history-14-political-reform-3',
+        q: '吉野作造が唱えた民本主義とはどのような考えか、説明しなさい。',
+        keywords: ['民本主義', '民衆'],
+        model:
+          '天皇が主権を持つ大日本帝国憲法のもとでも、民衆の意思にもとづいて政治を行うべきだという民本主義の考え。',
       },
     ],
   },
@@ -10155,7 +10392,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-14-social-movements-1',
         q: '新婦人協会が治安警察法第5条の改正を求めた目的を説明しなさい。',
-        keywords: [],
+        keywords: ['治安警察法', '政治参加'],
         model:
           '女性の政治集会への参加を禁じていた治安警察法第5条を改正させ、女性の政治参加を実現するため。',
       },
@@ -10165,6 +10402,13 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
         keywords: ['デマ'],
         model:
           '「朝鮮人が井戸に毒を入れた」などのデマが広まり、自警団により多くの朝鮮人・中国人が迫害される事件が起きた。',
+      },
+      {
+        id: 'q-wbw-history-14-social-movements-3',
+        q: '全国水平社が結成された目的を説明しなさい。',
+        keywords: ['被差別部落', '差別'],
+        model:
+          '被差別部落の人々が、自分たちの力で社会的な差別をなくすことを目指して結成した。',
       },
     ],
   },
@@ -10268,7 +10512,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-14-mass-culture-2',
         q: 'プロレタリア文学とはどのような文学か、説明しなさい。',
-        keywords: [],
+        keywords: ['労働者', '文学運動'],
         model:
           '労働者や農民の貧しい暮らしを、社会の仕組みを変えようとする視点で描いた文学運動のことである。',
       },
@@ -10465,9 +10709,16 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-15-great-depression-2',
         q: 'イギリスやフランスが行ったブロック経済とはどのようなしくみか、説明しなさい。',
-        keywords: [],
+        keywords: ['植民地', '関税'],
         model:
           '本国と植民地で一つの経済圏をつくり、他国の商品には高い関税をかけて締め出すことで恐慌を乗り切ろうとするしくみ。',
+      },
+      {
+        id: 'q-wbw-history-15-great-depression-3',
+        q: '世界恐慌が重なって起きた昭和恐慌によって、日本の農村はどのような影響を受けたか説明しなさい。',
+        keywords: ['生糸', '農村'],
+        model:
+          '生糸などの価格が暴落して収入が減り、農家が借金や娘の身売りに追い込まれるなど、農村が深刻な不況に苦しんだ。',
       },
     ],
   },
@@ -10578,7 +10829,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-15-manchurian-incident-1',
         q: '関東軍が柳条湖事件を起こした目的を説明しなさい。',
-        keywords: [],
+        keywords: ['南満州鉄道', '満州'],
         model:
           '南満州鉄道を自ら爆破しながら中国軍の仕業と偽ることで、軍事行動を正当化し、満州の占領を進めるため。',
       },
@@ -10588,6 +10839,13 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
         keywords: ['政党政治'],
         model:
           '海軍青年将校らが犬養毅首相を暗殺し、これ以降政党出身の首相が続かなくなり、政党政治が事実上終わった。',
+      },
+      {
+        id: 'q-wbw-history-15-manchurian-incident-3',
+        q: '日本が国際連盟を脱退することになった理由を説明しなさい。',
+        keywords: ['リットン調査団', '満州国'],
+        model:
+          '国際連盟がリットン調査団の報告にもとづいて満州国を認めず、日本軍の撤退を勧告したため、これに反発して脱退した。',
       },
     ],
   },
@@ -10708,6 +10966,13 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
         keywords: ['抗日'],
         model:
           '日本軍の侵略に対抗するため、対立していた国民党と共産党が手を結び、抗日で協力する必要があったから。',
+      },
+      {
+        id: 'q-wbw-history-15-sino-japanese-war-showa-3',
+        q: '日中戦争が始まるきっかけとなったできごとを説明しなさい。',
+        keywords: ['盧溝橋事件'],
+        model:
+          '1937年、北京郊外で日中両軍が武力衝突した盧溝橋事件をきっかけに、日本と中国の全面的な戦争である日中戦争が始まった。',
       },
     ],
   },
@@ -10916,9 +11181,16 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-16-ww2-outbreak-2',
         q: '第二次世界大戦における枢軸国と連合国の違いを説明しなさい。',
-        keywords: [],
+        keywords: ['枢軸国', '連合国'],
         model:
-          '枢軸国はドイツ・イタリア・日本など独裁的な国々が結んだ側であり、連合国はアメリカ・イギリス・ソ連・中国など独裁に反対する国々が結んだ側である。',
+          '枢軸国はドイツ・イタリア・日本など侵略を進めた側であり、連合国はアメリカ・イギリス・ソ連・中国など、ファシズム（枢軸国）の侵略に対抗して結束した国々が結んだ側である。',
+      },
+      {
+        id: 'q-wbw-history-16-ww2-outbreak-3',
+        q: 'ナチス・ドイツが行ったホロコーストとはどのようなできごとか説明しなさい。',
+        keywords: ['ユダヤ人', '強制収容所'],
+        model:
+          'ナチス・ドイツがユダヤ人を計画的に迫害し、アウシュビッツなどの強制収容所で数百万人もの命を奪ったできごと。',
       },
     ],
   },
@@ -11036,9 +11308,16 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-16-pacific-war-2',
         q: '大東亜共栄圏という考えの、表向きの目的と実際の姿の違いを説明しなさい。',
-        keywords: [],
+        keywords: ['アジア', '支配'],
         model:
           '表向きは欧米の支配からアジアを解放すると唱えたが、実際には日本がアジアを自分の支配下に置こうとするものだった。',
+      },
+      {
+        id: 'q-wbw-history-16-pacific-war-3',
+        q: '太平洋戦争の戦局が日本に不利へと転じる転機となった海戦を挙げ、その影響を説明しなさい。',
+        keywords: ['ミッドウェー海戦', '空母'],
+        model:
+          '1942年6月のミッドウェー海戦で日本海軍が主力空母4隻を失い、これ以降戦局が日本に不利に転じた。',
       },
     ],
   },
@@ -11114,9 +11393,16 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-16-wartime-life-2',
         q: '学童疎開はどのような目的で行われたか説明しなさい。',
-        keywords: [],
+        keywords: ['空襲', '疎開'],
         model:
           '都市に住む小学生を空襲の被害から守るため、地方の寺などへ集団で疎開させ、親元を離れて生活させる取り組みだった。',
+      },
+      {
+        id: 'q-wbw-history-16-wartime-life-3',
+        q: '戦争中、植民地の朝鮮などで日本語や日本式の名前を強制した政策を何というか、その内容を説明しなさい。',
+        keywords: ['皇民化政策', '創氏改名'],
+        model:
+          '植民地の人々を日本人化しようとする皇民化政策で、朝鮮などでは日本語の使用や神社への参拝が強いられ、朝鮮の人々に日本式の姓名を名乗らせる創氏改名も行われた。',
       },
     ],
   },
@@ -11206,9 +11492,16 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-16-end-of-war-2',
         q: 'ヤルタ会談での取り決めは、その後のソ連の行動にどのような影響を与えたか説明しなさい。',
-        keywords: [],
+        keywords: ['対日参戦', '日ソ中立条約'],
         model:
           'ヤルタ会談でドイツ降伏の3か月後にソ連が対日参戦することが秘密に約束されており、この約束に従ってソ連は日ソ中立条約を破って満州に攻め込んだ。',
+      },
+      {
+        id: 'q-wbw-history-16-end-of-war-3',
+        q: '1945年8月15日に日本が戦争を終えるまでのいきさつを、玉音放送にふれて説明しなさい。',
+        keywords: ['ポツダム宣言', '玉音放送'],
+        model:
+          '二発の原子爆弾の投下とソ連の参戦を受けて日本はポツダム宣言を受け入れ、8月15日に昭和天皇の玉音放送で終戦が国民に伝えられた。',
       },
     ],
   },
@@ -11442,6 +11735,13 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
         model:
           'GHQは日本政府に指令を出し実行させる間接統治を行ったが、ドイツは占領軍が直接統治する方式だった。',
       },
+      {
+        id: 'q-wbw-history-17-occupation-3',
+        q: '経済の民主化のためにGHQが行った財閥解体とは、どのような改革か説明しなさい。',
+        keywords: ['三井・三菱', '経済の民主化'],
+        model:
+          '三井・三菱などの大企業集団を分割し、少数の大企業が経済を支配する状態を改めて経済の民主化を進めた改革。',
+      },
     ],
   },
   日本国憲法と民主化: {
@@ -11540,6 +11840,13 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
         keywords: ['戸主制度'],
         model:
           '戸主制度が廃止され、男女平等の考え方に基づいて夫婦が同等の権利を持つ新しい家族制度に改められた。',
+      },
+      {
+        id: 'q-wbw-history-17-postwar-constitution-3',
+        q: '日本国憲法の三つの基本原則を挙げ、それぞれどのような内容か説明しなさい。',
+        keywords: ['国民主権', '平和主義'],
+        model:
+          '政治のあり方を国民が決める国民主権、生まれながらの権利を守る基本的人権の尊重、戦争を放棄する平和主義の三つを基本原則としている。',
       },
     ],
   },
@@ -11762,9 +12069,16 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-18-cold-war-2',
         q: '朝鮮戦争が日本の経済にどのような影響を与えたか、説明しなさい。',
-        keywords: [],
+        keywords: ['朝鮮特需'],
         model:
           '朝鮮戦争にともなう軍需物資の発注が日本に集中し、朝鮮特需と呼ばれる好景気をもたらして経済復興を後押しした。',
+      },
+      {
+        id: 'q-wbw-history-18-cold-war-3',
+        q: '冷戦のもとで東西両陣営が結んだ軍事同盟を、それぞれ答えなさい。',
+        keywords: ['NATO', 'ワルシャワ条約機構'],
+        model:
+          '西側諸国は軍事同盟のNATO（北大西洋条約機構）を結成し、これに対抗して東側のソ連と東欧諸国はワルシャワ条約機構を結んだ。',
       },
     ],
   },
@@ -11875,7 +12189,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-18-japan-independence-1',
         q: '日米安全保障条約は何のために結ばれたか、簡単に書きなさい。',
-        keywords: [],
+        keywords: ['米軍', '駐留'],
         model:
           'サンフランシスコ平和条約と同時に結び、米軍が日本に駐留することを認めて日本の安全を守ることを目的とした。',
       },
@@ -11885,6 +12199,13 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
         keywords: ['岸信介'],
         model:
           '岸信介内閣が新日米安全保障条約を成立させたことに対し、学生や労働組合、市民が改定に強く反対したから。',
+      },
+      {
+        id: 'q-wbw-history-18-japan-independence-3',
+        q: '警察予備隊から自衛隊がつくられていった流れを説明しなさい。',
+        keywords: ['警察予備隊', '自衛隊'],
+        model:
+          '朝鮮戦争が始まるとGHQの指令で警察予備隊がつくられ、1952年の保安隊を経て1954年に自衛隊へと発展した。',
       },
     ],
   },
@@ -12002,7 +12323,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-18-postwar-international-2',
         q: '1972年の日中共同声明によって、日本と台湾（中華民国）との関係はどうなったか、説明しなさい。',
-        keywords: [],
+        keywords: ['中華民国', '断交'],
         model:
           '日中共同声明で中華人民共和国と国交を樹立したことにより、それまで国交があった中華民国（台湾）とは断交した。',
       },
@@ -12126,6 +12447,13 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
         model:
           'チッソの工場排水に含まれる有機水銀が海に流れ込み、それを含む魚介類を食べた人々に神経の病気が発生した。',
       },
+      {
+        id: 'q-wbw-history-18-economic-growth-3',
+        q: '高度経済成長期に、家庭の生活はどのように変化したか説明しなさい。',
+        keywords: ['三種の神器'],
+        model:
+          '電気冷蔵庫・洗濯機・白黒テレビからなる「三種の神器」などの電化製品が普及し、家庭の生活が便利で豊かになった。',
+      },
     ],
   },
   戦後の文化: {
@@ -12221,16 +12549,16 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-18-postwar-culture-1',
         q: 'テレビ放送が始まったことは、戦後の日本社会にどのような影響を与えたか、説明しなさい。',
-        keywords: [],
+        keywords: ['マスメディア'],
         model:
           '1953年に始まったテレビ放送は、新聞やラジオと並ぶマスメディアとして人々の生活や世論に大きな影響を与えた。',
       },
       {
         id: 'q-wbw-history-18-postwar-culture-2',
-        q: '1949年に湯川秀樹がノーベル物理学賞を受賞したことは、当時の日本にとってどのような意味を持ったか、説明しなさい。',
-        keywords: [],
+        q: '日本人として初めてノーベル物理学賞を受賞した科学者はだれか、戦後復興期の人々に与えた影響にふれて説明しなさい。',
+        keywords: ['湯川秀樹', 'ノーベル物理学賞'],
         model:
-          '敗戦から間もない時期に、日本人として初めてノーベル賞を受賞したことで、日本国民に大きな誇りと希望を与えた。',
+          '1949年に中間子理論で日本人として初めてノーベル物理学賞を受賞した湯川秀樹で、敗戦で自信を失っていた人々に希望と誇りを与え、戦後復興を勇気づけた。',
       },
     ],
   },
@@ -12466,10 +12794,17 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       },
       {
         id: 'q-wbw-history-19-cold-war-end-2',
-        q: '2001年のアメリカ同時多発テロは、その後どのような戦争につながったか説明しなさい。',
-        keywords: [],
+        q: '2001年の同時多発テロの後、アメリカが大量破壊兵器の保有を理由に2003年に攻撃した国はどこか。その後の経過にふれて説明しなさい。',
+        keywords: ['イラク戦争', '大量破壊兵器'],
         model:
-          '同時多発テロをきっかけに、アメリカがアフガニスタンを攻撃するアフガニスタン戦争が始まった。',
+          'イラクで、アメリカは同時多発テロの後、大量破壊兵器を持っていることを理由に2003年にイラク戦争を起こし、フセインの独裁政権を倒した。',
+      },
+      {
+        id: 'q-wbw-history-19-cold-war-end-3',
+        q: '冷戦の終結はどのように宣言されたか、説明しなさい。',
+        keywords: ['ベルリンの壁', 'マルタ会談'],
+        model:
+          '1989年にベルリンの壁が崩壊し、同じ年に米ソの首脳がマルタ会談を開いて冷戦の終結を宣言した。',
       },
     ],
   },
@@ -12587,9 +12922,16 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-19-heisei-japan-2',
         q: '1992年にPKO協力法が成立した目的を簡単に書きなさい。',
-        keywords: [],
+        keywords: ['自衛隊', '平和維持活動'],
         model:
           '争いが起きた地域で停戦の見守りなどを行う国連の平和維持活動(PKO)に、自衛隊が参加できるようにするため。',
+      },
+      {
+        id: 'q-wbw-history-19-heisei-japan-3',
+        q: '1980年代後半に起こったバブル経済とはどのような現象か、説明しなさい。',
+        keywords: ['株価', '地価'],
+        model:
+          '株価や地価が実際の価値以上に異常に高騰した好景気で、1991年ごろに崩壊して長い不況が続いた。',
       },
     ],
   },
@@ -12707,7 +13049,7 @@ export const WORKBOOK_INPUT_INDEX: Record<string, WorkbookInputTopic> = {
       {
         id: 'q-wbw-history-19-modern-issues-2',
         q: '地球温暖化がなぜ問題になっているか、説明しなさい。',
-        keywords: [],
+        keywords: ['温室効果ガス'],
         model:
           '二酸化炭素などの温室効果ガスが増えることで地球の気温が上がり、気候や災害に影響を与えるから。',
       },
