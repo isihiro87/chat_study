@@ -21,12 +21,26 @@
   .s.read { color:#8a8279; }
   .s.now { background:#fcd34d; color:#1c1917; }
   .s.now .mark { background:none; }
-  /* 単元見出しの再生ボタン */
+  /* 単元見出しの音声ボタン（タップで読み上げ再生。適度に目立つ塗りボタン＋再生アイコン） */
   .play-unit { display:inline-flex; align-items:center; gap:6px; margin-left:auto; flex:none;
-               background:#fff; color:var(--brand); border:1.5px solid var(--line);
-               border-radius:20px; padding:4px 12px; font-size:12px; font-weight:bold;
-               font-family:inherit; cursor:pointer; }
+               background:linear-gradient(#f59e0b,#ea7a09); color:#fff;
+               border:none; border-radius:20px; padding:7px 15px 7px 9px; font-size:13px; font-weight:bold;
+               font-family:inherit; cursor:pointer; box-shadow:0 3px 0 #c2620a, 0 4px 9px rgba(217,119,6,.3);
+               transition:transform .12s, filter .12s; }
+  .pu-ic { flex:none; width:22px; height:22px; border-radius:50%; background:rgba(255,255,255,.28);
+           display:inline-flex; align-items:center; justify-content:center; }
+  .pu-ic svg { width:13px; height:13px; fill:#fff; margin-left:1px; }
+  .play-unit:active { transform:translateY(2px); box-shadow:0 1px 0 #c2620a; }
+  @media (hover:hover) { .play-unit:hover { filter:brightness(1.06); } }
   .play-unit[hidden] { display:none; }
+  /* 問題集の「解説を読む」から来たときに出す「問題にもどる」ボタン（すぐ問題へ戻れる） */
+  .backpill { position:fixed; left:50%; transform:translateX(-50%); bottom:74px; z-index:40;
+              background:var(--brand); color:#fff; font-weight:bold; font-size:13.5px;
+              border-radius:22px; padding:9px 18px 9px 13px; text-decoration:none;
+              box-shadow:0 4px 14px rgba(120,50,10,.35); display:inline-flex; align-items:center; gap:5px; }
+  .backpill svg { width:16px; height:16px; fill:none; stroke:#fff; stroke-width:2.4;
+                  stroke-linecap:round; stroke-linejoin:round; }
+  .backpill[hidden] { display:none; }
   /* 下部プレーヤー（再生中だけ出す。ナビバーの上に重ねる） */
   .aplayer { position:fixed; left:0; right:0; bottom:58px; z-index:25;
              background:rgba(255,253,248,.98); border-top:1px solid #f0e6d2;
@@ -53,13 +67,18 @@
      タブ列の 🏠 は「この本の目次」なので、こちらは 🗺＋文字でトップだと分かるようにする。 */
   .tophome { flex:none; height:30px; padding:0 12px; font-size:11.5px; font-weight:bold;
              color:#fff; background:var(--deep); border-radius:15px; text-decoration:none;
-             display:inline-flex; align-items:center; white-space:nowrap;
-             box-shadow:0 2px 0 #5b1e0b; }
-  .swap { flex:none; display:inline-flex; border:1.5px solid var(--line); border-radius:20px;
-          overflow:hidden; background:#fffbeb; }
-  .sw { font-size:11px; font-weight:bold; color:var(--brand); padding:3px 7px; text-decoration:none;
-        white-space:nowrap; cursor:pointer; }
-  .sw.on { background:var(--brand); color:#fff; }
+             display:inline-flex; align-items:center; gap:5px; white-space:nowrap;
+             box-shadow:0 2px 0 #5b1e0b; transition:filter .12s; }
+  .th-ic { width:14px; height:14px; fill:currentColor; flex:none; }
+  @media (hover:hover) { .tophome:hover { filter:brightness(1.12); } }
+  /* 参考書⇄問題の切りかえタブ。押せると分かるよう、非選択側は白ボタン風＋ホバー反応 */
+  .swap { flex:none; display:inline-flex; gap:3px; padding:2px; border-radius:16px;
+          background:#f0e2c3; }
+  .sw { font-size:11.5px; font-weight:bold; color:var(--brand); padding:4px 12px; text-decoration:none;
+        white-space:nowrap; cursor:pointer; border-radius:13px; background:#fff;
+        transition:filter .12s, background-color .12s; }
+  .sw.on { background:var(--brand); color:#fff; cursor:default; box-shadow:0 1px 2px rgba(180,83,9,.3); }
+  @media (hover:hover) { .sw:not(.on):hover { background:#fff8ec; filter:brightness(0.98); } }
   .sw[hidden] { display:none; }
   .bar-title { font-weight:bold; color:var(--deep); font-size:14px; flex:1;
                white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
@@ -83,13 +102,15 @@
   .tabs { display:flex; gap:5px; overflow-x:auto; padding:4px 0; width:100%;
           scrollbar-width:none; -webkit-overflow-scrolling:touch; }
   .tabs::-webkit-scrollbar { display:none; }
+  /* 単元タブ: 位置は動かさず、色で状態を示す（未読=クリーム／読んだ=緑／表示中=茶） */
   .tab { flex:none; width:30px; height:30px; border-radius:50%; border:1.5px solid var(--line);
          background:#fffbeb; color:var(--brand); font-size:15px; font-weight:bold;
-         display:inline-flex; align-items:center; justify-content:center; cursor:pointer; }
-  .tab.done { background:#fef3c7; }
+         display:inline-flex; align-items:center; justify-content:center; cursor:pointer;
+         transition:background-color .12s, border-color .12s; }
+  .tab.done { background:#dcfce7; border-color:#86efac; color:#15803d; }   /* 読んだ単元 */
   .tab.done::after { content:""; }
-  .tab.on { background:var(--brand); border-color:var(--brand); color:#fff;
-            box-shadow:0 2px 6px rgba(180,83,9,.35); }
+  .tab.on { background:var(--brand); border-color:var(--brand); color:#fff; }  /* いま表示中 */
+  @media (hover:hover) { .tab:not(.on):hover { background:#fff2d6; } }
   .pbar { height:3px; background:#f5ecd8; border-radius:2px; overflow:hidden; margin:0 0 0; }
   .pfill { height:100%; width:0; background:linear-gradient(90deg,var(--amber),#fbbf24);
            border-radius:2px; transition:width .25s ease; }
@@ -100,6 +121,7 @@
   @keyframes vfade { from { opacity:.6; } to { opacity:1; } }
   .step { display:none; }
   .step.on { display:block; }
+  .step::after { content:""; display:table; clear:both; }  /* 挿絵の float を内包 */
   /* 本物っぽいページめくり（2枚重ね）:
      進む = 今のページ自体が左とじに沿って手前にめくれて去り、下から次のページが現れる。
      戻る = 前のページが手前からめくり戻されて上に着地する。 */
@@ -144,8 +166,7 @@
   .b-web { background:var(--amber); color:#fff; }
   .ht-title { font-size:41px; color:var(--deep); margin:12px 0 0; line-height:1.12; position:relative;
               display:inline-block; padding:0 6px; letter-spacing:.01em; }
-  .ht-title::before { content:"✨"; position:absolute; left:-22px; top:2px; font-size:19px; }
-  .ht-title::after { content:"✨"; position:absolute; right:-20px; bottom:4px; font-size:15px; }
+  .ht-title::before, .ht-title::after { content:none; }
   .ht-mascot { flex:none; position:relative; width:100px; padding-top:22px; text-align:center; }
   .ht-mascot img { height:74px; width:auto; }
   .ht-bubble { position:absolute; top:0; left:50%; transform:translateX(-50%); white-space:nowrap;
@@ -181,8 +202,8 @@
   .toc { margin:16px 0 8px; background:#fff9ef; border:2px solid #f0e2c3; border-radius:16px; padding:12px; }
   .toc-head { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:10px; }
   .toc-h { font-weight:bold; color:var(--deep); font-size:16px; display:flex; align-items:center; gap:8px; }
-  .toc-h::before { content:"📖"; display:inline-flex; align-items:center; justify-content:center;
-                   width:30px; height:30px; border-radius:50%; background:var(--brand); font-size:15px; }
+  .toc-h::before { content:""; flex:none; width:30px; height:30px; border-radius:50%;
+                   background:var(--brand) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23fff'%3E%3Cpath d='M12 6.6C10.5 5.4 8.4 4.9 6 4.9c-1 0-2 .1-2.8.3v12.9c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3V5.2C20 5 19 4.9 18 4.9c-2.4 0-4.5.5-6 1.7z'/%3E%3C/svg%3E") center/17px no-repeat; }
   /* 単元カード（大きめサムネ＋番号＋名前＋右矢印） */
   .toc-item { display:flex; align-items:center; width:100%; margin-bottom:8px; padding:0;
               background:#fff; border:1.5px solid #f0e2c3; border-radius:12px; overflow:hidden;
@@ -261,6 +282,39 @@
             border:1.5px solid var(--line); color:var(--brand); font-weight:bold;
             display:inline-flex; align-items:center; justify-content:center; font-size:12px; }
   .sec-lead { font-size:13px; color:var(--brand); font-weight:bold; margin:2px 0 4px 30px; }
+  /* 節の挿絵：既定は本文の右に小さく回り込ませる（補足的・目立ちすぎない） */
+  .sec-fig { float:right; width:46%; max-width:205px; margin:3px 0 8px 12px; }
+  .sec-fig.fig-contain { max-width:230px; }
+  .sec-fig img { width:100%; max-height:172px; object-fit:cover; display:block;
+                 border-radius:10px; border:1px solid #f0e6d2;
+                 box-shadow:0 1px 4px rgba(120,80,20,.10); background:#fff; cursor:zoom-in; }
+  /* 図版（関係図・地図）は切らずに全体を見せる（日本語ラベルが欠けないように） */
+  .sec-fig.fig-contain img { object-fit:contain; max-height:none; background:#fffdf8; }
+  .sec-fig figcaption { font-size:11px; color:#a8a29e; text-align:center; margin-top:4px; line-height:1.4; }
+  /* 変化をつける: 左回り込み／サイズ違い／横いっぱい */
+  .sec-fig.pos-left { float:left; margin:3px 12px 8px 0; }
+  .sec-fig.size-sm { max-width:150px; }
+  .sec-fig.size-lg { max-width:250px; }
+  .sec-fig.pos-wide { float:none; width:auto; max-width:100%; margin:10px 0; }
+  .sec-fig.pos-wide img { max-height:260px; }
+  .sec-fig.pos-wide.fig-contain img { max-height:340px; }  /* 地図・図はワイドで大きく読める */
+  .sec-fig.pos-wide figcaption { font-size:12px; }
+  /* 挿絵を含む節でも ⭐ここだけ覚える／用語は画像の下から始める */
+  .step .point, .step .words { clear:both; }
+  .cover-art img, .cover-img { cursor:zoom-in; }
+
+  /* 画像タップで拡大（ライトボックス） */
+  .lightbox { position:fixed; inset:0; z-index:200; background:rgba(20,14,8,.88);
+              display:flex; align-items:center; justify-content:center; padding:20px;
+              -webkit-tap-highlight-color:transparent; cursor:zoom-out; }
+  .lightbox[hidden] { display:none; }
+  .lightbox img { max-width:96vw; max-height:90vh; border-radius:10px; background:#fffdf8;
+                  box-shadow:0 8px 40px rgba(0,0,0,.55); }
+  .lb-close { position:fixed; top:14px; right:16px; width:42px; height:42px; border:none;
+              border-radius:50%; background:rgba(255,255,255,.92); color:#7c2d12; font-size:24px;
+              line-height:1; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,.3); }
+  .lb-hint { position:fixed; bottom:20px; left:0; right:0; text-align:center; color:#fff;
+             font-size:12px; opacity:.7; pointer-events:none; }
   .step p { margin-top:8px; text-align:justify; }
   .point { background:#fff9c4; border-left:6px solid #fbbf24; border-radius:8px;
            padding:10px 12px; margin-top:12px; font-size:14px; line-height:1.8; }
@@ -440,10 +494,10 @@
 </style></head><body>
 <div class="bar"><div class="bar-in">
   <div class="bar-row">
-    <a class="tophome" href="../../index.html" aria-label="単元一覧へもどる">単元一覧</a>
-    <div class="swap"><span class="sw on">📖 参考書</span><a class="sw" id="swWb">✏️ 問題</a></div>
+    <a class="tophome" href="../../index.html" aria-label="単元一覧へもどる"><svg class="th-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.6"/></svg>単元一覧</a>
+    <div class="swap" role="tablist" aria-label="参考書と問題の切りかえ"><span class="sw on">参考書</span><a class="sw" id="swWb" role="tab">問題</a></div>
     <div class="tabs-wrap">
-      <nav class="tabs" id="tabs"><button class="tab tab-home" data-go="0" aria-label="目次">🏠</button><button class="tab" data-go="1" aria-label="時期や年代の表し方">1</button></nav>
+      <nav class="tabs" id="tabs"><button class="tab" data-go="1" aria-label="時期や年代の表し方">1</button></nav>
       <button class="tscroll tsl" id="tabsL" type="button" hidden aria-label="単元タブを左へ">‹</button>
       <button class="tscroll tsr" id="tabsR" type="button" hidden aria-label="単元タブを右へ">›</button>
     </div>
@@ -452,11 +506,11 @@
   <div class="bar-title" hidden>歴史 ① 年代の表し方</div>
   <div class="pbar"><div class="pfill" id="pfill"></div></div>
 </div></div>
+<a class="backpill" id="backPill" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 6l-6 6 6 6"/></svg>問題にもどる</a>
 <main class="wrap" id="views">
 
 <section class="view home" data-t="0">
   <div class="home-topline">
-    <a class="home-link" href="../../index.html">‹ 単元一覧にもどる</a>
     <div class="badge3"><span class="b-vol">歴史 ①</span><span class="b-kind">参考書</span></div>
   </div>
   <header class="top hometop">
@@ -471,7 +525,7 @@
     <div class="toc-head"><div class="toc-h">単元を選択</div></div>
     <button class="toc-item" data-go="1"><img class="toc-thumb" src="img/hist01-timeline.webp" alt="" loading="lazy"><span class="toc-no">1</span><span class="toc-name">時期や年代の表し方</span><span class="toc-state" data-state-t="1"></span><span class="toc-arrow">›</span></button>
   </nav>
-  <a class="wb-home" href="../../wb/01/index.html">✏️ 問題集を開く（この本の問題を解く）</a>
+  <a class="wb-home" href="../../wb/01/index.html">問題集を開く（この本の問題を解く）</a>
   <footer class="foot">
     <div>つづもん 参考書</div>
     <div class="foot-note">紙やタブレットでじっくり派には、ダウンロード済みのPDF版もどうぞ。</div>
@@ -479,37 +533,40 @@
 </section>
 <section class="view" data-t="1">
   <div class="tband"><span class="tno">1</span><h2>時期や年代の表し方</h2>
-    <button class="play-unit" type="button" data-play="1" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="1" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-time-periods.webp"
+      <img class="cover-img zoomable" src="img/cover-time-periods.webp"
            alt="時期や年代の表し方（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">歴史の教科書には「紀元前300年」とか「1970年代」とか、</span><span class="s" data-i="1">見慣れない年の表し方がたくさん出てくるよね。</span><span class="s" data-i="2">知ってた?このルールさえ覚えておけば、</span><span class="s" data-i="3">これからの歴史の勉強がぐっと分かりやすくなるよ。</span></div></div>
     </div>
     <div class="step" data-label="西暦と紀元前・紀元後">
       <h3><span class="sec-no">1</span><span class="s" data-i="4">西暦と紀元前・紀元後</span></h3>
       <div class="sec-lead"><span class="s" data-i="5">西暦を基準に、紀元前と紀元後で年を表すよ。</span></div>
+      
       <p><span class="s" data-i="6">私たちがふだん使っている年の数え方は、</span><span class="s" data-i="7">イエス・キリストが生まれたと考えられた年を基準にしているんだ。</span><span class="s" data-i="8">この基準の年を<span class="mark">西暦</span>1年として、</span><span class="s" data-i="9">それより前の時代を<span class="mark">紀元前</span>、</span><span class="s" data-i="10">後の時代を<span class="mark">紀元後</span>と呼ぶよ。</span><span class="s" data-i="11">紀元前は「西暦1年の何年前か」を表す数え方だから、</span><span class="s" data-i="12">数字が大きいほど西暦1年から遠い、</span><span class="s" data-i="13">つまり古い時代を指すんだね。</span><span class="s" data-i="14">たとえば紀元前300年は、</span><span class="s" data-i="15">紀元前100年よりも200年も古い時代なんだよ。</span><span class="s" data-i="16">一方で紀元後は、</span><span class="s" data-i="17">数字が大きいほど新しい時代になる。</span><span class="s" data-i="18">紀元前と紀元後で数字の増え方の意味が逆になるところ、</span><span class="s" data-i="19">ちょっとややこしいから間違えないようにしようね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="20">紀元前は数字が大きいほど昔で、</span><span class="s" data-i="21">紀元後は逆に新しくなるよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="20">紀元前は数字が大きいほど昔で、</span><span class="s" data-i="21">紀元後は逆に新しくなるよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">西暦<span class="w-rd">せいれき</span></span><span class="w-desc">イエスが生まれたと考えられた年を1年とする、世界で広く使われる年の表し方。</span></div><div class="word"><span class="w-term">紀元前<span class="w-rd">きげんぜん</span></span><span class="w-desc">西暦1年より前の時代。数字が大きいほど古い時代を表す。</span></div><div class="word"><span class="w-term">紀元後<span class="w-rd">きげんご</span></span><span class="w-desc">西暦1年より後の時代。ふつう「西暦〇年」と表す。</span></div></div>
     </div>
     <div class="step" data-label="世紀と年代">
       <h3><span class="sec-no">2</span><span class="s" data-i="22">世紀と年代</span></h3>
       <div class="sec-lead"><span class="s" data-i="23">100年区切りの世紀、</span><span class="s" data-i="24">10年区切りの年代を使い分けるよ。</span></div>
+      
       <p><span class="s" data-i="25">100年をひとまとまりとして数える表し方を<span class="mark">世紀</span>というんだ。</span><span class="s" data-i="26">西暦には0年がないから、</span><span class="s" data-i="27">1年から100年までが<span class="mark">1世紀</span>、</span><span class="s" data-i="28">101年から200年までが2世紀にあたるよ。</span><span class="s" data-i="29">この数え方、実は西暦の上2桁に1を足すと世紀がわかるんだ。</span><span class="s" data-i="30">たとえば2001年なら20に1を足して21世紀、</span><span class="s" data-i="31">2001年から2100年までがこれにあたるよ。</span><span class="s" data-i="32">もうひとつ、10年をひとまとまりとする表し方を<span class="mark">年代</span>といって、</span><span class="s" data-i="33">1970年から1979年までは1970年代と呼ばれるんだ。</span><span class="s" data-i="34">世紀と年代は、区切る期間の長さが100年と10年で違うから、</span><span class="s" data-i="35">混同しないように気をつけようね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="36">世紀は100年区切り、</span><span class="s" data-i="37">年代は10年区切りで年を表すよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="36">世紀は100年区切り、</span><span class="s" data-i="37">年代は10年区切りで年を表すよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">世紀<span class="w-rd">せいき</span></span><span class="w-desc">100年をひとまとまりとする年の数え方。1世紀は1年〜100年にあたる。</span></div><div class="word"><span class="w-term">年代<span class="w-rd">ねんだい</span></span><span class="w-desc">10年をひとまとまりとする年の数え方。例として1970年代がある。</span></div></div>
     </div>
     <div class="step" data-label="干支と還暦">
       <h3><span class="sec-no">3</span><span class="s" data-i="38">干支と還暦</span></h3>
       <div class="sec-lead"><span class="s" data-i="39">干支は60年で一巡し、</span><span class="s" data-i="40">還暦の由来になったよ。</span></div>
+      
       <p><span class="s" data-i="41">日本や中国では古くから、</span><span class="s" data-i="42">十干と十二支を組み合わせて年を表す<span class="mark">干支</span>という方法も使われてきたんだよ。</span><span class="s" data-i="43">十干は甲・乙などの10種類、</span><span class="s" data-i="44">十二支は子・丑などの12種類があって、</span><span class="s" data-i="45">これらを順に組み合わせていくと60通りの組み合わせができるんだ。</span><span class="s" data-i="46">60年たつと、もとの干支にもどるんだね。</span><span class="s" data-i="47">この60年で一回りする周期にちなんで、</span><span class="s" data-i="48">満60歳を迎えたときの祝いを<span class="mark">還暦</span>というよ。</span><span class="s" data-i="49">西暦や世紀のような世界共通の数え方だけじゃなく、</span><span class="s" data-i="50">こうした干支のような日本独自の年の表し方も、</span><span class="s" data-i="51">歴史を学ぶうえで知っておくとおもしろいよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="52">干支は60年で一回りして、</span><span class="s" data-i="53">還暦の由来になったんだよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="52">干支は60年で一回りして、</span><span class="s" data-i="53">還暦の由来になったんだよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">干支<span class="w-rd">えと</span></span><span class="w-desc">十干と十二支を組み合わせて年を表す方法。60年で一回りする。</span></div><div class="word"><span class="w-term">還暦<span class="w-rd">かんれき</span></span><span class="w-desc">干支が一回りする60年にちなんだ、満60歳を迎える祝い。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -605,10 +662,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/01/index.html#t2"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/01/index.html#t2"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=01-time-periods" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -624,6 +680,11 @@
   <button class="ap-close" id="apClose" aria-label="読み上げを止める">×</button>
 </div></div>
 <audio id="audio" preload="none"></audio>
+<div class="lightbox" id="lightbox" hidden>
+  <img id="lightboxImg" alt="">
+  <button class="lb-close" id="lbClose" aria-label="閉じる">×</button>
+  <div class="lb-hint">タップで閉じる</div>
+</div>
 <div class="navbar" id="navbar" hidden><div class="navbar-in">
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
@@ -843,7 +904,7 @@
       b.classList.toggle('on', bt === t);
       b.classList.toggle('done', bt > 0 && store()['d' + bt] === 1);
     });
-    var tabEl = tabs[t];
+    var tabEl = tabs.filter(function (b) { return +b.dataset.go === t; })[0];
     if (tabEl && tabEl.scrollIntoView) {
       tabEl.scrollIntoView({ block: 'nearest', inline: 'center' });
     }
@@ -886,11 +947,11 @@
       pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
       var prev = document.getElementById('btnPrev');
       var next = document.getElementById('btnNext');
-      prev.textContent = s === 0 ? '🏠 目次' : '← まえへ';
+      prev.textContent = s === 0 ? '目次へ' : '← まえへ';
       if (s < steps.length - 1) {
         next.textContent = 'つぎへ →';
       } else {
-        next.textContent = t < N ? '次の単元へ →' : '🏠 目次にもどる';
+        next.textContent = t < N ? '次の単元へ →' : '目次にもどる';
       }
       // 進捗保存
       var st = store();
@@ -1052,8 +1113,21 @@
     }
   }, { passive: true });
 
+  // 画像タップで拡大（ライトボックス）。ページ送りタップ／スワイプと競合しない。
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightboxImg');
+  function openLb(src) { lbImg.src = src; lb.hidden = false; document.body.style.overflow = 'hidden'; }
+  function closeLb() { lb.hidden = true; lbImg.removeAttribute('src'); document.body.style.overflow = ''; }
+  document.addEventListener('click', function (e) {
+    var z = e.target.closest('img.zoomable');
+    if (z) { e.preventDefault(); e.stopPropagation(); openLb(z.currentSrc || z.src); }
+  });
+  lb.addEventListener('click', closeLb);
+  document.getElementById('lbClose').addEventListener('click', function (e) { e.stopPropagation(); closeLb(); });
+
   // キーボード操作（PC）: ←→ でページ送り、PageUp/Down も同じ、Home で目次へ
   document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !lb.hidden) { closeLb(); return; }
     var tag = e.target && e.target.tagName;
     if (tag === 'INPUT' || tag === 'TEXTAREA' || e.metaKey || e.ctrlKey || e.altKey) return;
     if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === 'Enter') { next(); e.preventDefault(); }
@@ -1068,6 +1142,16 @@
   }
   window.addEventListener('hashchange', fromHash);
   fromHash();
+
+  // 問題集の「解説を読む」から来たとき（?back=）だけ「問題にもどる」を出す
+  (function () {
+    var m = /[?&]back=([^&#]+)/.exec(location.search);
+    var pill = document.getElementById('backPill');
+    if (m && pill) {
+      try { pill.href = decodeURIComponent(m[1]); } catch (e) { pill.href = m[1]; }
+      pill.hidden = false;
+    }
+  })();
 })();
 </script>
 <script type="module">

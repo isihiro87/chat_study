@@ -21,12 +21,26 @@
   .s.read { color:#8a8279; }
   .s.now { background:#fcd34d; color:#1c1917; }
   .s.now .mark { background:none; }
-  /* 単元見出しの再生ボタン */
+  /* 単元見出しの音声ボタン（タップで読み上げ再生。適度に目立つ塗りボタン＋再生アイコン） */
   .play-unit { display:inline-flex; align-items:center; gap:6px; margin-left:auto; flex:none;
-               background:#fff; color:var(--brand); border:1.5px solid var(--line);
-               border-radius:20px; padding:4px 12px; font-size:12px; font-weight:bold;
-               font-family:inherit; cursor:pointer; }
+               background:linear-gradient(#f59e0b,#ea7a09); color:#fff;
+               border:none; border-radius:20px; padding:7px 15px 7px 9px; font-size:13px; font-weight:bold;
+               font-family:inherit; cursor:pointer; box-shadow:0 3px 0 #c2620a, 0 4px 9px rgba(217,119,6,.3);
+               transition:transform .12s, filter .12s; }
+  .pu-ic { flex:none; width:22px; height:22px; border-radius:50%; background:rgba(255,255,255,.28);
+           display:inline-flex; align-items:center; justify-content:center; }
+  .pu-ic svg { width:13px; height:13px; fill:#fff; margin-left:1px; }
+  .play-unit:active { transform:translateY(2px); box-shadow:0 1px 0 #c2620a; }
+  @media (hover:hover) { .play-unit:hover { filter:brightness(1.06); } }
   .play-unit[hidden] { display:none; }
+  /* 問題集の「解説を読む」から来たときに出す「問題にもどる」ボタン（すぐ問題へ戻れる） */
+  .backpill { position:fixed; left:50%; transform:translateX(-50%); bottom:74px; z-index:40;
+              background:var(--brand); color:#fff; font-weight:bold; font-size:13.5px;
+              border-radius:22px; padding:9px 18px 9px 13px; text-decoration:none;
+              box-shadow:0 4px 14px rgba(120,50,10,.35); display:inline-flex; align-items:center; gap:5px; }
+  .backpill svg { width:16px; height:16px; fill:none; stroke:#fff; stroke-width:2.4;
+                  stroke-linecap:round; stroke-linejoin:round; }
+  .backpill[hidden] { display:none; }
   /* 下部プレーヤー（再生中だけ出す。ナビバーの上に重ねる） */
   .aplayer { position:fixed; left:0; right:0; bottom:58px; z-index:25;
              background:rgba(255,253,248,.98); border-top:1px solid #f0e6d2;
@@ -53,13 +67,18 @@
      タブ列の 🏠 は「この本の目次」なので、こちらは 🗺＋文字でトップだと分かるようにする。 */
   .tophome { flex:none; height:30px; padding:0 12px; font-size:11.5px; font-weight:bold;
              color:#fff; background:var(--deep); border-radius:15px; text-decoration:none;
-             display:inline-flex; align-items:center; white-space:nowrap;
-             box-shadow:0 2px 0 #5b1e0b; }
-  .swap { flex:none; display:inline-flex; border:1.5px solid var(--line); border-radius:20px;
-          overflow:hidden; background:#fffbeb; }
-  .sw { font-size:11px; font-weight:bold; color:var(--brand); padding:3px 7px; text-decoration:none;
-        white-space:nowrap; cursor:pointer; }
-  .sw.on { background:var(--brand); color:#fff; }
+             display:inline-flex; align-items:center; gap:5px; white-space:nowrap;
+             box-shadow:0 2px 0 #5b1e0b; transition:filter .12s; }
+  .th-ic { width:14px; height:14px; fill:currentColor; flex:none; }
+  @media (hover:hover) { .tophome:hover { filter:brightness(1.12); } }
+  /* 参考書⇄問題の切りかえタブ。押せると分かるよう、非選択側は白ボタン風＋ホバー反応 */
+  .swap { flex:none; display:inline-flex; gap:3px; padding:2px; border-radius:16px;
+          background:#f0e2c3; }
+  .sw { font-size:11.5px; font-weight:bold; color:var(--brand); padding:4px 12px; text-decoration:none;
+        white-space:nowrap; cursor:pointer; border-radius:13px; background:#fff;
+        transition:filter .12s, background-color .12s; }
+  .sw.on { background:var(--brand); color:#fff; cursor:default; box-shadow:0 1px 2px rgba(180,83,9,.3); }
+  @media (hover:hover) { .sw:not(.on):hover { background:#fff8ec; filter:brightness(0.98); } }
   .sw[hidden] { display:none; }
   .bar-title { font-weight:bold; color:var(--deep); font-size:14px; flex:1;
                white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
@@ -83,13 +102,15 @@
   .tabs { display:flex; gap:5px; overflow-x:auto; padding:4px 0; width:100%;
           scrollbar-width:none; -webkit-overflow-scrolling:touch; }
   .tabs::-webkit-scrollbar { display:none; }
+  /* 単元タブ: 位置は動かさず、色で状態を示す（未読=クリーム／読んだ=緑／表示中=茶） */
   .tab { flex:none; width:30px; height:30px; border-radius:50%; border:1.5px solid var(--line);
          background:#fffbeb; color:var(--brand); font-size:15px; font-weight:bold;
-         display:inline-flex; align-items:center; justify-content:center; cursor:pointer; }
-  .tab.done { background:#fef3c7; }
+         display:inline-flex; align-items:center; justify-content:center; cursor:pointer;
+         transition:background-color .12s, border-color .12s; }
+  .tab.done { background:#dcfce7; border-color:#86efac; color:#15803d; }   /* 読んだ単元 */
   .tab.done::after { content:""; }
-  .tab.on { background:var(--brand); border-color:var(--brand); color:#fff;
-            box-shadow:0 2px 6px rgba(180,83,9,.35); }
+  .tab.on { background:var(--brand); border-color:var(--brand); color:#fff; }  /* いま表示中 */
+  @media (hover:hover) { .tab:not(.on):hover { background:#fff2d6; } }
   .pbar { height:3px; background:#f5ecd8; border-radius:2px; overflow:hidden; margin:0 0 0; }
   .pfill { height:100%; width:0; background:linear-gradient(90deg,var(--amber),#fbbf24);
            border-radius:2px; transition:width .25s ease; }
@@ -100,6 +121,7 @@
   @keyframes vfade { from { opacity:.6; } to { opacity:1; } }
   .step { display:none; }
   .step.on { display:block; }
+  .step::after { content:""; display:table; clear:both; }  /* 挿絵の float を内包 */
   /* 本物っぽいページめくり（2枚重ね）:
      進む = 今のページ自体が左とじに沿って手前にめくれて去り、下から次のページが現れる。
      戻る = 前のページが手前からめくり戻されて上に着地する。 */
@@ -144,8 +166,7 @@
   .b-web { background:var(--amber); color:#fff; }
   .ht-title { font-size:41px; color:var(--deep); margin:12px 0 0; line-height:1.12; position:relative;
               display:inline-block; padding:0 6px; letter-spacing:.01em; }
-  .ht-title::before { content:"✨"; position:absolute; left:-22px; top:2px; font-size:19px; }
-  .ht-title::after { content:"✨"; position:absolute; right:-20px; bottom:4px; font-size:15px; }
+  .ht-title::before, .ht-title::after { content:none; }
   .ht-mascot { flex:none; position:relative; width:100px; padding-top:22px; text-align:center; }
   .ht-mascot img { height:74px; width:auto; }
   .ht-bubble { position:absolute; top:0; left:50%; transform:translateX(-50%); white-space:nowrap;
@@ -181,8 +202,8 @@
   .toc { margin:16px 0 8px; background:#fff9ef; border:2px solid #f0e2c3; border-radius:16px; padding:12px; }
   .toc-head { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:10px; }
   .toc-h { font-weight:bold; color:var(--deep); font-size:16px; display:flex; align-items:center; gap:8px; }
-  .toc-h::before { content:"📖"; display:inline-flex; align-items:center; justify-content:center;
-                   width:30px; height:30px; border-radius:50%; background:var(--brand); font-size:15px; }
+  .toc-h::before { content:""; flex:none; width:30px; height:30px; border-radius:50%;
+                   background:var(--brand) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23fff'%3E%3Cpath d='M12 6.6C10.5 5.4 8.4 4.9 6 4.9c-1 0-2 .1-2.8.3v12.9c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3V5.2C20 5 19 4.9 18 4.9c-2.4 0-4.5.5-6 1.7z'/%3E%3C/svg%3E") center/17px no-repeat; }
   /* 単元カード（大きめサムネ＋番号＋名前＋右矢印） */
   .toc-item { display:flex; align-items:center; width:100%; margin-bottom:8px; padding:0;
               background:#fff; border:1.5px solid #f0e2c3; border-radius:12px; overflow:hidden;
@@ -261,6 +282,39 @@
             border:1.5px solid var(--line); color:var(--brand); font-weight:bold;
             display:inline-flex; align-items:center; justify-content:center; font-size:12px; }
   .sec-lead { font-size:13px; color:var(--brand); font-weight:bold; margin:2px 0 4px 30px; }
+  /* 節の挿絵：既定は本文の右に小さく回り込ませる（補足的・目立ちすぎない） */
+  .sec-fig { float:right; width:46%; max-width:205px; margin:3px 0 8px 12px; }
+  .sec-fig.fig-contain { max-width:230px; }
+  .sec-fig img { width:100%; max-height:172px; object-fit:cover; display:block;
+                 border-radius:10px; border:1px solid #f0e6d2;
+                 box-shadow:0 1px 4px rgba(120,80,20,.10); background:#fff; cursor:zoom-in; }
+  /* 図版（関係図・地図）は切らずに全体を見せる（日本語ラベルが欠けないように） */
+  .sec-fig.fig-contain img { object-fit:contain; max-height:none; background:#fffdf8; }
+  .sec-fig figcaption { font-size:11px; color:#a8a29e; text-align:center; margin-top:4px; line-height:1.4; }
+  /* 変化をつける: 左回り込み／サイズ違い／横いっぱい */
+  .sec-fig.pos-left { float:left; margin:3px 12px 8px 0; }
+  .sec-fig.size-sm { max-width:150px; }
+  .sec-fig.size-lg { max-width:250px; }
+  .sec-fig.pos-wide { float:none; width:auto; max-width:100%; margin:10px 0; }
+  .sec-fig.pos-wide img { max-height:260px; }
+  .sec-fig.pos-wide.fig-contain img { max-height:340px; }  /* 地図・図はワイドで大きく読める */
+  .sec-fig.pos-wide figcaption { font-size:12px; }
+  /* 挿絵を含む節でも ⭐ここだけ覚える／用語は画像の下から始める */
+  .step .point, .step .words { clear:both; }
+  .cover-art img, .cover-img { cursor:zoom-in; }
+
+  /* 画像タップで拡大（ライトボックス） */
+  .lightbox { position:fixed; inset:0; z-index:200; background:rgba(20,14,8,.88);
+              display:flex; align-items:center; justify-content:center; padding:20px;
+              -webkit-tap-highlight-color:transparent; cursor:zoom-out; }
+  .lightbox[hidden] { display:none; }
+  .lightbox img { max-width:96vw; max-height:90vh; border-radius:10px; background:#fffdf8;
+                  box-shadow:0 8px 40px rgba(0,0,0,.55); }
+  .lb-close { position:fixed; top:14px; right:16px; width:42px; height:42px; border:none;
+              border-radius:50%; background:rgba(255,255,255,.92); color:#7c2d12; font-size:24px;
+              line-height:1; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,.3); }
+  .lb-hint { position:fixed; bottom:20px; left:0; right:0; text-align:center; color:#fff;
+             font-size:12px; opacity:.7; pointer-events:none; }
   .step p { margin-top:8px; text-align:justify; }
   .point { background:#fff9c4; border-left:6px solid #fbbf24; border-radius:8px;
            padding:10px 12px; margin-top:12px; font-size:14px; line-height:1.8; }
@@ -440,10 +494,10 @@
 </style></head><body>
 <div class="bar"><div class="bar-in">
   <div class="bar-row">
-    <a class="tophome" href="../../index.html" aria-label="単元一覧へもどる">単元一覧</a>
-    <div class="swap"><span class="sw on">📖 参考書</span><a class="sw" id="swWb">✏️ 問題</a></div>
+    <a class="tophome" href="../../index.html" aria-label="単元一覧へもどる"><svg class="th-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.6"/></svg>単元一覧</a>
+    <div class="swap" role="tablist" aria-label="参考書と問題の切りかえ"><span class="sw on">参考書</span><a class="sw" id="swWb" role="tab">問題</a></div>
     <div class="tabs-wrap">
-      <nav class="tabs" id="tabs"><button class="tab tab-home" data-go="0" aria-label="目次">🏠</button><button class="tab" data-go="1" aria-label="冷戦の始まり">1</button><button class="tab" data-go="2" aria-label="日本の独立回復">2</button><button class="tab" data-go="3" aria-label="国際社会への復帰">3</button><button class="tab" data-go="4" aria-label="高度経済成長">4</button><button class="tab" data-go="5" aria-label="戦後の文化">5</button></nav>
+      <nav class="tabs" id="tabs"><button class="tab" data-go="1" aria-label="冷戦の始まり">1</button><button class="tab" data-go="2" aria-label="日本の独立回復">2</button><button class="tab" data-go="3" aria-label="国際社会への復帰">3</button><button class="tab" data-go="4" aria-label="高度経済成長">4</button><button class="tab" data-go="5" aria-label="戦後の文化">5</button></nav>
       <button class="tscroll tsl" id="tabsL" type="button" hidden aria-label="単元タブを左へ">‹</button>
       <button class="tscroll tsr" id="tabsR" type="button" hidden aria-label="単元タブを右へ">›</button>
     </div>
@@ -452,11 +506,11 @@
   <div class="bar-title" hidden>歴史 ⑱ 冷戦と日本の復興</div>
   <div class="pbar"><div class="pfill" id="pfill"></div></div>
 </div></div>
+<a class="backpill" id="backPill" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 6l-6 6 6 6"/></svg>問題にもどる</a>
 <main class="wrap" id="views">
 
 <section class="view home" data-t="0">
   <div class="home-topline">
-    <a class="home-link" href="../../index.html">‹ 単元一覧にもどる</a>
     <div class="badge3"><span class="b-vol">歴史 ⑱</span><span class="b-kind">参考書</span></div>
   </div>
   <header class="top hometop">
@@ -471,7 +525,7 @@
     <div class="toc-head"><div class="toc-h">単元を選択</div></div>
     <button class="toc-item" data-go="1"><img class="toc-thumb" src="img/hist18-cold-war.webp" alt="" loading="lazy"><span class="toc-no">1</span><span class="toc-name">冷戦の始まり</span><span class="toc-state" data-state-t="1"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="2"><img class="toc-thumb" src="img/hist18-independence.webp" alt="" loading="lazy"><span class="toc-no">2</span><span class="toc-name">日本の独立回復</span><span class="toc-state" data-state-t="2"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="3"><img class="toc-thumb" src="img/hist18-postwar-international.webp" alt="" loading="lazy"><span class="toc-no">3</span><span class="toc-name">国際社会への復帰</span><span class="toc-state" data-state-t="3"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="4"><img class="toc-thumb" src="img/hist18-growth.webp" alt="" loading="lazy"><span class="toc-no">4</span><span class="toc-name">高度経済成長</span><span class="toc-state" data-state-t="4"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="5"><img class="toc-thumb" src="img/hist18-culture.webp" alt="" loading="lazy"><span class="toc-no">5</span><span class="toc-name">戦後の文化</span><span class="toc-state" data-state-t="5"></span><span class="toc-arrow">›</span></button>
   </nav>
-  <a class="wb-home" href="../../wb/18/index.html">✏️ 問題集を開く（この本の問題を解く）</a>
+  <a class="wb-home" href="../../wb/18/index.html">問題集を開く（この本の問題を解く）</a>
   <footer class="foot">
     <div>つづもん 参考書</div>
     <div class="foot-note">紙やタブレットでじっくり派には、ダウンロード済みのPDF版もどうぞ。</div>
@@ -479,44 +533,48 @@
 </section>
 <section class="view" data-t="1">
   <div class="tband"><span class="tno">1</span><h2>冷戦の始まり</h2>
-    <button class="play-unit" type="button" data-play="1" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="1" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-cold-war.webp"
+      <img class="cover-img zoomable" src="img/cover-cold-war.webp"
            alt="冷戦の始まり（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">第二次世界大戦が終わったのに、</span><span class="s" data-i="1">世界はすぐには平和にならなかったんだ。</span><span class="s" data-i="2">今度はアメリカとソ連という二つの大国が、</span><span class="s" data-i="3">直接は戦わないままにらみ合う不思議な対立が始まったんだよ。</span></div></div>
     </div>
     <div class="step" data-label="「冷戦」ってどんな対立?">
       <h3><span class="sec-no">1</span><span class="s" data-i="4">「冷戦」ってどんな対立?</span></h3>
       <div class="sec-lead"><span class="s" data-i="5">資本主義と社会主義が、</span><span class="s" data-i="6">直接戦わずににらみ合ったよ。</span></div>
+      
       <p><span class="s" data-i="7">戦争が終わると、</span><span class="s" data-i="8">自由な経済を大事にする資本主義の国ぐにと、</span><span class="s" data-i="9">国が経済を仕切る社会主義の国ぐにが、</span><span class="s" data-i="10">世界を二つに分けて対立するようになったんだ。</span><span class="s" data-i="11">アメリカを中心とする西側と、</span><span class="s" data-i="12">ソ連を中心とする東側だね。</span><span class="s" data-i="13">おもしろいのは、この対立、</span><span class="s" data-i="14">実際に戦車や兵士がぶつかり合う戦争にはならなかったこと。</span><span class="s" data-i="15">武器や経済の力でにらみ合うだけの、</span><span class="s" data-i="16">いわば&quot;冷たい戦争&quot;、</span><span class="s" data-i="17">これを<span class="mark">冷戦</span>と呼ぶんだ。</span><span class="s" data-i="18">1949年には西側が軍事同盟の<span class="mark">NATO</span>を結成し、</span><span class="s" data-i="19">1955年にはソ連たち東側も対抗して<span class="mark">ワルシャワ条約機構</span>を作ったよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="20">冷戦は、資本主義と社会主義が直接戦わずに対立したことだよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="20">冷戦は、資本主義と社会主義が直接戦わずに対立したことだよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">冷戦<span class="w-rd">れいせん</span></span><span class="w-desc">アメリカ中心の資本主義国とソ連中心の社会主義国が、直接戦わずに対立した状態。</span></div><div class="word"><span class="w-term">NATO<span class="w-rd">なとー</span></span><span class="w-desc">1949年に結成された、アメリカと西側諸国の軍事同盟。</span></div><div class="word"><span class="w-term">ワルシャワ条約機構<span class="w-rd">わるしゃわじょうやくきこう</span></span><span class="w-desc">1955年、NATOに対抗してソ連と東欧諸国が結成した軍事同盟。</span></div></div>
     </div>
     <div class="step" data-label="世界平和を目指した国際連合">
       <h3><span class="sec-no">2</span><span class="s" data-i="21">世界平和を目指した国際連合</span></h3>
       <div class="sec-lead"><span class="s" data-i="22">世界平和を目指して、</span><span class="s" data-i="23">国際連合が発足したよ。</span></div>
+      
       <p><span class="s" data-i="24">実は冷戦が始まる前、1945年に、</span><span class="s" data-i="25">二度と大きな戦争を起こさないようにと<span class="mark">国際連合</span>が発足していたんだ。</span><span class="s" data-i="26">原加盟国は51か国、</span><span class="s" data-i="27">本部はニューヨークに置かれたよ。</span><span class="s" data-i="28">その中心にあるのが<span class="mark">安全保障理事会</span>。</span><span class="s" data-i="29">世界の平和を守る大事な役目を持っていて、</span><span class="s" data-i="30">アメリカ・イギリス・フランス・ロシア・中国の5つの常任理事国がいるんだ。</span><span class="s" data-i="31">おもしろいことに、</span><span class="s" data-i="32">この5か国はたった1国が反対するだけで決議を止められる「拒否権」という強い力を持っているんだよ。</span><span class="s" data-i="33">すごいでしょ?</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="34">1945年、世界平和を目指す国際連合が発足したよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="34">1945年、世界平和を目指す国際連合が発足したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">国際連合<span class="w-rd">こくさいれんごう</span></span><span class="w-desc">1945年に発足した、世界平和を目指す国際機関。</span></div><div class="word"><span class="w-term">安全保障理事会<span class="w-rd">あんぜんほしょうりじかい</span></span><span class="w-desc">国連の中心機関。米英仏ロ中の5常任理事国が拒否権を持つ。</span></div></div>
     </div>
     <div class="step" data-label="冷戦、アジアにも広がる">
       <h3><span class="sec-no">3</span><span class="s" data-i="35">冷戦、アジアにも広がる</span></h3>
       <div class="sec-lead"><span class="s" data-i="36">冷戦の対立は、アジアの戦争にも広がったよ。</span></div>
+      
       <p><span class="s" data-i="37">冷戦の対立は、ヨーロッパだけじゃなくアジアにも広がっていったんだ。</span><span class="s" data-i="38">1949年、毛沢東が率いる共産党が内戦に勝利して中華人民共和国を建国し、</span><span class="s" data-i="39">敗れた国民党は台湾へ逃れたよ。</span><span class="s" data-i="40">そして1950年、</span><span class="s" data-i="41">北朝鮮が韓国に攻め込んで<span class="mark">朝鮮戦争</span>が始まったんだ。</span><span class="s" data-i="42">アメリカ中心の国連軍と中国が支援する北朝鮮側が激しく戦い、</span><span class="s" data-i="43">1953年にようやく休戦したよ。</span><span class="s" data-i="44">実はこの戦争、今も平和条約が結ばれていないって知ってた?さらに1960年から75年にかけては、</span><span class="s" data-i="45">社会主義の北ベトナムとアメリカが支援する南ベトナムが戦うベトナム戦争も起こり、</span><span class="s" data-i="46">アメリカは介入したものの敗れて撤退することになったんだ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="47">1949年に中国が建国し、</span><span class="s" data-i="48">翌年に朝鮮戦争が始まったよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="47">1949年に中国が建国し、</span><span class="s" data-i="48">翌年に朝鮮戦争が始まったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">朝鮮戦争<span class="w-rd">ちょうせんせんそう</span></span><span class="w-desc">1950年、北朝鮮が韓国に侵攻して始まった戦争。1953年に休戦した。</span></div></div>
     </div>
     <div class="step" data-label="冷戦の緊張が最高潮に達した瞬間">
       <h3><span class="sec-no">4</span><span class="s" data-i="49">冷戦の緊張が最高潮に達した瞬間</span></h3>
       <div class="sec-lead"><span class="s" data-i="50">ベルリンの壁とキューバ危機で緊張が高まったよ。</span></div>
+      
       <p><span class="s" data-i="51">冷戦の対立をひときわ強く感じさせる出来事も起きたよ。</span><span class="s" data-i="52">1961年、東ドイツは東西ベルリンを分ける<span class="mark">ベルリンの壁</span>を築いたんだ。</span><span class="s" data-i="53">自由を求めて逃げる人々を止めるためだったんだね。</span><span class="s" data-i="54">そして1962年には、</span><span class="s" data-i="55">ソ連がキューバにミサイル基地を作ろうとしたことでアメリカと激しく対立する<span class="mark">キューバ危機</span>が起こり、</span><span class="s" data-i="56">世界は核戦争一歩手前まで緊張したんだ。</span><span class="s" data-i="57">幸い戦争にはならず、</span><span class="s" data-i="58">話し合いで危機を乗り越えたんだよ。</span><span class="s" data-i="59">このベルリンの壁は、</span><span class="s" data-i="60">1989年に市民の手によって取り壊されるまで、</span><span class="s" data-i="61">実に28年間も東西を隔て続けたんだ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="62">1961年のベルリンの壁と62年のキューバ危機が起きたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="62">1961年のベルリンの壁と62年のキューバ危機が起きたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">ベルリンの壁<span class="w-rd">べるりんのかべ</span></span><span class="w-desc">1961年に東ドイツが築いた、東西ベルリンを隔てる壁。冷戦の象徴。</span></div><div class="word"><span class="w-term">キューバ危機<span class="w-rd">きゅーばきき</span></span><span class="w-desc">1962年、ソ連のミサイル基地建設をめぐり米ソが核戦争寸前まで対立した事件。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -624,10 +682,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/18/index.html#t2"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/18/index.html#t2"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=18-cold-war" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -635,44 +692,48 @@
 </section>
 <section class="view" data-t="2">
   <div class="tband"><span class="tno">2</span><h2>日本の独立回復</h2>
-    <button class="play-unit" type="button" data-play="2" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="2" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-japan-independence.webp"
+      <img class="cover-img zoomable" src="img/cover-japan-independence.webp"
            alt="日本の独立回復（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">戦争に負けて占領されていた日本が、</span><span class="s" data-i="1">もう一度独立国として世界に戻っていく物語だよ。</span><span class="s" data-i="2">同時に、平和の代わりに背負うことになった新しい重荷にも注目してみよう。</span></div></div>
     </div>
     <div class="step" data-label="サンフランシスコ平和条約と独立">
       <h3><span class="sec-no">1</span><span class="s" data-i="3">サンフランシスコ平和条約と独立</span></h3>
       <div class="sec-lead"><span class="s" data-i="4">条約を結んで、日本はついに独立を回復したよ。</span></div>
+      
       <p><span class="s" data-i="5">1951年、<span class="mark">吉田茂</span>内閣は連合国48か国との間に<span class="mark">サンフランシスコ平和条約</span>を結んだんだ。</span><span class="s" data-i="6">実は同じ日に、米軍が日本にとどまることを認める<span class="mark">日米安全保障条約</span>にも調印していたんだよ。</span><span class="s" data-i="7">翌1952年に条約が発効すると、</span><span class="s" data-i="8">日本はようやく独立を回復し、</span><span class="s" data-i="9">約7年間続いたGHQの占領が終わったんだ。</span><span class="s" data-i="10">ちなみにソ連はこの条約への調印を拒否していて、</span><span class="s" data-i="11">ソ連との関係はまた別の形で解決することになるよ。</span><span class="s" data-i="12">戦争に負けてから6年、</span><span class="s" data-i="13">ようやく自分の国のことを自分たちで決められるようになったんだね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="14">1951年、吉田茂内閣が講和条約と安保条約を同時に結んだよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="14">1951年、吉田茂内閣が講和条約と安保条約を同時に結んだよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">サンフランシスコ平和条約<span class="w-rd">さんふらんしすこへいわじょうやく</span></span><span class="w-desc">1951年、日本と連合国48か国が結んだ講和条約。翌年発効し独立を回復した。</span></div><div class="word"><span class="w-term">吉田茂<span class="w-rd">よしだしげる</span></span><span class="w-desc">サンフランシスコ平和条約と日米安全保障条約に調印した首相。</span></div><div class="word"><span class="w-term">日米安全保障条約<span class="w-rd">にちべいあんぜんほしょうじょうやく</span></span><span class="w-desc">1951年に結ばれた、米軍の日本駐留を認めた条約。</span></div></div>
     </div>
     <div class="step" data-label="朝鮮戦争がもたらした変化">
       <h3><span class="sec-no">2</span><span class="s" data-i="15">朝鮮戦争がもたらした変化</span></h3>
       <div class="sec-lead"><span class="s" data-i="16">朝鮮戦争がきっかけで、</span><span class="s" data-i="17">自衛隊が生まれたよ。</span></div>
+      
       <p><span class="s" data-i="18">1950年に朝鮮戦争が始まると、</span><span class="s" data-i="19">GHQの指令で警察予備隊という組織がつくられたんだ。</span><span class="s" data-i="20">これが1952年に保安隊、</span><span class="s" data-i="21">1954年には<span class="mark">自衛隊</span>へと形を変えていったよ。</span><span class="s" data-i="22">同時に、朝鮮戦争にともなう軍需物資の注文が日本に集中する「朝鮮特需」という好景気も起こり、</span><span class="s" data-i="23">日本経済の復興を大きく後押ししたんだ。</span><span class="s" data-i="24">戦争が遠く離れたところで、</span><span class="s" data-i="25">思わぬ形で日本の暮らしに影響していたんだね。</span><span class="s" data-i="26">警察予備隊は最初こそ小さな組織だったけど、</span><span class="s" data-i="27">少しずつ規模を広げながら今の自衛隊へとつながっていったんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="28">警察予備隊は保安隊を経て、</span><span class="s" data-i="29">1954年に自衛隊になったよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="28">警察予備隊は保安隊を経て、</span><span class="s" data-i="29">1954年に自衛隊になったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">自衛隊<span class="w-rd">じえいたい</span></span><span class="w-desc">1954年発足の日本の防衛組織。警察予備隊・保安隊を経て発展した。</span></div></div>
     </div>
     <div class="step" data-label="安保闘争、国民の声が渦巻いた1960年">
       <h3><span class="sec-no">3</span><span class="s" data-i="30">安保闘争、国民の声が渦巻いた1960年</span></h3>
       <div class="sec-lead"><span class="s" data-i="31">安保条約の改定に、</span><span class="s" data-i="32">国民が大きく反対したよ。</span></div>
+      
       <p><span class="s" data-i="33">1960年、<span class="mark">岸信介</span>内閣は日米安全保障条約を改定し、</span><span class="s" data-i="34">日本とアメリカのどちらかが攻撃されたら助け合うことを明確にしたんだ。</span><span class="s" data-i="35">でもこの改定には、</span><span class="s" data-i="36">戦争に巻き込まれるのではという不安から強く反対する声が上がり、</span><span class="s" data-i="37">学生や労働組合、</span><span class="s" data-i="38">市民が連日国会前に集まる<span class="mark">安保闘争</span>という大規模な運動になったよ。</span><span class="s" data-i="39">結局、条約は成立したものの、</span><span class="s" data-i="40">岸内閣は混乱の責任を取って退陣することになったんだ。</span><span class="s" data-i="41">戦後最大規模ともいわれるこの反対運動は、</span><span class="s" data-i="42">当時の若者たちの政治への強い関心を映し出す出来事でもあったんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="43">1960年、新安保条約に反対する安保闘争が起きたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="43">1960年、新安保条約に反対する安保闘争が起きたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">岸信介<span class="w-rd">きしのぶすけ</span></span><span class="w-desc">1960年に新日米安全保障条約を成立させた首相。</span></div><div class="word"><span class="w-term">安保闘争<span class="w-rd">あんぽとうそう</span></span><span class="w-desc">1960年、新安保条約の改定に反対して起きた大規模な国民運動。</span></div></div>
     </div>
     <div class="step" data-label="沖縄、ついに日本へ">
       <h3><span class="sec-no">4</span><span class="s" data-i="44">沖縄、ついに日本へ</span></h3>
       <div class="sec-lead"><span class="s" data-i="45">27年の米軍統治を経て、</span><span class="s" data-i="46">沖縄が日本に戻ったよ。</span></div>
+      
       <p><span class="s" data-i="47">1972年、<span class="mark">佐藤栄作</span>内閣のもとで、</span><span class="s" data-i="48">ついに<span class="mark">沖縄返還</span>が実現したんだ。</span><span class="s" data-i="49">1945年の沖縄戦から数えると、</span><span class="s" data-i="50">なんと27年間も米軍の統治が続いていたんだよ。</span><span class="s" data-i="51">この間、沖縄では日本円ではなくドルが使われ、</span><span class="s" data-i="52">車も右側通行だったりと、</span><span class="s" data-i="53">本土とはちがう暮らしが続いていたんだ。</span><span class="s" data-i="54">長い年月を経てようやく沖縄が日本に復帰したこの出来事は、</span><span class="s" data-i="55">戦後日本にとって大きな節目のひとつだったんだね。</span><span class="s" data-i="56">沖縄の人々が本土復帰を心から待ち望んでいたことを思うと、</span><span class="s" data-i="57">この日の重みがより深く感じられるよね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="58">1972年、沖縄が返還され27年の米軍統治が終わったよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="58">1972年、沖縄が返還され27年の米軍統治が終わったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">佐藤栄作<span class="w-rd">さとうえいさく</span></span><span class="w-desc">1972年に沖縄返還を実現した首相。</span></div><div class="word"><span class="w-term">沖縄返還<span class="w-rd">おきなわへんかん</span></span><span class="w-desc">1972年、27年間の米軍統治が終わり沖縄が日本に復帰したこと。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -780,10 +841,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/18/index.html#t3"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/18/index.html#t3"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=18-japan-independence" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -791,44 +851,48 @@
 </section>
 <section class="view" data-t="3">
   <div class="tband"><span class="tno">3</span><h2>国際社会への復帰</h2>
-    <button class="play-unit" type="button" data-play="3" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="3" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-postwar-international.webp"
+      <img class="cover-img zoomable" src="img/cover-postwar-international.webp"
            alt="国際社会への復帰（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">独立しただけじゃ足りない。</span><span class="s" data-i="1">日本はまわりの国ぐにと少しずつ握手をして、</span><span class="s" data-i="2">本当の意味で世界に戻っていったんだよ。</span></div></div>
     </div>
     <div class="step" data-label="55年体制の始まり">
       <h3><span class="sec-no">1</span><span class="s" data-i="3">55年体制の始まり</span></h3>
       <div class="sec-lead"><span class="s" data-i="4">自民党が長く政権を担う、</span><span class="s" data-i="5">55年体制が始まったよ。</span></div>
+      
       <p><span class="s" data-i="6">1955年、それまで分かれていた自由党と日本民主党が合同し、</span><span class="s" data-i="7">自由民主党(自民党)が結成されたんだ。</span><span class="s" data-i="8">これをきっかけに、</span><span class="s" data-i="9">自民党が長く政権を担い、</span><span class="s" data-i="10">日本社会党が主な野党として向き合う<span class="mark">55年体制</span>という政治のしくみが始まったよ。</span><span class="s" data-i="11">この体制は1993年まで、</span><span class="s" data-i="12">なんと40年近くも続くことになるんだ。</span><span class="s" data-i="13">長いよね。</span><span class="s" data-i="14">この保守合同を進めたのが鳩山一郎で、</span><span class="s" data-i="15">政権が安定したことで、</span><span class="s" data-i="16">日本はこのあと経済成長にじっくり力を注げるようになっていくんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="17">1955年、自民党結成とともに55年体制が始まったよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="17">1955年、自民党結成とともに55年体制が始まったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">55年体制<span class="w-rd">ごじゅうごねんたいせい</span></span><span class="w-desc">1955年から続いた、自民党が長期政権を担う政治体制。</span></div></div>
     </div>
     <div class="step" data-label="ソ連との国交回復と国連加盟">
       <h3><span class="sec-no">2</span><span class="s" data-i="18">ソ連との国交回復と国連加盟</span></h3>
       <div class="sec-lead"><span class="s" data-i="19">ソ連と国交を回復し、</span><span class="s" data-i="20">国連加盟も果たしたよ。</span></div>
+      
       <p><span class="s" data-i="21">1956年、鳩山一郎内閣は<span class="mark">日ソ共同宣言</span>を結び、</span><span class="s" data-i="22">ソ連との戦争状態をようやく終わらせて国交を回復させたんだ。</span><span class="s" data-i="23">実はこれがきっかけとなって、</span><span class="s" data-i="24">同じ年に日本は国際連合への加盟を果たすことができたんだよ。</span><span class="s" data-i="25">サンフランシスコ平和条約に調印しなかったソ連との関係を解決したことが、</span><span class="s" data-i="26">国際社会に完全に復帰するための最後のピースになったんだね。</span><span class="s" data-i="27">国連に加盟したことで、</span><span class="s" data-i="28">日本はようやく世界の一員として発言できる立場を手に入れたんだ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="29">1956年、日ソ共同宣言でソ連と国交を回復したよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="29">1956年、日ソ共同宣言でソ連と国交を回復したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">日ソ共同宣言<span class="w-rd">にっそきょうどうせんげん</span></span><span class="w-desc">1956年、鳩山一郎内閣がソ連との戦争状態を終わらせた宣言。同年の国連加盟につながった。</span></div></div>
     </div>
     <div class="step" data-label="近隣国との条約、そして非核三原則">
       <h3><span class="sec-no">3</span><span class="s" data-i="30">近隣国との条約、</span><span class="s" data-i="31">そして非核三原則</span></h3>
       <div class="sec-lead"><span class="s" data-i="32">韓国と国交を結び、</span><span class="s" data-i="33">非核三原則も表明したよ。</span></div>
+      
       <p><span class="s" data-i="34">1965年、佐藤栄作内閣は<span class="mark">日韓基本条約</span>を結んで韓国と国交を樹立し、</span><span class="s" data-i="35">経済協力も約束したんだ。</span><span class="s" data-i="36">さらに1967年には、</span><span class="s" data-i="37">佐藤首相が「核兵器を持たず、作らず、</span><span class="s" data-i="38">持ち込ませず」という<span class="mark">非核三原則</span>を表明したよ。</span><span class="s" data-i="39">この方針は今も日本の核政策の基本になっていて、</span><span class="s" data-i="40">佐藤栄作が1974年にノーベル平和賞を受賞した理由のひとつにもなったんだ。</span><span class="s" data-i="41">唯一の被爆国として核を持たないと宣言したこの方針は、</span><span class="s" data-i="42">世界からも高く評価されたんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="43">1965年に日韓基本条約、</span><span class="s" data-i="44">67年に非核三原則を発表したよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="43">1965年に日韓基本条約、</span><span class="s" data-i="44">67年に非核三原則を発表したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">佐藤栄作<span class="w-rd">さとうえいさく</span></span><span class="w-desc">日韓基本条約や非核三原則の表明を行い、ノーベル平和賞を受賞した首相。</span></div><div class="word"><span class="w-term">日韓基本条約<span class="w-rd">にっかんきほんじょうやく</span></span><span class="w-desc">1965年、佐藤栄作内閣が韓国と国交を樹立した条約。</span></div><div class="word"><span class="w-term">非核三原則<span class="w-rd">ひかくさんげんそく</span></span><span class="w-desc">「持たず、作らず、持ち込ませず」という日本の核兵器に関する方針。</span></div></div>
     </div>
     <div class="step" data-label="中国との国交正常化">
       <h3><span class="sec-no">4</span><span class="s" data-i="45">中国との国交正常化</span></h3>
       <div class="sec-lead"><span class="s" data-i="46">中国とも国交を正常化し、</span><span class="s" data-i="47">世界に復帰したよ。</span></div>
+      
       <p><span class="s" data-i="48">1972年、<span class="mark">田中角栄</span>内閣は中国を訪れて<span class="mark">日中共同声明</span>を発表し、</span><span class="s" data-i="49">中華人民共和国との国交を正常化したんだ。</span><span class="s" data-i="50">ただし、これによってそれまで国交のあった台湾の中華民国とは断交することになったよ。</span><span class="s" data-i="51">そして1978年、</span><span class="s" data-i="52">福田赳夫内閣がこの関係を正式な条約として確定させる<span class="mark">日中平和友好条約</span>を結んだんだ。</span><span class="s" data-i="53">声明から条約まで、</span><span class="s" data-i="54">6年もかかったんだね。</span><span class="s" data-i="55">田中角栄は「日本列島改造論」を掲げるなど内政でも注目を集めた首相で、</span><span class="s" data-i="56">外交と経済の両面で戦後日本を大きく動かした人物なんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="57">1972年に日中共同声明、</span><span class="s" data-i="58">78年に平和友好条約を結んだよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="57">1972年に日中共同声明、</span><span class="s" data-i="58">78年に平和友好条約を結んだよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">田中角栄<span class="w-rd">たなかかくえい</span></span><span class="w-desc">1972年、日中共同声明で中国との国交正常化を実現した首相。</span></div><div class="word"><span class="w-term">日中共同声明<span class="w-rd">にっちゅうきょうどうせいめい</span></span><span class="w-desc">1972年、中華人民共和国と国交を樹立した声明。台湾とは断交した。</span></div><div class="word"><span class="w-term">日中平和友好条約<span class="w-rd">にっちゅうへいわゆうこうじょうやく</span></span><span class="w-desc">1978年、福田赳夫内閣が結んだ、日中の平和友好を約束する条約。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -936,10 +1000,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/18/index.html#t4"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/18/index.html#t4"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=18-postwar-international" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -947,44 +1010,48 @@
 </section>
 <section class="view" data-t="4">
   <div class="tband"><span class="tno">4</span><h2>高度経済成長</h2>
-    <button class="play-unit" type="button" data-play="4" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="4" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-economic-growth.webp"
+      <img class="cover-img zoomable" src="img/cover-economic-growth.webp"
            alt="高度経済成長（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">廃墟から一気に世界第2位の経済大国へ。</span><span class="s" data-i="1">日本が「東洋の奇跡」と呼ばれるほどの急成長を遂げた、</span><span class="s" data-i="2">驚きの時代を見てみよう。</span></div></div>
     </div>
     <div class="step" data-label="10年で驚きの急成長">
       <h3><span class="sec-no">1</span><span class="s" data-i="3">10年で驚きの急成長</span></h3>
       <div class="sec-lead"><span class="s" data-i="4">日本経済は年10%もの急成長を遂げたよ。</span></div>
+      
       <p><span class="s" data-i="5">1955年から1973年にかけて、</span><span class="s" data-i="6">日本経済は年平均約10%という驚くべきスピードで成長を続けたんだ。</span><span class="s" data-i="7">この時期を<span class="mark">高度経済成長</span>と呼ぶよ。</span><span class="s" data-i="8">あまりの急成長ぶりに「東洋の奇跡」と呼ばれ、</span><span class="s" data-i="9">日本はアメリカに次ぐ世界第2位の経済大国にまで上りつめたんだ。</span><span class="s" data-i="10">戦争で焼け野原になった国が、</span><span class="s" data-i="11">たった十数年でここまで復活するなんて、すごいよね。</span><span class="s" data-i="12">工場では新しい機械がどんどん導入され、</span><span class="s" data-i="13">人々の働き方や暮らし方も大きく変わっていった時代だったんだ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="14">1955〜73年、</span><span class="s" data-i="15">日本は年10%もの高度経済成長を遂げたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="14">1955〜73年、</span><span class="s" data-i="15">日本は年10%もの高度経済成長を遂げたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">高度経済成長<span class="w-rd">こうどけいざいせいちょう</span></span><span class="w-desc">1955〜73年、日本経済が年平均約10%成長した時期。「東洋の奇跡」と呼ばれた。</span></div></div>
     </div>
     <div class="step" data-label="暮らしを変えた新しい家電たち">
       <h3><span class="sec-no">2</span><span class="s" data-i="16">暮らしを変えた新しい家電たち</span></h3>
       <div class="sec-lead"><span class="s" data-i="17">三種の神器と3Cで、</span><span class="s" data-i="18">暮らしが便利になったよ。</span></div>
+      
       <p><span class="s" data-i="19">1950年代後半になると、</span><span class="s" data-i="20">電気冷蔵庫・洗濯機・白黒テレビの3つが家庭に広まり、</span><span class="s" data-i="21">これを<span class="mark">三種の神器</span>と呼ぶようになったんだ。</span><span class="s" data-i="22">1960年代にはさらに、</span><span class="s" data-i="23">カー(自動車)・カラーテレビ・クーラーの<span class="mark">3C</span>が普及していったよ。</span><span class="s" data-i="24">家事や暮らしがどんどん便利になっていく様子を、</span><span class="s" data-i="25">当時の人たちはきっとワクワクしながら見ていたんじゃないかな。</span><span class="s" data-i="26">それまで手作業だった洗濯や、</span><span class="s" data-i="27">氷を使った冷蔵庫での保存が、</span><span class="s" data-i="28">電気の力であっという間に楽になっていったんだね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="29">三種の神器から3Cへと、</span><span class="s" data-i="30">暮らしの家電が広まったよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="29">三種の神器から3Cへと、</span><span class="s" data-i="30">暮らしの家電が広まったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">三種の神器<span class="w-rd">さんしゅのじんぎ</span></span><span class="w-desc">1950年代後半に普及した電気冷蔵庫・洗濯機・白黒テレビ。</span></div><div class="word"><span class="w-term">3C<span class="w-rd">すりーしー</span></span><span class="w-desc">1960年代に普及したカー・カラーテレビ・クーラー。</span></div></div>
     </div>
     <div class="step" data-label="世界に見せた日本の力">
       <h3><span class="sec-no">3</span><span class="s" data-i="31">世界に見せた日本の力</span></h3>
       <div class="sec-lead"><span class="s" data-i="32">オリンピックと万博で、</span><span class="s" data-i="33">日本の復興を示したよ。</span></div>
+      
       <p><span class="s" data-i="34">1964年には、</span><span class="s" data-i="35">アジア初となる<span class="mark">東京オリンピック</span>が開催されたんだ。</span><span class="s" data-i="36">これに合わせて、</span><span class="s" data-i="37">東京〜新大阪間を結ぶ世界初の高速鉄道<span class="mark">東海道新幹線</span>も開通したよ。</span><span class="s" data-i="38">さらに1970年には、</span><span class="s" data-i="39">日本初の国際博覧会である<span class="mark">大阪万博</span>が開かれ、</span><span class="s" data-i="40">「人類の進歩と調和」をテーマに岡本太郎の「太陽の塔」が話題になったんだ。</span><span class="s" data-i="41">復興した日本の姿を、</span><span class="s" data-i="42">世界にしっかりアピールできた時代だったんだね。</span><span class="s" data-i="43">海外からもたくさんの人が日本を訪れ、</span><span class="s" data-i="44">この国の技術力と発展ぶりに驚いたんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="45">1964年の東京オリンピックと70年の大阪万博だよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="45">1964年の東京オリンピックと70年の大阪万博だよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">東京オリンピック<span class="w-rd">とうきょうおりんぴっく</span></span><span class="w-desc">1964年に開催された、アジア初のオリンピック。</span></div><div class="word"><span class="w-term">東海道新幹線<span class="w-rd">とうかいどうしんかんせん</span></span><span class="w-desc">1964年に開業した、東京〜新大阪間の世界初の高速鉄道。</span></div><div class="word"><span class="w-term">大阪万博<span class="w-rd">おおさかばんぱく</span></span><span class="w-desc">1970年に開催された、日本初の国際博覧会。</span></div></div>
     </div>
     <div class="step" data-label="急成長の裏にあった痛み">
       <h3><span class="sec-no">4</span><span class="s" data-i="46">急成長の裏にあった痛み</span></h3>
       <div class="sec-lead"><span class="s" data-i="47">公害病と石油危機が、</span><span class="s" data-i="48">急成長に影を落としたよ。</span></div>
+      
       <p><span class="s" data-i="49">でも、急成長には影の部分もあったんだ。</span><span class="s" data-i="50">工場からの排水やガスによる環境汚染で、</span><span class="s" data-i="51">各地で深刻な健康被害が起きてしまったんだよ。</span><span class="s" data-i="52">熊本の水俣病、新潟水俣病、</span><span class="s" data-i="53">富山のイタイイタイ病、</span><span class="s" data-i="54">三重の四日市ぜんそくをあわせて<span class="mark">四大公害病</span>と呼ぶんだ。</span><span class="s" data-i="55">1967年には公害対策基本法が制定されて対策が始まったよ。</span><span class="s" data-i="56">そして1973年、</span><span class="s" data-i="57">第四次中東戦争をきっかけに<span class="mark">石油危機</span>が起こると、</span><span class="s" data-i="58">10年以上続いた高度経済成長はついに終わりを迎えたんだ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="59">四大公害病が起き、</span><span class="s" data-i="60">1973年の石油危機で成長は終わったよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="59">四大公害病が起き、</span><span class="s" data-i="60">1973年の石油危機で成長は終わったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">四大公害病<span class="w-rd">よんだいこうがいびょう</span></span><span class="w-desc">水俣病・新潟水俣病・イタイイタイ病・四日市ぜんそくの総称。</span></div><div class="word"><span class="w-term">石油危機<span class="w-rd">せきゆきき</span></span><span class="w-desc">1973年、第四次中東戦争をきっかけに原油価格が高騰し、高度経済成長を終わらせた出来事。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -1092,10 +1159,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/18/index.html#t5"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/18/index.html#t5"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=18-economic-growth" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -1103,44 +1169,48 @@
 </section>
 <section class="view" data-t="5">
   <div class="tband"><span class="tno">5</span><h2>戦後の文化</h2>
-    <button class="play-unit" type="button" data-play="5" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="5" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-postwar-culture.webp"
+      <img class="cover-img zoomable" src="img/cover-postwar-culture.webp"
            alt="戦後の文化（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">テレビが茶の間にやってきて、</span><span class="s" data-i="1">日本人が次々とノーベル賞を受賞する。</span><span class="s" data-i="2">戦後の日本文化が世界へ羽ばたいていった様子を見てみよう。</span></div></div>
     </div>
     <div class="step" data-label="テレビの登場と大衆文化">
       <h3><span class="sec-no">1</span><span class="s" data-i="3">テレビの登場と大衆文化</span></h3>
       <div class="sec-lead"><span class="s" data-i="4">テレビ放送が始まり、</span><span class="s" data-i="5">暮らしを大きく変えたよ。</span></div>
+      
       <p><span class="s" data-i="6">1953年、NHKと民放によって日本の<span class="mark">テレビ放送</span>が始まったんだ。</span><span class="s" data-i="7">新聞やラジオと並ぶマスメディアとして、</span><span class="s" data-i="8">人々の暮らしや世論に大きな影響をあたえるようになったんだよ。</span><span class="s" data-i="9">茶の間に集まって家族みんなでテレビを見る、</span><span class="s" data-i="10">そんな新しい光景がこのころから広まっていったんだね。</span><span class="s" data-i="11">最初はまだ高価で買える家庭も少なかったけど、</span><span class="s" data-i="12">街頭テレビの前に人だかりができるほど大人気で、</span><span class="s" data-i="13">プロレスや野球の中継にみんな夢中になったんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="14">1953年、テレビ放送が始まり大きな影響を与えたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="14">1953年、テレビ放送が始まり大きな影響を与えたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">テレビ放送<span class="w-rd">てれびほうそう</span></span><span class="w-desc">1953年に始まった、NHKと民放による放送。戦後の大衆文化に大きな影響を与えた。</span></div></div>
     </div>
     <div class="step" data-label="世界に認められた日本の科学と文学">
       <h3><span class="sec-no">2</span><span class="s" data-i="15">世界に認められた日本の科学と文学</span></h3>
       <div class="sec-lead"><span class="s" data-i="16">湯川秀樹と川端康成が、</span><span class="s" data-i="17">ノーベル賞を受賞したよ。</span></div>
+      
       <p><span class="s" data-i="18">1949年、<span class="mark">湯川秀樹</span>が中間子理論という研究で、</span><span class="s" data-i="19">日本人として初めてノーベル物理学賞を受賞したんだ。</span><span class="s" data-i="20">敗戦からまだ間もない時期だったから、</span><span class="s" data-i="21">この受賞は日本中に大きな誇りと希望をあたえたんだよ。</span><span class="s" data-i="22">そして1968年には、</span><span class="s" data-i="23">「雪国」などの作品で知られる<span class="mark">川端康成</span>が、</span><span class="s" data-i="24">日本人初のノーベル文学賞を受賞したんだ。</span><span class="s" data-i="25">二人とも、日本人にとって特別な「初めて」を成し遂げた人物なんだね。</span><span class="s" data-i="26">どちらの受賞も、</span><span class="s" data-i="27">戦争で傷ついた日本にとって大きな心の支えになったんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="28">湯川秀樹と川端康成が、</span><span class="s" data-i="29">日本人初のノーベル賞を受賞したよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="28">湯川秀樹と川端康成が、</span><span class="s" data-i="29">日本人初のノーベル賞を受賞したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">湯川秀樹<span class="w-rd">ゆかわひでき</span></span><span class="w-desc">1949年、中間子理論で日本人初のノーベル物理学賞を受賞した科学者。</span></div><div class="word"><span class="w-term">川端康成<span class="w-rd">かわばたやすなり</span></span><span class="w-desc">1968年、「雪国」などの作品で日本人初のノーベル文学賞を受賞した作家。</span></div></div>
     </div>
     <div class="step" data-label="映画・マンガ・アニメの巨匠たち">
       <h3><span class="sec-no">3</span><span class="s" data-i="30">映画・マンガ・アニメの巨匠たち</span></h3>
       <div class="sec-lead"><span class="s" data-i="31">黒澤明と手塚治虫が、</span><span class="s" data-i="32">世界に日本文化を広げたよ。</span></div>
+      
       <p><span class="s" data-i="33">「羅生門」「七人の侍」などで知られる映画監督<span class="mark">黒澤明</span>は、</span><span class="s" data-i="34">1951年に「羅生門」がヴェネチア国際映画祭で金獅子賞を受賞し、</span><span class="s" data-i="35">日本映画を世界に知らしめたんだ。</span><span class="s" data-i="36">同じころ、「鉄腕アトム」を生み出した「マンガの神様」<span class="mark">手塚治虫</span>は、</span><span class="s" data-i="37">戦後の日本の<span class="mark">アニメ</span>文化の土台を築いていったよ。</span><span class="s" data-i="38">今や世界中で愛されるアニメが、</span><span class="s" data-i="39">このころから始まっていたなんて、</span><span class="s" data-i="40">不思議でしょ?こうした才能あふれる表現者たちの活躍が、</span><span class="s" data-i="41">戦後の日本文化を世界に広める大きな力になったんだね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="42">黒澤明の映画と手塚治虫のマンガが世界で評価されたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="42">黒澤明の映画と手塚治虫のマンガが世界で評価されたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">黒澤明<span class="w-rd">くろさわあきら</span></span><span class="w-desc">「羅生門」「七人の侍」などで世界的に知られる映画監督。</span></div><div class="word"><span class="w-term">手塚治虫<span class="w-rd">てづかおさむ</span></span><span class="w-desc">「鉄腕アトム」を著した「マンガの神様」。日本のアニメ文化の基礎を築いた。</span></div><div class="word"><span class="w-term">アニメ<span class="w-rd">あにめ</span></span><span class="w-desc">手塚治虫らが発展させた、日本独自の動画文化。</span></div></div>
     </div>
     <div class="step" data-label="戦後文学と平和への貢献">
       <h3><span class="sec-no">4</span><span class="s" data-i="43">戦後文学と平和への貢献</span></h3>
       <div class="sec-lead"><span class="s" data-i="44">文学と平和への貢献が、</span><span class="s" data-i="45">世界に認められたよ。</span></div>
+      
       <p><span class="s" data-i="46">「金閣寺」などを著した<span class="mark">三島由紀夫</span>をはじめ、</span><span class="s" data-i="47">幕末や明治を題材にした歴史小説で人気を集めた司馬遼太郎など、</span><span class="s" data-i="48">戦後は個性ゆたかな作家たちが活躍したんだ。</span><span class="s" data-i="49">そして元首相の<span class="mark">佐藤栄作</span>は、</span><span class="s" data-i="50">1974年に沖縄返還の実現と非核三原則の表明が評価されてノーベル平和賞を受賞したよ。</span><span class="s" data-i="51">文化だけでなく、</span><span class="s" data-i="52">平和への取り組みそのものが世界に認められた瞬間だったんだね。</span><span class="s" data-i="53">戦後の混乱を乗り越え、</span><span class="s" data-i="54">文化とともに平和への歩みを重ねてきたことがよく分かるね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="55">戦後文学が花開き、</span><span class="s" data-i="56">佐藤栄作はノーベル平和賞を受賞したよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="55">戦後文学が花開き、</span><span class="s" data-i="56">佐藤栄作はノーベル平和賞を受賞したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">三島由紀夫<span class="w-rd">みしまゆきお</span></span><span class="w-desc">「金閣寺」などを著した戦後の代表的作家。</span></div><div class="word"><span class="w-term">佐藤栄作<span class="w-rd">さとうえいさく</span></span><span class="w-desc">1974年、沖縄返還と非核三原則の表明が評価されノーベル平和賞を受賞した元首相。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -1248,10 +1318,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/18/index.html#t6"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/18/index.html#t6"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=18-postwar-culture" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -1267,6 +1336,11 @@
   <button class="ap-close" id="apClose" aria-label="読み上げを止める">×</button>
 </div></div>
 <audio id="audio" preload="none"></audio>
+<div class="lightbox" id="lightbox" hidden>
+  <img id="lightboxImg" alt="">
+  <button class="lb-close" id="lbClose" aria-label="閉じる">×</button>
+  <div class="lb-hint">タップで閉じる</div>
+</div>
 <div class="navbar" id="navbar" hidden><div class="navbar-in">
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
@@ -1486,7 +1560,7 @@
       b.classList.toggle('on', bt === t);
       b.classList.toggle('done', bt > 0 && store()['d' + bt] === 1);
     });
-    var tabEl = tabs[t];
+    var tabEl = tabs.filter(function (b) { return +b.dataset.go === t; })[0];
     if (tabEl && tabEl.scrollIntoView) {
       tabEl.scrollIntoView({ block: 'nearest', inline: 'center' });
     }
@@ -1529,11 +1603,11 @@
       pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
       var prev = document.getElementById('btnPrev');
       var next = document.getElementById('btnNext');
-      prev.textContent = s === 0 ? '🏠 目次' : '← まえへ';
+      prev.textContent = s === 0 ? '目次へ' : '← まえへ';
       if (s < steps.length - 1) {
         next.textContent = 'つぎへ →';
       } else {
-        next.textContent = t < N ? '次の単元へ →' : '🏠 目次にもどる';
+        next.textContent = t < N ? '次の単元へ →' : '目次にもどる';
       }
       // 進捗保存
       var st = store();
@@ -1695,8 +1769,21 @@
     }
   }, { passive: true });
 
+  // 画像タップで拡大（ライトボックス）。ページ送りタップ／スワイプと競合しない。
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightboxImg');
+  function openLb(src) { lbImg.src = src; lb.hidden = false; document.body.style.overflow = 'hidden'; }
+  function closeLb() { lb.hidden = true; lbImg.removeAttribute('src'); document.body.style.overflow = ''; }
+  document.addEventListener('click', function (e) {
+    var z = e.target.closest('img.zoomable');
+    if (z) { e.preventDefault(); e.stopPropagation(); openLb(z.currentSrc || z.src); }
+  });
+  lb.addEventListener('click', closeLb);
+  document.getElementById('lbClose').addEventListener('click', function (e) { e.stopPropagation(); closeLb(); });
+
   // キーボード操作（PC）: ←→ でページ送り、PageUp/Down も同じ、Home で目次へ
   document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !lb.hidden) { closeLb(); return; }
     var tag = e.target && e.target.tagName;
     if (tag === 'INPUT' || tag === 'TEXTAREA' || e.metaKey || e.ctrlKey || e.altKey) return;
     if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === 'Enter') { next(); e.preventDefault(); }
@@ -1711,6 +1798,16 @@
   }
   window.addEventListener('hashchange', fromHash);
   fromHash();
+
+  // 問題集の「解説を読む」から来たとき（?back=）だけ「問題にもどる」を出す
+  (function () {
+    var m = /[?&]back=([^&#]+)/.exec(location.search);
+    var pill = document.getElementById('backPill');
+    if (m && pill) {
+      try { pill.href = decodeURIComponent(m[1]); } catch (e) { pill.href = m[1]; }
+      pill.hidden = false;
+    }
+  })();
 })();
 </script>
 <script type="module">

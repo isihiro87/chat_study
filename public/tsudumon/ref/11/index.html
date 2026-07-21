@@ -21,12 +21,26 @@
   .s.read { color:#8a8279; }
   .s.now { background:#fcd34d; color:#1c1917; }
   .s.now .mark { background:none; }
-  /* 単元見出しの再生ボタン */
+  /* 単元見出しの音声ボタン（タップで読み上げ再生。適度に目立つ塗りボタン＋再生アイコン） */
   .play-unit { display:inline-flex; align-items:center; gap:6px; margin-left:auto; flex:none;
-               background:#fff; color:var(--brand); border:1.5px solid var(--line);
-               border-radius:20px; padding:4px 12px; font-size:12px; font-weight:bold;
-               font-family:inherit; cursor:pointer; }
+               background:linear-gradient(#f59e0b,#ea7a09); color:#fff;
+               border:none; border-radius:20px; padding:7px 15px 7px 9px; font-size:13px; font-weight:bold;
+               font-family:inherit; cursor:pointer; box-shadow:0 3px 0 #c2620a, 0 4px 9px rgba(217,119,6,.3);
+               transition:transform .12s, filter .12s; }
+  .pu-ic { flex:none; width:22px; height:22px; border-radius:50%; background:rgba(255,255,255,.28);
+           display:inline-flex; align-items:center; justify-content:center; }
+  .pu-ic svg { width:13px; height:13px; fill:#fff; margin-left:1px; }
+  .play-unit:active { transform:translateY(2px); box-shadow:0 1px 0 #c2620a; }
+  @media (hover:hover) { .play-unit:hover { filter:brightness(1.06); } }
   .play-unit[hidden] { display:none; }
+  /* 問題集の「解説を読む」から来たときに出す「問題にもどる」ボタン（すぐ問題へ戻れる） */
+  .backpill { position:fixed; left:50%; transform:translateX(-50%); bottom:74px; z-index:40;
+              background:var(--brand); color:#fff; font-weight:bold; font-size:13.5px;
+              border-radius:22px; padding:9px 18px 9px 13px; text-decoration:none;
+              box-shadow:0 4px 14px rgba(120,50,10,.35); display:inline-flex; align-items:center; gap:5px; }
+  .backpill svg { width:16px; height:16px; fill:none; stroke:#fff; stroke-width:2.4;
+                  stroke-linecap:round; stroke-linejoin:round; }
+  .backpill[hidden] { display:none; }
   /* 下部プレーヤー（再生中だけ出す。ナビバーの上に重ねる） */
   .aplayer { position:fixed; left:0; right:0; bottom:58px; z-index:25;
              background:rgba(255,253,248,.98); border-top:1px solid #f0e6d2;
@@ -53,13 +67,18 @@
      タブ列の 🏠 は「この本の目次」なので、こちらは 🗺＋文字でトップだと分かるようにする。 */
   .tophome { flex:none; height:30px; padding:0 12px; font-size:11.5px; font-weight:bold;
              color:#fff; background:var(--deep); border-radius:15px; text-decoration:none;
-             display:inline-flex; align-items:center; white-space:nowrap;
-             box-shadow:0 2px 0 #5b1e0b; }
-  .swap { flex:none; display:inline-flex; border:1.5px solid var(--line); border-radius:20px;
-          overflow:hidden; background:#fffbeb; }
-  .sw { font-size:11px; font-weight:bold; color:var(--brand); padding:3px 7px; text-decoration:none;
-        white-space:nowrap; cursor:pointer; }
-  .sw.on { background:var(--brand); color:#fff; }
+             display:inline-flex; align-items:center; gap:5px; white-space:nowrap;
+             box-shadow:0 2px 0 #5b1e0b; transition:filter .12s; }
+  .th-ic { width:14px; height:14px; fill:currentColor; flex:none; }
+  @media (hover:hover) { .tophome:hover { filter:brightness(1.12); } }
+  /* 参考書⇄問題の切りかえタブ。押せると分かるよう、非選択側は白ボタン風＋ホバー反応 */
+  .swap { flex:none; display:inline-flex; gap:3px; padding:2px; border-radius:16px;
+          background:#f0e2c3; }
+  .sw { font-size:11.5px; font-weight:bold; color:var(--brand); padding:4px 12px; text-decoration:none;
+        white-space:nowrap; cursor:pointer; border-radius:13px; background:#fff;
+        transition:filter .12s, background-color .12s; }
+  .sw.on { background:var(--brand); color:#fff; cursor:default; box-shadow:0 1px 2px rgba(180,83,9,.3); }
+  @media (hover:hover) { .sw:not(.on):hover { background:#fff8ec; filter:brightness(0.98); } }
   .sw[hidden] { display:none; }
   .bar-title { font-weight:bold; color:var(--deep); font-size:14px; flex:1;
                white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
@@ -83,13 +102,15 @@
   .tabs { display:flex; gap:5px; overflow-x:auto; padding:4px 0; width:100%;
           scrollbar-width:none; -webkit-overflow-scrolling:touch; }
   .tabs::-webkit-scrollbar { display:none; }
+  /* 単元タブ: 位置は動かさず、色で状態を示す（未読=クリーム／読んだ=緑／表示中=茶） */
   .tab { flex:none; width:30px; height:30px; border-radius:50%; border:1.5px solid var(--line);
          background:#fffbeb; color:var(--brand); font-size:15px; font-weight:bold;
-         display:inline-flex; align-items:center; justify-content:center; cursor:pointer; }
-  .tab.done { background:#fef3c7; }
+         display:inline-flex; align-items:center; justify-content:center; cursor:pointer;
+         transition:background-color .12s, border-color .12s; }
+  .tab.done { background:#dcfce7; border-color:#86efac; color:#15803d; }   /* 読んだ単元 */
   .tab.done::after { content:""; }
-  .tab.on { background:var(--brand); border-color:var(--brand); color:#fff;
-            box-shadow:0 2px 6px rgba(180,83,9,.35); }
+  .tab.on { background:var(--brand); border-color:var(--brand); color:#fff; }  /* いま表示中 */
+  @media (hover:hover) { .tab:not(.on):hover { background:#fff2d6; } }
   .pbar { height:3px; background:#f5ecd8; border-radius:2px; overflow:hidden; margin:0 0 0; }
   .pfill { height:100%; width:0; background:linear-gradient(90deg,var(--amber),#fbbf24);
            border-radius:2px; transition:width .25s ease; }
@@ -100,6 +121,7 @@
   @keyframes vfade { from { opacity:.6; } to { opacity:1; } }
   .step { display:none; }
   .step.on { display:block; }
+  .step::after { content:""; display:table; clear:both; }  /* 挿絵の float を内包 */
   /* 本物っぽいページめくり（2枚重ね）:
      進む = 今のページ自体が左とじに沿って手前にめくれて去り、下から次のページが現れる。
      戻る = 前のページが手前からめくり戻されて上に着地する。 */
@@ -144,8 +166,7 @@
   .b-web { background:var(--amber); color:#fff; }
   .ht-title { font-size:41px; color:var(--deep); margin:12px 0 0; line-height:1.12; position:relative;
               display:inline-block; padding:0 6px; letter-spacing:.01em; }
-  .ht-title::before { content:"✨"; position:absolute; left:-22px; top:2px; font-size:19px; }
-  .ht-title::after { content:"✨"; position:absolute; right:-20px; bottom:4px; font-size:15px; }
+  .ht-title::before, .ht-title::after { content:none; }
   .ht-mascot { flex:none; position:relative; width:100px; padding-top:22px; text-align:center; }
   .ht-mascot img { height:74px; width:auto; }
   .ht-bubble { position:absolute; top:0; left:50%; transform:translateX(-50%); white-space:nowrap;
@@ -181,8 +202,8 @@
   .toc { margin:16px 0 8px; background:#fff9ef; border:2px solid #f0e2c3; border-radius:16px; padding:12px; }
   .toc-head { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:10px; }
   .toc-h { font-weight:bold; color:var(--deep); font-size:16px; display:flex; align-items:center; gap:8px; }
-  .toc-h::before { content:"📖"; display:inline-flex; align-items:center; justify-content:center;
-                   width:30px; height:30px; border-radius:50%; background:var(--brand); font-size:15px; }
+  .toc-h::before { content:""; flex:none; width:30px; height:30px; border-radius:50%;
+                   background:var(--brand) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23fff'%3E%3Cpath d='M12 6.6C10.5 5.4 8.4 4.9 6 4.9c-1 0-2 .1-2.8.3v12.9c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3V5.2C20 5 19 4.9 18 4.9c-2.4 0-4.5.5-6 1.7z'/%3E%3C/svg%3E") center/17px no-repeat; }
   /* 単元カード（大きめサムネ＋番号＋名前＋右矢印） */
   .toc-item { display:flex; align-items:center; width:100%; margin-bottom:8px; padding:0;
               background:#fff; border:1.5px solid #f0e2c3; border-radius:12px; overflow:hidden;
@@ -261,6 +282,39 @@
             border:1.5px solid var(--line); color:var(--brand); font-weight:bold;
             display:inline-flex; align-items:center; justify-content:center; font-size:12px; }
   .sec-lead { font-size:13px; color:var(--brand); font-weight:bold; margin:2px 0 4px 30px; }
+  /* 節の挿絵：既定は本文の右に小さく回り込ませる（補足的・目立ちすぎない） */
+  .sec-fig { float:right; width:46%; max-width:205px; margin:3px 0 8px 12px; }
+  .sec-fig.fig-contain { max-width:230px; }
+  .sec-fig img { width:100%; max-height:172px; object-fit:cover; display:block;
+                 border-radius:10px; border:1px solid #f0e6d2;
+                 box-shadow:0 1px 4px rgba(120,80,20,.10); background:#fff; cursor:zoom-in; }
+  /* 図版（関係図・地図）は切らずに全体を見せる（日本語ラベルが欠けないように） */
+  .sec-fig.fig-contain img { object-fit:contain; max-height:none; background:#fffdf8; }
+  .sec-fig figcaption { font-size:11px; color:#a8a29e; text-align:center; margin-top:4px; line-height:1.4; }
+  /* 変化をつける: 左回り込み／サイズ違い／横いっぱい */
+  .sec-fig.pos-left { float:left; margin:3px 12px 8px 0; }
+  .sec-fig.size-sm { max-width:150px; }
+  .sec-fig.size-lg { max-width:250px; }
+  .sec-fig.pos-wide { float:none; width:auto; max-width:100%; margin:10px 0; }
+  .sec-fig.pos-wide img { max-height:260px; }
+  .sec-fig.pos-wide.fig-contain img { max-height:340px; }  /* 地図・図はワイドで大きく読める */
+  .sec-fig.pos-wide figcaption { font-size:12px; }
+  /* 挿絵を含む節でも ⭐ここだけ覚える／用語は画像の下から始める */
+  .step .point, .step .words { clear:both; }
+  .cover-art img, .cover-img { cursor:zoom-in; }
+
+  /* 画像タップで拡大（ライトボックス） */
+  .lightbox { position:fixed; inset:0; z-index:200; background:rgba(20,14,8,.88);
+              display:flex; align-items:center; justify-content:center; padding:20px;
+              -webkit-tap-highlight-color:transparent; cursor:zoom-out; }
+  .lightbox[hidden] { display:none; }
+  .lightbox img { max-width:96vw; max-height:90vh; border-radius:10px; background:#fffdf8;
+                  box-shadow:0 8px 40px rgba(0,0,0,.55); }
+  .lb-close { position:fixed; top:14px; right:16px; width:42px; height:42px; border:none;
+              border-radius:50%; background:rgba(255,255,255,.92); color:#7c2d12; font-size:24px;
+              line-height:1; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,.3); }
+  .lb-hint { position:fixed; bottom:20px; left:0; right:0; text-align:center; color:#fff;
+             font-size:12px; opacity:.7; pointer-events:none; }
   .step p { margin-top:8px; text-align:justify; }
   .point { background:#fff9c4; border-left:6px solid #fbbf24; border-radius:8px;
            padding:10px 12px; margin-top:12px; font-size:14px; line-height:1.8; }
@@ -440,10 +494,10 @@
 </style></head><body>
 <div class="bar"><div class="bar-in">
   <div class="bar-row">
-    <a class="tophome" href="../../index.html" aria-label="単元一覧へもどる">単元一覧</a>
-    <div class="swap"><span class="sw on">📖 参考書</span><a class="sw" id="swWb">✏️ 問題</a></div>
+    <a class="tophome" href="../../index.html" aria-label="単元一覧へもどる"><svg class="th-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.6"/></svg>単元一覧</a>
+    <div class="swap" role="tablist" aria-label="参考書と問題の切りかえ"><span class="sw on">参考書</span><a class="sw" id="swWb" role="tab">問題</a></div>
     <div class="tabs-wrap">
-      <nav class="tabs" id="tabs"><button class="tab tab-home" data-go="0" aria-label="目次">🏠</button><button class="tab" data-go="1" aria-label="明治維新と新政府">1</button><button class="tab" data-go="2" aria-label="三大改革">2</button><button class="tab" data-go="3" aria-label="富国強兵と文明開化">3</button><button class="tab" data-go="4" aria-label="岩倉使節団と国境画定">4</button><button class="tab" data-go="5" aria-label="自由民権運動">5</button><button class="tab" data-go="6" aria-label="大日本帝国憲法と議会">6</button></nav>
+      <nav class="tabs" id="tabs"><button class="tab" data-go="1" aria-label="明治維新と新政府">1</button><button class="tab" data-go="2" aria-label="三大改革">2</button><button class="tab" data-go="3" aria-label="富国強兵と文明開化">3</button><button class="tab" data-go="4" aria-label="岩倉使節団と国境画定">4</button><button class="tab" data-go="5" aria-label="自由民権運動">5</button><button class="tab" data-go="6" aria-label="大日本帝国憲法と議会">6</button></nav>
       <button class="tscroll tsl" id="tabsL" type="button" hidden aria-label="単元タブを左へ">‹</button>
       <button class="tscroll tsr" id="tabsR" type="button" hidden aria-label="単元タブを右へ">›</button>
     </div>
@@ -452,11 +506,11 @@
   <div class="bar-title" hidden>歴史 ⑪ 明治維新と立憲国家</div>
   <div class="pbar"><div class="pfill" id="pfill"></div></div>
 </div></div>
+<a class="backpill" id="backPill" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 6l-6 6 6 6"/></svg>問題にもどる</a>
 <main class="wrap" id="views">
 
 <section class="view home" data-t="0">
   <div class="home-topline">
-    <a class="home-link" href="../../index.html">‹ 単元一覧にもどる</a>
     <div class="badge3"><span class="b-vol">歴史 ⑪</span><span class="b-kind">参考書</span></div>
   </div>
   <header class="top hometop">
@@ -471,7 +525,7 @@
     <div class="toc-head"><div class="toc-h">単元を選択</div></div>
     <button class="toc-item" data-go="1"><img class="toc-thumb" src="img/hist11-meiji-restoration.webp" alt="" loading="lazy"><span class="toc-no">1</span><span class="toc-name">明治維新と新政府</span><span class="toc-state" data-state-t="1"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="2"><img class="toc-thumb" src="img/hist11-three-reforms.webp" alt="" loading="lazy"><span class="toc-no">2</span><span class="toc-name">三大改革</span><span class="toc-state" data-state-t="2"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="3"><img class="toc-thumb" src="img/hist11-civilization.webp" alt="" loading="lazy"><span class="toc-no">3</span><span class="toc-name">富国強兵と文明開化</span><span class="toc-state" data-state-t="3"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="4"><img class="toc-thumb" src="img/hist11-international-relations.webp" alt="" loading="lazy"><span class="toc-no">4</span><span class="toc-name">岩倉使節団と国境画定</span><span class="toc-state" data-state-t="4"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="5"><img class="toc-thumb" src="img/hist11-minken.webp" alt="" loading="lazy"><span class="toc-no">5</span><span class="toc-name">自由民権運動</span><span class="toc-state" data-state-t="5"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="6"><img class="toc-thumb" src="img/hist11-kenpo.webp" alt="" loading="lazy"><span class="toc-no">6</span><span class="toc-name">大日本帝国憲法と議会</span><span class="toc-state" data-state-t="6"></span><span class="toc-arrow">›</span></button>
   </nav>
-  <a class="wb-home" href="../../wb/11/index.html">✏️ 問題集を開く（この本の問題を解く）</a>
+  <a class="wb-home" href="../../wb/11/index.html">問題集を開く（この本の問題を解く）</a>
   <footer class="foot">
     <div>つづもん 参考書</div>
     <div class="foot-note">紙やタブレットでじっくり派には、ダウンロード済みのPDF版もどうぞ。</div>
@@ -479,37 +533,40 @@
 </section>
 <section class="view" data-t="1">
   <div class="tband"><span class="tno">1</span><h2>明治維新と新政府</h2>
-    <button class="play-unit" type="button" data-play="1" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="1" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-meiji-restoration.webp"
+      <img class="cover-img zoomable" src="img/cover-meiji-restoration.webp"
            alt="明治維新と新政府（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">江戸時代の身分やしくみをガラッと変えて、</span><span class="s" data-i="1">天皇を中心にした新しい国づくりが始まったんだ。</span><span class="s" data-i="2">どこまで変わったか、</span><span class="s" data-i="3">一緒に見ていこう。</span></div></div>
     </div>
     <div class="step" data-label="五箇条の御誓文と東京">
       <h3><span class="sec-no">1</span><span class="s" data-i="4">五箇条の御誓文と東京</span></h3>
       <div class="sec-lead"><span class="s" data-i="5">天皇中心の新政府の方針を示し、</span><span class="s" data-i="6">都を東京に移したよ。</span></div>
+      
       <p><span class="s" data-i="7">1868年、明治天皇は公家や大名たちを集めて、</span><span class="s" data-i="8">新しい国づくりの方針を示したんだ。</span><span class="s" data-i="9">それが<span class="mark">五箇条の御誓文</span>だよ。</span><span class="s" data-i="10">「広く会議を開いてみんなの意見を聞こう」「これまでの古い習わしにとらわれないようにしよう」など、</span><span class="s" data-i="11">新政府の目指す方向がここに書かれているんだ。</span><span class="s" data-i="12">同じ1868年、</span><span class="s" data-i="13">江戸という町の名前も<span class="mark">東京</span>に変わって、</span><span class="s" data-i="14">翌年には天皇も京都からそこへ移り住んだんだよ。</span><span class="s" data-i="15">名前が変わるって、</span><span class="s" data-i="16">なんだか大きな一歩だと思わない?</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="17">1868年、五箇条の御誓文で方針を示し、</span><span class="s" data-i="18">江戸は東京と改められたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="17">1868年、五箇条の御誓文で方針を示し、</span><span class="s" data-i="18">江戸は東京と改められたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">五箇条の御誓文<span class="w-rd">ごかじょうのごせいもん</span></span><span class="w-desc">1868年に明治天皇が示した、新しい国づくりの基本方針。</span></div></div>
     </div>
     <div class="step" data-label="版籍奉還と廃藩置県">
       <h3><span class="sec-no">2</span><span class="s" data-i="19">版籍奉還と廃藩置県</span></h3>
       <div class="sec-lead"><span class="s" data-i="20">藩を廃止し、政府が全国を治めるしくみを整えたよ。</span></div>
+      
       <p><span class="s" data-i="21">新政府がまず目指したのは、</span><span class="s" data-i="22">力を中央に集める<span class="mark">中央集権</span>の国づくりだったんだ。</span><span class="s" data-i="23">1869年、薩摩・長州・土佐・肥前(<span class="mark">薩長土肥</span>)の藩主たちが率先して、</span><span class="s" data-i="24">自分の土地と人民を朝廷に返す<span class="mark">版籍奉還</span>を行ったよ。</span><span class="s" data-i="25">でもこれだけでは藩の力は残ったまま。</span><span class="s" data-i="26">そこで1871年、</span><span class="s" data-i="27">政府は思い切って全国の藩をすべて廃止し、</span><span class="s" data-i="28">代わりに府県を置く<span class="mark">廃藩置県</span>を断行したんだ。</span><span class="s" data-i="29">中央から<span class="mark">県令</span>という役人が派遣されて、</span><span class="s" data-i="30">ようやく政府が全国をまとめて治められるようになったんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="31">1869年の版籍奉還のあと、</span><span class="s" data-i="32">1871年の廃藩置県で藩がなくなったよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="31">1869年の版籍奉還のあと、</span><span class="s" data-i="32">1871年の廃藩置県で藩がなくなったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">版籍奉還<span class="w-rd">はんせきほうかん</span></span><span class="w-desc">1869年、藩主が土地と人民を朝廷に返した改革。</span></div><div class="word"><span class="w-term">廃藩置県<span class="w-rd">はいはんちけん</span></span><span class="w-desc">1871年、全国の藩を廃止して府県を置いた改革。中央から県令が派遣された。</span></div><div class="word"><span class="w-term">県令<span class="w-rd">けんれい</span></span><span class="w-desc">廃藩置県のあと、中央から派遣されて県を治めた役人。</span></div><div class="word"><span class="w-term">薩長土肥<span class="w-rd">さっちょうどひ</span></span><span class="w-desc">明治維新の中心となった薩摩・長州・土佐・肥前の4藩の総称。</span></div></div>
     </div>
     <div class="step" data-label="四民平等と藩閥政治">
       <h3><span class="sec-no">3</span><span class="s" data-i="33">四民平等と藩閥政治</span></h3>
       <div class="sec-lead"><span class="s" data-i="34">身分制度を見直したけど、</span><span class="s" data-i="35">実権は藩閥が握ったんだ。</span></div>
+      
       <p><span class="s" data-i="36">江戸時代の士農工商という身分のしくみも見直されたよ。</span><span class="s" data-i="37">公家や大名は<span class="mark">華族</span>、武士は<span class="mark">士族</span>、</span><span class="s" data-i="38">農工商は平民とされ、</span><span class="s" data-i="39">職業や結婚の自由も認められる<span class="mark">四民平等</span>が進められたんだ。</span><span class="s" data-i="40">1871年にはえた・ひにんと呼ばれた人々を平民とする<span class="mark">解放令</span>も出されたけれど、</span><span class="s" data-i="41">残念ながら差別は根強く残ってしまったんだ。</span><span class="s" data-i="42">一方で、新政府の重要なポストは薩摩・長州など特定の藩の出身者ばかりが占める<span class="mark">藩閥政治</span>になっていて、</span><span class="s" data-i="43">これがのちに国民から強く批判されることになるんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="44">四民平等で華族・士族・平民に分けられ、</span><span class="s" data-i="45">実権は藩閥が握ったよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="44">四民平等で華族・士族・平民に分けられ、</span><span class="s" data-i="45">実権は藩閥が握ったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">四民平等<span class="w-rd">しみんびょうどう</span></span><span class="w-desc">公家・大名を華族、武士を士族、農工商を平民とした身分の再編。</span></div><div class="word"><span class="w-term">藩閥政治<span class="w-rd">はんばつせいじ</span></span><span class="w-desc">薩摩・長州など特定の藩の出身者が政治を独占した体制。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -617,10 +674,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/11/index.html#t2"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/11/index.html#t2"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=11-meiji-restoration" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -628,37 +684,40 @@
 </section>
 <section class="view" data-t="2">
   <div class="tband"><span class="tno">2</span><h2>三大改革</h2>
-    <button class="play-unit" type="button" data-play="2" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="2" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-three-reforms.webp"
+      <img class="cover-img zoomable" src="img/cover-three-reforms.webp"
            alt="三大改革（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">学校に通うのも、</span><span class="s" data-i="1">兵隊になるのも、</span><span class="s" data-i="2">税金を納めるのも——今の私たちの暮らしにつながる大きな変化が、</span><span class="s" data-i="3">この時代に一気に始まったんだよ。</span></div></div>
     </div>
     <div class="step" data-label="学制と教育の広がり">
       <h3><span class="sec-no">1</span><span class="s" data-i="4">学制と教育の広がり</span></h3>
       <div class="sec-lead"><span class="s" data-i="5">6歳以上の男女に学校教育を受けさせる制度だよ。</span></div>
+      
       <p><span class="s" data-i="6">1872年、政府はフランスの制度を参考に<span class="mark">学制</span>を出して、</span><span class="s" data-i="7">6歳以上のすべての男女に教育を受けさせることを目指したんだ。</span><span class="s" data-i="8">全国に小学校がどんどん作られていったけれど、</span><span class="s" data-i="9">実は授業料を家庭が負担しなければならなくて、</span><span class="s" data-i="10">それが重荷になった農家も多かったんだよ。</span><span class="s" data-i="11">せっかく学校ができても、</span><span class="s" data-i="12">通わせるのは簡単じゃなかったんだね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="13">1872年の学制で、</span><span class="s" data-i="14">6歳以上の男女に教育を受けさせたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="13">1872年の学制で、</span><span class="s" data-i="14">6歳以上の男女に教育を受けさせたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">学制<span class="w-rd">がくせい</span></span><span class="w-desc">1872年、6歳以上のすべての男女に教育を受けさせるため出された制度。</span></div></div>
     </div>
     <div class="step" data-label="徴兵令と国民皆兵">
       <h3><span class="sec-no">2</span><span class="s" data-i="15">徴兵令と国民皆兵</span></h3>
       <div class="sec-lead"><span class="s" data-i="16">満20歳の男子に兵役を課す制度が始まったよ。</span></div>
+      
       <p><span class="s" data-i="17">1873年には<span class="mark">徴兵令</span>が定められて、</span><span class="s" data-i="18">満20歳の男子に兵役の義務が課されたんだ。</span><span class="s" data-i="19">士族でも平民でも関係なく兵役を負うという<span class="mark">国民皆兵</span>の考え方が実現したんだよ。</span><span class="s" data-i="20">ところが、徴兵を説明する文書に出てきた「血税」という言葉を、</span><span class="s" data-i="21">本当に血を取られると勘違いした農民たちが、</span><span class="s" data-i="22">各地で<span class="mark">血税一揆</span>を起こしてしまったんだ。</span><span class="s" data-i="23">今では想像もつかない誤解だけど、</span><span class="s" data-i="24">当時の人にとっては切実だったんだね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="25">1873年の徴兵令で、</span><span class="s" data-i="26">満20歳の男子に兵役を課したよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="25">1873年の徴兵令で、</span><span class="s" data-i="26">満20歳の男子に兵役を課したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">徴兵令<span class="w-rd">ちょうへいれい</span></span><span class="w-desc">1873年、満20歳の男子に兵役を課した法律。</span></div><div class="word"><span class="w-term">国民皆兵<span class="w-rd">こくみんかいへい</span></span><span class="w-desc">身分を問わず国民全員が兵役の義務を負うという考え方。</span></div><div class="word"><span class="w-term">血税一揆<span class="w-rd">けつぜいいっき</span></span><span class="w-desc">徴兵令の「血税」という言葉を誤解した農民が起こした反対一揆。</span></div></div>
     </div>
     <div class="step" data-label="地租改正と土地の税">
       <h3><span class="sec-no">3</span><span class="s" data-i="27">地租改正と土地の税</span></h3>
       <div class="sec-lead"><span class="s" data-i="28">土地の値段をもとに現金で税を納めさせたよ。</span></div>
+      
       <p><span class="s" data-i="29">同じ1873年、</span><span class="s" data-i="30">税金の集め方も大きく変わったよ。</span><span class="s" data-i="31">それまでの米で納める方法をやめて、</span><span class="s" data-i="32">土地の価格である<span class="mark">地価</span>の3%を現金で納めさせる<span class="mark">地租改正</span>が始まったんだ。</span><span class="s" data-i="33">土地の所有を証明する<span class="mark">地券</span>も発行されて、</span><span class="s" data-i="34">誰が税を納めるかがはっきりしたんだよ。</span><span class="s" data-i="35">これで政府の収入は米の出来や値段に左右されず安定したけれど、</span><span class="s" data-i="36">農民の負担は重く、</span><span class="s" data-i="37">各地で<span class="mark">地租改正反対一揆</span>が起こったんだ。</span><span class="s" data-i="38">その結果、1877年には税率が2.5%に引き下げられたんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="39">1873年の地租改正で、</span><span class="s" data-i="40">地価の3%を現金で納めさせたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="39">1873年の地租改正で、</span><span class="s" data-i="40">地価の3%を現金で納めさせたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">地租改正<span class="w-rd">ちそかいせい</span></span><span class="w-desc">1873年、地価の3%を現金で納めさせるように変えた税制改革。</span></div><div class="word"><span class="w-term">地券<span class="w-rd">ちけん</span></span><span class="w-desc">地租改正で発行された、土地の所有を証明する文書。</span></div><div class="word"><span class="w-term">地価<span class="w-rd">ちか</span></span><span class="w-desc">地租改正で税額の基準とされた土地の価格。</span></div><div class="word"><span class="w-term">地租改正反対一揆<span class="w-rd">ちそかいせいはんたいいっき</span></span><span class="w-desc">地租改正の重い負担に反対して起きた農民の一揆。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -766,10 +825,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/11/index.html#t3"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/11/index.html#t3"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=11-three-reforms" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -777,37 +835,40 @@
 </section>
 <section class="view" data-t="3">
   <div class="tband"><span class="tno">3</span><h2>富国強兵と文明開化</h2>
-    <button class="play-unit" type="button" data-play="3" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="3" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-fukoku-kyohei.webp"
+      <img class="cover-img zoomable" src="img/cover-fukoku-kyohei.webp"
            alt="富国強兵と文明開化（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">外国に負けない国になるために、工場を建て、鉄道を走らせ、</span><span class="s" data-i="1">暮らしそのものを西洋風に変えていった——そんな大変身の時代だよ。</span></div></div>
     </div>
     <div class="step" data-label="富国強兵と殖産興業">
       <h3><span class="sec-no">1</span><span class="s" data-i="2">富国強兵と殖産興業</span></h3>
       <div class="sec-lead"><span class="s" data-i="3">国を豊かに軍を強くし、</span><span class="s" data-i="4">近代産業を育てたよ。</span></div>
+      
       <p><span class="s" data-i="5">明治政府は欧米列強に対抗するため、</span><span class="s" data-i="6"><span class="mark">富国強兵</span>というスローガンを掲げたんだ。</span><span class="s" data-i="7">国を豊かにして軍隊も強くする、</span><span class="s" data-i="8">そのための土台として近代産業を育てる<span class="mark">殖産興業</span>政策が進められたよ。</span><span class="s" data-i="9">群馬県には官営模範工場の代表である<span class="mark">富岡製糸場</span>が建てられて、</span><span class="s" data-i="10">フランスの技術で生糸を生産し、</span><span class="s" data-i="11">民間の工場の手本になったんだ。</span><span class="s" data-i="12">政府がまず自分でやってみせて、</span><span class="s" data-i="13">そのやり方を広めていったんだね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="14">富国強兵をめざし、</span><span class="s" data-i="15">殖産興業で富岡製糸場など近代産業を育てたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="14">富国強兵をめざし、</span><span class="s" data-i="15">殖産興業で富岡製糸場など近代産業を育てたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">富国強兵<span class="w-rd">ふこくきょうへい</span></span><span class="w-desc">国を豊かにし、軍隊を強くするという明治政府のスローガン。</span></div><div class="word"><span class="w-term">殖産興業<span class="w-rd">しょくさんこうぎょう</span></span><span class="w-desc">近代的な産業を育成する政府主導の政策。</span></div><div class="word"><span class="w-term">富岡製糸場<span class="w-rd">とみおかせいしじょう</span></span><span class="w-desc">フランスの技術を導入した群馬県の官営模範工場。</span></div></div>
     </div>
     <div class="step" data-label="鉄道・郵便・貨幣の近代化">
       <h3><span class="sec-no">2</span><span class="s" data-i="16">鉄道・郵便・貨幣の近代化</span></h3>
       <div class="sec-lead"><span class="s" data-i="17">鉄道や郵便、貨幣などのしくみが近代化したよ。</span></div>
+      
       <p><span class="s" data-i="18">1872年には新橋・横浜間に<span class="mark">鉄道</span>が開通して、</span><span class="s" data-i="19">人やものが速く運べるようになったんだ。</span><span class="s" data-i="20">前島密が整備した郵便制度や、</span><span class="s" data-i="21">新貨条例による円・銭・厘という統一貨幣も、</span><span class="s" data-i="22">近代化を支える大切なしくみだったよ。</span><span class="s" data-i="23">さらに1873年には欧米にならって<span class="mark">太陽暦</span>も採用されたんだ。</span><span class="s" data-i="24">暮らしの土台となる仕組みが、</span><span class="s" data-i="25">次々と西洋式に変わっていったんだね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="26">1872年に鉄道が開通し、</span><span class="s" data-i="27">郵便や貨幣も近代化されたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="26">1872年に鉄道が開通し、</span><span class="s" data-i="27">郵便や貨幣も近代化されたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">前島密<span class="w-rd">まえじまひそか</span></span><span class="w-desc">郵便制度を整備した人物。</span></div><div class="word"><span class="w-term">太陽暦<span class="w-rd">たいようれき</span></span><span class="w-desc">1873年に採用された、欧米と同じ暦。</span></div></div>
     </div>
     <div class="step" data-label="文明開化と新しい思想">
       <h3><span class="sec-no">3</span><span class="s" data-i="28">文明開化と新しい思想</span></h3>
       <div class="sec-lead"><span class="s" data-i="29">欧米の生活様式が広まり、</span><span class="s" data-i="30">新しい思想も伝わったよ。</span></div>
+      
       <p><span class="s" data-i="31">都市では欧米の文化や生活様式が広まる<span class="mark">文明開化</span>が進んで、</span><span class="s" data-i="32">ガス灯がともり、</span><span class="s" data-i="33">牛鍋を食べる新しい習慣も生まれたんだ。</span><span class="s" data-i="34">ちょんまげ頭からザンギリ頭へ、</span><span class="s" data-i="35">着物から洋服へ——見た目もどんどん変わっていったんだよ。</span><span class="s" data-i="36">思想の面では「学問のすゝめ」で人間の平等と学問の大切さを説いた<span class="mark">福沢諭吉</span>や、</span><span class="s" data-i="37">ルソーの思想を紹介して「東洋のルソー」と呼ばれた<span class="mark">中江兆民</span>が、</span><span class="s" data-i="38">多くの人に大きな影響を与えたんだ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="39">文明開化で欧米の生活様式が広まり、</span><span class="s" data-i="40">福沢諭吉らが思想を説いたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="39">文明開化で欧米の生活様式が広まり、</span><span class="s" data-i="40">福沢諭吉らが思想を説いたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">文明開化<span class="w-rd">ぶんめいかいか</span></span><span class="w-desc">欧米の文化や生活様式が急速に広まった風潮。</span></div><div class="word"><span class="w-term">福沢諭吉<span class="w-rd">ふくざわゆきち</span></span><span class="w-desc">「学問のすゝめ」で人間の平等と学問の大切さを説いた思想家。</span></div><div class="word"><span class="w-term">中江兆民<span class="w-rd">なかえちょうみん</span></span><span class="w-desc">ルソーの思想を紹介し「東洋のルソー」と呼ばれた思想家。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -915,10 +976,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/11/index.html#t4"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/11/index.html#t4"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=11-fukoku-kyohei" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -926,37 +986,40 @@
 </section>
 <section class="view" data-t="4">
   <div class="tband"><span class="tno">4</span><h2>岩倉使節団と国境画定</h2>
-    <button class="play-unit" type="button" data-play="4" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="4" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-international-relations.webp"
+      <img class="cover-img zoomable" src="img/cover-international-relations.webp"
            alt="岩倉使節団と国境画定（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">使節団を送って世界を学び、</span><span class="s" data-i="1">隣の国々との国境や関係を一つずつ決めていく——日本が世界の一員になっていく歩みを見てみよう。</span></div></div>
     </div>
     <div class="step" data-label="岩倉使節団の派遣">
       <h3><span class="sec-no">1</span><span class="s" data-i="2">岩倉使節団の派遣</span></h3>
       <div class="sec-lead"><span class="s" data-i="3">条約改正と欧米視察のため使節団を派遣したよ。</span></div>
+      
       <p><span class="s" data-i="4">1871年、<span class="mark">岩倉具視</span>を大使に、</span><span class="s" data-i="5">大久保利通・木戸孝允・伊藤博文らを伴った<span class="mark">岩倉使節団</span>が欧米に派遣されたんだ。</span><span class="s" data-i="6">目的は条約改正の交渉と、</span><span class="s" data-i="7">欧米諸国のしくみを実際に見て学ぶことだったよ。</span><span class="s" data-i="8">約2年間という長い旅で、</span><span class="s" data-i="9">政府の中心メンバーがまとめて国を離れるなんて、</span><span class="s" data-i="10">今ではちょっと考えられないよね。</span><span class="s" data-i="11">この間、日本に残った西郷隆盛たちが留守政府を預かっていたんだ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="12">1871年、岩倉具視を大使とする岩倉使節団が欧米へ派遣されたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="12">1871年、岩倉具視を大使とする岩倉使節団が欧米へ派遣されたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">岩倉使節団<span class="w-rd">いわくらしせつだん</span></span><span class="w-desc">1871年に欧米へ派遣された、岩倉具視を大使とする使節団。</span></div><div class="word"><span class="w-term">岩倉具視<span class="w-rd">いわくらともみ</span></span><span class="w-desc">岩倉使節団の大使を務めた政治家。</span></div></div>
     </div>
     <div class="step" data-label="征韓論と朝鮮・清との関係">
       <h3><span class="sec-no">2</span><span class="s" data-i="13">征韓論と朝鮮・清との関係</span></h3>
       <div class="sec-lead"><span class="s" data-i="14">朝鮮・清との関係づくりと征韓論の対立があったよ。</span></div>
+      
       <p><span class="s" data-i="15">1871年、日本は清との間で互いの独立を尊重する対等な条約、</span><span class="s" data-i="16"><span class="mark">日清修好条規</span>を結んだよ。</span><span class="s" data-i="17">一方、朝鮮に対しては1873年、</span><span class="s" data-i="18">武力で開国を迫ろうとする<span class="mark">征韓論</span>が政府内で議論されたんだ。</span><span class="s" data-i="19">でも帰国した岩倉具視や大久保利通らがこれに反対して否決し、</span><span class="s" data-i="20">西郷隆盛や板垣退助らは政府を去ることになったんだよ。</span><span class="s" data-i="21">1875年には<span class="mark">江華島事件</span>が起こり、翌1876年、</span><span class="s" data-i="22">日本は朝鮮にとって不平等な<span class="mark">日朝修好条規</span>を結ばせたんだ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="23">対等な日清修好条規と、</span><span class="s" data-i="24">不平等な日朝修好条規の違いに注目だよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="23">対等な日清修好条規と、</span><span class="s" data-i="24">不平等な日朝修好条規の違いに注目だよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">征韓論<span class="w-rd">せいかんろん</span></span><span class="w-desc">朝鮮に武力で開国を迫ろうとする主張。</span></div><div class="word"><span class="w-term">日清修好条規<span class="w-rd">にっしんしゅうこうじょうき</span></span><span class="w-desc">1871年に清と結んだ、互いの独立を尊重する対等な条約。</span></div><div class="word"><span class="w-term">日朝修好条規<span class="w-rd">にっちょうしゅうこうじょうき</span></span><span class="w-desc">1876年に朝鮮と結んだ、朝鮮にとって不平等な条約。</span></div></div>
     </div>
     <div class="step" data-label="国境の確定と沖縄">
       <h3><span class="sec-no">3</span><span class="s" data-i="25">国境の確定と沖縄</span></h3>
       <div class="sec-lead"><span class="s" data-i="26">条約や処分によって北と南の国境が定まったよ。</span></div>
+      
       <p><span class="s" data-i="27">1875年、日本はロシアと<span class="mark">樺太・千島交換条約</span>を結んで、</span><span class="s" data-i="28">樺太を手放す代わりに千島列島すべてを日本領としたんだ。</span><span class="s" data-i="29">これで北の国境がはっきり決まったんだよ。</span><span class="s" data-i="30">北海道には開拓と防備を兼ねる<span class="mark">屯田兵</span>が送られたんだ。</span><span class="s" data-i="31">そして1879年、</span><span class="s" data-i="32"><span class="mark">琉球処分</span>によって琉球藩は廃止され沖縄県が置かれ、</span><span class="s" data-i="33">日本の領域が南でも確定していったんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="34">樺太・千島交換条約と琉球処分で、</span><span class="s" data-i="35">日本の国境が定まったよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="34">樺太・千島交換条約と琉球処分で、</span><span class="s" data-i="35">日本の国境が定まったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">樺太・千島交換条約<span class="w-rd">からふとちしまこうかんじょうやく</span></span><span class="w-desc">1875年にロシアと結んだ、樺太と千島の国境を定めた条約。</span></div><div class="word"><span class="w-term">琉球処分<span class="w-rd">りゅうきゅうしょぶん</span></span><span class="w-desc">1879年、琉球藩を廃止して沖縄県を設置した一連の動き。</span></div><div class="word"><span class="w-term">屯田兵<span class="w-rd">とんでんへい</span></span><span class="w-desc">北海道の開拓と防備を兼ねて送られた兵士。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -1064,10 +1127,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/11/index.html#t5"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/11/index.html#t5"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=11-international-relations" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -1075,37 +1137,40 @@
 </section>
 <section class="view" data-t="5">
   <div class="tband"><span class="tno">5</span><h2>自由民権運動</h2>
-    <button class="play-unit" type="button" data-play="5" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="5" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-freedom-movement.webp"
+      <img class="cover-img zoomable" src="img/cover-freedom-movement.webp"
            alt="自由民権運動（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">「国のことを決めるなら、</span><span class="s" data-i="1">国民の声も聞いてほしい」——そんな願いから始まった大きなうねりが、</span><span class="s" data-i="2">日本を動かしていったんだ。</span></div></div>
     </div>
     <div class="step" data-label="自由民権運動のはじまり">
       <h3><span class="sec-no">1</span><span class="s" data-i="3">自由民権運動のはじまり</span></h3>
       <div class="sec-lead"><span class="s" data-i="4">国会開設を求める建白書から運動が始まったよ。</span></div>
+      
       <p><span class="s" data-i="5">1874年、<span class="mark">板垣退助</span>らは国会を開くことを求める<span class="mark">民撰議院設立の建白書</span>を政府に提出したんだ。</span><span class="s" data-i="6">これがきっかけとなって、</span><span class="s" data-i="7">藩閥政治を批判し国民の権利拡大を求める<span class="mark">自由民権運動</span>が広がっていったんだよ。</span><span class="s" data-i="8">「自分たちにも政治に参加させてほしい」という声が、</span><span class="s" data-i="9">少しずつ全国に広まっていったんだね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="10">1874年の建白書をきっかけに、</span><span class="s" data-i="11">自由民権運動が広がったよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="10">1874年の建白書をきっかけに、</span><span class="s" data-i="11">自由民権運動が広がったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">自由民権運動<span class="w-rd">じゆうみんけんうんどう</span></span><span class="w-desc">国会開設と国民の権利拡大を求めた運動。</span></div><div class="word"><span class="w-term">板垣退助<span class="w-rd">いたがきたいすけ</span></span><span class="w-desc">自由民権運動の中心となり自由党を結成した政治家。</span></div><div class="word"><span class="w-term">民撰議院設立の建白書<span class="w-rd">みんせんぎいんせつりつのけんぱくしょ</span></span><span class="w-desc">1874年、板垣退助らが国会開設を求めて提出した文書。</span></div></div>
     </div>
     <div class="step" data-label="西南戦争とその後の広がり">
       <h3><span class="sec-no">2</span><span class="s" data-i="12">西南戦争とその後の広がり</span></h3>
       <div class="sec-lead"><span class="s" data-i="13">士族の反乱のあと、</span><span class="s" data-i="14">言論で国会開設を求めたよ。</span></div>
+      
       <p><span class="s" data-i="15">1877年、西郷隆盛を中心とする士族最大の反乱<span class="mark">西南戦争</span>が起きたけれど、</span><span class="s" data-i="16">徴兵令で集められた政府軍に敗れてしまったんだ。</span><span class="s" data-i="17">これ以降、武力ではなく言論によって国会開設を求める動きが広がっていくよ。</span><span class="s" data-i="18">1880年には全国の代表が集まる<span class="mark">国会期成同盟</span>が結成され、</span><span class="s" data-i="19">政府はこれに押されて1881年に<span class="mark">国会開設の詔</span>を出し、</span><span class="s" data-i="20">10年後の国会開設を約束したんだ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="21">1877年の西南戦争のあと、</span><span class="s" data-i="22">言論での国会開設要求が広がったよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="21">1877年の西南戦争のあと、</span><span class="s" data-i="22">言論での国会開設要求が広がったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">西南戦争<span class="w-rd">せいなんせんそう</span></span><span class="w-desc">1877年、西郷隆盛を中心に起きた士族最大の反乱。</span></div><div class="word"><span class="w-term">国会期成同盟<span class="w-rd">こっかいきせいどうめい</span></span><span class="w-desc">1880年に結成された、国会開設を求める全国組織。</span></div></div>
     </div>
     <div class="step" data-label="政党の結成と憲法草案">
       <h3><span class="sec-no">3</span><span class="s" data-i="23">政党の結成と憲法草案</span></h3>
       <div class="sec-lead"><span class="s" data-i="24">自由党と立憲改進党が結成され、</span><span class="s" data-i="25">憲法草案も作られたよ。</span></div>
+      
       <p><span class="s" data-i="26">1881年、板垣退助はフランス流の思想をもとに<span class="mark">自由党</span>を結成したんだ。</span><span class="s" data-i="27">翌1882年には大隈重信がイギリス流の議会政治を理想とする<span class="mark">立憲改進党</span>を結成したよ。</span><span class="s" data-i="28">どちらも国会開設を見すえた政党だったけれど、</span><span class="s" data-i="29">目指す政治のかたちには違いがあったんだね。</span><span class="s" data-i="30">運動の高まりの中で、</span><span class="s" data-i="31">民間でも独自の憲法草案である<span class="mark">私擬憲法</span>が数多く作られたんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="32">自由党と立憲改進党が結成され、</span><span class="s" data-i="33">私擬憲法もつくられたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="32">自由党と立憲改進党が結成され、</span><span class="s" data-i="33">私擬憲法もつくられたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">自由党<span class="w-rd">じゆうとう</span></span><span class="w-desc">1881年に板垣退助が結成した、フランス流の政党。</span></div><div class="word"><span class="w-term">立憲改進党<span class="w-rd">りっけんかいしんとう</span></span><span class="w-desc">1882年に大隈重信が結成した、イギリス流の政党。</span></div><div class="word"><span class="w-term">私擬憲法<span class="w-rd">しぎけんぽう</span></span><span class="w-desc">自由民権運動の中で民間が作った憲法の草案。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -1213,10 +1278,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/11/index.html#t6"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/11/index.html#t6"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=11-freedom-movement" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -1224,37 +1288,40 @@
 </section>
 <section class="view" data-t="6">
   <div class="tband"><span class="tno">6</span><h2>大日本帝国憲法と議会</h2>
-    <button class="play-unit" type="button" data-play="6" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="6" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-constitution.webp"
+      <img class="cover-img zoomable" src="img/cover-constitution.webp"
            alt="大日本帝国憲法と議会（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">天皇を中心にしながらも、</span><span class="s" data-i="1">憲法と議会を持つ国へ——明治政府が目指したゴールに、</span><span class="s" data-i="2">いよいよたどり着く時代だよ。</span></div></div>
     </div>
     <div class="step" data-label="内閣制度と憲法づくり">
       <h3><span class="sec-no">1</span><span class="s" data-i="3">内閣制度と憲法づくり</span></h3>
       <div class="sec-lead"><span class="s" data-i="4">内閣制度が発足し、</span><span class="s" data-i="5">プロイセン憲法を手本にしたよ。</span></div>
+      
       <p><span class="s" data-i="6">1885年、それまでの太政官制に代わって<span class="mark">内閣制度</span>が発足し、</span><span class="s" data-i="7"><span class="mark">伊藤博文</span>が初代内閣総理大臣となったんだ。</span><span class="s" data-i="8">伊藤はドイツ(プロイセン)の憲法を学びに行っていて、</span><span class="s" data-i="9">君主の権限が強いその仕組みを手本にしたんだよ。</span><span class="s" data-i="10">天皇の力をしっかり残したい明治政府にとって、</span><span class="s" data-i="11">プロイセン憲法はぴったりのお手本だったんだね。</span><span class="s" data-i="12">こうして憲法づくりが進められていったよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="13">1885年に内閣制度ができ、</span><span class="s" data-i="14">伊藤博文が初代総理大臣になったよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="13">1885年に内閣制度ができ、</span><span class="s" data-i="14">伊藤博文が初代総理大臣になったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">内閣制度<span class="w-rd">ないかくせいど</span></span><span class="w-desc">1885年に発足した、総理大臣と各大臣による政治のしくみ。</span></div><div class="word"><span class="w-term">伊藤博文<span class="w-rd">いとうひろぶみ</span></span><span class="w-desc">初代内閣総理大臣となり、憲法制定の中心となった人物。</span></div></div>
     </div>
     <div class="step" data-label="大日本帝国憲法の発布">
       <h3><span class="sec-no">2</span><span class="s" data-i="15">大日本帝国憲法の発布</span></h3>
       <div class="sec-lead"><span class="s" data-i="16">天皇主権を定めた憲法が発布されたよ。</span></div>
+      
       <p><span class="s" data-i="17">1889年、天皇主権を定めた<span class="mark">大日本帝国憲法</span>が発布されたんだ。</span><span class="s" data-i="18">この憲法は天皇が国民に与える形の<span class="mark">欽定憲法</span>で、</span><span class="s" data-i="19">主権は天皇にあり、</span><span class="s" data-i="20">国民は<span class="mark">臣民</span>と呼ばれて、</span><span class="s" data-i="21">その権利は法律の範囲内で認められるにとどまったんだよ。</span><span class="s" data-i="22">今の私たちの憲法とはずいぶん違う仕組みだったんだね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="23">1889年、天皇主権を定めた大日本帝国憲法が発布されたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="23">1889年、天皇主権を定めた大日本帝国憲法が発布されたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">大日本帝国憲法<span class="w-rd">だいにほんていこくけんぽう</span></span><span class="w-desc">1889年に発布された、天皇主権の憲法。</span></div><div class="word"><span class="w-term">欽定憲法<span class="w-rd">きんていけんぽう</span></span><span class="w-desc">天皇が国民に与える形で発布された憲法の形式。</span></div><div class="word"><span class="w-term">臣民<span class="w-rd">しんみん</span></span><span class="w-desc">大日本帝国憲法で国民を指した言葉。</span></div></div>
     </div>
     <div class="step" data-label="帝国議会の誕生">
       <h3><span class="sec-no">3</span><span class="s" data-i="24">帝国議会の誕生</span></h3>
       <div class="sec-lead"><span class="s" data-i="25">貴族院と衆議院からなる議会政治が始まったよ。</span></div>
+      
       <p><span class="s" data-i="26">1890年には<span class="mark">帝国議会</span>が開かれたんだ。</span><span class="s" data-i="27">皇族・華族や天皇が任命する議員からなる<span class="mark">貴族院</span>と、</span><span class="s" data-i="28">選挙で選ばれた議員からなる<span class="mark">衆議院</span>の二院制がとられたよ。</span><span class="s" data-i="29">ただし衆議院の選挙権は、</span><span class="s" data-i="30">直接国税15円以上を納める満25歳以上の男子に限られていて、</span><span class="s" data-i="31">有権者は全人口のごくわずかにすぎなかったんだ。</span><span class="s" data-i="32">同じ年には道徳教育の基本方針を示す<span class="mark">教育勅語</span>も出されたんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="33">1890年、貴族院と衆議院からなる帝国議会が開かれたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="33">1890年、貴族院と衆議院からなる帝国議会が開かれたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">帝国議会<span class="w-rd">ていこくぎかい</span></span><span class="w-desc">大日本帝国憲法で設置された、貴族院と衆議院からなる議会。</span></div><div class="word"><span class="w-term">貴族院<span class="w-rd">きぞくいん</span></span><span class="w-desc">皇族・華族や勅選議員からなる議院。</span></div><div class="word"><span class="w-term">衆議院<span class="w-rd">しゅうぎいん</span></span><span class="w-desc">選挙で選ばれた議員からなる議院。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -1362,10 +1429,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/11/index.html#t7"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/11/index.html#t7"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=11-constitution" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -1381,6 +1447,11 @@
   <button class="ap-close" id="apClose" aria-label="読み上げを止める">×</button>
 </div></div>
 <audio id="audio" preload="none"></audio>
+<div class="lightbox" id="lightbox" hidden>
+  <img id="lightboxImg" alt="">
+  <button class="lb-close" id="lbClose" aria-label="閉じる">×</button>
+  <div class="lb-hint">タップで閉じる</div>
+</div>
 <div class="navbar" id="navbar" hidden><div class="navbar-in">
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
@@ -1600,7 +1671,7 @@
       b.classList.toggle('on', bt === t);
       b.classList.toggle('done', bt > 0 && store()['d' + bt] === 1);
     });
-    var tabEl = tabs[t];
+    var tabEl = tabs.filter(function (b) { return +b.dataset.go === t; })[0];
     if (tabEl && tabEl.scrollIntoView) {
       tabEl.scrollIntoView({ block: 'nearest', inline: 'center' });
     }
@@ -1643,11 +1714,11 @@
       pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
       var prev = document.getElementById('btnPrev');
       var next = document.getElementById('btnNext');
-      prev.textContent = s === 0 ? '🏠 目次' : '← まえへ';
+      prev.textContent = s === 0 ? '目次へ' : '← まえへ';
       if (s < steps.length - 1) {
         next.textContent = 'つぎへ →';
       } else {
-        next.textContent = t < N ? '次の単元へ →' : '🏠 目次にもどる';
+        next.textContent = t < N ? '次の単元へ →' : '目次にもどる';
       }
       // 進捗保存
       var st = store();
@@ -1809,8 +1880,21 @@
     }
   }, { passive: true });
 
+  // 画像タップで拡大（ライトボックス）。ページ送りタップ／スワイプと競合しない。
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightboxImg');
+  function openLb(src) { lbImg.src = src; lb.hidden = false; document.body.style.overflow = 'hidden'; }
+  function closeLb() { lb.hidden = true; lbImg.removeAttribute('src'); document.body.style.overflow = ''; }
+  document.addEventListener('click', function (e) {
+    var z = e.target.closest('img.zoomable');
+    if (z) { e.preventDefault(); e.stopPropagation(); openLb(z.currentSrc || z.src); }
+  });
+  lb.addEventListener('click', closeLb);
+  document.getElementById('lbClose').addEventListener('click', function (e) { e.stopPropagation(); closeLb(); });
+
   // キーボード操作（PC）: ←→ でページ送り、PageUp/Down も同じ、Home で目次へ
   document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !lb.hidden) { closeLb(); return; }
     var tag = e.target && e.target.tagName;
     if (tag === 'INPUT' || tag === 'TEXTAREA' || e.metaKey || e.ctrlKey || e.altKey) return;
     if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === 'Enter') { next(); e.preventDefault(); }
@@ -1825,6 +1909,16 @@
   }
   window.addEventListener('hashchange', fromHash);
   fromHash();
+
+  // 問題集の「解説を読む」から来たとき（?back=）だけ「問題にもどる」を出す
+  (function () {
+    var m = /[?&]back=([^&#]+)/.exec(location.search);
+    var pill = document.getElementById('backPill');
+    if (m && pill) {
+      try { pill.href = decodeURIComponent(m[1]); } catch (e) { pill.href = m[1]; }
+      pill.hidden = false;
+    }
+  })();
 })();
 </script>
 <script type="module">

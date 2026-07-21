@@ -21,12 +21,26 @@
   .s.read { color:#8a8279; }
   .s.now { background:#fcd34d; color:#1c1917; }
   .s.now .mark { background:none; }
-  /* 単元見出しの再生ボタン */
+  /* 単元見出しの音声ボタン（タップで読み上げ再生。適度に目立つ塗りボタン＋再生アイコン） */
   .play-unit { display:inline-flex; align-items:center; gap:6px; margin-left:auto; flex:none;
-               background:#fff; color:var(--brand); border:1.5px solid var(--line);
-               border-radius:20px; padding:4px 12px; font-size:12px; font-weight:bold;
-               font-family:inherit; cursor:pointer; }
+               background:linear-gradient(#f59e0b,#ea7a09); color:#fff;
+               border:none; border-radius:20px; padding:7px 15px 7px 9px; font-size:13px; font-weight:bold;
+               font-family:inherit; cursor:pointer; box-shadow:0 3px 0 #c2620a, 0 4px 9px rgba(217,119,6,.3);
+               transition:transform .12s, filter .12s; }
+  .pu-ic { flex:none; width:22px; height:22px; border-radius:50%; background:rgba(255,255,255,.28);
+           display:inline-flex; align-items:center; justify-content:center; }
+  .pu-ic svg { width:13px; height:13px; fill:#fff; margin-left:1px; }
+  .play-unit:active { transform:translateY(2px); box-shadow:0 1px 0 #c2620a; }
+  @media (hover:hover) { .play-unit:hover { filter:brightness(1.06); } }
   .play-unit[hidden] { display:none; }
+  /* 問題集の「解説を読む」から来たときに出す「問題にもどる」ボタン（すぐ問題へ戻れる） */
+  .backpill { position:fixed; left:50%; transform:translateX(-50%); bottom:74px; z-index:40;
+              background:var(--brand); color:#fff; font-weight:bold; font-size:13.5px;
+              border-radius:22px; padding:9px 18px 9px 13px; text-decoration:none;
+              box-shadow:0 4px 14px rgba(120,50,10,.35); display:inline-flex; align-items:center; gap:5px; }
+  .backpill svg { width:16px; height:16px; fill:none; stroke:#fff; stroke-width:2.4;
+                  stroke-linecap:round; stroke-linejoin:round; }
+  .backpill[hidden] { display:none; }
   /* 下部プレーヤー（再生中だけ出す。ナビバーの上に重ねる） */
   .aplayer { position:fixed; left:0; right:0; bottom:58px; z-index:25;
              background:rgba(255,253,248,.98); border-top:1px solid #f0e6d2;
@@ -53,13 +67,18 @@
      タブ列の 🏠 は「この本の目次」なので、こちらは 🗺＋文字でトップだと分かるようにする。 */
   .tophome { flex:none; height:30px; padding:0 12px; font-size:11.5px; font-weight:bold;
              color:#fff; background:var(--deep); border-radius:15px; text-decoration:none;
-             display:inline-flex; align-items:center; white-space:nowrap;
-             box-shadow:0 2px 0 #5b1e0b; }
-  .swap { flex:none; display:inline-flex; border:1.5px solid var(--line); border-radius:20px;
-          overflow:hidden; background:#fffbeb; }
-  .sw { font-size:11px; font-weight:bold; color:var(--brand); padding:3px 7px; text-decoration:none;
-        white-space:nowrap; cursor:pointer; }
-  .sw.on { background:var(--brand); color:#fff; }
+             display:inline-flex; align-items:center; gap:5px; white-space:nowrap;
+             box-shadow:0 2px 0 #5b1e0b; transition:filter .12s; }
+  .th-ic { width:14px; height:14px; fill:currentColor; flex:none; }
+  @media (hover:hover) { .tophome:hover { filter:brightness(1.12); } }
+  /* 参考書⇄問題の切りかえタブ。押せると分かるよう、非選択側は白ボタン風＋ホバー反応 */
+  .swap { flex:none; display:inline-flex; gap:3px; padding:2px; border-radius:16px;
+          background:#f0e2c3; }
+  .sw { font-size:11.5px; font-weight:bold; color:var(--brand); padding:4px 12px; text-decoration:none;
+        white-space:nowrap; cursor:pointer; border-radius:13px; background:#fff;
+        transition:filter .12s, background-color .12s; }
+  .sw.on { background:var(--brand); color:#fff; cursor:default; box-shadow:0 1px 2px rgba(180,83,9,.3); }
+  @media (hover:hover) { .sw:not(.on):hover { background:#fff8ec; filter:brightness(0.98); } }
   .sw[hidden] { display:none; }
   .bar-title { font-weight:bold; color:var(--deep); font-size:14px; flex:1;
                white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
@@ -83,13 +102,15 @@
   .tabs { display:flex; gap:5px; overflow-x:auto; padding:4px 0; width:100%;
           scrollbar-width:none; -webkit-overflow-scrolling:touch; }
   .tabs::-webkit-scrollbar { display:none; }
+  /* 単元タブ: 位置は動かさず、色で状態を示す（未読=クリーム／読んだ=緑／表示中=茶） */
   .tab { flex:none; width:30px; height:30px; border-radius:50%; border:1.5px solid var(--line);
          background:#fffbeb; color:var(--brand); font-size:15px; font-weight:bold;
-         display:inline-flex; align-items:center; justify-content:center; cursor:pointer; }
-  .tab.done { background:#fef3c7; }
+         display:inline-flex; align-items:center; justify-content:center; cursor:pointer;
+         transition:background-color .12s, border-color .12s; }
+  .tab.done { background:#dcfce7; border-color:#86efac; color:#15803d; }   /* 読んだ単元 */
   .tab.done::after { content:""; }
-  .tab.on { background:var(--brand); border-color:var(--brand); color:#fff;
-            box-shadow:0 2px 6px rgba(180,83,9,.35); }
+  .tab.on { background:var(--brand); border-color:var(--brand); color:#fff; }  /* いま表示中 */
+  @media (hover:hover) { .tab:not(.on):hover { background:#fff2d6; } }
   .pbar { height:3px; background:#f5ecd8; border-radius:2px; overflow:hidden; margin:0 0 0; }
   .pfill { height:100%; width:0; background:linear-gradient(90deg,var(--amber),#fbbf24);
            border-radius:2px; transition:width .25s ease; }
@@ -100,6 +121,7 @@
   @keyframes vfade { from { opacity:.6; } to { opacity:1; } }
   .step { display:none; }
   .step.on { display:block; }
+  .step::after { content:""; display:table; clear:both; }  /* 挿絵の float を内包 */
   /* 本物っぽいページめくり（2枚重ね）:
      進む = 今のページ自体が左とじに沿って手前にめくれて去り、下から次のページが現れる。
      戻る = 前のページが手前からめくり戻されて上に着地する。 */
@@ -144,8 +166,7 @@
   .b-web { background:var(--amber); color:#fff; }
   .ht-title { font-size:41px; color:var(--deep); margin:12px 0 0; line-height:1.12; position:relative;
               display:inline-block; padding:0 6px; letter-spacing:.01em; }
-  .ht-title::before { content:"✨"; position:absolute; left:-22px; top:2px; font-size:19px; }
-  .ht-title::after { content:"✨"; position:absolute; right:-20px; bottom:4px; font-size:15px; }
+  .ht-title::before, .ht-title::after { content:none; }
   .ht-mascot { flex:none; position:relative; width:100px; padding-top:22px; text-align:center; }
   .ht-mascot img { height:74px; width:auto; }
   .ht-bubble { position:absolute; top:0; left:50%; transform:translateX(-50%); white-space:nowrap;
@@ -181,8 +202,8 @@
   .toc { margin:16px 0 8px; background:#fff9ef; border:2px solid #f0e2c3; border-radius:16px; padding:12px; }
   .toc-head { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:10px; }
   .toc-h { font-weight:bold; color:var(--deep); font-size:16px; display:flex; align-items:center; gap:8px; }
-  .toc-h::before { content:"📖"; display:inline-flex; align-items:center; justify-content:center;
-                   width:30px; height:30px; border-radius:50%; background:var(--brand); font-size:15px; }
+  .toc-h::before { content:""; flex:none; width:30px; height:30px; border-radius:50%;
+                   background:var(--brand) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23fff'%3E%3Cpath d='M12 6.6C10.5 5.4 8.4 4.9 6 4.9c-1 0-2 .1-2.8.3v12.9c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3V5.2C20 5 19 4.9 18 4.9c-2.4 0-4.5.5-6 1.7z'/%3E%3C/svg%3E") center/17px no-repeat; }
   /* 単元カード（大きめサムネ＋番号＋名前＋右矢印） */
   .toc-item { display:flex; align-items:center; width:100%; margin-bottom:8px; padding:0;
               background:#fff; border:1.5px solid #f0e2c3; border-radius:12px; overflow:hidden;
@@ -261,6 +282,39 @@
             border:1.5px solid var(--line); color:var(--brand); font-weight:bold;
             display:inline-flex; align-items:center; justify-content:center; font-size:12px; }
   .sec-lead { font-size:13px; color:var(--brand); font-weight:bold; margin:2px 0 4px 30px; }
+  /* 節の挿絵：既定は本文の右に小さく回り込ませる（補足的・目立ちすぎない） */
+  .sec-fig { float:right; width:46%; max-width:205px; margin:3px 0 8px 12px; }
+  .sec-fig.fig-contain { max-width:230px; }
+  .sec-fig img { width:100%; max-height:172px; object-fit:cover; display:block;
+                 border-radius:10px; border:1px solid #f0e6d2;
+                 box-shadow:0 1px 4px rgba(120,80,20,.10); background:#fff; cursor:zoom-in; }
+  /* 図版（関係図・地図）は切らずに全体を見せる（日本語ラベルが欠けないように） */
+  .sec-fig.fig-contain img { object-fit:contain; max-height:none; background:#fffdf8; }
+  .sec-fig figcaption { font-size:11px; color:#a8a29e; text-align:center; margin-top:4px; line-height:1.4; }
+  /* 変化をつける: 左回り込み／サイズ違い／横いっぱい */
+  .sec-fig.pos-left { float:left; margin:3px 12px 8px 0; }
+  .sec-fig.size-sm { max-width:150px; }
+  .sec-fig.size-lg { max-width:250px; }
+  .sec-fig.pos-wide { float:none; width:auto; max-width:100%; margin:10px 0; }
+  .sec-fig.pos-wide img { max-height:260px; }
+  .sec-fig.pos-wide.fig-contain img { max-height:340px; }  /* 地図・図はワイドで大きく読める */
+  .sec-fig.pos-wide figcaption { font-size:12px; }
+  /* 挿絵を含む節でも ⭐ここだけ覚える／用語は画像の下から始める */
+  .step .point, .step .words { clear:both; }
+  .cover-art img, .cover-img { cursor:zoom-in; }
+
+  /* 画像タップで拡大（ライトボックス） */
+  .lightbox { position:fixed; inset:0; z-index:200; background:rgba(20,14,8,.88);
+              display:flex; align-items:center; justify-content:center; padding:20px;
+              -webkit-tap-highlight-color:transparent; cursor:zoom-out; }
+  .lightbox[hidden] { display:none; }
+  .lightbox img { max-width:96vw; max-height:90vh; border-radius:10px; background:#fffdf8;
+                  box-shadow:0 8px 40px rgba(0,0,0,.55); }
+  .lb-close { position:fixed; top:14px; right:16px; width:42px; height:42px; border:none;
+              border-radius:50%; background:rgba(255,255,255,.92); color:#7c2d12; font-size:24px;
+              line-height:1; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,.3); }
+  .lb-hint { position:fixed; bottom:20px; left:0; right:0; text-align:center; color:#fff;
+             font-size:12px; opacity:.7; pointer-events:none; }
   .step p { margin-top:8px; text-align:justify; }
   .point { background:#fff9c4; border-left:6px solid #fbbf24; border-radius:8px;
            padding:10px 12px; margin-top:12px; font-size:14px; line-height:1.8; }
@@ -440,10 +494,10 @@
 </style></head><body>
 <div class="bar"><div class="bar-in">
   <div class="bar-row">
-    <a class="tophome" href="../../index.html" aria-label="単元一覧へもどる">単元一覧</a>
-    <div class="swap"><span class="sw on">📖 参考書</span><a class="sw" id="swWb">✏️ 問題</a></div>
+    <a class="tophome" href="../../index.html" aria-label="単元一覧へもどる"><svg class="th-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.6"/></svg>単元一覧</a>
+    <div class="swap" role="tablist" aria-label="参考書と問題の切りかえ"><span class="sw on">参考書</span><a class="sw" id="swWb" role="tab">問題</a></div>
     <div class="tabs-wrap">
-      <nav class="tabs" id="tabs"><button class="tab tab-home" data-go="0" aria-label="目次">🏠</button><button class="tab" data-go="1" aria-label="江戸幕府の成立">1</button><button class="tab" data-go="2" aria-label="鎖国への道">2</button><button class="tab" data-go="3" aria-label="鎖国下の対外関係">3</button><button class="tab" data-go="4" aria-label="琉球とアイヌ">4</button><button class="tab" data-go="5" aria-label="江戸時代の身分制度">5</button><button class="tab" data-go="6" aria-label="江戸幕府政治と三大改革">6</button><button class="tab" data-go="7" aria-label="江戸の交通と商業・都市">7</button><button class="tab" data-go="8" aria-label="江戸の産業と社会不安">8</button><button class="tab" data-go="9" aria-label="江戸の文化と学問・教育">9</button></nav>
+      <nav class="tabs" id="tabs"><button class="tab" data-go="1" aria-label="江戸幕府の成立">1</button><button class="tab" data-go="2" aria-label="鎖国への道">2</button><button class="tab" data-go="3" aria-label="鎖国下の対外関係">3</button><button class="tab" data-go="4" aria-label="琉球とアイヌ">4</button><button class="tab" data-go="5" aria-label="江戸時代の身分制度">5</button><button class="tab" data-go="6" aria-label="江戸幕府政治と三大改革">6</button><button class="tab" data-go="7" aria-label="江戸の交通と商業・都市">7</button><button class="tab" data-go="8" aria-label="江戸の産業と社会不安">8</button><button class="tab" data-go="9" aria-label="江戸の文化と学問・教育">9</button></nav>
       <button class="tscroll tsl" id="tabsL" type="button" hidden aria-label="単元タブを左へ">‹</button>
       <button class="tscroll tsr" id="tabsR" type="button" hidden aria-label="単元タブを右へ">›</button>
     </div>
@@ -452,11 +506,11 @@
   <div class="bar-title" hidden>歴史 ⑧ 幕藩体制の確立</div>
   <div class="pbar"><div class="pfill" id="pfill"></div></div>
 </div></div>
+<a class="backpill" id="backPill" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 6l-6 6 6 6"/></svg>問題にもどる</a>
 <main class="wrap" id="views">
 
 <section class="view home" data-t="0">
   <div class="home-topline">
-    <a class="home-link" href="../../index.html">‹ 単元一覧にもどる</a>
     <div class="badge3"><span class="b-vol">歴史 ⑧</span><span class="b-kind">参考書</span></div>
   </div>
   <header class="top hometop">
@@ -471,7 +525,7 @@
     <div class="toc-head"><div class="toc-h">単元を選択</div></div>
     <button class="toc-item" data-go="1"><img class="toc-thumb" src="img/hist08-edo.webp" alt="" loading="lazy"><span class="toc-no">1</span><span class="toc-name">江戸幕府の成立</span><span class="toc-state" data-state-t="1"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="2"><img class="toc-thumb" src="img/hist08-sakoku.webp" alt="" loading="lazy"><span class="toc-no">2</span><span class="toc-name">鎖国への道</span><span class="toc-state" data-state-t="2"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="3"><img class="toc-thumb" src="img/hist08-foreign-relations-edo.webp" alt="" loading="lazy"><span class="toc-no">3</span><span class="toc-name">鎖国下の対外関係</span><span class="toc-state" data-state-t="3"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="4"><img class="toc-thumb" src="img/hist08-ryukyu-ainu.webp" alt="" loading="lazy"><span class="toc-no">4</span><span class="toc-name">琉球とアイヌ</span><span class="toc-state" data-state-t="4"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="5"><img class="toc-thumb" src="img/hist08-social-classes.webp" alt="" loading="lazy"><span class="toc-no">5</span><span class="toc-name">江戸時代の身分制度</span><span class="toc-state" data-state-t="5"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="6"><img class="toc-thumb" src="img/hist08-edo-politics-reforms.webp" alt="" loading="lazy"><span class="toc-no">6</span><span class="toc-name">江戸幕府政治と三大改革</span><span class="toc-state" data-state-t="6"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="7"><img class="toc-thumb" src="img/hist08-edo-transport-commerce.webp" alt="" loading="lazy"><span class="toc-no">7</span><span class="toc-name">江戸の交通と商業・都市</span><span class="toc-state" data-state-t="7"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="8"><img class="toc-thumb" src="img/hist08-edo-industry-society.webp" alt="" loading="lazy"><span class="toc-no">8</span><span class="toc-name">江戸の産業と社会不安</span><span class="toc-state" data-state-t="8"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="9"><img class="toc-thumb" src="img/hist08-culture.webp" alt="" loading="lazy"><span class="toc-no">9</span><span class="toc-name">江戸の文化と学問・教育</span><span class="toc-state" data-state-t="9"></span><span class="toc-arrow">›</span></button>
   </nav>
-  <a class="wb-home" href="../../wb/08/index.html">✏️ 問題集を開く（この本の問題を解く）</a>
+  <a class="wb-home" href="../../wb/08/index.html">問題集を開く（この本の問題を解く）</a>
   <footer class="foot">
     <div>つづもん 参考書</div>
     <div class="foot-note">紙やタブレットでじっくり派には、ダウンロード済みのPDF版もどうぞ。</div>
@@ -479,37 +533,40 @@
 </section>
 <section class="view" data-t="1">
   <div class="tband"><span class="tno">1</span><h2>江戸幕府の成立</h2>
-    <button class="play-unit" type="button" data-play="1" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="1" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-edo-bakufu.webp"
+      <img class="cover-img zoomable" src="img/cover-edo-bakufu.webp"
            alt="江戸幕府の成立（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">戦国の世を勝ち抜いた徳川家康が開いた幕府は、</span><span class="s" data-i="1">大名を巧みに縛りつけるしくみを作り上げて、</span><span class="s" data-i="2">260年も続く安定を手に入れたんだ。</span><span class="s" data-i="3">すごいよね。</span></div></div>
     </div>
     <div class="step" data-label="関ヶ原の戦いと江戸幕府の成立">
       <h3><span class="sec-no">1</span><span class="s" data-i="4">関ヶ原の戦いと江戸幕府の成立</span></h3>
       <div class="sec-lead"><span class="s" data-i="5">家康が天下を統一し、</span><span class="s" data-i="6">江戸に幕府を開いたよ。</span></div>
+      
       <p><span class="s" data-i="7">1600年、<span class="mark">徳川家康</span>は石田三成らが率いる西軍を、</span><span class="s" data-i="8">天下分け目と呼ばれる<span class="mark">関ヶ原の戦い</span>で破って、</span><span class="s" data-i="9">全国支配の実権を握ったんだ。</span><span class="s" data-i="10">そして1603年には朝廷から<span class="mark">征夷大将軍</span>に任命されて、</span><span class="s" data-i="11">江戸に幕府を開いたよ。</span><span class="s" data-i="12">これが<span class="mark">江戸幕府</span>の始まりで、</span><span class="s" data-i="13">以後15代将軍慶喜まで、</span><span class="s" data-i="14">約260年も続く武家政権のスタートになったんだね。</span><span class="s" data-i="15">1614年から1615年にかけての<span class="mark">大坂の陣</span>では、</span><span class="s" data-i="16">対立していた豊臣氏を攻め滅ぼして、</span><span class="s" data-i="17">徳川氏による支配をゆるぎないものにしたんだ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="18">徳川家康は関ヶ原の戦いに勝ち、</span><span class="s" data-i="19">1603年に江戸幕府を開いたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="18">徳川家康は関ヶ原の戦いに勝ち、</span><span class="s" data-i="19">1603年に江戸幕府を開いたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">徳川家康<span class="w-rd">とくがわいえやす</span></span><span class="w-desc">関ヶ原の戦いに勝ち、1603年に江戸幕府を開いた初代将軍。</span></div><div class="word"><span class="w-term">関ヶ原の戦い<span class="w-rd">せきがはらのたたかい</span></span><span class="w-desc">1600年、徳川家康が石田三成らの西軍を破った天下分け目の戦い。</span></div><div class="word"><span class="w-term">江戸幕府<span class="w-rd">えどばくふ</span></span><span class="w-desc">1603年に徳川家康が開き、約260年続いた武家政権。</span></div></div>
     </div>
     <div class="step" data-label="大名の統制のしくみ">
       <h3><span class="sec-no">2</span><span class="s" data-i="20">大名の統制のしくみ</span></h3>
       <div class="sec-lead"><span class="s" data-i="21">大名を親藩・譜代・外様に分け、</span><span class="s" data-i="22">法で統制したよ。</span></div>
+      
       <p><span class="s" data-i="23">将軍から1万石以上の領地をもらった武士のことを<span class="mark">大名</span>と呼ぶよ。</span><span class="s" data-i="24">大名は徳川家との関係によって、</span><span class="s" data-i="25">徳川家の親族である<span class="mark">親藩</span>、</span><span class="s" data-i="26">関ヶ原の戦い以前から従っていた<span class="mark">譜代大名</span>、</span><span class="s" data-i="27">関ヶ原の前後に従った<span class="mark">外様大名</span>の3つに分けられたんだ。</span><span class="s" data-i="28">外様大名は幕府に警戒されて、</span><span class="s" data-i="29">江戸から遠い地に置かれることが多かったんだよ。</span><span class="s" data-i="30">1615年には、</span><span class="s" data-i="31">大名を取りしまるための法である<span class="mark">武家諸法度</span>が定められて、</span><span class="s" data-i="32">城を勝手に修理したり大名どうしが結婚したりすることも制限されたんだ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="33">大名は親藩・譜代・外様に分けられ、</span><span class="s" data-i="34">武家諸法度で統制されたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="33">大名は親藩・譜代・外様に分けられ、</span><span class="s" data-i="34">武家諸法度で統制されたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">大名<span class="w-rd">だいみょう</span></span><span class="w-desc">将軍から1万石以上の領地を与えられた武士。親藩・譜代・外様に分けられた。</span></div><div class="word"><span class="w-term">外様大名<span class="w-rd">とざまだいみょう</span></span><span class="w-desc">関ヶ原の戦いの前後から徳川氏に従った大名。江戸から遠い地に配置された。</span></div><div class="word"><span class="w-term">武家諸法度<span class="w-rd">ぶけしょはっと</span></span><span class="w-desc">1615年に定められた、大名を統制するための法令。</span></div></div>
     </div>
     <div class="step" data-label="参勤交代と幕藩体制">
       <h3><span class="sec-no">3</span><span class="s" data-i="35">参勤交代と幕藩体制</span></h3>
       <div class="sec-lead"><span class="s" data-i="36">参勤交代で大名を統制し、</span><span class="s" data-i="37">幕藩体制を築いたよ。</span></div>
+      
       <p><span class="s" data-i="38">3代将軍<span class="mark">徳川家光</span>の時代には、</span><span class="s" data-i="39">武家諸法度の改定によって<span class="mark">参勤交代</span>が制度としてスタートしたんだ。</span><span class="s" data-i="40">これは大名に江戸と自分の領地を1年おきに行き来させて、</span><span class="s" data-i="41">江戸には妻子をずっと住まわせておく制度だよ。</span><span class="s" data-i="42">往復や江戸屋敷の維持にたくさんの費用がかかるから、</span><span class="s" data-i="43">大名の財政を圧迫して、</span><span class="s" data-i="44">幕府に逆らう力を弱める効果もあったんだね。</span><span class="s" data-i="45">こうして幕府が全国の大名(藩)を統制して、</span><span class="s" data-i="46">藩がそれぞれの領地を治める<span class="mark">幕藩体制</span>が確立し、</span><span class="s" data-i="47">江戸時代の政治の土台になったんだ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="48">徳川家光が参勤交代を制度化し、</span><span class="s" data-i="49">幕藩体制の土台を築いたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="48">徳川家光が参勤交代を制度化し、</span><span class="s" data-i="49">幕藩体制の土台を築いたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">参勤交代<span class="w-rd">さんきんこうたい</span></span><span class="w-desc">大名に江戸と領地を1年おきに行き来させた制度。徳川家光が制度化した。</span></div><div class="word"><span class="w-term">幕藩体制<span class="w-rd">ばくはんたいせい</span></span><span class="w-desc">幕府が大名(藩)を統制し、藩が領地を治める江戸時代の政治体制。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -617,10 +674,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/08/index.html#t2"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/08/index.html#t2"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=08-edo-bakufu" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -628,37 +684,40 @@
 </section>
 <section class="view" data-t="2">
   <div class="tband"><span class="tno">2</span><h2>鎖国への道</h2>
-    <button class="play-unit" type="button" data-play="2" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="2" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-sakoku.webp"
+      <img class="cover-img zoomable" src="img/cover-sakoku.webp"
            alt="鎖国への道（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">貿易を奨励していたはずの幕府が、</span><span class="s" data-i="1">どうしてキリスト教を恐れて国を閉ざすようになったのか、</span><span class="s" data-i="2">その道すじを一緒にたどってみよう。</span></div></div>
     </div>
     <div class="step" data-label="朱印船貿易と禁教令">
       <h3><span class="sec-no">1</span><span class="s" data-i="3">朱印船貿易と禁教令</span></h3>
       <div class="sec-lead"><span class="s" data-i="4">朱印船貿易を進める一方、</span><span class="s" data-i="5">禁教令で信仰を禁じたよ。</span></div>
+      
       <p><span class="s" data-i="6">江戸時代の初め、</span><span class="s" data-i="7">幕府は<span class="mark">朱印状</span>を与えた船に東南アジアとの貿易をさせる<span class="mark">朱印船貿易</span>を奨励していて、</span><span class="s" data-i="8">タイのアユタヤなど各地に日本人が住む日本町も生まれたんだ。</span><span class="s" data-i="9">ところが1612年、</span><span class="s" data-i="10">徳川家康は幕領に対して<span class="mark">禁教令</span>を出して、</span><span class="s" data-i="11">キリスト教の信仰を禁じてしまうんだ。</span><span class="s" data-i="12">信者どうしの結びつきが強まって幕府の支配がゆらぐことを恐れたからで、</span><span class="s" data-i="13">翌年には禁教令が全国に広げられたよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="14">幕府は朱印船貿易を進める一方、</span><span class="s" data-i="15">1612年に禁教令を出したよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="14">幕府は朱印船貿易を進める一方、</span><span class="s" data-i="15">1612年に禁教令を出したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">朱印船貿易<span class="w-rd">しゅいんせんぼうえき</span></span><span class="w-desc">幕府から朱印状を受けた船が東南アジアと行った貿易。</span></div><div class="word"><span class="w-term">禁教令<span class="w-rd">きんきょうれい</span></span><span class="w-desc">1612年に徳川家康が幕領に出した、キリスト教の信仰を禁じる命令。</span></div></div>
     </div>
     <div class="step" data-label="絵踏と寺請制度による取りしまり">
       <h3><span class="sec-no">2</span><span class="s" data-i="16">絵踏と寺請制度による取りしまり</span></h3>
       <div class="sec-lead"><span class="s" data-i="17">絵踏と寺請制度で信者を厳しく取り締まったよ。</span></div>
+      
       <p><span class="s" data-i="18">幕府はキリスト教徒を見つけ出すために、</span><span class="s" data-i="19">キリストや聖母マリアの絵を踏ませる<span class="mark">絵踏</span>を行ったんだ。</span><span class="s" data-i="20">それに加えて、すべての人を必ずどこかの寺院に所属(檀家)させて、</span><span class="s" data-i="21">キリスト教徒でないことを証明させる<span class="mark">寺請制度</span>も整えたよ。</span><span class="s" data-i="22">この寺請制度は、</span><span class="s" data-i="23">人々を寺院に登録させて信仰を確認する宗門改とあわせて運用されて、</span><span class="s" data-i="24">幕府が国民の信仰を管理するしくみになっていったんだね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="25">絵踏と寺請制度で、</span><span class="s" data-i="26">キリスト教徒を厳しく取りしまったよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="25">絵踏と寺請制度で、</span><span class="s" data-i="26">キリスト教徒を厳しく取りしまったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">絵踏<span class="w-rd">えふみ</span></span><span class="w-desc">キリストやマリアの絵を踏ませてキリスト教徒を見つけ出した取りしまり。</span></div><div class="word"><span class="w-term">寺請制度<span class="w-rd">てらうけせいど</span></span><span class="w-desc">すべての人を寺院に登録させ、キリシタンでないことを証明させた制度。</span></div></div>
     </div>
     <div class="step" data-label="島原・天草一揆と鎖国の完成">
       <h3><span class="sec-no">3</span><span class="s" data-i="27">島原・天草一揆と鎖国の完成</span></h3>
       <div class="sec-lead"><span class="s" data-i="28">一揆を鎮圧し、鎖国が完成していったよ。</span></div>
+      
       <p><span class="s" data-i="29">1637年、重い年貢とキリスト教弾圧に苦しんだ人々は、</span><span class="s" data-i="30">少年天草四郎を大将として<span class="mark">島原・天草一揆</span>を起こしたんだ。</span><span class="s" data-i="31">幕府はこれを鎮圧すると、</span><span class="s" data-i="32">禁教をいっそう強めていったよ。</span><span class="s" data-i="33">1639年には布教と結びついていた<span class="mark">ポルトガル</span>船の来航を禁止して、</span><span class="s" data-i="34">1641年にはオランダ商館を長崎の<span class="mark">出島</span>に移し、</span><span class="s" data-i="35">3代将軍徳川家光のもとで<span class="mark">鎖国</span>が完成したんだ。</span><span class="s" data-i="36">でも完全に交流を断ったわけではなくて、</span><span class="s" data-i="37">長崎・対馬・薩摩・松前の四つの窓口を通じた交流は続いていたんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="38">1637年の島原・天草一揆ののち、</span><span class="s" data-i="39">鎖国が1641年に完成したよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="38">1637年の島原・天草一揆ののち、</span><span class="s" data-i="39">鎖国が1641年に完成したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">島原・天草一揆<span class="w-rd">しまばら・あまくさいっき</span></span><span class="w-desc">1637年、重い年貢とキリスト教弾圧に苦しんだ人々が起こした一揆。</span></div><div class="word"><span class="w-term">出島<span class="w-rd">でじま</span></span><span class="w-desc">1641年にオランダ商館が移された、長崎の扇形の人工島。</span></div><div class="word"><span class="w-term">鎖国<span class="w-rd">さこく</span></span><span class="w-desc">江戸幕府が海外との交流を制限した体制。3代将軍家光の時代に完成した。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -754,10 +813,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/08/index.html#t3"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/08/index.html#t3"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=08-sakoku" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -765,37 +823,40 @@
 </section>
 <section class="view" data-t="3">
   <div class="tband"><span class="tno">3</span><h2>鎖国下の対外関係</h2>
-    <button class="play-unit" type="button" data-play="3" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="3" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-foreign-relations-edo.webp"
+      <img class="cover-img zoomable" src="img/cover-foreign-relations-edo.webp"
            alt="鎖国下の対外関係（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">国を閉ざしたはずの江戸時代にも、</span><span class="s" data-i="1">実は四つの窓口を通じて世界とつながり続けていたんだよ。</span><span class="s" data-i="2">知ってた?</span></div></div>
     </div>
     <div class="step" data-label="長崎の窓口―オランダと清">
       <h3><span class="sec-no">1</span><span class="s" data-i="3">長崎の窓口―オランダと清</span></h3>
       <div class="sec-lead"><span class="s" data-i="4">長崎はオランダと清との貿易の窓口だったよ。</span></div>
+      
       <p><span class="s" data-i="5">鎖国の間でも、長崎では<span class="mark">オランダ</span>が貿易を許されていたんだ。</span><span class="s" data-i="6">オランダはキリスト教の布教を行わず貿易だけに徹していたから幕府から信頼されて、</span><span class="s" data-i="7">出島に商館を置き、</span><span class="s" data-i="8"><span class="mark">オランダ風説書</span>で海外の情勢を幕府に伝えていたよ。</span><span class="s" data-i="9">同じ長崎には1689年に<span class="mark">唐人屋敷</span>が造られて、</span><span class="s" data-i="10">清の商人が住んで貿易を行っていたんだ。</span><span class="s" data-i="11">長崎貿易では、金銀が海外に流れ出るのを防ぐために、</span><span class="s" data-i="12">銀の代わりに干しなまこなどの<span class="mark">俵物</span>と呼ばれる海産物も輸出されたんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="13">長崎はオランダと清との貿易を許された窓口だよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="13">長崎はオランダと清との貿易を許された窓口だよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">オランダ<span class="w-rd">おらんだ</span></span><span class="w-desc">布教を行わず貿易のみに徹し、鎖国下で長崎の出島での貿易を許された国。</span></div><div class="word"><span class="w-term">出島<span class="w-rd">でじま</span></span><span class="w-desc">長崎に築かれた人工島で、オランダとの貿易が行われた場所。</span></div><div class="word"><span class="w-term">唐人屋敷<span class="w-rd">とうじんやしき</span></span><span class="w-desc">1689年に長崎に造られた、清の商人が居住した施設。</span></div><div class="word"><span class="w-term">俵物<span class="w-rd">たわらもの</span></span><span class="w-desc">銀の代わりに長崎貿易で輸出された、干しなまこなどの海産物。</span></div></div>
     </div>
     <div class="step" data-label="対馬と朝鮮との交流">
       <h3><span class="sec-no">2</span><span class="s" data-i="14">対馬と朝鮮との交流</span></h3>
       <div class="sec-lead"><span class="s" data-i="15">対馬藩が窓口となり、</span><span class="s" data-i="16">朝鮮と交流を続けたよ。</span></div>
+      
       <p><span class="s" data-i="17">朝鮮とは<span class="mark">対馬藩</span>が窓口になって、</span><span class="s" data-i="18">朝鮮の釜山に設けた<span class="mark">倭館</span>で貿易や外交の実務を行っていたんだ。</span><span class="s" data-i="19">将軍の代替わりのたびに、</span><span class="s" data-i="20">朝鮮から<span class="mark">朝鮮通信使</span>が江戸を訪れて、</span><span class="s" data-i="21">両国の友好を示すとともに各地で文化の交流も行われたんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="22">対馬藩は朝鮮との窓口で、</span><span class="s" data-i="23">朝鮮通信使が江戸を訪れたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="22">対馬藩は朝鮮との窓口で、</span><span class="s" data-i="23">朝鮮通信使が江戸を訪れたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">対馬藩<span class="w-rd">つしまはん</span></span><span class="w-desc">朝鮮との外交・貿易の窓口となり、釜山に倭館を設けた藩。</span></div><div class="word"><span class="w-term">朝鮮通信使<span class="w-rd">ちょうせんつうしんし</span></span><span class="w-desc">将軍の代替わりごとに朝鮮から江戸幕府へ派遣された使節。</span></div></div>
     </div>
     <div class="step" data-label="薩摩と松前の窓口">
       <h3><span class="sec-no">3</span><span class="s" data-i="24">薩摩と松前の窓口</span></h3>
       <div class="sec-lead"><span class="s" data-i="25">薩摩は琉球、松前はアイヌとの窓口だったよ。</span></div>
+      
       <p><span class="s" data-i="26">琉球とは<span class="mark">薩摩藩</span>が窓口となり、</span><span class="s" data-i="27">蝦夷地のアイヌとは<span class="mark">松前藩</span>が窓口となっていたんだ。</span><span class="s" data-i="28">このように、鎖国の間も日本は長崎・対馬・薩摩・松前という四つの窓口を通じて海外や国内の異なる地域と交流を続けていて、</span><span class="s" data-i="29">完全に国を閉ざしていたわけではなかったんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="30">薩摩は琉球、松前はアイヌとの交流の窓口だったよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="30">薩摩は琉球、松前はアイヌとの交流の窓口だったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">薩摩藩<span class="w-rd">さつまはん</span></span><span class="w-desc">琉球との窓口となった藩。</span></div><div class="word"><span class="w-term">松前藩<span class="w-rd">まつまえはん</span></span><span class="w-desc">蝦夷地のアイヌとの窓口となった藩。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -903,10 +964,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/08/index.html#t4"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/08/index.html#t4"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=08-foreign-relations-edo" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -914,30 +974,32 @@
 </section>
 <section class="view" data-t="4">
   <div class="tband"><span class="tno">4</span><h2>琉球とアイヌ</h2>
-    <button class="play-unit" type="button" data-play="4" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="4" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-ryukyu-ainu.webp"
+      <img class="cover-img zoomable" src="img/cover-ryukyu-ainu.webp"
            alt="琉球とアイヌ（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">独立国のふりをさせられた琉球と、</span><span class="s" data-i="1">不公平な交易に立ち上がったアイヌ。</span><span class="s" data-i="2">二つの地域と藩との関係を一緒に見てみよう。</span></div></div>
     </div>
     <div class="step" data-label="薩摩藩による琉球支配">
       <h3><span class="sec-no">1</span><span class="s" data-i="3">薩摩藩による琉球支配</span></h3>
       <div class="sec-lead"><span class="s" data-i="4">薩摩藩は琉球を支配し、</span><span class="s" data-i="5">中継貿易を独占したよ。</span></div>
+      
       <p><span class="s" data-i="6">1609年、島津氏の<span class="mark">薩摩藩</span>は<span class="mark">琉球王国</span>に武力で攻め込んで、</span><span class="s" data-i="7">支配下に置いたんだ。</span><span class="s" data-i="8">でも薩摩藩は琉球を独立国の形のまま残しておいて、</span><span class="s" data-i="9">中国の品を日本へ送る<span class="mark">中継貿易</span>の利益をしっかり独占したんだよ。</span><span class="s" data-i="10">琉球国王や将軍の代替わりには、</span><span class="s" data-i="11">薩摩藩を通じて<span class="mark">琉球使節</span>が江戸へ送られて、</span><span class="s" data-i="12">幕府の権威を国内外に示す役割も果たしていたんだね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="13">薩摩藩は1609年、</span><span class="s" data-i="14">琉球を支配し中継貿易を独占したよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="13">薩摩藩は1609年、</span><span class="s" data-i="14">琉球を支配し中継貿易を独占したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">琉球王国<span class="w-rd">りゅうきゅうおうこく</span></span><span class="w-desc">薩摩藩に支配されながら、独立国の形を保ち中国とも関係を続けた王国。</span></div><div class="word"><span class="w-term">薩摩藩<span class="w-rd">さつまはん</span></span><span class="w-desc">1609年に琉球王国に侵攻し、中継貿易の利益を独占した藩。</span></div><div class="word"><span class="w-term">中継貿易<span class="w-rd">なかつぎぼうえき</span></span><span class="w-desc">琉球が中国の品を日本へ送るなどして利益を得た貿易。</span></div><div class="word"><span class="w-term">琉球使節<span class="w-rd">りゅうきゅうしせつ</span></span><span class="w-desc">琉球国王や将軍の代替わりに、薩摩藩を経由して江戸へ送られた使節。</span></div></div>
     </div>
     <div class="step" data-label="アイヌとの交易とシャクシャインの戦い">
       <h3><span class="sec-no">2</span><span class="s" data-i="15">アイヌとの交易とシャクシャインの戦い</span></h3>
       <div class="sec-lead"><span class="s" data-i="16">松前藩の不公平な交易にシャクシャインが挙兵したよ。</span></div>
+      
       <p><span class="s" data-i="17">北海道など蝦夷地に住む<span class="mark">アイヌ民族</span>との交易は<span class="mark">松前藩</span>が独占していて、</span><span class="s" data-i="18">鮭・昆布・毛皮などを手に入れていたんだ。</span><span class="s" data-i="19">でも不公平な交易条件がアイヌの人々の生活を圧迫したことから、1669年、</span><span class="s" data-i="20">アイヌの首長<span class="mark">シャクシャイン</span>が松前藩に対して立ち上がったんだよ。</span><span class="s" data-i="21">この戦いは鎮圧されてしまい、</span><span class="s" data-i="22">そのあとアイヌの人々に対する松前藩の支配はいっそう強まっていったんだね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="23">松前藩の不公平な交易に、</span><span class="s" data-i="24">シャクシャインが1669年に立ち上がったよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="23">松前藩の不公平な交易に、</span><span class="s" data-i="24">シャクシャインが1669年に立ち上がったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">アイヌ民族<span class="w-rd">あいぬみんぞく</span></span><span class="w-desc">北海道などに住み、独自の文化をもつ人々。</span></div><div class="word"><span class="w-term">松前藩<span class="w-rd">まつまえはん</span></span><span class="w-desc">アイヌとの交易を独占し、蝦夷地の窓口となった藩。</span></div><div class="word"><span class="w-term">シャクシャイン<span class="w-rd">しゃくしゃいん</span></span><span class="w-desc">1669年にアイヌの首長として松前藩に蜂起した人物。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -1033,10 +1095,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/08/index.html#t5"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/08/index.html#t5"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=08-ryukyu-ainu" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -1044,30 +1105,32 @@
 </section>
 <section class="view" data-t="5">
   <div class="tband"><span class="tno">5</span><h2>江戸時代の身分制度</h2>
-    <button class="play-unit" type="button" data-play="5" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="5" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-social-classes.webp"
+      <img class="cover-img zoomable" src="img/cover-social-classes.webp"
            alt="江戸時代の身分制度（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">わずか7%の武士が、</span><span class="s" data-i="1">村の百姓や町の人々をどうやって支配していたんだろう?身分ごとの暮らしを見てみよう。</span></div></div>
     </div>
     <div class="step" data-label="士農工商と身分ごとの暮らし">
       <h3><span class="sec-no">1</span><span class="s" data-i="2">士農工商と身分ごとの暮らし</span></h3>
       <div class="sec-lead"><span class="s" data-i="3">士農工商という身分で人々を分けて支配したよ。</span></div>
+      
       <p><span class="s" data-i="4">江戸時代の身分は大まかに<span class="mark">士農工商</span>と呼ばれる区分で分けられていたんだ。</span><span class="s" data-i="5">名字・帯刀の特権を持つ<span class="mark">武士</span>は全人口の約7%しかいなかったけれど、</span><span class="s" data-i="6">政治や軍事を独占して支配階級になっていたよ。</span><span class="s" data-i="7">人口の約85%を占めた<span class="mark">百姓</span>は村に住んで年貢を納め、</span><span class="s" data-i="8">都市に住み商工業を営む<span class="mark">町人</span>も税を負担していたんだ。</span><span class="s" data-i="9">このほかに、えた・ひにんという不当な差別を受けた身分もあったんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="10">武士(約7%)が支配し、</span><span class="s" data-i="11">百姓・町人などを士農工商に分けたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="10">武士(約7%)が支配し、</span><span class="s" data-i="11">百姓・町人などを士農工商に分けたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">士農工商<span class="w-rd">しのうこうしょう</span></span><span class="w-desc">江戸時代の身分の大まかな区分。武士・百姓・町人などに分けられた。</span></div><div class="word"><span class="w-term">武士<span class="w-rd">ぶし</span></span><span class="w-desc">名字・帯刀の特権を持ち、政治・軍事を独占した支配身分。全人口の約7%。</span></div><div class="word"><span class="w-term">百姓<span class="w-rd">ひゃくしょう</span></span><span class="w-desc">村に住んで年貢を納めた身分。全人口の約85%を占めた。</span></div><div class="word"><span class="w-term">町人<span class="w-rd">ちょうにん</span></span><span class="w-desc">都市に住み、商工業を営んで税を負担した身分。</span></div></div>
     </div>
     <div class="step" data-label="百姓の負担と村のしくみ">
       <h3><span class="sec-no">2</span><span class="s" data-i="12">百姓の負担と村のしくみ</span></h3>
       <div class="sec-lead"><span class="s" data-i="13">百姓は重い年貢と五人組で統制されていたよ。</span></div>
+      
       <p><span class="s" data-i="14">百姓は収穫の5割を領主に納める<span class="mark">五公五民</span>のような重い年貢を負わされることもあって、</span><span class="s" data-i="15">土地を持つ<span class="mark">本百姓</span>と、</span><span class="s" data-i="16">土地を持たず小作を行う水のみ百姓に分かれていたんだ。</span><span class="s" data-i="17">百姓は5戸を1組にまとめて年貢納入や犯罪防止の連帯責任を負わせる<span class="mark">五人組</span>によって統制されていて、</span><span class="s" data-i="18">負担に耐えかねた百姓が集団で行動する<span class="mark">百姓一揆</span>も各地で起こったんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="19">百姓は五公五民の重い年貢と、</span><span class="s" data-i="20">五人組の統制を受けたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="19">百姓は五公五民の重い年貢と、</span><span class="s" data-i="20">五人組の統制を受けたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">五公五民<span class="w-rd">ごこうごみん</span></span><span class="w-desc">収穫の5割を年貢として領主に納める割合。年貢の重さを示す言葉。</span></div><div class="word"><span class="w-term">本百姓<span class="w-rd">ほんびゃくしょう</span></span><span class="w-desc">自分の土地を持ち、村役人を務めるなど村の自治を担った百姓。</span></div><div class="word"><span class="w-term">五人組<span class="w-rd">ごにんぐみ</span></span><span class="w-desc">百姓を5戸1組にまとめ、年貢納入や犯罪防止に連帯責任を負わせた制度。</span></div><div class="word"><span class="w-term">百姓一揆<span class="w-rd">ひゃくしょういっき</span></span><span class="w-desc">農民が年貢の軽減や役人の交代を求めて起こした集団行動。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -1175,10 +1238,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/08/index.html#t6"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/08/index.html#t6"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=08-social-classes" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -1186,37 +1248,40 @@
 </section>
 <section class="view" data-t="6">
   <div class="tband"><span class="tno">6</span><h2>江戸幕府政治と三大改革</h2>
-    <button class="play-unit" type="button" data-play="6" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="6" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-edo-politics-reforms.webp"
+      <img class="cover-img zoomable" src="img/cover-edo-politics-reforms.webp"
            alt="江戸幕府政治と三大改革（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">武力の時代が終わったあと、</span><span class="s" data-i="1">幕府はどうやって国を治めて、</span><span class="s" data-i="2">財政を立て直そうとしたんだろう?歴代の政治の移り変わりを一緒に追ってみよう。</span></div></div>
     </div>
     <div class="step" data-label="文治政治と元禄期の政治">
       <h3><span class="sec-no">1</span><span class="s" data-i="3">文治政治と元禄期の政治</span></h3>
       <div class="sec-lead"><span class="s" data-i="4">武力でなく儒学を重んじる文治政治が進んだよ。</span></div>
+      
       <p><span class="s" data-i="5">戦乱が終わった江戸前期には、</span><span class="s" data-i="6">武力ではなく儒学や法を重んじる<span class="mark">文治政治</span>が進められるようになったんだ。</span><span class="s" data-i="7">5代将軍<span class="mark">徳川綱吉</span>は儒学の一派である朱子学を重視して文治政治を進めて、</span><span class="s" data-i="8">生類憐みの令を出したことでも知られているよ。</span><span class="s" data-i="9">6代・7代将軍に仕えた<span class="mark">新井白石</span>は、</span><span class="s" data-i="10">貨幣の質を戻して長崎貿易を制限し、</span><span class="s" data-i="11">金銀が海外へ流れ出るのを防ごうとする<span class="mark">正徳の治</span>を行ったんだ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="12">徳川綱吉のあと、</span><span class="s" data-i="13">新井白石が正徳の治を行ったよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="12">徳川綱吉のあと、</span><span class="s" data-i="13">新井白石が正徳の治を行ったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">文治政治<span class="w-rd">ぶんちせいじ</span></span><span class="w-desc">武力ではなく儒学や法を重んじる政治。戦乱が終わった江戸前期に進められた。</span></div><div class="word"><span class="w-term">徳川綱吉<span class="w-rd">とくがわつなよし</span></span><span class="w-desc">朱子学を重視し、生類憐みの令を出した5代将軍。</span></div><div class="word"><span class="w-term">新井白石<span class="w-rd">あらいはくせき</span></span><span class="w-desc">6・7代将軍に仕え、正徳の治を進めた朱子学者。</span></div></div>
     </div>
     <div class="step" data-label="田沼意次の政治と批判">
       <h3><span class="sec-no">2</span><span class="s" data-i="14">田沼意次の政治と批判</span></h3>
       <div class="sec-lead"><span class="s" data-i="15">田沼意次は商業重視の政治でわいろと批判されたよ。</span></div>
+      
       <p><span class="s" data-i="16">老中<span class="mark">田沼意次</span>は、</span><span class="s" data-i="17">商人の同業者組合である<span class="mark">株仲間</span>を奨励するなど、</span><span class="s" data-i="18">商業の力を利用して幕府の収入を増やそうとしたんだ。</span><span class="s" data-i="19">でも、商人と役人の結びつきが強まってわいろが横行してしまったことから、</span><span class="s" data-i="20">田沼の政治は厳しく批判されるようになったんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="21">田沼意次は株仲間を奨励したが、</span><span class="s" data-i="22">わいろ政治と批判されたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="21">田沼意次は株仲間を奨励したが、</span><span class="s" data-i="22">わいろ政治と批判されたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">田沼意次<span class="w-rd">たぬまおきつぐ</span></span><span class="w-desc">株仲間を奨励するなど商業の力で幕府収入を増やそうとした老中。</span></div><div class="word"><span class="w-term">株仲間<span class="w-rd">かぶなかま</span></span><span class="w-desc">営業の独占を認められた商人の同業者組合。</span></div></div>
     </div>
     <div class="step" data-label="江戸の三大改革">
       <h3><span class="sec-no">3</span><span class="s" data-i="23">江戸の三大改革</span></h3>
       <div class="sec-lead"><span class="s" data-i="24">享保・寛政・天保の三大改革が順に行われたよ。</span></div>
+      
       <p><span class="s" data-i="25">その後、8代将軍徳川吉宗による<span class="mark">享保の改革</span>、</span><span class="s" data-i="26">老中<span class="mark">松平定信</span>による寛政の改革、</span><span class="s" data-i="27">老中水野忠邦による<span class="mark">天保の改革</span>という、</span><span class="s" data-i="28">江戸の三大改革が行われたんだ。</span><span class="s" data-i="29">いずれも幕府財政の立て直しや社会の引きしめをめざした改革で、</span><span class="s" data-i="30">享保・寛政・天保の順に行われたんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="31">享保・寛政・天保の順に、</span><span class="s" data-i="32">江戸の三大改革が行われたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="31">享保・寛政・天保の順に、</span><span class="s" data-i="32">江戸の三大改革が行われたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">享保の改革<span class="w-rd">きょうほうのかいかく</span></span><span class="w-desc">8代将軍徳川吉宗が行った、幕府財政の立て直しをめざす改革。</span></div><div class="word"><span class="w-term">松平定信<span class="w-rd">まつだいらさだのぶ</span></span><span class="w-desc">田沼政治のあと、寛政の改革を行った老中。</span></div><div class="word"><span class="w-term">天保の改革<span class="w-rd">てんぽうのかいかく</span></span><span class="w-desc">老中水野忠邦が幕府権威の回復をめざして行った改革。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -1324,10 +1389,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/08/index.html#t7"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/08/index.html#t7"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=08-edo-politics-reforms" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -1335,30 +1399,32 @@
 </section>
 <section class="view" data-t="7">
   <div class="tband"><span class="tno">7</span><h2>江戸の交通と商業・都市</h2>
-    <button class="play-unit" type="button" data-play="7" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="7" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-edo-transport-commerce.webp"
+      <img class="cover-img zoomable" src="img/cover-edo-transport-commerce.webp"
            alt="江戸の交通と商業・都市（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">参勤交代の大名行列が行き交った道と、</span><span class="s" data-i="1">全国の物資が集まった大坂の商業。</span><span class="s" data-i="2">江戸時代の交通と経済のつながりを一緒に見てみよう。</span></div></div>
     </div>
     <div class="step" data-label="五街道と宿場町">
       <h3><span class="sec-no">1</span><span class="s" data-i="3">五街道と宿場町</span></h3>
       <div class="sec-lead"><span class="s" data-i="4">五街道が整備され、</span><span class="s" data-i="5">宿場町や関所も置かれたよ。</span></div>
+      
       <p><span class="s" data-i="6">幕府は江戸の日本橋を起点に、</span><span class="s" data-i="7">東海道など五つの主要道路をまとめた<span class="mark">五街道</span>を整備したんだ。</span><span class="s" data-i="8">街道沿いには、旅人や大名行列が休んだり泊まったりする<span class="mark">宿場町</span>が発達して、</span><span class="s" data-i="9">人や物の通行を取りしまる<span class="mark">関所</span>も置かれ、</span><span class="s" data-i="10">江戸へ武器が持ち込まれることなどを警戒していたよ。</span><span class="s" data-i="11">手紙や荷物を運ぶ<span class="mark">飛脚</span>のしくみも発達して、</span><span class="s" data-i="12">情報や物資のやり取りを支えたんだね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="13">日本橋を起点に、</span><span class="s" data-i="14">五街道と宿場町・関所が整備されたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="13">日本橋を起点に、</span><span class="s" data-i="14">五街道と宿場町・関所が整備されたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">五街道<span class="w-rd">ごかいどう</span></span><span class="w-desc">江戸の日本橋を起点に整備された、東海道など五つの主要道路。</span></div><div class="word"><span class="w-term">宿場町<span class="w-rd">しゅくばまち</span></span><span class="w-desc">街道沿いに発達した、旅人や大名行列が休泊した町。</span></div><div class="word"><span class="w-term">関所<span class="w-rd">せきしょ</span></span><span class="w-desc">街道に置かれ、人や物の通行を取りしまった施設。</span></div></div>
     </div>
     <div class="step" data-label="三都の繁栄と大坂の役割">
       <h3><span class="sec-no">2</span><span class="s" data-i="15">三都の繁栄と大坂の役割</span></h3>
       <div class="sec-lead"><span class="s" data-i="16">大坂は蔵屋敷が集まる天下の台所と呼ばれたよ。</span></div>
+      
       <p><span class="s" data-i="17">江戸・大坂・京都は<span class="mark">三都</span>と呼ばれていて、江戸は政治、京都は文化、</span><span class="s" data-i="18">大坂は商業の中心として栄えたんだ。</span><span class="s" data-i="19">大坂には諸藩が<span class="mark">蔵屋敷</span>を置いて年貢米や特産物を集めたことから、</span><span class="s" data-i="20">「<span class="mark">天下の台所</span>」と呼ばれるようになったんだよ。</span><span class="s" data-i="21">商業の発展にともなって、</span><span class="s" data-i="22">金貨と銀貨を交換する<span class="mark">両替商</span>も活躍し、</span><span class="s" data-i="23">貨幣経済のしくみが整えられていったんだね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="24">江戸は政治、京都は文化、</span><span class="s" data-i="25">大坂は商業の中心だったよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="24">江戸は政治、京都は文化、</span><span class="s" data-i="25">大坂は商業の中心だったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">三都<span class="w-rd">さんと</span></span><span class="w-desc">江戸・大坂・京都の三つの大都市の呼び名。</span></div><div class="word"><span class="w-term">蔵屋敷<span class="w-rd">くらやしき</span></span><span class="w-desc">諸藩が大坂に置き、年貢米や特産物を保管・販売した施設。</span></div><div class="word"><span class="w-term">天下の台所<span class="w-rd">てんかのだいどころ</span></span><span class="w-desc">全国の物資が集まり商業が発展した大坂の呼び名。</span></div><div class="word"><span class="w-term">両替商<span class="w-rd">りょうがえしょう</span></span><span class="w-desc">金貨・銀貨などの交換を行った商人。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -1454,10 +1520,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/08/index.html#t8"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/08/index.html#t8"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=08-edo-transport-commerce" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -1465,30 +1530,32 @@
 </section>
 <section class="view" data-t="8">
   <div class="tband"><span class="tno">8</span><h2>江戸の産業と社会不安</h2>
-    <button class="play-unit" type="button" data-play="8" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="8" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-edo-industry-society.webp"
+      <img class="cover-img zoomable" src="img/cover-edo-industry-society.webp"
            alt="江戸の産業と社会不安（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">田畑を広げて現金収入を得る工夫が進む一方で、</span><span class="s" data-i="1">ききんをきっかけに社会が揺れ動くようになったんだ。</span><span class="s" data-i="2">不思議だよね。</span></div></div>
     </div>
     <div class="step" data-label="新田開発と商品作物">
       <h3><span class="sec-no">1</span><span class="s" data-i="3">新田開発と商品作物</span></h3>
       <div class="sec-lead"><span class="s" data-i="4">新田開発が進み、</span><span class="s" data-i="5">商品作物の栽培も広がったよ。</span></div>
+      
       <p><span class="s" data-i="6">幕府や藩は年貢収入を増やすために、</span><span class="s" data-i="7">干拓や用水路の整備を進めて<span class="mark">新田開発</span>を行い、</span><span class="s" data-i="8">耕地面積を大きく広げていったんだ。</span><span class="s" data-i="9">農村では木綿や菜種など、</span><span class="s" data-i="10">売って現金収入を得るための<span class="mark">商品作物</span>の栽培が広がって、</span><span class="s" data-i="11">いわしを干して作った肥料である<span class="mark">干鰯</span>も広く使われるようになったよ。</span><span class="s" data-i="12">問屋が農家に原料や道具を貸して製品を作らせる<span class="mark">問屋制家内工業</span>も発達して、</span><span class="s" data-i="13">佐渡金山などの鉱山とともに、</span><span class="s" data-i="14">幕府や藩の財政を支えたんだね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="15">新田開発で耕地が広がり、</span><span class="s" data-i="16">商品作物の栽培も進んだよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="15">新田開発で耕地が広がり、</span><span class="s" data-i="16">商品作物の栽培も進んだよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">新田開発<span class="w-rd">しんでんかいはつ</span></span><span class="w-desc">干拓や用水路の整備によって新しく田を開き、耕地を増やす取り組み。</span></div><div class="word"><span class="w-term">商品作物<span class="w-rd">しょうひんさくもつ</span></span><span class="w-desc">売って現金収入を得るために作られた木綿・菜種などの作物。</span></div><div class="word"><span class="w-term">干鰯<span class="w-rd">ほしか</span></span><span class="w-desc">いわしを干して作った、商品作物の栽培に使われた肥料。</span></div><div class="word"><span class="w-term">問屋制家内工業<span class="w-rd">といやせいかないこうぎょう</span></span><span class="w-desc">問屋が農家に原料や道具を貸して製品を作らせるしくみ。</span></div></div>
     </div>
     <div class="step" data-label="ききんと百姓一揆・打ちこわし">
       <h3><span class="sec-no">2</span><span class="s" data-i="17">ききんと百姓一揆・打ちこわし</span></h3>
       <div class="sec-lead"><span class="s" data-i="18">ききんが続き、百姓一揆や打ちこわしが増えたよ。</span></div>
+      
       <p><span class="s" data-i="19">江戸後期には冷害による<span class="mark">ききん</span>が相次いだんだ。</span><span class="s" data-i="20">1782年ごろから始まった天明のききんは田沼意次への批判を強めて、</span><span class="s" data-i="21">1830年代の<span class="mark">天保のききん</span>は米価の上昇と社会不安を引き起こしたよ。</span><span class="s" data-i="22">農民が年貢の軽減を求めて起こす<span class="mark">百姓一揆</span>や、</span><span class="s" data-i="23">都市の民衆が米を買いしめた商人を襲う<span class="mark">打ちこわし</span>が増えていって、</span><span class="s" data-i="24">1837年には大坂で元役人の<span class="mark">大塩平八郎</span>が反乱を起こすまでになったんだ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="25">天保のききんのあと、</span><span class="s" data-i="26">1837年に大塩平八郎の乱が起きたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="25">天保のききんのあと、</span><span class="s" data-i="26">1837年に大塩平八郎の乱が起きたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">天保のききん<span class="w-rd">てんぽうのききん</span></span><span class="w-desc">1830年代に起こり、米価上昇と打ちこわしをまねいた大ききん。</span></div><div class="word"><span class="w-term">百姓一揆<span class="w-rd">ひゃくしょういっき</span></span><span class="w-desc">農民が年貢の軽減などを求めて集団で起こした行動。</span></div><div class="word"><span class="w-term">打ちこわし<span class="w-rd">うちこわし</span></span><span class="w-desc">都市の民衆が米を買いしめた商人などを襲った行動。</span></div><div class="word"><span class="w-term">大塩平八郎<span class="w-rd">おおしおへいはちろう</span></span><span class="w-desc">1837年、天保のききんで困窮する民衆を救おうと大坂で反乱を起こした元役人。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -1596,10 +1663,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/08/index.html#t9"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/08/index.html#t9"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=08-edo-industry-society" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -1607,37 +1673,40 @@
 </section>
 <section class="view" data-t="9">
   <div class="tband"><span class="tno">9</span><h2>江戸の文化と学問・教育</h2>
-    <button class="play-unit" type="button" data-play="9" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="9" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-edo-culture-learning.webp"
+      <img class="cover-img zoomable" src="img/cover-edo-culture-learning.webp"
            alt="江戸の文化と学問・教育（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">上方の町人が育てた文化、</span><span class="s" data-i="1">江戸の庶民が楽しんだ浮世絵、</span><span class="s" data-i="2">そして西洋や日本古来の学問を追い求めた人々。</span><span class="s" data-i="3">江戸時代の文化と学びの広がりを一緒に見てみよう。</span></div></div>
     </div>
     <div class="step" data-label="元禄文化と化政文化">
       <h3><span class="sec-no">1</span><span class="s" data-i="4">元禄文化と化政文化</span></h3>
       <div class="sec-lead"><span class="s" data-i="5">上方の元禄文化と江戸の化政文化が栄えたよ。</span></div>
+      
       <p><span class="s" data-i="6">17世紀後半、大坂や京都などの上方を中心に町人が担う<span class="mark">元禄文化</span>が栄えて、</span><span class="s" data-i="7">俳諧を芸術に高めた<span class="mark">松尾芭蕉</span>や、</span><span class="s" data-i="8">人形浄瑠璃の脚本を書いた<span class="mark">近松門左衛門</span>らが活躍したんだ。</span><span class="s" data-i="9">19世紀前半になると、</span><span class="s" data-i="10">江戸を中心に庶民文化である<span class="mark">化政文化</span>が広がって、</span><span class="s" data-i="11">葛飾北斎や歌川広重による風景画の<span class="mark">浮世絵</span>が人気を集めたんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="12">17世紀後半の元禄文化のあと、</span><span class="s" data-i="13">19世紀に化政文化が広がったよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="12">17世紀後半の元禄文化のあと、</span><span class="s" data-i="13">19世紀に化政文化が広がったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">元禄文化<span class="w-rd">げんろくぶんか</span></span><span class="w-desc">17世紀後半、上方を中心に町人が担った文化。</span></div><div class="word"><span class="w-term">化政文化<span class="w-rd">かせいぶんか</span></span><span class="w-desc">19世紀前半、江戸を中心に広がった庶民文化。</span></div><div class="word"><span class="w-term">松尾芭蕉<span class="w-rd">まつおばしょう</span></span><span class="w-desc">俳諧を芸術に高めた元禄文化を代表する俳人。</span></div><div class="word"><span class="w-term">近松門左衛門<span class="w-rd">ちかまつもんざえもん</span></span><span class="w-desc">人形浄瑠璃の脚本を書いた元禄文化を代表する人物。</span></div><div class="word"><span class="w-term">浮世絵<span class="w-rd">うきよえ</span></span><span class="w-desc">町人の風俗や風景を題材にした絵。化政文化で風景画が発展した。</span></div></div>
     </div>
     <div class="step" data-label="蘭学・国学の発展">
       <h3><span class="sec-no">2</span><span class="s" data-i="14">蘭学・国学の発展</span></h3>
       <div class="sec-lead"><span class="s" data-i="15">西洋を学ぶ蘭学と日本を探る国学が発展したよ。</span></div>
+      
       <p><span class="s" data-i="16">学問では、幕府が重んじた儒学の一派である朱子学のほかに、</span><span class="s" data-i="17">オランダ語を通じて西洋の医学や科学を学ぶ<span class="mark">蘭学</span>、</span><span class="s" data-i="18">日本古来の考え方を明らかにしようとする<span class="mark">国学</span>が発展したんだ。</span><span class="s" data-i="19">杉田玄白らは1774年に西洋医学書「解体新書」を出版して、</span><span class="s" data-i="20">蘭学発展の基礎を築いたんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="21">蘭学は西洋の学問、</span><span class="s" data-i="22">国学は日本古来の考え方を学ぶ学問だよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="21">蘭学は西洋の学問、</span><span class="s" data-i="22">国学は日本古来の考え方を学ぶ学問だよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">蘭学<span class="w-rd">らんがく</span></span><span class="w-desc">オランダ語を通じて西洋の医学や科学を学ぶ学問。</span></div><div class="word"><span class="w-term">国学<span class="w-rd">こくがく</span></span><span class="w-desc">古事記などを研究し、日本古来の考え方を明らかにしようとした学問。</span></div></div>
     </div>
     <div class="step" data-label="庶民の教育">
       <h3><span class="sec-no">3</span><span class="s" data-i="23">庶民の教育</span></h3>
       <div class="sec-lead"><span class="s" data-i="24">寺子屋で庶民の子どもが読み書きを学んだよ。</span></div>
+      
       <p><span class="s" data-i="25">庶民の子どもは<span class="mark">寺子屋</span>で読み書きやそろばんを学んでいて、</span><span class="s" data-i="26">僧侶や浪人などが教師を務めていたんだ。</span><span class="s" data-i="27">こうした教育の広がりが、</span><span class="s" data-i="28">江戸時代の庶民の生活水準や識字率の高さを支える土台になったんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="29">寺子屋では、庶民の子どもが読み書きを学んだよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="29">寺子屋では、庶民の子どもが読み書きを学んだよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">寺子屋<span class="w-rd">てらこや</span></span><span class="w-desc">庶民の子どもが読み書きや計算を学んだ場所。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -1745,10 +1814,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/08/index.html#t10"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/08/index.html#t10"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=08-edo-culture-learning" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -1764,6 +1832,11 @@
   <button class="ap-close" id="apClose" aria-label="読み上げを止める">×</button>
 </div></div>
 <audio id="audio" preload="none"></audio>
+<div class="lightbox" id="lightbox" hidden>
+  <img id="lightboxImg" alt="">
+  <button class="lb-close" id="lbClose" aria-label="閉じる">×</button>
+  <div class="lb-hint">タップで閉じる</div>
+</div>
 <div class="navbar" id="navbar" hidden><div class="navbar-in">
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
@@ -1983,7 +2056,7 @@
       b.classList.toggle('on', bt === t);
       b.classList.toggle('done', bt > 0 && store()['d' + bt] === 1);
     });
-    var tabEl = tabs[t];
+    var tabEl = tabs.filter(function (b) { return +b.dataset.go === t; })[0];
     if (tabEl && tabEl.scrollIntoView) {
       tabEl.scrollIntoView({ block: 'nearest', inline: 'center' });
     }
@@ -2026,11 +2099,11 @@
       pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
       var prev = document.getElementById('btnPrev');
       var next = document.getElementById('btnNext');
-      prev.textContent = s === 0 ? '🏠 目次' : '← まえへ';
+      prev.textContent = s === 0 ? '目次へ' : '← まえへ';
       if (s < steps.length - 1) {
         next.textContent = 'つぎへ →';
       } else {
-        next.textContent = t < N ? '次の単元へ →' : '🏠 目次にもどる';
+        next.textContent = t < N ? '次の単元へ →' : '目次にもどる';
       }
       // 進捗保存
       var st = store();
@@ -2192,8 +2265,21 @@
     }
   }, { passive: true });
 
+  // 画像タップで拡大（ライトボックス）。ページ送りタップ／スワイプと競合しない。
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightboxImg');
+  function openLb(src) { lbImg.src = src; lb.hidden = false; document.body.style.overflow = 'hidden'; }
+  function closeLb() { lb.hidden = true; lbImg.removeAttribute('src'); document.body.style.overflow = ''; }
+  document.addEventListener('click', function (e) {
+    var z = e.target.closest('img.zoomable');
+    if (z) { e.preventDefault(); e.stopPropagation(); openLb(z.currentSrc || z.src); }
+  });
+  lb.addEventListener('click', closeLb);
+  document.getElementById('lbClose').addEventListener('click', function (e) { e.stopPropagation(); closeLb(); });
+
   // キーボード操作（PC）: ←→ でページ送り、PageUp/Down も同じ、Home で目次へ
   document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !lb.hidden) { closeLb(); return; }
     var tag = e.target && e.target.tagName;
     if (tag === 'INPUT' || tag === 'TEXTAREA' || e.metaKey || e.ctrlKey || e.altKey) return;
     if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === 'Enter') { next(); e.preventDefault(); }
@@ -2208,6 +2294,16 @@
   }
   window.addEventListener('hashchange', fromHash);
   fromHash();
+
+  // 問題集の「解説を読む」から来たとき（?back=）だけ「問題にもどる」を出す
+  (function () {
+    var m = /[?&]back=([^&#]+)/.exec(location.search);
+    var pill = document.getElementById('backPill');
+    if (m && pill) {
+      try { pill.href = decodeURIComponent(m[1]); } catch (e) { pill.href = m[1]; }
+      pill.hidden = false;
+    }
+  })();
 })();
 </script>
 <script type="module">

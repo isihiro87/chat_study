@@ -21,12 +21,26 @@
   .s.read { color:#8a8279; }
   .s.now { background:#fcd34d; color:#1c1917; }
   .s.now .mark { background:none; }
-  /* 単元見出しの再生ボタン */
+  /* 単元見出しの音声ボタン（タップで読み上げ再生。適度に目立つ塗りボタン＋再生アイコン） */
   .play-unit { display:inline-flex; align-items:center; gap:6px; margin-left:auto; flex:none;
-               background:#fff; color:var(--brand); border:1.5px solid var(--line);
-               border-radius:20px; padding:4px 12px; font-size:12px; font-weight:bold;
-               font-family:inherit; cursor:pointer; }
+               background:linear-gradient(#f59e0b,#ea7a09); color:#fff;
+               border:none; border-radius:20px; padding:7px 15px 7px 9px; font-size:13px; font-weight:bold;
+               font-family:inherit; cursor:pointer; box-shadow:0 3px 0 #c2620a, 0 4px 9px rgba(217,119,6,.3);
+               transition:transform .12s, filter .12s; }
+  .pu-ic { flex:none; width:22px; height:22px; border-radius:50%; background:rgba(255,255,255,.28);
+           display:inline-flex; align-items:center; justify-content:center; }
+  .pu-ic svg { width:13px; height:13px; fill:#fff; margin-left:1px; }
+  .play-unit:active { transform:translateY(2px); box-shadow:0 1px 0 #c2620a; }
+  @media (hover:hover) { .play-unit:hover { filter:brightness(1.06); } }
   .play-unit[hidden] { display:none; }
+  /* 問題集の「解説を読む」から来たときに出す「問題にもどる」ボタン（すぐ問題へ戻れる） */
+  .backpill { position:fixed; left:50%; transform:translateX(-50%); bottom:74px; z-index:40;
+              background:var(--brand); color:#fff; font-weight:bold; font-size:13.5px;
+              border-radius:22px; padding:9px 18px 9px 13px; text-decoration:none;
+              box-shadow:0 4px 14px rgba(120,50,10,.35); display:inline-flex; align-items:center; gap:5px; }
+  .backpill svg { width:16px; height:16px; fill:none; stroke:#fff; stroke-width:2.4;
+                  stroke-linecap:round; stroke-linejoin:round; }
+  .backpill[hidden] { display:none; }
   /* 下部プレーヤー（再生中だけ出す。ナビバーの上に重ねる） */
   .aplayer { position:fixed; left:0; right:0; bottom:58px; z-index:25;
              background:rgba(255,253,248,.98); border-top:1px solid #f0e6d2;
@@ -53,13 +67,18 @@
      タブ列の 🏠 は「この本の目次」なので、こちらは 🗺＋文字でトップだと分かるようにする。 */
   .tophome { flex:none; height:30px; padding:0 12px; font-size:11.5px; font-weight:bold;
              color:#fff; background:var(--deep); border-radius:15px; text-decoration:none;
-             display:inline-flex; align-items:center; white-space:nowrap;
-             box-shadow:0 2px 0 #5b1e0b; }
-  .swap { flex:none; display:inline-flex; border:1.5px solid var(--line); border-radius:20px;
-          overflow:hidden; background:#fffbeb; }
-  .sw { font-size:11px; font-weight:bold; color:var(--brand); padding:3px 7px; text-decoration:none;
-        white-space:nowrap; cursor:pointer; }
-  .sw.on { background:var(--brand); color:#fff; }
+             display:inline-flex; align-items:center; gap:5px; white-space:nowrap;
+             box-shadow:0 2px 0 #5b1e0b; transition:filter .12s; }
+  .th-ic { width:14px; height:14px; fill:currentColor; flex:none; }
+  @media (hover:hover) { .tophome:hover { filter:brightness(1.12); } }
+  /* 参考書⇄問題の切りかえタブ。押せると分かるよう、非選択側は白ボタン風＋ホバー反応 */
+  .swap { flex:none; display:inline-flex; gap:3px; padding:2px; border-radius:16px;
+          background:#f0e2c3; }
+  .sw { font-size:11.5px; font-weight:bold; color:var(--brand); padding:4px 12px; text-decoration:none;
+        white-space:nowrap; cursor:pointer; border-radius:13px; background:#fff;
+        transition:filter .12s, background-color .12s; }
+  .sw.on { background:var(--brand); color:#fff; cursor:default; box-shadow:0 1px 2px rgba(180,83,9,.3); }
+  @media (hover:hover) { .sw:not(.on):hover { background:#fff8ec; filter:brightness(0.98); } }
   .sw[hidden] { display:none; }
   .bar-title { font-weight:bold; color:var(--deep); font-size:14px; flex:1;
                white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
@@ -83,13 +102,15 @@
   .tabs { display:flex; gap:5px; overflow-x:auto; padding:4px 0; width:100%;
           scrollbar-width:none; -webkit-overflow-scrolling:touch; }
   .tabs::-webkit-scrollbar { display:none; }
+  /* 単元タブ: 位置は動かさず、色で状態を示す（未読=クリーム／読んだ=緑／表示中=茶） */
   .tab { flex:none; width:30px; height:30px; border-radius:50%; border:1.5px solid var(--line);
          background:#fffbeb; color:var(--brand); font-size:15px; font-weight:bold;
-         display:inline-flex; align-items:center; justify-content:center; cursor:pointer; }
-  .tab.done { background:#fef3c7; }
+         display:inline-flex; align-items:center; justify-content:center; cursor:pointer;
+         transition:background-color .12s, border-color .12s; }
+  .tab.done { background:#dcfce7; border-color:#86efac; color:#15803d; }   /* 読んだ単元 */
   .tab.done::after { content:""; }
-  .tab.on { background:var(--brand); border-color:var(--brand); color:#fff;
-            box-shadow:0 2px 6px rgba(180,83,9,.35); }
+  .tab.on { background:var(--brand); border-color:var(--brand); color:#fff; }  /* いま表示中 */
+  @media (hover:hover) { .tab:not(.on):hover { background:#fff2d6; } }
   .pbar { height:3px; background:#f5ecd8; border-radius:2px; overflow:hidden; margin:0 0 0; }
   .pfill { height:100%; width:0; background:linear-gradient(90deg,var(--amber),#fbbf24);
            border-radius:2px; transition:width .25s ease; }
@@ -100,6 +121,7 @@
   @keyframes vfade { from { opacity:.6; } to { opacity:1; } }
   .step { display:none; }
   .step.on { display:block; }
+  .step::after { content:""; display:table; clear:both; }  /* 挿絵の float を内包 */
   /* 本物っぽいページめくり（2枚重ね）:
      進む = 今のページ自体が左とじに沿って手前にめくれて去り、下から次のページが現れる。
      戻る = 前のページが手前からめくり戻されて上に着地する。 */
@@ -144,8 +166,7 @@
   .b-web { background:var(--amber); color:#fff; }
   .ht-title { font-size:41px; color:var(--deep); margin:12px 0 0; line-height:1.12; position:relative;
               display:inline-block; padding:0 6px; letter-spacing:.01em; }
-  .ht-title::before { content:"✨"; position:absolute; left:-22px; top:2px; font-size:19px; }
-  .ht-title::after { content:"✨"; position:absolute; right:-20px; bottom:4px; font-size:15px; }
+  .ht-title::before, .ht-title::after { content:none; }
   .ht-mascot { flex:none; position:relative; width:100px; padding-top:22px; text-align:center; }
   .ht-mascot img { height:74px; width:auto; }
   .ht-bubble { position:absolute; top:0; left:50%; transform:translateX(-50%); white-space:nowrap;
@@ -181,8 +202,8 @@
   .toc { margin:16px 0 8px; background:#fff9ef; border:2px solid #f0e2c3; border-radius:16px; padding:12px; }
   .toc-head { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:10px; }
   .toc-h { font-weight:bold; color:var(--deep); font-size:16px; display:flex; align-items:center; gap:8px; }
-  .toc-h::before { content:"📖"; display:inline-flex; align-items:center; justify-content:center;
-                   width:30px; height:30px; border-radius:50%; background:var(--brand); font-size:15px; }
+  .toc-h::before { content:""; flex:none; width:30px; height:30px; border-radius:50%;
+                   background:var(--brand) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23fff'%3E%3Cpath d='M12 6.6C10.5 5.4 8.4 4.9 6 4.9c-1 0-2 .1-2.8.3v12.9c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3V5.2C20 5 19 4.9 18 4.9c-2.4 0-4.5.5-6 1.7z'/%3E%3C/svg%3E") center/17px no-repeat; }
   /* 単元カード（大きめサムネ＋番号＋名前＋右矢印） */
   .toc-item { display:flex; align-items:center; width:100%; margin-bottom:8px; padding:0;
               background:#fff; border:1.5px solid #f0e2c3; border-radius:12px; overflow:hidden;
@@ -261,6 +282,39 @@
             border:1.5px solid var(--line); color:var(--brand); font-weight:bold;
             display:inline-flex; align-items:center; justify-content:center; font-size:12px; }
   .sec-lead { font-size:13px; color:var(--brand); font-weight:bold; margin:2px 0 4px 30px; }
+  /* 節の挿絵：既定は本文の右に小さく回り込ませる（補足的・目立ちすぎない） */
+  .sec-fig { float:right; width:46%; max-width:205px; margin:3px 0 8px 12px; }
+  .sec-fig.fig-contain { max-width:230px; }
+  .sec-fig img { width:100%; max-height:172px; object-fit:cover; display:block;
+                 border-radius:10px; border:1px solid #f0e6d2;
+                 box-shadow:0 1px 4px rgba(120,80,20,.10); background:#fff; cursor:zoom-in; }
+  /* 図版（関係図・地図）は切らずに全体を見せる（日本語ラベルが欠けないように） */
+  .sec-fig.fig-contain img { object-fit:contain; max-height:none; background:#fffdf8; }
+  .sec-fig figcaption { font-size:11px; color:#a8a29e; text-align:center; margin-top:4px; line-height:1.4; }
+  /* 変化をつける: 左回り込み／サイズ違い／横いっぱい */
+  .sec-fig.pos-left { float:left; margin:3px 12px 8px 0; }
+  .sec-fig.size-sm { max-width:150px; }
+  .sec-fig.size-lg { max-width:250px; }
+  .sec-fig.pos-wide { float:none; width:auto; max-width:100%; margin:10px 0; }
+  .sec-fig.pos-wide img { max-height:260px; }
+  .sec-fig.pos-wide.fig-contain img { max-height:340px; }  /* 地図・図はワイドで大きく読める */
+  .sec-fig.pos-wide figcaption { font-size:12px; }
+  /* 挿絵を含む節でも ⭐ここだけ覚える／用語は画像の下から始める */
+  .step .point, .step .words { clear:both; }
+  .cover-art img, .cover-img { cursor:zoom-in; }
+
+  /* 画像タップで拡大（ライトボックス） */
+  .lightbox { position:fixed; inset:0; z-index:200; background:rgba(20,14,8,.88);
+              display:flex; align-items:center; justify-content:center; padding:20px;
+              -webkit-tap-highlight-color:transparent; cursor:zoom-out; }
+  .lightbox[hidden] { display:none; }
+  .lightbox img { max-width:96vw; max-height:90vh; border-radius:10px; background:#fffdf8;
+                  box-shadow:0 8px 40px rgba(0,0,0,.55); }
+  .lb-close { position:fixed; top:14px; right:16px; width:42px; height:42px; border:none;
+              border-radius:50%; background:rgba(255,255,255,.92); color:#7c2d12; font-size:24px;
+              line-height:1; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,.3); }
+  .lb-hint { position:fixed; bottom:20px; left:0; right:0; text-align:center; color:#fff;
+             font-size:12px; opacity:.7; pointer-events:none; }
   .step p { margin-top:8px; text-align:justify; }
   .point { background:#fff9c4; border-left:6px solid #fbbf24; border-radius:8px;
            padding:10px 12px; margin-top:12px; font-size:14px; line-height:1.8; }
@@ -440,10 +494,10 @@
 </style></head><body>
 <div class="bar"><div class="bar-in">
   <div class="bar-row">
-    <a class="tophome" href="../../index.html" aria-label="単元一覧へもどる">単元一覧</a>
-    <div class="swap"><span class="sw on">📖 参考書</span><a class="sw" id="swWb">✏️ 問題</a></div>
+    <a class="tophome" href="../../index.html" aria-label="単元一覧へもどる"><svg class="th-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.6"/></svg>単元一覧</a>
+    <div class="swap" role="tablist" aria-label="参考書と問題の切りかえ"><span class="sw on">参考書</span><a class="sw" id="swWb" role="tab">問題</a></div>
     <div class="tabs-wrap">
-      <nav class="tabs" id="tabs"><button class="tab tab-home" data-go="0" aria-label="目次">🏠</button><button class="tab" data-go="1" aria-label="モンゴル帝国">1</button><button class="tab" data-go="2" aria-label="元寇と鎌倉幕府の滅亡">2</button><button class="tab" data-go="3" aria-label="室町幕府の成立">3</button><button class="tab" data-go="4" aria-label="東アジアとの交流">4</button><button class="tab" data-go="5" aria-label="室町時代の産業">5</button><button class="tab" data-go="6" aria-label="室町時代の民衆">6</button><button class="tab" data-go="7" aria-label="北山文化と能楽">7</button><button class="tab" data-go="8" aria-label="東山文化と民衆の文化">8</button></nav>
+      <nav class="tabs" id="tabs"><button class="tab" data-go="1" aria-label="モンゴル帝国">1</button><button class="tab" data-go="2" aria-label="元寇と鎌倉幕府の滅亡">2</button><button class="tab" data-go="3" aria-label="室町幕府の成立">3</button><button class="tab" data-go="4" aria-label="東アジアとの交流">4</button><button class="tab" data-go="5" aria-label="室町時代の産業">5</button><button class="tab" data-go="6" aria-label="室町時代の民衆">6</button><button class="tab" data-go="7" aria-label="北山文化と能楽">7</button><button class="tab" data-go="8" aria-label="東山文化と民衆の文化">8</button></nav>
       <button class="tscroll tsl" id="tabsL" type="button" hidden aria-label="単元タブを左へ">‹</button>
       <button class="tscroll tsr" id="tabsR" type="button" hidden aria-label="単元タブを右へ">›</button>
     </div>
@@ -452,11 +506,11 @@
   <div class="bar-title" hidden>歴史 ⑥ 室町時代と中世の世界</div>
   <div class="pbar"><div class="pfill" id="pfill"></div></div>
 </div></div>
+<a class="backpill" id="backPill" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 6l-6 6 6 6"/></svg>問題にもどる</a>
 <main class="wrap" id="views">
 
 <section class="view home" data-t="0">
   <div class="home-topline">
-    <a class="home-link" href="../../index.html">‹ 単元一覧にもどる</a>
     <div class="badge3"><span class="b-vol">歴史 ⑥</span><span class="b-kind">参考書</span></div>
   </div>
   <header class="top hometop">
@@ -471,7 +525,7 @@
     <div class="toc-head"><div class="toc-h">単元を選択</div></div>
     <button class="toc-item" data-go="1"><img class="toc-thumb" src="img/hist06-mongol.webp" alt="" loading="lazy"><span class="toc-no">1</span><span class="toc-name">モンゴル帝国</span><span class="toc-state" data-state-t="1"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="2"><img class="toc-thumb" src="img/hist06-mongol-invasion.webp" alt="" loading="lazy"><span class="toc-no">2</span><span class="toc-name">元寇と鎌倉幕府の滅亡</span><span class="toc-state" data-state-t="2"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="3"><img class="toc-thumb" src="img/hist06-kinkaku.webp" alt="" loading="lazy"><span class="toc-no">3</span><span class="toc-name">室町幕府の成立</span><span class="toc-state" data-state-t="3"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="4"><img class="toc-thumb" src="img/hist06-east-asia-trade.webp" alt="" loading="lazy"><span class="toc-no">4</span><span class="toc-name">東アジアとの交流</span><span class="toc-state" data-state-t="4"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="5"><img class="toc-thumb" src="img/hist06-muromachi-industry.webp" alt="" loading="lazy"><span class="toc-no">5</span><span class="toc-name">室町時代の産業</span><span class="toc-state" data-state-t="5"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="6"><img class="toc-thumb" src="img/hist06-muromachi-people.webp" alt="" loading="lazy"><span class="toc-no">6</span><span class="toc-name">室町時代の民衆</span><span class="toc-state" data-state-t="6"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="7"><img class="toc-thumb" src="img/hist06-kitayama-culture.webp" alt="" loading="lazy"><span class="toc-no">7</span><span class="toc-name">北山文化と能楽</span><span class="toc-state" data-state-t="7"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="8"><img class="toc-thumb" src="img/hist06-ginkaku.webp" alt="" loading="lazy"><span class="toc-no">8</span><span class="toc-name">東山文化と民衆の文化</span><span class="toc-state" data-state-t="8"></span><span class="toc-arrow">›</span></button>
   </nav>
-  <a class="wb-home" href="../../wb/06/index.html">✏️ 問題集を開く（この本の問題を解く）</a>
+  <a class="wb-home" href="../../wb/06/index.html">問題集を開く（この本の問題を解く）</a>
   <footer class="foot">
     <div>つづもん 参考書</div>
     <div class="foot-note">紙やタブレットでじっくり派には、ダウンロード済みのPDF版もどうぞ。</div>
@@ -479,37 +533,40 @@
 </section>
 <section class="view" data-t="1">
   <div class="tband"><span class="tno">1</span><h2>モンゴル帝国</h2>
-    <button class="play-unit" type="button" data-play="1" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="1" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-mongol-empire.webp"
+      <img class="cover-img zoomable" src="img/cover-mongol-empire.webp"
            alt="モンゴル帝国（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">馬に乗った遊牧民が、</span><span class="s" data-i="1">まさか世界最大級の帝国を築くなんて。</span><span class="s" data-i="2">しかもその噂を聞いたヨーロッパ人が、</span><span class="s" data-i="3">新しい航路を目指すきっかけにもなったんだ。</span></div></div>
     </div>
     <div class="step" data-label="チンギス・ハンとモンゴル帝国の建国">
       <h3><span class="sec-no">1</span><span class="s" data-i="4">チンギス・ハンとモンゴル帝国の建国</span></h3>
       <div class="sec-lead"><span class="s" data-i="5">チンギス・ハンが、</span><span class="s" data-i="6">大帝国を築き上げたよ。</span></div>
+      <figure class="sec-fig size-lg"><img class="zoomable" src="img/hist06-sec-chinggis.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="7">13世紀の初め、</span><span class="s" data-i="8"><span class="mark">チンギス・ハン</span>はモンゴル高原の遊牧民たちをまとめ上げ、</span><span class="s" data-i="9">機動力にすぐれた騎馬軍を率いて周辺地域を次々に征服していったんだ。</span><span class="s" data-i="10">そうしてユーラシア大陸にまたがる<span class="mark">モンゴル帝国</span>を築き上げたんだよ。</span><span class="s" data-i="11">帝国は征服した地域の宗教や言語をそのまま認める柔軟な統治をしていて、</span><span class="s" data-i="12">無理に同化させるようなことはしなかったんだ。</span><span class="s" data-i="13">この方針こそ、多様な民族や文化を抱える広大な帝国をまとめる知恵だったといえるね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="14">チンギス・ハンが、</span><span class="s" data-i="15">ユーラシアにまたがるモンゴル帝国を築いたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="14">チンギス・ハンが、</span><span class="s" data-i="15">ユーラシアにまたがるモンゴル帝国を築いたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">チンギス・ハン<span class="w-rd">ちんぎす・はん</span></span><span class="w-desc">モンゴル高原の遊牧民を統一し、モンゴル帝国を築いた人物。</span></div></div>
     </div>
     <div class="step" data-label="フビライ・ハンと元・日本への服属要求">
       <h3><span class="sec-no">2</span><span class="s" data-i="16">フビライ・ハンと元・日本への服属要求</span></h3>
       <div class="sec-lead"><span class="s" data-i="17">フビライ・ハンが、</span><span class="s" data-i="18">日本にも服属を求めたよ。</span></div>
+      <figure class="sec-fig pos-left"><img class="zoomable" src="img/hist06-sec-kublai.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="19">チンギス・ハンの孫にあたる<span class="mark">フビライ・ハン</span>は、</span><span class="s" data-i="20">国号を<span class="mark">元</span>と定めて、</span><span class="s" data-i="21"><span class="mark">大都</span>(現在の北京)に都を置いたんだ。</span><span class="s" data-i="22">元は朝鮮半島の<span class="mark">高麗</span>を従えたうえで、</span><span class="s" data-i="23">日本にも使者を送って貿易と朝貢(服属)を求めてきたんだよ。</span><span class="s" data-i="24">この要求を鎌倉幕府が拒んだことが、</span><span class="s" data-i="25">のちの元寇につながっていくんだ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="26">フビライ・ハンは元を建て、</span><span class="s" data-i="27">日本にも服属を求めたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="26">フビライ・ハンは元を建て、</span><span class="s" data-i="27">日本にも服属を求めたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">フビライ・ハン<span class="w-rd">ふびらい・はん</span></span><span class="w-desc">チンギス・ハンの孫で、国号を元と定め、日本に服属を求めた人物。</span></div><div class="word"><span class="w-term">元<span class="w-rd">げん</span></span><span class="w-desc">フビライ・ハンが建てた、中国を支配したモンゴル系の王朝。</span></div><div class="word"><span class="w-term">大都<span class="w-rd">だいと</span></span><span class="w-desc">フビライ・ハンが元の都を置いた場所。現在の北京にあたる。</span></div><div class="word"><span class="w-term">高麗<span class="w-rd">こうらい</span></span><span class="w-desc">フビライ・ハンが従えた朝鮮半島の国。元寇では元とともに日本を攻めた。</span></div></div>
     </div>
     <div class="step" data-label="マルコ・ポーロと東西交流の広がり">
       <h3><span class="sec-no">3</span><span class="s" data-i="28">マルコ・ポーロと東西交流の広がり</span></h3>
       <div class="sec-lead"><span class="s" data-i="29">東方見聞録が、日本を世界に紹介したよ。</span></div>
+      <figure class="sec-fig"><img class="zoomable" src="img/hist06-sec-marco-polo.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="30">元に仕えたイタリア人の<span class="mark">マルコ・ポーロ</span>は、</span><span class="s" data-i="31">自分の見聞をもとに『<span class="mark">東方見聞録</span>』(世界の記述)を書き、</span><span class="s" data-i="32">実際には訪れていない日本を「黄金の国ジパング」としてヨーロッパに紹介したんだ。</span><span class="s" data-i="33">この書物がアジアへの関心を高め、</span><span class="s" data-i="34">のちのヨーロッパの大航海時代へとつながっていったんだよ。</span><span class="s" data-i="35">また、アラビア半島やインドを結ぶ海の交易では<span class="mark">ムスリム商人</span>が活躍していて、</span><span class="s" data-i="36">モンゴル帝国が13世紀末に分裂したあとのトルコには<span class="mark">オスマン帝国</span>が成立したんだ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="37">マルコ・ポーロの東方見聞録が、</span><span class="s" data-i="38">日本をヨーロッパに紹介したよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="37">マルコ・ポーロの東方見聞録が、</span><span class="s" data-i="38">日本をヨーロッパに紹介したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">マルコ・ポーロ<span class="w-rd">まるこ・ぽーろ</span></span><span class="w-desc">元に仕えたイタリア人。『東方見聞録』で日本をヨーロッパに紹介した。</span></div><div class="word"><span class="w-term">東方見聞録<span class="w-rd">とうほうけんぶんろく</span></span><span class="w-desc">マルコ・ポーロがアジアの見聞をまとめた書物。世界の記述ともいう。</span></div><div class="word"><span class="w-term">オスマン帝国<span class="w-rd">おすまんていこく</span></span><span class="w-desc">13世紀末、モンゴル帝国の分裂後にトルコで成立したイスラム教の国。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -617,10 +674,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/06/index.html#t2"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/06/index.html#t2"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=06-mongol-empire" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -628,37 +684,40 @@
 </section>
 <section class="view" data-t="2">
   <div class="tband"><span class="tno">2</span><h2>元寇と鎌倉幕府の滅亡</h2>
-    <button class="play-unit" type="button" data-play="2" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="2" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-mongol-invasion.webp"
+      <img class="cover-img zoomable" src="img/cover-mongol-invasion.webp"
            alt="元寇と鎌倉幕府の滅亡（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">二度も攻めてきた元軍を退けたのに、</span><span class="s" data-i="1">幕府は御家人から感謝されるどころか恨まれてしまった。</span><span class="s" data-i="2">守り切った代償の重さを見てみよう。</span></div></div>
     </div>
     <div class="step" data-label="元寇 - 文永の役と弘安の役">
       <h3><span class="sec-no">1</span><span class="s" data-i="3">元寇 - 文永の役と弘安の役</span></h3>
       <div class="sec-lead"><span class="s" data-i="4">元軍の二度の襲来を、</span><span class="s" data-i="5">日本は撃退したよ。</span></div>
+      <figure class="sec-fig fig-contain pos-wide"><img class="zoomable" src="img/hist06-sec-genko.webp" alt="" loading="lazy"><figcaption>元寇（文永の役・弘安の役）の襲来路</figcaption></figure>
       <p><span class="s" data-i="6">フビライ・ハンの服属要求を鎌倉幕府の第8代執権<span class="mark">北条時宗</span>が拒むと、</span><span class="s" data-i="7">元は1274年の<span class="mark">文永の役</span>、</span><span class="s" data-i="8">1281年の<span class="mark">弘安の役</span>と二度にわたって日本を攻めてきたんだ(合わせて<span class="mark">元寇</span>というよ)。</span><span class="s" data-i="9">元軍は集団戦法や火薬を使った<span class="mark">てつはう</span>で武士を苦しめたけれど、</span><span class="s" data-i="10">時宗が博多湾に築かせた石塁や暴風雨もあって、</span><span class="s" data-i="11">日本は二度とも撃退に成功したんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="12">元は文永の役・弘安の役の二度、</span><span class="s" data-i="13">日本を攻めたけど撃退されたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="12">元は文永の役・弘安の役の二度、</span><span class="s" data-i="13">日本を攻めたけど撃退されたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">元寇<span class="w-rd">げんこう</span></span><span class="w-desc">13世紀後半、元が二度にわたり日本へ攻めてきたできごと。</span></div><div class="word"><span class="w-term">北条時宗<span class="w-rd">ほうじょうときむね</span></span><span class="w-desc">鎌倉幕府の第8代執権。二度の元寇を指揮して退けた。</span></div><div class="word"><span class="w-term">文永の役<span class="w-rd">ぶんえいのえき</span></span><span class="w-desc">1274年に起こった元軍の最初の襲来。</span></div><div class="word"><span class="w-term">弘安の役<span class="w-rd">こうあんのえき</span></span><span class="w-desc">1281年に起こった元軍の二度目の襲来。</span></div><div class="word"><span class="w-term">てつはう<span class="w-rd">てつはう</span></span><span class="w-desc">元軍が使った火薬を利用した武器。</span></div></div>
     </div>
     <div class="step" data-label="御家人の窮乏と幕府の衰え">
       <h3><span class="sec-no">2</span><span class="s" data-i="14">御家人の窮乏と幕府の衰え</span></h3>
       <div class="sec-lead"><span class="s" data-i="15">恩賞不足で、御家人の生活が苦しくなったよ。</span></div>
+      <figure class="sec-fig pos-left size-sm"><img class="zoomable" src="img/hist06-sec-gokenin-poverty.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="16">元寇で戦った御家人は、</span><span class="s" data-i="17">十分な恩賞をもらえなかったうえに、</span><span class="s" data-i="18"><span class="mark">分割相続</span>によって代々領地が細分化されて、</span><span class="s" data-i="19">生活がどんどん苦しくなっていったんだ。</span><span class="s" data-i="20">幕府は1297年に<span class="mark">永仁の徳政令</span>を出して借金の帳消しを認めたけれど、</span><span class="s" data-i="21">効果は一時的なものにとどまってしまったんだよ。</span><span class="s" data-i="22">荘園領主や幕府の命令に従わない悪党と呼ばれる新しい武士も現れて、</span><span class="s" data-i="23">幕府の力は次第に弱まっていったんだ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="24">恩賞不足と分割相続で、</span><span class="s" data-i="25">御家人の生活は苦しくなったよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="24">恩賞不足と分割相続で、</span><span class="s" data-i="25">御家人の生活は苦しくなったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">永仁の徳政令<span class="w-rd">えいにんのとくせいれい</span></span><span class="w-desc">1297年、幕府が御家人を救うために出した法令。効果は一時的だった。</span></div></div>
     </div>
     <div class="step" data-label="鎌倉幕府の滅亡と建武の新政">
       <h3><span class="sec-no">3</span><span class="s" data-i="26">鎌倉幕府の滅亡と建武の新政</span></h3>
       <div class="sec-lead"><span class="s" data-i="27">幕府が滅び、天皇中心の政治が始まったよ。</span></div>
+      <figure class="sec-fig"><img class="zoomable" src="img/hist06-sec-kenmu.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="28">御家人の不満が高まるなか、</span><span class="s" data-i="29"><span class="mark">後醍醐天皇</span>は<span class="mark">足利尊氏</span>や新田義貞らの協力を得て挙兵し、1333年、</span><span class="s" data-i="30">約150年続いた鎌倉幕府を滅ぼしたんだ。</span><span class="s" data-i="31">翌1334年、後醍醐天皇は天皇中心の政治である<span class="mark">建武の新政</span>を始めたけれど、</span><span class="s" data-i="32">貴族ばかりを優遇して武士の功績を認めなかったから武士の不満を招いてしまい、</span><span class="s" data-i="33">わずか約2年で崩れることになったんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="34">後醍醐天皇が幕府を滅ぼし、</span><span class="s" data-i="35">建武の新政を始めたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="34">後醍醐天皇が幕府を滅ぼし、</span><span class="s" data-i="35">建武の新政を始めたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">後醍醐天皇<span class="w-rd">ごだいごてんのう</span></span><span class="w-desc">1333年に鎌倉幕府を倒し、建武の新政を始めた天皇。</span></div><div class="word"><span class="w-term">建武の新政<span class="w-rd">けんむのしんせい</span></span><span class="w-desc">後醍醐天皇が始めた天皇中心の政治。武士の不満で約2年で崩壊した。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -766,10 +825,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/06/index.html#t3"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/06/index.html#t3"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=06-mongol-invasion" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -777,30 +835,32 @@
 </section>
 <section class="view" data-t="3">
   <div class="tband"><span class="tno">3</span><h2>室町幕府の成立</h2>
-    <button class="play-unit" type="button" data-play="3" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="3" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-muromachi-bakufu.webp"
+      <img class="cover-img zoomable" src="img/cover-muromachi-bakufu.webp"
            alt="室町幕府の成立（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">建武の新政が武士に見放されて崩れたあと、</span><span class="s" data-i="1">今度は京都で新しい武士の政権が生まれたんだ。</span><span class="s" data-i="2">鎌倉幕府とどこが違うのか比べてみよう。</span></div></div>
     </div>
     <div class="step" data-label="室町幕府の成立と南北朝の対立">
       <h3><span class="sec-no">1</span><span class="s" data-i="3">室町幕府の成立と南北朝の対立</span></h3>
       <div class="sec-lead"><span class="s" data-i="4">尊氏が幕府を開き、</span><span class="s" data-i="5">朝廷も二つに分かれたよ。</span></div>
+      <figure class="sec-fig"><img class="zoomable" src="img/hist06-sec-nanbokucho.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="6">建武の新政が武士の不満を招いて崩れると、</span><span class="s" data-i="7"><span class="mark">足利尊氏</span>は1338年に<span class="mark">征夷大将軍</span>となって、</span><span class="s" data-i="8">京都に<span class="mark">室町幕府</span>を開いたんだ。</span><span class="s" data-i="9">このころ、京都の<span class="mark">北朝</span>と、</span><span class="s" data-i="10">後醍醐天皇が吉野(奈良県)に開いた<span class="mark">南朝</span>が対立する<span class="mark">南北朝時代</span>が始まり、</span><span class="s" data-i="11">約60年にもわたって二つの朝廷が並び立つ状態が続いたんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="12">足利尊氏が室町幕府を開き、</span><span class="s" data-i="13">南北朝の対立が始まったよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="12">足利尊氏が室町幕府を開き、</span><span class="s" data-i="13">南北朝の対立が始まったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">足利尊氏<span class="w-rd">あしかがたかうじ</span></span><span class="w-desc">1338年に征夷大将軍となり、京都に室町幕府を開いた人物。</span></div><div class="word"><span class="w-term">室町幕府<span class="w-rd">むろまちばくふ</span></span><span class="w-desc">足利尊氏が京都に開いた武家政権。約230年続いた。</span></div><div class="word"><span class="w-term">南北朝時代<span class="w-rd">なんぼくちょうじだい</span></span><span class="w-desc">京都の北朝と吉野の南朝が対立した、約60年続いた時代。</span></div><div class="word"><span class="w-term">北朝<span class="w-rd">ほくちょう</span></span><span class="w-desc">足利尊氏が京都に立てた天皇の朝廷。</span></div><div class="word"><span class="w-term">南朝<span class="w-rd">なんちょう</span></span><span class="w-desc">後醍醐天皇が吉野に開いた朝廷。</span></div></div>
     </div>
     <div class="step" data-label="足利義満と幕府のしくみ">
       <h3><span class="sec-no">2</span><span class="s" data-i="14">足利義満と幕府のしくみ</span></h3>
       <div class="sec-lead"><span class="s" data-i="15">義満が南北朝を統一し、</span><span class="s" data-i="16">幕府を整えたよ。</span></div>
+      <figure class="sec-fig pos-left size-lg"><img class="zoomable" src="img/hist06-sec-yoshimitsu.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="17">第3代将軍<span class="mark">足利義満</span>は1392年に南北朝を統一し、</span><span class="s" data-i="18">京都の室町に建てた花の御所で政治を行って、</span><span class="s" data-i="19">幕府の全盛期を築き上げたんだ。</span><span class="s" data-i="20">幕府では将軍を補佐する<span class="mark">管領</span>に細川・斯波・畠山の三家が交代でついていて、</span><span class="s" data-i="21">地方では<span class="mark">守護大名</span>が国内の武士をまとめて一国を支配する力を強めていったんだよ。</span><span class="s" data-i="22">京都で金融業を営む<span class="mark">土倉</span>や酒屋は、</span><span class="s" data-i="23">幕府に税を納める大事な財源になったんだ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="24">足利義満は南北朝を統一し、</span><span class="s" data-i="25">管領や守護大名が幕府を支えたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="24">足利義満は南北朝を統一し、</span><span class="s" data-i="25">管領や守護大名が幕府を支えたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">足利義満<span class="w-rd">あしかがよしみつ</span></span><span class="w-desc">室町幕府の第3代将軍。南北朝を統一し日明貿易を始めた。</span></div><div class="word"><span class="w-term">管領<span class="w-rd">かんれい</span></span><span class="w-desc">室町幕府で将軍を補佐した役職。細川・斯波・畠山の三家が交代でついた。</span></div><div class="word"><span class="w-term">守護大名<span class="w-rd">しゅごだいみょう</span></span><span class="w-desc">南北朝の動乱で領地を広げ、一国を支配する力を持った守護。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -908,10 +968,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/06/index.html#t4"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/06/index.html#t4"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=06-muromachi-bakufu" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -919,37 +978,40 @@
 </section>
 <section class="view" data-t="4">
   <div class="tband"><span class="tno">4</span><h2>東アジアとの交流</h2>
-    <button class="play-unit" type="button" data-play="4" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="4" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-east-asia-trade.webp"
+      <img class="cover-img zoomable" src="img/cover-east-asia-trade.webp"
            alt="東アジアとの交流（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">海賊を取り締まって貿易の道を開いた将軍。</span><span class="s" data-i="1">同じころ、朝鮮半島や沖縄でも新しい国が生まれていたんだ。</span></div></div>
     </div>
     <div class="step" data-label="日明貿易と勘合">
       <h3><span class="sec-no">1</span><span class="s" data-i="2">日明貿易と勘合</span></h3>
       <div class="sec-lead"><span class="s" data-i="3">義満が、勘合を使った明との貿易を始めたよ。</span></div>
+      <figure class="sec-fig"><img class="zoomable" src="img/hist06-sec-nichimin.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="4">14世紀ごろ、朝鮮や中国の沿岸を<span class="mark">倭寇</span>と呼ばれる海賊が襲うようになると、</span><span class="s" data-i="5">足利義満は倭寇を取り締まる一方で、</span><span class="s" data-i="6">明との<span class="mark">日明貿易</span>(勘合貿易)を始めたんだ。</span><span class="s" data-i="7">正式な貿易船と倭寇を区別するために<span class="mark">勘合</span>という証明書(割札)が使われ、</span><span class="s" data-i="8">中国の皇帝に貢ぎ物を差し出す朝貢貿易という形がとられたんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="9">足利義満は勘合を使って、</span><span class="s" data-i="10">明との日明貿易を始めたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="9">足利義満は勘合を使って、</span><span class="s" data-i="10">明との日明貿易を始めたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">倭寇<span class="w-rd">わこう</span></span><span class="w-desc">14世紀ごろ、朝鮮や中国の沿岸をおそった海賊。</span></div><div class="word"><span class="w-term">日明貿易<span class="w-rd">にちみんぼうえき</span></span><span class="w-desc">足利義満が始めた明との貿易。勘合貿易ともいう。</span></div><div class="word"><span class="w-term">勘合<span class="w-rd">かんごう</span></span><span class="w-desc">正式な貿易船と倭寇を区別するために使われた証明書(割札)。</span></div></div>
     </div>
     <div class="step" data-label="朝鮮国と琉球王国の成立">
       <h3><span class="sec-no">2</span><span class="s" data-i="11">朝鮮国と琉球王国の成立</span></h3>
       <div class="sec-lead"><span class="s" data-i="12">朝鮮半島と沖縄に、</span><span class="s" data-i="13">新しい国が生まれたよ。</span></div>
+      <figure class="sec-fig pos-wide"><img class="zoomable" src="img/hist06-sec-ryukyu.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="14">日明貿易が始まったのと同じ1392年、</span><span class="s" data-i="15">朝鮮半島では<span class="mark">李成桂</span>が高麗を滅ぼして<span class="mark">朝鮮国</span>を建てたんだ。</span><span class="s" data-i="16">のちに独自の文字である<span class="mark">ハングル</span>も作られたんだよ。</span><span class="s" data-i="17">一方、沖縄では尚氏が沖縄島を統一して<span class="mark">琉球王国</span>を建て、</span><span class="s" data-i="18">首里を都に日本・中国・朝鮮・東南アジアを結ぶ<span class="mark">中継貿易</span>で栄えたんだ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="19">1392年、李成桂が朝鮮国を建て、</span><span class="s" data-i="20">琉球王国は中継貿易で栄えたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="19">1392年、李成桂が朝鮮国を建て、</span><span class="s" data-i="20">琉球王国は中継貿易で栄えたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">李成桂<span class="w-rd">りせいけい</span></span><span class="w-desc">1392年に高麗を滅ぼして朝鮮国を建てた人物。</span></div><div class="word"><span class="w-term">朝鮮国<span class="w-rd">ちょうせんこく</span></span><span class="w-desc">李成桂が高麗をほろぼして建てた国。</span></div><div class="word"><span class="w-term">ハングル<span class="w-rd">はんぐる</span></span><span class="w-desc">朝鮮国で作られた独自の文字。</span></div><div class="word"><span class="w-term">琉球王国<span class="w-rd">りゅうきゅうおうこく</span></span><span class="w-desc">尚氏が沖縄島を統一して建てた国。首里を都に中継貿易で栄えた。</span></div></div>
     </div>
     <div class="step" data-label="蝦夷地のアイヌ民族との関わり">
       <h3><span class="sec-no">3</span><span class="s" data-i="21">蝦夷地のアイヌ民族との関わり</span></h3>
       <div class="sec-lead"><span class="s" data-i="22">蝦夷地では、アイヌ民族が暮らしていたよ。</span></div>
+      <figure class="sec-fig"><img class="zoomable" src="img/hist06-sec-ainu.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="23">北の蝦夷地(今の北海道)では、</span><span class="s" data-i="24">古くから<span class="mark">アイヌ民族</span>が狩りや漁、</span><span class="s" data-i="25">交易をしながら暮らしていたんだ。</span><span class="s" data-i="26">しかし和人との交易をめぐる対立が深まっていき、</span><span class="s" data-i="27">1457年には首長<span class="mark">コシャマイン</span>がアイヌを率いて和人と戦う出来事が起こったんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="28">蝦夷地のアイヌ民族は1457年、</span><span class="s" data-i="29">コシャマインを中心に和人と戦ったよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="28">蝦夷地のアイヌ民族は1457年、</span><span class="s" data-i="29">コシャマインを中心に和人と戦ったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">アイヌ民族<span class="w-rd">あいぬみんぞく</span></span><span class="w-desc">蝦夷地に住み、狩りや漁、交易を行っていた人々。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -1057,10 +1119,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/06/index.html#t5"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/06/index.html#t5"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=06-east-asia-trade" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -1068,37 +1129,40 @@
 </section>
 <section class="view" data-t="5">
   <div class="tband"><span class="tno">5</span><h2>室町時代の産業</h2>
-    <button class="play-unit" type="button" data-play="5" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="5" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-muromachi-industry.webp"
+      <img class="cover-img zoomable" src="img/cover-muromachi-industry.webp"
            alt="室町時代の産業（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">農業の技術が進歩し、</span><span class="s" data-i="1">物や情報が行き交うスピードが上がると、</span><span class="s" data-i="2">町にはお金を貸す商人まで現れたんだ。</span></div></div>
     </div>
     <div class="step" data-label="農業技術の進歩">
       <h3><span class="sec-no">1</span><span class="s" data-i="3">農業技術の進歩</span></h3>
       <div class="sec-lead"><span class="s" data-i="4">二毛作や水車で、</span><span class="s" data-i="5">農業生産が向上したよ。</span></div>
+      <figure class="sec-fig"><img class="zoomable" src="img/hist06-sec-agri.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="6">室町時代には、同じ土地で年に2回作物を作る<span class="mark">二毛作</span>がさらに広まっていって、</span><span class="s" data-i="7">温暖な地域では年3回作る三毛作も行われるようになったんだ。</span><span class="s" data-i="8">かんがいには<span class="mark">水車</span>が使われ、</span><span class="s" data-i="9">牛馬の糞から作る<span class="mark">堆肥</span>も普及して収穫量を高めていったんだよ。</span><span class="s" data-i="10">また、麻・桑・茶・漆など、</span><span class="s" data-i="11">市場で売るための商品作物の栽培も増えていったんだ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="12">二毛作・三毛作や水車・堆肥で、</span><span class="s" data-i="13">農業生産が向上したよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="12">二毛作・三毛作や水車・堆肥で、</span><span class="s" data-i="13">農業生産が向上したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">二毛作<span class="w-rd">にもうさく</span></span><span class="w-desc">同じ土地で年に2回、異なる作物を栽培する農業技術。</span></div><div class="word"><span class="w-term">三毛作<span class="w-rd">さんもうさく</span></span><span class="w-desc">温暖な地域で行われた、年に3回作物を栽培する農法。</span></div></div>
     </div>
     <div class="step" data-label="商業と流通の発展">
       <h3><span class="sec-no">2</span><span class="s" data-i="14">商業と流通の発展</span></h3>
       <div class="sec-lead"><span class="s" data-i="15">座や定期市で、商業が発展していったよ。</span></div>
+      <figure class="sec-fig pos-left"><img class="zoomable" src="img/hist06-sec-commerce.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="16">物資の輸送は馬を使う<span class="mark">馬借</span>や、</span><span class="s" data-i="17">港で保管・運送を兼ねる問が担っていたんだ。</span><span class="s" data-i="18">商工業者は同業者組織である<span class="mark">座</span>をつくり、</span><span class="s" data-i="19">寺社の保護のもとで営業を独占したんだよ。</span><span class="s" data-i="20">定期市は鎌倉時代の月3回から室町時代には月6回の<span class="mark">六斎市</span>に増えていって、</span><span class="s" data-i="21">中国から輸入された宋銭や明銭が広く使われたんだ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="22">座という組織ができ、</span><span class="s" data-i="23">定期市も月6回の六斎市に増えたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="22">座という組織ができ、</span><span class="s" data-i="23">定期市も月6回の六斎市に増えたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">馬借<span class="w-rd">ばしゃく</span></span><span class="w-desc">馬を使って荷物を運んだ運送業者。</span></div><div class="word"><span class="w-term">座<span class="w-rd">ざ</span></span><span class="w-desc">商工業者が同業者ごとにつくった組織。営業の独占権を持った。</span></div><div class="word"><span class="w-term">六斎市<span class="w-rd">ろくさいいち</span></span><span class="w-desc">室町時代に月6回開かれるようになった定期市。</span></div></div>
     </div>
     <div class="step" data-label="手工業と金融業の発展">
       <h3><span class="sec-no">3</span><span class="s" data-i="24">手工業と金融業の発展</span></h3>
       <div class="sec-lead"><span class="s" data-i="25">絹織物や金融業が、</span><span class="s" data-i="26">都市で栄えたよ。</span></div>
+      <figure class="sec-fig size-sm"><img class="zoomable" src="img/hist06-sec-finance.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="27">桑の栽培が広がると、</span><span class="s" data-i="28">生糸を得る<span class="mark">養蚕業</span>の発展と結びついて、</span><span class="s" data-i="29">京都の<span class="mark">西陣</span>や博多では絹織物の生産が盛んになっていったんだ。</span><span class="s" data-i="30">都市では<span class="mark">土倉</span>や酒屋といった金融業者が現れ、</span><span class="s" data-i="31">質物を取って金を貸す土倉は、</span><span class="s" data-i="32">幕府に税を納める代わりに保護を受けていたんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="33">西陣は絹織物、土倉・酒屋は金融業で幕府を支えたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="33">西陣は絹織物、土倉・酒屋は金融業で幕府を支えたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">西陣<span class="w-rd">にしじん</span></span><span class="w-desc">京都で絹織物の生産が盛んだった地域。</span></div><div class="word"><span class="w-term">養蚕業<span class="w-rd">ようさんぎょう</span></span><span class="w-desc">桑の栽培と結びついて発展した、生糸を得る産業。</span></div><div class="word"><span class="w-term">土倉<span class="w-rd">どそう</span></span><span class="w-desc">質物を取って金を貸す高利貸しの業者。幕府の財源となった。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -1206,10 +1270,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/06/index.html#t6"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/06/index.html#t6"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=06-muromachi-industry" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -1217,37 +1280,40 @@
 </section>
 <section class="view" data-t="6">
   <div class="tband"><span class="tno">6</span><h2>室町時代の民衆</h2>
-    <button class="play-unit" type="button" data-play="6" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="6" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-muromachi-people.webp"
+      <img class="cover-img zoomable" src="img/cover-muromachi-people.webp"
            alt="室町時代の民衆（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">農民たちが自分たちで話し合って村のルールを決め、</span><span class="s" data-i="1">借金の帳消しを求めて立ち上がる。</span><span class="s" data-i="2">民衆の力が育っていった時代だよ。</span></div></div>
     </div>
     <div class="step" data-label="惣の自治と寄合">
       <h3><span class="sec-no">1</span><span class="s" data-i="3">惣の自治と寄合</span></h3>
       <div class="sec-lead"><span class="s" data-i="4">農民が惣をつくり、</span><span class="s" data-i="5">村を自治で治めたよ。</span></div>
+      <figure class="sec-fig"><img class="zoomable" src="img/hist06-sec-so.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="6">村では有力な農民を中心に<span class="mark">惣</span>という自治組織がつくられて、</span><span class="s" data-i="7">村人は<span class="mark">寄合</span>で話し合い、</span><span class="s" data-i="8">おきてを定めて村を運営していったんだ。</span><span class="s" data-i="9">共同で利用する山林である入会地の管理も、</span><span class="s" data-i="10">惣が担った仕事の一つだったんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="11">農民は惣をつくり、</span><span class="s" data-i="12">寄合で話し合って村を治めたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="11">農民は惣をつくり、</span><span class="s" data-i="12">寄合で話し合って村を治めたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">惣<span class="w-rd">そう</span></span><span class="w-desc">村の有力な農民を中心に作られた自治組織。</span></div><div class="word"><span class="w-term">寄合<span class="w-rd">よりあい</span></span><span class="w-desc">惣の村人が集まって村の運営を話し合う会議。</span></div></div>
     </div>
     <div class="step" data-label="土一揆の広がり">
       <h3><span class="sec-no">2</span><span class="s" data-i="13">土一揆の広がり</span></h3>
       <div class="sec-lead"><span class="s" data-i="14">農民たちが、借金の帳消しを求め立ち上がったよ。</span></div>
+      <figure class="sec-fig pos-wide"><img class="zoomable" src="img/hist06-sec-ikki.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="15">1428年には近畿地方で日本最初の大規模な土一揆である<span class="mark">正長の土一揆</span>が起こって、</span><span class="s" data-i="16">農民や馬借が土倉や酒屋を襲い、</span><span class="s" data-i="17">借金の帳消しを求めたんだ。</span><span class="s" data-i="18">1441年の<span class="mark">嘉吉の土一揆</span>では、</span><span class="s" data-i="19">幕府が初めて<span class="mark">徳政令</span>を出し、</span><span class="s" data-i="20">農民の要求に応じたんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="21">正長の土一揆に続き、</span><span class="s" data-i="22">嘉吉の土一揆で幕府は徳政令を出したよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="21">正長の土一揆に続き、</span><span class="s" data-i="22">嘉吉の土一揆で幕府は徳政令を出したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">正長の土一揆<span class="w-rd">しょうちょうのつちいっき</span></span><span class="w-desc">1428年に近畿地方で起こった、日本最初の大規模な土一揆。</span></div><div class="word"><span class="w-term">嘉吉の土一揆<span class="w-rd">かきつのつちいっき</span></span><span class="w-desc">1441年に起こり、幕府が初めて徳政令を出すきっかけとなった土一揆。</span></div><div class="word"><span class="w-term">徳政令<span class="w-rd">とくせいれい</span></span><span class="w-desc">借金の帳消しを命じる法令。土一揆で農民が幕府に求めた。</span></div></div>
     </div>
     <div class="step" data-label="都市の自治">
       <h3><span class="sec-no">3</span><span class="s" data-i="23">都市の自治</span></h3>
       <div class="sec-lead"><span class="s" data-i="24">堺や京都でも、自治が広がっていったよ。</span></div>
+      <figure class="sec-fig"><img class="zoomable" src="img/hist06-sec-machishu.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="25">京都では応仁の乱で荒れた町を<span class="mark">町衆</span>が復興させて、</span><span class="s" data-i="26">中断していた祇園祭を復活させたんだ。</span><span class="s" data-i="27">港町の堺では有力商人による<span class="mark">会合衆</span>が合議制で自治を行っていて、</span><span class="s" data-i="28">周りに濠をめぐらせた<span class="mark">自由都市</span>として知られ、</span><span class="s" data-i="29">博多でも年行司が自治を担っていたんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="30">京都は町衆、堺は会合衆が自治を行い都市が栄えたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="30">京都は町衆、堺は会合衆が自治を行い都市が栄えたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">町衆<span class="w-rd">まちしゅう</span></span><span class="w-desc">京都の自治を担い、祇園祭を復興させた裕福な商工業者。</span></div><div class="word"><span class="w-term">会合衆<span class="w-rd">えごうしゅう</span></span><span class="w-desc">堺で合議制の自治を行った有力商人の組織。</span></div><div class="word"><span class="w-term">自由都市<span class="w-rd">じゆうとし</span></span><span class="w-desc">大名に属さず、商人の自治で運営された都市。堺が代表。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -1355,10 +1421,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/06/index.html#t7"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/06/index.html#t7"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=06-muromachi-people" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -1366,30 +1431,32 @@
 </section>
 <section class="view" data-t="7">
   <div class="tband"><span class="tno">7</span><h2>北山文化と能楽</h2>
-    <button class="play-unit" type="button" data-play="7" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="7" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-kitayama-culture.webp"
+      <img class="cover-img zoomable" src="img/cover-kitayama-culture.webp"
            alt="北山文化と能楽（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">貿易で得た莫大な富を背景に、</span><span class="s" data-i="1">貴族と武士の文化が混ざり合った。</span><span class="s" data-i="2">金色に輝く建物が、その象徴だよ。</span></div></div>
     </div>
     <div class="step" data-label="足利義満と金閣">
       <h3><span class="sec-no">1</span><span class="s" data-i="3">足利義満と金閣</span></h3>
       <div class="sec-lead"><span class="s" data-i="4">義満が建てた金閣が、</span><span class="s" data-i="5">北山文化を象徴するよ。</span></div>
+      <figure class="sec-fig pos-wide"><img class="zoomable" src="img/hist06-sec-kinkaku.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="6">室町幕府第3代将軍<span class="mark">足利義満</span>のころ栄えた<span class="mark">北山文化</span>は、</span><span class="s" data-i="7">日明貿易による大きな富を背景に、</span><span class="s" data-i="8">公家と武家の文化が融合した華やかな文化なんだ。</span><span class="s" data-i="9">義満が京都の北山に建てた<span class="mark">金閣</span>は、1層が寝殿造、2層が武家造、</span><span class="s" data-i="10">3層が禅宗様という三つの様式からなっていて、</span><span class="s" data-i="11">正式には<span class="mark">鹿苑寺</span>というんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="12">足利義満のころ、</span><span class="s" data-i="13">公家と武家が融合した北山文化が栄えたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="12">足利義満のころ、</span><span class="s" data-i="13">公家と武家が融合した北山文化が栄えたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">足利義満<span class="w-rd">あしかがよしみつ</span></span><span class="w-desc">金閣を建て、能を保護した室町幕府の第3代将軍。</span></div><div class="word"><span class="w-term">北山文化<span class="w-rd">きたやまぶんか</span></span><span class="w-desc">足利義満のころ栄えた、公家と武家の文化が融合した華やかな文化。</span></div><div class="word"><span class="w-term">金閣<span class="w-rd">きんかく</span></span><span class="w-desc">足利義満が京都の北山に建てた、3層構造の建物。</span></div><div class="word"><span class="w-term">鹿苑寺<span class="w-rd">ろくおんじ</span></span><span class="w-desc">金閣がある寺の正式名称。</span></div></div>
     </div>
     <div class="step" data-label="能と狂言の大成">
       <h3><span class="sec-no">2</span><span class="s" data-i="14">能と狂言の大成</span></h3>
       <div class="sec-lead"><span class="s" data-i="15">観阿弥・世阿弥が、</span><span class="s" data-i="16">能を大成させたよ。</span></div>
+      <figure class="sec-fig pos-left"><img class="zoomable" src="img/hist06-sec-noh.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="17">芸能では、<span class="mark">猿楽</span>をもとに<span class="mark">観阿弥</span>・<span class="mark">世阿弥</span>の親子が<span class="mark">能</span>を大成して、</span><span class="s" data-i="18">義満の保護を受けて発展していったんだ。</span><span class="s" data-i="19">能の合間には庶民の日常をこっけいに描く<span class="mark">狂言</span>が演じられて、</span><span class="s" data-i="20">能とあわせて楽しまれていたんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="21">観阿弥・世阿弥が能を大成し、</span><span class="s" data-i="22">狂言もあわせて演じられたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="21">観阿弥・世阿弥が能を大成し、</span><span class="s" data-i="22">狂言もあわせて演じられたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">猿楽<span class="w-rd">さるがく</span></span><span class="w-desc">能のもとになった、物まね中心の芸能。</span></div><div class="word"><span class="w-term">観阿弥<span class="w-rd">かんあみ</span></span><span class="w-desc">世阿弥の父。猿楽を洗練させ、能のもとを作った人物。</span></div><div class="word"><span class="w-term">世阿弥<span class="w-rd">ぜあみ</span></span><span class="w-desc">観阿弥の子。能を芸術として完成させた人物。</span></div><div class="word"><span class="w-term">狂言<span class="w-rd">きょうげん</span></span><span class="w-desc">能の合間に演じられた、庶民の日常をこっけいに描く芸能。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -1497,10 +1564,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/06/index.html#t8"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/06/index.html#t8"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=06-kitayama-culture" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -1508,37 +1574,40 @@
 </section>
 <section class="view" data-t="8">
   <div class="tband"><span class="tno">8</span><h2>東山文化と民衆の文化</h2>
-    <button class="play-unit" type="button" data-play="8" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="8" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-higashiyama-culture.webp"
+      <img class="cover-img zoomable" src="img/cover-higashiyama-culture.webp"
            alt="東山文化と民衆の文化（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">派手さより静けさを美しいと感じる心。</span><span class="s" data-i="1">今のわたしたちの和室や茶道につながる文化が、</span><span class="s" data-i="2">ここから生まれたんだ。</span></div></div>
     </div>
     <div class="step" data-label="足利義政と銀閣・書院造">
       <h3><span class="sec-no">1</span><span class="s" data-i="3">足利義政と銀閣・書院造</span></h3>
       <div class="sec-lead"><span class="s" data-i="4">義政が建てた銀閣が、</span><span class="s" data-i="5">東山文化を象徴するよ。</span></div>
+      <figure class="sec-fig"><img class="zoomable" src="img/hist06-sec-ginkaku.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="6">室町幕府第8代将軍<span class="mark">足利義政</span>のころ栄えた<span class="mark">東山文化</span>は、</span><span class="s" data-i="7">禅宗の影響を受けた簡素で落ち着いた美しさが特徴なんだ。</span><span class="s" data-i="8">義政が京都の東山に建てた<span class="mark">銀閣</span>は正式には慈照寺といって、</span><span class="s" data-i="9">畳や床の間を備えた<span class="mark">書院造</span>は現在の和風住宅のもとになったんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="10">足利義政のころ、</span><span class="s" data-i="11">簡素で落ち着いた東山文化が栄えたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="10">足利義政のころ、</span><span class="s" data-i="11">簡素で落ち着いた東山文化が栄えたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">足利義政<span class="w-rd">あしかがよしまさ</span></span><span class="w-desc">銀閣を建てた室町幕府の第8代将軍。</span></div><div class="word"><span class="w-term">東山文化<span class="w-rd">ひがしやまぶんか</span></span><span class="w-desc">足利義政のころ栄えた、簡素で落ち着いた美しさが特徴の文化。</span></div><div class="word"><span class="w-term">銀閣<span class="w-rd">ぎんかく</span></span><span class="w-desc">足利義政が京都の東山に建てた建物。正式には慈照寺という。</span></div><div class="word"><span class="w-term">書院造<span class="w-rd">しょいんづくり</span></span><span class="w-desc">畳・床の間・障子などを備え、現在の和風住宅のもとになった様式。</span></div></div>
     </div>
     <div class="step" data-label="水墨画と枯山水">
       <h3><span class="sec-no">2</span><span class="s" data-i="12">水墨画と枯山水</span></h3>
       <div class="sec-lead"><span class="s" data-i="13">雪舟の水墨画や、</span><span class="s" data-i="14">枯山水の庭が生まれたよ。</span></div>
+      <figure class="sec-fig pos-left"><img class="zoomable" src="img/hist06-sec-suiboku.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="15">絵画では、明に渡って学んだ<span class="mark">雪舟</span>が<span class="mark">水墨画</span>を大成して、</span><span class="s" data-i="16">庭園では石や砂で山水を表す<span class="mark">枯山水</span>が作られたんだ。</span><span class="s" data-i="17">生活文化では、わびの心を大切にする<span class="mark">茶の湯</span>や生け花が始まり、</span><span class="s" data-i="18">のちにそれぞれ茶道・華道として発展していったんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="19">雪舟が水墨画を大成し、</span><span class="s" data-i="20">枯山水の庭園もつくられたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="19">雪舟が水墨画を大成し、</span><span class="s" data-i="20">枯山水の庭園もつくられたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">雪舟<span class="w-rd">せっしゅう</span></span><span class="w-desc">明に渡って学び、水墨画を大成した画家。</span></div><div class="word"><span class="w-term">水墨画<span class="w-rd">すいぼくが</span></span><span class="w-desc">墨の濃淡だけで自然を表現する絵画。</span></div><div class="word"><span class="w-term">枯山水<span class="w-rd">かれさんすい</span></span><span class="w-desc">水を使わず石や砂で山水の風景を表現する庭園。</span></div><div class="word"><span class="w-term">茶の湯<span class="w-rd">ちゃのゆ</span></span><span class="w-desc">わびの精神を大切にする、室町時代に始まった茶の文化。</span></div></div>
     </div>
     <div class="step" data-label="民衆に広がる文芸と学問">
       <h3><span class="sec-no">3</span><span class="s" data-i="21">民衆に広がる文芸と学問</span></h3>
       <div class="sec-lead"><span class="s" data-i="22">連歌や学問が、地方にも広がっていったよ。</span></div>
+      
       <p><span class="s" data-i="23">文芸では複数人で句を詠み継ぐ連歌や、</span><span class="s" data-i="24">庶民に親しまれた御伽草子が広まっていったんだ。</span><span class="s" data-i="25">学問では、栃木県の足利学校に全国から人が集まって儒学が学ばれていて、</span><span class="s" data-i="26">都だけでなく地方にも文化や学問が広がっていったことがわかるね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="27">御伽草子が庶民に広まり、</span><span class="s" data-i="28">足利学校では儒学が学ばれたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="27">御伽草子が庶民に広まり、</span><span class="s" data-i="28">足利学校では儒学が学ばれたよ。</span></div></div>
       
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -1646,10 +1715,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/06/index.html#t9"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/06/index.html#t9"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=06-higashiyama-culture" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -1665,6 +1733,11 @@
   <button class="ap-close" id="apClose" aria-label="読み上げを止める">×</button>
 </div></div>
 <audio id="audio" preload="none"></audio>
+<div class="lightbox" id="lightbox" hidden>
+  <img id="lightboxImg" alt="">
+  <button class="lb-close" id="lbClose" aria-label="閉じる">×</button>
+  <div class="lb-hint">タップで閉じる</div>
+</div>
 <div class="navbar" id="navbar" hidden><div class="navbar-in">
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
@@ -1884,7 +1957,7 @@
       b.classList.toggle('on', bt === t);
       b.classList.toggle('done', bt > 0 && store()['d' + bt] === 1);
     });
-    var tabEl = tabs[t];
+    var tabEl = tabs.filter(function (b) { return +b.dataset.go === t; })[0];
     if (tabEl && tabEl.scrollIntoView) {
       tabEl.scrollIntoView({ block: 'nearest', inline: 'center' });
     }
@@ -1927,11 +2000,11 @@
       pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
       var prev = document.getElementById('btnPrev');
       var next = document.getElementById('btnNext');
-      prev.textContent = s === 0 ? '🏠 目次' : '← まえへ';
+      prev.textContent = s === 0 ? '目次へ' : '← まえへ';
       if (s < steps.length - 1) {
         next.textContent = 'つぎへ →';
       } else {
-        next.textContent = t < N ? '次の単元へ →' : '🏠 目次にもどる';
+        next.textContent = t < N ? '次の単元へ →' : '目次にもどる';
       }
       // 進捗保存
       var st = store();
@@ -2093,8 +2166,21 @@
     }
   }, { passive: true });
 
+  // 画像タップで拡大（ライトボックス）。ページ送りタップ／スワイプと競合しない。
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightboxImg');
+  function openLb(src) { lbImg.src = src; lb.hidden = false; document.body.style.overflow = 'hidden'; }
+  function closeLb() { lb.hidden = true; lbImg.removeAttribute('src'); document.body.style.overflow = ''; }
+  document.addEventListener('click', function (e) {
+    var z = e.target.closest('img.zoomable');
+    if (z) { e.preventDefault(); e.stopPropagation(); openLb(z.currentSrc || z.src); }
+  });
+  lb.addEventListener('click', closeLb);
+  document.getElementById('lbClose').addEventListener('click', function (e) { e.stopPropagation(); closeLb(); });
+
   // キーボード操作（PC）: ←→ でページ送り、PageUp/Down も同じ、Home で目次へ
   document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !lb.hidden) { closeLb(); return; }
     var tag = e.target && e.target.tagName;
     if (tag === 'INPUT' || tag === 'TEXTAREA' || e.metaKey || e.ctrlKey || e.altKey) return;
     if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === 'Enter') { next(); e.preventDefault(); }
@@ -2109,6 +2195,16 @@
   }
   window.addEventListener('hashchange', fromHash);
   fromHash();
+
+  // 問題集の「解説を読む」から来たとき（?back=）だけ「問題にもどる」を出す
+  (function () {
+    var m = /[?&]back=([^&#]+)/.exec(location.search);
+    var pill = document.getElementById('backPill');
+    if (m && pill) {
+      try { pill.href = decodeURIComponent(m[1]); } catch (e) { pill.href = m[1]; }
+      pill.hidden = false;
+    }
+  })();
 })();
 </script>
 <script type="module">

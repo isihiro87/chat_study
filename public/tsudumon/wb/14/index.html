@@ -24,18 +24,24 @@
      タブ列の 🏠 は「この本の目次」なので、こちらは 🗺＋文字でトップだと分かるようにする。 */
   .tophome { flex:none; height:30px; padding:0 12px; font-size:11.5px; font-weight:bold;
              color:#fff; background:var(--deep); border-radius:15px; text-decoration:none;
-             display:inline-flex; align-items:center; white-space:nowrap;
-             box-shadow:0 2px 0 #5b1e0b; }
-  .swap { flex:none; display:inline-flex; border:1.5px solid var(--line); border-radius:20px;
-          overflow:hidden; background:#fffbeb; }
-  .sw { font-size:11px; font-weight:bold; color:var(--brand); padding:3px 7px; text-decoration:none;
-        white-space:nowrap; cursor:pointer; }
-  .sw.on { background:var(--brand); color:#fff; }
+             display:inline-flex; align-items:center; gap:5px; white-space:nowrap;
+             box-shadow:0 2px 0 #5b1e0b; transition:filter .12s; }
+  .th-ic { width:14px; height:14px; fill:currentColor; flex:none; }
+  @media (hover:hover) { .tophome:hover { filter:brightness(1.12); } }
+  /* 参考書⇄問題の切りかえタブ。押せると分かるよう、非選択側は白ボタン風＋ホバー反応 */
+  .swap { flex:none; display:inline-flex; gap:3px; padding:2px; border-radius:16px;
+          background:#f0e2c3; }
+  .sw { font-size:11.5px; font-weight:bold; color:var(--brand); padding:4px 12px; text-decoration:none;
+        white-space:nowrap; cursor:pointer; border-radius:13px; background:#fff;
+        transition:filter .12s, background-color .12s; }
+  .sw.on { background:var(--brand); color:#fff; cursor:default; box-shadow:0 1px 2px rgba(180,83,9,.3); }
+  @media (hover:hover) { .sw:not(.on):hover { background:#fff8ec; filter:brightness(0.98); } }
   .sw[hidden] { display:none; }
   /* 設問ごとの「解説を見る」（その問題の根拠になる節へ直行） */
-  .sec-help { display:inline-flex; align-items:center; gap:4px; font-size:11.5px; font-weight:bold;
+  .sec-help { display:inline-flex; align-items:center; gap:5px; font-size:11.5px; font-weight:bold;
               color:var(--brand); background:#fffbeb; border:1.5px solid var(--line);
-              border-radius:14px; padding:3px 10px; text-decoration:none; margin-top:8px; }
+              border-radius:14px; padding:4px 12px; text-decoration:none; margin-top:8px; cursor:pointer; }
+  .sh-ic { width:14px; height:14px; fill:currentColor; flex:none; }
   .bar-title { font-weight:bold; color:var(--deep); font-size:14px; flex:1;
                white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   .bar-step { flex:none; font-size:11px; font-weight:bold; color:var(--brand); }
@@ -57,12 +63,16 @@
   .tsr { right:0; background:linear-gradient(to left, #fffdf8 62%, rgba(255,253,248,0)); }
   .tabs { display:flex; gap:5px; overflow-x:auto; padding:4px 0; width:100%; scrollbar-width:none; }
   .tabs::-webkit-scrollbar { display:none; }
+  /* 単元タブ: 位置は動かさず、色で状態を示す（未着手=クリーム／解いた=緑／表示中=茶） */
   .tab { flex:none; width:30px; height:30px; border-radius:50%; border:1.5px solid var(--line);
          background:#fffbeb; color:var(--brand); font-size:14px; font-weight:bold;
-         display:inline-flex; align-items:center; justify-content:center; cursor:pointer; }
-  .tab.done { background:#fef3c7; }
-  .tab.on { background:var(--brand); border-color:var(--brand); color:#fff;
-            box-shadow:0 2px 6px rgba(180,83,9,.35); }
+         display:inline-flex; align-items:center; justify-content:center; cursor:pointer;
+         transition:background-color .12s, border-color .12s; }
+  /* 年表タブは2文字なので横長の楕円（ピル）に */
+  .tab-year { width:auto; padding:0 10px; border-radius:15px; font-size:12.5px; letter-spacing:.5px; }
+  .tab.done { background:#dcfce7; border-color:#86efac; color:#15803d; }   /* 解いた単元 */
+  .tab.on { background:var(--brand); border-color:var(--brand); color:#fff; }  /* いま表示中 */
+  @media (hover:hover) { .tab:not(.on):hover { background:#fff2d6; } }
   .pbar { height:3px; background:#f5ecd8; border-radius:2px; overflow:hidden; }
   .pfill { height:100%; width:0; background:linear-gradient(90deg,var(--amber),#fbbf24);
            transition:width .25s ease; }
@@ -115,8 +125,7 @@
   .b-web { background:var(--amber); color:#fff; }
   .ht-title { font-size:41px; color:var(--deep); margin:12px 0 0; line-height:1.12; position:relative;
               display:inline-block; padding:0 6px; letter-spacing:.01em; }
-  .ht-title::before { content:"✨"; position:absolute; left:-22px; top:2px; font-size:19px; }
-  .ht-title::after { content:"✨"; position:absolute; right:-20px; bottom:4px; font-size:15px; }
+  .ht-title::before, .ht-title::after { content:none; }
   .ht-mascot { flex:none; position:relative; width:100px; padding-top:22px; text-align:center; }
   .ht-mascot .wchar { height:74px; }
   .ht-bubble { position:absolute; top:0; left:50%; transform:translateX(-50%); white-space:nowrap;
@@ -137,8 +146,8 @@
   .toc { margin:16px 0 12px; background:#fff9ef; border:2px solid #f0e2c3; border-radius:16px; padding:12px; }
   .toc-head { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:10px; }
   .toc-h { font-weight:bold; color:var(--deep); font-size:16px; display:flex; align-items:center; gap:8px; }
-  .toc-h::before { content:"📖"; display:inline-flex; align-items:center; justify-content:center;
-                   width:30px; height:30px; border-radius:50%; background:var(--brand); font-size:15px; }
+  .toc-h::before { content:""; flex:none; width:30px; height:30px; border-radius:50%;
+                   background:var(--brand) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23fff'%3E%3Cpath d='M12 6.6C10.5 5.4 8.4 4.9 6 4.9c-1 0-2 .1-2.8.3v12.9c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3V5.2C20 5 19 4.9 18 4.9c-2.4 0-4.5.5-6 1.7z'/%3E%3C/svg%3E") center/17px no-repeat; }
   /* 「年表でチェック」へ飛ぶボタン。押せると気づかれるよう塗り＋矢印＋押し込み影で目立たせる */
   .toc-cal { flex:none; border:none; background:linear-gradient(#fbbf24,#f59e0b); color:#fff;
              font-weight:bold; border-radius:20px; padding:8px 8px 8px 14px; font-size:12.5px;
@@ -210,11 +219,14 @@
               border:none; border-radius:16px; padding:12px 10px; font-size:16px; font-weight:bold;
               color:#44403c; background:#fff; cursor:pointer; font-family:inherit; line-height:1.35;
               box-shadow:0 2px 0 #ecdcbb; border:1.5px solid #f0e2c3; }
+  /* アイコン: 絵文字をやめ、ブランド色の統一ラインアイコンに（丸背景も1トーンに揃える） */
   .mode-ic { flex:none; width:52px; height:52px; border-radius:50%; display:inline-flex;
-             align-items:center; justify-content:center; font-size:24px; background:#f1ece0; }
-  .ic-star { background:#fff; }
-  .ic-a { background:#e3edff; } .ic-b { background:#ffe6d6; }
-  .ic-c { background:#dcfce7; } .ic-d { background:#ece9fb; }
+             align-items:center; justify-content:center; background:#f7e8cf; color:var(--brand); }
+  .mode-ic .mi { width:27px; height:27px; display:block; }
+  /* codexイラストのカテゴリアイコン（丸背景は消して、アイコン自身のバッジを見せる） */
+  .mode-ic .mi-img { width:52px; height:52px; object-fit:contain; display:block; }
+  .mode-ic:has(.mi-img) { background:transparent; }
+  .ic-star { background:rgba(255,255,255,.22); color:#fff; }
   .mode-main { flex:1; min-width:0; }
   .mode-t { display:block; }
   .mode-btn .mode-sub { display:block; font-weight:normal; font-size:12.5px; color:#a8a29e; margin-top:3px; }
@@ -223,10 +235,11 @@
   .mode-reco { background:linear-gradient(#f59e0b,#ea7a09); border:none; color:#fff; margin-top:0;
                box-shadow:0 4px 0 #c2620a, 0 6px 12px rgba(180,83,9,.3); border-radius:18px; padding:14px 12px; }
   .mode-reco .mode-arrow { color:#fff; }
-  .mode-flow { display:flex; flex-wrap:wrap; align-items:center; gap:5px; margin-top:6px; }
+  .mode-flow { display:flex; flex-wrap:wrap; align-items:center; gap:6px; margin-top:7px; }
+  .flow-unit { display:inline-flex; align-items:center; gap:6px; }  /* 「→ 記述」を一体で折り返す */
   .flow-chip { background:rgba(255,255,255,.95); color:var(--brand); font-size:11.5px; font-weight:bold;
-               border-radius:12px; padding:2px 9px; }
-  .flow-arr { color:#fff; font-weight:bold; font-size:12px; }
+               border-radius:12px; padding:3px 10px; white-space:nowrap; }
+  .flow-arr { color:rgba(255,255,255,.9); font-weight:bold; font-size:12px; }
   /* オプション（一問一答・4択の中） */
   .mode-opts { margin:2px 8px 4px 70px; display:flex; flex-direction:column; gap:7px; }
   .opt-row { font-size:12.5px; font-weight:bold; color:#78716c; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
@@ -299,6 +312,9 @@
   .hidden-until { display:none; }
   .show .hidden-until { display:block; }
   .show .reveal { display:none; }
+  /* 記述: 「AI採点」と「わからない」を横並びに */
+  .wr-actions { display:flex; gap:10px; margin-top:12px; }
+  .wr-actions .ai-grade, .wr-actions .reveal { margin-top:0; width:auto; flex:1; }
 
   /* 記述のAIその場採点 */
   .ai-grade { display:block; width:100%; margin-top:12px; border:none; border-radius:12px;
@@ -340,10 +356,13 @@
 
   /* 4択 */
   .qopts { display:flex; flex-direction:column; gap:8px; margin-top:12px; }
-  .qopt { display:flex; align-items:center; gap:10px; text-align:left; background:#fff;
+  /* color を明示（iOS Safari は button のテキストを既定で青にするため） */
+  .qopt { display:flex; align-items:center; gap:10px; text-align:left; background:#fff; color:#1c1917;
           border:1.5px solid #e2d5bd; border-radius:12px; padding:10px 12px; font-size:14.5px;
           cursor:pointer; font-family:inherit; line-height:1.7; }
+  .opt-t { color:#1c1917; }
   .opt-k { flex:none; width:26px; height:26px; border-radius:50%; border:1.5px solid #a8a29e;
+           color:#44403c; background:#fff;
            display:inline-flex; align-items:center; justify-content:center; font-size:13px; font-weight:bold; }
   .qz-step.answered .qopt { cursor:default; }
   .qopt.correct { border-color:var(--ok); background:#f0fdf4; }
@@ -395,7 +414,10 @@
   .big-btn { display:block; width:100%; text-align:center; margin-top:10px; border:none;
              border-radius:14px; padding:13px 16px; font-size:15px; font-weight:bold;
              cursor:pointer; font-family:inherit; text-decoration:none; }
-  .line-btn { background:#06c755; color:#fff; box-shadow:0 3px 8px rgba(6,199,85,.3); }
+  /* LINEボタン: シンプルに。補足はボタンの下へ */
+  .line-block { margin-top:10px; }
+  .line-btn { margin-top:0; background:#06c755; color:#fff; box-shadow:0 3px 0 #05a648; }
+  .line-note { font-size:11.5px; color:#8a7b62; text-align:center; margin:6px 4px 0; line-height:1.6; }
   .btn-sub { display:block; font-weight:normal; font-size:12px; opacity:.9; }
   .ref-btn { background:#fffbeb; color:var(--brand); border:1.5px solid var(--line); }
   .retry-btn { background:#fff; color:#57534e; border:1.5px solid #e2d5bd; }
@@ -429,6 +451,8 @@
         cursor:pointer; font-family:inherit; }
   .nb-prev { flex:1; background:#fff; color:var(--brand); border:1.5px solid var(--line); }
   .nb-next { flex:2; background:var(--brand); color:#fff; box-shadow:0 3px 8px rgba(180,83,9,.3); }
+  /* 未回答で先に進めないときは、押せないことが分かるグレーに */
+  .nb-next.locked, .nb-next:disabled { background:#e7ddc9; color:#b0a488; box-shadow:none; cursor:not-allowed; }
 
   /* ── ホバー: マウスを乗せると「押せる」ことが分かる（タッチ端末では固着しないよう hover 端末限定）── */
   @media (hover: hover) {
@@ -440,9 +464,11 @@
     /* 色つき（塗り）ボタンは少し濃くして「押せる」感を出す */
     .tab:hover, .reveal:hover, .batch-grade:hover, .big-btn:hover, .nb:hover,
     .resume:hover, .mode-reco:hover, .b-judge:hover, .b-batch-judge:hover,
-    .mk:hover, .mopt:hover, .line-mini:hover { filter: brightness(0.94); }
-    /* 白・枠線ボタン／リストは薄いアンバーで下地を変えて分かりやすく */
-    .toc-item:hover, .mode-btn:hover, .opt-chip:hover, .reveal-all:hover,
+    .mk:hover, .mopt:hover, .line-mini:hover,
+    .opt-chip.on:hover { filter: brightness(0.94); }
+    /* 白・枠線ボタン／リストは薄いアンバーで下地を変える（塗りボタンは上の brightness 側）。
+       選択中(.on)チップや mode-reco は塗りなので、この背景変更から除外して文字が埋もれないように */
+    .toc-item:hover, .mode-btn:not(.mode-reco):hover, .opt-chip:not(.on):hover, .reveal-all:hover,
     .ref-link:hover, .b-idk:hover, .blank:hover, .chip-mode:hover, .sec-help:hover,
     .qz-step:not(.answered) .qopt:hover { background-color: #fff8ec; }
     .b-in:hover { border-color: var(--amber); }
@@ -491,10 +517,10 @@
 </style></head><body>
 <div class="bar"><div class="bar-in">
   <div class="bar-row">
-    <a class="tophome" href="../../index.html" aria-label="単元一覧へもどる">単元一覧</a>
-    <div class="swap"><a class="sw" id="swRef">📖 参考書</a><span class="sw on">✏️ 問題</span></div>
+    <a class="tophome" href="../../index.html" aria-label="単元一覧へもどる"><svg class="th-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.6"/></svg>単元一覧</a>
+    <div class="swap" role="tablist" aria-label="参考書と問題の切りかえ"><a class="sw" id="swRef" role="tab">参考書</a><span class="sw on">問題</span></div>
     <div class="tabs-wrap">
-      <nav class="tabs" id="tabs"><button class="tab tab-home" data-go="0" aria-label="目次">🏠</button><button class="tab" data-go="1" aria-label="年表">年</button><button class="tab" data-go="2" aria-label="政治の変革">1</button><button class="tab" data-go="3" aria-label="社会運動の広がり">2</button><button class="tab" data-go="4" aria-label="大衆文化の成熟">3</button></nav>
+      <nav class="tabs" id="tabs"><button class="tab tab-year" data-go="1" aria-label="年表">年表</button><button class="tab" data-go="2" aria-label="政治の変革">1</button><button class="tab" data-go="3" aria-label="社会運動の広がり">2</button><button class="tab" data-go="4" aria-label="大衆文化の成熟">3</button></nav>
       <button class="tscroll tsl" id="tabsL" type="button" hidden aria-label="単元タブを左へ">‹</button>
       <button class="tscroll tsr" id="tabsR" type="button" hidden aria-label="単元タブを右へ">›</button>
     </div>
@@ -507,7 +533,6 @@
 
 <section class="view home" data-t="0">
   <div class="home-topline">
-    <a class="home-link" href="../../index.html">‹ 単元一覧にもどる</a>
     <div class="badge3"><span class="b-vol">歴史 ⑭</span><span class="b-kind">問題集</span></div>
   </div>
   <header class="top hometop">
@@ -525,7 +550,7 @@
     </div>
     <button class="toc-item" data-go="2"><img class="toc-thumb" src="img/reference_hist14-political-reform.webp" alt="" loading="lazy"><span class="toc-no">1</span><span class="toc-name">政治の変革</span><span class="toc-state" data-state-t="2"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="3"><img class="toc-thumb" src="img/reference_hist14-movement.webp" alt="" loading="lazy"><span class="toc-no">2</span><span class="toc-name">社会運動の広がり</span><span class="toc-state" data-state-t="3"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="4"><img class="toc-thumb" src="img/reference_hist14-culture.webp" alt="" loading="lazy"><span class="toc-no">3</span><span class="toc-name">大衆文化の成熟</span><span class="toc-state" data-state-t="4"></span><span class="toc-arrow">›</span></button>
   </nav>
-  <a class="big-btn ref-btn" href="../../ref/14/index.html">📖 参考書を開く</a>
+  <a class="big-btn ref-btn" href="../../ref/14/index.html">参考書を開く</a>
   <button class="big-btn print-btn" type="button" onclick="window.print()">🖨 紙に印刷して解く（解答つき）</button>
   
   <footer class="foot">
@@ -547,28 +572,26 @@
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
       <div class="sec-h"><span class="sec-tag">▶</span>やり方をえらぼう<span class="sec-note">目次にもどれば何度でも変えられるよ</span></div>
       <button class="mode-btn mode-reco" type="button" data-mode="all">
-        <span class="mode-ic ic-star">⭐</span>
-        <span class="mode-main"><span class="mode-t">おすすめ順でぜんぶ解く</span>
-          <span class="mode-flow"><span class="flow-chip">要点まとめ</span><span class="flow-arr">→</span><span class="flow-chip">一問一答</span><span class="flow-arr">→</span><span class="flow-chip">4択</span><span class="flow-arr">→</span><span class="flow-chip">記述</span><span class="flow-arr">→</span><span class="flow-chip">資料</span></span></span>
+        <span class="mode-ic ic-star"><img class="mi-img" src="img/ic-star.png" alt="" aria-hidden="true"></span>
+        <span class="mode-main"><span class="mode-t">おすすめ順で解く</span></span>
         <span class="mode-arrow">›</span></button>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="A">
-        <span class="mode-ic ic-a">✏️</span>
+        <span class="mode-ic"><img class="mi-img" src="img/ic-ana.png" alt="" aria-hidden="true"></span>
         <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）</span>
           <span class="mode-sub">（　）をタップして確かめる</span></span>
         <span class="mode-arrow">›</span></button></div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="B">
-        <span class="mode-ic ic-b">🔥</span>
+        <span class="mode-ic"><img class="mi-img" src="img/ic-qa.png" alt="" aria-hidden="true"></span>
         <span class="mode-main"><span class="mode-t">一問一答（短答）</span>
           <span class="mode-sub">11問・入力して自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
-          <div class="opt-row"><span class="opt-lb">解答</span><button class="opt-chip on" type="button" data-opt="ansB" data-val="0">⌨️ 入力して判定</button><button class="opt-chip" type="button" data-opt="ansB" data-val="1">入力せず答えだけ確認</button></div>
-          <div class="opt-row"><span class="opt-lb">採点</span><button class="opt-chip on" type="button" data-opt="batch" data-val="0">一問ずつ</button><button class="opt-chip" type="button" data-opt="batch" data-val="1">まとめて</button></div>
+          <div class="opt-row"><span class="opt-lb">解答</span><button class="opt-chip on" type="button" data-opt="ansB" data-val="0">答えを入力</button><button class="opt-chip" type="button" data-opt="ansB" data-val="1">見て確認</button></div>
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufB" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufB" data-val="1">シャッフル</button></div>
         </div>
       </div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="C">
-        <span class="mode-ic ic-c">✅</span>
+        <span class="mode-ic"><img class="mi-img" src="img/ic-yon.png" alt="" aria-hidden="true"></span>
         <span class="mode-main"><span class="mode-t">4択（選択）</span>
           <span class="mode-sub">8問・タップで即判定</span></span>
         <span class="mode-arrow">›</span></button>
@@ -576,23 +599,23 @@
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
         </div>
       </div>
-      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
+      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic"><img class="mi-img" src="img/ic-doc.png" alt="" aria-hidden="true"></span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
     </div>
     <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
-      <a class="ref-link" href="../../ref/14/index.html#t1">📖 先に参考書で理解する</a>
+      <a class="ref-link" href="../../ref/14/index.html#t1">先に参考書で理解する</a>
       <div class="summary">大正期、民主主義を求める風潮である<button class="blank" type="button"><span class="bno">①</span><span class="ba">大正デモクラシー</span><span class="bl" style="width:7.2em"></span></button>が広がった。1912年から13年にかけて、尾崎行雄や犬養毅らが「閥族打破・憲政擁護」を掲げて<button class="blank" type="button"><span class="bno">②</span><span class="ba">第一次護憲運動</span><span class="bl" style="width:6.3em"></span></button>を起こし、第3次桂太郎内閣を退陣に追い込んだ。東京帝大教授の<button class="blank" type="button"><span class="bno">③</span><span class="ba">吉野作造</span><span class="bl" style="width:3.6em"></span></button>は、天皇のもとでも民衆の意思を政治に生かすべきだとする<button class="blank" type="button"><span class="bno">④</span><span class="ba">民本主義</span><span class="bl" style="width:3.6em"></span></button>を唱え、この風潮を理論的に支えた。1918年、米騒動をきっかけに立憲政友会総裁の<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">原敬</span><span class="bl" style="width:2.7em"></span></button>が本格的な政党内閣を組織し、爵位を持たないことから「<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">平民宰相</span><span class="bl" style="width:3.6em"></span></button>」と呼ばれた。1925年には加藤高明内閣のもとで、25歳以上のすべての男子に選挙権を与える<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">普通選挙法</span><span class="bl" style="width:4.5em"></span></button>が制定される一方、社会主義など反体制思想を取り締まる<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">治安維持法</span><span class="bl" style="width:4.5em"></span></button>も同時に制定された。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
     </div>
     <div class="step mb-step" data-label="短答のやり方" data-sec="MB">
       <div class="sec-h"><span class="sec-tag">▶</span>ここからは一問一答<span class="sec-note">答え合わせのやり方をえらぼう</span></div>
       <button class="mode-btn mb-pick" type="button" data-ansall="type">
-        <span class="mode-ic ic-b">⌨️</span>
+        <span class="mode-ic"><svg class="mi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.8" y="6.7" width="18.4" height="10.6" rx="1.8"/><line x1="6" y1="10" x2="6.1" y2="10"/><line x1="9.4" y1="10" x2="9.5" y2="10"/><line x1="12.8" y1="10" x2="12.9" y2="10"/><line x1="16.2" y1="10" x2="16.3" y2="10"/><line x1="8" y1="14" x2="16" y2="14"/></svg></span>
         <span class="mode-main"><span class="mode-t">入力して答え合わせ</span>
           <span class="mode-sub">こたえを打つと自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
       <button class="mode-btn mb-pick" type="button" data-ansall="check">
-        <span class="mode-ic ic-a">👀</span>
+        <span class="mode-ic"><svg class="mi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 12S6 6.6 12 6.6 21.4 12 21.4 12 18 17.4 12 17.4 2.6 12 2.6 12z"/><circle cx="12" cy="12" r="2.6"/></svg></span>
         <span class="mode-main"><span class="mode-t">答えを見て自己採点</span>
           <span class="mode-sub">こたえを見て ○ △ をタップ</span></span>
         <span class="mode-arrow">›</span></button>
@@ -604,7 +627,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
-      <a class="sec-help" href="../../ref/14/index.html#t1s1" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t1s1"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>大正<rt>たいしょう</rt></ruby>デモクラシー</div>
@@ -622,7 +645,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
-      <a class="sec-help" href="../../ref/14/index.html#t1s1" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t1s1"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>第一次<rt>だいいちじ</rt></ruby><ruby>護憲<rt>ごけん</rt></ruby><ruby>運動<rt>うんどう</rt></ruby></div>
@@ -640,7 +663,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
-      <a class="sec-help" href="../../ref/14/index.html#t1s2" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t1s2"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>吉野作造<rt>よしのさくぞう</rt></ruby></div>
@@ -658,7 +681,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
-      <a class="sec-help" href="../../ref/14/index.html#t1s2" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t1s2"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>民本<rt>みんぽん</rt></ruby><ruby>主義<rt>しゅぎ</rt></ruby></div>
@@ -676,7 +699,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
-      <a class="sec-help" href="../../ref/14/index.html#t1s3" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t1s3"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>原敬<rt>はらたかし</rt></ruby></div>
@@ -694,7 +717,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
-      <a class="sec-help" href="../../ref/14/index.html#t1s3" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t1s3"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1918年</div>
@@ -712,7 +735,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
-      <a class="sec-help" href="../../ref/14/index.html#t1s4" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t1s4"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>普通選挙法<rt>ふつうせんきょほう</rt></ruby></div>
@@ -730,7 +753,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
-      <a class="sec-help" href="../../ref/14/index.html#t1s4" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t1s4"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1925年</div>
@@ -748,7 +771,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
-      <a class="sec-help" href="../../ref/14/index.html#t1s4" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t1s4"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>治安<rt>ちあん</rt></ruby><ruby>維持法<rt>いじほう</rt></ruby></div>
@@ -766,7 +789,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
-      <a class="sec-help" href="../../ref/14/index.html#t1s4" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t1s4"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>加藤高明<rt>かとうたかあき</rt></ruby></div>
@@ -784,7 +807,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
-      <a class="sec-help" href="../../ref/14/index.html#t1s4" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t1s4"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">25歳以上の男子</div>
@@ -795,266 +818,108 @@
         </div>
       </div>
     </div>
-    <div class="step qa-batch-step" data-label="B 一問一答（まとめて採点）" data-sec="BB">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">全11問・まとめて採点</span></div>
-      <div class="howto">まず全部の問題にこたえてから、下のボタンでまとめて答え合わせしよう！</div>
-      
-      <div class="bq-item" data-qid="qa-political-reform-1" data-a="大正デモクラシー" data-r="たいしょうデモクラシー">
-        <div class="bq-q"><span class="qa-no">(1)</span>大正期に広まった民主主義を求める風潮は？</div>
-        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
-        <div class="hidden-until">
-          <div class="b-result" aria-live="polite"></div>
-          <div class="qa-a"><ruby>大正<rt>たいしょう</rt></ruby>デモクラシー</div>
-          <div class="qa-expl">大正期、第一次護憲運動や吉野作造の民本主義を背景に、政党政治の発展や普通選挙の実現を求める風潮が広がった。</div>
-          <div class="marks">
-            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-          </div>
-        </div>
-      </div>
-      <div class="bq-item" data-qid="qa-political-reform-2" data-a="第一次護憲運動" data-r="だいいちじごけんうんどう">
-        <div class="bq-q"><span class="qa-no">(2)</span>1912〜13年に藩閥政治に反対し、第3次桂太郎内閣を退陣に追い込んだ運動は？</div>
-        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
-        <div class="hidden-until">
-          <div class="b-result" aria-live="polite"></div>
-          <div class="qa-a"><ruby>第一次<rt>だいいちじ</rt></ruby><ruby>護憲<rt>ごけん</rt></ruby><ruby>運動<rt>うんどう</rt></ruby></div>
-          <div class="qa-expl">尾崎行雄・犬養毅らが「閥族打破・憲政擁護」を掲げた。1924年の第二次護憲運動と区別する。</div>
-          <div class="marks">
-            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-          </div>
-        </div>
-      </div>
-      <div class="bq-item" data-qid="qa-political-reform-3" data-a="吉野作造" data-r="よしのさくぞう">
-        <div class="bq-q"><span class="qa-no">(3)</span>大正デモクラシーの理論的指導者で、民本主義を唱えた政治学者は？</div>
-        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
-        <div class="hidden-until">
-          <div class="b-result" aria-live="polite"></div>
-          <div class="qa-a"><ruby>吉野作造<rt>よしのさくぞう</rt></ruby></div>
-          <div class="qa-expl">東京帝大教授で大正デモクラシーの理論的指導者。天皇主権下で民衆の意思を政治に反映する「民本主義」を提唱した。</div>
-          <div class="marks">
-            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-          </div>
-        </div>
-      </div>
-      <div class="bq-item" data-qid="qa-political-reform-4" data-a="民本主義" data-r="みんぽんしゅぎ">
-        <div class="bq-q"><span class="qa-no">(4)</span>吉野作造が唱えた、民衆の意思を政治に反映させる考えは？</div>
-        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
-        <div class="hidden-until">
-          <div class="b-result" aria-live="polite"></div>
-          <div class="qa-a"><ruby>民本<rt>みんぽん</rt></ruby><ruby>主義<rt>しゅぎ</rt></ruby></div>
-          <div class="qa-expl">吉野作造が提唱。国の主役は国民とまでは言わず、天皇のもとでも国民の声を政治に生かすべきとした考え方。</div>
-          <div class="marks">
-            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-          </div>
-        </div>
-      </div>
-      <div class="bq-item" data-qid="qa-political-reform-5" data-a="原敬" data-r="はらたかし">
-        <div class="bq-q"><span class="qa-no">(5)</span>1918年に成立した日本初の本格的政党内閣の首相は？</div>
-        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
-        <div class="hidden-until">
-          <div class="b-result" aria-live="polite"></div>
-          <div class="qa-a"><ruby>原敬<rt>はらたかし</rt></ruby></div>
-          <div class="qa-expl">立憲政友会総裁。米騒動後の1918年に組閣し、爵位を持たないことから「平民宰相」と呼ばれた本格的政党内閣の首相。</div>
-          <div class="marks">
-            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-          </div>
-        </div>
-      </div>
-      <div class="bq-item" data-qid="qa-political-reform-6" data-a="1918年" data-r="1918年">
-        <div class="bq-q"><span class="qa-no">(6)</span>原敬内閣が成立した年は？</div>
-        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
-        <div class="hidden-until">
-          <div class="b-result" aria-live="polite"></div>
-          <div class="qa-a">1918年</div>
-          <div class="qa-expl">1918年、米騒動で寺内内閣が退陣し、立憲政友会総裁の原敬が初の本格的政党内閣を組織した年。</div>
-          <div class="marks">
-            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-          </div>
-        </div>
-      </div>
-      <div class="bq-item" data-qid="qa-political-reform-7" data-a="普通選挙法" data-r="ふつうせんきょほう">
-        <div class="bq-q"><span class="qa-no">(7)</span>1925年に制定された、25歳以上のすべての男子に選挙権を与えた法律は？</div>
-        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
-        <div class="hidden-until">
-          <div class="b-result" aria-live="polite"></div>
-          <div class="qa-a"><ruby>普通選挙法<rt>ふつうせんきょほう</rt></ruby></div>
-          <div class="qa-expl">1925年に加藤高明内閣が制定し、納税額の制限を撤廃。25歳以上の男子に選挙権を与えたが、女性は除外された。</div>
-          <div class="marks">
-            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-          </div>
-        </div>
-      </div>
-      <div class="bq-item" data-qid="qa-political-reform-8" data-a="1925年" data-r="1925年">
-        <div class="bq-q"><span class="qa-no">(8)</span>普通選挙法と治安維持法が制定された年は？</div>
-        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
-        <div class="hidden-until">
-          <div class="b-result" aria-live="polite"></div>
-          <div class="qa-a">1925年</div>
-          <div class="qa-expl">1925年は加藤高明内閣が普通選挙法と治安維持法を同時に制定し、民主化と思想統制が並行して進められた年。</div>
-          <div class="marks">
-            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-          </div>
-        </div>
-      </div>
-      <div class="bq-item" data-qid="qa-political-reform-9" data-a="治安維持法" data-r="ちあんいじほう">
-        <div class="bq-q"><span class="qa-no">(9)</span>1925年に制定された、社会主義など反体制思想を取り締まる法律は？</div>
-        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
-        <div class="hidden-until">
-          <div class="b-result" aria-live="polite"></div>
-          <div class="qa-a"><ruby>治安<rt>ちあん</rt></ruby><ruby>維持法<rt>いじほう</rt></ruby></div>
-          <div class="qa-expl">1925年に加藤高明内閣が普通選挙法と同時に制定。天皇制を変えたり財産制度を壊そうとする動きを厳しく取り締まった。</div>
-          <div class="marks">
-            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-          </div>
-        </div>
-      </div>
-      <div class="bq-item" data-qid="qa-political-reform-10" data-a="加藤高明" data-r="かとうたかあき">
-        <div class="bq-q"><span class="qa-no">(10)</span>1925年に普通選挙法を制定した憲政会総裁の首相は？</div>
-        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
-        <div class="hidden-until">
-          <div class="b-result" aria-live="polite"></div>
-          <div class="qa-a"><ruby>加藤高明<rt>かとうたかあき</rt></ruby></div>
-          <div class="qa-expl">憲政会総裁。1925年に普通選挙法と治安維持法を制定し、以後8年間続く政党内閣の安定期（憲政の常道）を開いた。</div>
-          <div class="marks">
-            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-          </div>
-        </div>
-      </div>
-      <div class="bq-item" data-qid="qa-political-reform-11" data-a="25歳以上の男子" data-r="25歳以上の男子">
-        <div class="bq-q"><span class="qa-no">(11)</span>1925年の普通選挙法で選挙権を持ったのは？</div>
-        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
-        <div class="hidden-until">
-          <div class="b-result" aria-live="polite"></div>
-          <div class="qa-a">25歳以上の男子</div>
-          <div class="qa-expl">1925年の普通選挙法で納税額の制限が撤廃され、25歳以上の男子全員に選挙権が与えられた。女性は除外された。</div>
-          <div class="marks">
-            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-          </div>
-        </div>
-      </div>
-      <div class="reveal-all-row">
-        <button class="reveal batch-grade" type="button">こたえをまとめて表示して採点する</button>
-        <button class="b-batch-judge" type="button">入力したこたえをまとめて採点する</button>
-      </div>
-    </div>
     <div class="step qz-step" data-label="C 実戦問題 (1/8)" data-qid="qz-political-reform-1" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">1 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">大正デモクラシーの理論的指導者は？</div>
-      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">中江兆民</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">福沢諭吉</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">吉野作造</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">大隈重信</span></button></div>
-      <div class="expl hidden-until">💡 東京帝大教授の吉野作造が、天皇主権下で民衆の意思を政治に反映させる「民本主義」を唱え、大正デモクラシーを支えました。</div>
-      <a class="sec-help" href="../../ref/14/index.html#t1s2" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">1</span><span class="opt-t">中江兆民</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">2</span><span class="opt-t">福沢諭吉</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">3</span><span class="opt-t">吉野作造</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">4</span><span class="opt-t">大隈重信</span></button></div>
+      <div class="expl hidden-until">東京帝大教授の吉野作造が、天皇主権下で民衆の意思を政治に反映させる「民本主義」を唱え、大正デモクラシーを支えました。</div>
+      <a class="sec-help" href="../../ref/14/index.html#t1s2"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-political-reform-2" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">2 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">吉野作造が唱えた政治理念は？</div>
-      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">社会主義</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">資本主義</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">民本主義</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">全体主義</span></button></div>
-      <div class="expl hidden-until">💡 民本主義は吉野作造が唱えた考え。天皇のもとでも、国民の声を政治に生かすべきだとする立場のことです。</div>
-      <a class="sec-help" href="../../ref/14/index.html#t1s2" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">1</span><span class="opt-t">社会主義</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">2</span><span class="opt-t">資本主義</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">3</span><span class="opt-t">民本主義</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">4</span><span class="opt-t">全体主義</span></button></div>
+      <div class="expl hidden-until">民本主義は吉野作造が唱えた考え。天皇のもとでも、国民の声を政治に生かすべきだとする立場のことです。</div>
+      <a class="sec-help" href="../../ref/14/index.html#t1s2"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-political-reform-3" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">3 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">1912〜13年に第3次桂太郎内閣を退陣に追い込んだ運動は？</div>
-      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">第一次護憲運動</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">第二次護憲運動</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">自由民権運動</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">普通選挙運動</span></button></div>
-      <div class="expl hidden-until">💡 尾崎行雄・犬養毅らが「閥族打破・憲政擁護」を掲げた第一次護憲運動が、約50日で第3次桂太郎内閣を退陣に追い込みました（大正政変）。</div>
-      <a class="sec-help" href="../../ref/14/index.html#t1s1" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">1</span><span class="opt-t">第一次護憲運動</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">2</span><span class="opt-t">第二次護憲運動</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">3</span><span class="opt-t">自由民権運動</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">4</span><span class="opt-t">普通選挙運動</span></button></div>
+      <div class="expl hidden-until">尾崎行雄・犬養毅らが「閥族打破・憲政擁護」を掲げた第一次護憲運動が、約50日で第3次桂太郎内閣を退陣に追い込みました（大正政変）。</div>
+      <a class="sec-help" href="../../ref/14/index.html#t1s1"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-political-reform-4" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">4 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">原敬が所属していた政党は？</div>
-      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">憲政会</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">立憲政友会</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">民政党</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">立憲改進党</span></button></div>
-      <div class="expl hidden-until">💡 原敬は立憲政友会の総裁で、1918年に同会を与党とする日本初の本格的政党内閣を組織しました。</div>
-      <a class="sec-help" href="../../ref/14/index.html#t1s3" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">1</span><span class="opt-t">憲政会</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">2</span><span class="opt-t">立憲政友会</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">3</span><span class="opt-t">民政党</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">4</span><span class="opt-t">立憲改進党</span></button></div>
+      <div class="expl hidden-until">原敬は立憲政友会の総裁で、1918年に同会を与党とする日本初の本格的政党内閣を組織しました。</div>
+      <a class="sec-help" href="../../ref/14/index.html#t1s3"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-political-reform-5" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">5 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">普通選挙法を制定した首相は？</div>
-      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">加藤高明</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">若槻礼次郎</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">原敬</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">犬養毅</span></button></div>
-      <div class="expl hidden-until">💡 1925年、憲政会総裁の加藤高明内閣が普通選挙法を制定し、25歳以上の男子全員に選挙権を与えました。</div>
-      <a class="sec-help" href="../../ref/14/index.html#t1s4" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">1</span><span class="opt-t">加藤高明</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">2</span><span class="opt-t">若槻礼次郎</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">3</span><span class="opt-t">原敬</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">4</span><span class="opt-t">犬養毅</span></button></div>
+      <div class="expl hidden-until">1925年、憲政会総裁の加藤高明内閣が普通選挙法を制定し、25歳以上の男子全員に選挙権を与えました。</div>
+      <a class="sec-help" href="../../ref/14/index.html#t1s4"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-political-reform-6" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">6 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">原敬内閣の成立を後押しした出来事は？</div>
-      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">シベリア出兵</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">関東大震災</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">二・二六事件</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">米騒動</span></button></div>
-      <div class="expl hidden-until">💡 1918年のシベリア出兵を見越した米価高騰で米騒動が全国に広がり、寺内内閣が退陣して原敬政党内閣が成立しました。</div>
-      <a class="sec-help" href="../../ref/14/index.html#t1s3" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">1</span><span class="opt-t">シベリア出兵</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">2</span><span class="opt-t">関東大震災</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">3</span><span class="opt-t">二・二六事件</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">4</span><span class="opt-t">米騒動</span></button></div>
+      <div class="expl hidden-until">1918年のシベリア出兵を見越した米価高騰で米騒動が全国に広がり、寺内内閣が退陣して原敬政党内閣が成立しました。</div>
+      <a class="sec-help" href="../../ref/14/index.html#t1s3"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-political-reform-7" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">7 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">普通選挙法で新たに選挙権を得た人々は？</div>
-      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">20歳以上の男子</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">20歳以上の男女</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">25歳以上の男子</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">25歳以上の男女</span></button></div>
-      <div class="expl hidden-until">💡 1925年の普通選挙法により、納税額の制限が撤廃され、25歳以上のすべての男子に選挙権が与えられました。女性にはまだ与えられませんでした。</div>
-      <a class="sec-help" href="../../ref/14/index.html#t1s4" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">1</span><span class="opt-t">20歳以上の男子</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">2</span><span class="opt-t">20歳以上の男女</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">3</span><span class="opt-t">25歳以上の男子</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">4</span><span class="opt-t">25歳以上の男女</span></button></div>
+      <div class="expl hidden-until">1925年の普通選挙法により、納税額の制限が撤廃され、25歳以上のすべての男子に選挙権が与えられました。女性にはまだ与えられませんでした。</div>
+      <a class="sec-help" href="../../ref/14/index.html#t1s4"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-political-reform-8" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">8 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">日本初の本格的政党内閣を組織した原敬の異名は？</div>
-      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">政党宰相</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">平民宰相</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">庶民宰相</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">国民宰相</span></button></div>
-      <div class="expl hidden-until">💡 1918年に組閣した原敬は、爵位を持たない衆議院議員として初の内閣総理大臣だったため、世間から「平民宰相」と呼ばれました。</div>
-      <a class="sec-help" href="../../ref/14/index.html#t1s3" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">1</span><span class="opt-t">政党宰相</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">2</span><span class="opt-t">平民宰相</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">3</span><span class="opt-t">庶民宰相</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">4</span><span class="opt-t">国民宰相</span></button></div>
+      <div class="expl hidden-until">1918年に組閣した原敬は、爵位を持たない衆議院議員として初の内閣総理大臣だったため、世間から「平民宰相」と呼ばれました。</div>
+      <a class="sec-help" href="../../ref/14/index.html#t1s3"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-political-reform-1" data-kind="qa" data-sec="D">
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">1 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">第一次護憲運動が起こった理由を説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">憲政擁護</span></div>
-      <a class="sec-help" href="../../ref/14/index.html#t1s1" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t1s1"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
-      <button class="ai-grade print-hide" type="button" data-bankid="q-wbw-history-14-political-reform-1">🤖 AIに採点してもらう</button>
+      <div class="wr-actions">
+        <button class="ai-grade print-hide" type="button" data-bankid="q-wbw-history-14-political-reform-1" disabled>AI採点</button>
+        <button class="reveal" type="button">わからない</button>
+      </div>
       <div class="ai-result" hidden></div>
-      <button class="reveal" type="button">模範解答を見る</button>
       <div class="hidden-until">
         <div class="qa-a">尾崎行雄や犬養毅らが「閥族打破・憲政擁護」を掲げて藩閥中心の政治に反対し、桂太郎内閣を退陣に追い込むために起こしたから。</div>
-        <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-        </div>
       </div>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (2/3)" data-qid="wr-political-reform-2" data-kind="qa" data-sec="D">
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">2 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">1925年に普通選挙法と治安維持法が同時に制定されたことの影響を説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">有権者</span><span class="kw-chip">社会主義</span></div>
-      <a class="sec-help" href="../../ref/14/index.html#t1s4" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t1s4"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
-      <button class="ai-grade print-hide" type="button" data-bankid="q-wbw-history-14-political-reform-2">🤖 AIに採点してもらう</button>
+      <div class="wr-actions">
+        <button class="ai-grade print-hide" type="button" data-bankid="q-wbw-history-14-political-reform-2" disabled>AI採点</button>
+        <button class="reveal" type="button">わからない</button>
+      </div>
       <div class="ai-result" hidden></div>
-      <button class="reveal" type="button">模範解答を見る</button>
       <div class="hidden-until">
         <div class="qa-a">有権者が大幅に増えて政治参加が広がった一方、社会主義など反体制思想の取り締まりも強まった。</div>
-        <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-        </div>
       </div>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (3/3)" data-qid="wr-political-reform-3" data-kind="qa" data-sec="D">
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">3 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">吉野作造が唱えた民本主義とはどのような考えか、説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">民本主義</span><span class="kw-chip">民衆</span></div>
-      <a class="sec-help" href="../../ref/14/index.html#t1s2" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t1s2"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
-      <button class="ai-grade print-hide" type="button" data-bankid="q-wbw-history-14-political-reform-3">🤖 AIに採点してもらう</button>
+      <div class="wr-actions">
+        <button class="ai-grade print-hide" type="button" data-bankid="q-wbw-history-14-political-reform-3" disabled>AI採点</button>
+        <button class="reveal" type="button">わからない</button>
+      </div>
       <div class="ai-result" hidden></div>
-      <button class="reveal" type="button">模範解答を見る</button>
       <div class="hidden-until">
         <div class="qa-a">天皇が主権を持つ大日本帝国憲法のもとでも、民衆の意思にもとづいて政治を行うべきだという民本主義の考え。</div>
-        <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-        </div>
       </div>
     </div>
     <div class="step" data-label="E 資料問題" data-sec="E">
@@ -1063,17 +928,20 @@
       <div class="s-q"><span class="qa-no">(1)</span>グラフのように有権者の割合が1928年に大きく増えたのは、25歳以上のすべての男子に選挙権を認めた1925年成立の何という法律によるか。<button class="blank s-blank" type="button"><span class="ba">普通選挙法</span><span class="bl" style="width:8em"></span><span class="tap-hint">タップで答え</span></button></div><div class="s-q"><span class="qa-no">(2)</span>グラフで1946年に割合が約49%へ急増したのは、選挙権が満20歳以上の男女に認められ、だれが初めて投票できるようになったからか。<button class="blank s-blank" type="button"><span class="ba">女性</span><span class="bl" style="width:8em"></span><span class="tap-hint">タップで答え</span></button></div>
     </div>
     <div class="step done-step" data-label="結果" data-sec="Z">
-      <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「政治の変革」おつかれさま！</span></div>
+      <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>「政治の変革」おつかれさま！</span></div>
       <div class="score-box" data-score></div>
-      <button class="big-btn wrong-btn" type="button" data-mode="wrong" hidden>🔴 まちがえた問題だけやり直す<span class="btn-sub" data-wrong-sub></span></button>
+      <button class="big-btn wrong-btn" type="button" data-mode="wrong" hidden>まちがえた問題だけやり直す<span class="btn-sub" data-wrong-sub></span></button>
       <div class="next-modes">
         <div class="nm-h">ほかの解き方でもう一度</div>
-        <div class="nm-chips"><button class="chip-mode" type="button" data-mode="A">🕳 穴埋め</button><button class="chip-mode" type="button" data-mode="B">✍️ 短答</button><button class="chip-mode" type="button" data-mode="C">✅ 4択</button><button class="chip-mode" type="button" data-mode="D">📝 記述</button></div>
+        <div class="nm-chips"><button class="chip-mode" type="button" data-mode="A">穴埋め</button><button class="chip-mode" type="button" data-mode="B">短答</button><button class="chip-mode" type="button" data-mode="C">4択</button><button class="chip-mode" type="button" data-mode="D">記述</button></div>
       </div>
-      <a class="big-btn ref-btn" href="../../ref/14/index.html#t1">📖 参考書でおさらいする</a>
-      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E6%94%BF%E6%B2%BB%E3%81%AE%E5%A4%89%E9%9D%A9" target="_blank" rel="noopener">🤖 LINEでこの単元を出題してもらう<span class="btn-sub">公式LINEに問題が届く→答えるとAIがすぐ丸つけ。すきま時間の復習に</span></a>
-      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元を最初から</button>
-      <button class="big-btn home-btn" type="button" data-go="0">🏠 目次にもどる</button>
+      <a class="big-btn ref-btn" href="../../ref/14/index.html#t1">参考書でおさらいする</a>
+      <div class="line-block">
+        <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E6%94%BF%E6%B2%BB%E3%81%AE%E5%A4%89%E9%9D%A9" target="_blank" rel="noopener">LINEで出題してもらう</a>
+        <p class="line-note">公式LINEに問題が届く→答えるとAIがすぐ丸つけ。すきま時間の復習に。</p>
+      </div>
+      <button class="big-btn retry-btn" type="button" data-retry>この単元を最初から</button>
+      <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
 <section class="view" data-t="3">
@@ -1082,28 +950,26 @@
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
       <div class="sec-h"><span class="sec-tag">▶</span>やり方をえらぼう<span class="sec-note">目次にもどれば何度でも変えられるよ</span></div>
       <button class="mode-btn mode-reco" type="button" data-mode="all">
-        <span class="mode-ic ic-star">⭐</span>
-        <span class="mode-main"><span class="mode-t">おすすめ順でぜんぶ解く</span>
-          <span class="mode-flow"><span class="flow-chip">要点まとめ</span><span class="flow-arr">→</span><span class="flow-chip">一問一答</span><span class="flow-arr">→</span><span class="flow-chip">4択</span><span class="flow-arr">→</span><span class="flow-chip">記述</span></span></span>
+        <span class="mode-ic ic-star"><img class="mi-img" src="img/ic-star.png" alt="" aria-hidden="true"></span>
+        <span class="mode-main"><span class="mode-t">おすすめ順で解く</span></span>
         <span class="mode-arrow">›</span></button>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="A">
-        <span class="mode-ic ic-a">✏️</span>
+        <span class="mode-ic"><img class="mi-img" src="img/ic-ana.png" alt="" aria-hidden="true"></span>
         <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）</span>
           <span class="mode-sub">（　）をタップして確かめる</span></span>
         <span class="mode-arrow">›</span></button></div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="B">
-        <span class="mode-ic ic-b">🔥</span>
+        <span class="mode-ic"><img class="mi-img" src="img/ic-qa.png" alt="" aria-hidden="true"></span>
         <span class="mode-main"><span class="mode-t">一問一答（短答）</span>
           <span class="mode-sub">12問・入力して自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
-          <div class="opt-row"><span class="opt-lb">解答</span><button class="opt-chip on" type="button" data-opt="ansB" data-val="0">⌨️ 入力して判定</button><button class="opt-chip" type="button" data-opt="ansB" data-val="1">入力せず答えだけ確認</button></div>
-          <div class="opt-row"><span class="opt-lb">採点</span><button class="opt-chip on" type="button" data-opt="batch" data-val="0">一問ずつ</button><button class="opt-chip" type="button" data-opt="batch" data-val="1">まとめて</button></div>
+          <div class="opt-row"><span class="opt-lb">解答</span><button class="opt-chip on" type="button" data-opt="ansB" data-val="0">答えを入力</button><button class="opt-chip" type="button" data-opt="ansB" data-val="1">見て確認</button></div>
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufB" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufB" data-val="1">シャッフル</button></div>
         </div>
       </div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="C">
-        <span class="mode-ic ic-c">✅</span>
+        <span class="mode-ic"><img class="mi-img" src="img/ic-yon.png" alt="" aria-hidden="true"></span>
         <span class="mode-main"><span class="mode-t">4択（選択）</span>
           <span class="mode-sub">8問・タップで即判定</span></span>
         <span class="mode-arrow">›</span></button>
@@ -1111,23 +977,23 @@
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
         </div>
       </div>
-      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
+      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic"><img class="mi-img" src="img/ic-doc.png" alt="" aria-hidden="true"></span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
     </div>
     <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
-      <a class="ref-link" href="../../ref/14/index.html#t2">📖 先に参考書で理解する</a>
+      <a class="ref-link" href="../../ref/14/index.html#t2">先に参考書で理解する</a>
       <div class="summary">大正期には、労働者・農民・女性・被差別部落の人々による社会運動が広がった。工場労働者の増加を背景に労働組合が結成され、1921年には全国組織の<button class="blank" type="button"><span class="bno">①</span><span class="ba">日本労働総同盟</span><span class="bl" style="width:6.3em"></span></button>が成立した。1922年には賀川豊彦らが<button class="blank" type="button"><span class="bno">②</span><span class="ba">日本農民組合</span><span class="bl" style="width:5.4em"></span></button>を結成し、小作料の引き下げを求める小作争議を全国的に主導した。同じ1922年、被差別部落出身者は京都で<button class="blank" type="button"><span class="bno">③</span><span class="ba">全国水平社</span><span class="bl" style="width:4.5em"></span></button>を結成し、「人の世に熱あれ、人間に光あれ」で結ばれる<button class="blank" type="button"><span class="bno">④</span><span class="ba">水平社宣言</span><span class="bl" style="width:4.5em"></span></button>を発表して自主的な差別解消を訴えた。女性運動では、1911年に<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">平塚らいてう</span><span class="bl" style="width:5.4em"></span></button>が女性誌「<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">青鞜</span><span class="bl" style="width:2.7em"></span></button>」を創刊して女性の解放を訴え、1920年には<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">市川房枝</span><span class="bl" style="width:3.6em"></span></button>らとともに<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">新婦人協会</span><span class="bl" style="width:4.5em"></span></button>を結成し、女性の政治集会参加を禁じた治安警察法第5条の改正を求めた。1923年には<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">関東大震災</span><span class="bl" style="width:4.5em"></span></button>が起こり、混乱の中でデマにより多くの朝鮮人・中国人が迫害される事件も起きた。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
     </div>
     <div class="step mb-step" data-label="短答のやり方" data-sec="MB">
       <div class="sec-h"><span class="sec-tag">▶</span>ここからは一問一答<span class="sec-note">答え合わせのやり方をえらぼう</span></div>
       <button class="mode-btn mb-pick" type="button" data-ansall="type">
-        <span class="mode-ic ic-b">⌨️</span>
+        <span class="mode-ic"><svg class="mi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.8" y="6.7" width="18.4" height="10.6" rx="1.8"/><line x1="6" y1="10" x2="6.1" y2="10"/><line x1="9.4" y1="10" x2="9.5" y2="10"/><line x1="12.8" y1="10" x2="12.9" y2="10"/><line x1="16.2" y1="10" x2="16.3" y2="10"/><line x1="8" y1="14" x2="16" y2="14"/></svg></span>
         <span class="mode-main"><span class="mode-t">入力して答え合わせ</span>
           <span class="mode-sub">こたえを打つと自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
       <button class="mode-btn mb-pick" type="button" data-ansall="check">
-        <span class="mode-ic ic-a">👀</span>
+        <span class="mode-ic"><svg class="mi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 12S6 6.6 12 6.6 21.4 12 21.4 12 18 17.4 12 17.4 2.6 12 2.6 12z"/><circle cx="12" cy="12" r="2.6"/></svg></span>
         <span class="mode-main"><span class="mode-t">答えを見て自己採点</span>
           <span class="mode-sub">こたえを見て ○ △ をタップ</span></span>
         <span class="mode-arrow">›</span></button>
@@ -1139,7 +1005,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
-      <a class="sec-help" href="../../ref/14/index.html#t2s1" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t2s1"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>労働<rt>ろうどう</rt></ruby>運動</div>
@@ -1157,7 +1023,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
-      <a class="sec-help" href="../../ref/14/index.html#t2s1" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t2s1"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>農民<rt>のうみん</rt></ruby>運動</div>
@@ -1175,7 +1041,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
-      <a class="sec-help" href="../../ref/14/index.html#t2s2" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t2s2"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">全国<ruby>水平社<rt>すいへいしゃ</rt></ruby></div>
@@ -1193,7 +1059,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
-      <a class="sec-help" href="../../ref/14/index.html#t2s2" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t2s2"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1922年</div>
@@ -1211,7 +1077,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
-      <a class="sec-help" href="../../ref/14/index.html#t2s3" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t2s3"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>平塚<rt>ひらつか</rt></ruby>らいてう</div>
@@ -1229,7 +1095,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
-      <a class="sec-help" href="../../ref/14/index.html#t2s3" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t2s3"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>青鞜<rt>せいとう</rt></ruby></div>
@@ -1247,7 +1113,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
-      <a class="sec-help" href="../../ref/14/index.html#t2s3" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t2s3"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">新<ruby>婦人<rt>ふじん</rt></ruby><ruby>協会<rt>きょうかい</rt></ruby></div>
@@ -1265,7 +1131,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
-      <a class="sec-help" href="../../ref/14/index.html#t2s3" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t2s3"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>市川房枝<rt>いちかわふさえ</rt></ruby></div>
@@ -1283,7 +1149,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
-      <a class="sec-help" href="../../ref/14/index.html#t2s1" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t2s1"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">アイヌ</div>
@@ -1301,7 +1167,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
-      <a class="sec-help" href="../../ref/14/index.html#t2s2" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t2s2"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>水平社<rt>すいへいしゃ</rt></ruby><ruby>宣言<rt>せんげん</rt></ruby></div>
@@ -1319,7 +1185,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
-      <a class="sec-help" href="../../ref/14/index.html#t2s4" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t2s4"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>関東<rt>かんとう</rt></ruby><ruby>大震災<rt>だいしんさい</rt></ruby></div>
@@ -1337,7 +1203,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
-      <a class="sec-help" href="../../ref/14/index.html#t2s4" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t2s4"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1923年</div>
@@ -1348,293 +1214,125 @@
         </div>
       </div>
     </div>
-    <div class="step qa-batch-step" data-label="B 一問一答（まとめて採点）" data-sec="BB">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">全12問・まとめて採点</span></div>
-      <div class="howto">まず全部の問題にこたえてから、下のボタンでまとめて答え合わせしよう！</div>
-      
-      <div class="bq-item" data-qid="qa-social-movements-1" data-a="労働運動" data-r="ろうどう運動">
-        <div class="bq-q"><span class="qa-no">(1)</span>労働者が労働条件改善を求めて行った運動は？</div>
-        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
-        <div class="hidden-until">
-          <div class="b-result" aria-live="polite"></div>
-          <div class="qa-a"><ruby>労働<rt>ろうどう</rt></ruby>運動</div>
-          <div class="qa-expl">大正期、工場労働者の増加を背景に労働組合が次々と結成され、1921年には全国組織の日本労働総同盟が成立した。</div>
-          <div class="marks">
-            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-          </div>
-        </div>
-      </div>
-      <div class="bq-item" data-qid="qa-social-movements-2" data-a="農民運動" data-r="のうみん運動">
-        <div class="bq-q"><span class="qa-no">(2)</span>小作料の引き下げなどを求めた農民の運動は？</div>
-        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
-        <div class="hidden-until">
-          <div class="b-result" aria-live="polite"></div>
-          <div class="qa-a"><ruby>農民<rt>のうみん</rt></ruby>運動</div>
-          <div class="qa-expl">1922年に賀川豊彦らが日本農民組合を結成し、小作料の引き下げを求める小作争議を全国的に主導した。</div>
-          <div class="marks">
-            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-          </div>
-        </div>
-      </div>
-      <div class="bq-item" data-qid="qa-social-movements-3" data-a="全国水平社" data-r="全国すいへいしゃ">
-        <div class="bq-q"><span class="qa-no">(3)</span>1922年、部落差別の解消を目指して結成された組織は？</div>
-        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
-        <div class="hidden-until">
-          <div class="b-result" aria-live="polite"></div>
-          <div class="qa-a">全国<ruby>水平社<rt>すいへいしゃ</rt></ruby></div>
-          <div class="qa-expl">1922年に京都で結成された被差別部落出身者の組織。「水平社宣言」を発表し、差別からの自主的解放を目指した。</div>
-          <div class="marks">
-            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-          </div>
-        </div>
-      </div>
-      <div class="bq-item" data-qid="qa-social-movements-4" data-a="1922年" data-r="1922年">
-        <div class="bq-q"><span class="qa-no">(4)</span>全国水平社・日本農民組合が結成された年は？</div>
-        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
-        <div class="hidden-until">
-          <div class="b-result" aria-live="polite"></div>
-          <div class="qa-a">1922年</div>
-          <div class="qa-expl">1922年は全国水平社・日本農民組合が結成され、被差別部落民や農民の権利を求める社会運動が広がる転換点となった。</div>
-          <div class="marks">
-            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-          </div>
-        </div>
-      </div>
-      <div class="bq-item" data-qid="qa-social-movements-5" data-a="平塚らいてう" data-r="ひらつからいてう">
-        <div class="bq-q"><span class="qa-no">(5)</span>「青鞜」を創刊し、女性解放運動を進めた人物は？</div>
-        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
-        <div class="hidden-until">
-          <div class="b-result" aria-live="polite"></div>
-          <div class="qa-a"><ruby>平塚<rt>ひらつか</rt></ruby>らいてう</div>
-          <div class="qa-expl">1911年に女性誌「青鞜」を創刊。「もともと女性は太陽だった」と宣言し、女性の解放を訴える運動を進めた。</div>
-          <div class="marks">
-            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-          </div>
-        </div>
-      </div>
-      <div class="bq-item" data-qid="qa-social-movements-6" data-a="青鞜" data-r="せいとう">
-        <div class="bq-q"><span class="qa-no">(6)</span>1911年に平塚らいてうが創刊した女性誌は？</div>
-        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
-        <div class="hidden-until">
-          <div class="b-result" aria-live="polite"></div>
-          <div class="qa-a"><ruby>青鞜<rt>せいとう</rt></ruby></div>
-          <div class="qa-expl">1911年に平塚らいてうが創刊した女性誌。「もともと女性は太陽だった」の宣言を載せ、女性の自立を訴えた。</div>
-          <div class="marks">
-            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-          </div>
-        </div>
-      </div>
-      <div class="bq-item" data-qid="qa-social-movements-7" data-a="新婦人協会" data-r="新ふじんきょうかい">
-        <div class="bq-q"><span class="qa-no">(7)</span>1920年、平塚らいてう・市川房枝らが結成した女性団体は？</div>
-        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
-        <div class="hidden-until">
-          <div class="b-result" aria-live="polite"></div>
-          <div class="qa-a">新<ruby>婦人<rt>ふじん</rt></ruby><ruby>協会<rt>きょうかい</rt></ruby></div>
-          <div class="qa-expl">1920年に平塚らいてう・市川房枝らが結成。女性の政治集会参加を禁じた治安警察法第5条の改正を求め、女性の政治参加を目指した。</div>
-          <div class="marks">
-            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-          </div>
-        </div>
-      </div>
-      <div class="bq-item" data-qid="qa-social-movements-8" data-a="市川房枝" data-r="いちかわふさえ">
-        <div class="bq-q"><span class="qa-no">(8)</span>新婦人協会を結成し、婦人参政権獲得運動を主導した女性運動家は？</div>
-        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
-        <div class="hidden-until">
-          <div class="b-result" aria-live="polite"></div>
-          <div class="qa-a"><ruby>市川房枝<rt>いちかわふさえ</rt></ruby></div>
-          <div class="qa-expl">1920年に平塚らいてうらと新婦人協会を結成し、女性の政治集会参加禁止の撤廃を実現。戦後も婦人参政権獲得運動を主導した。</div>
-          <div class="marks">
-            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-          </div>
-        </div>
-      </div>
-      <div class="bq-item" data-qid="qa-social-movements-9" data-a="アイヌ" data-r="アイヌ">
-        <div class="bq-q"><span class="qa-no">(9)</span>北海道旧土人保護法によって生活が圧迫された北方民族は？</div>
-        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
-        <div class="hidden-until">
-          <div class="b-result" aria-live="polite"></div>
-          <div class="qa-a">アイヌ</div>
-          <div class="qa-expl">1899年制定の北海道旧土人保護法による明治政府の同化政策で、伝統文化や言語が大きく損なわれた北方の先住民族。</div>
-          <div class="marks">
-            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-          </div>
-        </div>
-      </div>
-      <div class="bq-item" data-qid="qa-social-movements-10" data-a="水平社宣言" data-r="すいへいしゃせんげん">
-        <div class="bq-q"><span class="qa-no">(10)</span>1922年、全国水平社の結成大会で発表された宣言は？</div>
-        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
-        <div class="hidden-until">
-          <div class="b-result" aria-live="polite"></div>
-          <div class="qa-a"><ruby>水平社<rt>すいへいしゃ</rt></ruby><ruby>宣言<rt>せんげん</rt></ruby></div>
-          <div class="qa-expl">1922年の全国水平社結成大会で発表。「人の世に熱あれ、人間に光あれ」で結ばれ、自主的な差別撤廃を訴えた。</div>
-          <div class="marks">
-            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-          </div>
-        </div>
-      </div>
-      <div class="bq-item" data-qid="qa-social-movements-11" data-a="関東大震災" data-r="かんとうだいしんさい">
-        <div class="bq-q"><span class="qa-no">(11)</span>1923年に起きた、関東地方の大地震は？</div>
-        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
-        <div class="hidden-until">
-          <div class="b-result" aria-live="polite"></div>
-          <div class="qa-a"><ruby>関東<rt>かんとう</rt></ruby><ruby>大震災<rt>だいしんさい</rt></ruby></div>
-          <div class="qa-expl">1923年9月1日に発生。死者・行方不明者10万人以上を出し、混乱の中でデマによる朝鮮人虐殺など社会不安が広がった。</div>
-          <div class="marks">
-            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-          </div>
-        </div>
-      </div>
-      <div class="bq-item" data-qid="qa-social-movements-12" data-a="1923年" data-r="1923年">
-        <div class="bq-q"><span class="qa-no">(12)</span>関東大震災が起きた年は？</div>
-        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
-        <div class="hidden-until">
-          <div class="b-result" aria-live="polite"></div>
-          <div class="qa-a">1923年</div>
-          <div class="qa-expl">1923年9月1日に発生した関東大震災の年。死者・行方不明者10万人以上を出し、首都圏に甚大な被害をもたらした。</div>
-          <div class="marks">
-            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-          </div>
-        </div>
-      </div>
-      <div class="reveal-all-row">
-        <button class="reveal batch-grade" type="button">こたえをまとめて表示して採点する</button>
-        <button class="b-batch-judge" type="button">入力したこたえをまとめて採点する</button>
-      </div>
-    </div>
     <div class="step qz-step" data-label="C 実戦問題 (1/8)" data-qid="qz-social-movements-1" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">1 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">1920年に女性の政治参加を目指して結成された団体は？</div>
-      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">青鞜社</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">労農党</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">新婦人協会</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">全国水平社</span></button></div>
-      <div class="expl hidden-until">💡 1920年に平塚らいてう・市川房枝らが新婦人協会を結成し、女性の政治集会参加を禁じた治安警察法第5条の改正を求めました。</div>
-      <a class="sec-help" href="../../ref/14/index.html#t2s3" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">1</span><span class="opt-t">青鞜社</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">2</span><span class="opt-t">労農党</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">3</span><span class="opt-t">新婦人協会</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">4</span><span class="opt-t">全国水平社</span></button></div>
+      <div class="expl hidden-until">1920年に平塚らいてう・市川房枝らが新婦人協会を結成し、女性の政治集会参加を禁じた治安警察法第5条の改正を求めました。</div>
+      <a class="sec-help" href="../../ref/14/index.html#t2s3"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-social-movements-2" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">2 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">平塚らいてうらと新婦人協会を結成し、婦人参政権運動を進めた人物は？</div>
-      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">与謝野晶子</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">津田梅子</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">市川房枝</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">樋口一葉</span></button></div>
-      <div class="expl hidden-until">💡 市川房枝は新婦人協会の結成に参加し、戦前から婦人参政権獲得運動を進め、戦後は参議院議員として活躍しました。</div>
-      <a class="sec-help" href="../../ref/14/index.html#t2s3" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">1</span><span class="opt-t">与謝野晶子</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">2</span><span class="opt-t">津田梅子</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">3</span><span class="opt-t">市川房枝</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">4</span><span class="opt-t">樋口一葉</span></button></div>
+      <div class="expl hidden-until">市川房枝は新婦人協会の結成に参加し、戦前から婦人参政権獲得運動を進め、戦後は参議院議員として活躍しました。</div>
+      <a class="sec-help" href="../../ref/14/index.html#t2s3"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-social-movements-3" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">3 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">全国水平社が結成された年は？</div>
-      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">1912年</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">1925年</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">1918年</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">1922年</span></button></div>
-      <div class="expl hidden-until">💡 全国水平社は1922年に京都で結成され、被差別部落民が自主的に差別解消を目指す全国組織として水平社宣言を発表しました。</div>
-      <a class="sec-help" href="../../ref/14/index.html#t2s2" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">1</span><span class="opt-t">1912年</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">2</span><span class="opt-t">1925年</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">3</span><span class="opt-t">1918年</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">4</span><span class="opt-t">1922年</span></button></div>
+      <div class="expl hidden-until">全国水平社は1922年に京都で結成され、被差別部落民が自主的に差別解消を目指す全国組織として水平社宣言を発表しました。</div>
+      <a class="sec-help" href="../../ref/14/index.html#t2s2"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-social-movements-4" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">4 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">農民運動を推進した1922年結成の団体は？</div>
-      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">農村振興会</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">日本農民組合</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">農地解放同盟</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">全国農民連合</span></button></div>
-      <div class="expl hidden-until">💡 1922年に賀川豊彦らが日本農民組合を結成し、小作料引き下げを求める小作争議を全国的に主導する全国組織となりました。</div>
-      <a class="sec-help" href="../../ref/14/index.html#t2s1" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">1</span><span class="opt-t">農村振興会</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">2</span><span class="opt-t">日本農民組合</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">3</span><span class="opt-t">農地解放同盟</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">4</span><span class="opt-t">全国農民連合</span></button></div>
+      <div class="expl hidden-until">1922年に賀川豊彦らが日本農民組合を結成し、小作料引き下げを求める小作争議を全国的に主導する全国組織となりました。</div>
+      <a class="sec-help" href="../../ref/14/index.html#t2s1"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-social-movements-5" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">5 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">関東大震災が起きた日付は？</div>
-      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">8月15日</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">11月3日</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">9月1日</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">7月7日</span></button></div>
-      <div class="expl hidden-until">💡 関東大震災は1923年9月1日午前に発生し、地震と火災で死者・行方不明者10万人以上を出す未曾有の災害となりました。</div>
-      <a class="sec-help" href="../../ref/14/index.html#t2s4" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">1</span><span class="opt-t">8月15日</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">2</span><span class="opt-t">11月3日</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">3</span><span class="opt-t">9月1日</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">4</span><span class="opt-t">7月7日</span></button></div>
+      <div class="expl hidden-until">関東大震災は1923年9月1日午前に発生し、地震と火災で死者・行方不明者10万人以上を出す未曾有の災害となりました。</div>
+      <a class="sec-help" href="../../ref/14/index.html#t2s4"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-social-movements-6" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">6 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">「元始女性は太陽であった」を宣言したのは？</div>
-      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">与謝野晶子</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">平塚らいてう</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">津田梅子</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">市川房枝</span></button></div>
-      <div class="expl hidden-until">💡 1911年、平塚らいてうが女性誌「青鞜」の創刊号で「もともと女性は太陽だった」と宣言し、女性解放運動の幕を開けました。</div>
-      <a class="sec-help" href="../../ref/14/index.html#t2s3" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">1</span><span class="opt-t">与謝野晶子</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">2</span><span class="opt-t">平塚らいてう</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">3</span><span class="opt-t">津田梅子</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">4</span><span class="opt-t">市川房枝</span></button></div>
+      <div class="expl hidden-until">1911年、平塚らいてうが女性誌「青鞜」の創刊号で「もともと女性は太陽だった」と宣言し、女性解放運動の幕を開けました。</div>
+      <a class="sec-help" href="../../ref/14/index.html#t2s3"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-social-movements-7" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">7 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">水平社宣言の有名な結語は？</div>
-      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">人の世に熱あれ、人間に光あれ</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">すべての人民は自由で平等</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">労働者よ、団結せよ</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">人間を尊敬して解放せん</span></button></div>
-      <div class="expl hidden-until">💡 1922年に発表された水平社宣言は「人の世に熱あれ、人間に光あれ」で結ばれ、被差別部落民の自主的解放を訴えました。</div>
-      <a class="sec-help" href="../../ref/14/index.html#t2s2" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">1</span><span class="opt-t">人の世に熱あれ、人間に光あれ</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">2</span><span class="opt-t">すべての人民は自由で平等</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">3</span><span class="opt-t">労働者よ、団結せよ</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">4</span><span class="opt-t">人間を尊敬して解放せん</span></button></div>
+      <div class="expl hidden-until">1922年に発表された水平社宣言は「人の世に熱あれ、人間に光あれ」で結ばれ、被差別部落民の自主的解放を訴えました。</div>
+      <a class="sec-help" href="../../ref/14/index.html#t2s2"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-social-movements-8" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">8 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">関東大震災直後、デマにより起きた人権問題は？</div>
-      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">朝鮮人・中国人への迫害</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">労働争議の全国化</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">外国人労働者の急増</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">農民の都市集中</span></button></div>
-      <div class="expl hidden-until">💡 関東大震災後の混乱の中で「朝鮮人が井戸に毒を入れた」などのデマが広まり、自警団により多くの朝鮮人・中国人が迫害・殺害されました。</div>
-      <a class="sec-help" href="../../ref/14/index.html#t2s4" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">1</span><span class="opt-t">朝鮮人・中国人への迫害</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">2</span><span class="opt-t">労働争議の全国化</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">3</span><span class="opt-t">外国人労働者の急増</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">4</span><span class="opt-t">農民の都市集中</span></button></div>
+      <div class="expl hidden-until">関東大震災後の混乱の中で「朝鮮人が井戸に毒を入れた」などのデマが広まり、自警団により多くの朝鮮人・中国人が迫害・殺害されました。</div>
+      <a class="sec-help" href="../../ref/14/index.html#t2s4"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (1/3)" data-qid="wr-social-movements-1" data-kind="qa" data-sec="D">
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">1 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">新婦人協会が治安警察法第5条の改正を求めた目的を説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">治安警察法</span><span class="kw-chip">政治参加</span></div>
-      <a class="sec-help" href="../../ref/14/index.html#t2s3" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t2s3"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
-      <button class="ai-grade print-hide" type="button" data-bankid="q-wbw-history-14-social-movements-1">🤖 AIに採点してもらう</button>
+      <div class="wr-actions">
+        <button class="ai-grade print-hide" type="button" data-bankid="q-wbw-history-14-social-movements-1" disabled>AI採点</button>
+        <button class="reveal" type="button">わからない</button>
+      </div>
       <div class="ai-result" hidden></div>
-      <button class="reveal" type="button">模範解答を見る</button>
       <div class="hidden-until">
         <div class="qa-a">女性の政治集会への参加を禁じていた治安警察法第5条を改正させ、女性の政治参加を実現するため。</div>
-        <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-        </div>
       </div>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (2/3)" data-qid="wr-social-movements-2" data-kind="qa" data-sec="D">
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">2 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">関東大震災の混乱の中で起きたことを説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">デマ</span></div>
-      <a class="sec-help" href="../../ref/14/index.html#t2s4" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t2s4"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
-      <button class="ai-grade print-hide" type="button" data-bankid="q-wbw-history-14-social-movements-2">🤖 AIに採点してもらう</button>
+      <div class="wr-actions">
+        <button class="ai-grade print-hide" type="button" data-bankid="q-wbw-history-14-social-movements-2" disabled>AI採点</button>
+        <button class="reveal" type="button">わからない</button>
+      </div>
       <div class="ai-result" hidden></div>
-      <button class="reveal" type="button">模範解答を見る</button>
       <div class="hidden-until">
         <div class="qa-a">「朝鮮人が井戸に毒を入れた」などのデマが広まり、自警団により多くの朝鮮人・中国人が迫害される事件が起きた。</div>
-        <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-        </div>
       </div>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (3/3)" data-qid="wr-social-movements-3" data-kind="qa" data-sec="D">
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">3 / 3</span>　文章で説明しよう</span></div>
       <div class="q-text">全国水平社が結成された目的を説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">被差別部落</span><span class="kw-chip">差別</span></div>
-      <a class="sec-help" href="../../ref/14/index.html#t2s2" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t2s2"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
-      <button class="ai-grade print-hide" type="button" data-bankid="q-wbw-history-14-social-movements-3">🤖 AIに採点してもらう</button>
+      <div class="wr-actions">
+        <button class="ai-grade print-hide" type="button" data-bankid="q-wbw-history-14-social-movements-3" disabled>AI採点</button>
+        <button class="reveal" type="button">わからない</button>
+      </div>
       <div class="ai-result" hidden></div>
-      <button class="reveal" type="button">模範解答を見る</button>
       <div class="hidden-until">
         <div class="qa-a">被差別部落の人々が、自分たちの力で社会的な差別をなくすことを目指して結成した。</div>
-        <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-        </div>
       </div>
     </div>
     <div class="step done-step" data-label="結果" data-sec="Z">
-      <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「社会運動の広がり」おつかれさま！</span></div>
+      <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>「社会運動の広がり」おつかれさま！</span></div>
       <div class="score-box" data-score></div>
-      <button class="big-btn wrong-btn" type="button" data-mode="wrong" hidden>🔴 まちがえた問題だけやり直す<span class="btn-sub" data-wrong-sub></span></button>
+      <button class="big-btn wrong-btn" type="button" data-mode="wrong" hidden>まちがえた問題だけやり直す<span class="btn-sub" data-wrong-sub></span></button>
       <div class="next-modes">
         <div class="nm-h">ほかの解き方でもう一度</div>
-        <div class="nm-chips"><button class="chip-mode" type="button" data-mode="A">🕳 穴埋め</button><button class="chip-mode" type="button" data-mode="B">✍️ 短答</button><button class="chip-mode" type="button" data-mode="C">✅ 4択</button><button class="chip-mode" type="button" data-mode="D">📝 記述</button></div>
+        <div class="nm-chips"><button class="chip-mode" type="button" data-mode="A">穴埋め</button><button class="chip-mode" type="button" data-mode="B">短答</button><button class="chip-mode" type="button" data-mode="C">4択</button><button class="chip-mode" type="button" data-mode="D">記述</button></div>
       </div>
-      <a class="big-btn ref-btn" href="../../ref/14/index.html#t2">📖 参考書でおさらいする</a>
-      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E7%A4%BE%E4%BC%9A%E9%81%8B%E5%8B%95%E3%81%AE%E5%BA%83%E3%81%8C%E3%82%8A" target="_blank" rel="noopener">🤖 LINEでこの単元を出題してもらう<span class="btn-sub">公式LINEに問題が届く→答えるとAIがすぐ丸つけ。すきま時間の復習に</span></a>
-      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元を最初から</button>
-      <button class="big-btn home-btn" type="button" data-go="0">🏠 目次にもどる</button>
+      <a class="big-btn ref-btn" href="../../ref/14/index.html#t2">参考書でおさらいする</a>
+      <div class="line-block">
+        <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E7%A4%BE%E4%BC%9A%E9%81%8B%E5%8B%95%E3%81%AE%E5%BA%83%E3%81%8C%E3%82%8A" target="_blank" rel="noopener">LINEで出題してもらう</a>
+        <p class="line-note">公式LINEに問題が届く→答えるとAIがすぐ丸つけ。すきま時間の復習に。</p>
+      </div>
+      <button class="big-btn retry-btn" type="button" data-retry>この単元を最初から</button>
+      <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
 <section class="view" data-t="4">
@@ -1643,28 +1341,26 @@
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
       <div class="sec-h"><span class="sec-tag">▶</span>やり方をえらぼう<span class="sec-note">目次にもどれば何度でも変えられるよ</span></div>
       <button class="mode-btn mode-reco" type="button" data-mode="all">
-        <span class="mode-ic ic-star">⭐</span>
-        <span class="mode-main"><span class="mode-t">おすすめ順でぜんぶ解く</span>
-          <span class="mode-flow"><span class="flow-chip">要点まとめ</span><span class="flow-arr">→</span><span class="flow-chip">一問一答</span><span class="flow-arr">→</span><span class="flow-chip">4択</span><span class="flow-arr">→</span><span class="flow-chip">記述</span></span></span>
+        <span class="mode-ic ic-star"><img class="mi-img" src="img/ic-star.png" alt="" aria-hidden="true"></span>
+        <span class="mode-main"><span class="mode-t">おすすめ順で解く</span></span>
         <span class="mode-arrow">›</span></button>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="A">
-        <span class="mode-ic ic-a">✏️</span>
+        <span class="mode-ic"><img class="mi-img" src="img/ic-ana.png" alt="" aria-hidden="true"></span>
         <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）</span>
           <span class="mode-sub">（　）をタップして確かめる</span></span>
         <span class="mode-arrow">›</span></button></div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="B">
-        <span class="mode-ic ic-b">🔥</span>
+        <span class="mode-ic"><img class="mi-img" src="img/ic-qa.png" alt="" aria-hidden="true"></span>
         <span class="mode-main"><span class="mode-t">一問一答（短答）</span>
           <span class="mode-sub">12問・入力して自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
-          <div class="opt-row"><span class="opt-lb">解答</span><button class="opt-chip on" type="button" data-opt="ansB" data-val="0">⌨️ 入力して判定</button><button class="opt-chip" type="button" data-opt="ansB" data-val="1">入力せず答えだけ確認</button></div>
-          <div class="opt-row"><span class="opt-lb">採点</span><button class="opt-chip on" type="button" data-opt="batch" data-val="0">一問ずつ</button><button class="opt-chip" type="button" data-opt="batch" data-val="1">まとめて</button></div>
+          <div class="opt-row"><span class="opt-lb">解答</span><button class="opt-chip on" type="button" data-opt="ansB" data-val="0">答えを入力</button><button class="opt-chip" type="button" data-opt="ansB" data-val="1">見て確認</button></div>
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufB" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufB" data-val="1">シャッフル</button></div>
         </div>
       </div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="C">
-        <span class="mode-ic ic-c">✅</span>
+        <span class="mode-ic"><img class="mi-img" src="img/ic-yon.png" alt="" aria-hidden="true"></span>
         <span class="mode-main"><span class="mode-t">4択（選択）</span>
           <span class="mode-sub">8問・タップで即判定</span></span>
         <span class="mode-arrow">›</span></button>
@@ -1672,23 +1368,23 @@
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
         </div>
       </div>
-      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">2問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
+      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic"><img class="mi-img" src="img/ic-doc.png" alt="" aria-hidden="true"></span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">2問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
     </div>
     <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
-      <a class="ref-link" href="../../ref/14/index.html#t3">📖 先に参考書で理解する</a>
+      <a class="ref-link" href="../../ref/14/index.html#t3">先に参考書で理解する</a>
       <div class="summary">1925年のラジオ放送開始や新聞・雑誌・映画の普及を背景に、都市の一般大衆に広がった文化を<button class="blank" type="button"><span class="bno">①</span><span class="ba">大衆文化</span><span class="bl" style="width:3.6em"></span></button>という。<button class="blank" type="button"><span class="bno">②</span><span class="ba">ラジオ放送</span><span class="bl" style="width:4.5em"></span></button>は1925年に東京・大阪・名古屋で始まり、後の日本放送協会(NHK)となった。大正期に人気を集めた無声<button class="blank" type="button"><span class="bno">③</span><span class="ba">映画</span><span class="bl" style="width:2.7em"></span></button>は、昭和初期には音声付きのトーキーへと発展し、都市の娯楽として定着した。1926年には改造社が1冊1円で文学全集を売り出し、「<button class="blank" type="button"><span class="bno">④</span><span class="ba">円本</span><span class="bl" style="width:2.7em"></span></button>」と呼ばれて読書の大衆化を進めた。洋装で銀座などを闊歩する都市の若者は「<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">モボ・モガ</span><span class="bl" style="width:4.5em"></span></button>」と呼ばれた。文学では、<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">芥川龍之介</span><span class="bl" style="width:4.5em"></span></button>が「羅生門」「鼻」など短編で人間心理を描き、武者小路実篤や<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">志賀直哉</span><span class="bl" style="width:3.6em"></span></button>ら<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">白樺派</span><span class="bl" style="width:2.7em"></span></button>は人道主義に基づく作品を発表した。1929年、<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">小林多喜二</span><span class="bl" style="width:4.5em"></span></button>は「蟹工船」で労働者の過酷な実態を描き、<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">プロレタリア文学</span><span class="bl" style="width:7.2em"></span></button>の代表作となった。都市郊外には和洋折衷の文化住宅も広まった。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
     </div>
     <div class="step mb-step" data-label="短答のやり方" data-sec="MB">
       <div class="sec-h"><span class="sec-tag">▶</span>ここからは一問一答<span class="sec-note">答え合わせのやり方をえらぼう</span></div>
       <button class="mode-btn mb-pick" type="button" data-ansall="type">
-        <span class="mode-ic ic-b">⌨️</span>
+        <span class="mode-ic"><svg class="mi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.8" y="6.7" width="18.4" height="10.6" rx="1.8"/><line x1="6" y1="10" x2="6.1" y2="10"/><line x1="9.4" y1="10" x2="9.5" y2="10"/><line x1="12.8" y1="10" x2="12.9" y2="10"/><line x1="16.2" y1="10" x2="16.3" y2="10"/><line x1="8" y1="14" x2="16" y2="14"/></svg></span>
         <span class="mode-main"><span class="mode-t">入力して答え合わせ</span>
           <span class="mode-sub">こたえを打つと自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
       <button class="mode-btn mb-pick" type="button" data-ansall="check">
-        <span class="mode-ic ic-a">👀</span>
+        <span class="mode-ic"><svg class="mi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 12S6 6.6 12 6.6 21.4 12 21.4 12 18 17.4 12 17.4 2.6 12 2.6 12z"/><circle cx="12" cy="12" r="2.6"/></svg></span>
         <span class="mode-main"><span class="mode-t">答えを見て自己採点</span>
           <span class="mode-sub">こたえを見て ○ △ をタップ</span></span>
         <span class="mode-arrow">›</span></button>
@@ -1700,7 +1396,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
-      <a class="sec-help" href="../../ref/14/index.html#t3s1" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t3s1"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>大衆<rt>たいしゅう</rt></ruby><ruby>文化<rt>ぶんか</rt></ruby></div>
@@ -1718,7 +1414,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
-      <a class="sec-help" href="../../ref/14/index.html#t3s1" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t3s1"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">ラジオ<ruby>放送<rt>ほうそう</rt></ruby></div>
@@ -1736,7 +1432,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
-      <a class="sec-help" href="../../ref/14/index.html#t3s1" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t3s1"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">1925年</div>
@@ -1754,7 +1450,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
-      <a class="sec-help" href="../../ref/14/index.html#t3s1" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t3s1"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>映画<rt>えいが</rt></ruby></div>
@@ -1772,7 +1468,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
-      <a class="sec-help" href="../../ref/14/index.html#t3s2" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t3s2"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>円本<rt>えんぽん</rt></ruby></div>
@@ -1790,7 +1486,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
-      <a class="sec-help" href="../../ref/14/index.html#t3s2" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t3s2"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">モボ・モガ</div>
@@ -1808,7 +1504,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
-      <a class="sec-help" href="../../ref/14/index.html#t3s3" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t3s3"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>芥川龍之介<rt>あくたがわりゅうのすけ</rt></ruby></div>
@@ -1826,7 +1522,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
-      <a class="sec-help" href="../../ref/14/index.html#t3s3" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t3s3"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>志賀直哉<rt>しがなおや</rt></ruby></div>
@@ -1844,7 +1540,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
-      <a class="sec-help" href="../../ref/14/index.html#t3s3" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t3s3"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>小林多喜二<rt>こばやしたきじ</rt></ruby></div>
@@ -1862,7 +1558,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
-      <a class="sec-help" href="../../ref/14/index.html#t3s3" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t3s3"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>白樺派<rt>しらかばは</rt></ruby></div>
@@ -1880,7 +1576,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
-      <a class="sec-help" href="../../ref/14/index.html#t3s3" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t3s3"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a">プロレタリア<ruby>文学<rt>ぶんがく</rt></ruby></div>
@@ -1898,7 +1594,7 @@
       <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力（ひらがなでもOK）" autocomplete="off" enterkeyhint="done"><button class="b-judge" type="button">判定</button></div>
       <button class="b-idk" type="button">わからない…こたえを見る</button>
       <button class="reveal" type="button">こたえを見る</button>
-      <a class="sec-help" href="../../ref/14/index.html#t3s2" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t3s2"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <div class="hidden-until">
         <div class="b-result" aria-live="polite"></div>
         <div class="qa-a"><ruby>文化<rt>ぶんか</rt></ruby><ruby>住宅<rt>じゅうたく</rt></ruby></div>
@@ -1909,275 +1605,109 @@
         </div>
       </div>
     </div>
-    <div class="step qa-batch-step" data-label="B 一問一答（まとめて採点）" data-sec="BB">
-      <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note">全12問・まとめて採点</span></div>
-      <div class="howto">まず全部の問題にこたえてから、下のボタンでまとめて答え合わせしよう！</div>
-      
-      <div class="bq-item" data-qid="qa-mass-culture-1" data-a="大衆文化" data-r="たいしゅうぶんか">
-        <div class="bq-q"><span class="qa-no">(1)</span>大正〜昭和初期に都市の一般大衆に広がった文化は？</div>
-        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
-        <div class="hidden-until">
-          <div class="b-result" aria-live="polite"></div>
-          <div class="qa-a"><ruby>大衆<rt>たいしゅう</rt></ruby><ruby>文化<rt>ぶんか</rt></ruby></div>
-          <div class="qa-expl">1925年のラジオ放送開始や新聞・雑誌・映画の普及を背景に、都市の一般大衆に広がった文化。</div>
-          <div class="marks">
-            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-          </div>
-        </div>
-      </div>
-      <div class="bq-item" data-qid="qa-mass-culture-2" data-a="ラジオ放送" data-r="ラジオほうそう">
-        <div class="bq-q"><span class="qa-no">(2)</span>1925年に日本で始まったメディアは？</div>
-        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
-        <div class="hidden-until">
-          <div class="b-result" aria-live="polite"></div>
-          <div class="qa-a">ラジオ<ruby>放送<rt>ほうそう</rt></ruby></div>
-          <div class="qa-expl">1925年に東京・大阪・名古屋で放送が始まり、後の日本放送協会（NHK）となった。大衆文化の中心。</div>
-          <div class="marks">
-            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-          </div>
-        </div>
-      </div>
-      <div class="bq-item" data-qid="qa-mass-culture-3" data-a="1925年" data-r="1925年">
-        <div class="bq-q"><span class="qa-no">(3)</span>日本でラジオ放送が始まった年は？</div>
-        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
-        <div class="hidden-until">
-          <div class="b-result" aria-live="polite"></div>
-          <div class="qa-a">1925年</div>
-          <div class="qa-expl">1925年は普通選挙法・治安維持法が制定された年でもあり、大衆社会への転換点となった。</div>
-          <div class="marks">
-            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-          </div>
-        </div>
-      </div>
-      <div class="bq-item" data-qid="qa-mass-culture-4" data-a="映画" data-r="えいが">
-        <div class="bq-q"><span class="qa-no">(4)</span>大正期に普及し、無声から音声付きへと発展した映像メディアは？</div>
-        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
-        <div class="hidden-until">
-          <div class="b-result" aria-live="polite"></div>
-          <div class="qa-a"><ruby>映画<rt>えいが</rt></ruby></div>
-          <div class="qa-expl">大正期に無声映画が人気となり、昭和初期にはトーキー（音声付き）に発展。都市の娯楽として定着した。</div>
-          <div class="marks">
-            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-          </div>
-        </div>
-      </div>
-      <div class="bq-item" data-qid="qa-mass-culture-5" data-a="円本" data-r="えんぽん">
-        <div class="bq-q"><span class="qa-no">(5)</span>1冊1円で売り出され、ベストセラーとなった文学全集は？</div>
-        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
-        <div class="hidden-until">
-          <div class="b-result" aria-live="polite"></div>
-          <div class="qa-a"><ruby>円本<rt>えんぽん</rt></ruby></div>
-          <div class="qa-expl">1926年に改造社が刊行した「現代日本文学全集」が代表例。1冊1円の安さで読書の大衆化を進めた。</div>
-          <div class="marks">
-            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-          </div>
-        </div>
-      </div>
-      <div class="bq-item" data-qid="qa-mass-culture-6" data-a="モボ・モガ" data-r="モボ・モガ">
-        <div class="bq-q"><span class="qa-no">(6)</span>大正末〜昭和初期の流行を取り入れた若者を呼んだ言葉は？</div>
-        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
-        <div class="hidden-until">
-          <div class="b-result" aria-live="polite"></div>
-          <div class="qa-a">モボ・モガ</div>
-          <div class="qa-expl">モダンボーイ・モダンガールの略。大正末〜昭和初期、洋装で銀座などを闊歩した都市の若者を指した。</div>
-          <div class="marks">
-            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-          </div>
-        </div>
-      </div>
-      <div class="bq-item" data-qid="qa-mass-culture-7" data-a="芥川龍之介" data-r="あくたがわりゅうのすけ">
-        <div class="bq-q"><span class="qa-no">(7)</span>「羅生門」「鼻」を著した大正期の作家は？</div>
-        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
-        <div class="hidden-until">
-          <div class="b-result" aria-live="polite"></div>
-          <div class="qa-a"><ruby>芥川龍之介<rt>あくたがわりゅうのすけ</rt></ruby></div>
-          <div class="qa-expl">大正期の新思潮派を代表する作家で、「羅生門」「鼻」など短編小説で人間心理を鋭く描いた。</div>
-          <div class="marks">
-            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-          </div>
-        </div>
-      </div>
-      <div class="bq-item" data-qid="qa-mass-culture-8" data-a="志賀直哉" data-r="しがなおや">
-        <div class="bq-q"><span class="qa-no">(8)</span>「暗夜行路」を著した白樺派の作家は？</div>
-        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
-        <div class="hidden-until">
-          <div class="b-result" aria-live="polite"></div>
-          <div class="qa-a"><ruby>志賀直哉<rt>しがなおや</rt></ruby></div>
-          <div class="qa-expl">白樺派の代表作家で、長編「暗夜行路」で人道主義・個人主義に基づく内面を描いた。「小説の神様」とも。</div>
-          <div class="marks">
-            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-          </div>
-        </div>
-      </div>
-      <div class="bq-item" data-qid="qa-mass-culture-9" data-a="小林多喜二" data-r="こばやしたきじ">
-        <div class="bq-q"><span class="qa-no">(9)</span>「蟹工船」を著したプロレタリア文学の作家は？</div>
-        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
-        <div class="hidden-until">
-          <div class="b-result" aria-live="polite"></div>
-          <div class="qa-a"><ruby>小林多喜二<rt>こばやしたきじ</rt></ruby></div>
-          <div class="qa-expl">1929年発表の「蟹工船」で漁船労働者の過酷な実態を描き、プロレタリア文学の代表となった。</div>
-          <div class="marks">
-            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-          </div>
-        </div>
-      </div>
-      <div class="bq-item" data-qid="qa-mass-culture-10" data-a="白樺派" data-r="しらかばは">
-        <div class="bq-q"><span class="qa-no">(10)</span>武者小路実篤・志賀直哉らが結成した文学の流派は？</div>
-        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
-        <div class="hidden-until">
-          <div class="b-result" aria-live="polite"></div>
-          <div class="qa-a"><ruby>白樺派<rt>しらかばは</rt></ruby></div>
-          <div class="qa-expl">雑誌「白樺」に集まった武者小路実篤・志賀直哉らの文学グループ。人間愛と理想を大切にする作品を発表した。</div>
-          <div class="marks">
-            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-          </div>
-        </div>
-      </div>
-      <div class="bq-item" data-qid="qa-mass-culture-11" data-a="プロレタリア文学" data-r="プロレタリアぶんがく">
-        <div class="bq-q"><span class="qa-no">(11)</span>労働者・農民の生活を描いた文学運動は？</div>
-        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
-        <div class="hidden-until">
-          <div class="b-result" aria-live="polite"></div>
-          <div class="qa-a">プロレタリア<ruby>文学<rt>ぶんがく</rt></ruby></div>
-          <div class="qa-expl">貧しい労働者や農民の暮らしを、社会の仕組みを変える視点で描いた文学。小林多喜二「蟹工船」が代表作。</div>
-          <div class="marks">
-            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-          </div>
-        </div>
-      </div>
-      <div class="bq-item" data-qid="qa-mass-culture-12" data-a="文化住宅" data-r="ぶんかじゅうたく">
-        <div class="bq-q"><span class="qa-no">(12)</span>和洋折衷で台所や応接間を備えた都市住宅は？</div>
-        <div class="b-inrow"><input class="b-in" type="text" placeholder="こたえを入力" autocomplete="off"></div>
-        <div class="hidden-until">
-          <div class="b-result" aria-live="polite"></div>
-          <div class="qa-a"><ruby>文化<rt>ぶんか</rt></ruby><ruby>住宅<rt>じゅうたく</rt></ruby></div>
-          <div class="qa-expl">大正末〜昭和初期、和洋折衷で台所や応接間を備えた都市住宅。郊外でサラリーマン層を中心に普及した。</div>
-          <div class="marks">
-            <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-            <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-          </div>
-        </div>
-      </div>
-      <div class="reveal-all-row">
-        <button class="reveal batch-grade" type="button">こたえをまとめて表示して採点する</button>
-        <button class="b-batch-judge" type="button">入力したこたえをまとめて採点する</button>
-      </div>
-    </div>
     <div class="step qz-step" data-label="C 実戦問題 (1/8)" data-qid="qz-mass-culture-1" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">1 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">日本でラジオ放送が始まった年は？</div>
-      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">1918年</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">1930年</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">1923年</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">1925年</span></button></div>
-      <div class="expl hidden-until">💡 日本のラジオ放送は1925年に東京・大阪・名古屋で始まり、後にNHKに統合されました。普通選挙法と同年です。</div>
-      <a class="sec-help" href="../../ref/14/index.html#t3s1" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">1</span><span class="opt-t">1918年</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">2</span><span class="opt-t">1930年</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">3</span><span class="opt-t">1923年</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">4</span><span class="opt-t">1925年</span></button></div>
+      <div class="expl hidden-until">日本のラジオ放送は1925年に東京・大阪・名古屋で始まり、後にNHKに統合されました。普通選挙法と同年です。</div>
+      <a class="sec-help" href="../../ref/14/index.html#t3s1"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (2/8)" data-qid="qz-mass-culture-2" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">2 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">「蟹工船」を著したプロレタリア文学の作家は？</div>
-      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">志賀直哉</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">小林多喜二</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">武者小路実篤</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">芥川龍之介</span></button></div>
-      <div class="expl hidden-until">💡 小林多喜二は1929年発表の「蟹工船」で漁船労働者の過酷な労働を描き、プロレタリア文学の代表となりました。</div>
-      <a class="sec-help" href="../../ref/14/index.html#t3s3" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">1</span><span class="opt-t">志賀直哉</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">2</span><span class="opt-t">小林多喜二</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">3</span><span class="opt-t">武者小路実篤</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">4</span><span class="opt-t">芥川龍之介</span></button></div>
+      <div class="expl hidden-until">小林多喜二は1929年発表の「蟹工船」で漁船労働者の過酷な労働を描き、プロレタリア文学の代表となりました。</div>
+      <a class="sec-help" href="../../ref/14/index.html#t3s3"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (3/8)" data-qid="qz-mass-culture-3" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">3 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">大正末〜昭和初期の流行を取り入れた若者は？</div>
-      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">モボ・モガ</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">バンカラ</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">ハイカラ</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">文明開化人</span></button></div>
-      <div class="expl hidden-until">💡 モボ・モガはモダンボーイ・モダンガールの略で、大正末〜昭和初期に洋装で銀座などを闊歩した都市の若者を指します。</div>
-      <a class="sec-help" href="../../ref/14/index.html#t3s2" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">1</span><span class="opt-t">モボ・モガ</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">2</span><span class="opt-t">バンカラ</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">3</span><span class="opt-t">ハイカラ</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">4</span><span class="opt-t">文明開化人</span></button></div>
+      <div class="expl hidden-until">モボ・モガはモダンボーイ・モダンガールの略で、大正末〜昭和初期に洋装で銀座などを闊歩した都市の若者を指します。</div>
+      <a class="sec-help" href="../../ref/14/index.html#t3s2"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (4/8)" data-qid="qz-mass-culture-4" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">4 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">改造社が刊行し、読書の大衆化を進めた文学全集は？</div>
-      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">岩波文庫</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">円本</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">文庫本</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">新書</span></button></div>
-      <div class="expl hidden-until">💡 1926年に改造社が刊行した「現代日本文学全集」は1冊1円で売り出され「円本」と呼ばれ、読書の大衆化を進めました。</div>
-      <a class="sec-help" href="../../ref/14/index.html#t3s2" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">1</span><span class="opt-t">岩波文庫</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">2</span><span class="opt-t">円本</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">3</span><span class="opt-t">文庫本</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">4</span><span class="opt-t">新書</span></button></div>
+      <div class="expl hidden-until">1926年に改造社が刊行した「現代日本文学全集」は1冊1円で売り出され「円本」と呼ばれ、読書の大衆化を進めました。</div>
+      <a class="sec-help" href="../../ref/14/index.html#t3s2"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (5/8)" data-qid="qz-mass-culture-5" data-kind="qz" data-c="3" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">5 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">志賀直哉・武者小路実篤らの文学流派は？</div>
-      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">プロレタリア派</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">新思潮派</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">自然主義</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">白樺派</span></button></div>
-      <div class="expl hidden-until">💡 白樺派は雑誌「白樺」に集まった武者小路実篤・志賀直哉らの文学グループで、人間愛と理想を大切にしました。</div>
-      <a class="sec-help" href="../../ref/14/index.html#t3s3" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">1</span><span class="opt-t">プロレタリア派</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">2</span><span class="opt-t">新思潮派</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">3</span><span class="opt-t">自然主義</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">4</span><span class="opt-t">白樺派</span></button></div>
+      <div class="expl hidden-until">白樺派は雑誌「白樺」に集まった武者小路実篤・志賀直哉らの文学グループで、人間愛と理想を大切にしました。</div>
+      <a class="sec-help" href="../../ref/14/index.html#t3s3"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (6/8)" data-qid="qz-mass-culture-6" data-kind="qz" data-c="0" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">6 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">「暗夜行路」を著した白樺派の作家は？</div>
-      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">志賀直哉</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">夏目漱石</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">石川啄木</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">芥川龍之介</span></button></div>
-      <div class="expl hidden-until">💡 志賀直哉は白樺派の代表的作家で、長編「暗夜行路」で人道主義に基づく内面描写を確立し「小説の神様」と呼ばれました。</div>
-      <a class="sec-help" href="../../ref/14/index.html#t3s3" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">1</span><span class="opt-t">志賀直哉</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">2</span><span class="opt-t">夏目漱石</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">3</span><span class="opt-t">石川啄木</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">4</span><span class="opt-t">芥川龍之介</span></button></div>
+      <div class="expl hidden-until">志賀直哉は白樺派の代表的作家で、長編「暗夜行路」で人道主義に基づく内面描写を確立し「小説の神様」と呼ばれました。</div>
+      <a class="sec-help" href="../../ref/14/index.html#t3s3"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (7/8)" data-qid="qz-mass-culture-7" data-kind="qz" data-c="1" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">7 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">労働者・農民の生活を描いた文学運動は？</div>
-      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">新感覚派文学</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">プロレタリア文学</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">白樺派文学</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">新思潮派文学</span></button></div>
-      <div class="expl hidden-until">💡 プロレタリア文学は労働者や農民の暮らしを、社会の仕組みを変える視点で描いた運動。「蟹工船」が代表作です。</div>
-      <a class="sec-help" href="../../ref/14/index.html#t3s3" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">1</span><span class="opt-t">新感覚派文学</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">2</span><span class="opt-t">プロレタリア文学</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">3</span><span class="opt-t">白樺派文学</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">4</span><span class="opt-t">新思潮派文学</span></button></div>
+      <div class="expl hidden-until">プロレタリア文学は労働者や農民の暮らしを、社会の仕組みを変える視点で描いた運動。「蟹工船」が代表作です。</div>
+      <a class="sec-help" href="../../ref/14/index.html#t3s3"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
     </div>
     <div class="step qz-step" data-label="C 実戦問題 (8/8)" data-qid="qz-mass-culture-8" data-kind="qz" data-c="2" data-sec="C">
       <div class="sec-h"><span class="sec-tag">C</span>実戦問題<span class="sec-note"><span class="qnum">8 / 8</span>　正しいものを選ぼう</span></div>
       <div class="q-text">大正〜昭和初期の都市住宅は？</div>
-      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">ア</span><span class="opt-t">町家</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">イ</span><span class="opt-t">兵舎</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">ウ</span><span class="opt-t">文化住宅</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">エ</span><span class="opt-t">長屋</span></button></div>
-      <div class="expl hidden-until">💡 大正末〜昭和初期、和洋折衷で台所や応接間を備えた文化住宅が郊外でサラリーマン層を中心に普及しました。</div>
-      <a class="sec-help" href="../../ref/14/index.html#t3s2" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <div class="qopts"><button class="qopt" type="button" data-i="0"><span class="opt-k">1</span><span class="opt-t">町家</span></button><button class="qopt" type="button" data-i="1"><span class="opt-k">2</span><span class="opt-t">兵舎</span></button><button class="qopt" type="button" data-i="2"><span class="opt-k">3</span><span class="opt-t">文化住宅</span></button><button class="qopt" type="button" data-i="3"><span class="opt-k">4</span><span class="opt-t">長屋</span></button></div>
+      <div class="expl hidden-until">大正末〜昭和初期、和洋折衷で台所や応接間を備えた文化住宅が郊外でサラリーマン層を中心に普及しました。</div>
+      <a class="sec-help" href="../../ref/14/index.html#t3s2"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (1/2)" data-qid="wr-mass-culture-1" data-kind="qa" data-sec="D">
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">1 / 2</span>　文章で説明しよう</span></div>
       <div class="q-text">円本が果たした役割を説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">円本</span></div>
-      <a class="sec-help" href="../../ref/14/index.html#t3s2" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t3s2"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
-      <button class="ai-grade print-hide" type="button" data-bankid="q-wbw-history-14-mass-culture-1">🤖 AIに採点してもらう</button>
+      <div class="wr-actions">
+        <button class="ai-grade print-hide" type="button" data-bankid="q-wbw-history-14-mass-culture-1" disabled>AI採点</button>
+        <button class="reveal" type="button">わからない</button>
+      </div>
       <div class="ai-result" hidden></div>
-      <button class="reveal" type="button">模範解答を見る</button>
       <div class="hidden-until">
         <div class="qa-a">改造社が「円本」と呼ばれる1冊1円の文学全集を売り出し、読書の大衆化を進める役割を果たした。</div>
-        <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-        </div>
       </div>
     </div>
     <div class="step wr-step" data-label="D 記述問題 (2/2)" data-qid="wr-mass-culture-2" data-kind="qa" data-sec="D">
       <div class="sec-h"><span class="sec-tag">D</span>記述問題<span class="sec-note"><span class="qnum">2 / 2</span>　文章で説明しよう</span></div>
       <div class="q-text">プロレタリア文学とはどのような文学か、説明しなさい。</div>
       <div class="kw-note">指定語句 <span class="kw-chip">労働者</span><span class="kw-chip">文学運動</span></div>
-      <a class="sec-help" href="../../ref/14/index.html#t3s3" target="_blank" rel="noopener">📖 解説を読む（ヒント）</a>
+      <a class="sec-help" href="../../ref/14/index.html#t3s3"><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5.3 8.4 4.8 6 4.8c-1 0-2 .1-2.8.3v13c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3v-13C20 4.9 19 4.8 18 4.8c-2.4 0-4.5.5-6 1.7z"/></svg>解説を読む（ヒント）</a>
       <textarea class="w-input print-hide" rows="3" placeholder="ここに書いてみよう（書かずに頭の中で説明してもOK）"></textarea>
       <div class="wline print-only"></div><div class="wline print-only"></div>
-      <button class="ai-grade print-hide" type="button" data-bankid="q-wbw-history-14-mass-culture-2">🤖 AIに採点してもらう</button>
+      <div class="wr-actions">
+        <button class="ai-grade print-hide" type="button" data-bankid="q-wbw-history-14-mass-culture-2" disabled>AI採点</button>
+        <button class="reveal" type="button">わからない</button>
+      </div>
       <div class="ai-result" hidden></div>
-      <button class="reveal" type="button">模範解答を見る</button>
       <div class="hidden-until">
         <div class="qa-a">労働者や農民の貧しい暮らしを、社会の仕組みを変えようとする視点で描いた文学運動のことである。</div>
-        <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ 書けた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
-        </div>
       </div>
     </div>
     <div class="step done-step" data-label="結果" data-sec="Z">
-      <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>🎉 「大衆文化の成熟」おつかれさま！</span></div>
+      <div class="done"><img class="wchar done-char" src="img/characters_manabi_banzai_sm.png" alt=""><span>「大衆文化の成熟」おつかれさま！</span></div>
       <div class="score-box" data-score></div>
-      <button class="big-btn wrong-btn" type="button" data-mode="wrong" hidden>🔴 まちがえた問題だけやり直す<span class="btn-sub" data-wrong-sub></span></button>
+      <button class="big-btn wrong-btn" type="button" data-mode="wrong" hidden>まちがえた問題だけやり直す<span class="btn-sub" data-wrong-sub></span></button>
       <div class="next-modes">
         <div class="nm-h">ほかの解き方でもう一度</div>
-        <div class="nm-chips"><button class="chip-mode" type="button" data-mode="A">🕳 穴埋め</button><button class="chip-mode" type="button" data-mode="B">✍️ 短答</button><button class="chip-mode" type="button" data-mode="C">✅ 4択</button><button class="chip-mode" type="button" data-mode="D">📝 記述</button></div>
+        <div class="nm-chips"><button class="chip-mode" type="button" data-mode="A">穴埋め</button><button class="chip-mode" type="button" data-mode="B">短答</button><button class="chip-mode" type="button" data-mode="C">4択</button><button class="chip-mode" type="button" data-mode="D">記述</button></div>
       </div>
-      <a class="big-btn ref-btn" href="../../ref/14/index.html#t3">📖 参考書でおさらいする</a>
-      <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%A4%A7%E8%A1%86%E6%96%87%E5%8C%96%E3%81%AE%E6%88%90%E7%86%9F" target="_blank" rel="noopener">🤖 LINEでこの単元を出題してもらう<span class="btn-sub">公式LINEに問題が届く→答えるとAIがすぐ丸つけ。すきま時間の復習に</span></a>
-      <button class="big-btn retry-btn" type="button" data-retry>↻ この単元を最初から</button>
-      <button class="big-btn home-btn" type="button" data-go="0">🏠 目次にもどる</button>
+      <a class="big-btn ref-btn" href="../../ref/14/index.html#t3">参考書でおさらいする</a>
+      <div class="line-block">
+        <a class="big-btn line-btn" href="https://liff.line.me/2009587166-LjyCza2c/wb?t=%E5%A4%A7%E8%A1%86%E6%96%87%E5%8C%96%E3%81%AE%E6%88%90%E7%86%9F" target="_blank" rel="noopener">LINEで出題してもらう</a>
+        <p class="line-note">公式LINEに問題が届く→答えるとAIがすぐ丸つけ。すきま時間の復習に。</p>
+      </div>
+      <button class="big-btn retry-btn" type="button" data-retry>この単元を最初から</button>
+      <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
 <section class="print-answers print-only">
@@ -2349,6 +1879,7 @@ try {
         st.r[step.dataset.qid] = result.verdict === 'correct' ? 1 : 0;
         st.g[step.dataset.qid] = result;
         save(st);
+        refreshNextLock();
         return;
       }
       if (r.status === 402) {
@@ -2376,6 +1907,19 @@ try {
       if (r) renderGradeCard(step, r);
     });
   }
+
+  // 記述: 空欄のあいだは「AI採点」を押せないようにする（入力があれば有効化）
+  function syncAiBtn(step) {
+    if (!step) return;
+    var ta = step.querySelector('.w-input'), b = step.querySelector('.ai-grade');
+    if (ta && b) b.disabled = !ta.value.trim();
+  }
+  [].forEach.call(document.querySelectorAll('.wr-step'), syncAiBtn);
+  document.addEventListener('input', function (e) {
+    if (e.target.classList && e.target.classList.contains('w-input')) {
+      syncAiBtn(e.target.closest('.wr-step'));
+    }
+  });
 
   // 単元タブの左右矢印: まだ隠れているタブがある側だけ出す
   function updateTabArrows() {
@@ -2472,7 +2016,7 @@ try {
       var tail = sec('Z');
       if (cfg.mode === 'all') {
         body = all.filter(function (s) {
-          return s.dataset.sec !== 'M' && s.dataset.sec !== 'BB';
+          return s.dataset.sec !== 'M';
         });
         tail = [];
         // 以前のシャッフルで振り直した番号を元に戻す
@@ -2485,7 +2029,7 @@ try {
         });
       } else if (cfg.mode === 'A') { body = sec('A'); }
       else if (cfg.mode === 'B') {
-        body = cfg.batch ? sec('BB') : orderBy(sec('B'), cfg.order);
+        body = orderBy(sec('B'), cfg.order);
       } else if (cfg.mode === 'C') { body = orderBy(sec('C'), cfg.order); }
       else if (cfg.mode === 'D') { body = sec('D'); }
       else if (cfg.mode === 'wrong') {
@@ -2497,7 +2041,7 @@ try {
         });
       }
       // 単独/やり直しモードは表示順に合わせて「n / 全」を振り直す
-      if ((cfg.mode === 'B' && !cfg.batch) || cfg.mode === 'C' || cfg.mode === 'wrong') {
+      if (cfg.mode === 'B' || cfg.mode === 'C' || cfg.mode === 'wrong') {
         body.forEach(function (el, i) {
           var q = el.querySelector('.qnum');
           if (q) q.textContent = (i + 1) + ' / ' + body.length;
@@ -2529,6 +2073,25 @@ try {
     });
   }
 
+  // 4択の選択肢の表示順を毎回シャッフルする（ラベル1,2,3,4は位置固定・中身だけ入れ替え）。
+  // data-i（元の選択肢番号）は各ボタンに保持したままなので、正誤判定はそのまま動く。
+  function shuffleQopts(step) {
+    if (!step || step.classList.contains('answered')) return;   // 回答済みは並びを保つ
+    var box = step.querySelector('.qopts');
+    if (!box) return;
+    var opts = [].slice.call(box.querySelectorAll('.qopt'));
+    if (opts.length < 2) return;
+    for (var i = opts.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = opts[i]; opts[i] = opts[j]; opts[j] = tmp;
+    }
+    opts.forEach(function (el, i) {
+      box.appendChild(el);                       // 新しい順で並べ直す
+      var k = el.querySelector('.opt-k');
+      if (k) k.textContent = (i + 1);            // ラベルは上から 1,2,3,4
+    });
+  }
+
   function renderScore(view) {
     var st = store(), r = st.r || {};
     var box = view.querySelector('[data-score]');
@@ -2541,9 +2104,9 @@ try {
     }
     var qa = count('.qa-step'), qz = count('.qz-step'), wr = count('.wr-step');
     var rows = [];
-    if (qa.tried) rows.push('<div class="score-row"><span>B 一問一答</span><b>⭕ ' + qa.done + ' / ' + qa.tried + '</b></div>');
+    if (qa.tried) rows.push('<div class="score-row"><span>B 一問一答</span><b>正解 ' + qa.done + ' / ' + qa.tried + '</b></div>');
     if (qz.tried) rows.push('<div class="score-row"><span>C 実戦4択</span><b>正解 ' + qz.done + ' / ' + qz.tried + '</b></div>');
-    if (wr.tried) rows.push('<div class="score-row"><span>D 記述</span><b>⭕ ' + wr.done + ' / ' + wr.tried + '</b></div>');
+    if (wr.tried) rows.push('<div class="score-row"><span>D 記述</span><b>正解 ' + wr.done + ' / ' + wr.tried + '</b></div>');
     box.innerHTML = rows.join('') || 'このページの問題はタップ形式だよ。';
     // 「まちがえた問題だけやり直す」ボタン: B/C/D で r===0 の数だけ表示
     var wrongBtn = view.querySelector('.wrong-btn');
@@ -2566,7 +2129,7 @@ try {
       b.classList.toggle('on', bt === t);
       b.classList.toggle('done', bt > 0 && store()['d' + bt] === 1);
     });
-    var tabEl = tabs[t];
+    var tabEl = tabs.filter(function (b) { return +b.dataset.go === t; })[0];
     if (tabEl && tabEl.scrollIntoView) tabEl.scrollIntoView({ block: 'nearest', inline: 'center' });
     var navbar = document.getElementById('navbar');
     var barStep = document.getElementById('barStep');
@@ -2591,16 +2154,18 @@ try {
         el.classList.remove('turn-out', 'turn-in', 'turn-under', 'on');
       });
       if (steps[s]) steps[s].classList.add('on');
+      // 4択は表示のたびに選択肢の並びをシャッフル（未回答のときだけ）
+      if (steps[s] && steps[s].classList.contains('qz-step')) shuffleQopts(steps[s]);
       navbar.hidden = false;
       var onModeStep = steps[s] && steps[s].dataset.sec === 'M';
       // 「やり方をえらぼう」は本文にも大きく出るのでヘッダーには出さない（単元タブの幅を優先）
       barStep.textContent = onModeStep ? '' : (s + 1) + ' / ' + steps.length;
       pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
-      document.getElementById('btnPrev').textContent = s === 0 ? '🏠 目次' : '← まえへ';
+      document.getElementById('btnPrev').textContent = s === 0 ? '目次へ' : '← まえへ';
       var next = document.getElementById('btnNext');
       if (onModeStep && steps.length === 1) next.textContent = '⭐ おすすめ順で始める →';
       else if (s < steps.length - 1) next.textContent = 'つぎへ →';
-      else next.textContent = t < N ? '次の単元へ →' : '🏠 目次にもどる';
+      else next.textContent = t < N ? '次の単元へ →' : '目次にもどる';
       if (steps[s] && steps[s].classList.contains('done-step')) renderScore(views[t]);
       var st = store();
       st.last = { t: t, s: s };
@@ -2620,6 +2185,7 @@ try {
     // クエリが付いていても落とさない（URL共有時の情報を保つ）
     if (location.hash !== h) history.replaceState(null, '', location.search + (t === 0 ? '#' : h));
     updateSwap();
+    refreshNextLock();
     rendered = { t: t, s: s };
   }
 
@@ -2651,6 +2217,26 @@ try {
     else state.s = 0;
     render();
   }
+  // ── 未回答ガード: 問題(一問一答/4択/記述)に答えるまで「つぎへ」で先に進めない ──
+  function isGatedStep(step) {
+    return !!step && /(^| )(qa-step|qa-batch-step|qz-step|wr-step)( |$)/.test(step.className);
+  }
+  function stepAnswered(step) {
+    if (!step) return true;
+    if (step.classList.contains('show') || step.classList.contains('answered')) return true;
+    var qid = step.dataset.qid;
+    if (qid) { var r = (store() || {}).r || {}; if (r[qid] !== undefined) return true; }
+    return false;
+  }
+  function refreshNextLock() {
+    var b = document.getElementById('btnNext');
+    if (!b) return;
+    var steps = state.t > 0 ? stepsOf(state.t) : null;
+    var stp = steps ? steps[state.s] : null;
+    var locked = !!(stp && isGatedStep(stp) && !stepAnswered(stp));
+    b.classList.toggle('locked', locked);
+    b.disabled = locked;
+  }
   function next() {
     var t = state.t, s = state.s;
     if (t === 0) return;
@@ -2660,6 +2246,7 @@ try {
       applyMode(t, { mode: 'all' });
       return;
     }
+    if (isGatedStep(pl[s]) && !stepAnswered(pl[s])) return;  // 未回答は進めない
     if (s < pl.length - 1) go(t, s + 1, 1);
     else if (t < N) go(t + 1, 0, 1);
     else go(0, 0, 1);
@@ -2673,8 +2260,24 @@ try {
 
   document.getElementById('btnNext').addEventListener('click', next);
   document.getElementById('btnPrev').addEventListener('click', prev);
+  // 回答するとロックを解除（回答処理の後に評価するため click は次tickで）
+  document.addEventListener('click', function () { setTimeout(refreshNextLock, 0); });
+  document.addEventListener('input', refreshNextLock);
 
   document.addEventListener('click', function (e) {
+    // 「解説を読む」= 参考書へ同じタブで移動し、いまの問題位置を back= に付ける
+    // （参考書側が「問題にもどる」ボタンを出す）。
+    var sh = e.target.closest('.sec-help');
+    if (sh) {
+      e.preventDefault();
+      var href = sh.getAttribute('href');
+      var hi = href.indexOf('#');
+      var base = hi >= 0 ? href.slice(0, hi) : href;
+      var frag = hi >= 0 ? href.slice(hi) : '';
+      var back = encodeURIComponent(location.pathname + location.hash);
+      location.href = base + (base.indexOf('?') >= 0 ? '&' : '?') + 'back=' + back + frag;
+      return;
+    }
     var go_ = e.target.closest('[data-go]');
     if (go_) { go(+go_.dataset.go, 0, 1); return; }
 
@@ -2697,7 +2300,7 @@ try {
       var rcfg = { mode: rm };
       // まちがい直しは、直前の解き方（入力/確認）を引き継ぐ（既定は入力）
       if (rm === 'wrong') { rcfg.ans = (modeCfg(state.t) || {}).ans || 'type'; }
-      if (rm === 'B') { rcfg.ans = 'type'; rcfg.batch = false; rcfg.shuf = false; rcfg.order = null; }
+      if (rm === 'B') { rcfg.ans = 'type'; rcfg.shuf = false; rcfg.order = null; }
       if (rm === 'C') { rcfg.shuf = false; rcfg.order = null; }
       applyMode(state.t, rcfg);
       return;
@@ -2732,11 +2335,10 @@ try {
       var cfg = { mode: mb.dataset.mode };
       if (cfg.mode === 'B') {
         cfg.ans = chip('ansB') === 1 ? 'check' : 'type';
-        cfg.batch = chip('batch') === 1;
         cfg.shuf = chip('shufB') === 1;
       }
       if (cfg.mode === 'C') { cfg.shuf = chip('shufC') === 1; }
-      if ((cfg.mode === 'B' && !cfg.batch) || cfg.mode === 'C') {
+      if (cfg.mode === 'B' || cfg.mode === 'C') {
         var cnt = views[mt].querySelectorAll('.step[data-sec="' + cfg.mode + '"]').length;
         cfg.order = cfg.shuf ? shuffledOrder(cnt) : null;
       }
@@ -2784,22 +2386,6 @@ try {
       save(stI);
       return;
     }
-    // 一問一答: 入力して判定（まとめて）
-    var bbj = e.target.closest('.b-batch-judge');
-    if (bbj) {
-      var bstep = bbj.closest('.step');
-      var stB = store(); stB.r = stB.r || {};
-      [].forEach.call(bstep.querySelectorAll('.bq-item'), function (it) {
-        var ok2 = judgeTerm(it.querySelector('.b-in').value, it.dataset.a, it.dataset.r);
-        showJudged(it, ok2);
-        stB.r[it.dataset.qid] = ok2 ? 1 : 0;
-      });
-      bstep.classList.add('show');
-      save(stB);
-      window.scrollTo(0, 0);  // 上から答え合わせを見返せるように
-      return;
-    }
-
     var rev = e.target.closest('.reveal');
     if (rev) { rev.closest('.step').classList.add('show'); return; }
 
@@ -2811,16 +2397,6 @@ try {
     var mk = e.target.closest('.mk');
     if (mk) {
       var st = store(); st.r = st.r || {};
-      // まとめて採点（バッチ）内の○△: 記録して選択表示するだけで、進まない
-      var bq = mk.closest('.bq-item');
-      if (bq) {
-        st.r[bq.dataset.qid] = +mk.dataset.v;
-        save(st);
-        [].forEach.call(bq.querySelectorAll('.mk'), function (b) {
-          b.classList.toggle('sel', b === mk);
-        });
-        return;
-      }
       var stp = mk.closest('.step');
       st.r[stp.dataset.qid] = +mk.dataset.v;
       save(st);

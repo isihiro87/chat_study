@@ -21,12 +21,26 @@
   .s.read { color:#8a8279; }
   .s.now { background:#fcd34d; color:#1c1917; }
   .s.now .mark { background:none; }
-  /* 単元見出しの再生ボタン */
+  /* 単元見出しの音声ボタン（タップで読み上げ再生。適度に目立つ塗りボタン＋再生アイコン） */
   .play-unit { display:inline-flex; align-items:center; gap:6px; margin-left:auto; flex:none;
-               background:#fff; color:var(--brand); border:1.5px solid var(--line);
-               border-radius:20px; padding:4px 12px; font-size:12px; font-weight:bold;
-               font-family:inherit; cursor:pointer; }
+               background:linear-gradient(#f59e0b,#ea7a09); color:#fff;
+               border:none; border-radius:20px; padding:7px 15px 7px 9px; font-size:13px; font-weight:bold;
+               font-family:inherit; cursor:pointer; box-shadow:0 3px 0 #c2620a, 0 4px 9px rgba(217,119,6,.3);
+               transition:transform .12s, filter .12s; }
+  .pu-ic { flex:none; width:22px; height:22px; border-radius:50%; background:rgba(255,255,255,.28);
+           display:inline-flex; align-items:center; justify-content:center; }
+  .pu-ic svg { width:13px; height:13px; fill:#fff; margin-left:1px; }
+  .play-unit:active { transform:translateY(2px); box-shadow:0 1px 0 #c2620a; }
+  @media (hover:hover) { .play-unit:hover { filter:brightness(1.06); } }
   .play-unit[hidden] { display:none; }
+  /* 問題集の「解説を読む」から来たときに出す「問題にもどる」ボタン（すぐ問題へ戻れる） */
+  .backpill { position:fixed; left:50%; transform:translateX(-50%); bottom:74px; z-index:40;
+              background:var(--brand); color:#fff; font-weight:bold; font-size:13.5px;
+              border-radius:22px; padding:9px 18px 9px 13px; text-decoration:none;
+              box-shadow:0 4px 14px rgba(120,50,10,.35); display:inline-flex; align-items:center; gap:5px; }
+  .backpill svg { width:16px; height:16px; fill:none; stroke:#fff; stroke-width:2.4;
+                  stroke-linecap:round; stroke-linejoin:round; }
+  .backpill[hidden] { display:none; }
   /* 下部プレーヤー（再生中だけ出す。ナビバーの上に重ねる） */
   .aplayer { position:fixed; left:0; right:0; bottom:58px; z-index:25;
              background:rgba(255,253,248,.98); border-top:1px solid #f0e6d2;
@@ -53,13 +67,18 @@
      タブ列の 🏠 は「この本の目次」なので、こちらは 🗺＋文字でトップだと分かるようにする。 */
   .tophome { flex:none; height:30px; padding:0 12px; font-size:11.5px; font-weight:bold;
              color:#fff; background:var(--deep); border-radius:15px; text-decoration:none;
-             display:inline-flex; align-items:center; white-space:nowrap;
-             box-shadow:0 2px 0 #5b1e0b; }
-  .swap { flex:none; display:inline-flex; border:1.5px solid var(--line); border-radius:20px;
-          overflow:hidden; background:#fffbeb; }
-  .sw { font-size:11px; font-weight:bold; color:var(--brand); padding:3px 7px; text-decoration:none;
-        white-space:nowrap; cursor:pointer; }
-  .sw.on { background:var(--brand); color:#fff; }
+             display:inline-flex; align-items:center; gap:5px; white-space:nowrap;
+             box-shadow:0 2px 0 #5b1e0b; transition:filter .12s; }
+  .th-ic { width:14px; height:14px; fill:currentColor; flex:none; }
+  @media (hover:hover) { .tophome:hover { filter:brightness(1.12); } }
+  /* 参考書⇄問題の切りかえタブ。押せると分かるよう、非選択側は白ボタン風＋ホバー反応 */
+  .swap { flex:none; display:inline-flex; gap:3px; padding:2px; border-radius:16px;
+          background:#f0e2c3; }
+  .sw { font-size:11.5px; font-weight:bold; color:var(--brand); padding:4px 12px; text-decoration:none;
+        white-space:nowrap; cursor:pointer; border-radius:13px; background:#fff;
+        transition:filter .12s, background-color .12s; }
+  .sw.on { background:var(--brand); color:#fff; cursor:default; box-shadow:0 1px 2px rgba(180,83,9,.3); }
+  @media (hover:hover) { .sw:not(.on):hover { background:#fff8ec; filter:brightness(0.98); } }
   .sw[hidden] { display:none; }
   .bar-title { font-weight:bold; color:var(--deep); font-size:14px; flex:1;
                white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
@@ -83,13 +102,15 @@
   .tabs { display:flex; gap:5px; overflow-x:auto; padding:4px 0; width:100%;
           scrollbar-width:none; -webkit-overflow-scrolling:touch; }
   .tabs::-webkit-scrollbar { display:none; }
+  /* 単元タブ: 位置は動かさず、色で状態を示す（未読=クリーム／読んだ=緑／表示中=茶） */
   .tab { flex:none; width:30px; height:30px; border-radius:50%; border:1.5px solid var(--line);
          background:#fffbeb; color:var(--brand); font-size:15px; font-weight:bold;
-         display:inline-flex; align-items:center; justify-content:center; cursor:pointer; }
-  .tab.done { background:#fef3c7; }
+         display:inline-flex; align-items:center; justify-content:center; cursor:pointer;
+         transition:background-color .12s, border-color .12s; }
+  .tab.done { background:#dcfce7; border-color:#86efac; color:#15803d; }   /* 読んだ単元 */
   .tab.done::after { content:""; }
-  .tab.on { background:var(--brand); border-color:var(--brand); color:#fff;
-            box-shadow:0 2px 6px rgba(180,83,9,.35); }
+  .tab.on { background:var(--brand); border-color:var(--brand); color:#fff; }  /* いま表示中 */
+  @media (hover:hover) { .tab:not(.on):hover { background:#fff2d6; } }
   .pbar { height:3px; background:#f5ecd8; border-radius:2px; overflow:hidden; margin:0 0 0; }
   .pfill { height:100%; width:0; background:linear-gradient(90deg,var(--amber),#fbbf24);
            border-radius:2px; transition:width .25s ease; }
@@ -100,6 +121,7 @@
   @keyframes vfade { from { opacity:.6; } to { opacity:1; } }
   .step { display:none; }
   .step.on { display:block; }
+  .step::after { content:""; display:table; clear:both; }  /* 挿絵の float を内包 */
   /* 本物っぽいページめくり（2枚重ね）:
      進む = 今のページ自体が左とじに沿って手前にめくれて去り、下から次のページが現れる。
      戻る = 前のページが手前からめくり戻されて上に着地する。 */
@@ -144,8 +166,7 @@
   .b-web { background:var(--amber); color:#fff; }
   .ht-title { font-size:41px; color:var(--deep); margin:12px 0 0; line-height:1.12; position:relative;
               display:inline-block; padding:0 6px; letter-spacing:.01em; }
-  .ht-title::before { content:"✨"; position:absolute; left:-22px; top:2px; font-size:19px; }
-  .ht-title::after { content:"✨"; position:absolute; right:-20px; bottom:4px; font-size:15px; }
+  .ht-title::before, .ht-title::after { content:none; }
   .ht-mascot { flex:none; position:relative; width:100px; padding-top:22px; text-align:center; }
   .ht-mascot img { height:74px; width:auto; }
   .ht-bubble { position:absolute; top:0; left:50%; transform:translateX(-50%); white-space:nowrap;
@@ -181,8 +202,8 @@
   .toc { margin:16px 0 8px; background:#fff9ef; border:2px solid #f0e2c3; border-radius:16px; padding:12px; }
   .toc-head { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:10px; }
   .toc-h { font-weight:bold; color:var(--deep); font-size:16px; display:flex; align-items:center; gap:8px; }
-  .toc-h::before { content:"📖"; display:inline-flex; align-items:center; justify-content:center;
-                   width:30px; height:30px; border-radius:50%; background:var(--brand); font-size:15px; }
+  .toc-h::before { content:""; flex:none; width:30px; height:30px; border-radius:50%;
+                   background:var(--brand) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23fff'%3E%3Cpath d='M12 6.6C10.5 5.4 8.4 4.9 6 4.9c-1 0-2 .1-2.8.3v12.9c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3V5.2C20 5 19 4.9 18 4.9c-2.4 0-4.5.5-6 1.7z'/%3E%3C/svg%3E") center/17px no-repeat; }
   /* 単元カード（大きめサムネ＋番号＋名前＋右矢印） */
   .toc-item { display:flex; align-items:center; width:100%; margin-bottom:8px; padding:0;
               background:#fff; border:1.5px solid #f0e2c3; border-radius:12px; overflow:hidden;
@@ -261,6 +282,39 @@
             border:1.5px solid var(--line); color:var(--brand); font-weight:bold;
             display:inline-flex; align-items:center; justify-content:center; font-size:12px; }
   .sec-lead { font-size:13px; color:var(--brand); font-weight:bold; margin:2px 0 4px 30px; }
+  /* 節の挿絵：既定は本文の右に小さく回り込ませる（補足的・目立ちすぎない） */
+  .sec-fig { float:right; width:46%; max-width:205px; margin:3px 0 8px 12px; }
+  .sec-fig.fig-contain { max-width:230px; }
+  .sec-fig img { width:100%; max-height:172px; object-fit:cover; display:block;
+                 border-radius:10px; border:1px solid #f0e6d2;
+                 box-shadow:0 1px 4px rgba(120,80,20,.10); background:#fff; cursor:zoom-in; }
+  /* 図版（関係図・地図）は切らずに全体を見せる（日本語ラベルが欠けないように） */
+  .sec-fig.fig-contain img { object-fit:contain; max-height:none; background:#fffdf8; }
+  .sec-fig figcaption { font-size:11px; color:#a8a29e; text-align:center; margin-top:4px; line-height:1.4; }
+  /* 変化をつける: 左回り込み／サイズ違い／横いっぱい */
+  .sec-fig.pos-left { float:left; margin:3px 12px 8px 0; }
+  .sec-fig.size-sm { max-width:150px; }
+  .sec-fig.size-lg { max-width:250px; }
+  .sec-fig.pos-wide { float:none; width:auto; max-width:100%; margin:10px 0; }
+  .sec-fig.pos-wide img { max-height:260px; }
+  .sec-fig.pos-wide.fig-contain img { max-height:340px; }  /* 地図・図はワイドで大きく読める */
+  .sec-fig.pos-wide figcaption { font-size:12px; }
+  /* 挿絵を含む節でも ⭐ここだけ覚える／用語は画像の下から始める */
+  .step .point, .step .words { clear:both; }
+  .cover-art img, .cover-img { cursor:zoom-in; }
+
+  /* 画像タップで拡大（ライトボックス） */
+  .lightbox { position:fixed; inset:0; z-index:200; background:rgba(20,14,8,.88);
+              display:flex; align-items:center; justify-content:center; padding:20px;
+              -webkit-tap-highlight-color:transparent; cursor:zoom-out; }
+  .lightbox[hidden] { display:none; }
+  .lightbox img { max-width:96vw; max-height:90vh; border-radius:10px; background:#fffdf8;
+                  box-shadow:0 8px 40px rgba(0,0,0,.55); }
+  .lb-close { position:fixed; top:14px; right:16px; width:42px; height:42px; border:none;
+              border-radius:50%; background:rgba(255,255,255,.92); color:#7c2d12; font-size:24px;
+              line-height:1; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,.3); }
+  .lb-hint { position:fixed; bottom:20px; left:0; right:0; text-align:center; color:#fff;
+             font-size:12px; opacity:.7; pointer-events:none; }
   .step p { margin-top:8px; text-align:justify; }
   .point { background:#fff9c4; border-left:6px solid #fbbf24; border-radius:8px;
            padding:10px 12px; margin-top:12px; font-size:14px; line-height:1.8; }
@@ -440,10 +494,10 @@
 </style></head><body>
 <div class="bar"><div class="bar-in">
   <div class="bar-row">
-    <a class="tophome" href="../../index.html" aria-label="単元一覧へもどる">単元一覧</a>
-    <div class="swap"><span class="sw on">📖 参考書</span><a class="sw" id="swWb">✏️ 問題</a></div>
+    <a class="tophome" href="../../index.html" aria-label="単元一覧へもどる"><svg class="th-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.6"/></svg>単元一覧</a>
+    <div class="swap" role="tablist" aria-label="参考書と問題の切りかえ"><span class="sw on">参考書</span><a class="sw" id="swWb" role="tab">問題</a></div>
     <div class="tabs-wrap">
-      <nav class="tabs" id="tabs"><button class="tab tab-home" data-go="0" aria-label="目次">🏠</button><button class="tab" data-go="1" aria-label="第一次世界大戦の勃発">1</button><button class="tab" data-go="2" aria-label="日本の参戦と二十一か条の要求">2</button><button class="tab" data-go="3" aria-label="ロシア革命とソ連の成立">3</button><button class="tab" data-go="4" aria-label="戦後秩序とアジアの抵抗">4</button></nav>
+      <nav class="tabs" id="tabs"><button class="tab" data-go="1" aria-label="第一次世界大戦の勃発">1</button><button class="tab" data-go="2" aria-label="日本の参戦と二十一か条の要求">2</button><button class="tab" data-go="3" aria-label="ロシア革命とソ連の成立">3</button><button class="tab" data-go="4" aria-label="戦後秩序とアジアの抵抗">4</button></nav>
       <button class="tscroll tsl" id="tabsL" type="button" hidden aria-label="単元タブを左へ">‹</button>
       <button class="tscroll tsr" id="tabsR" type="button" hidden aria-label="単元タブを右へ">›</button>
     </div>
@@ -452,11 +506,11 @@
   <div class="bar-title" hidden>歴史 ⑬ 第一次世界大戦と日本</div>
   <div class="pbar"><div class="pfill" id="pfill"></div></div>
 </div></div>
+<a class="backpill" id="backPill" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 6l-6 6 6 6"/></svg>問題にもどる</a>
 <main class="wrap" id="views">
 
 <section class="view home" data-t="0">
   <div class="home-topline">
-    <a class="home-link" href="../../index.html">‹ 単元一覧にもどる</a>
     <div class="badge3"><span class="b-vol">歴史 ⑬</span><span class="b-kind">参考書</span></div>
   </div>
   <header class="top hometop">
@@ -471,7 +525,7 @@
     <div class="toc-head"><div class="toc-h">単元を選択</div></div>
     <button class="toc-item" data-go="1"><img class="toc-thumb" src="img/hist13-ww1.webp" alt="" loading="lazy"><span class="toc-no">1</span><span class="toc-name">第一次世界大戦の勃発</span><span class="toc-state" data-state-t="1"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="2"><img class="toc-thumb" src="img/hist13-japan-in-ww1.webp" alt="" loading="lazy"><span class="toc-no">2</span><span class="toc-name">日本の参戦と二十一か条の要求</span><span class="toc-state" data-state-t="2"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="3"><img class="toc-thumb" src="img/hist13-russia.webp" alt="" loading="lazy"><span class="toc-no">3</span><span class="toc-name">ロシア革命とソ連の成立</span><span class="toc-state" data-state-t="3"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="4"><img class="toc-thumb" src="img/hist13-versailles.webp" alt="" loading="lazy"><span class="toc-no">4</span><span class="toc-name">戦後秩序とアジアの抵抗</span><span class="toc-state" data-state-t="4"></span><span class="toc-arrow">›</span></button>
   </nav>
-  <a class="wb-home" href="../../wb/13/index.html">✏️ 問題集を開く（この本の問題を解く）</a>
+  <a class="wb-home" href="../../wb/13/index.html">問題集を開く（この本の問題を解く）</a>
   <footer class="foot">
     <div>つづもん 参考書</div>
     <div class="foot-note">紙やタブレットでじっくり派には、ダウンロード済みのPDF版もどうぞ。</div>
@@ -479,37 +533,40 @@
 </section>
 <section class="view" data-t="1">
   <div class="tband"><span class="tno">1</span><h2>第一次世界大戦の勃発</h2>
-    <button class="play-unit" type="button" data-play="1" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="1" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-ww1-outbreak.webp"
+      <img class="cover-img zoomable" src="img/cover-ww1-outbreak.webp"
            alt="第一次世界大戦の勃発（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">世界を巻き込む大きな戦争が、</span><span class="s" data-i="1">ヨーロッパのある事件をきっかけに始まったんだ。</span><span class="s" data-i="2">今まで見たことのない「総力戦」って、</span><span class="s" data-i="3">一体どんな戦争だったんだろう?</span></div></div>
     </div>
     <div class="step" data-label="ヨーロッパの対立と「火薬庫」">
       <h3><span class="sec-no">1</span><span class="s" data-i="4">ヨーロッパの対立と「火薬庫」</span></h3>
       <div class="sec-lead"><span class="s" data-i="5">同盟関係が対立し、</span><span class="s" data-i="6">バルカン半島が緊張していたよ。</span></div>
+      
       <p><span class="s" data-i="7">20世紀の初め、</span><span class="s" data-i="8">ヨーロッパでは大きな国どうしが手を組み合っていたんだ。</span><span class="s" data-i="9">イギリス・フランス・ロシアが結んだ<span class="mark">三国協商</span>と、</span><span class="s" data-i="10">ドイツ・オーストリア・イタリアが結んだ<span class="mark">三国同盟</span>が、</span><span class="s" data-i="11">にらみ合うような関係になっていたんだよ。</span><span class="s" data-i="12">とくに<span class="mark">バルカン半島</span>は、</span><span class="s" data-i="13">いろいろな民族や宗教が入り混じっていて対立が絶えず、</span><span class="s" data-i="14">「ヨーロッパの火薬庫」と呼ばれるほど危険な地域だったんだ。</span><span class="s" data-i="15">知ってた?小さな火種が、</span><span class="s" data-i="16">いつ大きな爆発になってもおかしくなかったんだね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="17">三国協商と三国同盟が対立し、</span><span class="s" data-i="18">バルカン半島は火薬庫と呼ばれたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="17">三国協商と三国同盟が対立し、</span><span class="s" data-i="18">バルカン半島は火薬庫と呼ばれたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">三国協商<span class="w-rd">さんごくきょうしょう</span></span><span class="w-desc">20世紀初め、イギリス・フランス・ロシアが結んだ協力関係。</span></div><div class="word"><span class="w-term">三国同盟<span class="w-rd">さんごくどうめい</span></span><span class="w-desc">ドイツ・オーストリア・イタリアが1882年に結んだ同盟。</span></div><div class="word"><span class="w-term">バルカン半島<span class="w-rd">ばるかんはんとう</span></span><span class="w-desc">民族・宗教の対立が複雑で「ヨーロッパの火薬庫」と呼ばれた地域。</span></div></div>
     </div>
     <div class="step" data-label="サラエボ事件から開戦へ">
       <h3><span class="sec-no">2</span><span class="s" data-i="19">サラエボ事件から開戦へ</span></h3>
       <div class="sec-lead"><span class="s" data-i="20">暗殺事件をきっかけに世界大戦が始まったよ。</span></div>
+      
       <p><span class="s" data-i="21">1914年6月、</span><span class="s" data-i="22">そのバルカン半島のサラエボで、</span><span class="s" data-i="23">オーストリアの皇太子夫妻がセルビア人の青年に暗殺されるという事件が起きたんだ。</span><span class="s" data-i="24">これが<span class="mark">サラエボ事件</span>だよ。</span><span class="s" data-i="25">この事件をきっかけに、</span><span class="s" data-i="26">ドイツを中心とする<span class="mark">同盟国</span>と、</span><span class="s" data-i="27">三国協商にアメリカや日本が加わった<span class="mark">連合国</span>が対立し、</span><span class="s" data-i="28">ついに第一次世界大戦が始まってしまったんだ。</span><span class="s" data-i="29">ひとつの暗殺事件が、</span><span class="s" data-i="30">世界中を巻き込む大戦争に発展してしまうなんて、恐ろしいよね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="31">1914年、サラエボ事件をきっかけに世界大戦が始まったよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="31">1914年、サラエボ事件をきっかけに世界大戦が始まったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">サラエボ事件<span class="w-rd">さらえぼじけん</span></span><span class="w-desc">1914年、オーストリアの皇太子夫妻が暗殺された事件。第一次世界大戦のきっかけ。</span></div><div class="word"><span class="w-term">同盟国<span class="w-rd">どうめいこく</span></span><span class="w-desc">第一次世界大戦でドイツを中心とした陣営。</span></div><div class="word"><span class="w-term">連合国<span class="w-rd">れんごうこく</span></span><span class="w-desc">第一次世界大戦で同盟国と戦った、英・仏・露にアメリカ・日本が加わった陣営。</span></div></div>
     </div>
     <div class="step" data-label="総力戦という新しい戦い方">
       <h3><span class="sec-no">3</span><span class="s" data-i="32">総力戦という新しい戦い方</span></h3>
       <div class="sec-lead"><span class="s" data-i="33">国のすべてを動員する総力戦が繰り広げられたよ。</span></div>
+      
       <p><span class="s" data-i="34">この戦争では、兵士だけでなく国民・経済・科学技術のすべてを戦争のために使う<span class="mark">総力戦</span>という新しいスタイルが生まれたんだ。</span><span class="s" data-i="35">西部戦線では深い溝を掘って身を守る<span class="mark">塹壕戦</span>が続き、</span><span class="s" data-i="36">そこに<span class="mark">毒ガス</span>のような恐ろしい新兵器まで使われるようになったんだよ。</span><span class="s" data-i="37">1917年に<span class="mark">アメリカ</span>が連合国側で参戦すると戦況は大きく動き、</span><span class="s" data-i="38">1918年にドイツが降伏して、</span><span class="s" data-i="39">ようやく戦争は終わったんだ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="40">総力戦が繰り広げられ、</span><span class="s" data-i="41">1918年にドイツが降伏したよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="40">総力戦が繰り広げられ、</span><span class="s" data-i="41">1918年にドイツが降伏したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">総力戦<span class="w-rd">そうりょくせん</span></span><span class="w-desc">国民・経済・科学技術のすべてを動員する新しい戦争のかたち。</span></div><div class="word"><span class="w-term">塹壕戦<span class="w-rd">ざんごうせん</span></span><span class="w-desc">深い溝を掘って身を守る、西部戦線で行われた戦い方。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -617,10 +674,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/13/index.html#t2"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/13/index.html#t2"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=13-ww1-outbreak" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -628,44 +684,48 @@
 </section>
 <section class="view" data-t="2">
   <div class="tband"><span class="tno">2</span><h2>日本の参戦と二十一か条の要求</h2>
-    <button class="play-unit" type="button" data-play="2" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="2" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-japan-in-ww1.webp"
+      <img class="cover-img zoomable" src="img/cover-japan-in-ww1.webp"
            alt="日本の参戦と二十一か条の要求（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">日本はこの戦争にどうやって関わったんだろう?遠いヨーロッパの戦争が、</span><span class="s" data-i="1">日本の景気や中国との関係を大きく揺さぶることになるんだ。</span></div></div>
     </div>
     <div class="step" data-label="日英同盟を理由にした参戦">
       <h3><span class="sec-no">1</span><span class="s" data-i="2">日英同盟を理由にした参戦</span></h3>
       <div class="sec-lead"><span class="s" data-i="3">日英同盟を理由に参戦し、</span><span class="s" data-i="4">中国などを占領したよ。</span></div>
+      
       <p><span class="s" data-i="5">日本は1902年に結んでいた<span class="mark">日英同盟</span>を理由に、1914年、</span><span class="s" data-i="6">第一次世界大戦へ連合国側として参戦したんだよ。</span><span class="s" data-i="7">そしてドイツが中国で租借していた<span class="mark">山東省</span>や、</span><span class="s" data-i="8">太平洋にあったドイツ領の<span class="mark">南洋諸島</span>を、</span><span class="s" data-i="9">またたく間に占領してしまったんだ。</span><span class="s" data-i="10">ヨーロッパから遠く離れた日本が、</span><span class="s" data-i="11">この戦争でこんなに大きく動くなんて、</span><span class="s" data-i="12">意外に思うかもしれないね。</span><span class="s" data-i="13">実はここに、日本のアジアへの野心が見え隠れしているんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="14">日英同盟を理由に参戦し、</span><span class="s" data-i="15">山東省と南洋諸島を占領したよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="14">日英同盟を理由に参戦し、</span><span class="s" data-i="15">山東省と南洋諸島を占領したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">日英同盟<span class="w-rd">にちえいどうめい</span></span><span class="w-desc">1902年に結ばれた日本とイギリスの同盟。日本参戦の根拠となった。</span></div><div class="word"><span class="w-term">山東省<span class="w-rd">さんとうしょう</span></span><span class="w-desc">中国にあったドイツの租借地。日本が第一次世界大戦中に占領した。</span></div><div class="word"><span class="w-term">南洋諸島<span class="w-rd">なんようしょとう</span></span><span class="w-desc">太平洋にあったドイツ領。日本が占領し、戦後は国際連盟の委任統治領になった。</span></div></div>
     </div>
     <div class="step" data-label="二十一か条の要求">
       <h3><span class="sec-no">2</span><span class="s" data-i="16">二十一か条の要求</span></h3>
       <div class="sec-lead"><span class="s" data-i="17">袁世凱政権に強引な要求を突きつけたよ。</span></div>
+      
       <p><span class="s" data-i="18">1915年、日本の大隈内閣は中国(中華民国)の<span class="mark">袁世凱</span>政権に対して、</span><span class="s" data-i="19"><span class="mark">二十一か条の要求</span>を突きつけたんだ。</span><span class="s" data-i="20">山東省にあったドイツの権益を日本が引き継ぐことなどを認めさせようとする、</span><span class="s" data-i="21">かなり強引な内容だったんだよ。</span><span class="s" data-i="22">袁世凱はやむなくこれを受け入れたけれど、</span><span class="s" data-i="23">この要求は中国の人々の間に強い反日感情を生む原因になってしまったんだ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="24">1915年、袁世凱政権に二十一か条の要求を突きつけたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="24">1915年、袁世凱政権に二十一か条の要求を突きつけたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">二十一か条の要求<span class="w-rd">にじゅういちかじょうのようきゅう</span></span><span class="w-desc">1915年、日本が袁世凱政権に突きつけた要求。中国に強い反日感情を生んだ。</span></div></div>
     </div>
     <div class="step" data-label="大戦景気と成金の誕生">
       <h3><span class="sec-no">3</span><span class="s" data-i="25">大戦景気と成金の誕生</span></h3>
       <div class="sec-lead"><span class="s" data-i="26">輸出が伸び、日本は好景気に沸いたよ。</span></div>
+      
       <p><span class="s" data-i="27">戦争でヨーロッパ諸国が輸出どころではなくなると、</span><span class="s" data-i="28">その隙に日本の製品がどんどん売れるようになり、</span><span class="s" data-i="29"><span class="mark">大戦景気</span>と呼ばれる好景気が訪れたんだ。</span><span class="s" data-i="30">この波に乗って急にお金持ちになった人たちは<span class="mark">成金</span>と呼ばれ、</span><span class="s" data-i="31">船で財を成した「船成金」なんて言葉まで生まれたんだよ。</span><span class="s" data-i="32">すごいよね、戦争が遠い日本の景気まで押し上げてしまうなんて。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="33">輸出が伸びて大戦景気となり、</span><span class="s" data-i="34">成金と呼ばれる人も現れたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="33">輸出が伸びて大戦景気となり、</span><span class="s" data-i="34">成金と呼ばれる人も現れたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">大戦景気<span class="w-rd">たいせんけいき</span></span><span class="w-desc">第一次世界大戦中、日本製品の需要拡大でおきた好景気。</span></div><div class="word"><span class="w-term">成金<span class="w-rd">なりきん</span></span><span class="w-desc">大戦景気で急に大金持ちになった人々。</span></div></div>
     </div>
     <div class="step" data-label="シベリア出兵と米騒動">
       <h3><span class="sec-no">4</span><span class="s" data-i="35">シベリア出兵と米騒動</span></h3>
       <div class="sec-lead"><span class="s" data-i="36">米の買い占めから米騒動が全国に広がったよ。</span></div>
+      
       <p><span class="s" data-i="37">1918年、日本はロシア革命に干渉しようと<span class="mark">シベリア出兵</span>を始めたんだ。</span><span class="s" data-i="38">ところが、この出兵を見越した米の買い占めが起こり、</span><span class="s" data-i="39">米の値段が急に跳ね上がってしまったんだよ。</span><span class="s" data-i="40">生活に困った人々の怒りは全国に広がり、</span><span class="s" data-i="41"><span class="mark">米騒動</span>という大きな騒ぎになったんだ。</span><span class="s" data-i="42">この責任を取るかたちで、</span><span class="s" data-i="43">寺内正毅内閣は退陣に追い込まれてしまったんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="44">シベリア出兵をきっかけに米騒動が起き、</span><span class="s" data-i="45">内閣が退陣したよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="44">シベリア出兵をきっかけに米騒動が起き、</span><span class="s" data-i="45">内閣が退陣したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">米騒動<span class="w-rd">こめそうどう</span></span><span class="w-desc">1918年、米価高騰への抗議が全国に広がった騒動。寺内内閣退陣の原因となった。</span></div><div class="word"><span class="w-term">シベリア出兵<span class="w-rd">しべりあしゅっぺい</span></span><span class="w-desc">ロシア革命に干渉するため、日本が1918年から行った出兵。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -773,10 +833,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/13/index.html#t3"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/13/index.html#t3"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=13-japan-in-ww1" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -784,37 +843,40 @@
 </section>
 <section class="view" data-t="3">
   <div class="tband"><span class="tno">3</span><h2>ロシア革命とソ連の成立</h2>
-    <button class="play-unit" type="button" data-play="3" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="3" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-russian-revolution.webp"
+      <img class="cover-img zoomable" src="img/cover-russian-revolution.webp"
            alt="ロシア革命とソ連の成立（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">戦争に疲れ果てた人々が、</span><span class="s" data-i="1">ついに立ち上がったんだ。</span><span class="s" data-i="2">世界で初めて社会主義の国が生まれた、</span><span class="s" data-i="3">その瞬間を見てみよう。</span></div></div>
     </div>
     <div class="step" data-label="ロシア革命の勃発">
       <h3><span class="sec-no">1</span><span class="s" data-i="4">ロシア革命の勃発</span></h3>
       <div class="sec-lead"><span class="s" data-i="5">世界初の社会主義革命がロシアで起こったよ。</span></div>
+      
       <p><span class="s" data-i="6">第一次世界大戦が長引くにつれ、</span><span class="s" data-i="7">ロシアでは物資も食糧も足りなくなり、</span><span class="s" data-i="8">人々の暮らしはどんどん苦しくなっていったんだ。</span><span class="s" data-i="9">そんな不満が爆発し、1917年、</span><span class="s" data-i="10">世界で初めての社会主義革命である<span class="mark">ロシア革命</span>が起こったんだよ。</span><span class="s" data-i="11">労働者・兵士・農民が集まってつくった<span class="mark">ソビエト</span>という組織を土台に、</span><span class="s" data-i="12"><span class="mark">レーニン</span>が率いる<span class="mark">ボリシェビキ</span>が政権をにぎったんだ。</span><span class="s" data-i="13">不思議でしょ?戦争がきっかけで、</span><span class="s" data-i="14">世界の歴史が大きく変わったんだね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="15">1917年、レーニンらが世界初の社会主義革命を成功させたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="15">1917年、レーニンらが世界初の社会主義革命を成功させたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">ロシア革命<span class="w-rd">ろしあかくめい</span></span><span class="w-desc">1917年、世界で初めて起こった社会主義革命。レーニンが指導した。</span></div><div class="word"><span class="w-term">レーニン<span class="w-rd">れーにん</span></span><span class="w-desc">ロシア革命を指導し、1922年にソ連を建国した人物。</span></div><div class="word"><span class="w-term">ソビエト<span class="w-rd">そびえと</span></span><span class="w-desc">労働者・兵士・農民の代表が集まった組織。ロシア革命の中心となった。</span></div><div class="word"><span class="w-term">ボリシェビキ<span class="w-rd">ぼりしぇびき</span></span><span class="w-desc">レーニンが率いたロシア社会民主労働党の多数派。のちのロシア共産党。</span></div></div>
     </div>
     <div class="step" data-label="各国の干渉とソ連の成立">
       <h3><span class="sec-no">2</span><span class="s" data-i="16">各国の干渉とソ連の成立</span></h3>
       <div class="sec-lead"><span class="s" data-i="17">各国の干渉を退け、</span><span class="s" data-i="18">レーニンがソ連を建国したよ。</span></div>
+      
       <p><span class="s" data-i="19">この社会主義革命の広がりを恐れた日本を含む列強は、</span><span class="s" data-i="20">革命をつぶそうとロシアへ<span class="mark">シベリア出兵</span>を行ったんだ。</span><span class="s" data-i="21">でも思うような成果は上げられず、</span><span class="s" data-i="22">多くの犠牲を出しただけで撤退することになってしまったんだよ。</span><span class="s" data-i="23">そして1922年、</span><span class="s" data-i="24">レーニンは世界で初めての社会主義国家である<span class="mark">ソ連</span>を建国したんだ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="25">列強のシベリア出兵は失敗し、</span><span class="s" data-i="26">1922年にソ連が誕生したよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="25">列強のシベリア出兵は失敗し、</span><span class="s" data-i="26">1922年にソ連が誕生したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">ソ連<span class="w-rd">それん</span></span><span class="w-desc">1922年に成立した、世界初の社会主義国家。</span></div><div class="word"><span class="w-term">シベリア出兵<span class="w-rd">しべりあしゅっぺい</span></span><span class="w-desc">ロシア革命に干渉するため列強が行った出兵。日本も参加したが成果なく撤退した。</span></div></div>
     </div>
     <div class="step" data-label="スターリンと五か年計画">
       <h3><span class="sec-no">3</span><span class="s" data-i="27">スターリンと五か年計画</span></h3>
       <div class="sec-lead"><span class="s" data-i="28">五か年計画で急速な工業化が進められたよ。</span></div>
+      
       <p><span class="s" data-i="29">1924年にレーニンが亡くなると、</span><span class="s" data-i="30"><span class="mark">スターリン</span>が新しい指導者になったんだ。</span><span class="s" data-i="31">1928年からは、</span><span class="s" data-i="32">国が生産の目標をすべて決めてしまう<span class="mark">五か年計画</span>という政策を進め、</span><span class="s" data-i="33">工場を建てたり農地をまとめたりして、</span><span class="s" data-i="34">ものすごい速さで国を工業化していったんだよ。</span><span class="s" data-i="35">ただしその裏では、</span><span class="s" data-i="36">独裁的な統治が行われていたことも忘れちゃいけないね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="37">スターリンは五か年計画で急速に工業化を進めたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="37">スターリンは五か年計画で急速に工業化を進めたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">スターリン<span class="w-rd">すたーりん</span></span><span class="w-desc">レーニンの死後、ソ連の指導者となった人物。独裁的な統治で知られる。</span></div><div class="word"><span class="w-term">五か年計画<span class="w-rd">ごかねんけいかく</span></span><span class="w-desc">1928年からスターリンが進めた、生産目標を国が決める政策。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -922,10 +984,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/13/index.html#t4"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/13/index.html#t4"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=13-russian-revolution" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -933,44 +994,48 @@
 </section>
 <section class="view" data-t="4">
   <div class="tband"><span class="tno">4</span><h2>戦後秩序とアジアの抵抗</h2>
-    <button class="play-unit" type="button" data-play="4" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="4" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-postwar-order.webp"
+      <img class="cover-img zoomable" src="img/cover-postwar-order.webp"
            alt="戦後秩序とアジアの抵抗（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">戦争が終わったあと、</span><span class="s" data-i="1">世界はどんな形に生まれ変わったんだろう?そして、</span><span class="s" data-i="2">その新しい秩序に刺激されたアジアの人々は、</span><span class="s" data-i="3">どう動いたのかな。</span></div></div>
     </div>
     <div class="step" data-label="パリ講和会議とベルサイユ条約">
       <h3><span class="sec-no">1</span><span class="s" data-i="4">パリ講和会議とベルサイユ条約</span></h3>
       <div class="sec-lead"><span class="s" data-i="5">ドイツに厳しい処分を課す条約が結ばれたよ。</span></div>
+      
       <p><span class="s" data-i="6">1919年、戦争に勝った国々はパリに集まって講和会議を開き、</span><span class="s" data-i="7">敗れたドイツへの処分を話し合ったんだ。</span><span class="s" data-i="8">そこで結ばれたのが<span class="mark">ベルサイユ条約</span>だよ。</span><span class="s" data-i="9">ドイツには巨額の賠償金の支払いや軍備の制限、</span><span class="s" data-i="10">そして領土の割譲まで課されたんだ。</span><span class="s" data-i="11">すごく厳しい内容だったんだよね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="12">1919年のベルサイユ条約で、</span><span class="s" data-i="13">ドイツに厳しい処分が課されたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="12">1919年のベルサイユ条約で、</span><span class="s" data-i="13">ドイツに厳しい処分が課されたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">ベルサイユ条約<span class="w-rd">べるさいゆじょうやく</span></span><span class="w-desc">1919年、パリ講和会議で結ばれた第一次世界大戦の講和条約。</span></div></div>
     </div>
     <div class="step" data-label="国際連盟と民族自決">
       <h3><span class="sec-no">2</span><span class="s" data-i="14">国際連盟と民族自決</span></h3>
       <div class="sec-lead"><span class="s" data-i="15">民族自決の考えのもと国際連盟が発足したよ。</span></div>
+      
       <p><span class="s" data-i="16">アメリカの<span class="mark">ウィルソン</span>大統領は、</span><span class="s" data-i="17">それぞれの民族が自分たちの国を持つべきだという<span class="mark">民族自決</span>の考えを唱えたんだ。</span><span class="s" data-i="18">この考えをもとに、</span><span class="s" data-i="19">1920年には世界の平和を目指す<span class="mark">国際連盟</span>が発足し、</span><span class="s" data-i="20">日本も常任理事国に選ばれたんだよ。</span><span class="s" data-i="21">ただ、提唱者のアメリカ自身は参加しなかったというのが、</span><span class="s" data-i="22">なんとも不思議なところなんだけどね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="23">民族自決の考えのもと、</span><span class="s" data-i="24">1920年に国際連盟が発足したよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="23">民族自決の考えのもと、</span><span class="s" data-i="24">1920年に国際連盟が発足したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">国際連盟<span class="w-rd">こくさいれんめい</span></span><span class="w-desc">1920年に発足した、世界平和を目指す国際機関。日本も常任理事国となった。</span></div><div class="word"><span class="w-term">ウィルソン<span class="w-rd">うぃるそん</span></span><span class="w-desc">国際連盟の創設や民族自決を提唱したアメリカ大統領。</span></div><div class="word"><span class="w-term">民族自決<span class="w-rd">みんぞくじけつ</span></span><span class="w-desc">それぞれの民族が自らの国家を持つべきという考え方。</span></div></div>
     </div>
     <div class="step" data-label="アジアで広がる独立運動">
       <h3><span class="sec-no">3</span><span class="s" data-i="25">アジアで広がる独立運動</span></h3>
       <div class="sec-lead"><span class="s" data-i="26">朝鮮や中国、インドで独立運動が広がったよ。</span></div>
+      
       <p><span class="s" data-i="27">民族自決の考えは、</span><span class="s" data-i="28">日本や欧米の支配下にあったアジアの人々を大きく刺激したんだ。</span><span class="s" data-i="29">1919年、朝鮮では日本の植民地支配に抵抗する<span class="mark">三・一独立運動</span>が広がり、</span><span class="s" data-i="30">中国では二十一か条の要求などに抗議する<span class="mark">五・四運動</span>が起こったんだよ。</span><span class="s" data-i="31">インドでも、<span class="mark">ガンディー</span>が武力を使わない「非暴力・不服従」を掲げてイギリスからの独立を目指したんだ。</span><span class="s" data-i="32">世界中で人々が声を上げ始めた時代だったんだね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="33">朝鮮の三・一独立運動、</span><span class="s" data-i="34">中国の五・四運動などが広がったよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="33">朝鮮の三・一独立運動、</span><span class="s" data-i="34">中国の五・四運動などが広がったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">三・一独立運動<span class="w-rd">さんいちどくりつうんどう</span></span><span class="w-desc">1919年、朝鮮で広がった日本の植民地支配への抵抗運動。</span></div><div class="word"><span class="w-term">五・四運動<span class="w-rd">ごしうんどう</span></span><span class="w-desc">1919年、中国で起こった反日・反帝国主義の運動。</span></div><div class="word"><span class="w-term">ガンディー<span class="w-rd">がんでぃー</span></span><span class="w-desc">非暴力・不服従を掲げ、イギリスからのインド独立を目指した指導者。</span></div></div>
     </div>
     <div class="step" data-label="ワシントン会議と新しい秩序">
       <h3><span class="sec-no">4</span><span class="s" data-i="35">ワシントン会議と新しい秩序</span></h3>
       <div class="sec-lead"><span class="s" data-i="36">海軍軍縮が決まり、</span><span class="s" data-i="37">日英同盟も解消されたよ。</span></div>
+      
       <p><span class="s" data-i="38">1921〜22年に開かれた<span class="mark">ワシントン会議</span>では、</span><span class="s" data-i="39">各国の海軍の主力艦の数を制限する条約が結ばれ、</span><span class="s" data-i="40">日本とイギリスが長年結んでいた日英同盟もこのとき解消されたんだ。</span><span class="s" data-i="41">こうして戦争のあとの世界は、</span><span class="s" data-i="42">国際協調を土台にした新しい秩序をつくろうとしていたんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="43">ワシントン会議で軍縮が決まり、</span><span class="s" data-i="44">日英同盟も解消されたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="43">ワシントン会議で軍縮が決まり、</span><span class="s" data-i="44">日英同盟も解消されたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">ワシントン会議<span class="w-rd">わしんとんかいぎ</span></span><span class="w-desc">1921〜22年に開かれた、海軍軍縮と東アジア問題を話し合った国際会議。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -1078,10 +1143,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/13/index.html#t5"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/13/index.html#t5"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=13-postwar-order" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -1097,6 +1161,11 @@
   <button class="ap-close" id="apClose" aria-label="読み上げを止める">×</button>
 </div></div>
 <audio id="audio" preload="none"></audio>
+<div class="lightbox" id="lightbox" hidden>
+  <img id="lightboxImg" alt="">
+  <button class="lb-close" id="lbClose" aria-label="閉じる">×</button>
+  <div class="lb-hint">タップで閉じる</div>
+</div>
 <div class="navbar" id="navbar" hidden><div class="navbar-in">
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
@@ -1316,7 +1385,7 @@
       b.classList.toggle('on', bt === t);
       b.classList.toggle('done', bt > 0 && store()['d' + bt] === 1);
     });
-    var tabEl = tabs[t];
+    var tabEl = tabs.filter(function (b) { return +b.dataset.go === t; })[0];
     if (tabEl && tabEl.scrollIntoView) {
       tabEl.scrollIntoView({ block: 'nearest', inline: 'center' });
     }
@@ -1359,11 +1428,11 @@
       pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
       var prev = document.getElementById('btnPrev');
       var next = document.getElementById('btnNext');
-      prev.textContent = s === 0 ? '🏠 目次' : '← まえへ';
+      prev.textContent = s === 0 ? '目次へ' : '← まえへ';
       if (s < steps.length - 1) {
         next.textContent = 'つぎへ →';
       } else {
-        next.textContent = t < N ? '次の単元へ →' : '🏠 目次にもどる';
+        next.textContent = t < N ? '次の単元へ →' : '目次にもどる';
       }
       // 進捗保存
       var st = store();
@@ -1525,8 +1594,21 @@
     }
   }, { passive: true });
 
+  // 画像タップで拡大（ライトボックス）。ページ送りタップ／スワイプと競合しない。
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightboxImg');
+  function openLb(src) { lbImg.src = src; lb.hidden = false; document.body.style.overflow = 'hidden'; }
+  function closeLb() { lb.hidden = true; lbImg.removeAttribute('src'); document.body.style.overflow = ''; }
+  document.addEventListener('click', function (e) {
+    var z = e.target.closest('img.zoomable');
+    if (z) { e.preventDefault(); e.stopPropagation(); openLb(z.currentSrc || z.src); }
+  });
+  lb.addEventListener('click', closeLb);
+  document.getElementById('lbClose').addEventListener('click', function (e) { e.stopPropagation(); closeLb(); });
+
   // キーボード操作（PC）: ←→ でページ送り、PageUp/Down も同じ、Home で目次へ
   document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !lb.hidden) { closeLb(); return; }
     var tag = e.target && e.target.tagName;
     if (tag === 'INPUT' || tag === 'TEXTAREA' || e.metaKey || e.ctrlKey || e.altKey) return;
     if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === 'Enter') { next(); e.preventDefault(); }
@@ -1541,6 +1623,16 @@
   }
   window.addEventListener('hashchange', fromHash);
   fromHash();
+
+  // 問題集の「解説を読む」から来たとき（?back=）だけ「問題にもどる」を出す
+  (function () {
+    var m = /[?&]back=([^&#]+)/.exec(location.search);
+    var pill = document.getElementById('backPill');
+    if (m && pill) {
+      try { pill.href = decodeURIComponent(m[1]); } catch (e) { pill.href = m[1]; }
+      pill.hidden = false;
+    }
+  })();
 })();
 </script>
 <script type="module">

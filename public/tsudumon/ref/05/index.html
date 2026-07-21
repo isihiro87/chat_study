@@ -21,12 +21,26 @@
   .s.read { color:#8a8279; }
   .s.now { background:#fcd34d; color:#1c1917; }
   .s.now .mark { background:none; }
-  /* 単元見出しの再生ボタン */
+  /* 単元見出しの音声ボタン（タップで読み上げ再生。適度に目立つ塗りボタン＋再生アイコン） */
   .play-unit { display:inline-flex; align-items:center; gap:6px; margin-left:auto; flex:none;
-               background:#fff; color:var(--brand); border:1.5px solid var(--line);
-               border-radius:20px; padding:4px 12px; font-size:12px; font-weight:bold;
-               font-family:inherit; cursor:pointer; }
+               background:linear-gradient(#f59e0b,#ea7a09); color:#fff;
+               border:none; border-radius:20px; padding:7px 15px 7px 9px; font-size:13px; font-weight:bold;
+               font-family:inherit; cursor:pointer; box-shadow:0 3px 0 #c2620a, 0 4px 9px rgba(217,119,6,.3);
+               transition:transform .12s, filter .12s; }
+  .pu-ic { flex:none; width:22px; height:22px; border-radius:50%; background:rgba(255,255,255,.28);
+           display:inline-flex; align-items:center; justify-content:center; }
+  .pu-ic svg { width:13px; height:13px; fill:#fff; margin-left:1px; }
+  .play-unit:active { transform:translateY(2px); box-shadow:0 1px 0 #c2620a; }
+  @media (hover:hover) { .play-unit:hover { filter:brightness(1.06); } }
   .play-unit[hidden] { display:none; }
+  /* 問題集の「解説を読む」から来たときに出す「問題にもどる」ボタン（すぐ問題へ戻れる） */
+  .backpill { position:fixed; left:50%; transform:translateX(-50%); bottom:74px; z-index:40;
+              background:var(--brand); color:#fff; font-weight:bold; font-size:13.5px;
+              border-radius:22px; padding:9px 18px 9px 13px; text-decoration:none;
+              box-shadow:0 4px 14px rgba(120,50,10,.35); display:inline-flex; align-items:center; gap:5px; }
+  .backpill svg { width:16px; height:16px; fill:none; stroke:#fff; stroke-width:2.4;
+                  stroke-linecap:round; stroke-linejoin:round; }
+  .backpill[hidden] { display:none; }
   /* 下部プレーヤー（再生中だけ出す。ナビバーの上に重ねる） */
   .aplayer { position:fixed; left:0; right:0; bottom:58px; z-index:25;
              background:rgba(255,253,248,.98); border-top:1px solid #f0e6d2;
@@ -53,13 +67,18 @@
      タブ列の 🏠 は「この本の目次」なので、こちらは 🗺＋文字でトップだと分かるようにする。 */
   .tophome { flex:none; height:30px; padding:0 12px; font-size:11.5px; font-weight:bold;
              color:#fff; background:var(--deep); border-radius:15px; text-decoration:none;
-             display:inline-flex; align-items:center; white-space:nowrap;
-             box-shadow:0 2px 0 #5b1e0b; }
-  .swap { flex:none; display:inline-flex; border:1.5px solid var(--line); border-radius:20px;
-          overflow:hidden; background:#fffbeb; }
-  .sw { font-size:11px; font-weight:bold; color:var(--brand); padding:3px 7px; text-decoration:none;
-        white-space:nowrap; cursor:pointer; }
-  .sw.on { background:var(--brand); color:#fff; }
+             display:inline-flex; align-items:center; gap:5px; white-space:nowrap;
+             box-shadow:0 2px 0 #5b1e0b; transition:filter .12s; }
+  .th-ic { width:14px; height:14px; fill:currentColor; flex:none; }
+  @media (hover:hover) { .tophome:hover { filter:brightness(1.12); } }
+  /* 参考書⇄問題の切りかえタブ。押せると分かるよう、非選択側は白ボタン風＋ホバー反応 */
+  .swap { flex:none; display:inline-flex; gap:3px; padding:2px; border-radius:16px;
+          background:#f0e2c3; }
+  .sw { font-size:11.5px; font-weight:bold; color:var(--brand); padding:4px 12px; text-decoration:none;
+        white-space:nowrap; cursor:pointer; border-radius:13px; background:#fff;
+        transition:filter .12s, background-color .12s; }
+  .sw.on { background:var(--brand); color:#fff; cursor:default; box-shadow:0 1px 2px rgba(180,83,9,.3); }
+  @media (hover:hover) { .sw:not(.on):hover { background:#fff8ec; filter:brightness(0.98); } }
   .sw[hidden] { display:none; }
   .bar-title { font-weight:bold; color:var(--deep); font-size:14px; flex:1;
                white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
@@ -83,13 +102,15 @@
   .tabs { display:flex; gap:5px; overflow-x:auto; padding:4px 0; width:100%;
           scrollbar-width:none; -webkit-overflow-scrolling:touch; }
   .tabs::-webkit-scrollbar { display:none; }
+  /* 単元タブ: 位置は動かさず、色で状態を示す（未読=クリーム／読んだ=緑／表示中=茶） */
   .tab { flex:none; width:30px; height:30px; border-radius:50%; border:1.5px solid var(--line);
          background:#fffbeb; color:var(--brand); font-size:15px; font-weight:bold;
-         display:inline-flex; align-items:center; justify-content:center; cursor:pointer; }
-  .tab.done { background:#fef3c7; }
+         display:inline-flex; align-items:center; justify-content:center; cursor:pointer;
+         transition:background-color .12s, border-color .12s; }
+  .tab.done { background:#dcfce7; border-color:#86efac; color:#15803d; }   /* 読んだ単元 */
   .tab.done::after { content:""; }
-  .tab.on { background:var(--brand); border-color:var(--brand); color:#fff;
-            box-shadow:0 2px 6px rgba(180,83,9,.35); }
+  .tab.on { background:var(--brand); border-color:var(--brand); color:#fff; }  /* いま表示中 */
+  @media (hover:hover) { .tab:not(.on):hover { background:#fff2d6; } }
   .pbar { height:3px; background:#f5ecd8; border-radius:2px; overflow:hidden; margin:0 0 0; }
   .pfill { height:100%; width:0; background:linear-gradient(90deg,var(--amber),#fbbf24);
            border-radius:2px; transition:width .25s ease; }
@@ -100,6 +121,7 @@
   @keyframes vfade { from { opacity:.6; } to { opacity:1; } }
   .step { display:none; }
   .step.on { display:block; }
+  .step::after { content:""; display:table; clear:both; }  /* 挿絵の float を内包 */
   /* 本物っぽいページめくり（2枚重ね）:
      進む = 今のページ自体が左とじに沿って手前にめくれて去り、下から次のページが現れる。
      戻る = 前のページが手前からめくり戻されて上に着地する。 */
@@ -144,8 +166,7 @@
   .b-web { background:var(--amber); color:#fff; }
   .ht-title { font-size:41px; color:var(--deep); margin:12px 0 0; line-height:1.12; position:relative;
               display:inline-block; padding:0 6px; letter-spacing:.01em; }
-  .ht-title::before { content:"✨"; position:absolute; left:-22px; top:2px; font-size:19px; }
-  .ht-title::after { content:"✨"; position:absolute; right:-20px; bottom:4px; font-size:15px; }
+  .ht-title::before, .ht-title::after { content:none; }
   .ht-mascot { flex:none; position:relative; width:100px; padding-top:22px; text-align:center; }
   .ht-mascot img { height:74px; width:auto; }
   .ht-bubble { position:absolute; top:0; left:50%; transform:translateX(-50%); white-space:nowrap;
@@ -181,8 +202,8 @@
   .toc { margin:16px 0 8px; background:#fff9ef; border:2px solid #f0e2c3; border-radius:16px; padding:12px; }
   .toc-head { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:10px; }
   .toc-h { font-weight:bold; color:var(--deep); font-size:16px; display:flex; align-items:center; gap:8px; }
-  .toc-h::before { content:"📖"; display:inline-flex; align-items:center; justify-content:center;
-                   width:30px; height:30px; border-radius:50%; background:var(--brand); font-size:15px; }
+  .toc-h::before { content:""; flex:none; width:30px; height:30px; border-radius:50%;
+                   background:var(--brand) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23fff'%3E%3Cpath d='M12 6.6C10.5 5.4 8.4 4.9 6 4.9c-1 0-2 .1-2.8.3v12.9c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3V5.2C20 5 19 4.9 18 4.9c-2.4 0-4.5.5-6 1.7z'/%3E%3C/svg%3E") center/17px no-repeat; }
   /* 単元カード（大きめサムネ＋番号＋名前＋右矢印） */
   .toc-item { display:flex; align-items:center; width:100%; margin-bottom:8px; padding:0;
               background:#fff; border:1.5px solid #f0e2c3; border-radius:12px; overflow:hidden;
@@ -261,6 +282,39 @@
             border:1.5px solid var(--line); color:var(--brand); font-weight:bold;
             display:inline-flex; align-items:center; justify-content:center; font-size:12px; }
   .sec-lead { font-size:13px; color:var(--brand); font-weight:bold; margin:2px 0 4px 30px; }
+  /* 節の挿絵：既定は本文の右に小さく回り込ませる（補足的・目立ちすぎない） */
+  .sec-fig { float:right; width:46%; max-width:205px; margin:3px 0 8px 12px; }
+  .sec-fig.fig-contain { max-width:230px; }
+  .sec-fig img { width:100%; max-height:172px; object-fit:cover; display:block;
+                 border-radius:10px; border:1px solid #f0e6d2;
+                 box-shadow:0 1px 4px rgba(120,80,20,.10); background:#fff; cursor:zoom-in; }
+  /* 図版（関係図・地図）は切らずに全体を見せる（日本語ラベルが欠けないように） */
+  .sec-fig.fig-contain img { object-fit:contain; max-height:none; background:#fffdf8; }
+  .sec-fig figcaption { font-size:11px; color:#a8a29e; text-align:center; margin-top:4px; line-height:1.4; }
+  /* 変化をつける: 左回り込み／サイズ違い／横いっぱい */
+  .sec-fig.pos-left { float:left; margin:3px 12px 8px 0; }
+  .sec-fig.size-sm { max-width:150px; }
+  .sec-fig.size-lg { max-width:250px; }
+  .sec-fig.pos-wide { float:none; width:auto; max-width:100%; margin:10px 0; }
+  .sec-fig.pos-wide img { max-height:260px; }
+  .sec-fig.pos-wide.fig-contain img { max-height:340px; }  /* 地図・図はワイドで大きく読める */
+  .sec-fig.pos-wide figcaption { font-size:12px; }
+  /* 挿絵を含む節でも ⭐ここだけ覚える／用語は画像の下から始める */
+  .step .point, .step .words { clear:both; }
+  .cover-art img, .cover-img { cursor:zoom-in; }
+
+  /* 画像タップで拡大（ライトボックス） */
+  .lightbox { position:fixed; inset:0; z-index:200; background:rgba(20,14,8,.88);
+              display:flex; align-items:center; justify-content:center; padding:20px;
+              -webkit-tap-highlight-color:transparent; cursor:zoom-out; }
+  .lightbox[hidden] { display:none; }
+  .lightbox img { max-width:96vw; max-height:90vh; border-radius:10px; background:#fffdf8;
+                  box-shadow:0 8px 40px rgba(0,0,0,.55); }
+  .lb-close { position:fixed; top:14px; right:16px; width:42px; height:42px; border:none;
+              border-radius:50%; background:rgba(255,255,255,.92); color:#7c2d12; font-size:24px;
+              line-height:1; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,.3); }
+  .lb-hint { position:fixed; bottom:20px; left:0; right:0; text-align:center; color:#fff;
+             font-size:12px; opacity:.7; pointer-events:none; }
   .step p { margin-top:8px; text-align:justify; }
   .point { background:#fff9c4; border-left:6px solid #fbbf24; border-radius:8px;
            padding:10px 12px; margin-top:12px; font-size:14px; line-height:1.8; }
@@ -440,10 +494,10 @@
 </style></head><body>
 <div class="bar"><div class="bar-in">
   <div class="bar-row">
-    <a class="tophome" href="../../index.html" aria-label="単元一覧へもどる">単元一覧</a>
-    <div class="swap"><span class="sw on">📖 参考書</span><a class="sw" id="swWb">✏️ 問題</a></div>
+    <a class="tophome" href="../../index.html" aria-label="単元一覧へもどる"><svg class="th-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.6"/></svg>単元一覧</a>
+    <div class="swap" role="tablist" aria-label="参考書と問題の切りかえ"><span class="sw on">参考書</span><a class="sw" id="swWb" role="tab">問題</a></div>
     <div class="tabs-wrap">
-      <nav class="tabs" id="tabs"><button class="tab tab-home" data-go="0" aria-label="目次">🏠</button><button class="tab" data-go="1" aria-label="武士の成長">1</button><button class="tab" data-go="2" aria-label="院政と平氏の政治">2</button><button class="tab" data-go="3" aria-label="鎌倉幕府の成立">3</button><button class="tab" data-go="4" aria-label="鎌倉時代の社会">4</button><button class="tab" data-go="5" aria-label="鎌倉文化と新しい仏教">5</button></nav>
+      <nav class="tabs" id="tabs"><button class="tab" data-go="1" aria-label="武士の成長">1</button><button class="tab" data-go="2" aria-label="院政と平氏の政治">2</button><button class="tab" data-go="3" aria-label="鎌倉幕府の成立">3</button><button class="tab" data-go="4" aria-label="鎌倉時代の社会">4</button><button class="tab" data-go="5" aria-label="鎌倉文化と新しい仏教">5</button></nav>
       <button class="tscroll tsl" id="tabsL" type="button" hidden aria-label="単元タブを左へ">‹</button>
       <button class="tscroll tsr" id="tabsR" type="button" hidden aria-label="単元タブを右へ">›</button>
     </div>
@@ -452,11 +506,11 @@
   <div class="bar-title" hidden>歴史 ⑤ 武士と鎌倉幕府</div>
   <div class="pbar"><div class="pfill" id="pfill"></div></div>
 </div></div>
+<a class="backpill" id="backPill" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 6l-6 6 6 6"/></svg>問題にもどる</a>
 <main class="wrap" id="views">
 
 <section class="view home" data-t="0">
   <div class="home-topline">
-    <a class="home-link" href="../../index.html">‹ 単元一覧にもどる</a>
     <div class="badge3"><span class="b-vol">歴史 ⑤</span><span class="b-kind">参考書</span></div>
   </div>
   <header class="top hometop">
@@ -471,7 +525,7 @@
     <div class="toc-head"><div class="toc-h">単元を選択</div></div>
     <button class="toc-item" data-go="1"><img class="toc-thumb" src="img/hist05-bushi.webp" alt="" loading="lazy"><span class="toc-no">1</span><span class="toc-name">武士の成長</span><span class="toc-state" data-state-t="1"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="2"><img class="toc-thumb" src="img/hist05-insei-taira.webp" alt="" loading="lazy"><span class="toc-no">2</span><span class="toc-name">院政と平氏の政治</span><span class="toc-state" data-state-t="2"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="3"><img class="toc-thumb" src="img/hist05-bakufu.webp" alt="" loading="lazy"><span class="toc-no">3</span><span class="toc-name">鎌倉幕府の成立</span><span class="toc-state" data-state-t="3"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="4"><img class="toc-thumb" src="img/hist05-kamakura-society.webp" alt="" loading="lazy"><span class="toc-no">4</span><span class="toc-name">鎌倉時代の社会</span><span class="toc-state" data-state-t="4"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="5"><img class="toc-thumb" src="img/hist05-culture.webp" alt="" loading="lazy"><span class="toc-no">5</span><span class="toc-name">鎌倉文化と新しい仏教</span><span class="toc-state" data-state-t="5"></span><span class="toc-arrow">›</span></button>
   </nav>
-  <a class="wb-home" href="../../wb/05/index.html">✏️ 問題集を開く（この本の問題を解く）</a>
+  <a class="wb-home" href="../../wb/05/index.html">問題集を開く（この本の問題を解く）</a>
   <footer class="foot">
     <div>つづもん 参考書</div>
     <div class="foot-note">紙やタブレットでじっくり派には、ダウンロード済みのPDF版もどうぞ。</div>
@@ -479,44 +533,48 @@
 </section>
 <section class="view" data-t="1">
   <div class="tband"><span class="tno">1</span><h2>武士の成長</h2>
-    <button class="play-unit" type="button" data-play="1" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="1" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-rise-of-bushi.webp"
+      <img class="cover-img zoomable" src="img/cover-rise-of-bushi.webp"
            alt="武士の成長（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">貴族が都で優雅に暮らす一方で、</span><span class="s" data-i="1">地方では自分の身や土地は自分で守る人たちが現れてきたんだ。</span><span class="s" data-i="2">武士という新しい力の誕生、</span><span class="s" data-i="3">いっしょに見ていこう。</span></div></div>
     </div>
     <div class="step" data-label="武士の成長と武士団">
       <h3><span class="sec-no">1</span><span class="s" data-i="4">武士の成長と武士団</span></h3>
       <div class="sec-lead"><span class="s" data-i="5">地方の武士が力をつけ、</span><span class="s" data-i="6">武士団を作ったよ。</span></div>
+      <figure class="sec-fig"><img class="zoomable" src="img/hist05-sec-bushi-dan.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="7">平安時代の中ごろ、</span><span class="s" data-i="8">地方の治安が乱れてくると、</span><span class="s" data-i="9">弓矢や馬の技にすぐれた地方の有力者や農民が武器を持つようになり、</span><span class="s" data-i="10">10世紀ごろから<span class="mark">武士</span>として成長していったんだ。</span><span class="s" data-i="11">武士は一族や家来を血縁と主従関係で結びつけて、</span><span class="s" data-i="12"><span class="mark">武士団</span>と呼ばれる軍事組織をつくっていったよ。</span><span class="s" data-i="13">その長である惣領は、</span><span class="s" data-i="14">土地の管理や戦の指揮、</span><span class="s" data-i="15">一族の争いの仲裁までこなしていたんだね。</span><span class="s" data-i="16">天皇の子孫である<span class="mark">源氏</span>は東日本を、</span><span class="s" data-i="17"><span class="mark">平氏</span>は西日本を中心に勢力を広げていき、</span><span class="s" data-i="18">やがて武士団の中心的な存在になっていったんだ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="19">武士は武士団を作り、源氏は東日本、</span><span class="s" data-i="20">平氏は西日本で力を広げたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="19">武士は武士団を作り、源氏は東日本、</span><span class="s" data-i="20">平氏は西日本で力を広げたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">武士<span class="w-rd">ぶし</span></span><span class="w-desc">弓矢や馬の技にすぐれ、10世紀ごろから地方で成長していった人々。</span></div><div class="word"><span class="w-term">武士団<span class="w-rd">ぶしだん</span></span><span class="w-desc">武士が一族や家来を血縁と主従関係で結んでつくった軍事組織。</span></div><div class="word"><span class="w-term">源氏<span class="w-rd">げんじ</span></span><span class="w-desc">天皇の子孫の武士団。東日本を中心に勢力を広げた。</span></div><div class="word"><span class="w-term">平氏<span class="w-rd">へいし</span></span><span class="w-desc">天皇の子孫の武士団。西日本を中心に勢力を広げた。</span></div></div>
     </div>
     <div class="step" data-label="平将門・藤原純友の乱">
       <h3><span class="sec-no">2</span><span class="s" data-i="21">平将門・藤原純友の乱</span></h3>
       <div class="sec-lead"><span class="s" data-i="22">反乱を通じて、武士の力が示されたよ。</span></div>
+      <figure class="sec-fig pos-left size-sm"><img class="zoomable" src="img/hist05-sec-johei-tengyo.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="23">935年ごろ、関東で平将門が反乱を起こし、</span><span class="s" data-i="24">自ら「新皇」を名乗って独立した国を建てようとしたんだ。</span><span class="s" data-i="25">でも、朝廷側の武士にしずめられてしまったよ。</span><span class="s" data-i="26">ほぼ同じころの939年ごろには、</span><span class="s" data-i="27">瀬戸内海で藤原純友が海賊を率いて反乱を起こしているんだ。</span><span class="s" data-i="28">二つの反乱はどちらもしずめられたけれど、</span><span class="s" data-i="29">地方で育った武士の力が中央の貴族にもはっきりと示される出来事になったんだね。</span><span class="s" data-i="30">武士が政治の舞台に登場する前触れだったといえるよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="31">935年の平将門、</span><span class="s" data-i="32">939年の藤原純友の乱で武士の力が示されたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="31">935年の平将門、</span><span class="s" data-i="32">939年の藤原純友の乱で武士の力が示されたよ。</span></div></div>
       
     </div>
     <div class="step" data-label="源義家と奥州藤原氏">
       <h3><span class="sec-no">3</span><span class="s" data-i="33">源義家と奥州藤原氏</span></h3>
       <div class="sec-lead"><span class="s" data-i="34">東北で活躍した武士と、</span><span class="s" data-i="35">栄えた奥州藤原氏だよ。</span></div>
+      <figure class="sec-fig"><img class="zoomable" src="img/hist05-sec-yoshiie-oshu.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="36">11世紀の後半、</span><span class="s" data-i="37">東北地方で起きた前九年合戦・後三年合戦では、</span><span class="s" data-i="38">源氏の武将<span class="mark">源義家</span>が活躍して戦乱をしずめたんだ。</span><span class="s" data-i="39">これで東日本の武士から厚い信頼を得ることになったんだね。</span><span class="s" data-i="40">同じころ東北では、</span><span class="s" data-i="41">金や馬の交易で富を築いた<span class="mark">奥州藤原氏</span>が平泉を拠点に約100年にもわたって栄えていたよ。</span><span class="s" data-i="42">金箔でおおわれた豪華な仏堂、</span><span class="s" data-i="43">中尊寺金色堂を建てたのもこの一族なんだ。</span><span class="s" data-i="44">すごいよね。</span><span class="s" data-i="45">この繁栄は、のちに源頼朝によってほろぼされるまで続いたんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="46">源義家は東北の合戦で活躍し、</span><span class="s" data-i="47">奥州藤原氏は平泉で約100年栄えたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="46">源義家は東北の合戦で活躍し、</span><span class="s" data-i="47">奥州藤原氏は平泉で約100年栄えたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">源義家<span class="w-rd">みなもとのよしいえ</span></span><span class="w-desc">前九年合戦・後三年合戦で活躍し、東日本の武士の信頼を得た源氏の武将。</span></div><div class="word"><span class="w-term">奥州藤原氏<span class="w-rd">おうしゅうふじわらし</span></span><span class="w-desc">平泉を拠点に約100年栄えた一族。中尊寺金色堂を建てた。</span></div></div>
     </div>
     <div class="step" data-label="荘園の広がり">
       <h3><span class="sec-no">4</span><span class="s" data-i="48">荘園の広がり</span></h3>
       <div class="sec-lead"><span class="s" data-i="49">土地の寄進で、荘園が各地に広がったよ。</span></div>
+      <figure class="sec-fig pos-left"><img class="zoomable" src="img/hist05-sec-shoen-spread.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="50">地方の開発領主は、</span><span class="s" data-i="51">開墾した土地の税をまぬがれるために、</span><span class="s" data-i="52">有力な貴族に土地を差し出す<span class="mark">寄進</span>を行ったんだ。</span><span class="s" data-i="53">それでいて現地の管理は自分で続けて、</span><span class="s" data-i="54">実質的な支配はしっかり保っていたんだね。</span><span class="s" data-i="55">こうして貴族や寺社が持つ私有地である<span class="mark">荘園</span>が各地に広がっていき、</span><span class="s" data-i="56">税が免除される不輸の権や、</span><span class="s" data-i="57">国司の役人の立ち入りを拒める不入の権を持つ荘園も増えていったよ。</span><span class="s" data-i="58">国司が支配する公領と荘園が並び立つ社会が、</span><span class="s" data-i="59">こうしてできあがっていったんだ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="60">開発領主が土地を貴族に寄進して、</span><span class="s" data-i="61">荘園が各地に広がっていったよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="60">開発領主が土地を貴族に寄進して、</span><span class="s" data-i="61">荘園が各地に広がっていったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">荘園<span class="w-rd">しょうえん</span></span><span class="w-desc">貴族や寺社が持つ私有地。開発領主の寄進によって広がった。</span></div><div class="word"><span class="w-term">寄進<span class="w-rd">きしん</span></span><span class="w-desc">開発領主が税をまぬがれるため、有力な貴族に土地を差し出すこと。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -624,10 +682,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/05/index.html#t2"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/05/index.html#t2"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=05-rise-of-bushi" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -635,37 +692,40 @@
 </section>
 <section class="view" data-t="2">
   <div class="tband"><span class="tno">2</span><h2>院政と平氏の政治</h2>
-    <button class="play-unit" type="button" data-play="2" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="2" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-insei-taira.webp"
+      <img class="cover-img zoomable" src="img/cover-insei-taira.webp"
            alt="院政と平氏の政治（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">天皇の座を退いても、</span><span class="s" data-i="1">政治の実権はしっかりにぎっている。</span><span class="s" data-i="2">そんな上皇が登場してから、</span><span class="s" data-i="3">武士が初めて政治の頂点に立つまで、</span><span class="s" data-i="4">いっしょにたどってみよう。</span></div></div>
     </div>
     <div class="step" data-label="白河上皇と院政の始まり">
       <h3><span class="sec-no">1</span><span class="s" data-i="5">白河上皇と院政の始まり</span></h3>
       <div class="sec-lead"><span class="s" data-i="6">上皇が実権を握る、</span><span class="s" data-i="7">院政が始まったよ。</span></div>
+      <figure class="sec-fig"><img class="zoomable" src="img/hist05-sec-shirakawa-insei.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="8">11世紀の後半、</span><span class="s" data-i="9">藤原氏による摂関政治に代わって、</span><span class="s" data-i="10">白河上皇は自ら実権をにぎる<span class="mark">院政</span>を始めたんだ。</span><span class="s" data-i="11">天皇の位を退いて上皇になることで、</span><span class="s" data-i="12">天皇としての決まりごとに縛られずに、</span><span class="s" data-i="13">自由に政治を動かせるようになったんだね。</span><span class="s" data-i="14">白河上皇は院の警備のために北面の武士を置いて、</span><span class="s" data-i="15">武士の力をうまく身近な形で利用したんだよ。</span><span class="s" data-i="16">この院政というしくみは、</span><span class="s" data-i="17">のちの上皇たちにもしっかり受け継がれていったんだ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="18">白河上皇は、上皇が実権をにぎる院政を始めたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="18">白河上皇は、上皇が実権をにぎる院政を始めたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">院政<span class="w-rd">いんせい</span></span><span class="w-desc">上皇が実権をにぎって行う政治。白河上皇が始めた。</span></div><div class="word"><span class="w-term">白河上皇<span class="w-rd">しらかわじょうこう</span></span><span class="w-desc">院政を最初に始めた上皇。北面の武士を置いた。</span></div></div>
     </div>
     <div class="step" data-label="保元の乱・平治の乱と平清盛">
       <h3><span class="sec-no">2</span><span class="s" data-i="19">保元の乱・平治の乱と平清盛</span></h3>
       <div class="sec-lead"><span class="s" data-i="20">戦乱を経て、平清盛が武士の頂点に立ったよ。</span></div>
+      <figure class="sec-fig pos-left size-lg"><img class="zoomable" src="img/hist05-sec-kiyomori.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="21">1156年、崇徳上皇と後白河天皇の対立から<span class="mark">保元の乱</span>が起こったんだ。</span><span class="s" data-i="22">源氏・平氏の武士が動員されたことで、</span><span class="s" data-i="23">武士の政治的な地位がぐっと高まったんだね。</span><span class="s" data-i="24">1159年の<span class="mark">平治の乱</span>では<span class="mark">平清盛</span>が源義朝をやぶり、</span><span class="s" data-i="25">平氏が武士の頂点に立ったよ。</span><span class="s" data-i="26">清盛は1167年、</span><span class="s" data-i="27">武士として初めて<span class="mark">太政大臣</span>という朝廷の最高位についたんだ。</span><span class="s" data-i="28">娘を天皇のきさきにするなど、</span><span class="s" data-i="29">一族で要職を独占していったんだね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="30">平清盛は保元・平治の乱を経て、</span><span class="s" data-i="31">1167年に太政大臣となったよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="30">平清盛は保元・平治の乱を経て、</span><span class="s" data-i="31">1167年に太政大臣となったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">保元の乱<span class="w-rd">ほうげんのらん</span></span><span class="w-desc">1156年、崇徳上皇と後白河天皇の対立から起きた内乱。</span></div><div class="word"><span class="w-term">平治の乱<span class="w-rd">へいじのらん</span></span><span class="w-desc">1159年、平清盛が源義朝をやぶった内乱。</span></div><div class="word"><span class="w-term">平清盛<span class="w-rd">たいらのきよもり</span></span><span class="w-desc">1167年に武士で初めて太政大臣となり、平氏の全盛期を築いた人物。</span></div><div class="word"><span class="w-term">太政大臣<span class="w-rd">だいじょうだいじん</span></span><span class="w-desc">朝廷の最高位の役職。1167年に平清盛が武士として初めて就任した。</span></div></div>
     </div>
     <div class="step" data-label="日宋貿易と平氏の滅亡">
       <h3><span class="sec-no">3</span><span class="s" data-i="32">日宋貿易と平氏の滅亡</span></h3>
       <div class="sec-lead"><span class="s" data-i="33">貿易で栄えた平氏も、</span><span class="s" data-i="34">壇ノ浦で滅んだよ。</span></div>
+      <figure class="sec-fig"><img class="zoomable" src="img/hist05-sec-nissou-trade.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="35">平清盛は大輪田泊(現在の兵庫県神戸市)を整備して<span class="mark">日宋貿易</span>を進め、</span><span class="s" data-i="36">宋銭や陶磁器を輸入して大きな利益を得たんだ。</span><span class="s" data-i="37">でも平氏が朝廷の要職や領地を一族で独占したことは、</span><span class="s" data-i="38">「平氏にあらずんば人にあらず」と言われるほどの反発を招いてしまったんだね。</span><span class="s" data-i="39">伊豆で挙兵した源頼朝は弟の源義経らを率いて平氏を追いつめていき、</span><span class="s" data-i="40">1185年の<span class="mark">壇ノ浦の戦い</span>でとうとう平氏をほろぼしたんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="41">平氏は日宋貿易で栄えたけど、</span><span class="s" data-i="42">1185年の壇ノ浦の戦いで滅んだよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="41">平氏は日宋貿易で栄えたけど、</span><span class="s" data-i="42">1185年の壇ノ浦の戦いで滅んだよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">日宋貿易<span class="w-rd">にっそうぼうえき</span></span><span class="w-desc">平清盛が大輪田泊を整備して進めた宋との貿易。</span></div><div class="word"><span class="w-term">壇ノ浦の戦い<span class="w-rd">だんのうらのたたかい</span></span><span class="w-desc">1185年、平氏がほろんだ源氏との戦い。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -773,10 +833,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/05/index.html#t3"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/05/index.html#t3"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=05-insei-taira" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -784,37 +843,40 @@
 </section>
 <section class="view" data-t="3">
   <div class="tband"><span class="tno">3</span><h2>鎌倉幕府の成立</h2>
-    <button class="play-unit" type="button" data-play="3" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="3" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-kamakura-bakufu.webp"
+      <img class="cover-img zoomable" src="img/cover-kamakura-bakufu.webp"
            alt="鎌倉幕府の成立（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">武士どうしを結びつけた「ご恩と奉公」。</span><span class="s" data-i="1">この約束が、日本で初めての武士による政権を支える土台になったんだよ。</span><span class="s" data-i="2">どんなしくみだったのか、見ていこう。</span></div></div>
     </div>
     <div class="step" data-label="源頼朝と鎌倉幕府の成立">
       <h3><span class="sec-no">1</span><span class="s" data-i="3">源頼朝と鎌倉幕府の成立</span></h3>
       <div class="sec-lead"><span class="s" data-i="4">頼朝が鎌倉に、武士の政権を開いたよ。</span></div>
+      <figure class="sec-fig size-lg"><img class="zoomable" src="img/hist05-sec-yoritomo.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="5">平氏をほろぼした<span class="mark">源頼朝</span>は、</span><span class="s" data-i="6">朝廷から<span class="mark">征夷大将軍</span>に任命されて、</span><span class="s" data-i="7">鎌倉を本拠地に日本で初めての武士の政権である<span class="mark">鎌倉幕府</span>を開いたんだ。</span><span class="s" data-i="8">頼朝は国ごとに軍事・警察を担う守護を、</span><span class="s" data-i="9">荘園や公領ごとに年貢の取り立てなどを行う地頭を置いて、</span><span class="s" data-i="10">全国の支配を固めていったんだね。</span><span class="s" data-i="11">こうして、貴族に代わって武士が政治を動かす時代が本格的に始まったんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="12">源頼朝は征夷大将軍となり、</span><span class="s" data-i="13">鎌倉幕府を開いたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="12">源頼朝は征夷大将軍となり、</span><span class="s" data-i="13">鎌倉幕府を開いたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">源頼朝<span class="w-rd">みなもとのよりとも</span></span><span class="w-desc">平氏をほろぼし、征夷大将軍として鎌倉幕府を開いた人物。</span></div><div class="word"><span class="w-term">征夷大将軍<span class="w-rd">せいいたいしょうぐん</span></span><span class="w-desc">源頼朝が任命された、武家の最高位を示す役職。</span></div><div class="word"><span class="w-term">守護<span class="w-rd">しゅご</span></span><span class="w-desc">国ごとに置かれ、軍事・警察や御家人の統率を担った役職。</span></div><div class="word"><span class="w-term">地頭<span class="w-rd">じとう</span></span><span class="w-desc">荘園や公領ごとに置かれ、年貢の取り立てなどを行った役職。</span></div></div>
     </div>
     <div class="step" data-label="御恩と奉公のしくみ">
       <h3><span class="sec-no">2</span><span class="s" data-i="14">御恩と奉公のしくみ</span></h3>
       <div class="sec-lead"><span class="s" data-i="15">御恩と奉公が、幕府を支える絆だったよ。</span></div>
+      <figure class="sec-fig fig-contain pos-wide"><img class="zoomable" src="img/hist05-sec-goon-hoko.webp" alt="" loading="lazy"><figcaption>御恩と奉公の関係</figcaption></figure>
       <p><span class="s" data-i="16">将軍と主従関係を結んだ武士は<span class="mark">御家人</span>と呼ばれたんだ。</span><span class="s" data-i="17">将軍が御家人の領地を保護したり、</span><span class="s" data-i="18">新しい土地をあたえたりする<span class="mark">御恩</span>に対して、</span><span class="s" data-i="19">御家人は戦のときの軍役や京都・鎌倉の警護をつとめる<span class="mark">奉公</span>で応じる。</span><span class="s" data-i="20">この関係が鎌倉幕府の基礎になっていたんだね。</span><span class="s" data-i="21">このような土地を仲立ちとした主従関係は封建制度と呼ばれていて、</span><span class="s" data-i="22">ヨーロッパ中世の領主と騎士の関係ともよく似ているんだよ。</span><span class="s" data-i="23">おもしろいでしょ？</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="24">御恩と奉公という主従関係が、</span><span class="s" data-i="25">鎌倉幕府を支えていたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="24">御恩と奉公という主従関係が、</span><span class="s" data-i="25">鎌倉幕府を支えていたよ。</span></div></div>
       
     </div>
     <div class="step" data-label="承久の乱と御成敗式目">
       <h3><span class="sec-no">3</span><span class="s" data-i="26">承久の乱と御成敗式目</span></h3>
       <div class="sec-lead"><span class="s" data-i="27">乱に勝った幕府が、</span><span class="s" data-i="28">武士の法を定めたよ。</span></div>
+      <figure class="sec-fig"><img class="zoomable" src="img/hist05-sec-jokyu-shikimoku.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="29">頼朝の死後は、妻の実家である北条氏が<span class="mark">執権</span>として実権をにぎるようになったんだ。</span><span class="s" data-i="30">1221年、後鳥羽上皇が幕府をたおそうと兵を挙げる<span class="mark">承久の乱</span>を起こしたけれど、</span><span class="s" data-i="31">北条政子が御家人の団結をうったえたこともあって、</span><span class="s" data-i="32">幕府側が勝利したんだよ。</span><span class="s" data-i="33">その後、京都には朝廷を監視する六波羅探題が置かれ、</span><span class="s" data-i="34">1232年には執権<span class="mark">北条泰時</span>が武士のならわしに基づく法である<span class="mark">御成敗式目</span>を定めたんだね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="35">1221年の承久の乱に勝ち、</span><span class="s" data-i="36">北条泰時が御成敗式目を定めたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="35">1221年の承久の乱に勝ち、</span><span class="s" data-i="36">北条泰時が御成敗式目を定めたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">執権<span class="w-rd">しっけん</span></span><span class="w-desc">将軍を補佐して実権をにぎった役職。頼朝の死後、北条氏が独占した。</span></div><div class="word"><span class="w-term">承久の乱<span class="w-rd">じょうきゅうのらん</span></span><span class="w-desc">1221年、後鳥羽上皇が幕府をたおそうとして敗れた戦い。</span></div><div class="word"><span class="w-term">御成敗式目<span class="w-rd">ごせいばいしきもく</span></span><span class="w-desc">1232年に北条泰時が定めた、武士のならわしに基づく法。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -922,10 +984,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/05/index.html#t4"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/05/index.html#t4"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=05-kamakura-bakufu" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -933,37 +994,40 @@
 </section>
 <section class="view" data-t="4">
   <div class="tband"><span class="tno">4</span><h2>鎌倉時代の社会</h2>
-    <button class="play-unit" type="button" data-play="4" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="4" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-kamakura-society.webp"
+      <img class="cover-img zoomable" src="img/cover-kamakura-society.webp"
            alt="鎌倉時代の社会（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">田畑を耕す技術が進んで、</span><span class="s" data-i="1">お金を使った商売も広がっていく。</span><span class="s" data-i="2">武士が政治を動かす一方で、</span><span class="s" data-i="3">人々の暮らしも大きく変わっていったんだよ。</span><span class="s" data-i="4">どんなふうに変わったのか見てみよう。</span></div></div>
     </div>
     <div class="step" data-label="農業の発達">
       <h3><span class="sec-no">1</span><span class="s" data-i="5">農業の発達</span></h3>
       <div class="sec-lead"><span class="s" data-i="6">二毛作など、農業の技術が進歩したよ。</span></div>
+      <figure class="sec-fig"><img class="zoomable" src="img/hist05-sec-agriculture.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="7">鎌倉時代には農業技術が大きく進んで、</span><span class="s" data-i="8">同じ田で秋に米、</span><span class="s" data-i="9">冬に麦を作る<span class="mark">二毛作</span>が西日本を中心に広まっていったんだ。</span><span class="s" data-i="10">木や石より硬く深く耕せる<span class="mark">鉄製農具</span>や、</span><span class="s" data-i="11">牛や馬を使って田を耕す<span class="mark">牛馬耕</span>、</span><span class="s" data-i="12">草木を焼いた灰を肥料として使う草木灰の利用も進んでいったよ。</span><span class="s" data-i="13">これらが組み合わさって、</span><span class="s" data-i="14">農業の収穫量はぐんと高まっていったんだね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="15">二毛作や鉄製農具の普及で、</span><span class="s" data-i="16">農業の収穫量が高まったよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="15">二毛作や鉄製農具の普及で、</span><span class="s" data-i="16">農業の収穫量が高まったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">二毛作<span class="w-rd">にもうさく</span></span><span class="w-desc">同じ田で米と麦を交互に作る農業。鎌倉時代に西日本を中心に広まった。</span></div><div class="word"><span class="w-term">鉄製農具<span class="w-rd">てっせいのうぐ</span></span><span class="w-desc">鎌倉時代に普及した、耕作効率を高めた農具。</span></div><div class="word"><span class="w-term">牛馬耕<span class="w-rd">ぎゅうばこう</span></span><span class="w-desc">牛や馬を使って田を耕す農法。</span></div></div>
     </div>
     <div class="step" data-label="商業の発達と貨幣経済">
       <h3><span class="sec-no">2</span><span class="s" data-i="17">商業の発達と貨幣経済</span></h3>
       <div class="sec-lead"><span class="s" data-i="18">市が開かれ、お金を使う経済が広がったよ。</span></div>
+      <figure class="sec-fig pos-wide"><img class="zoomable" src="img/hist05-sec-market.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="19">農業生産が高まると商業も発達していき、</span><span class="s" data-i="20">寺社の門前や交通の要所には月3回開かれる<span class="mark">定期市</span>(三斎市)が各地に広がっていったんだ。</span><span class="s" data-i="21">平清盛の日宋貿易で日本に大量に入ってきた<span class="mark">宋銭</span>は、</span><span class="s" data-i="22">売買だけでなく年貢の支払いにも使われるようになったよ。</span><span class="s" data-i="23">物々交換に代わってお金を使う貨幣経済が、</span><span class="s" data-i="24">こうして進んでいったんだね。</span><span class="s" data-i="25">商品を運ぶ運送業者である<span class="mark">馬借</span>も活躍したんだ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="26">定期市と宋銭の流通で、</span><span class="s" data-i="27">貨幣経済が発達していったよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="26">定期市と宋銭の流通で、</span><span class="s" data-i="27">貨幣経済が発達していったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">定期市<span class="w-rd">ていきいち</span></span><span class="w-desc">寺社の門前などで月3回開かれた市場。三斎市ともいう。</span></div><div class="word"><span class="w-term">宋銭<span class="w-rd">そうせん</span></span><span class="w-desc">日宋貿易で入ってきた中国の銭。年貢の支払いにも使われた。</span></div><div class="word"><span class="w-term">馬借<span class="w-rd">ばしゃく</span></span><span class="w-desc">馬を使って荷物や商品を運んだ運送業者。</span></div></div>
     </div>
     <div class="step" data-label="武士の暮らしと土地争い">
       <h3><span class="sec-no">3</span><span class="s" data-i="28">武士の暮らしと土地争い</span></h3>
       <div class="sec-lead"><span class="s" data-i="29">武士道を重んじ、</span><span class="s" data-i="30">土地争いも起きたよ。</span></div>
+      <figure class="sec-fig size-sm"><img class="zoomable" src="img/hist05-sec-bushi-yakata.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="31">鎌倉時代の武士は、</span><span class="s" data-i="32">名誉を重んじはじをきらう<span class="mark">武士道</span>の心がまえを持っていたんだ。</span><span class="s" data-i="33">弓や馬の技を磨く弓馬の道を何より大切にして、</span><span class="s" data-i="34">一大事には「いざ鎌倉」と将軍のもとへ駆けつける覚悟を持っていたんだね。</span><span class="s" data-i="35">かっこいいよね。</span><span class="s" data-i="36">一方で、地頭が荘園で力を強めると荘園領主との土地争いが増えていき、</span><span class="s" data-i="37">土地を半分ずつ分け合う<span class="mark">下地中分</span>で解決することもあったんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="38">地頭と荘園領主は、</span><span class="s" data-i="39">下地中分で土地争いを解決したよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="38">地頭と荘園領主は、</span><span class="s" data-i="39">下地中分で土地争いを解決したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">武士道<span class="w-rd">ぶしどう</span></span><span class="w-desc">名誉を重んじ、はじをきらう武士の心がまえ。</span></div><div class="word"><span class="w-term">下地中分<span class="w-rd">したじちゅうぶん</span></span><span class="w-desc">地頭と荘園領主が土地を半分ずつ分け合うこと。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -1071,10 +1135,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/05/index.html#t5"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/05/index.html#t5"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=05-kamakura-society" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -1082,37 +1145,40 @@
 </section>
 <section class="view" data-t="5">
   <div class="tband"><span class="tno">5</span><h2>鎌倉文化と新しい仏教</h2>
-    <button class="play-unit" type="button" data-play="5" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="5" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-kamakura-culture.webp"
+      <img class="cover-img zoomable" src="img/cover-kamakura-culture.webp"
            alt="鎌倉文化と新しい仏教（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">力強くリアルな彫刻と、</span><span class="s" data-i="1">だれにでも分かりやすい新しい仏教の教え。</span><span class="s" data-i="2">武士の世にふさわしい文化がここに生まれたんだよ。</span><span class="s" data-i="3">どんな文化か、のぞいてみよう。</span></div></div>
     </div>
     <div class="step" data-label="力強い彫刻と文学">
       <h3><span class="sec-no">1</span><span class="s" data-i="4">力強い彫刻と文学</span></h3>
       <div class="sec-lead"><span class="s" data-i="5">写実的な彫刻と、</span><span class="s" data-i="6">力強い文学が生まれたよ。</span></div>
+      <figure class="sec-fig pos-wide"><img class="zoomable" src="img/hist05-sec-kongorikishi.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="7">源平の争乱で焼けてしまった東大寺は、</span><span class="s" data-i="8">鎌倉時代に再建されたんだ。</span><span class="s" data-i="9">南大門には運慶・快慶らが手がけた写実的で力強い<span class="mark">金剛力士像</span>が置かれたよ。</span><span class="s" data-i="10">文学では、源平の争乱をえがき琵琶法師が語り伝えた軍記物語<span class="mark">平家物語</span>、</span><span class="s" data-i="11">鴨長明が世のはかなさを記した随筆「方丈記」、</span><span class="s" data-i="12">兼好法師が人々の暮らしをつづった随筆「徒然草」が生まれたんだね。</span><span class="s" data-i="13">後鳥羽上皇の命で藤原定家らが「新古今和歌集」を編集したのもこの時代なんだ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="14">運慶・快慶の金剛力士像や、</span><span class="s" data-i="15">平家物語が生まれたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="14">運慶・快慶の金剛力士像や、</span><span class="s" data-i="15">平家物語が生まれたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">金剛力士像<span class="w-rd">こんごうりきしぞう</span></span><span class="w-desc">運慶・快慶らが作った、東大寺南大門にある力強い彫刻。</span></div><div class="word"><span class="w-term">平家物語<span class="w-rd">へいけものがたり</span></span><span class="w-desc">源氏と平氏の戦いをえがき、琵琶法師が語り伝えた軍記物語。</span></div></div>
     </div>
     <div class="step" data-label="念仏の教え">
       <h3><span class="sec-no">2</span><span class="s" data-i="16">念仏の教え</span></h3>
       <div class="sec-lead"><span class="s" data-i="17">念仏を唱える、新しい仏教が広まったよ。</span></div>
+      <figure class="sec-fig pos-left"><img class="zoomable" src="img/hist05-sec-nenbutsu.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="18">鎌倉時代には、だれにでも分かりやすい新しい仏教が広まっていったんだ。</span><span class="s" data-i="19"><span class="mark">法然</span>は「南無阿弥陀仏」と念仏を唱えれば誰でも救われると説いて、</span><span class="s" data-i="20">浄土宗を開いたよ。</span><span class="s" data-i="21">弟子の<span class="mark">親鸞</span>は、阿弥陀仏を信じる心があれば悪人こそ救われるという悪人正機を説いて浄土真宗を開いたんだね。</span><span class="s" data-i="22"><span class="mark">一遍</span>は踊りながら念仏を唱える踊念仏を広めて、</span><span class="s" data-i="23">時宗を開いたんだ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="24">法然は浄土宗、親鸞は浄土真宗、</span><span class="s" data-i="25">一遍は時宗を開いたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="24">法然は浄土宗、親鸞は浄土真宗、</span><span class="s" data-i="25">一遍は時宗を開いたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">法然<span class="w-rd">ほうねん</span></span><span class="w-desc">念仏を唱えれば救われると説き、浄土宗を開いた僧。</span></div><div class="word"><span class="w-term">親鸞<span class="w-rd">しんらん</span></span><span class="w-desc">悪人正機を説き、浄土真宗を開いた法然の弟子。</span></div><div class="word"><span class="w-term">一遍<span class="w-rd">いっぺん</span></span><span class="w-desc">踊念仏を広め、時宗を開いた僧。</span></div></div>
     </div>
     <div class="step" data-label="題目と禅宗">
       <h3><span class="sec-no">3</span><span class="s" data-i="26">題目と禅宗</span></h3>
       <div class="sec-lead"><span class="s" data-i="27">題目や座禅を重んじる、</span><span class="s" data-i="28">仏教も生まれたよ。</span></div>
+      <figure class="sec-fig"><img class="zoomable" src="img/hist05-sec-zen-nichiren.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="29"><span class="mark">日蓮</span>は法華経の題目「南無妙法蓮華経」を唱えることだけが正しい救いの道だと説いて、</span><span class="s" data-i="30">日蓮宗を開いたんだ。</span><span class="s" data-i="31">一方、宋に渡って学んだ<span class="mark">栄西</span>は座禅と問答を重んじる臨済宗を伝え、</span><span class="s" data-i="32"><span class="mark">道元</span>はひたすら座禅を行う(只管打坐)ことを説いて曹洞宗を開いたんだね。</span><span class="s" data-i="33">座禅による自力の修行を重んじる禅宗は、</span><span class="s" data-i="34">武士の精神にもぴったり合って、</span><span class="s" data-i="35">広く受け入れられていったんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="36">日蓮は日蓮宗、栄西と道元は座禅を重んじる禅宗を開いたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="36">日蓮は日蓮宗、栄西と道元は座禅を重んじる禅宗を開いたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">日蓮<span class="w-rd">にちれん</span></span><span class="w-desc">法華経の題目を唱えることを説き、日蓮宗を開いた僧。</span></div><div class="word"><span class="w-term">栄西<span class="w-rd">えいさい</span></span><span class="w-desc">宋から臨済宗を伝えた僧。</span></div><div class="word"><span class="w-term">道元<span class="w-rd">どうげん</span></span><span class="w-desc">ひたすら座禅を行う曹洞宗を開いた僧。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -1220,10 +1286,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/05/index.html#t6"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/05/index.html#t6"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=05-kamakura-culture" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -1239,6 +1304,11 @@
   <button class="ap-close" id="apClose" aria-label="読み上げを止める">×</button>
 </div></div>
 <audio id="audio" preload="none"></audio>
+<div class="lightbox" id="lightbox" hidden>
+  <img id="lightboxImg" alt="">
+  <button class="lb-close" id="lbClose" aria-label="閉じる">×</button>
+  <div class="lb-hint">タップで閉じる</div>
+</div>
 <div class="navbar" id="navbar" hidden><div class="navbar-in">
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
@@ -1458,7 +1528,7 @@
       b.classList.toggle('on', bt === t);
       b.classList.toggle('done', bt > 0 && store()['d' + bt] === 1);
     });
-    var tabEl = tabs[t];
+    var tabEl = tabs.filter(function (b) { return +b.dataset.go === t; })[0];
     if (tabEl && tabEl.scrollIntoView) {
       tabEl.scrollIntoView({ block: 'nearest', inline: 'center' });
     }
@@ -1501,11 +1571,11 @@
       pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
       var prev = document.getElementById('btnPrev');
       var next = document.getElementById('btnNext');
-      prev.textContent = s === 0 ? '🏠 目次' : '← まえへ';
+      prev.textContent = s === 0 ? '目次へ' : '← まえへ';
       if (s < steps.length - 1) {
         next.textContent = 'つぎへ →';
       } else {
-        next.textContent = t < N ? '次の単元へ →' : '🏠 目次にもどる';
+        next.textContent = t < N ? '次の単元へ →' : '目次にもどる';
       }
       // 進捗保存
       var st = store();
@@ -1667,8 +1737,21 @@
     }
   }, { passive: true });
 
+  // 画像タップで拡大（ライトボックス）。ページ送りタップ／スワイプと競合しない。
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightboxImg');
+  function openLb(src) { lbImg.src = src; lb.hidden = false; document.body.style.overflow = 'hidden'; }
+  function closeLb() { lb.hidden = true; lbImg.removeAttribute('src'); document.body.style.overflow = ''; }
+  document.addEventListener('click', function (e) {
+    var z = e.target.closest('img.zoomable');
+    if (z) { e.preventDefault(); e.stopPropagation(); openLb(z.currentSrc || z.src); }
+  });
+  lb.addEventListener('click', closeLb);
+  document.getElementById('lbClose').addEventListener('click', function (e) { e.stopPropagation(); closeLb(); });
+
   // キーボード操作（PC）: ←→ でページ送り、PageUp/Down も同じ、Home で目次へ
   document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !lb.hidden) { closeLb(); return; }
     var tag = e.target && e.target.tagName;
     if (tag === 'INPUT' || tag === 'TEXTAREA' || e.metaKey || e.ctrlKey || e.altKey) return;
     if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === 'Enter') { next(); e.preventDefault(); }
@@ -1683,6 +1766,16 @@
   }
   window.addEventListener('hashchange', fromHash);
   fromHash();
+
+  // 問題集の「解説を読む」から来たとき（?back=）だけ「問題にもどる」を出す
+  (function () {
+    var m = /[?&]back=([^&#]+)/.exec(location.search);
+    var pill = document.getElementById('backPill');
+    if (m && pill) {
+      try { pill.href = decodeURIComponent(m[1]); } catch (e) { pill.href = m[1]; }
+      pill.hidden = false;
+    }
+  })();
 })();
 </script>
 <script type="module">

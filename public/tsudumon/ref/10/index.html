@@ -21,12 +21,26 @@
   .s.read { color:#8a8279; }
   .s.now { background:#fcd34d; color:#1c1917; }
   .s.now .mark { background:none; }
-  /* 単元見出しの再生ボタン */
+  /* 単元見出しの音声ボタン（タップで読み上げ再生。適度に目立つ塗りボタン＋再生アイコン） */
   .play-unit { display:inline-flex; align-items:center; gap:6px; margin-left:auto; flex:none;
-               background:#fff; color:var(--brand); border:1.5px solid var(--line);
-               border-radius:20px; padding:4px 12px; font-size:12px; font-weight:bold;
-               font-family:inherit; cursor:pointer; }
+               background:linear-gradient(#f59e0b,#ea7a09); color:#fff;
+               border:none; border-radius:20px; padding:7px 15px 7px 9px; font-size:13px; font-weight:bold;
+               font-family:inherit; cursor:pointer; box-shadow:0 3px 0 #c2620a, 0 4px 9px rgba(217,119,6,.3);
+               transition:transform .12s, filter .12s; }
+  .pu-ic { flex:none; width:22px; height:22px; border-radius:50%; background:rgba(255,255,255,.28);
+           display:inline-flex; align-items:center; justify-content:center; }
+  .pu-ic svg { width:13px; height:13px; fill:#fff; margin-left:1px; }
+  .play-unit:active { transform:translateY(2px); box-shadow:0 1px 0 #c2620a; }
+  @media (hover:hover) { .play-unit:hover { filter:brightness(1.06); } }
   .play-unit[hidden] { display:none; }
+  /* 問題集の「解説を読む」から来たときに出す「問題にもどる」ボタン（すぐ問題へ戻れる） */
+  .backpill { position:fixed; left:50%; transform:translateX(-50%); bottom:74px; z-index:40;
+              background:var(--brand); color:#fff; font-weight:bold; font-size:13.5px;
+              border-radius:22px; padding:9px 18px 9px 13px; text-decoration:none;
+              box-shadow:0 4px 14px rgba(120,50,10,.35); display:inline-flex; align-items:center; gap:5px; }
+  .backpill svg { width:16px; height:16px; fill:none; stroke:#fff; stroke-width:2.4;
+                  stroke-linecap:round; stroke-linejoin:round; }
+  .backpill[hidden] { display:none; }
   /* 下部プレーヤー（再生中だけ出す。ナビバーの上に重ねる） */
   .aplayer { position:fixed; left:0; right:0; bottom:58px; z-index:25;
              background:rgba(255,253,248,.98); border-top:1px solid #f0e6d2;
@@ -53,13 +67,18 @@
      タブ列の 🏠 は「この本の目次」なので、こちらは 🗺＋文字でトップだと分かるようにする。 */
   .tophome { flex:none; height:30px; padding:0 12px; font-size:11.5px; font-weight:bold;
              color:#fff; background:var(--deep); border-radius:15px; text-decoration:none;
-             display:inline-flex; align-items:center; white-space:nowrap;
-             box-shadow:0 2px 0 #5b1e0b; }
-  .swap { flex:none; display:inline-flex; border:1.5px solid var(--line); border-radius:20px;
-          overflow:hidden; background:#fffbeb; }
-  .sw { font-size:11px; font-weight:bold; color:var(--brand); padding:3px 7px; text-decoration:none;
-        white-space:nowrap; cursor:pointer; }
-  .sw.on { background:var(--brand); color:#fff; }
+             display:inline-flex; align-items:center; gap:5px; white-space:nowrap;
+             box-shadow:0 2px 0 #5b1e0b; transition:filter .12s; }
+  .th-ic { width:14px; height:14px; fill:currentColor; flex:none; }
+  @media (hover:hover) { .tophome:hover { filter:brightness(1.12); } }
+  /* 参考書⇄問題の切りかえタブ。押せると分かるよう、非選択側は白ボタン風＋ホバー反応 */
+  .swap { flex:none; display:inline-flex; gap:3px; padding:2px; border-radius:16px;
+          background:#f0e2c3; }
+  .sw { font-size:11.5px; font-weight:bold; color:var(--brand); padding:4px 12px; text-decoration:none;
+        white-space:nowrap; cursor:pointer; border-radius:13px; background:#fff;
+        transition:filter .12s, background-color .12s; }
+  .sw.on { background:var(--brand); color:#fff; cursor:default; box-shadow:0 1px 2px rgba(180,83,9,.3); }
+  @media (hover:hover) { .sw:not(.on):hover { background:#fff8ec; filter:brightness(0.98); } }
   .sw[hidden] { display:none; }
   .bar-title { font-weight:bold; color:var(--deep); font-size:14px; flex:1;
                white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
@@ -83,13 +102,15 @@
   .tabs { display:flex; gap:5px; overflow-x:auto; padding:4px 0; width:100%;
           scrollbar-width:none; -webkit-overflow-scrolling:touch; }
   .tabs::-webkit-scrollbar { display:none; }
+  /* 単元タブ: 位置は動かさず、色で状態を示す（未読=クリーム／読んだ=緑／表示中=茶） */
   .tab { flex:none; width:30px; height:30px; border-radius:50%; border:1.5px solid var(--line);
          background:#fffbeb; color:var(--brand); font-size:15px; font-weight:bold;
-         display:inline-flex; align-items:center; justify-content:center; cursor:pointer; }
-  .tab.done { background:#fef3c7; }
+         display:inline-flex; align-items:center; justify-content:center; cursor:pointer;
+         transition:background-color .12s, border-color .12s; }
+  .tab.done { background:#dcfce7; border-color:#86efac; color:#15803d; }   /* 読んだ単元 */
   .tab.done::after { content:""; }
-  .tab.on { background:var(--brand); border-color:var(--brand); color:#fff;
-            box-shadow:0 2px 6px rgba(180,83,9,.35); }
+  .tab.on { background:var(--brand); border-color:var(--brand); color:#fff; }  /* いま表示中 */
+  @media (hover:hover) { .tab:not(.on):hover { background:#fff2d6; } }
   .pbar { height:3px; background:#f5ecd8; border-radius:2px; overflow:hidden; margin:0 0 0; }
   .pfill { height:100%; width:0; background:linear-gradient(90deg,var(--amber),#fbbf24);
            border-radius:2px; transition:width .25s ease; }
@@ -100,6 +121,7 @@
   @keyframes vfade { from { opacity:.6; } to { opacity:1; } }
   .step { display:none; }
   .step.on { display:block; }
+  .step::after { content:""; display:table; clear:both; }  /* 挿絵の float を内包 */
   /* 本物っぽいページめくり（2枚重ね）:
      進む = 今のページ自体が左とじに沿って手前にめくれて去り、下から次のページが現れる。
      戻る = 前のページが手前からめくり戻されて上に着地する。 */
@@ -144,8 +166,7 @@
   .b-web { background:var(--amber); color:#fff; }
   .ht-title { font-size:41px; color:var(--deep); margin:12px 0 0; line-height:1.12; position:relative;
               display:inline-block; padding:0 6px; letter-spacing:.01em; }
-  .ht-title::before { content:"✨"; position:absolute; left:-22px; top:2px; font-size:19px; }
-  .ht-title::after { content:"✨"; position:absolute; right:-20px; bottom:4px; font-size:15px; }
+  .ht-title::before, .ht-title::after { content:none; }
   .ht-mascot { flex:none; position:relative; width:100px; padding-top:22px; text-align:center; }
   .ht-mascot img { height:74px; width:auto; }
   .ht-bubble { position:absolute; top:0; left:50%; transform:translateX(-50%); white-space:nowrap;
@@ -181,8 +202,8 @@
   .toc { margin:16px 0 8px; background:#fff9ef; border:2px solid #f0e2c3; border-radius:16px; padding:12px; }
   .toc-head { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:10px; }
   .toc-h { font-weight:bold; color:var(--deep); font-size:16px; display:flex; align-items:center; gap:8px; }
-  .toc-h::before { content:"📖"; display:inline-flex; align-items:center; justify-content:center;
-                   width:30px; height:30px; border-radius:50%; background:var(--brand); font-size:15px; }
+  .toc-h::before { content:""; flex:none; width:30px; height:30px; border-radius:50%;
+                   background:var(--brand) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23fff'%3E%3Cpath d='M12 6.6C10.5 5.4 8.4 4.9 6 4.9c-1 0-2 .1-2.8.3v12.9c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3V5.2C20 5 19 4.9 18 4.9c-2.4 0-4.5.5-6 1.7z'/%3E%3C/svg%3E") center/17px no-repeat; }
   /* 単元カード（大きめサムネ＋番号＋名前＋右矢印） */
   .toc-item { display:flex; align-items:center; width:100%; margin-bottom:8px; padding:0;
               background:#fff; border:1.5px solid #f0e2c3; border-radius:12px; overflow:hidden;
@@ -261,6 +282,39 @@
             border:1.5px solid var(--line); color:var(--brand); font-weight:bold;
             display:inline-flex; align-items:center; justify-content:center; font-size:12px; }
   .sec-lead { font-size:13px; color:var(--brand); font-weight:bold; margin:2px 0 4px 30px; }
+  /* 節の挿絵：既定は本文の右に小さく回り込ませる（補足的・目立ちすぎない） */
+  .sec-fig { float:right; width:46%; max-width:205px; margin:3px 0 8px 12px; }
+  .sec-fig.fig-contain { max-width:230px; }
+  .sec-fig img { width:100%; max-height:172px; object-fit:cover; display:block;
+                 border-radius:10px; border:1px solid #f0e6d2;
+                 box-shadow:0 1px 4px rgba(120,80,20,.10); background:#fff; cursor:zoom-in; }
+  /* 図版（関係図・地図）は切らずに全体を見せる（日本語ラベルが欠けないように） */
+  .sec-fig.fig-contain img { object-fit:contain; max-height:none; background:#fffdf8; }
+  .sec-fig figcaption { font-size:11px; color:#a8a29e; text-align:center; margin-top:4px; line-height:1.4; }
+  /* 変化をつける: 左回り込み／サイズ違い／横いっぱい */
+  .sec-fig.pos-left { float:left; margin:3px 12px 8px 0; }
+  .sec-fig.size-sm { max-width:150px; }
+  .sec-fig.size-lg { max-width:250px; }
+  .sec-fig.pos-wide { float:none; width:auto; max-width:100%; margin:10px 0; }
+  .sec-fig.pos-wide img { max-height:260px; }
+  .sec-fig.pos-wide.fig-contain img { max-height:340px; }  /* 地図・図はワイドで大きく読める */
+  .sec-fig.pos-wide figcaption { font-size:12px; }
+  /* 挿絵を含む節でも ⭐ここだけ覚える／用語は画像の下から始める */
+  .step .point, .step .words { clear:both; }
+  .cover-art img, .cover-img { cursor:zoom-in; }
+
+  /* 画像タップで拡大（ライトボックス） */
+  .lightbox { position:fixed; inset:0; z-index:200; background:rgba(20,14,8,.88);
+              display:flex; align-items:center; justify-content:center; padding:20px;
+              -webkit-tap-highlight-color:transparent; cursor:zoom-out; }
+  .lightbox[hidden] { display:none; }
+  .lightbox img { max-width:96vw; max-height:90vh; border-radius:10px; background:#fffdf8;
+                  box-shadow:0 8px 40px rgba(0,0,0,.55); }
+  .lb-close { position:fixed; top:14px; right:16px; width:42px; height:42px; border:none;
+              border-radius:50%; background:rgba(255,255,255,.92); color:#7c2d12; font-size:24px;
+              line-height:1; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,.3); }
+  .lb-hint { position:fixed; bottom:20px; left:0; right:0; text-align:center; color:#fff;
+             font-size:12px; opacity:.7; pointer-events:none; }
   .step p { margin-top:8px; text-align:justify; }
   .point { background:#fff9c4; border-left:6px solid #fbbf24; border-radius:8px;
            padding:10px 12px; margin-top:12px; font-size:14px; line-height:1.8; }
@@ -440,10 +494,10 @@
 </style></head><body>
 <div class="bar"><div class="bar-in">
   <div class="bar-row">
-    <a class="tophome" href="../../index.html" aria-label="単元一覧へもどる">単元一覧</a>
-    <div class="swap"><span class="sw on">📖 参考書</span><a class="sw" id="swWb">✏️ 問題</a></div>
+    <a class="tophome" href="../../index.html" aria-label="単元一覧へもどる"><svg class="th-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.6"/></svg>単元一覧</a>
+    <div class="swap" role="tablist" aria-label="参考書と問題の切りかえ"><span class="sw on">参考書</span><a class="sw" id="swWb" role="tab">問題</a></div>
     <div class="tabs-wrap">
-      <nav class="tabs" id="tabs"><button class="tab tab-home" data-go="0" aria-label="目次">🏠</button><button class="tab" data-go="1" aria-label="開国と不平等条約">1</button><button class="tab" data-go="2" aria-label="開国後の政治と経済">2</button><button class="tab" data-go="3" aria-label="江戸幕府の滅亡">3</button></nav>
+      <nav class="tabs" id="tabs"><button class="tab" data-go="1" aria-label="開国と不平等条約">1</button><button class="tab" data-go="2" aria-label="開国後の政治と経済">2</button><button class="tab" data-go="3" aria-label="江戸幕府の滅亡">3</button></nav>
       <button class="tscroll tsl" id="tabsL" type="button" hidden aria-label="単元タブを左へ">‹</button>
       <button class="tscroll tsr" id="tabsR" type="button" hidden aria-label="単元タブを右へ">›</button>
     </div>
@@ -452,11 +506,11 @@
   <div class="bar-title" hidden>歴史 ⑩ 幕末の動乱</div>
   <div class="pbar"><div class="pfill" id="pfill"></div></div>
 </div></div>
+<a class="backpill" id="backPill" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 6l-6 6 6 6"/></svg>問題にもどる</a>
 <main class="wrap" id="views">
 
 <section class="view home" data-t="0">
   <div class="home-topline">
-    <a class="home-link" href="../../index.html">‹ 単元一覧にもどる</a>
     <div class="badge3"><span class="b-vol">歴史 ⑩</span><span class="b-kind">参考書</span></div>
   </div>
   <header class="top hometop">
@@ -471,7 +525,7 @@
     <div class="toc-head"><div class="toc-h">単元を選択</div></div>
     <button class="toc-item" data-go="1"><img class="toc-thumb" src="img/hist10-kurofune.webp" alt="" loading="lazy"><span class="toc-no">1</span><span class="toc-name">開国と不平等条約</span><span class="toc-state" data-state-t="1"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="2"><img class="toc-thumb" src="img/hist10-post-opening.webp" alt="" loading="lazy"><span class="toc-no">2</span><span class="toc-name">開国後の政治と経済</span><span class="toc-state" data-state-t="2"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="3"><img class="toc-thumb" src="img/hist10-taisei.webp" alt="" loading="lazy"><span class="toc-no">3</span><span class="toc-name">江戸幕府の滅亡</span><span class="toc-state" data-state-t="3"></span><span class="toc-arrow">›</span></button>
   </nav>
-  <a class="wb-home" href="../../wb/10/index.html">✏️ 問題集を開く（この本の問題を解く）</a>
+  <a class="wb-home" href="../../wb/10/index.html">問題集を開く（この本の問題を解く）</a>
   <footer class="foot">
     <div>つづもん 参考書</div>
     <div class="foot-note">紙やタブレットでじっくり派には、ダウンロード済みのPDF版もどうぞ。</div>
@@ -479,37 +533,40 @@
 </section>
 <section class="view" data-t="1">
   <div class="tband"><span class="tno">1</span><h2>開国と不平等条約</h2>
-    <button class="play-unit" type="button" data-play="1" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="1" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-opening-japan.webp"
+      <img class="cover-img zoomable" src="img/cover-opening-japan.webp"
            alt="開国と不平等条約（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">黒船が来て、日本は大あわて!ここから時代が大きく動き出すよ。</span></div></div>
     </div>
     <div class="step" data-label="黒船来航、日本大あわて!">
       <h3><span class="sec-no">1</span><span class="s" data-i="1">黒船来航、日本大あわて!</span></h3>
       <div class="sec-lead"><span class="s" data-i="2">ペリーの黒船来航に日本中が大さわぎしたよ。</span></div>
+      
       <p><span class="s" data-i="3">1853年、アメリカの<span class="mark">ペリー</span>が大きな軍艦を率いて浦賀にやってきたんだ。</span><span class="s" data-i="4">真っ黒な船体から蒸気を上げるその姿は、</span><span class="s" data-i="5">当時の人たちの目に「<span class="mark">黒船</span>」として映って、</span><span class="s" data-i="6">日本中が大さわぎになったんだよ。</span><span class="s" data-i="7">ペリーの目的は、</span><span class="s" data-i="8">太平洋で活動する捕鯨船や中国との貿易船に、燃料や食料、</span><span class="s" data-i="9">水を補給できる港を日本に開かせることだったんだ。</span><span class="s" data-i="10">幕府は返事を先延ばしにしたけど、</span><span class="s" data-i="11">翌年また来ると約束されて、</span><span class="s" data-i="12">どうするか大急ぎで考えることになったんだね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="13">1853年、ペリーが黒船を率いて浦賀に来航したよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="13">1853年、ペリーが黒船を率いて浦賀に来航したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">ペリー<span class="w-rd">ぺりー</span></span><span class="w-desc">1853年に黒船で浦賀に来航し、日本に開国を求めたアメリカの軍人。</span></div><div class="word"><span class="w-term">黒船<span class="w-rd">くろふね</span></span><span class="w-desc">ペリーが率いてきた蒸気船。黒い船体と煙で人々を驚かせた。</span></div></div>
     </div>
     <div class="step" data-label="日米和親条約と鎖国の終わり">
       <h3><span class="sec-no">2</span><span class="s" data-i="14">日米和親条約と鎖国の終わり</span></h3>
       <div class="sec-lead"><span class="s" data-i="15">日米和親条約が結ばれ鎖国が終わったよ。</span></div>
+      
       <p><span class="s" data-i="16">翌1854年、ペリーは再び来航し、</span><span class="s" data-i="17">幕府はついに<span class="mark">日米和親条約</span>を結んだんだ。</span><span class="s" data-i="18">これで下田と函館の2つの港が開かれることになったよ。</span><span class="s" data-i="19">実は江戸幕府は約200年間、</span><span class="s" data-i="20">外国との行き来をほぼ閉ざす「鎖国」という政策を続けてきたんだけど、</span><span class="s" data-i="21">これでその鎖国もとうとう終わりを迎えたんだ。</span><span class="s" data-i="22">長く続いた仕組みが、</span><span class="s" data-i="23">黒船一つでこんなに大きく動くなんて、</span><span class="s" data-i="24">すごいことだよね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="25">1854年、日米和親条約で下田・函館が開港されたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="25">1854年、日米和親条約で下田・函館が開港されたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">日米和親条約<span class="w-rd">にちべいわしんじょうやく</span></span><span class="w-desc">1854年に結ばれ、下田・函館の2港を開いて鎖国を終わらせた条約。</span></div></div>
     </div>
     <div class="step" data-label="不平等な日米修好通商条約">
       <h3><span class="sec-no">3</span><span class="s" data-i="26">不平等な日米修好通商条約</span></h3>
       <div class="sec-lead"><span class="s" data-i="27">日米修好通商条約は日本に不利な内容だったよ。</span></div>
+      
       <p><span class="s" data-i="28">その後、アメリカ総領事<span class="mark">ハリス</span>が下田に駐在して通商を求め、1858年、</span><span class="s" data-i="29">大老<span class="mark">井伊直弼</span>は天皇の許可である<span class="mark">勅許</span>を得ないまま<span class="mark">日米修好通商条約</span>を結んでしまったんだ。</span><span class="s" data-i="30">この条約には、外国人が日本で罪を犯しても外国の法律で裁く<span class="mark">領事裁判権</span>を認め、</span><span class="s" data-i="31">輸入品の税率を自分たちで決められない、</span><span class="s" data-i="32">つまり<span class="mark">関税自主権</span>を持たないという、</span><span class="s" data-i="33">日本にとって不利な内容が含まれていたんだよ。</span><span class="s" data-i="34">同じ年、他の4か国とも同じような条約を結んだんだ。</span><span class="s" data-i="35">不公平だと思わない?</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="36">1858年、井伊直弼が不平等な日米修好通商条約を結んだよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="36">1858年、井伊直弼が不平等な日米修好通商条約を結んだよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">日米修好通商条約<span class="w-rd">にちべいしゅうこうつうしょうじょうやく</span></span><span class="w-desc">1858年に井伊直弼が結んだ、不平等な内容を含む通商条約。</span></div><div class="word"><span class="w-term">井伊直弼<span class="w-rd">いいなおすけ</span></span><span class="w-desc">天皇の許可を得ないまま日米修好通商条約を結んだ大老。</span></div><div class="word"><span class="w-term">領事裁判権<span class="w-rd">りょうじさいばんけん</span></span><span class="w-desc">外国人が日本で罪を犯しても、外国の法律で裁く権利。</span></div><div class="word"><span class="w-term">関税自主権<span class="w-rd">かんぜいじしゅけん</span></span><span class="w-desc">輸入品の税率を自分の国で自由に決める権利。日本にはこれがなかった。</span></div><div class="word"><span class="w-term">ハリス<span class="w-rd">はりす</span></span><span class="w-desc">下田に駐在し、日米修好通商条約の交渉にあたったアメリカ総領事。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -617,10 +674,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/10/index.html#t2"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/10/index.html#t2"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=10-opening-japan" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -628,37 +684,40 @@
 </section>
 <section class="view" data-t="2">
   <div class="tband"><span class="tno">2</span><h2>開国後の政治と経済</h2>
-    <button class="play-unit" type="button" data-play="2" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="2" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-post-opening.webp"
+      <img class="cover-img zoomable" src="img/cover-post-opening.webp"
            alt="開国後の政治と経済（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">開国したあと、幕府はますます苦しい立場に追い込まれていくよ。</span><span class="s" data-i="1">人々の怒りと生活の苦しさ、</span><span class="s" data-i="2">両方から見てみよう。</span></div></div>
     </div>
     <div class="step" data-label="尊王攘夷の高まりと安政の大獄">
       <h3><span class="sec-no">1</span><span class="s" data-i="3">尊王攘夷の高まりと安政の大獄</span></h3>
       <div class="sec-lead"><span class="s" data-i="4">尊王攘夷派を井伊直弼が安政の大獄で弾圧したよ。</span></div>
+      
       <p><span class="s" data-i="5">開国に反対する人々の間には、</span><span class="s" data-i="6">天皇を尊び外国勢力を追い払おうとする<span class="mark">尊王攘夷</span>という考えが広がっていったんだ。</span><span class="s" data-i="7">これに対して大老井伊直弼は、</span><span class="s" data-i="8">1858〜59年に反対派を厳しく取り締まる<span class="mark">安政の大獄</span>を行い、</span><span class="s" data-i="9">長州藩で<span class="mark">松下村塾</span>を開いて高杉晋作らを育てた思想家<span class="mark">吉田松陰</span>らを処刑してしまったんだよ。</span><span class="s" data-i="10">教育者まで処刑してしまうなんて、</span><span class="s" data-i="11">当時の緊張がどれほど激しかったか伝わってくるね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="12">井伊直弼は安政の大獄で、</span><span class="s" data-i="13">吉田松陰ら尊王攘夷派を処刑したよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="12">井伊直弼は安政の大獄で、</span><span class="s" data-i="13">吉田松陰ら尊王攘夷派を処刑したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">尊王攘夷<span class="w-rd">そんのうじょうい</span></span><span class="w-desc">天皇を尊び、外国勢力を追い払おうとする幕末の考え方。</span></div><div class="word"><span class="w-term">安政の大獄<span class="w-rd">あんせいのたいごく</span></span><span class="w-desc">1858〜59年に井伊直弼が尊王攘夷派を処罰した事件。</span></div><div class="word"><span class="w-term">吉田松陰<span class="w-rd">よしだしょういん</span></span><span class="w-desc">松下村塾で多くの志士を育てたが、安政の大獄で処刑された思想家。</span></div><div class="word"><span class="w-term">松下村塾<span class="w-rd">しょうかそんじゅく</span></span><span class="w-desc">吉田松陰が開いた私塾。高杉晋作らを育てた。</span></div></div>
     </div>
     <div class="step" data-label="桜田門外の変と公武合体">
       <h3><span class="sec-no">2</span><span class="s" data-i="14">桜田門外の変と公武合体</span></h3>
       <div class="sec-lead"><span class="s" data-i="15">桜田門外の変で井伊直弼が暗殺されたよ。</span></div>
+      
       <p><span class="s" data-i="16">この弾圧への反発は大きく、1860年、</span><span class="s" data-i="17">井伊直弼は水戸藩の浪士らに江戸城の門の外で襲われて命を落としてしまうんだ。</span><span class="s" data-i="18">これが<span class="mark">桜田門外の変</span>だよ。</span><span class="s" data-i="19">大老が暗殺されるなんて、</span><span class="s" data-i="20">幕府の権威はガタ落ちだよね。</span><span class="s" data-i="21">その後、幕府は朝廷と力を合わせて信頼を取り戻そうとする<span class="mark">公武合体</span>という政策を進めたけど、</span><span class="s" data-i="22">残念ながらうまくはいかなかったんだ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="23">1860年、桜田門外の変で井伊直弼が暗殺されたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="23">1860年、桜田門外の変で井伊直弼が暗殺されたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">桜田門外の変<span class="w-rd">さくらだもんがいのへん</span></span><span class="w-desc">1860年に井伊直弼が暗殺された事件。</span></div><div class="word"><span class="w-term">公武合体<span class="w-rd">こうぶがったい</span></span><span class="w-desc">幕府と朝廷が協力して政治を安定させようとした政策。</span></div></div>
     </div>
     <div class="step" data-label="貿易の混乱と人々の暮らし">
       <h3><span class="sec-no">3</span><span class="s" data-i="24">貿易の混乱と人々の暮らし</span></h3>
       <div class="sec-lead"><span class="s" data-i="25">貿易開始で金の流出と物価上昇が起きたよ。</span></div>
+      
       <p><span class="s" data-i="26">開港後、日本からは<span class="mark">生糸</span>や茶が横浜港から<span class="mark">イギリス</span>などへ大量に輸出されたんだ。</span><span class="s" data-i="27">でも国内では品物が足りなくなって、</span><span class="s" data-i="28">物価がどんどん上がってしまったんだよ。</span><span class="s" data-i="29">さらに、日本と海外で金と銀の交換比率が違ったことから<span class="mark">金の流出</span>も起こり、</span><span class="s" data-i="30">暮らしはますます苦しくなっていったんだ。</span><span class="s" data-i="31">人々の不満は「ええじゃないか」と叫んで熱狂的に踊る騒ぎにまで広がったんだよ。</span><span class="s" data-i="32">世の中が変わることへの期待と不安が入り混じっていたんだね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="33">開港後、金の流出と物価上昇で人々の暮らしは苦しくなったよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="33">開港後、金の流出と物価上昇で人々の暮らしは苦しくなったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">生糸<span class="w-rd">きいと</span></span><span class="w-desc">開港後、横浜港からイギリスなどへ大量に輸出された日本の主要産品。</span></div><div class="word"><span class="w-term">金の流出<span class="w-rd">きんのりゅうしゅつ</span></span><span class="w-desc">金銀の交換比率の違いから、大量の金が海外に持ち出された問題。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -766,10 +825,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/10/index.html#t3"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/10/index.html#t3"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=10-post-opening" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -777,44 +835,48 @@
 </section>
 <section class="view" data-t="3">
   <div class="tband"><span class="tno">3</span><h2>江戸幕府の滅亡</h2>
-    <button class="play-unit" type="button" data-play="3" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="3" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-fall-of-bakufu.webp"
+      <img class="cover-img zoomable" src="img/cover-fall-of-bakufu.webp"
            alt="江戸幕府の滅亡（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">攘夷をあきらめ倒幕へ。</span><span class="s" data-i="1">敵だった薩摩と長州が手を組み、</span><span class="s" data-i="2">ついに260年続いた幕府が幕を閉じるよ。</span></div></div>
     </div>
     <div class="step" data-label="攘夷から倒幕への方針転換">
       <h3><span class="sec-no">1</span><span class="s" data-i="3">攘夷から倒幕への方針転換</span></h3>
       <div class="sec-lead"><span class="s" data-i="4">薩英戦争・下関戦争を経て倒幕へ方針転換したよ。</span></div>
+      
       <p><span class="s" data-i="5">1862年、薩摩藩士がイギリス人を殺傷する生麦事件が起こり、翌1863年、</span><span class="s" data-i="6">薩摩藩はイギリスと<span class="mark">薩英戦争</span>を戦うことになったんだ。</span><span class="s" data-i="7">同じころ長州藩も外国の四国艦隊と<span class="mark">下関戦争</span>を戦ったよ。</span><span class="s" data-i="8">どちらの藩も、欧米の軍事力があまりに強いことを思い知らされて、</span><span class="s" data-i="9">「これはもう外国を追い払う攘夷どころじゃない」と気づいたんだ。</span><span class="s" data-i="10">長州藩では高杉晋作が、</span><span class="s" data-i="11">武士以外の人々も加わる<span class="mark">奇兵隊</span>という新しい軍隊を組織して、</span><span class="s" data-i="12">倒幕に向けて力をたくわえていったんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="13">薩英戦争・下関戦争を経て、</span><span class="s" data-i="14">薩長は倒幕へ方針転換したよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="13">薩英戦争・下関戦争を経て、</span><span class="s" data-i="14">薩長は倒幕へ方針転換したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">薩英戦争<span class="w-rd">さつえいせんそう</span></span><span class="w-desc">1863年、生麦事件をきっかけに薩摩藩とイギリスが戦った戦争。</span></div><div class="word"><span class="w-term">下関戦争<span class="w-rd">しものせきせんそう</span></span><span class="w-desc">1863〜64年、長州藩が四国艦隊と戦った戦争。</span></div><div class="word"><span class="w-term">奇兵隊<span class="w-rd">きへいたい</span></span><span class="w-desc">高杉晋作が長州藩で組織した、身分にとらわれない軍隊。</span></div></div>
     </div>
     <div class="step" data-label="薩長同盟の成立">
       <h3><span class="sec-no">2</span><span class="s" data-i="15">薩長同盟の成立</span></h3>
       <div class="sec-lead"><span class="s" data-i="16">坂本龍馬の仲立ちで薩長同盟が結ばれたよ。</span></div>
+      
       <p><span class="s" data-i="17">それまで対立していた薩摩藩と長州藩だったけど、1866年、</span><span class="s" data-i="18">土佐藩出身の<span class="mark">坂本龍馬</span>の仲立ちによって<span class="mark">薩長同盟</span>を結んだんだ。</span><span class="s" data-i="19">長州側は木戸孝允(桂小五郎)、</span><span class="s" data-i="20">薩摩側は西郷隆盛らが交渉にあたったんだよ。</span><span class="s" data-i="21">ライバル同士だった2つの藩が手を組むなんて、</span><span class="s" data-i="22">坂本龍馬の説得力はすごいよね。</span><span class="s" data-i="23">この同盟が、倒幕を実現する大きな力になっていくんだ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="24">1866年、坂本龍馬の仲立ちで薩長同盟が結ばれたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="24">1866年、坂本龍馬の仲立ちで薩長同盟が結ばれたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">坂本龍馬<span class="w-rd">さかもとりょうま</span></span><span class="w-desc">薩長同盟を仲立ちした土佐藩出身の志士。</span></div><div class="word"><span class="w-term">薩長同盟<span class="w-rd">さっちょうどうめい</span></span><span class="w-desc">1866年に結ばれた薩摩藩と長州藩の同盟。倒幕の中心勢力となった。</span></div></div>
     </div>
     <div class="step" data-label="大政奉還と王政復古の大号令">
       <h3><span class="sec-no">3</span><span class="s" data-i="25">大政奉還と王政復古の大号令</span></h3>
       <div class="sec-lead"><span class="s" data-i="26">徳川慶喜が大政奉還を行い幕府が幕を閉じたよ。</span></div>
+      
       <p><span class="s" data-i="27">1867年、追い詰められた15代将軍<span class="mark">徳川慶喜</span>は、</span><span class="s" data-i="28">政権を朝廷に返す<span class="mark">大政奉還</span>を行ったんだ。</span><span class="s" data-i="29">約260年も続いた江戸幕府の政権が、</span><span class="s" data-i="30">ここで幕を閉じたんだよ。</span><span class="s" data-i="31">でも話はこれで終わらなくて、</span><span class="s" data-i="32">その後すぐ天皇中心の新しい政府をつくると宣言する<span class="mark">王政復古の大号令</span>が出されたんだ。</span><span class="s" data-i="33">慶喜はこれで政治の場から退けられることになったんだね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="34">1867年、徳川慶喜が政権を朝廷に返す大政奉還を行ったよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="34">1867年、徳川慶喜が政権を朝廷に返す大政奉還を行ったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">徳川慶喜<span class="w-rd">とくがわよしのぶ</span></span><span class="w-desc">大政奉還を行った江戸幕府15代将軍。</span></div><div class="word"><span class="w-term">大政奉還<span class="w-rd">たいせいほうかん</span></span><span class="w-desc">1867年、徳川慶喜が政権を朝廷に返した出来事。</span></div><div class="word"><span class="w-term">王政復古の大号令<span class="w-rd">おうせいふっこのだいごうれい</span></span><span class="w-desc">大政奉還後に出された、天皇中心の新政府樹立を宣言する命令。</span></div></div>
     </div>
     <div class="step" data-label="戊辰戦争と江戸城無血開城">
       <h3><span class="sec-no">4</span><span class="s" data-i="35">戊辰戦争と江戸城無血開城</span></h3>
       <div class="sec-lead"><span class="s" data-i="36">戊辰戦争のすえ江戸城は無血開城されたよ。</span></div>
+      
       <p><span class="s" data-i="37">1868年、京都近くの鳥羽・伏見の戦いから<span class="mark">戊辰戦争</span>という内戦が始まったんだ。</span><span class="s" data-i="38">新政府軍と旧幕府軍が約1年半にわたって戦い、</span><span class="s" data-i="39">最終的に新政府軍が勝利したんだよ。</span><span class="s" data-i="40">江戸では、旧幕府側の勝海舟と新政府軍の<span class="mark">西郷隆盛</span>が話し合い、</span><span class="s" data-i="41">戦わずに<span class="mark">江戸城</span>を明け渡す無血開城が実現したんだ。</span><span class="s" data-i="42">戦いをせずに江戸の町を守ったこの決断、</span><span class="s" data-i="43">すごいと思わない?こうして明治政府が確立していったんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="44">戊辰戦争のすえ、</span><span class="s" data-i="45">勝海舟と西郷隆盛の交渉で江戸城は無血開城されたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="44">戊辰戦争のすえ、</span><span class="s" data-i="45">勝海舟と西郷隆盛の交渉で江戸城は無血開城されたよ。</span></div></div>
       
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -922,10 +984,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/10/index.html#t4"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/10/index.html#t4"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=10-fall-of-bakufu" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -941,6 +1002,11 @@
   <button class="ap-close" id="apClose" aria-label="読み上げを止める">×</button>
 </div></div>
 <audio id="audio" preload="none"></audio>
+<div class="lightbox" id="lightbox" hidden>
+  <img id="lightboxImg" alt="">
+  <button class="lb-close" id="lbClose" aria-label="閉じる">×</button>
+  <div class="lb-hint">タップで閉じる</div>
+</div>
 <div class="navbar" id="navbar" hidden><div class="navbar-in">
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
@@ -1160,7 +1226,7 @@
       b.classList.toggle('on', bt === t);
       b.classList.toggle('done', bt > 0 && store()['d' + bt] === 1);
     });
-    var tabEl = tabs[t];
+    var tabEl = tabs.filter(function (b) { return +b.dataset.go === t; })[0];
     if (tabEl && tabEl.scrollIntoView) {
       tabEl.scrollIntoView({ block: 'nearest', inline: 'center' });
     }
@@ -1203,11 +1269,11 @@
       pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
       var prev = document.getElementById('btnPrev');
       var next = document.getElementById('btnNext');
-      prev.textContent = s === 0 ? '🏠 目次' : '← まえへ';
+      prev.textContent = s === 0 ? '目次へ' : '← まえへ';
       if (s < steps.length - 1) {
         next.textContent = 'つぎへ →';
       } else {
-        next.textContent = t < N ? '次の単元へ →' : '🏠 目次にもどる';
+        next.textContent = t < N ? '次の単元へ →' : '目次にもどる';
       }
       // 進捗保存
       var st = store();
@@ -1369,8 +1435,21 @@
     }
   }, { passive: true });
 
+  // 画像タップで拡大（ライトボックス）。ページ送りタップ／スワイプと競合しない。
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightboxImg');
+  function openLb(src) { lbImg.src = src; lb.hidden = false; document.body.style.overflow = 'hidden'; }
+  function closeLb() { lb.hidden = true; lbImg.removeAttribute('src'); document.body.style.overflow = ''; }
+  document.addEventListener('click', function (e) {
+    var z = e.target.closest('img.zoomable');
+    if (z) { e.preventDefault(); e.stopPropagation(); openLb(z.currentSrc || z.src); }
+  });
+  lb.addEventListener('click', closeLb);
+  document.getElementById('lbClose').addEventListener('click', function (e) { e.stopPropagation(); closeLb(); });
+
   // キーボード操作（PC）: ←→ でページ送り、PageUp/Down も同じ、Home で目次へ
   document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !lb.hidden) { closeLb(); return; }
     var tag = e.target && e.target.tagName;
     if (tag === 'INPUT' || tag === 'TEXTAREA' || e.metaKey || e.ctrlKey || e.altKey) return;
     if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === 'Enter') { next(); e.preventDefault(); }
@@ -1385,6 +1464,16 @@
   }
   window.addEventListener('hashchange', fromHash);
   fromHash();
+
+  // 問題集の「解説を読む」から来たとき（?back=）だけ「問題にもどる」を出す
+  (function () {
+    var m = /[?&]back=([^&#]+)/.exec(location.search);
+    var pill = document.getElementById('backPill');
+    if (m && pill) {
+      try { pill.href = decodeURIComponent(m[1]); } catch (e) { pill.href = m[1]; }
+      pill.hidden = false;
+    }
+  })();
 })();
 </script>
 <script type="module">

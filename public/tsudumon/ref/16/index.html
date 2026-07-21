@@ -21,12 +21,26 @@
   .s.read { color:#8a8279; }
   .s.now { background:#fcd34d; color:#1c1917; }
   .s.now .mark { background:none; }
-  /* 単元見出しの再生ボタン */
+  /* 単元見出しの音声ボタン（タップで読み上げ再生。適度に目立つ塗りボタン＋再生アイコン） */
   .play-unit { display:inline-flex; align-items:center; gap:6px; margin-left:auto; flex:none;
-               background:#fff; color:var(--brand); border:1.5px solid var(--line);
-               border-radius:20px; padding:4px 12px; font-size:12px; font-weight:bold;
-               font-family:inherit; cursor:pointer; }
+               background:linear-gradient(#f59e0b,#ea7a09); color:#fff;
+               border:none; border-radius:20px; padding:7px 15px 7px 9px; font-size:13px; font-weight:bold;
+               font-family:inherit; cursor:pointer; box-shadow:0 3px 0 #c2620a, 0 4px 9px rgba(217,119,6,.3);
+               transition:transform .12s, filter .12s; }
+  .pu-ic { flex:none; width:22px; height:22px; border-radius:50%; background:rgba(255,255,255,.28);
+           display:inline-flex; align-items:center; justify-content:center; }
+  .pu-ic svg { width:13px; height:13px; fill:#fff; margin-left:1px; }
+  .play-unit:active { transform:translateY(2px); box-shadow:0 1px 0 #c2620a; }
+  @media (hover:hover) { .play-unit:hover { filter:brightness(1.06); } }
   .play-unit[hidden] { display:none; }
+  /* 問題集の「解説を読む」から来たときに出す「問題にもどる」ボタン（すぐ問題へ戻れる） */
+  .backpill { position:fixed; left:50%; transform:translateX(-50%); bottom:74px; z-index:40;
+              background:var(--brand); color:#fff; font-weight:bold; font-size:13.5px;
+              border-radius:22px; padding:9px 18px 9px 13px; text-decoration:none;
+              box-shadow:0 4px 14px rgba(120,50,10,.35); display:inline-flex; align-items:center; gap:5px; }
+  .backpill svg { width:16px; height:16px; fill:none; stroke:#fff; stroke-width:2.4;
+                  stroke-linecap:round; stroke-linejoin:round; }
+  .backpill[hidden] { display:none; }
   /* 下部プレーヤー（再生中だけ出す。ナビバーの上に重ねる） */
   .aplayer { position:fixed; left:0; right:0; bottom:58px; z-index:25;
              background:rgba(255,253,248,.98); border-top:1px solid #f0e6d2;
@@ -53,13 +67,18 @@
      タブ列の 🏠 は「この本の目次」なので、こちらは 🗺＋文字でトップだと分かるようにする。 */
   .tophome { flex:none; height:30px; padding:0 12px; font-size:11.5px; font-weight:bold;
              color:#fff; background:var(--deep); border-radius:15px; text-decoration:none;
-             display:inline-flex; align-items:center; white-space:nowrap;
-             box-shadow:0 2px 0 #5b1e0b; }
-  .swap { flex:none; display:inline-flex; border:1.5px solid var(--line); border-radius:20px;
-          overflow:hidden; background:#fffbeb; }
-  .sw { font-size:11px; font-weight:bold; color:var(--brand); padding:3px 7px; text-decoration:none;
-        white-space:nowrap; cursor:pointer; }
-  .sw.on { background:var(--brand); color:#fff; }
+             display:inline-flex; align-items:center; gap:5px; white-space:nowrap;
+             box-shadow:0 2px 0 #5b1e0b; transition:filter .12s; }
+  .th-ic { width:14px; height:14px; fill:currentColor; flex:none; }
+  @media (hover:hover) { .tophome:hover { filter:brightness(1.12); } }
+  /* 参考書⇄問題の切りかえタブ。押せると分かるよう、非選択側は白ボタン風＋ホバー反応 */
+  .swap { flex:none; display:inline-flex; gap:3px; padding:2px; border-radius:16px;
+          background:#f0e2c3; }
+  .sw { font-size:11.5px; font-weight:bold; color:var(--brand); padding:4px 12px; text-decoration:none;
+        white-space:nowrap; cursor:pointer; border-radius:13px; background:#fff;
+        transition:filter .12s, background-color .12s; }
+  .sw.on { background:var(--brand); color:#fff; cursor:default; box-shadow:0 1px 2px rgba(180,83,9,.3); }
+  @media (hover:hover) { .sw:not(.on):hover { background:#fff8ec; filter:brightness(0.98); } }
   .sw[hidden] { display:none; }
   .bar-title { font-weight:bold; color:var(--deep); font-size:14px; flex:1;
                white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
@@ -83,13 +102,15 @@
   .tabs { display:flex; gap:5px; overflow-x:auto; padding:4px 0; width:100%;
           scrollbar-width:none; -webkit-overflow-scrolling:touch; }
   .tabs::-webkit-scrollbar { display:none; }
+  /* 単元タブ: 位置は動かさず、色で状態を示す（未読=クリーム／読んだ=緑／表示中=茶） */
   .tab { flex:none; width:30px; height:30px; border-radius:50%; border:1.5px solid var(--line);
          background:#fffbeb; color:var(--brand); font-size:15px; font-weight:bold;
-         display:inline-flex; align-items:center; justify-content:center; cursor:pointer; }
-  .tab.done { background:#fef3c7; }
+         display:inline-flex; align-items:center; justify-content:center; cursor:pointer;
+         transition:background-color .12s, border-color .12s; }
+  .tab.done { background:#dcfce7; border-color:#86efac; color:#15803d; }   /* 読んだ単元 */
   .tab.done::after { content:""; }
-  .tab.on { background:var(--brand); border-color:var(--brand); color:#fff;
-            box-shadow:0 2px 6px rgba(180,83,9,.35); }
+  .tab.on { background:var(--brand); border-color:var(--brand); color:#fff; }  /* いま表示中 */
+  @media (hover:hover) { .tab:not(.on):hover { background:#fff2d6; } }
   .pbar { height:3px; background:#f5ecd8; border-radius:2px; overflow:hidden; margin:0 0 0; }
   .pfill { height:100%; width:0; background:linear-gradient(90deg,var(--amber),#fbbf24);
            border-radius:2px; transition:width .25s ease; }
@@ -100,6 +121,7 @@
   @keyframes vfade { from { opacity:.6; } to { opacity:1; } }
   .step { display:none; }
   .step.on { display:block; }
+  .step::after { content:""; display:table; clear:both; }  /* 挿絵の float を内包 */
   /* 本物っぽいページめくり（2枚重ね）:
      進む = 今のページ自体が左とじに沿って手前にめくれて去り、下から次のページが現れる。
      戻る = 前のページが手前からめくり戻されて上に着地する。 */
@@ -144,8 +166,7 @@
   .b-web { background:var(--amber); color:#fff; }
   .ht-title { font-size:41px; color:var(--deep); margin:12px 0 0; line-height:1.12; position:relative;
               display:inline-block; padding:0 6px; letter-spacing:.01em; }
-  .ht-title::before { content:"✨"; position:absolute; left:-22px; top:2px; font-size:19px; }
-  .ht-title::after { content:"✨"; position:absolute; right:-20px; bottom:4px; font-size:15px; }
+  .ht-title::before, .ht-title::after { content:none; }
   .ht-mascot { flex:none; position:relative; width:100px; padding-top:22px; text-align:center; }
   .ht-mascot img { height:74px; width:auto; }
   .ht-bubble { position:absolute; top:0; left:50%; transform:translateX(-50%); white-space:nowrap;
@@ -181,8 +202,8 @@
   .toc { margin:16px 0 8px; background:#fff9ef; border:2px solid #f0e2c3; border-radius:16px; padding:12px; }
   .toc-head { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:10px; }
   .toc-h { font-weight:bold; color:var(--deep); font-size:16px; display:flex; align-items:center; gap:8px; }
-  .toc-h::before { content:"📖"; display:inline-flex; align-items:center; justify-content:center;
-                   width:30px; height:30px; border-radius:50%; background:var(--brand); font-size:15px; }
+  .toc-h::before { content:""; flex:none; width:30px; height:30px; border-radius:50%;
+                   background:var(--brand) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23fff'%3E%3Cpath d='M12 6.6C10.5 5.4 8.4 4.9 6 4.9c-1 0-2 .1-2.8.3v12.9c.8-.2 1.8-.3 2.8-.3 2.4 0 4.5.5 6 1.7 1.5-1.2 3.6-1.7 6-1.7 1 0 2 .1 2.8.3V5.2C20 5 19 4.9 18 4.9c-2.4 0-4.5.5-6 1.7z'/%3E%3C/svg%3E") center/17px no-repeat; }
   /* 単元カード（大きめサムネ＋番号＋名前＋右矢印） */
   .toc-item { display:flex; align-items:center; width:100%; margin-bottom:8px; padding:0;
               background:#fff; border:1.5px solid #f0e2c3; border-radius:12px; overflow:hidden;
@@ -261,6 +282,39 @@
             border:1.5px solid var(--line); color:var(--brand); font-weight:bold;
             display:inline-flex; align-items:center; justify-content:center; font-size:12px; }
   .sec-lead { font-size:13px; color:var(--brand); font-weight:bold; margin:2px 0 4px 30px; }
+  /* 節の挿絵：既定は本文の右に小さく回り込ませる（補足的・目立ちすぎない） */
+  .sec-fig { float:right; width:46%; max-width:205px; margin:3px 0 8px 12px; }
+  .sec-fig.fig-contain { max-width:230px; }
+  .sec-fig img { width:100%; max-height:172px; object-fit:cover; display:block;
+                 border-radius:10px; border:1px solid #f0e6d2;
+                 box-shadow:0 1px 4px rgba(120,80,20,.10); background:#fff; cursor:zoom-in; }
+  /* 図版（関係図・地図）は切らずに全体を見せる（日本語ラベルが欠けないように） */
+  .sec-fig.fig-contain img { object-fit:contain; max-height:none; background:#fffdf8; }
+  .sec-fig figcaption { font-size:11px; color:#a8a29e; text-align:center; margin-top:4px; line-height:1.4; }
+  /* 変化をつける: 左回り込み／サイズ違い／横いっぱい */
+  .sec-fig.pos-left { float:left; margin:3px 12px 8px 0; }
+  .sec-fig.size-sm { max-width:150px; }
+  .sec-fig.size-lg { max-width:250px; }
+  .sec-fig.pos-wide { float:none; width:auto; max-width:100%; margin:10px 0; }
+  .sec-fig.pos-wide img { max-height:260px; }
+  .sec-fig.pos-wide.fig-contain img { max-height:340px; }  /* 地図・図はワイドで大きく読める */
+  .sec-fig.pos-wide figcaption { font-size:12px; }
+  /* 挿絵を含む節でも ⭐ここだけ覚える／用語は画像の下から始める */
+  .step .point, .step .words { clear:both; }
+  .cover-art img, .cover-img { cursor:zoom-in; }
+
+  /* 画像タップで拡大（ライトボックス） */
+  .lightbox { position:fixed; inset:0; z-index:200; background:rgba(20,14,8,.88);
+              display:flex; align-items:center; justify-content:center; padding:20px;
+              -webkit-tap-highlight-color:transparent; cursor:zoom-out; }
+  .lightbox[hidden] { display:none; }
+  .lightbox img { max-width:96vw; max-height:90vh; border-radius:10px; background:#fffdf8;
+                  box-shadow:0 8px 40px rgba(0,0,0,.55); }
+  .lb-close { position:fixed; top:14px; right:16px; width:42px; height:42px; border:none;
+              border-radius:50%; background:rgba(255,255,255,.92); color:#7c2d12; font-size:24px;
+              line-height:1; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,.3); }
+  .lb-hint { position:fixed; bottom:20px; left:0; right:0; text-align:center; color:#fff;
+             font-size:12px; opacity:.7; pointer-events:none; }
   .step p { margin-top:8px; text-align:justify; }
   .point { background:#fff9c4; border-left:6px solid #fbbf24; border-radius:8px;
            padding:10px 12px; margin-top:12px; font-size:14px; line-height:1.8; }
@@ -440,10 +494,10 @@
 </style></head><body>
 <div class="bar"><div class="bar-in">
   <div class="bar-row">
-    <a class="tophome" href="../../index.html" aria-label="単元一覧へもどる">単元一覧</a>
-    <div class="swap"><span class="sw on">📖 参考書</span><a class="sw" id="swWb">✏️ 問題</a></div>
+    <a class="tophome" href="../../index.html" aria-label="単元一覧へもどる"><svg class="th-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.6"/></svg>単元一覧</a>
+    <div class="swap" role="tablist" aria-label="参考書と問題の切りかえ"><span class="sw on">参考書</span><a class="sw" id="swWb" role="tab">問題</a></div>
     <div class="tabs-wrap">
-      <nav class="tabs" id="tabs"><button class="tab tab-home" data-go="0" aria-label="目次">🏠</button><button class="tab" data-go="1" aria-label="第二次世界大戦の勃発">1</button><button class="tab" data-go="2" aria-label="太平洋戦争と日本の敗退">2</button><button class="tab" data-go="3" aria-label="銃後の苦しみと総動員">3</button><button class="tab" data-go="4" aria-label="終戦への道">4</button></nav>
+      <nav class="tabs" id="tabs"><button class="tab" data-go="1" aria-label="第二次世界大戦の勃発">1</button><button class="tab" data-go="2" aria-label="太平洋戦争と日本の敗退">2</button><button class="tab" data-go="3" aria-label="銃後の苦しみと総動員">3</button><button class="tab" data-go="4" aria-label="終戦への道">4</button></nav>
       <button class="tscroll tsl" id="tabsL" type="button" hidden aria-label="単元タブを左へ">‹</button>
       <button class="tscroll tsr" id="tabsR" type="button" hidden aria-label="単元タブを右へ">›</button>
     </div>
@@ -452,11 +506,11 @@
   <div class="bar-title" hidden>歴史 ⑯ 第二次世界大戦と日本</div>
   <div class="pbar"><div class="pfill" id="pfill"></div></div>
 </div></div>
+<a class="backpill" id="backPill" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 6l-6 6 6 6"/></svg>問題にもどる</a>
 <main class="wrap" id="views">
 
 <section class="view home" data-t="0">
   <div class="home-topline">
-    <a class="home-link" href="../../index.html">‹ 単元一覧にもどる</a>
     <div class="badge3"><span class="b-vol">歴史 ⑯</span><span class="b-kind">参考書</span></div>
   </div>
   <header class="top hometop">
@@ -471,7 +525,7 @@
     <div class="toc-head"><div class="toc-h">単元を選択</div></div>
     <button class="toc-item" data-go="1"><img class="toc-thumb" src="img/hist16-ww2-outbreak.webp" alt="" loading="lazy"><span class="toc-no">1</span><span class="toc-name">第二次世界大戦の勃発</span><span class="toc-state" data-state-t="1"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="2"><img class="toc-thumb" src="img/hist16-pacific-war.webp" alt="" loading="lazy"><span class="toc-no">2</span><span class="toc-name">太平洋戦争と日本の敗退</span><span class="toc-state" data-state-t="2"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="3"><img class="toc-thumb" src="img/hist16-evacuation.webp" alt="" loading="lazy"><span class="toc-no">3</span><span class="toc-name">銃後の苦しみと総動員</span><span class="toc-state" data-state-t="3"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="4"><img class="toc-thumb" src="img/hist16-endwar.webp" alt="" loading="lazy"><span class="toc-no">4</span><span class="toc-name">終戦への道</span><span class="toc-state" data-state-t="4"></span><span class="toc-arrow">›</span></button>
   </nav>
-  <a class="wb-home" href="../../wb/16/index.html">✏️ 問題集を開く（この本の問題を解く）</a>
+  <a class="wb-home" href="../../wb/16/index.html">問題集を開く（この本の問題を解く）</a>
   <footer class="foot">
     <div>つづもん 参考書</div>
     <div class="foot-note">紙やタブレットでじっくり派には、ダウンロード済みのPDF版もどうぞ。</div>
@@ -479,37 +533,40 @@
 </section>
 <section class="view" data-t="1">
   <div class="tband"><span class="tno">1</span><h2>第二次世界大戦の勃発</h2>
-    <button class="play-unit" type="button" data-play="1" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="1" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-ww2-outbreak.webp"
+      <img class="cover-img zoomable" src="img/cover-ww2-outbreak.webp"
            alt="第二次世界大戦の勃発（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">世界中を巻き込んだ戦争は、</span><span class="s" data-i="1">ヨーロッパの小さな国への侵攻から始まったんだ。</span><span class="s" data-i="2">どうしてこんなに大きな戦争になってしまったのか、</span><span class="s" data-i="3">順番に見ていこう。</span></div></div>
     </div>
     <div class="step" data-label="独ソ不可侵条約とポーランド侵攻">
       <h3><span class="sec-no">1</span><span class="s" data-i="4">独ソ不可侵条約とポーランド侵攻</span></h3>
       <div class="sec-lead"><span class="s" data-i="5">一つの条約が世界大戦の引き金になったよ。</span></div>
+      
       <p><span class="s" data-i="6">1939年8月、</span><span class="s" data-i="7">対立していたはずのドイツとソ連が、</span><span class="s" data-i="8">「お互いに戦争をしない」と約束する<span class="mark">独ソ不可侵条約</span>を結んだんだ。</span><span class="s" data-i="9">この条約でうしろを心配しなくてよくなったヒトラーは、同年9月1日、</span><span class="s" data-i="10"><span class="mark">ポーランド</span>への侵攻に踏み切ったよ。</span><span class="s" data-i="11">これに対してイギリスとフランスがドイツに宣戦布告し、</span><span class="s" data-i="12">こうして<span class="mark">第二次世界大戦</span>が始まってしまったんだ。</span><span class="s" data-i="13">たった一つの条約が、</span><span class="s" data-i="14">大きな戦争のきっかけになったんだね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="15">1939年9月1日、</span><span class="s" data-i="16">ドイツのポーランド侵攻から第二次世界大戦が始まったよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="15">1939年9月1日、</span><span class="s" data-i="16">ドイツのポーランド侵攻から第二次世界大戦が始まったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">第二次世界大戦<span class="w-rd">だいにじせかいたいせん</span></span><span class="w-desc">1939年のドイツのポーランド侵攻で始まり、1945年まで続いた世界規模の戦争。</span></div><div class="word"><span class="w-term">独ソ不可侵条約<span class="w-rd">どくそふかしんじょうやく</span></span><span class="w-desc">1939年8月にドイツとソ連が結んだ、お互いに戦争しないという約束。</span></div></div>
     </div>
     <div class="step" data-label="枢軸国と連合国、そして世界大戦へ">
       <h3><span class="sec-no">2</span><span class="s" data-i="17">枢軸国と連合国、</span><span class="s" data-i="18">そして世界大戦へ</span></h3>
       <div class="sec-lead"><span class="s" data-i="19">世界が二つの陣営に分かれて戦ったよ。</span></div>
+      
       <p><span class="s" data-i="20">1940年、ドイツはフランスを降伏させて勢いに乗り、同じ年、</span><span class="s" data-i="21">日本・ドイツ・イタリアの3か国は<span class="mark">日独伊三国同盟</span>を結んで<span class="mark">枢軸国</span>と呼ばれる側の中心になった。</span><span class="s" data-i="22">これに対してアメリカ・イギリス・ソ連・中国などは<span class="mark">連合国</span>としてまとまっていったんだ。</span><span class="s" data-i="23">さらに1941年6月、</span><span class="s" data-i="24">ドイツは条約を破って<span class="mark">ソ連</span>に攻め込む<span class="mark">独ソ戦</span>を始め、</span><span class="s" data-i="25">戦争はどんどん世界規模に広がっていったんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="26">日独伊の枢軸国と、</span><span class="s" data-i="27">米英ソ中などの連合国が世界規模で戦ったよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="26">日独伊の枢軸国と、</span><span class="s" data-i="27">米英ソ中などの連合国が世界規模で戦ったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">枢軸国<span class="w-rd">すうじくこく</span></span><span class="w-desc">日独伊三国同盟を軸にまとまった、ドイツ・イタリア・日本などの国々。</span></div><div class="word"><span class="w-term">連合国<span class="w-rd">れんごうこく</span></span><span class="w-desc">枢軸国と戦った、アメリカ・イギリス・ソ連・中国などの国々。</span></div><div class="word"><span class="w-term">日独伊三国同盟<span class="w-rd">にちどくいさんごくどうめい</span></span><span class="w-desc">1940年に日本・ドイツ・イタリアが結んだ同盟。</span></div></div>
     </div>
     <div class="step" data-label="ホロコースト">
       <h3><span class="sec-no">3</span><span class="s" data-i="28">ホロコースト</span></h3>
       <div class="sec-lead"><span class="s" data-i="29">多くの命が組織的に奪われてしまったよ。</span></div>
+      
       <p><span class="s" data-i="30">この戦争の裏で、</span><span class="s" data-i="31">ナチス・ドイツはユダヤ人を「敵」として計画的に迫害する恐ろしい政策を進めていた。</span><span class="s" data-i="32">これを<span class="mark">ホロコースト</span>と呼ぶよ。</span><span class="s" data-i="33"><span class="mark">アウシュビッツ</span>をはじめとする強制収容所に送られた人々の多くが命を奪われ、</span><span class="s" data-i="34">その数はおよそ600万人にものぼるとされているんだ。</span><span class="s" data-i="35">二度とこうしたことが起きないように、</span><span class="s" data-i="36">歴史からしっかり学んでおきたいね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="37">ナチス・ドイツはユダヤ人を組織的に迫害し、</span><span class="s" data-i="38">約600万人が犠牲になったんだ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="37">ナチス・ドイツはユダヤ人を組織的に迫害し、</span><span class="s" data-i="38">約600万人が犠牲になったんだ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">ホロコースト<span class="w-rd">ほろこーすと</span></span><span class="w-desc">ナチス・ドイツによるユダヤ人の組織的な迫害・虐殺。</span></div><div class="word"><span class="w-term">アウシュビッツ<span class="w-rd">あうしゅびっつ</span></span><span class="w-desc">ナチスが作った最大の強制収容所。約110万人が命を奪われた。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -617,10 +674,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/16/index.html#t2"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/16/index.html#t2"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=16-ww2-outbreak" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -628,44 +684,48 @@
 </section>
 <section class="view" data-t="2">
   <div class="tband"><span class="tno">2</span><h2>太平洋戦争と日本の敗退</h2>
-    <button class="play-unit" type="button" data-play="2" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="2" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-pacific-war.webp"
+      <img class="cover-img zoomable" src="img/cover-pacific-war.webp"
            alt="太平洋戦争と日本の敗退（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">ハワイの真珠湾への奇襲から始まった戦争は、</span><span class="s" data-i="1">やがて日本の街まで焼き尽くすことになったんだ。</span><span class="s" data-i="2">日本がどんな道をたどったのか見ていこう。</span></div></div>
     </div>
     <div class="step" data-label="真珠湾攻撃と太平洋戦争の始まり">
       <h3><span class="sec-no">1</span><span class="s" data-i="3">真珠湾攻撃と太平洋戦争の始まり</span></h3>
       <div class="sec-lead"><span class="s" data-i="4">奇襲攻撃から太平洋の戦争が始まったよ。</span></div>
+      
       <p><span class="s" data-i="5">日本はアメリカ・イギリス・中国・オランダによる石油や鉄の輸出停止、</span><span class="s" data-i="6">いわゆる<span class="mark">ABCD包囲網</span>で経済的に追いつめられていた。</span><span class="s" data-i="7"><span class="mark">東条英機</span>内閣はこの状況を打開しようと、</span><span class="s" data-i="8">「アジアを欧米から解放する」と唱える大東亜共栄圏を掲げて開戦を決断したんだ。</span><span class="s" data-i="9">1941年12月8日、</span><span class="s" data-i="10">日本海軍はハワイの<span class="mark">真珠湾</span>を奇襲し、</span><span class="s" data-i="11"><span class="mark">太平洋戦争</span>が始まったよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="12">1941年12月8日、</span><span class="s" data-i="13">東条英機内閣のもとで真珠湾攻撃が始まったよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="12">1941年12月8日、</span><span class="s" data-i="13">東条英機内閣のもとで真珠湾攻撃が始まったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">太平洋戦争<span class="w-rd">たいへいようせんそう</span></span><span class="w-desc">1941〜45年、日本がアメリカ・イギリスなどと戦った戦争。</span></div><div class="word"><span class="w-term">東条英機<span class="w-rd">とうじょうひでき</span></span><span class="w-desc">真珠湾攻撃を決断した、当時の日本の首相。</span></div><div class="word"><span class="w-term">ABCD包囲網<span class="w-rd">えーびーしーでぃーほういもう</span></span><span class="w-desc">アメリカ・イギリス・中国・オランダによる対日経済封鎖。</span></div></div>
     </div>
     <div class="step" data-label="ミッドウェー海戦と戦局の転換">
       <h3><span class="sec-no">2</span><span class="s" data-i="14">ミッドウェー海戦と戦局の転換</span></h3>
       <div class="sec-lead"><span class="s" data-i="15">大敗北が攻守を逆転させてしまったよ。</span></div>
+      
       <p><span class="s" data-i="16">開戦当初こそ優勢だった日本だけど、</span><span class="s" data-i="17">1942年6月の<span class="mark">ミッドウェー海戦</span>で主力空母4隻を失う大敗北を喫し、</span><span class="s" data-i="18">そこから戦況は一気に不利になっていったんだ。</span><span class="s" data-i="19">さらにガダルカナル島の戦いでは、</span><span class="s" data-i="20">日本軍は初めて撤退に追い込まれてしまう。</span><span class="s" data-i="21">攻める側から守る側へ、</span><span class="s" data-i="22">日本の立場が大きく変わってしまった瞬間だったんだね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="23">1942年のミッドウェー海戦で空母を失い、</span><span class="s" data-i="24">戦況が不利になったよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="23">1942年のミッドウェー海戦で空母を失い、</span><span class="s" data-i="24">戦況が不利になったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">ミッドウェー海戦<span class="w-rd">みっどうぇーかいせん</span></span><span class="w-desc">1942年、日本海軍が主力空母4隻を失った海戦。</span></div></div>
     </div>
     <div class="step" data-label="サイパン陥落と本土空襲">
       <h3><span class="sec-no">3</span><span class="s" data-i="25">サイパン陥落と本土空襲</span></h3>
       <div class="sec-lead"><span class="s" data-i="26">戦いの被害が日本本土にも及び始めたよ。</span></div>
+      
       <p><span class="s" data-i="27">1944年、<span class="mark">サイパン島</span>が陥落すると、</span><span class="s" data-i="28">日本本土はアメリカの爆撃機B-29の航続距離に入ってしまい、</span><span class="s" data-i="29">責任を取る形で東条内閣は退陣した。</span><span class="s" data-i="30">そして1945年3月10日、</span><span class="s" data-i="31"><span class="mark">東京大空襲</span>で東京の下町が焼夷弾によって焼き尽くされ、</span><span class="s" data-i="32">一夜にして多くの命が失われたんだ。</span><span class="s" data-i="33">空の上からの戦争の被害が、</span><span class="s" data-i="34">日本国内にも直接及ぶようになっていったよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="35">1944年のサイパン陥落後、</span><span class="s" data-i="36">日本本土はB-29の空襲を受けたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="35">1944年のサイパン陥落後、</span><span class="s" data-i="36">日本本土はB-29の空襲を受けたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">サイパン島<span class="w-rd">さいぱんとう</span></span><span class="w-desc">1944年に陥落し、日本本土空襲の拠点になった島。</span></div><div class="word"><span class="w-term">東京大空襲<span class="w-rd">とうきょうだいくうしゅう</span></span><span class="w-desc">1945年3月10日、アメリカ軍による東京への大規模爆撃。</span></div></div>
     </div>
     <div class="step" data-label="沖縄戦">
       <h3><span class="sec-no">4</span><span class="s" data-i="37">沖縄戦</span></h3>
       <div class="sec-lead"><span class="s" data-i="38">地上戦が多くの命を奪ってしまったよ。</span></div>
+      
       <p><span class="s" data-i="39">1945年4月から6月にかけて、</span><span class="s" data-i="40">日本本土で唯一の地上戦となる<span class="mark">沖縄戦</span>が行われた。</span><span class="s" data-i="41">看護要員として動員された女子学生たち「<span class="mark">ひめゆり学徒隊</span>」をはじめ、</span><span class="s" data-i="42">多くの沖縄県民が戦いに巻き込まれ、</span><span class="s" data-i="43">県民の4分の1以上が命を落としたとされているんだ。</span><span class="s" data-i="44">戦争は兵士だけでなく、</span><span class="s" data-i="45">そこに暮らす人々の日常をも奪ってしまうことを、</span><span class="s" data-i="46">心にとめておきたいね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="47">沖縄戦は日本本土で唯一の地上戦で、</span><span class="s" data-i="48">県民の4分の1以上が犠牲になったんだ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="47">沖縄戦は日本本土で唯一の地上戦で、</span><span class="s" data-i="48">県民の4分の1以上が犠牲になったんだ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">沖縄戦<span class="w-rd">おきなわせん</span></span><span class="w-desc">1945年4〜6月に行われた、日本本土で唯一の地上戦。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -773,10 +833,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/16/index.html#t3"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/16/index.html#t3"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=16-pacific-war" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -784,44 +843,48 @@
 </section>
 <section class="view" data-t="3">
   <div class="tband"><span class="tno">3</span><h2>銃後の苦しみと総動員</h2>
-    <button class="play-unit" type="button" data-play="3" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="3" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-wartime-life.webp"
+      <img class="cover-img zoomable" src="img/cover-wartime-life.webp"
            alt="銃後の苦しみと総動員（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">戦場に行かなかった人たちも、</span><span class="s" data-i="1">実は戦争と無縁ではいられなかったんだ。</span><span class="s" data-i="2">当時のふつうの暮らしがどう変わっていったのか、</span><span class="s" data-i="3">のぞいてみよう。</span></div></div>
     </div>
     <div class="step" data-label="配給制と切符制">
       <h3><span class="sec-no">1</span><span class="s" data-i="4">配給制と切符制</span></h3>
       <div class="sec-lead"><span class="s" data-i="5">限られた物資をやりくりする暮らしが続いたよ。</span></div>
+      
       <p><span class="s" data-i="6">戦争が長引くと、</span><span class="s" data-i="7">物資はどんどん不足していった。</span><span class="s" data-i="8">そこで国は米や砂糖などを国民に割り当てて分配する<span class="mark">配給制</span>を始めたんだ。</span><span class="s" data-i="9">1940年からは、</span><span class="s" data-i="10">衣料品や砂糖などをチケットと引きかえに受け取る<span class="mark">切符制</span>も組み合わされ、</span><span class="s" data-i="11">限られた物資を何とかやりくりする暮らしが続いたよ。</span><span class="s" data-i="12">今のように、お店に行けば何でも買える時代とはまったく違っていたんだね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="13">1940年から、</span><span class="s" data-i="14">物資を配る配給制と切符制が実施されたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="13">1940年から、</span><span class="s" data-i="14">物資を配る配給制と切符制が実施されたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">配給制<span class="w-rd">はいきゅうせい</span></span><span class="w-desc">米や砂糖などを国が国民に割り当てて分配した制度。</span></div><div class="word"><span class="w-term">切符制<span class="w-rd">きっぷせい</span></span><span class="w-desc">衣料品などをチケットと引きかえに配給する制度。1940年から実施。</span></div></div>
     </div>
     <div class="step" data-label="学徒出陣と勤労動員">
       <h3><span class="sec-no">2</span><span class="s" data-i="15">学徒出陣と勤労動員</span></h3>
       <div class="sec-lead"><span class="s" data-i="16">学生たちの日常が戦争に奪われていったよ。</span></div>
+      
       <p><span class="s" data-i="17">兵力が足りなくなると、</span><span class="s" data-i="18">1943年からは文系の大学生たちが繰り上げ卒業のまま戦場に送られる<span class="mark">学徒出陣</span>が始まった。</span><span class="s" data-i="19">同じころ、出征した男性の代わりに工場で働く人手も足りなくなり、</span><span class="s" data-i="20">中学生や女学生までもが軍需工場で働く<span class="mark">勤労動員</span>にかり出されたんだ。</span><span class="s" data-i="21">学生たちの学ぶ時間や日常が、</span><span class="s" data-i="22">戦争によって次々と奪われていった時代だったんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="23">1943年、文系大学生の学徒出陣と学生の勤労動員が始まったよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="23">1943年、文系大学生の学徒出陣と学生の勤労動員が始まったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">学徒出陣<span class="w-rd">がくとしゅつじん</span></span><span class="w-desc">1943年、文系大学生が繰り上げ卒業で出征したこと。</span></div><div class="word"><span class="w-term">勤労動員<span class="w-rd">きんろうどういん</span></span><span class="w-desc">中学生や女学生も軍需工場で働かされたこと。</span></div></div>
     </div>
     <div class="step" data-label="学童疎開と国民学校">
       <h3><span class="sec-no">3</span><span class="s" data-i="24">学童疎開と国民学校</span></h3>
       <div class="sec-lead"><span class="s" data-i="25">子どもたちの暮らしも大きく変わったよ。</span></div>
+      
       <p><span class="s" data-i="26">1944年になると、</span><span class="s" data-i="27">空襲から都市の子どもたちを守るため、</span><span class="s" data-i="28">小学生を地方の寺などへ集団で避難させる<span class="mark">学童疎開</span>が行われた。</span><span class="s" data-i="29">親元を離れての生活は、</span><span class="s" data-i="30">幼い子どもたちにとって心細いものだったはずだよ。</span><span class="s" data-i="31">また1941年には、</span><span class="s" data-i="32">尋常小学校が<span class="mark">国民学校</span>という名前に変わり、</span><span class="s" data-i="33">天皇に尽くす国民を育てることが教育の目的にされていったんだ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="34">1944年から学童疎開、</span><span class="s" data-i="35">1941年に国民学校へと改称されたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="34">1944年から学童疎開、</span><span class="s" data-i="35">1941年に国民学校へと改称されたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">学童疎開<span class="w-rd">がくどうそかい</span></span><span class="w-desc">都市の小学生を空襲から守るため地方へ避難させたこと。</span></div><div class="word"><span class="w-term">国民学校<span class="w-rd">こくみんがっこう</span></span><span class="w-desc">1941年に尋常小学校から改称された学校。</span></div></div>
     </div>
     <div class="step" data-label="植民地の皇民化政策">
       <h3><span class="sec-no">4</span><span class="s" data-i="36">植民地の皇民化政策</span></h3>
       <div class="sec-lead"><span class="s" data-i="37">名前や言葉まで奪おうとしてしまったよ。</span></div>
+      
       <p><span class="s" data-i="38">日本の植民地だった朝鮮や台湾では、</span><span class="s" data-i="39">人々に日本語を使わせたり神社に参拝させたりして、</span><span class="s" data-i="40">無理やり「日本人」にしようとする<span class="mark">皇民化政策</span>が進められた。</span><span class="s" data-i="41">1940年には、</span><span class="s" data-i="42">朝鮮の人々に日本式の姓名を名乗らせる<span class="mark">創氏改名</span>も行われたんだ。</span><span class="s" data-i="43">自分たちの名前や言葉を奪われるというのは、</span><span class="s" data-i="44">想像以上につらいことだったんじゃないかな。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="45">朝鮮・台湾で皇民化政策が進められ、</span><span class="s" data-i="46">1940年に創氏改名も行われたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="45">朝鮮・台湾で皇民化政策が進められ、</span><span class="s" data-i="46">1940年に創氏改名も行われたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">皇民化政策<span class="w-rd">こうみんかせいさく</span></span><span class="w-desc">朝鮮・台湾の人々に日本人化を強要した政策。</span></div><div class="word"><span class="w-term">創氏改名<span class="w-rd">そうしかいめい</span></span><span class="w-desc">1940年、朝鮮の人々に日本式の姓名を名乗らせた政策。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -929,10 +992,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/16/index.html#t4"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/16/index.html#t4"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=16-wartime-life" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -940,37 +1002,40 @@
 </section>
 <section class="view" data-t="4">
   <div class="tband"><span class="tno">4</span><h2>終戦への道</h2>
-    <button class="play-unit" type="button" data-play="4" hidden>🔊 このページを読む</button></div>
+    <button class="play-unit" type="button" data-play="4" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
     <div class="step" data-label="この単元でわかること">
-      <img class="cover-img" src="img/cover-end-of-war.webp"
+      <img class="cover-img zoomable" src="img/cover-end-of-war.webp"
            alt="終戦への道（この単元でわかること）">
       <div class="hook"><img class="navi navi-char" src="img/char_char_owl_sm.png" alt=""><div class="bubble"><span class="s" data-i="0">長く続いた戦争が、</span><span class="s" data-i="1">どのように終わりを迎えたのか。</span><span class="s" data-i="2">つらい出来事も含まれるけれど、</span><span class="s" data-i="3">しっかりと事実を見つめてみよう。</span></div></div>
     </div>
     <div class="step" data-label="ヤルタ会談とポツダム宣言">
       <h3><span class="sec-no">1</span><span class="s" data-i="4">ヤルタ会談とポツダム宣言</span></h3>
       <div class="sec-lead"><span class="s" data-i="5">降伏を求める宣言を日本は無視してしまったよ。</span></div>
+      
       <p><span class="s" data-i="6">1945年2月、</span><span class="s" data-i="7">アメリカ・イギリス・ソ連の首脳は<span class="mark">ヤルタ会談</span>を開き、</span><span class="s" data-i="8">ドイツ降伏の3か月後にソ連が日本と戦争を始めることを、</span><span class="s" data-i="9">秘密のうちに約束していたんだ。</span><span class="s" data-i="10">同年7月には、アメリカ・イギリス・中国が日本に無条件降伏を求める<span class="mark">ポツダム宣言</span>を発表したよ。</span><span class="s" data-i="11">でも日本はこれをすぐには受け入れず、</span><span class="s" data-i="12">無視を続けてしまったんだ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="13">1945年7月、</span><span class="s" data-i="14">米英中がポツダム宣言で無条件降伏を求めたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="13">1945年7月、</span><span class="s" data-i="14">米英中がポツダム宣言で無条件降伏を求めたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">ヤルタ会談<span class="w-rd">やるたかいだん</span></span><span class="w-desc">1945年2月、米英ソが戦後処理を話し合った会談。ソ連の対日参戦が秘密に決められた。</span></div><div class="word"><span class="w-term">ポツダム宣言<span class="w-rd">ぽつだむせんげん</span></span><span class="w-desc">1945年7月、米英中が日本に無条件降伏を求めた宣言。</span></div></div>
     </div>
     <div class="step" data-label="広島と長崎への原爆投下">
       <h3><span class="sec-no">2</span><span class="s" data-i="15">広島と長崎への原爆投下</span></h3>
       <div class="sec-lead"><span class="s" data-i="16">一発の爆弾が多くの命を奪ってしまったよ。</span></div>
+      
       <p><span class="s" data-i="17">日本がポツダム宣言を無視し続けたことで、</span><span class="s" data-i="18">アメリカは1945年8月6日、</span><span class="s" data-i="19"><span class="mark">広島</span>に人類史上初めてとなる原子爆弾を投下した。</span><span class="s" data-i="20">この爆撃で約14万人もの命が奪われたんだ。</span><span class="s" data-i="21">さらに8月9日には<span class="mark">長崎</span>にも原爆が投下され、</span><span class="s" data-i="22">約7万人が犠牲になった。</span><span class="s" data-i="23">一発の爆弾がこれほど多くの命を奪ってしまったという事実を、</span><span class="s" data-i="24">私たちはしっかり心に刻んでおく必要があるね。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="25">8月6日に広島(約14万人)、</span><span class="s" data-i="26">9日に長崎(約7万人)が原爆の犠牲になったよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="25">8月6日に広島(約14万人)、</span><span class="s" data-i="26">9日に長崎(約7万人)が原爆の犠牲になったよ。</span></div></div>
       
     </div>
     <div class="step" data-label="ソ連参戦と玉音放送">
       <h3><span class="sec-no">3</span><span class="s" data-i="27">ソ連参戦と玉音放送</span></h3>
       <div class="sec-lead"><span class="s" data-i="28">長い戦争にようやく終わりが来たよ。</span></div>
+      
       <p><span class="s" data-i="29">8月8日、<span class="mark">ソ連</span>はヤルタでの秘密の約束にしたがい、</span><span class="s" data-i="30">日ソ中立条約を破って満州に攻め込み、</span><span class="s" data-i="31">日本への参戦に踏み切った。</span><span class="s" data-i="32">次々と追いつめられた日本は、</span><span class="s" data-i="33">8月15日についにポツダム宣言の受け入れを決断し、</span><span class="s" data-i="34">昭和天皇がラジオで国民に終戦を伝える<span class="mark">玉音放送</span>が行われたんだ。</span><span class="s" data-i="35">こうして、多くの犠牲を出した長い戦争が、</span><span class="s" data-i="36">ようやく終わりを迎えたんだよ。</span></p>
-      <div class="point"><span class="ptag">⭐ ここだけ覚える</span><div class="ptxt"><span class="s" data-i="37">8月15日、玉音放送によって終戦が国民に伝えられたよ。</span></div></div>
+      <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="37">8月15日、玉音放送によって終戦が国民に伝えられたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">玉音放送<span class="w-rd">ぎょくおんほうそう</span></span><span class="w-desc">1945年8月15日、昭和天皇がラジオで終戦を国民に伝えた放送。</span></div></div>
     </div>
     <div class="step" data-label="重要語チェック">
-      <div class="terms-h">📖 重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
-      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">🔀 シャッフル</button><button type="button" class="swap-btn">🔁 裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
+      <div class="terms-h">重要語チェック<span class="terms-sub">説明を読んで用語を言えるかな？</span></div>
+      <div class="terms-tools"><div class="tt-btns"><button type="button" class="shuffle-btn">シャッフル</button><button type="button" class="swap-btn">裏表入れ替え</button></div><label class="both-toggle"><input type="checkbox" class="both-chk">両面表示</label></div>
       <div class="tgrid"><button class="tcard" type="button">
       <span class="tcard-inner">
         <span class="tc-face tc-front">
@@ -1054,10 +1119,9 @@
         <div class="sum30-navi"><img class="navi-char" src="img/char_owl_think_sm.png" alt="">
           <div class="sum30-bubble">テスト前は ここを見直すのじゃ！</div></div>
       </div>
-      <div class="done">🎉 この単元はこれで完了！</div>
-      <a class="wb-btn" href="../../wb/16/index.html#t5"><span class="ai-ico">✏️</span><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
+      <div class="done">この単元はこれで完了！</div>
+      <a class="wb-btn" href="../../wb/16/index.html#t5"><span class="ai-main">この単元の問題を解く<span class="ai-sub">Web問題集（要点穴埋め・一問一答・4択・記述）</span></span><span class="ai-arrow">›</span></a>
       <a class="ai-btn" href="https://liff.line.me/2009587166-LjyCza2c/ref?t=16-end-of-war" target="_blank" rel="noopener">
-        <span class="ai-ico">🤖</span>
         <span class="ai-main">AI先生に質問・理解度チェック<span class="ai-sub">LINEが開きます</span></span>
         <span class="ai-arrow">›</span>
       </a>
@@ -1073,6 +1137,11 @@
   <button class="ap-close" id="apClose" aria-label="読み上げを止める">×</button>
 </div></div>
 <audio id="audio" preload="none"></audio>
+<div class="lightbox" id="lightbox" hidden>
+  <img id="lightboxImg" alt="">
+  <button class="lb-close" id="lbClose" aria-label="閉じる">×</button>
+  <div class="lb-hint">タップで閉じる</div>
+</div>
 <div class="navbar" id="navbar" hidden><div class="navbar-in">
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
@@ -1292,7 +1361,7 @@
       b.classList.toggle('on', bt === t);
       b.classList.toggle('done', bt > 0 && store()['d' + bt] === 1);
     });
-    var tabEl = tabs[t];
+    var tabEl = tabs.filter(function (b) { return +b.dataset.go === t; })[0];
     if (tabEl && tabEl.scrollIntoView) {
       tabEl.scrollIntoView({ block: 'nearest', inline: 'center' });
     }
@@ -1335,11 +1404,11 @@
       pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
       var prev = document.getElementById('btnPrev');
       var next = document.getElementById('btnNext');
-      prev.textContent = s === 0 ? '🏠 目次' : '← まえへ';
+      prev.textContent = s === 0 ? '目次へ' : '← まえへ';
       if (s < steps.length - 1) {
         next.textContent = 'つぎへ →';
       } else {
-        next.textContent = t < N ? '次の単元へ →' : '🏠 目次にもどる';
+        next.textContent = t < N ? '次の単元へ →' : '目次にもどる';
       }
       // 進捗保存
       var st = store();
@@ -1501,8 +1570,21 @@
     }
   }, { passive: true });
 
+  // 画像タップで拡大（ライトボックス）。ページ送りタップ／スワイプと競合しない。
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightboxImg');
+  function openLb(src) { lbImg.src = src; lb.hidden = false; document.body.style.overflow = 'hidden'; }
+  function closeLb() { lb.hidden = true; lbImg.removeAttribute('src'); document.body.style.overflow = ''; }
+  document.addEventListener('click', function (e) {
+    var z = e.target.closest('img.zoomable');
+    if (z) { e.preventDefault(); e.stopPropagation(); openLb(z.currentSrc || z.src); }
+  });
+  lb.addEventListener('click', closeLb);
+  document.getElementById('lbClose').addEventListener('click', function (e) { e.stopPropagation(); closeLb(); });
+
   // キーボード操作（PC）: ←→ でページ送り、PageUp/Down も同じ、Home で目次へ
   document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !lb.hidden) { closeLb(); return; }
     var tag = e.target && e.target.tagName;
     if (tag === 'INPUT' || tag === 'TEXTAREA' || e.metaKey || e.ctrlKey || e.altKey) return;
     if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === 'Enter') { next(); e.preventDefault(); }
@@ -1517,6 +1599,16 @@
   }
   window.addEventListener('hashchange', fromHash);
   fromHash();
+
+  // 問題集の「解説を読む」から来たとき（?back=）だけ「問題にもどる」を出す
+  (function () {
+    var m = /[?&]back=([^&#]+)/.exec(location.search);
+    var pill = document.getElementById('backPill');
+    if (m && pill) {
+      try { pill.href = decodeURIComponent(m[1]); } catch (e) { pill.href = m[1]; }
+      pill.hidden = false;
+    }
+  })();
 })();
 </script>
 <script type="module">
