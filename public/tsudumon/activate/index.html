@@ -1,0 +1,156 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>ライセンスを受け取る｜つづもん</title>
+<style>
+  :root { --brand:#b45309; --deep:#7c2d12; --amber:#f59e0b; --cream:#fffdf8; --line:#fde68a;
+          --ok:#16a34a; --ng:#dc2626; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;
+         color:#1c1917; background:linear-gradient(#fffdf8,#fef6e4); min-height:100vh;
+         display:flex; align-items:center; justify-content:center; padding:24px 16px; }
+  .card { width:100%; max-width:420px; background:#fff; border:2px solid var(--line);
+          border-radius:20px; padding:28px 22px 26px; box-shadow:0 8px 24px rgba(120,80,20,.14);
+          text-align:center; }
+  .badge { display:inline-block; background:var(--brand); color:#fff; font-weight:bold;
+           padding:4px 16px; border-radius:20px; font-size:13px; }
+  h1 { font-size:22px; color:var(--deep); margin:14px 0 4px; }
+  .lead { font-size:14px; color:#78716c; line-height:1.8; margin-bottom:18px; }
+  .spinner { width:38px; height:38px; margin:10px auto; border:4px solid #f1e6cf;
+             border-top-color:var(--amber); border-radius:50%; animation:spin 1s linear infinite; }
+  @keyframes spin { to { transform:rotate(360deg); } }
+  .big-btn { display:block; width:100%; margin-top:12px; border:none; border-radius:14px;
+             padding:14px; font-size:16px; font-weight:bold; text-decoration:none; cursor:pointer;
+             font-family:inherit; }
+  .btn-line { background:#06c755; color:#fff; box-shadow:0 3px 8px rgba(6,199,85,.3); }
+  .btn-main { background:var(--brand); color:#fff; box-shadow:0 3px 8px rgba(180,83,9,.3); }
+  .btn-sub  { background:#fff; color:var(--brand); border:1.5px solid var(--line); }
+  .result-ic { font-size:46px; line-height:1; margin-bottom:6px; }
+  .r-ok { color:var(--ok); } .r-ng { color:var(--ng); }
+  .r-title { font-size:19px; font-weight:bold; color:var(--deep); margin-bottom:6px; }
+  .r-detail { font-size:14px; color:#57534e; line-height:1.9; margin-bottom:16px; }
+  .r-plan { display:inline-block; background:#fffbeb; border:1.5px solid var(--line);
+            border-radius:12px; padding:8px 16px; font-weight:bold; color:var(--brand);
+            margin-bottom:16px; font-size:14px; }
+  .note { font-size:12px; color:#a8a29e; margin-top:16px; line-height:1.7; }
+  .hidden { display:none; }
+  .mascot { width:76px; height:auto; margin:0 auto 6px; display:block; }
+</style></head><body>
+<div class="card">
+  <span class="badge">つづもん</span>
+
+  <!-- 状態1: 読み込み中／受け取り処理中 -->
+  <section id="stLoading">
+    <h1>ライセンスを受け取り中…</h1>
+    <div class="spinner"></div>
+    <div class="lead" id="loadingMsg">少しお待ちください</div>
+  </section>
+
+  <!-- 状態2: 未ログイン（LINEで受け取る） -->
+  <section id="stLogin" class="hidden">
+    <h1>LINEで受け取る</h1>
+    <div class="lead">公式LINEにログインすると、この端末でライセンスが有効になります。<br>
+      コードの入力は不要です。</div>
+    <a class="big-btn btn-line" id="loginBtn" href="#">LINEでログインして受け取る</a>
+    <div class="note">はじめての方は、ログインと同時に公式LINEの友だち追加になります。</div>
+  </section>
+
+  <!-- 状態3: 成功 -->
+  <section id="stOk" class="hidden">
+    <div class="result-ic r-ok">✅</div>
+    <div class="r-title" id="okTitle">ライセンス登録が完了しました！</div>
+    <div class="r-plan" id="okPlan"></div>
+    <div class="r-detail">教材はこのままスマホで読めます。<br>公式LINEでは、解いた問題のAI採点や質問もできます。</div>
+    <a class="big-btn btn-main" href="/tsudumon/">📖 教材をひらく</a>
+    <a class="big-btn btn-sub" id="okLine" href="https://line.me/R/ti/p/@824cebif">公式LINEを開く</a>
+  </section>
+
+  <!-- 状態4: 失敗 -->
+  <section id="stErr" class="hidden">
+    <div class="result-ic r-ng">⚠️</div>
+    <div class="r-title">受け取れませんでした</div>
+    <div class="r-detail" id="errMsg"></div>
+    <a class="big-btn btn-sub" id="errRetry" href="#">もう一度ためす</a>
+    <a class="big-btn btn-line" href="https://line.me/R/ti/p/@824cebif">公式LINEで問い合わせる</a>
+  </section>
+</div>
+
+<script type="module">
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js';
+import {
+  initializeAuth, browserLocalPersistence, browserSessionPersistence,
+  inMemoryPersistence, onAuthStateChanged,
+} from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js';
+
+var API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/tsudumonActivate';
+var app = initializeApp({ "apiKey": "AIzaSyBJuODbPmpu_fiJ8a1ffzDIUwEFszol5Cc", "authDomain": "chatstudy-63477.firebaseapp.com", "projectId": "chatstudy-63477", "appId": "1:283901969847:web:9efd3b421e8cdb16091432" });
+var auth = initializeAuth(app, {
+  persistence: [browserLocalPersistence, browserSessionPersistence, inMemoryPersistence],
+});
+
+function show(id) {
+  ['stLoading', 'stLogin', 'stOk', 'stErr'].forEach(function (s) {
+    document.getElementById(s).classList.toggle('hidden', s !== id);
+  });
+}
+function getCode() {
+  var m = /[?&]c=([^&]+)/.exec(location.search);
+  return m ? decodeURIComponent(m[1]) : '';
+}
+
+var CODE = getCode();
+if (!CODE) {
+  show('stErr');
+  document.getElementById('errMsg').textContent =
+    'コードが読み取れませんでした。ご案内メールの「LINEで受け取る」ボタンからもう一度お試しください。';
+} else {
+  // ログイン導線（/welcome から戻れるよう現URLを next に）
+  document.getElementById('loginBtn').href =
+    '/welcome?next=' + encodeURIComponent(location.pathname + location.search);
+  document.getElementById('errRetry').href = location.pathname + location.search;
+
+  onAuthStateChanged(auth, function (user) {
+    if (!user) { show('stLogin'); return; }
+    activate(user);
+  });
+}
+
+async function activate(user) {
+  show('stLoading');
+  document.getElementById('loadingMsg').textContent = 'ライセンスを登録しています…';
+  try {
+    var idToken = await user.getIdToken();
+    var res = await fetch(API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ idToken: idToken, code: CODE }),
+    });
+    var data = null;
+    try { data = await res.json(); } catch (e) { /* no body */ }
+    data = data || {};
+
+    if (res.status === 403 || res.status === 401) {
+      // ログインが切れていた → ログイン導線へ
+      show('stLogin');
+      return;
+    }
+    if (res.status === 200 && data.ok) {
+      show('stOk');
+      document.getElementById('okTitle').textContent = data.already
+        ? 'このアカウントは登録済みです！' : 'ライセンス登録が完了しました！';
+      document.getElementById('okPlan').textContent =
+        (data.planLabel || '') + '／有効期限 ' + (data.expiresLabel || '') + ' まで';
+      return;
+    }
+    // 200 でも ok:false（コード不正・上限・失効など）
+    show('stErr');
+    document.getElementById('errMsg').textContent =
+      data.message || 'ライセンスを受け取れませんでした。しばらくおいてもう一度お試しください。';
+  } catch (e) {
+    show('stErr');
+    document.getElementById('errMsg').textContent =
+      '通信エラーが起きました。電波の良いところでもう一度お試しください。';
+  }
+}
+</script>
+</body></html>

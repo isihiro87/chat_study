@@ -65,14 +65,15 @@ import {
   extractTsudumonCode,
   evaluateTsudumonAccess,
   readTsudumonEntitlement,
-  computeTsudumonExpiresAtMs,
   TSUDUMON_PLAN_LABEL,
   TSUDUMON_FREE_WORKBOOK_TOPICS,
   TSUDUMON_FREE_REFERENCE_KEYS,
-  TSUDUMON_DEFAULT_MAX_ACTIVATIONS,
-  type TsudumonPlan,
   type TsudumonAccessResult,
 } from './tsudumonCore';
+import {
+  activateTsudumonLicense,
+  type TsudumonActivationOutcome,
+} from './tsudumonActivate';
 
 interface LineEvent {
   type: string;
@@ -1230,74 +1231,11 @@ async function handleTsudumonActivation(
   replyToken: string,
   code: string
 ): Promise<void> {
-  type Outcome =
-    | { kind: 'ok'; plan: TsudumonPlan; expiresMs: number; already: boolean }
-    | { kind: 'not_found' }
-    | { kind: 'revoked' }
-    | { kind: 'expired' }
-    | { kind: 'max'; max: number };
-
+  // 有効化コアは受け取りリンク（tsudumonActivate）と共有する。
+  type Outcome = TsudumonActivationOutcome;
   let outcome: Outcome;
   try {
-    const { db, FieldValue } = await getDb();
-    const { Timestamp } = await import('firebase-admin/firestore');
-    const licRef = db.doc(`tsudumonLicenses/${code}`);
-    const userRef = db.doc(`users/${uid}`);
-
-    outcome = await db.runTransaction(async (tx): Promise<Outcome> => {
-      const snap = await tx.get(licRef);
-      if (!snap.exists) return { kind: 'not_found' };
-      const lic = snap.data() as Record<string, unknown>;
-      if (lic.status !== 'active') return { kind: 'revoked' };
-
-      const activated: string[] = Array.isArray(lic.activatedUids)
-        ? (lic.activatedUids as string[])
-        : [];
-      const max =
-        typeof lic.maxActivations === 'number'
-          ? lic.maxActivations
-          : TSUDUMON_DEFAULT_MAX_ACTIVATIONS;
-      const already = activated.includes(uid);
-      if (!already && activated.length >= max) return { kind: 'max', max };
-
-      const nowMs = Date.now();
-      const toMillis = (v: unknown): number | null => {
-        const t = v as { toMillis?: () => number } | null | undefined;
-        return t && typeof t.toMillis === 'function' ? t.toMillis() : null;
-      };
-      const years = typeof lic.years === 'number' ? lic.years : 1;
-      const firstMs = toMillis(lic.firstActivatedAt) ?? nowMs;
-      const expiresMs =
-        toMillis(lic.expiresAt) ?? computeTsudumonExpiresAtMs(firstMs, years);
-      if (nowMs >= expiresMs) return { kind: 'expired' };
-
-      const plan = lic.plan as TsudumonPlan;
-      tx.set(
-        licRef,
-        {
-          firstActivatedAt:
-            lic.firstActivatedAt ?? Timestamp.fromMillis(firstMs),
-          expiresAt: lic.expiresAt ?? Timestamp.fromMillis(expiresMs),
-          activatedUids: FieldValue.arrayUnion(uid),
-          lastActivatedAt: Timestamp.fromMillis(nowMs),
-        },
-        { merge: true }
-      );
-      tx.set(
-        userRef,
-        {
-          tsudumon: {
-            code,
-            plan,
-            years,
-            activatedAt: Timestamp.fromMillis(nowMs),
-            expiresAt: Timestamp.fromMillis(expiresMs),
-          },
-        },
-        { merge: true }
-      );
-      return { kind: 'ok', plan, expiresMs, already };
-    });
+    outcome = await activateTsudumonLicense(uid, code);
   } catch (error) {
     console.error('[lineWebhook] tsudumon activation failed:', error);
     await replyText(
