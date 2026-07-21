@@ -79,10 +79,16 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js';
 import {
   initializeAuth, browserLocalPersistence, browserSessionPersistence,
-  inMemoryPersistence, onAuthStateChanged,
+  inMemoryPersistence, onAuthStateChanged, signInWithCustomToken,
 } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js';
 
-var API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/tsudumonActivate';
+// 受け取りページ内で LINE Login を完結させる（marutto の /welcome を経由しない）。
+// これで「もう一度ログイン」の二度手間・戻り先404・つづもん外の画面露出が起きない。
+var CHANNEL_ID = '2009587166';
+var ACTIVATE_API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/tsudumonActivate';
+var TOKEN_API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/createLineCustomToken';
+var REDIRECT_URI = location.origin + '/tsudumon/activate/';   // LINE Console の Callback URL に登録する値
+
 var app = initializeApp({ "apiKey": "AIzaSyBJuODbPmpu_fiJ8a1ffzDIUwEFszol5Cc", "authDomain": "chatstudy-63477.firebaseapp.com", "projectId": "chatstudy-63477", "appId": "1:283901969847:web:9efd3b421e8cdb16091432" });
 var auth = initializeAuth(app, {
   persistence: [browserLocalPersistence, browserSessionPersistence, inMemoryPersistence],
@@ -93,34 +99,98 @@ function show(id) {
     document.getElementById(s).classList.toggle('hidden', s !== id);
   });
 }
+function showErr(msg) { show('stErr'); document.getElementById('errMsg').textContent = msg; }
+// in-app ブラウザ（LINE/Instagram 等の webview）は sessionStorage が往復で消えることが
+// あるので localStorage と両方に保存し、読み出しは両方見る。
+function put(k, v) { try { localStorage.setItem(k, v); } catch (e) {} try { sessionStorage.setItem(k, v); } catch (e) {} }
+function get(k) { var v = null; try { v = localStorage.getItem(k); } catch (e) {} return v || (function () { try { return sessionStorage.getItem(k); } catch (e) { return null; } })(); }
+function del(k) { try { localStorage.removeItem(k); } catch (e) {} try { sessionStorage.removeItem(k); } catch (e) {} }
+
+// コードは URL の ?c= を最優先。OAuth 往復では ?c= が落ちるので保存値から復元。
 function getCode() {
   var m = /[?&]c=([^&]+)/.exec(location.search);
-  return m ? decodeURIComponent(m[1]) : '';
+  if (m) { var c = decodeURIComponent(m[1]); put('tzm-activate-code', c); return c; }
+  return get('tzm-activate-code') || '';
 }
 
 var CODE = getCode();
-if (!CODE) {
-  show('stErr');
-  document.getElementById('errMsg').textContent =
-    'コードが読み取れませんでした。ご案内メールの「LINEで受け取る」ボタンからもう一度お試しください。';
-} else {
-  // ログイン導線（/welcome から戻れるよう現URLを next に）
-  document.getElementById('loginBtn').href =
-    '/welcome?next=' + encodeURIComponent(location.pathname + location.search);
-  document.getElementById('errRetry').href = location.pathname + location.search;
+var qs = new URLSearchParams(location.search);
+var authCode = qs.get('code');
+var authState = qs.get('state');
 
-  onAuthStateChanged(auth, function (user) {
-    if (!user) { show('stLogin'); return; }
-    activate(user);
-  });
+// 常に監視: サインイン完了（OAuth戻り含む）で有効化を実行
+onAuthStateChanged(auth, function (user) {
+  if (user && CODE) activate(user);
+});
+
+if (authCode && authState) {
+  // LINE から戻ってきた → トークン交換してサインイン
+  handleLineReturn(authCode, authState);
+} else if (!CODE) {
+  showErr('コードが読み取れませんでした。ご案内メールの「LINEで受け取る」ボタンからもう一度お試しください。');
+} else {
+  // ?c= だけで来た → ログイン済みなら onAuthStateChanged が有効化、未ログインならボタン表示
+  setTimeout(function () {
+    if (!auth.currentUser) showLogin();
+  }, 400);
 }
 
+function loginUrl() {
+  var state = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : String(Date.now()) + Math.random();
+  put('tzm-line-state', state);
+  put('tzm-activate-code', CODE);
+  var p = new URLSearchParams({
+    response_type: 'code',
+    client_id: CHANNEL_ID,
+    redirect_uri: REDIRECT_URI,
+    state: state,
+    scope: 'profile openid',
+    bot_prompt: 'aggressive',   // ログインと同時に友だち追加を促す
+  });
+  return 'https://access.line.me/oauth2/v2.1/authorize?' + p.toString();
+}
+function showLogin() {
+  show('stLogin');
+  document.getElementById('loginBtn').onclick = function () { location.href = loginUrl(); };
+}
+document.getElementById('errRetry').onclick = function (e) {
+  e.preventDefault(); location.href = REDIRECT_URI + (CODE ? '?c=' + encodeURIComponent(CODE) : '');
+};
+
+async function handleLineReturn(code, state) {
+  show('stLoading');
+  document.getElementById('loadingMsg').textContent = 'ログインを確認しています…';
+  if (state !== get('tzm-line-state')) {
+    showErr('ログインの確認に失敗しました。お手数ですがもう一度お試しください。');
+    return;
+  }
+  del('tzm-line-state');
+  try {
+    var res = await fetch(TOKEN_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ code: code, redirectUri: REDIRECT_URI }),
+    });
+    if (!res.ok) { showErr('ログインに失敗しました。もう一度お試しください。'); return; }
+    var data = await res.json();
+    await signInWithCustomToken(auth, data.customToken);
+    // URL から code/state を消す（?c= は保存済みなので消えてよい）
+    history.replaceState(null, '', location.pathname);
+    // onAuthStateChanged が発火して activate() が走る
+  } catch (e) {
+    showErr('通信エラーが起きました。電波の良いところでもう一度お試しください。');
+  }
+}
+
+var activating = false;
 async function activate(user) {
+  if (activating) return;
+  activating = true;
   show('stLoading');
   document.getElementById('loadingMsg').textContent = 'ライセンスを登録しています…';
   try {
     var idToken = await user.getIdToken();
-    var res = await fetch(API, {
+    var res = await fetch(ACTIVATE_API, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ idToken: idToken, code: CODE }),
@@ -129,12 +199,9 @@ async function activate(user) {
     try { data = await res.json(); } catch (e) { /* no body */ }
     data = data || {};
 
-    if (res.status === 403 || res.status === 401) {
-      // ログインが切れていた → ログイン導線へ
-      show('stLogin');
-      return;
-    }
+    if (res.status === 403 || res.status === 401) { activating = false; showLogin(); return; }
     if (res.status === 200 && data.ok) {
+      del('tzm-activate-code');
       show('stOk');
       document.getElementById('okTitle').textContent = data.already
         ? 'このアカウントは登録済みです！' : 'ライセンス登録が完了しました！';
@@ -142,14 +209,9 @@ async function activate(user) {
         (data.planLabel || '') + '／有効期限 ' + (data.expiresLabel || '') + ' まで';
       return;
     }
-    // 200 でも ok:false（コード不正・上限・失効など）
-    show('stErr');
-    document.getElementById('errMsg').textContent =
-      data.message || 'ライセンスを受け取れませんでした。しばらくおいてもう一度お試しください。';
+    showErr(data.message || 'ライセンスを受け取れませんでした。しばらくおいてもう一度お試しください。');
   } catch (e) {
-    show('stErr');
-    document.getElementById('errMsg').textContent =
-      '通信エラーが起きました。電波の良いところでもう一度お試しください。';
+    showErr('通信エラーが起きました。電波の良いところでもう一度お試しください。');
   }
 }
 </script>
