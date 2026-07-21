@@ -17,7 +17,10 @@ import {
   TSUDUMON_DEFAULT_MAX_ACTIVATIONS,
   TSUDUMON_PLAN_LABEL,
   computeTsudumonExpiresAtMs,
+  evaluateTsudumonAccess,
   extractTsudumonCode,
+  readTsudumonEntitlement,
+  tsudumonPlanGrades,
   type TsudumonPlan,
 } from './tsudumonCore';
 
@@ -200,6 +203,68 @@ export const tsudumonActivate = functions
       });
     } catch (error) {
       console.error('[tsudumonActivate] failed:', error);
+      res.status(500).json({ error: 'internal' });
+    }
+  });
+
+/**
+ * 教材Web版のライセンス確認。POST { idToken } → 学年ごとの解放判定。
+ * users/{uid}.tsudumon を 1 read するだけ（read 規律）。教材ページはこの grades に
+ * ページの学年が含まれるかで「頭出しのみ／全開放」を切り替える（中間案・ゆるめ）。
+ * POST { idToken } → { ok, result, grades, expiresLabel }
+ */
+export const tsudumonEntitlement = functions
+  .region('asia-northeast1')
+  .https.onRequest(async (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
+    res.set('Access-Control-Allow-Methods', 'POST, OPTIONS');
+    res.set('Access-Control-Allow-Headers', 'Content-Type');
+    if (req.method === 'OPTIONS') {
+      res.status(204).send('');
+      return;
+    }
+    if (req.method !== 'POST') {
+      res.status(405).json({ error: 'Method not allowed' });
+      return;
+    }
+    const { idToken } = req.body ?? {};
+    if (typeof idToken !== 'string' || !idToken) {
+      res.status(400).json({ error: 'idToken is required' });
+      return;
+    }
+    try {
+      const { getApps, initializeApp } = await import('firebase-admin/app');
+      const { getAuth } = await import('firebase-admin/auth');
+      if (getApps().length === 0) {
+        initializeApp();
+      }
+      let uid: string;
+      try {
+        uid = (await getAuth().verifyIdToken(idToken)).uid;
+      } catch {
+        res.status(401).json({ error: 'invalid_token' });
+        return;
+      }
+      if (!uid.startsWith('line:')) {
+        res.status(403).json({ error: 'line_login_required' });
+        return;
+      }
+      const { db } = await getDb();
+      const snap = await db.doc(`users/${uid}`).get();
+      const raw = snap.exists
+        ? (snap.data() as Record<string, unknown>).tsudumon
+        : null;
+      const result = evaluateTsudumonAccess(raw, null, Date.now());
+      const ent = readTsudumonEntitlement(raw);
+      const grades = ent && result === 'ok' ? tsudumonPlanGrades(ent.plan) : [];
+      res.status(200).json({
+        ok: result === 'ok',
+        result,
+        grades,
+        expiresLabel: ent ? expiresLabel(ent.expiresAtMs) : null,
+      });
+    } catch (error) {
+      console.error('[tsudumonEntitlement] failed:', error);
       res.status(500).json({ error: 'internal' });
     }
   });

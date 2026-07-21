@@ -36,7 +36,7 @@ export { submitContactForm } from './submitContactForm';
 
 // つづもん納品zipのダウンロード口（回数制限つき・/tsudumon/dl から rewrite）
 export { tsudumonDownload } from './tsudumonDownload';
-export { tsudumonActivate } from './tsudumonActivate';
+export { tsudumonActivate, tsudumonEntitlement } from './tsudumonActivate';
 
 // 参考書Webページ内チャット（スタ先生。LINEの参考書AIと知識・履歴・回数枠を共有）
 export { referenceChat } from './referenceChat';
