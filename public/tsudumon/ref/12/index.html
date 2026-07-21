@@ -158,11 +158,12 @@
   .home-topline { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:2px; }
   .hometop { display:flex; align-items:flex-start; gap:6px; padding:8px 2px 2px; text-align:left; }
   .ht-main { flex:1; min-width:0; text-align:center; }
-  .badge3 { display:inline-flex; border-radius:18px; overflow:hidden; font-size:12px; font-weight:bold;
-            box-shadow:0 2px 4px rgba(120,80,20,.2); }
-  .badge3 span { padding:4px 11px; display:inline-flex; align-items:center; white-space:nowrap; }
-  .b-vol { background:var(--brand); color:#fff; }
-  .b-kind { background:#fff; color:var(--deep); }
+  /* 本のラベル（押せない表示）: トグルに見えないようフラットな1トーンのタグに */
+  .badge3 { display:inline-flex; align-items:center; gap:6px; border-radius:8px;
+            background:#f4ecdb; padding:3px 10px; font-size:11.5px; font-weight:bold; }
+  .badge3 span { padding:0; display:inline-flex; align-items:center; white-space:nowrap; }
+  .b-vol { color:var(--brand); }
+  .b-kind { color:#9a7b4f; }
   .b-web { background:var(--amber); color:#fff; }
   .ht-title { font-size:41px; color:var(--deep); margin:12px 0 0; line-height:1.12; position:relative;
               display:inline-block; padding:0 6px; letter-spacing:.01em; }
@@ -419,6 +420,22 @@
   .foot-note { margin-top:4px; font-size:12px; }
 
   /* ── 下部ナビ ── */
+  /* 教材ゲートのロック案内（頭出しの先） */
+  .lock-ov { position:fixed; inset:0; z-index:40; background:rgba(60,40,15,.5);
+             display:flex; align-items:center; justify-content:center; padding:20px; }
+  .lock-ov[hidden] { display:none; }
+  .lock-card { width:100%; max-width:360px; background:#fff; border-radius:18px; padding:24px 20px 18px;
+               text-align:center; box-shadow:0 10px 30px rgba(0,0,0,.3); }
+  .lock-ic { font-size:40px; }
+  .lock-t { font-size:18px; font-weight:bold; color:var(--deep); margin:6px 0 6px; }
+  .lock-d { font-size:13px; color:#78716c; line-height:1.8; margin-bottom:16px; }
+  .lock-btn { display:block; width:100%; margin-top:10px; border:none; border-radius:13px; padding:13px;
+              font-size:15px; font-weight:bold; text-decoration:none; cursor:pointer; font-family:inherit; }
+  .lb-line { background:#06c755; color:#fff; box-shadow:0 3px 8px rgba(6,199,85,.3); }
+  .lb-buy { background:#fff; color:var(--brand); border:1.5px solid var(--line); }
+  .lock-close { display:block; width:100%; margin-top:12px; background:none; border:none; cursor:pointer;
+                color:#a8a29e; font-size:12.5px; font-family:inherit; text-decoration:underline; }
+
   .navbar { position:fixed; left:0; right:0; bottom:0; z-index:10;
             background:rgba(255,253,248,.97); border-top:1px solid #f0e6d2;
             padding:10px 16px calc(10px + env(safe-area-inset-bottom)); }
@@ -531,7 +548,7 @@
     <div class="foot-note">紙やタブレットでじっくり派には、ダウンロード済みのPDF版もどうぞ。</div>
   </footer>
 </section>
-<section class="view" data-t="1">
+<section class="view" data-t="1" data-lock="2">
   <div class="tband"><span class="tno">1</span><h2>条約改正</h2>
     <button class="play-unit" type="button" data-play="1" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
@@ -690,7 +707,7 @@
       </a>
     </div>
 </section>
-<section class="view" data-t="2">
+<section class="view" data-t="2" data-lock="2">
   <div class="tband"><span class="tno">2</span><h2>日清戦争と三国干渉</h2>
     <button class="play-unit" type="button" data-play="2" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
@@ -849,7 +866,7 @@
       </a>
     </div>
 </section>
-<section class="view" data-t="3">
+<section class="view" data-t="3" data-lock="2">
   <div class="tband"><span class="tno">3</span><h2>日露戦争</h2>
     <button class="play-unit" type="button" data-play="3" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
@@ -1000,7 +1017,7 @@
       </a>
     </div>
 </section>
-<section class="view" data-t="4">
+<section class="view" data-t="4" data-lock="2">
   <div class="tband"><span class="tno">4</span><h2>韓国併合と中国の革命</h2>
     <button class="play-unit" type="button" data-play="4" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
@@ -1151,7 +1168,7 @@
       </a>
     </div>
 </section>
-<section class="view" data-t="5">
+<section class="view" data-t="5" data-lock="2">
   <div class="tband"><span class="tno">5</span><h2>日本の産業革命</h2>
     <button class="play-unit" type="button" data-play="5" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
@@ -1302,7 +1319,7 @@
       </a>
     </div>
 </section>
-<section class="view" data-t="6">
+<section class="view" data-t="6" data-lock="2">
   <div class="tband"><span class="tno">6</span><h2>明治の文化</h2>
     <button class="play-unit" type="button" data-play="6" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
@@ -1472,6 +1489,14 @@
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
 </div></div>
+<div class="lock-ov" id="lockOv" hidden><div class="lock-card">
+  <div class="lock-ic">🔒</div>
+  <div class="lock-t">つづきは購入者向けです</div>
+  <div class="lock-d">ここまでは無料で読めます。つづきを読むには、つづもんのライセンスが必要です。</div>
+  <button class="lock-btn lb-line" id="lockLogin">📱 LINEでログイン（購入者の方）</button>
+  <a class="lock-btn lb-buy" href="../../index.html">つづもんを見てみる →</a>
+  <button class="lock-close" id="lockClose">とじる（ここまで読む）</button>
+</div></div>
 <button class="chat-fab" id="chatFab" aria-label="スタ先生に質問する">🤖</button>
 <section class="chat-panel" id="chatPanel" hidden>
   <header class="chat-head">
@@ -1495,6 +1520,8 @@
 (function () {
   var KEY = 'tzmref-12';
   var CH = '12';
+  var GRADE = '中2';        // この本の学年（中1/中2/中3）
+  var ENTITLEMENT_API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/tsudumonEntitlement';
   var WB_VIEWS = [0, 2, 3, 4, 5, 6, 7];
   var AUDIO = {"1": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F12-treaty-revision.mp3?alt=media&token=17f6444a-a840-4b28-98d0-4fad9ba8d7d9", "tl": [[0, 6.197, 0], [6.197, 3.163, 0], [9.64, 2.065, 0], [11.705, 3.135, 0], [15.49, 3.16, 1], [19.3, 5.12, 1], [25.07, 3.104, 1], [28.174, 2.576, 1], [31.03, 9.04, 1], [40.35, 5.317, 1], [45.667, 3.163, 1], [49.11, 1.805, 1], [50.915, 3.675, 1], [54.87, 6.24, 1], [61.76, 4.273, 1], [66.033, 1.687, 1], [68.37, 4.8, 2], [73.82, 4.48, 2], [78.95, 6.44, 2], [85.67, 2.76, 2], [88.71, 2.166, 2], [90.876, 3.554, 2], [94.71, 2.52, 2], [97.51, 5.73, 2], [103.24, 2.43, 2], [105.95, 4.182, 2], [110.132, 11.858, 2], [122.64, 3.586, 2], [126.226, 2.174, 2], [129.05, 4.84, 3], [134.54, 5.12, 3], [140.31, 6.602, 3], [146.912, 4.038, 3], [151.23, 3.88, 3], [155.39, 4.2, 3], [159.87, 1.881, 3], [161.751, 2.311, 3], [164.062, 3.488, 3], [167.83, 2.572, 3], [170.402, 3.348, 3], [174.4, 6.36, 3], [181.41, 3.84, 4], [185.9, 4.36, 4], [190.91, 2.76, 4], [193.95, 4.4, 4], [198.63, 7.52, 4], [206.43, 2.548, 4], [208.978, 4.692, 4], [213.95, 5.409, 4], [219.359, 2.551, 4], [222.56, 5.72, 4], [228.93, 7.8, 6], [237.01, 4.197, 6], [241.207, 4.24, 6], [245.447, 5.536, 6], [250.983, 3.147, 6]]}, "2": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F12-sino-japanese-war.mp3?alt=media&token=6fafbf61-c88d-4a0e-bc6b-547dcc83bf52", "tl": [[0, 1.8, 0], [1.8, 3.84, 0], [5.92, 4.334, 0], [10.254, 2.266, 0], [13.17, 2.52, 1], [16.34, 4, 1], [20.99, 8.28, 1], [29.55, 5.48, 1], [35.03, 4.76, 1], [40.07, 5.215, 1], [45.285, 2.541, 1], [47.826, 2.164, 1], [50.64, 6.48, 1], [57.77, 4.24, 2], [62.66, 4.84, 2], [68.15, 4.38, 2], [72.53, 2.1, 2], [74.91, 3.633, 2], [78.543, 3.127, 2], [81.95, 3.998, 2], [85.948, 2.962, 2], [89.19, 2.48, 2], [91.95, 3.174, 2], [95.124, 2.466, 2], [98.24, 3.658, 2], [101.898, 4.102, 2], [106.65, 2.84, 3], [110.14, 4.72, 3], [115.51, 2.88, 3], [118.67, 2.961, 3], [121.631, 4.799, 3], [126.71, 3, 3], [129.99, 3.076, 3], [133.066, 2.964, 3], [136.31, 3.402, 3], [139.712, 4.918, 3], [144.91, 3.452, 3], [148.362, 3.068, 3], [152.08, 3.416, 3], [155.496, 2.624, 3], [158.77, 3.32, 4], [162.74, 4.68, 4], [168.07, 2.559, 4], [170.629, 2.201, 4], [173.11, 7.72, 4], [181.11, 4.788, 4], [185.898, 3.332, 4], [189.51, 5.2, 4], [195.36, 1.643, 4], [197.003, 3.597, 4], [201.25, 6.084, 6], [207.334, 6.276, 6], [213.89, 4.709, 6], [218.599, 5.171, 6]]}, "3": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F12-russo-japanese-war.mp3?alt=media&token=959c04e3-03ab-46dd-9a99-e18e93eb1d4e", "tl": [[0, 3.923, 0], [3.923, 2.037, 0], [6.24, 1.98, 0], [8.22, 1.94, 0], [10.81, 2.8, 1], [14.26, 4.24, 1], [19.15, 6.64, 1], [26.07, 3.551, 1], [29.621, 2.809, 1], [32.71, 2.559, 1], [35.269, 6.961, 1], [42.51, 2.165, 1], [44.675, 3.795, 1], [49.12, 2.419, 1], [51.539, 3.301, 1], [55.49, 3, 2], [59.14, 4.28, 2], [64.07, 4.44, 2], [68.79, 2.631, 2], [71.421, 3.383, 2], [74.804, 5.786, 2], [80.87, 5.04, 2], [86.19, 4.243, 2], [90.433, 5.277, 2], [96.36, 3.173, 2], [99.533, 3.307, 2], [103.49, 3.32, 3], [107.46, 4.08, 3], [112.19, 7.06, 3], [119.25, 1.82, 3], [121.35, 3.08, 3], [124.71, 5.81, 3], [130.52, 2.67, 3], [133.47, 3.44, 3], [137.19, 3.6, 3], [140.79, 5.2, 3], [146.64, 2.803, 3], [149.443, 2.277, 3], [152.37, 6.355, 5], [158.725, 4.885, 5], [163.89, 5.894, 5], [169.784, 3.946, 5]]}, "4": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F12-korea-annexation.mp3?alt=media&token=45f75e70-57ba-41b2-8f5c-733eebaafd2e", "tl": [[0, 2.033, 0], [2.033, 3.567, 0], [5.88, 2.404, 0], [8.284, 3.396, 0], [12.33, 3.2, 1], [16.18, 2.382, 1], [18.562, 1.938, 1], [21.15, 2.978, 1], [24.128, 4.382, 1], [28.79, 3.36, 1], [32.43, 2.132, 1], [34.562, 8.468, 1], [43.31, 2.216, 1], [45.526, 3.092, 1], [48.618, 2.412, 1], [51.31, 4.24, 1], [56.2, 2.993, 1], [59.193, 2.567, 1], [62.41, 3.28, 2], [66.34, 4.68, 2], [71.67, 4.96, 2], [76.91, 4.619, 2], [81.529, 2.385, 2], [83.914, 4.516, 2], [88.71, 3.213, 2], [91.923, 3.907, 2], [96.48, 1.99, 2], [98.47, 3.33, 2], [102.45, 3.48, 3], [106.58, 2.927, 3], [109.507, 2.153, 3], [112.31, 4.4, 3], [116.99, 9.333, 3], [126.323, 4.187, 3], [130.79, 2.619, 3], [133.409, 3.901, 3], [137.59, 3.389, 3], [140.979, 5.331, 3], [146.96, 4.036, 3], [150.996, 1.964, 3], [153.61, 7.388, 5], [160.998, 3.372, 5], [164.65, 5.202, 5], [169.852, 5.318, 5]]}, "5": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F12-industrial-revolution.mp3?alt=media&token=f8df7d27-20a2-4f1a-92bc-0cd89fdbf54a", "tl": [[0, 3.106, 0], [3.106, 3.854, 0], [7.24, 0.96, 0], [8.2, 4.44, 0], [13.29, 2.76, 1], [16.7, 4.12, 1], [21.47, 6.68, 1], [28.43, 3.771, 1], [32.201, 4.169, 1], [36.37, 4.3, 1], [40.95, 2.709, 1], [43.659, 6.268, 1], [49.927, 4.183, 1], [54.76, 7.2, 1], [62.61, 2.2, 2], [65.46, 4.4, 2], [70.51, 2.309, 2], [72.819, 8.411, 2], [81.51, 4.558, 2], [86.068, 3.762, 2], [90.11, 2.32, 2], [93.08, 6.4, 2], [100.13, 3.48, 3], [104.26, 4.44, 3], [109.35, 2.193, 3], [111.543, 1.967, 3], [113.79, 4.741, 3], [118.531, 6.659, 3], [125.47, 2.742, 3], [128.212, 4.098, 3], [132.59, 5.421, 3], [138.011, 4.509, 3], [142.52, 4.23, 3], [147.4, 4.212, 3], [151.612, 2.028, 3], [154.29, 8.627, 5], [162.917, 2.533, 5], [165.73, 4.913, 5], [170.643, 4.647, 5]]}, "6": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F12-meiji-culture.mp3?alt=media&token=951f56b3-e636-4641-aace-d545c373b829", "tl": [[0, 1.965, 0], [1.965, 3.356, 0], [5.321, 3.439, 0], [9.04, 2.271, 0], [11.311, 1.129, 0], [13.09, 3, 1], [16.74, 4.52, 1], [21.91, 4.513, 1], [26.423, 6.167, 1], [32.87, 5.264, 1], [38.134, 3.656, 1], [42.07, 4.45, 1], [46.52, 5.07, 1], [51.87, 3.68, 1], [56.2, 2.256, 1], [58.456, 3.424, 1], [62.53, 2.72, 2], [65.9, 4.24, 2], [70.79, 1.92, 2], [72.71, 3.76, 2], [76.75, 4.563, 2], [81.313, 3.837, 2], [85.43, 3.827, 2], [89.257, 2.693, 2], [92.23, 3.324, 2], [95.554, 4.996, 2], [101.2, 2.791, 2], [103.991, 3.249, 2], [107.89, 2.4, 3], [110.94, 4.2, 3], [115.79, 1.677, 3], [117.467, 3.749, 3], [121.216, 3.254, 3], [124.75, 4.697, 3], [129.447, 2.663, 3], [132.39, 7.287, 3], [139.677, 4.794, 3], [144.471, 3.039, 3], [148.16, 4.495, 3], [152.655, 1.945, 3], [155.25, 3.867, 5], [159.117, 5.192, 5], [164.309, 3.902, 5], [168.211, 3.079, 5], [171.57, 3.268, 5], [174.838, 2.972, 5]]}};          // {単元t: {url, tl:[[開始秒,長さ,ステップ], …]}}          // 参考書の単元t → 問題集のビュー番号（0＝対応なし）
   var views = [].slice.call(document.querySelectorAll('.view'));
@@ -1705,25 +1732,47 @@
       var steps = stepsOf(t);
       // 同じ単元内のページ送りだけ「めくり」演出（古いページと新しいページを重ねる）
       var animFrom = rendered && rendered.t === t && rendered.s !== s ? rendered.s : null;
-      [].forEach.call(steps, function (el, i) {
+      var oldEl = animFrom !== null ? steps[animFrom] : null;
+      var newEl = steps[s];
+      // クラスを切り替える前に「めくり始める瞬間の旧ページの見え方（画面上の位置・幅）」を測る。
+      // これを position:fixed で固定したままめくり、その裏で window を先頭へ戻すことで
+      // 「今いる高さのままページがめくれ、めくり終わると新ページは一番上から」を実現する。
+      var oldRect = oldEl ? oldEl.getBoundingClientRect() : null;
+      var resetTurn = function (el) {
         el.classList.remove('turn-out', 'turn-in', 'turn-under');
+        el.style.position = ''; el.style.top = ''; el.style.left = '';
+        el.style.width = ''; el.style.transformOrigin = '';
+        el.style.maxHeight = ''; el.style.overflow = '';
+      };
+      [].forEach.call(steps, function (el, i) {
+        resetTurn(el);
         el.classList.toggle('on', i === s);
       });
-      if (animFrom !== null && steps[animFrom] && steps[s]) {
-        var oldEl = steps[animFrom], newEl = steps[s];
-        var clear = function () {
-          oldEl.classList.remove('turn-out', 'turn-under');
-          newEl.classList.remove('turn-in');
+      if (animFrom !== null && oldEl && newEl && oldRect) {
+        // 旧ページを、今見えていた画面上の位置・幅にそのまま貼り付けて固定する
+        var pin = function (el) {
+          el.style.position = 'fixed';
+          el.style.top = oldRect.top + 'px';
+          el.style.left = oldRect.left + 'px';
+          el.style.width = oldRect.width + 'px';
         };
+        var clear = function () { resetTurn(oldEl); resetTurn(newEl); };
         if (lastDir > 0) {
+          // 進む: 旧ページを今の位置に固定したまま左とじでめくって去らせる。
+          // 透視の消失点を今の画面中央に合わせ、スクロール位置に依らず自然に見せる。
+          pin(oldEl);
+          oldEl.style.transformOrigin = '0 ' + ((innerHeight / 2) - oldRect.top) + 'px';
           oldEl.classList.add('turn-out');      // 今のページがめくれて去る
           oldEl.addEventListener('animationend', clear, { once: true });
         } else {
+          // 戻る: 旧（現在）ページを今の位置に固定して下に敷き、前ページを上へめくり戻す。
+          pin(oldEl);
+          oldEl.style.maxHeight = 'none'; oldEl.style.overflow = 'visible';
           oldEl.classList.add('turn-under');    // 下に敷いたまま
           newEl.classList.add('turn-in');       // 前のページがめくり戻ってくる
           newEl.addEventListener('animationend', clear, { once: true });
         }
-        setTimeout(clear, 700); // アニメ未発火時の保険
+        setTimeout(clear, 900); // アニメ未発火時の保険
       }
       navbar.hidden = false;
       barStep.textContent = (s + 1) + ' / ' + steps.length;
@@ -1793,6 +1842,23 @@
     a.href = wbHref(state.t);
   }
 
+  // ── 教材ゲート（中間案・ゆるめ「頭出しは見せる」）──
+  //   有料単元は表紙＋最初の1節まで誰でも読める。その先は購入者（この学年のライセンス）だけ。
+  //   判定は localStorage['tzm-lic']（開放学年の配列）を見るだけ。ログイン時に entitlement で更新。
+  function isLicensed() {
+    try { return (JSON.parse(localStorage.getItem('tzm-lic') || '[]')).indexOf(GRADE) >= 0; }
+    catch (e) { return false; }
+  }
+  function lockFrom(t) { var v = views[t]; return v ? +(v.getAttribute('data-lock') || 0) : 0; }
+  function gateBlocks(t, s) {
+    var lk = lockFrom(t);
+    return lk > 0 && !isLicensed() && s >= lk;
+  }
+  function showLock() { var ov = document.getElementById('lockOv'); if (ov) ov.hidden = false; }
+  function hideLock() { var ov = document.getElementById('lockOv'); if (ov) ov.hidden = true; }
+  // entitlement 反映後に module script から呼ばれる。解除できたらロックを閉じる。
+  window.tzmRefreshGate = function () { if (isLicensed()) hideLock(); };
+
   function go(t, s, dir) {
     if (typeof reading !== 'undefined' && reading.step != null) stopAudio();
     lastDir = dir || 1;
@@ -1800,9 +1866,17 @@
     state.s = Math.max(0, s || 0);
     if (state.t > 0) {
       state.s = Math.min(state.s, stepsOf(state.t).length - 1);
+      // 頭出しの先へ行こうとしたら、頭出しの最後で止めてロック案内を出す
+      if (gateBlocks(state.t, state.s)) {
+        state.s = Math.max(0, lockFrom(state.t) - 1);
+        render();
+        showLock();
+        return;
+      }
     } else {
       state.s = 0;
     }
+    hideLock();
     render();
   }
 
@@ -1820,6 +1894,12 @@
     else go(0, 0, -1);
   }
 
+  // ロック案内のボタン: ログイン（共通ログインページ経由で戻る）／閉じる
+  document.getElementById('lockLogin').addEventListener('click', function () {
+    var here = location.pathname + '#t' + state.t + (state.s > 0 ? 's' + state.s : '');
+    location.href = '../../login/?next=' + encodeURIComponent(here);
+  });
+  document.getElementById('lockClose').addEventListener('click', hideLock);
   document.getElementById('btnNext').addEventListener('click', next);
   document.getElementById('btnPrev').addEventListener('click', prev);
   document.addEventListener('click', function (e) {
@@ -2078,8 +2158,26 @@ window.addEventListener('hashchange', function () {
   if (!panel.hidden && user && loadedTopic !== currentTopicKey()) loadHistory();
 });
 
+// 教材ゲート用: ログイン済みなら開放学年を取得して localStorage['tzm-lic'] に保存し、
+// 通常script のロックを解除できるか再評価する（users/{uid} 1 read）。
+var ENTITLEMENT_API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/tsudumonEntitlement';
+async function refreshEntitlement(u) {
+  try {
+    var idToken = await u.getIdToken();
+    var res = await fetch(ENTITLEMENT_API, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ idToken: idToken }),
+    });
+    if (!res.ok) return;
+    var data = await res.json();
+    try { localStorage.setItem('tzm-lic', JSON.stringify((data && data.grades) || [])); } catch (e) {}
+    if (window.tzmRefreshGate) window.tzmRefreshGate();
+  } catch (e) { /* ゲートは localStorage フォールバックのまま */ }
+}
+
 onAuthStateChanged(auth, function (u) {
   user = u;
+  if (u) refreshEntitlement(u);
   if (panel.hidden) return;
   if (!u) { showLogin(); return; }
   loadHistory();

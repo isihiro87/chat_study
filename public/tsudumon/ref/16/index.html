@@ -158,11 +158,12 @@
   .home-topline { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:2px; }
   .hometop { display:flex; align-items:flex-start; gap:6px; padding:8px 2px 2px; text-align:left; }
   .ht-main { flex:1; min-width:0; text-align:center; }
-  .badge3 { display:inline-flex; border-radius:18px; overflow:hidden; font-size:12px; font-weight:bold;
-            box-shadow:0 2px 4px rgba(120,80,20,.2); }
-  .badge3 span { padding:4px 11px; display:inline-flex; align-items:center; white-space:nowrap; }
-  .b-vol { background:var(--brand); color:#fff; }
-  .b-kind { background:#fff; color:var(--deep); }
+  /* 本のラベル（押せない表示）: トグルに見えないようフラットな1トーンのタグに */
+  .badge3 { display:inline-flex; align-items:center; gap:6px; border-radius:8px;
+            background:#f4ecdb; padding:3px 10px; font-size:11.5px; font-weight:bold; }
+  .badge3 span { padding:0; display:inline-flex; align-items:center; white-space:nowrap; }
+  .b-vol { color:var(--brand); }
+  .b-kind { color:#9a7b4f; }
   .b-web { background:var(--amber); color:#fff; }
   .ht-title { font-size:41px; color:var(--deep); margin:12px 0 0; line-height:1.12; position:relative;
               display:inline-block; padding:0 6px; letter-spacing:.01em; }
@@ -419,6 +420,22 @@
   .foot-note { margin-top:4px; font-size:12px; }
 
   /* ── 下部ナビ ── */
+  /* 教材ゲートのロック案内（頭出しの先） */
+  .lock-ov { position:fixed; inset:0; z-index:40; background:rgba(60,40,15,.5);
+             display:flex; align-items:center; justify-content:center; padding:20px; }
+  .lock-ov[hidden] { display:none; }
+  .lock-card { width:100%; max-width:360px; background:#fff; border-radius:18px; padding:24px 20px 18px;
+               text-align:center; box-shadow:0 10px 30px rgba(0,0,0,.3); }
+  .lock-ic { font-size:40px; }
+  .lock-t { font-size:18px; font-weight:bold; color:var(--deep); margin:6px 0 6px; }
+  .lock-d { font-size:13px; color:#78716c; line-height:1.8; margin-bottom:16px; }
+  .lock-btn { display:block; width:100%; margin-top:10px; border:none; border-radius:13px; padding:13px;
+              font-size:15px; font-weight:bold; text-decoration:none; cursor:pointer; font-family:inherit; }
+  .lb-line { background:#06c755; color:#fff; box-shadow:0 3px 8px rgba(6,199,85,.3); }
+  .lb-buy { background:#fff; color:var(--brand); border:1.5px solid var(--line); }
+  .lock-close { display:block; width:100%; margin-top:12px; background:none; border:none; cursor:pointer;
+                color:#a8a29e; font-size:12.5px; font-family:inherit; text-decoration:underline; }
+
   .navbar { position:fixed; left:0; right:0; bottom:0; z-index:10;
             background:rgba(255,253,248,.97); border-top:1px solid #f0e6d2;
             padding:10px 16px calc(10px + env(safe-area-inset-bottom)); }
@@ -531,7 +548,7 @@
     <div class="foot-note">紙やタブレットでじっくり派には、ダウンロード済みのPDF版もどうぞ。</div>
   </footer>
 </section>
-<section class="view" data-t="1">
+<section class="view" data-t="1" data-lock="2">
   <div class="tband"><span class="tno">1</span><h2>第二次世界大戦の勃発</h2>
     <button class="play-unit" type="button" data-play="1" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
@@ -682,7 +699,7 @@
       </a>
     </div>
 </section>
-<section class="view" data-t="2">
+<section class="view" data-t="2" data-lock="2">
   <div class="tband"><span class="tno">2</span><h2>太平洋戦争と日本の敗退</h2>
     <button class="play-unit" type="button" data-play="2" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
@@ -841,7 +858,7 @@
       </a>
     </div>
 </section>
-<section class="view" data-t="3">
+<section class="view" data-t="3" data-lock="2">
   <div class="tband"><span class="tno">3</span><h2>銃後の苦しみと総動員</h2>
     <button class="play-unit" type="button" data-play="3" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
@@ -1000,7 +1017,7 @@
       </a>
     </div>
 </section>
-<section class="view" data-t="4">
+<section class="view" data-t="4" data-lock="2">
   <div class="tband"><span class="tno">4</span><h2>終戦への道</h2>
     <button class="play-unit" type="button" data-play="4" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
@@ -1146,6 +1163,14 @@
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
 </div></div>
+<div class="lock-ov" id="lockOv" hidden><div class="lock-card">
+  <div class="lock-ic">🔒</div>
+  <div class="lock-t">つづきは購入者向けです</div>
+  <div class="lock-d">ここまでは無料で読めます。つづきを読むには、つづもんのライセンスが必要です。</div>
+  <button class="lock-btn lb-line" id="lockLogin">📱 LINEでログイン（購入者の方）</button>
+  <a class="lock-btn lb-buy" href="../../index.html">つづもんを見てみる →</a>
+  <button class="lock-close" id="lockClose">とじる（ここまで読む）</button>
+</div></div>
 <button class="chat-fab" id="chatFab" aria-label="スタ先生に質問する">🤖</button>
 <section class="chat-panel" id="chatPanel" hidden>
   <header class="chat-head">
@@ -1169,6 +1194,8 @@
 (function () {
   var KEY = 'tzmref-16';
   var CH = '16';
+  var GRADE = '中3';        // この本の学年（中1/中2/中3）
+  var ENTITLEMENT_API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/tsudumonEntitlement';
   var WB_VIEWS = [0, 2, 3, 4, 5];
   var AUDIO = {"1": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F16-ww2-outbreak.mp3?alt=media&token=80b7a002-73f7-44b7-bc2a-d0de31c51d2b", "tl": [[0, 2.675, 0], [2.675, 3.445, 0], [6.4, 3.509, 0], [9.909, 1.491, 0], [12.05, 3.64, 1], [16.34, 4.4, 1], [21.39, 1.687, 1], [23.077, 3.656, 1], [26.733, 4.977, 1], [31.99, 5.884, 1], [37.874, 2.316, 1], [40.47, 4.869, 1], [45.339, 3.771, 1], [49.39, 2.225, 1], [51.615, 2.655, 1], [54.92, 1.949, 1], [56.869, 5.331, 1], [62.85, 2.549, 2], [65.399, 1.931, 2], [67.98, 3.44, 2], [72.07, 5.549, 2], [77.619, 8.651, 2], [86.55, 7.64, 2], [94.47, 2.306, 2], [96.776, 4.578, 2], [101.354, 4.836, 2], [106.84, 2.455, 2], [109.295, 3.945, 2], [113.89, 1.36, 3], [115.9, 3.8, 3], [120.35, 1.982, 3], [122.332, 6.258, 3], [128.87, 2.84, 3], [131.99, 5.998, 3], [137.988, 3.722, 3], [141.99, 2.716, 3], [144.706, 2.724, 3], [148.08, 3.907, 3], [151.987, 2.613, 3], [155.25, 6.683, 5], [161.933, 6.197, 5], [168.41, 7, 5]]}, "2": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F16-pacific-war.mp3?alt=media&token=717862f0-ebae-4b3e-acc7-c679f2402825", "tl": [[0, 3.758, 0], [3.758, 3.242, 0], [7.28, 3.44, 0], [11.37, 3.92, 1], [15.94, 3.92, 1], [20.51, 7.704, 1], [28.214, 5.256, 1], [33.75, 4.298, 1], [38.048, 6.902, 1], [45.23, 2.258, 1], [47.488, 4.527, 1], [52.015, 2.055, 1], [54.72, 2.044, 1], [56.764, 5.556, 1], [62.97, 3.2, 2], [66.82, 3.44, 2], [70.91, 3.144, 2], [74.054, 6.773, 2], [80.827, 3.363, 2], [84.47, 3.232, 2], [87.702, 3.328, 2], [91.31, 2.631, 2], [93.941, 3.769, 2], [98.36, 4.53, 2], [102.89, 1.75, 2], [105.29, 3, 3], [108.94, 4.12, 3], [113.71, 4.165, 3], [117.875, 5.339, 3], [123.214, 3.296, 3], [126.79, 3.234, 3], [130.024, 5.717, 3], [135.741, 2.769, 3], [138.79, 2.506, 3], [141.296, 2.974, 3], [144.92, 3.506, 3], [148.426, 3.454, 3], [152.53, 1.44, 4], [154.62, 3.72, 4], [158.99, 4.492, 4], [163.482, 4.988, 4], [168.75, 5.582, 4], [174.332, 2.99, 4], [177.322, 3.788, 4], [181.39, 2.637, 4], [184.027, 3.444, 4], [187.471, 1.559, 4], [189.68, 4.446, 4], [194.126, 3.594, 4], [198.37, 5.683, 6], [204.053, 4.717, 6], [209.05, 4.384, 6], [213.434, 3.343, 6], [216.777, 4.073, 6]]}, "3": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F16-wartime-life.mp3?alt=media&token=78104c40-2508-4d00-85ae-8ada32a80858", "tl": [[0, 2.54, 0], [2.54, 2.94, 0], [5.76, 3.5, 0], [9.26, 1.18, 0], [11.09, 2.48, 1], [14.22, 3.6, 1], [18.47, 2.012, 1], [20.482, 2.228, 1], [22.99, 6.56, 1], [29.83, 2.419, 1], [32.249, 5.335, 1], [37.584, 3.766, 1], [41.63, 5.64, 1], [47.92, 2.165, 1], [50.085, 4.195, 1], [54.93, 2.84, 2], [58.42, 4.16, 2], [63.23, 2.42, 2], [65.65, 8.74, 2], [74.67, 5.73, 2], [80.4, 5.75, 2], [86.43, 3.05, 2], [89.48, 3.75, 2], [93.88, 7.8, 2], [102.33, 3, 3], [105.98, 3.4, 3], [110.03, 2.654, 3], [112.684, 2.702, 3], [115.386, 5.244, 3], [120.91, 2.462, 3], [123.372, 3.778, 3], [127.43, 1.791, 3], [129.221, 5.548, 3], [134.769, 4.741, 3], [140.16, 3.328, 3], [143.488, 3.872, 3], [148.01, 2.8, 4], [151.46, 3.32, 4], [155.43, 3.5, 4], [158.93, 4.326, 4], [163.256, 4.454, 4], [167.99, 2.193, 4], [170.183, 5.767, 4], [176.23, 3.524, 4], [179.754, 2.876, 4], [183.28, 4.179, 4], [187.459, 3.861, 4], [191.97, 1.91, 6], [193.88, 3.394, 6], [197.274, 5.176, 6], [202.73, 3.788, 6], [206.518, 4.366, 6], [210.884, 3.886, 6]]}, "4": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F16-end-of-war.mp3?alt=media&token=306057cd-8dc9-4fe4-9b4d-5dd1f0128898", "tl": [[0, 2.154, 0], [2.154, 2.206, 0], [4.64, 2.513, 0], [7.153, 2.407, 0], [10.21, 2.8, 1], [13.66, 4.08, 1], [18.39, 2.209, 1], [20.599, 3.048, 1], [23.647, 6.145, 1], [29.792, 2.158, 1], [32.23, 9, 1], [41.51, 3.202, 1], [44.712, 1.838, 1], [47.2, 2.875, 1], [50.075, 4.485, 1], [55.21, 3, 2], [58.86, 4, 2], [63.51, 3.608, 2], [67.118, 3.48, 2], [70.598, 4.432, 2], [75.31, 4.64, 2], [80.23, 4.546, 2], [84.776, 2.214, 2], [87.27, 5.804, 2], [93.074, 3.716, 2], [97.44, 3.942, 2], [101.382, 4.738, 2], [106.77, 3.2, 3], [110.62, 3.52, 3], [114.79, 4.919, 3], [119.709, 3.575, 3], [123.284, 2.106, 3], [125.67, 2.654, 3], [128.324, 4.501, 3], [132.825, 5.605, 3], [138.71, 4.284, 3], [142.994, 2.156, 3], [145.8, 5.76, 3], [152.21, 8.322, 5], [160.532, 3.238, 5], [164.05, 5.419, 5], [169.469, 3.101, 5]]}};          // {単元t: {url, tl:[[開始秒,長さ,ステップ], …]}}          // 参考書の単元t → 問題集のビュー番号（0＝対応なし）
   var views = [].slice.call(document.querySelectorAll('.view'));
@@ -1379,25 +1406,47 @@
       var steps = stepsOf(t);
       // 同じ単元内のページ送りだけ「めくり」演出（古いページと新しいページを重ねる）
       var animFrom = rendered && rendered.t === t && rendered.s !== s ? rendered.s : null;
-      [].forEach.call(steps, function (el, i) {
+      var oldEl = animFrom !== null ? steps[animFrom] : null;
+      var newEl = steps[s];
+      // クラスを切り替える前に「めくり始める瞬間の旧ページの見え方（画面上の位置・幅）」を測る。
+      // これを position:fixed で固定したままめくり、その裏で window を先頭へ戻すことで
+      // 「今いる高さのままページがめくれ、めくり終わると新ページは一番上から」を実現する。
+      var oldRect = oldEl ? oldEl.getBoundingClientRect() : null;
+      var resetTurn = function (el) {
         el.classList.remove('turn-out', 'turn-in', 'turn-under');
+        el.style.position = ''; el.style.top = ''; el.style.left = '';
+        el.style.width = ''; el.style.transformOrigin = '';
+        el.style.maxHeight = ''; el.style.overflow = '';
+      };
+      [].forEach.call(steps, function (el, i) {
+        resetTurn(el);
         el.classList.toggle('on', i === s);
       });
-      if (animFrom !== null && steps[animFrom] && steps[s]) {
-        var oldEl = steps[animFrom], newEl = steps[s];
-        var clear = function () {
-          oldEl.classList.remove('turn-out', 'turn-under');
-          newEl.classList.remove('turn-in');
+      if (animFrom !== null && oldEl && newEl && oldRect) {
+        // 旧ページを、今見えていた画面上の位置・幅にそのまま貼り付けて固定する
+        var pin = function (el) {
+          el.style.position = 'fixed';
+          el.style.top = oldRect.top + 'px';
+          el.style.left = oldRect.left + 'px';
+          el.style.width = oldRect.width + 'px';
         };
+        var clear = function () { resetTurn(oldEl); resetTurn(newEl); };
         if (lastDir > 0) {
+          // 進む: 旧ページを今の位置に固定したまま左とじでめくって去らせる。
+          // 透視の消失点を今の画面中央に合わせ、スクロール位置に依らず自然に見せる。
+          pin(oldEl);
+          oldEl.style.transformOrigin = '0 ' + ((innerHeight / 2) - oldRect.top) + 'px';
           oldEl.classList.add('turn-out');      // 今のページがめくれて去る
           oldEl.addEventListener('animationend', clear, { once: true });
         } else {
+          // 戻る: 旧（現在）ページを今の位置に固定して下に敷き、前ページを上へめくり戻す。
+          pin(oldEl);
+          oldEl.style.maxHeight = 'none'; oldEl.style.overflow = 'visible';
           oldEl.classList.add('turn-under');    // 下に敷いたまま
           newEl.classList.add('turn-in');       // 前のページがめくり戻ってくる
           newEl.addEventListener('animationend', clear, { once: true });
         }
-        setTimeout(clear, 700); // アニメ未発火時の保険
+        setTimeout(clear, 900); // アニメ未発火時の保険
       }
       navbar.hidden = false;
       barStep.textContent = (s + 1) + ' / ' + steps.length;
@@ -1467,6 +1516,23 @@
     a.href = wbHref(state.t);
   }
 
+  // ── 教材ゲート（中間案・ゆるめ「頭出しは見せる」）──
+  //   有料単元は表紙＋最初の1節まで誰でも読める。その先は購入者（この学年のライセンス）だけ。
+  //   判定は localStorage['tzm-lic']（開放学年の配列）を見るだけ。ログイン時に entitlement で更新。
+  function isLicensed() {
+    try { return (JSON.parse(localStorage.getItem('tzm-lic') || '[]')).indexOf(GRADE) >= 0; }
+    catch (e) { return false; }
+  }
+  function lockFrom(t) { var v = views[t]; return v ? +(v.getAttribute('data-lock') || 0) : 0; }
+  function gateBlocks(t, s) {
+    var lk = lockFrom(t);
+    return lk > 0 && !isLicensed() && s >= lk;
+  }
+  function showLock() { var ov = document.getElementById('lockOv'); if (ov) ov.hidden = false; }
+  function hideLock() { var ov = document.getElementById('lockOv'); if (ov) ov.hidden = true; }
+  // entitlement 反映後に module script から呼ばれる。解除できたらロックを閉じる。
+  window.tzmRefreshGate = function () { if (isLicensed()) hideLock(); };
+
   function go(t, s, dir) {
     if (typeof reading !== 'undefined' && reading.step != null) stopAudio();
     lastDir = dir || 1;
@@ -1474,9 +1540,17 @@
     state.s = Math.max(0, s || 0);
     if (state.t > 0) {
       state.s = Math.min(state.s, stepsOf(state.t).length - 1);
+      // 頭出しの先へ行こうとしたら、頭出しの最後で止めてロック案内を出す
+      if (gateBlocks(state.t, state.s)) {
+        state.s = Math.max(0, lockFrom(state.t) - 1);
+        render();
+        showLock();
+        return;
+      }
     } else {
       state.s = 0;
     }
+    hideLock();
     render();
   }
 
@@ -1494,6 +1568,12 @@
     else go(0, 0, -1);
   }
 
+  // ロック案内のボタン: ログイン（共通ログインページ経由で戻る）／閉じる
+  document.getElementById('lockLogin').addEventListener('click', function () {
+    var here = location.pathname + '#t' + state.t + (state.s > 0 ? 's' + state.s : '');
+    location.href = '../../login/?next=' + encodeURIComponent(here);
+  });
+  document.getElementById('lockClose').addEventListener('click', hideLock);
   document.getElementById('btnNext').addEventListener('click', next);
   document.getElementById('btnPrev').addEventListener('click', prev);
   document.addEventListener('click', function (e) {
@@ -1752,8 +1832,26 @@ window.addEventListener('hashchange', function () {
   if (!panel.hidden && user && loadedTopic !== currentTopicKey()) loadHistory();
 });
 
+// 教材ゲート用: ログイン済みなら開放学年を取得して localStorage['tzm-lic'] に保存し、
+// 通常script のロックを解除できるか再評価する（users/{uid} 1 read）。
+var ENTITLEMENT_API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/tsudumonEntitlement';
+async function refreshEntitlement(u) {
+  try {
+    var idToken = await u.getIdToken();
+    var res = await fetch(ENTITLEMENT_API, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ idToken: idToken }),
+    });
+    if (!res.ok) return;
+    var data = await res.json();
+    try { localStorage.setItem('tzm-lic', JSON.stringify((data && data.grades) || [])); } catch (e) {}
+    if (window.tzmRefreshGate) window.tzmRefreshGate();
+  } catch (e) { /* ゲートは localStorage フォールバックのまま */ }
+}
+
 onAuthStateChanged(auth, function (u) {
   user = u;
+  if (u) refreshEntitlement(u);
   if (panel.hidden) return;
   if (!u) { showLogin(); return; }
   loadHistory();

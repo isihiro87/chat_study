@@ -158,11 +158,12 @@
   .home-topline { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:2px; }
   .hometop { display:flex; align-items:flex-start; gap:6px; padding:8px 2px 2px; text-align:left; }
   .ht-main { flex:1; min-width:0; text-align:center; }
-  .badge3 { display:inline-flex; border-radius:18px; overflow:hidden; font-size:12px; font-weight:bold;
-            box-shadow:0 2px 4px rgba(120,80,20,.2); }
-  .badge3 span { padding:4px 11px; display:inline-flex; align-items:center; white-space:nowrap; }
-  .b-vol { background:var(--brand); color:#fff; }
-  .b-kind { background:#fff; color:var(--deep); }
+  /* 本のラベル（押せない表示）: トグルに見えないようフラットな1トーンのタグに */
+  .badge3 { display:inline-flex; align-items:center; gap:6px; border-radius:8px;
+            background:#f4ecdb; padding:3px 10px; font-size:11.5px; font-weight:bold; }
+  .badge3 span { padding:0; display:inline-flex; align-items:center; white-space:nowrap; }
+  .b-vol { color:var(--brand); }
+  .b-kind { color:#9a7b4f; }
   .b-web { background:var(--amber); color:#fff; }
   .ht-title { font-size:41px; color:var(--deep); margin:12px 0 0; line-height:1.12; position:relative;
               display:inline-block; padding:0 6px; letter-spacing:.01em; }
@@ -419,6 +420,22 @@
   .foot-note { margin-top:4px; font-size:12px; }
 
   /* ── 下部ナビ ── */
+  /* 教材ゲートのロック案内（頭出しの先） */
+  .lock-ov { position:fixed; inset:0; z-index:40; background:rgba(60,40,15,.5);
+             display:flex; align-items:center; justify-content:center; padding:20px; }
+  .lock-ov[hidden] { display:none; }
+  .lock-card { width:100%; max-width:360px; background:#fff; border-radius:18px; padding:24px 20px 18px;
+               text-align:center; box-shadow:0 10px 30px rgba(0,0,0,.3); }
+  .lock-ic { font-size:40px; }
+  .lock-t { font-size:18px; font-weight:bold; color:var(--deep); margin:6px 0 6px; }
+  .lock-d { font-size:13px; color:#78716c; line-height:1.8; margin-bottom:16px; }
+  .lock-btn { display:block; width:100%; margin-top:10px; border:none; border-radius:13px; padding:13px;
+              font-size:15px; font-weight:bold; text-decoration:none; cursor:pointer; font-family:inherit; }
+  .lb-line { background:#06c755; color:#fff; box-shadow:0 3px 8px rgba(6,199,85,.3); }
+  .lb-buy { background:#fff; color:var(--brand); border:1.5px solid var(--line); }
+  .lock-close { display:block; width:100%; margin-top:12px; background:none; border:none; cursor:pointer;
+                color:#a8a29e; font-size:12.5px; font-family:inherit; text-decoration:underline; }
+
   .navbar { position:fixed; left:0; right:0; bottom:0; z-index:10;
             background:rgba(255,253,248,.97); border-top:1px solid #f0e6d2;
             padding:10px 16px calc(10px + env(safe-area-inset-bottom)); }
@@ -531,7 +548,7 @@
     <div class="foot-note">紙やタブレットでじっくり派には、ダウンロード済みのPDF版もどうぞ。</div>
   </footer>
 </section>
-<section class="view" data-t="1">
+<section class="view" data-t="1" data-lock="2">
   <div class="tband"><span class="tno">1</span><h2>江戸幕府の成立</h2>
     <button class="play-unit" type="button" data-play="1" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
@@ -543,7 +560,7 @@
     <div class="step" data-label="関ヶ原の戦いと江戸幕府の成立">
       <h3><span class="sec-no">1</span><span class="s" data-i="4">関ヶ原の戦いと江戸幕府の成立</span></h3>
       <div class="sec-lead"><span class="s" data-i="5">家康が天下を統一し、</span><span class="s" data-i="6">江戸に幕府を開いたよ。</span></div>
-      
+      <figure class="sec-fig size-lg"><img class="zoomable" src="img/hist08-sec-sekigahara.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="7">1600年、<span class="mark">徳川家康</span>は石田三成らが率いる西軍を、</span><span class="s" data-i="8">天下分け目と呼ばれる<span class="mark">関ヶ原の戦い</span>で破って、</span><span class="s" data-i="9">全国支配の実権を握ったんだ。</span><span class="s" data-i="10">そして1603年には朝廷から<span class="mark">征夷大将軍</span>に任命されて、</span><span class="s" data-i="11">江戸に幕府を開いたよ。</span><span class="s" data-i="12">これが<span class="mark">江戸幕府</span>の始まりで、</span><span class="s" data-i="13">以後15代将軍慶喜まで、</span><span class="s" data-i="14">約260年も続く武家政権のスタートになったんだね。</span><span class="s" data-i="15">1614年から1615年にかけての<span class="mark">大坂の陣</span>では、</span><span class="s" data-i="16">対立していた豊臣氏を攻め滅ぼして、</span><span class="s" data-i="17">徳川氏による支配をゆるぎないものにしたんだ。</span></p>
       <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="18">徳川家康は関ヶ原の戦いに勝ち、</span><span class="s" data-i="19">1603年に江戸幕府を開いたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">徳川家康<span class="w-rd">とくがわいえやす</span></span><span class="w-desc">関ヶ原の戦いに勝ち、1603年に江戸幕府を開いた初代将軍。</span></div><div class="word"><span class="w-term">関ヶ原の戦い<span class="w-rd">せきがはらのたたかい</span></span><span class="w-desc">1600年、徳川家康が石田三成らの西軍を破った天下分け目の戦い。</span></div><div class="word"><span class="w-term">江戸幕府<span class="w-rd">えどばくふ</span></span><span class="w-desc">1603年に徳川家康が開き、約260年続いた武家政権。</span></div></div>
@@ -551,7 +568,7 @@
     <div class="step" data-label="大名の統制のしくみ">
       <h3><span class="sec-no">2</span><span class="s" data-i="20">大名の統制のしくみ</span></h3>
       <div class="sec-lead"><span class="s" data-i="21">大名を親藩・譜代・外様に分け、</span><span class="s" data-i="22">法で統制したよ。</span></div>
-      
+      <figure class="sec-fig pos-left"><img class="zoomable" src="img/hist08-sec-daimyo.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="23">将軍から1万石以上の領地をもらった武士のことを<span class="mark">大名</span>と呼ぶよ。</span><span class="s" data-i="24">大名は徳川家との関係によって、</span><span class="s" data-i="25">徳川家の親族である<span class="mark">親藩</span>、</span><span class="s" data-i="26">関ヶ原の戦い以前から従っていた<span class="mark">譜代大名</span>、</span><span class="s" data-i="27">関ヶ原の前後に従った<span class="mark">外様大名</span>の3つに分けられたんだ。</span><span class="s" data-i="28">外様大名は幕府に警戒されて、</span><span class="s" data-i="29">江戸から遠い地に置かれることが多かったんだよ。</span><span class="s" data-i="30">1615年には、</span><span class="s" data-i="31">大名を取りしまるための法である<span class="mark">武家諸法度</span>が定められて、</span><span class="s" data-i="32">城を勝手に修理したり大名どうしが結婚したりすることも制限されたんだ。</span></p>
       <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="33">大名は親藩・譜代・外様に分けられ、</span><span class="s" data-i="34">武家諸法度で統制されたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">大名<span class="w-rd">だいみょう</span></span><span class="w-desc">将軍から1万石以上の領地を与えられた武士。親藩・譜代・外様に分けられた。</span></div><div class="word"><span class="w-term">外様大名<span class="w-rd">とざまだいみょう</span></span><span class="w-desc">関ヶ原の戦いの前後から徳川氏に従った大名。江戸から遠い地に配置された。</span></div><div class="word"><span class="w-term">武家諸法度<span class="w-rd">ぶけしょはっと</span></span><span class="w-desc">1615年に定められた、大名を統制するための法令。</span></div></div>
@@ -559,7 +576,7 @@
     <div class="step" data-label="参勤交代と幕藩体制">
       <h3><span class="sec-no">3</span><span class="s" data-i="35">参勤交代と幕藩体制</span></h3>
       <div class="sec-lead"><span class="s" data-i="36">参勤交代で大名を統制し、</span><span class="s" data-i="37">幕藩体制を築いたよ。</span></div>
-      
+      <figure class="sec-fig pos-wide"><img class="zoomable" src="img/hist08-sec-sankin.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="38">3代将軍<span class="mark">徳川家光</span>の時代には、</span><span class="s" data-i="39">武家諸法度の改定によって<span class="mark">参勤交代</span>が制度としてスタートしたんだ。</span><span class="s" data-i="40">これは大名に江戸と自分の領地を1年おきに行き来させて、</span><span class="s" data-i="41">江戸には妻子をずっと住まわせておく制度だよ。</span><span class="s" data-i="42">往復や江戸屋敷の維持にたくさんの費用がかかるから、</span><span class="s" data-i="43">大名の財政を圧迫して、</span><span class="s" data-i="44">幕府に逆らう力を弱める効果もあったんだね。</span><span class="s" data-i="45">こうして幕府が全国の大名(藩)を統制して、</span><span class="s" data-i="46">藩がそれぞれの領地を治める<span class="mark">幕藩体制</span>が確立し、</span><span class="s" data-i="47">江戸時代の政治の土台になったんだ。</span></p>
       <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="48">徳川家光が参勤交代を制度化し、</span><span class="s" data-i="49">幕藩体制の土台を築いたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">参勤交代<span class="w-rd">さんきんこうたい</span></span><span class="w-desc">大名に江戸と領地を1年おきに行き来させた制度。徳川家光が制度化した。</span></div><div class="word"><span class="w-term">幕藩体制<span class="w-rd">ばくはんたいせい</span></span><span class="w-desc">幕府が大名(藩)を統制し、藩が領地を治める江戸時代の政治体制。</span></div></div>
@@ -682,7 +699,7 @@
       </a>
     </div>
 </section>
-<section class="view" data-t="2">
+<section class="view" data-t="2" data-lock="2">
   <div class="tband"><span class="tno">2</span><h2>鎖国への道</h2>
     <button class="play-unit" type="button" data-play="2" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
@@ -694,7 +711,7 @@
     <div class="step" data-label="朱印船貿易と禁教令">
       <h3><span class="sec-no">1</span><span class="s" data-i="3">朱印船貿易と禁教令</span></h3>
       <div class="sec-lead"><span class="s" data-i="4">朱印船貿易を進める一方、</span><span class="s" data-i="5">禁教令で信仰を禁じたよ。</span></div>
-      
+      <figure class="sec-fig"><img class="zoomable" src="img/hist08-sec-shuinsen.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="6">江戸時代の初め、</span><span class="s" data-i="7">幕府は<span class="mark">朱印状</span>を与えた船に東南アジアとの貿易をさせる<span class="mark">朱印船貿易</span>を奨励していて、</span><span class="s" data-i="8">タイのアユタヤなど各地に日本人が住む日本町も生まれたんだ。</span><span class="s" data-i="9">ところが1612年、</span><span class="s" data-i="10">徳川家康は幕領に対して<span class="mark">禁教令</span>を出して、</span><span class="s" data-i="11">キリスト教の信仰を禁じてしまうんだ。</span><span class="s" data-i="12">信者どうしの結びつきが強まって幕府の支配がゆらぐことを恐れたからで、</span><span class="s" data-i="13">翌年には禁教令が全国に広げられたよ。</span></p>
       <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="14">幕府は朱印船貿易を進める一方、</span><span class="s" data-i="15">1612年に禁教令を出したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">朱印船貿易<span class="w-rd">しゅいんせんぼうえき</span></span><span class="w-desc">幕府から朱印状を受けた船が東南アジアと行った貿易。</span></div><div class="word"><span class="w-term">禁教令<span class="w-rd">きんきょうれい</span></span><span class="w-desc">1612年に徳川家康が幕領に出した、キリスト教の信仰を禁じる命令。</span></div></div>
@@ -702,7 +719,7 @@
     <div class="step" data-label="絵踏と寺請制度による取りしまり">
       <h3><span class="sec-no">2</span><span class="s" data-i="16">絵踏と寺請制度による取りしまり</span></h3>
       <div class="sec-lead"><span class="s" data-i="17">絵踏と寺請制度で信者を厳しく取り締まったよ。</span></div>
-      
+      <figure class="sec-fig pos-left"><img class="zoomable" src="img/hist08-sec-fumie.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="18">幕府はキリスト教徒を見つけ出すために、</span><span class="s" data-i="19">キリストや聖母マリアの絵を踏ませる<span class="mark">絵踏</span>を行ったんだ。</span><span class="s" data-i="20">それに加えて、すべての人を必ずどこかの寺院に所属(檀家)させて、</span><span class="s" data-i="21">キリスト教徒でないことを証明させる<span class="mark">寺請制度</span>も整えたよ。</span><span class="s" data-i="22">この寺請制度は、</span><span class="s" data-i="23">人々を寺院に登録させて信仰を確認する宗門改とあわせて運用されて、</span><span class="s" data-i="24">幕府が国民の信仰を管理するしくみになっていったんだね。</span></p>
       <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="25">絵踏と寺請制度で、</span><span class="s" data-i="26">キリスト教徒を厳しく取りしまったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">絵踏<span class="w-rd">えふみ</span></span><span class="w-desc">キリストやマリアの絵を踏ませてキリスト教徒を見つけ出した取りしまり。</span></div><div class="word"><span class="w-term">寺請制度<span class="w-rd">てらうけせいど</span></span><span class="w-desc">すべての人を寺院に登録させ、キリシタンでないことを証明させた制度。</span></div></div>
@@ -710,7 +727,7 @@
     <div class="step" data-label="島原・天草一揆と鎖国の完成">
       <h3><span class="sec-no">3</span><span class="s" data-i="27">島原・天草一揆と鎖国の完成</span></h3>
       <div class="sec-lead"><span class="s" data-i="28">一揆を鎮圧し、鎖国が完成していったよ。</span></div>
-      
+      <figure class="sec-fig fig-contain pos-wide"><img class="zoomable" src="img/hist08-sec-sakoku-map.webp" alt="" loading="lazy"><figcaption>鎖国下の四つの窓口</figcaption></figure>
       <p><span class="s" data-i="29">1637年、重い年貢とキリスト教弾圧に苦しんだ人々は、</span><span class="s" data-i="30">少年天草四郎を大将として<span class="mark">島原・天草一揆</span>を起こしたんだ。</span><span class="s" data-i="31">幕府はこれを鎮圧すると、</span><span class="s" data-i="32">禁教をいっそう強めていったよ。</span><span class="s" data-i="33">1639年には布教と結びついていた<span class="mark">ポルトガル</span>船の来航を禁止して、</span><span class="s" data-i="34">1641年にはオランダ商館を長崎の<span class="mark">出島</span>に移し、</span><span class="s" data-i="35">3代将軍徳川家光のもとで<span class="mark">鎖国</span>が完成したんだ。</span><span class="s" data-i="36">でも完全に交流を断ったわけではなくて、</span><span class="s" data-i="37">長崎・対馬・薩摩・松前の四つの窓口を通じた交流は続いていたんだよ。</span></p>
       <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="38">1637年の島原・天草一揆ののち、</span><span class="s" data-i="39">鎖国が1641年に完成したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">島原・天草一揆<span class="w-rd">しまばら・あまくさいっき</span></span><span class="w-desc">1637年、重い年貢とキリスト教弾圧に苦しんだ人々が起こした一揆。</span></div><div class="word"><span class="w-term">出島<span class="w-rd">でじま</span></span><span class="w-desc">1641年にオランダ商館が移された、長崎の扇形の人工島。</span></div><div class="word"><span class="w-term">鎖国<span class="w-rd">さこく</span></span><span class="w-desc">江戸幕府が海外との交流を制限した体制。3代将軍家光の時代に完成した。</span></div></div>
@@ -821,7 +838,7 @@
       </a>
     </div>
 </section>
-<section class="view" data-t="3">
+<section class="view" data-t="3" data-lock="2">
   <div class="tband"><span class="tno">3</span><h2>鎖国下の対外関係</h2>
     <button class="play-unit" type="button" data-play="3" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
@@ -833,7 +850,7 @@
     <div class="step" data-label="長崎の窓口―オランダと清">
       <h3><span class="sec-no">1</span><span class="s" data-i="3">長崎の窓口―オランダと清</span></h3>
       <div class="sec-lead"><span class="s" data-i="4">長崎はオランダと清との貿易の窓口だったよ。</span></div>
-      
+      <figure class="sec-fig"><img class="zoomable" src="img/hist08-sec-dejima.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="5">鎖国の間でも、長崎では<span class="mark">オランダ</span>が貿易を許されていたんだ。</span><span class="s" data-i="6">オランダはキリスト教の布教を行わず貿易だけに徹していたから幕府から信頼されて、</span><span class="s" data-i="7">出島に商館を置き、</span><span class="s" data-i="8"><span class="mark">オランダ風説書</span>で海外の情勢を幕府に伝えていたよ。</span><span class="s" data-i="9">同じ長崎には1689年に<span class="mark">唐人屋敷</span>が造られて、</span><span class="s" data-i="10">清の商人が住んで貿易を行っていたんだ。</span><span class="s" data-i="11">長崎貿易では、金銀が海外に流れ出るのを防ぐために、</span><span class="s" data-i="12">銀の代わりに干しなまこなどの<span class="mark">俵物</span>と呼ばれる海産物も輸出されたんだよ。</span></p>
       <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="13">長崎はオランダと清との貿易を許された窓口だよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">オランダ<span class="w-rd">おらんだ</span></span><span class="w-desc">布教を行わず貿易のみに徹し、鎖国下で長崎の出島での貿易を許された国。</span></div><div class="word"><span class="w-term">出島<span class="w-rd">でじま</span></span><span class="w-desc">長崎に築かれた人工島で、オランダとの貿易が行われた場所。</span></div><div class="word"><span class="w-term">唐人屋敷<span class="w-rd">とうじんやしき</span></span><span class="w-desc">1689年に長崎に造られた、清の商人が居住した施設。</span></div><div class="word"><span class="w-term">俵物<span class="w-rd">たわらもの</span></span><span class="w-desc">銀の代わりに長崎貿易で輸出された、干しなまこなどの海産物。</span></div></div>
@@ -841,7 +858,7 @@
     <div class="step" data-label="対馬と朝鮮との交流">
       <h3><span class="sec-no">2</span><span class="s" data-i="14">対馬と朝鮮との交流</span></h3>
       <div class="sec-lead"><span class="s" data-i="15">対馬藩が窓口となり、</span><span class="s" data-i="16">朝鮮と交流を続けたよ。</span></div>
-      
+      <figure class="sec-fig pos-wide"><img class="zoomable" src="img/hist08-sec-chosen-tsushin.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="17">朝鮮とは<span class="mark">対馬藩</span>が窓口になって、</span><span class="s" data-i="18">朝鮮の釜山に設けた<span class="mark">倭館</span>で貿易や外交の実務を行っていたんだ。</span><span class="s" data-i="19">将軍の代替わりのたびに、</span><span class="s" data-i="20">朝鮮から<span class="mark">朝鮮通信使</span>が江戸を訪れて、</span><span class="s" data-i="21">両国の友好を示すとともに各地で文化の交流も行われたんだよ。</span></p>
       <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="22">対馬藩は朝鮮との窓口で、</span><span class="s" data-i="23">朝鮮通信使が江戸を訪れたよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">対馬藩<span class="w-rd">つしまはん</span></span><span class="w-desc">朝鮮との外交・貿易の窓口となり、釜山に倭館を設けた藩。</span></div><div class="word"><span class="w-term">朝鮮通信使<span class="w-rd">ちょうせんつうしんし</span></span><span class="w-desc">将軍の代替わりごとに朝鮮から江戸幕府へ派遣された使節。</span></div></div>
@@ -849,7 +866,7 @@
     <div class="step" data-label="薩摩と松前の窓口">
       <h3><span class="sec-no">3</span><span class="s" data-i="24">薩摩と松前の窓口</span></h3>
       <div class="sec-lead"><span class="s" data-i="25">薩摩は琉球、松前はアイヌとの窓口だったよ。</span></div>
-      
+      <figure class="sec-fig"><img class="zoomable" src="img/hist08-sec-satsuma-matsumae.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="26">琉球とは<span class="mark">薩摩藩</span>が窓口となり、</span><span class="s" data-i="27">蝦夷地のアイヌとは<span class="mark">松前藩</span>が窓口となっていたんだ。</span><span class="s" data-i="28">このように、鎖国の間も日本は長崎・対馬・薩摩・松前という四つの窓口を通じて海外や国内の異なる地域と交流を続けていて、</span><span class="s" data-i="29">完全に国を閉ざしていたわけではなかったんだよ。</span></p>
       <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="30">薩摩は琉球、松前はアイヌとの交流の窓口だったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">薩摩藩<span class="w-rd">さつまはん</span></span><span class="w-desc">琉球との窓口となった藩。</span></div><div class="word"><span class="w-term">松前藩<span class="w-rd">まつまえはん</span></span><span class="w-desc">蝦夷地のアイヌとの窓口となった藩。</span></div></div>
@@ -972,7 +989,7 @@
       </a>
     </div>
 </section>
-<section class="view" data-t="4">
+<section class="view" data-t="4" data-lock="2">
   <div class="tband"><span class="tno">4</span><h2>琉球とアイヌ</h2>
     <button class="play-unit" type="button" data-play="4" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
@@ -984,7 +1001,7 @@
     <div class="step" data-label="薩摩藩による琉球支配">
       <h3><span class="sec-no">1</span><span class="s" data-i="3">薩摩藩による琉球支配</span></h3>
       <div class="sec-lead"><span class="s" data-i="4">薩摩藩は琉球を支配し、</span><span class="s" data-i="5">中継貿易を独占したよ。</span></div>
-      
+      <figure class="sec-fig"><img class="zoomable" src="img/hist08-sec-ryukyu-satsuma.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="6">1609年、島津氏の<span class="mark">薩摩藩</span>は<span class="mark">琉球王国</span>に武力で攻め込んで、</span><span class="s" data-i="7">支配下に置いたんだ。</span><span class="s" data-i="8">でも薩摩藩は琉球を独立国の形のまま残しておいて、</span><span class="s" data-i="9">中国の品を日本へ送る<span class="mark">中継貿易</span>の利益をしっかり独占したんだよ。</span><span class="s" data-i="10">琉球国王や将軍の代替わりには、</span><span class="s" data-i="11">薩摩藩を通じて<span class="mark">琉球使節</span>が江戸へ送られて、</span><span class="s" data-i="12">幕府の権威を国内外に示す役割も果たしていたんだね。</span></p>
       <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="13">薩摩藩は1609年、</span><span class="s" data-i="14">琉球を支配し中継貿易を独占したよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">琉球王国<span class="w-rd">りゅうきゅうおうこく</span></span><span class="w-desc">薩摩藩に支配されながら、独立国の形を保ち中国とも関係を続けた王国。</span></div><div class="word"><span class="w-term">薩摩藩<span class="w-rd">さつまはん</span></span><span class="w-desc">1609年に琉球王国に侵攻し、中継貿易の利益を独占した藩。</span></div><div class="word"><span class="w-term">中継貿易<span class="w-rd">なかつぎぼうえき</span></span><span class="w-desc">琉球が中国の品を日本へ送るなどして利益を得た貿易。</span></div><div class="word"><span class="w-term">琉球使節<span class="w-rd">りゅうきゅうしせつ</span></span><span class="w-desc">琉球国王や将軍の代替わりに、薩摩藩を経由して江戸へ送られた使節。</span></div></div>
@@ -992,7 +1009,7 @@
     <div class="step" data-label="アイヌとの交易とシャクシャインの戦い">
       <h3><span class="sec-no">2</span><span class="s" data-i="15">アイヌとの交易とシャクシャインの戦い</span></h3>
       <div class="sec-lead"><span class="s" data-i="16">松前藩の不公平な交易にシャクシャインが挙兵したよ。</span></div>
-      
+      <figure class="sec-fig pos-left"><img class="zoomable" src="img/hist08-sec-shakushain.webp" alt="" loading="lazy"></figure>
       <p><span class="s" data-i="17">北海道など蝦夷地に住む<span class="mark">アイヌ民族</span>との交易は<span class="mark">松前藩</span>が独占していて、</span><span class="s" data-i="18">鮭・昆布・毛皮などを手に入れていたんだ。</span><span class="s" data-i="19">でも不公平な交易条件がアイヌの人々の生活を圧迫したことから、1669年、</span><span class="s" data-i="20">アイヌの首長<span class="mark">シャクシャイン</span>が松前藩に対して立ち上がったんだよ。</span><span class="s" data-i="21">この戦いは鎮圧されてしまい、</span><span class="s" data-i="22">そのあとアイヌの人々に対する松前藩の支配はいっそう強まっていったんだね。</span></p>
       <div class="point"><span class="ptag">ここだけ覚える</span><div class="ptxt"><span class="s" data-i="23">松前藩の不公平な交易に、</span><span class="s" data-i="24">シャクシャインが1669年に立ち上がったよ。</span></div></div>
       <div class="words"><div class="word"><span class="w-term">アイヌ民族<span class="w-rd">あいぬみんぞく</span></span><span class="w-desc">北海道などに住み、独自の文化をもつ人々。</span></div><div class="word"><span class="w-term">松前藩<span class="w-rd">まつまえはん</span></span><span class="w-desc">アイヌとの交易を独占し、蝦夷地の窓口となった藩。</span></div><div class="word"><span class="w-term">シャクシャイン<span class="w-rd">しゃくしゃいん</span></span><span class="w-desc">1669年にアイヌの首長として松前藩に蜂起した人物。</span></div></div>
@@ -1103,7 +1120,7 @@
       </a>
     </div>
 </section>
-<section class="view" data-t="5">
+<section class="view" data-t="5" data-lock="2">
   <div class="tband"><span class="tno">5</span><h2>江戸時代の身分制度</h2>
     <button class="play-unit" type="button" data-play="5" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
@@ -1246,7 +1263,7 @@
       </a>
     </div>
 </section>
-<section class="view" data-t="6">
+<section class="view" data-t="6" data-lock="2">
   <div class="tband"><span class="tno">6</span><h2>江戸幕府政治と三大改革</h2>
     <button class="play-unit" type="button" data-play="6" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
@@ -1397,7 +1414,7 @@
       </a>
     </div>
 </section>
-<section class="view" data-t="7">
+<section class="view" data-t="7" data-lock="2">
   <div class="tband"><span class="tno">7</span><h2>江戸の交通と商業・都市</h2>
     <button class="play-unit" type="button" data-play="7" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
@@ -1528,7 +1545,7 @@
       </a>
     </div>
 </section>
-<section class="view" data-t="8">
+<section class="view" data-t="8" data-lock="2">
   <div class="tband"><span class="tno">8</span><h2>江戸の産業と社会不安</h2>
     <button class="play-unit" type="button" data-play="8" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
@@ -1671,7 +1688,7 @@
       </a>
     </div>
 </section>
-<section class="view" data-t="9">
+<section class="view" data-t="9" data-lock="2">
   <div class="tband"><span class="tno">9</span><h2>江戸の文化と学問・教育</h2>
     <button class="play-unit" type="button" data-play="9" hidden><span class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>音声で聞く</button></div>
   
@@ -1841,6 +1858,14 @@
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
 </div></div>
+<div class="lock-ov" id="lockOv" hidden><div class="lock-card">
+  <div class="lock-ic">🔒</div>
+  <div class="lock-t">つづきは購入者向けです</div>
+  <div class="lock-d">ここまでは無料で読めます。つづきを読むには、つづもんのライセンスが必要です。</div>
+  <button class="lock-btn lb-line" id="lockLogin">📱 LINEでログイン（購入者の方）</button>
+  <a class="lock-btn lb-buy" href="../../index.html">つづもんを見てみる →</a>
+  <button class="lock-close" id="lockClose">とじる（ここまで読む）</button>
+</div></div>
 <button class="chat-fab" id="chatFab" aria-label="スタ先生に質問する">🤖</button>
 <section class="chat-panel" id="chatPanel" hidden>
   <header class="chat-head">
@@ -1864,6 +1889,8 @@
 (function () {
   var KEY = 'tzmref-08';
   var CH = '08';
+  var GRADE = '中2';        // この本の学年（中1/中2/中3）
+  var ENTITLEMENT_API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/tsudumonEntitlement';
   var WB_VIEWS = [0, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   var AUDIO = {"1": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F08-edo-bakufu.mp3?alt=media&token=fd1e5b9a-969d-4747-9a04-962ab90a4b34", "tl": [[0, 4.199, 0], [4.199, 3.025, 0], [7.224, 3.336, 0], [10.84, 2.12, 0], [13.61, 3.56, 1], [17.82, 2.573, 1], [20.393, 1.987, 1], [23.03, 5.361, 1], [28.391, 3.203, 1], [31.594, 2.756, 1], [34.63, 5.487, 1], [40.117, 1.713, 1], [42.11, 2.545, 1], [44.655, 2.511, 1], [47.166, 4.424, 1], [51.87, 5.332, 1], [57.202, 2.989, 1], [60.191, 3.159, 1], [64, 3.829, 1], [67.829, 2.931, 1], [71.41, 2.56, 2], [74.62, 4.409, 2], [79.029, 1.431, 2], [81.11, 5.88, 2], [87.27, 2.889, 2], [90.159, 3.228, 2], [93.387, 4.002, 2], [97.389, 4.521, 2], [102.19, 3.257, 2], [105.447, 2.983, 2], [108.71, 0.846, 2], [109.556, 6.025, 2], [115.581, 5.409, 2], [121.64, 4.79, 2], [126.43, 2.29, 2], [129.37, 3.48, 3], [133.5, 2.876, 3], [136.376, 1.884, 3], [138.91, 3.424, 3], [142.334, 4.816, 3], [147.43, 6.032, 3], [153.462, 3.568, 3], [157.31, 4.31, 3], [161.62, 2.164, 3], [163.784, 3.486, 3], [167.55, 4.669, 3], [172.219, 4.419, 3], [176.638, 2.352, 3], [179.64, 3.5, 3], [183.14, 2.5, 3], [186.29, 4.982, 5], [191.272, 2.778, 5], [194.33, 6.235, 5], [200.565, 3.765, 5]]}, "2": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F08-sakoku.mp3?alt=media&token=245cb2f6-dde7-4832-8101-928629730827", "tl": [[0, 3.173, 0], [3.173, 4.169, 0], [7.342, 2.458, 0], [10.45, 2.96, 1], [14.06, 2.866, 1], [16.926, 2.574, 1], [20.15, 1.747, 1], [21.897, 6.995, 1], [28.892, 4.578, 1], [33.75, 1.818, 1], [35.568, 5.295, 1], [40.863, 2.887, 1], [44.03, 5.866, 1], [49.896, 3.174, 1], [53.72, 3.833, 1], [57.553, 3.167, 1], [61.37, 3.56, 2], [65.58, 4.64, 2], [70.87, 3.396, 2], [74.266, 4.364, 2], [78.91, 6.012, 2], [84.922, 4.388, 2], [89.59, 2.055, 2], [91.645, 6.647, 2], [98.292, 4.018, 2], [102.96, 2.693, 2], [105.653, 2.707, 2], [109.01, 3.6, 3], [113.26, 3.92, 3], [117.83, 5.938, 3], [123.768, 5.382, 3], [129.43, 2.52, 3], [131.95, 2.64, 3], [134.87, 6.173, 3], [141.043, 5.198, 3], [146.241, 4.349, 3], [150.87, 3.849, 3], [154.719, 7.391, 3], [162.76, 4.481, 3], [167.241, 3.519, 3], [171.41, 3.609, 5], [175.019, 2.576, 5], [177.595, 3.295, 5], [181.17, 3.095, 5], [184.265, 6.145, 5]]}, "3": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F08-foreign-relations-edo.mp3?alt=media&token=a0bdeced-17d5-49c6-93f9-b30d2dd5c038", "tl": [[0, 2.732, 0], [2.732, 4.508, 0], [7.52, 1.2, 0], [9.37, 3.84, 1], [13.86, 4.16, 1], [18.67, 4.96, 1], [23.91, 7.067, 1], [30.977, 1.836, 1], [32.813, 3.977, 1], [37.07, 5.461, 1], [42.531, 3.059, 1], [45.87, 4.964, 1], [50.834, 5.636, 1], [57.12, 4.72, 1], [62.49, 2.68, 2], [65.82, 2.374, 2], [68.194, 2.186, 2], [71.03, 2.969, 2], [73.999, 5.711, 2], [79.99, 2.574, 2], [82.564, 3.391, 2], [85.955, 5.195, 2], [91.8, 2.959, 2], [94.759, 2.801, 2], [98.21, 2.6, 3], [101.46, 4.76, 3], [106.87, 3.42, 3], [110.29, 3.82, 3], [114.39, 13.031, 3], [127.421, 3.049, 3], [131.12, 4.96, 3], [136.73, 8.64, 5], [145.65, 6.039, 5], [151.689, 3.121, 5]]}, "4": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F08-ryukyu-ainu.mp3?alt=media&token=037c051b-729d-4f58-9cfe-23282d32716e", "tl": [[0, 3.324, 0], [3.324, 2.836, 0], [6.44, 3.72, 0], [10.81, 3, 1], [14.46, 2.958, 1], [17.418, 2.242, 1], [20.31, 6.077, 1], [26.387, 1.403, 1], [28.07, 5.494, 1], [33.564, 5.466, 1], [39.31, 3.003, 1], [42.313, 3.635, 1], [45.948, 3.922, 1], [50.52, 2.792, 1], [53.312, 3.728, 1], [57.69, 3.6, 2], [61.94, 4.32, 2], [66.91, 6.143, 2], [73.053, 3.417, 2], [76.75, 7.441, 2], [84.191, 4.559, 2], [89.03, 2.833, 2], [91.863, 5.727, 2], [98.24, 2.829, 2], [101.069, 3.691, 2], [105.41, 5.725, 4], [111.135, 2.555, 4], [113.97, 3.699, 4], [117.669, 3.981, 4]]}, "5": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F08-social-classes.mp3?alt=media&token=f5ce6c44-b9c0-4e2a-98f4-5aea6f762866", "tl": [[0, 2.545, 0], [2.545, 6.295, 0], [9.49, 3.16, 1], [13.3, 4.52, 1], [18.47, 5.4, 1], [24.15, 6.04, 1], [30.19, 3.68, 1], [34.15, 5.312, 1], [39.462, 4.408, 1], [44.15, 5.36, 1], [50.16, 3.078, 1], [53.238, 3.762, 1], [57.65, 3.28, 2], [61.58, 4.08, 2], [66.31, 6.92, 2], [73.23, 2.576, 2], [75.806, 3.984, 2], [80.07, 9.299, 2], [89.369, 5.741, 2], [95.76, 3.52, 2], [99.28, 2.2, 2], [102.13, 3.621, 4], [105.751, 5.819, 4], [111.85, 5.676, 4], [117.526, 3.284, 4]]}, "6": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F08-edo-politics-reforms.mp3?alt=media&token=7e3de819-499a-45f6-9b35-0a1fdb5c3106", "tl": [[0, 2.572, 0], [2.572, 2.252, 0], [4.824, 5.936, 0], [11.41, 3.32, 1], [15.38, 4.52, 1], [20.55, 2.58, 1], [23.13, 5.54, 1], [28.95, 7.253, 1], [36.203, 3.187, 1], [39.67, 4.218, 1], [43.888, 3.927, 1], [47.815, 5.015, 1], [53.48, 1.93, 1], [55.41, 3.07, 1], [59.13, 2.92, 2], [62.7, 5, 2], [68.35, 2.389, 2], [70.739, 4.106, 2], [74.845, 4.225, 2], [79.35, 6.167, 2], [85.517, 3.353, 2], [89.52, 3.192, 2], [92.712, 2.128, 2], [95.49, 2.16, 3], [98.3, 5.08, 3], [104.03, 5.173, 3], [109.203, 4.156, 3], [113.359, 4.371, 3], [117.73, 2.42, 3], [120.43, 6.4, 3], [126.83, 3, 3], [130.48, 2.465, 3], [132.945, 3.575, 3], [137.17, 3.273, 5], [140.443, 5.727, 5], [146.45, 5.785, 5], [152.235, 6.815, 5]]}, "7": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F08-edo-transport-commerce.mp3?alt=media&token=4f7719f6-ddb9-4aac-b6c0-687afa6934ae", "tl": [[0, 3.857, 0], [3.857, 3.383, 0], [7.52, 4.36, 0], [12.53, 2.32, 1], [15.5, 1.969, 1], [17.469, 2.391, 1], [20.51, 3.2, 1], [23.71, 5.08, 1], [29.07, 5.802, 1], [34.872, 4.345, 1], [39.217, 3.253, 1], [42.75, 3.705, 1], [46.455, 2.815, 1], [49.92, 1.923, 1], [51.843, 3.437, 1], [55.93, 3.2, 2], [59.78, 4.64, 2], [65.07, 6.514, 2], [71.584, 2.846, 2], [74.71, 6.58, 2], [81.29, 2.86, 2], [84.43, 1.859, 2], [86.289, 3.999, 2], [90.288, 2.982, 2], [93.92, 2.864, 2], [96.784, 2.456, 2], [99.89, 4.812, 4], [104.702, 2.148, 4], [107.13, 3.507, 4], [110.637, 6.213, 4]]}, "8": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F08-edo-industry-society.mp3?alt=media&token=3db42771-3129-4977-889f-ea60ba7d5566", "tl": [[0, 4.544, 0], [4.544, 3.336, 0], [8.16, 1.68, 0], [10.49, 2.88, 1], [14.02, 2.133, 1], [16.153, 2.387, 1], [19.19, 3.61, 1], [22.8, 4.626, 1], [27.426, 2.844, 1], [30.55, 2.999, 1], [33.549, 4.68, 1], [38.229, 5.001, 1], [43.51, 7.033, 1], [50.543, 2.329, 1], [52.872, 2.758, 1], [56.28, 2.689, 1], [58.969, 2.391, 1], [62.01, 3.84, 2], [66.5, 4.4, 2], [71.55, 4.2, 2], [76.03, 6.893, 2], [82.923, 6.267, 2], [89.47, 4.381, 2], [93.851, 5.033, 2], [98.884, 7.346, 2], [106.88, 1.842, 2], [108.722, 4.278, 2], [113.65, 4.067, 4], [117.717, 5.733, 4], [123.73, 6.084, 4], [129.814, 2.756, 4]]}, "9": {"url": "https://firebasestorage.googleapis.com/v0/b/chatstudy-63477-tsudumon/o/tsudumon-audio%2F08-edo-culture-learning.mp3?alt=media&token=0851886b-a857-418b-81b0-afe5ff711ea0", "tl": [[0, 3, 0], [3, 2.681, 0], [5.681, 4.399, 0], [10.36, 4.24, 0], [15.25, 2.6, 1], [18.5, 4.6, 1], [23.75, 8.383, 1], [32.133, 3.258, 1], [35.391, 4.919, 1], [40.59, 2.296, 1], [42.886, 3.435, 1], [46.321, 5.589, 1], [52.56, 3.342, 1], [55.902, 2.858, 1], [59.41, 2.72, 2], [62.78, 5, 2], [68.43, 5.454, 2], [73.884, 4.453, 2], [78.337, 4.373, 2], [82.99, 6.42, 2], [89.41, 3.34, 2], [93.4, 2.626, 2], [96.026, 3.974, 2], [100.65, 2, 3], [103.3, 3.92, 3], [107.87, 4.773, 3], [112.643, 3.187, 3], [116.11, 2.263, 3], [118.373, 5.537, 3], [124.56, 4.2, 3], [129.41, 4.237, 5], [133.647, 2.523, 5], [136.45, 3.155, 5], [139.605, 4.925, 5]]}};          // {単元t: {url, tl:[[開始秒,長さ,ステップ], …]}}          // 参考書の単元t → 問題集のビュー番号（0＝対応なし）
   var views = [].slice.call(document.querySelectorAll('.view'));
@@ -2074,25 +2101,47 @@
       var steps = stepsOf(t);
       // 同じ単元内のページ送りだけ「めくり」演出（古いページと新しいページを重ねる）
       var animFrom = rendered && rendered.t === t && rendered.s !== s ? rendered.s : null;
-      [].forEach.call(steps, function (el, i) {
+      var oldEl = animFrom !== null ? steps[animFrom] : null;
+      var newEl = steps[s];
+      // クラスを切り替える前に「めくり始める瞬間の旧ページの見え方（画面上の位置・幅）」を測る。
+      // これを position:fixed で固定したままめくり、その裏で window を先頭へ戻すことで
+      // 「今いる高さのままページがめくれ、めくり終わると新ページは一番上から」を実現する。
+      var oldRect = oldEl ? oldEl.getBoundingClientRect() : null;
+      var resetTurn = function (el) {
         el.classList.remove('turn-out', 'turn-in', 'turn-under');
+        el.style.position = ''; el.style.top = ''; el.style.left = '';
+        el.style.width = ''; el.style.transformOrigin = '';
+        el.style.maxHeight = ''; el.style.overflow = '';
+      };
+      [].forEach.call(steps, function (el, i) {
+        resetTurn(el);
         el.classList.toggle('on', i === s);
       });
-      if (animFrom !== null && steps[animFrom] && steps[s]) {
-        var oldEl = steps[animFrom], newEl = steps[s];
-        var clear = function () {
-          oldEl.classList.remove('turn-out', 'turn-under');
-          newEl.classList.remove('turn-in');
+      if (animFrom !== null && oldEl && newEl && oldRect) {
+        // 旧ページを、今見えていた画面上の位置・幅にそのまま貼り付けて固定する
+        var pin = function (el) {
+          el.style.position = 'fixed';
+          el.style.top = oldRect.top + 'px';
+          el.style.left = oldRect.left + 'px';
+          el.style.width = oldRect.width + 'px';
         };
+        var clear = function () { resetTurn(oldEl); resetTurn(newEl); };
         if (lastDir > 0) {
+          // 進む: 旧ページを今の位置に固定したまま左とじでめくって去らせる。
+          // 透視の消失点を今の画面中央に合わせ、スクロール位置に依らず自然に見せる。
+          pin(oldEl);
+          oldEl.style.transformOrigin = '0 ' + ((innerHeight / 2) - oldRect.top) + 'px';
           oldEl.classList.add('turn-out');      // 今のページがめくれて去る
           oldEl.addEventListener('animationend', clear, { once: true });
         } else {
+          // 戻る: 旧（現在）ページを今の位置に固定して下に敷き、前ページを上へめくり戻す。
+          pin(oldEl);
+          oldEl.style.maxHeight = 'none'; oldEl.style.overflow = 'visible';
           oldEl.classList.add('turn-under');    // 下に敷いたまま
           newEl.classList.add('turn-in');       // 前のページがめくり戻ってくる
           newEl.addEventListener('animationend', clear, { once: true });
         }
-        setTimeout(clear, 700); // アニメ未発火時の保険
+        setTimeout(clear, 900); // アニメ未発火時の保険
       }
       navbar.hidden = false;
       barStep.textContent = (s + 1) + ' / ' + steps.length;
@@ -2162,6 +2211,23 @@
     a.href = wbHref(state.t);
   }
 
+  // ── 教材ゲート（中間案・ゆるめ「頭出しは見せる」）──
+  //   有料単元は表紙＋最初の1節まで誰でも読める。その先は購入者（この学年のライセンス）だけ。
+  //   判定は localStorage['tzm-lic']（開放学年の配列）を見るだけ。ログイン時に entitlement で更新。
+  function isLicensed() {
+    try { return (JSON.parse(localStorage.getItem('tzm-lic') || '[]')).indexOf(GRADE) >= 0; }
+    catch (e) { return false; }
+  }
+  function lockFrom(t) { var v = views[t]; return v ? +(v.getAttribute('data-lock') || 0) : 0; }
+  function gateBlocks(t, s) {
+    var lk = lockFrom(t);
+    return lk > 0 && !isLicensed() && s >= lk;
+  }
+  function showLock() { var ov = document.getElementById('lockOv'); if (ov) ov.hidden = false; }
+  function hideLock() { var ov = document.getElementById('lockOv'); if (ov) ov.hidden = true; }
+  // entitlement 反映後に module script から呼ばれる。解除できたらロックを閉じる。
+  window.tzmRefreshGate = function () { if (isLicensed()) hideLock(); };
+
   function go(t, s, dir) {
     if (typeof reading !== 'undefined' && reading.step != null) stopAudio();
     lastDir = dir || 1;
@@ -2169,9 +2235,17 @@
     state.s = Math.max(0, s || 0);
     if (state.t > 0) {
       state.s = Math.min(state.s, stepsOf(state.t).length - 1);
+      // 頭出しの先へ行こうとしたら、頭出しの最後で止めてロック案内を出す
+      if (gateBlocks(state.t, state.s)) {
+        state.s = Math.max(0, lockFrom(state.t) - 1);
+        render();
+        showLock();
+        return;
+      }
     } else {
       state.s = 0;
     }
+    hideLock();
     render();
   }
 
@@ -2189,6 +2263,12 @@
     else go(0, 0, -1);
   }
 
+  // ロック案内のボタン: ログイン（共通ログインページ経由で戻る）／閉じる
+  document.getElementById('lockLogin').addEventListener('click', function () {
+    var here = location.pathname + '#t' + state.t + (state.s > 0 ? 's' + state.s : '');
+    location.href = '../../login/?next=' + encodeURIComponent(here);
+  });
+  document.getElementById('lockClose').addEventListener('click', hideLock);
   document.getElementById('btnNext').addEventListener('click', next);
   document.getElementById('btnPrev').addEventListener('click', prev);
   document.addEventListener('click', function (e) {
@@ -2447,8 +2527,26 @@ window.addEventListener('hashchange', function () {
   if (!panel.hidden && user && loadedTopic !== currentTopicKey()) loadHistory();
 });
 
+// 教材ゲート用: ログイン済みなら開放学年を取得して localStorage['tzm-lic'] に保存し、
+// 通常script のロックを解除できるか再評価する（users/{uid} 1 read）。
+var ENTITLEMENT_API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/tsudumonEntitlement';
+async function refreshEntitlement(u) {
+  try {
+    var idToken = await u.getIdToken();
+    var res = await fetch(ENTITLEMENT_API, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ idToken: idToken }),
+    });
+    if (!res.ok) return;
+    var data = await res.json();
+    try { localStorage.setItem('tzm-lic', JSON.stringify((data && data.grades) || [])); } catch (e) {}
+    if (window.tzmRefreshGate) window.tzmRefreshGate();
+  } catch (e) { /* ゲートは localStorage フォールバックのまま */ }
+}
+
 onAuthStateChanged(auth, function (u) {
   user = u;
+  if (u) refreshEntitlement(u);
   if (panel.hidden) return;
   if (!u) { showLogin(); return; }
   loadHistory();
