@@ -139,9 +139,21 @@
   .toc-h { font-weight:bold; color:var(--deep); font-size:16px; display:flex; align-items:center; gap:8px; }
   .toc-h::before { content:"📖"; display:inline-flex; align-items:center; justify-content:center;
                    width:30px; height:30px; border-radius:50%; background:var(--brand); font-size:15px; }
-  .toc-cal { flex:none; border:1.5px solid var(--line); background:#fff; color:var(--brand);
-             font-weight:bold; border-radius:20px; padding:6px 12px; font-size:12px; cursor:pointer;
-             font-family:inherit; white-space:nowrap; box-shadow:0 2px 0 #f0e2c3; }
+  /* 「年表でチェック」へ飛ぶボタン。押せると気づかれるよう塗り＋矢印＋押し込み影で目立たせる */
+  .toc-cal { flex:none; border:none; background:linear-gradient(#fbbf24,#f59e0b); color:#fff;
+             font-weight:bold; border-radius:20px; padding:8px 8px 8px 14px; font-size:12.5px;
+             cursor:pointer; font-family:inherit; white-space:nowrap;
+             display:inline-flex; align-items:center; gap:6px;
+             box-shadow:0 3px 0 #c2740a, 0 4px 8px rgba(217,119,6,.3);
+             transition:transform .12s, box-shadow .12s, filter .12s; }
+  @media (hover:hover) {
+    .toc-cal:hover { transform:translateY(-2px); filter:brightness(1.06);
+                     box-shadow:0 5px 0 #c2740a, 0 7px 12px rgba(217,119,6,.38); }
+    .toc-cal:hover .cal-go { background:rgba(255,255,255,.55); }
+  }
+  .toc-cal:active { transform:translateY(2px); box-shadow:0 1px 0 #c2740a; }
+  .cal-go { display:inline-flex; align-items:center; justify-content:center; width:18px; height:18px;
+            border-radius:50%; background:rgba(255,255,255,.35); font-size:14px; line-height:1; }
   /* 単元カード（大きめサムネ＋番号＋名前＋右矢印） */
   .toc-item { display:flex; align-items:center; width:100%; margin-bottom:8px; padding:0;
               background:#fff; border:1.5px solid #f0e2c3; border-radius:12px; overflow:hidden;
@@ -415,6 +427,9 @@
     .bar, .navbar, .resume, .reveal, .marks, .reveal-all-row, .w-input, .line-mini,
     .big-btn, .qa-expl, .expl, .tap-hint, .toc-state, .home-howto, .howto, .m-btns { display:none !important; }
     .mode-step, .qa-batch-step, .b-inrow, .b-idk, .b-batch-judge, .b-result { display:none !important; }
+    /* 問題選択・短答のやり方・結果などの操作用ページは紙に出さない（問題と解答だけ印刷） */
+    .mode-step, .mb-step, .done-step, .next-modes, .chip-mode, .print-btn,
+    .retry-btn, .home-btn, .wrong-btn { display:none !important; }
     .print-only { display:block !important; }
     .view { display:block !important; }
     .step { display:block !important; margin-bottom:14px; break-inside:avoid; }
@@ -473,12 +488,11 @@
     </div>
     <div class="ht-mascot"><img class="wchar" src="img/characters_char_manabi_sm.png" alt=""><span class="ht-bubble">いっしょに<br>がんばろう！</span></div>
   </header>
-  <div class="howto home-howto"><span class="hint-ic">💡</span><span>タブか下のリストから単元を選ぼう！<br>やり方（おすすめ順・穴埋め・一問一答・4択・記述）は単元を開いてから選べるよ。</span></div>
   <button class="resume" id="resumeBtn" hidden>▶ つづきから解く<span id="resumeWhere"></span></button>
   <nav class="toc">
     <div class="toc-head">
-      <div class="toc-h">この単元</div>
-      <button class="toc-cal" data-go="1">📅 年表でチェック</button>
+      <div class="toc-h">単元を選択</div>
+      <button class="toc-cal" data-go="1">📅 年表でチェック<span class="cal-go">›</span></button>
     </div>
     <button class="toc-item" data-go="2"><img class="toc-thumb" src="img/reference_hist16-ww2-outbreak.webp" alt="" loading="lazy"><span class="toc-no">1</span><span class="toc-name">第二次世界大戦の勃発</span><span class="toc-state" data-state-t="2"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="3"><img class="toc-thumb" src="img/reference_hist16-pacific-war.webp" alt="" loading="lazy"><span class="toc-no">2</span><span class="toc-name">太平洋戦争と日本の敗退</span><span class="toc-state" data-state-t="3"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="4"><img class="toc-thumb" src="img/reference_hist16-evacuation.webp" alt="" loading="lazy"><span class="toc-no">3</span><span class="toc-name">銃後の苦しみと総動員</span><span class="toc-state" data-state-t="4"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="5"><img class="toc-thumb" src="img/reference_hist16-endwar.webp" alt="" loading="lazy"><span class="toc-no">4</span><span class="toc-name">終戦への道</span><span class="toc-state" data-state-t="5"></span><span class="toc-arrow">›</span></button>
   </nav>
@@ -510,12 +524,12 @@
         <span class="mode-arrow">›</span></button>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="A">
         <span class="mode-ic ic-a">✏️</span>
-        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）だけ</span>
+        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）</span>
           <span class="mode-sub">（　）をタップして確かめる</span></span>
         <span class="mode-arrow">›</span></button></div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="B">
         <span class="mode-ic ic-b">🔥</span>
-        <span class="mode-main"><span class="mode-t">一問一答（短答）だけ</span>
+        <span class="mode-main"><span class="mode-t">一問一答（短答）</span>
           <span class="mode-sub">10問・入力して自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
@@ -526,20 +540,33 @@
       </div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="C">
         <span class="mode-ic ic-c">✅</span>
-        <span class="mode-main"><span class="mode-t">4択（選択）だけ</span>
+        <span class="mode-main"><span class="mode-t">4択（選択）</span>
           <span class="mode-sub">8問・タップで即判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
         </div>
       </div>
-      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述だけ</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
+      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
     </div>
     <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/16/index.html#t1">📖 先に参考書で理解する</a>
       <div class="summary">1939年8月、対立していたドイツとソ連は<button class="blank" type="button"><span class="bno">①</span><span class="ba">独ソ不可侵条約</span><span class="bl" style="width:6.3em"></span></button>を結び、同年9月1日、ドイツが<button class="blank" type="button"><span class="bno">②</span><span class="ba">ポーランド</span><span class="bl" style="width:4.5em"></span></button>に侵攻すると、イギリスとフランスがドイツに宣戦布告して第二次世界大戦が始まった。1940年6月にはドイツが<button class="blank" type="button"><span class="bno">③</span><span class="ba">フランス</span><span class="bl" style="width:3.6em"></span></button>を降伏させ、同年9月には日本・ドイツ・イタリアが<button class="blank" type="button"><span class="bno">④</span><span class="ba">日独伊三国同盟</span><span class="bl" style="width:6.3em"></span></button>を結んで<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">枢軸国</span><span class="bl" style="width:2.7em"></span></button>の中心となった。これに対しアメリカ・イギリス・ソ連・中国などは<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">連合国</span><span class="bl" style="width:2.7em"></span></button>として対抗した。1941年6月、ドイツは条約を破って<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">ソ連</span><span class="bl" style="width:2.7em"></span></button>に攻め込み独ソ戦が始まり、戦争は世界規模に拡大した。またこの間、ナチス・ドイツはユダヤ人を計画的に迫害し、<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">アウシュビッツ</span><span class="bl" style="width:6.3em"></span></button>などの強制収容所で命を奪う<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">ホロコースト</span><span class="bl" style="width:5.4em"></span></button>を行った。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step mb-step" data-label="短答のやり方" data-sec="MB">
+      <div class="sec-h"><span class="sec-tag">▶</span>ここからは一問一答<span class="sec-note">答え合わせのやり方をえらぼう</span></div>
+      <button class="mode-btn mb-pick" type="button" data-ansall="type">
+        <span class="mode-ic ic-b">⌨️</span>
+        <span class="mode-main"><span class="mode-t">入力して答え合わせ</span>
+          <span class="mode-sub">こたえを打つと自動で正誤判定</span></span>
+        <span class="mode-arrow">›</span></button>
+      <button class="mode-btn mb-pick" type="button" data-ansall="check">
+        <span class="mode-ic ic-a">👀</span>
+        <span class="mode-main"><span class="mode-t">答えを見て自己採点</span>
+          <span class="mode-sub">こたえを見て ○ △ をタップ</span></span>
+        <span class="mode-arrow">›</span></button>
     </div>
     <div class="step qa-step" data-label="B 一問一答 (1/10)" data-qid="qa-ww2-outbreak-1" data-kind="qa" data-sec="B" data-a="第二次世界大戦" data-r="だいにじ世界たいせん">
       <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 10</span></span></div>
@@ -993,12 +1020,12 @@
         <span class="mode-arrow">›</span></button>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="A">
         <span class="mode-ic ic-a">✏️</span>
-        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）だけ</span>
+        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）</span>
           <span class="mode-sub">（　）をタップして確かめる</span></span>
         <span class="mode-arrow">›</span></button></div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="B">
         <span class="mode-ic ic-b">🔥</span>
-        <span class="mode-main"><span class="mode-t">一問一答（短答）だけ</span>
+        <span class="mode-main"><span class="mode-t">一問一答（短答）</span>
           <span class="mode-sub">14問・入力して自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
@@ -1009,20 +1036,33 @@
       </div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="C">
         <span class="mode-ic ic-c">✅</span>
-        <span class="mode-main"><span class="mode-t">4択（選択）だけ</span>
+        <span class="mode-main"><span class="mode-t">4択（選択）</span>
           <span class="mode-sub">8問・タップで即判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
         </div>
       </div>
-      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述だけ</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
+      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
     </div>
     <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/16/index.html#t2">📖 先に参考書で理解する</a>
       <div class="summary">1941年12月8日、<button class="blank" type="button"><span class="bno">①</span><span class="ba">東条英機</span><span class="bl" style="width:3.6em"></span></button>内閣のもとで日本海軍がハワイの<button class="blank" type="button"><span class="bno">②</span><span class="ba">真珠湾</span><span class="bl" style="width:2.7em"></span></button>を奇襲し、太平洋戦争が始まった。日本はアメリカ・イギリス・中国・オランダによる石油や鉄の輸出停止、いわゆる<button class="blank" type="button"><span class="bno">③</span><span class="ba">ABCD包囲網</span><span class="bl" style="width:6.3em"></span></button>に追いつめられ、アジアを欧米から解放すると唱える<button class="blank" type="button"><span class="bno">④</span><span class="ba">大東亜共栄圏</span><span class="bl" style="width:5.4em"></span></button>を掲げて開戦した。しかし1942年6月の<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">ミッドウェー海戦</span><span class="bl" style="width:7.2em"></span></button>で主力空母4隻を失うと戦局は不利に転じ、<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">ガダルカナル島</span><span class="bl" style="width:6.3em"></span></button>の戦いで初めて撤退に追い込まれた。1944年に<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">サイパン島</span><span class="bl" style="width:4.5em"></span></button>が陥落すると東条内閣は退陣し、翌年3月10日にはB-29による<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">東京大空襲</span><span class="bl" style="width:4.5em"></span></button>で多くの命が失われた。1945年4月から6月には日本本土で唯一の地上戦となる<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">沖縄戦</span><span class="bl" style="width:2.7em"></span></button>が行われ、<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">ひめゆり学徒隊</span><span class="bl" style="width:6.3em"></span></button>など多くの学生も動員された。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step mb-step" data-label="短答のやり方" data-sec="MB">
+      <div class="sec-h"><span class="sec-tag">▶</span>ここからは一問一答<span class="sec-note">答え合わせのやり方をえらぼう</span></div>
+      <button class="mode-btn mb-pick" type="button" data-ansall="type">
+        <span class="mode-ic ic-b">⌨️</span>
+        <span class="mode-main"><span class="mode-t">入力して答え合わせ</span>
+          <span class="mode-sub">こたえを打つと自動で正誤判定</span></span>
+        <span class="mode-arrow">›</span></button>
+      <button class="mode-btn mb-pick" type="button" data-ansall="check">
+        <span class="mode-ic ic-a">👀</span>
+        <span class="mode-main"><span class="mode-t">答えを見て自己採点</span>
+          <span class="mode-sub">こたえを見て ○ △ をタップ</span></span>
+        <span class="mode-arrow">›</span></button>
     </div>
     <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-pacific-war-1" data-kind="qa" data-sec="B" data-a="太平洋戦争" data-r="たいへいようせんそう">
       <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 14</span></span></div>
@@ -1605,12 +1645,12 @@
         <span class="mode-arrow">›</span></button>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="A">
         <span class="mode-ic ic-a">✏️</span>
-        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）だけ</span>
+        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）</span>
           <span class="mode-sub">（　）をタップして確かめる</span></span>
         <span class="mode-arrow">›</span></button></div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="B">
         <span class="mode-ic ic-b">🔥</span>
-        <span class="mode-main"><span class="mode-t">一問一答（短答）だけ</span>
+        <span class="mode-main"><span class="mode-t">一問一答（短答）</span>
           <span class="mode-sub">8問・入力して自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
@@ -1621,20 +1661,33 @@
       </div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="C">
         <span class="mode-ic ic-c">✅</span>
-        <span class="mode-main"><span class="mode-t">4択（選択）だけ</span>
+        <span class="mode-main"><span class="mode-t">4択（選択）</span>
           <span class="mode-sub">7問・タップで即判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
         </div>
       </div>
-      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述だけ</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
+      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
     </div>
     <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/16/index.html#t3">📖 先に参考書で理解する</a>
       <div class="summary">戦争が長引くと国内の生活は厳しく統制された。米や砂糖、衣料品などの物資は国が国民に割り当てる<button class="blank" type="button"><span class="bno">①</span><span class="ba">配給制</span><span class="bl" style="width:2.7em"></span></button>となり、1940年からは<button class="blank" type="button"><span class="bno">②</span><span class="ba">切符制</span><span class="bl" style="width:2.7em"></span></button>と組み合わせて分配された。1941年には尋常小学校が<button class="blank" type="button"><span class="bno">③</span><span class="ba">国民学校</span><span class="bl" style="width:3.6em"></span></button>に改称され、天皇に尽くす国民を育てることが目指された。1943年には兵力不足を補うため文系大学生らが繰り上げ卒業で出征する<button class="blank" type="button"><span class="bno">④</span><span class="ba">学徒出陣</span><span class="bl" style="width:3.6em"></span></button>が始まり、男性の労働力が失われた工場では中学生や女学生を動員する<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">勤労動員</span><span class="bl" style="width:3.6em"></span></button>が行われた。1944年からは空襲を避けるため都市の小学生を地方へ送る<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">学童疎開</span><span class="bl" style="width:3.6em"></span></button>も実施された。また植民地の朝鮮や台湾では日本人化を強いる<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">皇民化政策</span><span class="bl" style="width:4.5em"></span></button>が進められ、1940年には朝鮮の人々に日本式の姓名を名乗らせる<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">創氏改名</span><span class="bl" style="width:3.6em"></span></button>も行われた。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step mb-step" data-label="短答のやり方" data-sec="MB">
+      <div class="sec-h"><span class="sec-tag">▶</span>ここからは一問一答<span class="sec-note">答え合わせのやり方をえらぼう</span></div>
+      <button class="mode-btn mb-pick" type="button" data-ansall="type">
+        <span class="mode-ic ic-b">⌨️</span>
+        <span class="mode-main"><span class="mode-t">入力して答え合わせ</span>
+          <span class="mode-sub">こたえを打つと自動で正誤判定</span></span>
+        <span class="mode-arrow">›</span></button>
+      <button class="mode-btn mb-pick" type="button" data-ansall="check">
+        <span class="mode-ic ic-a">👀</span>
+        <span class="mode-main"><span class="mode-t">答えを見て自己採点</span>
+          <span class="mode-sub">こたえを見て ○ △ をタップ</span></span>
+        <span class="mode-arrow">›</span></button>
     </div>
     <div class="step qa-step" data-label="B 一問一答 (1/8)" data-qid="qa-wartime-life-1" data-kind="qa" data-sec="B" data-a="配給制" data-r="はいきゅうせい">
       <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 8</span></span></div>
@@ -2019,12 +2072,12 @@
         <span class="mode-arrow">›</span></button>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="A">
         <span class="mode-ic ic-a">✏️</span>
-        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）だけ</span>
+        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）</span>
           <span class="mode-sub">（　）をタップして確かめる</span></span>
         <span class="mode-arrow">›</span></button></div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="B">
         <span class="mode-ic ic-b">🔥</span>
-        <span class="mode-main"><span class="mode-t">一問一答（短答）だけ</span>
+        <span class="mode-main"><span class="mode-t">一問一答（短答）</span>
           <span class="mode-sub">10問・入力して自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
@@ -2035,20 +2088,33 @@
       </div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="C">
         <span class="mode-ic ic-c">✅</span>
-        <span class="mode-main"><span class="mode-t">4択（選択）だけ</span>
+        <span class="mode-main"><span class="mode-t">4択（選択）</span>
           <span class="mode-sub">8問・タップで即判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
         </div>
       </div>
-      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述だけ</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
+      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
     </div>
     <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/16/index.html#t4">📖 先に参考書で理解する</a>
       <div class="summary">1945年2月、アメリカ・イギリス・ソ連の首脳は<button class="blank" type="button"><span class="bno">①</span><span class="ba">ヤルタ会談</span><span class="bl" style="width:4.5em"></span></button>を開き、ドイツ降伏の3か月後にソ連が日本と戦うことを秘密に約束した。同年7月には米英中(のちにソ連も)が日本に無条件降伏を求める<button class="blank" type="button"><span class="bno">②</span><span class="ba">ポツダム宣言</span><span class="bl" style="width:5.4em"></span></button>を出したが、日本がこれを無視したため、8月6日にアメリカ軍は<button class="blank" type="button"><span class="bno">③</span><span class="ba">広島</span><span class="bl" style="width:2.7em"></span></button>に原子爆弾を投下し、約14万人が犠牲となった。8月8日にはソ連が<button class="blank" type="button"><span class="bno">④</span><span class="ba">日ソ中立条約</span><span class="bl" style="width:5.4em"></span></button>を破って<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">満州</span><span class="bl" style="width:2.7em"></span></button>に攻め込み対日参戦し、翌9日には<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">長崎</span><span class="bl" style="width:2.7em"></span></button>にも原爆が投下され約7万人が犠牲になった。追いつめられた日本は8月15日、<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">昭和天皇</span><span class="bl" style="width:3.6em"></span></button>が<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">玉音放送</span><span class="bl" style="width:3.6em"></span></button>でポツダム宣言の受け入れと終戦を国民に伝え、長い戦争がようやく終わった。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step mb-step" data-label="短答のやり方" data-sec="MB">
+      <div class="sec-h"><span class="sec-tag">▶</span>ここからは一問一答<span class="sec-note">答え合わせのやり方をえらぼう</span></div>
+      <button class="mode-btn mb-pick" type="button" data-ansall="type">
+        <span class="mode-ic ic-b">⌨️</span>
+        <span class="mode-main"><span class="mode-t">入力して答え合わせ</span>
+          <span class="mode-sub">こたえを打つと自動で正誤判定</span></span>
+        <span class="mode-arrow">›</span></button>
+      <button class="mode-btn mb-pick" type="button" data-ansall="check">
+        <span class="mode-ic ic-a">👀</span>
+        <span class="mode-main"><span class="mode-t">答えを見て自己採点</span>
+          <span class="mode-sub">こたえを見て ○ △ をタップ</span></span>
+        <span class="mode-arrow">›</span></button>
     </div>
     <div class="step qa-step" data-label="B 一問一答 (1/10)" data-qid="qa-end-of-war-1" data-kind="qa" data-sec="B" data-a="ヤルタ会談" data-r="ヤルタかいだん">
       <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 10</span></span></div>
@@ -2753,10 +2819,14 @@
     } else {
       var steps = stepsOf(t);
       // 一問一答「入力して判定」モードのときだけ入力UIを出す（CSS は .ans-type 起点）
+      // おすすめ順（all）は、短答手前の MB ステップで選んだ ansAll に従う。
       var cfgB = modeCfg(t);
       views[t].classList.toggle(
         'ans-type',
-        !!(cfgB && (cfgB.mode === 'B' || cfgB.mode === 'wrong') && cfgB.ans !== 'check')
+        !!(cfgB && (
+          ((cfgB.mode === 'B' || cfgB.mode === 'wrong') && cfgB.ans !== 'check')
+          || (cfgB.mode === 'all' && cfgB.ansAll === 'type')
+        ))
       );
       // 問題の切り替えは即時（めくりアニメ無し）。リズムよく次々と解けるように。
       domSteps(t).forEach(function (el) {
@@ -2881,6 +2951,16 @@
       [].forEach.call(chipBtn.parentElement.querySelectorAll('.opt-chip'), function (b) {
         b.classList.toggle('on', b === chipBtn);
       });
+      return;
+    }
+    // おすすめ順の「短答のやり方」選択（.mb-pick は .mode-btn でもあるので先に処理）
+    var pick = e.target.closest('.mb-pick');
+    if (pick) {
+      var pt = state.t;
+      var pcfg = modeCfg(pt) || { mode: 'all' };
+      pcfg.ansAll = pick.dataset.ansall;   // 'type'=入力して判定 / 'check'=見て自己採点
+      var pst = store(); pst['m' + pt] = pcfg; save(pst);
+      go(pt, state.s + 1, 1);              // 次（最初の一問一答）へ。render() で入力/確認が切り替わる
       return;
     }
     var mb = e.target.closest('.mode-btn');

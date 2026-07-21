@@ -139,9 +139,21 @@
   .toc-h { font-weight:bold; color:var(--deep); font-size:16px; display:flex; align-items:center; gap:8px; }
   .toc-h::before { content:"📖"; display:inline-flex; align-items:center; justify-content:center;
                    width:30px; height:30px; border-radius:50%; background:var(--brand); font-size:15px; }
-  .toc-cal { flex:none; border:1.5px solid var(--line); background:#fff; color:var(--brand);
-             font-weight:bold; border-radius:20px; padding:6px 12px; font-size:12px; cursor:pointer;
-             font-family:inherit; white-space:nowrap; box-shadow:0 2px 0 #f0e2c3; }
+  /* 「年表でチェック」へ飛ぶボタン。押せると気づかれるよう塗り＋矢印＋押し込み影で目立たせる */
+  .toc-cal { flex:none; border:none; background:linear-gradient(#fbbf24,#f59e0b); color:#fff;
+             font-weight:bold; border-radius:20px; padding:8px 8px 8px 14px; font-size:12.5px;
+             cursor:pointer; font-family:inherit; white-space:nowrap;
+             display:inline-flex; align-items:center; gap:6px;
+             box-shadow:0 3px 0 #c2740a, 0 4px 8px rgba(217,119,6,.3);
+             transition:transform .12s, box-shadow .12s, filter .12s; }
+  @media (hover:hover) {
+    .toc-cal:hover { transform:translateY(-2px); filter:brightness(1.06);
+                     box-shadow:0 5px 0 #c2740a, 0 7px 12px rgba(217,119,6,.38); }
+    .toc-cal:hover .cal-go { background:rgba(255,255,255,.55); }
+  }
+  .toc-cal:active { transform:translateY(2px); box-shadow:0 1px 0 #c2740a; }
+  .cal-go { display:inline-flex; align-items:center; justify-content:center; width:18px; height:18px;
+            border-radius:50%; background:rgba(255,255,255,.35); font-size:14px; line-height:1; }
   /* 単元カード（大きめサムネ＋番号＋名前＋右矢印） */
   .toc-item { display:flex; align-items:center; width:100%; margin-bottom:8px; padding:0;
               background:#fff; border:1.5px solid #f0e2c3; border-radius:12px; overflow:hidden;
@@ -415,6 +427,9 @@
     .bar, .navbar, .resume, .reveal, .marks, .reveal-all-row, .w-input, .line-mini,
     .big-btn, .qa-expl, .expl, .tap-hint, .toc-state, .home-howto, .howto, .m-btns { display:none !important; }
     .mode-step, .qa-batch-step, .b-inrow, .b-idk, .b-batch-judge, .b-result { display:none !important; }
+    /* 問題選択・短答のやり方・結果などの操作用ページは紙に出さない（問題と解答だけ印刷） */
+    .mode-step, .mb-step, .done-step, .next-modes, .chip-mode, .print-btn,
+    .retry-btn, .home-btn, .wrong-btn { display:none !important; }
     .print-only { display:block !important; }
     .view { display:block !important; }
     .step { display:block !important; margin-bottom:14px; break-inside:avoid; }
@@ -473,12 +488,11 @@
     </div>
     <div class="ht-mascot"><img class="wchar" src="img/characters_char_manabi_sm.png" alt=""><span class="ht-bubble">いっしょに<br>がんばろう！</span></div>
   </header>
-  <div class="howto home-howto"><span class="hint-ic">💡</span><span>タブか下のリストから単元を選ぼう！<br>やり方（おすすめ順・穴埋め・一問一答・4択・記述）は単元を開いてから選べるよ。</span></div>
   <button class="resume" id="resumeBtn" hidden>▶ つづきから解く<span id="resumeWhere"></span></button>
   <nav class="toc">
     <div class="toc-head">
-      <div class="toc-h">この単元</div>
-      <button class="toc-cal" data-go="1">📅 年表でチェック</button>
+      <div class="toc-h">単元を選択</div>
+      <button class="toc-cal" data-go="1">📅 年表でチェック<span class="cal-go">›</span></button>
     </div>
     <button class="toc-item" data-go="2"><img class="toc-thumb" src="img/reference_hist18-cold-war.webp" alt="" loading="lazy"><span class="toc-no">1</span><span class="toc-name">冷戦の始まり</span><span class="toc-state" data-state-t="2"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="3"><img class="toc-thumb" src="img/reference_hist18-independence.webp" alt="" loading="lazy"><span class="toc-no">2</span><span class="toc-name">日本の独立回復</span><span class="toc-state" data-state-t="3"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="4"><img class="toc-thumb" src="img/reference_hist18-postwar-international.webp" alt="" loading="lazy"><span class="toc-no">3</span><span class="toc-name">国際社会への復帰</span><span class="toc-state" data-state-t="4"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="5"><img class="toc-thumb" src="img/reference_hist18-growth.webp" alt="" loading="lazy"><span class="toc-no">4</span><span class="toc-name">高度経済成長</span><span class="toc-state" data-state-t="5"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="6"><img class="toc-thumb" src="img/reference_hist18-culture.webp" alt="" loading="lazy"><span class="toc-no">5</span><span class="toc-name">戦後の文化</span><span class="toc-state" data-state-t="6"></span><span class="toc-arrow">›</span></button>
   </nav>
@@ -510,12 +524,12 @@
         <span class="mode-arrow">›</span></button>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="A">
         <span class="mode-ic ic-a">✏️</span>
-        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）だけ</span>
+        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）</span>
           <span class="mode-sub">（　）をタップして確かめる</span></span>
         <span class="mode-arrow">›</span></button></div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="B">
         <span class="mode-ic ic-b">🔥</span>
-        <span class="mode-main"><span class="mode-t">一問一答（短答）だけ</span>
+        <span class="mode-main"><span class="mode-t">一問一答（短答）</span>
           <span class="mode-sub">14問・入力して自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
@@ -526,20 +540,33 @@
       </div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="C">
         <span class="mode-ic ic-c">✅</span>
-        <span class="mode-main"><span class="mode-t">4択（選択）だけ</span>
+        <span class="mode-main"><span class="mode-t">4択（選択）</span>
           <span class="mode-sub">8問・タップで即判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
         </div>
       </div>
-      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述だけ</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
+      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
     </div>
     <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/18/index.html#t1">📖 先に参考書で理解する</a>
       <div class="summary">第二次世界大戦後、アメリカを中心とする資本主義陣営とソ連を中心とする社会主義陣営が、直接戦火を交えずに対立する<button class="blank" type="button"><span class="bno">①</span><span class="ba">冷戦</span><span class="bl" style="width:2.7em"></span></button>が始まった。1949年、西側諸国は軍事同盟である<button class="blank" type="button"><span class="bno">②</span><span class="ba">NATO</span><span class="bl" style="width:3.6em"></span></button>を結成し、これに対抗して1955年にソ連と東欧諸国は<button class="blank" type="button"><span class="bno">③</span><span class="ba">ワルシャワ条約機構</span><span class="bl" style="width:8.1em"></span></button>を結んだ。1945年には世界平和を目指す<button class="blank" type="button"><span class="bno">④</span><span class="ba">国際連合</span><span class="bl" style="width:3.6em"></span></button>が発足し、その中心機関である<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">安全保障理事会</span><span class="bl" style="width:6.3em"></span></button>には米英仏ソ中の5常任理事国が置かれた。1949年に毛沢東が<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">中華人民共和国</span><span class="bl" style="width:6.3em"></span></button>を建国し、1950年には北朝鮮が韓国に攻め込んで<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">朝鮮戦争</span><span class="bl" style="width:3.6em"></span></button>が始まった。1961年には東ドイツが東西ベルリンを隔てる<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">ベルリンの壁</span><span class="bl" style="width:5.4em"></span></button>を築き、1962年には米ソが核戦争寸前まで対立した<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">キューバ危機</span><span class="bl" style="width:5.4em"></span></button>が起こった。1960年から75年まで続いた<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">ベトナム戦争</span><span class="bl" style="width:5.4em"></span></button>では、アメリカが介入したが敗れて撤退した。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step mb-step" data-label="短答のやり方" data-sec="MB">
+      <div class="sec-h"><span class="sec-tag">▶</span>ここからは一問一答<span class="sec-note">答え合わせのやり方をえらぼう</span></div>
+      <button class="mode-btn mb-pick" type="button" data-ansall="type">
+        <span class="mode-ic ic-b">⌨️</span>
+        <span class="mode-main"><span class="mode-t">入力して答え合わせ</span>
+          <span class="mode-sub">こたえを打つと自動で正誤判定</span></span>
+        <span class="mode-arrow">›</span></button>
+      <button class="mode-btn mb-pick" type="button" data-ansall="check">
+        <span class="mode-ic ic-a">👀</span>
+        <span class="mode-main"><span class="mode-t">答えを見て自己採点</span>
+          <span class="mode-sub">こたえを見て ○ △ をタップ</span></span>
+        <span class="mode-arrow">›</span></button>
     </div>
     <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-cold-war-1" data-kind="qa" data-sec="B" data-a="冷戦" data-r="れいせん">
       <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 14</span></span></div>
@@ -1122,12 +1149,12 @@
         <span class="mode-arrow">›</span></button>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="A">
         <span class="mode-ic ic-a">✏️</span>
-        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）だけ</span>
+        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）</span>
           <span class="mode-sub">（　）をタップして確かめる</span></span>
         <span class="mode-arrow">›</span></button></div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="B">
         <span class="mode-ic ic-b">🔥</span>
-        <span class="mode-main"><span class="mode-t">一問一答（短答）だけ</span>
+        <span class="mode-main"><span class="mode-t">一問一答（短答）</span>
           <span class="mode-sub">14問・入力して自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
@@ -1138,20 +1165,33 @@
       </div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="C">
         <span class="mode-ic ic-c">✅</span>
-        <span class="mode-main"><span class="mode-t">4択（選択）だけ</span>
+        <span class="mode-main"><span class="mode-t">4択（選択）</span>
           <span class="mode-sub">8問・タップで即判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
         </div>
       </div>
-      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述だけ</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
+      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
     </div>
     <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/18/index.html#t2">📖 先に参考書で理解する</a>
       <div class="summary">1951年、<button class="blank" type="button"><span class="bno">①</span><span class="ba">吉田茂</span><span class="bl" style="width:2.7em"></span></button>内閣は連合国48か国との間に<button class="blank" type="button"><span class="bno">②</span><span class="ba">サンフランシスコ平和条約</span><span class="bl" style="width:9.0em"></span></button>を結び、同じ日に米軍の駐留を認める<button class="blank" type="button"><span class="bno">③</span><span class="ba">日米安全保障条約</span><span class="bl" style="width:7.2em"></span></button>にも調印した。翌1952年に条約が発効すると、日本は独立を回復し、GHQによる占領が終わった。1950年に朝鮮戦争が始まると、GHQの指令で<button class="blank" type="button"><span class="bno">④</span><span class="ba">警察予備隊</span><span class="bl" style="width:4.5em"></span></button>がつくられ、1952年の保安隊を経て1954年に<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">自衛隊</span><span class="bl" style="width:2.7em"></span></button>へと発展した。また朝鮮戦争にともなう軍需物資の発注は<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">朝鮮特需</span><span class="bl" style="width:3.6em"></span></button>と呼ばれる好景気を日本にもたらした。1960年、<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">岸信介</span><span class="bl" style="width:2.7em"></span></button>内閣は新日米安全保障条約を成立させたが、これに反対する大規模な<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">安保闘争</span><span class="bl" style="width:3.6em"></span></button>が起こり、内閣は退陣した。1972年には<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">佐藤栄作</span><span class="bl" style="width:3.6em"></span></button>内閣のもとで<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">沖縄返還</span><span class="bl" style="width:3.6em"></span></button>が実現し、27年に及んだ米軍統治が終わって沖縄は日本に復帰した。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step mb-step" data-label="短答のやり方" data-sec="MB">
+      <div class="sec-h"><span class="sec-tag">▶</span>ここからは一問一答<span class="sec-note">答え合わせのやり方をえらぼう</span></div>
+      <button class="mode-btn mb-pick" type="button" data-ansall="type">
+        <span class="mode-ic ic-b">⌨️</span>
+        <span class="mode-main"><span class="mode-t">入力して答え合わせ</span>
+          <span class="mode-sub">こたえを打つと自動で正誤判定</span></span>
+        <span class="mode-arrow">›</span></button>
+      <button class="mode-btn mb-pick" type="button" data-ansall="check">
+        <span class="mode-ic ic-a">👀</span>
+        <span class="mode-main"><span class="mode-t">答えを見て自己採点</span>
+          <span class="mode-sub">こたえを見て ○ △ をタップ</span></span>
+        <span class="mode-arrow">›</span></button>
     </div>
     <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-japan-independence-1" data-kind="qa" data-sec="B" data-a="サンフランシスコ平和条約" data-r="サンフランシスコ平和じょうやく">
       <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 14</span></span></div>
@@ -1729,12 +1769,12 @@
         <span class="mode-arrow">›</span></button>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="A">
         <span class="mode-ic ic-a">✏️</span>
-        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）だけ</span>
+        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）</span>
           <span class="mode-sub">（　）をタップして確かめる</span></span>
         <span class="mode-arrow">›</span></button></div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="B">
         <span class="mode-ic ic-b">🔥</span>
-        <span class="mode-main"><span class="mode-t">一問一答（短答）だけ</span>
+        <span class="mode-main"><span class="mode-t">一問一答（短答）</span>
           <span class="mode-sub">14問・入力して自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
@@ -1745,20 +1785,33 @@
       </div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="C">
         <span class="mode-ic ic-c">✅</span>
-        <span class="mode-main"><span class="mode-t">4択（選択）だけ</span>
+        <span class="mode-main"><span class="mode-t">4択（選択）</span>
           <span class="mode-sub">8問・タップで即判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
         </div>
       </div>
-      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述だけ</span><span class="mode-sub">2問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
+      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">2問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
     </div>
     <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/18/index.html#t3">📖 先に参考書で理解する</a>
       <div class="summary">1955年、自由党と日本民主党が合同して自由民主党が結成され、以後長期政権を担う<button class="blank" type="button"><span class="bno">①</span><span class="ba">55年体制</span><span class="bl" style="width:4.5em"></span></button>が始まった。1956年、<button class="blank" type="button"><span class="bno">②</span><span class="ba">鳩山一郎</span><span class="bl" style="width:3.6em"></span></button>内閣はソ連との戦争状態を終わらせる<button class="blank" type="button"><span class="bno">③</span><span class="ba">日ソ共同宣言</span><span class="bl" style="width:5.4em"></span></button>を結び、これを機に日本は同年<button class="blank" type="button"><span class="bno">④</span><span class="ba">国際連合</span><span class="bl" style="width:3.6em"></span></button>への加盟を果たして国際社会に復帰した。1965年には<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">佐藤栄作</span><span class="bl" style="width:3.6em"></span></button>内閣が韓国と国交を樹立する<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">日韓基本条約</span><span class="bl" style="width:5.4em"></span></button>を結び、1967年には佐藤首相が核兵器を「持たず、作らず、持ち込ませず」とする<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">非核三原則</span><span class="bl" style="width:4.5em"></span></button>を表明した。1972年、<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">田中角栄</span><span class="bl" style="width:3.6em"></span></button>内閣は中華人民共和国と国交を樹立する<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">日中共同声明</span><span class="bl" style="width:5.4em"></span></button>を発表し、台湾の中華民国とは断交した。1978年には福田赳夫内閣がこれを条約として確定させる<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">日中平和友好条約</span><span class="bl" style="width:7.2em"></span></button>を結んだ。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step mb-step" data-label="短答のやり方" data-sec="MB">
+      <div class="sec-h"><span class="sec-tag">▶</span>ここからは一問一答<span class="sec-note">答え合わせのやり方をえらぼう</span></div>
+      <button class="mode-btn mb-pick" type="button" data-ansall="type">
+        <span class="mode-ic ic-b">⌨️</span>
+        <span class="mode-main"><span class="mode-t">入力して答え合わせ</span>
+          <span class="mode-sub">こたえを打つと自動で正誤判定</span></span>
+        <span class="mode-arrow">›</span></button>
+      <button class="mode-btn mb-pick" type="button" data-ansall="check">
+        <span class="mode-ic ic-a">👀</span>
+        <span class="mode-main"><span class="mode-t">答えを見て自己採点</span>
+          <span class="mode-sub">こたえを見て ○ △ をタップ</span></span>
+        <span class="mode-arrow">›</span></button>
     </div>
     <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-postwar-international-1" data-kind="qa" data-sec="B" data-a="日ソ共同宣言" data-r="にっソきょうどうせんげん">
       <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 14</span></span></div>
@@ -2319,12 +2372,12 @@
         <span class="mode-arrow">›</span></button>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="A">
         <span class="mode-ic ic-a">✏️</span>
-        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）だけ</span>
+        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）</span>
           <span class="mode-sub">（　）をタップして確かめる</span></span>
         <span class="mode-arrow">›</span></button></div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="B">
         <span class="mode-ic ic-b">🔥</span>
-        <span class="mode-main"><span class="mode-t">一問一答（短答）だけ</span>
+        <span class="mode-main"><span class="mode-t">一問一答（短答）</span>
           <span class="mode-sub">14問・入力して自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
@@ -2335,20 +2388,33 @@
       </div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="C">
         <span class="mode-ic ic-c">✅</span>
-        <span class="mode-main"><span class="mode-t">4択（選択）だけ</span>
+        <span class="mode-main"><span class="mode-t">4択（選択）</span>
           <span class="mode-sub">8問・タップで即判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
         </div>
       </div>
-      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述だけ</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
+      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
     </div>
     <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/18/index.html#t4">📖 先に参考書で理解する</a>
       <div class="summary">1955年から1973年にかけて、日本経済は年平均約10%という急成長を遂げ、これを<button class="blank" type="button"><span class="bno">①</span><span class="ba">高度経済成長</span><span class="bl" style="width:5.4em"></span></button>と呼ぶ。1950年代後半には電気冷蔵庫・洗濯機・白黒テレビからなる「<button class="blank" type="button"><span class="bno">②</span><span class="ba">三種の神器</span><span class="bl" style="width:4.5em"></span></button>」が家庭に普及し、1960年代にはカー・カラーテレビ・クーラーの「3C」が広まった。1964年には<button class="blank" type="button"><span class="bno">③</span><span class="ba">東京オリンピック</span><span class="bl" style="width:7.2em"></span></button>が開催され、これに合わせて<button class="blank" type="button"><span class="bno">④</span><span class="ba">東海道新幹線</span><span class="bl" style="width:5.4em"></span></button>が開通し、1970年には日本初の国際博覧会である<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">大阪万博</span><span class="bl" style="width:3.6em"></span></button>が開かれた。一方で経済成長の負の側面として環境汚染による健康被害も深刻化し、水俣病・新潟水俣病・イタイイタイ病・<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">四日市ぜんそく</span><span class="bl" style="width:6.3em"></span></button>を合わせて<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">四大公害病</span><span class="bl" style="width:4.5em"></span></button>と呼ぶ。1967年には<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">公害対策基本法</span><span class="bl" style="width:6.3em"></span></button>が制定され、公害防止の取り組みが始まった。1973年、第四次中東戦争をきっかけとする<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">石油危機</span><span class="bl" style="width:3.6em"></span></button>が起こると、高度経済成長は終わりを迎えた。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step mb-step" data-label="短答のやり方" data-sec="MB">
+      <div class="sec-h"><span class="sec-tag">▶</span>ここからは一問一答<span class="sec-note">答え合わせのやり方をえらぼう</span></div>
+      <button class="mode-btn mb-pick" type="button" data-ansall="type">
+        <span class="mode-ic ic-b">⌨️</span>
+        <span class="mode-main"><span class="mode-t">入力して答え合わせ</span>
+          <span class="mode-sub">こたえを打つと自動で正誤判定</span></span>
+        <span class="mode-arrow">›</span></button>
+      <button class="mode-btn mb-pick" type="button" data-ansall="check">
+        <span class="mode-ic ic-a">👀</span>
+        <span class="mode-main"><span class="mode-t">答えを見て自己採点</span>
+          <span class="mode-sub">こたえを見て ○ △ をタップ</span></span>
+        <span class="mode-arrow">›</span></button>
     </div>
     <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-economic-growth-1" data-kind="qa" data-sec="B" data-a="高度経済成長" data-r="こうどけいざいせいちょう">
       <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 14</span></span></div>
@@ -2931,12 +2997,12 @@
         <span class="mode-arrow">›</span></button>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="A">
         <span class="mode-ic ic-a">✏️</span>
-        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）だけ</span>
+        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）</span>
           <span class="mode-sub">（　）をタップして確かめる</span></span>
         <span class="mode-arrow">›</span></button></div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="B">
         <span class="mode-ic ic-b">🔥</span>
-        <span class="mode-main"><span class="mode-t">一問一答（短答）だけ</span>
+        <span class="mode-main"><span class="mode-t">一問一答（短答）</span>
           <span class="mode-sub">12問・入力して自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
@@ -2947,20 +3013,33 @@
       </div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="C">
         <span class="mode-ic ic-c">✅</span>
-        <span class="mode-main"><span class="mode-t">4択（選択）だけ</span>
+        <span class="mode-main"><span class="mode-t">4択（選択）</span>
           <span class="mode-sub">8問・タップで即判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
         </div>
       </div>
-      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述だけ</span><span class="mode-sub">2問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
+      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">2問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
     </div>
     <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/18/index.html#t5">📖 先に参考書で理解する</a>
       <div class="summary">1953年、NHKと民間放送で<button class="blank" type="button"><span class="bno">①</span><span class="ba">テレビ放送</span><span class="bl" style="width:4.5em"></span></button>が始まり、新聞やラジオと並ぶ<button class="blank" type="button"><span class="bno">②</span><span class="ba">マスメディア</span><span class="bl" style="width:5.4em"></span></button>として戦後の大衆文化に大きな影響を与えた。1949年には<button class="blank" type="button"><span class="bno">③</span><span class="ba">湯川秀樹</span><span class="bl" style="width:3.6em"></span></button>が中間子理論により日本人として初めてノーベル物理学賞を受賞し、1968年には「雪国」などの作品で<button class="blank" type="button"><span class="bno">④</span><span class="ba">川端康成</span><span class="bl" style="width:3.6em"></span></button>が日本人初のノーベル文学賞を受賞した。映画の分野では、「羅生門」「七人の侍」で世界的に知られる<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">黒澤明</span><span class="bl" style="width:2.7em"></span></button>が活躍し、マンガでは「鉄腕アトム」を著した「マンガの神様」<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">手塚治虫</span><span class="bl" style="width:3.6em"></span></button>が、戦後の日本の<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">アニメ</span><span class="bl" style="width:2.7em"></span></button>文化の基礎を築いた。文学では「金閣寺」を著した<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">三島由紀夫</span><span class="bl" style="width:4.5em"></span></button>や、「竜馬がゆく」などの歴史小説で人気を集めた<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">司馬遼太郎</span><span class="bl" style="width:4.5em"></span></button>が活躍した。1974年には元首相の<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">佐藤栄作</span><span class="bl" style="width:3.6em"></span></button>が沖縄返還と非核三原則の表明を理由にノーベル平和賞を受賞した。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step mb-step" data-label="短答のやり方" data-sec="MB">
+      <div class="sec-h"><span class="sec-tag">▶</span>ここからは一問一答<span class="sec-note">答え合わせのやり方をえらぼう</span></div>
+      <button class="mode-btn mb-pick" type="button" data-ansall="type">
+        <span class="mode-ic ic-b">⌨️</span>
+        <span class="mode-main"><span class="mode-t">入力して答え合わせ</span>
+          <span class="mode-sub">こたえを打つと自動で正誤判定</span></span>
+        <span class="mode-arrow">›</span></button>
+      <button class="mode-btn mb-pick" type="button" data-ansall="check">
+        <span class="mode-ic ic-a">👀</span>
+        <span class="mode-main"><span class="mode-t">答えを見て自己採点</span>
+          <span class="mode-sub">こたえを見て ○ △ をタップ</span></span>
+        <span class="mode-arrow">›</span></button>
     </div>
     <div class="step qa-step" data-label="B 一問一答 (1/12)" data-qid="qa-postwar-culture-1" data-kind="qa" data-sec="B" data-a="テレビ放送" data-r="テレビほうそう">
       <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 12</span></span></div>
@@ -3710,10 +3789,14 @@
     } else {
       var steps = stepsOf(t);
       // 一問一答「入力して判定」モードのときだけ入力UIを出す（CSS は .ans-type 起点）
+      // おすすめ順（all）は、短答手前の MB ステップで選んだ ansAll に従う。
       var cfgB = modeCfg(t);
       views[t].classList.toggle(
         'ans-type',
-        !!(cfgB && (cfgB.mode === 'B' || cfgB.mode === 'wrong') && cfgB.ans !== 'check')
+        !!(cfgB && (
+          ((cfgB.mode === 'B' || cfgB.mode === 'wrong') && cfgB.ans !== 'check')
+          || (cfgB.mode === 'all' && cfgB.ansAll === 'type')
+        ))
       );
       // 問題の切り替えは即時（めくりアニメ無し）。リズムよく次々と解けるように。
       domSteps(t).forEach(function (el) {
@@ -3838,6 +3921,16 @@
       [].forEach.call(chipBtn.parentElement.querySelectorAll('.opt-chip'), function (b) {
         b.classList.toggle('on', b === chipBtn);
       });
+      return;
+    }
+    // おすすめ順の「短答のやり方」選択（.mb-pick は .mode-btn でもあるので先に処理）
+    var pick = e.target.closest('.mb-pick');
+    if (pick) {
+      var pt = state.t;
+      var pcfg = modeCfg(pt) || { mode: 'all' };
+      pcfg.ansAll = pick.dataset.ansall;   // 'type'=入力して判定 / 'check'=見て自己採点
+      var pst = store(); pst['m' + pt] = pcfg; save(pst);
+      go(pt, state.s + 1, 1);              // 次（最初の一問一答）へ。render() で入力/確認が切り替わる
       return;
     }
     var mb = e.target.closest('.mode-btn');

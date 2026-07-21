@@ -139,9 +139,21 @@
   .toc-h { font-weight:bold; color:var(--deep); font-size:16px; display:flex; align-items:center; gap:8px; }
   .toc-h::before { content:"📖"; display:inline-flex; align-items:center; justify-content:center;
                    width:30px; height:30px; border-radius:50%; background:var(--brand); font-size:15px; }
-  .toc-cal { flex:none; border:1.5px solid var(--line); background:#fff; color:var(--brand);
-             font-weight:bold; border-radius:20px; padding:6px 12px; font-size:12px; cursor:pointer;
-             font-family:inherit; white-space:nowrap; box-shadow:0 2px 0 #f0e2c3; }
+  /* 「年表でチェック」へ飛ぶボタン。押せると気づかれるよう塗り＋矢印＋押し込み影で目立たせる */
+  .toc-cal { flex:none; border:none; background:linear-gradient(#fbbf24,#f59e0b); color:#fff;
+             font-weight:bold; border-radius:20px; padding:8px 8px 8px 14px; font-size:12.5px;
+             cursor:pointer; font-family:inherit; white-space:nowrap;
+             display:inline-flex; align-items:center; gap:6px;
+             box-shadow:0 3px 0 #c2740a, 0 4px 8px rgba(217,119,6,.3);
+             transition:transform .12s, box-shadow .12s, filter .12s; }
+  @media (hover:hover) {
+    .toc-cal:hover { transform:translateY(-2px); filter:brightness(1.06);
+                     box-shadow:0 5px 0 #c2740a, 0 7px 12px rgba(217,119,6,.38); }
+    .toc-cal:hover .cal-go { background:rgba(255,255,255,.55); }
+  }
+  .toc-cal:active { transform:translateY(2px); box-shadow:0 1px 0 #c2740a; }
+  .cal-go { display:inline-flex; align-items:center; justify-content:center; width:18px; height:18px;
+            border-radius:50%; background:rgba(255,255,255,.35); font-size:14px; line-height:1; }
   /* 単元カード（大きめサムネ＋番号＋名前＋右矢印） */
   .toc-item { display:flex; align-items:center; width:100%; margin-bottom:8px; padding:0;
               background:#fff; border:1.5px solid #f0e2c3; border-radius:12px; overflow:hidden;
@@ -415,6 +427,9 @@
     .bar, .navbar, .resume, .reveal, .marks, .reveal-all-row, .w-input, .line-mini,
     .big-btn, .qa-expl, .expl, .tap-hint, .toc-state, .home-howto, .howto, .m-btns { display:none !important; }
     .mode-step, .qa-batch-step, .b-inrow, .b-idk, .b-batch-judge, .b-result { display:none !important; }
+    /* 問題選択・短答のやり方・結果などの操作用ページは紙に出さない（問題と解答だけ印刷） */
+    .mode-step, .mb-step, .done-step, .next-modes, .chip-mode, .print-btn,
+    .retry-btn, .home-btn, .wrong-btn { display:none !important; }
     .print-only { display:block !important; }
     .view { display:block !important; }
     .step { display:block !important; margin-bottom:14px; break-inside:avoid; }
@@ -473,12 +488,11 @@
     </div>
     <div class="ht-mascot"><img class="wchar" src="img/characters_char_manabi_sm.png" alt=""><span class="ht-bubble">いっしょに<br>がんばろう！</span></div>
   </header>
-  <div class="howto home-howto"><span class="hint-ic">💡</span><span>タブか下のリストから単元を選ぼう！<br>やり方（おすすめ順・穴埋め・一問一答・4択・記述）は単元を開いてから選べるよ。</span></div>
   <button class="resume" id="resumeBtn" hidden>▶ つづきから解く<span id="resumeWhere"></span></button>
   <nav class="toc">
     <div class="toc-head">
-      <div class="toc-h">この単元</div>
-      <button class="toc-cal" data-go="1">📅 年表でチェック</button>
+      <div class="toc-h">単元を選択</div>
+      <button class="toc-cal" data-go="1">📅 年表でチェック<span class="cal-go">›</span></button>
     </div>
     <button class="toc-item" data-go="2"><img class="toc-thumb" src="img/reference_hist02-human-origins.webp" alt="" loading="lazy"><span class="toc-no">1</span><span class="toc-name">人類の出現と進化</span><span class="toc-state" data-state-t="2"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="3"><img class="toc-thumb" src="img/reference_hist02-civ.webp" alt="" loading="lazy"><span class="toc-no">2</span><span class="toc-name">古代文明の誕生</span><span class="toc-state" data-state-t="3"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="4"><img class="toc-thumb" src="img/reference_hist02-chinese-civilization.webp" alt="" loading="lazy"><span class="toc-no">3</span><span class="toc-name">中国文明の発展</span><span class="toc-state" data-state-t="4"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="5"><img class="toc-thumb" src="img/reference_hist02-greece.webp" alt="" loading="lazy"><span class="toc-no">4</span><span class="toc-name">ギリシャ・ローマの世界</span><span class="toc-state" data-state-t="5"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="6"><img class="toc-thumb" src="img/reference_hist02-religion.webp" alt="" loading="lazy"><span class="toc-no">5</span><span class="toc-name">世界の三大宗教</span><span class="toc-state" data-state-t="6"></span><span class="toc-arrow">›</span></button>
   </nav>
@@ -510,12 +524,12 @@
         <span class="mode-arrow">›</span></button>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="A">
         <span class="mode-ic ic-a">✏️</span>
-        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）だけ</span>
+        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）</span>
           <span class="mode-sub">（　）をタップして確かめる</span></span>
         <span class="mode-arrow">›</span></button></div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="B">
         <span class="mode-ic ic-b">🔥</span>
-        <span class="mode-main"><span class="mode-t">一問一答（短答）だけ</span>
+        <span class="mode-main"><span class="mode-t">一問一答（短答）</span>
           <span class="mode-sub">14問・入力して自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
@@ -526,20 +540,33 @@
       </div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="C">
         <span class="mode-ic ic-c">✅</span>
-        <span class="mode-main"><span class="mode-t">4択（選択）だけ</span>
+        <span class="mode-main"><span class="mode-t">4択（選択）</span>
           <span class="mode-sub">8問・タップで即判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
         </div>
       </div>
-      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述だけ</span><span class="mode-sub">2問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
+      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">2問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
     </div>
     <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/02/index.html#t1">📖 先に参考書で理解する</a>
       <div class="summary">約700万年前、アフリカで直立二足歩行を始めた最古の人類である<button class="blank" type="button"><span class="bno">①</span><span class="ba">猿人</span><span class="bl" style="width:2.7em"></span></button>が出現した。約200万年前には火を使うようになった<button class="blank" type="button"><span class="bno">②</span><span class="ba">原人</span><span class="bl" style="width:2.7em"></span></button>が現れ、北京原人やジャワ原人がその代表である。約20万年前には現在の人類の直接の祖先である<button class="blank" type="button"><span class="bno">③</span><span class="ba">新人</span><span class="bl" style="width:2.7em"></span></button>（ホモ・サピエンス）が出現した。打製石器を使い狩猟・採集で移動生活を送った時代を<button class="blank" type="button"><span class="bno">④</span><span class="ba">旧石器時代</span><span class="bl" style="width:4.5em"></span></button>といい、フランスの<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">ラスコー</span><span class="bl" style="width:3.6em"></span></button>やスペインのアルタミラでは見事な洞窟壁画が残された。約1万年前になると、みがいて仕上げた<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">磨製石器</span><span class="bl" style="width:3.6em"></span></button>や土器が使われ始め、農耕・牧畜が始まる<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">新石器時代</span><span class="bl" style="width:4.5em"></span></button>に入った。これにより人々は移動をやめて村をつくる<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">定住生活</span><span class="bl" style="width:3.6em"></span></button>を営むようになった。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step mb-step" data-label="短答のやり方" data-sec="MB">
+      <div class="sec-h"><span class="sec-tag">▶</span>ここからは一問一答<span class="sec-note">答え合わせのやり方をえらぼう</span></div>
+      <button class="mode-btn mb-pick" type="button" data-ansall="type">
+        <span class="mode-ic ic-b">⌨️</span>
+        <span class="mode-main"><span class="mode-t">入力して答え合わせ</span>
+          <span class="mode-sub">こたえを打つと自動で正誤判定</span></span>
+        <span class="mode-arrow">›</span></button>
+      <button class="mode-btn mb-pick" type="button" data-ansall="check">
+        <span class="mode-ic ic-a">👀</span>
+        <span class="mode-main"><span class="mode-t">答えを見て自己採点</span>
+          <span class="mode-sub">こたえを見て ○ △ をタップ</span></span>
+        <span class="mode-arrow">›</span></button>
     </div>
     <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-human-origins-1" data-kind="qa" data-sec="B" data-a="猿人" data-r="えんじん">
       <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 14</span></span></div>
@@ -1100,12 +1127,12 @@
         <span class="mode-arrow">›</span></button>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="A">
         <span class="mode-ic ic-a">✏️</span>
-        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）だけ</span>
+        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）</span>
           <span class="mode-sub">（　）をタップして確かめる</span></span>
         <span class="mode-arrow">›</span></button></div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="B">
         <span class="mode-ic ic-b">🔥</span>
-        <span class="mode-main"><span class="mode-t">一問一答（短答）だけ</span>
+        <span class="mode-main"><span class="mode-t">一問一答（短答）</span>
           <span class="mode-sub">14問・入力して自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
@@ -1116,20 +1143,33 @@
       </div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="C">
         <span class="mode-ic ic-c">✅</span>
-        <span class="mode-main"><span class="mode-t">4択（選択）だけ</span>
+        <span class="mode-main"><span class="mode-t">4択（選択）</span>
           <span class="mode-sub">8問・タップで即判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
         </div>
       </div>
-      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述だけ</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
+      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
     </div>
     <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/02/index.html#t2">📖 先に参考書で理解する</a>
       <div class="summary">大河のほとりでは、都市や文字を持つ高度な社会である文明が発達した。チグリス・ユーフラテス川流域には<button class="blank" type="button"><span class="bno">①</span><span class="ba">メソポタミア文明</span><span class="bl" style="width:7.2em"></span></button>が起こり、粘土板に刻む<button class="blank" type="button"><span class="bno">②</span><span class="ba">くさび形文字</span><span class="bl" style="width:5.4em"></span></button>や月の満ち欠けを基準にした太陰暦、時間や角度のもとになった60進法が生み出された。紀元前18世紀ごろ、バビロニアの王が定めた<button class="blank" type="button"><span class="bno">③</span><span class="ba">ハンムラビ法典</span><span class="bl" style="width:6.3em"></span></button>は「目には目を」の言葉で知られる。ナイル川流域に発達した<button class="blank" type="button"><span class="bno">④</span><span class="ba">エジプト文明</span><span class="bl" style="width:5.4em"></span></button>では、王である<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">ファラオ</span><span class="bl" style="width:3.6em"></span></button>の墓として巨大な<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">ピラミッド</span><span class="bl" style="width:4.5em"></span></button>が築かれ、絵のような<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">象形文字</span><span class="bl" style="width:3.6em"></span></button>（ヒエログリフ）も使われた。インダス川流域に栄えた<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">インダス文明</span><span class="bl" style="width:5.4em"></span></button>では、モヘンジョ＝ダロなど整然とした街路を持つ計画都市が造られたが、のちに侵入した<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">アーリヤ人</span><span class="bl" style="width:4.5em"></span></button>によって身分制度のもとがつくられた。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step mb-step" data-label="短答のやり方" data-sec="MB">
+      <div class="sec-h"><span class="sec-tag">▶</span>ここからは一問一答<span class="sec-note">答え合わせのやり方をえらぼう</span></div>
+      <button class="mode-btn mb-pick" type="button" data-ansall="type">
+        <span class="mode-ic ic-b">⌨️</span>
+        <span class="mode-main"><span class="mode-t">入力して答え合わせ</span>
+          <span class="mode-sub">こたえを打つと自動で正誤判定</span></span>
+        <span class="mode-arrow">›</span></button>
+      <button class="mode-btn mb-pick" type="button" data-ansall="check">
+        <span class="mode-ic ic-a">👀</span>
+        <span class="mode-main"><span class="mode-t">答えを見て自己採点</span>
+          <span class="mode-sub">こたえを見て ○ △ をタップ</span></span>
+        <span class="mode-arrow">›</span></button>
     </div>
     <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-ancient-civilizations-1" data-kind="qa" data-sec="B" data-a="文明" data-r="ぶんめい">
       <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 14</span></span></div>
@@ -1712,12 +1752,12 @@
         <span class="mode-arrow">›</span></button>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="A">
         <span class="mode-ic ic-a">✏️</span>
-        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）だけ</span>
+        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）</span>
           <span class="mode-sub">（　）をタップして確かめる</span></span>
         <span class="mode-arrow">›</span></button></div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="B">
         <span class="mode-ic ic-b">🔥</span>
-        <span class="mode-main"><span class="mode-t">一問一答（短答）だけ</span>
+        <span class="mode-main"><span class="mode-t">一問一答（短答）</span>
           <span class="mode-sub">14問・入力して自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
@@ -1728,20 +1768,33 @@
       </div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="C">
         <span class="mode-ic ic-c">✅</span>
-        <span class="mode-main"><span class="mode-t">4択（選択）だけ</span>
+        <span class="mode-main"><span class="mode-t">4択（選択）</span>
           <span class="mode-sub">8問・タップで即判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
         </div>
       </div>
-      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述だけ</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
+      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
     </div>
     <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/02/index.html#t3">📖 先に参考書で理解する</a>
       <div class="summary">黄河や長江の流域でおこった中国文明では、殷で亀の甲羅や牛の骨に占いの結果を記す<button class="blank" type="button"><span class="bno">①</span><span class="ba">甲骨文字</span><span class="bl" style="width:3.6em"></span></button>が使われ、のちの漢字のもとになった。殷を滅ぼした周の支配が弱まると、多くの国が争う<button class="blank" type="button"><span class="bno">②</span><span class="ba">春秋戦国時代</span><span class="bl" style="width:5.4em"></span></button>となり、思想家が活躍した。<button class="blank" type="button"><span class="bno">③</span><span class="ba">孔子</span><span class="bl" style="width:2.7em"></span></button>は「仁」と「礼」を説き、その教えは弟子がまとめた<button class="blank" type="button"><span class="bno">④</span><span class="ba">論語</span><span class="bl" style="width:2.7em"></span></button>にしるされ、儒教のもとになった。紀元前221年、<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">始皇帝</span><span class="bl" style="width:2.7em"></span></button>は中国を初めて統一して「皇帝」の称号を用い、文字や度量衡を統一し、北方民族の侵入を防ぐ<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">万里の長城</span><span class="bl" style="width:4.5em"></span></button>を築いた。しかし厳しい政治への反発から秦は短期間で滅び、劉邦が建てた<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">漢</span><span class="bl" style="width:2.7em"></span></button>では儒教が国の学問となり、西方と結ぶ交易路である<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">シルクロード</span><span class="bl" style="width:5.4em"></span></button>を通じて絹などが運ばれた。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step mb-step" data-label="短答のやり方" data-sec="MB">
+      <div class="sec-h"><span class="sec-tag">▶</span>ここからは一問一答<span class="sec-note">答え合わせのやり方をえらぼう</span></div>
+      <button class="mode-btn mb-pick" type="button" data-ansall="type">
+        <span class="mode-ic ic-b">⌨️</span>
+        <span class="mode-main"><span class="mode-t">入力して答え合わせ</span>
+          <span class="mode-sub">こたえを打つと自動で正誤判定</span></span>
+        <span class="mode-arrow">›</span></button>
+      <button class="mode-btn mb-pick" type="button" data-ansall="check">
+        <span class="mode-ic ic-a">👀</span>
+        <span class="mode-main"><span class="mode-t">答えを見て自己採点</span>
+          <span class="mode-sub">こたえを見て ○ △ をタップ</span></span>
+        <span class="mode-arrow">›</span></button>
     </div>
     <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-chinese-civilization-1" data-kind="qa" data-sec="B" data-a="中国文明" data-r="中国ぶんめい">
       <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 14</span></span></div>
@@ -2319,12 +2372,12 @@
         <span class="mode-arrow">›</span></button>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="A">
         <span class="mode-ic ic-a">✏️</span>
-        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）だけ</span>
+        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）</span>
           <span class="mode-sub">（　）をタップして確かめる</span></span>
         <span class="mode-arrow">›</span></button></div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="B">
         <span class="mode-ic ic-b">🔥</span>
-        <span class="mode-main"><span class="mode-t">一問一答（短答）だけ</span>
+        <span class="mode-main"><span class="mode-t">一問一答（短答）</span>
           <span class="mode-sub">14問・入力して自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
@@ -2335,20 +2388,33 @@
       </div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="C">
         <span class="mode-ic ic-c">✅</span>
-        <span class="mode-main"><span class="mode-t">4択（選択）だけ</span>
+        <span class="mode-main"><span class="mode-t">4択（選択）</span>
           <span class="mode-sub">8問・タップで即判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
         </div>
       </div>
-      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述だけ</span><span class="mode-sub">2問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
+      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">2問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
     </div>
     <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/02/index.html#t4">📖 先に参考書で理解する</a>
       <div class="summary">古代ギリシャでは、都市を中心に独立した政治を行う<button class="blank" type="button"><span class="bno">①</span><span class="ba">ポリス</span><span class="bl" style="width:2.7em"></span></button>が数多く形成された。中でもアテネでは成年男性の市民が民会に直接参加する<button class="blank" type="button"><span class="bno">②</span><span class="ba">直接民主政</span><span class="bl" style="width:4.5em"></span></button>が行われ、紀元前5世紀にはポリスの連合軍が<button class="blank" type="button"><span class="bno">③</span><span class="ba">ペルシャ戦争</span><span class="bl" style="width:5.4em"></span></button>で西アジアの大国ペルシャを撃退した。紀元前4世紀には<button class="blank" type="button"><span class="bno">④</span><span class="ba">アレクサンドロス大王</span><span class="bl" style="width:9.0em"></span></button>が東方へ遠征し、ギリシャと東方の文化が融合した<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">ヘレニズム文化</span><span class="bl" style="width:6.3em"></span></button>が生まれた。一方ローマでは、王を置かず市民の代表が話し合う<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">共和政</span><span class="bl" style="width:2.7em"></span></button>がおよそ500年続いたのち、皇帝が支配する<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">帝政</span><span class="bl" style="width:2.7em"></span></button>に移った。ローマ帝国は各地に水を運ぶ水道橋やおよそ5万人を収容する巨大な円形闘技場コロッセオを築き、市民の権利を定めた<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">ローマ法</span><span class="bl" style="width:3.6em"></span></button>を整えた。395年に帝国は東西に分裂し、476年には<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">西ローマ帝国</span><span class="bl" style="width:5.4em"></span></button>が滅亡した。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step mb-step" data-label="短答のやり方" data-sec="MB">
+      <div class="sec-h"><span class="sec-tag">▶</span>ここからは一問一答<span class="sec-note">答え合わせのやり方をえらぼう</span></div>
+      <button class="mode-btn mb-pick" type="button" data-ansall="type">
+        <span class="mode-ic ic-b">⌨️</span>
+        <span class="mode-main"><span class="mode-t">入力して答え合わせ</span>
+          <span class="mode-sub">こたえを打つと自動で正誤判定</span></span>
+        <span class="mode-arrow">›</span></button>
+      <button class="mode-btn mb-pick" type="button" data-ansall="check">
+        <span class="mode-ic ic-a">👀</span>
+        <span class="mode-main"><span class="mode-t">答えを見て自己採点</span>
+          <span class="mode-sub">こたえを見て ○ △ をタップ</span></span>
+        <span class="mode-arrow">›</span></button>
     </div>
     <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-greece-rome-1" data-kind="qa" data-sec="B" data-a="ポリス" data-r="ポリス">
       <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 14</span></span></div>
@@ -2909,12 +2975,12 @@
         <span class="mode-arrow">›</span></button>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="A">
         <span class="mode-ic ic-a">✏️</span>
-        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）だけ</span>
+        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）</span>
           <span class="mode-sub">（　）をタップして確かめる</span></span>
         <span class="mode-arrow">›</span></button></div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="B">
         <span class="mode-ic ic-b">🔥</span>
-        <span class="mode-main"><span class="mode-t">一問一答（短答）だけ</span>
+        <span class="mode-main"><span class="mode-t">一問一答（短答）</span>
           <span class="mode-sub">14問・入力して自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
@@ -2925,20 +2991,33 @@
       </div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="C">
         <span class="mode-ic ic-c">✅</span>
-        <span class="mode-main"><span class="mode-t">4択（選択）だけ</span>
+        <span class="mode-main"><span class="mode-t">4択（選択）</span>
           <span class="mode-sub">8問・タップで即判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
         </div>
       </div>
-      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述だけ</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
+      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
     </div>
     <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/02/index.html#t5">📖 先に参考書で理解する</a>
       <div class="summary">仏教・キリスト教・イスラームを合わせて<button class="blank" type="button"><span class="bno">①</span><span class="ba">三大宗教</span><span class="bl" style="width:3.6em"></span></button>という。紀元前5世紀頃、インドで<button class="blank" type="button"><span class="bno">②</span><span class="ba">シャカ</span><span class="bl" style="width:2.7em"></span></button>が人々を苦しみから救う教えを説いて仏教を開いた。1世紀のパレスチナでは、<button class="blank" type="button"><span class="bno">③</span><span class="ba">イエス</span><span class="bl" style="width:2.7em"></span></button>が神の愛による救いを説き、その教えは弟子らによって<button class="blank" type="button"><span class="bno">④</span><span class="ba">キリスト教</span><span class="bl" style="width:4.5em"></span></button>としてまとめられた。キリスト教は当初ローマ帝国から迫害されたが、4世紀末には国教となった。7世紀のアラビア半島では<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">ムハンマド</span><span class="bl" style="width:4.5em"></span></button>が唯一神アッラーを信じる<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">イスラーム</span><span class="bl" style="width:4.5em"></span></button>を開き、聖典である<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">クルアーン</span><span class="bl" style="width:4.5em"></span></button>（コーラン）がまとめられた。信者はメッカにあるカーバ神殿の方角に向かって1日5回の礼拝を行う。なお、これらより古くから伝わる<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">ユダヤ教</span><span class="bl" style="width:3.6em"></span></button>は唯一の神だけを信じる一神教の先駆けであり、<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">エルサレム</span><span class="bl" style="width:4.5em"></span></button>は三つの宗教に共通する聖地となっている。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step mb-step" data-label="短答のやり方" data-sec="MB">
+      <div class="sec-h"><span class="sec-tag">▶</span>ここからは一問一答<span class="sec-note">答え合わせのやり方をえらぼう</span></div>
+      <button class="mode-btn mb-pick" type="button" data-ansall="type">
+        <span class="mode-ic ic-b">⌨️</span>
+        <span class="mode-main"><span class="mode-t">入力して答え合わせ</span>
+          <span class="mode-sub">こたえを打つと自動で正誤判定</span></span>
+        <span class="mode-arrow">›</span></button>
+      <button class="mode-btn mb-pick" type="button" data-ansall="check">
+        <span class="mode-ic ic-a">👀</span>
+        <span class="mode-main"><span class="mode-t">答えを見て自己採点</span>
+          <span class="mode-sub">こたえを見て ○ △ をタップ</span></span>
+        <span class="mode-arrow">›</span></button>
     </div>
     <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-world-religions-1" data-kind="qa" data-sec="B" data-a="三大宗教" data-r="さんだいしゅうきょう">
       <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 14</span></span></div>
@@ -3767,10 +3846,14 @@
     } else {
       var steps = stepsOf(t);
       // 一問一答「入力して判定」モードのときだけ入力UIを出す（CSS は .ans-type 起点）
+      // おすすめ順（all）は、短答手前の MB ステップで選んだ ansAll に従う。
       var cfgB = modeCfg(t);
       views[t].classList.toggle(
         'ans-type',
-        !!(cfgB && (cfgB.mode === 'B' || cfgB.mode === 'wrong') && cfgB.ans !== 'check')
+        !!(cfgB && (
+          ((cfgB.mode === 'B' || cfgB.mode === 'wrong') && cfgB.ans !== 'check')
+          || (cfgB.mode === 'all' && cfgB.ansAll === 'type')
+        ))
       );
       // 問題の切り替えは即時（めくりアニメ無し）。リズムよく次々と解けるように。
       domSteps(t).forEach(function (el) {
@@ -3895,6 +3978,16 @@
       [].forEach.call(chipBtn.parentElement.querySelectorAll('.opt-chip'), function (b) {
         b.classList.toggle('on', b === chipBtn);
       });
+      return;
+    }
+    // おすすめ順の「短答のやり方」選択（.mb-pick は .mode-btn でもあるので先に処理）
+    var pick = e.target.closest('.mb-pick');
+    if (pick) {
+      var pt = state.t;
+      var pcfg = modeCfg(pt) || { mode: 'all' };
+      pcfg.ansAll = pick.dataset.ansall;   // 'type'=入力して判定 / 'check'=見て自己採点
+      var pst = store(); pst['m' + pt] = pcfg; save(pst);
+      go(pt, state.s + 1, 1);              // 次（最初の一問一答）へ。render() で入力/確認が切り替わる
       return;
     }
     var mb = e.target.closest('.mode-btn');

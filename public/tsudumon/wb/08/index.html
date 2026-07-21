@@ -139,9 +139,21 @@
   .toc-h { font-weight:bold; color:var(--deep); font-size:16px; display:flex; align-items:center; gap:8px; }
   .toc-h::before { content:"📖"; display:inline-flex; align-items:center; justify-content:center;
                    width:30px; height:30px; border-radius:50%; background:var(--brand); font-size:15px; }
-  .toc-cal { flex:none; border:1.5px solid var(--line); background:#fff; color:var(--brand);
-             font-weight:bold; border-radius:20px; padding:6px 12px; font-size:12px; cursor:pointer;
-             font-family:inherit; white-space:nowrap; box-shadow:0 2px 0 #f0e2c3; }
+  /* 「年表でチェック」へ飛ぶボタン。押せると気づかれるよう塗り＋矢印＋押し込み影で目立たせる */
+  .toc-cal { flex:none; border:none; background:linear-gradient(#fbbf24,#f59e0b); color:#fff;
+             font-weight:bold; border-radius:20px; padding:8px 8px 8px 14px; font-size:12.5px;
+             cursor:pointer; font-family:inherit; white-space:nowrap;
+             display:inline-flex; align-items:center; gap:6px;
+             box-shadow:0 3px 0 #c2740a, 0 4px 8px rgba(217,119,6,.3);
+             transition:transform .12s, box-shadow .12s, filter .12s; }
+  @media (hover:hover) {
+    .toc-cal:hover { transform:translateY(-2px); filter:brightness(1.06);
+                     box-shadow:0 5px 0 #c2740a, 0 7px 12px rgba(217,119,6,.38); }
+    .toc-cal:hover .cal-go { background:rgba(255,255,255,.55); }
+  }
+  .toc-cal:active { transform:translateY(2px); box-shadow:0 1px 0 #c2740a; }
+  .cal-go { display:inline-flex; align-items:center; justify-content:center; width:18px; height:18px;
+            border-radius:50%; background:rgba(255,255,255,.35); font-size:14px; line-height:1; }
   /* 単元カード（大きめサムネ＋番号＋名前＋右矢印） */
   .toc-item { display:flex; align-items:center; width:100%; margin-bottom:8px; padding:0;
               background:#fff; border:1.5px solid #f0e2c3; border-radius:12px; overflow:hidden;
@@ -415,6 +427,9 @@
     .bar, .navbar, .resume, .reveal, .marks, .reveal-all-row, .w-input, .line-mini,
     .big-btn, .qa-expl, .expl, .tap-hint, .toc-state, .home-howto, .howto, .m-btns { display:none !important; }
     .mode-step, .qa-batch-step, .b-inrow, .b-idk, .b-batch-judge, .b-result { display:none !important; }
+    /* 問題選択・短答のやり方・結果などの操作用ページは紙に出さない（問題と解答だけ印刷） */
+    .mode-step, .mb-step, .done-step, .next-modes, .chip-mode, .print-btn,
+    .retry-btn, .home-btn, .wrong-btn { display:none !important; }
     .print-only { display:block !important; }
     .view { display:block !important; }
     .step { display:block !important; margin-bottom:14px; break-inside:avoid; }
@@ -473,12 +488,11 @@
     </div>
     <div class="ht-mascot"><img class="wchar" src="img/characters_char_manabi_sm.png" alt=""><span class="ht-bubble">いっしょに<br>がんばろう！</span></div>
   </header>
-  <div class="howto home-howto"><span class="hint-ic">💡</span><span>タブか下のリストから単元を選ぼう！<br>やり方（おすすめ順・穴埋め・一問一答・4択・記述）は単元を開いてから選べるよ。</span></div>
   <button class="resume" id="resumeBtn" hidden>▶ つづきから解く<span id="resumeWhere"></span></button>
   <nav class="toc">
     <div class="toc-head">
-      <div class="toc-h">この単元</div>
-      <button class="toc-cal" data-go="1">📅 年表でチェック</button>
+      <div class="toc-h">単元を選択</div>
+      <button class="toc-cal" data-go="1">📅 年表でチェック<span class="cal-go">›</span></button>
     </div>
     <button class="toc-item" data-go="2"><img class="toc-thumb" src="img/reference_hist08-edo.webp" alt="" loading="lazy"><span class="toc-no">1</span><span class="toc-name">江戸幕府の成立</span><span class="toc-state" data-state-t="2"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="3"><img class="toc-thumb" src="img/reference_hist08-sakoku.webp" alt="" loading="lazy"><span class="toc-no">2</span><span class="toc-name">鎖国への道</span><span class="toc-state" data-state-t="3"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="4"><img class="toc-thumb" src="img/reference_hist08-foreign-relations-edo.webp" alt="" loading="lazy"><span class="toc-no">3</span><span class="toc-name">鎖国下の対外関係</span><span class="toc-state" data-state-t="4"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="5"><img class="toc-thumb" src="img/reference_hist08-ryukyu-ainu.webp" alt="" loading="lazy"><span class="toc-no">4</span><span class="toc-name">琉球とアイヌ</span><span class="toc-state" data-state-t="5"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="6"><img class="toc-thumb" src="img/reference_hist08-social-classes.webp" alt="" loading="lazy"><span class="toc-no">5</span><span class="toc-name">江戸時代の身分制度</span><span class="toc-state" data-state-t="6"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="7"><img class="toc-thumb" src="img/reference_hist08-edo-politics-reforms.webp" alt="" loading="lazy"><span class="toc-no">6</span><span class="toc-name">江戸幕府政治と三大改革</span><span class="toc-state" data-state-t="7"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="8"><img class="toc-thumb" src="img/reference_hist08-edo-transport-commerce.webp" alt="" loading="lazy"><span class="toc-no">7</span><span class="toc-name">江戸の交通と商業・都市</span><span class="toc-state" data-state-t="8"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="9"><img class="toc-thumb" src="img/reference_hist08-edo-industry-society.webp" alt="" loading="lazy"><span class="toc-no">8</span><span class="toc-name">江戸の産業と社会不安</span><span class="toc-state" data-state-t="9"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="10"><img class="toc-thumb" src="img/reference_hist08-culture.webp" alt="" loading="lazy"><span class="toc-no">9</span><span class="toc-name">江戸の文化と学問・教育</span><span class="toc-state" data-state-t="10"></span><span class="toc-arrow">›</span></button>
   </nav>
@@ -510,12 +524,12 @@
         <span class="mode-arrow">›</span></button>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="A">
         <span class="mode-ic ic-a">✏️</span>
-        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）だけ</span>
+        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）</span>
           <span class="mode-sub">（　）をタップして確かめる</span></span>
         <span class="mode-arrow">›</span></button></div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="B">
         <span class="mode-ic ic-b">🔥</span>
-        <span class="mode-main"><span class="mode-t">一問一答（短答）だけ</span>
+        <span class="mode-main"><span class="mode-t">一問一答（短答）</span>
           <span class="mode-sub">14問・入力して自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
@@ -526,20 +540,33 @@
       </div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="C">
         <span class="mode-ic ic-c">✅</span>
-        <span class="mode-main"><span class="mode-t">4択（選択）だけ</span>
+        <span class="mode-main"><span class="mode-t">4択（選択）</span>
           <span class="mode-sub">8問・タップで即判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
         </div>
       </div>
-      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述だけ</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
+      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
     </div>
     <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/08/index.html#t1">📖 先に参考書で理解する</a>
       <div class="summary">1600年、<button class="blank" type="button"><span class="bno">①</span><span class="ba">徳川家康</span><span class="bl" style="width:3.6em"></span></button>は関ヶ原の戦いで石田三成らの西軍を破り、1603年に朝廷から<button class="blank" type="button"><span class="bno">②</span><span class="ba">征夷大将軍</span><span class="bl" style="width:4.5em"></span></button>に任命されて<button class="blank" type="button"><span class="bno">③</span><span class="ba">江戸幕府</span><span class="bl" style="width:3.6em"></span></button>を開いた。1614年から1615年の<button class="blank" type="button"><span class="bno">④</span><span class="ba">大坂の陣</span><span class="bl" style="width:3.6em"></span></button>で豊臣氏を滅ぼすと、幕府の支配はいっそう安定した。将軍から1万石以上の領地を与えられた武士は<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">大名</span><span class="bl" style="width:2.7em"></span></button>と呼ばれ、徳川家との関係から親藩・<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">譜代大名</span><span class="bl" style="width:3.6em"></span></button>・<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">外様大名</span><span class="bl" style="width:3.6em"></span></button>に分けられた。1615年には大名を統制する<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">武家諸法度</span><span class="bl" style="width:4.5em"></span></button>が定められ、3代将軍家光の時代には大名に江戸と領地を1年おきに行き来させる<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">参勤交代</span><span class="bl" style="width:3.6em"></span></button>が制度化された。こうして幕府が大名（藩）を統制し、藩が領地を治める<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">幕藩体制</span><span class="bl" style="width:3.6em"></span></button>が整えられた。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step mb-step" data-label="短答のやり方" data-sec="MB">
+      <div class="sec-h"><span class="sec-tag">▶</span>ここからは一問一答<span class="sec-note">答え合わせのやり方をえらぼう</span></div>
+      <button class="mode-btn mb-pick" type="button" data-ansall="type">
+        <span class="mode-ic ic-b">⌨️</span>
+        <span class="mode-main"><span class="mode-t">入力して答え合わせ</span>
+          <span class="mode-sub">こたえを打つと自動で正誤判定</span></span>
+        <span class="mode-arrow">›</span></button>
+      <button class="mode-btn mb-pick" type="button" data-ansall="check">
+        <span class="mode-ic ic-a">👀</span>
+        <span class="mode-main"><span class="mode-t">答えを見て自己採点</span>
+          <span class="mode-sub">こたえを見て ○ △ をタップ</span></span>
+        <span class="mode-arrow">›</span></button>
     </div>
     <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-edo-bakufu-1" data-kind="qa" data-sec="B" data-a="徳川家康" data-r="とくがわいえやす">
       <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 14</span></span></div>
@@ -1122,12 +1149,12 @@
         <span class="mode-arrow">›</span></button>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="A">
         <span class="mode-ic ic-a">✏️</span>
-        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）だけ</span>
+        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）</span>
           <span class="mode-sub">（　）をタップして確かめる</span></span>
         <span class="mode-arrow">›</span></button></div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="B">
         <span class="mode-ic ic-b">🔥</span>
-        <span class="mode-main"><span class="mode-t">一問一答（短答）だけ</span>
+        <span class="mode-main"><span class="mode-t">一問一答（短答）</span>
           <span class="mode-sub">14問・入力して自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
@@ -1138,20 +1165,33 @@
       </div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="C">
         <span class="mode-ic ic-c">✅</span>
-        <span class="mode-main"><span class="mode-t">4択（選択）だけ</span>
+        <span class="mode-main"><span class="mode-t">4択（選択）</span>
           <span class="mode-sub">8問・タップで即判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
         </div>
       </div>
-      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述だけ</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
+      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
     </div>
     <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/08/index.html#t2">📖 先に参考書で理解する</a>
       <div class="summary">江戸時代初め、幕府は<button class="blank" type="button"><span class="bno">①</span><span class="ba">朱印状</span><span class="bl" style="width:2.7em"></span></button>を与えた船に東南アジアと貿易を行わせる<button class="blank" type="button"><span class="bno">②</span><span class="ba">朱印船貿易</span><span class="bl" style="width:4.5em"></span></button>を奨励し、各地に日本町も生まれた。しかし1612年に<button class="blank" type="button"><span class="bno">③</span><span class="ba">禁教令</span><span class="bl" style="width:2.7em"></span></button>を出してキリスト教を禁じ、絵踏や寺請制度で信者を取りしまった。1637年には重い年貢とキリスト教弾圧に苦しむ人々が天草四郎を大将に<button class="blank" type="button"><span class="bno">④</span><span class="ba">島原・天草一揆</span><span class="bl" style="width:6.3em"></span></button>を起こし、幕府はこれを鎮圧すると禁教をいっそう強めた。1639年に<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">ポルトガル</span><span class="bl" style="width:4.5em"></span></button>船の来航を禁止し、1641年にはオランダ商館を長崎の<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">出島</span><span class="bl" style="width:2.7em"></span></button>に移して、3代将軍<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">徳川家光</span><span class="bl" style="width:3.6em"></span></button>のもとで<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">鎖国</span><span class="bl" style="width:2.7em"></span></button>が完成した。鎖国下でも長崎・対馬・薩摩・松前の四つの窓口を通じた交流は続いた。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step mb-step" data-label="短答のやり方" data-sec="MB">
+      <div class="sec-h"><span class="sec-tag">▶</span>ここからは一問一答<span class="sec-note">答え合わせのやり方をえらぼう</span></div>
+      <button class="mode-btn mb-pick" type="button" data-ansall="type">
+        <span class="mode-ic ic-b">⌨️</span>
+        <span class="mode-main"><span class="mode-t">入力して答え合わせ</span>
+          <span class="mode-sub">こたえを打つと自動で正誤判定</span></span>
+        <span class="mode-arrow">›</span></button>
+      <button class="mode-btn mb-pick" type="button" data-ansall="check">
+        <span class="mode-ic ic-a">👀</span>
+        <span class="mode-main"><span class="mode-t">答えを見て自己採点</span>
+          <span class="mode-sub">こたえを見て ○ △ をタップ</span></span>
+        <span class="mode-arrow">›</span></button>
     </div>
     <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-sakoku-1" data-kind="qa" data-sec="B" data-a="朱印船貿易" data-r="しゅいんせんぼうえき">
       <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 14</span></span></div>
@@ -1739,12 +1779,12 @@
         <span class="mode-arrow">›</span></button>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="A">
         <span class="mode-ic ic-a">✏️</span>
-        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）だけ</span>
+        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）</span>
           <span class="mode-sub">（　）をタップして確かめる</span></span>
         <span class="mode-arrow">›</span></button></div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="B">
         <span class="mode-ic ic-b">🔥</span>
-        <span class="mode-main"><span class="mode-t">一問一答（短答）だけ</span>
+        <span class="mode-main"><span class="mode-t">一問一答（短答）</span>
           <span class="mode-sub">13問・入力して自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
@@ -1755,20 +1795,33 @@
       </div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="C">
         <span class="mode-ic ic-c">✅</span>
-        <span class="mode-main"><span class="mode-t">4択（選択）だけ</span>
+        <span class="mode-main"><span class="mode-t">4択（選択）</span>
           <span class="mode-sub">8問・タップで即判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
         </div>
       </div>
-      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述だけ</span><span class="mode-sub">2問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
+      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">2問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
     </div>
     <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/08/index.html#t3">📖 先に参考書で理解する</a>
       <div class="summary">鎖国下でも幕府は四つの窓口を通じて海外と交流した。長崎では、キリスト教の布教を行わなかった<button class="blank" type="button"><span class="bno">①</span><span class="ba">オランダ</span><span class="bl" style="width:3.6em"></span></button>が<button class="blank" type="button"><span class="bno">②</span><span class="ba">出島</span><span class="bl" style="width:2.7em"></span></button>で貿易を許され、<button class="blank" type="button"><span class="bno">③</span><span class="ba">オランダ風説書</span><span class="bl" style="width:6.3em"></span></button>によって海外情報を幕府に伝えた。同じ長崎には<button class="blank" type="button"><span class="bno">④</span><span class="ba">唐人屋敷</span><span class="bl" style="width:3.6em"></span></button>が置かれ、清の商人が居住して貿易を行った。朝鮮とは<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">対馬藩</span><span class="bl" style="width:2.7em"></span></button>が窓口となり、釜山に設けた<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">倭館</span><span class="bl" style="width:2.7em"></span></button>で貿易や外交の実務を行い、将軍の代替わりには<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">朝鮮通信使</span><span class="bl" style="width:4.5em"></span></button>が江戸を訪れた。琉球とは<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">薩摩藩</span><span class="bl" style="width:2.7em"></span></button>が窓口となり、蝦夷地のアイヌとは松前藩が窓口となった。長崎貿易では、金銀の流出を防ぐため銀の代わりに<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">俵物</span><span class="bl" style="width:2.7em"></span></button>と呼ばれる海産物も輸出された。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step mb-step" data-label="短答のやり方" data-sec="MB">
+      <div class="sec-h"><span class="sec-tag">▶</span>ここからは一問一答<span class="sec-note">答え合わせのやり方をえらぼう</span></div>
+      <button class="mode-btn mb-pick" type="button" data-ansall="type">
+        <span class="mode-ic ic-b">⌨️</span>
+        <span class="mode-main"><span class="mode-t">入力して答え合わせ</span>
+          <span class="mode-sub">こたえを打つと自動で正誤判定</span></span>
+        <span class="mode-arrow">›</span></button>
+      <button class="mode-btn mb-pick" type="button" data-ansall="check">
+        <span class="mode-ic ic-a">👀</span>
+        <span class="mode-main"><span class="mode-t">答えを見て自己採点</span>
+          <span class="mode-sub">こたえを見て ○ △ をタップ</span></span>
+        <span class="mode-arrow">›</span></button>
     </div>
     <div class="step qa-step" data-label="B 一問一答 (1/13)" data-qid="qa-foreign-relations-edo-1" data-kind="qa" data-sec="B" data-a="オランダ" data-r="オランダ">
       <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 13</span></span></div>
@@ -2298,12 +2351,12 @@
         <span class="mode-arrow">›</span></button>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="A">
         <span class="mode-ic ic-a">✏️</span>
-        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）だけ</span>
+        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）</span>
           <span class="mode-sub">（　）をタップして確かめる</span></span>
         <span class="mode-arrow">›</span></button></div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="B">
         <span class="mode-ic ic-b">🔥</span>
-        <span class="mode-main"><span class="mode-t">一問一答（短答）だけ</span>
+        <span class="mode-main"><span class="mode-t">一問一答（短答）</span>
           <span class="mode-sub">14問・入力して自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
@@ -2314,20 +2367,33 @@
       </div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="C">
         <span class="mode-ic ic-c">✅</span>
-        <span class="mode-main"><span class="mode-t">4択（選択）だけ</span>
+        <span class="mode-main"><span class="mode-t">4択（選択）</span>
           <span class="mode-sub">8問・タップで即判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
         </div>
       </div>
-      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述だけ</span><span class="mode-sub">2問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
+      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">2問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
     </div>
     <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/08/index.html#t4">📖 先に参考書で理解する</a>
       <div class="summary">1609年、<button class="blank" type="button"><span class="bno">①</span><span class="ba">島津氏</span><span class="bl" style="width:2.7em"></span></button>の<button class="blank" type="button"><span class="bno">②</span><span class="ba">薩摩藩</span><span class="bl" style="width:2.7em"></span></button>は<button class="blank" type="button"><span class="bno">③</span><span class="ba">琉球王国</span><span class="bl" style="width:3.6em"></span></button>に侵攻して支配下に置いたが、独立国の形は残し、中国の品を日本へ送る<button class="blank" type="button"><span class="bno">④</span><span class="ba">中継貿易</span><span class="bl" style="width:3.6em"></span></button>の利益を独占した。琉球国王や将軍の代替わりには、薩摩藩を経由して<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">琉球使節</span><span class="bl" style="width:3.6em"></span></button>が江戸へ送られ、幕府の権威を示した。一方、北海道など蝦夷地に住む<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">アイヌ民族</span><span class="bl" style="width:4.5em"></span></button>との交易は<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">松前藩</span><span class="bl" style="width:2.7em"></span></button>が独占し、鮭・昆布・毛皮などを手に入れた。しかし不公平な交易への不満から、1669年にアイヌの首長<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">シャクシャイン</span><span class="bl" style="width:6.3em"></span></button>が松前藩に対して蜂起したものの、鎮圧されてアイヌの自治はさらに弱まった。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step mb-step" data-label="短答のやり方" data-sec="MB">
+      <div class="sec-h"><span class="sec-tag">▶</span>ここからは一問一答<span class="sec-note">答え合わせのやり方をえらぼう</span></div>
+      <button class="mode-btn mb-pick" type="button" data-ansall="type">
+        <span class="mode-ic ic-b">⌨️</span>
+        <span class="mode-main"><span class="mode-t">入力して答え合わせ</span>
+          <span class="mode-sub">こたえを打つと自動で正誤判定</span></span>
+        <span class="mode-arrow">›</span></button>
+      <button class="mode-btn mb-pick" type="button" data-ansall="check">
+        <span class="mode-ic ic-a">👀</span>
+        <span class="mode-main"><span class="mode-t">答えを見て自己採点</span>
+          <span class="mode-sub">こたえを見て ○ △ をタップ</span></span>
+        <span class="mode-arrow">›</span></button>
     </div>
     <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-ryukyu-ainu-1" data-kind="qa" data-sec="B" data-a="琉球王国" data-r="りゅうきゅうおうこく">
       <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 14</span></span></div>
@@ -2888,12 +2954,12 @@
         <span class="mode-arrow">›</span></button>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="A">
         <span class="mode-ic ic-a">✏️</span>
-        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）だけ</span>
+        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）</span>
           <span class="mode-sub">（　）をタップして確かめる</span></span>
         <span class="mode-arrow">›</span></button></div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="B">
         <span class="mode-ic ic-b">🔥</span>
-        <span class="mode-main"><span class="mode-t">一問一答（短答）だけ</span>
+        <span class="mode-main"><span class="mode-t">一問一答（短答）</span>
           <span class="mode-sub">14問・入力して自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
@@ -2904,20 +2970,33 @@
       </div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="C">
         <span class="mode-ic ic-c">✅</span>
-        <span class="mode-main"><span class="mode-t">4択（選択）だけ</span>
+        <span class="mode-main"><span class="mode-t">4択（選択）</span>
           <span class="mode-sub">8問・タップで即判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
         </div>
       </div>
-      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述だけ</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
+      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
     </div>
     <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/08/index.html#t5">📖 先に参考書で理解する</a>
       <div class="summary">江戸時代の身分は大まかに<button class="blank" type="button"><span class="bno">①</span><span class="ba">士農工商</span><span class="bl" style="width:3.6em"></span></button>と呼ばれる区分で分けられ、名字・帯刀の特権を持つ<button class="blank" type="button"><span class="bno">②</span><span class="ba">武士</span><span class="bl" style="width:2.7em"></span></button>は全人口の約7％にすぎなかったが、政治や軍事を独占した。人口の約85％を占めた<button class="blank" type="button"><span class="bno">③</span><span class="ba">百姓</span><span class="bl" style="width:2.7em"></span></button>は村に住んで年貢を納め、収穫の5割を領主に納める<button class="blank" type="button"><span class="bno">④</span><span class="ba">五公五民</span><span class="bl" style="width:3.6em"></span></button>のような重い負担を負うこともあった。百姓は5戸を1組にまとめて連帯責任を負わせる<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">五人組</span><span class="bl" style="width:2.7em"></span></button>によって統制され、土地を持つ<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">本百姓</span><span class="bl" style="width:2.7em"></span></button>と、土地を持たず小作を行う水のみ百姓に分かれていた。都市に住み商工業を営む<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">町人</span><span class="bl" style="width:2.7em"></span></button>も税を負担し、このほかにえた・<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">ひにん</span><span class="bl" style="width:2.7em"></span></button>という差別を受けた身分もあった。負担に耐えかねた百姓が集団で行動する<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">百姓一揆</span><span class="bl" style="width:3.6em"></span></button>も各地で起こった。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step mb-step" data-label="短答のやり方" data-sec="MB">
+      <div class="sec-h"><span class="sec-tag">▶</span>ここからは一問一答<span class="sec-note">答え合わせのやり方をえらぼう</span></div>
+      <button class="mode-btn mb-pick" type="button" data-ansall="type">
+        <span class="mode-ic ic-b">⌨️</span>
+        <span class="mode-main"><span class="mode-t">入力して答え合わせ</span>
+          <span class="mode-sub">こたえを打つと自動で正誤判定</span></span>
+        <span class="mode-arrow">›</span></button>
+      <button class="mode-btn mb-pick" type="button" data-ansall="check">
+        <span class="mode-ic ic-a">👀</span>
+        <span class="mode-main"><span class="mode-t">答えを見て自己採点</span>
+          <span class="mode-sub">こたえを見て ○ △ をタップ</span></span>
+        <span class="mode-arrow">›</span></button>
     </div>
     <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-social-classes-1" data-kind="qa" data-sec="B" data-a="士農工商" data-r="しのうこうしょう">
       <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 14</span></span></div>
@@ -3495,12 +3574,12 @@
         <span class="mode-arrow">›</span></button>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="A">
         <span class="mode-ic ic-a">✏️</span>
-        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）だけ</span>
+        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）</span>
           <span class="mode-sub">（　）をタップして確かめる</span></span>
         <span class="mode-arrow">›</span></button></div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="B">
         <span class="mode-ic ic-b">🔥</span>
-        <span class="mode-main"><span class="mode-t">一問一答（短答）だけ</span>
+        <span class="mode-main"><span class="mode-t">一問一答（短答）</span>
           <span class="mode-sub">11問・入力して自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
@@ -3511,20 +3590,33 @@
       </div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="C">
         <span class="mode-ic ic-c">✅</span>
-        <span class="mode-main"><span class="mode-t">4択（選択）だけ</span>
+        <span class="mode-main"><span class="mode-t">4択（選択）</span>
           <span class="mode-sub">8問・タップで即判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
         </div>
       </div>
-      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述だけ</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
+      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
     </div>
     <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/08/index.html#t6">📖 先に参考書で理解する</a>
       <div class="summary">戦乱が終わった江戸前期には、武力ではなく儒学や法を重んじる<button class="blank" type="button"><span class="bno">①</span><span class="ba">文治政治</span><span class="bl" style="width:3.6em"></span></button>が進められた。5代将軍<button class="blank" type="button"><span class="bno">②</span><span class="ba">徳川綱吉</span><span class="bl" style="width:3.6em"></span></button>は朱子学を重視して生類憐みの令を出し、6・7代将軍に仕えた<button class="blank" type="button"><span class="bno">③</span><span class="ba">新井白石</span><span class="bl" style="width:3.6em"></span></button>は貨幣の質を戻し長崎貿易を制限する<button class="blank" type="button"><span class="bno">④</span><span class="ba">正徳の治</span><span class="bl" style="width:3.6em"></span></button>を行った。老中<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">田沼意次</span><span class="bl" style="width:3.6em"></span></button>は株仲間を奨励して商業の力で幕府収入を増やそうとしたが、わいろ政治と批判された。その後、8代将軍徳川吉宗の<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">享保の改革</span><span class="bl" style="width:4.5em"></span></button>、老中<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">松平定信</span><span class="bl" style="width:3.6em"></span></button>による<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">寛政の改革</span><span class="bl" style="width:4.5em"></span></button>、老中水野忠邦による<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">天保の改革</span><span class="bl" style="width:4.5em"></span></button>という江戸の三大改革が行われ、いずれも幕府財政の立て直しや社会の引きしめをめざした。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step mb-step" data-label="短答のやり方" data-sec="MB">
+      <div class="sec-h"><span class="sec-tag">▶</span>ここからは一問一答<span class="sec-note">答え合わせのやり方をえらぼう</span></div>
+      <button class="mode-btn mb-pick" type="button" data-ansall="type">
+        <span class="mode-ic ic-b">⌨️</span>
+        <span class="mode-main"><span class="mode-t">入力して答え合わせ</span>
+          <span class="mode-sub">こたえを打つと自動で正誤判定</span></span>
+        <span class="mode-arrow">›</span></button>
+      <button class="mode-btn mb-pick" type="button" data-ansall="check">
+        <span class="mode-ic ic-a">👀</span>
+        <span class="mode-main"><span class="mode-t">答えを見て自己採点</span>
+          <span class="mode-sub">こたえを見て ○ △ をタップ</span></span>
+        <span class="mode-arrow">›</span></button>
     </div>
     <div class="step qa-step" data-label="B 一問一答 (1/11)" data-qid="qa-edo-politics-reforms-1" data-kind="qa" data-sec="B" data-a="文治政治" data-r="ぶんちせいじ">
       <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 11</span></span></div>
@@ -4009,12 +4101,12 @@
         <span class="mode-arrow">›</span></button>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="A">
         <span class="mode-ic ic-a">✏️</span>
-        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）だけ</span>
+        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）</span>
           <span class="mode-sub">（　）をタップして確かめる</span></span>
         <span class="mode-arrow">›</span></button></div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="B">
         <span class="mode-ic ic-b">🔥</span>
-        <span class="mode-main"><span class="mode-t">一問一答（短答）だけ</span>
+        <span class="mode-main"><span class="mode-t">一問一答（短答）</span>
           <span class="mode-sub">13問・入力して自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
@@ -4025,20 +4117,33 @@
       </div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="C">
         <span class="mode-ic ic-c">✅</span>
-        <span class="mode-main"><span class="mode-t">4択（選択）だけ</span>
+        <span class="mode-main"><span class="mode-t">4択（選択）</span>
           <span class="mode-sub">8問・タップで即判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
         </div>
       </div>
-      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述だけ</span><span class="mode-sub">2問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
+      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">2問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
     </div>
     <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/08/index.html#t7">📖 先に参考書で理解する</a>
       <div class="summary">幕府は江戸の日本橋を起点に東海道など五つの道をまとめた<button class="blank" type="button"><span class="bno">①</span><span class="ba">五街道</span><span class="bl" style="width:2.7em"></span></button>を整備し、街道沿いには旅人や大名行列が泊まる<button class="blank" type="button"><span class="bno">②</span><span class="ba">宿場町</span><span class="bl" style="width:2.7em"></span></button>が発達した。人や物の通行を取りしまる<button class="blank" type="button"><span class="bno">③</span><span class="ba">関所</span><span class="bl" style="width:2.7em"></span></button>も置かれ、手紙や荷物を運ぶ<button class="blank" type="button"><span class="bno">④</span><span class="ba">飛脚</span><span class="bl" style="width:2.7em"></span></button>のしくみも発達した。海上では東北地方と江戸を結ぶ<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">東廻り航路</span><span class="bl" style="width:4.5em"></span></button>や、大坂から江戸へ酒を運ぶ<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">樽廻船</span><span class="bl" style="width:2.7em"></span></button>などの水上交通も発展した。江戸・大坂・京都は<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">三都</span><span class="bl" style="width:2.7em"></span></button>と呼ばれ、なかでも大坂は諸藩が<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">蔵屋敷</span><span class="bl" style="width:2.7em"></span></button>を置いて年貢米や特産物を集めたことから「<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">天下の台所</span><span class="bl" style="width:4.5em"></span></button>」と呼ばれた。商業の発展にともない、金貨・銀貨を交換する<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">両替商</span><span class="bl" style="width:2.7em"></span></button>も活躍した。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step mb-step" data-label="短答のやり方" data-sec="MB">
+      <div class="sec-h"><span class="sec-tag">▶</span>ここからは一問一答<span class="sec-note">答え合わせのやり方をえらぼう</span></div>
+      <button class="mode-btn mb-pick" type="button" data-ansall="type">
+        <span class="mode-ic ic-b">⌨️</span>
+        <span class="mode-main"><span class="mode-t">入力して答え合わせ</span>
+          <span class="mode-sub">こたえを打つと自動で正誤判定</span></span>
+        <span class="mode-arrow">›</span></button>
+      <button class="mode-btn mb-pick" type="button" data-ansall="check">
+        <span class="mode-ic ic-a">👀</span>
+        <span class="mode-main"><span class="mode-t">答えを見て自己採点</span>
+          <span class="mode-sub">こたえを見て ○ △ をタップ</span></span>
+        <span class="mode-arrow">›</span></button>
     </div>
     <div class="step qa-step" data-label="B 一問一答 (1/13)" data-qid="qa-edo-transport-commerce-1" data-kind="qa" data-sec="B" data-a="五街道" data-r="ごかいどう">
       <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 13</span></span></div>
@@ -4568,12 +4673,12 @@
         <span class="mode-arrow">›</span></button>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="A">
         <span class="mode-ic ic-a">✏️</span>
-        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）だけ</span>
+        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）</span>
           <span class="mode-sub">（　）をタップして確かめる</span></span>
         <span class="mode-arrow">›</span></button></div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="B">
         <span class="mode-ic ic-b">🔥</span>
-        <span class="mode-main"><span class="mode-t">一問一答（短答）だけ</span>
+        <span class="mode-main"><span class="mode-t">一問一答（短答）</span>
           <span class="mode-sub">14問・入力して自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
@@ -4584,20 +4689,33 @@
       </div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="C">
         <span class="mode-ic ic-c">✅</span>
-        <span class="mode-main"><span class="mode-t">4択（選択）だけ</span>
+        <span class="mode-main"><span class="mode-t">4択（選択）</span>
           <span class="mode-sub">8問・タップで即判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
         </div>
       </div>
-      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述だけ</span><span class="mode-sub">2問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
+      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">2問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
     </div>
     <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/08/index.html#t8">📖 先に参考書で理解する</a>
       <div class="summary">幕府や藩は年貢収入を増やすため干拓や用水路の整備を進めて<button class="blank" type="button"><span class="bno">①</span><span class="ba">新田開発</span><span class="bl" style="width:3.6em"></span></button>を行い、耕地面積は大きく広がった。農村では木綿や菜種など、売って現金収入を得るための<button class="blank" type="button"><span class="bno">②</span><span class="ba">商品作物</span><span class="bl" style="width:3.6em"></span></button>の栽培が広がり、いわしを干して作った肥料の<button class="blank" type="button"><span class="bno">③</span><span class="ba">干鰯</span><span class="bl" style="width:2.7em"></span></button>も使われた。問屋が農家に原料や道具を貸して製品を作らせる<button class="blank" type="button"><span class="bno">④</span><span class="ba">問屋制家内工業</span><span class="bl" style="width:6.3em"></span></button>も発達し、佐渡金山などの<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">鉱山</span><span class="bl" style="width:2.7em"></span></button>は幕府財政を支えた。しかし江戸後期には冷害による<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">ききん</span><span class="bl" style="width:2.7em"></span></button>が相次ぎ、農民が年貢の軽減などを求める<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">百姓一揆</span><span class="bl" style="width:3.6em"></span></button>や、都市の民衆が米を買いしめた商人を襲う<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">打ちこわし</span><span class="bl" style="width:4.5em"></span></button>が増えた。1837年には大坂で元役人の<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">大塩平八郎</span><span class="bl" style="width:4.5em"></span></button>の乱も起こった。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step mb-step" data-label="短答のやり方" data-sec="MB">
+      <div class="sec-h"><span class="sec-tag">▶</span>ここからは一問一答<span class="sec-note">答え合わせのやり方をえらぼう</span></div>
+      <button class="mode-btn mb-pick" type="button" data-ansall="type">
+        <span class="mode-ic ic-b">⌨️</span>
+        <span class="mode-main"><span class="mode-t">入力して答え合わせ</span>
+          <span class="mode-sub">こたえを打つと自動で正誤判定</span></span>
+        <span class="mode-arrow">›</span></button>
+      <button class="mode-btn mb-pick" type="button" data-ansall="check">
+        <span class="mode-ic ic-a">👀</span>
+        <span class="mode-main"><span class="mode-t">答えを見て自己採点</span>
+          <span class="mode-sub">こたえを見て ○ △ をタップ</span></span>
+        <span class="mode-arrow">›</span></button>
     </div>
     <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-edo-industry-society-1" data-kind="qa" data-sec="B" data-a="新田開発" data-r="しんでんかいはつ">
       <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 14</span></span></div>
@@ -5158,12 +5276,12 @@
         <span class="mode-arrow">›</span></button>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="A">
         <span class="mode-ic ic-a">✏️</span>
-        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）だけ</span>
+        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）</span>
           <span class="mode-sub">（　）をタップして確かめる</span></span>
         <span class="mode-arrow">›</span></button></div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="B">
         <span class="mode-ic ic-b">🔥</span>
-        <span class="mode-main"><span class="mode-t">一問一答（短答）だけ</span>
+        <span class="mode-main"><span class="mode-t">一問一答（短答）</span>
           <span class="mode-sub">14問・入力して自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
@@ -5174,20 +5292,33 @@
       </div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="C">
         <span class="mode-ic ic-c">✅</span>
-        <span class="mode-main"><span class="mode-t">4択（選択）だけ</span>
+        <span class="mode-main"><span class="mode-t">4択（選択）</span>
           <span class="mode-sub">8問・タップで即判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
         </div>
       </div>
-      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述だけ</span><span class="mode-sub">2問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
+      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">2問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
     </div>
     <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/08/index.html#t9">📖 先に参考書で理解する</a>
       <div class="summary">17世紀後半、大坂や京都など上方を中心に町人が担った<button class="blank" type="button"><span class="bno">①</span><span class="ba">元禄文化</span><span class="bl" style="width:3.6em"></span></button>が栄え、俳諧を芸術に高めた<button class="blank" type="button"><span class="bno">②</span><span class="ba">松尾芭蕉</span><span class="bl" style="width:3.6em"></span></button>や、人形浄瑠璃の脚本を書いた<button class="blank" type="button"><span class="bno">③</span><span class="ba">近松門左衛門</span><span class="bl" style="width:5.4em"></span></button>らが活躍した。19世紀前半には江戸を中心に庶民文化の<button class="blank" type="button"><span class="bno">④</span><span class="ba">化政文化</span><span class="bl" style="width:3.6em"></span></button>が広がり、葛飾北斎や歌川広重による風景画の<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">浮世絵</span><span class="bl" style="width:2.7em"></span></button>が人気を集めた。学問では、幕府が重んじた儒学の一派である<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">朱子学</span><span class="bl" style="width:2.7em"></span></button>のほか、オランダ語で西洋の医学や科学を学ぶ<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">蘭学</span><span class="bl" style="width:2.7em"></span></button>、日本古来の考え方を明らかにしようとする<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">国学</span><span class="bl" style="width:2.7em"></span></button>が発展した。杉田玄白らは1774年に西洋医学書<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">解体新書</span><span class="bl" style="width:3.6em"></span></button>を出版し、庶民の子どもは<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">寺子屋</span><span class="bl" style="width:2.7em"></span></button>で読み書きを学んだ。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step mb-step" data-label="短答のやり方" data-sec="MB">
+      <div class="sec-h"><span class="sec-tag">▶</span>ここからは一問一答<span class="sec-note">答え合わせのやり方をえらぼう</span></div>
+      <button class="mode-btn mb-pick" type="button" data-ansall="type">
+        <span class="mode-ic ic-b">⌨️</span>
+        <span class="mode-main"><span class="mode-t">入力して答え合わせ</span>
+          <span class="mode-sub">こたえを打つと自動で正誤判定</span></span>
+        <span class="mode-arrow">›</span></button>
+      <button class="mode-btn mb-pick" type="button" data-ansall="check">
+        <span class="mode-ic ic-a">👀</span>
+        <span class="mode-main"><span class="mode-t">答えを見て自己採点</span>
+          <span class="mode-sub">こたえを見て ○ △ をタップ</span></span>
+        <span class="mode-arrow">›</span></button>
     </div>
     <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-edo-culture-learning-1" data-kind="qa" data-sec="B" data-a="元禄文化" data-r="げんろくぶんか">
       <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 14</span></span></div>
@@ -5999,10 +6130,14 @@
     } else {
       var steps = stepsOf(t);
       // 一問一答「入力して判定」モードのときだけ入力UIを出す（CSS は .ans-type 起点）
+      // おすすめ順（all）は、短答手前の MB ステップで選んだ ansAll に従う。
       var cfgB = modeCfg(t);
       views[t].classList.toggle(
         'ans-type',
-        !!(cfgB && (cfgB.mode === 'B' || cfgB.mode === 'wrong') && cfgB.ans !== 'check')
+        !!(cfgB && (
+          ((cfgB.mode === 'B' || cfgB.mode === 'wrong') && cfgB.ans !== 'check')
+          || (cfgB.mode === 'all' && cfgB.ansAll === 'type')
+        ))
       );
       // 問題の切り替えは即時（めくりアニメ無し）。リズムよく次々と解けるように。
       domSteps(t).forEach(function (el) {
@@ -6127,6 +6262,16 @@
       [].forEach.call(chipBtn.parentElement.querySelectorAll('.opt-chip'), function (b) {
         b.classList.toggle('on', b === chipBtn);
       });
+      return;
+    }
+    // おすすめ順の「短答のやり方」選択（.mb-pick は .mode-btn でもあるので先に処理）
+    var pick = e.target.closest('.mb-pick');
+    if (pick) {
+      var pt = state.t;
+      var pcfg = modeCfg(pt) || { mode: 'all' };
+      pcfg.ansAll = pick.dataset.ansall;   // 'type'=入力して判定 / 'check'=見て自己採点
+      var pst = store(); pst['m' + pt] = pcfg; save(pst);
+      go(pt, state.s + 1, 1);              // 次（最初の一問一答）へ。render() で入力/確認が切り替わる
       return;
     }
     var mb = e.target.closest('.mode-btn');

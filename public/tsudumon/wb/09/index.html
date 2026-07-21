@@ -139,9 +139,21 @@
   .toc-h { font-weight:bold; color:var(--deep); font-size:16px; display:flex; align-items:center; gap:8px; }
   .toc-h::before { content:"📖"; display:inline-flex; align-items:center; justify-content:center;
                    width:30px; height:30px; border-radius:50%; background:var(--brand); font-size:15px; }
-  .toc-cal { flex:none; border:1.5px solid var(--line); background:#fff; color:var(--brand);
-             font-weight:bold; border-radius:20px; padding:6px 12px; font-size:12px; cursor:pointer;
-             font-family:inherit; white-space:nowrap; box-shadow:0 2px 0 #f0e2c3; }
+  /* 「年表でチェック」へ飛ぶボタン。押せると気づかれるよう塗り＋矢印＋押し込み影で目立たせる */
+  .toc-cal { flex:none; border:none; background:linear-gradient(#fbbf24,#f59e0b); color:#fff;
+             font-weight:bold; border-radius:20px; padding:8px 8px 8px 14px; font-size:12.5px;
+             cursor:pointer; font-family:inherit; white-space:nowrap;
+             display:inline-flex; align-items:center; gap:6px;
+             box-shadow:0 3px 0 #c2740a, 0 4px 8px rgba(217,119,6,.3);
+             transition:transform .12s, box-shadow .12s, filter .12s; }
+  @media (hover:hover) {
+    .toc-cal:hover { transform:translateY(-2px); filter:brightness(1.06);
+                     box-shadow:0 5px 0 #c2740a, 0 7px 12px rgba(217,119,6,.38); }
+    .toc-cal:hover .cal-go { background:rgba(255,255,255,.55); }
+  }
+  .toc-cal:active { transform:translateY(2px); box-shadow:0 1px 0 #c2740a; }
+  .cal-go { display:inline-flex; align-items:center; justify-content:center; width:18px; height:18px;
+            border-radius:50%; background:rgba(255,255,255,.35); font-size:14px; line-height:1; }
   /* 単元カード（大きめサムネ＋番号＋名前＋右矢印） */
   .toc-item { display:flex; align-items:center; width:100%; margin-bottom:8px; padding:0;
               background:#fff; border:1.5px solid #f0e2c3; border-radius:12px; overflow:hidden;
@@ -415,6 +427,9 @@
     .bar, .navbar, .resume, .reveal, .marks, .reveal-all-row, .w-input, .line-mini,
     .big-btn, .qa-expl, .expl, .tap-hint, .toc-state, .home-howto, .howto, .m-btns { display:none !important; }
     .mode-step, .qa-batch-step, .b-inrow, .b-idk, .b-batch-judge, .b-result { display:none !important; }
+    /* 問題選択・短答のやり方・結果などの操作用ページは紙に出さない（問題と解答だけ印刷） */
+    .mode-step, .mb-step, .done-step, .next-modes, .chip-mode, .print-btn,
+    .retry-btn, .home-btn, .wrong-btn { display:none !important; }
     .print-only { display:block !important; }
     .view { display:block !important; }
     .step { display:block !important; margin-bottom:14px; break-inside:avoid; }
@@ -473,12 +488,11 @@
     </div>
     <div class="ht-mascot"><img class="wchar" src="img/characters_char_manabi_sm.png" alt=""><span class="ht-bubble">いっしょに<br>がんばろう！</span></div>
   </header>
-  <div class="howto home-howto"><span class="hint-ic">💡</span><span>タブか下のリストから単元を選ぼう！<br>やり方（おすすめ順・穴埋め・一問一答・4択・記述）は単元を開いてから選べるよ。</span></div>
   <button class="resume" id="resumeBtn" hidden>▶ つづきから解く<span id="resumeWhere"></span></button>
   <nav class="toc">
     <div class="toc-head">
-      <div class="toc-h">この単元</div>
-      <button class="toc-cal" data-go="1">📅 年表でチェック</button>
+      <div class="toc-h">単元を選択</div>
+      <button class="toc-cal" data-go="1">📅 年表でチェック<span class="cal-go">›</span></button>
     </div>
     <button class="toc-item" data-go="2"><img class="toc-thumb" src="img/reference_hist09-british-revolution.webp" alt="" loading="lazy"><span class="toc-no">1</span><span class="toc-name">イギリスの革命</span><span class="toc-state" data-state-t="2"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="3"><img class="toc-thumb" src="img/reference_hist09-american-independence.webp" alt="" loading="lazy"><span class="toc-no">2</span><span class="toc-name">アメリカの独立革命</span><span class="toc-state" data-state-t="3"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="4"><img class="toc-thumb" src="img/reference_hist09-france.webp" alt="" loading="lazy"><span class="toc-no">3</span><span class="toc-name">フランス革命</span><span class="toc-state" data-state-t="4"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="5"><img class="toc-thumb" src="img/reference_hist09-nationalism-europe.webp" alt="" loading="lazy"><span class="toc-no">4</span><span class="toc-name">ヨーロッパの国民意識の高まり</span><span class="toc-state" data-state-t="5"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="6"><img class="toc-thumb" src="img/reference_hist09-russia-expansion.webp" alt="" loading="lazy"><span class="toc-no">5</span><span class="toc-name">ロシアの拡大と発展</span><span class="toc-state" data-state-t="6"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="7"><img class="toc-thumb" src="img/reference_hist09-america-expansion.webp" alt="" loading="lazy"><span class="toc-no">6</span><span class="toc-name">アメリカの拡大と発展</span><span class="toc-state" data-state-t="7"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="8"><img class="toc-thumb" src="img/reference_hist09-industrial.webp" alt="" loading="lazy"><span class="toc-no">7</span><span class="toc-name">産業革命と資本主義</span><span class="toc-state" data-state-t="8"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="9"><img class="toc-thumb" src="img/reference_hist09-opium.webp" alt="" loading="lazy"><span class="toc-no">8</span><span class="toc-name">欧米のアジア侵略</span><span class="toc-state" data-state-t="9"></span><span class="toc-arrow">›</span></button>
   </nav>
@@ -510,12 +524,12 @@
         <span class="mode-arrow">›</span></button>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="A">
         <span class="mode-ic ic-a">✏️</span>
-        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）だけ</span>
+        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）</span>
           <span class="mode-sub">（　）をタップして確かめる</span></span>
         <span class="mode-arrow">›</span></button></div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="B">
         <span class="mode-ic ic-b">🔥</span>
-        <span class="mode-main"><span class="mode-t">一問一答（短答）だけ</span>
+        <span class="mode-main"><span class="mode-t">一問一答（短答）</span>
           <span class="mode-sub">14問・入力して自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
@@ -526,20 +540,33 @@
       </div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="C">
         <span class="mode-ic ic-c">✅</span>
-        <span class="mode-main"><span class="mode-t">4択（選択）だけ</span>
+        <span class="mode-main"><span class="mode-t">4択（選択）</span>
           <span class="mode-sub">8問・タップで即判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
         </div>
       </div>
-      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述だけ</span><span class="mode-sub">2問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
+      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">2問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
     </div>
     <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/09/index.html#t1">📖 先に参考書で理解する</a>
       <div class="summary">17〜18世紀のヨーロッパでは、人間の理性で政治や社会をより良くできるという<button class="blank" type="button"><span class="bno">①</span><span class="ba">啓蒙思想</span><span class="bl" style="width:3.6em"></span></button>が広まった。イギリスの<button class="blank" type="button"><span class="bno">②</span><span class="ba">ロック</span><span class="bl" style="width:2.7em"></span></button>は、国家は人々の合意で成り立つという社会契約説を唱え、政府が権利を守らなければ従わなくてよいとする<button class="blank" type="button"><span class="bno">③</span><span class="ba">抵抗権</span><span class="bl" style="width:2.7em"></span></button>を主張した。フランスの<button class="blank" type="button"><span class="bno">④</span><span class="ba">モンテスキュー</span><span class="bl" style="width:6.3em"></span></button>は三権分立を、<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">ルソー</span><span class="bl" style="width:2.7em"></span></button>は国民主権を唱えた。17世紀、クロムウェル率いる議会派が国王軍を破る<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">ピューリタン革命</span><span class="bl" style="width:7.2em"></span></button>が起こり、1649年に国王チャールズ1世が処刑され一時的に共和制となった。1688年には議会を無視する国王を血を流さず追放する<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">名誉革命</span><span class="bl" style="width:3.6em"></span></button>が起こり、翌1689年に議会の同意なしに税や法律を決められないと定めた<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">権利章典</span><span class="bl" style="width:3.6em"></span></button>が制定され、国王の権力が制限される<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">立憲君主制</span><span class="bl" style="width:4.5em"></span></button>が確立した。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step mb-step" data-label="短答のやり方" data-sec="MB">
+      <div class="sec-h"><span class="sec-tag">▶</span>ここからは一問一答<span class="sec-note">答え合わせのやり方をえらぼう</span></div>
+      <button class="mode-btn mb-pick" type="button" data-ansall="type">
+        <span class="mode-ic ic-b">⌨️</span>
+        <span class="mode-main"><span class="mode-t">入力して答え合わせ</span>
+          <span class="mode-sub">こたえを打つと自動で正誤判定</span></span>
+        <span class="mode-arrow">›</span></button>
+      <button class="mode-btn mb-pick" type="button" data-ansall="check">
+        <span class="mode-ic ic-a">👀</span>
+        <span class="mode-main"><span class="mode-t">答えを見て自己採点</span>
+          <span class="mode-sub">こたえを見て ○ △ をタップ</span></span>
+        <span class="mode-arrow">›</span></button>
     </div>
     <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-british-revolution-1" data-kind="qa" data-sec="B" data-a="啓蒙思想" data-r="けいもうしそう">
       <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 14</span></span></div>
@@ -1100,12 +1127,12 @@
         <span class="mode-arrow">›</span></button>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="A">
         <span class="mode-ic ic-a">✏️</span>
-        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）だけ</span>
+        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）</span>
           <span class="mode-sub">（　）をタップして確かめる</span></span>
         <span class="mode-arrow">›</span></button></div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="B">
         <span class="mode-ic ic-b">🔥</span>
-        <span class="mode-main"><span class="mode-t">一問一答（短答）だけ</span>
+        <span class="mode-main"><span class="mode-t">一問一答（短答）</span>
           <span class="mode-sub">10問・入力して自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
@@ -1116,20 +1143,33 @@
       </div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="C">
         <span class="mode-ic ic-c">✅</span>
-        <span class="mode-main"><span class="mode-t">4択（選択）だけ</span>
+        <span class="mode-main"><span class="mode-t">4択（選択）</span>
           <span class="mode-sub">8問・タップで即判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
         </div>
       </div>
-      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述だけ</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
+      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
     </div>
     <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/09/index.html#t2">📖 先に参考書で理解する</a>
       <div class="summary">18世紀後半、イギリス本国が植民地の代表がいない議会で勝手に税を決めたことに、13植民地の人々は「<button class="blank" type="button"><span class="bno">①</span><span class="ba">代表なくして課税なし</span><span class="bl" style="width:9.0em"></span></button>」を掲げて反発した。1773年には、茶への課税に抗議した市民が茶を海に投げ捨てる<button class="blank" type="button"><span class="bno">②</span><span class="ba">ボストン茶会事件</span><span class="bl" style="width:7.2em"></span></button>が起こった。1775年に始まった<button class="blank" type="button"><span class="bno">③</span><span class="ba">独立戦争</span><span class="bl" style="width:3.6em"></span></button>では、<button class="blank" type="button"><span class="bno">④</span><span class="ba">ワシントン</span><span class="bl" style="width:4.5em"></span></button>が植民地軍の総司令官として戦い、フランスの支援も受けて1783年のパリ条約でイギリスが独立を承認した。1776年には、ロックの思想の影響を受け、生命・自由・幸福を求める権利は生まれつきのものだと宣言する<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">独立宣言</span><span class="bl" style="width:3.6em"></span></button>が発表された。1787年には、三権分立と各州の自治を組み合わせた<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">連邦制</span><span class="bl" style="width:2.7em"></span></button>を定めた世界初の近代的成文憲法である<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">合衆国憲法</span><span class="bl" style="width:4.5em"></span></button>が制定され、1789年に初代大統領が誕生した。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step mb-step" data-label="短答のやり方" data-sec="MB">
+      <div class="sec-h"><span class="sec-tag">▶</span>ここからは一問一答<span class="sec-note">答え合わせのやり方をえらぼう</span></div>
+      <button class="mode-btn mb-pick" type="button" data-ansall="type">
+        <span class="mode-ic ic-b">⌨️</span>
+        <span class="mode-main"><span class="mode-t">入力して答え合わせ</span>
+          <span class="mode-sub">こたえを打つと自動で正誤判定</span></span>
+        <span class="mode-arrow">›</span></button>
+      <button class="mode-btn mb-pick" type="button" data-ansall="check">
+        <span class="mode-ic ic-a">👀</span>
+        <span class="mode-main"><span class="mode-t">答えを見て自己採点</span>
+          <span class="mode-sub">こたえを見て ○ △ をタップ</span></span>
+        <span class="mode-arrow">›</span></button>
     </div>
     <div class="step qa-step" data-label="B 一問一答 (1/10)" data-qid="qa-american-independence-1" data-kind="qa" data-sec="B" data-a="代表なくして課税なし" data-r="代表なくしてかぜいなし">
       <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 10</span></span></div>
@@ -1583,12 +1623,12 @@
         <span class="mode-arrow">›</span></button>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="A">
         <span class="mode-ic ic-a">✏️</span>
-        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）だけ</span>
+        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）</span>
           <span class="mode-sub">（　）をタップして確かめる</span></span>
         <span class="mode-arrow">›</span></button></div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="B">
         <span class="mode-ic ic-b">🔥</span>
-        <span class="mode-main"><span class="mode-t">一問一答（短答）だけ</span>
+        <span class="mode-main"><span class="mode-t">一問一答（短答）</span>
           <span class="mode-sub">14問・入力して自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
@@ -1599,20 +1639,33 @@
       </div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="C">
         <span class="mode-ic ic-c">✅</span>
-        <span class="mode-main"><span class="mode-t">4択（選択）だけ</span>
+        <span class="mode-main"><span class="mode-t">4択（選択）</span>
           <span class="mode-sub">8問・タップで即判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
         </div>
       </div>
-      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述だけ</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
+      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
     </div>
     <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/09/index.html#t3">📖 先に参考書で理解する</a>
       <div class="summary">革命前のフランスは国王が絶対的な権力をもつ<button class="blank" type="button"><span class="bno">①</span><span class="ba">絶対王政</span><span class="bl" style="width:3.6em"></span></button>の国で、聖職者の第一身分と貴族の第二身分は税を免除される一方、人口の98%を占める平民の<button class="blank" type="button"><span class="bno">②</span><span class="ba">第三身分</span><span class="bl" style="width:3.6em"></span></button>だけが重い税を負担していた。財政難に陥った国王ルイ16世が1789年に聖職者・貴族・平民の代表を集める<button class="blank" type="button"><span class="bno">③</span><span class="ba">三部会</span><span class="bl" style="width:2.7em"></span></button>を招集すると、同年7月14日にパリ市民が専制の象徴である<button class="blank" type="button"><span class="bno">④</span><span class="ba">バスティーユ牢獄</span><span class="bl" style="width:7.2em"></span></button>を襲撃し、<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">フランス革命</span><span class="bl" style="width:5.4em"></span></button>が始まった。革命政府は、人は生まれながらに自由で平等な権利を持つとする<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">人権宣言</span><span class="bl" style="width:3.6em"></span></button>を発表し、「自由・平等・友愛」の理想を掲げた。1793年には国王ルイ16世が処刑され、混乱を収拾した軍人の<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">ナポレオン</span><span class="bl" style="width:4.5em"></span></button>は1804年に皇帝となって個人の自由と財産権を保障する<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">ナポレオン法典</span><span class="bl" style="width:6.3em"></span></button>を制定した。ナポレオン失脚後の1814〜15年には、革命前の秩序に戻すことを目指す<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">ウィーン会議</span><span class="bl" style="width:5.4em"></span></button>が開かれた。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step mb-step" data-label="短答のやり方" data-sec="MB">
+      <div class="sec-h"><span class="sec-tag">▶</span>ここからは一問一答<span class="sec-note">答え合わせのやり方をえらぼう</span></div>
+      <button class="mode-btn mb-pick" type="button" data-ansall="type">
+        <span class="mode-ic ic-b">⌨️</span>
+        <span class="mode-main"><span class="mode-t">入力して答え合わせ</span>
+          <span class="mode-sub">こたえを打つと自動で正誤判定</span></span>
+        <span class="mode-arrow">›</span></button>
+      <button class="mode-btn mb-pick" type="button" data-ansall="check">
+        <span class="mode-ic ic-a">👀</span>
+        <span class="mode-main"><span class="mode-t">答えを見て自己採点</span>
+          <span class="mode-sub">こたえを見て ○ △ をタップ</span></span>
+        <span class="mode-arrow">›</span></button>
     </div>
     <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-french-revolution-1" data-kind="qa" data-sec="B" data-a="フランス革命" data-r="フランスかくめい">
       <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 14</span></span></div>
@@ -2190,12 +2243,12 @@
         <span class="mode-arrow">›</span></button>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="A">
         <span class="mode-ic ic-a">✏️</span>
-        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）だけ</span>
+        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）</span>
           <span class="mode-sub">（　）をタップして確かめる</span></span>
         <span class="mode-arrow">›</span></button></div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="B">
         <span class="mode-ic ic-b">🔥</span>
-        <span class="mode-main"><span class="mode-t">一問一答（短答）だけ</span>
+        <span class="mode-main"><span class="mode-t">一問一答（短答）</span>
           <span class="mode-sub">12問・入力して自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
@@ -2206,20 +2259,33 @@
       </div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="C">
         <span class="mode-ic ic-c">✅</span>
-        <span class="mode-main"><span class="mode-t">4択（選択）だけ</span>
+        <span class="mode-main"><span class="mode-t">4択（選択）</span>
           <span class="mode-sub">8問・タップで即判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
         </div>
       </div>
-      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述だけ</span><span class="mode-sub">2問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
+      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">2問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
     </div>
     <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/09/index.html#t4">📖 先に参考書で理解する</a>
       <div class="summary">フランス革命とナポレオンの遠征を通じて自由・平等の理念がヨーロッパ各地に広まると、19世紀には同じ言語や文化を持つ人々が一つにまとまろうとする<button class="blank" type="button"><span class="bno">①</span><span class="ba">ナショナリズム</span><span class="bl" style="width:6.3em"></span></button>が高まり、個人の自由や権利を重んじる<button class="blank" type="button"><span class="bno">②</span><span class="ba">自由主義</span><span class="bl" style="width:3.6em"></span></button>とともに、同じ国民による統一的な<button class="blank" type="button"><span class="bno">③</span><span class="ba">国民国家</span><span class="bl" style="width:3.6em"></span></button>を求める動きが強まった。ナポレオン戦争の混乱に乗じて、中南米ではスペイン・ポルトガルの植民地が次々と独立を果たした。ドイツでは、プロイセンの首相<button class="blank" type="button"><span class="bno">④</span><span class="ba">ビスマルク</span><span class="bl" style="width:4.5em"></span></button>が軍事力を重視する<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">鉄血政策</span><span class="bl" style="width:3.6em"></span></button>を進め、1871年に統一を達成して<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">ドイツ帝国</span><span class="bl" style="width:4.5em"></span></button>が成立した。フランスでは財産に関係なく成年男性全員に選挙権を与える<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">男性普通選挙</span><span class="bl" style="width:5.4em"></span></button>が実現し、イギリスでは保守党と自由党が政権を競う<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">二大政党制</span><span class="bl" style="width:4.5em"></span></button>が発展した。また、国を守るのは国民の務めだという考えから、成年男子を軍に集める<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">徴兵制</span><span class="bl" style="width:2.7em"></span></button>も各国に広まった。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step mb-step" data-label="短答のやり方" data-sec="MB">
+      <div class="sec-h"><span class="sec-tag">▶</span>ここからは一問一答<span class="sec-note">答え合わせのやり方をえらぼう</span></div>
+      <button class="mode-btn mb-pick" type="button" data-ansall="type">
+        <span class="mode-ic ic-b">⌨️</span>
+        <span class="mode-main"><span class="mode-t">入力して答え合わせ</span>
+          <span class="mode-sub">こたえを打つと自動で正誤判定</span></span>
+        <span class="mode-arrow">›</span></button>
+      <button class="mode-btn mb-pick" type="button" data-ansall="check">
+        <span class="mode-ic ic-a">👀</span>
+        <span class="mode-main"><span class="mode-t">答えを見て自己採点</span>
+          <span class="mode-sub">こたえを見て ○ △ をタップ</span></span>
+        <span class="mode-arrow">›</span></button>
     </div>
     <div class="step qa-step" data-label="B 一問一答 (1/12)" data-qid="qa-nationalism-europe-1" data-kind="qa" data-sec="B" data-a="国民国家" data-r="こくみんこっか">
       <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 12</span></span></div>
@@ -2718,12 +2784,12 @@
         <span class="mode-arrow">›</span></button>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="A">
         <span class="mode-ic ic-a">✏️</span>
-        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）だけ</span>
+        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）</span>
           <span class="mode-sub">（　）をタップして確かめる</span></span>
         <span class="mode-arrow">›</span></button></div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="B">
         <span class="mode-ic ic-b">🔥</span>
-        <span class="mode-main"><span class="mode-t">一問一答（短答）だけ</span>
+        <span class="mode-main"><span class="mode-t">一問一答（短答）</span>
           <span class="mode-sub">10問・入力して自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
@@ -2734,20 +2800,33 @@
       </div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="C">
         <span class="mode-ic ic-c">✅</span>
-        <span class="mode-main"><span class="mode-t">4択（選択）だけ</span>
+        <span class="mode-main"><span class="mode-t">4択（選択）</span>
           <span class="mode-sub">8問・タップで即判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
         </div>
       </div>
-      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述だけ</span><span class="mode-sub">1問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
+      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">1問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
     </div>
     <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/09/index.html#t5">📖 先に参考書で理解する</a>
       <div class="summary">広大な領土を持つロシアは、冬でも凍らない港である<button class="blank" type="button"><span class="bno">①</span><span class="ba">不凍港</span><span class="bl" style="width:2.7em"></span></button>を求めて黒海や地中海方面へ進出する<button class="blank" type="button"><span class="bno">②</span><span class="ba">南下政策</span><span class="bl" style="width:3.6em"></span></button>を進め、これを阻止しようとする<button class="blank" type="button"><span class="bno">③</span><span class="ba">オスマン帝国</span><span class="bl" style="width:5.4em"></span></button>と対立した。世界の覇権国であった<button class="blank" type="button"><span class="bno">④</span><span class="ba">イギリス</span><span class="bl" style="width:3.6em"></span></button>は、植民地インドへの通商路を脅かされることを恐れ、ロシアの南下に強く警戒した。国内では、皇帝の称号である<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">ツァーリ</span><span class="bl" style="width:3.6em"></span></button>が議会や憲法に従わない専制政治を行い、地主に隷属し自由のなかった農民である<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">農奴</span><span class="bl" style="width:2.7em"></span></button>が数多く存在した。1861年、皇帝<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">アレクサンドル2世</span><span class="bl" style="width:8.1em"></span></button>は近代化改革の第一歩として<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">農奴解放令</span><span class="bl" style="width:4.5em"></span></button>を出し、農奴を解放した。19世紀末からは、東方への進出と極東支配の強化を目的として、大陸を横断する<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">シベリア鉄道</span><span class="bl" style="width:5.4em"></span></button>の建設も進められた。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step mb-step" data-label="短答のやり方" data-sec="MB">
+      <div class="sec-h"><span class="sec-tag">▶</span>ここからは一問一答<span class="sec-note">答え合わせのやり方をえらぼう</span></div>
+      <button class="mode-btn mb-pick" type="button" data-ansall="type">
+        <span class="mode-ic ic-b">⌨️</span>
+        <span class="mode-main"><span class="mode-t">入力して答え合わせ</span>
+          <span class="mode-sub">こたえを打つと自動で正誤判定</span></span>
+        <span class="mode-arrow">›</span></button>
+      <button class="mode-btn mb-pick" type="button" data-ansall="check">
+        <span class="mode-ic ic-a">👀</span>
+        <span class="mode-main"><span class="mode-t">答えを見て自己採点</span>
+          <span class="mode-sub">こたえを見て ○ △ をタップ</span></span>
+        <span class="mode-arrow">›</span></button>
     </div>
     <div class="step qa-step" data-label="B 一問一答 (1/10)" data-qid="qa-russia-expansion-1" data-kind="qa" data-sec="B" data-a="南下政策" data-r="なんかせいさく">
       <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 10</span></span></div>
@@ -3167,12 +3246,12 @@
         <span class="mode-arrow">›</span></button>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="A">
         <span class="mode-ic ic-a">✏️</span>
-        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）だけ</span>
+        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）</span>
           <span class="mode-sub">（　）をタップして確かめる</span></span>
         <span class="mode-arrow">›</span></button></div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="B">
         <span class="mode-ic ic-b">🔥</span>
-        <span class="mode-main"><span class="mode-t">一問一答（短答）だけ</span>
+        <span class="mode-main"><span class="mode-t">一問一答（短答）</span>
           <span class="mode-sub">11問・入力して自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
@@ -3183,20 +3262,33 @@
       </div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="C">
         <span class="mode-ic ic-c">✅</span>
-        <span class="mode-main"><span class="mode-t">4択（選択）だけ</span>
+        <span class="mode-main"><span class="mode-t">4択（選択）</span>
           <span class="mode-sub">8問・タップで即判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
         </div>
       </div>
-      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述だけ</span><span class="mode-sub">2問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
+      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">2問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
     </div>
     <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/09/index.html#t6">📖 先に参考書で理解する</a>
       <div class="summary">19世紀のアメリカでは、商工業が発達した北部は輸入品に関税をかけて国内産業を守る<button class="blank" type="button"><span class="bno">①</span><span class="ba">保護貿易</span><span class="bl" style="width:3.6em"></span></button>を支持し、黒人奴隷を使う<button class="blank" type="button"><span class="bno">②</span><span class="ba">プランテーション</span><span class="bl" style="width:7.2em"></span></button>で綿花を栽培しイギリスに輸出する南部は関税の低い自由貿易を支持して、両者は対立を深めた。1861年、奴隷制に反対する<button class="blank" type="button"><span class="bno">③</span><span class="ba">リンカン</span><span class="bl" style="width:3.6em"></span></button>が大統領に就任すると南部諸州が合衆国から離脱し、<button class="blank" type="button"><span class="bno">④</span><span class="ba">南北戦争</span><span class="bl" style="width:3.6em"></span></button>が始まった。1863年、リンカンは南部の奴隷を解放する<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">奴隷解放宣言</span><span class="bl" style="width:5.4em"></span></button>を出して国際世論を味方につけ、同年の<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">ゲティスバーグ演説</span><span class="bl" style="width:8.1em"></span></button>では「人民の、人民による、人民のための政治」と訴えた。工業力に勝る北部が勝利し、戦後アメリカは急速な工業国へと発展した。一方、西部開拓が進む中で、もともと住んでいた<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">先住民</span><span class="bl" style="width:2.7em"></span></button>は土地を奪われ強制移住させられた。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step mb-step" data-label="短答のやり方" data-sec="MB">
+      <div class="sec-h"><span class="sec-tag">▶</span>ここからは一問一答<span class="sec-note">答え合わせのやり方をえらぼう</span></div>
+      <button class="mode-btn mb-pick" type="button" data-ansall="type">
+        <span class="mode-ic ic-b">⌨️</span>
+        <span class="mode-main"><span class="mode-t">入力して答え合わせ</span>
+          <span class="mode-sub">こたえを打つと自動で正誤判定</span></span>
+        <span class="mode-arrow">›</span></button>
+      <button class="mode-btn mb-pick" type="button" data-ansall="check">
+        <span class="mode-ic ic-a">👀</span>
+        <span class="mode-main"><span class="mode-t">答えを見て自己採点</span>
+          <span class="mode-sub">こたえを見て ○ △ をタップ</span></span>
+        <span class="mode-arrow">›</span></button>
     </div>
     <div class="step qa-step" data-label="B 一問一答 (1/11)" data-qid="qa-america-expansion-1" data-kind="qa" data-sec="B" data-a="南北戦争" data-r="なんぼくせんそう">
       <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 11</span></span></div>
@@ -3664,12 +3756,12 @@
         <span class="mode-arrow">›</span></button>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="A">
         <span class="mode-ic ic-a">✏️</span>
-        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）だけ</span>
+        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）</span>
           <span class="mode-sub">（　）をタップして確かめる</span></span>
         <span class="mode-arrow">›</span></button></div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="B">
         <span class="mode-ic ic-b">🔥</span>
-        <span class="mode-main"><span class="mode-t">一問一答（短答）だけ</span>
+        <span class="mode-main"><span class="mode-t">一問一答（短答）</span>
           <span class="mode-sub">14問・入力して自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
@@ -3680,20 +3772,33 @@
       </div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="C">
         <span class="mode-ic ic-c">✅</span>
-        <span class="mode-main"><span class="mode-t">4択（選択）だけ</span>
+        <span class="mode-main"><span class="mode-t">4択（選択）</span>
           <span class="mode-sub">8問・タップで即判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
         </div>
       </div>
-      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述だけ</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
+      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
     </div>
     <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/09/index.html#t7">📖 先に参考書で理解する</a>
       <div class="summary">18世紀後半、イギリスの<button class="blank" type="button"><span class="bno">①</span><span class="ba">綿織物工業</span><span class="bl" style="width:4.5em"></span></button>で紡績機や力織機による大量生産が始まり、技術者<button class="blank" type="button"><span class="bno">②</span><span class="ba">ワット</span><span class="bl" style="width:2.7em"></span></button>が改良した<button class="blank" type="button"><span class="bno">③</span><span class="ba">蒸気機関</span><span class="bl" style="width:3.6em"></span></button>が工場の動力として広まったことで<button class="blank" type="button"><span class="bno">④</span><span class="ba">産業革命</span><span class="bl" style="width:3.6em"></span></button>が起こった。工場に機械を設置し労働者を雇って生産する<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">工場制機械工業</span><span class="bl" style="width:6.3em"></span></button>が広まり、19世紀のイギリスは圧倒的な工業力から「<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">世界の工場</span><span class="bl" style="width:4.5em"></span></button>」と呼ばれるようになった。工場や機械を持つ資本家が労働者を雇って利益を追求する<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">資本主義</span><span class="bl" style="width:3.6em"></span></button>の仕組みが広まる一方、長時間労働や低賃金に苦しむ労働者は権利を守るため<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">労働組合</span><span class="bl" style="width:3.6em"></span></button>を結成した。19世紀にはドイツの<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">マルクス</span><span class="bl" style="width:3.6em"></span></button>が『資本論』で資本主義の問題点を分析し、貧富の差のない平等な社会を目指す<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">社会主義</span><span class="bl" style="width:3.6em"></span></button>を唱えた。また、技術者スティーブンソンが実用化した蒸気機関車の登場は、鉄道網の発展とともに交通革命をもたらした。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step mb-step" data-label="短答のやり方" data-sec="MB">
+      <div class="sec-h"><span class="sec-tag">▶</span>ここからは一問一答<span class="sec-note">答え合わせのやり方をえらぼう</span></div>
+      <button class="mode-btn mb-pick" type="button" data-ansall="type">
+        <span class="mode-ic ic-b">⌨️</span>
+        <span class="mode-main"><span class="mode-t">入力して答え合わせ</span>
+          <span class="mode-sub">こたえを打つと自動で正誤判定</span></span>
+        <span class="mode-arrow">›</span></button>
+      <button class="mode-btn mb-pick" type="button" data-ansall="check">
+        <span class="mode-ic ic-a">👀</span>
+        <span class="mode-main"><span class="mode-t">答えを見て自己採点</span>
+          <span class="mode-sub">こたえを見て ○ △ をタップ</span></span>
+        <span class="mode-arrow">›</span></button>
     </div>
     <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-industrial-revolution-1" data-kind="qa" data-sec="B" data-a="産業革命" data-r="さんぎょうかくめい">
       <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 14</span></span></div>
@@ -4271,12 +4376,12 @@
         <span class="mode-arrow">›</span></button>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="A">
         <span class="mode-ic ic-a">✏️</span>
-        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）だけ</span>
+        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）</span>
           <span class="mode-sub">（　）をタップして確かめる</span></span>
         <span class="mode-arrow">›</span></button></div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="B">
         <span class="mode-ic ic-b">🔥</span>
-        <span class="mode-main"><span class="mode-t">一問一答（短答）だけ</span>
+        <span class="mode-main"><span class="mode-t">一問一答（短答）</span>
           <span class="mode-sub">13問・入力して自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
@@ -4287,20 +4392,33 @@
       </div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="C">
         <span class="mode-ic ic-c">✅</span>
-        <span class="mode-main"><span class="mode-t">4択（選択）だけ</span>
+        <span class="mode-main"><span class="mode-t">4択（選択）</span>
           <span class="mode-sub">8問・タップで即判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
         </div>
       </div>
-      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述だけ</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
+      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
     </div>
     <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/09/index.html#t8">📖 先に参考書で理解する</a>
       <div class="summary">19世紀、イギリスは清に茶の代金として銀を払う代わりに、インド産の<button class="blank" type="button"><span class="bno">①</span><span class="ba">アヘン</span><span class="bl" style="width:2.7em"></span></button>を清に密輸し、清の茶とイギリスの綿織物を組み合わせる<button class="blank" type="button"><span class="bno">②</span><span class="ba">三角貿易</span><span class="bl" style="width:3.6em"></span></button>の仕組みを作った。清がアヘンの密輸を取り締まると、イギリスは1840年に<button class="blank" type="button"><span class="bno">③</span><span class="ba">アヘン戦争</span><span class="bl" style="width:4.5em"></span></button>を起こしてこれを破り、1842年に<button class="blank" type="button"><span class="bno">④</span><span class="ba">南京条約</span><span class="bl" style="width:3.6em"></span></button>を結ばせた。この条約で清は<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">香港</span><span class="bl" style="width:2.7em"></span></button>を割譲し、上海など5港を開港し、輸入品の税率を自国で決める<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">関税自主権</span><span class="bl" style="width:4.5em"></span></button>を失うなど、一方的に不利な<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">不平等条約</span><span class="bl" style="width:4.5em"></span></button>を結ばされた。さらに清国内での犯罪をイギリス側の法で裁く<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">領事裁判権</span><span class="bl" style="width:4.5em"></span></button>も認めさせられた。清国内では、アヘン戦争後の混乱の中で洪秀全が率いる<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">太平天国の乱</span><span class="bl" style="width:5.4em"></span></button>という大規模な農民反乱も起こった。1857年には、インドでイギリス支配に反発した現地人傭兵から始まる<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">インド大反乱</span><span class="bl" style="width:5.4em"></span></button>が起こり、鎮圧後はイギリスによる直接統治が強化された。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step mb-step" data-label="短答のやり方" data-sec="MB">
+      <div class="sec-h"><span class="sec-tag">▶</span>ここからは一問一答<span class="sec-note">答え合わせのやり方をえらぼう</span></div>
+      <button class="mode-btn mb-pick" type="button" data-ansall="type">
+        <span class="mode-ic ic-b">⌨️</span>
+        <span class="mode-main"><span class="mode-t">入力して答え合わせ</span>
+          <span class="mode-sub">こたえを打つと自動で正誤判定</span></span>
+        <span class="mode-arrow">›</span></button>
+      <button class="mode-btn mb-pick" type="button" data-ansall="check">
+        <span class="mode-ic ic-a">👀</span>
+        <span class="mode-main"><span class="mode-t">答えを見て自己採点</span>
+          <span class="mode-sub">こたえを見て ○ △ をタップ</span></span>
+        <span class="mode-arrow">›</span></button>
     </div>
     <div class="step qa-step" data-label="B 一問一答 (1/13)" data-qid="qa-western-asia-invasion-1" data-kind="qa" data-sec="B" data-a="アヘン戦争" data-r="アヘンせんそう">
       <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 13</span></span></div>
@@ -5103,10 +5221,14 @@
     } else {
       var steps = stepsOf(t);
       // 一問一答「入力して判定」モードのときだけ入力UIを出す（CSS は .ans-type 起点）
+      // おすすめ順（all）は、短答手前の MB ステップで選んだ ansAll に従う。
       var cfgB = modeCfg(t);
       views[t].classList.toggle(
         'ans-type',
-        !!(cfgB && (cfgB.mode === 'B' || cfgB.mode === 'wrong') && cfgB.ans !== 'check')
+        !!(cfgB && (
+          ((cfgB.mode === 'B' || cfgB.mode === 'wrong') && cfgB.ans !== 'check')
+          || (cfgB.mode === 'all' && cfgB.ansAll === 'type')
+        ))
       );
       // 問題の切り替えは即時（めくりアニメ無し）。リズムよく次々と解けるように。
       domSteps(t).forEach(function (el) {
@@ -5231,6 +5353,16 @@
       [].forEach.call(chipBtn.parentElement.querySelectorAll('.opt-chip'), function (b) {
         b.classList.toggle('on', b === chipBtn);
       });
+      return;
+    }
+    // おすすめ順の「短答のやり方」選択（.mb-pick は .mode-btn でもあるので先に処理）
+    var pick = e.target.closest('.mb-pick');
+    if (pick) {
+      var pt = state.t;
+      var pcfg = modeCfg(pt) || { mode: 'all' };
+      pcfg.ansAll = pick.dataset.ansall;   // 'type'=入力して判定 / 'check'=見て自己採点
+      var pst = store(); pst['m' + pt] = pcfg; save(pst);
+      go(pt, state.s + 1, 1);              // 次（最初の一問一答）へ。render() で入力/確認が切り替わる
       return;
     }
     var mb = e.target.closest('.mode-btn');

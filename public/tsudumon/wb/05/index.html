@@ -139,9 +139,21 @@
   .toc-h { font-weight:bold; color:var(--deep); font-size:16px; display:flex; align-items:center; gap:8px; }
   .toc-h::before { content:"📖"; display:inline-flex; align-items:center; justify-content:center;
                    width:30px; height:30px; border-radius:50%; background:var(--brand); font-size:15px; }
-  .toc-cal { flex:none; border:1.5px solid var(--line); background:#fff; color:var(--brand);
-             font-weight:bold; border-radius:20px; padding:6px 12px; font-size:12px; cursor:pointer;
-             font-family:inherit; white-space:nowrap; box-shadow:0 2px 0 #f0e2c3; }
+  /* 「年表でチェック」へ飛ぶボタン。押せると気づかれるよう塗り＋矢印＋押し込み影で目立たせる */
+  .toc-cal { flex:none; border:none; background:linear-gradient(#fbbf24,#f59e0b); color:#fff;
+             font-weight:bold; border-radius:20px; padding:8px 8px 8px 14px; font-size:12.5px;
+             cursor:pointer; font-family:inherit; white-space:nowrap;
+             display:inline-flex; align-items:center; gap:6px;
+             box-shadow:0 3px 0 #c2740a, 0 4px 8px rgba(217,119,6,.3);
+             transition:transform .12s, box-shadow .12s, filter .12s; }
+  @media (hover:hover) {
+    .toc-cal:hover { transform:translateY(-2px); filter:brightness(1.06);
+                     box-shadow:0 5px 0 #c2740a, 0 7px 12px rgba(217,119,6,.38); }
+    .toc-cal:hover .cal-go { background:rgba(255,255,255,.55); }
+  }
+  .toc-cal:active { transform:translateY(2px); box-shadow:0 1px 0 #c2740a; }
+  .cal-go { display:inline-flex; align-items:center; justify-content:center; width:18px; height:18px;
+            border-radius:50%; background:rgba(255,255,255,.35); font-size:14px; line-height:1; }
   /* 単元カード（大きめサムネ＋番号＋名前＋右矢印） */
   .toc-item { display:flex; align-items:center; width:100%; margin-bottom:8px; padding:0;
               background:#fff; border:1.5px solid #f0e2c3; border-radius:12px; overflow:hidden;
@@ -415,6 +427,9 @@
     .bar, .navbar, .resume, .reveal, .marks, .reveal-all-row, .w-input, .line-mini,
     .big-btn, .qa-expl, .expl, .tap-hint, .toc-state, .home-howto, .howto, .m-btns { display:none !important; }
     .mode-step, .qa-batch-step, .b-inrow, .b-idk, .b-batch-judge, .b-result { display:none !important; }
+    /* 問題選択・短答のやり方・結果などの操作用ページは紙に出さない（問題と解答だけ印刷） */
+    .mode-step, .mb-step, .done-step, .next-modes, .chip-mode, .print-btn,
+    .retry-btn, .home-btn, .wrong-btn { display:none !important; }
     .print-only { display:block !important; }
     .view { display:block !important; }
     .step { display:block !important; margin-bottom:14px; break-inside:avoid; }
@@ -473,12 +488,11 @@
     </div>
     <div class="ht-mascot"><img class="wchar" src="img/characters_char_manabi_sm.png" alt=""><span class="ht-bubble">いっしょに<br>がんばろう！</span></div>
   </header>
-  <div class="howto home-howto"><span class="hint-ic">💡</span><span>タブか下のリストから単元を選ぼう！<br>やり方（おすすめ順・穴埋め・一問一答・4択・記述）は単元を開いてから選べるよ。</span></div>
   <button class="resume" id="resumeBtn" hidden>▶ つづきから解く<span id="resumeWhere"></span></button>
   <nav class="toc">
     <div class="toc-head">
-      <div class="toc-h">この単元</div>
-      <button class="toc-cal" data-go="1">📅 年表でチェック</button>
+      <div class="toc-h">単元を選択</div>
+      <button class="toc-cal" data-go="1">📅 年表でチェック<span class="cal-go">›</span></button>
     </div>
     <button class="toc-item" data-go="2"><img class="toc-thumb" src="img/reference_hist05-bushi.webp" alt="" loading="lazy"><span class="toc-no">1</span><span class="toc-name">武士の成長</span><span class="toc-state" data-state-t="2"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="3"><img class="toc-thumb" src="img/reference_hist05-insei-taira.webp" alt="" loading="lazy"><span class="toc-no">2</span><span class="toc-name">院政と平氏の政治</span><span class="toc-state" data-state-t="3"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="4"><img class="toc-thumb" src="img/reference_hist05-bakufu.webp" alt="" loading="lazy"><span class="toc-no">3</span><span class="toc-name">鎌倉幕府の成立</span><span class="toc-state" data-state-t="4"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="5"><img class="toc-thumb" src="img/reference_hist05-kamakura-society.webp" alt="" loading="lazy"><span class="toc-no">4</span><span class="toc-name">鎌倉時代の社会</span><span class="toc-state" data-state-t="5"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="6"><img class="toc-thumb" src="img/reference_hist05-culture.webp" alt="" loading="lazy"><span class="toc-no">5</span><span class="toc-name">鎌倉文化と新しい仏教</span><span class="toc-state" data-state-t="6"></span><span class="toc-arrow">›</span></button>
   </nav>
@@ -510,12 +524,12 @@
         <span class="mode-arrow">›</span></button>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="A">
         <span class="mode-ic ic-a">✏️</span>
-        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）だけ</span>
+        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）</span>
           <span class="mode-sub">（　）をタップして確かめる</span></span>
         <span class="mode-arrow">›</span></button></div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="B">
         <span class="mode-ic ic-b">🔥</span>
-        <span class="mode-main"><span class="mode-t">一問一答（短答）だけ</span>
+        <span class="mode-main"><span class="mode-t">一問一答（短答）</span>
           <span class="mode-sub">14問・入力して自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
@@ -526,20 +540,33 @@
       </div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="C">
         <span class="mode-ic ic-c">✅</span>
-        <span class="mode-main"><span class="mode-t">4択（選択）だけ</span>
+        <span class="mode-main"><span class="mode-t">4択（選択）</span>
           <span class="mode-sub">8問・タップで即判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
         </div>
       </div>
-      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述だけ</span><span class="mode-sub">2問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
+      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">2問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
     </div>
     <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/05/index.html#t1">📖 先に参考書で理解する</a>
       <div class="summary">10世紀ごろ、地方の治安の乱れを背景に、弓矢や馬の技にすぐれた者たちが<button class="blank" type="button"><span class="bno">①</span><span class="ba">武士</span><span class="bl" style="width:2.7em"></span></button>として成長した。武士は一族と家来を血縁と主従関係で結んだ軍事組織である<button class="blank" type="button"><span class="bno">②</span><span class="ba">武士団</span><span class="bl" style="width:2.7em"></span></button>をつくった。天皇の子孫である<button class="blank" type="button"><span class="bno">③</span><span class="ba">源氏</span><span class="bl" style="width:2.7em"></span></button>は東日本を、<button class="blank" type="button"><span class="bno">④</span><span class="ba">平氏</span><span class="bl" style="width:2.7em"></span></button>は西日本を中心に勢力を広げていった。935年ごろ関東で<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">平将門</span><span class="bl" style="width:2.7em"></span></button>が反乱を起こし、ほぼ同時期に瀬戸内海では<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">藤原純友</span><span class="bl" style="width:3.6em"></span></button>が反乱を起こした。11世紀後半には前九年合戦・後三年合戦で<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">源義家</span><span class="bl" style="width:2.7em"></span></button>が活躍し、東日本の武士の信頼を集めた。同じころ東北地方では<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">奥州藤原氏</span><span class="bl" style="width:4.5em"></span></button>が平泉を拠点に約100年にわたって栄えた。また、地方の開発領主が有力な貴族に土地を差し出したことで、税を免除された私有地である<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">荘園</span><span class="bl" style="width:2.7em"></span></button>が各地に広がっていった。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step mb-step" data-label="短答のやり方" data-sec="MB">
+      <div class="sec-h"><span class="sec-tag">▶</span>ここからは一問一答<span class="sec-note">答え合わせのやり方をえらぼう</span></div>
+      <button class="mode-btn mb-pick" type="button" data-ansall="type">
+        <span class="mode-ic ic-b">⌨️</span>
+        <span class="mode-main"><span class="mode-t">入力して答え合わせ</span>
+          <span class="mode-sub">こたえを打つと自動で正誤判定</span></span>
+        <span class="mode-arrow">›</span></button>
+      <button class="mode-btn mb-pick" type="button" data-ansall="check">
+        <span class="mode-ic ic-a">👀</span>
+        <span class="mode-main"><span class="mode-t">答えを見て自己採点</span>
+          <span class="mode-sub">こたえを見て ○ △ をタップ</span></span>
+        <span class="mode-arrow">›</span></button>
     </div>
     <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-rise-of-bushi-1" data-kind="qa" data-sec="B" data-a="武士" data-r="ぶし">
       <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 14</span></span></div>
@@ -1100,12 +1127,12 @@
         <span class="mode-arrow">›</span></button>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="A">
         <span class="mode-ic ic-a">✏️</span>
-        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）だけ</span>
+        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）</span>
           <span class="mode-sub">（　）をタップして確かめる</span></span>
         <span class="mode-arrow">›</span></button></div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="B">
         <span class="mode-ic ic-b">🔥</span>
-        <span class="mode-main"><span class="mode-t">一問一答（短答）だけ</span>
+        <span class="mode-main"><span class="mode-t">一問一答（短答）</span>
           <span class="mode-sub">14問・入力して自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
@@ -1116,20 +1143,33 @@
       </div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="C">
         <span class="mode-ic ic-c">✅</span>
-        <span class="mode-main"><span class="mode-t">4択（選択）だけ</span>
+        <span class="mode-main"><span class="mode-t">4択（選択）</span>
           <span class="mode-sub">8問・タップで即判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
         </div>
       </div>
-      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述だけ</span><span class="mode-sub">2問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
+      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">2問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
     </div>
     <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/05/index.html#t2">📖 先に参考書で理解する</a>
       <div class="summary">11世紀後半、白河上皇は藤原氏の摂関政治に代わって自ら政治を動かす<button class="blank" type="button"><span class="bno">①</span><span class="ba">院政</span><span class="bl" style="width:2.7em"></span></button>を始め、院の警備には<button class="blank" type="button"><span class="bno">②</span><span class="ba">北面の武士</span><span class="bl" style="width:4.5em"></span></button>を置いた。1156年、崇徳上皇と後白河天皇の対立から<button class="blank" type="button"><span class="bno">③</span><span class="ba">保元の乱</span><span class="bl" style="width:3.6em"></span></button>が起こり、源氏・平氏の武士が動員されて武士の地位が高まった。1159年の<button class="blank" type="button"><span class="bno">④</span><span class="ba">平治の乱</span><span class="bl" style="width:3.6em"></span></button>で<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">平清盛</span><span class="bl" style="width:2.7em"></span></button>が源義朝を破ると、平氏は武士の頂点に立った。1167年、清盛は武士として初めて<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">太政大臣</span><span class="bl" style="width:3.6em"></span></button>となり、大輪田泊を整備して<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">日宋貿易</span><span class="bl" style="width:3.6em"></span></button>を進め大きな利益を得た。しかし平氏の勢力独占は「平氏にあらずんば人にあらず」といわれるほどの反発を招いた。伊豆で挙兵した<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">源頼朝</span><span class="bl" style="width:2.7em"></span></button>は弟の源義経らを率い、1185年の<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">壇ノ浦の戦い</span><span class="bl" style="width:5.4em"></span></button>で平氏をほろぼした。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step mb-step" data-label="短答のやり方" data-sec="MB">
+      <div class="sec-h"><span class="sec-tag">▶</span>ここからは一問一答<span class="sec-note">答え合わせのやり方をえらぼう</span></div>
+      <button class="mode-btn mb-pick" type="button" data-ansall="type">
+        <span class="mode-ic ic-b">⌨️</span>
+        <span class="mode-main"><span class="mode-t">入力して答え合わせ</span>
+          <span class="mode-sub">こたえを打つと自動で正誤判定</span></span>
+        <span class="mode-arrow">›</span></button>
+      <button class="mode-btn mb-pick" type="button" data-ansall="check">
+        <span class="mode-ic ic-a">👀</span>
+        <span class="mode-main"><span class="mode-t">答えを見て自己採点</span>
+          <span class="mode-sub">こたえを見て ○ △ をタップ</span></span>
+        <span class="mode-arrow">›</span></button>
     </div>
     <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-insei-taira-1" data-kind="qa" data-sec="B" data-a="上皇" data-r="じょうこう">
       <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 14</span></span></div>
@@ -1690,12 +1730,12 @@
         <span class="mode-arrow">›</span></button>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="A">
         <span class="mode-ic ic-a">✏️</span>
-        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）だけ</span>
+        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）</span>
           <span class="mode-sub">（　）をタップして確かめる</span></span>
         <span class="mode-arrow">›</span></button></div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="B">
         <span class="mode-ic ic-b">🔥</span>
-        <span class="mode-main"><span class="mode-t">一問一答（短答）だけ</span>
+        <span class="mode-main"><span class="mode-t">一問一答（短答）</span>
           <span class="mode-sub">14問・入力して自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
@@ -1706,20 +1746,33 @@
       </div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="C">
         <span class="mode-ic ic-c">✅</span>
-        <span class="mode-main"><span class="mode-t">4択（選択）だけ</span>
+        <span class="mode-main"><span class="mode-t">4択（選択）</span>
           <span class="mode-sub">8問・タップで即判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
         </div>
       </div>
-      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述だけ</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
+      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
     </div>
     <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/05/index.html#t3">📖 先に参考書で理解する</a>
       <div class="summary">源頼朝は平氏をほろぼした後、<button class="blank" type="button"><span class="bno">①</span><span class="ba">征夷大将軍</span><span class="bl" style="width:4.5em"></span></button>に任命されて鎌倉に武士の政権である鎌倉幕府を開いた。頼朝は国ごとに軍事・警察を担う<button class="blank" type="button"><span class="bno">②</span><span class="ba">守護</span><span class="bl" style="width:2.7em"></span></button>を、荘園や公領ごとに年貢の取り立てなどを行う<button class="blank" type="button"><span class="bno">③</span><span class="ba">地頭</span><span class="bl" style="width:2.7em"></span></button>を置いて全国支配を固めた。将軍と主従関係を結んだ武士は<button class="blank" type="button"><span class="bno">④</span><span class="ba">御家人</span><span class="bl" style="width:2.7em"></span></button>と呼ばれ、将軍が領地を保護する<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">御恩</span><span class="bl" style="width:2.7em"></span></button>に対し軍役や警護をつとめる<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">奉公</span><span class="bl" style="width:2.7em"></span></button>で応じる関係が幕府の基礎となった。頼朝の死後は北条氏が<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">執権</span><span class="bl" style="width:2.7em"></span></button>として実権をにぎり、1221年には後鳥羽上皇が幕府をたおそうとした<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">承久の乱</span><span class="bl" style="width:3.6em"></span></button>が起こったが、御家人の団結によって幕府側が勝利した。その後京都には朝廷を監視する<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">六波羅探題</span><span class="bl" style="width:4.5em"></span></button>が置かれ、1232年には北条泰時が武士の慣習に基づく法である<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">御成敗式目</span><span class="bl" style="width:4.5em"></span></button>を定めた。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step mb-step" data-label="短答のやり方" data-sec="MB">
+      <div class="sec-h"><span class="sec-tag">▶</span>ここからは一問一答<span class="sec-note">答え合わせのやり方をえらぼう</span></div>
+      <button class="mode-btn mb-pick" type="button" data-ansall="type">
+        <span class="mode-ic ic-b">⌨️</span>
+        <span class="mode-main"><span class="mode-t">入力して答え合わせ</span>
+          <span class="mode-sub">こたえを打つと自動で正誤判定</span></span>
+        <span class="mode-arrow">›</span></button>
+      <button class="mode-btn mb-pick" type="button" data-ansall="check">
+        <span class="mode-ic ic-a">👀</span>
+        <span class="mode-main"><span class="mode-t">答えを見て自己採点</span>
+          <span class="mode-sub">こたえを見て ○ △ をタップ</span></span>
+        <span class="mode-arrow">›</span></button>
     </div>
     <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-kamakura-bakufu-1" data-kind="qa" data-sec="B" data-a="鎌倉幕府" data-r="かまくらばくふ">
       <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 14</span></span></div>
@@ -2307,12 +2360,12 @@
         <span class="mode-arrow">›</span></button>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="A">
         <span class="mode-ic ic-a">✏️</span>
-        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）だけ</span>
+        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）</span>
           <span class="mode-sub">（　）をタップして確かめる</span></span>
         <span class="mode-arrow">›</span></button></div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="B">
         <span class="mode-ic ic-b">🔥</span>
-        <span class="mode-main"><span class="mode-t">一問一答（短答）だけ</span>
+        <span class="mode-main"><span class="mode-t">一問一答（短答）</span>
           <span class="mode-sub">14問・入力して自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
@@ -2323,20 +2376,33 @@
       </div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="C">
         <span class="mode-ic ic-c">✅</span>
-        <span class="mode-main"><span class="mode-t">4択（選択）だけ</span>
+        <span class="mode-main"><span class="mode-t">4択（選択）</span>
           <span class="mode-sub">8問・タップで即判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
         </div>
       </div>
-      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述だけ</span><span class="mode-sub">2問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
+      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">2問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
     </div>
     <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/05/index.html#t4">📖 先に参考書で理解する</a>
       <div class="summary">鎌倉時代には農業技術が進み、同じ田で米と麦を交互に作る<button class="blank" type="button"><span class="bno">①</span><span class="ba">二毛作</span><span class="bl" style="width:2.7em"></span></button>が西日本を中心に広まり、<button class="blank" type="button"><span class="bno">②</span><span class="ba">鉄製農具</span><span class="bl" style="width:3.6em"></span></button>や牛馬耕、草木灰などの肥料の利用で収穫量が高まった。商業も発達し、寺社の門前などで月3回開かれる<button class="blank" type="button"><span class="bno">③</span><span class="ba">定期市</span><span class="bl" style="width:2.7em"></span></button>（三斎市）が各地に広がり、日宋貿易で入ってきた<button class="blank" type="button"><span class="bno">④</span><span class="ba">宋銭</span><span class="bl" style="width:2.7em"></span></button>が売買や年貢の支払いに使われる貨幣経済が進んだ。地頭が荘園で力を強めると荘園領主との争いが増え、土地を半分ずつ分け合う<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">下地中分</span><span class="bl" style="width:3.6em"></span></button>で解決することもあった。武士は名誉を重んじ恥をきらう<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">武士道</span><span class="bl" style="width:2.7em"></span></button>の心がまえを持ち、弓や馬の技を磨く<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">弓馬の道</span><span class="bl" style="width:3.6em"></span></button>を何より大切にし、一大事には「<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">いざ鎌倉</span><span class="bl" style="width:3.6em"></span></button>」と将軍のもとへ駆けつける覚悟を持っていた。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step mb-step" data-label="短答のやり方" data-sec="MB">
+      <div class="sec-h"><span class="sec-tag">▶</span>ここからは一問一答<span class="sec-note">答え合わせのやり方をえらぼう</span></div>
+      <button class="mode-btn mb-pick" type="button" data-ansall="type">
+        <span class="mode-ic ic-b">⌨️</span>
+        <span class="mode-main"><span class="mode-t">入力して答え合わせ</span>
+          <span class="mode-sub">こたえを打つと自動で正誤判定</span></span>
+        <span class="mode-arrow">›</span></button>
+      <button class="mode-btn mb-pick" type="button" data-ansall="check">
+        <span class="mode-ic ic-a">👀</span>
+        <span class="mode-main"><span class="mode-t">答えを見て自己採点</span>
+          <span class="mode-sub">こたえを見て ○ △ をタップ</span></span>
+        <span class="mode-arrow">›</span></button>
     </div>
     <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-kamakura-society-1" data-kind="qa" data-sec="B" data-a="二毛作" data-r="にもうさく">
       <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 14</span></span></div>
@@ -2897,12 +2963,12 @@
         <span class="mode-arrow">›</span></button>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="A">
         <span class="mode-ic ic-a">✏️</span>
-        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）だけ</span>
+        <span class="mode-main"><span class="mode-t">穴埋め（要点まとめ）</span>
           <span class="mode-sub">（　）をタップして確かめる</span></span>
         <span class="mode-arrow">›</span></button></div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="B">
         <span class="mode-ic ic-b">🔥</span>
-        <span class="mode-main"><span class="mode-t">一問一答（短答）だけ</span>
+        <span class="mode-main"><span class="mode-t">一問一答（短答）</span>
           <span class="mode-sub">14問・入力して自動で正誤判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
@@ -2913,20 +2979,33 @@
       </div>
       <div class="mode-card"><button class="mode-btn" type="button" data-mode="C">
         <span class="mode-ic ic-c">✅</span>
-        <span class="mode-main"><span class="mode-t">4択（選択）だけ</span>
+        <span class="mode-main"><span class="mode-t">4択（選択）</span>
           <span class="mode-sub">8問・タップで即判定</span></span>
         <span class="mode-arrow">›</span></button>
         <div class="mode-opts">
           <div class="opt-row"><span class="opt-lb">順番</span><button class="opt-chip on" type="button" data-opt="shufC" data-val="0">そのまま</button><button class="opt-chip" type="button" data-opt="shufC" data-val="1">シャッフル</button></div>
         </div>
       </div>
-      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述だけ</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
+      <div class="mode-card"><button class="mode-btn" type="button" data-mode="D"><span class="mode-ic ic-d">📝</span><span class="mode-main"><span class="mode-t">記述</span><span class="mode-sub">3問・模範解答つき</span></span><span class="mode-arrow">›</span></button></div>
     </div>
     <div class="step" data-label="A 要点まとめ" data-sec="A">
       <div class="sec-h"><span class="sec-tag">A</span>要点まとめ<span class="sec-note">（　）をタップして確かめよう</span></div>
       <a class="ref-link" href="../../ref/05/index.html#t5">📖 先に参考書で理解する</a>
       <div class="summary">鎌倉時代には力強く写実的な文化が生まれ、東大寺南大門には運慶・快慶らが手がけた<button class="blank" type="button"><span class="bno">①</span><span class="ba">金剛力士像</span><span class="bl" style="width:4.5em"></span></button>が置かれた。文学では、源平の争乱をえがき琵琶法師が語り伝えた軍記物語の<button class="blank" type="button"><span class="bno">②</span><span class="ba">平家物語</span><span class="bl" style="width:3.6em"></span></button>、鴨長明が世のはかなさを記した随筆<button class="blank" type="button"><span class="bno">③</span><span class="ba">方丈記</span><span class="bl" style="width:2.7em"></span></button>、兼好法師が人々の暮らしをつづった随筆<button class="blank" type="button"><span class="bno">④</span><span class="ba">徒然草</span><span class="bl" style="width:2.7em"></span></button>が生まれ、後鳥羽上皇の命で藤原定家らが<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">新古今和歌集</span><span class="bl" style="width:5.4em"></span></button>を編集した。仏教では、念仏を唱えれば救われると説いた<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">法然</span><span class="bl" style="width:2.7em"></span></button>が浄土宗を開き、その弟子<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">親鸞</span><span class="bl" style="width:2.7em"></span></button>は浄土真宗を、一遍は踊念仏を広めて時宗を開いた。日蓮は法華経の題目を唱える<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">日蓮宗</span><span class="bl" style="width:2.7em"></span></button>を、栄西は宋から伝えた<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">臨済宗</span><span class="bl" style="width:2.7em"></span></button>を、道元はひたすら座禅を行う<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">曹洞宗</span><span class="bl" style="width:2.7em"></span></button>を開いた。</div>
       <div class="reveal-all-row"><button class="reveal-all" type="button">すべての答えを表示</button></div>
+    </div>
+    <div class="step mb-step" data-label="短答のやり方" data-sec="MB">
+      <div class="sec-h"><span class="sec-tag">▶</span>ここからは一問一答<span class="sec-note">答え合わせのやり方をえらぼう</span></div>
+      <button class="mode-btn mb-pick" type="button" data-ansall="type">
+        <span class="mode-ic ic-b">⌨️</span>
+        <span class="mode-main"><span class="mode-t">入力して答え合わせ</span>
+          <span class="mode-sub">こたえを打つと自動で正誤判定</span></span>
+        <span class="mode-arrow">›</span></button>
+      <button class="mode-btn mb-pick" type="button" data-ansall="check">
+        <span class="mode-ic ic-a">👀</span>
+        <span class="mode-main"><span class="mode-t">答えを見て自己採点</span>
+          <span class="mode-sub">こたえを見て ○ △ をタップ</span></span>
+        <span class="mode-arrow">›</span></button>
     </div>
     <div class="step qa-step" data-label="B 一問一答 (1/14)" data-qid="qa-kamakura-culture-1" data-kind="qa" data-sec="B" data-a="東大寺南大門" data-r="とうだいじなんだいもん">
       <div class="sec-h"><span class="sec-tag">B</span>一問一答<span class="sec-note"><span class="qnum">1 / 14</span></span></div>
@@ -3755,10 +3834,14 @@
     } else {
       var steps = stepsOf(t);
       // 一問一答「入力して判定」モードのときだけ入力UIを出す（CSS は .ans-type 起点）
+      // おすすめ順（all）は、短答手前の MB ステップで選んだ ansAll に従う。
       var cfgB = modeCfg(t);
       views[t].classList.toggle(
         'ans-type',
-        !!(cfgB && (cfgB.mode === 'B' || cfgB.mode === 'wrong') && cfgB.ans !== 'check')
+        !!(cfgB && (
+          ((cfgB.mode === 'B' || cfgB.mode === 'wrong') && cfgB.ans !== 'check')
+          || (cfgB.mode === 'all' && cfgB.ansAll === 'type')
+        ))
       );
       // 問題の切り替えは即時（めくりアニメ無し）。リズムよく次々と解けるように。
       domSteps(t).forEach(function (el) {
@@ -3883,6 +3966,16 @@
       [].forEach.call(chipBtn.parentElement.querySelectorAll('.opt-chip'), function (b) {
         b.classList.toggle('on', b === chipBtn);
       });
+      return;
+    }
+    // おすすめ順の「短答のやり方」選択（.mb-pick は .mode-btn でもあるので先に処理）
+    var pick = e.target.closest('.mb-pick');
+    if (pick) {
+      var pt = state.t;
+      var pcfg = modeCfg(pt) || { mode: 'all' };
+      pcfg.ansAll = pick.dataset.ansall;   // 'type'=入力して判定 / 'check'=見て自己採点
+      var pst = store(); pst['m' + pt] = pcfg; save(pst);
+      go(pt, state.s + 1, 1);              // 次（最初の一問一答）へ。render() で入力/確認が切り替わる
       return;
     }
     var mb = e.target.closest('.mode-btn');
