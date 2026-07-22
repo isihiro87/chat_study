@@ -117,11 +117,12 @@
   .home-topline { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:2px; }
   .hometop { display:flex; align-items:flex-start; gap:6px; padding:8px 2px 2px; text-align:left; }
   .ht-main { flex:1; min-width:0; text-align:center; }
-  .badge3 { display:inline-flex; border-radius:18px; overflow:hidden; font-size:12px; font-weight:bold;
-            box-shadow:0 2px 4px rgba(120,80,20,.2); }
-  .badge3 span { padding:4px 11px; display:inline-flex; align-items:center; white-space:nowrap; }
-  .b-vol { background:var(--brand); color:#fff; }
-  .b-kind { background:#fff; color:var(--deep); }
+  /* 本のラベル（押せない表示）: トグルに見えないようフラットな1トーンのタグに */
+  .badge3 { display:inline-flex; align-items:center; gap:6px; border-radius:8px;
+            background:#f4ecdb; padding:3px 10px; font-size:11.5px; font-weight:bold; }
+  .badge3 span { padding:0; display:inline-flex; align-items:center; white-space:nowrap; }
+  .b-vol { color:var(--brand); }
+  .b-kind { color:#9a7b4f; }
   .b-web { background:var(--amber); color:#fff; }
   .ht-title { font-size:41px; color:var(--deep); margin:12px 0 0; line-height:1.12; position:relative;
               display:inline-block; padding:0 6px; letter-spacing:.01em; }
@@ -443,6 +444,23 @@
   .foot-note { margin-top:4px; font-size:12px; }
 
   /* ── 下部ナビ ── */
+  /* 教材ゲートのロック案内（頭出しの先） */
+  .lock-ov { position:fixed; inset:0; z-index:40; background:rgba(60,40,15,.5);
+             display:flex; align-items:center; justify-content:center; padding:20px; }
+  .lock-ov[hidden] { display:none; }
+  .lock-card { width:100%; max-width:360px; background:#fff; border-radius:18px; padding:24px 20px 18px;
+               text-align:center; box-shadow:0 10px 30px rgba(0,0,0,.3); }
+  .lock-ic svg { width:34px; height:34px; }
+  .lock-ic { font-size:40px; }
+  .lock-t { font-size:18px; font-weight:bold; color:var(--deep); margin:6px 0 6px; }
+  .lock-d { font-size:13px; color:#78716c; line-height:1.8; margin-bottom:16px; }
+  .lock-btn { display:block; width:100%; margin-top:10px; border:none; border-radius:13px; padding:13px;
+              font-size:15px; font-weight:bold; text-decoration:none; cursor:pointer; font-family:inherit; }
+  .lb-line { background:#06c755; color:#fff; box-shadow:0 3px 8px rgba(6,199,85,.3); }
+  .lb-buy { background:#fff; color:var(--brand); border:1.5px solid var(--line); }
+  .lock-close { display:block; width:100%; margin-top:12px; background:none; border:none; cursor:pointer;
+                color:#a8a29e; font-size:12.5px; font-family:inherit; text-decoration:underline; }
+
   .navbar { position:fixed; left:0; right:0; bottom:0; z-index:10;
             background:rgba(255,253,248,.97); border-top:1px solid #f0e6d2;
             padding:10px 16px calc(10px + env(safe-area-inset-bottom)); }
@@ -546,12 +564,12 @@
   <nav class="toc">
     <div class="toc-head">
       <div class="toc-h">単元を選択</div>
-      <button class="toc-cal" data-go="1">📅 年表でチェック<span class="cal-go">›</span></button>
+      <button class="toc-cal" data-go="1">年表でチェック<span class="cal-go">›</span></button>
     </div>
     <button class="toc-item" data-go="2"><img class="toc-thumb" src="img/reference_hist19-berlin.webp" alt="" loading="lazy"><span class="toc-no">1</span><span class="toc-name">冷戦の終結</span><span class="toc-state" data-state-t="2"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="3"><img class="toc-thumb" src="img/reference_hist19-heisei.webp" alt="" loading="lazy"><span class="toc-no">2</span><span class="toc-name">平成の日本</span><span class="toc-state" data-state-t="3"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="4"><img class="toc-thumb" src="img/reference_hist19-sdgs.webp" alt="" loading="lazy"><span class="toc-no">3</span><span class="toc-name">現代の課題</span><span class="toc-state" data-state-t="4"></span><span class="toc-arrow">›</span></button>
   </nav>
   <a class="big-btn ref-btn" href="../../ref/19/index.html">参考書を開く</a>
-  <button class="big-btn print-btn" type="button" onclick="window.print()">🖨 紙に印刷して解く（解答つき）</button>
+  <button class="big-btn print-btn" type="button" onclick="window.print()">紙に印刷して解く（解答つき）</button>
   
   <footer class="foot">
     <div>つづもん 問題集</div>
@@ -566,7 +584,7 @@
     <table class="tl-table"><tr><th class="tl-year">年代</th><th>できごと</th></tr><tr><td class='tl-year'>1980年代後半</td><td>日本で株価や地価が異常に高騰する<button class="blank" type="button"><span class="bno">①</span><span class="ba">バブル経済</span><span class="bl" style="width:4.5em"></span></button>が起こる</td></tr><tr><td class='tl-year'>1989年</td><td><button class="blank" type="button"><span class="bno">②</span><span class="ba">ベルリンの壁</span><span class="bl" style="width:5.4em"></span></button>が崩壊し、米ソ首脳が<button class="blank" type="button"><span class="bno">③</span><span class="ba">マルタ会談</span><span class="bl" style="width:4.5em"></span></button>で冷戦の終結を宣言する</td></tr><tr><td class='tl-year'>1990年</td><td>東西に分かれていたドイツが<button class="blank" type="button"><span class="bno">④</span><span class="ba">統一</span><span class="bl" style="width:2.7em"></span></button>される</td></tr><tr><td class='tl-year'>1991年</td><td>バブル経済が崩壊し、日本は長い<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">不況</span><span class="bl" style="width:2.7em"></span></button>に入る</td></tr><tr><td class='tl-year'>1991年</td><td><button class="blank" type="button"><span class="bno">⑥</span><span class="ba">ソ連</span><span class="bl" style="width:2.7em"></span></button>が解体し、15の共和国に分かれる</td></tr><tr><td class='tl-year'>1991年</td><td>イラクのクウェート侵攻をきっかけに<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">湾岸戦争</span><span class="bl" style="width:3.6em"></span></button>が起こる</td></tr><tr><td class='tl-year'>1992年</td><td>自衛隊の海外派遣を可能にする<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">PKO協力法</span><span class="bl" style="width:5.4em"></span></button>が成立する</td></tr><tr><td class='tl-year'>1993年</td><td>55年体制が終わり、<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">細川護熙</span><span class="bl" style="width:3.6em"></span></button>内閣が発足する</td></tr><tr><td class='tl-year'>1993年</td><td>ヨーロッパの統合を進める<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">EU</span><span class="bl" style="width:2.7em"></span></button>が発足する</td></tr><tr><td class='tl-year'>1995年</td><td>兵庫県南部で<button class="blank" type="button"><span class="bno">⑪</span><span class="ba">阪神・淡路大震災</span><span class="bl" style="width:7.2em"></span></button>が起こる</td></tr><tr><td class='tl-year'>1995年</td><td>オウム真理教による<button class="blank" type="button"><span class="bno">⑫</span><span class="ba">地下鉄サリン事件</span><span class="bl" style="width:7.2em"></span></button>が起こる</td></tr><tr><td class='tl-year'>1997年</td><td>温室効果ガス削減を定めた<button class="blank" type="button"><span class="bno">⑬</span><span class="ba">京都議定書</span><span class="bl" style="width:4.5em"></span></button>が採択される</td></tr><tr><td class='tl-year'>2001年</td><td>アメリカで<button class="blank" type="button"><span class="bno">⑭</span><span class="ba">同時多発テロ</span><span class="bl" style="width:5.4em"></span></button>が起こる</td></tr><tr><td class='tl-year'>2003年</td><td>アメリカが<button class="blank" type="button"><span class="bno">⑮</span><span class="ba">イラク戦争</span><span class="bl" style="width:4.5em"></span></button>を起こしフセイン政権を倒す</td></tr><tr><td class='tl-year'>2011年</td><td>東北地方で<button class="blank" type="button"><span class="bno">⑯</span><span class="ba">東日本大震災</span><span class="bl" style="width:5.4em"></span></button>が起こり、福島第一原発事故が発生する</td></tr><tr><td class='tl-year'>2015年</td><td>温暖化対策の新枠組み<button class="blank" type="button"><span class="bno">⑰</span><span class="ba">パリ協定</span><span class="bl" style="width:3.6em"></span></button>と、国連の<button class="blank" type="button"><span class="bno">⑱</span><span class="ba">SDGs</span><span class="bl" style="width:3.6em"></span></button>が採択される</td></tr></table>
   </div>
 </section>
-<section class="view" data-t="2">
+<section class="view" data-t="2" data-lock="2">
   <div class="tband"><span class="tno">1</span><h2>冷戦の終結</h2><img class="wchar tchar" src="img/characters_char_pencil_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -633,8 +651,8 @@
         <div class="qa-a"><ruby>冷戦<rt>れいせん</rt></ruby></div>
         <div class="qa-expl">1989年のマルタ会談で、アメリカとソ連の首脳が、長く続いた冷戦を終わらせると宣言しました。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -651,8 +669,8 @@
         <div class="qa-a">1989年</div>
         <div class="qa-expl">1989年は、ベルリンの壁が崩れ、マルタ会談で冷戦の終結が宣言された、世界が大きく変わった年です。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -669,8 +687,8 @@
         <div class="qa-a">ベルリンの壁<ruby>崩壊<rt>ほうかい</rt></ruby></div>
         <div class="qa-expl">1989年11月、東西ドイツを分けていたベルリンの壁が崩れ、翌1990年のドイツ統一につながりました。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -687,8 +705,8 @@
         <div class="qa-a">ゴルバチョフ</div>
         <div class="qa-expl">ゴルバチョフはソ連最後の指導者です。国内改革を進め、1989年のマルタ会談で冷戦終結を宣言しました。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -705,8 +723,8 @@
         <div class="qa-a">ペレストロイカ</div>
         <div class="qa-expl">ペレストロイカは、1980年代後半にゴルバチョフが進めたソ連の改革です。「建て直し」という意味です。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -723,8 +741,8 @@
         <div class="qa-a">ドイツ</div>
         <div class="qa-expl">1990年、東ドイツと西ドイツが一つの国に戻りました。冷戦が終わる時代を表す大きな出来事です。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -741,8 +759,8 @@
         <div class="qa-a">ソ<ruby>連<rt>れん</rt></ruby></div>
         <div class="qa-expl">1991年、ソ連は解体してロシアなど15の共和国に分かれました。世界の国どうしの関係も大きく変わりました。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -759,8 +777,8 @@
         <div class="qa-a">1991年</div>
         <div class="qa-expl">1991年12月にソ連が解体し、ロシアなど15の共和国に分かれました。冷戦の時代が終わった年です。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -777,8 +795,8 @@
         <div class="qa-a"><ruby>湾岸<rt>わんがん</rt></ruby><ruby>戦争<rt>せんそう</rt></ruby></div>
         <div class="qa-expl">湾岸戦争は、イラクがクウェートに攻めこんだことをきっかけに、1991年に起こった戦争です。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -795,8 +813,8 @@
         <div class="qa-a">EU（ヨーロッパ<ruby>連合<rt>れんごう</rt></ruby>）</div>
         <div class="qa-expl">EUは1993年に発足した、ヨーロッパの国々のまとまりです。経済や政治で協力を進めています。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -813,8 +831,8 @@
         <div class="qa-a">1993年</div>
         <div class="qa-expl">1993年、EU（ヨーロッパ連合）が発足しました。ヨーロッパの国々がより強く協力するしくみです。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -831,8 +849,8 @@
         <div class="qa-a">ユーロ</div>
         <div class="qa-expl">ユーロはEUの共通通貨です。1999年に使われ始め、2002年から紙幣や硬貨も広く使われました。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -849,8 +867,8 @@
         <div class="qa-a">アメリカ<ruby>同時<rt>どうじ</rt></ruby><ruby>多発<rt>たはつ</rt></ruby>テロ</div>
         <div class="qa-expl">2001年9月11日にアメリカで起きた大きなテロ事件です。その後のアフガニスタン戦争などにつながりました。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -867,8 +885,8 @@
         <div class="qa-a">2001年9月11日</div>
         <div class="qa-expl">2001年9月11日、ニューヨークのビルなどが旅客機で攻撃され、アメリカ同時多発テロが起きました。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -993,7 +1011,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="3">
+<section class="view" data-t="3" data-lock="2">
   <div class="tband"><span class="tno">2</span><h2>平成の日本</h2><img class="wchar tchar" src="img/characters_manabi_think_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -1060,8 +1078,8 @@
         <div class="qa-a">バブル<ruby>経済<rt>けいざい</rt></ruby></div>
         <div class="qa-expl">バブル経済は、1980年代後半に株価や土地の値段が大きく上がった状態です。1991年ごろに崩れ、不景気が続きました。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1078,8 +1096,8 @@
         <div class="qa-a">バブル<ruby>崩壊<rt>ほうかい</rt></ruby></div>
         <div class="qa-expl">1991年ごろ、株価や土地の値段が大きく下がり、日本は長い不景気に入りました。これをバブル崩壊といいます。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1096,8 +1114,8 @@
         <div class="qa-a">1991年</div>
         <div class="qa-expl">1991年は、日本ではバブル崩壊、世界ではソ連解体や湾岸戦争があり、社会が大きく変わった年です。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1114,8 +1132,8 @@
         <div class="qa-a">1993年</div>
         <div class="qa-expl">1993年、長く続いた自民党中心の政治がいったん終わり、細川護熙を首相とする連立政権ができました。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1132,8 +1150,8 @@
         <div class="qa-a"><ruby>細川護熙<rt>ほそかわもりひろ</rt></ruby></div>
         <div class="qa-expl">細川護熙は日本新党を率いた政治家です。1993年に首相となり、自民党だけの長い政権を終わらせました。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1150,8 +1168,8 @@
         <div class="qa-a"><ruby>阪神<rt>はんしん</rt></ruby>・<ruby>淡路<rt>あわじ</rt></ruby><ruby>大震災<rt>だいしんさい</rt></ruby></div>
         <div class="qa-expl">阪神・淡路大震災は、1995年1月17日に起きた大地震です。神戸などで大きな被害が出ました。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1168,8 +1186,8 @@
         <div class="qa-a">1995年</div>
         <div class="qa-expl">1995年は、阪神・淡路大震災と地下鉄サリン事件が起きた年です。日本社会に大きな不安を与えました。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1186,8 +1204,8 @@
         <div class="qa-a">地下鉄サリン<ruby>事件<rt>じけん</rt></ruby></div>
         <div class="qa-expl">地下鉄サリン事件は、1995年3月に東京の地下鉄で起きたテロ事件です。多くの人が被害を受けました。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1204,8 +1222,8 @@
         <div class="qa-a">PKO<ruby>協力法<rt>きょうりょくほう</rt></ruby></div>
         <div class="qa-expl">PKO協力法は、1992年にできた法律です。自衛隊が国連の平和維持活動に参加できるようになりました。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1222,8 +1240,8 @@
         <div class="qa-a">PKO</div>
         <div class="qa-expl">PKOは国連の平和維持活動です。争いが起きた地域で、停戦の見守りなどを行います。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1240,8 +1258,8 @@
         <div class="qa-a"><ruby>東日本<rt>ひがしにほん</rt></ruby><ruby>大震災<rt>だいしんさい</rt></ruby></div>
         <div class="qa-expl">東日本大震災は、2011年3月11日に起きた大地震です。大津波と福島第一原発事故も起こりました。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1258,8 +1276,8 @@
         <div class="qa-a">2011年3月11日</div>
         <div class="qa-expl">2011年3月11日、東北地方の太平洋沖で大地震が起こり、大津波が東北地方を襲いました。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1276,8 +1294,8 @@
         <div class="qa-a"><ruby>高齢化<rt>こうれいか</rt></ruby>社会</div>
         <div class="qa-expl">高齢化社会とは、高齢者の割合が高くなる社会のことです。日本では高齢化が大きな課題になっています。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1294,8 +1312,8 @@
         <div class="qa-a"><ruby>少子化<rt>しょうしか</rt></ruby></div>
         <div class="qa-expl">少子化とは、生まれる子どもの数が少なくなることです。働く人の減少など、日本の大きな課題です。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1425,7 +1443,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="4">
+<section class="view" data-t="4" data-lock="2">
   <div class="tband"><span class="tno">3</span><h2>現代の課題</h2><img class="wchar tchar" src="img/characters_char_neko_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -1492,8 +1510,8 @@
         <div class="qa-a">グローバル化</div>
         <div class="qa-expl">グローバル化は、人・物・お金・情報が国境をこえて広がる動きです。1990年代以降、世界の結びつきが強まりました。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1510,8 +1528,8 @@
         <div class="qa-a"><ruby>情報化<rt>じょうほうか</rt></ruby>社会</div>
         <div class="qa-expl">情報化社会は、コンピュータやインターネットが生活に欠かせない社会です。人々の暮らし方も大きく変わりました。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1528,8 +1546,8 @@
         <div class="qa-a">インターネット</div>
         <div class="qa-expl">インターネットは、世界中のコンピュータをつなぐしくみです。1990年代から急速に広まりました。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1546,8 +1564,8 @@
         <div class="qa-a"><ruby>地球<rt>ちきゅう</rt></ruby><ruby>温暖化<rt>おんだんか</rt></ruby></div>
         <div class="qa-expl">地球温暖化は、二酸化炭素などが増えて地球の気温が上がる問題です。気候や災害にも影響します。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1564,8 +1582,8 @@
         <div class="qa-a"><ruby>温室<rt>おんしつ</rt></ruby><ruby>効果<rt>こうか</rt></ruby>ガス</div>
         <div class="qa-expl">温室効果ガスは、地球の熱を大気中に閉じこめるガスです。二酸化炭素やメタンなどがあります。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1582,8 +1600,8 @@
         <div class="qa-a"><ruby>京都<rt>きょうと</rt></ruby><ruby>議定書<rt>ぎていしょ</rt></ruby></div>
         <div class="qa-expl">京都議定書は、1997年に京都で決められた温暖化対策の約束です。温室効果ガスを減らすことを目指しました。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1600,8 +1618,8 @@
         <div class="qa-a">1997年</div>
         <div class="qa-expl">1997年には京都で国際会議が開かれ、京都議定書が採択されました。温暖化対策が進むきっかけになりました。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1618,8 +1636,8 @@
         <div class="qa-a">パリ<ruby>協定<rt>きょうてい</rt></ruby></div>
         <div class="qa-expl">パリ協定は、2015年に決められた温暖化対策の国際的な約束です。多くの国が削減目標を持ちます。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1636,8 +1654,8 @@
         <div class="qa-a">2015年</div>
         <div class="qa-expl">2015年は、パリ協定とSDGsが採択された年です。世界が協力して課題に取り組む流れが強まりました。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1654,8 +1672,8 @@
         <div class="qa-a">SDGs</div>
         <div class="qa-expl">SDGsは、2015年に国連で決められた世界共通の目標です。貧困や環境など17の目標があります。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1672,8 +1690,8 @@
         <div class="qa-a"><ruby>難民<rt>なんみん</rt></ruby>問題</div>
         <div class="qa-expl">難民問題は、戦争や迫害などで住む場所を追われる人々の問題です。世界各地で深刻になっています。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1690,8 +1708,8 @@
         <div class="qa-a"><ruby>新型<rt>しんがた</rt></ruby>コロナウイルス<ruby>感染症<rt>かんせんしょう</rt></ruby></div>
         <div class="qa-expl">新型コロナウイルス感染症は、2019年末から世界に広がった感染症です。生活や経済に大きな影響を与えました。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1708,8 +1726,8 @@
         <div class="qa-a"><ruby>領土<rt>りょうど</rt></ruby>問題</div>
         <div class="qa-expl">領土問題は、国どうしで土地や島の所属をめぐって意見が分かれる問題です。日本にもいくつかの課題があります。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1726,8 +1744,8 @@
         <div class="qa-a"><ruby>北方<rt>ほっぽう</rt></ruby><ruby>領土<rt>りょうど</rt></ruby></div>
         <div class="qa-expl">北方領土は、歯舞群島・色丹島・国後島・択捉島の4島です。日本は返還を求めています。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1846,6 +1864,14 @@
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
 </div></div>
+<div class="lock-ov" id="lockOv" hidden><div class="lock-card">
+  <div class="lock-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+  <div class="lock-t">つづきは購入者向けです</div>
+  <div class="lock-d">ここまでは無料でためせます。つづきを解くには、つづもんのライセンスが必要です。</div>
+  <button class="lock-btn lb-line" id="lockLogin">LINEでログイン（購入者の方）</button>
+  <a class="lock-btn lb-buy" href="../../index.html">つづもんを見てみる →</a>
+  <button class="lock-close" id="lockClose">とじる（ここまで解く）</button>
+</div></div>
 
 <script type="module">
 // 記述AI採点のログイン（www.chatstudy.jp の LINE Login＝Firebase Auth。参考書ページと同じ）。
@@ -1868,9 +1894,24 @@ try {
       location.href = '/welcome?next=' + encodeURIComponent(location.pathname + location.hash);
     },
   };
+  var ENTITLEMENT_API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/tsudumonEntitlement';
+  async function refreshEntitlement(u) {
+    try {
+      var idToken = await u.getIdToken();
+      var res = await fetch(ENTITLEMENT_API, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ idToken: idToken }),
+      });
+      if (!res.ok) return;
+      var data = await res.json();
+      try { localStorage.setItem('tzm-lic', JSON.stringify((data && data.grades) || [])); } catch (e) {}
+      if (window.tzmRefreshGate) window.tzmRefreshGate();
+    } catch (e) { /* localStorage フォールバックのまま */ }
+  }
   onAuthStateChanged(auth, function (u) {
     window.__tzmAuth.user = u;
     window.__tzmAuth.ready = true;
+    if (u) refreshEntitlement(u);
     document.dispatchEvent(new CustomEvent('tzm-auth'));
   });
 } catch (e) { /* 設定が無ければ採点はフォールバック（自己採点）に倒れる */ }
@@ -1880,6 +1921,7 @@ try {
 (function () {
   var KEY = 'tzmwb-19';
   var CH = '19';
+  var GRADE = '中3';        // この本の学年（中1/中2/中3）
   var GRADE_API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/gradeWritten';      // 記述AI採点 Cloud Function
   var REF_VIEWS = [0, 0, 1, 2, 3];        // 問題集のビューt → 参考書の単元番号（0＝対応なし）
   var views = [].slice.call(document.querySelectorAll('.view'));
@@ -1919,7 +1961,7 @@ try {
     try { if (localStorage.getItem('tzmhint') === '1') return; } catch (e) { return; }
     var canHover = window.matchMedia && window.matchMedia('(hover:hover)').matches;
     bar.textContent = canHover ? '⌨️ ← → キーでもページをめくれるよ'
-                               : '👆 よこにスワイプでもページをめくれるよ';
+                               : 'よこにスワイプでもページをめくれるよ';
     var shown = false;
     window.showHint = function () {
       if (shown || state.t === 0) return;
@@ -2124,7 +2166,7 @@ try {
   function showJudged(scopeEl, ok) {
     var banner = scopeEl.querySelector('.b-result');
     if (banner) {
-      banner.textContent = ok ? '⭕ せいかい！' : '❌ おしい！';
+      banner.textContent = ok ? 'せいかい！' : 'おしい！';
       banner.className = 'b-result ' + (ok ? 'ok' : 'ng');
     }
     scopeEl.classList.add('show');
@@ -2289,7 +2331,7 @@ try {
       pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
       document.getElementById('btnPrev').textContent = s === 0 ? '目次へ' : '← まえへ';
       var next = document.getElementById('btnNext');
-      if (onModeStep && steps.length === 1) next.textContent = '⭐ おすすめ順で始める →';
+      if (onModeStep && steps.length === 1) next.textContent = 'おすすめ順で始める →';
       else if (s < steps.length - 1) next.textContent = 'つぎへ →';
       else next.textContent = t < N ? '次の単元へ →' : '目次にもどる';
       if (steps[s] && steps[s].classList.contains('done-step')) renderScore(views[t]);
@@ -2335,12 +2377,32 @@ try {
     } else { btn.hidden = true; }
   }
 
+  // ── 教材ゲート（中間案・ゆるめ「頭出しは見せる」）──
+  //   有料単元はやり方えらぶ＋要点まとめまで誰でも試せる。その先は購入者（この学年）だけ。
+  function isLicensed() {
+    try { return (JSON.parse(localStorage.getItem('tzm-lic') || '[]')).indexOf(GRADE) >= 0; }
+    catch (e) { return false; }
+  }
+  function lockFrom(t) { var v = views[t]; return v ? +(v.getAttribute('data-lock') || 0) : 0; }
+  function gateBlocks(t, s) { var lk = lockFrom(t); return lk > 0 && !isLicensed() && s >= lk; }
+  function showLock() { var ov = document.getElementById('lockOv'); if (ov) ov.hidden = false; }
+  function hideLock() { var ov = document.getElementById('lockOv'); if (ov) ov.hidden = true; }
+  window.tzmRefreshGate = function () { if (isLicensed()) hideLock(); };
+
   function go(t, s, dir) {
     lastDir = dir || 1;
     state.t = Math.max(0, Math.min(N, t));
     state.s = Math.max(0, s || 0);
-    if (state.t > 0) state.s = Math.min(state.s, stepsOf(state.t).length - 1);
-    else state.s = 0;
+    if (state.t > 0) {
+      state.s = Math.min(state.s, stepsOf(state.t).length - 1);
+      if (gateBlocks(state.t, state.s)) {
+        state.s = Math.max(0, lockFrom(state.t) - 1);
+        render();
+        showLock();
+        return;
+      }
+    } else state.s = 0;
+    hideLock();
     render();
   }
   // ── 未回答ガード: 問題(一問一答/4択/記述)に答えるまで「つぎへ」で先に進めない ──
@@ -2384,6 +2446,11 @@ try {
     else go(0, 0, -1);
   }
 
+  document.getElementById('lockLogin').addEventListener('click', function () {
+    var here = location.pathname + '#t' + state.t + (state.s > 0 ? 's' + state.s : '');
+    location.href = '../../login/?next=' + encodeURIComponent(here);
+  });
+  document.getElementById('lockClose').addEventListener('click', hideLock);
   document.getElementById('btnNext').addEventListener('click', next);
   document.getElementById('btnPrev').addEventListener('click', prev);
   // 回答するとロックを解除（回答処理の後に評価するため click は次tickで）
@@ -2506,7 +2573,7 @@ try {
       var istep = idk.closest('.qa-step');
       showJudged(istep, false);
       var bn = istep.querySelector('.b-result');
-      if (bn) { bn.textContent = '👇 こたえはこちら。次はきっと書けるよ！'; bn.className = 'b-result ng'; }
+      if (bn) { bn.textContent = 'こたえはこちら。次はきっと書けるよ！'; bn.className = 'b-result ng'; }
       var stI = store(); stI.r = stI.r || {};
       stI.r[istep.dataset.qid] = 0;
       save(stI);

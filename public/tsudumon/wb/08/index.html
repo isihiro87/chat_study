@@ -117,11 +117,12 @@
   .home-topline { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:2px; }
   .hometop { display:flex; align-items:flex-start; gap:6px; padding:8px 2px 2px; text-align:left; }
   .ht-main { flex:1; min-width:0; text-align:center; }
-  .badge3 { display:inline-flex; border-radius:18px; overflow:hidden; font-size:12px; font-weight:bold;
-            box-shadow:0 2px 4px rgba(120,80,20,.2); }
-  .badge3 span { padding:4px 11px; display:inline-flex; align-items:center; white-space:nowrap; }
-  .b-vol { background:var(--brand); color:#fff; }
-  .b-kind { background:#fff; color:var(--deep); }
+  /* 本のラベル（押せない表示）: トグルに見えないようフラットな1トーンのタグに */
+  .badge3 { display:inline-flex; align-items:center; gap:6px; border-radius:8px;
+            background:#f4ecdb; padding:3px 10px; font-size:11.5px; font-weight:bold; }
+  .badge3 span { padding:0; display:inline-flex; align-items:center; white-space:nowrap; }
+  .b-vol { color:var(--brand); }
+  .b-kind { color:#9a7b4f; }
   .b-web { background:var(--amber); color:#fff; }
   .ht-title { font-size:41px; color:var(--deep); margin:12px 0 0; line-height:1.12; position:relative;
               display:inline-block; padding:0 6px; letter-spacing:.01em; }
@@ -443,6 +444,23 @@
   .foot-note { margin-top:4px; font-size:12px; }
 
   /* ── 下部ナビ ── */
+  /* 教材ゲートのロック案内（頭出しの先） */
+  .lock-ov { position:fixed; inset:0; z-index:40; background:rgba(60,40,15,.5);
+             display:flex; align-items:center; justify-content:center; padding:20px; }
+  .lock-ov[hidden] { display:none; }
+  .lock-card { width:100%; max-width:360px; background:#fff; border-radius:18px; padding:24px 20px 18px;
+               text-align:center; box-shadow:0 10px 30px rgba(0,0,0,.3); }
+  .lock-ic svg { width:34px; height:34px; }
+  .lock-ic { font-size:40px; }
+  .lock-t { font-size:18px; font-weight:bold; color:var(--deep); margin:6px 0 6px; }
+  .lock-d { font-size:13px; color:#78716c; line-height:1.8; margin-bottom:16px; }
+  .lock-btn { display:block; width:100%; margin-top:10px; border:none; border-radius:13px; padding:13px;
+              font-size:15px; font-weight:bold; text-decoration:none; cursor:pointer; font-family:inherit; }
+  .lb-line { background:#06c755; color:#fff; box-shadow:0 3px 8px rgba(6,199,85,.3); }
+  .lb-buy { background:#fff; color:var(--brand); border:1.5px solid var(--line); }
+  .lock-close { display:block; width:100%; margin-top:12px; background:none; border:none; cursor:pointer;
+                color:#a8a29e; font-size:12.5px; font-family:inherit; text-decoration:underline; }
+
   .navbar { position:fixed; left:0; right:0; bottom:0; z-index:10;
             background:rgba(255,253,248,.97); border-top:1px solid #f0e6d2;
             padding:10px 16px calc(10px + env(safe-area-inset-bottom)); }
@@ -546,12 +564,12 @@
   <nav class="toc">
     <div class="toc-head">
       <div class="toc-h">単元を選択</div>
-      <button class="toc-cal" data-go="1">📅 年表でチェック<span class="cal-go">›</span></button>
+      <button class="toc-cal" data-go="1">年表でチェック<span class="cal-go">›</span></button>
     </div>
     <button class="toc-item" data-go="2"><img class="toc-thumb" src="img/reference_hist08-edo.webp" alt="" loading="lazy"><span class="toc-no">1</span><span class="toc-name">江戸幕府の成立</span><span class="toc-state" data-state-t="2"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="3"><img class="toc-thumb" src="img/reference_hist08-sakoku.webp" alt="" loading="lazy"><span class="toc-no">2</span><span class="toc-name">鎖国への道</span><span class="toc-state" data-state-t="3"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="4"><img class="toc-thumb" src="img/reference_hist08-foreign-relations-edo.webp" alt="" loading="lazy"><span class="toc-no">3</span><span class="toc-name">鎖国下の対外関係</span><span class="toc-state" data-state-t="4"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="5"><img class="toc-thumb" src="img/reference_hist08-ryukyu-ainu.webp" alt="" loading="lazy"><span class="toc-no">4</span><span class="toc-name">琉球とアイヌ</span><span class="toc-state" data-state-t="5"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="6"><img class="toc-thumb" src="img/reference_hist08-social-classes.webp" alt="" loading="lazy"><span class="toc-no">5</span><span class="toc-name">江戸時代の身分制度</span><span class="toc-state" data-state-t="6"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="7"><img class="toc-thumb" src="img/reference_hist08-edo-politics-reforms.webp" alt="" loading="lazy"><span class="toc-no">6</span><span class="toc-name">江戸幕府政治と三大改革</span><span class="toc-state" data-state-t="7"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="8"><img class="toc-thumb" src="img/reference_hist08-edo-transport-commerce.webp" alt="" loading="lazy"><span class="toc-no">7</span><span class="toc-name">江戸の交通と商業・都市</span><span class="toc-state" data-state-t="8"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="9"><img class="toc-thumb" src="img/reference_hist08-edo-industry-society.webp" alt="" loading="lazy"><span class="toc-no">8</span><span class="toc-name">江戸の産業と社会不安</span><span class="toc-state" data-state-t="9"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="10"><img class="toc-thumb" src="img/reference_hist08-culture.webp" alt="" loading="lazy"><span class="toc-no">9</span><span class="toc-name">江戸の文化と学問・教育</span><span class="toc-state" data-state-t="10"></span><span class="toc-arrow">›</span></button>
   </nav>
   <a class="big-btn ref-btn" href="../../ref/08/index.html">参考書を開く</a>
-  <button class="big-btn print-btn" type="button" onclick="window.print()">🖨 紙に印刷して解く（解答つき）</button>
+  <button class="big-btn print-btn" type="button" onclick="window.print()">紙に印刷して解く（解答つき）</button>
   
   <footer class="foot">
     <div>つづもん 問題集</div>
@@ -566,7 +584,7 @@
     <table class="tl-table"><tr><th class="tl-year">年代</th><th>できごと</th></tr><tr><td class='tl-year'>1600年</td><td>徳川家康が<button class="blank" type="button"><span class="bno">①</span><span class="ba">関ヶ原の戦い</span><span class="bl" style="width:5.4em"></span></button>で石田三成らの西軍を破る</td></tr><tr><td class='tl-year'>1603年</td><td>徳川家康が<button class="blank" type="button"><span class="bno">②</span><span class="ba">征夷大将軍</span><span class="bl" style="width:4.5em"></span></button>となり江戸幕府を開く</td></tr><tr><td class='tl-year'>1609年</td><td><button class="blank" type="button"><span class="bno">③</span><span class="ba">薩摩藩</span><span class="bl" style="width:2.7em"></span></button>が琉球王国に侵攻し支配下に置く</td></tr><tr><td class='tl-year'>1612年</td><td>徳川家康が幕領に対して<button class="blank" type="button"><span class="bno">④</span><span class="ba">禁教令</span><span class="bl" style="width:2.7em"></span></button>を出す</td></tr><tr><td class='tl-year'>1614〜1615年</td><td>徳川氏が豊臣氏を滅ぼす<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">大坂の陣</span><span class="bl" style="width:3.6em"></span></button>が起こる</td></tr><tr><td class='tl-year'>1615年</td><td>大名を統制するための<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">武家諸法度</span><span class="bl" style="width:4.5em"></span></button>が定められる</td></tr><tr><td class='tl-year'>1637年</td><td>重い年貢とキリスト教弾圧に抵抗する<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">島原・天草一揆</span><span class="bl" style="width:6.3em"></span></button>が起こる</td></tr><tr><td class='tl-year'>1639年</td><td><button class="blank" type="button"><span class="bno">⑧</span><span class="ba">ポルトガル</span><span class="bl" style="width:4.5em"></span></button>船の来航が禁止される</td></tr><tr><td class='tl-year'>1641年</td><td>オランダ商館が長崎の<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">出島</span><span class="bl" style="width:2.7em"></span></button>に移され鎖国が完成する</td></tr><tr><td class='tl-year'>1669年</td><td>アイヌの首長<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">シャクシャイン</span><span class="bl" style="width:6.3em"></span></button>が松前藩に対して蜂起する</td></tr><tr><td class='tl-year'>1689年</td><td>長崎に清の商人を収容する<button class="blank" type="button"><span class="bno">⑪</span><span class="ba">唐人屋敷</span><span class="bl" style="width:3.6em"></span></button>が造られる</td></tr><tr><td class='tl-year'>1774年</td><td>杉田玄白らが西洋医学書<button class="blank" type="button"><span class="bno">⑫</span><span class="ba">解体新書</span><span class="bl" style="width:3.6em"></span></button>を翻訳・出版する</td></tr><tr><td class='tl-year'>1837年</td><td>大坂で元役人の<button class="blank" type="button"><span class="bno">⑬</span><span class="ba">大塩平八郎</span><span class="bl" style="width:4.5em"></span></button>が反乱を起こす</td></tr><tr><td class='tl-year'>1841年</td><td>老中水野忠邦が幕府権威の回復をめざす<button class="blank" type="button"><span class="bno">⑭</span><span class="ba">天保の改革</span><span class="bl" style="width:4.5em"></span></button>を始める</td></tr></table>
   </div>
 </section>
-<section class="view" data-t="2">
+<section class="view" data-t="2" data-lock="2">
   <div class="tband"><span class="tno">1</span><h2>江戸幕府の成立</h2><img class="wchar tchar" src="img/characters_char_pencil_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -633,8 +651,8 @@
         <div class="qa-a"><ruby>徳川家康<rt>とくがわいえやす</rt></ruby></div>
         <div class="qa-expl">1603年に征夷大将軍となり、江戸幕府を開いた初代将軍。約260年続く江戸幕府の出発点となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -651,8 +669,8 @@
         <div class="qa-a"><ruby>関ヶ原<rt>せきがはら</rt></ruby>の<ruby>戦<rt>たたか</rt></ruby>い</div>
         <div class="qa-expl">1600年に徳川家康率いる東軍が石田三成ら西軍を破った天下分け目の戦い。江戸幕府成立につながった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -669,8 +687,8 @@
         <div class="qa-a"><ruby>江戸<rt>えど</rt></ruby><ruby>幕府<rt>ばくふ</rt></ruby></div>
         <div class="qa-expl">1603年に徳川家康が開き、江戸を政治の中心として約260年続いた武家政権。15代慶喜まで続いた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -687,8 +705,8 @@
         <div class="qa-a"><ruby>征夷大将軍<rt>せいいたいしょうぐん</rt></ruby></div>
         <div class="qa-expl">武家政権の長を意味する朝廷の役職で、1603年に徳川家康がこの位につき、江戸幕府を開いた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -705,8 +723,8 @@
         <div class="qa-a"><ruby>大坂<rt>おおさか</rt></ruby>の<ruby>陣<rt>じん</rt></ruby></div>
         <div class="qa-expl">1614年の冬の陣と1615年の夏の陣の二度にわたり、徳川氏が豊臣氏を滅ぼした戦い。幕府支配が安定した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -723,8 +741,8 @@
         <div class="qa-a"><ruby>大名<rt>だいみょう</rt></ruby></div>
         <div class="qa-expl">将軍から1万石以上の領地を与えられた武士で、徳川氏との関係から親藩・譜代・外様の3つに分けられた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -741,8 +759,8 @@
         <div class="qa-a"><ruby>親藩<rt>しんぱん</rt></ruby></div>
         <div class="qa-expl">徳川家の親族にあたる大名で、尾張・紀伊・水戸の御三家が代表的。徳川家に最も近い大名たち。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -759,8 +777,8 @@
         <div class="qa-a"><ruby>譜代<rt>ふだい</rt></ruby><ruby>大名<rt>だいみょう</rt></ruby></div>
         <div class="qa-expl">関ヶ原の戦い以前から徳川氏に従っていた大名で、信頼が厚く老中など幕府の重要な役職につくことが多かった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -777,8 +795,8 @@
         <div class="qa-a"><ruby>外様<rt>とざま</rt></ruby><ruby>大名<rt>だいみょう</rt></ruby></div>
         <div class="qa-expl">関ヶ原の戦いの前後から徳川氏に従った大名。幕府から警戒され、江戸から遠い地方に配置されることが多かった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -795,8 +813,8 @@
         <div class="qa-a"><ruby>武家<rt>ぶけ</rt></ruby><ruby>諸法度<rt>しょはっと</rt></ruby></div>
         <div class="qa-expl">1615年に2代将軍秀忠の名で出された大名統制の法令。城の修理や大名同士の結婚などにも制限を設けた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -813,8 +831,8 @@
         <div class="qa-a"><ruby>参勤<rt>さんきん</rt></ruby><ruby>交代<rt>こうたい</rt></ruby></div>
         <div class="qa-expl">3代将軍徳川家光の時代に武家諸法度で制度化された大名統制策。江戸と領地の往復で大名の財政負担が大きかった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -831,8 +849,8 @@
         <div class="qa-a"><ruby>幕藩<rt>ばくはん</rt></ruby><ruby>体制<rt>たいせい</rt></ruby></div>
         <div class="qa-expl">江戸時代の政治体制で、幕府が大名（藩主）を統制し、藩が領地を支配する二重の支配構造。約260年続いた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -849,8 +867,8 @@
         <div class="qa-a"><ruby>禁中<rt>きんちゅう</rt></ruby><ruby>並<rt>ならびに</rt></ruby><ruby>公家<rt>くげ</rt></ruby><ruby>諸法度<rt>しょはっと</rt></ruby></div>
         <div class="qa-expl">1615年に幕府が定めた朝廷統制の法令。天皇は学問に専念すべきとし、公家の政治的な活動も制限した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -867,8 +885,8 @@
         <div class="qa-a"><ruby>石田三成<rt>いしだみつなり</rt></ruby></div>
         <div class="qa-expl">豊臣秀吉の側近として活躍した大名で、1600年の関ヶ原の戦いで西軍を率い、徳川家康に敗れて処刑された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -998,7 +1016,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="3">
+<section class="view" data-t="3" data-lock="2">
   <div class="tband"><span class="tno">2</span><h2>鎖国への道</h2><img class="wchar tchar" src="img/characters_manabi_think_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -1065,8 +1083,8 @@
         <div class="qa-a"><ruby>朱印船<rt>しゅいんせん</rt></ruby><ruby>貿易<rt>ぼうえき</rt></ruby></div>
         <div class="qa-expl">幕府から朱印状を受けた船が東南アジアと行った貿易。徳川家康が奨励し、初期の江戸幕府では海外貿易が認められていた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1083,8 +1101,8 @@
         <div class="qa-a"><ruby>朱印状<rt>しゅいんじょう</rt></ruby></div>
         <div class="qa-expl">幕府が海外渡航を許可した船に与えた証明書で、将軍の朱印（赤い印章）が押された公式な渡航許可証。朱印船貿易の名の由来となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1101,8 +1119,8 @@
         <div class="qa-a"><ruby>日本町<rt>にほんまち</rt></ruby></div>
         <div class="qa-expl">朱印船貿易によって東南アジア各地にできた日本人の町で、タイのアユタヤなどが有名。鎖国前の活発な海外交流を示す証拠となっている。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1119,8 +1137,8 @@
         <div class="qa-a"><ruby>禁教令<rt>きんきょうれい</rt></ruby></div>
         <div class="qa-expl">キリスト教の信仰や布教を禁じた命令。幕府は支配がゆらぐのを恐れて取りしまりを強め、島原・天草一揆後さらに厳しくした。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1137,8 +1155,8 @@
         <div class="qa-a"><ruby>絵踏<rt>えふみ</rt></ruby></div>
         <div class="qa-expl">キリスト教徒を見つけるため、キリストや聖母マリアの絵（踏絵）を踏ませた取りしまり。寺請制度や宗門改とともにキリシタン摘発に使われた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1155,8 +1173,8 @@
         <div class="qa-a"><ruby>宗門<rt>しゅうもん</rt></ruby><ruby>改<rt>あらため</rt></ruby></div>
         <div class="qa-expl">人々を寺院に所属（檀家）させ、キリスト教徒でないことを証明させた制度。寺請制度と組み合わせて運用され、禁教政策の中心となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1173,8 +1191,8 @@
         <div class="qa-a"><ruby>寺請<rt>てらうけ</rt></ruby><ruby>制度<rt>せいど</rt></ruby></div>
         <div class="qa-expl">すべての人を必ず寺院に登録させ、キリシタンでないことを証明させた制度。宗門改と組み合わせて運用され、全国民の宗教を管理するしくみとなった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1191,8 +1209,8 @@
         <div class="qa-a"><ruby>島原<rt>しまばら</rt></ruby>・<ruby>天草<rt>あまくさ</rt></ruby><ruby>一揆<rt>いっき</rt></ruby></div>
         <div class="qa-expl">1637年、九州で重い年貢やキリスト教弾圧に苦しんだ人々が天草四郎を大将に起こした一揆。鎮圧後、幕府は禁教を徹底し鎖国へと進んだ。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1209,8 +1227,8 @@
         <div class="qa-a"><ruby>天草<rt>あまくさ</rt></ruby><ruby>四郎<rt>しろう</rt></ruby>（<ruby>益田時貞<rt>ますだときさだ</rt></ruby>）</div>
         <div class="qa-expl">1637年の島原・天草一揆で大将となった少年。わずか16歳前後で一揆軍を率いたが、幕府軍に鎮圧されて命を落とした。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1227,8 +1245,8 @@
         <div class="qa-a"><ruby>鎖国<rt>さこく</rt></ruby></div>
         <div class="qa-expl">江戸幕府が海外との交流を制限した体制で、3代家光の時代に完成。完全に断ったわけではなく、長崎・対馬・薩摩・松前の4窓口で交流は続いた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1245,8 +1263,8 @@
         <div class="qa-a"><ruby>出島<rt>でじま</rt></ruby></div>
         <div class="qa-expl">1641年に平戸からオランダ商館が移された長崎の人工島。扇形をしており、鎖国下で唯一の西洋との貿易窓口として機能した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1263,8 +1281,8 @@
         <div class="qa-a">オランダ</div>
         <div class="qa-expl">鎖国下でヨーロッパで唯一貿易を許された国。キリスト教の布教を行わず貿易のみに徹したため、長崎の出島で商館を構えて貿易を続けた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1281,8 +1299,8 @@
         <div class="qa-a"><ruby>唐人<rt>とうじん</rt></ruby><ruby>屋敷<rt>やしき</rt></ruby></div>
         <div class="qa-expl">1689年に幕府が長崎に置いた中国人の居住地区。清の商人が住み、オランダの出島とともに長崎での貿易拠点として外国人を管理した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1299,8 +1317,8 @@
         <div class="qa-a">1639年</div>
         <div class="qa-expl">幕府がポルトガル船の来航を禁止した年。1637年の島原・天草一揆を機に禁教徹底が進み、3代将軍家光のもとで鎖国が完成へ向かった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1435,7 +1453,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="4">
+<section class="view" data-t="4" data-lock="2">
   <div class="tband"><span class="tno">3</span><h2>鎖国下の対外関係</h2><img class="wchar tchar" src="img/characters_char_neko_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -1502,8 +1520,8 @@
         <div class="qa-a">オランダ</div>
         <div class="qa-expl">キリスト教の布教を行わなかったため、鎖国下で唯一貿易を許されたヨーロッパの国。長崎の出島で貿易を行い、風説書で海外情勢を幕府に伝えた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1520,8 +1538,8 @@
         <div class="qa-a"><ruby>出島<rt>でじま</rt></ruby></div>
         <div class="qa-expl">1641年に平戸から長崎に移されたオランダ商館が置かれた扇形の人工島で、鎖国下で唯一の西洋との貿易窓口となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1538,8 +1556,8 @@
         <div class="qa-a">オランダ<ruby>風説書<rt>ふうせつがき</rt></ruby></div>
         <div class="qa-expl">オランダ商館長が幕府に提出した海外情報の報告書。鎖国下でも幕府は世界の動きをすぐに知ることができた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1556,8 +1574,8 @@
         <div class="qa-a"><ruby>清<rt>しん</rt></ruby></div>
         <div class="qa-expl">明にかわって中国を支配した王朝で、17世紀末に長崎で貿易を許された。商人は唐人屋敷に居住し、オランダとともに長崎で貿易を行った。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1574,8 +1592,8 @@
         <div class="qa-a"><ruby>唐人<rt>とうじん</rt></ruby><ruby>屋敷<rt>やしき</rt></ruby></div>
         <div class="qa-expl">1689年に幕府が長崎に造った中国人居住地で、清の商人を収容した。出島のオランダ商館と並ぶ長崎での外国人管理の拠点となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1592,8 +1610,8 @@
         <div class="qa-a"><ruby>対馬<rt>つしま</rt></ruby><ruby>藩<rt>はん</rt></ruby></div>
         <div class="qa-expl">朝鮮半島に近い地理的条件を生かし、鎖国下で朝鮮との外交・貿易を担当した藩。釜山に倭館を設け、朝鮮通信使の派遣の窓口にもなった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1610,8 +1628,8 @@
         <div class="qa-a"><ruby>倭館<rt>わかん</rt></ruby></div>
         <div class="qa-expl">対馬藩が朝鮮の釜山に設けた日本の居留地。江戸時代には対馬藩士や商人が滞在し、朝鮮との貿易や外交の実務がここで行われた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1628,8 +1646,8 @@
         <div class="qa-a"><ruby>朝鮮<rt>ちょうせん</rt></ruby><ruby>通信使<rt>つうしんし</rt></ruby></div>
         <div class="qa-expl">対馬藩を窓口に、将軍の代替わりを祝う目的で朝鮮から江戸幕府へ派遣された使節。両国の友好を示し、各地で文化交流も行われた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1646,8 +1664,8 @@
         <div class="qa-a"><ruby>薩摩<rt>さつま</rt></ruby><ruby>藩<rt>はん</rt></ruby></div>
         <div class="qa-expl">島津氏の藩で、1609年に琉球王国に侵攻して支配下に置いた。琉球と中国の中継貿易で大きな利益を得て、鎖国下の窓口の一つとなった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1664,8 +1682,8 @@
         <div class="qa-a"><ruby>松前<rt>まつまえ</rt></ruby><ruby>藩<rt>はん</rt></ruby></div>
         <div class="qa-expl">蝦夷地（現在の北海道）の南部に置かれた藩で、鎖国下のアイヌとの窓口を担った。アイヌとの交易を独占し、鮭・昆布・毛皮などを手に入れた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1682,8 +1700,8 @@
         <div class="qa-a"><ruby>俵物<rt>たわらもの</rt></ruby></div>
         <div class="qa-expl">干しなまこ・干しアワビ・ふかひれなどの俵詰めの海産物で、長崎貿易で清に輸出された。金銀の代わりに使われ、金銀の海外流出を防ぐ目的があった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1700,8 +1718,8 @@
         <div class="qa-a"><ruby>釜山<rt>プサン</rt></ruby></div>
         <div class="qa-expl">朝鮮半島の南端に位置し、対馬から最も近い朝鮮の港町。対馬藩がここに倭館を設け、朝鮮との貿易や外交の実務の拠点とした。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1718,8 +1736,8 @@
         <div class="qa-a">1609年</div>
         <div class="qa-expl">島津氏の薩摩藩が約3000の兵を送り琉球王国に侵攻して支配下に置いた年。以後、琉球は薩摩支配と中国との中継貿易を両立させた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1828,7 +1846,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="5">
+<section class="view" data-t="5" data-lock="2">
   <div class="tband"><span class="tno">4</span><h2>琉球とアイヌ</h2><img class="wchar tchar" src="img/characters_char_owl_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -1895,8 +1913,8 @@
         <div class="qa-a"><ruby>琉球<rt>りゅうきゅう</rt></ruby><ruby>王国<rt>おうこく</rt></ruby></div>
         <div class="qa-expl">現在の沖縄県にあたる地域で、15世紀に成立した独立した王国。中国との朝貢貿易や東南アジア諸国との中継貿易で繁栄した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1913,8 +1931,8 @@
         <div class="qa-a"><ruby>薩摩<rt>さつま</rt></ruby><ruby>藩<rt>はん</rt></ruby></div>
         <div class="qa-expl">島津氏の藩で、1609年に琉球王国を攻めて支配下に置いた。琉球を独立国の形のままにし、中国との中継貿易の利益を独占した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1931,8 +1949,8 @@
         <div class="qa-a"><ruby>琉球<rt>りゅうきゅう</rt></ruby><ruby>使節<rt>しせつ</rt></ruby></div>
         <div class="qa-expl">琉球国王や将軍の代替わりの際に薩摩藩を経由して江戸へ送られた使節。華やかな行列で江戸に向かい、幕府の権威を国内外に示した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1949,8 +1967,8 @@
         <div class="qa-a"><ruby>中継<rt>なかつぎ</rt></ruby><ruby>貿易<rt>ぼうえき</rt></ruby></div>
         <div class="qa-expl">中国と日本の間に位置する琉球が、中国の品を日本へ送り、日本の品を中国へ送る形で利益を得た貿易。琉球王国の繁栄を支えた仕組み。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1967,8 +1985,8 @@
         <div class="qa-a"><ruby>奄美<rt>あまみ</rt></ruby><ruby>群島<rt>ぐんとう</rt></ruby></div>
         <div class="qa-expl">薩摩藩が1609年の琉球侵攻後に琉球から取り上げて直接支配した島々。砂糖（黒糖）の生産が盛んで、薩摩藩の重要な財源となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1985,8 +2003,8 @@
         <div class="qa-a">アイヌ<ruby>民族<rt>みんぞく</rt></ruby></div>
         <div class="qa-expl">北海道などに住み、独自の言語や文化をもつ人々。松前藩との交易で漁業や狩猟を営み、1669年のシャクシャインの戦いを起こした。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2003,8 +2021,8 @@
         <div class="qa-a"><ruby>蝦夷地<rt>えぞち</rt></ruby></div>
         <div class="qa-expl">江戸時代の北海道・千島列島・樺太の総称で、アイヌ民族が暮らした地域。鎖国下では松前藩がアイヌとの交易窓口を担った。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2021,8 +2039,8 @@
         <div class="qa-a"><ruby>松前<rt>まつまえ</rt></ruby><ruby>藩<rt>はん</rt></ruby></div>
         <div class="qa-expl">蝦夷地南部に置かれた藩で、鎖国下のアイヌとの窓口を担った。米が取れないため石高ではなくアイヌとの交易権で成り立つ特殊な藩だった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2039,8 +2057,8 @@
         <div class="qa-a">シャクシャインの<ruby>戦<rt>たたか</rt></ruby>い</div>
         <div class="qa-expl">1669年に、首長シャクシャインを中心としたアイヌの人々が、松前藩との不公平な交易への不満から起こした戦い。松前藩に鎮圧された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2057,8 +2075,8 @@
         <div class="qa-a">シャクシャイン</div>
         <div class="qa-expl">1669年にアイヌ民族の首長として、松前藩の不公平な交易に抗議して蜂起したアイヌの指導者。戦いは鎮圧され、アイヌの自治は弱まった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2075,8 +2093,8 @@
         <div class="qa-a">1669年</div>
         <div class="qa-expl">首長シャクシャインを中心としたアイヌの人々が、松前藩との不公平な交易への不満から蜂起した年。鎮圧されアイヌの自治は大きく後退した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2093,8 +2111,8 @@
         <div class="qa-a">1609年</div>
         <div class="qa-expl">島津氏の薩摩藩が約3000の兵で琉球王国に侵攻し、支配下に置いた年。以後、琉球は薩摩支配と中国との中継貿易を両立させた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2111,8 +2129,8 @@
         <div class="qa-a"><ruby>鮭<rt>さけ</rt></ruby>・<ruby>昆布<rt>こんぶ</rt></ruby>・<ruby>毛皮<rt>けがわ</rt></ruby></div>
         <div class="qa-expl">松前藩がアイヌとの交易で主に手に入れた蝦夷地の特産。豊かな自然から得られる産物で、本州にも運ばれて高い価値で取引された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2129,8 +2147,8 @@
         <div class="qa-a"><ruby>島津氏<rt>しまづし</rt></ruby></div>
         <div class="qa-expl">鎌倉時代から薩摩を治めた大名の名門。1609年に琉球王国に侵攻して支配下に置き、幕末には西郷隆盛らを生んで倒幕の中心的な役割を果たした。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2239,7 +2257,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="6">
+<section class="view" data-t="6" data-lock="2">
   <div class="tband"><span class="tno">5</span><h2>江戸時代の身分制度</h2><img class="wchar tchar" src="img/characters_manabi_ok_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -2306,8 +2324,8 @@
         <div class="qa-a"><ruby>士農工商<rt>しのうこうしょう</rt></ruby></div>
         <div class="qa-expl">江戸時代の身分の大まかな分け方で、武士・百姓・町人などに分けられた。実際には公家・神職・えた・ひにんなどの身分もあった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2324,8 +2342,8 @@
         <div class="qa-a"><ruby>武士<rt>ぶし</rt></ruby></div>
         <div class="qa-expl">江戸時代に名字・帯刀などの特権を持ち、政治・軍事を担った身分。全人口の約7％だが、支配階級として大多数の百姓・町人を統治した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2342,8 +2360,8 @@
         <div class="qa-a"><ruby>百姓<rt>ひゃくしょう</rt></ruby></div>
         <div class="qa-expl">村に住み、米などの年貢を領主に納めた身分。江戸時代の人口の約85％を占め、農民だけでなく漁業や林業に関わる人々も百姓に含まれた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2360,8 +2378,8 @@
         <div class="qa-a"><ruby>町人<rt>ちょうにん</rt></ruby></div>
         <div class="qa-expl">城下町に住み、商売や手仕事を営んで税を納めた身分。商人と職人を指し、元禄文化や化政文化の担い手になった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2378,8 +2396,8 @@
         <div class="qa-a"><ruby>五人組<rt>ごにんぐみ</rt></ruby></div>
         <div class="qa-expl">百姓を5戸1組にまとめ、年貢納入や犯罪防止に連帯責任を負わせた制度。互いに監視し合うしくみで、村支配のしくみとして利用された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2396,8 +2414,8 @@
         <div class="qa-a"><ruby>年貢<rt>ねんぐ</rt></ruby></div>
         <div class="qa-expl">百姓が収穫した米などを領主に納める税で、幕府や藩の財政の中心。収穫の4〜5割を納める「四公六民」や「五公五民」が多く、百姓の生活を圧迫した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2414,8 +2432,8 @@
         <div class="qa-a"><ruby>本百姓<rt>ほんびゃくしょう</rt></ruby></div>
         <div class="qa-expl">自分の土地を持って耕作し、年貢を負担した百姓。名主（庄屋）や組頭などの村役人を務め、村の運営や自治の中心を担った。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2432,8 +2450,8 @@
         <div class="qa-a">水のみ<ruby>百姓<rt>ひゃくしょう</rt></ruby></div>
         <div class="qa-expl">自分の土地を持たず、本百姓から土地を借りて耕作する小作を行っていた百姓。土地を持つ本百姓に対して貧しい暮らしを強いられた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2450,8 +2468,8 @@
         <div class="qa-a">えた・ひにん</div>
         <div class="qa-expl">居住や職業、服装を厳しく制限され、不当な差別を受けた身分。身分制度による差別は明治の解放令で身分上は廃止されたが、社会的差別は長く続いた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2468,8 +2486,8 @@
         <div class="qa-a"><ruby>名字<rt>みょうじ</rt></ruby>・<ruby>帯刀<rt>たいとう</rt></ruby></div>
         <div class="qa-expl">武士だけに許された、姓を名乗り刀を差す特権。武士の身分を象徴し、百姓や町人など他の身分には原則として許されず、身分制度の柱となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2486,8 +2504,8 @@
         <div class="qa-a">約7％</div>
         <div class="qa-expl">江戸時代に武士が全人口に占めていた割合。少数の武士が約85％の百姓や町人を支配する構造で、身分制度のもとに政治・軍事を独占した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2504,8 +2522,8 @@
         <div class="qa-a"><ruby>城下町<rt>じょうかまち</rt></ruby></div>
         <div class="qa-expl">大名の城を中心に発達した都市で、武士の住む地区と町人の住む地区などに分かれていた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2522,8 +2540,8 @@
         <div class="qa-a"><ruby>五公五民<rt>ごこうごみん</rt></ruby></div>
         <div class="qa-expl">収穫の5割を年貢として領主に納め、残り5割を百姓の手元に残す割合のこと。「5割が公（領主）、5割が民」を表し、年貢の負担の重さを示す。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2540,8 +2558,8 @@
         <div class="qa-a"><ruby>百姓<rt>ひゃくしょう</rt></ruby><ruby>一揆<rt>いっき</rt></ruby></div>
         <div class="qa-expl">百姓が年貢の軽減や役人の交代を求めて集団で行動すること。江戸後期の18世紀以降に激増し、からかさ連判状で首謀者を隠す工夫も行われた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2666,7 +2684,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="7">
+<section class="view" data-t="7" data-lock="2">
   <div class="tband"><span class="tno">6</span><h2>江戸幕府政治と三大改革</h2><img class="wchar tchar" src="img/characters_manabi_point_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -2733,8 +2751,8 @@
         <div class="qa-a"><ruby>文治政治<rt>ぶんちせいじ</rt></ruby></div>
         <div class="qa-expl">武力ではなく、儒学（朱子学）や法を重視した政治。戦乱が終わり、4代家綱から5代綱吉のころに重視された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2751,8 +2769,8 @@
         <div class="qa-a"><ruby>徳川綱吉<rt>とくがわつなよし</rt></ruby></div>
         <div class="qa-expl">5代将軍で、朱子学を重視して文治政治を進め、生類憐みの令を出した。元禄期の将軍として元禄文化が栄えた時期にあたる。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2769,8 +2787,8 @@
         <div class="qa-a"><ruby>正徳<rt>しょうとく</rt></ruby>の<ruby>治<rt>ち</rt></ruby></div>
         <div class="qa-expl">6・7代将軍に仕えた新井白石による政治。貨幣の質を戻し、長崎貿易を制限して金銀の海外流出を防ごうとした。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2787,8 +2805,8 @@
         <div class="qa-a"><ruby>田沼意次<rt>たぬまおきつぐ</rt></ruby></div>
         <div class="qa-expl">株仲間の奨励、長崎貿易の拡大、印旛沼の干拓などを進めたが、わいろ政治と批判された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2805,8 +2823,8 @@
         <div class="qa-a"><ruby>享保<rt>きょうほう</rt></ruby>の<ruby>改革<rt>かいかく</rt></ruby></div>
         <div class="qa-expl">8代将軍徳川吉宗が行った改革。新田開発や目安箱の設置、公事方御定書の制定などを進め、幕府財政の立て直しをめざした。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2823,8 +2841,8 @@
         <div class="qa-a"><ruby>寛政<rt>かんせい</rt></ruby>の<ruby>改革<rt>かいかく</rt></ruby></div>
         <div class="qa-expl">田沼政治の後、老中松平定信が行った改革。ぜいたく禁止や米の備え、朱子学の重視で社会を引きしめようとした。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2841,8 +2859,8 @@
         <div class="qa-a"><ruby>天保<rt>てんぽう</rt></ruby>の<ruby>改革<rt>かいかく</rt></ruby></div>
         <div class="qa-expl">1841年から老中水野忠邦が幕府権威の回復をめざして行った改革。株仲間の解散や上知令を進めたが反発を受けて失敗した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2859,8 +2877,8 @@
         <div class="qa-a"><ruby>松平定信<rt>まつだいらさだのぶ</rt></ruby></div>
         <div class="qa-expl">田沼政治の後に老中となり、寛政の改革を行った。ぜいたく禁止や米の備え、朱子学の重視で社会を引きしめようとした。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2877,8 +2895,8 @@
         <div class="qa-a"><ruby>株仲間<rt>かぶなかま</rt></ruby></div>
         <div class="qa-expl">営業の独占を認められた商人の同業者組合。田沼意次が奨励したが、天保の改革で水野忠邦が物価を下げるため解散させた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2895,8 +2913,8 @@
         <div class="qa-a"><ruby>長崎貿易<rt>ながさきぼうえき</rt></ruby></div>
         <div class="qa-expl">新井白石が正徳の治の中で取り組んだ政策。輸入をおさえる目的で、長崎貿易を制限し、金銀が海外へ流出するのを防ごうとした。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2913,8 +2931,8 @@
         <div class="qa-a"><ruby>新井白石<rt>あらいはくせき</rt></ruby></div>
         <div class="qa-expl">6代・7代将軍に仕えた朱子学者で、正徳の治を進めた。貨幣の質を戻し、長崎貿易を制限して金銀の海外流出を防ごうとした。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3039,7 +3057,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="8">
+<section class="view" data-t="8" data-lock="2">
   <div class="tband"><span class="tno">7</span><h2>江戸の交通と商業・都市</h2><img class="wchar tchar" src="img/characters_char_pencil_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -3106,8 +3124,8 @@
         <div class="qa-a"><ruby>五街道<rt>ごかいどう</rt></ruby></div>
         <div class="qa-expl">江戸の日本橋を起点とした主要道路の総称。東海道・中山道・甲州道中・日光道中・奥州道中の五つで、参勤交代や全国支配を支えた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3124,8 +3142,8 @@
         <div class="qa-a"><ruby>宿場町<rt>しゅくばまち</rt></ruby></div>
         <div class="qa-expl">街道沿いに発達した町で、本陣や旅籠、問屋場などが置かれて旅人や大名行列が休んだり泊まったりした。商業の中心にもなった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3142,8 +3160,8 @@
         <div class="qa-a"><ruby>関所<rt>せきしょ</rt></ruby></div>
         <div class="qa-expl">街道に置かれて人や物の通行を取りしまった場所。幕府は江戸への武器の持ち込みと、人質の女性が逃げ出すのを特に警戒した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3160,8 +3178,8 @@
         <div class="qa-a"><ruby>飛脚<rt>ひきゃく</rt></ruby></div>
         <div class="qa-expl">江戸時代に手紙や荷物を運ぶ役目を果たした人やしくみ。江戸と京都・大坂を数日で結び、商業の発展や情報伝達を支えた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3178,8 +3196,8 @@
         <div class="qa-a"><ruby>東海道<rt>とうかいどう</rt></ruby></div>
         <div class="qa-expl">江戸と京都を結ぶ、太平洋側の海沿いを通る五街道の一つ。五十三の宿場が置かれ、参勤交代の大名行列でもっとも多く利用された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3196,8 +3214,8 @@
         <div class="qa-a"><ruby>東廻<rt>ひがしまわ</rt></ruby>り<ruby>航路<rt>こうろ</rt></ruby></div>
         <div class="qa-expl">東北地方の太平洋側を通って江戸を結んだ海の道。日本海側を通って大坂を結んだのは西廻り航路。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3214,8 +3232,8 @@
         <div class="qa-a"><ruby>樽廻船<rt>たるかいせん</rt></ruby></div>
         <div class="qa-expl">大坂から江戸へ酒樽などを運んだ船。同じ航路には雑貨を運ぶ菱垣廻船もあり、江戸の暮らしを支えた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3232,8 +3250,8 @@
         <div class="qa-a"><ruby>三都<rt>さんと</rt></ruby></div>
         <div class="qa-expl">江戸時代に発展した三つの大都市の総称。江戸は政治、大坂は商業（天下の台所）、京都は文化の中心として発展し、全国の中核となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3250,8 +3268,8 @@
         <div class="qa-a"><ruby>蔵屋敷<rt>くらやしき</rt></ruby></div>
         <div class="qa-expl">諸藩が大坂に置き、年貢米や特産物を保管・販売した施設。集まった物資の取引で大坂の商業が発達し「天下の台所」と呼ばれた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3268,8 +3286,8 @@
         <div class="qa-a"><ruby>株仲間<rt>かぶなかま</rt></ruby></div>
         <div class="qa-expl">営業の独占を認められた商人の同業者組合。田沼意次の政治で奨励されたが、天保の改革で水野忠邦が物価を下げるため解散させた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3286,8 +3304,8 @@
         <div class="qa-a"><ruby>両替商<rt>りょうがえしょう</rt></ruby></div>
         <div class="qa-expl">金貨・銀貨・銭貨の交換を行った商人。東日本は金貨、西日本は銀貨が多く使われ、その交換で大商人に成長した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3304,8 +3322,8 @@
         <div class="qa-a"><ruby>江戸<rt>えど</rt></ruby></div>
         <div class="qa-expl">徳川将軍の居城が置かれた城下町で、参勤交代による武士の集中もあり18世紀には人口100万を超える世界有数の大都市となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3322,8 +3340,8 @@
         <div class="qa-a"><ruby>天下<rt>てんか</rt></ruby>の<ruby>台所<rt>だいどころ</rt></ruby></div>
         <div class="qa-expl">全国の年貢米や特産物が集まった大坂を指す呼び名。諸藩の蔵屋敷が置かれて取引が盛んになり、商業の中心都市として大きく発展した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3432,7 +3450,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="9">
+<section class="view" data-t="9" data-lock="2">
   <div class="tband"><span class="tno">8</span><h2>江戸の産業と社会不安</h2><img class="wchar tchar" src="img/characters_manabi_think_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -3499,8 +3517,8 @@
         <div class="qa-a"><ruby>新田開発<rt>しんでんかいはつ</rt></ruby></div>
         <div class="qa-expl">新しく田を開いて農地を増やすこと。幕府や藩は年貢収入を増やすため、干拓や用水路の整備を進め、耕地面積は2倍近くに拡大した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3517,8 +3535,8 @@
         <div class="qa-a"><ruby>商品作物<rt>しょうひんさくもつ</rt></ruby></div>
         <div class="qa-expl">売って現金収入を得るために作る作物。木綿・菜種・藍・紅花などが栽培され、農村への貨幣経済の広がりと関係した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3535,8 +3553,8 @@
         <div class="qa-a"><ruby>干鰯<rt>ほしか</rt></ruby></div>
         <div class="qa-expl">いわしを天日で干して作った肥料。お金を出して買う効果の高い肥料として、商品作物の栽培で広く使われた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3553,8 +3571,8 @@
         <div class="qa-a"><ruby>鉱山<rt>こうざん</rt></ruby></div>
         <div class="qa-expl">佐渡金山・石見銀山・別子銅山などは江戸時代に金銀銅を産出し、貨幣づくりや長崎での輸出にも使われ、幕府財政を支えた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3571,8 +3589,8 @@
         <div class="qa-a"><ruby>問屋制家内工業<rt>といやせいかないこうぎょう</rt></ruby></div>
         <div class="qa-expl">問屋が農家に原料や道具を貸し、できた製品を引き取る生産のしくみ。のちの工場制手工業へとつながった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3589,8 +3607,8 @@
         <div class="qa-a"><ruby>佐渡金山<rt>さどきんざん</rt></ruby></div>
         <div class="qa-expl">現在の新潟県にある江戸幕府直轄の鉱山で、金を多く産出した。貨幣づくりに使われ、江戸幕府の財政を支えた重要な金山だった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3607,8 +3625,8 @@
         <div class="qa-a">ききん</div>
         <div class="qa-expl">冷害や災害などで作物が不足し、人々の生活が苦しくなること。江戸後期には天明のききん・天保のききんが大きな影響を与えた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3625,8 +3643,8 @@
         <div class="qa-a"><ruby>百姓一揆<rt>ひゃくしょういっき</rt></ruby></div>
         <div class="qa-expl">農民が年貢の軽減や役人の交代を求めて集団で起こした行動。江戸後期にききんと連動して激増し、農村の不満が高まったことを示す。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3643,8 +3661,8 @@
         <div class="qa-a"><ruby>打<rt>う</rt></ruby>ちこわし</div>
         <div class="qa-expl">都市の民衆がききんによる米価上昇に怒り、米を買いしめた商人や役人などを襲った行動。江戸後期に天保のききんで多発した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3661,8 +3679,8 @@
         <div class="qa-a"><ruby>大塩平八郎<rt>おおしおへいはちろう</rt></ruby>の<ruby>乱<rt>らん</rt></ruby></div>
         <div class="qa-expl">1837年、大坂町奉行所の元役人大塩平八郎が、天保のききんで困窮する民衆を救おうとして起こした反乱。幕府に大きな衝撃を与えた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3679,8 +3697,8 @@
         <div class="qa-a"><ruby>大塩平八郎<rt>おおしおへいはちろう</rt></ruby></div>
         <div class="qa-expl">1837年に大坂町奉行所の元役人として、天保のききんで困窮する民衆を救おうとして大坂で蜂起した陽明学者。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3697,8 +3715,8 @@
         <div class="qa-a"><ruby>天明<rt>てんめい</rt></ruby>のききん</div>
         <div class="qa-expl">1782年ごろから始まった江戸時代の代表的なききんで、田沼意次の政治への批判を強める一因となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3715,8 +3733,8 @@
         <div class="qa-a"><ruby>天保<rt>てんぽう</rt></ruby>のききん</div>
         <div class="qa-expl">1830年代に起こった大ききんで、米価上昇と打ちこわしが多発し、大塩平八郎の乱の背景にもなった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3733,8 +3751,8 @@
         <div class="qa-a"><ruby>年貢<rt>ねんぐ</rt></ruby></div>
         <div class="qa-expl">百姓が収穫物を領主に納める税。幕府や藩は新田開発で田畑を増やし、米を中心とする年貢収入を増やそうとした。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3843,7 +3861,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="10">
+<section class="view" data-t="10" data-lock="2">
   <div class="tband"><span class="tno">9</span><h2>江戸の文化と学問・教育</h2><img class="wchar tchar" src="img/characters_char_neko_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -3910,8 +3928,8 @@
         <div class="qa-a"><ruby>元禄文化<rt>げんろくぶんか</rt></ruby></div>
         <div class="qa-expl">17世紀後半、大坂・京都の上方を中心に栄えた町人文化で、井原西鶴・松尾芭蕉・近松門左衛門らが活躍した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3928,8 +3946,8 @@
         <div class="qa-a"><ruby>化政文化<rt>かせいぶんか</rt></ruby></div>
         <div class="qa-expl">19世紀前半に江戸を中心に広がった庶民文化。葛飾北斎・歌川広重らの浮世絵や小説などが発展し、庶民の生活に根ざした文化となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3946,8 +3964,8 @@
         <div class="qa-a"><ruby>松尾芭蕉<rt>まつおばしょう</rt></ruby></div>
         <div class="qa-expl">元禄文化を代表する俳人で、俳諧を芸術の域に高めた。代表作は東北・北陸を旅した紀行文『奥の細道』。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3964,8 +3982,8 @@
         <div class="qa-a"><ruby>近松門左衛門<rt>ちかまつもんざえもん</rt></ruby></div>
         <div class="qa-expl">元禄文化を代表する脚本家で、人形浄瑠璃や歌舞伎の脚本を多く書き、町人の義理や人情を題材にした作品で知られる。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3982,8 +4000,8 @@
         <div class="qa-a"><ruby>浮世絵<rt>うきよえ</rt></ruby></div>
         <div class="qa-expl">町人の風俗や風景を題材にした多色刷りの絵で、化政文化では葛飾北斎・歌川広重らによる風景画も発展した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -4000,8 +4018,8 @@
         <div class="qa-a"><ruby>井原西鶴<rt>いはらさいかく</rt></ruby></div>
         <div class="qa-expl">元禄文化を代表する作家で、武士や町人の生活を題材にした浮世草子を書いた。代表作に『日本永代蔵』など。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -4018,8 +4036,8 @@
         <div class="qa-a"><ruby>葛飾北斎<rt>かつしかほくさい</rt></ruby>・<ruby>歌川広重<rt>うたがわひろしげ</rt></ruby></div>
         <div class="qa-expl">北斎『富嶽三十六景』、広重『東海道五十三次』が代表作。江戸の庶民文化を代表する。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -4036,8 +4054,8 @@
         <div class="qa-a"><ruby>朱子学<rt>しゅしがく</rt></ruby></div>
         <div class="qa-expl">主人と家来、目上と目下の関係を大切にする儒学の一派。幕府が重んじ、武士が学ぶべき学問とされた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -4054,8 +4072,8 @@
         <div class="qa-a"><ruby>寺子屋<rt>てらこや</rt></ruby></div>
         <div class="qa-expl">江戸時代に庶民の子どもが読み書きや計算（そろばん）を学んだ場所で、僧侶や浪人などが教師を務めた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -4072,8 +4090,8 @@
         <div class="qa-a"><ruby>蘭学<rt>らんがく</rt></ruby></div>
         <div class="qa-expl">オランダ語を通じて西洋の医学や科学を学ぶ学問。長崎の出島を通じて入った西洋知識を学び、開国前の西洋理解につながった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -4090,8 +4108,8 @@
         <div class="qa-a"><ruby>国学<rt>こくがく</rt></ruby></div>
         <div class="qa-expl">古事記や万葉集など日本古来の文献を研究し、日本独自の考え方を明らかにしようとした学問。本居宣長が大成した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -4108,8 +4126,8 @@
         <div class="qa-a"><ruby>伊能忠敬<rt>いのうただたか</rt></ruby></div>
         <div class="qa-expl">江戸後期に全国の海岸線を歩いて測量し、正確な日本地図（大日本沿海輿地全図）を作った人物。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -4126,8 +4144,8 @@
         <div class="qa-a"><ruby>杉田玄白<rt>すぎたげんぱく</rt></ruby></div>
         <div class="qa-expl">前野良沢らとともに西洋医学書を翻訳し、晩年には蘭学導入の苦労を『蘭学事始』に記した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -4144,8 +4162,8 @@
         <div class="qa-a"><ruby>解体新書<rt>かいたいしんしょ</rt></ruby></div>
         <div class="qa-expl">杉田玄白・前野良沢らが翻訳して1774年に出版した西洋医学書で、蘭学の発展を示す代表的な書物。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -4264,6 +4282,14 @@
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
 </div></div>
+<div class="lock-ov" id="lockOv" hidden><div class="lock-card">
+  <div class="lock-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+  <div class="lock-t">つづきは購入者向けです</div>
+  <div class="lock-d">ここまでは無料でためせます。つづきを解くには、つづもんのライセンスが必要です。</div>
+  <button class="lock-btn lb-line" id="lockLogin">LINEでログイン（購入者の方）</button>
+  <a class="lock-btn lb-buy" href="../../index.html">つづもんを見てみる →</a>
+  <button class="lock-close" id="lockClose">とじる（ここまで解く）</button>
+</div></div>
 
 <script type="module">
 // 記述AI採点のログイン（www.chatstudy.jp の LINE Login＝Firebase Auth。参考書ページと同じ）。
@@ -4286,9 +4312,24 @@ try {
       location.href = '/welcome?next=' + encodeURIComponent(location.pathname + location.hash);
     },
   };
+  var ENTITLEMENT_API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/tsudumonEntitlement';
+  async function refreshEntitlement(u) {
+    try {
+      var idToken = await u.getIdToken();
+      var res = await fetch(ENTITLEMENT_API, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ idToken: idToken }),
+      });
+      if (!res.ok) return;
+      var data = await res.json();
+      try { localStorage.setItem('tzm-lic', JSON.stringify((data && data.grades) || [])); } catch (e) {}
+      if (window.tzmRefreshGate) window.tzmRefreshGate();
+    } catch (e) { /* localStorage フォールバックのまま */ }
+  }
   onAuthStateChanged(auth, function (u) {
     window.__tzmAuth.user = u;
     window.__tzmAuth.ready = true;
+    if (u) refreshEntitlement(u);
     document.dispatchEvent(new CustomEvent('tzm-auth'));
   });
 } catch (e) { /* 設定が無ければ採点はフォールバック（自己採点）に倒れる */ }
@@ -4298,6 +4339,7 @@ try {
 (function () {
   var KEY = 'tzmwb-08';
   var CH = '08';
+  var GRADE = '中2';        // この本の学年（中1/中2/中3）
   var GRADE_API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/gradeWritten';      // 記述AI採点 Cloud Function
   var REF_VIEWS = [0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];        // 問題集のビューt → 参考書の単元番号（0＝対応なし）
   var views = [].slice.call(document.querySelectorAll('.view'));
@@ -4337,7 +4379,7 @@ try {
     try { if (localStorage.getItem('tzmhint') === '1') return; } catch (e) { return; }
     var canHover = window.matchMedia && window.matchMedia('(hover:hover)').matches;
     bar.textContent = canHover ? '⌨️ ← → キーでもページをめくれるよ'
-                               : '👆 よこにスワイプでもページをめくれるよ';
+                               : 'よこにスワイプでもページをめくれるよ';
     var shown = false;
     window.showHint = function () {
       if (shown || state.t === 0) return;
@@ -4542,7 +4584,7 @@ try {
   function showJudged(scopeEl, ok) {
     var banner = scopeEl.querySelector('.b-result');
     if (banner) {
-      banner.textContent = ok ? '⭕ せいかい！' : '❌ おしい！';
+      banner.textContent = ok ? 'せいかい！' : 'おしい！';
       banner.className = 'b-result ' + (ok ? 'ok' : 'ng');
     }
     scopeEl.classList.add('show');
@@ -4707,7 +4749,7 @@ try {
       pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
       document.getElementById('btnPrev').textContent = s === 0 ? '目次へ' : '← まえへ';
       var next = document.getElementById('btnNext');
-      if (onModeStep && steps.length === 1) next.textContent = '⭐ おすすめ順で始める →';
+      if (onModeStep && steps.length === 1) next.textContent = 'おすすめ順で始める →';
       else if (s < steps.length - 1) next.textContent = 'つぎへ →';
       else next.textContent = t < N ? '次の単元へ →' : '目次にもどる';
       if (steps[s] && steps[s].classList.contains('done-step')) renderScore(views[t]);
@@ -4753,12 +4795,32 @@ try {
     } else { btn.hidden = true; }
   }
 
+  // ── 教材ゲート（中間案・ゆるめ「頭出しは見せる」）──
+  //   有料単元はやり方えらぶ＋要点まとめまで誰でも試せる。その先は購入者（この学年）だけ。
+  function isLicensed() {
+    try { return (JSON.parse(localStorage.getItem('tzm-lic') || '[]')).indexOf(GRADE) >= 0; }
+    catch (e) { return false; }
+  }
+  function lockFrom(t) { var v = views[t]; return v ? +(v.getAttribute('data-lock') || 0) : 0; }
+  function gateBlocks(t, s) { var lk = lockFrom(t); return lk > 0 && !isLicensed() && s >= lk; }
+  function showLock() { var ov = document.getElementById('lockOv'); if (ov) ov.hidden = false; }
+  function hideLock() { var ov = document.getElementById('lockOv'); if (ov) ov.hidden = true; }
+  window.tzmRefreshGate = function () { if (isLicensed()) hideLock(); };
+
   function go(t, s, dir) {
     lastDir = dir || 1;
     state.t = Math.max(0, Math.min(N, t));
     state.s = Math.max(0, s || 0);
-    if (state.t > 0) state.s = Math.min(state.s, stepsOf(state.t).length - 1);
-    else state.s = 0;
+    if (state.t > 0) {
+      state.s = Math.min(state.s, stepsOf(state.t).length - 1);
+      if (gateBlocks(state.t, state.s)) {
+        state.s = Math.max(0, lockFrom(state.t) - 1);
+        render();
+        showLock();
+        return;
+      }
+    } else state.s = 0;
+    hideLock();
     render();
   }
   // ── 未回答ガード: 問題(一問一答/4択/記述)に答えるまで「つぎへ」で先に進めない ──
@@ -4802,6 +4864,11 @@ try {
     else go(0, 0, -1);
   }
 
+  document.getElementById('lockLogin').addEventListener('click', function () {
+    var here = location.pathname + '#t' + state.t + (state.s > 0 ? 's' + state.s : '');
+    location.href = '../../login/?next=' + encodeURIComponent(here);
+  });
+  document.getElementById('lockClose').addEventListener('click', hideLock);
   document.getElementById('btnNext').addEventListener('click', next);
   document.getElementById('btnPrev').addEventListener('click', prev);
   // 回答するとロックを解除（回答処理の後に評価するため click は次tickで）
@@ -4924,7 +4991,7 @@ try {
       var istep = idk.closest('.qa-step');
       showJudged(istep, false);
       var bn = istep.querySelector('.b-result');
-      if (bn) { bn.textContent = '👇 こたえはこちら。次はきっと書けるよ！'; bn.className = 'b-result ng'; }
+      if (bn) { bn.textContent = 'こたえはこちら。次はきっと書けるよ！'; bn.className = 'b-result ng'; }
       var stI = store(); stI.r = stI.r || {};
       stI.r[istep.dataset.qid] = 0;
       save(stI);

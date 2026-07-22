@@ -117,11 +117,12 @@
   .home-topline { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:2px; }
   .hometop { display:flex; align-items:flex-start; gap:6px; padding:8px 2px 2px; text-align:left; }
   .ht-main { flex:1; min-width:0; text-align:center; }
-  .badge3 { display:inline-flex; border-radius:18px; overflow:hidden; font-size:12px; font-weight:bold;
-            box-shadow:0 2px 4px rgba(120,80,20,.2); }
-  .badge3 span { padding:4px 11px; display:inline-flex; align-items:center; white-space:nowrap; }
-  .b-vol { background:var(--brand); color:#fff; }
-  .b-kind { background:#fff; color:var(--deep); }
+  /* 本のラベル（押せない表示）: トグルに見えないようフラットな1トーンのタグに */
+  .badge3 { display:inline-flex; align-items:center; gap:6px; border-radius:8px;
+            background:#f4ecdb; padding:3px 10px; font-size:11.5px; font-weight:bold; }
+  .badge3 span { padding:0; display:inline-flex; align-items:center; white-space:nowrap; }
+  .b-vol { color:var(--brand); }
+  .b-kind { color:#9a7b4f; }
   .b-web { background:var(--amber); color:#fff; }
   .ht-title { font-size:41px; color:var(--deep); margin:12px 0 0; line-height:1.12; position:relative;
               display:inline-block; padding:0 6px; letter-spacing:.01em; }
@@ -443,6 +444,23 @@
   .foot-note { margin-top:4px; font-size:12px; }
 
   /* ── 下部ナビ ── */
+  /* 教材ゲートのロック案内（頭出しの先） */
+  .lock-ov { position:fixed; inset:0; z-index:40; background:rgba(60,40,15,.5);
+             display:flex; align-items:center; justify-content:center; padding:20px; }
+  .lock-ov[hidden] { display:none; }
+  .lock-card { width:100%; max-width:360px; background:#fff; border-radius:18px; padding:24px 20px 18px;
+               text-align:center; box-shadow:0 10px 30px rgba(0,0,0,.3); }
+  .lock-ic svg { width:34px; height:34px; }
+  .lock-ic { font-size:40px; }
+  .lock-t { font-size:18px; font-weight:bold; color:var(--deep); margin:6px 0 6px; }
+  .lock-d { font-size:13px; color:#78716c; line-height:1.8; margin-bottom:16px; }
+  .lock-btn { display:block; width:100%; margin-top:10px; border:none; border-radius:13px; padding:13px;
+              font-size:15px; font-weight:bold; text-decoration:none; cursor:pointer; font-family:inherit; }
+  .lb-line { background:#06c755; color:#fff; box-shadow:0 3px 8px rgba(6,199,85,.3); }
+  .lb-buy { background:#fff; color:var(--brand); border:1.5px solid var(--line); }
+  .lock-close { display:block; width:100%; margin-top:12px; background:none; border:none; cursor:pointer;
+                color:#a8a29e; font-size:12.5px; font-family:inherit; text-decoration:underline; }
+
   .navbar { position:fixed; left:0; right:0; bottom:0; z-index:10;
             background:rgba(255,253,248,.97); border-top:1px solid #f0e6d2;
             padding:10px 16px calc(10px + env(safe-area-inset-bottom)); }
@@ -546,12 +564,12 @@
   <nav class="toc">
     <div class="toc-head">
       <div class="toc-h">単元を選択</div>
-      <button class="toc-cal" data-go="1">📅 年表でチェック<span class="cal-go">›</span></button>
+      <button class="toc-cal" data-go="1">年表でチェック<span class="cal-go">›</span></button>
     </div>
     <button class="toc-item" data-go="2"><img class="toc-thumb" src="img/reference_hist02-human-origins.webp" alt="" loading="lazy"><span class="toc-no">1</span><span class="toc-name">人類の出現と進化</span><span class="toc-state" data-state-t="2"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="3"><img class="toc-thumb" src="img/reference_hist02-civ.webp" alt="" loading="lazy"><span class="toc-no">2</span><span class="toc-name">古代文明の誕生</span><span class="toc-state" data-state-t="3"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="4"><img class="toc-thumb" src="img/reference_hist02-chinese-civilization.webp" alt="" loading="lazy"><span class="toc-no">3</span><span class="toc-name">中国文明の発展</span><span class="toc-state" data-state-t="4"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="5"><img class="toc-thumb" src="img/reference_hist02-greece.webp" alt="" loading="lazy"><span class="toc-no">4</span><span class="toc-name">ギリシャ・ローマの世界</span><span class="toc-state" data-state-t="5"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="6"><img class="toc-thumb" src="img/reference_hist02-religion.webp" alt="" loading="lazy"><span class="toc-no">5</span><span class="toc-name">世界の三大宗教</span><span class="toc-state" data-state-t="6"></span><span class="toc-arrow">›</span></button>
   </nav>
   <a class="big-btn ref-btn" href="../../ref/02/index.html">参考書を開く</a>
-  <button class="big-btn print-btn" type="button" onclick="window.print()">🖨 紙に印刷して解く（解答つき）</button>
+  <button class="big-btn print-btn" type="button" onclick="window.print()">紙に印刷して解く（解答つき）</button>
   
   <footer class="foot">
     <div>つづもん 問題集</div>
@@ -566,7 +584,7 @@
     <table class="tl-table"><tr><th class="tl-year">年代</th><th>できごと</th></tr><tr><td class='tl-year'>約700万年前</td><td>アフリカで最古の人類である<button class="blank" type="button"><span class="bno">①</span><span class="ba">猿人</span><span class="bl" style="width:2.7em"></span></button>が出現する</td></tr><tr><td class='tl-year'>約240万年前</td><td>火を使うようになった<button class="blank" type="button"><span class="bno">②</span><span class="ba">原人</span><span class="bl" style="width:2.7em"></span></button>が現れる</td></tr><tr><td class='tl-year'>約20万年前</td><td>現在の人類の祖先である<button class="blank" type="button"><span class="bno">③</span><span class="ba">新人</span><span class="bl" style="width:2.7em"></span></button>が出現する</td></tr><tr><td class='tl-year'>約1万年前</td><td>農耕・牧畜が始まる<button class="blank" type="button"><span class="bno">④</span><span class="ba">新石器時代</span><span class="bl" style="width:4.5em"></span></button>に入る</td></tr><tr><td class='tl-year'>紀元前18世紀ごろ</td><td>バビロニアで<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">ハンムラビ法典</span><span class="bl" style="width:6.3em"></span></button>が定められる</td></tr><tr><td class='tl-year'>紀元前16世紀頃</td><td>中国最古の王朝である<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">殷</span><span class="bl" style="width:2.7em"></span></button>が成立する</td></tr><tr><td class='tl-year'>紀元前8〜3世紀</td><td>諸国が争う<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">春秋戦国時代</span><span class="bl" style="width:5.4em"></span></button>となる</td></tr><tr><td class='tl-year'>紀元前6世紀</td><td><button class="blank" type="button"><span class="bno">⑧</span><span class="ba">孔子</span><span class="bl" style="width:2.7em"></span></button>が仁と礼の教えを説く</td></tr><tr><td class='tl-year'>紀元前5世紀頃</td><td>インドで<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">シャカ</span><span class="bl" style="width:2.7em"></span></button>が仏教を開く</td></tr><tr><td class='tl-year'>紀元前5世紀</td><td>ギリシャの連合軍が<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">ペルシャ戦争</span><span class="bl" style="width:5.4em"></span></button>でペルシャを撃退する</td></tr><tr><td class='tl-year'>紀元前221年</td><td><button class="blank" type="button"><span class="bno">⑪</span><span class="ba">始皇帝</span><span class="bl" style="width:2.7em"></span></button>が中国を統一する</td></tr><tr><td class='tl-year'>紀元前202年</td><td>劉邦が<button class="blank" type="button"><span class="bno">⑫</span><span class="ba">漢</span><span class="bl" style="width:2.7em"></span></button>を建国する</td></tr><tr><td class='tl-year'>1世紀</td><td>パレスチナで<button class="blank" type="button"><span class="bno">⑬</span><span class="ba">イエス</span><span class="bl" style="width:2.7em"></span></button>が神の愛による救いを説く</td></tr><tr><td class='tl-year'>4世紀末</td><td>ローマ帝国で<button class="blank" type="button"><span class="bno">⑭</span><span class="ba">キリスト教</span><span class="bl" style="width:4.5em"></span></button>が国教となる</td></tr><tr><td class='tl-year'>476年</td><td><button class="blank" type="button"><span class="bno">⑮</span><span class="ba">西ローマ帝国</span><span class="bl" style="width:5.4em"></span></button>が滅亡する</td></tr><tr><td class='tl-year'>7世紀</td><td><button class="blank" type="button"><span class="bno">⑯</span><span class="ba">ムハンマド</span><span class="bl" style="width:4.5em"></span></button>がイスラームを開く</td></tr></table>
   </div>
 </section>
-<section class="view" data-t="2">
+<section class="view" data-t="2" data-lock="2">
   <div class="tband"><span class="tno">1</span><h2>人類の出現と進化</h2><img class="wchar tchar" src="img/characters_char_pencil_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -633,8 +651,8 @@
         <div class="qa-a"><ruby>猿人<rt>えんじん</rt></ruby></div>
         <div class="qa-expl">約700万年前にアフリカ大陸で誕生した最初の人類。直立二足歩行が大きな特徴で、手が自由になり道具を扱えるようになった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -651,8 +669,8 @@
         <div class="qa-a"><ruby>原人<rt>げんじん</rt></ruby></div>
         <div class="qa-expl">火を使い始めたことで食物の加熱や暖を取ることが可能になった。北京原人やジャワ原人が代表例。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -669,8 +687,8 @@
         <div class="qa-a"><ruby>新人<rt>しんじん</rt></ruby>（ホモ・サピエンス）</div>
         <div class="qa-expl">現在の人類すべての祖先。「知恵のある人」という意味のラテン語名を持つ。洞窟絵画など精神文化も見られる。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -687,8 +705,8 @@
         <div class="qa-a"><ruby>打製<rt>だせい</rt></ruby><ruby>石器<rt>せっき</rt></ruby></div>
         <div class="qa-expl">石を打ち欠いて作る最も原始的な石器。旧石器時代の代表的な道具で、狩猟や採集のために使われた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -705,8 +723,8 @@
         <div class="qa-a"><ruby>旧<rt>きゅう</rt></ruby><ruby>石器<rt>せっき</rt></ruby>時代</div>
         <div class="qa-expl">まだ土器がなく、移動しながら狩猟・採集で暮らした時代。打製石器が特徴で、農耕はまだ本格的に始まっていない。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -723,8 +741,8 @@
         <div class="qa-a"><ruby>磨製<rt>ませい</rt></ruby><ruby>石器<rt>せっき</rt></ruby></div>
         <div class="qa-expl">表面を研磨して仕上げるため、打製石器より精巧で切れ味が良い。新石器時代に登場し、農耕と関係が深い。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -741,8 +759,8 @@
         <div class="qa-a"><ruby>新<rt>しん</rt></ruby><ruby>石器<rt>せっき</rt></ruby>時代</div>
         <div class="qa-expl">約1万年前に始まった、磨製石器や土器の使用、農耕・牧畜の開始が特徴の時代。定住生活や村の発達につながった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -759,8 +777,8 @@
         <div class="qa-a"><ruby>土器<rt>どき</rt></ruby></div>
         <div class="qa-expl">新石器時代に作られ始めた粘土を焼いた容器。食物の煮炊きや貯蔵が可能になり、人々の生活が大きく変わった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -777,8 +795,8 @@
         <div class="qa-a">ラスコー</div>
         <div class="qa-expl">フランス南西部の洞窟で発見。牛や馬などの動物が描かれ、狩りの成功を祈ったと考えられる。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -795,8 +813,8 @@
         <div class="qa-a">アルタミラ</div>
         <div class="qa-expl">スペイン北部の洞窟で発見された旧石器時代の壁画。野牛などが描かれ、フランスのラスコーと並ぶ代表例。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -813,8 +831,8 @@
         <div class="qa-a"><ruby>氷河<rt>ひょうが</rt></ruby>時代</div>
         <div class="qa-expl">何度も繰り返された寒冷な時期。海面が低下し大陸と島が陸続きになり、人類の移動を可能にした。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -831,8 +849,8 @@
         <div class="qa-a"><ruby>農耕<rt>のうこう</rt></ruby>・<ruby>牧畜<rt>ぼくちく</rt></ruby></div>
         <div class="qa-expl">新石器時代に始まり、食料を安定して得られるようになった。「農業革命」とも呼ばれる。定住生活・村・身分差の発生につながる。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -849,8 +867,8 @@
         <div class="qa-a"><ruby>定住<rt>ていじゅう</rt></ruby>生活</div>
         <div class="qa-expl">農耕・牧畜の開始で食料が安定したことで可能になった暮らし方。集落の形成や、やがて国家誕生につながった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -867,8 +885,8 @@
         <div class="qa-a"><ruby>骨角器<rt>こっかくき</rt></ruby></div>
         <div class="qa-expl">動物の骨や角を加工して作った道具。釣り針や縫い針など、石器よりも繊細で細かな加工が可能だった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -977,7 +995,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="3">
+<section class="view" data-t="3" data-lock="2">
   <div class="tband"><span class="tno">2</span><h2>古代文明の誕生</h2><img class="wchar tchar" src="img/characters_manabi_think_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -1044,8 +1062,8 @@
         <div class="qa-a"><ruby>文明<rt>ぶんめい</rt></ruby></div>
         <div class="qa-expl">大河のほとりで農耕が発展し、都市・文字・国家が生まれた高度な社会。メソポタミア・エジプト・インダス・中国が四大文明。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1062,8 +1080,8 @@
         <div class="qa-a">メソポタミア<ruby>文明<rt>ぶんめい</rt></ruby></div>
         <div class="qa-expl">「川の間の土地」という意味。チグリス・ユーフラテス川流域で発達し、くさび形文字・太陰暦・60進法が生まれた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1080,8 +1098,8 @@
         <div class="qa-a">くさび<ruby>形<rt>がた</rt></ruby><ruby>文字<rt>もじ</rt></ruby></div>
         <div class="qa-expl">葦のペンで粘土板に刻まれた文字。メソポタミア文明で生まれ、商業や行政の記録、法典の記述などに使われた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1098,8 +1116,8 @@
         <div class="qa-a">ハンムラビ<ruby>法典<rt>ほうてん</rt></ruby></div>
         <div class="qa-expl">「目には目を、歯には歯を」で知られる、紀元前18世紀ごろにバビロニアのハンムラビ王が定めた古い法律。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1116,8 +1134,8 @@
         <div class="qa-a">エジプト<ruby>文明<rt>ぶんめい</rt></ruby></div>
         <div class="qa-expl">ナイル川の洪水が肥沃な土を運び、豊かな農業を支えた。ピラミッド・太陽暦・象形文字が特徴。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1134,8 +1152,8 @@
         <div class="qa-a"><ruby>太陽暦<rt>たいようれき</rt></ruby></div>
         <div class="qa-expl">太陽の動きを基準にした1年365日の暦。エジプトでナイル川の洪水時期を正確に予測するために作られた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1152,8 +1170,8 @@
         <div class="qa-a">ピラミッド</div>
         <div class="qa-expl">エジプトの王ファラオの墓として建設された巨大な石造建造物。クフ王のピラミッドが最大で、エジプト文明の象徴。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1170,8 +1188,8 @@
         <div class="qa-a"><ruby>象形文字<rt>しょうけいもじ</rt></ruby></div>
         <div class="qa-expl">ヒエログリフとも呼ばれ、絵のような形が特徴のエジプトの文字。神殿や墓に刻まれパピルスにも書かれた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1188,8 +1206,8 @@
         <div class="qa-a">インダス<ruby>文明<rt>ぶんめい</rt></ruby></div>
         <div class="qa-expl">インダス川流域で栄えた文明。モヘンジョ＝ダロやハラッパーなどの計画都市が特徴で、整然とした街路や排水設備を持っていた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1206,8 +1224,8 @@
         <div class="qa-a">アーリヤ<ruby>人<rt>じん</rt></ruby></div>
         <div class="qa-expl">インダス文明衰退後にインドに侵入。のちのカースト制度につながる身分制度が生まれた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1224,8 +1242,8 @@
         <div class="qa-a"><ruby>太陰暦<rt>たいいんれき</rt></ruby></div>
         <div class="qa-expl">月の満ち欠けを基準にした暦。メソポタミアで発明され、現在もイスラム暦などに使われている。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1242,8 +1260,8 @@
         <div class="qa-a">60<ruby>進法<rt>しんほう</rt></ruby></div>
         <div class="qa-expl">メソポタミアで発明された数え方。1時間＝60分、1分＝60秒、円周＝360度など現在の時間・角度のもとになった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1260,8 +1278,8 @@
         <div class="qa-a">ファラオ</div>
         <div class="qa-expl">「大きな家」という意味のエジプトの王の称号。神の化身とされ、巨大なピラミッドを墓として建設させた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1278,8 +1296,8 @@
         <div class="qa-a">モヘンジョ＝ダロ</div>
         <div class="qa-expl">インダス文明の代表的な計画都市遺跡。レンガ造りの整然とした街路と排水設備、公衆浴場などを備えていた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1409,7 +1427,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="4">
+<section class="view" data-t="4" data-lock="2">
   <div class="tband"><span class="tno">3</span><h2>中国文明の発展</h2><img class="wchar tchar" src="img/characters_char_neko_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -1476,8 +1494,8 @@
         <div class="qa-a">中国<ruby>文明<rt>ぶんめい</rt></ruby></div>
         <div class="qa-expl">黄河と長江の流域で発生した文明。紀元前16世紀頃の殷の甲骨文字から漢字へと発展し、東アジア全体に影響を与えた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1494,8 +1512,8 @@
         <div class="qa-a"><ruby>甲骨文字<rt>こうこつもじ</rt></ruby></div>
         <div class="qa-expl">亀の甲羅や牛の骨に刻まれた中国最古の文字。殷で占いの記録に使われ、現在の漢字のもとになった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1512,8 +1530,8 @@
         <div class="qa-a"><ruby>周<rt>しゅう</rt></ruby></div>
         <div class="qa-expl">紀元前11世紀頃に殷を滅ぼした王朝。やがて支配力が弱まり、諸侯が争う春秋戦国時代に入った。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1530,8 +1548,8 @@
         <div class="qa-a"><ruby>孔子<rt>こうし</rt></ruby></div>
         <div class="qa-expl">紀元前6世紀頃の春秋時代に「仁」（思いやり）と「礼」（秩序）を説いた思想家。儒教の祖で、言行は論語にまとめられた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1548,8 +1566,8 @@
         <div class="qa-a"><ruby>論語<rt>ろんご</rt></ruby></div>
         <div class="qa-expl">孔子の言行を弟子たちがまとめた書物。儒教の基本経典となり、東アジア各国の思想や教育に大きな影響を与えた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1566,8 +1584,8 @@
         <div class="qa-a"><ruby>始皇帝<rt>しこうてい</rt></ruby></div>
         <div class="qa-expl">紀元前221年に秦が中国を初統一した際の王。「皇帝」の称号を初めて用い、文字・度量衡の統一や万里の長城建設を行った。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1584,8 +1602,8 @@
         <div class="qa-a"><ruby>万里<rt>ばんり</rt></ruby>の<ruby>長城<rt>ちょうじょう</rt></ruby></div>
         <div class="qa-expl">北方の遊牧民族の侵入を防ぐための巨大な防壁。始皇帝が各地の長城をつなぎ、明代に現在の姿に整備された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1602,8 +1620,8 @@
         <div class="qa-a"><ruby>漢<rt>かん</rt></ruby></div>
         <div class="qa-expl">紀元前202年に劉邦が秦の次に建国し約400年続いた大帝国。儒教を国の学問として採用し、シルクロードで西方と交易した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1620,8 +1638,8 @@
         <div class="qa-a">シルクロード</div>
         <div class="qa-expl">中国の絹が西方に運ばれたことが名前の由来。東西の文化・物資の交流路。仏教もこの道で中国に伝わった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1638,8 +1656,8 @@
         <div class="qa-a"><ruby>兵馬俑<rt>へいばよう</rt></ruby></div>
         <div class="qa-expl">始皇帝の墓のそばに埋められた実物大の兵士や馬の焼き物。1974年に陝西省で発見され、数千体が出土した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1656,8 +1674,8 @@
         <div class="qa-a"><ruby>儒教<rt>じゅきょう</rt></ruby></div>
         <div class="qa-expl">孔子の教えをもとにした思想・学問。仁と礼を重んじ、漢の時代に国の学問となって東アジアに広く影響を与えた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1674,8 +1692,8 @@
         <div class="qa-a"><ruby>春秋<rt>しゅんじゅう</rt></ruby><ruby>戦国<rt>せんごく</rt></ruby>時代</div>
         <div class="qa-expl">紀元前8〜3世紀の周の支配が弱まった後の時代。多くの国が争い、孔子や老子など諸子百家の思想家が活躍した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1692,8 +1710,8 @@
         <div class="qa-a"><ruby>焚書坑儒<rt>ふんしょこうじゅ</rt></ruby></div>
         <div class="qa-expl">始皇帝が考えを1つにまとめるため、儒教などの書物を焼き、反対する学者を生き埋めにした政策。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1710,8 +1728,8 @@
         <div class="qa-a"><ruby>絹<rt>きぬ</rt></ruby>（シルク）</div>
         <div class="qa-expl">シルクロードの名前の由来となった中国の特産品。当時西方では作れない貴重品で、高値で取引された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1836,7 +1854,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="5">
+<section class="view" data-t="5" data-lock="2">
   <div class="tband"><span class="tno">4</span><h2>ギリシャ・ローマの世界</h2><img class="wchar tchar" src="img/characters_char_owl_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -1903,8 +1921,8 @@
         <div class="qa-a">ポリス</div>
         <div class="qa-expl">古代ギリシャの都市国家。アテネやスパルタが代表的で、丘の上のアクロポリスを中心に形成された独立国家。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1921,8 +1939,8 @@
         <div class="qa-a"><ruby>都市<rt>とし</rt></ruby><ruby>国家<rt>こっか</rt></ruby></div>
         <div class="qa-expl">都市を中心に独立した政治を行う小国家。古代ギリシャのポリスが代表例で、アテネやスパルタが知られる。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1939,8 +1957,8 @@
         <div class="qa-a"><ruby>民主政<rt>みんしゅせい</rt></ruby></div>
         <div class="qa-expl">アテネで成年男性市民が直接参加して政治を決めた。現代民主主義の原点。女性や奴隷は参加できなかった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1957,8 +1975,8 @@
         <div class="qa-a">アレクサンドロス<ruby>大王<rt>だいおう</rt></ruby></div>
         <div class="qa-expl">マケドニアの王で東方遠征を行い、ギリシャ文化とオリエント文化が融合したヘレニズム文化を生んだ。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1975,8 +1993,8 @@
         <div class="qa-a">ヘレニズム<ruby>文化<rt>ぶんか</rt></ruby></div>
         <div class="qa-expl">紀元前4世紀のアレクサンドロス大王の東方遠征で、ギリシャとオリエントの文化が融合して生まれた文化。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1993,8 +2011,8 @@
         <div class="qa-a"><ruby>共和政<rt>きょうわせい</rt></ruby></div>
         <div class="qa-expl">王を置かず、貴族や市民の代表が話し合って政治を行うしくみ。古代ローマで約500年間続いた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2011,8 +2029,8 @@
         <div class="qa-a">コロッセオ</div>
         <div class="qa-expl">約5万人を収容できた巨大な円形闘技場。ローマ帝国の象徴的建造物。ローマ文化の建築技術を示す。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2029,8 +2047,8 @@
         <div class="qa-a"><ruby>帝政<rt>ていせい</rt></ruby></div>
         <div class="qa-expl">紀元前1世紀末に共和政から移行した、皇帝が支配する政治の仕組み。地中海周辺の広大な領土を統治した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2047,8 +2065,8 @@
         <div class="qa-a"><ruby>水道橋<rt>すいどうきょう</rt></ruby></div>
         <div class="qa-expl">ローマ帝国が各地に建設した、遠くの水源から都市に水を運ぶための橋。土木技術の高さを示す建造物。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2065,8 +2083,8 @@
         <div class="qa-a">パルテノン<ruby>神殿<rt>しんでん</rt></ruby></div>
         <div class="qa-expl">紀元前5世紀にアテネのアクロポリスに建てられた、守護女神アテナを祀る神殿。ギリシャ建築の傑作。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2083,8 +2101,8 @@
         <div class="qa-a">ペルシャ</div>
         <div class="qa-expl">ギリシャのポリス連合軍が紀元前5世紀のペルシャ戦争で撃退した西アジアの大国。アテネが中心となって戦った。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2101,8 +2119,8 @@
         <div class="qa-a">アクロポリス</div>
         <div class="qa-expl">ポリスの中心にある丘の上の城塞。神殿が建てられた聖域でもあり、アテネのものが特に有名。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2119,8 +2137,8 @@
         <div class="qa-a">アテネ</div>
         <div class="qa-expl">成年男性の市民が直接政治に参加した点が重要なギリシャ最大のポリス。直接民主政の発祥地で、パルテノン神殿でも有名。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2137,8 +2155,8 @@
         <div class="qa-a">ローマ<ruby>帝国<rt>ていこく</rt></ruby></div>
         <div class="qa-expl">紀元前後から数百年間、地中海周辺を支配した大帝国。道路・法律・キリスト教の広がりと関係が深い。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2247,7 +2265,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="6">
+<section class="view" data-t="6" data-lock="2">
   <div class="tband"><span class="tno">5</span><h2>世界の三大宗教</h2><img class="wchar tchar" src="img/characters_manabi_ok_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -2314,8 +2332,8 @@
         <div class="qa-a"><ruby>三大<rt>さんだい</rt></ruby><ruby>宗教<rt>しゅうきょう</rt></ruby></div>
         <div class="qa-expl">世界で広く信者をもつ仏教・キリスト教・イスラームの3つの宗教。始めた人物・聖典・広がった地域を区別する。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2332,8 +2350,8 @@
         <div class="qa-a">シャカ</div>
         <div class="qa-expl">紀元前5世紀頃のインドで仏教を開いた人物。人々の苦しみから救う教えを説き、悟りを開いたとされる。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2350,8 +2368,8 @@
         <div class="qa-a">イエス</div>
         <div class="qa-expl">1世紀のパレスチナで神の愛による救いを説いたキリスト教の開祖。十字架にかけられたが復活したと信じられている。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2368,8 +2386,8 @@
         <div class="qa-a">ムハンマド</div>
         <div class="qa-expl">7世紀にアラビア半島のメッカで生まれ、イスラームを創始した人物。唯一の神アッラーへの信仰を説いた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2386,8 +2404,8 @@
         <div class="qa-a"><ruby>仏教<rt>ぶっきょう</rt></ruby></div>
         <div class="qa-expl">紀元前5世紀頃にシャカが開いた宗教。東アジアにも広がり、6世紀に日本にも伝わった。聖典は経典。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2404,8 +2422,8 @@
         <div class="qa-a">キリスト<ruby>教<rt>きょう</rt></ruby></div>
         <div class="qa-expl">1世紀にイエスの教えをもとに広がった宗教。ローマ帝国で公認されのちに国教となった。聖典は聖書。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2422,8 +2440,8 @@
         <div class="qa-a">イスラム<ruby>教<rt>きょう</rt></ruby>（イスラーム）</div>
         <div class="qa-expl">7世紀にムハンマドがアラビア半島で始めた一神教。聖典はコーラン（クルアーン）、聖地はメッカ。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2440,8 +2458,8 @@
         <div class="qa-a">クルアーン（コーラン）</div>
         <div class="qa-expl">ムハンマドへのアッラーの啓示をまとめたイスラームの聖典。アラビア語で書かれ、信仰と生活全般の規範となる。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2458,8 +2476,8 @@
         <div class="qa-a">エルサレム</div>
         <div class="qa-expl">ユダヤ教・キリスト教・イスラームの三宗教にとって重要な聖地。現在もパレスチナ問題の焦点の一つ。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2476,8 +2494,8 @@
         <div class="qa-a">ローマ<ruby>帝国<rt>ていこく</rt></ruby></div>
         <div class="qa-expl">地中海周辺を支配し、4世紀末にキリスト教を国教として採用した古代の大帝国。395年に東西に分裂した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2494,8 +2512,8 @@
         <div class="qa-a">カーバ<ruby>神殿<rt>しんでん</rt></ruby></div>
         <div class="qa-expl">アラビア半島のメッカにあるイスラーム最高の聖殿。世界中のムスリムは礼拝時にこの方角に向かう。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2512,8 +2530,8 @@
         <div class="qa-a">ヒンドゥー<ruby>教<rt>きょう</rt></ruby></div>
         <div class="qa-expl">古代インドのバラモン教が仏教を吸収して成立した多神教。カースト制度と結びつき、現在もインドの国民宗教。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2530,8 +2548,8 @@
         <div class="qa-a"><ruby>聖書<rt>せいしょ</rt></ruby></div>
         <div class="qa-expl">旧約聖書と新約聖書からなるキリスト教の聖典。新約聖書にはイエスの言行と教えが記されている。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2548,8 +2566,8 @@
         <div class="qa-a">ユダヤ<ruby>教<rt>きょう</rt></ruby></div>
         <div class="qa-expl">古代イスラエルの民が信仰した一神教。一神教の先駆けで、のちのキリスト教やイスラームに大きな影響を与えた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2684,6 +2702,14 @@
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
 </div></div>
+<div class="lock-ov" id="lockOv" hidden><div class="lock-card">
+  <div class="lock-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+  <div class="lock-t">つづきは購入者向けです</div>
+  <div class="lock-d">ここまでは無料でためせます。つづきを解くには、つづもんのライセンスが必要です。</div>
+  <button class="lock-btn lb-line" id="lockLogin">LINEでログイン（購入者の方）</button>
+  <a class="lock-btn lb-buy" href="../../index.html">つづもんを見てみる →</a>
+  <button class="lock-close" id="lockClose">とじる（ここまで解く）</button>
+</div></div>
 
 <script type="module">
 // 記述AI採点のログイン（www.chatstudy.jp の LINE Login＝Firebase Auth。参考書ページと同じ）。
@@ -2706,9 +2732,24 @@ try {
       location.href = '/welcome?next=' + encodeURIComponent(location.pathname + location.hash);
     },
   };
+  var ENTITLEMENT_API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/tsudumonEntitlement';
+  async function refreshEntitlement(u) {
+    try {
+      var idToken = await u.getIdToken();
+      var res = await fetch(ENTITLEMENT_API, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ idToken: idToken }),
+      });
+      if (!res.ok) return;
+      var data = await res.json();
+      try { localStorage.setItem('tzm-lic', JSON.stringify((data && data.grades) || [])); } catch (e) {}
+      if (window.tzmRefreshGate) window.tzmRefreshGate();
+    } catch (e) { /* localStorage フォールバックのまま */ }
+  }
   onAuthStateChanged(auth, function (u) {
     window.__tzmAuth.user = u;
     window.__tzmAuth.ready = true;
+    if (u) refreshEntitlement(u);
     document.dispatchEvent(new CustomEvent('tzm-auth'));
   });
 } catch (e) { /* 設定が無ければ採点はフォールバック（自己採点）に倒れる */ }
@@ -2718,6 +2759,7 @@ try {
 (function () {
   var KEY = 'tzmwb-02';
   var CH = '02';
+  var GRADE = '中1';        // この本の学年（中1/中2/中3）
   var GRADE_API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/gradeWritten';      // 記述AI採点 Cloud Function
   var REF_VIEWS = [0, 0, 1, 2, 3, 4, 5];        // 問題集のビューt → 参考書の単元番号（0＝対応なし）
   var views = [].slice.call(document.querySelectorAll('.view'));
@@ -2757,7 +2799,7 @@ try {
     try { if (localStorage.getItem('tzmhint') === '1') return; } catch (e) { return; }
     var canHover = window.matchMedia && window.matchMedia('(hover:hover)').matches;
     bar.textContent = canHover ? '⌨️ ← → キーでもページをめくれるよ'
-                               : '👆 よこにスワイプでもページをめくれるよ';
+                               : 'よこにスワイプでもページをめくれるよ';
     var shown = false;
     window.showHint = function () {
       if (shown || state.t === 0) return;
@@ -2962,7 +3004,7 @@ try {
   function showJudged(scopeEl, ok) {
     var banner = scopeEl.querySelector('.b-result');
     if (banner) {
-      banner.textContent = ok ? '⭕ せいかい！' : '❌ おしい！';
+      banner.textContent = ok ? 'せいかい！' : 'おしい！';
       banner.className = 'b-result ' + (ok ? 'ok' : 'ng');
     }
     scopeEl.classList.add('show');
@@ -3127,7 +3169,7 @@ try {
       pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
       document.getElementById('btnPrev').textContent = s === 0 ? '目次へ' : '← まえへ';
       var next = document.getElementById('btnNext');
-      if (onModeStep && steps.length === 1) next.textContent = '⭐ おすすめ順で始める →';
+      if (onModeStep && steps.length === 1) next.textContent = 'おすすめ順で始める →';
       else if (s < steps.length - 1) next.textContent = 'つぎへ →';
       else next.textContent = t < N ? '次の単元へ →' : '目次にもどる';
       if (steps[s] && steps[s].classList.contains('done-step')) renderScore(views[t]);
@@ -3173,12 +3215,32 @@ try {
     } else { btn.hidden = true; }
   }
 
+  // ── 教材ゲート（中間案・ゆるめ「頭出しは見せる」）──
+  //   有料単元はやり方えらぶ＋要点まとめまで誰でも試せる。その先は購入者（この学年）だけ。
+  function isLicensed() {
+    try { return (JSON.parse(localStorage.getItem('tzm-lic') || '[]')).indexOf(GRADE) >= 0; }
+    catch (e) { return false; }
+  }
+  function lockFrom(t) { var v = views[t]; return v ? +(v.getAttribute('data-lock') || 0) : 0; }
+  function gateBlocks(t, s) { var lk = lockFrom(t); return lk > 0 && !isLicensed() && s >= lk; }
+  function showLock() { var ov = document.getElementById('lockOv'); if (ov) ov.hidden = false; }
+  function hideLock() { var ov = document.getElementById('lockOv'); if (ov) ov.hidden = true; }
+  window.tzmRefreshGate = function () { if (isLicensed()) hideLock(); };
+
   function go(t, s, dir) {
     lastDir = dir || 1;
     state.t = Math.max(0, Math.min(N, t));
     state.s = Math.max(0, s || 0);
-    if (state.t > 0) state.s = Math.min(state.s, stepsOf(state.t).length - 1);
-    else state.s = 0;
+    if (state.t > 0) {
+      state.s = Math.min(state.s, stepsOf(state.t).length - 1);
+      if (gateBlocks(state.t, state.s)) {
+        state.s = Math.max(0, lockFrom(state.t) - 1);
+        render();
+        showLock();
+        return;
+      }
+    } else state.s = 0;
+    hideLock();
     render();
   }
   // ── 未回答ガード: 問題(一問一答/4択/記述)に答えるまで「つぎへ」で先に進めない ──
@@ -3222,6 +3284,11 @@ try {
     else go(0, 0, -1);
   }
 
+  document.getElementById('lockLogin').addEventListener('click', function () {
+    var here = location.pathname + '#t' + state.t + (state.s > 0 ? 's' + state.s : '');
+    location.href = '../../login/?next=' + encodeURIComponent(here);
+  });
+  document.getElementById('lockClose').addEventListener('click', hideLock);
   document.getElementById('btnNext').addEventListener('click', next);
   document.getElementById('btnPrev').addEventListener('click', prev);
   // 回答するとロックを解除（回答処理の後に評価するため click は次tickで）
@@ -3344,7 +3411,7 @@ try {
       var istep = idk.closest('.qa-step');
       showJudged(istep, false);
       var bn = istep.querySelector('.b-result');
-      if (bn) { bn.textContent = '👇 こたえはこちら。次はきっと書けるよ！'; bn.className = 'b-result ng'; }
+      if (bn) { bn.textContent = 'こたえはこちら。次はきっと書けるよ！'; bn.className = 'b-result ng'; }
       var stI = store(); stI.r = stI.r || {};
       stI.r[istep.dataset.qid] = 0;
       save(stI);

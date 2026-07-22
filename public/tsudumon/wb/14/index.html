@@ -117,11 +117,12 @@
   .home-topline { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:2px; }
   .hometop { display:flex; align-items:flex-start; gap:6px; padding:8px 2px 2px; text-align:left; }
   .ht-main { flex:1; min-width:0; text-align:center; }
-  .badge3 { display:inline-flex; border-radius:18px; overflow:hidden; font-size:12px; font-weight:bold;
-            box-shadow:0 2px 4px rgba(120,80,20,.2); }
-  .badge3 span { padding:4px 11px; display:inline-flex; align-items:center; white-space:nowrap; }
-  .b-vol { background:var(--brand); color:#fff; }
-  .b-kind { background:#fff; color:var(--deep); }
+  /* 本のラベル（押せない表示）: トグルに見えないようフラットな1トーンのタグに */
+  .badge3 { display:inline-flex; align-items:center; gap:6px; border-radius:8px;
+            background:#f4ecdb; padding:3px 10px; font-size:11.5px; font-weight:bold; }
+  .badge3 span { padding:0; display:inline-flex; align-items:center; white-space:nowrap; }
+  .b-vol { color:var(--brand); }
+  .b-kind { color:#9a7b4f; }
   .b-web { background:var(--amber); color:#fff; }
   .ht-title { font-size:41px; color:var(--deep); margin:12px 0 0; line-height:1.12; position:relative;
               display:inline-block; padding:0 6px; letter-spacing:.01em; }
@@ -443,6 +444,23 @@
   .foot-note { margin-top:4px; font-size:12px; }
 
   /* ── 下部ナビ ── */
+  /* 教材ゲートのロック案内（頭出しの先） */
+  .lock-ov { position:fixed; inset:0; z-index:40; background:rgba(60,40,15,.5);
+             display:flex; align-items:center; justify-content:center; padding:20px; }
+  .lock-ov[hidden] { display:none; }
+  .lock-card { width:100%; max-width:360px; background:#fff; border-radius:18px; padding:24px 20px 18px;
+               text-align:center; box-shadow:0 10px 30px rgba(0,0,0,.3); }
+  .lock-ic svg { width:34px; height:34px; }
+  .lock-ic { font-size:40px; }
+  .lock-t { font-size:18px; font-weight:bold; color:var(--deep); margin:6px 0 6px; }
+  .lock-d { font-size:13px; color:#78716c; line-height:1.8; margin-bottom:16px; }
+  .lock-btn { display:block; width:100%; margin-top:10px; border:none; border-radius:13px; padding:13px;
+              font-size:15px; font-weight:bold; text-decoration:none; cursor:pointer; font-family:inherit; }
+  .lb-line { background:#06c755; color:#fff; box-shadow:0 3px 8px rgba(6,199,85,.3); }
+  .lb-buy { background:#fff; color:var(--brand); border:1.5px solid var(--line); }
+  .lock-close { display:block; width:100%; margin-top:12px; background:none; border:none; cursor:pointer;
+                color:#a8a29e; font-size:12.5px; font-family:inherit; text-decoration:underline; }
+
   .navbar { position:fixed; left:0; right:0; bottom:0; z-index:10;
             background:rgba(255,253,248,.97); border-top:1px solid #f0e6d2;
             padding:10px 16px calc(10px + env(safe-area-inset-bottom)); }
@@ -546,12 +564,12 @@
   <nav class="toc">
     <div class="toc-head">
       <div class="toc-h">単元を選択</div>
-      <button class="toc-cal" data-go="1">📅 年表でチェック<span class="cal-go">›</span></button>
+      <button class="toc-cal" data-go="1">年表でチェック<span class="cal-go">›</span></button>
     </div>
     <button class="toc-item" data-go="2"><img class="toc-thumb" src="img/reference_hist14-political-reform.webp" alt="" loading="lazy"><span class="toc-no">1</span><span class="toc-name">政治の変革</span><span class="toc-state" data-state-t="2"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="3"><img class="toc-thumb" src="img/reference_hist14-movement.webp" alt="" loading="lazy"><span class="toc-no">2</span><span class="toc-name">社会運動の広がり</span><span class="toc-state" data-state-t="3"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="4"><img class="toc-thumb" src="img/reference_hist14-culture.webp" alt="" loading="lazy"><span class="toc-no">3</span><span class="toc-name">大衆文化の成熟</span><span class="toc-state" data-state-t="4"></span><span class="toc-arrow">›</span></button>
   </nav>
   <a class="big-btn ref-btn" href="../../ref/14/index.html">参考書を開く</a>
-  <button class="big-btn print-btn" type="button" onclick="window.print()">🖨 紙に印刷して解く（解答つき）</button>
+  <button class="big-btn print-btn" type="button" onclick="window.print()">紙に印刷して解く（解答つき）</button>
   
   <footer class="foot">
     <div>つづもん 問題集</div>
@@ -566,7 +584,7 @@
     <table class="tl-table"><tr><th class="tl-year">年代</th><th>できごと</th></tr><tr><td class='tl-year'>1911年</td><td><button class="blank" type="button"><span class="bno">①</span><span class="ba">平塚らいてう</span><span class="bl" style="width:5.4em"></span></button>が女性誌「青鞜」を創刊する</td></tr><tr><td class='tl-year'>1912〜13年</td><td>藩閥政治に反対する<button class="blank" type="button"><span class="bno">②</span><span class="ba">第一次護憲運動</span><span class="bl" style="width:6.3em"></span></button>が起こる</td></tr><tr><td class='tl-year'>1918年</td><td>米騒動をきっかけに<button class="blank" type="button"><span class="bno">③</span><span class="ba">原敬</span><span class="bl" style="width:2.7em"></span></button>内閣が成立する</td></tr><tr><td class='tl-year'>1920年</td><td>平塚らいてう・市川房枝らが<button class="blank" type="button"><span class="bno">④</span><span class="ba">新婦人協会</span><span class="bl" style="width:4.5em"></span></button>を結成する</td></tr><tr><td class='tl-year'>1921年</td><td>労働組合の全国組織<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">日本労働総同盟</span><span class="bl" style="width:6.3em"></span></button>が成立する</td></tr><tr><td class='tl-year'>1922年</td><td>被差別部落解放を目指す<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">全国水平社</span><span class="bl" style="width:4.5em"></span></button>が結成される</td></tr><tr><td class='tl-year'>1922年</td><td>賀川豊彦らが小作争議を主導する<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">日本農民組合</span><span class="bl" style="width:5.4em"></span></button>を結成する</td></tr><tr><td class='tl-year'>1923年</td><td><button class="blank" type="button"><span class="bno">⑧</span><span class="ba">関東大震災</span><span class="bl" style="width:4.5em"></span></button>が起こる</td></tr><tr><td class='tl-year'>1925年</td><td>日本で<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">ラジオ放送</span><span class="bl" style="width:4.5em"></span></button>が始まる</td></tr><tr><td class='tl-year'>1925年</td><td>25歳以上の男子に選挙権を与える<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">普通選挙法</span><span class="bl" style="width:4.5em"></span></button>が制定される</td></tr><tr><td class='tl-year'>1925年</td><td>社会主義などを取り締まる<button class="blank" type="button"><span class="bno">⑪</span><span class="ba">治安維持法</span><span class="bl" style="width:4.5em"></span></button>が制定される</td></tr><tr><td class='tl-year'>1926年</td><td>改造社が1冊1円の<button class="blank" type="button"><span class="bno">⑫</span><span class="ba">円本</span><span class="bl" style="width:2.7em"></span></button>を売り出す</td></tr><tr><td class='tl-year'>1929年</td><td>小林多喜二が「<button class="blank" type="button"><span class="bno">⑬</span><span class="ba">蟹工船</span><span class="bl" style="width:2.7em"></span></button>」を発表する</td></tr></table>
   </div>
 </section>
-<section class="view" data-t="2">
+<section class="view" data-t="2" data-lock="2">
   <div class="tband"><span class="tno">1</span><h2>政治の変革</h2><img class="wchar tchar" src="img/characters_char_pencil_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -633,8 +651,8 @@
         <div class="qa-a"><ruby>大正<rt>たいしょう</rt></ruby>デモクラシー</div>
         <div class="qa-expl">大正期、第一次護憲運動や吉野作造の民本主義を背景に、政党政治の発展や普通選挙の実現を求める風潮が広がった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -651,8 +669,8 @@
         <div class="qa-a"><ruby>第一次<rt>だいいちじ</rt></ruby><ruby>護憲<rt>ごけん</rt></ruby><ruby>運動<rt>うんどう</rt></ruby></div>
         <div class="qa-expl">尾崎行雄・犬養毅らが「閥族打破・憲政擁護」を掲げた。1924年の第二次護憲運動と区別する。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -669,8 +687,8 @@
         <div class="qa-a"><ruby>吉野作造<rt>よしのさくぞう</rt></ruby></div>
         <div class="qa-expl">東京帝大教授で大正デモクラシーの理論的指導者。天皇主権下で民衆の意思を政治に反映する「民本主義」を提唱した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -687,8 +705,8 @@
         <div class="qa-a"><ruby>民本<rt>みんぽん</rt></ruby><ruby>主義<rt>しゅぎ</rt></ruby></div>
         <div class="qa-expl">吉野作造が提唱。国の主役は国民とまでは言わず、天皇のもとでも国民の声を政治に生かすべきとした考え方。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -705,8 +723,8 @@
         <div class="qa-a"><ruby>原敬<rt>はらたかし</rt></ruby></div>
         <div class="qa-expl">立憲政友会総裁。米騒動後の1918年に組閣し、爵位を持たないことから「平民宰相」と呼ばれた本格的政党内閣の首相。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -723,8 +741,8 @@
         <div class="qa-a">1918年</div>
         <div class="qa-expl">1918年、米騒動で寺内内閣が退陣し、立憲政友会総裁の原敬が初の本格的政党内閣を組織した年。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -741,8 +759,8 @@
         <div class="qa-a"><ruby>普通選挙法<rt>ふつうせんきょほう</rt></ruby></div>
         <div class="qa-expl">1925年に加藤高明内閣が制定し、納税額の制限を撤廃。25歳以上の男子に選挙権を与えたが、女性は除外された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -759,8 +777,8 @@
         <div class="qa-a">1925年</div>
         <div class="qa-expl">1925年は加藤高明内閣が普通選挙法と治安維持法を同時に制定し、民主化と思想統制が並行して進められた年。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -777,8 +795,8 @@
         <div class="qa-a"><ruby>治安<rt>ちあん</rt></ruby><ruby>維持法<rt>いじほう</rt></ruby></div>
         <div class="qa-expl">1925年に加藤高明内閣が普通選挙法と同時に制定。天皇制を変えたり財産制度を壊そうとする動きを厳しく取り締まった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -795,8 +813,8 @@
         <div class="qa-a"><ruby>加藤高明<rt>かとうたかあき</rt></ruby></div>
         <div class="qa-expl">憲政会総裁。1925年に普通選挙法と治安維持法を制定し、以後8年間続く政党内閣の安定期（憲政の常道）を開いた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -813,8 +831,8 @@
         <div class="qa-a">25歳以上の男子</div>
         <div class="qa-expl">1925年の普通選挙法で納税額の制限が撤廃され、25歳以上の男子全員に選挙権が与えられた。女性は除外された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -944,7 +962,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="3">
+<section class="view" data-t="3" data-lock="2">
   <div class="tband"><span class="tno">2</span><h2>社会運動の広がり</h2><img class="wchar tchar" src="img/characters_manabi_think_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -1011,8 +1029,8 @@
         <div class="qa-a"><ruby>労働<rt>ろうどう</rt></ruby>運動</div>
         <div class="qa-expl">大正期、工場労働者の増加を背景に労働組合が次々と結成され、1921年には全国組織の日本労働総同盟が成立した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1029,8 +1047,8 @@
         <div class="qa-a"><ruby>農民<rt>のうみん</rt></ruby>運動</div>
         <div class="qa-expl">1922年に賀川豊彦らが日本農民組合を結成し、小作料の引き下げを求める小作争議を全国的に主導した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1047,8 +1065,8 @@
         <div class="qa-a">全国<ruby>水平社<rt>すいへいしゃ</rt></ruby></div>
         <div class="qa-expl">1922年に京都で結成された被差別部落出身者の組織。「水平社宣言」を発表し、差別からの自主的解放を目指した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1065,8 +1083,8 @@
         <div class="qa-a">1922年</div>
         <div class="qa-expl">1922年は全国水平社・日本農民組合が結成され、被差別部落民や農民の権利を求める社会運動が広がる転換点となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1083,8 +1101,8 @@
         <div class="qa-a"><ruby>平塚<rt>ひらつか</rt></ruby>らいてう</div>
         <div class="qa-expl">1911年に女性誌「青鞜」を創刊。「もともと女性は太陽だった」と宣言し、女性の解放を訴える運動を進めた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1101,8 +1119,8 @@
         <div class="qa-a"><ruby>青鞜<rt>せいとう</rt></ruby></div>
         <div class="qa-expl">1911年に平塚らいてうが創刊した女性誌。「もともと女性は太陽だった」の宣言を載せ、女性の自立を訴えた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1119,8 +1137,8 @@
         <div class="qa-a">新<ruby>婦人<rt>ふじん</rt></ruby><ruby>協会<rt>きょうかい</rt></ruby></div>
         <div class="qa-expl">1920年に平塚らいてう・市川房枝らが結成。女性の政治集会参加を禁じた治安警察法第5条の改正を求め、女性の政治参加を目指した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1137,8 +1155,8 @@
         <div class="qa-a"><ruby>市川房枝<rt>いちかわふさえ</rt></ruby></div>
         <div class="qa-expl">1920年に平塚らいてうらと新婦人協会を結成し、女性の政治集会参加禁止の撤廃を実現。戦後も婦人参政権獲得運動を主導した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1155,8 +1173,8 @@
         <div class="qa-a">アイヌ</div>
         <div class="qa-expl">1899年制定の北海道旧土人保護法による明治政府の同化政策で、伝統文化や言語が大きく損なわれた北方の先住民族。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1173,8 +1191,8 @@
         <div class="qa-a"><ruby>水平社<rt>すいへいしゃ</rt></ruby><ruby>宣言<rt>せんげん</rt></ruby></div>
         <div class="qa-expl">1922年の全国水平社結成大会で発表。「人の世に熱あれ、人間に光あれ」で結ばれ、自主的な差別撤廃を訴えた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1191,8 +1209,8 @@
         <div class="qa-a"><ruby>関東<rt>かんとう</rt></ruby><ruby>大震災<rt>だいしんさい</rt></ruby></div>
         <div class="qa-expl">1923年9月1日に発生。死者・行方不明者10万人以上を出し、混乱の中でデマによる朝鮮人虐殺など社会不安が広がった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1209,8 +1227,8 @@
         <div class="qa-a">1923年</div>
         <div class="qa-expl">1923年9月1日に発生した関東大震災の年。死者・行方不明者10万人以上を出し、首都圏に甚大な被害をもたらした。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1335,7 +1353,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="4">
+<section class="view" data-t="4" data-lock="2">
   <div class="tband"><span class="tno">3</span><h2>大衆文化の成熟</h2><img class="wchar tchar" src="img/characters_char_neko_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -1402,8 +1420,8 @@
         <div class="qa-a"><ruby>大衆<rt>たいしゅう</rt></ruby><ruby>文化<rt>ぶんか</rt></ruby></div>
         <div class="qa-expl">1925年のラジオ放送開始や新聞・雑誌・映画の普及を背景に、都市の一般大衆に広がった文化。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1420,8 +1438,8 @@
         <div class="qa-a">ラジオ<ruby>放送<rt>ほうそう</rt></ruby></div>
         <div class="qa-expl">1925年に東京・大阪・名古屋で放送が始まり、後の日本放送協会（NHK）となった。大衆文化の中心。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1438,8 +1456,8 @@
         <div class="qa-a">1925年</div>
         <div class="qa-expl">1925年は普通選挙法・治安維持法が制定された年でもあり、大衆社会への転換点となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1456,8 +1474,8 @@
         <div class="qa-a"><ruby>映画<rt>えいが</rt></ruby></div>
         <div class="qa-expl">大正期に無声映画が人気となり、昭和初期にはトーキー（音声付き）に発展。都市の娯楽として定着した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1474,8 +1492,8 @@
         <div class="qa-a"><ruby>円本<rt>えんぽん</rt></ruby></div>
         <div class="qa-expl">1926年に改造社が刊行した「現代日本文学全集」が代表例。1冊1円の安さで読書の大衆化を進めた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1492,8 +1510,8 @@
         <div class="qa-a">モボ・モガ</div>
         <div class="qa-expl">モダンボーイ・モダンガールの略。大正末〜昭和初期、洋装で銀座などを闊歩した都市の若者を指した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1510,8 +1528,8 @@
         <div class="qa-a"><ruby>芥川龍之介<rt>あくたがわりゅうのすけ</rt></ruby></div>
         <div class="qa-expl">大正期の新思潮派を代表する作家で、「羅生門」「鼻」など短編小説で人間心理を鋭く描いた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1528,8 +1546,8 @@
         <div class="qa-a"><ruby>志賀直哉<rt>しがなおや</rt></ruby></div>
         <div class="qa-expl">白樺派の代表作家で、長編「暗夜行路」で人道主義・個人主義に基づく内面を描いた。「小説の神様」とも。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1546,8 +1564,8 @@
         <div class="qa-a"><ruby>小林多喜二<rt>こばやしたきじ</rt></ruby></div>
         <div class="qa-expl">1929年発表の「蟹工船」で漁船労働者の過酷な実態を描き、プロレタリア文学の代表となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1564,8 +1582,8 @@
         <div class="qa-a"><ruby>白樺派<rt>しらかばは</rt></ruby></div>
         <div class="qa-expl">雑誌「白樺」に集まった武者小路実篤・志賀直哉らの文学グループ。人間愛と理想を大切にする作品を発表した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1582,8 +1600,8 @@
         <div class="qa-a">プロレタリア<ruby>文学<rt>ぶんがく</rt></ruby></div>
         <div class="qa-expl">貧しい労働者や農民の暮らしを、社会の仕組みを変える視点で描いた文学。小林多喜二「蟹工船」が代表作。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1600,8 +1618,8 @@
         <div class="qa-a"><ruby>文化<rt>ぶんか</rt></ruby><ruby>住宅<rt>じゅうたく</rt></ruby></div>
         <div class="qa-expl">大正末〜昭和初期、和洋折衷で台所や応接間を備えた都市住宅。郊外でサラリーマン層を中心に普及した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1720,6 +1738,14 @@
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
 </div></div>
+<div class="lock-ov" id="lockOv" hidden><div class="lock-card">
+  <div class="lock-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+  <div class="lock-t">つづきは購入者向けです</div>
+  <div class="lock-d">ここまでは無料でためせます。つづきを解くには、つづもんのライセンスが必要です。</div>
+  <button class="lock-btn lb-line" id="lockLogin">LINEでログイン（購入者の方）</button>
+  <a class="lock-btn lb-buy" href="../../index.html">つづもんを見てみる →</a>
+  <button class="lock-close" id="lockClose">とじる（ここまで解く）</button>
+</div></div>
 
 <script type="module">
 // 記述AI採点のログイン（www.chatstudy.jp の LINE Login＝Firebase Auth。参考書ページと同じ）。
@@ -1742,9 +1768,24 @@ try {
       location.href = '/welcome?next=' + encodeURIComponent(location.pathname + location.hash);
     },
   };
+  var ENTITLEMENT_API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/tsudumonEntitlement';
+  async function refreshEntitlement(u) {
+    try {
+      var idToken = await u.getIdToken();
+      var res = await fetch(ENTITLEMENT_API, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ idToken: idToken }),
+      });
+      if (!res.ok) return;
+      var data = await res.json();
+      try { localStorage.setItem('tzm-lic', JSON.stringify((data && data.grades) || [])); } catch (e) {}
+      if (window.tzmRefreshGate) window.tzmRefreshGate();
+    } catch (e) { /* localStorage フォールバックのまま */ }
+  }
   onAuthStateChanged(auth, function (u) {
     window.__tzmAuth.user = u;
     window.__tzmAuth.ready = true;
+    if (u) refreshEntitlement(u);
     document.dispatchEvent(new CustomEvent('tzm-auth'));
   });
 } catch (e) { /* 設定が無ければ採点はフォールバック（自己採点）に倒れる */ }
@@ -1754,6 +1795,7 @@ try {
 (function () {
   var KEY = 'tzmwb-14';
   var CH = '14';
+  var GRADE = '中3';        // この本の学年（中1/中2/中3）
   var GRADE_API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/gradeWritten';      // 記述AI採点 Cloud Function
   var REF_VIEWS = [0, 0, 1, 2, 3];        // 問題集のビューt → 参考書の単元番号（0＝対応なし）
   var views = [].slice.call(document.querySelectorAll('.view'));
@@ -1793,7 +1835,7 @@ try {
     try { if (localStorage.getItem('tzmhint') === '1') return; } catch (e) { return; }
     var canHover = window.matchMedia && window.matchMedia('(hover:hover)').matches;
     bar.textContent = canHover ? '⌨️ ← → キーでもページをめくれるよ'
-                               : '👆 よこにスワイプでもページをめくれるよ';
+                               : 'よこにスワイプでもページをめくれるよ';
     var shown = false;
     window.showHint = function () {
       if (shown || state.t === 0) return;
@@ -1998,7 +2040,7 @@ try {
   function showJudged(scopeEl, ok) {
     var banner = scopeEl.querySelector('.b-result');
     if (banner) {
-      banner.textContent = ok ? '⭕ せいかい！' : '❌ おしい！';
+      banner.textContent = ok ? 'せいかい！' : 'おしい！';
       banner.className = 'b-result ' + (ok ? 'ok' : 'ng');
     }
     scopeEl.classList.add('show');
@@ -2163,7 +2205,7 @@ try {
       pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
       document.getElementById('btnPrev').textContent = s === 0 ? '目次へ' : '← まえへ';
       var next = document.getElementById('btnNext');
-      if (onModeStep && steps.length === 1) next.textContent = '⭐ おすすめ順で始める →';
+      if (onModeStep && steps.length === 1) next.textContent = 'おすすめ順で始める →';
       else if (s < steps.length - 1) next.textContent = 'つぎへ →';
       else next.textContent = t < N ? '次の単元へ →' : '目次にもどる';
       if (steps[s] && steps[s].classList.contains('done-step')) renderScore(views[t]);
@@ -2209,12 +2251,32 @@ try {
     } else { btn.hidden = true; }
   }
 
+  // ── 教材ゲート（中間案・ゆるめ「頭出しは見せる」）──
+  //   有料単元はやり方えらぶ＋要点まとめまで誰でも試せる。その先は購入者（この学年）だけ。
+  function isLicensed() {
+    try { return (JSON.parse(localStorage.getItem('tzm-lic') || '[]')).indexOf(GRADE) >= 0; }
+    catch (e) { return false; }
+  }
+  function lockFrom(t) { var v = views[t]; return v ? +(v.getAttribute('data-lock') || 0) : 0; }
+  function gateBlocks(t, s) { var lk = lockFrom(t); return lk > 0 && !isLicensed() && s >= lk; }
+  function showLock() { var ov = document.getElementById('lockOv'); if (ov) ov.hidden = false; }
+  function hideLock() { var ov = document.getElementById('lockOv'); if (ov) ov.hidden = true; }
+  window.tzmRefreshGate = function () { if (isLicensed()) hideLock(); };
+
   function go(t, s, dir) {
     lastDir = dir || 1;
     state.t = Math.max(0, Math.min(N, t));
     state.s = Math.max(0, s || 0);
-    if (state.t > 0) state.s = Math.min(state.s, stepsOf(state.t).length - 1);
-    else state.s = 0;
+    if (state.t > 0) {
+      state.s = Math.min(state.s, stepsOf(state.t).length - 1);
+      if (gateBlocks(state.t, state.s)) {
+        state.s = Math.max(0, lockFrom(state.t) - 1);
+        render();
+        showLock();
+        return;
+      }
+    } else state.s = 0;
+    hideLock();
     render();
   }
   // ── 未回答ガード: 問題(一問一答/4択/記述)に答えるまで「つぎへ」で先に進めない ──
@@ -2258,6 +2320,11 @@ try {
     else go(0, 0, -1);
   }
 
+  document.getElementById('lockLogin').addEventListener('click', function () {
+    var here = location.pathname + '#t' + state.t + (state.s > 0 ? 's' + state.s : '');
+    location.href = '../../login/?next=' + encodeURIComponent(here);
+  });
+  document.getElementById('lockClose').addEventListener('click', hideLock);
   document.getElementById('btnNext').addEventListener('click', next);
   document.getElementById('btnPrev').addEventListener('click', prev);
   // 回答するとロックを解除（回答処理の後に評価するため click は次tickで）
@@ -2380,7 +2447,7 @@ try {
       var istep = idk.closest('.qa-step');
       showJudged(istep, false);
       var bn = istep.querySelector('.b-result');
-      if (bn) { bn.textContent = '👇 こたえはこちら。次はきっと書けるよ！'; bn.className = 'b-result ng'; }
+      if (bn) { bn.textContent = 'こたえはこちら。次はきっと書けるよ！'; bn.className = 'b-result ng'; }
       var stI = store(); stI.r = stI.r || {};
       stI.r[istep.dataset.qid] = 0;
       save(stI);

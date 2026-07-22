@@ -117,11 +117,12 @@
   .home-topline { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:2px; }
   .hometop { display:flex; align-items:flex-start; gap:6px; padding:8px 2px 2px; text-align:left; }
   .ht-main { flex:1; min-width:0; text-align:center; }
-  .badge3 { display:inline-flex; border-radius:18px; overflow:hidden; font-size:12px; font-weight:bold;
-            box-shadow:0 2px 4px rgba(120,80,20,.2); }
-  .badge3 span { padding:4px 11px; display:inline-flex; align-items:center; white-space:nowrap; }
-  .b-vol { background:var(--brand); color:#fff; }
-  .b-kind { background:#fff; color:var(--deep); }
+  /* 本のラベル（押せない表示）: トグルに見えないようフラットな1トーンのタグに */
+  .badge3 { display:inline-flex; align-items:center; gap:6px; border-radius:8px;
+            background:#f4ecdb; padding:3px 10px; font-size:11.5px; font-weight:bold; }
+  .badge3 span { padding:0; display:inline-flex; align-items:center; white-space:nowrap; }
+  .b-vol { color:var(--brand); }
+  .b-kind { color:#9a7b4f; }
   .b-web { background:var(--amber); color:#fff; }
   .ht-title { font-size:41px; color:var(--deep); margin:12px 0 0; line-height:1.12; position:relative;
               display:inline-block; padding:0 6px; letter-spacing:.01em; }
@@ -443,6 +444,23 @@
   .foot-note { margin-top:4px; font-size:12px; }
 
   /* ── 下部ナビ ── */
+  /* 教材ゲートのロック案内（頭出しの先） */
+  .lock-ov { position:fixed; inset:0; z-index:40; background:rgba(60,40,15,.5);
+             display:flex; align-items:center; justify-content:center; padding:20px; }
+  .lock-ov[hidden] { display:none; }
+  .lock-card { width:100%; max-width:360px; background:#fff; border-radius:18px; padding:24px 20px 18px;
+               text-align:center; box-shadow:0 10px 30px rgba(0,0,0,.3); }
+  .lock-ic svg { width:34px; height:34px; }
+  .lock-ic { font-size:40px; }
+  .lock-t { font-size:18px; font-weight:bold; color:var(--deep); margin:6px 0 6px; }
+  .lock-d { font-size:13px; color:#78716c; line-height:1.8; margin-bottom:16px; }
+  .lock-btn { display:block; width:100%; margin-top:10px; border:none; border-radius:13px; padding:13px;
+              font-size:15px; font-weight:bold; text-decoration:none; cursor:pointer; font-family:inherit; }
+  .lb-line { background:#06c755; color:#fff; box-shadow:0 3px 8px rgba(6,199,85,.3); }
+  .lb-buy { background:#fff; color:var(--brand); border:1.5px solid var(--line); }
+  .lock-close { display:block; width:100%; margin-top:12px; background:none; border:none; cursor:pointer;
+                color:#a8a29e; font-size:12.5px; font-family:inherit; text-decoration:underline; }
+
   .navbar { position:fixed; left:0; right:0; bottom:0; z-index:10;
             background:rgba(255,253,248,.97); border-top:1px solid #f0e6d2;
             padding:10px 16px calc(10px + env(safe-area-inset-bottom)); }
@@ -546,12 +564,12 @@
   <nav class="toc">
     <div class="toc-head">
       <div class="toc-h">単元を選択</div>
-      <button class="toc-cal" data-go="1">📅 年表でチェック<span class="cal-go">›</span></button>
+      <button class="toc-cal" data-go="1">年表でチェック<span class="cal-go">›</span></button>
     </div>
     <button class="toc-item" data-go="2"><img class="toc-thumb" src="img/reference_hist11-meiji-restoration.webp" alt="" loading="lazy"><span class="toc-no">1</span><span class="toc-name">明治維新と新政府</span><span class="toc-state" data-state-t="2"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="3"><img class="toc-thumb" src="img/reference_hist11-three-reforms.webp" alt="" loading="lazy"><span class="toc-no">2</span><span class="toc-name">三大改革</span><span class="toc-state" data-state-t="3"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="4"><img class="toc-thumb" src="img/reference_hist11-civilization.webp" alt="" loading="lazy"><span class="toc-no">3</span><span class="toc-name">富国強兵と文明開化</span><span class="toc-state" data-state-t="4"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="5"><img class="toc-thumb" src="img/reference_hist11-international-relations.webp" alt="" loading="lazy"><span class="toc-no">4</span><span class="toc-name">岩倉使節団と国境画定</span><span class="toc-state" data-state-t="5"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="6"><img class="toc-thumb" src="img/reference_hist11-minken.webp" alt="" loading="lazy"><span class="toc-no">5</span><span class="toc-name">自由民権運動</span><span class="toc-state" data-state-t="6"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="7"><img class="toc-thumb" src="img/reference_hist11-kenpo.webp" alt="" loading="lazy"><span class="toc-no">6</span><span class="toc-name">大日本帝国憲法と議会</span><span class="toc-state" data-state-t="7"></span><span class="toc-arrow">›</span></button>
   </nav>
   <a class="big-btn ref-btn" href="../../ref/11/index.html">参考書を開く</a>
-  <button class="big-btn print-btn" type="button" onclick="window.print()">🖨 紙に印刷して解く（解答つき）</button>
+  <button class="big-btn print-btn" type="button" onclick="window.print()">紙に印刷して解く（解答つき）</button>
   
   <footer class="foot">
     <div>つづもん 問題集</div>
@@ -566,7 +584,7 @@
     <table class="tl-table"><tr><th class="tl-year">年代</th><th>できごと</th></tr><tr><td class='tl-year'>1868年</td><td>明治天皇が新政府の方針を示す<button class="blank" type="button"><span class="bno">①</span><span class="ba">五箇条の御誓文</span><span class="bl" style="width:6.3em"></span></button>を発表する</td></tr><tr><td class='tl-year'>1869年</td><td>藩主が土地と人民を朝廷に返す<button class="blank" type="button"><span class="bno">②</span><span class="ba">版籍奉還</span><span class="bl" style="width:3.6em"></span></button>が行われる</td></tr><tr><td class='tl-year'>1871年</td><td>全国の藩を廃止して県を置く<button class="blank" type="button"><span class="bno">③</span><span class="ba">廃藩置県</span><span class="bl" style="width:3.6em"></span></button>が行われる</td></tr><tr><td class='tl-year'>1871年</td><td>岩倉具視を大使とする<button class="blank" type="button"><span class="bno">④</span><span class="ba">岩倉使節団</span><span class="bl" style="width:4.5em"></span></button>が欧米に派遣される</td></tr><tr><td class='tl-year'>1872年</td><td>6歳以上のすべての子どもに教育を受けさせる<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">学制</span><span class="bl" style="width:2.7em"></span></button>が公布される</td></tr><tr><td class='tl-year'>1873年</td><td>満20歳の男子に兵役を課す<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">徴兵令</span><span class="bl" style="width:2.7em"></span></button>が定められる</td></tr><tr><td class='tl-year'>1873年</td><td>地価を基準に現金で税を納めさせる<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">地租改正</span><span class="bl" style="width:3.6em"></span></button>が始まる</td></tr><tr><td class='tl-year'>1873年</td><td>朝鮮への出兵をめぐる<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">征韓論</span><span class="bl" style="width:2.7em"></span></button>が否決され、西郷隆盛らが政府を去る</td></tr><tr><td class='tl-year'>1874年</td><td>板垣退助らが国会開設を求める<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">民撰議院設立の建白書</span><span class="bl" style="width:9.0em"></span></button>を提出する</td></tr><tr><td class='tl-year'>1875年</td><td>ロシアとの国境を定める<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">樺太・千島交換条約</span><span class="bl" style="width:8.1em"></span></button>が結ばれる</td></tr><tr><td class='tl-year'>1876年</td><td>江華島事件をきっかけに朝鮮と<button class="blank" type="button"><span class="bno">⑪</span><span class="ba">日朝修好条規</span><span class="bl" style="width:5.4em"></span></button>が結ばれる</td></tr><tr><td class='tl-year'>1877年</td><td>西郷隆盛を中心に士族最大の反乱<button class="blank" type="button"><span class="bno">⑫</span><span class="ba">西南戦争</span><span class="bl" style="width:3.6em"></span></button>が起こる</td></tr><tr><td class='tl-year'>1879年</td><td>琉球藩を廃止して沖縄県を置く<button class="blank" type="button"><span class="bno">⑬</span><span class="ba">琉球処分</span><span class="bl" style="width:3.6em"></span></button>が行われる</td></tr><tr><td class='tl-year'>1881年</td><td>板垣退助が<button class="blank" type="button"><span class="bno">⑭</span><span class="ba">自由党</span><span class="bl" style="width:2.7em"></span></button>を結成する</td></tr><tr><td class='tl-year'>1889年</td><td>天皇主権の<button class="blank" type="button"><span class="bno">⑮</span><span class="ba">大日本帝国憲法</span><span class="bl" style="width:6.3em"></span></button>が発布される</td></tr><tr><td class='tl-year'>1890年</td><td>第1回<button class="blank" type="button"><span class="bno">⑯</span><span class="ba">帝国議会</span><span class="bl" style="width:3.6em"></span></button>が開かれ、同じ年に<button class="blank" type="button"><span class="bno">⑰</span><span class="ba">教育勅語</span><span class="bl" style="width:3.6em"></span></button>も出される</td></tr></table>
   </div>
 </section>
-<section class="view" data-t="2">
+<section class="view" data-t="2" data-lock="2">
   <div class="tband"><span class="tno">1</span><h2>明治維新と新政府</h2><img class="wchar tchar" src="img/characters_char_pencil_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -633,8 +651,8 @@
         <div class="qa-a"><ruby>明治<rt>めいじ</rt></ruby><ruby>維新<rt>いしん</rt></ruby></div>
         <div class="qa-expl">1868年から始まる、江戸幕府に代わって天皇中心の中央集権国家を作るために行われた政治・経済・社会の一連の大改革。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -651,8 +669,8 @@
         <div class="qa-a"><ruby>五箇条<rt>ごかじょう</rt></ruby>の<ruby>御誓文<rt>ごせいもん</rt></ruby></div>
         <div class="qa-expl">1868年に明治天皇が公家・諸侯に示した5か条の方針。広く会議を開く、開国和親など新政府の基本方針を内外に示した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -669,8 +687,8 @@
         <div class="qa-a"><ruby>版籍<rt>はんせき</rt></ruby><ruby>奉還<rt>ほうかん</rt></ruby></div>
         <div class="qa-expl">1869年、明治維新を主導した4藩(薩摩・長州・土佐・肥前=薩長土肥)が先行し、全藩主が土地と人民を朝廷に返した改革。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -687,8 +705,8 @@
         <div class="qa-a"><ruby>廃藩置県<rt>はいはんちけん</rt></ruby></div>
         <div class="qa-expl">1871年に明治政府が全国の藩を一斉に廃止して府県を設置し、政府が任命した県令を派遣して中央集権国家を確立した改革。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -705,8 +723,8 @@
         <div class="qa-a"><ruby>四民<rt>しみん</rt></ruby>平等</div>
         <div class="qa-expl">明治政府が江戸時代の士農工商を廃し、公家・大名を華族、武士を士族、農工商を平民に再編し職業や結婚の自由を認めた政策。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -723,8 +741,8 @@
         <div class="qa-a"><ruby>解放令<rt>かいほうれい</rt></ruby></div>
         <div class="qa-expl">1871年、明治政府がえた・ひにんの呼称を廃止し平民とすると定めた布告。形式上は平民となったが、差別は根強く残った。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -741,8 +759,8 @@
         <div class="qa-a"><ruby>藩閥<rt>はんばつ</rt></ruby><ruby>政治<rt>せいじ</rt></ruby></div>
         <div class="qa-expl">明治維新の中心となった薩摩・長州・土佐・肥前の出身者が政府要職を独占した体制で、自由民権運動で批判の対象となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -759,8 +777,8 @@
         <div class="qa-a"><ruby>華族<rt>かぞく</rt></ruby></div>
         <div class="qa-expl">1869年の版籍奉還で公家や大名がなった身分。皇族の下、士族の上に位置づけられ、貴族院議員などの特権を持った。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -777,8 +795,8 @@
         <div class="qa-a"><ruby>士族<rt>しぞく</rt></ruby></div>
         <div class="qa-expl">旧武士がなった身分。給料の打ち切り(秩禄処分)や刀を持つ禁止(廃刀令)で特権を失い、各地で反乱を起こす者も多かった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -795,8 +813,8 @@
         <div class="qa-a"><ruby>中央集権<rt>ちゅうおうしゅうけん</rt></ruby></div>
         <div class="qa-expl">中央政府に立法・行政・軍事などの権力を集中させる政治体制。1871年の廃藩置県で藩を廃止することにより確立された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -813,8 +831,8 @@
         <div class="qa-a">東京</div>
         <div class="qa-expl">1868年に明治政府が江戸を改称した新首都の名前。翌1869年に天皇が京都から移り、日本の政治・経済の中心となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -831,8 +849,8 @@
         <div class="qa-a">1868年</div>
         <div class="qa-expl">1868年、明治天皇が公家・諸侯を集めて新しい国づくりの基本方針を示した年で、明治新政府の出発点となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -849,8 +867,8 @@
         <div class="qa-a">1869年</div>
         <div class="qa-expl">1869年、薩長土肥の4藩主が率先し全藩主が土地（版）と人民（籍）を朝廷に返した年で、中央集権化の第一歩となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -867,8 +885,8 @@
         <div class="qa-a">1871年</div>
         <div class="qa-expl">1871年、明治政府が全国の藩を一斉に廃止し府県を設置、政府任命の県令を派遣して中央集権国家を確立した画期的な改革。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -993,7 +1011,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="3">
+<section class="view" data-t="3" data-lock="2">
   <div class="tband"><span class="tno">2</span><h2>三大改革</h2><img class="wchar tchar" src="img/characters_manabi_think_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -1060,8 +1078,8 @@
         <div class="qa-a"><ruby>学制<rt>がくせい</rt></ruby></div>
         <div class="qa-expl">1872年、フランスを参考に出された日本初の近代学校制度。全国に小学校が作られたが、授業料は家庭負担で反対も多かった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1078,8 +1096,8 @@
         <div class="qa-a"><ruby>徴兵令<rt>ちょうへいれい</rt></ruby></div>
         <div class="qa-expl">1873年公布。士族・平民の身分に関わらず満20歳の男子に兵役の義務を課し、国民皆兵による近代軍隊を実現した法律。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1096,8 +1114,8 @@
         <div class="qa-a"><ruby>地租<rt>ちそ</rt></ruby><ruby>改正<rt>かいせい</rt></ruby></div>
         <div class="qa-expl">1873年、米の収穫高でなく地価の3%を土地所有者が現金で納める制度に変更した税制改革。政府の税収が安定した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1114,8 +1132,8 @@
         <div class="qa-a"><ruby>国民皆兵<rt>こくみんかいへい</rt></ruby></div>
         <div class="qa-expl">1873年の徴兵令の基本となった考え方で、士族・平民を問わず満20歳の男子全員に兵役の義務を負わせる近代軍隊の原則。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1132,8 +1150,8 @@
         <div class="qa-a"><ruby>地券<rt>ちけん</rt></ruby></div>
         <div class="qa-expl">1873年の地租改正で土地所有者に発行された証書。これにより土地の所有権が法的に認められ、納税義務を負う者が明確化した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1150,8 +1168,8 @@
         <div class="qa-a"><ruby>地価<rt>ちか</rt></ruby></div>
         <div class="qa-expl">1873年の地租改正で税額の基準とされた土地の価格。当初は地価の3%、地租改正反対一揆を受けて1877年に2.5%に引き下げられた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1168,8 +1186,8 @@
         <div class="qa-a"><ruby>地租<rt>ちそ</rt></ruby></div>
         <div class="qa-expl">1873年の地租改正で導入された新しい税。地価の3%を土地所有者が米ではなく現金で納める仕組みで、税収が安定した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1186,8 +1204,8 @@
         <div class="qa-a"><ruby>三大<rt>さんだい</rt></ruby><ruby>改革<rt>かいかく</rt></ruby></div>
         <div class="qa-expl">学制（教育）・徴兵令（軍隊）・地租改正（税）の3つで、欧米に追いつくための近代化政策の柱となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1204,8 +1222,8 @@
         <div class="qa-a">6歳以上</div>
         <div class="qa-expl">1872年の学制で小学校に通うことが定められた年齢。男女すべてが対象とされ、近代教育制度の基礎となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1222,8 +1240,8 @@
         <div class="qa-a">満20歳</div>
         <div class="qa-expl">1873年の徴兵令で兵役の義務が課せられた年齢。士族・平民の身分に関わらず適用され、国民皆兵の原則が実現した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1240,8 +1258,8 @@
         <div class="qa-a">現金（<ruby>金納<rt>きんのう</rt></ruby>）</div>
         <div class="qa-expl">1873年の地租改正で導入された納税方法。米で納める物納から現金で納める方法に変わり、政府の税収が安定した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1258,8 +1276,8 @@
         <div class="qa-a">3%</div>
         <div class="qa-expl">1873年の地租改正で定められた当初の税率で、地価に対する割合。1877年に地租改正反対一揆を受けて2.5%に引き下げられた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1276,8 +1294,8 @@
         <div class="qa-a">1872年</div>
         <div class="qa-expl">1872年、フランスを参考にした日本初の近代学校制度として学制が出され、全国を学区に分けて小学校が設置された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1294,8 +1312,8 @@
         <div class="qa-a">1873年</div>
         <div class="qa-expl">1873年、満20歳男子の兵役義務を定めた徴兵令と、地価の3%を現金で納める地租改正という兵制・税制の大改革が同年に行われた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1425,7 +1443,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="4">
+<section class="view" data-t="4" data-lock="2">
   <div class="tband"><span class="tno">3</span><h2>富国強兵と文明開化</h2><img class="wchar tchar" src="img/characters_char_neko_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -1492,8 +1510,8 @@
         <div class="qa-a"><ruby>富国強兵<rt>ふこくきょうへい</rt></ruby></div>
         <div class="qa-expl">「国を富ませ軍を強くする」という明治政府の国家目標。欧米列強に対抗するため殖産興業と軍備拡張を一体で進めた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1510,8 +1528,8 @@
         <div class="qa-a"><ruby>殖産興業<rt>しょくさんこうぎょう</rt></ruby></div>
         <div class="qa-expl">明治政府が欧米に追いつくため、官営模範工場の建設や鉄道の敷設、郵便制度の整備など、政府主導で近代産業を育成した政策。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1528,8 +1546,8 @@
         <div class="qa-a"><ruby>富岡<rt>とみおか</rt></ruby><ruby>製糸場<rt>せいしじょう</rt></ruby></div>
         <div class="qa-expl">1872年に群馬県に建設された官営模範工場。フランス技術で高品質な生糸を生産し、民間製糸業の手本となった。世界文化遺産。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1546,8 +1564,8 @@
         <div class="qa-a"><ruby>官営<rt>かんえい</rt></ruby><ruby>模範<rt>もはん</rt></ruby><ruby>工場<rt>こうじょう</rt></ruby></div>
         <div class="qa-expl">明治政府が殖産興業のため建設し、欧米の技術と経営方法を民間に普及させる役割を担った。富岡製糸場などが代表例。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1564,8 +1582,8 @@
         <div class="qa-a"><ruby>文明<rt>ぶんめい</rt></ruby><ruby>開化<rt>かいか</rt></ruby></div>
         <div class="qa-expl">明治初期、東京を中心にガス灯・レンガ造り・洋服・牛鍋などの欧米文化が広まり、人々の生活様式が大きく変化した風潮。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1582,8 +1600,8 @@
         <div class="qa-a"><ruby>福沢諭吉<rt>ふくざわゆきち</rt></ruby></div>
         <div class="qa-expl">西洋の知識を広めた思想家(啓蒙思想家)。「学問のすゝめ」で人間の平等と学ぶことの大切さを訴えた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1600,8 +1618,8 @@
         <div class="qa-a"><ruby>学問<rt>がくもん</rt></ruby>のすゝめ</div>
         <div class="qa-expl">1872年から刊行された福沢諭吉の啓蒙書。「天は人の上に人を造らず」で始まり、個人の独立と学問の大切さを訴えた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1618,8 +1636,8 @@
         <div class="qa-a"><ruby>中江兆民<rt>なかえちょうみん</rt></ruby></div>
         <div class="qa-expl">人民主権を説いたフランスの思想家ルソーを翻訳・紹介し、「東洋のルソー」と呼ばれ自由民権運動を支えた人物。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1636,8 +1654,8 @@
         <div class="qa-a"><ruby>太陽暦<rt>たいようれき</rt></ruby></div>
         <div class="qa-expl">1873年、明治政府が従来の太陰暦に代わって採用した暦で、欧米と同じ時間制度を取り入れて文明開化を進めた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1654,8 +1672,8 @@
         <div class="qa-a"><ruby>鉄道<rt>てつどう</rt></ruby></div>
         <div class="qa-expl">1872年に新橋・横浜間で開通した日本初の鉄道。イギリスの技術で建設され、殖産興業と文明開化の象徴となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1672,8 +1690,8 @@
         <div class="qa-a">ガス<ruby>灯<rt>とう</rt></ruby></div>
         <div class="qa-expl">1874年頃から東京の銀座などに設置された西洋式照明で、レンガ造りの街並みと並ぶ文明開化の象徴となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1690,8 +1708,8 @@
         <div class="qa-a"><ruby>牛鍋<rt>ぎゅうなべ</rt></ruby></div>
         <div class="qa-expl">明治初期に流行した牛肉を使った新しい食文化。仏教の影響で避けられていた肉食が広まる象徴となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1708,8 +1726,8 @@
         <div class="qa-a"><ruby>前島密<rt>まえじまひそか</rt></ruby></div>
         <div class="qa-expl">1871年、イギリスの制度を参考に郵便制度を創設し、全国均一料金の日本の近代郵便制度の基礎を築いた人物。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1726,8 +1744,8 @@
         <div class="qa-a"><ruby>新橋<rt>しんばし</rt></ruby>・<ruby>横浜<rt>よこはま</rt></ruby>間</div>
         <div class="qa-expl">1872年に開通した日本初の鉄道区間。イギリス人技師の指導で建設され、殖産興業と文明開化の象徴となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1836,7 +1854,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="5">
+<section class="view" data-t="5" data-lock="2">
   <div class="tband"><span class="tno">4</span><h2>岩倉使節団と国境画定</h2><img class="wchar tchar" src="img/characters_char_owl_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -1903,8 +1921,8 @@
         <div class="qa-a"><ruby>岩倉<rt>いわくら</rt></ruby><ruby>使節団<rt>しせつだん</rt></ruby></div>
         <div class="qa-expl">1871年から約2年間、岩倉具視を大使に大久保利通・木戸孝允・伊藤博文らが参加した欧米使節団。条約改正交渉と欧米調査が目的。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1921,8 +1939,8 @@
         <div class="qa-a"><ruby>岩倉具視<rt>いわくらともみ</rt></ruby></div>
         <div class="qa-expl">公家出身。1871年に欧米使節団の大使を務め、帰国後の1873年に大久保利通とともに征韓論に反対し、西郷隆盛らと対立した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1939,8 +1957,8 @@
         <div class="qa-a"><ruby>征韓論<rt>せいかんろん</rt></ruby></div>
         <div class="qa-expl">1873年、西郷隆盛・板垣退助らが朝鮮に武力で開国を迫ろうと主張したが、岩倉具視・大久保利通らに否決された政策論。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1957,8 +1975,8 @@
         <div class="qa-a"><ruby>日清<rt>にっしん</rt></ruby><ruby>修好<rt>しゅうこう</rt></ruby><ruby>条規<rt>じょうき</rt></ruby></div>
         <div class="qa-expl">1871年に日本と清の間で結ばれた初の近代条約。互いの独立と主権を尊重し、領事裁判権を相互に認める対等な内容だった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1975,8 +1993,8 @@
         <div class="qa-a"><ruby>江華島<rt>こうかとう</rt></ruby><ruby>事件<rt>じけん</rt></ruby></div>
         <div class="qa-expl">1875年、日本の軍艦が朝鮮の江華島付近で挑発行為を行い起きた武力衝突。翌1876年の日朝修好条規を結ぶきっかけとなった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1993,8 +2011,8 @@
         <div class="qa-a"><ruby>日朝<rt>にっちょう</rt></ruby><ruby>修好<rt>しゅうこう</rt></ruby><ruby>条規<rt>じょうき</rt></ruby></div>
         <div class="qa-expl">1875年の江華島事件をきっかけに翌1876年に結ばれた条約。日本に領事裁判権を認め朝鮮を開国させた、朝鮮に不平等な内容。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2011,8 +2029,8 @@
         <div class="qa-a"><ruby>樺太<rt>からふと</rt></ruby>・<ruby>千島<rt>ちしま</rt></ruby><ruby>交換<rt>こうかん</rt></ruby><ruby>条約<rt>じょうやく</rt></ruby></div>
         <div class="qa-expl">1875年、日本がロシアと結んだ国境画定条約。日本は樺太の領有権を放棄し、代わりに千島列島すべてを日本領とした。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2029,8 +2047,8 @@
         <div class="qa-a"><ruby>屯田兵<rt>とんでんへい</rt></ruby></div>
         <div class="qa-expl">1874年に制度化。北海道へ移住した士族中心で、ふだんは農業をしつつ兵士も務め、ロシアの脅威に備えた集団。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2047,8 +2065,8 @@
         <div class="qa-a"><ruby>琉球<rt>りゅうきゅう</rt></ruby><ruby>処分<rt>しょぶん</rt></ruby></div>
         <div class="qa-expl">1872年に琉球王国を琉球藩とし、1879年に廃藩・沖縄県を設置するまでの一連の動き。清の反対を押し切って実行された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2065,8 +2083,8 @@
         <div class="qa-a"><ruby>大久保利通<rt>おおくぼとしみち</rt></ruby></div>
         <div class="qa-expl">薩摩藩出身。1873年に岩倉具視とともに征韓論を否決し、初代内務卿として殖産興業を主導したが1878年に暗殺された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2083,8 +2101,8 @@
         <div class="qa-a"><ruby>板垣退助<rt>いたがきたいすけ</rt></ruby></div>
         <div class="qa-expl">土佐藩出身。1873年に征韓論否決で下野し、翌1874年に民撰議院設立の建白書を提出して自由民権運動を始めた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2101,8 +2119,8 @@
         <div class="qa-a"><ruby>西郷隆盛<rt>さいごうたかもり</rt></ruby></div>
         <div class="qa-expl">薩摩藩出身。1873年の征韓論否決で下野して鹿児島に戻り、1877年に不平士族を率いて西南戦争を起こしたが敗れた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2119,8 +2137,8 @@
         <div class="qa-a"><ruby>沖縄県<rt>おきなわけん</rt></ruby></div>
         <div class="qa-expl">1879年、明治政府が清の反対を押し切って琉球王国を廃止し、琉球藩から改めて設置した県。これにより日本領が確定した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2137,8 +2155,8 @@
         <div class="qa-a">1871年</div>
         <div class="qa-expl">岩倉具視を大使に大久保利通・木戸孝允・伊藤博文らが参加し、約2年間にわたって欧米諸国を視察した大規模な使節団だった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2247,7 +2265,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="6">
+<section class="view" data-t="6" data-lock="2">
   <div class="tband"><span class="tno">5</span><h2>自由民権運動</h2><img class="wchar tchar" src="img/characters_manabi_ok_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -2314,8 +2332,8 @@
         <div class="qa-a">自由<ruby>民権<rt>みんけん</rt></ruby>運動</div>
         <div class="qa-expl">板垣退助らが1874年に国会開設を求める意見書(建白書)を政府に出して始まり、運動として全国に広まった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2332,8 +2350,8 @@
         <div class="qa-a"><ruby>板垣退助<rt>いたがきたいすけ</rt></ruby></div>
         <div class="qa-expl">土佐藩出身。1881年に自由党を結成し「板垣死すとも自由は死せず」の言葉で知られる自由民権運動の中心人物。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2350,8 +2368,8 @@
         <div class="qa-a"><ruby>民撰<rt>みんせん</rt></ruby><ruby>議院<rt>ぎいん</rt></ruby><ruby>設立<rt>せつりつ</rt></ruby>の<ruby>建白書<rt>けんぱくしょ</rt></ruby></div>
         <div class="qa-expl">1874年、板垣退助・後藤象二郎らが当時の立法機関(左院)に提出した国会開設要求の意見書。自由民権運動の出発点。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2368,8 +2386,8 @@
         <div class="qa-a"><ruby>西南<rt>せいなん</rt></ruby><ruby>戦争<rt>せんそう</rt></ruby></div>
         <div class="qa-expl">1877年、鹿児島の不平士族が西郷隆盛を擁立して起こしたが、徴兵令で集めた政府軍が勝利し武力抵抗は終わった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2386,8 +2404,8 @@
         <div class="qa-a">国会<ruby>期成<rt>きせい</rt></ruby>同盟</div>
         <div class="qa-expl">1880年、大阪で結成された国会開設要求の組織で、全国から2000人以上の代表が集まり政府に建白書を提出した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2404,8 +2422,8 @@
         <div class="qa-a"><ruby>自由党<rt>じゆうとう</rt></ruby></div>
         <div class="qa-expl">1881年に板垣退助を党首として結成。フランス流の自由主義を学び、主権は国民にある(主権在民)と主張した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2422,8 +2440,8 @@
         <div class="qa-a"><ruby>立憲<rt>りっけん</rt></ruby><ruby>改進党<rt>かいしんとう</rt></ruby></div>
         <div class="qa-expl">1882年に大隈重信が結成。イギリス流の議会政治と、君主を残し憲法に従う政治(立憲君主政)を理想とした。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2440,8 +2458,8 @@
         <div class="qa-a"><ruby>大隈重信<rt>おおくましげのぶ</rt></ruby></div>
         <div class="qa-expl">肥前藩出身。1882年に立憲改進党を結成し、イギリス流の穏健な議会政治と立憲君主制を主張した政治家。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2458,8 +2476,8 @@
         <div class="qa-a"><ruby>国会<rt>こっかい</rt></ruby><ruby>開設<rt>かいせつ</rt></ruby>の<ruby>詔<rt>みことのり</rt></ruby></div>
         <div class="qa-expl">国会期成同盟の請願や民権派の高まりに押された政府が、10年後の1890年に国会を開くことを約束した詔。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2476,8 +2494,8 @@
         <div class="qa-a">1874年</div>
         <div class="qa-expl">板垣退助・後藤象二郎らが左院に民撰議院設立の建白書を提出した年で、自由民権運動の始まりとなった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2494,8 +2512,8 @@
         <div class="qa-a">1877年</div>
         <div class="qa-expl">鹿児島の不平士族が西郷隆盛を擁立して起こした最大の士族反乱で、徴兵令の政府軍が勝利し以後は言論闘争へ。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2512,8 +2530,8 @@
         <div class="qa-a">1881年</div>
         <div class="qa-expl">国会期成同盟の請願に押された政府が国会開設の詔を出し、10年後の1890年に国会を開くと約束した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2530,8 +2548,8 @@
         <div class="qa-a"><ruby>秩父<rt>ちちぶ</rt></ruby><ruby>事件<rt>じけん</rt></ruby></div>
         <div class="qa-expl">自由民権運動の影響を受けた埼玉県秩父地方の農民が困民党を結成し、借金苦などから武装蜂起した事件。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2548,8 +2566,8 @@
         <div class="qa-a"><ruby>藩閥<rt>はんばつ</rt></ruby><ruby>政治<rt>せいじ</rt></ruby></div>
         <div class="qa-expl">明治維新の中心となった薩摩・長州・土佐・肥前(薩長土肥)の出身者が政府の要職を独占した体制で、批判の的となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2658,7 +2676,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="7">
+<section class="view" data-t="7" data-lock="2">
   <div class="tband"><span class="tno">6</span><h2>大日本帝国憲法と議会</h2><img class="wchar tchar" src="img/characters_manabi_point_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -2725,8 +2743,8 @@
         <div class="qa-a"><ruby>大日本帝国<rt>だいにほんていこく</rt></ruby><ruby>憲法<rt>けんぽう</rt></ruby></div>
         <div class="qa-expl">1889年2月11日発布、伊藤博文がドイツ（プロイセン）憲法を参考に起草した天皇主権の憲法。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2743,8 +2761,8 @@
         <div class="qa-a"><ruby>伊藤博文<rt>いとうひろぶみ</rt></ruby></div>
         <div class="qa-expl">1885年に初代内閣総理大臣となり、ドイツで憲法を学んで大日本帝国憲法を起草した長州出身の政治家。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2761,8 +2779,8 @@
         <div class="qa-a"><ruby>内閣<rt>ないかく</rt></ruby><ruby>制度<rt>せいど</rt></ruby></div>
         <div class="qa-expl">1885年発足。太政官制を廃し、初代内閣総理大臣に伊藤博文が就任した近代的な政治の仕組み。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2779,8 +2797,8 @@
         <div class="qa-a"><ruby>天皇<rt>てんのう</rt></ruby><ruby>主権<rt>しゅけん</rt></ruby></div>
         <div class="qa-expl">1889年の大日本帝国憲法で定められ、天皇が国を統べる主権者で、誰も逆らえない神聖な存在とされた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2797,8 +2815,8 @@
         <div class="qa-a"><ruby>臣民<rt>しんみん</rt></ruby></div>
         <div class="qa-expl">大日本帝国憲法では国民は「臣民」と呼ばれ、言論・出版などの権利は法律の範囲内で認められた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2815,8 +2833,8 @@
         <div class="qa-a"><ruby>帝国<rt>ていこく</rt></ruby><ruby>議会<rt>ぎかい</rt></ruby></div>
         <div class="qa-expl">1890年に開設された、皇族・華族らの貴族院と選挙で選ばれた衆議院からなる二院制の帝国議会。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2833,8 +2851,8 @@
         <div class="qa-a"><ruby>貴族院<rt>きぞくいん</rt></ruby></div>
         <div class="qa-expl">帝国議会の上院。皇族・華族のほか、天皇が直接任命する議員(勅選議員)などで構成され、衆議院と対等の権限を持った。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2851,8 +2869,8 @@
         <div class="qa-a"><ruby>衆議院<rt>しゅうぎいん</rt></ruby></div>
         <div class="qa-expl">帝国議会の下院。1890年の第1回選挙では満25歳以上で直接国税15円以上を納める男子のみが選出した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2869,8 +2887,8 @@
         <div class="qa-a"><ruby>教育<rt>きょういく</rt></ruby><ruby>勅語<rt>ちょくご</rt></ruby></div>
         <div class="qa-expl">1890年発布。天皇への忠誠と親への孝行を中心に、国民の道徳教育の基本方針を示した明治政府の文書。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2887,8 +2905,8 @@
         <div class="qa-a">1889年</div>
         <div class="qa-expl">紀元節にあたる2月11日に発布。伊藤博文らが起草し、ドイツ憲法を参考にした天皇主権の憲法。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2905,8 +2923,8 @@
         <div class="qa-a">1890年</div>
         <div class="qa-expl">前年に発布された大日本帝国憲法に基づき第1回帝国議会が開催され、教育勅語も同じ年に出された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2923,8 +2941,8 @@
         <div class="qa-a">プロイセン</div>
         <div class="qa-expl">君主の権限が強く議会を制限する憲法だったため、天皇主権を維持したい伊藤博文ら明治政府の手本となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2941,8 +2959,8 @@
         <div class="qa-a"><ruby>満<rt>まん</rt></ruby>25<ruby>歳<rt>さい</rt></ruby><ruby>以上<rt>いじょう</rt></ruby>の<ruby>男子<rt>だんし</rt></ruby></div>
         <div class="qa-expl">1890年の第1回衆議院選挙では女性に選挙権はなく、直接国税15円以上の納税という財産条件も必要だった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2959,8 +2977,8 @@
         <div class="qa-a">1885年</div>
         <div class="qa-expl">1885年。太政官制を廃止して内閣制度が発足し、長州藩出身の伊藤博文が初代内閣総理大臣に就任した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3100,6 +3118,14 @@
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
 </div></div>
+<div class="lock-ov" id="lockOv" hidden><div class="lock-card">
+  <div class="lock-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+  <div class="lock-t">つづきは購入者向けです</div>
+  <div class="lock-d">ここまでは無料でためせます。つづきを解くには、つづもんのライセンスが必要です。</div>
+  <button class="lock-btn lb-line" id="lockLogin">LINEでログイン（購入者の方）</button>
+  <a class="lock-btn lb-buy" href="../../index.html">つづもんを見てみる →</a>
+  <button class="lock-close" id="lockClose">とじる（ここまで解く）</button>
+</div></div>
 
 <script type="module">
 // 記述AI採点のログイン（www.chatstudy.jp の LINE Login＝Firebase Auth。参考書ページと同じ）。
@@ -3122,9 +3148,24 @@ try {
       location.href = '/welcome?next=' + encodeURIComponent(location.pathname + location.hash);
     },
   };
+  var ENTITLEMENT_API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/tsudumonEntitlement';
+  async function refreshEntitlement(u) {
+    try {
+      var idToken = await u.getIdToken();
+      var res = await fetch(ENTITLEMENT_API, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ idToken: idToken }),
+      });
+      if (!res.ok) return;
+      var data = await res.json();
+      try { localStorage.setItem('tzm-lic', JSON.stringify((data && data.grades) || [])); } catch (e) {}
+      if (window.tzmRefreshGate) window.tzmRefreshGate();
+    } catch (e) { /* localStorage フォールバックのまま */ }
+  }
   onAuthStateChanged(auth, function (u) {
     window.__tzmAuth.user = u;
     window.__tzmAuth.ready = true;
+    if (u) refreshEntitlement(u);
     document.dispatchEvent(new CustomEvent('tzm-auth'));
   });
 } catch (e) { /* 設定が無ければ採点はフォールバック（自己採点）に倒れる */ }
@@ -3134,6 +3175,7 @@ try {
 (function () {
   var KEY = 'tzmwb-11';
   var CH = '11';
+  var GRADE = '中2';        // この本の学年（中1/中2/中3）
   var GRADE_API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/gradeWritten';      // 記述AI採点 Cloud Function
   var REF_VIEWS = [0, 0, 1, 2, 3, 4, 5, 6];        // 問題集のビューt → 参考書の単元番号（0＝対応なし）
   var views = [].slice.call(document.querySelectorAll('.view'));
@@ -3173,7 +3215,7 @@ try {
     try { if (localStorage.getItem('tzmhint') === '1') return; } catch (e) { return; }
     var canHover = window.matchMedia && window.matchMedia('(hover:hover)').matches;
     bar.textContent = canHover ? '⌨️ ← → キーでもページをめくれるよ'
-                               : '👆 よこにスワイプでもページをめくれるよ';
+                               : 'よこにスワイプでもページをめくれるよ';
     var shown = false;
     window.showHint = function () {
       if (shown || state.t === 0) return;
@@ -3378,7 +3420,7 @@ try {
   function showJudged(scopeEl, ok) {
     var banner = scopeEl.querySelector('.b-result');
     if (banner) {
-      banner.textContent = ok ? '⭕ せいかい！' : '❌ おしい！';
+      banner.textContent = ok ? 'せいかい！' : 'おしい！';
       banner.className = 'b-result ' + (ok ? 'ok' : 'ng');
     }
     scopeEl.classList.add('show');
@@ -3543,7 +3585,7 @@ try {
       pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
       document.getElementById('btnPrev').textContent = s === 0 ? '目次へ' : '← まえへ';
       var next = document.getElementById('btnNext');
-      if (onModeStep && steps.length === 1) next.textContent = '⭐ おすすめ順で始める →';
+      if (onModeStep && steps.length === 1) next.textContent = 'おすすめ順で始める →';
       else if (s < steps.length - 1) next.textContent = 'つぎへ →';
       else next.textContent = t < N ? '次の単元へ →' : '目次にもどる';
       if (steps[s] && steps[s].classList.contains('done-step')) renderScore(views[t]);
@@ -3589,12 +3631,32 @@ try {
     } else { btn.hidden = true; }
   }
 
+  // ── 教材ゲート（中間案・ゆるめ「頭出しは見せる」）──
+  //   有料単元はやり方えらぶ＋要点まとめまで誰でも試せる。その先は購入者（この学年）だけ。
+  function isLicensed() {
+    try { return (JSON.parse(localStorage.getItem('tzm-lic') || '[]')).indexOf(GRADE) >= 0; }
+    catch (e) { return false; }
+  }
+  function lockFrom(t) { var v = views[t]; return v ? +(v.getAttribute('data-lock') || 0) : 0; }
+  function gateBlocks(t, s) { var lk = lockFrom(t); return lk > 0 && !isLicensed() && s >= lk; }
+  function showLock() { var ov = document.getElementById('lockOv'); if (ov) ov.hidden = false; }
+  function hideLock() { var ov = document.getElementById('lockOv'); if (ov) ov.hidden = true; }
+  window.tzmRefreshGate = function () { if (isLicensed()) hideLock(); };
+
   function go(t, s, dir) {
     lastDir = dir || 1;
     state.t = Math.max(0, Math.min(N, t));
     state.s = Math.max(0, s || 0);
-    if (state.t > 0) state.s = Math.min(state.s, stepsOf(state.t).length - 1);
-    else state.s = 0;
+    if (state.t > 0) {
+      state.s = Math.min(state.s, stepsOf(state.t).length - 1);
+      if (gateBlocks(state.t, state.s)) {
+        state.s = Math.max(0, lockFrom(state.t) - 1);
+        render();
+        showLock();
+        return;
+      }
+    } else state.s = 0;
+    hideLock();
     render();
   }
   // ── 未回答ガード: 問題(一問一答/4択/記述)に答えるまで「つぎへ」で先に進めない ──
@@ -3638,6 +3700,11 @@ try {
     else go(0, 0, -1);
   }
 
+  document.getElementById('lockLogin').addEventListener('click', function () {
+    var here = location.pathname + '#t' + state.t + (state.s > 0 ? 's' + state.s : '');
+    location.href = '../../login/?next=' + encodeURIComponent(here);
+  });
+  document.getElementById('lockClose').addEventListener('click', hideLock);
   document.getElementById('btnNext').addEventListener('click', next);
   document.getElementById('btnPrev').addEventListener('click', prev);
   // 回答するとロックを解除（回答処理の後に評価するため click は次tickで）
@@ -3760,7 +3827,7 @@ try {
       var istep = idk.closest('.qa-step');
       showJudged(istep, false);
       var bn = istep.querySelector('.b-result');
-      if (bn) { bn.textContent = '👇 こたえはこちら。次はきっと書けるよ！'; bn.className = 'b-result ng'; }
+      if (bn) { bn.textContent = 'こたえはこちら。次はきっと書けるよ！'; bn.className = 'b-result ng'; }
       var stI = store(); stI.r = stI.r || {};
       stI.r[istep.dataset.qid] = 0;
       save(stI);

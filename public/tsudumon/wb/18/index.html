@@ -117,11 +117,12 @@
   .home-topline { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:2px; }
   .hometop { display:flex; align-items:flex-start; gap:6px; padding:8px 2px 2px; text-align:left; }
   .ht-main { flex:1; min-width:0; text-align:center; }
-  .badge3 { display:inline-flex; border-radius:18px; overflow:hidden; font-size:12px; font-weight:bold;
-            box-shadow:0 2px 4px rgba(120,80,20,.2); }
-  .badge3 span { padding:4px 11px; display:inline-flex; align-items:center; white-space:nowrap; }
-  .b-vol { background:var(--brand); color:#fff; }
-  .b-kind { background:#fff; color:var(--deep); }
+  /* 本のラベル（押せない表示）: トグルに見えないようフラットな1トーンのタグに */
+  .badge3 { display:inline-flex; align-items:center; gap:6px; border-radius:8px;
+            background:#f4ecdb; padding:3px 10px; font-size:11.5px; font-weight:bold; }
+  .badge3 span { padding:0; display:inline-flex; align-items:center; white-space:nowrap; }
+  .b-vol { color:var(--brand); }
+  .b-kind { color:#9a7b4f; }
   .b-web { background:var(--amber); color:#fff; }
   .ht-title { font-size:41px; color:var(--deep); margin:12px 0 0; line-height:1.12; position:relative;
               display:inline-block; padding:0 6px; letter-spacing:.01em; }
@@ -443,6 +444,23 @@
   .foot-note { margin-top:4px; font-size:12px; }
 
   /* ── 下部ナビ ── */
+  /* 教材ゲートのロック案内（頭出しの先） */
+  .lock-ov { position:fixed; inset:0; z-index:40; background:rgba(60,40,15,.5);
+             display:flex; align-items:center; justify-content:center; padding:20px; }
+  .lock-ov[hidden] { display:none; }
+  .lock-card { width:100%; max-width:360px; background:#fff; border-radius:18px; padding:24px 20px 18px;
+               text-align:center; box-shadow:0 10px 30px rgba(0,0,0,.3); }
+  .lock-ic svg { width:34px; height:34px; }
+  .lock-ic { font-size:40px; }
+  .lock-t { font-size:18px; font-weight:bold; color:var(--deep); margin:6px 0 6px; }
+  .lock-d { font-size:13px; color:#78716c; line-height:1.8; margin-bottom:16px; }
+  .lock-btn { display:block; width:100%; margin-top:10px; border:none; border-radius:13px; padding:13px;
+              font-size:15px; font-weight:bold; text-decoration:none; cursor:pointer; font-family:inherit; }
+  .lb-line { background:#06c755; color:#fff; box-shadow:0 3px 8px rgba(6,199,85,.3); }
+  .lb-buy { background:#fff; color:var(--brand); border:1.5px solid var(--line); }
+  .lock-close { display:block; width:100%; margin-top:12px; background:none; border:none; cursor:pointer;
+                color:#a8a29e; font-size:12.5px; font-family:inherit; text-decoration:underline; }
+
   .navbar { position:fixed; left:0; right:0; bottom:0; z-index:10;
             background:rgba(255,253,248,.97); border-top:1px solid #f0e6d2;
             padding:10px 16px calc(10px + env(safe-area-inset-bottom)); }
@@ -546,12 +564,12 @@
   <nav class="toc">
     <div class="toc-head">
       <div class="toc-h">単元を選択</div>
-      <button class="toc-cal" data-go="1">📅 年表でチェック<span class="cal-go">›</span></button>
+      <button class="toc-cal" data-go="1">年表でチェック<span class="cal-go">›</span></button>
     </div>
     <button class="toc-item" data-go="2"><img class="toc-thumb" src="img/reference_hist18-cold-war.webp" alt="" loading="lazy"><span class="toc-no">1</span><span class="toc-name">冷戦の始まり</span><span class="toc-state" data-state-t="2"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="3"><img class="toc-thumb" src="img/reference_hist18-independence.webp" alt="" loading="lazy"><span class="toc-no">2</span><span class="toc-name">日本の独立回復</span><span class="toc-state" data-state-t="3"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="4"><img class="toc-thumb" src="img/reference_hist18-postwar-international.webp" alt="" loading="lazy"><span class="toc-no">3</span><span class="toc-name">国際社会への復帰</span><span class="toc-state" data-state-t="4"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="5"><img class="toc-thumb" src="img/reference_hist18-growth.webp" alt="" loading="lazy"><span class="toc-no">4</span><span class="toc-name">高度経済成長</span><span class="toc-state" data-state-t="5"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="6"><img class="toc-thumb" src="img/reference_hist18-culture.webp" alt="" loading="lazy"><span class="toc-no">5</span><span class="toc-name">戦後の文化</span><span class="toc-state" data-state-t="6"></span><span class="toc-arrow">›</span></button>
   </nav>
   <a class="big-btn ref-btn" href="../../ref/18/index.html">参考書を開く</a>
-  <button class="big-btn print-btn" type="button" onclick="window.print()">🖨 紙に印刷して解く（解答つき）</button>
+  <button class="big-btn print-btn" type="button" onclick="window.print()">紙に印刷して解く（解答つき）</button>
   
   <footer class="foot">
     <div>つづもん 問題集</div>
@@ -566,7 +584,7 @@
     <table class="tl-table"><tr><th class="tl-year">年代</th><th>できごと</th></tr><tr><td class='tl-year'>1945年</td><td>世界平和を目指す<button class="blank" type="button"><span class="bno">①</span><span class="ba">国際連合</span><span class="bl" style="width:3.6em"></span></button>が発足する</td></tr><tr><td class='tl-year'>1949年</td><td>毛沢東が<button class="blank" type="button"><span class="bno">②</span><span class="ba">中華人民共和国</span><span class="bl" style="width:6.3em"></span></button>を建国する</td></tr><tr><td class='tl-year'>1950年</td><td>北朝鮮の侵攻で<button class="blank" type="button"><span class="bno">③</span><span class="ba">朝鮮戦争</span><span class="bl" style="width:3.6em"></span></button>が始まる</td></tr><tr><td class='tl-year'>1951年</td><td>吉田茂内閣が<button class="blank" type="button"><span class="bno">④</span><span class="ba">サンフランシスコ平和条約</span><span class="bl" style="width:9.0em"></span></button>に調印する</td></tr><tr><td class='tl-year'>1954年</td><td>保安隊が改組され<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">自衛隊</span><span class="bl" style="width:2.7em"></span></button>が発足する</td></tr><tr><td class='tl-year'>1955年</td><td>保守合同で自由民主党が結成され、<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">55年体制</span><span class="bl" style="width:4.5em"></span></button>が始まる</td></tr><tr><td class='tl-year'>1956年</td><td><button class="blank" type="button"><span class="bno">⑦</span><span class="ba">日ソ共同宣言</span><span class="bl" style="width:5.4em"></span></button>が結ばれ、日本が国際連合に加盟する</td></tr><tr><td class='tl-year'>1960年</td><td>新日米安全保障条約に反対する<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">安保闘争</span><span class="bl" style="width:3.6em"></span></button>が起こる</td></tr><tr><td class='tl-year'>1961年</td><td>東ドイツが<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">ベルリンの壁</span><span class="bl" style="width:5.4em"></span></button>を築く</td></tr><tr><td class='tl-year'>1962年</td><td>米ソが対立した<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">キューバ危機</span><span class="bl" style="width:5.4em"></span></button>が起こる</td></tr><tr><td class='tl-year'>1964年</td><td><button class="blank" type="button"><span class="bno">⑪</span><span class="ba">東京オリンピック</span><span class="bl" style="width:7.2em"></span></button>が開催され、東海道新幹線が開通する</td></tr><tr><td class='tl-year'>1965年</td><td><button class="blank" type="button"><span class="bno">⑫</span><span class="ba">日韓基本条約</span><span class="bl" style="width:5.4em"></span></button>が結ばれる</td></tr><tr><td class='tl-year'>1968年</td><td><button class="blank" type="button"><span class="bno">⑬</span><span class="ba">川端康成</span><span class="bl" style="width:3.6em"></span></button>がノーベル文学賞を受賞する</td></tr><tr><td class='tl-year'>1970年</td><td>日本初の国際博覧会である<button class="blank" type="button"><span class="bno">⑭</span><span class="ba">大阪万博</span><span class="bl" style="width:3.6em"></span></button>が開催される</td></tr><tr><td class='tl-year'>1972年</td><td>沖縄返還と<button class="blank" type="button"><span class="bno">⑮</span><span class="ba">日中共同声明</span><span class="bl" style="width:5.4em"></span></button>が同じ年に実現する</td></tr><tr><td class='tl-year'>1973年</td><td><button class="blank" type="button"><span class="bno">⑯</span><span class="ba">石油危機</span><span class="bl" style="width:3.6em"></span></button>が起こり高度経済成長が終わる</td></tr></table>
   </div>
 </section>
-<section class="view" data-t="2">
+<section class="view" data-t="2" data-lock="2">
   <div class="tband"><span class="tno">1</span><h2>冷戦の始まり</h2><img class="wchar tchar" src="img/characters_char_pencil_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -633,8 +651,8 @@
         <div class="qa-a"><ruby>冷戦<rt>れいせん</rt></ruby></div>
         <div class="qa-expl">米ソが直接戦わず軍備・経済・国の仕組み（資本主義と社会主義）で争った状態。1947年頃〜1989年。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -651,8 +669,8 @@
         <div class="qa-a"><ruby>東西<rt>とうざい</rt></ruby><ruby>陣営<rt>じんえい</rt></ruby></div>
         <div class="qa-expl">西側＝アメリカ中心で自由経済（資本主義）、東側＝ソ連中心で国が経済を管理（社会主義）の二大グループ。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -669,8 +687,8 @@
         <div class="qa-a">NATO</div>
         <div class="qa-expl">北大西洋条約機構の略称。1949年、アメリカと西欧諸国が結成した西側陣営の軍事同盟。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -687,8 +705,8 @@
         <div class="qa-a">ワルシャワ<ruby>条約<rt>じょうやく</rt></ruby><ruby>機構<rt>きこう</rt></ruby></div>
         <div class="qa-expl">1955年、NATOに対抗してソ連と東欧諸国が結成した東側陣営の軍事同盟。1991年に解消。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -705,8 +723,8 @@
         <div class="qa-a"><ruby>国際<rt>こくさい</rt></ruby><ruby>連合<rt>れんごう</rt></ruby></div>
         <div class="qa-expl">1945年、国際連盟に代わり世界平和のため設立された国際機関。本部はニューヨークで原加盟国は51か国。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -723,8 +741,8 @@
         <div class="qa-a">1945年</div>
         <div class="qa-expl">1945年は第二次世界大戦が終結した年で、同年10月に国際連合が原加盟国51か国で発足した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -741,8 +759,8 @@
         <div class="qa-a"><ruby>安全<rt>あんぜん</rt></ruby><ruby>保障<rt>ほしょう</rt></ruby><ruby>理事会<rt>りじかい</rt></ruby></div>
         <div class="qa-expl">国連の中心機関。米英仏ロ中の5常任と非常任10か国で構成。常任は1か国でも反対すれば決議を止める拒否権を持つ。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -759,8 +777,8 @@
         <div class="qa-a">ベルリンの<ruby>壁<rt>かべ</rt></ruby></div>
         <div class="qa-expl">1961年に東ドイツが築いた冷戦の象徴。東西ベルリンを隔てたが、1989年に市民の力で崩壊した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -777,8 +795,8 @@
         <div class="qa-a"><ruby>朝鮮<rt>ちょうせん</rt></ruby><ruby>戦争<rt>せんそう</rt></ruby></div>
         <div class="qa-expl">1950年北朝鮮の南進で開戦。冷戦下アジアの代理戦争となり、日本は特需景気で経済復興した。1953年休戦。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -795,8 +813,8 @@
         <div class="qa-a">1950年</div>
         <div class="qa-expl">1950年に北朝鮮が韓国に侵攻して開戦し、米中の介入を経て1953年に板門店で休戦協定が結ばれた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -813,8 +831,8 @@
         <div class="qa-a">ベトナム<ruby>戦争<rt>せんそう</rt></ruby></div>
         <div class="qa-expl">1960〜75年、社会主義の北ベトナムと米支援の南ベトナムが戦った。米軍は介入したが敗北し撤退した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -831,8 +849,8 @@
         <div class="qa-a"><ruby>中華<rt>ちゅうか</rt></ruby><ruby>人民<rt>じんみん</rt></ruby><ruby>共和国<rt>きょうわこく</rt></ruby></div>
         <div class="qa-expl">1949年、毛沢東率いる共産党が国共内戦に勝利して建国。蒋介石の国民党は台湾へ逃れた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -849,8 +867,8 @@
         <div class="qa-a">1949年</div>
         <div class="qa-expl">1949年は毛沢東が中華人民共和国を建国した年で、西側ではNATOが結成された冷戦の節目の年。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -867,8 +885,8 @@
         <div class="qa-a">キューバ<ruby>危機<rt>きき</rt></ruby></div>
         <div class="qa-expl">1962年、ソ連がキューバにミサイル基地を建設しようとし、米ケネディ大統領と対立。核戦争寸前まで緊張が高まった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -998,7 +1016,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="3">
+<section class="view" data-t="3" data-lock="2">
   <div class="tband"><span class="tno">2</span><h2>日本の独立回復</h2><img class="wchar tchar" src="img/characters_manabi_think_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -1065,8 +1083,8 @@
         <div class="qa-a">サンフランシスコ平和<ruby>条約<rt>じょうやく</rt></ruby></div>
         <div class="qa-expl">1951年、吉田茂内閣が連合国48か国と調印した講和条約。翌1952年に発効し、日本は独立を回復した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1083,8 +1101,8 @@
         <div class="qa-a">1951年</div>
         <div class="qa-expl">1951年は吉田茂内閣がサンフランシスコ平和条約と日米安全保障条約に同日調印した年。翌52年発効で日本独立。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1101,8 +1119,8 @@
         <div class="qa-a">1952年</div>
         <div class="qa-expl">1952年はサンフランシスコ平和条約が発効し日本が独立を回復した年。GHQによる約7年間の占領が終わった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1119,8 +1137,8 @@
         <div class="qa-a"><ruby>吉田茂<rt>よしだしげる</rt></ruby></div>
         <div class="qa-expl">戦後復興期の首相。1951年にサンフランシスコ平和条約と日米安全保障条約に調印し日本独立への道を開いた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1137,8 +1155,8 @@
         <div class="qa-a"><ruby>日米<rt>にちべい</rt></ruby><ruby>安全<rt>あんぜん</rt></ruby><ruby>保障<rt>ほしょう</rt></ruby><ruby>条約<rt>じょうやく</rt></ruby></div>
         <div class="qa-expl">1951年にサンフランシスコ平和条約と同日に結ばれ、米軍の日本駐留を認めた条約。日米同盟の出発点となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1155,8 +1173,8 @@
         <div class="qa-a"><ruby>警察<rt>けいさつ</rt></ruby><ruby>予備隊<rt>よびたい</rt></ruby></div>
         <div class="qa-expl">1950年、朝鮮戦争の勃発を背景にGHQ指令で作られた組織。1952年に保安隊、1954年に自衛隊へと発展した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1173,8 +1191,8 @@
         <div class="qa-a"><ruby>自衛隊<rt>じえいたい</rt></ruby></div>
         <div class="qa-expl">1954年発足の日本の防衛組織。1950年の警察予備隊が1952年保安隊、1954年に自衛隊へと変化した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1191,8 +1209,8 @@
         <div class="qa-a">1954年</div>
         <div class="qa-expl">1954年は保安隊が改組されて自衛隊（陸海空）が発足し、これを統括する防衛庁が設置された年。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1209,8 +1227,8 @@
         <div class="qa-a"><ruby>朝鮮<rt>ちょうせん</rt></ruby><ruby>特需<rt>とくじゅ</rt></ruby></div>
         <div class="qa-expl">1950年に始まった朝鮮戦争で、米軍からの軍需物資の発注が日本に集中。日本経済の戦後復興を加速させた好景気。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1227,8 +1245,8 @@
         <div class="qa-a">新<ruby>日米<rt>にちべい</rt></ruby><ruby>安全<rt>あんぜん</rt></ruby><ruby>保障<rt>ほしょう</rt></ruby><ruby>条約<rt>じょうやく</rt></ruby></div>
         <div class="qa-expl">1960年に岸信介内閣が改定。日本かアメリカが攻撃されたら互いに助け合うことを明確化。安保闘争が起きた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1245,8 +1263,8 @@
         <div class="qa-a">1960年</div>
         <div class="qa-expl">1960年は岸信介内閣が新日米安全保障条約を成立させ、改定反対の安保闘争が起きて内閣が退陣した年。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1263,8 +1281,8 @@
         <div class="qa-a"><ruby>安保<rt>あんぽ</rt></ruby><ruby>闘争<rt>とうそう</rt></ruby></div>
         <div class="qa-expl">1960年の新安保条約改定に反対し、学生や労働組合、市民が連日国会前を取り巻いた戦後最大規模のデモ運動。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1281,8 +1299,8 @@
         <div class="qa-a"><ruby>沖縄<rt>おきなわ</rt></ruby><ruby>返還<rt>へんかん</rt></ruby></div>
         <div class="qa-expl">1972年、佐藤栄作内閣の時に実現。1945年の沖縄戦以来27年間続いた米軍統治が終わり、本土復帰した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1299,8 +1317,8 @@
         <div class="qa-a">1972年</div>
         <div class="qa-expl">1972年は佐藤栄作内閣の時に沖縄返還が実現した年。27年に及ぶ米軍統治が終わり日本に復帰した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1425,7 +1443,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="4">
+<section class="view" data-t="4" data-lock="2">
   <div class="tband"><span class="tno">3</span><h2>国際社会への復帰</h2><img class="wchar tchar" src="img/characters_char_neko_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -1492,8 +1510,8 @@
         <div class="qa-a"><ruby>日<rt>にっ</rt></ruby>ソ<ruby>共同<rt>きょうどう</rt></ruby><ruby>宣言<rt>せんげん</rt></ruby></div>
         <div class="qa-expl">1956年に鳩山一郎内閣が結んだ宣言。ソ連との戦争状態を終わらせ国交を回復し、同年の日本の国連加盟への道を開いた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1510,8 +1528,8 @@
         <div class="qa-a">1956年</div>
         <div class="qa-expl">1956年は鳩山一郎内閣が日ソ共同宣言を結び、ソ連の支持を得て国連加盟を実現。日本の国際社会復帰の転換点となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1528,8 +1546,8 @@
         <div class="qa-a"><ruby>国際連合<rt>こくさいれんごう</rt></ruby>（<ruby>国連<rt>こくれん</rt></ruby>）</div>
         <div class="qa-expl">日本は1956年に国際連合（国連）へ加盟し、国際社会へ復帰した。同年の日ソ共同宣言で国交回復したことが加盟実現を後押しした。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1546,8 +1564,8 @@
         <div class="qa-a"><ruby>鳩山一郎<rt>はとやまいちろう</rt></ruby></div>
         <div class="qa-expl">1956年に日ソ共同宣言を結び国連加盟を実現した首相。1955年の保守合同で自由民主党を結成し55年体制を始動させた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1564,8 +1582,8 @@
         <div class="qa-a">55年<ruby>体制<rt>たいせい</rt></ruby></div>
         <div class="qa-expl">1955〜93年まで続いた政治のしくみ。自民党が長く政権を担い、日本社会党が主な野党として向き合った体制。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1582,8 +1600,8 @@
         <div class="qa-a">自由<ruby>民主党<rt>みんしゅとう</rt></ruby>（<ruby>自民党<rt>じみんとう</rt></ruby>）</div>
         <div class="qa-expl">1955年に自由党と日本民主党の保守合同で結成された保守政党。55年体制で長期政権を担い、1993年まで続いた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1600,8 +1618,8 @@
         <div class="qa-a"><ruby>日韓<rt>にっかん</rt></ruby>基本<ruby>条約<rt>じょうやく</rt></ruby></div>
         <div class="qa-expl">1965年、佐藤栄作内閣が結び韓国と国交を樹立。韓国を朝鮮半島の正式な政府と認め、経済協力を約束した条約。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1618,8 +1636,8 @@
         <div class="qa-a">1965年</div>
         <div class="qa-expl">1965年は佐藤栄作内閣のもとで日韓基本条約が結ばれ、日本と韓国の国交が樹立された年。経済協力も約束された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1636,8 +1654,8 @@
         <div class="qa-a"><ruby>日中<rt>にっちゅう</rt></ruby><ruby>共同<rt>きょうどう</rt></ruby><ruby>声明<rt>せいめい</rt></ruby></div>
         <div class="qa-expl">1972年、田中角栄首相が訪中し中華人民共和国と国交を樹立した声明。これにより日本は中華民国（台湾）と断交した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1654,8 +1672,8 @@
         <div class="qa-a">1972年</div>
         <div class="qa-expl">1972年は沖縄返還が実現し、首相が佐藤栄作から田中角栄に代わり、田中内閣が日中共同声明を出した節目の年。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1672,8 +1690,8 @@
         <div class="qa-a"><ruby>田中角栄<rt>たなかかくえい</rt></ruby></div>
         <div class="qa-expl">1972年の日中共同声明で日中国交正常化を実現した首相。「日本列島改造論」を掲げ経済成長を完成させようとした。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1690,8 +1708,8 @@
         <div class="qa-a"><ruby>日中<rt>にっちゅう</rt></ruby>平和<ruby>友好<rt>ゆうこう</rt></ruby><ruby>条約<rt>じょうやく</rt></ruby></div>
         <div class="qa-expl">1978年に福田赳夫内閣が結んだ条約で、日中の平和友好を約束した。1972年の日中共同声明から6年後の正式条約化。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1708,8 +1726,8 @@
         <div class="qa-a"><ruby>非核<rt>ひかく</rt></ruby><ruby>三原則<rt>さんげんそく</rt></ruby></div>
         <div class="qa-expl">「核兵器を持たず、作らず、持ち込ませず」とする日本の核政策の三原則。1967年に佐藤栄作首相が表明した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1726,8 +1744,8 @@
         <div class="qa-a"><ruby>佐藤栄作<rt>さとうえいさく</rt></ruby></div>
         <div class="qa-expl">1972年に沖縄返還を実現し非核三原則を表明した首相。1974年にノーベル平和賞を受賞。首相在任期間は当時最長だった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1836,7 +1854,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="5">
+<section class="view" data-t="5" data-lock="2">
   <div class="tband"><span class="tno">4</span><h2>高度経済成長</h2><img class="wchar tchar" src="img/characters_char_owl_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -1903,8 +1921,8 @@
         <div class="qa-a"><ruby>高度<rt>こうど</rt></ruby><ruby>経済<rt>けいざい</rt></ruby><ruby>成長<rt>せいちょう</rt></ruby></div>
         <div class="qa-expl">1955〜73年に年平均約10%成長した時期で、「東洋の奇跡」と呼ばれた。日本は世界第2位の経済大国となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1921,8 +1939,8 @@
         <div class="qa-a">1955〜73年</div>
         <div class="qa-expl">高度経済成長は1955年頃から続き、1973年の第四次中東戦争による石油危機（オイルショック）で終わった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1939,8 +1957,8 @@
         <div class="qa-a"><ruby>三種<rt>さんしゅ</rt></ruby>の<ruby>神器<rt>じんぎ</rt></ruby></div>
         <div class="qa-expl">1950年代後半に普及した電気冷蔵庫・洗濯機・白黒テレビの3つ。家庭生活が大きく近代化した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1957,8 +1975,8 @@
         <div class="qa-a">3C</div>
         <div class="qa-expl">1960年代に普及したカー（自動車）・カラーテレビ・クーラーで、新三種の神器とも呼ばれた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1975,8 +1993,8 @@
         <div class="qa-a"><ruby>東京<rt>とうきょう</rt></ruby>オリンピック</div>
         <div class="qa-expl">1964年に開催されたアジア初のオリンピック。高度経済成長の象徴で、同年に東海道新幹線も開通した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1993,8 +2011,8 @@
         <div class="qa-a">1964年</div>
         <div class="qa-expl">1964年は東京オリンピックと東海道新幹線開業の年。戦後復興を遂げた日本の姿を世界に示した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2011,8 +2029,8 @@
         <div class="qa-a"><ruby>東海道<rt>とうかいどう</rt></ruby><ruby>新幹線<rt>しんかんせん</rt></ruby></div>
         <div class="qa-expl">1964年、東京〜新大阪間で開業した世界初の高速鉄道。東京オリンピックに合わせて開通し、高度経済成長を象徴した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2029,8 +2047,8 @@
         <div class="qa-a"><ruby>大阪<rt>おおさか</rt></ruby><ruby>万博<rt>ばんぱく</rt></ruby></div>
         <div class="qa-expl">1970年に大阪で開かれた日本初の国際博覧会。「人類の進歩と調和」がテーマで、岡本太郎の「太陽の塔」が有名。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2047,8 +2065,8 @@
         <div class="qa-a">1970年</div>
         <div class="qa-expl">1970年は大阪万博が開かれ、日本が高度経済成長の絶頂期にあったことを象徴する年となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2065,8 +2083,8 @@
         <div class="qa-a"><ruby>公害<rt>こうがい</rt></ruby></div>
         <div class="qa-expl">高度経済成長期の負の側面で、水俣病・新潟水俣病・イタイイタイ病・四日市ぜんそくの四大公害病が代表例。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2083,8 +2101,8 @@
         <div class="qa-a"><ruby>四大<rt>よんだい</rt></ruby><ruby>公害<rt>こうがい</rt></ruby><ruby>病<rt>びょう</rt></ruby></div>
         <div class="qa-expl">水俣病（熊本）・新潟水俣病・イタイイタイ病（富山）・四日市ぜんそく（三重）の総称で、高度経済成長期の負の遺産。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2101,8 +2119,8 @@
         <div class="qa-a"><ruby>水俣病<rt>みなまたびょう</rt></ruby></div>
         <div class="qa-expl">チッソの工場排水の有機水銀が海に流れ、それを食べた魚介を食べた人々に出た神経の病気。1956年公式確認。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2119,8 +2137,8 @@
         <div class="qa-a"><ruby>石油<rt>せきゆ</rt></ruby><ruby>危機<rt>きき</rt></ruby>（オイルショック）</div>
         <div class="qa-expl">1973年の第四次中東戦争で原油価格が高騰した出来事。高度経済成長は終わり、日本は安定成長期に入った。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2137,8 +2155,8 @@
         <div class="qa-a">1973年</div>
         <div class="qa-expl">1973年は第四次中東戦争による石油危機（オイルショック）が起こり、高度経済成長の終わりとなった年。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2268,7 +2286,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="6">
+<section class="view" data-t="6" data-lock="2">
   <div class="tband"><span class="tno">5</span><h2>戦後の文化</h2><img class="wchar tchar" src="img/characters_manabi_ok_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -2335,8 +2353,8 @@
         <div class="qa-a">テレビ<ruby>放送<rt>ほうそう</rt></ruby></div>
         <div class="qa-expl">1953年、NHKと民放（日本テレビ）が同年に本放送を開始。戦後の大衆文化を象徴するメディアとなった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2353,8 +2371,8 @@
         <div class="qa-a">1953年</div>
         <div class="qa-expl">1953年はNHKと民放（日本テレビ）でテレビ本放送が始まった年。戦後の大衆文化を象徴するメディアが誕生した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2371,8 +2389,8 @@
         <div class="qa-a">マスメディア</div>
         <div class="qa-expl">新聞・テレビ・ラジオなど大量に情報を伝える媒体。1953年のテレビ放送開始以降、戦後の生活と世論に大きな影響を与えた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2389,8 +2407,8 @@
         <div class="qa-a"><ruby>湯川秀樹<rt>ゆかわひでき</rt></ruby></div>
         <div class="qa-expl">1949年に物理学賞を受賞した日本人初のノーベル賞学者。原子核の中の粒子を説明する中間子理論で評価された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2407,8 +2425,8 @@
         <div class="qa-a">1949年</div>
         <div class="qa-expl">1949年は湯川秀樹が中間子理論で日本人初のノーベル賞（物理学賞）を受賞し、敗戦間もない日本に希望を与えた年。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2425,8 +2443,8 @@
         <div class="qa-a"><ruby>川端康成<rt>かわばたやすなり</rt></ruby></div>
         <div class="qa-expl">1968年に日本人初のノーベル文学賞を受賞した作家。「雪国」「伊豆の踊子」「古都」などの作品で世界に知られる。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2443,8 +2461,8 @@
         <div class="qa-a"><ruby>黒澤明<rt>くろさわあきら</rt></ruby></div>
         <div class="qa-expl">「羅生門」「七人の侍」などで世界的に有名な映画監督。1951年に「羅生門」がヴェネチア国際映画祭で金獅子賞を受賞した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2461,8 +2479,8 @@
         <div class="qa-a"><ruby>手塚治虫<rt>てづかおさむ</rt></ruby></div>
         <div class="qa-expl">「鉄腕アトム」「火の鳥」「ブラック・ジャック」などを著した「マンガの神様」。戦後の日本マンガ・アニメ文化の基礎を作った。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2479,8 +2497,8 @@
         <div class="qa-a">アニメ</div>
         <div class="qa-expl">1963年放送開始の手塚治虫「鉄腕アトム」を皮切りに発展した日本独自の動画文化。現在は世界中に愛好者がいる。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2497,8 +2515,8 @@
         <div class="qa-a"><ruby>三島由紀夫<rt>みしまゆきお</rt></ruby></div>
         <div class="qa-expl">「金閣寺」「潮騒」などを著した戦後の作家。1970年に自衛隊市ヶ谷駐屯地で自殺し社会に衝撃を与えた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2515,8 +2533,8 @@
         <div class="qa-a"><ruby>司馬遼太郎<rt>しばりょうたろう</rt></ruby></div>
         <div class="qa-expl">「竜馬がゆく」「坂の上の雲」など幕末・明治期を題材にした歴史小説で戦後の国民的人気を集めた作家。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2533,8 +2551,8 @@
         <div class="qa-a"><ruby>佐藤栄作<rt>さとうえいさく</rt></ruby></div>
         <div class="qa-expl">1974年に日本人初のノーベル平和賞を受賞した元首相。沖縄返還の実現と非核三原則の表明が評価された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2653,6 +2671,14 @@
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
 </div></div>
+<div class="lock-ov" id="lockOv" hidden><div class="lock-card">
+  <div class="lock-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+  <div class="lock-t">つづきは購入者向けです</div>
+  <div class="lock-d">ここまでは無料でためせます。つづきを解くには、つづもんのライセンスが必要です。</div>
+  <button class="lock-btn lb-line" id="lockLogin">LINEでログイン（購入者の方）</button>
+  <a class="lock-btn lb-buy" href="../../index.html">つづもんを見てみる →</a>
+  <button class="lock-close" id="lockClose">とじる（ここまで解く）</button>
+</div></div>
 
 <script type="module">
 // 記述AI採点のログイン（www.chatstudy.jp の LINE Login＝Firebase Auth。参考書ページと同じ）。
@@ -2675,9 +2701,24 @@ try {
       location.href = '/welcome?next=' + encodeURIComponent(location.pathname + location.hash);
     },
   };
+  var ENTITLEMENT_API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/tsudumonEntitlement';
+  async function refreshEntitlement(u) {
+    try {
+      var idToken = await u.getIdToken();
+      var res = await fetch(ENTITLEMENT_API, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ idToken: idToken }),
+      });
+      if (!res.ok) return;
+      var data = await res.json();
+      try { localStorage.setItem('tzm-lic', JSON.stringify((data && data.grades) || [])); } catch (e) {}
+      if (window.tzmRefreshGate) window.tzmRefreshGate();
+    } catch (e) { /* localStorage フォールバックのまま */ }
+  }
   onAuthStateChanged(auth, function (u) {
     window.__tzmAuth.user = u;
     window.__tzmAuth.ready = true;
+    if (u) refreshEntitlement(u);
     document.dispatchEvent(new CustomEvent('tzm-auth'));
   });
 } catch (e) { /* 設定が無ければ採点はフォールバック（自己採点）に倒れる */ }
@@ -2687,6 +2728,7 @@ try {
 (function () {
   var KEY = 'tzmwb-18';
   var CH = '18';
+  var GRADE = '中3';        // この本の学年（中1/中2/中3）
   var GRADE_API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/gradeWritten';      // 記述AI採点 Cloud Function
   var REF_VIEWS = [0, 0, 1, 2, 3, 4, 5];        // 問題集のビューt → 参考書の単元番号（0＝対応なし）
   var views = [].slice.call(document.querySelectorAll('.view'));
@@ -2726,7 +2768,7 @@ try {
     try { if (localStorage.getItem('tzmhint') === '1') return; } catch (e) { return; }
     var canHover = window.matchMedia && window.matchMedia('(hover:hover)').matches;
     bar.textContent = canHover ? '⌨️ ← → キーでもページをめくれるよ'
-                               : '👆 よこにスワイプでもページをめくれるよ';
+                               : 'よこにスワイプでもページをめくれるよ';
     var shown = false;
     window.showHint = function () {
       if (shown || state.t === 0) return;
@@ -2931,7 +2973,7 @@ try {
   function showJudged(scopeEl, ok) {
     var banner = scopeEl.querySelector('.b-result');
     if (banner) {
-      banner.textContent = ok ? '⭕ せいかい！' : '❌ おしい！';
+      banner.textContent = ok ? 'せいかい！' : 'おしい！';
       banner.className = 'b-result ' + (ok ? 'ok' : 'ng');
     }
     scopeEl.classList.add('show');
@@ -3096,7 +3138,7 @@ try {
       pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
       document.getElementById('btnPrev').textContent = s === 0 ? '目次へ' : '← まえへ';
       var next = document.getElementById('btnNext');
-      if (onModeStep && steps.length === 1) next.textContent = '⭐ おすすめ順で始める →';
+      if (onModeStep && steps.length === 1) next.textContent = 'おすすめ順で始める →';
       else if (s < steps.length - 1) next.textContent = 'つぎへ →';
       else next.textContent = t < N ? '次の単元へ →' : '目次にもどる';
       if (steps[s] && steps[s].classList.contains('done-step')) renderScore(views[t]);
@@ -3142,12 +3184,32 @@ try {
     } else { btn.hidden = true; }
   }
 
+  // ── 教材ゲート（中間案・ゆるめ「頭出しは見せる」）──
+  //   有料単元はやり方えらぶ＋要点まとめまで誰でも試せる。その先は購入者（この学年）だけ。
+  function isLicensed() {
+    try { return (JSON.parse(localStorage.getItem('tzm-lic') || '[]')).indexOf(GRADE) >= 0; }
+    catch (e) { return false; }
+  }
+  function lockFrom(t) { var v = views[t]; return v ? +(v.getAttribute('data-lock') || 0) : 0; }
+  function gateBlocks(t, s) { var lk = lockFrom(t); return lk > 0 && !isLicensed() && s >= lk; }
+  function showLock() { var ov = document.getElementById('lockOv'); if (ov) ov.hidden = false; }
+  function hideLock() { var ov = document.getElementById('lockOv'); if (ov) ov.hidden = true; }
+  window.tzmRefreshGate = function () { if (isLicensed()) hideLock(); };
+
   function go(t, s, dir) {
     lastDir = dir || 1;
     state.t = Math.max(0, Math.min(N, t));
     state.s = Math.max(0, s || 0);
-    if (state.t > 0) state.s = Math.min(state.s, stepsOf(state.t).length - 1);
-    else state.s = 0;
+    if (state.t > 0) {
+      state.s = Math.min(state.s, stepsOf(state.t).length - 1);
+      if (gateBlocks(state.t, state.s)) {
+        state.s = Math.max(0, lockFrom(state.t) - 1);
+        render();
+        showLock();
+        return;
+      }
+    } else state.s = 0;
+    hideLock();
     render();
   }
   // ── 未回答ガード: 問題(一問一答/4択/記述)に答えるまで「つぎへ」で先に進めない ──
@@ -3191,6 +3253,11 @@ try {
     else go(0, 0, -1);
   }
 
+  document.getElementById('lockLogin').addEventListener('click', function () {
+    var here = location.pathname + '#t' + state.t + (state.s > 0 ? 's' + state.s : '');
+    location.href = '../../login/?next=' + encodeURIComponent(here);
+  });
+  document.getElementById('lockClose').addEventListener('click', hideLock);
   document.getElementById('btnNext').addEventListener('click', next);
   document.getElementById('btnPrev').addEventListener('click', prev);
   // 回答するとロックを解除（回答処理の後に評価するため click は次tickで）
@@ -3313,7 +3380,7 @@ try {
       var istep = idk.closest('.qa-step');
       showJudged(istep, false);
       var bn = istep.querySelector('.b-result');
-      if (bn) { bn.textContent = '👇 こたえはこちら。次はきっと書けるよ！'; bn.className = 'b-result ng'; }
+      if (bn) { bn.textContent = 'こたえはこちら。次はきっと書けるよ！'; bn.className = 'b-result ng'; }
       var stI = store(); stI.r = stI.r || {};
       stI.r[istep.dataset.qid] = 0;
       save(stI);

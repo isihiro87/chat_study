@@ -117,11 +117,12 @@
   .home-topline { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:2px; }
   .hometop { display:flex; align-items:flex-start; gap:6px; padding:8px 2px 2px; text-align:left; }
   .ht-main { flex:1; min-width:0; text-align:center; }
-  .badge3 { display:inline-flex; border-radius:18px; overflow:hidden; font-size:12px; font-weight:bold;
-            box-shadow:0 2px 4px rgba(120,80,20,.2); }
-  .badge3 span { padding:4px 11px; display:inline-flex; align-items:center; white-space:nowrap; }
-  .b-vol { background:var(--brand); color:#fff; }
-  .b-kind { background:#fff; color:var(--deep); }
+  /* 本のラベル（押せない表示）: トグルに見えないようフラットな1トーンのタグに */
+  .badge3 { display:inline-flex; align-items:center; gap:6px; border-radius:8px;
+            background:#f4ecdb; padding:3px 10px; font-size:11.5px; font-weight:bold; }
+  .badge3 span { padding:0; display:inline-flex; align-items:center; white-space:nowrap; }
+  .b-vol { color:var(--brand); }
+  .b-kind { color:#9a7b4f; }
   .b-web { background:var(--amber); color:#fff; }
   .ht-title { font-size:41px; color:var(--deep); margin:12px 0 0; line-height:1.12; position:relative;
               display:inline-block; padding:0 6px; letter-spacing:.01em; }
@@ -443,6 +444,23 @@
   .foot-note { margin-top:4px; font-size:12px; }
 
   /* ── 下部ナビ ── */
+  /* 教材ゲートのロック案内（頭出しの先） */
+  .lock-ov { position:fixed; inset:0; z-index:40; background:rgba(60,40,15,.5);
+             display:flex; align-items:center; justify-content:center; padding:20px; }
+  .lock-ov[hidden] { display:none; }
+  .lock-card { width:100%; max-width:360px; background:#fff; border-radius:18px; padding:24px 20px 18px;
+               text-align:center; box-shadow:0 10px 30px rgba(0,0,0,.3); }
+  .lock-ic svg { width:34px; height:34px; }
+  .lock-ic { font-size:40px; }
+  .lock-t { font-size:18px; font-weight:bold; color:var(--deep); margin:6px 0 6px; }
+  .lock-d { font-size:13px; color:#78716c; line-height:1.8; margin-bottom:16px; }
+  .lock-btn { display:block; width:100%; margin-top:10px; border:none; border-radius:13px; padding:13px;
+              font-size:15px; font-weight:bold; text-decoration:none; cursor:pointer; font-family:inherit; }
+  .lb-line { background:#06c755; color:#fff; box-shadow:0 3px 8px rgba(6,199,85,.3); }
+  .lb-buy { background:#fff; color:var(--brand); border:1.5px solid var(--line); }
+  .lock-close { display:block; width:100%; margin-top:12px; background:none; border:none; cursor:pointer;
+                color:#a8a29e; font-size:12.5px; font-family:inherit; text-decoration:underline; }
+
   .navbar { position:fixed; left:0; right:0; bottom:0; z-index:10;
             background:rgba(255,253,248,.97); border-top:1px solid #f0e6d2;
             padding:10px 16px calc(10px + env(safe-area-inset-bottom)); }
@@ -546,12 +564,12 @@
   <nav class="toc">
     <div class="toc-head">
       <div class="toc-h">単元を選択</div>
-      <button class="toc-cal" data-go="1">📅 年表でチェック<span class="cal-go">›</span></button>
+      <button class="toc-cal" data-go="1">年表でチェック<span class="cal-go">›</span></button>
     </div>
     <button class="toc-item" data-go="2"><img class="toc-thumb" src="img/reference_hist04-shotoku.webp" alt="" loading="lazy"><span class="toc-no">1</span><span class="toc-name">聖徳太子と飛鳥文化</span><span class="toc-state" data-state-t="2"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="3"><img class="toc-thumb" src="img/reference_hist04-taika.webp" alt="" loading="lazy"><span class="toc-no">2</span><span class="toc-name">大化の改新</span><span class="toc-state" data-state-t="3"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="4"><img class="toc-thumb" src="img/reference_hist04-nara.webp" alt="" loading="lazy"><span class="toc-no">3</span><span class="toc-name">律令国家と奈良時代</span><span class="toc-state" data-state-t="4"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="5"><img class="toc-thumb" src="img/reference_hist04-handen.webp" alt="" loading="lazy"><span class="toc-no">4</span><span class="toc-name">班田収授法と税制度</span><span class="toc-state" data-state-t="5"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="6"><img class="toc-thumb" src="img/reference_hist04-daibutsu.webp" alt="" loading="lazy"><span class="toc-no">5</span><span class="toc-name">天平文化</span><span class="toc-state" data-state-t="6"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="7"><img class="toc-thumb" src="img/reference_hist04-heian-capital.webp" alt="" loading="lazy"><span class="toc-no">6</span><span class="toc-name">平安京と新しい仏教</span><span class="toc-state" data-state-t="7"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="8"><img class="toc-thumb" src="img/reference_hist04-sekkan-politics.webp" alt="" loading="lazy"><span class="toc-no">7</span><span class="toc-name">摂関政治</span><span class="toc-state" data-state-t="8"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="9"><img class="toc-thumb" src="img/reference_hist04-byodoin.webp" alt="" loading="lazy"><span class="toc-no">8</span><span class="toc-name">国風文化</span><span class="toc-state" data-state-t="9"></span><span class="toc-arrow">›</span></button>
   </nav>
   <a class="big-btn ref-btn" href="../../ref/04/index.html">参考書を開く</a>
-  <button class="big-btn print-btn" type="button" onclick="window.print()">🖨 紙に印刷して解く（解答つき）</button>
+  <button class="big-btn print-btn" type="button" onclick="window.print()">紙に印刷して解く（解答つき）</button>
   <div class="credits">画像出典: File:Byōdō-in, Phoenix Hall.jpg（Marco Almbauer / CC0 / Wikimedia Commons）　File:20190121 Tōdai-ji Great Buddha-1.jpg（Balon Greyjoy / CC0 / Wikimedia Commons）　File:Horyu-ji Kondo and Five-story Pagoda 2022.jpg（ONO Masanobu / CC0 / Wikimedia Commons）　File:Horyuji Shaka Triad.jpg（Ogawa Kazumasa / Public domain / Wikimedia Commons）　File:Japan- Nara, Todaiji Shosoin 2011.jpg（Z Tanuki. / CC BY 3.0 / Wikimedia Commons）</div>
   <footer class="foot">
     <div>つづもん 問題集</div>
@@ -566,7 +584,7 @@
     <table class="tl-table"><tr><th class="tl-year">年代</th><th>できごと</th></tr><tr><td class='tl-year'>593年</td><td><button class="blank" type="button"><span class="bno">①</span><span class="ba">聖徳太子</span><span class="bl" style="width:3.6em"></span></button>が推古天皇の摂政となる</td></tr><tr><td class='tl-year'>603年</td><td>才能ある人物を役人に取り立てる<button class="blank" type="button"><span class="bno">②</span><span class="ba">冠位十二階</span><span class="bl" style="width:4.5em"></span></button>が定められる</td></tr><tr><td class='tl-year'>604年</td><td>役人の心構えを示した<button class="blank" type="button"><span class="bno">③</span><span class="ba">十七条の憲法</span><span class="bl" style="width:5.4em"></span></button>が定められる</td></tr><tr><td class='tl-year'>607年</td><td>小野妹子が<button class="blank" type="button"><span class="bno">④</span><span class="ba">遣隋使</span><span class="bl" style="width:2.7em"></span></button>として隋に派遣される</td></tr><tr><td class='tl-year'>645年</td><td>中大兄皇子と中臣鎌足が<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">大化の改新</span><span class="bl" style="width:4.5em"></span></button>を始める</td></tr><tr><td class='tl-year'>663年</td><td><button class="blank" type="button"><span class="bno">⑥</span><span class="ba">白村江の戦い</span><span class="bl" style="width:5.4em"></span></button>で唐・新羅の連合軍に敗れる</td></tr><tr><td class='tl-year'>672年</td><td>皇位をめぐる<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">壬申の乱</span><span class="bl" style="width:3.6em"></span></button>が起こる</td></tr><tr><td class='tl-year'>701年</td><td>唐の制度にならった<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">大宝律令</span><span class="bl" style="width:3.6em"></span></button>が完成する</td></tr><tr><td class='tl-year'>710年</td><td>都が奈良の<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">平城京</span><span class="bl" style="width:2.7em"></span></button>に移される</td></tr><tr><td class='tl-year'>743年</td><td>開墾地の永久私有を認める<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">墾田永年私財法</span><span class="bl" style="width:6.3em"></span></button>が出される</td></tr><tr><td class='tl-year'>752年</td><td>聖武天皇の命でつくられた東大寺の<button class="blank" type="button"><span class="bno">⑪</span><span class="ba">大仏</span><span class="bl" style="width:2.7em"></span></button>が完成する</td></tr><tr><td class='tl-year'>794年</td><td>桓武天皇が都を<button class="blank" type="button"><span class="bno">⑫</span><span class="ba">平安京</span><span class="bl" style="width:2.7em"></span></button>に移す</td></tr><tr><td class='tl-year'>894年</td><td>菅原道真の意見で<button class="blank" type="button"><span class="bno">⑬</span><span class="ba">遣唐使</span><span class="bl" style="width:2.7em"></span></button>が停止される</td></tr><tr><td class='tl-year'>1016年</td><td><button class="blank" type="button"><span class="bno">⑭</span><span class="ba">藤原道長</span><span class="bl" style="width:3.6em"></span></button>が摂政となる（摂関政治の全盛期）</td></tr><tr><td class='tl-year'>1053年</td><td>藤原頼通が宇治に<button class="blank" type="button"><span class="bno">⑮</span><span class="ba">平等院鳳凰堂</span><span class="bl" style="width:5.4em"></span></button>を建てる</td></tr></table>
   </div>
 </section>
-<section class="view" data-t="2">
+<section class="view" data-t="2" data-lock="2">
   <div class="tband"><span class="tno">1</span><h2>聖徳太子と飛鳥文化</h2><img class="wchar tchar" src="img/characters_char_pencil_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -633,8 +651,8 @@
         <div class="qa-a"><ruby>聖徳太子<rt>しょうとくたいし</rt></ruby></div>
         <div class="qa-expl">推古天皇のもとで政治を行い、天皇中心の政治をめざした人物。冠位十二階・十七条の憲法・遣隋使と結びつける。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -651,8 +669,8 @@
         <div class="qa-a"><ruby>推古<rt>すいこ</rt></ruby><ruby>天皇<rt>てんのう</rt></ruby></div>
         <div class="qa-expl">日本で最初の女性天皇とされ、593年に聖徳太子を摂政として補佐させた。飛鳥時代の政治改革と関係。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -669,8 +687,8 @@
         <div class="qa-a"><ruby>蘇我氏<rt>そがし</rt></ruby></div>
         <div class="qa-expl">6世紀末から仏教を受け入れ、飛鳥時代に大きな力をもった豪族。物部氏との対立に勝利し、蘇我馬子の時代に栄えた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -687,8 +705,8 @@
         <div class="qa-a"><ruby>冠位<rt>かんい</rt></ruby><ruby>十二階<rt>じゅうにかい</rt></ruby></div>
         <div class="qa-expl">聖徳太子が603年に定めた、家柄に関係なく才能や功績のある人を役人に取り立てる制度。冠の色で位を示した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -705,8 +723,8 @@
         <div class="qa-a"><ruby>十七条<rt>じゅうしちじょう</rt></ruby>の<ruby>憲法<rt>けんぽう</rt></ruby></div>
         <div class="qa-expl">「和を以て貴しとなす」で始まる役人の心構え。天皇への忠誠と仏教の敬いを説いた。現代の憲法とは性格が違う。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -723,8 +741,8 @@
         <div class="qa-a"><ruby>遣隋使<rt>けんずいし</rt></ruby></div>
         <div class="qa-expl">聖徳太子が隋に派遣した使節で、607年に小野妹子が派遣された。隋の制度や文化を学び、対等外交を目指した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -741,8 +759,8 @@
         <div class="qa-a"><ruby>小野妹子<rt>おののいもこ</rt></ruby></div>
         <div class="qa-expl">聖徳太子の命で607年に遣隋使として派遣された人物。隋の煬帝に「日出づる処の天子」の手紙を携えていった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -759,8 +777,8 @@
         <div class="qa-a"><ruby>法隆寺<rt>ほうりゅうじ</rt></ruby></div>
         <div class="qa-expl">聖徳太子ゆかりの寺。現存する世界最古の木造建築として知られる。飛鳥文化を代表する寺院。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -777,8 +795,8 @@
         <div class="qa-a"><ruby>飛鳥<rt>あすか</rt></ruby><ruby>文化<rt>ぶんか</rt></ruby></div>
         <div class="qa-expl">飛鳥時代に栄えた、日本で最初の仏教文化。法隆寺・釈迦三尊像など。中国・朝鮮半島の影響を強く受けた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -795,8 +813,8 @@
         <div class="qa-a"><ruby>蘇我馬子<rt>そがのうまこ</rt></ruby></div>
         <div class="qa-expl">6世紀末から7世紀初頭に聖徳太子と協力して仏教を推進し、日本初の本格的寺院・飛鳥寺を建立した有力豪族。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -813,8 +831,8 @@
         <div class="qa-a"><ruby>厩戸皇子<rt>うまやどのおうじ</rt></ruby></div>
         <div class="qa-expl">推古天皇の摂政となった聖徳太子の本来の名前。「聖徳太子」は徳をたたえて後世に贈られた呼び名。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -831,8 +849,8 @@
         <div class="qa-a"><ruby>三宝<rt>さんぼう</rt></ruby>（<ruby>仏<rt>ぶつ</rt></ruby>・<ruby>法<rt>ほう</rt></ruby>・<ruby>僧<rt>そう</rt></ruby>）</div>
         <div class="qa-expl">仏・法（教え）・僧の三つをまとめて指す言葉。聖徳太子の十七条の憲法第2条で、敬うべき大切なものとされた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -849,8 +867,8 @@
         <div class="qa-a"><ruby>釈迦<rt>しゃか</rt></ruby><ruby>三尊像<rt>さんぞんぞう</rt></ruby></div>
         <div class="qa-expl">聖徳太子ゆかりの法隆寺金堂にある、飛鳥文化を代表する仏像。中央の釈迦如来の左右に脇侍を従えた三尊形式。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -867,8 +885,8 @@
         <div class="qa-a"><ruby>飛鳥<rt>あすか</rt></ruby></div>
         <div class="qa-expl">現在の奈良県明日香村周辺。6〜7世紀に聖徳太子や蘇我氏が政治の中心とした地域で、飛鳥文化が栄えた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1003,7 +1021,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="3">
+<section class="view" data-t="3" data-lock="2">
   <div class="tband"><span class="tno">2</span><h2>大化の改新</h2><img class="wchar tchar" src="img/characters_manabi_think_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -1070,8 +1088,8 @@
         <div class="qa-a"><ruby>大化<rt>たいか</rt></ruby>の<ruby>改新<rt>かいしん</rt></ruby></div>
         <div class="qa-expl">645年に中大兄皇子と中臣鎌足らが蘇我氏を倒して始めた政治改革。公地公民や中央集権体制をめざした。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1088,8 +1106,8 @@
         <div class="qa-a"><ruby>中大兄皇子<rt>なかのおおえのおうじ</rt></ruby></div>
         <div class="qa-expl">645年に中臣鎌足とともに蘇我入鹿を倒し大化の改新を主導。のちに天智天皇として即位した皇族。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1106,8 +1124,8 @@
         <div class="qa-a"><ruby>中臣鎌足<rt>なかとみのかまたり</rt></ruby></div>
         <div class="qa-expl">645年に中大兄皇子と組み大化の改新に協力した人物。のちに天智天皇から藤原姓を賜り藤原氏の祖となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1124,8 +1142,8 @@
         <div class="qa-a"><ruby>公地<rt>こうち</rt></ruby>・<ruby>公民<rt>こうみん</rt></ruby></div>
         <div class="qa-expl">国内の土地と人々を国のものとして治める方針。豪族が自分のものにすることをやめさせ、天皇のもとに権力を集めた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1142,8 +1160,8 @@
         <div class="qa-a"><ruby>白村江<rt>はくすきのえ</rt></ruby>の<ruby>戦<rt>たたか</rt></ruby>い</div>
         <div class="qa-expl">日本が百済を助けるため朝鮮半島に出兵し、唐・新羅の連合軍に敗れた戦い。敗戦後、防衛体制を強めた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1160,8 +1178,8 @@
         <div class="qa-a"><ruby>壬申<rt>じんしん</rt></ruby>の<ruby>乱<rt>らん</rt></ruby></div>
         <div class="qa-expl">天智天皇の死後に起きた皇位継承をめぐる争い。勝利した大海人皇子が天武天皇となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1178,8 +1196,8 @@
         <div class="qa-a"><ruby>天武<rt>てんむ</rt></ruby><ruby>天皇<rt>てんのう</rt></ruby></div>
         <div class="qa-expl">672年の壬申の乱に勝って即位し、天皇中心の国家づくりを進めた天皇。律令国家の基礎を整えた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1196,8 +1214,8 @@
         <div class="qa-a"><ruby>藤原京<rt>ふじわらきょう</rt></ruby></div>
         <div class="qa-expl">694年に持統天皇のもとで造営された、唐の長安をモデルにした日本初の本格的な都城。710年に平城京へ遷都した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1214,8 +1232,8 @@
         <div class="qa-a"><ruby>持統<rt>じとう</rt></ruby><ruby>天皇<rt>てんのう</rt></ruby></div>
         <div class="qa-expl">天武天皇の皇后で、即位して天武天皇の政策を引き継ぎ、694年に日本初の本格的な都城・藤原京を造営した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1232,8 +1250,8 @@
         <div class="qa-a"><ruby>水城<rt>みずき</rt></ruby></div>
         <div class="qa-expl">663年の白村江の戦いの敗北後、唐・新羅の侵攻に備えて九州の大宰府を守るために築かれた土塁。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1250,8 +1268,8 @@
         <div class="qa-a"><ruby>大宰府<rt>だざいふ</rt></ruby></div>
         <div class="qa-expl">九州に置かれ、外交や防衛を担当した役所。白村江の戦い後の防衛拠点として重要になった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1268,8 +1286,8 @@
         <div class="qa-a"><ruby>蘇我入鹿<rt>そがのいるか</rt></ruby></div>
         <div class="qa-expl">645年の大化の改新（乙巳の変）で中大兄皇子と中臣鎌足に倒された、朝廷で権勢を振るった蘇我氏の人物。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1286,8 +1304,8 @@
         <div class="qa-a"><ruby>大海人皇子<rt>おおあまのおうじ</rt></ruby></div>
         <div class="qa-expl">天智天皇の弟で、672年の壬申の乱に勝利して天武天皇として即位した。律令国家の基礎を整えた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1304,8 +1322,8 @@
         <div class="qa-a"><ruby>大友皇子<rt>おおとものおうじ</rt></ruby></div>
         <div class="qa-expl">天智天皇の子で、672年に起きた皇位継承争いの壬申の乱で叔父の大海人皇子に敗れた人物。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1497,8 +1515,8 @@
         <div class="qa-a"><ruby>大宝<rt>たいほう</rt></ruby><ruby>律令<rt>りつりょう</rt></ruby></div>
         <div class="qa-expl">701年に完成した法典。律（刑罰）と令（政治）で国を治める仕組みが整った。唐の制度を参考にした。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1515,8 +1533,8 @@
         <div class="qa-a"><ruby>律令<rt>りつりょう</rt></ruby></div>
         <div class="qa-expl">律は刑罰、令は政治のしくみを定めた法律で、唐の制度を参考にした。701年の大宝律令で本格的に整備された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1533,8 +1551,8 @@
         <div class="qa-a"><ruby>平城京<rt>へいじょうきょう</rt></ruby></div>
         <div class="qa-expl">710年に元明天皇のもとで遷都。唐の長安をモデルに碁盤の目状に整備された。奈良時代の中心。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1551,8 +1569,8 @@
         <div class="qa-a"><ruby>奈良<rt>なら</rt></ruby>時代</div>
         <div class="qa-expl">平城京を中心に、律令にもとづく政治が行われた時代。班田収授法・租庸調・天平文化が重要。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1569,8 +1587,8 @@
         <div class="qa-a"><ruby>太政官<rt>だいじょうかん</rt></ruby></div>
         <div class="qa-expl">律令国家で国の政治を広く担当した役所。神祇官と並ぶ最も上の2つの役所のうちの1つで、下に八省が置かれた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1587,8 +1605,8 @@
         <div class="qa-a"><ruby>神祇官<rt>じんぎかん</rt></ruby></div>
         <div class="qa-expl">律令国家で神々の祭りを担当した役所。政治を担当する太政官と並ぶ最も上の2つの役所のうちの1つ。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1605,8 +1623,8 @@
         <div class="qa-a"><ruby>二官八省<rt>にかんはっしょう</rt></ruby></div>
         <div class="qa-expl">律令国家の中央政治のしくみ。政治の太政官・祭祀の神祇官の二官と、その下の八省からなる体制。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1623,8 +1641,8 @@
         <div class="qa-a"><ruby>国司<rt>こくし</rt></ruby></div>
         <div class="qa-expl">律令国家で中央から地方の国に派遣された役人。地方政治を監督し、地元豪族から任命された郡司を統括した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1641,8 +1659,8 @@
         <div class="qa-a"><ruby>郡司<rt>ぐんじ</rt></ruby></div>
         <div class="qa-expl">律令国家で地方の郡を治めた役人。多くは地方の有力豪族が任命され、中央から派遣された国司のもとで働いた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1659,8 +1677,8 @@
         <div class="qa-a"><ruby>律<rt>りつ</rt></ruby></div>
         <div class="qa-expl">律令のうち刑罰に関する決まり。犯罪と罰則を定めたもので、政治のしくみを定めた令とセットで律令となる。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1677,8 +1695,8 @@
         <div class="qa-a"><ruby>令<rt>りょう</rt></ruby></div>
         <div class="qa-expl">律令のうち政治に関する決まり。行政の仕組みや官職を定めたもので、刑罰の律とセットで律令となる。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1695,8 +1713,8 @@
         <div class="qa-a"><ruby>和同開珎<rt>わどうかいちん</rt></ruby></div>
         <div class="qa-expl">708年に元明天皇の時代に鋳造された日本最古の流通貨幣。唐の貨幣をモデルにした奈良時代の銅銭。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1713,8 +1731,8 @@
         <div class="qa-a"><ruby>大宰府<rt>だざいふ</rt></ruby></div>
         <div class="qa-expl">古代に九州に置かれ、外交や防衛を担当した役所。663年の白村江の戦い後に防衛拠点として重要となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1731,8 +1749,8 @@
         <div class="qa-a"><ruby>朱雀大路<rt>すざくおおじ</rt></ruby></div>
         <div class="qa-expl">平城京の中央を南北に通る大通り。都を東の左京と西の右京に分け、唐の長安をモデルにした碁盤の目状の都市計画の中心。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1862,7 +1880,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="5">
+<section class="view" data-t="5" data-lock="2">
   <div class="tband"><span class="tno">4</span><h2>班田収授法と税制度</h2><img class="wchar tchar" src="img/characters_char_owl_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -1929,8 +1947,8 @@
         <div class="qa-a"><ruby>班田収授法<rt>はんでんしゅうじゅほう</rt></ruby></div>
         <div class="qa-expl">6歳以上の男女に口分田を与え、死ぬと国に返させた制度。701年の大宝律令で整い、公地公民の原則と結びつく。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1947,8 +1965,8 @@
         <div class="qa-a"><ruby>口分田<rt>くぶんでん</rt></ruby></div>
         <div class="qa-expl">班田収授法によって6歳以上の男女に与えられた田。収穫の約3%を租として米で納めるもとになった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1965,8 +1983,8 @@
         <div class="qa-a"><ruby>租<rt>そ</rt></ruby></div>
         <div class="qa-expl">口分田の収穫から納める税で、米（稲）で納めた。収穫量の約3%が目安で、農民全員に課された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1983,8 +2001,8 @@
         <div class="qa-a"><ruby>調<rt>ちょう</rt></ruby></div>
         <div class="qa-expl">布や地方の特産物を都に納める税。成人男性に重く課され、運搬費も農民の自己負担で大きな負担になった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2001,8 +2019,8 @@
         <div class="qa-a"><ruby>庸<rt>よう</rt></ruby></div>
         <div class="qa-expl">都での労役（年10日）の代わりに布などを納める税。成人男性が負担し、租・調とセットで覚える。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2019,8 +2037,8 @@
         <div class="qa-a"><ruby>防人<rt>さきもり</rt></ruby></div>
         <div class="qa-expl">白村江の戦い後に九州北部の守りについた兵士。東国の農民から選ばれ、約3年間家族と離れて任務にあたった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2037,8 +2055,8 @@
         <div class="qa-a"><ruby>三世一身法<rt>さんぜいっしんのほう</rt></ruby></div>
         <div class="qa-expl">723年に出され、開墾した土地を3代まで私有できるとした法。口分田の不足を補い開墾を奨励する目的だった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2055,8 +2073,8 @@
         <div class="qa-a"><ruby>墾田永年私財法<rt>こんでんえいねんしざいほう</rt></ruby></div>
         <div class="qa-expl">743年に聖武天皇のもとで出され、新しく開墾した土地の永久私有を認めた法。荘園が発生するきっかけ。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2073,8 +2091,8 @@
         <div class="qa-a"><ruby>荘園<rt>しょうえん</rt></ruby></div>
         <div class="qa-expl">貴族や寺社が開墾や寄進で広げた私有地。墾田永年私財法の制定後に拡大し、公地公民の崩壊を招いた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2091,8 +2109,8 @@
         <div class="qa-a"><ruby>戸籍<rt>こせき</rt></ruby></div>
         <div class="qa-expl">6年ごとに作成された6歳以上の人民の台帳。班田収授の際に口分田を配分する基礎資料となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2109,8 +2127,8 @@
         <div class="qa-a"><ruby>木簡<rt>もっかん</rt></ruby></div>
         <div class="qa-expl">調や庸の品物に付けられた木札で、品名・産地・納入者などが記された。当時の税制を知る重要な史料。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2127,8 +2145,8 @@
         <div class="qa-a"><ruby>雑徭<rt>ぞうよう</rt></ruby></div>
         <div class="qa-expl">国司のもとで地方で年間60日を限度に課された労役。農繁期にも動員されることがあり大きな負担となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2145,8 +2163,8 @@
         <div class="qa-a"><ruby>奴婢<rt>ぬひ</rt></ruby></div>
         <div class="qa-expl">律令制で最下層に位置づけられた賤民の身分。官庁や個人に所属し、奴隷のように売買もされた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2163,8 +2181,8 @@
         <div class="qa-a"><ruby>聖武<rt>しょうむ</rt></ruby><ruby>天皇<rt>てんのう</rt></ruby></div>
         <div class="qa-expl">奈良時代に国分寺の建立や東大寺の大仏造立を行い、743年に墾田永年私財法を出した天皇。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2278,7 +2296,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="6">
+<section class="view" data-t="6" data-lock="2">
   <div class="tband"><span class="tno">5</span><h2>天平文化</h2><img class="wchar tchar" src="img/characters_manabi_ok_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -2345,8 +2363,8 @@
         <div class="qa-a"><ruby>天平<rt>てんぴょう</rt></ruby><ruby>文化<rt>ぶんか</rt></ruby></div>
         <div class="qa-expl">8世紀の奈良時代、聖武天皇のもとで栄えた唐の影響を強く受けた仏教文化。東大寺・正倉院・万葉集などが代表。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2363,8 +2381,8 @@
         <div class="qa-a"><ruby>聖武<rt>しょうむ</rt></ruby><ruby>天皇<rt>てんのう</rt></ruby></div>
         <div class="qa-expl">仏教の力で国を守ろうとし、国分寺や東大寺を造らせた天皇。奈良時代の仏教政治と関係。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2381,8 +2399,8 @@
         <div class="qa-a"><ruby>国分寺<rt>こくぶんじ</rt></ruby></div>
         <div class="qa-expl">奈良時代に聖武天皇が仏教の力で国を守るため、国ごとに建てさせた寺。国分尼寺とともに各国に置かれた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2399,8 +2417,8 @@
         <div class="qa-a"><ruby>東大寺<rt>とうだいじ</rt></ruby></div>
         <div class="qa-expl">奈良時代に聖武天皇が建立した大寺院で、本尊として鋳造された巨大な大仏（盧舎那仏）が有名。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2417,8 +2435,8 @@
         <div class="qa-a"><ruby>鑑真<rt>がんじん</rt></ruby></div>
         <div class="qa-expl">唐から日本に来て、正しい仏教の教えを伝えた僧。唐招提寺を開いた。失明しながらも来日。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2435,8 +2453,8 @@
         <div class="qa-a"><ruby>唐招提寺<rt>とうしょうだいじ</rt></ruby></div>
         <div class="qa-expl">唐から来日した鑑真が奈良に開いた寺で、僧侶になるための正式な戒律を伝える修行道場となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2453,8 +2471,8 @@
         <div class="qa-a"><ruby>正倉院<rt>しょうそういん</rt></ruby></div>
         <div class="qa-expl">東大寺にある倉で、聖武天皇ゆかりの宝物などを納めた。シルクロードを通じた国際色が見られる。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2471,8 +2489,8 @@
         <div class="qa-a"><ruby>校倉造<rt>あぜくらづくり</rt></ruby></div>
         <div class="qa-expl">三角形の木材を組み上げる建築様式で、東大寺の正倉院に用いられた。湿度の調節に優れ、宝物の保存に適した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2489,8 +2507,8 @@
         <div class="qa-a"><ruby>行基<rt>ぎょうき</rt></ruby></div>
         <div class="qa-expl">民間で布教活動を行い、橋や池を造って人々を助けた僧。大仏造立にも民衆を率いて協力。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2507,8 +2525,8 @@
         <div class="qa-a"><ruby>古事記<rt>こじき</rt></ruby></div>
         <div class="qa-expl">日本最古の歴史書で、712年に元明天皇の命で完成。稗田阿礼が口述し太安万侶が記した神話や天皇の系譜。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2525,8 +2543,8 @@
         <div class="qa-a"><ruby>日本書紀<rt>にほんしょき</rt></ruby></div>
         <div class="qa-expl">720年に完成した、国家が編さんした正史としての歴史書。漢文で書かれ、古事記と並ぶ奈良時代の重要書。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2543,8 +2561,8 @@
         <div class="qa-a"><ruby>万葉集<rt>まんようしゅう</rt></ruby></div>
         <div class="qa-expl">奈良時代にまとめられた和歌集。天皇から農民・防人まで幅広い歌を収める。約4500首。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2561,8 +2579,8 @@
         <div class="qa-a"><ruby>風土記<rt>ふどき</rt></ruby></div>
         <div class="qa-expl">713年に元明天皇の命で各国が編集した、各地の自然・産物・伝承を記録した報告書。地方の様子を知る貴重な史料。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2579,8 +2597,8 @@
         <div class="qa-a"><ruby>阿修羅像<rt>あしゅらぞう</rt></ruby></div>
         <div class="qa-expl">奈良の興福寺にある3つの顔と6本の腕を持つ仏像。8世紀奈良時代の天平文化の写実的表現を代表する。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2699,7 +2717,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="7">
+<section class="view" data-t="7" data-lock="2">
   <div class="tband"><span class="tno">6</span><h2>平安京と新しい仏教</h2><img class="wchar tchar" src="img/characters_manabi_point_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -2766,8 +2784,8 @@
         <div class="qa-a"><ruby>平安京<rt>へいあんきょう</rt></ruby></div>
         <div class="qa-expl">794年に桓武天皇が移した都。約400年間日本の首都となった。「鳴くよウグイス平安京」で覚えられる。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2784,8 +2802,8 @@
         <div class="qa-a"><ruby>桓武<rt>かんむ</rt></ruby><ruby>天皇<rt>てんのう</rt></ruby></div>
         <div class="qa-expl">794年に平安京へ都を移し、奈良の仏教勢力をおさえ政治の立て直しを進めた天皇。平安時代の始まりと結びつく。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2802,8 +2820,8 @@
         <div class="qa-a"><ruby>平安<rt>へいあん</rt></ruby>時代</div>
         <div class="qa-expl">794年の平安京遷都から鎌倉幕府成立までの時代。貴族政治・国風文化・武士の成長が重要。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2820,8 +2838,8 @@
         <div class="qa-a"><ruby>坂上田村麻呂<rt>さかのうえのたむらまろ</rt></ruby></div>
         <div class="qa-expl">桓武天皇に征夷大将軍に任命され、東北に派遣されて蝦夷の指導者アテルイを降伏させた人物。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2838,8 +2856,8 @@
         <div class="qa-a"><ruby>征夷大将軍<rt>せいいたいしょうぐん</rt></ruby></div>
         <div class="qa-expl">もとは東北地方の蝦夷を討つために任命された将軍。坂上田村麻呂が任命された。後の武家政権の将軍と区別する。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2856,8 +2874,8 @@
         <div class="qa-a"><ruby>蝦夷<rt>えみし</rt></ruby></div>
         <div class="qa-expl">古代に東北地方などに住み、朝廷に従わなかった人々を指した呼び名。朝廷の東北支配と関係。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2874,8 +2892,8 @@
         <div class="qa-a">アテルイ</div>
         <div class="qa-expl">東北地方の蝦夷の指導者。朝廷に激しく抵抗したが、桓武天皇の時代に坂上田村麻呂に降伏させられた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2892,8 +2910,8 @@
         <div class="qa-a"><ruby>最澄<rt>さいちょう</rt></ruby></div>
         <div class="qa-expl">9世紀初めに唐で学び、帰国後に滋賀県の比叡山延暦寺に天台宗を開いた僧。天台宗・延暦寺と結びつける。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2910,8 +2928,8 @@
         <div class="qa-a"><ruby>空海<rt>くうかい</rt></ruby></div>
         <div class="qa-expl">9世紀初めに唐で密教を学び、和歌山県の高野山金剛峯寺に真言宗を開いた僧。死後に弘法大師と呼ばれる。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2928,8 +2946,8 @@
         <div class="qa-a"><ruby>天台宗<rt>てんだいしゅう</rt></ruby></div>
         <div class="qa-expl">最澄が9世紀初めに広めた仏教の宗派で、滋賀県の比叡山延暦寺を総本山とする。山岳仏教の代表。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2946,8 +2964,8 @@
         <div class="qa-a"><ruby>真言宗<rt>しんごんしゅう</rt></ruby></div>
         <div class="qa-expl">空海が9世紀初めに広めた仏教の宗派で、和歌山県の高野山金剛峯寺を総本山とする密教の宗派。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2964,8 +2982,8 @@
         <div class="qa-a"><ruby>延暦寺<rt>えんりゃくじ</rt></ruby></div>
         <div class="qa-expl">最澄が開いた、滋賀県の比叡山にある天台宗の総本山。のちに法然・親鸞など鎌倉新仏教の名僧を輩出した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2982,8 +3000,8 @@
         <div class="qa-a"><ruby>金剛峯寺<rt>こんごうぶじ</rt></ruby></div>
         <div class="qa-expl">空海が9世紀初めに和歌山県の高野山に建てた真言宗の総本山で、密教の修行道場となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3000,8 +3018,8 @@
         <div class="qa-a"><ruby>山岳<rt>さんがく</rt></ruby><ruby>仏教<rt>ぶっきょう</rt></ruby></div>
         <div class="qa-expl">最澄・空海が9世紀初めに開いた新しい仏教の形態。山奥での修行と学問を重視し、奈良の都市仏教と異なる。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3110,7 +3128,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="8">
+<section class="view" data-t="8" data-lock="2">
   <div class="tband"><span class="tno">7</span><h2>摂関政治</h2><img class="wchar tchar" src="img/characters_char_pencil_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -3177,8 +3195,8 @@
         <div class="qa-a"><ruby>摂関<rt>せっかん</rt></ruby><ruby>政治<rt>せいじ</rt></ruby></div>
         <div class="qa-expl">藤原氏が娘を天皇の后にし、摂政や関白として行った政治。11世紀の藤原道長・頼通の時代に全盛期を迎えた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3195,8 +3213,8 @@
         <div class="qa-a"><ruby>摂政<rt>せっしょう</rt></ruby></div>
         <div class="qa-expl">天皇が幼いときなどに代わって政治を行う役職。藤原氏が外戚として就き、摂関政治の中心となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3213,8 +3231,8 @@
         <div class="qa-a"><ruby>関白<rt>かんぱく</rt></ruby></div>
         <div class="qa-expl">成人した天皇を補佐して政治を行う役職。藤原氏が外戚として就き、摂政と並んで摂関政治の中心となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3231,8 +3249,8 @@
         <div class="qa-a"><ruby>藤原道長<rt>ふじわらのみちなが</rt></ruby></div>
         <div class="qa-expl">摂関政治の全盛期を築いた藤原氏の人物。娘を天皇の后にし、外戚として力を持った。望月の歌で有名。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3249,8 +3267,8 @@
         <div class="qa-a"><ruby>藤原頼通<rt>ふじわらのよりみち</rt></ruby></div>
         <div class="qa-expl">藤原道長の子で、1053年に宇治に平等院鳳凰堂を建てた人物。父の時代に続き摂関政治を主導した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3267,8 +3285,8 @@
         <div class="qa-a"><ruby>外戚<rt>がいせき</rt></ruby></div>
         <div class="qa-expl">天皇の母方の親戚のこと。藤原氏は娘を天皇のきさきにし、生まれた孫を天皇にして摂政・関白の地位から政治を動かした。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3285,8 +3303,8 @@
         <div class="qa-a"><ruby>望月<rt>もちづき</rt></ruby>（<ruby>満月<rt>まんげつ</rt></ruby>）</div>
         <div class="qa-expl">藤原道長が「この世をば」の歌で欠けることのない満月に自分の栄華をたとえた。摂関政治の全盛を象徴する歌。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3303,8 +3321,8 @@
         <div class="qa-a"><ruby>寝殿造<rt>しんでんづくり</rt></ruby></div>
         <div class="qa-expl">平安時代の貴族の住宅様式。中央に寝殿を置き渡り廊下で対屋を結ぶ。庭に池を配した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3321,8 +3339,8 @@
         <div class="qa-a"><ruby>浄土<rt>じょうど</rt></ruby><ruby>信仰<rt>しんこう</rt></ruby></div>
         <div class="qa-expl">阿弥陀仏にすがり、死後に極楽浄土へ生まれ変わることを願う信仰。平安時代後期に広まった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3339,8 +3357,8 @@
         <div class="qa-a"><ruby>阿弥陀如来<rt>あみだにょらい</rt></ruby></div>
         <div class="qa-expl">平安時代後期の浄土信仰で信仰の対象とされた仏。極楽浄土に導いてくれると信じられ、平等院鳳凰堂に安置された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3357,8 +3375,8 @@
         <div class="qa-a"><ruby>平等院<rt>びょうどういん</rt></ruby><ruby>鳳凰堂<rt>ほうおうどう</rt></ruby></div>
         <div class="qa-expl">藤原頼通が宇治に建てた阿弥陀堂。浄土信仰と結びつく。10円硬貨のデザインで有名。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3375,8 +3393,8 @@
         <div class="qa-a"><ruby>宋<rt>そう</rt></ruby></div>
         <div class="qa-expl">10世紀に唐に代わって中国を統一した王朝。日本との日宋貿易で宋銭や陶磁器が輸入された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3393,8 +3411,8 @@
         <div class="qa-a"><ruby>院政<rt>いんせい</rt></ruby></div>
         <div class="qa-expl">退位した天皇（上皇）が自分の住まいで政治を行うしくみ。11世紀末の白河上皇から本格化し、摂関政治に代わった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3411,8 +3429,8 @@
         <div class="qa-a"><ruby>白河<rt>しらかわ</rt></ruby><ruby>上皇<rt>じょうこう</rt></ruby></div>
         <div class="qa-expl">11世紀末に院政を本格的に始めた上皇。摂関政治を行っていた藤原氏の力をおさえようとした。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3521,7 +3539,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="9">
+<section class="view" data-t="9" data-lock="2">
   <div class="tband"><span class="tno">8</span><h2>国風文化</h2><img class="wchar tchar" src="img/characters_manabi_think_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -3588,8 +3606,8 @@
         <div class="qa-a"><ruby>国風<rt>こくふう</rt></ruby><ruby>文化<rt>ぶんか</rt></ruby></div>
         <div class="qa-expl">唐の文化をもとにしながら、日本の風土に合わせて発達した文化。かな文字・寝殿造・大和絵・物語文学が重要。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3606,8 +3624,8 @@
         <div class="qa-a"><ruby>仮名<rt>かな</rt></ruby>文字</div>
         <div class="qa-expl">漢字をもとにして作られた、日本語を表しやすい文字。ひらがな・カタカナがあり、国風文化の物語・随筆・和歌の発展を支えた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3624,8 +3642,8 @@
         <div class="qa-a">ひらがな</div>
         <div class="qa-expl">漢字の草書体（くずし字）をもとに作られた仮名文字。流れるような形が特徴で、女性の文学作品で多く用いられた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3642,8 +3660,8 @@
         <div class="qa-a">カタカナ</div>
         <div class="qa-expl">漢字の一部分を切り取って作られた仮名文字。直線的な形が特徴で、はじめは僧侶が漢文を読む手助けに使った。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3660,8 +3678,8 @@
         <div class="qa-a"><ruby>紫式部<rt>むらさきしきぶ</rt></ruby></div>
         <div class="qa-expl">『源氏物語』を書いた女性。国風文化を代表する文学者。藤原道長の娘・彰子に仕えた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3678,8 +3696,8 @@
         <div class="qa-a"><ruby>清少納言<rt>せいしょうなごん</rt></ruby></div>
         <div class="qa-expl">『枕草子』を書いた女性。「をかし（趣がある）」という感覚で身の回りを描いた。一条天皇のきさき・定子に仕えた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3696,8 +3714,8 @@
         <div class="qa-a"><ruby>源氏物語<rt>げんじものがたり</rt></ruby></div>
         <div class="qa-expl">紫式部が11世紀初めに書いた長編物語で、主人公は光源氏。世界最古級の長編小説ともいわれる国風文化の代表作。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3714,8 +3732,8 @@
         <div class="qa-a"><ruby>枕草子<rt>まくらのそうし</rt></ruby></div>
         <div class="qa-expl">清少納言が書いた随筆。「春はあけぼの」の書き出しで有名で、一条天皇の中宮・定子に仕えた宮中の暮らしを綴った。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3732,8 +3750,8 @@
         <div class="qa-a"><ruby>古今<rt>こきん</rt></ruby><ruby>和歌集<rt>わかしゅう</rt></ruby></div>
         <div class="qa-expl">平安時代に紀貫之らが編集した、天皇の命令でまとめられた日本初の勅撰和歌集。国風文化を代表する歌集。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3750,8 +3768,8 @@
         <div class="qa-a"><ruby>紀貫之<rt>きのつらゆき</rt></ruby></div>
         <div class="qa-expl">平安時代の歌人で、最初の勅撰和歌集である古今和歌集の選者の一人。土佐日記を女性のふりをして仮名文字で書いた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3768,8 +3786,8 @@
         <div class="qa-a"><ruby>土佐<rt>とさ</rt></ruby><ruby>日記<rt>にっき</rt></ruby></div>
         <div class="qa-expl">古今和歌集の選者・紀貫之が女性のふりをして仮名文字で書いた日記文学。国風文化を代表する作品の一つ。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3786,8 +3804,8 @@
         <div class="qa-a"><ruby>大和絵<rt>やまとえ</rt></ruby></div>
         <div class="qa-expl">日本の自然や貴族の生活を題材にした絵画で、国風文化を代表する。中国風の唐絵と区別される。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3804,8 +3822,8 @@
         <div class="qa-a"><ruby>寝殿造<rt>しんでんづくり</rt></ruby></div>
         <div class="qa-expl">中央に寝殿を置き渡り廊下で対屋を結ぶ平安貴族の住宅様式。庭に池を配し、国風文化を代表する建築。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3822,8 +3840,8 @@
         <div class="qa-a"><ruby>平等院<rt>びょうどういん</rt></ruby><ruby>鳳凰堂<rt>ほうおうどう</rt></ruby></div>
         <div class="qa-expl">1053年に藤原頼通が宇治に建てた阿弥陀堂。浄土信仰を背景に建立され、10円硬貨のデザインで有名。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3952,6 +3970,14 @@
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
 </div></div>
+<div class="lock-ov" id="lockOv" hidden><div class="lock-card">
+  <div class="lock-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+  <div class="lock-t">つづきは購入者向けです</div>
+  <div class="lock-d">ここまでは無料でためせます。つづきを解くには、つづもんのライセンスが必要です。</div>
+  <button class="lock-btn lb-line" id="lockLogin">LINEでログイン（購入者の方）</button>
+  <a class="lock-btn lb-buy" href="../../index.html">つづもんを見てみる →</a>
+  <button class="lock-close" id="lockClose">とじる（ここまで解く）</button>
+</div></div>
 
 <script type="module">
 // 記述AI採点のログイン（www.chatstudy.jp の LINE Login＝Firebase Auth。参考書ページと同じ）。
@@ -3974,9 +4000,24 @@ try {
       location.href = '/welcome?next=' + encodeURIComponent(location.pathname + location.hash);
     },
   };
+  var ENTITLEMENT_API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/tsudumonEntitlement';
+  async function refreshEntitlement(u) {
+    try {
+      var idToken = await u.getIdToken();
+      var res = await fetch(ENTITLEMENT_API, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ idToken: idToken }),
+      });
+      if (!res.ok) return;
+      var data = await res.json();
+      try { localStorage.setItem('tzm-lic', JSON.stringify((data && data.grades) || [])); } catch (e) {}
+      if (window.tzmRefreshGate) window.tzmRefreshGate();
+    } catch (e) { /* localStorage フォールバックのまま */ }
+  }
   onAuthStateChanged(auth, function (u) {
     window.__tzmAuth.user = u;
     window.__tzmAuth.ready = true;
+    if (u) refreshEntitlement(u);
     document.dispatchEvent(new CustomEvent('tzm-auth'));
   });
 } catch (e) { /* 設定が無ければ採点はフォールバック（自己採点）に倒れる */ }
@@ -3986,6 +4027,7 @@ try {
 (function () {
   var KEY = 'tzmwb-04';
   var CH = '04';
+  var GRADE = '中1';        // この本の学年（中1/中2/中3）
   var GRADE_API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/gradeWritten';      // 記述AI採点 Cloud Function
   var REF_VIEWS = [0, 0, 1, 2, 3, 4, 5, 6, 7, 8];        // 問題集のビューt → 参考書の単元番号（0＝対応なし）
   var views = [].slice.call(document.querySelectorAll('.view'));
@@ -4025,7 +4067,7 @@ try {
     try { if (localStorage.getItem('tzmhint') === '1') return; } catch (e) { return; }
     var canHover = window.matchMedia && window.matchMedia('(hover:hover)').matches;
     bar.textContent = canHover ? '⌨️ ← → キーでもページをめくれるよ'
-                               : '👆 よこにスワイプでもページをめくれるよ';
+                               : 'よこにスワイプでもページをめくれるよ';
     var shown = false;
     window.showHint = function () {
       if (shown || state.t === 0) return;
@@ -4230,7 +4272,7 @@ try {
   function showJudged(scopeEl, ok) {
     var banner = scopeEl.querySelector('.b-result');
     if (banner) {
-      banner.textContent = ok ? '⭕ せいかい！' : '❌ おしい！';
+      banner.textContent = ok ? 'せいかい！' : 'おしい！';
       banner.className = 'b-result ' + (ok ? 'ok' : 'ng');
     }
     scopeEl.classList.add('show');
@@ -4395,7 +4437,7 @@ try {
       pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
       document.getElementById('btnPrev').textContent = s === 0 ? '目次へ' : '← まえへ';
       var next = document.getElementById('btnNext');
-      if (onModeStep && steps.length === 1) next.textContent = '⭐ おすすめ順で始める →';
+      if (onModeStep && steps.length === 1) next.textContent = 'おすすめ順で始める →';
       else if (s < steps.length - 1) next.textContent = 'つぎへ →';
       else next.textContent = t < N ? '次の単元へ →' : '目次にもどる';
       if (steps[s] && steps[s].classList.contains('done-step')) renderScore(views[t]);
@@ -4441,12 +4483,32 @@ try {
     } else { btn.hidden = true; }
   }
 
+  // ── 教材ゲート（中間案・ゆるめ「頭出しは見せる」）──
+  //   有料単元はやり方えらぶ＋要点まとめまで誰でも試せる。その先は購入者（この学年）だけ。
+  function isLicensed() {
+    try { return (JSON.parse(localStorage.getItem('tzm-lic') || '[]')).indexOf(GRADE) >= 0; }
+    catch (e) { return false; }
+  }
+  function lockFrom(t) { var v = views[t]; return v ? +(v.getAttribute('data-lock') || 0) : 0; }
+  function gateBlocks(t, s) { var lk = lockFrom(t); return lk > 0 && !isLicensed() && s >= lk; }
+  function showLock() { var ov = document.getElementById('lockOv'); if (ov) ov.hidden = false; }
+  function hideLock() { var ov = document.getElementById('lockOv'); if (ov) ov.hidden = true; }
+  window.tzmRefreshGate = function () { if (isLicensed()) hideLock(); };
+
   function go(t, s, dir) {
     lastDir = dir || 1;
     state.t = Math.max(0, Math.min(N, t));
     state.s = Math.max(0, s || 0);
-    if (state.t > 0) state.s = Math.min(state.s, stepsOf(state.t).length - 1);
-    else state.s = 0;
+    if (state.t > 0) {
+      state.s = Math.min(state.s, stepsOf(state.t).length - 1);
+      if (gateBlocks(state.t, state.s)) {
+        state.s = Math.max(0, lockFrom(state.t) - 1);
+        render();
+        showLock();
+        return;
+      }
+    } else state.s = 0;
+    hideLock();
     render();
   }
   // ── 未回答ガード: 問題(一問一答/4択/記述)に答えるまで「つぎへ」で先に進めない ──
@@ -4490,6 +4552,11 @@ try {
     else go(0, 0, -1);
   }
 
+  document.getElementById('lockLogin').addEventListener('click', function () {
+    var here = location.pathname + '#t' + state.t + (state.s > 0 ? 's' + state.s : '');
+    location.href = '../../login/?next=' + encodeURIComponent(here);
+  });
+  document.getElementById('lockClose').addEventListener('click', hideLock);
   document.getElementById('btnNext').addEventListener('click', next);
   document.getElementById('btnPrev').addEventListener('click', prev);
   // 回答するとロックを解除（回答処理の後に評価するため click は次tickで）
@@ -4612,7 +4679,7 @@ try {
       var istep = idk.closest('.qa-step');
       showJudged(istep, false);
       var bn = istep.querySelector('.b-result');
-      if (bn) { bn.textContent = '👇 こたえはこちら。次はきっと書けるよ！'; bn.className = 'b-result ng'; }
+      if (bn) { bn.textContent = 'こたえはこちら。次はきっと書けるよ！'; bn.className = 'b-result ng'; }
       var stI = store(); stI.r = stI.r || {};
       stI.r[istep.dataset.qid] = 0;
       save(stI);

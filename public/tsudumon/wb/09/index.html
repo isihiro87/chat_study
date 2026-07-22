@@ -117,11 +117,12 @@
   .home-topline { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:2px; }
   .hometop { display:flex; align-items:flex-start; gap:6px; padding:8px 2px 2px; text-align:left; }
   .ht-main { flex:1; min-width:0; text-align:center; }
-  .badge3 { display:inline-flex; border-radius:18px; overflow:hidden; font-size:12px; font-weight:bold;
-            box-shadow:0 2px 4px rgba(120,80,20,.2); }
-  .badge3 span { padding:4px 11px; display:inline-flex; align-items:center; white-space:nowrap; }
-  .b-vol { background:var(--brand); color:#fff; }
-  .b-kind { background:#fff; color:var(--deep); }
+  /* 本のラベル（押せない表示）: トグルに見えないようフラットな1トーンのタグに */
+  .badge3 { display:inline-flex; align-items:center; gap:6px; border-radius:8px;
+            background:#f4ecdb; padding:3px 10px; font-size:11.5px; font-weight:bold; }
+  .badge3 span { padding:0; display:inline-flex; align-items:center; white-space:nowrap; }
+  .b-vol { color:var(--brand); }
+  .b-kind { color:#9a7b4f; }
   .b-web { background:var(--amber); color:#fff; }
   .ht-title { font-size:41px; color:var(--deep); margin:12px 0 0; line-height:1.12; position:relative;
               display:inline-block; padding:0 6px; letter-spacing:.01em; }
@@ -443,6 +444,23 @@
   .foot-note { margin-top:4px; font-size:12px; }
 
   /* ── 下部ナビ ── */
+  /* 教材ゲートのロック案内（頭出しの先） */
+  .lock-ov { position:fixed; inset:0; z-index:40; background:rgba(60,40,15,.5);
+             display:flex; align-items:center; justify-content:center; padding:20px; }
+  .lock-ov[hidden] { display:none; }
+  .lock-card { width:100%; max-width:360px; background:#fff; border-radius:18px; padding:24px 20px 18px;
+               text-align:center; box-shadow:0 10px 30px rgba(0,0,0,.3); }
+  .lock-ic svg { width:34px; height:34px; }
+  .lock-ic { font-size:40px; }
+  .lock-t { font-size:18px; font-weight:bold; color:var(--deep); margin:6px 0 6px; }
+  .lock-d { font-size:13px; color:#78716c; line-height:1.8; margin-bottom:16px; }
+  .lock-btn { display:block; width:100%; margin-top:10px; border:none; border-radius:13px; padding:13px;
+              font-size:15px; font-weight:bold; text-decoration:none; cursor:pointer; font-family:inherit; }
+  .lb-line { background:#06c755; color:#fff; box-shadow:0 3px 8px rgba(6,199,85,.3); }
+  .lb-buy { background:#fff; color:var(--brand); border:1.5px solid var(--line); }
+  .lock-close { display:block; width:100%; margin-top:12px; background:none; border:none; cursor:pointer;
+                color:#a8a29e; font-size:12.5px; font-family:inherit; text-decoration:underline; }
+
   .navbar { position:fixed; left:0; right:0; bottom:0; z-index:10;
             background:rgba(255,253,248,.97); border-top:1px solid #f0e6d2;
             padding:10px 16px calc(10px + env(safe-area-inset-bottom)); }
@@ -546,12 +564,12 @@
   <nav class="toc">
     <div class="toc-head">
       <div class="toc-h">単元を選択</div>
-      <button class="toc-cal" data-go="1">📅 年表でチェック<span class="cal-go">›</span></button>
+      <button class="toc-cal" data-go="1">年表でチェック<span class="cal-go">›</span></button>
     </div>
     <button class="toc-item" data-go="2"><img class="toc-thumb" src="img/reference_hist09-british-revolution.webp" alt="" loading="lazy"><span class="toc-no">1</span><span class="toc-name">イギリスの革命</span><span class="toc-state" data-state-t="2"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="3"><img class="toc-thumb" src="img/reference_hist09-american-independence.webp" alt="" loading="lazy"><span class="toc-no">2</span><span class="toc-name">アメリカの独立革命</span><span class="toc-state" data-state-t="3"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="4"><img class="toc-thumb" src="img/reference_hist09-france.webp" alt="" loading="lazy"><span class="toc-no">3</span><span class="toc-name">フランス革命</span><span class="toc-state" data-state-t="4"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="5"><img class="toc-thumb" src="img/reference_hist09-nationalism-europe.webp" alt="" loading="lazy"><span class="toc-no">4</span><span class="toc-name">ヨーロッパの国民意識の高まり</span><span class="toc-state" data-state-t="5"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="6"><img class="toc-thumb" src="img/reference_hist09-russia-expansion.webp" alt="" loading="lazy"><span class="toc-no">5</span><span class="toc-name">ロシアの拡大と発展</span><span class="toc-state" data-state-t="6"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="7"><img class="toc-thumb" src="img/reference_hist09-america-expansion.webp" alt="" loading="lazy"><span class="toc-no">6</span><span class="toc-name">アメリカの拡大と発展</span><span class="toc-state" data-state-t="7"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="8"><img class="toc-thumb" src="img/reference_hist09-industrial.webp" alt="" loading="lazy"><span class="toc-no">7</span><span class="toc-name">産業革命と資本主義</span><span class="toc-state" data-state-t="8"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="9"><img class="toc-thumb" src="img/reference_hist09-opium.webp" alt="" loading="lazy"><span class="toc-no">8</span><span class="toc-name">欧米のアジア侵略</span><span class="toc-state" data-state-t="9"></span><span class="toc-arrow">›</span></button>
   </nav>
   <a class="big-btn ref-btn" href="../../ref/09/index.html">参考書を開く</a>
-  <button class="big-btn print-btn" type="button" onclick="window.print()">🖨 紙に印刷して解く（解答つき）</button>
+  <button class="big-btn print-btn" type="button" onclick="window.print()">紙に印刷して解く（解答つき）</button>
   
   <footer class="foot">
     <div>つづもん 問題集</div>
@@ -566,7 +584,7 @@
     <table class="tl-table"><tr><th class="tl-year">年代</th><th>できごと</th></tr><tr><td class='tl-year'>1649年</td><td>ピューリタン革命で国王<button class="blank" type="button"><span class="bno">①</span><span class="ba">チャールズ1世</span><span class="bl" style="width:6.3em"></span></button>が処刑される</td></tr><tr><td class='tl-year'>1688年</td><td>血を流さず国王を追放する<button class="blank" type="button"><span class="bno">②</span><span class="ba">名誉革命</span><span class="bl" style="width:3.6em"></span></button>が起こる</td></tr><tr><td class='tl-year'>1689年</td><td>議会の権利を定めた<button class="blank" type="button"><span class="bno">③</span><span class="ba">権利章典</span><span class="bl" style="width:3.6em"></span></button>が制定される</td></tr><tr><td class='tl-year'>18世紀後半</td><td>イギリスで<button class="blank" type="button"><span class="bno">④</span><span class="ba">産業革命</span><span class="bl" style="width:3.6em"></span></button>が始まる</td></tr><tr><td class='tl-year'>1775年</td><td>アメリカで<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">独立戦争</span><span class="bl" style="width:3.6em"></span></button>が始まる</td></tr><tr><td class='tl-year'>1776年</td><td><button class="blank" type="button"><span class="bno">⑥</span><span class="ba">独立宣言</span><span class="bl" style="width:3.6em"></span></button>が発表される</td></tr><tr><td class='tl-year'>1787年</td><td><button class="blank" type="button"><span class="bno">⑦</span><span class="ba">合衆国憲法</span><span class="bl" style="width:4.5em"></span></button>が制定される</td></tr><tr><td class='tl-year'>1789年</td><td>バスティーユ牢獄襲撃をきっかけに<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">フランス革命</span><span class="bl" style="width:5.4em"></span></button>が始まり、<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">人権宣言</span><span class="bl" style="width:3.6em"></span></button>が発表される</td></tr><tr><td class='tl-year'>1793年</td><td>国王<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">ルイ16世</span><span class="bl" style="width:4.5em"></span></button>が処刑される</td></tr><tr><td class='tl-year'>1804年</td><td><button class="blank" type="button"><span class="bno">⑪</span><span class="ba">ナポレオン</span><span class="bl" style="width:4.5em"></span></button>が皇帝に即位する</td></tr><tr><td class='tl-year'>1814年</td><td><button class="blank" type="button"><span class="bno">⑫</span><span class="ba">ウィーン会議</span><span class="bl" style="width:5.4em"></span></button>が開かれる</td></tr><tr><td class='tl-year'>1840年</td><td>イギリスと清の間で<button class="blank" type="button"><span class="bno">⑬</span><span class="ba">アヘン戦争</span><span class="bl" style="width:4.5em"></span></button>が起こる</td></tr><tr><td class='tl-year'>1842年</td><td>清がイギリスと<button class="blank" type="button"><span class="bno">⑭</span><span class="ba">南京条約</span><span class="bl" style="width:3.6em"></span></button>を結ぶ</td></tr><tr><td class='tl-year'>1857年</td><td>インドで<button class="blank" type="button"><span class="bno">⑮</span><span class="ba">インド大反乱</span><span class="bl" style="width:5.4em"></span></button>が起こる</td></tr><tr><td class='tl-year'>1861年</td><td>ロシアで<button class="blank" type="button"><span class="bno">⑯</span><span class="ba">農奴解放令</span><span class="bl" style="width:4.5em"></span></button>が出され、同じ年にアメリカで<button class="blank" type="button"><span class="bno">⑰</span><span class="ba">南北戦争</span><span class="bl" style="width:3.6em"></span></button>が始まる</td></tr><tr><td class='tl-year'>1871年</td><td>ドイツで統一が達成され<button class="blank" type="button"><span class="bno">⑱</span><span class="ba">ドイツ帝国</span><span class="bl" style="width:4.5em"></span></button>が成立する</td></tr></table>
   </div>
 </section>
-<section class="view" data-t="2">
+<section class="view" data-t="2" data-lock="2">
   <div class="tband"><span class="tno">1</span><h2>イギリスの革命</h2><img class="wchar tchar" src="img/characters_char_pencil_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -633,8 +651,8 @@
         <div class="qa-a"><ruby>啓蒙<rt>けいもう</rt></ruby><ruby>思想<rt>しそう</rt></ruby></div>
         <div class="qa-expl">17〜18世紀のヨーロッパで広まった思想で、ロックやモンテスキューらが代表的人物。市民革命に大きな影響を与えた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -651,8 +669,8 @@
         <div class="qa-a">ロック</div>
         <div class="qa-expl">17世紀イギリスの思想家。政府が国民の権利を守らなければ国民は抵抗してよいと唱え、独立宣言に影響を与えた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -669,8 +687,8 @@
         <div class="qa-a">モンテスキュー</div>
         <div class="qa-expl">18世紀フランスの啓蒙思想家で、立法・行政・司法の三つに権力を分けることで権力の暴走を防ぐと主張した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -687,8 +705,8 @@
         <div class="qa-a">ルソー</div>
         <div class="qa-expl">18世紀フランスの啓蒙思想家で「国の政治を決める権利（主権）は国民にある」と主張し、フランス革命に大きな影響を与えた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -705,8 +723,8 @@
         <div class="qa-a">ピューリタン<ruby>革命<rt>かくめい</rt></ruby></div>
         <div class="qa-expl">クロムウェルが率いる議会派が国王軍を破り、1649年に国王チャールズ1世を処刑して一時的に共和制となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -723,8 +741,8 @@
         <div class="qa-a">クロムウェル</div>
         <div class="qa-expl">ピューリタン革命で議会派を勝利に導き、1649年の国王処刑後の共和制時代にイギリスを独裁的に指導した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -741,8 +759,8 @@
         <div class="qa-a"><ruby>名誉<rt>めいよ</rt></ruby><ruby>革命<rt>かくめい</rt></ruby></div>
         <div class="qa-expl">1688年、議会を無視して独断で政治を進める国王ジェームズ2世を議会が追放した無血革命。翌年の権利章典で議会の力が確立した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -759,8 +777,8 @@
         <div class="qa-a"><ruby>権利<rt>けんり</rt></ruby><ruby>章典<rt>しょうてん</rt></ruby></div>
         <div class="qa-expl">名誉革命の翌年1689年、国王が議会の同意なく税や法律を決められないことを明文化し、議会重視の政治の土台となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -777,8 +795,8 @@
         <div class="qa-a"><ruby>立憲<rt>りっけん</rt></ruby><ruby>君主制<rt>くんしゅせい</rt></ruby></div>
         <div class="qa-expl">国王は国の象徴として残り、実際の政治は議会と内閣が動かす仕組み。1689年の権利章典でイギリスに確立した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -795,8 +813,8 @@
         <div class="qa-a"><ruby>三権分立<rt>さんけんぶんりつ</rt></ruby></div>
         <div class="qa-expl">18世紀フランスの啓蒙思想家モンテスキューが提唱した仕組みで、権力の集中による暴走を防ぐためのもの。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -813,8 +831,8 @@
         <div class="qa-a">チャールズ1世</div>
         <div class="qa-expl">議会を無視して独断で政治を行い議会派と対立。ピューリタン革命でクロムウェルらに敗れ、1649年に処刑された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -831,8 +849,8 @@
         <div class="qa-a">ピューリタン</div>
         <div class="qa-expl">16〜17世紀イギリスのカルヴァン派プロテスタント（清教徒）の呼び名で、ピューリタン革命を主導した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -849,8 +867,8 @@
         <div class="qa-a">社会<ruby>契約<rt>けいやく</rt></ruby>説</div>
         <div class="qa-expl">国家や政府は神ではなく、国民どうしの取り決めでつくられるというロックらの考えで、近代民主政治の出発点となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -867,8 +885,8 @@
         <div class="qa-a"><ruby>抵抗権<rt>ていこうけん</rt></ruby></div>
         <div class="qa-expl">国民の権利を守らない政府には従わなくてよいというロックの主張で、アメリカ独立宣言の根拠となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -977,7 +995,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="3">
+<section class="view" data-t="3" data-lock="2">
   <div class="tband"><span class="tno">2</span><h2>アメリカの独立革命</h2><img class="wchar tchar" src="img/characters_manabi_think_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -1044,8 +1062,8 @@
         <div class="qa-a">代表なくして<ruby>課税<rt>かぜい</rt></ruby>なし</div>
         <div class="qa-expl">植民地の代表が出席していないイギリス議会で勝手に税を決められたことに反発し、独立運動の合言葉になった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1062,8 +1080,8 @@
         <div class="qa-a">ワシントン</div>
         <div class="qa-expl">独立戦争で植民地軍を率いて勝利に導き、1789年に初代大統領となった。アメリカ建国の父と呼ばれる。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1080,8 +1098,8 @@
         <div class="qa-a"><ruby>独立<rt>どくりつ</rt></ruby><ruby>宣言<rt>せんげん</rt></ruby></div>
         <div class="qa-expl">1776年にジェファソンらが起草し、生命や自由は誰もが生まれつき持つ権利だと宣言したアメリカの文書。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1098,8 +1116,8 @@
         <div class="qa-a"><ruby>独立<rt>どくりつ</rt></ruby><ruby>戦争<rt>せんそう</rt></ruby></div>
         <div class="qa-expl">1775年に始まり、フランスの支援も得て1783年にパリ条約でイギリスがアメリカの独立を承認した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1116,8 +1134,8 @@
         <div class="qa-a">ボストン<ruby>茶会<rt>ちゃかい</rt></ruby><ruby>事件<rt>じけん</rt></ruby></div>
         <div class="qa-expl">1773年、植民地の人々が茶への課税に抗議してボストン港の茶箱を海に投げ捨て、独立戦争のきっかけとなった事件。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1134,8 +1152,8 @@
         <div class="qa-a"><ruby>合衆国<rt>がっしゅうこく</rt></ruby><ruby>憲法<rt>けんぽう</rt></ruby></div>
         <div class="qa-expl">1787年制定。権力を立法・行政・司法に分け、各州が自治を保つ仕組みを文書化した初めての近代憲法。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1152,8 +1170,8 @@
         <div class="qa-a">13<ruby>植民地<rt>しょくみんち</rt></ruby></div>
         <div class="qa-expl">イギリスが建設した13植民地が独立戦争を経て1783年に独立を達成し、アメリカ合衆国が誕生した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1170,8 +1188,8 @@
         <div class="qa-a">1776年</div>
         <div class="qa-expl">1776年7月4日にジェファソンらが起草した独立宣言が発表され、この日はアメリカの独立記念日となっている。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1188,8 +1206,8 @@
         <div class="qa-a"><ruby>連邦制<rt>れんぽうせい</rt></ruby></div>
         <div class="qa-expl">各州が独自の法律や政府を持ちつつ、外交や軍事はまとめ役の連邦政府が担う仕組み。1787年の合衆国憲法で定められた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1206,8 +1224,8 @@
         <div class="qa-a">ロック</div>
         <div class="qa-expl">17世紀イギリスの思想家。生命や自由は生まれつきの権利で、政府が守らなければ抵抗してよいと主張した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1332,7 +1350,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="4">
+<section class="view" data-t="4" data-lock="2">
   <div class="tband"><span class="tno">3</span><h2>フランス革命</h2><img class="wchar tchar" src="img/characters_char_neko_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -1399,8 +1417,8 @@
         <div class="qa-a">フランス<ruby>革命<rt>かくめい</rt></ruby></div>
         <div class="qa-expl">1789年7月14日のバスティーユ牢獄襲撃をきっかけに始まり、絶対王政を打倒して国王ルイ16世を処刑した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1417,8 +1435,8 @@
         <div class="qa-a"><ruby>人権<rt>じんけん</rt></ruby><ruby>宣言<rt>せんげん</rt></ruby></div>
         <div class="qa-expl">1789年に国民議会が発表し、「人は生まれながらにして自由で平等な権利を持つ」と宣言したフランス革命の基本文書。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1435,8 +1453,8 @@
         <div class="qa-a">バスティーユ<ruby>牢獄<rt>ろうごく</rt></ruby></div>
         <div class="qa-expl">1789年7月14日、パリ市民が専制の象徴であったバスティーユ牢獄を襲撃し、フランス革命の始まりを象徴する事件となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1453,8 +1471,8 @@
         <div class="qa-a"><ruby>第三身分<rt>だいさんみぶん</rt></ruby></div>
         <div class="qa-expl">聖職者（第一身分）や貴族（第二身分）が税を免除される一方、第三身分の平民だけが重い税を負担し革命の原動力となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1471,8 +1489,8 @@
         <div class="qa-a">ルイ16<ruby>世<rt>せい</rt></ruby></div>
         <div class="qa-expl">フランス革命前の絶対王政の象徴で、王妃マリ＝アントワネットとともに1793年にギロチンで処刑された国王。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1489,8 +1507,8 @@
         <div class="qa-a">ナポレオン</div>
         <div class="qa-expl">1804年に皇帝に即位し、ヨーロッパの大部分を征服してナポレオン法典を制定したフランスの軍人・政治家。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1507,8 +1525,8 @@
         <div class="qa-a">ナポレオン<ruby>法典<rt>ほうてん</rt></ruby></div>
         <div class="qa-expl">1804年に作られた民法。一人ひとりの自由や財産を守ることを定め、その後の各国の法律にも影響を与えた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1525,8 +1543,8 @@
         <div class="qa-a"><ruby>三部会<rt>さんぶかい</rt></ruby></div>
         <div class="qa-expl">聖職者・貴族・平民の代表を集める身分別の議会。財政難のルイ16世が1789年に呼び集め、革命の発端となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1543,8 +1561,8 @@
         <div class="qa-a">ウィーン<ruby>会議<rt>かいぎ</rt></ruby></div>
         <div class="qa-expl">ナポレオン失脚後の1814〜15年に開かれた国際会議で、革命前のヨーロッパの秩序に戻すことを目的とした。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1561,8 +1579,8 @@
         <div class="qa-a"><ruby>絶対<rt>ぜったい</rt></ruby><ruby>王政<rt>おうせい</rt></ruby></div>
         <div class="qa-expl">国王が議会や法律に従わず、税や法を一人で決められる政治のしくみ。ルイ14世やルイ16世の時代のフランスが典型。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1579,8 +1597,8 @@
         <div class="qa-a"><ruby>第一身分<rt>だいいちみぶん</rt></ruby></div>
         <div class="qa-expl">フランス革命前の身分制で聖職者を指し、貴族とともに税を免除された特権階級の一つだった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1597,8 +1615,8 @@
         <div class="qa-a"><ruby>第二身分<rt>だいにみぶん</rt></ruby></div>
         <div class="qa-expl">フランス革命前の身分制で貴族を指し、聖職者とともに税を免除された特権階級の一つだった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1615,8 +1633,8 @@
         <div class="qa-a">1789年</div>
         <div class="qa-expl">1789年7月14日、パリ市民によるバスティーユ牢獄襲撃をきっかけにフランス革命が始まった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1633,8 +1651,8 @@
         <div class="qa-a">自由・平等・<ruby>友愛<rt>ゆうあい</rt></ruby></div>
         <div class="qa-expl">1789年のフランス革命の理念を表すスローガンで、後にフランス共和国の標語にもなり広く知られる。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1759,7 +1777,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="5">
+<section class="view" data-t="5" data-lock="2">
   <div class="tband"><span class="tno">4</span><h2>ヨーロッパの国民意識の高まり</h2><img class="wchar tchar" src="img/characters_char_owl_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -1826,8 +1844,8 @@
         <div class="qa-a"><ruby>国民<rt>こくみん</rt></ruby><ruby>国家<rt>こっか</rt></ruby></div>
         <div class="qa-expl">19世紀のヨーロッパでナショナリズムとともに広まった国家の形で、ドイツやイタリアの統一につながった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1844,8 +1862,8 @@
         <div class="qa-a">ビスマルク</div>
         <div class="qa-expl">プロイセンの首相として軍備と戦争による強力な指導力でドイツ統一を進め、1871年にドイツ帝国を成立させた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1862,8 +1880,8 @@
         <div class="qa-a"><ruby>鉄血<rt>てっけつ</rt></ruby><ruby>政策<rt>せいさく</rt></ruby></div>
         <div class="qa-expl">プロイセン首相ビスマルクが「現在の大問題は鉄と血によって解決される」と演説して進めた軍事力重視の統一政策。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1880,8 +1898,8 @@
         <div class="qa-a"><ruby>男性<rt>だんせい</rt></ruby><ruby>普通<rt>ふつう</rt></ruby><ruby>選挙<rt>せんきょ</rt></ruby></div>
         <div class="qa-expl">19世紀のフランスで実現した選挙制度で、財産による制限を撤廃し成年男性全員に選挙権を与えた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1898,8 +1916,8 @@
         <div class="qa-a">ナショナリズム</div>
         <div class="qa-expl">フランス革命を機に19世紀ヨーロッパで高まった思想で、ドイツやイタリアなどの国民国家形成の原動力となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1916,8 +1934,8 @@
         <div class="qa-a"><ruby>中南米<rt>ちゅうなんべい</rt></ruby>の<ruby>独立<rt>どくりつ</rt></ruby></div>
         <div class="qa-expl">ナポレオン戦争によるヨーロッパの混乱に乗じ、19世紀前半に中南米のスペイン・ポルトガル植民地が独立を達成した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1934,8 +1952,8 @@
         <div class="qa-a">プロイセン</div>
         <div class="qa-expl">19世紀のドイツ北部の有力国で、首相ビスマルクの指導と鉄血政策のもと1871年にドイツ統一を達成した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1952,8 +1970,8 @@
         <div class="qa-a">1871年</div>
         <div class="qa-expl">1871年、首相ビスマルクの鉄血政策のもとでプロイセンを中心にドイツが統一され、ドイツ帝国が成立した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1970,8 +1988,8 @@
         <div class="qa-a">ドイツ<ruby>帝国<rt>ていこく</rt></ruby></div>
         <div class="qa-expl">1871年、ビスマルクの主導でドイツ統一が達成され、プロイセン国王がドイツ皇帝となってドイツ帝国が成立した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1988,8 +2006,8 @@
         <div class="qa-a"><ruby>徴兵制<rt>ちょうへいせい</rt></ruby></div>
         <div class="qa-expl">「国を守るのは国民の務め」という考えのもと、成年男子を一定期間軍に集める制度。19世紀のヨーロッパで広まった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2006,8 +2024,8 @@
         <div class="qa-a"><ruby>二大<rt>にだい</rt></ruby><ruby>政党制<rt>せいとうせい</rt></ruby></div>
         <div class="qa-expl">19世紀のイギリスで発展した政治の仕組みで、保守党と自由党が議会で政策を競い交互に政権を担当した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2024,8 +2042,8 @@
         <div class="qa-a">自由<ruby>主義<rt>しゅぎ</rt></ruby></div>
         <div class="qa-expl">個人の自由や権利を重視する政治思想で、ナショナリズムとともに19世紀のヨーロッパで広まった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2134,7 +2152,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="6">
+<section class="view" data-t="6" data-lock="2">
   <div class="tband"><span class="tno">5</span><h2>ロシアの拡大と発展</h2><img class="wchar tchar" src="img/characters_manabi_ok_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -2201,8 +2219,8 @@
         <div class="qa-a"><ruby>南下<rt>なんか</rt></ruby><ruby>政策<rt>せいさく</rt></ruby></div>
         <div class="qa-expl">19世紀のロシアが冬でも凍らない不凍港を求め、黒海や地中海・東アジアへの進出を目指した拡大政策。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2219,8 +2237,8 @@
         <div class="qa-a"><ruby>不凍港<rt>ふとうこう</rt></ruby></div>
         <div class="qa-expl">冬でも凍らず一年中使える港のことで、19世紀のロシアが南下政策で獲得を目指した重要な戦略拠点。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2237,8 +2255,8 @@
         <div class="qa-a"><ruby>農奴<rt>のうど</rt></ruby><ruby>解放令<rt>かいほうれい</rt></ruby></div>
         <div class="qa-expl">1861年にアレクサンドル2世が出した命令で、地主に隷属する農奴を解放しロシア近代化改革の第一歩となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2255,8 +2273,8 @@
         <div class="qa-a">オスマン<ruby>帝国<rt>ていこく</rt></ruby></div>
         <div class="qa-expl">トルコを中心とするイスラム帝国で、ロシアの南下政策を阻止するためイギリス・フランスと協力して対立した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2273,8 +2291,8 @@
         <div class="qa-a">シベリア<ruby>鉄道<rt>てつどう</rt></ruby></div>
         <div class="qa-expl">19世紀末からロシアが建設した大陸横断鉄道で、東方進出と極東の支配を強める目的で敷設された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2291,8 +2309,8 @@
         <div class="qa-a">アレクサンドル2<ruby>世<rt>せい</rt></ruby></div>
         <div class="qa-expl">1861年に農奴解放令を出したロシア皇帝で、ヨーロッパに比べて遅れていたロシアの近代化改革を推進した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2309,8 +2327,8 @@
         <div class="qa-a">イギリス</div>
         <div class="qa-expl">19世紀の世界の覇権国イギリスは、ロシアの南下政策によってインドへの通商路を脅かされることを恐れて警戒した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2327,8 +2345,8 @@
         <div class="qa-a"><ruby>農奴<rt>のうど</rt></ruby></div>
         <div class="qa-expl">ロシアで地主に隷属し自由のなかった農民で、1861年の農奴解放令により解放されたが実質的な自由は限定的だった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2345,8 +2363,8 @@
         <div class="qa-a">1861年</div>
         <div class="qa-expl">1861年、アレクサンドル2世が農奴解放令を出し、ロシア近代化改革の第一歩として地主に隷属する農奴を解放した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2363,8 +2381,8 @@
         <div class="qa-a">ツァーリ</div>
         <div class="qa-expl">ロシア皇帝の称号。議会や憲法に従わず、税や法律を一人で決められる強い権力を握ってロシアを統治した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2457,7 +2475,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="7">
+<section class="view" data-t="7" data-lock="2">
   <div class="tband"><span class="tno">6</span><h2>アメリカの拡大と発展</h2><img class="wchar tchar" src="img/characters_manabi_point_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -2524,8 +2542,8 @@
         <div class="qa-a"><ruby>南北<rt>なんぼく</rt></ruby><ruby>戦争<rt>せんそう</rt></ruby></div>
         <div class="qa-expl">1861〜1865年、奴隷制と貿易政策をめぐる対立が原因で、工業力に勝る北部の勝利に終わった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2542,8 +2560,8 @@
         <div class="qa-a">リンカン</div>
         <div class="qa-expl">第16代大統領で、南北戦争中に奴隷解放宣言を出し、1863年のゲティスバーグ演説でも有名。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2560,8 +2578,8 @@
         <div class="qa-a"><ruby>奴隷<rt>どれい</rt></ruby><ruby>解放<rt>かいほう</rt></ruby><ruby>宣言<rt>せんげん</rt></ruby></div>
         <div class="qa-expl">1863年、南北戦争中にリンカンが南部の奴隷の解放を宣言し、国際世論を北部に引き寄せた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2578,8 +2596,8 @@
         <div class="qa-a"><ruby>保護<rt>ほご</rt></ruby><ruby>貿易<rt>ぼうえき</rt></ruby></div>
         <div class="qa-expl">工業中心の北部が支持した政策で、輸入品に高い関税をかけて国内産業を育てる仕組み。19世紀のアメリカで採用された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2596,8 +2614,8 @@
         <div class="qa-a">自由<ruby>貿易<rt>ぼうえき</rt></ruby></div>
         <div class="qa-expl">プランテーションの綿花をイギリスに輸出する南部が支持した政策で、関税を低く抑えた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2614,8 +2632,8 @@
         <div class="qa-a"><ruby>綿花<rt>めんか</rt></ruby></div>
         <div class="qa-expl">黒人奴隷の労働によるプランテーションで栽培され、イギリスの綿織物工業に輸出されて南部経済を支えた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2632,8 +2650,8 @@
         <div class="qa-a">ゲティスバーグ<ruby>演説<rt>えんぜつ</rt></ruby></div>
         <div class="qa-expl">1863年、南北戦争中の戦没者墓地で行われた演説で、民主主義の理念を表す言葉として広く知られる。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2650,8 +2668,8 @@
         <div class="qa-a">1861年</div>
         <div class="qa-expl">奴隷制反対のリンカンの大統領就任をきっかけに南部諸州が合衆国を離脱し、内戦となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2668,8 +2686,8 @@
         <div class="qa-a">1863年</div>
         <div class="qa-expl">南北戦争中の1863年、リンカンが南部の奴隷を解放すると宣言し、戦局を北部有利に変えた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2686,8 +2704,8 @@
         <div class="qa-a">プランテーション</div>
         <div class="qa-expl">アメリカ南部で黒人奴隷の労働により綿花などを大量栽培した大規模農園経営で、南部経済の柱となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2704,8 +2722,8 @@
         <div class="qa-a"><ruby>先住民<rt>せんじゅうみん</rt></ruby></div>
         <div class="qa-expl">ヨーロッパからの移民による西部開拓で、もともと住んでいた先住民は土地を奪われ強制移住させられた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2814,7 +2832,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="8">
+<section class="view" data-t="8" data-lock="2">
   <div class="tband"><span class="tno">7</span><h2>産業革命と資本主義</h2><img class="wchar tchar" src="img/characters_char_pencil_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -2881,8 +2899,8 @@
         <div class="qa-a"><ruby>産業<rt>さんぎょう</rt></ruby><ruby>革命<rt>かくめい</rt></ruby></div>
         <div class="qa-expl">18世紀後半にイギリスの綿織物工業から始まり、蒸気機関の改良により世界中に広がった社会・経済の大変革。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2899,8 +2917,8 @@
         <div class="qa-a">ワット</div>
         <div class="qa-expl">18世紀後半のイギリスの技術者で、蒸気機関を改良して工場の動力や交通機関に応用し、産業革命を推進した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2917,8 +2935,8 @@
         <div class="qa-a"><ruby>蒸気<rt>じょうき</rt></ruby><ruby>機関<rt>きかん</rt></ruby></div>
         <div class="qa-expl">18世紀後半にワットが改良し、工場の機械や蒸気機関車・蒸気船の動力となって産業革命を支えた装置。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2935,8 +2953,8 @@
         <div class="qa-a"><ruby>世界<rt>せかい</rt></ruby>の<ruby>工場<rt>こうじょう</rt></ruby></div>
         <div class="qa-expl">19世紀のイギリスは産業革命で圧倒的な工業力を持ち、工業製品を世界中に輸出して世界経済の中心となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2953,8 +2971,8 @@
         <div class="qa-a"><ruby>資本<rt>しほん</rt></ruby><ruby>主義<rt>しゅぎ</rt></ruby></div>
         <div class="qa-expl">工場や機械を持つお金持ちが、給料を払って人を雇い、商品を売って利益を得るしくみ。産業革命で広まった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2971,8 +2989,8 @@
         <div class="qa-a"><ruby>資本家<rt>しほんか</rt></ruby></div>
         <div class="qa-expl">工場や機械を自分で持ち、人を雇って商品を作らせて利益を得る経済力のある人々。産業革命で生まれた階級。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2989,8 +3007,8 @@
         <div class="qa-a"><ruby>労働<rt>ろうどう</rt></ruby><ruby>組合<rt>くみあい</rt></ruby></div>
         <div class="qa-expl">産業革命後のイギリスで、長時間労働や低賃金など過酷な労働条件に対抗するため労働者が結成した団体。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3007,8 +3025,8 @@
         <div class="qa-a"><ruby>蒸気<rt>じょうき</rt></ruby><ruby>機関車<rt>きかんしゃ</rt></ruby></div>
         <div class="qa-expl">19世紀前半にイギリスのスティーブンソンが実用化し、鉄道網の整備とともに交通革命を引き起こした。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3025,8 +3043,8 @@
         <div class="qa-a"><ruby>綿織物<rt>めんおりもの</rt></ruby><ruby>工業<rt>こうぎょう</rt></ruby></div>
         <div class="qa-expl">18世紀後半のイギリスで紡績機や力織機の発明により大量生産が可能となり、産業革命の出発点となった分野。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3043,8 +3061,8 @@
         <div class="qa-a">社会<ruby>主義<rt>しゅぎ</rt></ruby></div>
         <div class="qa-expl">19世紀にマルクスらが唱えた思想。資本主義の貧富の差を批判し、働く人々が平等に暮らせる社会を目指した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3061,8 +3079,8 @@
         <div class="qa-a">マルクス</div>
         <div class="qa-expl">19世紀ドイツの思想家。『資本論』で資本主義の問題点を分析し、働く人々が平等な社会を目指す社会主義を理論にまとめた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3079,8 +3097,8 @@
         <div class="qa-a"><ruby>工場制<rt>こうじょうせい</rt></ruby><ruby>機械<rt>きかい</rt></ruby><ruby>工業<rt>こうぎょう</rt></ruby></div>
         <div class="qa-expl">18世紀後半の産業革命で広まった新しい生産方式で、工場に機械を設置し賃金労働者を雇って大量生産を行った。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3097,8 +3115,8 @@
         <div class="qa-a">スティーブンソン</div>
         <div class="qa-expl">19世紀前半のイギリスの技術者で、蒸気機関車を実用化して鉄道網の発展に貢献し、交通革命を推進した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3115,8 +3133,8 @@
         <div class="qa-a">18<ruby>世紀<rt>せいき</rt></ruby>後半</div>
         <div class="qa-expl">18世紀後半、イギリスの綿織物工業から産業革命が始まり、蒸気機関の改良を経て世界に広がった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3241,7 +3259,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="9">
+<section class="view" data-t="9" data-lock="2">
   <div class="tband"><span class="tno">8</span><h2>欧米のアジア侵略</h2><img class="wchar tchar" src="img/characters_manabi_think_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -3308,8 +3326,8 @@
         <div class="qa-a">アヘン<ruby>戦争<rt>せんそう</rt></ruby></div>
         <div class="qa-expl">1840〜42年、清によるアヘン密輸取り締まりへの報復としてイギリスが起こした戦争で、清が敗北し南京条約を結ばされた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3326,8 +3344,8 @@
         <div class="qa-a"><ruby>三角<rt>さんかく</rt></ruby><ruby>貿易<rt>ぼうえき</rt></ruby></div>
         <div class="qa-expl">19世紀にイギリスがインドに綿織物、インドが清にアヘン、清がイギリスに茶を輸出した三国間の貿易の仕組み。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3344,8 +3362,8 @@
         <div class="qa-a"><ruby>南京<rt>ナンキン</rt></ruby><ruby>条約<rt>じょうやく</rt></ruby></div>
         <div class="qa-expl">1842年、アヘン戦争後に清がイギリスと結んだ不平等条約で、香港割譲・上海など5港の開港・関税自主権の喪失を定めた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3362,8 +3380,8 @@
         <div class="qa-a"><ruby>関税<rt>かんぜい</rt></ruby><ruby>自主権<rt>じしゅけん</rt></ruby></div>
         <div class="qa-expl">輸入品にかける税率を自国で決められる権利のことで、清は1842年の南京条約でこの権利を失い不利益を被った。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3380,8 +3398,8 @@
         <div class="qa-a"><ruby>領事<rt>りょうじ</rt></ruby><ruby>裁判権<rt>さいばんけん</rt></ruby></div>
         <div class="qa-expl">外国人が罪を犯しても、その国の法律ではなく外国側の役人が外国の法律で裁ける権利。清は南京条約でイギリスに認めた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3398,8 +3416,8 @@
         <div class="qa-a"><ruby>香港<rt>ホンコン</rt></ruby></div>
         <div class="qa-expl">中国南部の港湾都市で、1842年の南京条約でイギリスに割譲され、1997年まで約150年間イギリスの植民地となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3416,8 +3434,8 @@
         <div class="qa-a">インド<ruby>大反乱<rt>だいはんらん</rt></ruby></div>
         <div class="qa-expl">1857年、イギリス支配に反発しインド人傭兵セポイから始まった大規模反乱で、鎮圧後イギリスの直接統治が強化された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3434,8 +3452,8 @@
         <div class="qa-a">アヘン</div>
         <div class="qa-expl">19世紀にイギリスがインドから清に密輸した麻薬で、清で中毒者が急増し社会問題となりアヘン戦争の原因となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3452,8 +3470,8 @@
         <div class="qa-a">不平等<ruby>条約<rt>じょうやく</rt></ruby></div>
         <div class="qa-expl">一方の国だけに不利な条件を押しつけた条約。税率を自由に決められない・外国人を自国の法で裁けない例が多い。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3470,8 +3488,8 @@
         <div class="qa-a"><ruby>清<rt>しん</rt></ruby></div>
         <div class="qa-expl">17世紀から続いた中国の王朝で、1840年のアヘン戦争に敗れ南京条約で香港を割譲するなど不平等条約を結ばされた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3488,8 +3506,8 @@
         <div class="qa-a"><ruby>太平天国<rt>たいへいてんごく</rt></ruby>の<ruby>乱<rt>らん</rt></ruby></div>
         <div class="qa-expl">1851年に洪秀全が起こした清の大規模農民反乱で、アヘン戦争後の社会的混乱の中で清の支配を揺るがした。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3506,8 +3524,8 @@
         <div class="qa-a">1840年</div>
         <div class="qa-expl">1840年、清によるアヘン密輸取り締まりへの報復としてイギリスがアヘン戦争を起こし、1842年の南京条約で清が敗れた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3524,8 +3542,8 @@
         <div class="qa-a">セポイの<ruby>反乱<rt>はんらん</rt></ruby></div>
         <div class="qa-expl">1857年のインド大反乱の別名で、イギリスに雇われたインド人傭兵セポイから反乱が始まりインド全土に広がった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3665,6 +3683,14 @@
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
 </div></div>
+<div class="lock-ov" id="lockOv" hidden><div class="lock-card">
+  <div class="lock-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+  <div class="lock-t">つづきは購入者向けです</div>
+  <div class="lock-d">ここまでは無料でためせます。つづきを解くには、つづもんのライセンスが必要です。</div>
+  <button class="lock-btn lb-line" id="lockLogin">LINEでログイン（購入者の方）</button>
+  <a class="lock-btn lb-buy" href="../../index.html">つづもんを見てみる →</a>
+  <button class="lock-close" id="lockClose">とじる（ここまで解く）</button>
+</div></div>
 
 <script type="module">
 // 記述AI採点のログイン（www.chatstudy.jp の LINE Login＝Firebase Auth。参考書ページと同じ）。
@@ -3687,9 +3713,24 @@ try {
       location.href = '/welcome?next=' + encodeURIComponent(location.pathname + location.hash);
     },
   };
+  var ENTITLEMENT_API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/tsudumonEntitlement';
+  async function refreshEntitlement(u) {
+    try {
+      var idToken = await u.getIdToken();
+      var res = await fetch(ENTITLEMENT_API, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ idToken: idToken }),
+      });
+      if (!res.ok) return;
+      var data = await res.json();
+      try { localStorage.setItem('tzm-lic', JSON.stringify((data && data.grades) || [])); } catch (e) {}
+      if (window.tzmRefreshGate) window.tzmRefreshGate();
+    } catch (e) { /* localStorage フォールバックのまま */ }
+  }
   onAuthStateChanged(auth, function (u) {
     window.__tzmAuth.user = u;
     window.__tzmAuth.ready = true;
+    if (u) refreshEntitlement(u);
     document.dispatchEvent(new CustomEvent('tzm-auth'));
   });
 } catch (e) { /* 設定が無ければ採点はフォールバック（自己採点）に倒れる */ }
@@ -3699,6 +3740,7 @@ try {
 (function () {
   var KEY = 'tzmwb-09';
   var CH = '09';
+  var GRADE = '中2';        // この本の学年（中1/中2/中3）
   var GRADE_API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/gradeWritten';      // 記述AI採点 Cloud Function
   var REF_VIEWS = [0, 0, 1, 2, 3, 4, 5, 6, 7, 8];        // 問題集のビューt → 参考書の単元番号（0＝対応なし）
   var views = [].slice.call(document.querySelectorAll('.view'));
@@ -3738,7 +3780,7 @@ try {
     try { if (localStorage.getItem('tzmhint') === '1') return; } catch (e) { return; }
     var canHover = window.matchMedia && window.matchMedia('(hover:hover)').matches;
     bar.textContent = canHover ? '⌨️ ← → キーでもページをめくれるよ'
-                               : '👆 よこにスワイプでもページをめくれるよ';
+                               : 'よこにスワイプでもページをめくれるよ';
     var shown = false;
     window.showHint = function () {
       if (shown || state.t === 0) return;
@@ -3943,7 +3985,7 @@ try {
   function showJudged(scopeEl, ok) {
     var banner = scopeEl.querySelector('.b-result');
     if (banner) {
-      banner.textContent = ok ? '⭕ せいかい！' : '❌ おしい！';
+      banner.textContent = ok ? 'せいかい！' : 'おしい！';
       banner.className = 'b-result ' + (ok ? 'ok' : 'ng');
     }
     scopeEl.classList.add('show');
@@ -4108,7 +4150,7 @@ try {
       pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
       document.getElementById('btnPrev').textContent = s === 0 ? '目次へ' : '← まえへ';
       var next = document.getElementById('btnNext');
-      if (onModeStep && steps.length === 1) next.textContent = '⭐ おすすめ順で始める →';
+      if (onModeStep && steps.length === 1) next.textContent = 'おすすめ順で始める →';
       else if (s < steps.length - 1) next.textContent = 'つぎへ →';
       else next.textContent = t < N ? '次の単元へ →' : '目次にもどる';
       if (steps[s] && steps[s].classList.contains('done-step')) renderScore(views[t]);
@@ -4154,12 +4196,32 @@ try {
     } else { btn.hidden = true; }
   }
 
+  // ── 教材ゲート（中間案・ゆるめ「頭出しは見せる」）──
+  //   有料単元はやり方えらぶ＋要点まとめまで誰でも試せる。その先は購入者（この学年）だけ。
+  function isLicensed() {
+    try { return (JSON.parse(localStorage.getItem('tzm-lic') || '[]')).indexOf(GRADE) >= 0; }
+    catch (e) { return false; }
+  }
+  function lockFrom(t) { var v = views[t]; return v ? +(v.getAttribute('data-lock') || 0) : 0; }
+  function gateBlocks(t, s) { var lk = lockFrom(t); return lk > 0 && !isLicensed() && s >= lk; }
+  function showLock() { var ov = document.getElementById('lockOv'); if (ov) ov.hidden = false; }
+  function hideLock() { var ov = document.getElementById('lockOv'); if (ov) ov.hidden = true; }
+  window.tzmRefreshGate = function () { if (isLicensed()) hideLock(); };
+
   function go(t, s, dir) {
     lastDir = dir || 1;
     state.t = Math.max(0, Math.min(N, t));
     state.s = Math.max(0, s || 0);
-    if (state.t > 0) state.s = Math.min(state.s, stepsOf(state.t).length - 1);
-    else state.s = 0;
+    if (state.t > 0) {
+      state.s = Math.min(state.s, stepsOf(state.t).length - 1);
+      if (gateBlocks(state.t, state.s)) {
+        state.s = Math.max(0, lockFrom(state.t) - 1);
+        render();
+        showLock();
+        return;
+      }
+    } else state.s = 0;
+    hideLock();
     render();
   }
   // ── 未回答ガード: 問題(一問一答/4択/記述)に答えるまで「つぎへ」で先に進めない ──
@@ -4203,6 +4265,11 @@ try {
     else go(0, 0, -1);
   }
 
+  document.getElementById('lockLogin').addEventListener('click', function () {
+    var here = location.pathname + '#t' + state.t + (state.s > 0 ? 's' + state.s : '');
+    location.href = '../../login/?next=' + encodeURIComponent(here);
+  });
+  document.getElementById('lockClose').addEventListener('click', hideLock);
   document.getElementById('btnNext').addEventListener('click', next);
   document.getElementById('btnPrev').addEventListener('click', prev);
   // 回答するとロックを解除（回答処理の後に評価するため click は次tickで）
@@ -4325,7 +4392,7 @@ try {
       var istep = idk.closest('.qa-step');
       showJudged(istep, false);
       var bn = istep.querySelector('.b-result');
-      if (bn) { bn.textContent = '👇 こたえはこちら。次はきっと書けるよ！'; bn.className = 'b-result ng'; }
+      if (bn) { bn.textContent = 'こたえはこちら。次はきっと書けるよ！'; bn.className = 'b-result ng'; }
       var stI = store(); stI.r = stI.r || {};
       stI.r[istep.dataset.qid] = 0;
       save(stI);

@@ -117,11 +117,12 @@
   .home-topline { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:2px; }
   .hometop { display:flex; align-items:flex-start; gap:6px; padding:8px 2px 2px; text-align:left; }
   .ht-main { flex:1; min-width:0; text-align:center; }
-  .badge3 { display:inline-flex; border-radius:18px; overflow:hidden; font-size:12px; font-weight:bold;
-            box-shadow:0 2px 4px rgba(120,80,20,.2); }
-  .badge3 span { padding:4px 11px; display:inline-flex; align-items:center; white-space:nowrap; }
-  .b-vol { background:var(--brand); color:#fff; }
-  .b-kind { background:#fff; color:var(--deep); }
+  /* 本のラベル（押せない表示）: トグルに見えないようフラットな1トーンのタグに */
+  .badge3 { display:inline-flex; align-items:center; gap:6px; border-radius:8px;
+            background:#f4ecdb; padding:3px 10px; font-size:11.5px; font-weight:bold; }
+  .badge3 span { padding:0; display:inline-flex; align-items:center; white-space:nowrap; }
+  .b-vol { color:var(--brand); }
+  .b-kind { color:#9a7b4f; }
   .b-web { background:var(--amber); color:#fff; }
   .ht-title { font-size:41px; color:var(--deep); margin:12px 0 0; line-height:1.12; position:relative;
               display:inline-block; padding:0 6px; letter-spacing:.01em; }
@@ -443,6 +444,23 @@
   .foot-note { margin-top:4px; font-size:12px; }
 
   /* ── 下部ナビ ── */
+  /* 教材ゲートのロック案内（頭出しの先） */
+  .lock-ov { position:fixed; inset:0; z-index:40; background:rgba(60,40,15,.5);
+             display:flex; align-items:center; justify-content:center; padding:20px; }
+  .lock-ov[hidden] { display:none; }
+  .lock-card { width:100%; max-width:360px; background:#fff; border-radius:18px; padding:24px 20px 18px;
+               text-align:center; box-shadow:0 10px 30px rgba(0,0,0,.3); }
+  .lock-ic svg { width:34px; height:34px; }
+  .lock-ic { font-size:40px; }
+  .lock-t { font-size:18px; font-weight:bold; color:var(--deep); margin:6px 0 6px; }
+  .lock-d { font-size:13px; color:#78716c; line-height:1.8; margin-bottom:16px; }
+  .lock-btn { display:block; width:100%; margin-top:10px; border:none; border-radius:13px; padding:13px;
+              font-size:15px; font-weight:bold; text-decoration:none; cursor:pointer; font-family:inherit; }
+  .lb-line { background:#06c755; color:#fff; box-shadow:0 3px 8px rgba(6,199,85,.3); }
+  .lb-buy { background:#fff; color:var(--brand); border:1.5px solid var(--line); }
+  .lock-close { display:block; width:100%; margin-top:12px; background:none; border:none; cursor:pointer;
+                color:#a8a29e; font-size:12.5px; font-family:inherit; text-decoration:underline; }
+
   .navbar { position:fixed; left:0; right:0; bottom:0; z-index:10;
             background:rgba(255,253,248,.97); border-top:1px solid #f0e6d2;
             padding:10px 16px calc(10px + env(safe-area-inset-bottom)); }
@@ -546,12 +564,12 @@
   <nav class="toc">
     <div class="toc-head">
       <div class="toc-h">単元を選択</div>
-      <button class="toc-cal" data-go="1">📅 年表でチェック<span class="cal-go">›</span></button>
+      <button class="toc-cal" data-go="1">年表でチェック<span class="cal-go">›</span></button>
     </div>
     <button class="toc-item" data-go="2"><img class="toc-thumb" src="img/reference_hist03-jomon.webp" alt="" loading="lazy"><span class="toc-no">1</span><span class="toc-name">旧石器時代と縄文時代</span><span class="toc-state" data-state-t="2"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="3"><img class="toc-thumb" src="img/reference_hist03-yayoi.webp" alt="" loading="lazy"><span class="toc-no">2</span><span class="toc-name">弥生時代</span><span class="toc-state" data-state-t="3"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="4"><img class="toc-thumb" src="img/reference_hist03-kofun.webp" alt="" loading="lazy"><span class="toc-no">3</span><span class="toc-name">古墳時代と大和政権</span><span class="toc-state" data-state-t="4"></span><span class="toc-arrow">›</span></button>
   </nav>
   <a class="big-btn ref-btn" href="../../ref/03/index.html">参考書を開く</a>
-  <button class="big-btn print-btn" type="button" onclick="window.print()">🖨 紙に印刷して解く（解答つき）</button>
+  <button class="big-btn print-btn" type="button" onclick="window.print()">紙に印刷して解く（解答つき）</button>
   
   <footer class="foot">
     <div>つづもん 問題集</div>
@@ -566,7 +584,7 @@
     <table class="tl-table"><tr><th class="tl-year">年代</th><th>できごと</th></tr><tr><td class='tl-year'>氷期(氷河時代)</td><td>大陸と陸続きになった日本列島に、大型動物の<button class="blank" type="button"><span class="bno">①</span><span class="ba">ナウマンゾウ</span><span class="bl" style="width:5.4em"></span></button>などが渡ってきた</td></tr><tr><td class='tl-year'>旧石器時代</td><td>群馬県の<button class="blank" type="button"><span class="bno">②</span><span class="ba">岩宿遺跡</span><span class="bl" style="width:3.6em"></span></button>で打製石器が発見され、日本にも旧石器時代があったことが証明された</td></tr><tr><td class='tl-year'>約1万年前</td><td>気候が温暖になり海面が上昇して日本列島が大陸から切り離され、<button class="blank" type="button"><span class="bno">③</span><span class="ba">縄文時代</span><span class="bl" style="width:3.6em"></span></button>が始まった</td></tr><tr><td class='tl-year'>縄文時代</td><td>人々は地面を掘り下げた<button class="blank" type="button"><span class="bno">④</span><span class="ba">たて穴住居</span><span class="bl" style="width:4.5em"></span></button>に住み、祈りのために<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">土偶</span><span class="bl" style="width:2.7em"></span></button>を作った</td></tr><tr><td class='tl-year'>紀元前4世紀ごろ</td><td>大陸から九州北部に<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">稲作</span><span class="bl" style="width:2.7em"></span></button>が伝わり、弥生時代が始まった</td></tr><tr><td class='tl-year'>弥生時代</td><td>収穫した稲を湿気やねずみから守るために<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">高床倉庫</span><span class="bl" style="width:3.6em"></span></button>が造られた</td></tr><tr><td class='tl-year'>1世紀</td><td><button class="blank" type="button"><span class="bno">⑧</span><span class="ba">奴国</span><span class="bl" style="width:2.7em"></span></button>の王が後漢の皇帝から<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">金印</span><span class="bl" style="width:2.7em"></span></button>を授かった</td></tr><tr><td class='tl-year'>3世紀ごろ</td><td>邪馬台国の女王<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">卑弥呼</span><span class="bl" style="width:2.7em"></span></button>が魏に使いを送り、<button class="blank" type="button"><span class="bno">⑪</span><span class="ba">親魏倭王</span><span class="bl" style="width:3.6em"></span></button>の称号を得た</td></tr><tr><td class='tl-year'>3世紀後半</td><td>近畿地方を中心に<button class="blank" type="button"><span class="bno">⑫</span><span class="ba">大和政権</span><span class="bl" style="width:3.6em"></span></button>が成立した</td></tr><tr><td class='tl-year'>古墳時代</td><td>大王や豪族の力を示す<button class="blank" type="button"><span class="bno">⑬</span><span class="ba">前方後円墳</span><span class="bl" style="width:4.5em"></span></button>が各地に造られた</td></tr><tr><td class='tl-year'>5世紀</td><td>中国の南朝に使いを送った倭の五王の記録が中国の歴史書『<button class="blank" type="button"><span class="bno">⑭</span><span class="ba">宋書</span><span class="bl" style="width:2.7em"></span></button>』に残された</td></tr><tr><td class='tl-year'>5世紀後半</td><td><button class="blank" type="button"><span class="bno">⑮</span><span class="ba">ワカタケル大王</span><span class="bl" style="width:6.3em"></span></button>の名が刻まれた鉄剣・鉄刀が稲荷山古墳と江田船山古墳から出土した</td></tr><tr><td class='tl-year'>古墳時代</td><td>大陸から移り住んだ<button class="blank" type="button"><span class="bno">⑯</span><span class="ba">渡来人</span><span class="bl" style="width:2.7em"></span></button>が須恵器や漢字などの技術・文化を伝えた</td></tr><tr><td class='tl-year'>6世紀半ば</td><td>渡来人によって百済から日本へ<button class="blank" type="button"><span class="bno">⑰</span><span class="ba">仏教</span><span class="bl" style="width:2.7em"></span></button>が伝えられた</td></tr></table>
   </div>
 </section>
-<section class="view" data-t="2">
+<section class="view" data-t="2" data-lock="2">
   <div class="tband"><span class="tno">1</span><h2>旧石器時代と縄文時代</h2><img class="wchar tchar" src="img/characters_char_pencil_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -633,8 +651,8 @@
         <div class="qa-a"><ruby>旧<rt>きゅう</rt></ruby><ruby>石器<rt>せっき</rt></ruby>時代</div>
         <div class="qa-expl">日本列島がまだ大陸とつながっていたころ、打製石器を使って狩りや採集をしていた時代。縄文時代より前で、土器はまだ本格的に使われない。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -651,8 +669,8 @@
         <div class="qa-a"><ruby>氷期<rt>ひょうき</rt></ruby>（<ruby>氷河<rt>ひょうが</rt></ruby>時代）</div>
         <div class="qa-expl">海面が低く、日本列島が大陸とつながっていた時期。ナウマンゾウなど大型動物が渡ってきた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -669,8 +687,8 @@
         <div class="qa-a">ナウマンゾウ</div>
         <div class="qa-expl">氷河時代に大陸から渡ってきた大型のゾウ。長野県の野尻湖で化石が発見され、旧石器時代の狩猟対象だった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -687,8 +705,8 @@
         <div class="qa-a">オオツノジカ</div>
         <div class="qa-expl">氷河時代に大陸から渡ってきた、大きな角を持つシカ。ナウマンゾウと並ぶ旧石器時代の代表的な狩りの対象。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -705,8 +723,8 @@
         <div class="qa-a"><ruby>打製<rt>だせい</rt></ruby><ruby>石器<rt>せっき</rt></ruby></div>
         <div class="qa-expl">石を打ち欠いて作った最も原始的な石器。旧石器時代の代表的な道具で、狩りや調理に使われた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -723,8 +741,8 @@
         <div class="qa-a"><ruby>岩宿<rt>いわじゅく</rt></ruby><ruby>遺跡<rt>いせき</rt></ruby></div>
         <div class="qa-expl">相沢忠洋が打製石器を発見し、日本にも旧石器時代があったことを証明した重要な遺跡。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -741,8 +759,8 @@
         <div class="qa-a"><ruby>相沢忠洋<rt>あいざわただひろ</rt></ruby></div>
         <div class="qa-expl">行商をしながら独学で考古学を学び、群馬県の岩宿遺跡で打製石器を発見し、日本の旧石器時代を証明した人物。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -759,8 +777,8 @@
         <div class="qa-a"><ruby>黒曜石<rt>こくようせき</rt></ruby></div>
         <div class="qa-expl">黒いガラス質の石で鋭い刃を作れた。長野県の和田峠などが産地で、遠方からも出土し広域交易の証拠となる。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -777,8 +795,8 @@
         <div class="qa-a">サヌカイト</div>
         <div class="qa-expl">香川県で産出される黒っぽい安山岩で、石器の材料となった。旧石器時代から縄文時代まで広く道具作りに使われた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -795,8 +813,8 @@
         <div class="qa-a"><ruby>縄文<rt>じょうもん</rt></ruby>時代</div>
         <div class="qa-expl">縄文土器を使い、狩り・採集・漁を中心に生活した時代。稲作が広がる弥生時代と区別。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -813,8 +831,8 @@
         <div class="qa-a"><ruby>縄文<rt>じょうもん</rt></ruby><ruby>土器<rt>どき</rt></ruby></div>
         <div class="qa-expl">縄を転がしてつけた縄目文様が特徴で、厚手で黒っぽいものが多く装飾が豊か。低温で焼かれもろい。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -831,8 +849,8 @@
         <div class="qa-a"><ruby>竪穴<rt>たてあな</rt></ruby><ruby>住居<rt>じゅうきょ</rt></ruby>（たて<ruby>穴<rt>あな</rt></ruby><ruby>住居<rt>じゅうきょ</rt></ruby>）</div>
         <div class="qa-expl">地面を50cmほど掘り下げ、柱を立てて屋根をかけた住居。縄文時代から弥生時代まで広く使われた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -849,8 +867,8 @@
         <div class="qa-a"><ruby>貝塚<rt>かいづか</rt></ruby></div>
         <div class="qa-expl">縄文人が食べた貝殻や魚・動物の骨を捨てた場所。当時の食生活や自然環境を知る貴重な手がかりとなる。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -867,8 +885,8 @@
         <div class="qa-a"><ruby>土偶<rt>どぐう</rt></ruby></div>
         <div class="qa-expl">縄文時代に作られた人形のような土製品。女性をかたどったものが多く、安産や豊作の祈り・まじないに使われたとされる。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -977,7 +995,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="3">
+<section class="view" data-t="3" data-lock="2">
   <div class="tband"><span class="tno">2</span><h2>弥生時代</h2><img class="wchar tchar" src="img/characters_manabi_think_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -1044,8 +1062,8 @@
         <div class="qa-a"><ruby>弥生<rt>やよい</rt></ruby>時代</div>
         <div class="qa-expl">稲作が広まり、金属器が使われ、むらが発達した時代。縄文時代との違いは稲作・金属器・身分差。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1062,8 +1080,8 @@
         <div class="qa-a"><ruby>稲作<rt>いなさく</rt></ruby></div>
         <div class="qa-expl">紀元前4世紀ごろ大陸から九州北部に伝わり、東北まで広がった。余剰の蓄積と身分差を生み、社会を大きく変えた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1080,8 +1098,8 @@
         <div class="qa-a"><ruby>高床<rt>たかゆか</rt></ruby><ruby>倉庫<rt>そうこ</rt></ruby></div>
         <div class="qa-expl">床を高くして湿気やねずみから稲を守った。弥生時代の代表的な建造物で、稲作と関係が深い。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1098,8 +1116,8 @@
         <div class="qa-a"><ruby>弥生<rt>やよい</rt></ruby><ruby>土器<rt>どき</rt></ruby></div>
         <div class="qa-expl">縄文土器に比べ薄手で硬く、シンプルな形が特徴。赤褐色で、実用的な貯蔵・煮炊き目的に作られた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1116,8 +1134,8 @@
         <div class="qa-a"><ruby>石包丁<rt>いしぼうちょう</rt></ruby></div>
         <div class="qa-expl">半月形をした石器で、稲穂を一本ずつつみ取るために使われた。弥生時代の稲作を象徴する代表的な農具。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1134,8 +1152,8 @@
         <div class="qa-a"><ruby>鉄器<rt>てっき</rt></ruby></div>
         <div class="qa-expl">弥生時代に大陸から伝わった硬くて丈夫な金属器。農具や武器などの実用品として使われ、生産力を大きく高めた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1152,8 +1170,8 @@
         <div class="qa-a"><ruby>青銅器<rt>せいどうき</rt></ruby></div>
         <div class="qa-expl">銅とすずを混ぜ合わせた合金で作った金属器。銅鐸・銅剣・銅鏡などがあり、主に祭りや儀式に使われた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1170,8 +1188,8 @@
         <div class="qa-a"><ruby>銅鐸<rt>どうたく</rt></ruby></div>
         <div class="qa-expl">弥生時代に祭りで使われたと考えられる、つりがね形の青銅器。近畿地方を中心に多く出土し、表面に絵が描かれることもある。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1188,8 +1206,8 @@
         <div class="qa-a"><ruby>銅鏡<rt>どうきょう</rt></ruby></div>
         <div class="qa-expl">弥生時代から古墳時代に作られた青銅製の鏡。祭りや儀式に用いられ、王や有力者の権威の象徴でもあった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1206,8 +1224,8 @@
         <div class="qa-a"><ruby>銅剣<rt>どうけん</rt></ruby></div>
         <div class="qa-expl">弥生時代に作られた青銅製の剣。実戦用ではなく、祭りや儀式に用いられ、王や有力者の権威を示した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1224,8 +1242,8 @@
         <div class="qa-a"><ruby>卑弥呼<rt>ひみこ</rt></ruby></div>
         <div class="qa-expl">邪馬台国の女王。魏に使いを送り、親魏倭王の称号を得た。まじないの力で人々を治めた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1242,8 +1260,8 @@
         <div class="qa-a"><ruby>邪馬台国<rt>やまたいこく</rt></ruby></div>
         <div class="qa-expl">3世紀ごろ、女王卑弥呼が治めたとされる国。『魏志』倭人伝に記されている。畿内説と九州説が議論。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1260,8 +1278,8 @@
         <div class="qa-a"><ruby>親魏倭王<rt>しんぎわおう</rt></ruby></div>
         <div class="qa-expl">3世紀に魏の皇帝が卑弥呼に与えた称号。金印などとともに授けられ、邪馬台国と中国との外交関係を示す。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1278,8 +1296,8 @@
         <div class="qa-a">『<ruby>魏志<rt>ぎし</rt></ruby>』<ruby>倭人伝<rt>わじんでん</rt></ruby></div>
         <div class="qa-expl">中国の歴史書『三国志』の一部で、倭や邪馬台国について記している。卑弥呼・邪馬台国を知る重要資料。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1409,7 +1427,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="4">
+<section class="view" data-t="4" data-lock="2">
   <div class="tband"><span class="tno">3</span><h2>古墳時代と大和政権</h2><img class="wchar tchar" src="img/characters_char_neko_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -1476,8 +1494,8 @@
         <div class="qa-a"><ruby>古墳<rt>こふん</rt></ruby>時代</div>
         <div class="qa-expl">3世紀後半から7世紀まで続いた時代。大きな墓である古墳が各地につくられ、大和政権の広がりと関係する。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1494,8 +1512,8 @@
         <div class="qa-a"><ruby>大和<rt>やまと</rt></ruby><ruby>政権<rt>せいけん</rt></ruby></div>
         <div class="qa-expl">3世紀後半ごろから近畿地方を中心に成立した政治勢力。大王を中心に豪族をまとめた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1512,8 +1530,8 @@
         <div class="qa-a"><ruby>大王<rt>おおきみ</rt></ruby></div>
         <div class="qa-expl">大和政権の中心となった王。各地の豪族をまとめる頂点に立ち、のちの天皇号につながる存在となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1530,8 +1548,8 @@
         <div class="qa-a"><ruby>前方後円墳<rt>ぜんぽうこうえんふん</rt></ruby></div>
         <div class="qa-expl">前が四角（方形）、後ろが円形を組み合わせた鍵穴のような形の日本独自の古墳。大王や豪族の権力の大きさを示す。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1548,8 +1566,8 @@
         <div class="qa-a"><ruby>大仙<rt>だいせん</rt></ruby><ruby>古墳<rt>こふん</rt></ruby></div>
         <div class="qa-expl">大阪府堺市にある日本最大級の前方後円墳で、全長約486m。仁徳天皇の墓と伝えられ、大王の絶大な権力を示す。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1566,8 +1584,8 @@
         <div class="qa-a"><ruby>埴輪<rt>はにわ</rt></ruby></div>
         <div class="qa-expl">古墳の上や周りに並べられた素焼きの土製品。人物・馬・家・円筒などの形があり、死者の魂を守ったとされる。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1584,8 +1602,8 @@
         <div class="qa-a">ワカタケル<ruby>大王<rt>おおきみ</rt></ruby></div>
         <div class="qa-expl">5世紀後半の大王。埼玉の稲荷山古墳と熊本の江田船山古墳の鉄剣・鉄刀に名が刻まれ、大和政権の広い支配を示す。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1602,8 +1620,8 @@
         <div class="qa-a"><ruby>稲荷山<rt>いなりやま</rt></ruby><ruby>古墳<rt>こふん</rt></ruby></div>
         <div class="qa-expl">埼玉県行田市にある古墳。ワカタケル大王の名が刻まれた鉄剣が出土し、大和政権の支配が関東まで及んだことを示す。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1620,8 +1638,8 @@
         <div class="qa-a"><ruby>宋書<rt>そうじょ</rt></ruby></div>
         <div class="qa-expl">5世紀の倭の五王が中国の南朝に使いを送った活動が記録されている中国の歴史書。当時の日本と中国の関係がわかる。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1638,8 +1656,8 @@
         <div class="qa-a"><ruby>渡来人<rt>とらいじん</rt></ruby></div>
         <div class="qa-expl">朝鮮半島や中国大陸から日本に移り住み、技術や文化を伝えた人々。漢字・仏教・須恵器・機織りなどを伝えた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1656,8 +1674,8 @@
         <div class="qa-a"><ruby>須恵器<rt>すえき</rt></ruby></div>
         <div class="qa-expl">渡来人が朝鮮半島から伝えた技術で作られた灰色の硬い土器。ろくろを使って成形し、高温で焼かれるのが特徴。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1674,8 +1692,8 @@
         <div class="qa-a">漢字</div>
         <div class="qa-expl">渡来人が中国・朝鮮から伝えた文字。書類作成や記録に使われ、日本の文字文化の基盤となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1692,8 +1710,8 @@
         <div class="qa-a"><ruby>仏教<rt>ぶっきょう</rt></ruby></div>
         <div class="qa-expl">6世紀半ばに朝鮮半島の百済から日本に伝えられた宗教。寺院建築や仏像彫刻など、のちの日本文化に大きな影響を与えた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1710,8 +1728,8 @@
         <div class="qa-a"><ruby>高句麗<rt>こうくり</rt></ruby></div>
         <div class="qa-expl">古墳時代に朝鮮半島の北部から中国東北部にかけてあった強国。南へ勢力を広げ、大和政権と対立した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1846,6 +1864,14 @@
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
 </div></div>
+<div class="lock-ov" id="lockOv" hidden><div class="lock-card">
+  <div class="lock-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+  <div class="lock-t">つづきは購入者向けです</div>
+  <div class="lock-d">ここまでは無料でためせます。つづきを解くには、つづもんのライセンスが必要です。</div>
+  <button class="lock-btn lb-line" id="lockLogin">LINEでログイン（購入者の方）</button>
+  <a class="lock-btn lb-buy" href="../../index.html">つづもんを見てみる →</a>
+  <button class="lock-close" id="lockClose">とじる（ここまで解く）</button>
+</div></div>
 
 <script type="module">
 // 記述AI採点のログイン（www.chatstudy.jp の LINE Login＝Firebase Auth。参考書ページと同じ）。
@@ -1868,9 +1894,24 @@ try {
       location.href = '/welcome?next=' + encodeURIComponent(location.pathname + location.hash);
     },
   };
+  var ENTITLEMENT_API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/tsudumonEntitlement';
+  async function refreshEntitlement(u) {
+    try {
+      var idToken = await u.getIdToken();
+      var res = await fetch(ENTITLEMENT_API, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ idToken: idToken }),
+      });
+      if (!res.ok) return;
+      var data = await res.json();
+      try { localStorage.setItem('tzm-lic', JSON.stringify((data && data.grades) || [])); } catch (e) {}
+      if (window.tzmRefreshGate) window.tzmRefreshGate();
+    } catch (e) { /* localStorage フォールバックのまま */ }
+  }
   onAuthStateChanged(auth, function (u) {
     window.__tzmAuth.user = u;
     window.__tzmAuth.ready = true;
+    if (u) refreshEntitlement(u);
     document.dispatchEvent(new CustomEvent('tzm-auth'));
   });
 } catch (e) { /* 設定が無ければ採点はフォールバック（自己採点）に倒れる */ }
@@ -1880,6 +1921,7 @@ try {
 (function () {
   var KEY = 'tzmwb-03';
   var CH = '03';
+  var GRADE = '中1';        // この本の学年（中1/中2/中3）
   var GRADE_API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/gradeWritten';      // 記述AI採点 Cloud Function
   var REF_VIEWS = [0, 0, 1, 2, 3];        // 問題集のビューt → 参考書の単元番号（0＝対応なし）
   var views = [].slice.call(document.querySelectorAll('.view'));
@@ -1919,7 +1961,7 @@ try {
     try { if (localStorage.getItem('tzmhint') === '1') return; } catch (e) { return; }
     var canHover = window.matchMedia && window.matchMedia('(hover:hover)').matches;
     bar.textContent = canHover ? '⌨️ ← → キーでもページをめくれるよ'
-                               : '👆 よこにスワイプでもページをめくれるよ';
+                               : 'よこにスワイプでもページをめくれるよ';
     var shown = false;
     window.showHint = function () {
       if (shown || state.t === 0) return;
@@ -2124,7 +2166,7 @@ try {
   function showJudged(scopeEl, ok) {
     var banner = scopeEl.querySelector('.b-result');
     if (banner) {
-      banner.textContent = ok ? '⭕ せいかい！' : '❌ おしい！';
+      banner.textContent = ok ? 'せいかい！' : 'おしい！';
       banner.className = 'b-result ' + (ok ? 'ok' : 'ng');
     }
     scopeEl.classList.add('show');
@@ -2289,7 +2331,7 @@ try {
       pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
       document.getElementById('btnPrev').textContent = s === 0 ? '目次へ' : '← まえへ';
       var next = document.getElementById('btnNext');
-      if (onModeStep && steps.length === 1) next.textContent = '⭐ おすすめ順で始める →';
+      if (onModeStep && steps.length === 1) next.textContent = 'おすすめ順で始める →';
       else if (s < steps.length - 1) next.textContent = 'つぎへ →';
       else next.textContent = t < N ? '次の単元へ →' : '目次にもどる';
       if (steps[s] && steps[s].classList.contains('done-step')) renderScore(views[t]);
@@ -2335,12 +2377,32 @@ try {
     } else { btn.hidden = true; }
   }
 
+  // ── 教材ゲート（中間案・ゆるめ「頭出しは見せる」）──
+  //   有料単元はやり方えらぶ＋要点まとめまで誰でも試せる。その先は購入者（この学年）だけ。
+  function isLicensed() {
+    try { return (JSON.parse(localStorage.getItem('tzm-lic') || '[]')).indexOf(GRADE) >= 0; }
+    catch (e) { return false; }
+  }
+  function lockFrom(t) { var v = views[t]; return v ? +(v.getAttribute('data-lock') || 0) : 0; }
+  function gateBlocks(t, s) { var lk = lockFrom(t); return lk > 0 && !isLicensed() && s >= lk; }
+  function showLock() { var ov = document.getElementById('lockOv'); if (ov) ov.hidden = false; }
+  function hideLock() { var ov = document.getElementById('lockOv'); if (ov) ov.hidden = true; }
+  window.tzmRefreshGate = function () { if (isLicensed()) hideLock(); };
+
   function go(t, s, dir) {
     lastDir = dir || 1;
     state.t = Math.max(0, Math.min(N, t));
     state.s = Math.max(0, s || 0);
-    if (state.t > 0) state.s = Math.min(state.s, stepsOf(state.t).length - 1);
-    else state.s = 0;
+    if (state.t > 0) {
+      state.s = Math.min(state.s, stepsOf(state.t).length - 1);
+      if (gateBlocks(state.t, state.s)) {
+        state.s = Math.max(0, lockFrom(state.t) - 1);
+        render();
+        showLock();
+        return;
+      }
+    } else state.s = 0;
+    hideLock();
     render();
   }
   // ── 未回答ガード: 問題(一問一答/4択/記述)に答えるまで「つぎへ」で先に進めない ──
@@ -2384,6 +2446,11 @@ try {
     else go(0, 0, -1);
   }
 
+  document.getElementById('lockLogin').addEventListener('click', function () {
+    var here = location.pathname + '#t' + state.t + (state.s > 0 ? 's' + state.s : '');
+    location.href = '../../login/?next=' + encodeURIComponent(here);
+  });
+  document.getElementById('lockClose').addEventListener('click', hideLock);
   document.getElementById('btnNext').addEventListener('click', next);
   document.getElementById('btnPrev').addEventListener('click', prev);
   // 回答するとロックを解除（回答処理の後に評価するため click は次tickで）
@@ -2506,7 +2573,7 @@ try {
       var istep = idk.closest('.qa-step');
       showJudged(istep, false);
       var bn = istep.querySelector('.b-result');
-      if (bn) { bn.textContent = '👇 こたえはこちら。次はきっと書けるよ！'; bn.className = 'b-result ng'; }
+      if (bn) { bn.textContent = 'こたえはこちら。次はきっと書けるよ！'; bn.className = 'b-result ng'; }
       var stI = store(); stI.r = stI.r || {};
       stI.r[istep.dataset.qid] = 0;
       save(stI);

@@ -117,11 +117,12 @@
   .home-topline { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:2px; }
   .hometop { display:flex; align-items:flex-start; gap:6px; padding:8px 2px 2px; text-align:left; }
   .ht-main { flex:1; min-width:0; text-align:center; }
-  .badge3 { display:inline-flex; border-radius:18px; overflow:hidden; font-size:12px; font-weight:bold;
-            box-shadow:0 2px 4px rgba(120,80,20,.2); }
-  .badge3 span { padding:4px 11px; display:inline-flex; align-items:center; white-space:nowrap; }
-  .b-vol { background:var(--brand); color:#fff; }
-  .b-kind { background:#fff; color:var(--deep); }
+  /* 本のラベル（押せない表示）: トグルに見えないようフラットな1トーンのタグに */
+  .badge3 { display:inline-flex; align-items:center; gap:6px; border-radius:8px;
+            background:#f4ecdb; padding:3px 10px; font-size:11.5px; font-weight:bold; }
+  .badge3 span { padding:0; display:inline-flex; align-items:center; white-space:nowrap; }
+  .b-vol { color:var(--brand); }
+  .b-kind { color:#9a7b4f; }
   .b-web { background:var(--amber); color:#fff; }
   .ht-title { font-size:41px; color:var(--deep); margin:12px 0 0; line-height:1.12; position:relative;
               display:inline-block; padding:0 6px; letter-spacing:.01em; }
@@ -443,6 +444,23 @@
   .foot-note { margin-top:4px; font-size:12px; }
 
   /* ── 下部ナビ ── */
+  /* 教材ゲートのロック案内（頭出しの先） */
+  .lock-ov { position:fixed; inset:0; z-index:40; background:rgba(60,40,15,.5);
+             display:flex; align-items:center; justify-content:center; padding:20px; }
+  .lock-ov[hidden] { display:none; }
+  .lock-card { width:100%; max-width:360px; background:#fff; border-radius:18px; padding:24px 20px 18px;
+               text-align:center; box-shadow:0 10px 30px rgba(0,0,0,.3); }
+  .lock-ic svg { width:34px; height:34px; }
+  .lock-ic { font-size:40px; }
+  .lock-t { font-size:18px; font-weight:bold; color:var(--deep); margin:6px 0 6px; }
+  .lock-d { font-size:13px; color:#78716c; line-height:1.8; margin-bottom:16px; }
+  .lock-btn { display:block; width:100%; margin-top:10px; border:none; border-radius:13px; padding:13px;
+              font-size:15px; font-weight:bold; text-decoration:none; cursor:pointer; font-family:inherit; }
+  .lb-line { background:#06c755; color:#fff; box-shadow:0 3px 8px rgba(6,199,85,.3); }
+  .lb-buy { background:#fff; color:var(--brand); border:1.5px solid var(--line); }
+  .lock-close { display:block; width:100%; margin-top:12px; background:none; border:none; cursor:pointer;
+                color:#a8a29e; font-size:12.5px; font-family:inherit; text-decoration:underline; }
+
   .navbar { position:fixed; left:0; right:0; bottom:0; z-index:10;
             background:rgba(255,253,248,.97); border-top:1px solid #f0e6d2;
             padding:10px 16px calc(10px + env(safe-area-inset-bottom)); }
@@ -546,12 +564,12 @@
   <nav class="toc">
     <div class="toc-head">
       <div class="toc-h">単元を選択</div>
-      <button class="toc-cal" data-go="1">📅 年表でチェック<span class="cal-go">›</span></button>
+      <button class="toc-cal" data-go="1">年表でチェック<span class="cal-go">›</span></button>
     </div>
     <button class="toc-item" data-go="2"><img class="toc-thumb" src="img/reference_hist10-kurofune.webp" alt="" loading="lazy"><span class="toc-no">1</span><span class="toc-name">開国と不平等条約</span><span class="toc-state" data-state-t="2"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="3"><img class="toc-thumb" src="img/reference_hist10-post-opening.webp" alt="" loading="lazy"><span class="toc-no">2</span><span class="toc-name">開国後の政治と経済</span><span class="toc-state" data-state-t="3"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="4"><img class="toc-thumb" src="img/reference_hist10-taisei.webp" alt="" loading="lazy"><span class="toc-no">3</span><span class="toc-name">江戸幕府の滅亡</span><span class="toc-state" data-state-t="4"></span><span class="toc-arrow">›</span></button>
   </nav>
   <a class="big-btn ref-btn" href="../../ref/10/index.html">参考書を開く</a>
-  <button class="big-btn print-btn" type="button" onclick="window.print()">🖨 紙に印刷して解く（解答つき）</button>
+  <button class="big-btn print-btn" type="button" onclick="window.print()">紙に印刷して解く（解答つき）</button>
   
   <footer class="foot">
     <div>つづもん 問題集</div>
@@ -566,7 +584,7 @@
     <table class="tl-table"><tr><th class="tl-year">年代</th><th>できごと</th></tr><tr><td class='tl-year'>1853年</td><td><button class="blank" type="button"><span class="bno">①</span><span class="ba">ペリー</span><span class="bl" style="width:2.7em"></span></button>が黒船で浦賀に来航し、開国を要求する</td></tr><tr><td class='tl-year'>1854年</td><td><button class="blank" type="button"><span class="bno">②</span><span class="ba">日米和親条約</span><span class="bl" style="width:5.4em"></span></button>が結ばれ、下田・函館の2港が開かれる</td></tr><tr><td class='tl-year'>1858年</td><td>井伊直弼が<button class="blank" type="button"><span class="bno">③</span><span class="ba">日米修好通商条約</span><span class="bl" style="width:7.2em"></span></button>を結び、領事裁判権を認める</td></tr><tr><td class='tl-year'>1858〜59年</td><td>井伊直弼が尊王攘夷派を弾圧する<button class="blank" type="button"><span class="bno">④</span><span class="ba">安政の大獄</span><span class="bl" style="width:4.5em"></span></button>が起こる</td></tr><tr><td class='tl-year'>1860年</td><td>井伊直弼が暗殺される<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">桜田門外の変</span><span class="bl" style="width:5.4em"></span></button>が起こる</td></tr><tr><td class='tl-year'>1862年</td><td>薩摩藩士がイギリス人を殺傷する<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">生麦事件</span><span class="bl" style="width:3.6em"></span></button>が起こる</td></tr><tr><td class='tl-year'>1863年</td><td>薩摩藩とイギリスが戦う<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">薩英戦争</span><span class="bl" style="width:3.6em"></span></button>が起こる</td></tr><tr><td class='tl-year'>1863年</td><td>高杉晋作が長州藩で<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">奇兵隊</span><span class="bl" style="width:2.7em"></span></button>を組織する</td></tr><tr><td class='tl-year'>1863〜64年</td><td>長州藩が四国艦隊と戦う<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">下関戦争</span><span class="bl" style="width:3.6em"></span></button>が起こる</td></tr><tr><td class='tl-year'>1866年</td><td>坂本龍馬の仲立ちで<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">薩長同盟</span><span class="bl" style="width:3.6em"></span></button>が結ばれる</td></tr><tr><td class='tl-year'>1867年</td><td>徳川慶喜が政権を朝廷に返す<button class="blank" type="button"><span class="bno">⑪</span><span class="ba">大政奉還</span><span class="bl" style="width:3.6em"></span></button>が行われる</td></tr><tr><td class='tl-year'>1867年</td><td>天皇中心の新政府樹立を宣言する<button class="blank" type="button"><span class="bno">⑫</span><span class="ba">王政復古の大号令</span><span class="bl" style="width:7.2em"></span></button>が出される</td></tr><tr><td class='tl-year'>1867年ごろ</td><td>民衆による熱狂的な踊り「<button class="blank" type="button"><span class="bno">⑬</span><span class="ba">ええじゃないか</span><span class="bl" style="width:6.3em"></span></button>」が広がる</td></tr><tr><td class='tl-year'>1868年</td><td>戊辰戦争最初の戦いとなる<button class="blank" type="button"><span class="bno">⑭</span><span class="ba">鳥羽・伏見の戦い</span><span class="bl" style="width:7.2em"></span></button>が起こる</td></tr><tr><td class='tl-year'>1868年</td><td>勝海舟と西郷隆盛の交渉により<button class="blank" type="button"><span class="bno">⑮</span><span class="ba">江戸城</span><span class="bl" style="width:2.7em"></span></button>が無血開城される</td></tr></table>
   </div>
 </section>
-<section class="view" data-t="2">
+<section class="view" data-t="2" data-lock="2">
   <div class="tband"><span class="tno">1</span><h2>開国と不平等条約</h2><img class="wchar tchar" src="img/characters_char_pencil_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -633,8 +651,8 @@
         <div class="qa-a">ペリー</div>
         <div class="qa-expl">アメリカ東インド艦隊司令長官。1853年に黒船で浦賀に来航し、翌年の日米和親条約で日本の鎖国を終わらせた人物。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -651,8 +669,8 @@
         <div class="qa-a"><ruby>黒船<rt>くろふね</rt></ruby></div>
         <div class="qa-expl">1853年にペリーが率いて浦賀に来航したアメリカの蒸気船。黒い船体と蒸気の煙から「黒船」と呼ばれ、人々を驚かせた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -669,8 +687,8 @@
         <div class="qa-a"><ruby>日米<rt>にちべい</rt></ruby><ruby>和親<rt>わしん</rt></ruby><ruby>条約<rt>じょうやく</rt></ruby></div>
         <div class="qa-expl">1854年に日本がアメリカと結んだ条約。下田と函館の2港を開き、約200年続いた鎖国を終わらせた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -687,8 +705,8 @@
         <div class="qa-a"><ruby>日米<rt>にちべい</rt></ruby><ruby>修好<rt>しゅうこう</rt></ruby><ruby>通商<rt>つうしょう</rt></ruby><ruby>条約<rt>じょうやく</rt></ruby></div>
         <div class="qa-expl">1858年に大老井伊直弼がアメリカと結んだ通商条約。領事裁判権を認め、関税自主権がない不平等条約だった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -705,8 +723,8 @@
         <div class="qa-a"><ruby>井伊直弼<rt>いいなおすけ</rt></ruby></div>
         <div class="qa-expl">1858年に勅許なく日米修好通商条約を結んだ大老。安政の大獄で反対派を弾圧したが、1860年桜田門外の変で暗殺された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -723,8 +741,8 @@
         <div class="qa-a"><ruby>領事<rt>りょうじ</rt></ruby><ruby>裁判権<rt>さいばんけん</rt></ruby></div>
         <div class="qa-expl">外国人が日本で罪を犯しても日本の法では裁けず、外国側の領事が外国の法で裁く権利。不平等条約の代表的な中身。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -741,8 +759,8 @@
         <div class="qa-a"><ruby>関税<rt>かんぜい</rt></ruby><ruby>自主権<rt>じしゅけん</rt></ruby></div>
         <div class="qa-expl">輸入品にかける税率を自国で自由に決める権利。日米修好通商条約で日本はこの権利がなく、国内産業を保護できなかった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -759,8 +777,8 @@
         <div class="qa-a"><ruby>安政<rt>あんせい</rt></ruby>の<ruby>五か国<rt>ごかこく</rt></ruby><ruby>条約<rt>じょうやく</rt></ruby></div>
         <div class="qa-expl">1858年、井伊直弼のもとでアメリカ・オランダ・ロシア・イギリス・フランスの5か国と結ばれた不平等条約の総称。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -777,8 +795,8 @@
         <div class="qa-a"><ruby>下田<rt>しもだ</rt></ruby></div>
         <div class="qa-expl">1854年の日米和親条約で函館とともに最初に開かれた静岡県の港で、後にアメリカ総領事ハリスが駐在した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -795,8 +813,8 @@
         <div class="qa-a"><ruby>函館<rt>はこだて</rt></ruby></div>
         <div class="qa-expl">1854年の日米和親条約で下田とともに開港された北海道の港。当時は箱館と書いた。鎖国終了の象徴の一つ。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -813,8 +831,8 @@
         <div class="qa-a"><ruby>横浜<rt>よこはま</rt></ruby></div>
         <div class="qa-expl">1858年の日米修好通商条約で開港し、生糸などの輸出を通じて外国との貿易の中心地となった港。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -831,8 +849,8 @@
         <div class="qa-a"><ruby>浦賀<rt>うらが</rt></ruby></div>
         <div class="qa-expl">神奈川県にある江戸湾の入口の港。1853年にペリーが黒船を率いて来航し、幕府に開国を要求した場所として有名。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -849,8 +867,8 @@
         <div class="qa-a">ハリス</div>
         <div class="qa-expl">アメリカの初代総領事。1856年から下田に駐在し、幕府と1858年の日米修好通商条約の交渉を行った人物。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -867,8 +885,8 @@
         <div class="qa-a"><ruby>勅許<rt>ちょっきょ</rt></ruby></div>
         <div class="qa-expl">天皇の許可のこと。1858年に大老井伊直弼は勅許なしで通商条約を結び、天皇を尊び外国を退けるべきと主張する人々から強く批判された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -998,7 +1016,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="3">
+<section class="view" data-t="3" data-lock="2">
   <div class="tband"><span class="tno">2</span><h2>開国後の政治と経済</h2><img class="wchar tchar" src="img/characters_manabi_think_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -1065,8 +1083,8 @@
         <div class="qa-a"><ruby>尊王攘夷<rt>そんのうじょうい</rt></ruby></div>
         <div class="qa-expl">天皇を尊び、外国を追い払おうとする幕末の運動。開国に反対する長州・水戸藩の志士らが掲げ、倒幕へとつながった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1083,8 +1101,8 @@
         <div class="qa-a"><ruby>安政<rt>あんせい</rt></ruby>の<ruby>大獄<rt>たいごく</rt></ruby></div>
         <div class="qa-expl">1858〜59年、大老井伊直弼が条約調印や将軍継嗣問題で対立した尊王攘夷派を処罰した事件。吉田松陰らが処刑された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1101,8 +1119,8 @@
         <div class="qa-a"><ruby>桜田門外<rt>さくらだもんがい</rt></ruby>の<ruby>変<rt>へん</rt></ruby></div>
         <div class="qa-expl">1860年、安政の大獄への反発から水戸藩の浪士らが江戸城桜田門外で大老井伊直弼を襲撃し、暗殺した事件。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1119,8 +1137,8 @@
         <div class="qa-a"><ruby>吉田松陰<rt>よしだしょういん</rt></ruby></div>
         <div class="qa-expl">長州藩の思想家。松下村塾で高杉晋作や伊藤博文らを育てたが、1859年の安政の大獄で処刑された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1137,8 +1155,8 @@
         <div class="qa-a"><ruby>公武<rt>こうぶ</rt></ruby><ruby>合体<rt>がったい</rt></ruby></div>
         <div class="qa-expl">朝廷（公）と幕府（武）が手を組み政治の安定を図ろうとした政策。幕府は権威の回復を狙ったが結局うまくいかなかった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1155,8 +1173,8 @@
         <div class="qa-a"><ruby>生糸<rt>きいと</rt></ruby></div>
         <div class="qa-expl">開港後の日本の最大の輸出品で、横浜港からイギリスなどへ大量に輸出された。国内では品不足から価格が高騰した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1173,8 +1191,8 @@
         <div class="qa-a">金の<ruby>流出<rt>りゅうしゅつ</rt></ruby></div>
         <div class="qa-expl">日本では金1=銀5、海外では金1=銀15だったため、外国商人は銀を持ち込んで日本の金を安く買い、大量の金が海外に流出した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1191,8 +1209,8 @@
         <div class="qa-a"><ruby>横浜<rt>よこはま</rt></ruby></div>
         <div class="qa-expl">1858年の日米修好通商条約で開かれた5港の一つで、生糸の輸出を通じて開港後最大の貿易港となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1209,8 +1227,8 @@
         <div class="qa-a"><ruby>尊王<rt>そんのう</rt></ruby></div>
         <div class="qa-expl">天皇を尊ぶという幕末の思想。攘夷と合わせて「尊王攘夷」というスローガンになり、倒幕運動を支える理念となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1227,8 +1245,8 @@
         <div class="qa-a"><ruby>攘夷<rt>じょうい</rt></ruby></div>
         <div class="qa-expl">外国の勢力を武力で追い払おうとする幕末の考え方。「夷」とは当時、外国人を見下して呼んだ言葉。尊王思想と結びついた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1245,8 +1263,8 @@
         <div class="qa-a"><ruby>茶<rt>ちゃ</rt></ruby></div>
         <div class="qa-expl">生糸とともに開港後の日本の主要な輸出品となった農産物で、主にアメリカへ横浜港から大量に輸出された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1263,8 +1281,8 @@
         <div class="qa-a">イギリス</div>
         <div class="qa-expl">1858年の日米修好通商条約後、横浜港を通じて生糸などを大量に輸入した、当時の日本最大の貿易相手国。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1281,8 +1299,8 @@
         <div class="qa-a"><ruby>松下村塾<rt>しょうかそんじゅく</rt></ruby></div>
         <div class="qa-expl">長州藩の思想家・吉田松陰が萩で開いた私塾で、高杉晋作・伊藤博文・木戸孝允ら明治維新の志士を多数輩出した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1299,8 +1317,8 @@
         <div class="qa-a">1860年</div>
         <div class="qa-expl">桜田門外の変が起きた年。水戸藩の浪士らが江戸城桜田門外で大老井伊直弼を襲撃し、暗殺した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1409,7 +1427,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="4">
+<section class="view" data-t="4" data-lock="2">
   <div class="tband"><span class="tno">3</span><h2>江戸幕府の滅亡</h2><img class="wchar tchar" src="img/characters_char_neko_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -1476,8 +1494,8 @@
         <div class="qa-a"><ruby>薩長<rt>さっちょう</rt></ruby><ruby>同盟<rt>どうめい</rt></ruby></div>
         <div class="qa-expl">1866年、土佐藩の坂本龍馬らの仲立ちで薩摩藩と長州藩が結んだ軍事同盟。倒幕の中心勢力となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1494,8 +1512,8 @@
         <div class="qa-a"><ruby>坂本龍馬<rt>さかもとりょうま</rt></ruby></div>
         <div class="qa-expl">土佐藩出身の幕末の志士。1866年に薩長同盟を仲介し、海援隊を結成して日本の近代化に尽力した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1512,8 +1530,8 @@
         <div class="qa-a"><ruby>大政<rt>たいせい</rt></ruby><ruby>奉還<rt>ほうかん</rt></ruby></div>
         <div class="qa-expl">1867年、15代将軍徳川慶喜が政権を朝廷に返した出来事。約260年続いた江戸幕府の政権が終わった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1530,8 +1548,8 @@
         <div class="qa-a"><ruby>徳川慶喜<rt>とくがわよしのぶ</rt></ruby></div>
         <div class="qa-expl">江戸幕府15代将軍。1867年に大政奉還を行い、政権を朝廷に返して幕府の終わりを迎えた人物。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1548,8 +1566,8 @@
         <div class="qa-a"><ruby>王政復古<rt>おうせいふっこ</rt></ruby>の<ruby>大号令<rt>だいごうれい</rt></ruby></div>
         <div class="qa-expl">1867年、大政奉還の後に出された命令。天皇を中心とする新政府の樹立を宣言し、幕府や摂政・関白の廃止を決めた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1566,8 +1584,8 @@
         <div class="qa-a"><ruby>戊辰<rt>ぼしん</rt></ruby><ruby>戦争<rt>せんそう</rt></ruby></div>
         <div class="qa-expl">1868年の鳥羽・伏見の戦いから始まり、約1年半続いた旧幕府軍と新政府軍の内戦。新政府軍が勝利し明治政府が確立した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1584,8 +1602,8 @@
         <div class="qa-a"><ruby>西郷隆盛<rt>さいごうたかもり</rt></ruby></div>
         <div class="qa-expl">薩摩藩出身の幕末・明治の指導者。倒幕運動を主導し、戊辰戦争では新政府軍を指揮した。後の西南戦争で敗死。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1602,8 +1620,8 @@
         <div class="qa-a"><ruby>大久保利通<rt>おおくぼとしみち</rt></ruby></div>
         <div class="qa-expl">薩摩藩出身。西郷隆盛とともに倒幕運動を進め、明治政府の初代内務卿として殖産興業を推進した中心人物。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1620,8 +1638,8 @@
         <div class="qa-a"><ruby>高杉晋作<rt>たかすぎしんさく</rt></ruby></div>
         <div class="qa-expl">長州藩の幕末の志士。1863年、身分に関係なく有志を集めた奇兵隊を組織し、倒幕の戦いに活躍した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1638,8 +1656,8 @@
         <div class="qa-a"><ruby>木戸孝允<rt>きどたかよし</rt></ruby></div>
         <div class="qa-expl">長州藩出身。桂小五郎の名でも知られ、薩長同盟の長州側の交渉を担い、明治政府で版籍奉還などを推進した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1656,8 +1674,8 @@
         <div class="qa-a"><ruby>下関<rt>しものせき</rt></ruby><ruby>戦争<rt>せんそう</rt></ruby></div>
         <div class="qa-expl">1863〜64年、長州藩が関門海峡で英・仏・米・蘭の四国艦隊と戦った戦争。四国艦隊下関砲撃事件とも呼ばれる。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1674,8 +1692,8 @@
         <div class="qa-a"><ruby>奇兵隊<rt>きへいたい</rt></ruby></div>
         <div class="qa-expl">1863年に高杉晋作が長州藩で組織した、武士以外の農民や町人も加わった新しい形の軍隊で、倒幕の戦力となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1692,8 +1710,8 @@
         <div class="qa-a">1866年</div>
         <div class="qa-expl">薩長同盟が成立した年。坂本龍馬の仲立ちで薩摩藩と長州藩が結ばれ、倒幕運動の中心勢力となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1710,8 +1728,8 @@
         <div class="qa-a">1867年</div>
         <div class="qa-expl">大政奉還が行われた年。15代将軍徳川慶喜が政権を朝廷に返し、約260年続いた江戸幕府の政権が終わった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1846,6 +1864,14 @@
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
 </div></div>
+<div class="lock-ov" id="lockOv" hidden><div class="lock-card">
+  <div class="lock-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+  <div class="lock-t">つづきは購入者向けです</div>
+  <div class="lock-d">ここまでは無料でためせます。つづきを解くには、つづもんのライセンスが必要です。</div>
+  <button class="lock-btn lb-line" id="lockLogin">LINEでログイン（購入者の方）</button>
+  <a class="lock-btn lb-buy" href="../../index.html">つづもんを見てみる →</a>
+  <button class="lock-close" id="lockClose">とじる（ここまで解く）</button>
+</div></div>
 
 <script type="module">
 // 記述AI採点のログイン（www.chatstudy.jp の LINE Login＝Firebase Auth。参考書ページと同じ）。
@@ -1868,9 +1894,24 @@ try {
       location.href = '/welcome?next=' + encodeURIComponent(location.pathname + location.hash);
     },
   };
+  var ENTITLEMENT_API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/tsudumonEntitlement';
+  async function refreshEntitlement(u) {
+    try {
+      var idToken = await u.getIdToken();
+      var res = await fetch(ENTITLEMENT_API, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ idToken: idToken }),
+      });
+      if (!res.ok) return;
+      var data = await res.json();
+      try { localStorage.setItem('tzm-lic', JSON.stringify((data && data.grades) || [])); } catch (e) {}
+      if (window.tzmRefreshGate) window.tzmRefreshGate();
+    } catch (e) { /* localStorage フォールバックのまま */ }
+  }
   onAuthStateChanged(auth, function (u) {
     window.__tzmAuth.user = u;
     window.__tzmAuth.ready = true;
+    if (u) refreshEntitlement(u);
     document.dispatchEvent(new CustomEvent('tzm-auth'));
   });
 } catch (e) { /* 設定が無ければ採点はフォールバック（自己採点）に倒れる */ }
@@ -1880,6 +1921,7 @@ try {
 (function () {
   var KEY = 'tzmwb-10';
   var CH = '10';
+  var GRADE = '中2';        // この本の学年（中1/中2/中3）
   var GRADE_API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/gradeWritten';      // 記述AI採点 Cloud Function
   var REF_VIEWS = [0, 0, 1, 2, 3];        // 問題集のビューt → 参考書の単元番号（0＝対応なし）
   var views = [].slice.call(document.querySelectorAll('.view'));
@@ -1919,7 +1961,7 @@ try {
     try { if (localStorage.getItem('tzmhint') === '1') return; } catch (e) { return; }
     var canHover = window.matchMedia && window.matchMedia('(hover:hover)').matches;
     bar.textContent = canHover ? '⌨️ ← → キーでもページをめくれるよ'
-                               : '👆 よこにスワイプでもページをめくれるよ';
+                               : 'よこにスワイプでもページをめくれるよ';
     var shown = false;
     window.showHint = function () {
       if (shown || state.t === 0) return;
@@ -2124,7 +2166,7 @@ try {
   function showJudged(scopeEl, ok) {
     var banner = scopeEl.querySelector('.b-result');
     if (banner) {
-      banner.textContent = ok ? '⭕ せいかい！' : '❌ おしい！';
+      banner.textContent = ok ? 'せいかい！' : 'おしい！';
       banner.className = 'b-result ' + (ok ? 'ok' : 'ng');
     }
     scopeEl.classList.add('show');
@@ -2289,7 +2331,7 @@ try {
       pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
       document.getElementById('btnPrev').textContent = s === 0 ? '目次へ' : '← まえへ';
       var next = document.getElementById('btnNext');
-      if (onModeStep && steps.length === 1) next.textContent = '⭐ おすすめ順で始める →';
+      if (onModeStep && steps.length === 1) next.textContent = 'おすすめ順で始める →';
       else if (s < steps.length - 1) next.textContent = 'つぎへ →';
       else next.textContent = t < N ? '次の単元へ →' : '目次にもどる';
       if (steps[s] && steps[s].classList.contains('done-step')) renderScore(views[t]);
@@ -2335,12 +2377,32 @@ try {
     } else { btn.hidden = true; }
   }
 
+  // ── 教材ゲート（中間案・ゆるめ「頭出しは見せる」）──
+  //   有料単元はやり方えらぶ＋要点まとめまで誰でも試せる。その先は購入者（この学年）だけ。
+  function isLicensed() {
+    try { return (JSON.parse(localStorage.getItem('tzm-lic') || '[]')).indexOf(GRADE) >= 0; }
+    catch (e) { return false; }
+  }
+  function lockFrom(t) { var v = views[t]; return v ? +(v.getAttribute('data-lock') || 0) : 0; }
+  function gateBlocks(t, s) { var lk = lockFrom(t); return lk > 0 && !isLicensed() && s >= lk; }
+  function showLock() { var ov = document.getElementById('lockOv'); if (ov) ov.hidden = false; }
+  function hideLock() { var ov = document.getElementById('lockOv'); if (ov) ov.hidden = true; }
+  window.tzmRefreshGate = function () { if (isLicensed()) hideLock(); };
+
   function go(t, s, dir) {
     lastDir = dir || 1;
     state.t = Math.max(0, Math.min(N, t));
     state.s = Math.max(0, s || 0);
-    if (state.t > 0) state.s = Math.min(state.s, stepsOf(state.t).length - 1);
-    else state.s = 0;
+    if (state.t > 0) {
+      state.s = Math.min(state.s, stepsOf(state.t).length - 1);
+      if (gateBlocks(state.t, state.s)) {
+        state.s = Math.max(0, lockFrom(state.t) - 1);
+        render();
+        showLock();
+        return;
+      }
+    } else state.s = 0;
+    hideLock();
     render();
   }
   // ── 未回答ガード: 問題(一問一答/4択/記述)に答えるまで「つぎへ」で先に進めない ──
@@ -2384,6 +2446,11 @@ try {
     else go(0, 0, -1);
   }
 
+  document.getElementById('lockLogin').addEventListener('click', function () {
+    var here = location.pathname + '#t' + state.t + (state.s > 0 ? 's' + state.s : '');
+    location.href = '../../login/?next=' + encodeURIComponent(here);
+  });
+  document.getElementById('lockClose').addEventListener('click', hideLock);
   document.getElementById('btnNext').addEventListener('click', next);
   document.getElementById('btnPrev').addEventListener('click', prev);
   // 回答するとロックを解除（回答処理の後に評価するため click は次tickで）
@@ -2506,7 +2573,7 @@ try {
       var istep = idk.closest('.qa-step');
       showJudged(istep, false);
       var bn = istep.querySelector('.b-result');
-      if (bn) { bn.textContent = '👇 こたえはこちら。次はきっと書けるよ！'; bn.className = 'b-result ng'; }
+      if (bn) { bn.textContent = 'こたえはこちら。次はきっと書けるよ！'; bn.className = 'b-result ng'; }
       var stI = store(); stI.r = stI.r || {};
       stI.r[istep.dataset.qid] = 0;
       save(stI);

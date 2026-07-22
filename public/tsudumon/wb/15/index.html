@@ -117,11 +117,12 @@
   .home-topline { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:2px; }
   .hometop { display:flex; align-items:flex-start; gap:6px; padding:8px 2px 2px; text-align:left; }
   .ht-main { flex:1; min-width:0; text-align:center; }
-  .badge3 { display:inline-flex; border-radius:18px; overflow:hidden; font-size:12px; font-weight:bold;
-            box-shadow:0 2px 4px rgba(120,80,20,.2); }
-  .badge3 span { padding:4px 11px; display:inline-flex; align-items:center; white-space:nowrap; }
-  .b-vol { background:var(--brand); color:#fff; }
-  .b-kind { background:#fff; color:var(--deep); }
+  /* 本のラベル（押せない表示）: トグルに見えないようフラットな1トーンのタグに */
+  .badge3 { display:inline-flex; align-items:center; gap:6px; border-radius:8px;
+            background:#f4ecdb; padding:3px 10px; font-size:11.5px; font-weight:bold; }
+  .badge3 span { padding:0; display:inline-flex; align-items:center; white-space:nowrap; }
+  .b-vol { color:var(--brand); }
+  .b-kind { color:#9a7b4f; }
   .b-web { background:var(--amber); color:#fff; }
   .ht-title { font-size:41px; color:var(--deep); margin:12px 0 0; line-height:1.12; position:relative;
               display:inline-block; padding:0 6px; letter-spacing:.01em; }
@@ -443,6 +444,23 @@
   .foot-note { margin-top:4px; font-size:12px; }
 
   /* ── 下部ナビ ── */
+  /* 教材ゲートのロック案内（頭出しの先） */
+  .lock-ov { position:fixed; inset:0; z-index:40; background:rgba(60,40,15,.5);
+             display:flex; align-items:center; justify-content:center; padding:20px; }
+  .lock-ov[hidden] { display:none; }
+  .lock-card { width:100%; max-width:360px; background:#fff; border-radius:18px; padding:24px 20px 18px;
+               text-align:center; box-shadow:0 10px 30px rgba(0,0,0,.3); }
+  .lock-ic svg { width:34px; height:34px; }
+  .lock-ic { font-size:40px; }
+  .lock-t { font-size:18px; font-weight:bold; color:var(--deep); margin:6px 0 6px; }
+  .lock-d { font-size:13px; color:#78716c; line-height:1.8; margin-bottom:16px; }
+  .lock-btn { display:block; width:100%; margin-top:10px; border:none; border-radius:13px; padding:13px;
+              font-size:15px; font-weight:bold; text-decoration:none; cursor:pointer; font-family:inherit; }
+  .lb-line { background:#06c755; color:#fff; box-shadow:0 3px 8px rgba(6,199,85,.3); }
+  .lb-buy { background:#fff; color:var(--brand); border:1.5px solid var(--line); }
+  .lock-close { display:block; width:100%; margin-top:12px; background:none; border:none; cursor:pointer;
+                color:#a8a29e; font-size:12.5px; font-family:inherit; text-decoration:underline; }
+
   .navbar { position:fixed; left:0; right:0; bottom:0; z-index:10;
             background:rgba(255,253,248,.97); border-top:1px solid #f0e6d2;
             padding:10px 16px calc(10px + env(safe-area-inset-bottom)); }
@@ -546,12 +564,12 @@
   <nav class="toc">
     <div class="toc-head">
       <div class="toc-h">単元を選択</div>
-      <button class="toc-cal" data-go="1">📅 年表でチェック<span class="cal-go">›</span></button>
+      <button class="toc-cal" data-go="1">年表でチェック<span class="cal-go">›</span></button>
     </div>
     <button class="toc-item" data-go="2"><img class="toc-thumb" src="img/reference_hist15-depression.webp" alt="" loading="lazy"><span class="toc-no">1</span><span class="toc-name">世界恐慌とファシズムの台頭</span><span class="toc-state" data-state-t="2"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="3"><img class="toc-thumb" src="img/reference_hist15-manchuria.webp" alt="" loading="lazy"><span class="toc-no">2</span><span class="toc-name">満州事変と軍部の暴走</span><span class="toc-state" data-state-t="3"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="4"><img class="toc-thumb" src="img/reference_hist15-sino-japanese-war-showa.webp" alt="" loading="lazy"><span class="toc-no">3</span><span class="toc-name">日中戦争の泥沼化</span><span class="toc-state" data-state-t="4"></span><span class="toc-arrow">›</span></button>
   </nav>
   <a class="big-btn ref-btn" href="../../ref/15/index.html">参考書を開く</a>
-  <button class="big-btn print-btn" type="button" onclick="window.print()">🖨 紙に印刷して解く（解答つき）</button>
+  <button class="big-btn print-btn" type="button" onclick="window.print()">紙に印刷して解く（解答つき）</button>
   
   <footer class="foot">
     <div>つづもん 問題集</div>
@@ -566,7 +584,7 @@
     <table class="tl-table"><tr><th class="tl-year">年代</th><th>できごと</th></tr><tr><td class='tl-year'>1929年</td><td>ニューヨーク株式市場の大暴落をきっかけに<button class="blank" type="button"><span class="bno">①</span><span class="ba">世界恐慌</span><span class="bl" style="width:3.6em"></span></button>がアメリカから始まる</td></tr><tr><td class='tl-year'>1930年</td><td>金解禁の直後に世界恐慌が重なり、日本で<button class="blank" type="button"><span class="bno">②</span><span class="ba">昭和恐慌</span><span class="bl" style="width:3.6em"></span></button>が起こる</td></tr><tr><td class='tl-year'>1931年</td><td>関東軍が<button class="blank" type="button"><span class="bno">③</span><span class="ba">柳条湖事件</span><span class="bl" style="width:4.5em"></span></button>を起こし、<button class="blank" type="button"><span class="bno">④</span><span class="ba">満州事変</span><span class="bl" style="width:3.6em"></span></button>が始まる</td></tr><tr><td class='tl-year'>1932年</td><td>占領した中国東北部に<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">満州国</span><span class="bl" style="width:2.7em"></span></button>が建国され、溥儀が元首となる</td></tr><tr><td class='tl-year'>1932年</td><td>海軍青年将校らが犬養毅首相を暗殺する<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">五・一五事件</span><span class="bl" style="width:5.4em"></span></button>が起こる</td></tr><tr><td class='tl-year'>1933年</td><td><button class="blank" type="button"><span class="bno">⑦</span><span class="ba">ヒトラー</span><span class="bl" style="width:3.6em"></span></button>がドイツの首相となり、独裁体制を築き始める</td></tr><tr><td class='tl-year'>1933年</td><td>リットン調査団の報告を受け、日本が<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">国際連盟</span><span class="bl" style="width:3.6em"></span></button>を脱退する</td></tr><tr><td class='tl-year'>1936年</td><td>陸軍青年将校らが<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">二・二六事件</span><span class="bl" style="width:5.4em"></span></button>を起こし、軍の発言力が強まる</td></tr><tr><td class='tl-year'>1937年</td><td><button class="blank" type="button"><span class="bno">⑩</span><span class="ba">盧溝橋事件</span><span class="bl" style="width:4.5em"></span></button>をきっかけに<button class="blank" type="button"><span class="bno">⑪</span><span class="ba">日中戦争</span><span class="bl" style="width:3.6em"></span></button>が始まる</td></tr><tr><td class='tl-year'>1937年</td><td>国民党と共産党が<button class="blank" type="button"><span class="bno">⑫</span><span class="ba">国共合作</span><span class="bl" style="width:3.6em"></span></button>を結び、抗日で協力する</td></tr><tr><td class='tl-year'>1937年</td><td>日本軍が南京を占領する際に多数の市民を殺害する<button class="blank" type="button"><span class="bno">⑬</span><span class="ba">南京事件</span><span class="bl" style="width:3.6em"></span></button>が起こる</td></tr><tr><td class='tl-year'>1938年</td><td>戦争のため国民や物資を動員できる<button class="blank" type="button"><span class="bno">⑭</span><span class="ba">国家総動員法</span><span class="bl" style="width:5.4em"></span></button>が制定される</td></tr><tr><td class='tl-year'>1940年</td><td>すべての政党が解散して<button class="blank" type="button"><span class="bno">⑮</span><span class="ba">大政翼賛会</span><span class="bl" style="width:4.5em"></span></button>が結成される</td></tr><tr><td class='tl-year'>1940年</td><td>日本・ドイツ・イタリアが<button class="blank" type="button"><span class="bno">⑯</span><span class="ba">日独伊三国同盟</span><span class="bl" style="width:6.3em"></span></button>を結ぶ</td></tr></table>
   </div>
 </section>
-<section class="view" data-t="2">
+<section class="view" data-t="2" data-lock="2">
   <div class="tband"><span class="tno">1</span><h2>世界恐慌とファシズムの台頭</h2><img class="wchar tchar" src="img/characters_char_pencil_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -633,8 +651,8 @@
         <div class="qa-a">世界<ruby>恐慌<rt>きょうこう</rt></ruby></div>
         <div class="qa-expl">1929年10月24日「暗黒の木曜日」のニューヨーク株式市場の大暴落から始まり、資本主義各国に波及した世界的経済危機。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -651,8 +669,8 @@
         <div class="qa-a">1929年</div>
         <div class="qa-expl">1929年10月24日「暗黒の木曜日」にニューヨーク株価が大暴落し、これをきっかけに世界恐慌が世界中に広がった年。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -669,8 +687,8 @@
         <div class="qa-a">ニューディール<ruby>政策<rt>せいさく</rt></ruby></div>
         <div class="qa-expl">1933年からローズベルト大統領が進めた恐慌対策。ダム建設などの公共事業で失業者を救い、国が経済に深く関わった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -687,8 +705,8 @@
         <div class="qa-a">フランクリン・ローズベルト</div>
         <div class="qa-expl">1933年に就任し、ニューディール政策で公共事業や農業調整法など国家介入による恐慌対策を進めた。第二次大戦時の大統領でもある。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -705,8 +723,8 @@
         <div class="qa-a">ブロック<ruby>経済<rt>けいざい</rt></ruby></div>
         <div class="qa-expl">本国と植民地で一つの経済の輪を作り、他国の商品には高い税をかけて排除し恐慌を乗り切ろうとした政策。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -723,8 +741,8 @@
         <div class="qa-a">ファシズム</div>
         <div class="qa-expl">イタリアのファシスト党に由来する言葉。世界恐慌後、ドイツのナチ党や日本の軍国主義など各国の独裁的政治体制に広がった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -741,8 +759,8 @@
         <div class="qa-a">ムッソリーニ</div>
         <div class="qa-expl">1922年に「ローマ進軍」で政権を握り、ファシスト党による世界初のファシズム体制を作ったイタリアの独裁者。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -759,8 +777,8 @@
         <div class="qa-a">ヒトラー</div>
         <div class="qa-expl">1933年に首相となり、議会に頼らず法を作れる権限を得て独裁を確立。第一次大戦後の体制打破とユダヤ人迫害を進めた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -777,8 +795,8 @@
         <div class="qa-a">ナチス（ナチ<ruby>党<rt>とう</rt></ruby>）</div>
         <div class="qa-expl">国家社会主義ドイツ労働者党の略称。1933年に政権を握ったヒトラーが率い、一党独裁体制でユダヤ人迫害などを行った。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -795,8 +813,8 @@
         <div class="qa-a">1933年</div>
         <div class="qa-expl">1933年はヒトラーがドイツ首相となり、日本も国際連盟を脱退した年で、世界が戦争への道を歩み始める転換点となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -813,8 +831,8 @@
         <div class="qa-a"><ruby>昭和<rt>しょうわ</rt></ruby><ruby>恐慌<rt>きょうこう</rt></ruby></div>
         <div class="qa-expl">1930年に金と紙幣の交換を再開した直後に世界恐慌が重なって起きた経済危機。生糸価格の暴落で農村が苦しんだ。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -939,7 +957,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="3">
+<section class="view" data-t="3" data-lock="2">
   <div class="tband"><span class="tno">2</span><h2>満州事変と軍部の暴走</h2><img class="wchar tchar" src="img/characters_manabi_think_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -1006,8 +1024,8 @@
         <div class="qa-a"><ruby>満州<rt>まんしゅう</rt></ruby><ruby>事変<rt>じへん</rt></ruby></div>
         <div class="qa-expl">1931年9月、関東軍が柳条湖事件で南満州鉄道を爆破し、中国軍の仕業として軍事行動を起こした中国侵略のきっかけ。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1024,8 +1042,8 @@
         <div class="qa-a"><ruby>柳条湖<rt>りゅうじょうこ</rt></ruby><ruby>事件<rt>じけん</rt></ruby></div>
         <div class="qa-expl">1931年9月、関東軍が奉天郊外の柳条湖で南満州鉄道を自ら爆破し、中国軍の仕業と偽って満州事変の引き金とした事件。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1042,8 +1060,8 @@
         <div class="qa-a">1931年</div>
         <div class="qa-expl">1931年9月の柳条湖事件をきっかけに関東軍が独断で軍事行動を起こし、満州（中国東北部）の占領を進めた満州事変が始まった年。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1060,8 +1078,8 @@
         <div class="qa-a"><ruby>満州国<rt>まんしゅうこく</rt></ruby></div>
         <div class="qa-expl">1932年、関東軍が占領した中国東北部に作った、実態は日本に操られた国家。清の最後の皇帝・溥儀を元首にした。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1078,8 +1096,8 @@
         <div class="qa-a">1932年</div>
         <div class="qa-expl">1932年は満州国建国と五・一五事件が起き、五・一五で犬養毅首相が暗殺されて政党政治が事実上終わった年。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1096,8 +1114,8 @@
         <div class="qa-a"><ruby>溥儀<rt>ふぎ</rt></ruby></div>
         <div class="qa-expl">宣統帝として知られた清朝最後の皇帝。1932年に関東軍によって満州国の元首となり、1934年からは皇帝となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1114,8 +1132,8 @@
         <div class="qa-a">リットン<ruby>調査団<rt>ちょうさだん</rt></ruby></div>
         <div class="qa-expl">1932年に国際連盟が派遣した調査団。満州国を承認せず、日本軍の撤退を勧告する報告書を出して国際連盟総会で採択された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1132,8 +1150,8 @@
         <div class="qa-a"><ruby>国際<rt>こくさい</rt></ruby><ruby>連盟<rt>れんめい</rt></ruby><ruby>脱退<rt>だったい</rt></ruby></div>
         <div class="qa-expl">1933年、松岡洋右が代表として国際連盟総会で報告書採択に反対し退場。日本は正式に脱退を通告し国際的孤立を深めた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1150,8 +1168,8 @@
         <div class="qa-a">1933年</div>
         <div class="qa-expl">1933年、リットン報告書の採択に反発した松岡洋右が国際連盟総会から退場し、日本が正式に脱退を通告して国際的に孤立する転換点となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1168,8 +1186,8 @@
         <div class="qa-a"><ruby>五<rt>ご</rt></ruby>・<ruby>一五<rt>いちご</rt></ruby><ruby>事件<rt>じけん</rt></ruby></div>
         <div class="qa-expl">1932年5月15日、海軍青年将校らが首相官邸を襲撃し犬養毅首相を暗殺。以後、政党出身首相が途絶え政党政治が事実上終わった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1186,8 +1204,8 @@
         <div class="qa-a"><ruby>犬養毅<rt>いぬかいつよし</rt></ruby></div>
         <div class="qa-expl">立憲政友会総裁の首相。1932年5月15日に海軍青年将校に襲撃され「話せばわかる」と言ったとされ暗殺された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1204,8 +1222,8 @@
         <div class="qa-a"><ruby>二<rt>に</rt></ruby>・<ruby>二六<rt>にろく</rt></ruby><ruby>事件<rt>じけん</rt></ruby></div>
         <div class="qa-expl">1936年2月26日、陸軍の若手将校らが約1400名を率いて決起し、高橋是清蔵相らを暗殺。鎮圧後、軍の発言力が強まった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1222,8 +1240,8 @@
         <div class="qa-a">1936年</div>
         <div class="qa-expl">1936年2月26日、雪の降る東京で陸軍の若手将校らが決起し、高橋是清蔵相らを暗殺。鎮圧後、軍の発言力が一気に強まった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1240,8 +1258,8 @@
         <div class="qa-a"><ruby>関東<rt>かんとう</rt></ruby>軍</div>
         <div class="qa-expl">日露戦争後、南満州鉄道や遼東半島南部を守るため満州に置かれた日本陸軍。1931年に独断で満州事変を始めた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1371,7 +1389,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="4">
+<section class="view" data-t="4" data-lock="2">
   <div class="tband"><span class="tno">3</span><h2>日中戦争の泥沼化</h2><img class="wchar tchar" src="img/characters_char_neko_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -1438,8 +1456,8 @@
         <div class="qa-a"><ruby>日中<rt>にっちゅう</rt></ruby><ruby>戦争<rt>せんそう</rt></ruby></div>
         <div class="qa-expl">1937年の盧溝橋事件をきっかけに始まり、国共合作した中国の抵抗で泥沼化。1941年からの太平洋戦争へとつながった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1456,8 +1474,8 @@
         <div class="qa-a"><ruby>盧溝橋<rt>ろこうきょう</rt></ruby><ruby>事件<rt>じけん</rt></ruby></div>
         <div class="qa-expl">1937年7月7日、北京郊外の盧溝橋付近で日中両軍が衝突した事件。これが引き金となり日中戦争が始まった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1474,8 +1492,8 @@
         <div class="qa-a">1937年</div>
         <div class="qa-expl">1937年7月7日の盧溝橋事件で北京郊外で日中両軍が衝突。戦線は上海から南京へと拡大し、全面戦争となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1492,8 +1510,8 @@
         <div class="qa-a"><ruby>南京<rt>ナンキン</rt></ruby><ruby>事件<rt>じけん</rt></ruby></div>
         <div class="qa-expl">1937年12月、日本軍が中華民国の首都・南京を占領した際に多数の市民や捕虜を殺害した事件。国際的に大きな批判を受けた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1510,8 +1528,8 @@
         <div class="qa-a"><ruby>国共<rt>こっきょう</rt></ruby><ruby>合作<rt>がっさく</rt></ruby></div>
         <div class="qa-expl">1937年、日中戦争を受けて蒋介石率いる国民党と毛沢東率いる共産党が結んだ協力関係。第二次国共合作と呼ばれる。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1528,8 +1546,8 @@
         <div class="qa-a"><ruby>蒋介石<rt>しょうかいせき</rt></ruby></div>
         <div class="qa-expl">中華民国の国民党総裁。日中戦争中は1937年に共産党と国共合作を結び、首都を南京から重慶へ移して日本への抵抗を続けた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1546,8 +1564,8 @@
         <div class="qa-a"><ruby>毛沢東<rt>もうたくとう</rt></ruby></div>
         <div class="qa-expl">中国共産党の指導者。1937年に国民党との国共合作で抗日戦線に参加し、戦後の1949年に中華人民共和国の建国者となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1564,8 +1582,8 @@
         <div class="qa-a"><ruby>国家<rt>こっか</rt></ruby><ruby>総動員法<rt>そうどういんほう</rt></ruby></div>
         <div class="qa-expl">1938年に近衛文麿内閣が制定。議会の承認なしに政府の命令で国民や物資を動かせるとし、戦争のための仕組みを整えた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1582,8 +1600,8 @@
         <div class="qa-a">1938年</div>
         <div class="qa-expl">1938年、近衛文麿内閣が国家総動員法を制定。議会の承認なしに政府の命令で国民や物資を動かせる仕組みが整った年。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1600,8 +1618,8 @@
         <div class="qa-a"><ruby>近衛文麿<rt>このえふみまろ</rt></ruby></div>
         <div class="qa-expl">貴族院議長を経て1937年に首相となり、1938年に国家総動員法を制定。後にすべての政党を一つにまとめる動きを進めた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1618,8 +1636,8 @@
         <div class="qa-a"><ruby>大政<rt>たいせい</rt></ruby><ruby>翼賛会<rt>よくさんかい</rt></ruby></div>
         <div class="qa-expl">1940年、近衛文麿のもとで発足した全国民組織。すべての政党が解散して合流し、政党政治は完全に終わった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1636,8 +1654,8 @@
         <div class="qa-a">1940年</div>
         <div class="qa-expl">1940年、近衛文麿のもとで大政翼賛会が結成され全政党が解散。同年に日独伊三国同盟も結ばれ、戦時体制が一気に強化された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1654,8 +1672,8 @@
         <div class="qa-a"><ruby>日独伊<rt>にちどくい</rt></ruby><ruby>三国<rt>さんごく</rt></ruby><ruby>同盟<rt>どうめい</rt></ruby></div>
         <div class="qa-expl">1940年、近衛文麿内閣のもと日本・ドイツ・イタリアが結んだ軍事同盟。アメリカとの対立を決定的にし、太平洋戦争への道を開いた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1672,8 +1690,8 @@
         <div class="qa-a"><ruby>重慶<rt>じゅうけい</rt></ruby></div>
         <div class="qa-expl">日中戦争で蒋介石率いる中華民国政府が南京から移した臨時首都。日本軍は何度も空爆したが降伏させられなかった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1808,6 +1826,14 @@
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
 </div></div>
+<div class="lock-ov" id="lockOv" hidden><div class="lock-card">
+  <div class="lock-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+  <div class="lock-t">つづきは購入者向けです</div>
+  <div class="lock-d">ここまでは無料でためせます。つづきを解くには、つづもんのライセンスが必要です。</div>
+  <button class="lock-btn lb-line" id="lockLogin">LINEでログイン（購入者の方）</button>
+  <a class="lock-btn lb-buy" href="../../index.html">つづもんを見てみる →</a>
+  <button class="lock-close" id="lockClose">とじる（ここまで解く）</button>
+</div></div>
 
 <script type="module">
 // 記述AI採点のログイン（www.chatstudy.jp の LINE Login＝Firebase Auth。参考書ページと同じ）。
@@ -1830,9 +1856,24 @@ try {
       location.href = '/welcome?next=' + encodeURIComponent(location.pathname + location.hash);
     },
   };
+  var ENTITLEMENT_API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/tsudumonEntitlement';
+  async function refreshEntitlement(u) {
+    try {
+      var idToken = await u.getIdToken();
+      var res = await fetch(ENTITLEMENT_API, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ idToken: idToken }),
+      });
+      if (!res.ok) return;
+      var data = await res.json();
+      try { localStorage.setItem('tzm-lic', JSON.stringify((data && data.grades) || [])); } catch (e) {}
+      if (window.tzmRefreshGate) window.tzmRefreshGate();
+    } catch (e) { /* localStorage フォールバックのまま */ }
+  }
   onAuthStateChanged(auth, function (u) {
     window.__tzmAuth.user = u;
     window.__tzmAuth.ready = true;
+    if (u) refreshEntitlement(u);
     document.dispatchEvent(new CustomEvent('tzm-auth'));
   });
 } catch (e) { /* 設定が無ければ採点はフォールバック（自己採点）に倒れる */ }
@@ -1842,6 +1883,7 @@ try {
 (function () {
   var KEY = 'tzmwb-15';
   var CH = '15';
+  var GRADE = '中3';        // この本の学年（中1/中2/中3）
   var GRADE_API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/gradeWritten';      // 記述AI採点 Cloud Function
   var REF_VIEWS = [0, 0, 1, 2, 3];        // 問題集のビューt → 参考書の単元番号（0＝対応なし）
   var views = [].slice.call(document.querySelectorAll('.view'));
@@ -1881,7 +1923,7 @@ try {
     try { if (localStorage.getItem('tzmhint') === '1') return; } catch (e) { return; }
     var canHover = window.matchMedia && window.matchMedia('(hover:hover)').matches;
     bar.textContent = canHover ? '⌨️ ← → キーでもページをめくれるよ'
-                               : '👆 よこにスワイプでもページをめくれるよ';
+                               : 'よこにスワイプでもページをめくれるよ';
     var shown = false;
     window.showHint = function () {
       if (shown || state.t === 0) return;
@@ -2086,7 +2128,7 @@ try {
   function showJudged(scopeEl, ok) {
     var banner = scopeEl.querySelector('.b-result');
     if (banner) {
-      banner.textContent = ok ? '⭕ せいかい！' : '❌ おしい！';
+      banner.textContent = ok ? 'せいかい！' : 'おしい！';
       banner.className = 'b-result ' + (ok ? 'ok' : 'ng');
     }
     scopeEl.classList.add('show');
@@ -2251,7 +2293,7 @@ try {
       pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
       document.getElementById('btnPrev').textContent = s === 0 ? '目次へ' : '← まえへ';
       var next = document.getElementById('btnNext');
-      if (onModeStep && steps.length === 1) next.textContent = '⭐ おすすめ順で始める →';
+      if (onModeStep && steps.length === 1) next.textContent = 'おすすめ順で始める →';
       else if (s < steps.length - 1) next.textContent = 'つぎへ →';
       else next.textContent = t < N ? '次の単元へ →' : '目次にもどる';
       if (steps[s] && steps[s].classList.contains('done-step')) renderScore(views[t]);
@@ -2297,12 +2339,32 @@ try {
     } else { btn.hidden = true; }
   }
 
+  // ── 教材ゲート（中間案・ゆるめ「頭出しは見せる」）──
+  //   有料単元はやり方えらぶ＋要点まとめまで誰でも試せる。その先は購入者（この学年）だけ。
+  function isLicensed() {
+    try { return (JSON.parse(localStorage.getItem('tzm-lic') || '[]')).indexOf(GRADE) >= 0; }
+    catch (e) { return false; }
+  }
+  function lockFrom(t) { var v = views[t]; return v ? +(v.getAttribute('data-lock') || 0) : 0; }
+  function gateBlocks(t, s) { var lk = lockFrom(t); return lk > 0 && !isLicensed() && s >= lk; }
+  function showLock() { var ov = document.getElementById('lockOv'); if (ov) ov.hidden = false; }
+  function hideLock() { var ov = document.getElementById('lockOv'); if (ov) ov.hidden = true; }
+  window.tzmRefreshGate = function () { if (isLicensed()) hideLock(); };
+
   function go(t, s, dir) {
     lastDir = dir || 1;
     state.t = Math.max(0, Math.min(N, t));
     state.s = Math.max(0, s || 0);
-    if (state.t > 0) state.s = Math.min(state.s, stepsOf(state.t).length - 1);
-    else state.s = 0;
+    if (state.t > 0) {
+      state.s = Math.min(state.s, stepsOf(state.t).length - 1);
+      if (gateBlocks(state.t, state.s)) {
+        state.s = Math.max(0, lockFrom(state.t) - 1);
+        render();
+        showLock();
+        return;
+      }
+    } else state.s = 0;
+    hideLock();
     render();
   }
   // ── 未回答ガード: 問題(一問一答/4択/記述)に答えるまで「つぎへ」で先に進めない ──
@@ -2346,6 +2408,11 @@ try {
     else go(0, 0, -1);
   }
 
+  document.getElementById('lockLogin').addEventListener('click', function () {
+    var here = location.pathname + '#t' + state.t + (state.s > 0 ? 's' + state.s : '');
+    location.href = '../../login/?next=' + encodeURIComponent(here);
+  });
+  document.getElementById('lockClose').addEventListener('click', hideLock);
   document.getElementById('btnNext').addEventListener('click', next);
   document.getElementById('btnPrev').addEventListener('click', prev);
   // 回答するとロックを解除（回答処理の後に評価するため click は次tickで）
@@ -2468,7 +2535,7 @@ try {
       var istep = idk.closest('.qa-step');
       showJudged(istep, false);
       var bn = istep.querySelector('.b-result');
-      if (bn) { bn.textContent = '👇 こたえはこちら。次はきっと書けるよ！'; bn.className = 'b-result ng'; }
+      if (bn) { bn.textContent = 'こたえはこちら。次はきっと書けるよ！'; bn.className = 'b-result ng'; }
       var stI = store(); stI.r = stI.r || {};
       stI.r[istep.dataset.qid] = 0;
       save(stI);

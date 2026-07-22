@@ -117,11 +117,12 @@
   .home-topline { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:2px; }
   .hometop { display:flex; align-items:flex-start; gap:6px; padding:8px 2px 2px; text-align:left; }
   .ht-main { flex:1; min-width:0; text-align:center; }
-  .badge3 { display:inline-flex; border-radius:18px; overflow:hidden; font-size:12px; font-weight:bold;
-            box-shadow:0 2px 4px rgba(120,80,20,.2); }
-  .badge3 span { padding:4px 11px; display:inline-flex; align-items:center; white-space:nowrap; }
-  .b-vol { background:var(--brand); color:#fff; }
-  .b-kind { background:#fff; color:var(--deep); }
+  /* 本のラベル（押せない表示）: トグルに見えないようフラットな1トーンのタグに */
+  .badge3 { display:inline-flex; align-items:center; gap:6px; border-radius:8px;
+            background:#f4ecdb; padding:3px 10px; font-size:11.5px; font-weight:bold; }
+  .badge3 span { padding:0; display:inline-flex; align-items:center; white-space:nowrap; }
+  .b-vol { color:var(--brand); }
+  .b-kind { color:#9a7b4f; }
   .b-web { background:var(--amber); color:#fff; }
   .ht-title { font-size:41px; color:var(--deep); margin:12px 0 0; line-height:1.12; position:relative;
               display:inline-block; padding:0 6px; letter-spacing:.01em; }
@@ -443,6 +444,23 @@
   .foot-note { margin-top:4px; font-size:12px; }
 
   /* ── 下部ナビ ── */
+  /* 教材ゲートのロック案内（頭出しの先） */
+  .lock-ov { position:fixed; inset:0; z-index:40; background:rgba(60,40,15,.5);
+             display:flex; align-items:center; justify-content:center; padding:20px; }
+  .lock-ov[hidden] { display:none; }
+  .lock-card { width:100%; max-width:360px; background:#fff; border-radius:18px; padding:24px 20px 18px;
+               text-align:center; box-shadow:0 10px 30px rgba(0,0,0,.3); }
+  .lock-ic svg { width:34px; height:34px; }
+  .lock-ic { font-size:40px; }
+  .lock-t { font-size:18px; font-weight:bold; color:var(--deep); margin:6px 0 6px; }
+  .lock-d { font-size:13px; color:#78716c; line-height:1.8; margin-bottom:16px; }
+  .lock-btn { display:block; width:100%; margin-top:10px; border:none; border-radius:13px; padding:13px;
+              font-size:15px; font-weight:bold; text-decoration:none; cursor:pointer; font-family:inherit; }
+  .lb-line { background:#06c755; color:#fff; box-shadow:0 3px 8px rgba(6,199,85,.3); }
+  .lb-buy { background:#fff; color:var(--brand); border:1.5px solid var(--line); }
+  .lock-close { display:block; width:100%; margin-top:12px; background:none; border:none; cursor:pointer;
+                color:#a8a29e; font-size:12.5px; font-family:inherit; text-decoration:underline; }
+
   .navbar { position:fixed; left:0; right:0; bottom:0; z-index:10;
             background:rgba(255,253,248,.97); border-top:1px solid #f0e6d2;
             padding:10px 16px calc(10px + env(safe-area-inset-bottom)); }
@@ -546,12 +564,12 @@
   <nav class="toc">
     <div class="toc-head">
       <div class="toc-h">単元を選択</div>
-      <button class="toc-cal" data-go="1">📅 年表でチェック<span class="cal-go">›</span></button>
+      <button class="toc-cal" data-go="1">年表でチェック<span class="cal-go">›</span></button>
     </div>
     <button class="toc-item" data-go="2"><img class="toc-thumb" src="img/reference_hist07-europe-change.webp" alt="" loading="lazy"><span class="toc-no">1</span><span class="toc-name">ヨーロッパの変革</span><span class="toc-state" data-state-t="2"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="3"><img class="toc-thumb" src="img/reference_hist07-voyage.webp" alt="" loading="lazy"><span class="toc-no">2</span><span class="toc-name">大航海時代</span><span class="toc-state" data-state-t="3"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="4"><img class="toc-thumb" src="img/reference_hist07-nanban-trade.webp" alt="" loading="lazy"><span class="toc-no">3</span><span class="toc-name">南蛮貿易とキリスト教</span><span class="toc-state" data-state-t="4"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="5"><img class="toc-thumb" src="img/reference_hist07-unify.webp" alt="" loading="lazy"><span class="toc-no">4</span><span class="toc-name">信長・秀吉の天下統一</span><span class="toc-state" data-state-t="5"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="6"><img class="toc-thumb" src="img/reference_hist07-hideyoshi-policy.webp" alt="" loading="lazy"><span class="toc-no">5</span><span class="toc-name">秀吉の政策と朝鮮出兵</span><span class="toc-state" data-state-t="6"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="7"><img class="toc-thumb" src="img/reference_hist07-momoyama.webp" alt="" loading="lazy"><span class="toc-no">6</span><span class="toc-name">桃山文化</span><span class="toc-state" data-state-t="7"></span><span class="toc-arrow">›</span></button>
   </nav>
   <a class="big-btn ref-btn" href="../../ref/07/index.html">参考書を開く</a>
-  <button class="big-btn print-btn" type="button" onclick="window.print()">🖨 紙に印刷して解く（解答つき）</button>
+  <button class="big-btn print-btn" type="button" onclick="window.print()">紙に印刷して解く（解答つき）</button>
   
   <footer class="foot">
     <div>つづもん 問題集</div>
@@ -566,7 +584,7 @@
     <table class="tl-table"><tr><th class="tl-year">年代</th><th>できごと</th></tr><tr><td class='tl-year'>1453年</td><td><button class="blank" type="button"><span class="bno">①</span><span class="ba">オスマン帝国</span><span class="bl" style="width:5.4em"></span></button>がビザンツ帝国を滅ぼす</td></tr><tr><td class='tl-year'>1492年</td><td><button class="blank" type="button"><span class="bno">②</span><span class="ba">コロンブス</span><span class="bl" style="width:4.5em"></span></button>がカリブ海の島に到達する</td></tr><tr><td class='tl-year'>1498年</td><td><button class="blank" type="button"><span class="bno">③</span><span class="ba">バスコ・ダ・ガマ</span><span class="bl" style="width:7.2em"></span></button>がインドに到達する</td></tr><tr><td class='tl-year'>1517年</td><td><button class="blank" type="button"><span class="bno">④</span><span class="ba">ルター</span><span class="bl" style="width:2.7em"></span></button>が<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">宗教改革</span><span class="bl" style="width:3.6em"></span></button>を始める</td></tr><tr><td class='tl-year'>1522年</td><td><button class="blank" type="button"><span class="bno">⑥</span><span class="ba">マゼランの船隊</span><span class="bl" style="width:6.3em"></span></button>が世界一周を達成する</td></tr><tr><td class='tl-year'>1543年</td><td>ポルトガル人により種子島に<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">鉄砲</span><span class="bl" style="width:2.7em"></span></button>が伝わる</td></tr><tr><td class='tl-year'>1549年</td><td><button class="blank" type="button"><span class="bno">⑧</span><span class="ba">ザビエル</span><span class="bl" style="width:3.6em"></span></button>が来日しキリスト教を伝える</td></tr><tr><td class='tl-year'>1560年</td><td>織田信長が<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">桶狭間の戦い</span><span class="bl" style="width:5.4em"></span></button>で今川義元を破る</td></tr><tr><td class='tl-year'>1571年</td><td>信長が<button class="blank" type="button"><span class="bno">⑩</span><span class="ba">比叡山延暦寺</span><span class="bl" style="width:5.4em"></span></button>を焼き討ちにする</td></tr><tr><td class='tl-year'>1573年</td><td>信長が足利義昭を追放し<button class="blank" type="button"><span class="bno">⑪</span><span class="ba">室町幕府</span><span class="bl" style="width:3.6em"></span></button>を滅ぼす</td></tr><tr><td class='tl-year'>1575年</td><td>信長・家康連合軍が<button class="blank" type="button"><span class="bno">⑫</span><span class="ba">長篠の戦い</span><span class="bl" style="width:4.5em"></span></button>で武田勝頼を破る</td></tr><tr><td class='tl-year'>1582年</td><td>明智光秀が<button class="blank" type="button"><span class="bno">⑬</span><span class="ba">本能寺の変</span><span class="bl" style="width:4.5em"></span></button>で信長を倒す</td></tr><tr><td class='tl-year'>1588年</td><td>秀吉が百姓から武器を取り上げる<button class="blank" type="button"><span class="bno">⑭</span><span class="ba">刀狩</span><span class="bl" style="width:2.7em"></span></button>を行う</td></tr><tr><td class='tl-year'>1590年</td><td>秀吉が<button class="blank" type="button"><span class="bno">⑮</span><span class="ba">北条氏</span><span class="bl" style="width:2.7em"></span></button>を滅ぼし全国統一を達成する</td></tr><tr><td class='tl-year'>1592年</td><td>秀吉が朝鮮に出兵する（<button class="blank" type="button"><span class="bno">⑯</span><span class="ba">文禄の役</span><span class="bl" style="width:3.6em"></span></button>）</td></tr><tr><td class='tl-year'>1598年</td><td>秀吉が死去し、日本軍が朝鮮から撤退する</td></tr></table>
   </div>
 </section>
-<section class="view" data-t="2">
+<section class="view" data-t="2" data-lock="2">
   <div class="tband"><span class="tno">1</span><h2>ヨーロッパの変革</h2><img class="wchar tchar" src="img/characters_char_pencil_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -633,8 +651,8 @@
         <div class="qa-a">ローマ<ruby>教皇<rt>きょうこう</rt></ruby></div>
         <div class="qa-expl">カトリック教会の頂点に立つ最高位の聖職者で、西ヨーロッパ各国の国王にも強い影響力を持った宗教的指導者。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -651,8 +669,8 @@
         <div class="qa-a">カトリック<ruby>教会<rt>きょうかい</rt></ruby></div>
         <div class="qa-expl">ローマ教皇を頂点に西ヨーロッパで広まったキリスト教の宗派。東欧の正教会と区別する。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -669,8 +687,8 @@
         <div class="qa-a"><ruby>正教会<rt>せいきょうかい</rt></ruby></div>
         <div class="qa-expl">ビザンツ帝国と結びつき東ヨーロッパで広まった宗派で、ローマ教皇の権威を認めない独自の教会。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -687,8 +705,8 @@
         <div class="qa-a">イスラム<ruby>教<rt>きょう</rt></ruby></div>
         <div class="qa-expl">7世紀にムハンマドがアラビア半島で開いた一神教。信者はムスリムと呼ばれ、西アジア・北アフリカへ広がった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -705,8 +723,8 @@
         <div class="qa-a">ムスリム</div>
         <div class="qa-expl">イスラム教徒を指す呼び名で、民族名ではなく宗教上の呼称。インド洋交易で大きな役割を果たした。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -723,8 +741,8 @@
         <div class="qa-a"><ruby>十字軍<rt>じゅうじぐん</rt></ruby></div>
         <div class="qa-expl">11世紀末から約200年続いた遠征。聖地奪還には失敗したが、東西交流を活発にし教皇の権威が低下した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -741,8 +759,8 @@
         <div class="qa-a">ルネサンス</div>
         <div class="qa-expl">「文芸復興」ともいう。14世紀にイタリアで始まり、人間中心の文化として西欧に広がった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -759,8 +777,8 @@
         <div class="qa-a"><ruby>宗教<rt>しゅうきょう</rt></ruby><ruby>改革<rt>かいかく</rt></ruby></div>
         <div class="qa-expl">1517年、ルターの免罪符販売批判をきっかけに始まり、プロテスタントが生まれカトリックから分かれた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -777,8 +795,8 @@
         <div class="qa-a"><ruby>免罪符<rt>めんざいふ</rt></ruby>（<ruby>贖宥状<rt>しょくゆうじょう</rt></ruby>）</div>
         <div class="qa-expl">ローマ教会がサン・ピエトロ大聖堂の資金集めなどに販売した札。ルターはこの販売を批判して宗教改革を始めた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -795,8 +813,8 @@
         <div class="qa-a">ルター</div>
         <div class="qa-expl">1517年に「95か条の論題」を発表してカトリック教会の権威に抗議し、ドイツで宗教改革を始めた人物。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -813,8 +831,8 @@
         <div class="qa-a">カルバン</div>
         <div class="qa-expl">ルターとともに新教を広めた人物。よく働き、ぜいたくをしない生き方を説き、商工業者に支持された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -831,8 +849,8 @@
         <div class="qa-a">プロテスタント</div>
         <div class="qa-expl">「抗議する者」が語源。ルターやカルバンを支持しカトリック教会に抗議した、宗教改革による新教徒の総称。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -849,8 +867,8 @@
         <div class="qa-a">イエズス<ruby>会<rt>かい</rt></ruby></div>
         <div class="qa-expl">宗教改革に対抗してカトリック側がつくった団体。アジアにも宣教師を送り、ザビエルもこの一員だった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -867,8 +885,8 @@
         <div class="qa-a"><ruby>活版<rt>かっぱん</rt></ruby><ruby>印刷<rt>いんさつ</rt></ruby></div>
         <div class="qa-expl">15世紀にドイツのグーテンベルクが実用化し、書物が安く大量に作れるようになり知識の普及を加速させた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -998,7 +1016,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="3">
+<section class="view" data-t="3" data-lock="2">
   <div class="tband"><span class="tno">2</span><h2>大航海時代</h2><img class="wchar tchar" src="img/characters_manabi_think_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -1065,8 +1083,8 @@
         <div class="qa-a"><ruby>大航海<rt>だいこうかい</rt></ruby>時代</div>
         <div class="qa-expl">15世紀以降、香辛料やキリスト教布教を求めてヨーロッパ人が新航路を開き、世界各地へ進出した時代。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1083,8 +1101,8 @@
         <div class="qa-a">バスコ・ダ・ガマ</div>
         <div class="qa-expl">1498年にアフリカ南端の喜望峰を回ってインドに到達し、ヨーロッパからのインド航路を開いたポルトガル人。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1101,8 +1119,8 @@
         <div class="qa-a">コロンブス</div>
         <div class="qa-expl">1492年にスペインの支援で大西洋を西に横断しカリブ海の島に到達したが、本人は最後までアジアに着いたと信じていた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1119,8 +1137,8 @@
         <div class="qa-a">マゼランの<ruby>船隊<rt>せんたい</rt></ruby></div>
         <div class="qa-expl">スペイン国王の援助で出航。マゼラン本人はフィリピンで死亡したが、残った船隊が1522年に世界一周を完成させた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1137,8 +1155,8 @@
         <div class="qa-a"><ruby>三角<rt>さんかく</rt></ruby><ruby>貿易<rt>ぼうえき</rt></ruby></div>
         <div class="qa-expl">ヨーロッパが武器をアフリカへ運び、アフリカから人々を奴隷としてアメリカ大陸へ強制的に送った貿易のしくみ。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1155,8 +1173,8 @@
         <div class="qa-a"><ruby>東<rt>ひがし</rt></ruby>インド<ruby>会社<rt>がいしゃ</rt></ruby></div>
         <div class="qa-expl">オランダが17世紀初めに作った、アジア貿易を独占する会社。香辛料などの貿易で大きな利益を上げた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1173,8 +1191,8 @@
         <div class="qa-a"><ruby>香辛料<rt>こうしんりょう</rt></ruby></div>
         <div class="qa-expl">コショウなどの香辛料は肉の保存・調味に使われ、ヨーロッパでは金と同等の価値を持ち大航海時代の動機となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1191,8 +1209,8 @@
         <div class="qa-a">インカ<ruby>帝国<rt>ていこく</rt></ruby></div>
         <div class="qa-expl">南米ペルーを中心に栄えた帝国で、マチュピチュなどの遺跡で知られる。16世紀にスペインのピサロに征服された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1209,8 +1227,8 @@
         <div class="qa-a">アステカ<ruby>帝国<rt>ていこく</rt></ruby></div>
         <div class="qa-expl">メキシコ高原に栄えた帝国で、テノチティトランを首都とした。16世紀にスペインのコルテスに征服された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1227,8 +1245,8 @@
         <div class="qa-a">ポルトガル</div>
         <div class="qa-expl">スペインとともに大航海時代を先導した国。バスコ・ダ・ガマを支援してインド航路を開き、アジアに多くの拠点を築いた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1245,8 +1263,8 @@
         <div class="qa-a">スペイン</div>
         <div class="qa-expl">コロンブスを支援してアメリカ大陸に進出。アステカ帝国やインカ帝国を征服し、中南米に広大な植民地を築いた国。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1263,8 +1281,8 @@
         <div class="qa-a">1492年</div>
         <div class="qa-expl">コロンブスがスペインの支援で大西洋を西回りに横断し、カリブ海の島（サン・サルバドル島）に到達した年。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1281,8 +1299,8 @@
         <div class="qa-a">1498年</div>
         <div class="qa-expl">ポルトガル人バスコ・ダ・ガマがアフリカ南端の喜望峰を回り、ヨーロッパからのインド航路を開拓した年。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1299,8 +1317,8 @@
         <div class="qa-a">1522年</div>
         <div class="qa-expl">マゼランの船隊がスペインへ帰還し世界一周を完成させた年。これにより地球が丸いことが実際に証明された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1409,7 +1427,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="4">
+<section class="view" data-t="4" data-lock="2">
   <div class="tband"><span class="tno">3</span><h2>南蛮貿易とキリスト教</h2><img class="wchar tchar" src="img/characters_char_neko_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -1476,8 +1494,8 @@
         <div class="qa-a"><ruby>鉄砲<rt>てっぽう</rt></ruby></div>
         <div class="qa-expl">1543年にポルトガル人が種子島に伝えた武器で、戦国大名の戦い方を変えた。近江の国友や和泉の堺で量産された。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1494,8 +1512,8 @@
         <div class="qa-a"><ruby>種子島<rt>たねがしま</rt></ruby></div>
         <div class="qa-expl">1543年にポルトガル人を乗せた中国船が漂着し鉄砲2挺が伝えられた九州南方の島で、領主の種子島時尭が鉄砲の国産化を進めた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1512,8 +1530,8 @@
         <div class="qa-a">ザビエル</div>
         <div class="qa-expl">1549年に鹿児島へ来航したイエズス会の宣教師で、日本にキリスト教を伝えた。日本人アンジロウとの出会いが来日のきっかけ。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1530,8 +1548,8 @@
         <div class="qa-a"><ruby>南蛮<rt>なんばん</rt></ruby><ruby>貿易<rt>ぼうえき</rt></ruby></div>
         <div class="qa-expl">日本は主に銀を輸出し、生糸などを輸入した。南蛮人とはポルトガル人・スペイン人のこと。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1548,8 +1566,8 @@
         <div class="qa-a">キリシタン<ruby>大名<rt>だいみょう</rt></ruby></div>
         <div class="qa-expl">南蛮貿易の利益などを目的にキリスト教を受け入れた大名の総称で、九州に多く、大村純忠や大友宗麟などが代表的な人物。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1566,8 +1584,8 @@
         <div class="qa-a"><ruby>天正<rt>てんしょう</rt></ruby><ruby>遣欧使節<rt>けんおうしせつ</rt></ruby></div>
         <div class="qa-expl">1582年に大友宗麟ら九州のキリシタン大名がローマ教皇のもとへ送った4人の少年使節で、8年後に帰国した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1584,8 +1602,8 @@
         <div class="qa-a">ポルトガル</div>
         <div class="qa-expl">スペインとともに大航海時代を先導した国で、1543年に種子島へ鉄砲を伝え、その後日本との南蛮貿易を行った。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1602,8 +1620,8 @@
         <div class="qa-a"><ruby>国友<rt>くにとも</rt></ruby></div>
         <div class="qa-expl">鉄砲の生産地として発展した近江（滋賀県）の都市で、和泉の堺とともに量産拠点となり、刀鍛冶の技術が鉄砲製造に生かされた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1620,8 +1638,8 @@
         <div class="qa-a"><ruby>堺<rt>さかい</rt></ruby></div>
         <div class="qa-expl">鉄砲の生産地として発展した和泉（大阪府）の都市で、近江の国友とともに量産拠点となり、商業都市としても繁栄した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1638,8 +1656,8 @@
         <div class="qa-a"><ruby>生糸<rt>きいと</rt></ruby></div>
         <div class="qa-expl">南蛮貿易で日本に輸入された衣料の高級原料で、中国産の生糸が主な輸入品となり、日本の絹織物産業を支えた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1656,8 +1674,8 @@
         <div class="qa-a"><ruby>長崎<rt>ながさき</rt></ruby></div>
         <div class="qa-expl">1580年にキリシタン大名の大村純忠がイエズス会に寄進した港町で、その後南蛮貿易の中心地として繁栄した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1674,8 +1692,8 @@
         <div class="qa-a">イエズス<ruby>会<rt>かい</rt></ruby></div>
         <div class="qa-expl">宗教改革に対抗してカトリック側がつくった団体で、ザビエルなどの宣教師をアジアや南米に送ってキリスト教を広めた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1692,8 +1710,8 @@
         <div class="qa-a"><ruby>南蛮人<rt>なんばんじん</rt></ruby></div>
         <div class="qa-expl">南方から来たポルトガル人やスペイン人を指す日本人の呼び名で、南蛮貿易や南蛮文化、南蛮屏風などの名の由来となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1710,8 +1728,8 @@
         <div class="qa-a">1543年</div>
         <div class="qa-expl">1543年にポルトガル人を乗せた中国船が種子島に漂着し、鉄砲2挺が日本に伝えられて戦国大名の戦い方を変えた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1836,7 +1854,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="5">
+<section class="view" data-t="5" data-lock="2">
   <div class="tband"><span class="tno">4</span><h2>信長・秀吉の天下統一</h2><img class="wchar tchar" src="img/characters_char_owl_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -1903,8 +1921,8 @@
         <div class="qa-a"><ruby>織田信長<rt>おだのぶなが</rt></ruby></div>
         <div class="qa-expl">尾張の戦国大名で1560年に桶狭間で今川義元を破り、長篠で鉄砲を活用し、楽市・楽座や比叡山延暦寺焼き討ちで知られる。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1921,8 +1939,8 @@
         <div class="qa-a"><ruby>桶狭間<rt>おけはざま</rt></ruby>の<ruby>戦<rt>たたか</rt></ruby>い</div>
         <div class="qa-expl">1560年、織田信長が今川義元を奇襲で破った戦い。少数の兵力で大軍を破り、信長が勢力を広げるきっかけとなった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1939,8 +1957,8 @@
         <div class="qa-a"><ruby>足利義昭<rt>あしかがよしあき</rt></ruby></div>
         <div class="qa-expl">室町幕府第15代将軍。当初信長に擁されて京都へ入ったが対立し、1573年に追放されて室町幕府が滅亡した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1957,8 +1975,8 @@
         <div class="qa-a"><ruby>室町<rt>むろまち</rt></ruby><ruby>幕府<rt>ばくふ</rt></ruby></div>
         <div class="qa-expl">信長は将軍足利義昭を京都から追放し、約240年続いた室町幕府を滅ぼした。これで戦国時代の終わりが近づいた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1975,8 +1993,8 @@
         <div class="qa-a"><ruby>比叡山<rt>ひえいざん</rt></ruby><ruby>延暦寺<rt>えんりゃくじ</rt></ruby></div>
         <div class="qa-expl">信長が1571年に焼き討ちにした天台宗の総本山で、強い仏教勢力をおさえる狙いがあった。場所は近江（滋賀県）の比叡山。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1993,8 +2011,8 @@
         <div class="qa-a"><ruby>長篠<rt>ながしの</rt></ruby>の<ruby>戦<rt>たたか</rt></ruby>い</div>
         <div class="qa-expl">1575年、信長・徳川家康連合軍が鉄砲を有効に活用し、武田勝頼の騎馬軍団を破った戦い。鉄砲の威力を示した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2011,8 +2029,8 @@
         <div class="qa-a"><ruby>楽市<rt>らくいち</rt></ruby>・<ruby>楽座<rt>らくざ</rt></ruby></div>
         <div class="qa-expl">信長が安土城下などで行った経済政策で、税や座の特権をなくし商工業を自由化して城下の発展をうながした。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2029,8 +2047,8 @@
         <div class="qa-a"><ruby>安土城<rt>あづちじょう</rt></ruby></div>
         <div class="qa-expl">信長が1576年に近江（琵琶湖東岸）に築いた壮大な城で、安土桃山時代の名前の由来の一つ。大阪城は豊臣秀吉の拠点。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2047,8 +2065,8 @@
         <div class="qa-a"><ruby>本能寺<rt>ほんのうじ</rt></ruby>の<ruby>変<rt>へん</rt></ruby></div>
         <div class="qa-expl">1582年、京都の本能寺で家臣の明智光秀が信長を攻め、信長が自害した事件。信長の天下統一目前の出来事だった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2065,8 +2083,8 @@
         <div class="qa-a"><ruby>明智光秀<rt>あけちみつひで</rt></ruby></div>
         <div class="qa-expl">信長の家臣で、1582年の本能寺の変で謀反を起こし信長を自害させたが、直後の山崎の戦いで羽柴秀吉に討たれた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2083,8 +2101,8 @@
         <div class="qa-a"><ruby>豊臣秀吉<rt>とよとみひでよし</rt></ruby></div>
         <div class="qa-expl">信長の後継者として1590年に全国統一を達成した人物。農民出身で天下人に上り詰め、関白・太閤検地・刀狩・朝鮮出兵で知られる。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2101,8 +2119,8 @@
         <div class="qa-a"><ruby>大阪城<rt>おおさかじょう</rt></ruby></div>
         <div class="qa-expl">秀吉が1583年から築いた政治の拠点で、当時日本で最大級の城。石山本願寺のあとに建てられた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2119,8 +2137,8 @@
         <div class="qa-a"><ruby>関白<rt>かんぱく</rt></ruby></div>
         <div class="qa-expl">天皇を助ける昔からの高い役職。秀吉は1585年にこの位につき、全国の大名に戦いをやめるよう命じた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2137,8 +2155,8 @@
         <div class="qa-a"><ruby>安土桃山<rt>あづちももやま</rt></ruby>時代</div>
         <div class="qa-expl">信長と秀吉が政権を握った時代の名称で、信長の安土城と秀吉の伏見桃山城にちなんだ時代名。豪壮な桃山文化が花開いた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2263,7 +2281,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="6">
+<section class="view" data-t="6" data-lock="2">
   <div class="tband"><span class="tno">5</span><h2>秀吉の政策と朝鮮出兵</h2><img class="wchar tchar" src="img/characters_manabi_ok_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -2330,8 +2348,8 @@
         <div class="qa-a"><ruby>太閤<rt>たいこう</rt></ruby><ruby>検地<rt>けんち</rt></ruby></div>
         <div class="qa-expl">1582年から秀吉が全国で実施。同じ大きさの「ます」を基準に田畑を測量し、収穫量を石高で表した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2348,8 +2366,8 @@
         <div class="qa-a"><ruby>石高<rt>こくだか</rt></ruby></div>
         <div class="qa-expl">米の予想収穫量を石で表した基準。太閤検地で導入され、年貢徴収や大名の領地の規模を示す物差しになった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2366,8 +2384,8 @@
         <div class="qa-a"><ruby>刀狩<rt>かたながり</rt></ruby></div>
         <div class="qa-expl">1588年、秀吉が百姓から刀・弓・鉄砲などの武器を取り上げた政策。一揆を防ぎ、兵農分離を進める狙いがあった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2384,8 +2402,8 @@
         <div class="qa-a"><ruby>兵農<rt>へいのう</rt></ruby><ruby>分離<rt>ぶんり</rt></ruby></div>
         <div class="qa-expl">太閤検地と刀狩により、武士と農民の身分がはっきり分けられた。江戸時代の身分制度のもとになった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2402,8 +2420,8 @@
         <div class="qa-a"><ruby>文禄<rt>ぶんろく</rt></ruby>・<ruby>慶長<rt>けいちょう</rt></ruby>の<ruby>役<rt>えき</rt></ruby></div>
         <div class="qa-expl">1592年が文禄の役、1597年が慶長の役。秀吉の死により1598年に撤退した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2420,8 +2438,8 @@
         <div class="qa-a"><ruby>文禄<rt>ぶんろく</rt></ruby>の<ruby>役<rt>えき</rt></ruby></div>
         <div class="qa-expl">1592年、秀吉が約15万の大軍を朝鮮に派遣した最初の戦い。朝鮮の抵抗や明の援軍によって日本軍は苦戦した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2438,8 +2456,8 @@
         <div class="qa-a"><ruby>慶長<rt>けいちょう</rt></ruby>の<ruby>役<rt>えき</rt></ruby></div>
         <div class="qa-expl">1597年、秀吉が再び朝鮮へ大軍を派遣した二度目の戦い。1598年の秀吉の死により日本軍は朝鮮から撤退した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2456,8 +2474,8 @@
         <div class="qa-a"><ruby>李舜臣<rt>りしゅんしん</rt></ruby></div>
         <div class="qa-expl">文禄・慶長の役で朝鮮水軍を率い、亀甲船を駆使して日本水軍を破り、日本軍の海上補給路を断った朝鮮の英雄。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2474,8 +2492,8 @@
         <div class="qa-a"><ruby>亀甲船<rt>きっこうせん</rt></ruby></div>
         <div class="qa-expl">李舜臣が率いた朝鮮の軍船。亀の甲羅のように甲板を鉄板で覆った構造で敵兵の侵入を防ぎ、日本水軍を苦しめた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2492,8 +2510,8 @@
         <div class="qa-a"><ruby>有田焼<rt>ありたやき</rt></ruby>・<ruby>薩摩焼<rt>さつまやき</rt></ruby>・<ruby>萩焼<rt>はぎやき</rt></ruby></div>
         <div class="qa-expl">文禄・慶長の役で連れてこられた朝鮮人陶工の技術によって、佐賀の有田焼・鹿児島の薩摩焼・山口の萩焼などが発展した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2510,8 +2528,8 @@
         <div class="qa-a"><ruby>百姓<rt>ひゃくしょう</rt></ruby></div>
         <div class="qa-expl">太閤検地により土地の耕作権が保障された身分。耕作権を得る代わりに領主に年貢を納める義務を負った。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2528,8 +2546,8 @@
         <div class="qa-a"><ruby>明<rt>みん</rt></ruby></div>
         <div class="qa-expl">14世紀から17世紀まで続いた中国の王朝。秀吉は文禄・慶長の役でこの明の征服を目指して朝鮮へ出兵した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2546,8 +2564,8 @@
         <div class="qa-a"><ruby>年貢<rt>ねんぐ</rt></ruby></div>
         <div class="qa-expl">百姓が領主に納める税。太閤検地により耕作権が保障される代わりに、石高に応じて米などを納める義務が定められた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2564,8 +2582,8 @@
         <div class="qa-a">1588年</div>
         <div class="qa-expl">秀吉が刀狩令を出した年。百姓から刀・弓・鉄砲などを取り上げて一揆を防ぎ、兵農分離を進める政策を行った。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2674,7 +2692,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="7">
+<section class="view" data-t="7" data-lock="2">
   <div class="tband"><span class="tno">6</span><h2>桃山文化</h2><img class="wchar tchar" src="img/characters_manabi_point_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -2741,8 +2759,8 @@
         <div class="qa-a"><ruby>桃山<rt>ももやま</rt></ruby><ruby>文化<rt>ぶんか</rt></ruby></div>
         <div class="qa-expl">信長・秀吉の時代に大名や豪商の力を背景に花開いた文化で、城・障壁画・茶の湯などが代表的。豪壮で力強い特徴を持つ。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2759,8 +2777,8 @@
         <div class="qa-a"><ruby>狩野永徳<rt>かのうえいとく</rt></ruby></div>
         <div class="qa-expl">信長や秀吉に仕えた狩野派の巨匠で、「唐獅子図屏風」が代表作。城の障壁画に金箔を使った濃絵を描いた桃山文化の画家。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2777,8 +2795,8 @@
         <div class="qa-a"><ruby>唐獅子図屏風<rt>からじしずびょうぶ</rt></ruby></div>
         <div class="qa-expl">狩野永徳が金箔地に力強い唐獅子を描いた屏風絵で、大名の権力と富を象徴する桃山文化を代表する障壁画の傑作。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2795,8 +2813,8 @@
         <div class="qa-a"><ruby>障壁画<rt>しょうへきが</rt></ruby></div>
         <div class="qa-expl">城のふすまや屏風に金箔を使って描かれた華やかな絵で、大名の権力と富を象徴した。「濃絵」とも呼ばれ狩野永徳らが活躍。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2813,8 +2831,8 @@
         <div class="qa-a"><ruby>千利休<rt>せんのりきゅう</rt></ruby></div>
         <div class="qa-expl">堺の商人で信長や秀吉に仕えた茶人。豪華な桃山文化の中で、静かで質素な美を追い求めるわび茶を完成させた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2831,8 +2849,8 @@
         <div class="qa-a">わび<ruby>茶<rt>ちゃ</rt></ruby></div>
         <div class="qa-expl">千利休が完成させた、はなやかさをおさえ静かで質素な美しさを大切にする茶道の様式。現代茶道のもとになった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2849,8 +2867,8 @@
         <div class="qa-a"><ruby>待庵<rt>たいあん</rt></ruby></div>
         <div class="qa-expl">千利休が造った現存する最古の茶室で、わずか二畳の空間にわびの精神が凝縮された国宝。京都府大山崎町にある。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2867,8 +2885,8 @@
         <div class="qa-a"><ruby>姫路城<rt>ひめじじょう</rt></ruby></div>
         <div class="qa-expl">兵庫県にある城で白壁が美しく「白鷺城」とも呼ばれる。現存する天守閣の中でも最大級で、世界遺産にも登録されている。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2885,8 +2903,8 @@
         <div class="qa-a"><ruby>天守閣<rt>てんしゅかく</rt></ruby></div>
         <div class="qa-expl">城の中心にそびえる最上部の高層建築で、大名の権威と富を示す桃山文化を象徴する建築物。姫路城や安土城が代表例。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2903,8 +2921,8 @@
         <div class="qa-a">かぶきおどり</div>
         <div class="qa-expl">出雲の阿国が始めた踊りを伴う芸能で、京都で人気を集め、江戸時代に発展する歌舞伎のルーツとなった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2921,8 +2939,8 @@
         <div class="qa-a"><ruby>出雲<rt>いずも</rt></ruby>の<ruby>阿国<rt>おくに</rt></ruby></div>
         <div class="qa-expl">桃山時代の京都で「かぶきおどり」を始めた女性芸能者で、その踊りが江戸時代に発展する歌舞伎のルーツとなった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2939,8 +2957,8 @@
         <div class="qa-a"><ruby>浄瑠璃<rt>じょうるり</rt></ruby></div>
         <div class="qa-expl">三味線に合わせて物語を語る桃山時代に人気を集めた芸能で、後に人形と組み合わさって人形浄瑠璃となり江戸時代に大発展した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2957,8 +2975,8 @@
         <div class="qa-a"><ruby>活版<rt>かっぱん</rt></ruby><ruby>印刷術<rt>いんさつじゅつ</rt></ruby></div>
         <div class="qa-expl">宣教師が日本へ持ち込んだ印刷技術で、天草版平家物語などをローマ字で印刷し、宣教師の日本語学習に役立てられた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2975,8 +2993,8 @@
         <div class="qa-a"><ruby>木綿<rt>もめん</rt></ruby></div>
         <div class="qa-expl">桃山時代に普及し始めた繊維素材で、麻に比べて肌触りがよく温かいため、庶民の衣料として広まり国内栽培も進んだ。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -3111,6 +3129,14 @@
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
 </div></div>
+<div class="lock-ov" id="lockOv" hidden><div class="lock-card">
+  <div class="lock-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+  <div class="lock-t">つづきは購入者向けです</div>
+  <div class="lock-d">ここまでは無料でためせます。つづきを解くには、つづもんのライセンスが必要です。</div>
+  <button class="lock-btn lb-line" id="lockLogin">LINEでログイン（購入者の方）</button>
+  <a class="lock-btn lb-buy" href="../../index.html">つづもんを見てみる →</a>
+  <button class="lock-close" id="lockClose">とじる（ここまで解く）</button>
+</div></div>
 
 <script type="module">
 // 記述AI採点のログイン（www.chatstudy.jp の LINE Login＝Firebase Auth。参考書ページと同じ）。
@@ -3133,9 +3159,24 @@ try {
       location.href = '/welcome?next=' + encodeURIComponent(location.pathname + location.hash);
     },
   };
+  var ENTITLEMENT_API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/tsudumonEntitlement';
+  async function refreshEntitlement(u) {
+    try {
+      var idToken = await u.getIdToken();
+      var res = await fetch(ENTITLEMENT_API, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ idToken: idToken }),
+      });
+      if (!res.ok) return;
+      var data = await res.json();
+      try { localStorage.setItem('tzm-lic', JSON.stringify((data && data.grades) || [])); } catch (e) {}
+      if (window.tzmRefreshGate) window.tzmRefreshGate();
+    } catch (e) { /* localStorage フォールバックのまま */ }
+  }
   onAuthStateChanged(auth, function (u) {
     window.__tzmAuth.user = u;
     window.__tzmAuth.ready = true;
+    if (u) refreshEntitlement(u);
     document.dispatchEvent(new CustomEvent('tzm-auth'));
   });
 } catch (e) { /* 設定が無ければ採点はフォールバック（自己採点）に倒れる */ }
@@ -3145,6 +3186,7 @@ try {
 (function () {
   var KEY = 'tzmwb-07';
   var CH = '07';
+  var GRADE = '中2';        // この本の学年（中1/中2/中3）
   var GRADE_API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/gradeWritten';      // 記述AI採点 Cloud Function
   var REF_VIEWS = [0, 0, 1, 2, 3, 4, 5, 6];        // 問題集のビューt → 参考書の単元番号（0＝対応なし）
   var views = [].slice.call(document.querySelectorAll('.view'));
@@ -3184,7 +3226,7 @@ try {
     try { if (localStorage.getItem('tzmhint') === '1') return; } catch (e) { return; }
     var canHover = window.matchMedia && window.matchMedia('(hover:hover)').matches;
     bar.textContent = canHover ? '⌨️ ← → キーでもページをめくれるよ'
-                               : '👆 よこにスワイプでもページをめくれるよ';
+                               : 'よこにスワイプでもページをめくれるよ';
     var shown = false;
     window.showHint = function () {
       if (shown || state.t === 0) return;
@@ -3389,7 +3431,7 @@ try {
   function showJudged(scopeEl, ok) {
     var banner = scopeEl.querySelector('.b-result');
     if (banner) {
-      banner.textContent = ok ? '⭕ せいかい！' : '❌ おしい！';
+      banner.textContent = ok ? 'せいかい！' : 'おしい！';
       banner.className = 'b-result ' + (ok ? 'ok' : 'ng');
     }
     scopeEl.classList.add('show');
@@ -3554,7 +3596,7 @@ try {
       pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
       document.getElementById('btnPrev').textContent = s === 0 ? '目次へ' : '← まえへ';
       var next = document.getElementById('btnNext');
-      if (onModeStep && steps.length === 1) next.textContent = '⭐ おすすめ順で始める →';
+      if (onModeStep && steps.length === 1) next.textContent = 'おすすめ順で始める →';
       else if (s < steps.length - 1) next.textContent = 'つぎへ →';
       else next.textContent = t < N ? '次の単元へ →' : '目次にもどる';
       if (steps[s] && steps[s].classList.contains('done-step')) renderScore(views[t]);
@@ -3600,12 +3642,32 @@ try {
     } else { btn.hidden = true; }
   }
 
+  // ── 教材ゲート（中間案・ゆるめ「頭出しは見せる」）──
+  //   有料単元はやり方えらぶ＋要点まとめまで誰でも試せる。その先は購入者（この学年）だけ。
+  function isLicensed() {
+    try { return (JSON.parse(localStorage.getItem('tzm-lic') || '[]')).indexOf(GRADE) >= 0; }
+    catch (e) { return false; }
+  }
+  function lockFrom(t) { var v = views[t]; return v ? +(v.getAttribute('data-lock') || 0) : 0; }
+  function gateBlocks(t, s) { var lk = lockFrom(t); return lk > 0 && !isLicensed() && s >= lk; }
+  function showLock() { var ov = document.getElementById('lockOv'); if (ov) ov.hidden = false; }
+  function hideLock() { var ov = document.getElementById('lockOv'); if (ov) ov.hidden = true; }
+  window.tzmRefreshGate = function () { if (isLicensed()) hideLock(); };
+
   function go(t, s, dir) {
     lastDir = dir || 1;
     state.t = Math.max(0, Math.min(N, t));
     state.s = Math.max(0, s || 0);
-    if (state.t > 0) state.s = Math.min(state.s, stepsOf(state.t).length - 1);
-    else state.s = 0;
+    if (state.t > 0) {
+      state.s = Math.min(state.s, stepsOf(state.t).length - 1);
+      if (gateBlocks(state.t, state.s)) {
+        state.s = Math.max(0, lockFrom(state.t) - 1);
+        render();
+        showLock();
+        return;
+      }
+    } else state.s = 0;
+    hideLock();
     render();
   }
   // ── 未回答ガード: 問題(一問一答/4択/記述)に答えるまで「つぎへ」で先に進めない ──
@@ -3649,6 +3711,11 @@ try {
     else go(0, 0, -1);
   }
 
+  document.getElementById('lockLogin').addEventListener('click', function () {
+    var here = location.pathname + '#t' + state.t + (state.s > 0 ? 's' + state.s : '');
+    location.href = '../../login/?next=' + encodeURIComponent(here);
+  });
+  document.getElementById('lockClose').addEventListener('click', hideLock);
   document.getElementById('btnNext').addEventListener('click', next);
   document.getElementById('btnPrev').addEventListener('click', prev);
   // 回答するとロックを解除（回答処理の後に評価するため click は次tickで）
@@ -3771,7 +3838,7 @@ try {
       var istep = idk.closest('.qa-step');
       showJudged(istep, false);
       var bn = istep.querySelector('.b-result');
-      if (bn) { bn.textContent = '👇 こたえはこちら。次はきっと書けるよ！'; bn.className = 'b-result ng'; }
+      if (bn) { bn.textContent = 'こたえはこちら。次はきっと書けるよ！'; bn.className = 'b-result ng'; }
       var stI = store(); stI.r = stI.r || {};
       stI.r[istep.dataset.qid] = 0;
       save(stI);

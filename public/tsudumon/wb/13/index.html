@@ -117,11 +117,12 @@
   .home-topline { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:2px; }
   .hometop { display:flex; align-items:flex-start; gap:6px; padding:8px 2px 2px; text-align:left; }
   .ht-main { flex:1; min-width:0; text-align:center; }
-  .badge3 { display:inline-flex; border-radius:18px; overflow:hidden; font-size:12px; font-weight:bold;
-            box-shadow:0 2px 4px rgba(120,80,20,.2); }
-  .badge3 span { padding:4px 11px; display:inline-flex; align-items:center; white-space:nowrap; }
-  .b-vol { background:var(--brand); color:#fff; }
-  .b-kind { background:#fff; color:var(--deep); }
+  /* 本のラベル（押せない表示）: トグルに見えないようフラットな1トーンのタグに */
+  .badge3 { display:inline-flex; align-items:center; gap:6px; border-radius:8px;
+            background:#f4ecdb; padding:3px 10px; font-size:11.5px; font-weight:bold; }
+  .badge3 span { padding:0; display:inline-flex; align-items:center; white-space:nowrap; }
+  .b-vol { color:var(--brand); }
+  .b-kind { color:#9a7b4f; }
   .b-web { background:var(--amber); color:#fff; }
   .ht-title { font-size:41px; color:var(--deep); margin:12px 0 0; line-height:1.12; position:relative;
               display:inline-block; padding:0 6px; letter-spacing:.01em; }
@@ -443,6 +444,23 @@
   .foot-note { margin-top:4px; font-size:12px; }
 
   /* ── 下部ナビ ── */
+  /* 教材ゲートのロック案内（頭出しの先） */
+  .lock-ov { position:fixed; inset:0; z-index:40; background:rgba(60,40,15,.5);
+             display:flex; align-items:center; justify-content:center; padding:20px; }
+  .lock-ov[hidden] { display:none; }
+  .lock-card { width:100%; max-width:360px; background:#fff; border-radius:18px; padding:24px 20px 18px;
+               text-align:center; box-shadow:0 10px 30px rgba(0,0,0,.3); }
+  .lock-ic svg { width:34px; height:34px; }
+  .lock-ic { font-size:40px; }
+  .lock-t { font-size:18px; font-weight:bold; color:var(--deep); margin:6px 0 6px; }
+  .lock-d { font-size:13px; color:#78716c; line-height:1.8; margin-bottom:16px; }
+  .lock-btn { display:block; width:100%; margin-top:10px; border:none; border-radius:13px; padding:13px;
+              font-size:15px; font-weight:bold; text-decoration:none; cursor:pointer; font-family:inherit; }
+  .lb-line { background:#06c755; color:#fff; box-shadow:0 3px 8px rgba(6,199,85,.3); }
+  .lb-buy { background:#fff; color:var(--brand); border:1.5px solid var(--line); }
+  .lock-close { display:block; width:100%; margin-top:12px; background:none; border:none; cursor:pointer;
+                color:#a8a29e; font-size:12.5px; font-family:inherit; text-decoration:underline; }
+
   .navbar { position:fixed; left:0; right:0; bottom:0; z-index:10;
             background:rgba(255,253,248,.97); border-top:1px solid #f0e6d2;
             padding:10px 16px calc(10px + env(safe-area-inset-bottom)); }
@@ -546,12 +564,12 @@
   <nav class="toc">
     <div class="toc-head">
       <div class="toc-h">単元を選択</div>
-      <button class="toc-cal" data-go="1">📅 年表でチェック<span class="cal-go">›</span></button>
+      <button class="toc-cal" data-go="1">年表でチェック<span class="cal-go">›</span></button>
     </div>
     <button class="toc-item" data-go="2"><img class="toc-thumb" src="img/reference_hist13-ww1.webp" alt="" loading="lazy"><span class="toc-no">1</span><span class="toc-name">第一次世界大戦の勃発</span><span class="toc-state" data-state-t="2"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="3"><img class="toc-thumb" src="img/reference_hist13-japan-in-ww1.webp" alt="" loading="lazy"><span class="toc-no">2</span><span class="toc-name">日本の参戦と二十一か条の要求</span><span class="toc-state" data-state-t="3"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="4"><img class="toc-thumb" src="img/reference_hist13-russia.webp" alt="" loading="lazy"><span class="toc-no">3</span><span class="toc-name">ロシア革命とソ連の成立</span><span class="toc-state" data-state-t="4"></span><span class="toc-arrow">›</span></button><button class="toc-item" data-go="5"><img class="toc-thumb" src="img/reference_hist13-versailles.webp" alt="" loading="lazy"><span class="toc-no">4</span><span class="toc-name">戦後秩序とアジアの抵抗</span><span class="toc-state" data-state-t="5"></span><span class="toc-arrow">›</span></button>
   </nav>
   <a class="big-btn ref-btn" href="../../ref/13/index.html">参考書を開く</a>
-  <button class="big-btn print-btn" type="button" onclick="window.print()">🖨 紙に印刷して解く（解答つき）</button>
+  <button class="big-btn print-btn" type="button" onclick="window.print()">紙に印刷して解く（解答つき）</button>
   
   <footer class="foot">
     <div>つづもん 問題集</div>
@@ -566,7 +584,7 @@
     <table class="tl-table"><tr><th class="tl-year">年代</th><th>できごと</th></tr><tr><td class='tl-year'>1882年</td><td>ドイツ・オーストリア・イタリアが<button class="blank" type="button"><span class="bno">①</span><span class="ba">三国同盟</span><span class="bl" style="width:3.6em"></span></button>を結ぶ</td></tr><tr><td class='tl-year'>1902年</td><td>日本が<button class="blank" type="button"><span class="bno">②</span><span class="ba">日英同盟</span><span class="bl" style="width:3.6em"></span></button>を結ぶ</td></tr><tr><td class='tl-year'>1914年</td><td>バルカン半島で<button class="blank" type="button"><span class="bno">③</span><span class="ba">サラエボ事件</span><span class="bl" style="width:5.4em"></span></button>が起こり、<button class="blank" type="button"><span class="bno">④</span><span class="ba">第一次世界大戦</span><span class="bl" style="width:6.3em"></span></button>が始まる</td></tr><tr><td class='tl-year'>1914年</td><td>日英同盟を理由に日本が参戦し、中国の<button class="blank" type="button"><span class="bno">⑤</span><span class="ba">山東省</span><span class="bl" style="width:2.7em"></span></button>を占領する</td></tr><tr><td class='tl-year'>1915年</td><td>日本が中国の<button class="blank" type="button"><span class="bno">⑥</span><span class="ba">袁世凱</span><span class="bl" style="width:2.7em"></span></button>政権に<button class="blank" type="button"><span class="bno">⑦</span><span class="ba">二十一か条の要求</span><span class="bl" style="width:7.2em"></span></button>を突きつける</td></tr><tr><td class='tl-year'>1917年</td><td>ロシアで<button class="blank" type="button"><span class="bno">⑧</span><span class="ba">レーニン</span><span class="bl" style="width:3.6em"></span></button>の指導のもと<button class="blank" type="button"><span class="bno">⑨</span><span class="ba">ロシア革命</span><span class="bl" style="width:4.5em"></span></button>が起こる</td></tr><tr><td class='tl-year'>1917年</td><td><button class="blank" type="button"><span class="bno">⑩</span><span class="ba">アメリカ</span><span class="bl" style="width:3.6em"></span></button>が連合国側で参戦する</td></tr><tr><td class='tl-year'>1918年</td><td>日本が<button class="blank" type="button"><span class="bno">⑪</span><span class="ba">シベリア出兵</span><span class="bl" style="width:5.4em"></span></button>を始める</td></tr><tr><td class='tl-year'>1918年</td><td>富山県から<button class="blank" type="button"><span class="bno">⑫</span><span class="ba">米騒動</span><span class="bl" style="width:2.7em"></span></button>が全国に広がる</td></tr><tr><td class='tl-year'>1918年</td><td><button class="blank" type="button"><span class="bno">⑬</span><span class="ba">ドイツ</span><span class="bl" style="width:2.7em"></span></button>が降伏し、第一次世界大戦が終わる</td></tr><tr><td class='tl-year'>1919年</td><td>パリ講和会議で<button class="blank" type="button"><span class="bno">⑭</span><span class="ba">ベルサイユ条約</span><span class="bl" style="width:6.3em"></span></button>が結ばれる</td></tr><tr><td class='tl-year'>1919年</td><td>朝鮮で<button class="blank" type="button"><span class="bno">⑮</span><span class="ba">三・一独立運動</span><span class="bl" style="width:6.3em"></span></button>、中国で<button class="blank" type="button"><span class="bno">⑯</span><span class="ba">五・四運動</span><span class="bl" style="width:4.5em"></span></button>が起こる</td></tr><tr><td class='tl-year'>1920年</td><td><button class="blank" type="button"><span class="bno">⑰</span><span class="ba">国際連盟</span><span class="bl" style="width:3.6em"></span></button>が発足する</td></tr><tr><td class='tl-year'>1921年</td><td><button class="blank" type="button"><span class="bno">⑱</span><span class="ba">ワシントン会議</span><span class="bl" style="width:6.3em"></span></button>が開かれる（〜22年、日英同盟が解消される）</td></tr><tr><td class='tl-year'>1922年</td><td><button class="blank" type="button"><span class="bno">⑲</span><span class="ba">ソ連</span><span class="bl" style="width:2.7em"></span></button>が成立する</td></tr><tr><td class='tl-year'>1928年</td><td>スターリンが<button class="blank" type="button"><span class="bno">⑳</span><span class="ba">五か年計画</span><span class="bl" style="width:4.5em"></span></button>を始める</td></tr></table>
   </div>
 </section>
-<section class="view" data-t="2">
+<section class="view" data-t="2" data-lock="2">
   <div class="tband"><span class="tno">1</span><h2>第一次世界大戦の勃発</h2><img class="wchar tchar" src="img/characters_char_pencil_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -633,8 +651,8 @@
         <div class="qa-a"><ruby>三国<rt>さんごく</rt></ruby><ruby>協商<rt>きょうしょう</rt></ruby></div>
         <div class="qa-expl">20世紀初頭のイギリス・フランス・ロシアの協力関係。ドイツ中心の三国同盟と対立し第一次世界大戦の構図を作った。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -651,8 +669,8 @@
         <div class="qa-a"><ruby>三国<rt>さんごく</rt></ruby><ruby>同盟<rt>どうめい</rt></ruby></div>
         <div class="qa-expl">1882年に成立したドイツ・オーストリア・イタリアの同盟。英仏露の三国協商と対立し第一次世界大戦の構図を作った。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -669,8 +687,8 @@
         <div class="qa-a">バルカン<ruby>半島<rt>はんとう</rt></ruby></div>
         <div class="qa-expl">民族・宗教対立が複雑で「ヨーロッパの火薬庫」と呼ばれた地域。1914年のサラエボ事件で第一次世界大戦の発火点となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -687,8 +705,8 @@
         <div class="qa-a">サラエボ<ruby>事件<rt>じけん</rt></ruby></div>
         <div class="qa-expl">1914年6月、バルカン半島のサラエボでオーストリアの皇太子夫妻がセルビア人青年に暗殺された事件。第一次世界大戦のきっかけ。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -705,8 +723,8 @@
         <div class="qa-a">1914年</div>
         <div class="qa-expl">オーストリア皇太子夫妻が暗殺されたサラエボ事件をきっかけに、連合国と同盟国による第一次世界大戦が開戦した年。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -723,8 +741,8 @@
         <div class="qa-a">1918年</div>
         <div class="qa-expl">1914年に始まった第一次世界大戦が終わった年。ドイツの敗北・降伏で約4年半の総力戦に終止符が打たれた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -741,8 +759,8 @@
         <div class="qa-a"><ruby>総力戦<rt>そうりょくせん</rt></ruby></div>
         <div class="qa-expl">国民・経済・科学技術のすべてを動員した戦争の形態。1914年からの第一次世界大戦で本格化し、戦争観を一変させた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -759,8 +777,8 @@
         <div class="qa-a"><ruby>連合国<rt>れんごうこく</rt></ruby>（<ruby>協商国<rt>きょうしょうこく</rt></ruby>）</div>
         <div class="qa-expl">第一次世界大戦でドイツ中心の同盟国と戦った陣営。三国協商のイギリス・フランス・ロシアに、アメリカ・日本などが加わった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -777,8 +795,8 @@
         <div class="qa-a"><ruby>同盟国<rt>どうめいこく</rt></ruby></div>
         <div class="qa-expl">第一次世界大戦でドイツを中心とした陣営。ドイツ・オーストリア・オスマン帝国などで、1918年に連合国に敗北した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -795,8 +813,8 @@
         <div class="qa-a"><ruby>毒<rt>どく</rt></ruby>ガス</div>
         <div class="qa-expl">毒性のある気体で敵を攻撃した兵器。第一次世界大戦の塹壕戦で使われ、戦車・飛行機と並ぶ象徴的な新兵器となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -813,8 +831,8 @@
         <div class="qa-a">アメリカ</div>
         <div class="qa-expl">1917年に連合国側で参戦し、巨大な工業力と兵力で戦況を決定づけ、1918年の連合国勝利に導いた国。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -831,8 +849,8 @@
         <div class="qa-a"><ruby>塹壕戦<rt>ざんごうせん</rt></ruby></div>
         <div class="qa-expl">西部戦線で広く行われた、深い溝を掘って身を守る戦い方。戦線が動かない状態が続き、多くの戦死者を出した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -962,7 +980,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="3">
+<section class="view" data-t="3" data-lock="2">
   <div class="tband"><span class="tno">2</span><h2>日本の参戦と二十一か条の要求</h2><img class="wchar tchar" src="img/characters_manabi_think_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -1029,8 +1047,8 @@
         <div class="qa-a"><ruby>日英<rt>にちえい</rt></ruby><ruby>同盟<rt>どうめい</rt></ruby></div>
         <div class="qa-expl">1902年に結ばれた日本とイギリスの同盟。日本はこれを根拠に1914年、連合国側で第一次世界大戦に参戦した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1047,8 +1065,8 @@
         <div class="qa-a"><ruby>山東省<rt>さんとうしょう</rt></ruby></div>
         <div class="qa-expl">中国山東省はドイツが借りて支配していた地域で、青島が中心都市。日本は1914年にここを占領した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1065,8 +1083,8 @@
         <div class="qa-a"><ruby>南洋<rt>なんよう</rt></ruby><ruby>諸島<rt>しょとう</rt></ruby></div>
         <div class="qa-expl">赤道以北の太平洋にあったドイツ領を日本が占領。戦後、国際連盟から日本に統治を任された地域となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1083,8 +1101,8 @@
         <div class="qa-a"><ruby>二十一<rt>にじゅういち</rt></ruby>か条の<ruby>要求<rt>ようきゅう</rt></ruby></div>
         <div class="qa-expl">1915年、大隈内閣が袁世凱政権に突きつけ、山東省のドイツ権益継承などを要求。中国に強い反日感情を生んだ。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1101,8 +1119,8 @@
         <div class="qa-a">1915年</div>
         <div class="qa-expl">大隈内閣が二十一か条の要求を中国・袁世凱政権に突きつけた年。中国に強い反日感情を生む原因となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1119,8 +1137,8 @@
         <div class="qa-a"><ruby>大戦<rt>たいせん</rt></ruby><ruby>景気<rt>けいき</rt></ruby></div>
         <div class="qa-expl">第一次世界大戦中、欧州諸国の輸出激減で日本製品の需要が拡大した好景気。船成金など新興富裕層も生まれた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1137,8 +1155,8 @@
         <div class="qa-a"><ruby>成金<rt>なりきん</rt></ruby></div>
         <div class="qa-expl">第一次世界大戦の特需で急に巨富を得た人々。海運業の船成金や鉄成金などが代表で、大戦景気を象徴した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1155,8 +1173,8 @@
         <div class="qa-a"><ruby>米<rt>こめ</rt></ruby><ruby>騒動<rt>そうどう</rt></ruby></div>
         <div class="qa-expl">1918年、富山県の主婦らをきっかけに米価高騰への抗議が全国に広がり、寺内正毅内閣は退陣に追い込まれた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1173,8 +1191,8 @@
         <div class="qa-a">1918年</div>
         <div class="qa-expl">米騒動が全国に広がった年。シベリア出兵を見越した米の買い占めで米価が急騰し、寺内内閣退陣の原因となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1191,8 +1209,8 @@
         <div class="qa-a">シベリア<ruby>出兵<rt>しゅっぺい</rt></ruby></div>
         <div class="qa-expl">1918〜22年、ロシア革命に干渉するため日本軍が出兵した戦争。多くの犠牲を出しながら成果なく撤退した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1209,8 +1227,8 @@
         <div class="qa-a"><ruby>袁世凱<rt>えんせいがい</rt></ruby></div>
         <div class="qa-expl">辛亥革命後にできた中華民国の最初の大統領。1915年、日本の二十一か条の要求をやむなく受け入れた人物。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1335,7 +1353,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="4">
+<section class="view" data-t="4" data-lock="2">
   <div class="tband"><span class="tno">3</span><h2>ロシア革命とソ連の成立</h2><img class="wchar tchar" src="img/characters_char_neko_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -1402,8 +1420,8 @@
         <div class="qa-a">ロシア<ruby>革命<rt>かくめい</rt></ruby></div>
         <div class="qa-expl">1917年、第一次世界大戦の疲弊と食糧不足を背景に起きた世界初の社会主義革命。レーニンが指導した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1420,8 +1438,8 @@
         <div class="qa-a">1917年</div>
         <div class="qa-expl">第一次世界大戦中、ロシアでレーニン指導のもとボリシェビキが世界初の社会主義政権を樹立した年。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1438,8 +1456,8 @@
         <div class="qa-a">レーニン</div>
         <div class="qa-expl">ロシア革命の指導者。1917年にボリシェビキを率いて世界初の社会主義政権を樹立し、1922年にソ連を建国した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1456,8 +1474,8 @@
         <div class="qa-a">ソビエト</div>
         <div class="qa-expl">ロシア語で「会議」の意味。労働者・兵士・農民の代表が集まる組織で、1917年のロシア革命の主体となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1474,8 +1492,8 @@
         <div class="qa-a">ソ<ruby>連<rt>れん</rt></ruby>（ソビエト社会<ruby>主義<rt>しゅぎ</rt></ruby><ruby>共和国<rt>きょうわこく</rt></ruby><ruby>連邦<rt>れんぽう</rt></ruby>）</div>
         <div class="qa-expl">1922年、レーニンが建国した世界初の社会主義国家。冷戦期に米国と二極を構成し、1991年まで存在した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1492,8 +1510,8 @@
         <div class="qa-a">1922年</div>
         <div class="qa-expl">ソビエト社会主義共和国連邦（ソ連）が成立した年。1917年のロシア革命から5年後にレーニンが建国した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1510,8 +1528,8 @@
         <div class="qa-a">シベリア<ruby>出兵<rt>しゅっぺい</rt></ruby></div>
         <div class="qa-expl">1918〜22年、ロシア革命に干渉するため日本軍がシベリアへ出兵した戦争。多くの犠牲を出し成果なく撤退した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1528,8 +1546,8 @@
         <div class="qa-a">ボリシェビキ</div>
         <div class="qa-expl">レーニン率いるロシア社会民主労働党の多数派で、1917年のロシア革命を主導。後にロシア共産党となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1546,8 +1564,8 @@
         <div class="qa-a">5か<ruby>年<rt>ねん</rt></ruby><ruby>計画<rt>けいかく</rt></ruby></div>
         <div class="qa-expl">1928年からスターリンが進めた政策。国が生産量を決め、工場の建設や農地のまとめ上げで国力を急成長させた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1564,8 +1582,8 @@
         <div class="qa-a">スターリン</div>
         <div class="qa-expl">1924年のレーニン死後にソ連の指導者となり、五か年計画で重工業化を進める一方、独裁的な統治を行った人物。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1674,7 +1692,7 @@
       <a class="big-btn home-btn" href="../../index.html">単元一覧にもどる</a>
     </div>
 </section>
-<section class="view" data-t="5">
+<section class="view" data-t="5" data-lock="2">
   <div class="tband"><span class="tno">4</span><h2>戦後秩序とアジアの抵抗</h2><img class="wchar tchar" src="img/characters_char_owl_sm.png" alt=""></div>
   
     <div class="step mode-step" data-label="やり方をえらぶ" data-sec="M">
@@ -1741,8 +1759,8 @@
         <div class="qa-a">パリ<ruby>講和<rt>こうわ</rt></ruby><ruby>会議<rt>かいぎ</rt></ruby></div>
         <div class="qa-expl">1919年、第一次世界大戦の戦勝国が集まり、ドイツへの賠償や領土割譲などベルサイユ条約の内容を決めた会議。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1759,8 +1777,8 @@
         <div class="qa-a">ベルサイユ<ruby>条約<rt>じょうやく</rt></ruby></div>
         <div class="qa-expl">1919年、パリ講和会議で結ばれた第一次世界大戦の講和条約。ドイツに多額の賠償金・軍備制限・領土割譲を課した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1777,8 +1795,8 @@
         <div class="qa-a"><ruby>国際<rt>こくさい</rt></ruby><ruby>連盟<rt>れんめい</rt></ruby></div>
         <div class="qa-expl">1920年に発足した世界平和を目指す国際機関。米大統領ウィルソンの提唱で、日本は常任理事国となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1795,8 +1813,8 @@
         <div class="qa-a">ウィルソン</div>
         <div class="qa-expl">アメリカ大統領で1918年に十四か条の平和原則を発表。国際連盟の創設や民族自決の理念を提唱した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1813,8 +1831,8 @@
         <div class="qa-a"><ruby>民族<rt>みんぞく</rt></ruby><ruby>自決<rt>じけつ</rt></ruby></div>
         <div class="qa-expl">それぞれの民族が自らの国家を持つべきという原則。米大統領ウィルソンが提唱し、アジアの独立運動を刺激した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1831,8 +1849,8 @@
         <div class="qa-a">ワシントン<ruby>会議<rt>かいぎ</rt></ruby></div>
         <div class="qa-expl">1921〜22年に米英日仏伊などが参加した国際会議。日英同盟が解消され、海軍主力艦の比率も決められた。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1849,8 +1867,8 @@
         <div class="qa-a">(ワシントン)<ruby>海軍<rt>かいぐん</rt></ruby><ruby>軍縮<rt>ぐんしゅく</rt></ruby><ruby>条約<rt>じょうやく</rt></ruby></div>
         <div class="qa-expl">1922年、ワシントン会議で結ばれ列強の海軍主力艦を制限。米英5・日3・仏伊1.67の比率となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1867,8 +1885,8 @@
         <div class="qa-a"><ruby>三<rt>さん</rt></ruby>・<ruby>一<rt>いち</rt></ruby><ruby>独立<rt>どくりつ</rt></ruby><ruby>運動<rt>うんどう</rt></ruby></div>
         <div class="qa-expl">1919年3月1日、ソウルで「独立万歳」が叫ばれ朝鮮全土に広がった、日本の植民地支配からの独立運動。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1885,8 +1903,8 @@
         <div class="qa-a"><ruby>五<rt>ご</rt></ruby>・<ruby>四<rt>し</rt></ruby><ruby>運動<rt>うんどう</rt></ruby></div>
         <div class="qa-expl">1919年5月4日、北京の学生から始まった反日・反帝国主義の運動。二十一か条要求やベルサイユ条約への抗議。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1903,8 +1921,8 @@
         <div class="qa-a">ガンディー</div>
         <div class="qa-expl">イギリスから独立を目指したインド独立運動の指導者。「非暴力・不服従」を掲げて植民地支配に抵抗した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1921,8 +1939,8 @@
         <div class="qa-a"><ruby>非暴力<rt>ひぼうりょく</rt></ruby>・<ruby>不服従<rt>ふふくじゅう</rt></ruby></div>
         <div class="qa-expl">インド独立運動の指導者ガンディーが掲げた理念。武力を用いず、納税拒否や英国製品ボイコットで抵抗した。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -1939,8 +1957,8 @@
         <div class="qa-a">1919年</div>
         <div class="qa-expl">ベルサイユ条約調印、朝鮮の三・一独立運動、中国の五・四運動が起きた年で、戦後秩序の出発点となった。</div>
         <div class="marks">
-          <button class="mk mk-ok" type="button" data-v="1">⭕ できた</button>
-          <button class="mk mk-ng" type="button" data-v="0">🔺 もう一度</button>
+          <button class="mk mk-ok" type="button" data-v="1">できた</button>
+          <button class="mk mk-ng" type="button" data-v="0">もう一度</button>
         </div>
       </div>
     </div>
@@ -2059,6 +2077,14 @@
   <button class="nb nb-prev" id="btnPrev">← まえへ</button>
   <button class="nb nb-next" id="btnNext">つぎへ →</button>
 </div></div>
+<div class="lock-ov" id="lockOv" hidden><div class="lock-card">
+  <div class="lock-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+  <div class="lock-t">つづきは購入者向けです</div>
+  <div class="lock-d">ここまでは無料でためせます。つづきを解くには、つづもんのライセンスが必要です。</div>
+  <button class="lock-btn lb-line" id="lockLogin">LINEでログイン（購入者の方）</button>
+  <a class="lock-btn lb-buy" href="../../index.html">つづもんを見てみる →</a>
+  <button class="lock-close" id="lockClose">とじる（ここまで解く）</button>
+</div></div>
 
 <script type="module">
 // 記述AI採点のログイン（www.chatstudy.jp の LINE Login＝Firebase Auth。参考書ページと同じ）。
@@ -2081,9 +2107,24 @@ try {
       location.href = '/welcome?next=' + encodeURIComponent(location.pathname + location.hash);
     },
   };
+  var ENTITLEMENT_API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/tsudumonEntitlement';
+  async function refreshEntitlement(u) {
+    try {
+      var idToken = await u.getIdToken();
+      var res = await fetch(ENTITLEMENT_API, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ idToken: idToken }),
+      });
+      if (!res.ok) return;
+      var data = await res.json();
+      try { localStorage.setItem('tzm-lic', JSON.stringify((data && data.grades) || [])); } catch (e) {}
+      if (window.tzmRefreshGate) window.tzmRefreshGate();
+    } catch (e) { /* localStorage フォールバックのまま */ }
+  }
   onAuthStateChanged(auth, function (u) {
     window.__tzmAuth.user = u;
     window.__tzmAuth.ready = true;
+    if (u) refreshEntitlement(u);
     document.dispatchEvent(new CustomEvent('tzm-auth'));
   });
 } catch (e) { /* 設定が無ければ採点はフォールバック（自己採点）に倒れる */ }
@@ -2093,6 +2134,7 @@ try {
 (function () {
   var KEY = 'tzmwb-13';
   var CH = '13';
+  var GRADE = '中3';        // この本の学年（中1/中2/中3）
   var GRADE_API = 'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/gradeWritten';      // 記述AI採点 Cloud Function
   var REF_VIEWS = [0, 0, 1, 2, 3, 4];        // 問題集のビューt → 参考書の単元番号（0＝対応なし）
   var views = [].slice.call(document.querySelectorAll('.view'));
@@ -2132,7 +2174,7 @@ try {
     try { if (localStorage.getItem('tzmhint') === '1') return; } catch (e) { return; }
     var canHover = window.matchMedia && window.matchMedia('(hover:hover)').matches;
     bar.textContent = canHover ? '⌨️ ← → キーでもページをめくれるよ'
-                               : '👆 よこにスワイプでもページをめくれるよ';
+                               : 'よこにスワイプでもページをめくれるよ';
     var shown = false;
     window.showHint = function () {
       if (shown || state.t === 0) return;
@@ -2337,7 +2379,7 @@ try {
   function showJudged(scopeEl, ok) {
     var banner = scopeEl.querySelector('.b-result');
     if (banner) {
-      banner.textContent = ok ? '⭕ せいかい！' : '❌ おしい！';
+      banner.textContent = ok ? 'せいかい！' : 'おしい！';
       banner.className = 'b-result ' + (ok ? 'ok' : 'ng');
     }
     scopeEl.classList.add('show');
@@ -2502,7 +2544,7 @@ try {
       pfill.style.width = (((s + 1) / steps.length) * 100) + '%';
       document.getElementById('btnPrev').textContent = s === 0 ? '目次へ' : '← まえへ';
       var next = document.getElementById('btnNext');
-      if (onModeStep && steps.length === 1) next.textContent = '⭐ おすすめ順で始める →';
+      if (onModeStep && steps.length === 1) next.textContent = 'おすすめ順で始める →';
       else if (s < steps.length - 1) next.textContent = 'つぎへ →';
       else next.textContent = t < N ? '次の単元へ →' : '目次にもどる';
       if (steps[s] && steps[s].classList.contains('done-step')) renderScore(views[t]);
@@ -2548,12 +2590,32 @@ try {
     } else { btn.hidden = true; }
   }
 
+  // ── 教材ゲート（中間案・ゆるめ「頭出しは見せる」）──
+  //   有料単元はやり方えらぶ＋要点まとめまで誰でも試せる。その先は購入者（この学年）だけ。
+  function isLicensed() {
+    try { return (JSON.parse(localStorage.getItem('tzm-lic') || '[]')).indexOf(GRADE) >= 0; }
+    catch (e) { return false; }
+  }
+  function lockFrom(t) { var v = views[t]; return v ? +(v.getAttribute('data-lock') || 0) : 0; }
+  function gateBlocks(t, s) { var lk = lockFrom(t); return lk > 0 && !isLicensed() && s >= lk; }
+  function showLock() { var ov = document.getElementById('lockOv'); if (ov) ov.hidden = false; }
+  function hideLock() { var ov = document.getElementById('lockOv'); if (ov) ov.hidden = true; }
+  window.tzmRefreshGate = function () { if (isLicensed()) hideLock(); };
+
   function go(t, s, dir) {
     lastDir = dir || 1;
     state.t = Math.max(0, Math.min(N, t));
     state.s = Math.max(0, s || 0);
-    if (state.t > 0) state.s = Math.min(state.s, stepsOf(state.t).length - 1);
-    else state.s = 0;
+    if (state.t > 0) {
+      state.s = Math.min(state.s, stepsOf(state.t).length - 1);
+      if (gateBlocks(state.t, state.s)) {
+        state.s = Math.max(0, lockFrom(state.t) - 1);
+        render();
+        showLock();
+        return;
+      }
+    } else state.s = 0;
+    hideLock();
     render();
   }
   // ── 未回答ガード: 問題(一問一答/4択/記述)に答えるまで「つぎへ」で先に進めない ──
@@ -2597,6 +2659,11 @@ try {
     else go(0, 0, -1);
   }
 
+  document.getElementById('lockLogin').addEventListener('click', function () {
+    var here = location.pathname + '#t' + state.t + (state.s > 0 ? 's' + state.s : '');
+    location.href = '../../login/?next=' + encodeURIComponent(here);
+  });
+  document.getElementById('lockClose').addEventListener('click', hideLock);
   document.getElementById('btnNext').addEventListener('click', next);
   document.getElementById('btnPrev').addEventListener('click', prev);
   // 回答するとロックを解除（回答処理の後に評価するため click は次tickで）
@@ -2719,7 +2786,7 @@ try {
       var istep = idk.closest('.qa-step');
       showJudged(istep, false);
       var bn = istep.querySelector('.b-result');
-      if (bn) { bn.textContent = '👇 こたえはこちら。次はきっと書けるよ！'; bn.className = 'b-result ng'; }
+      if (bn) { bn.textContent = 'こたえはこちら。次はきっと書けるよ！'; bn.className = 'b-result ng'; }
       var stI = store(); stI.r = stI.r || {};
       stI.r[istep.dataset.qid] = 0;
       save(stI);
