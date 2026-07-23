@@ -7,7 +7,7 @@
     "prepare": "husky",
     "generate-registry": "tsx scripts/generate-topic-registry.ts",
     "dev": "npm run build && vite preview --host 0.0.0.0",
-    "build": "tsx scripts/generate-topic-registry.ts && tsc && vite build && npx tsx scripts/generate-sitemap.ts && npx tsx scripts/prerender.ts",
+    "build": "tsx scripts/generate-topic-registry.ts && tsc && vite build && npx tsx scripts/generate-sitemap.ts && npx tsx scripts/prerender.ts && node -e \"require('fs').rmSync('dist/tsudumon',{recursive:true,force:true})\"",
     "build:line": "vite build --config vite.config.line.ts && mv dist-line/index.line.html dist-line/index.html",
     "preview": "vite preview --host 0.0.0.0",
     "preview:line": "vite preview --config vite.config.line.ts --host 0.0.0.0",

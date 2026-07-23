@@ -38,34 +38,7 @@
       ]
     },
     {
-      "source": "/tsudumon/img/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=86400"
-        }
-      ]
-    },
-    {
-      "source": "/tsudumon/ref/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=600"
-        }
-      ]
-    },
-    {
-      "source": "/tsudumon/wb/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=600"
-        }
-      ]
-    },
-    {
-      "source": "/((?!assets/|favicon\\.ico|mubista|tsudumon/img/|tsudumon/ref/|tsudumon/wb/|sitemap\\.xml|robots\\.txt).*)",
+      "source": "/((?!assets/|favicon\\.ico|mubista|tsudumon|sitemap\\.xml|robots\\.txt).*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -82,6 +55,18 @@
     {
       "source": "/tsudumon/dl/",
       "destination": "https://asia-northeast1-chatstudy-63477.cloudfunctions.net/tsudumonDownload"
+    },
+    {
+      "source": "/tsudumon",
+      "destination": "https://tsudumon.web.app/"
+    },
+    {
+      "source": "/tsudumon/",
+      "destination": "https://tsudumon.web.app/"
+    },
+    {
+      "source": "/tsudumon/:path*",
+      "destination": "https://tsudumon.web.app/:path*"
     },
     {
       "source": "/mubista",

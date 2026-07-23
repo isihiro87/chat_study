@@ -9,5 +9,29 @@
   "firestore": {
     "rules": "firestore.rules",
     "indexes": "firestore.indexes.json"
-  }
+  },
+  "hosting": [
+    {
+      "site": "tsudumon",
+      "public": "public/tsudumon",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "cleanUrls": false,
+      "rewrites": [
+        {
+          "source": "/dl",
+          "destination": "https://asia-northeast1-chatstudy-63477.cloudfunctions.net/tsudumonDownload"
+        }
+      ],
+      "headers": [
+        {
+          "source": "/img/**",
+          "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }]
+        },
+        {
+          "source": "**/*.html",
+          "headers": [{ "key": "Cache-Control", "value": "public, max-age=600" }]
+        }
+      ]
+    }
+  ]
 }
