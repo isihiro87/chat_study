@@ -61,12 +61,8 @@
       "destination": "https://tsudumon.web.app/"
     },
     {
-      "source": "/tsudumon/",
-      "destination": "https://tsudumon.web.app/"
-    },
-    {
-      "source": "/tsudumon/:path*",
-      "destination": "https://tsudumon.web.app/:path*"
+      "source": "/tsudumon/(.*)",
+      "destination": "https://tsudumon.web.app/$1"
     },
     {
       "source": "/mubista",
