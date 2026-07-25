@@ -47,23 +47,19 @@
       ]
     }
   ],
-  "rewrites": [
-    {
-      "source": "/tsudumon/dl",
-      "destination": "https://asia-northeast1-chatstudy-63477.cloudfunctions.net/tsudumonDownload"
-    },
-    {
-      "source": "/tsudumon/dl/",
-      "destination": "https://asia-northeast1-chatstudy-63477.cloudfunctions.net/tsudumonDownload"
-    },
+  "redirects": [
     {
       "source": "/tsudumon",
-      "destination": "https://tsudumon.web.app/"
+      "destination": "https://tsudumon.jp/",
+      "permanent": true
     },
     {
       "source": "/tsudumon/(.*)",
-      "destination": "https://tsudumon.web.app/$1"
-    },
+      "destination": "https://tsudumon.jp/$1",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
     {
       "source": "/mubista",
       "destination": "https://mubista.web.app/"
