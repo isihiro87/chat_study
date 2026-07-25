@@ -8,6 +8,7 @@ import {
   judgeTermAnswer,
 } from '../workbookTopic';
 import { WORKBOOK_QUESTION_INDEX } from '../generated/workbook-question-index.generated';
+import { WORKBOOK_INPUT_INDEX } from '../generated/workbook-input-questions.generated';
 
 describe('parseWorkbookText', () => {
   it('半角スペース区切りの単元名を取り出す', () => {
@@ -89,14 +90,48 @@ describe('getTopicQuestionIds', () => {
 
 describe('入力問題バンク', () => {
   it('全単元に一問一答があり、IDで逆引きできる', () => {
+    const topics = Object.keys(WORKBOOK_INPUT_INDEX);
+    expect(topics.length).toBeGreaterThan(0);
+
+    for (const topicName of topics) {
+      const input = getWorkbookInput(topicName);
+      expect(input.terms.length).toBeGreaterThan(0);
+
+      // terms / written とも、全問が id で逆引きでき、種別・単元名・
+      // 紙面の問題番号（1始まり・配列順）が一致する
+      input.terms.forEach((q, i) => {
+        const found = findWorkbookInputQuestion(q.id);
+        expect(found?.kind).toBe('term');
+        expect(found?.topicName).toBe(topicName);
+        expect(found?.n).toBe(i + 1);
+      });
+      input.written.forEach((q, i) => {
+        const found = findWorkbookInputQuestion(q.id);
+        expect(found?.kind).toBe('written');
+        expect(found?.topicName).toBe(topicName);
+        expect(found?.n).toBe(i + 1);
+      });
+    }
+  });
+
+  it('入力問題のIDが全単元で一意（逆引きが衝突しない）', () => {
+    const ids = Object.values(WORKBOOK_INPUT_INDEX).flatMap((t) => [
+      ...t.terms.map((q) => q.id),
+      ...t.written.map((q) => q.id),
+    ]);
+    expect(new Set(ids).size).toBe(ids.length);
+  });
+
+  it('代表単元「律令国家と奈良時代」の中身が紙面と一致する', () => {
     const input = getWorkbookInput('律令国家と奈良時代');
-    expect(input.terms.length).toBeGreaterThan(0);
-    expect(input.written.length).toBe(2);
-    const first = input.terms[0];
-    const found = findWorkbookInputQuestion(first.id);
-    expect(found?.kind).toBe('term');
-    expect(found?.topicName).toBe('律令国家と奈良時代');
-    expect(found?.n).toBe(1);
+    expect(input.terms[0].a).toBe('大宝律令');
+    expect(input.written[0].q).toContain('律令とは何か');
+  });
+
+  it('存在しない単元は空配列', () => {
+    const input = getWorkbookInput('存在しない単元');
+    expect(input.terms).toEqual([]);
+    expect(input.written).toEqual([]);
   });
 });
 
