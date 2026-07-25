@@ -16,7 +16,9 @@ import * as functions from 'firebase-functions/v1';
 import {
   TSUDUMON_DEFAULT_MAX_ACTIVATIONS,
   TSUDUMON_PLAN_LABEL,
+  TSUDUMON_TRIAL_HOURS,
   computeTsudumonExpiresAtMs,
+  evaluateTrialEligibility,
   evaluateTsudumonAccess,
   extractTsudumonCode,
   readTsudumonEntitlement,
@@ -103,7 +105,7 @@ export async function activateTsudumonLicense(
           expiresAt: Timestamp.fromMillis(expiresMs),
         },
       },
-      { merge: true }
+      { mergeFields: ['tsudumon'] }
     );
     return { kind: 'ok', plan, expiresMs, already };
   });
@@ -175,6 +177,17 @@ export const tsudumonActivate = functions
       );
 
       if (outcome.kind === 'ok') {
+        if (!outcome.already) {
+          try {
+            const { logServerFunnelEvent } = await import('./funnelEvent');
+            await logServerFunnelEvent('tsudumon_activated', uid);
+          } catch (e) {
+            console.error(
+              '[tsudumonActivate] tsudumon_activated log failed:',
+              e
+            );
+          }
+        }
         res.status(200).json({
           ok: true,
           plan: outcome.plan,
@@ -262,9 +275,163 @@ export const tsudumonEntitlement = functions
         result,
         grades,
         expiresLabel: ent ? expiresLabel(ent.expiresAtMs) : null,
+        expiresAtMs: ent ? ent.expiresAtMs : null,
       });
     } catch (error) {
       console.error('[tsudumonEntitlement] failed:', error);
+      res.status(500).json({ error: 'internal' });
+    }
+  });
+
+export type TsudumonTrialOutcome =
+  | { kind: 'ok'; expiresMs: number }
+  | { kind: 'already_licensed' }
+  | { kind: 'trial_used' };
+
+/**
+ * 「3日間ぜんぶ無料で試す」を uid に付与する（1 uid 1 回）。
+ *
+ * トランザクションで users/{uid} を read し `evaluateTrialEligibility` で判定。
+ * 'ok' のときだけ tsudumon を体験用エンティティで**丸ごと置き換え**（mergeFields で
+ * ネストマージを避ける）し、`tsudumonTrialUsedAt` を同時に記録する。72 時間後は
+ * `evaluateTsudumonAccess` が自然に 'expired' になり、コアは無変更で失効する。
+ *
+ * 付与成功時のみ、tx 外で cron 用の `tsudumonTrials/{uid}`（リマインド管理）を作成し
+ * funnel イベントを記録する（どちらも失敗してもログのみで本体は成功扱い）。
+ */
+export async function startTsudumonTrial(
+  uid: string
+): Promise<TsudumonTrialOutcome> {
+  const { db } = await getDb();
+  const { Timestamp } = await import('firebase-admin/firestore');
+  const userRef = db.doc(`users/${uid}`);
+  const nowMs = Date.now();
+  const expiresMs = nowMs + TSUDUMON_TRIAL_HOURS * 60 * 60 * 1000;
+
+  const outcome = await db.runTransaction(
+    async (tx): Promise<TsudumonTrialOutcome> => {
+      const snap = await tx.get(userRef);
+      const data = snap.exists ? (snap.data() as Record<string, unknown>) : {};
+      const eligibility = evaluateTrialEligibility(
+        data.tsudumon,
+        data.tsudumonTrialUsedAt,
+        nowMs
+      );
+      if (eligibility === 'already_licensed')
+        return { kind: 'already_licensed' };
+      if (eligibility === 'trial_used') return { kind: 'trial_used' };
+
+      // tsudumon はネストマージを避けて丸ごと置き換える（source:'trial' が本購入時に消える）。
+      tx.set(
+        userRef,
+        {
+          tsudumon: {
+            plan: 'set',
+            source: 'trial',
+            years: 0,
+            activatedAt: Timestamp.fromMillis(nowMs),
+            expiresAt: Timestamp.fromMillis(expiresMs),
+          },
+          tsudumonTrialUsedAt: Timestamp.fromMillis(nowMs),
+        },
+        { mergeFields: ['tsudumon', 'tsudumonTrialUsedAt'] }
+      );
+      return { kind: 'ok', expiresMs };
+    }
+  );
+
+  if (outcome.kind === 'ok') {
+    try {
+      await db.doc(`tsudumonTrials/${uid}`).set({
+        startedAt: Timestamp.fromMillis(nowMs),
+        expiresAt: Timestamp.fromMillis(expiresMs),
+        lineUserId: uid.replace('line:', ''),
+        reminded: {},
+      });
+    } catch (e) {
+      console.error('[tsudumonTrialStart] tsudumonTrials write failed:', e);
+    }
+    try {
+      const { logServerFunnelEvent } = await import('./funnelEvent');
+      await logServerFunnelEvent('trial_started', uid);
+    } catch (e) {
+      console.error('[tsudumonTrialStart] trial_started log failed:', e);
+    }
+  }
+
+  return outcome;
+}
+
+/**
+ * 「3日間ぜんぶ無料で試す」開始 HTTP エンドポイント。
+ * POST { idToken } → { ok:true, expiresLabel } | { ok:false, reason, message }
+ * 認証・CORS・`line:` prefix チェックは tsudumonActivate と同型。
+ */
+export const tsudumonTrialStart = functions
+  .region('asia-northeast1')
+  .https.onRequest(async (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
+    res.set('Access-Control-Allow-Methods', 'POST, OPTIONS');
+    res.set('Access-Control-Allow-Headers', 'Content-Type');
+    if (req.method === 'OPTIONS') {
+      res.status(204).send('');
+      return;
+    }
+    if (req.method !== 'POST') {
+      res.status(405).json({ error: 'Method not allowed' });
+      return;
+    }
+
+    const { idToken } = req.body ?? {};
+    if (typeof idToken !== 'string' || !idToken) {
+      res.status(400).json({ error: 'idToken is required' });
+      return;
+    }
+
+    try {
+      const { getApps, initializeApp } = await import('firebase-admin/app');
+      const { getAuth } = await import('firebase-admin/auth');
+      if (getApps().length === 0) {
+        initializeApp();
+      }
+      let uid: string;
+      try {
+        uid = (await getAuth().verifyIdToken(idToken)).uid;
+      } catch {
+        res.status(401).json({ error: 'invalid_token' });
+        return;
+      }
+      if (!uid.startsWith('line:')) {
+        res.status(403).json({ error: 'line_login_required' });
+        return;
+      }
+
+      const outcome = await startTsudumonTrial(uid);
+      console.log(`[tsudumonTrialStart] uid=${uid} → ${outcome.kind}`);
+
+      if (outcome.kind === 'ok') {
+        res.status(200).json({
+          ok: true,
+          expiresLabel: expiresLabel(outcome.expiresMs),
+        });
+        return;
+      }
+      const messages: Record<
+        Exclude<TsudumonTrialOutcome['kind'], 'ok'>,
+        string
+      > = {
+        already_licensed:
+          'すでにライセンスをお持ちです。そのまま全単元をご利用いただけます。',
+        trial_used:
+          '無料体験はおひとり様1回までです。つづきは月額プランでご利用ください。',
+      };
+      res.status(200).json({
+        ok: false,
+        reason: outcome.kind,
+        message: messages[outcome.kind],
+      });
+    } catch (error) {
+      console.error('[tsudumonTrialStart] failed:', error);
       res.status(500).json({ error: 'internal' });
     }
   });

@@ -9,6 +9,7 @@ import {
   linkRichMenuForUser,
 } from './lineRichMenu';
 import { recordPushDelivery } from './deliveryStats';
+import { TSUDUMON_PRODUCT_TAG, getStripeProductTag } from './stripeProductTag';
 
 type StripeEventType =
   | 'checkout.session.completed'
@@ -163,9 +164,8 @@ async function markPaid(input: {
   sendThanksMessage?: boolean;
 }): Promise<void> {
   const { initializeApp, getApps } = await import('firebase-admin/app');
-  const { getFirestore, FieldValue, Timestamp } = await import(
-    'firebase-admin/firestore'
-  );
+  const { getFirestore, FieldValue, Timestamp } =
+    await import('firebase-admin/firestore');
   if (getApps().length === 0) {
     initializeApp();
   }
@@ -309,6 +309,15 @@ export const stripeWebhook = functions
     const eventType = event.type || '';
     const customerId = getString(obj.customer);
     const subscriptionId = getString(obj.subscription) || getString(obj.id);
+
+    // 商品タグによる opt-out ガード。つづもん（別サービス）の課金イベントも同一 Stripe
+    // アカウントからここへ配信されるため、`product=tsudumon` のものだけ素通りさせる。
+    // タグ無しのイベントは従来どおり全て処理する＝既存プレミアムの挙動は不変。
+    if (getStripeProductTag(obj) === TSUDUMON_PRODUCT_TAG) {
+      console.log(`[stripeWebhook] skip tsudumon event type=${eventType}`);
+      res.json({ received: true, skipped: 'tsudumon' });
+      return;
+    }
 
     try {
       if (eventType === 'checkout.session.completed') {

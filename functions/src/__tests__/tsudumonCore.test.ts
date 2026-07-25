@@ -6,6 +6,7 @@ import {
   computeTsudumonExpiresAtMs,
   readTsudumonEntitlement,
   evaluateTsudumonAccess,
+  evaluateTrialEligibility,
   TSUDUMON_CODE_ALPHABET,
 } from '../tsudumonCore';
 
@@ -124,5 +125,47 @@ describe('evaluateTsudumonAccess', () => {
     expect(evaluateTsudumonAccess(valid, '中3', now)).toBe('wrong_grade');
     const set = { plan: 'set' as const, expiresAt: now + 1 };
     expect(evaluateTsudumonAccess(set, '中3', now)).toBe('ok');
+  });
+});
+
+describe('evaluateTrialEligibility', () => {
+  const now = 1000;
+
+  it('未登録・未体験は ok', () => {
+    expect(evaluateTrialEligibility(null, null, now)).toBe('ok');
+    expect(evaluateTrialEligibility(undefined, undefined, now)).toBe('ok');
+  });
+
+  it('現在有効なライセンス/体験を持つ人は already_licensed（trialUsedAt より優先）', () => {
+    const licensed = { plan: 'set' as const, expiresAt: now + 1 };
+    expect(evaluateTrialEligibility(licensed, null, now)).toBe(
+      'already_licensed'
+    );
+    // 体験フラグが立っていても、いま有効なら「持っている」案内を優先する
+    expect(evaluateTrialEligibility(licensed, now - 1, now)).toBe(
+      'already_licensed'
+    );
+  });
+
+  it('体験済み（trialUsedAt truthy）は trial_used', () => {
+    expect(evaluateTrialEligibility(null, now - 1, now)).toBe('trial_used');
+    expect(
+      evaluateTrialEligibility(undefined, { toMillis: () => now }, now)
+    ).toBe('trial_used');
+  });
+
+  it('期限切れの体験者は trialUsedAt があるので trial_used（体験は 1 回まで）', () => {
+    // 期限切れ体験 tsudumon（access !== ok）＋ 体験フラグ → trial_used
+    const expiredTrial = {
+      plan: 'set' as const,
+      source: 'trial',
+      expiresAt: now,
+    };
+    expect(evaluateTrialEligibility(expiredTrial, now, now)).toBe('trial_used');
+  });
+
+  it('期限切れの本ライセンス保持者で trialUsedAt なしは ok（再購入までの体験を許す）', () => {
+    const expiredLicense = { plan: 'set' as const, expiresAt: now };
+    expect(evaluateTrialEligibility(expiredLicense, null, now)).toBe('ok');
   });
 });

@@ -21,6 +21,8 @@ export type ServerFunnelEventType =
   | 'not_learned_applied'
   // 友だち追加直後のおためし1問（2026-07。context: correct）
   | 'sample_question_answered'
+  // つづもん（PDF問題集）ライセンス有効化・体験（2026-07）
+  | 'tsudumon_activated'
   | 'trial_started'
   | 'trial_reminder_sent'
   | 'trial_expired'

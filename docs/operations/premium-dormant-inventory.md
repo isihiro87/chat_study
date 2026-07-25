@@ -38,6 +38,17 @@
 7. [ ] トライアル日数を変える場合: `trialDuration.ts` と全文言（「7日間」多数）を同期
 8. [ ] 配信頻度文言（「はじめは毎日→週3回」）と有料特典の整合を確認
 9. [ ] `docs/message-copy-guidelines.md` に有料訴求のトーン規定を追記
+10. [ ] **`stripeWebhook.ts` の `current_period_end` 参照を現行 Stripe API 形に直す（2026-07-25 発見）**
+    `customer.subscription.created` / `.updated` ハンドラ（L371-374 付近）が `obj.current_period_end` を
+    直読みしているが、Stripe の 2025-04-30.basil 以降このフィールドはトップレベルから
+    **`items.data[].current_period_end` へ移動**しており、現行の配信 API バージョン
+    （このエンドポイントは `2026-04-22.dahlia` 固定）では常に `undefined`。
+    このため `markPaid()` に `currentPeriodEnd` が渡らず、**`premiumUntil` の Stripe 同期が効かない**。
+    修正は `functions/src/stripeInvoiceFields.ts` の `getSubscriptionPeriodEnd(obj)` に差し替えるだけ
+    （つづもん側で同じ原因の不具合を修正済み・テスト済みの共通モジュール）。
+    将来 `invoice.*` イベントを購読するなら `getInvoiceSubscriptionId` / `resolvePeriodEnd` も併用すること
+    （Invoice の `subscription` も `parent.subscription_details.subscription` へ移動している）。
+    ※ プレミアム停止中は実害が顕在化しないため未修正。**再開するなら必ず先に直す。**
 
 ## 4. 削除候補（方針転換して削除する場合の対象）
 

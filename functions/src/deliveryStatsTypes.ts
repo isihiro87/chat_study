@@ -7,22 +7,23 @@
  * ドキュメント ID は `YYYY-MM` 形式（例: `"2026-05"`）。
  */
 
-import type { Timestamp } from "firebase-admin/firestore";
+import type { Timestamp } from 'firebase-admin/firestore';
 
 /** 送信種別。`pushCountByType` の key として使用。 */
 export type PushType =
-  | "dailyQuiz"
-  | "trialReminder"
-  | "winback"
-  | "onboardingReminder"
-  | "premiumNudge"
-  | "scopeSetupNudge"
-  | "abandonReminder"
-  | "postTrialFollowup"
-  | "restartWelcome"
-  | "deliveryTransition"
-  | "monthlyReport"
-  | "other";
+  | 'dailyQuiz'
+  | 'trialReminder'
+  | 'tsudumonTrial'
+  | 'winback'
+  | 'onboardingReminder'
+  | 'premiumNudge'
+  | 'scopeSetupNudge'
+  | 'abandonReminder'
+  | 'postTrialFollowup'
+  | 'restartWelcome'
+  | 'deliveryTransition'
+  | 'monthlyReport'
+  | 'other';
 
 /** 送信種別ごとのカウント。 */
 export type PushCountByType = Record<PushType, number>;
@@ -49,6 +50,7 @@ export function emptyPushCountByType(): PushCountByType {
   return {
     dailyQuiz: 0,
     trialReminder: 0,
+    tsudumonTrial: 0,
     winback: 0,
     onboardingReminder: 0,
     premiumNudge: 0,

@@ -134,6 +134,38 @@ export function evaluateTsudumonAccess(
   return 'ok';
 }
 
+/** 無料お試しの有効時間（時間）。開始から 72 時間（3日間）で自然失効する。 */
+export const TSUDUMON_TRIAL_HOURS = 72;
+
+export type TsudumonTrialEligibility = 'ok' | 'already_licensed' | 'trial_used';
+
+/**
+ * 「3日間無料お試し」を開始できるかの純粋判定。
+ *
+ * @param tsudumonRaw users/{uid}.tsudumon（体験/本ライセンスのスナップショット）
+ * @param trialUsedAt users/{uid}.tsudumonTrialUsedAt（過去に体験を使ったか。truthy なら使用済み）
+ * @param nowMs 現在時刻ミリ秒
+ *
+ * - 現在有効なライセンス/体験を持っている（access === 'ok'）→ 'already_licensed'（付与不要）
+ * - すでに体験を使った（trialUsedAt truthy）→ 'trial_used'
+ * - それ以外 → 'ok'
+ *
+ * 「期限切れの本ライセンス保持者」で `trialUsedAt` が無い場合は 'ok' になる（再購入までの
+ * つなぎとして体験を許す）。期限切れの「体験」利用者は `tsudumonTrialUsedAt` が立っているため
+ * 'trial_used' となり、体験は 1 uid 1 回に保たれる。
+ */
+export function evaluateTrialEligibility(
+  tsudumonRaw: unknown,
+  trialUsedAt: unknown,
+  nowMs: number
+): TsudumonTrialEligibility {
+  if (evaluateTsudumonAccess(tsudumonRaw, null, nowMs) === 'ok') {
+    return 'already_licensed';
+  }
+  if (trialUsedAt) return 'trial_used';
+  return 'ok';
+}
+
 /**
  * 無料体験で開放する単元（LP の「1単元無料で試せる」に対応）。
  * ワーク=単元名、参考書=QRキー（章番号-topicId）。

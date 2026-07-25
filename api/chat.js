@@ -29,7 +29,7 @@ const SYSTEM_PROMPT = `
 - 相手が迷いを口にしたとき（「うちの子に合うかな」「買おうか迷う」等）だけ、
   「まず無料体験で確かめてからで大丈夫ですよ」と、そっと一歩だけ背中を押す。
 - 分からないこと・ここに書かれていないことは、正直に「わかりかねます」と伝えて
-  公式LINE（https://lin.ee/wxDOngU）での問い合わせを案内する。絶対に作り話をしない。
+  公式LINE（https://lin.ee/XGIhuYi）での問い合わせを案内する。絶対に作り話をしない。
 - 回答は日本語で、3〜6文程度。やわらかい敬語。相手の気持ちへの共感を先に。
 
 ## 商品の事実（この範囲だけ答えてよい）
@@ -42,7 +42,7 @@ const SYSTEM_PROMPT = `
 - 使い方: スマホ・タブレット・PCのブラウザでWeb教材を開いて解く。画面上のQRコードや導線から
   公式LINEでAIがその場で丸つけ・解説（記述問題も採点）。LINEだけで解くこともできる
 - 続く仕組み: すぐ丸がつく / 1単元15分 / 正答率・レベル・連続正解の記録 / まちがえた問題の自動再出題
-- 無料体験: 公式LINE（https://lin.ee/wxDOngU）を友だち追加すると1単元無料で試せる
+- 無料体験: 3日間、全19単元（参考書＋問題集）をまるごと無料で試せる。期限後も「律令国家と奈良時代」の1単元はずっと無料。体験開始は教材ページの「3日間ぜんぶ無料で試す」ボタンから（公式LINE https://lin.ee/XGIhuYi でログインするだけ）
 - 対象: 中学1〜3年生。学年をまたぐ復習・先取りOK。教科書を問わず定期テスト・実力テスト対策に使える
 - 利用開始: お申し込み・決済確認後、公式LINE経由でWeb教材の利用を有効化（即時〜24時間以内）
 - ロードマップ（予定）: 今後、社会・英語・理科・数学を順次追加予定
@@ -77,7 +77,7 @@ export default async function handler(req, res) {
   }
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
-    res.status(500).json({ reply: 'ただいまチャットを準備中です。お手数ですが公式LINEでご質問ください。 https://lin.ee/wxDOngU' });
+    res.status(500).json({ reply: 'ただいまチャットを準備中です。お手数ですが公式LINEでご質問ください。 https://lin.ee/XGIhuYi' });
     return;
   }
 
@@ -88,7 +88,7 @@ export default async function handler(req, res) {
   // 全体上限（サービス全体のコスト上限）
   const dailyLimit = parseInt(process.env.CHAT_DAILY_LIMIT || '300', 10);
   if (counters.total >= dailyLimit) {
-    res.status(200).json({ reply: '申し訳ありません、本日のチャット対応が上限に達しました。よくある質問はページ下部のFAQに、その他は公式LINEでお答えできます。 https://lin.ee/wxDOngU' });
+    res.status(200).json({ reply: '申し訳ありません、本日のチャット対応が上限に達しました。よくある質問はページ下部のFAQに、その他は公式LINEでお答えできます。 https://lin.ee/XGIhuYi' });
     return;
   }
 
@@ -96,7 +96,7 @@ export default async function handler(req, res) {
   const userLimit = parseInt(process.env.CHAT_USER_DAILY_LIMIT || '15', 10);
   const key = clientKey(req);
   if ((counters.perUser.get(key) || 0) >= userLimit) {
-    res.status(200).json({ reply: '本日のチャットのご利用上限に達しました。また明日お使いいただけます。\nお急ぎのご質問や無料体験は、公式LINEでどうぞ。 https://lin.ee/wxDOngU' });
+    res.status(200).json({ reply: '本日のチャットのご利用上限に達しました。また明日お使いいただけます。\nお急ぎのご質問や無料体験は、公式LINEでどうぞ。 https://lin.ee/XGIhuYi' });
     return;
   }
 
@@ -124,12 +124,12 @@ export default async function handler(req, res) {
     if (!r.ok) throw new Error('gemini ' + r.status);
     const data = await r.json();
     const reply = data?.candidates?.[0]?.content?.parts?.map(p => p.text).join('')
-      || 'すみません、うまく答えられませんでした。公式LINEでもご質問いただけます。 https://lin.ee/wxDOngU';
+      || 'すみません、うまく答えられませんでした。公式LINEでもご質問いただけます。 https://lin.ee/XGIhuYi';
     counters.total++;
     counters.perUser.set(key, (counters.perUser.get(key) || 0) + 1);
     if (counters.perUser.size > 5000) counters.perUser.clear(); // メモリ保護（日内リセットの保険）
     res.status(200).json({ reply });
   } catch (e) {
-    res.status(200).json({ reply: 'すみません、いま回答の生成に失敗しました。少し時間をおいて試すか、公式LINEでご質問ください。 https://lin.ee/wxDOngU' });
+    res.status(200).json({ reply: 'すみません、いま回答の生成に失敗しました。少し時間をおいて試すか、公式LINEでご質問ください。 https://lin.ee/XGIhuYi' });
   }
 }

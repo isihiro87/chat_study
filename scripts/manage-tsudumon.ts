@@ -37,7 +37,7 @@ const DEFAULT_BUCKETS = [
 ];
 const DL_BASE = 'https://www.chatstudy.jp/tsudumon/dl';
 const ACTIVATE_BASE = 'https://www.chatstudy.jp/tsudumon/activate/';
-const LINE_BASIC_ID = '@824cebif';
+const LINE_BASIC_ID = '@215uijik';
 
 // functions/ は CJS（"type":"module" なし）のため、ESM の named import だと
 // Node の named-export 検出に失敗することがある。createRequire で確実に読む。
@@ -155,6 +155,8 @@ ${buyerName} 様
 受け取りリンク:
 ${activateUrl}
 
+教材はいつも公式LINEのメニュー「📖 教材をひらく」から開けます（2回目以降はログイン不要）。
+
 ■ 2. 教材のダウンロード
 ${hasZip ? dlUrl : '（zip未アップロード: set-zip 実行後にこのリンクが有効になります）\n' + dlUrl}
 ※ zipファイルを保存して解凍し、中の「★はじめにお読みください.pdf」から始めるのがおすすめです。
@@ -162,7 +164,7 @@ ${hasZip ? dlUrl : '（zip未アップロード: set-zip 実行後にこのリ�
 
 ──────────────
 ◆ うまく受け取れないときは
-公式LINE「チャットでスタディ」（ID: ${LINE_BASIC_ID}）を友だち追加して、
+公式LINE「つづもん」（ID: ${LINE_BASIC_ID}）を友だち追加して、
 下のコードをトークにそのまま送っていただいても登録できます。
 ・ライセンスコード: ${code}
 ・かんたん登録リンク: ${oaUrl}

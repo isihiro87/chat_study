@@ -1,4 +1,5 @@
 <!DOCTYPE html><html lang="ja"><head><meta charset="utf-8">
+<script>if(location.hostname==='tsudumon.web.app'){location.replace('https://www.chatstudy.jp/tsudumon'+location.pathname+location.search+location.hash);}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <title>LINEでログイン｜つづもん</title>
@@ -92,7 +93,21 @@ onAuthStateChanged(auth, function (user) {
 if (authCode && authState) {
   handleReturn(authCode, authState);
 } else {
-  setTimeout(function () { if (!auth.currentUser) showLogin(); }, 400);
+  setTimeout(function () {
+    if (auth.currentUser) return;
+    // LINE内ブラウザで ?auto=1 のときは、無操作で OAuth を1回だけ試す。
+    // sessionStorage['tzm-auto-tried'] で「タブ内1回だけ」に制限（失敗して戻ったらボタン表示に落とす）。
+    var auto = qs.get('auto') === '1';
+    var inLine = / Line\//.test(navigator.userAgent);
+    var tried = false;
+    try { tried = !!sessionStorage.getItem('tzm-auto-tried'); } catch (e) {}
+    if (auto && inLine && !tried) {
+      try { sessionStorage.setItem('tzm-auto-tried', '1'); } catch (e) {}
+      location.href = loginUrl();
+      return;
+    }
+    showLogin();
+  }, 400);
 }
 
 function loginUrl() {
