@@ -15,9 +15,15 @@ import liff from '@line/liff';
 const LIFF_ID = import.meta.env.VITE_LIFF_ID_UNITS as string | undefined;
 const LAUNCH_URL =
   'https://asia-northeast1-chatstudy-63477.cloudfunctions.net/workbookLaunch';
-const FRIEND_ADD_URL = 'https://lin.ee/wxDOngU';
+// Vercel に env が未設定でも確実に動くよう、つづもん専用アカウントの値を
+// フォールバックに持たせる（LiffSettingsPage.tsx の SETTINGS_LIFF_ID と同じ方式）。
+const FRIEND_ADD_URL =
+  (import.meta.env.VITE_TSUDUMON_FRIEND_URL as string | undefined) ??
+  'https://lin.ee/XGIhuYi';
 // 公式LINEのトークを開くディープリンク（oaMessage はメッセージ空でもトークが開く）
-const OA_TALK_URL = 'https://line.me/R/oaMessage/%40824cebif/?';
+const OA_TALK_URL =
+  (import.meta.env.VITE_TSUDUMON_OA_TALK_URL as string | undefined) ??
+  'https://line.me/R/oaMessage/%40215uijik/?';
 
 type Status = 'sending' | 'sent' | 'unknown' | 'need_friend' | 'error';
 
@@ -133,7 +139,7 @@ export default function LiffWorkbookLaunchPage() {
               まずは友だち追加してね
             </p>
             <p className="text-sm text-stone-500 mb-4">
-              公式LINE「チャットでスタディ」を友だち追加すると、
+              公式LINE「つづもん」を友だち追加すると、
               QRコードから問題を解けるようになるよ。
             </p>
             <a
