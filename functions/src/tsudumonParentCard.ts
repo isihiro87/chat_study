@@ -74,10 +74,10 @@ export function buildParentNameAskMessage(
   return {
     type: 'text',
     text: [
-      'おうちの人の画面では、あなたのことを何て表示しようか？',
+      `おうちの人の画面では、いま「${preset}」と出ています。`,
       '',
-      `そのままでよければ「${preset}」で出すよ。`,
-      '呼ばれてる名前がよければ、そのまま送ってね（あだ名でもOK）。',
+      '変えたい呼び名があれば、そのまま送ってね（あだ名でもOK）。',
+      'このままでよければ、何もしなくて大丈夫です。',
       '',
       '※ 本名は保存しないので、無理に本名にしなくて大丈夫です。',
     ].join('\n'),
@@ -87,9 +87,9 @@ export function buildParentNameAskMessage(
           type: 'action',
           action: {
             type: 'postback',
-            label: `「${preset}」でいい`,
+            label: `「${preset}」のままでいい`,
             data: `type=tzm_pname&v=${encodeURIComponent(preset)}`,
-            displayText: `「${preset}」でいい`,
+            displayText: `「${preset}」のままでいい`,
           },
         },
       ],
@@ -198,6 +198,23 @@ export function buildParentCardFlex(
           text(input.parentUrl, { size: 'xxs', color: MUTED, align: 'center' }),
         ],
       },
+    },
+    // 呼び名の変更は**カードを出したあと**に置く。
+    // 「おうちの人に見せたい」と言った子はリンクが今すぐ欲しいので、
+    // その前に質問を挟むと、いちばん気持ちが乗っている瞬間で止めてしまう。
+    // 保護者側のダッシュボードにも「表示名を変える」があるので、ここは任意でよい。
+    quickReply: {
+      items: [
+        {
+          type: 'action',
+          action: {
+            type: 'postback',
+            label: '呼び名を変える',
+            data: 'type=tzm_pname_ask',
+            displayText: '呼び名を変える',
+          },
+        },
+      ],
     },
   } as messagingApi.FlexMessage;
 }

@@ -160,6 +160,14 @@ export async function dispatchTsudumonPostback(
       await handleParentCardPostback(client, uid, replyToken);
       return;
     }
+    // カードの quickReply「呼び名を変える」。ここで初めて呼び名待ちにする
+    // （カードを出す前には聞かない。いちばん気持ちが乗っている瞬間で止めないため）。
+    case 'tzm_pname_ask': {
+      const { handleParentNameAskPostback } =
+        await import('../tsudumonParentCardHandler');
+      await handleParentNameAskPostback(client, uid, replyToken);
+      return;
+    }
     // 保護者画面での呼び名（既定候補を選んだとき）。保存してそのままカードを出す。
     case 'tzm_pname': {
       const { handleParentNamePostback } =

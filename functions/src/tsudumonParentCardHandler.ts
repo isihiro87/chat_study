@@ -57,26 +57,14 @@ export async function handleParentCardPostback(
     return;
   }
 
-  // 呼び名が未設定なら、カードを出す前に一度だけ聞く。
-  // （保護者画面できょうだいを見分けるために要る。本名は保存しない方針）
-  if (invite.needsName && !skipNameAsk) {
-    let grade: unknown = null;
-    try {
-      const db = await getDb();
-      const snap = await db.doc(`users/${uid}`).get();
-      grade = snap.data()?.grade ?? null;
-      await db
-        .doc(`users/${uid}`)
-        .set(
-          { tsudumonParentNameAwaiting: true },
-          { mergeFields: ['tsudumonParentNameAwaiting'] }
-        );
-    } catch (error) {
-      console.error('[tsudumonParentCard] name ask setup failed:', error);
-    }
-    await reply(client, replyToken, [buildParentNameAskMessage(grade)]);
-    return;
-  }
+  // ⚠️ 呼び名は**先に聞かない**（2026-07-31 変更）。
+  // 「おうちの人に見せたい」と言った子はリンクが今すぐ欲しい。そこへ質問を挟むと、
+  // いちばん気持ちが乗っている瞬間で止めてしまう（唯一の課金経路なので致命的）。
+  // 既定の「中2のこども」で十分伝わるし、変えたい子はカードの
+  // quickReply「呼び名を変える」から、保護者はダッシュボードの
+  // 「表示名を変える」からいつでも直せる。むしろ**気にするのは保護者のほう**。
+  // 引数 skipNameAsk は呼び名を保存した直後の再入で使う（互換のため残す）。
+  void skipNameAsk;
 
   await reply(client, replyToken, [
     buildParentCardFlex({
@@ -86,6 +74,34 @@ export async function handleParentCardPostback(
       expiresLabel: invite.expiresLabel,
     }),
   ]);
+}
+
+/**
+ * カードの quickReply「呼び名を変える」（postback `type=tzm_pname_ask`）。
+ * ここで初めて呼び名待ちにする。カードは既に出ているので、道を塞がない。
+ */
+export async function handleParentNameAskPostback(
+  client: messagingApi.MessagingApiClient,
+  uid: string,
+  replyToken: string | undefined
+): Promise<void> {
+  if (!replyToken) return;
+
+  let grade: unknown = null;
+  try {
+    const db = await getDb();
+    const snap = await db.doc(`users/${uid}`).get();
+    grade = snap.data()?.grade ?? null;
+    await db
+      .doc(`users/${uid}`)
+      .set(
+        { tsudumonParentNameAwaiting: true },
+        { mergeFields: ['tsudumonParentNameAwaiting'] }
+      );
+  } catch (error) {
+    console.error('[tsudumonParentCard] name ask setup failed:', error);
+  }
+  await reply(client, replyToken, [buildParentNameAskMessage(grade)]);
 }
 
 /** 呼び名を保存する（quick reply の既定候補 / 自由入力の両方から呼ぶ）。 */
