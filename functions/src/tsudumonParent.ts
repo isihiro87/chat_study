@@ -101,6 +101,20 @@ function handoffUrl(token: string): string {
   return `${HANDOFF_PAGE}?t=${encodeURIComponent(token)}`;
 }
 
+/**
+ * LINE の送り先一覧（シェアターゲットピッカー）を開く LIFF URL。
+ *
+ * `LIFF_TSUDUMON_SHARE_ID` が未設定なら空文字を返す。呼び出し側は
+ * そのとき `handoffUrl`（QRページ）に落とす＝行き止まりを作らない。
+ * LIFF は LINE Developers Console（つづもんの LINE Login チャネル）で
+ * エンドポイント `https://tsudumon.jp/share/` として作る。
+ */
+function shareUrl(token: string): string {
+  const liffId = process.env.LIFF_TSUDUMON_SHARE_ID || '';
+  if (!liffId) return '';
+  return `https://liff.line.me/${liffId}?t=${encodeURIComponent(token)}`;
+}
+
 function projectId(): string {
   return (
     process.env.GCLOUD_PROJECT || process.env.GCP_PROJECT || 'chatstudy-63477'
@@ -147,6 +161,8 @@ export interface CreatedInvite {
   url: string;
   qrUrl: string;
   handoffUrl: string;
+  /** 送り先一覧を開く LIFF URL。LIFF 未設定なら空文字 */
+  shareUrl: string;
   childName: string;
   /** 呼び名が未設定＝保護者画面での表示名をまだ本人に聞いていない */
   needsName: boolean;
@@ -228,6 +244,7 @@ export async function createTsudumonInvite(
     url: inviteUrl(token),
     qrUrl: inviteQrUrl(token, projectId()),
     handoffUrl: handoffUrl(token),
+    shareUrl: shareUrl(token),
     childName,
     needsName: !hasName,
     expiresLabel: dateLabel(expiresMs),
@@ -697,13 +714,11 @@ export const tsudumonParentLink = functions
           too_many_children: `お一人の保護者アカウントにつなげられるお子さまは${MAX_CHILDREN_PER_PARENT}人までです。`,
           too_many_parents: `お一人のお子さまにつなげられる保護者の方は${MAX_PARENTS_PER_CHILD}人までです。`,
         };
-        res
-          .status(200)
-          .json({
-            ok: false,
-            reason: result.reason,
-            message: messages[result.reason],
-          });
+        res.status(200).json({
+          ok: false,
+          reason: result.reason,
+          message: messages[result.reason],
+        });
         return;
       }
 

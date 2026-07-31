@@ -106,6 +106,11 @@ export interface ParentCardInput {
   handoffUrl: string;
   parentUrl: string;
   expiresLabel: string;
+  /**
+   * LINE の送り先一覧（シェアターゲットピッカー）を開く LIFF URL。
+   * `LIFF_TSUDUMON_SHARE_ID` が未設定なら空で、その場合は `handoffUrl`（QR）に落ちる。
+   */
+  shareUrl?: string;
 }
 
 /**
@@ -166,9 +171,15 @@ export function buildParentCardFlex(
             ],
           },
           // ② 何が起きるか
+          // ⚠️ QRには必ず触れる。話しかけて渡すのが苦手な子の逃げ道で、
+          //    ここが無いと「言い出せないまま終わる」子を取りこぼす。
           text(
-            'これまでの取り組みをまとめたページを、おうちの人に見てもらえます。' +
-              '言いにくいときは、下のボタンからQRコードを見せるだけでも大丈夫。',
+            input.shareUrl
+              ? 'これまでの取り組みをまとめたページを、おうちの人に見てもらえます。' +
+                  '下のボタンを押すと送り先が出るので、おうちの人をえらぶだけ。' +
+                  '直接わたしたいときは、QRコードを見せることもできます。'
+              : 'これまでの取り組みをまとめたページを、おうちの人に見てもらえます。' +
+                  '言いにくいときは、下のボタンからQRコードを見せるだけでも大丈夫。',
             { size: 'sm', color: INK, margin: 'md' }
           ),
           text(`（このご案内は ${input.expiresLabel} まで使えます）`, {
@@ -190,15 +201,19 @@ export function buildParentCardFlex(
             height: 'sm',
             action: {
               type: 'uri',
-              label: '見せる画面をひらく',
-              uri: input.handoffUrl,
+              // shareUrl が使えるなら、押した瞬間に LINE の送り先一覧が開く
+              // （送信は子のアカウントから＝親には「自分の子から」届く）。
+              // LIFF 未設定なら従来の QR ページへ。どちらでも行き止まりにしない。
+              label: input.shareUrl ? 'おうちの人に送る' : '見せる画面をひらく',
+              uri: input.shareUrl || input.handoffUrl,
             },
           },
-          text('LINEで送るときは、このメッセージを長おしして「転送」', {
-            size: 'xxs',
-            color: MUTED,
-            align: 'center',
-          }),
+          text(
+            input.shareUrl
+              ? 'QRで見せたいときは、送り先の画面から切りかえられます'
+              : 'LINEで送るときは、このメッセージを長おしして「転送」',
+            { size: 'xxs', color: MUTED, align: 'center' }
+          ),
           text(input.parentUrl, { size: 'xxs', color: MUTED, align: 'center' }),
         ],
       },

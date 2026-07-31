@@ -138,6 +138,21 @@ describe('buildParentCardFlex', () => {
     expect(json).toContain('QR');
   });
 
+  it('送り先ピッカーがあってもQRの逃げ道は消さない', () => {
+    const withShare = JSON.stringify(
+      buildParentCardFlex({
+        childName: 'けんた',
+        handoffUrl: 'https://tsudumon.jp/handoff/?t=abc',
+        shareUrl: 'https://liff.line.me/1234-abcd?t=abc',
+        parentUrl: 'https://tsudumon.jp/parents/?t=abc',
+        expiresLabel: '8月10日',
+      })
+    );
+    expect(withShare).toContain('QR');
+    expect(withShare).toContain('おうちの人に送る');
+    expect(withShare).toContain('https://liff.line.me/1234-abcd?t=abc');
+  });
+
   it('転送用に保護者ページのURLを載せる', () => {
     expect(json).toContain('https://tsudumon.jp/parents/?t=abc');
   });

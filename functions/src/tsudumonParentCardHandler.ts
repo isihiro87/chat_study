@@ -70,6 +70,7 @@ export async function handleParentCardPostback(
     buildParentCardFlex({
       childName: invite.childName,
       handoffUrl: invite.handoffUrl,
+      shareUrl: invite.shareUrl,
       parentUrl: invite.url,
       expiresLabel: invite.expiresLabel,
     }),
