@@ -191,13 +191,13 @@ describe('buildChildSummary', () => {
     });
   });
 
-  it('呼び名が未設定なら fallback を使う', () => {
+  it('呼び名が未設定なら fallback を使う（学年は付けない）', () => {
     const s = buildChildSummary(
       { grade: '中1' },
       fallbackChildName('中1'),
       NOW
     );
-    expect(s.name).toBe('中1のお子さん');
+    expect(s.name).toBe('お子さん');
   });
 
   it('学習が空でも壊れない', () => {

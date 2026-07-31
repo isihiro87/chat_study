@@ -15,6 +15,7 @@ import {
   parentCardQuickReply,
   sanitizeParentName,
 } from '../tsudumonParentCard';
+import { fallbackChildName } from '../tsudumonParentCore';
 
 describe('detectParentAskIntent — 拾うべきもの', () => {
   it.each([
@@ -78,25 +79,35 @@ describe('sanitizeParentName', () => {
 });
 
 describe('defaultParentNameChoice', () => {
-  it('学年があれば学年ベース、無ければ既定', () => {
-    expect(defaultParentNameChoice('中2')).toBe('中2のこども');
-    expect(defaultParentNameChoice(null)).toBe('こども');
-    expect(defaultParentNameChoice(123)).toBe('こども');
+  it('学年を付けない（保護者は自分の子の学年を知っている）', () => {
+    expect(defaultParentNameChoice('中2')).toBe('お子さん');
+    expect(defaultParentNameChoice(null)).toBe('お子さん');
+    expect(defaultParentNameChoice(123)).toBe('お子さん');
+  });
+
+  it('保護者画面の既定表示と一致する（ずれると子に嘘を伝えることになる）', () => {
+    expect(defaultParentNameChoice('中2')).toBe(fallbackChildName('中2'));
+    expect(defaultParentNameChoice(null)).toBe(fallbackChildName(null));
   });
 });
 
 describe('buildParentNameAskMessage', () => {
   it('本名を求めないことを明示する', () => {
     const msg = buildParentNameAskMessage('中1');
-    expect(msg.text).toContain('中1のこども');
+    expect(msg.text).toContain('お子さん');
     expect(msg.text).toContain('本名は保存しない');
+  });
+
+  it('答えなくても進めることを伝える（カードはもう出ている）', () => {
+    const msg = buildParentNameAskMessage('中1');
+    expect(msg.text).toContain('何もしなくて大丈夫');
   });
 
   it('既定候補をワンタップで選べる', () => {
     const msg = buildParentNameAskMessage('中3');
     const action = msg.quickReply?.items[0].action as { data?: string };
     expect(action.data).toContain('type=tzm_pname');
-    expect(decodeURIComponent(action.data ?? '')).toContain('中3のこども');
+    expect(decodeURIComponent(action.data ?? '')).toContain('お子さん');
   });
 });
 

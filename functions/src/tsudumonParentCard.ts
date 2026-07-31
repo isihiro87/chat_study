@@ -59,8 +59,12 @@ export function detectParentAskIntent(text: string): boolean {
 }
 
 /** 呼び名を聞くときの既定候補（学年ベース）。 */
-export function defaultParentNameChoice(grade: unknown): string {
-  return typeof grade === 'string' && grade ? `${grade}のこども` : 'こども';
+export function defaultParentNameChoice(_grade?: unknown): string {
+  // ⚠️ **保護者画面の既定表示（`fallbackChildName`）と必ず同じ文字列にする。**
+  // ここがずれると、子には「こども と出ています」と伝えながら
+  // 保護者には「お子さん」と出る、という嘘になる。
+  // 学年を付けないのは fallbackChildName と同じ理由。
+  return 'お子さん';
 }
 
 /**

@@ -341,8 +341,11 @@ export function resolveParentUnlink(childRaw: unknown): {
 }
 
 /** 呼び名が未設定のときの既定表示。本名は保存しないので学年で代替する。 */
-export function fallbackChildName(grade: unknown): string {
-  return typeof grade === 'string' && grade ? `${grade}のお子さん` : 'お子さん';
+export function fallbackChildName(_grade?: unknown): string {
+  // 学年は付けない（2026-07-31）。保護者は自分の子の学年を知っているので
+  // 「中2の」は情報を足さないうえ、users.grade が古いと嘘になる。
+  // きょうだいの見分けは、保護者がダッシュボードの「表示名を変える」で付ける。
+  return 'お子さん';
 }
 
 /** 最後に学習した時刻（全単元の lastAt の最大）。 */
