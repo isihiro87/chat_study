@@ -5,9 +5,12 @@
  *   → tsudumonLicenses/{code} を検証（active・dlCount < dlLimit）
  *   → dlCount をインクリメントして downloadUrl（Storage の token 付きURL）へ 302。
  *
- * 公開URLは vercel.json の rewrite で
- *   https://www.chatstudy.jp/tsudumon/dl?c=...
- * に載せる（直接の Cloud Functions URL でも動く）。
+ * 公開URLは pdf-workbook/firebase.json の rewrite（function形式）で
+ *   https://tsudumon.jp/dl?c=...
+ * に載る（直接の Cloud Functions URL でも動く）。旧URL
+ * https://tsudumon.jp/dl?c=... は vercel.json の rewrite 経由で
+ * 引き続き到達可能（移行猶予期間中の保険）。実測: tsudumon.jp/dl は本関数まで
+ * 到達し200系の到達確認済み（2026-07-25、コード不正時は400を返す＝関数到達の証跡）。
  *
  * 複製抑止の位置づけ: 主軸はPDF全ページの購入者名透かし（pdf-workbook 側）。
  * ここでは「リンクの無限再配布」を回数上限と revoke で止める。

@@ -103,3 +103,41 @@ export function detectQuestionRequest(
   }
   return true;
 }
+
+// --- 「問題が届かない」系の問い合わせ検出（2026-07 配信一時停止の説明用） ---
+
+/**
+ * 「問題が届かない」「配信こない」「今日の1問まだ？」等、配信が来ないことへの
+ * 指摘・質問。配信枠ひっ迫で push を止めている期間（`pushSuspension.ts`）に、
+ * 定型の説明＋その場で1問（すべて reply＝配信枠ゼロ）を返すために使う。
+ *
+ * 「問題出して」系（detectQuestionRequest）と違い、"来ない・届かない・止まった"
+ * という**不達の訴え**を拾う。誤爆しても返すのは説明＋1問なので害は小さいが、
+ * 「答えが合ってない」等の別の苦情を巻き込まないよう対象語は配信まわりに限る。
+ */
+const DELIVERY_MISSING_TARGET =
+  '(問題|もんだい|クイズ|配信|通知|1問|一問|１問)';
+const DELIVERY_MISSING_NEGATIVE =
+  '(届かな|とどかな|届きませ|届いてな|とどいてな|来ない|来ません|来てない|来なくな|こない|きません|きてない|こなくな|止まっ|とまっ|停止|送られてこな|送られてな|来なくて|こなくて)';
+
+const DELIVERY_MISSING_RES: readonly RegExp[] = [
+  // 「問題が届かない」「配信こないんだけど」「1問まだ来てない」
+  new RegExp(
+    `${DELIVERY_MISSING_TARGET}[^\\n]{0,10}${DELIVERY_MISSING_NEGATIVE}`
+  ),
+  // 「届かないんだけど問題」「来ないよ配信」の語順ゆれ
+  new RegExp(
+    `${DELIVERY_MISSING_NEGATIVE}[^\\n]{0,10}${DELIVERY_MISSING_TARGET}`
+  ),
+  // 「今日の問題まだ？」「今日の1問は？」（催促だが不達の訴えと同じ案内でよい）
+  /(今日|きょう)の[^\n]{0,6}(問題|もんだい|1問|一問|１問)[^\n]{0,4}(まだ|は[?？]|\?|？)/,
+];
+
+/** 配信が届かないことへの指摘・質問なら true。 */
+export function detectDeliveryMissingIntent(
+  text: string | undefined | null
+): boolean {
+  const normalized = (text ?? '').trim();
+  if (normalized.length === 0) return false;
+  return DELIVERY_MISSING_RES.some((re) => re.test(normalized));
+}

@@ -12,6 +12,29 @@
 
 > 今後 Claude Code / Codex が「公式LINEの単元」を `src/data/subjects/.../eras/` や `topic-registry` で探して混乱しないこと。公式LINEは `data/content/` が正。
 
+## ⚠️ 公式LINE Bot は2つある（混同禁止）
+
+**LINE の公式アカウントは2つあり、性質・料金・AI の能力がまったく違う。片方の前提でコードを書くと事故る。**
+
+| | **チャットでスタディ（一問一答）** `@824cebif` | **つづもん** `@215uijik` |
+|---|---|---|
+| 規模・料金 | 約3,000フォロワー・**完全無料**（稼働中） | 新規・**月額1,280円のサブスク** |
+| webhook / クライアント | `lineWebhook` / `getLineClient()` | `tsudumonWebhook` / `getTsudumonLineClient()` |
+| AI | `gemini-3.1-flash-lite` 固定・1日40回・履歴6ターン | 用途別モデル階層・**月次コスト予算制（1人 月300〜400円）**・全会話を永続記憶（🚧未実装） |
+| ブロック判定 | `blocked` | `tsudumonBlockedAt`（**分離必須**） |
+
+**必ず守る3点**:
+1. **replyToken はチャネル固有**。Bot をまたいでクライアントを共有すると `400 Invalid reply token`。つづもん系ハンドラは `client` を引数で受ける。
+2. **`users/{uid}` は両Botで共有**（同一プロバイダーで uid 一致）。これは意図した挙動。ただし Bot 固有の状態は**Bot別フィールド**へ（`blocked` / `onboardingState` に書かない）。
+3. **一問一答（3,000人・無料）のロジック・分岐・文言は無改修が原則。** つづもんの都合で触らない。`free` の挙動は現状維持。
+
+**実装済み（2026-07-25・未デプロイ）の慣習**: `tsudumonWebhook`（`functions/src/tsudumon/webhook.ts`）は実在する。どちらのBotからも呼べる共有ハンドラは `client: messagingApi.MessagingApiClient` を第1引数で受け取り、reply は `replyTextWith(client, replyToken, text)` を使う（`replyText(replyToken, text)` は旧Bot固定の薄いラッパーとして残置）。**新しいつづもん/一問一答共有ハンドラを書くときはこのパターンに従う。** AIチャット（`aiChat.ts`）も同様に `handleAiChatWith(client, ..., botKind)` へ集約されており、`botKind: 'ichimon' | 'tsudumon'` で `aiChatPrompt.ts` のプロンプトを出し分ける（既定 `'ichimon'`）。一問一答の累計回答数（workbook経由を除く）は `users/{uid}.stats.oneOnOneTotalAnswered` に維持されており（`onAnswerCreated` の既存transactionに相乗り・追加read無し）、つづもん未加入者への累計10問マイルストーン案内に使う。デプロイ手順は `pdf-workbook/docs/つづもん-公式LINE分離-デプロイ手順.md`。
+
+⚠️ 現行 AI プロンプト（`aiChatPrompt.ts`）は「**この公式LINEは全機能無料・有料プランは今はない**」と断言する。**つづもんBotでそのまま使うと自己矛盾する**ので、Bot 別のプロンプト分岐が必要。
+
+**詳細（機能差・共有物・落とし穴の一覧）は `docs/operations/line-bots-comparison.md`（正本）を読む。**
+関連: `.steering/20260725-tsudumon-dedicated-line-bot/`（Bot分離・実装中）/ `.steering/20260725-ai-personal-support/`（つづもん向けAI個別サポート・未実装）
+
 ## 技術スタック
 
 - 開発環境: devcontainer
@@ -310,6 +333,8 @@ Instagram 投稿の特定キーワードコメントに対する DM 自動送信
 - 旧 trial drip/reminder/expire cron は `index.ts` から export 撤去済み（dormant 残置・本体は未削除）。
 - 再開する場合は各 `PREMIUM_FLOW_ENABLED` を true に戻す。`winbackVariations.ts` 等に残る価格ロック（¥680/¥980）文言・`createStripeCheckoutSession` 本体は撤去せず温存。**休眠資産の全一覧と再開チェックリストは `docs/operations/premium-dormant-inventory.md`（2026-07-19 作成）。現在は AI チャットが「公式LINEは無料」と断言するため、フラグ復活だけ行うと正面衝突する — 必ずチェックリストに従うこと。**
 
+**⚠️ 2026-07 配信枠ひっ迫による push 一時停止（`functions/src/pushSuspension.ts`）**: 7月分の配信枠がほぼ尽きたため、**JST 2026-08-01 00:00 まで cron / トリガ由来の push を停止**中（ユーザー指示 2026-07-26）。例外は**登録3日以内のユーザー**（`NEW_USER_PUSH_DAYS=3`）だけで、新規のオンボ体験は守る。止まるのは dailyQuiz / Win-back / オンボ未完了リマインド day7 / 回答後ナッジ / 月末レポート招待。**reply 経路（1問解く・苦手復習・範囲設定・AIチャット）とつづもんBot（別チャネル＝別枠）は無関係**。期間を過ぎれば自動で通常配信に戻る。「問題が届かない」と聞かれたら「たくさん使ってもらえたおかげで枠がなくなった → 『1問解く』でいつでも解ける」と案内する（定型応答＋AIプロンプト両方に実装済み）。詳細は `docs/operations/line-message-system.md` §2.7。**新しい push を追加するときは `shouldSuppressPush(userData, now)` を通すこと。**
+
 **送信枠モニタリング**: `deliveryStats/{YYYY-MM}` collection に push 種別ごとの月次カウントを記録。`monthlyDeliveryReport` cron が毎月 1 日 09:00 JST に前月分を Cloud Logging へ出力（仮上限 30,000 通の 80% 超過時は WARNING）。
 
 詳細は `.steering/20260519-line-message-retention-overhaul/` 配下を参照。
@@ -329,18 +354,30 @@ npx tsx scripts/migrate-user-status.ts              # 実書き込み
 > 📐 **将来構想（第2世代の高精度化）**: RAG（教材接地）・ツール実行（会話でテスト範囲設定/設定変更/成績照会）・ユーザー要約メモリ・安全/カンニング防止のガードレール・eval ループなどで精度を上げる設計と「できること一覧」を **`docs/ideas/ai-chatbot-v2-design.md`** にまとめてある（未実装の構想）。AIチャットの拡張を依頼されたらまずこれを読む。
 
 **関連ファイル**:
-- `functions/src/aiChat.ts` — オーケストレーション（レート制限 → Gemini 呼び出し → reply → 状態書き戻し）。`callGemini` は `inlineData` でマルチモーダル入力に対応。
-- `functions/src/aiChatCore.ts` — 副作用なしの純粋ロジック（レート判定・履歴トリム・JST 日付）。テストは `__tests__/aiChatCore.test.ts`。
-- `functions/src/aiChatPrompt.ts` — システムプロンプト。`buildSystemPrompt(userData)` が学年・教科・**直近の出題問題**を文脈に差し込む。教科を増やすときは `SUBJECT_AVAILABILITY` を更新するだけ。
+- `functions/src/aiChat.ts` — オーケストレーション（**安全分類 → レート制限 → 生成 → reply → 状態書き戻し → コスト計上**）。生成は `llmProvider.generateText` 経由（2026-07-26〜。旧 `callGemini` の fetch 直叩きは撤去）。
+- `functions/src/aiChatCore.ts` — 副作用なしの純粋ロジック（レート判定・履歴トリム・JST 日付・`resolveFreeSafety`）。テストは `__tests__/aiChatCore.test.ts`。
+- `functions/src/aiChatPrompt.ts` — システムプロンプト。`buildSystemPrompt(userData, botKind, scope)` が学年・教科・**直近の出題問題**を文脈に差し込む。教科を増やすときは `SUBJECT_AVAILABILITY` を更新するだけ。
+- `functions/src/aiChatQuickReply.ts` — Quick Reply の組み立て（純粋。URL は `lineWebhook` から引数で受ける）。
+- `functions/src/aiCrisisHandler.ts` / `aiProviderAlert.ts` — 深刻な相談の受け止め／プロバイダ停止の運営通知（**両Bot共通**）。
+- `functions/src/aiFreeProfile.ts` — 無料Botの軽量プロフィール記憶（20ターンに1回だけ抽出）。
 - `functions/src/lineWebhook.ts` の `handleMessage` → `handleMediaMessage`（画像・音声）/ `handleAiChat`（テキスト）。
 
 **コスト管理（多層）**:
-1. 全ユーザー共通 **1日40回**上限（`DAILY_LIMIT`）。超過時は API を呼ばず固定文（課金ゼロ）。
-2. 出力トークン上限 `MAX_OUTPUT_TOKENS=500` ＋ 入力履歴ターン制限（free 3 / premium 6）。
-3. Gemini 呼び出し**成功時のみ** count を消費（エラーで枠を無駄にしない）。
-4. 月の最初の応答に AI 注意書きを1通添える（`lastDisclaimerMonth`）。
+1. 全ユーザー共通 **1日40回**上限（`DAILY_LIMIT`）。超過時は API を呼ばず固定文（課金ゼロ）＋ Quick Reply で「1問解く / 苦手を復習 / じっくり学ぶ」へ逃がす。
+2. 出力トークン上限（free の会話は `FREE_CHAT_MAX_OUTPUT_TOKENS=700`）＋ 入力履歴ターン制限（**10ターン**）。
+3. **プロンプトの話題別ブロック化**（`ICHIMON_OPTIONAL_BLOCKS`）。ふつうの学習質問では入力が平均31%減る。**不変ブロックを先頭に置く並びを崩さないこと**（プロンプトキャッシュの prefix）。
+4. Gemini 呼び出し**成功時のみ** count を消費（エラーで枠を無駄にしない）。
+5. 支出を `aiCostStats/{YYYY-MM}`（`byTier.free`）に計上。**uid には計上しない**（free は回数制でユーザー予算を持たない）。
+6. 月の最初の応答に AI 注意書きを1通添える（`lastDisclaimerMonth`）。
 
-**モデル**: env `GEMINI_MODEL`（既定 `gemini-3.1-flash-lite`）。API キーは env `GEMINI_API_KEY`。
+**安全（2026-07-26〜）**: `resolveFreeSafety`（正規表現のみ・**LLM 補完分類は呼ばない**）で分類し、
+`crisis` は **AI を1回も呼ばず**に固定文（公的窓口つき）を返し、`aiSafetyFlags` へ記録＋運営2人へ通知する。
+`concern` はモデルを変えず、末尾に大人へつなげる一文をコード側で付与する。
+
+**モデル**: env `GEMINI_MODEL`（既定 `gemini-3.1-flash-lite`）。API キーは `GEMINI_API_KEY_LINE_AI` → `GEMINI_API_KEY` の順。
+⚠️ `free` は既定で**常に最安モデル**。唯一の例外が `LLM_MODEL_FREE_COUNSEL`（悩み相談だけ1段上げる env オプトイン・**既定は未設定**）。
+
+**設計**: `.steering/20260726-free-ai-chat-improvement/`（要求・設計・タスク）
 
 **品質保証（2026-07-19〜）**: プロンプトの正本知識は `functions/src/__tests__/aiChatPrompt.test.ts`（静的・vitest）で検査。プロンプトを変更したら `npx tsx scripts/eval-ai-chat.ts`（Gemini 実応答のライブ評価・13ケース）を必ず回す。ユーザー向け文言全般の統一基準は **`docs/message-copy-guidelines.md`（正本）**。
 

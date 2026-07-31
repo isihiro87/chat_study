@@ -2,6 +2,13 @@ import * as functions from 'firebase-functions/v1';
 import { selectAndSendQuestion, getLineClient } from './lineWebhook';
 import { daysBetweenJst, shouldSkipCronPush } from './userStatus';
 import { recordPushDelivery } from './deliveryStats';
+import {
+  NEW_USER_PUSH_DAYS,
+  PUSH_PAUSE_NOTICE_INTRO,
+  getRegisteredAt,
+  isPushSuspended,
+  isWithinNewUserWindow,
+} from './pushSuspension';
 
 type ValidHour = 6 | 7 | 16 | 18 | 20;
 type UserDocSnap = FirebaseFirestore.QueryDocumentSnapshot;
@@ -20,6 +27,11 @@ type UserDocSnap = FirebaseFirestore.QueryDocumentSnapshot;
  *
  * それ以外の日は「1問解く」ボタン（extra_question / reply）で
  * オンデマンドに取得できる。reply は LINE 通数課金の対象外。
+ *
+ * ⚠️ 2026-07 の一時停止（`pushSuspension.ts`）:
+ *   7月の配信枠がほぼ尽きたため、`PUSH_SUSPENSION_END`（JST 2026-08-01）までは
+ *   **登録3日以内のユーザーにしか配信しない**（下の頻度モデルより優先）。
+ *   期間を過ぎれば自動的に下記の通常モデルへ戻る。
  *
  * 送信通数（LINE 課金単位）コスト対策:
  *   LINE 公式アカウントの課金は push した通数だけにかかる。確立ユーザー
@@ -135,19 +147,9 @@ function jstWeekday(): number {
   return new Date(Date.now() + 9 * 60 * 60 * 1000).getUTCDay();
 }
 
-/**
- * user doc から登録日時（onboardingStartedAt 優先 / createdAt フォールバック）を
- * Date で返す。どちらも無い旧スキーマのユーザーは null（= 確立ユーザー＝週3 扱い）。
- */
-function getRegisteredAt(data: Record<string, unknown>): Date | null {
-  for (const key of ['onboardingStartedAt', 'createdAt'] as const) {
-    const ts = data[key] as { toDate?: () => Date } | undefined | null;
-    if (ts && typeof ts.toDate === 'function') {
-      return ts.toDate();
-    }
-  }
-  return null;
-}
+// 登録日時の取得（onboardingStartedAt 優先 / createdAt フォールバック、どちらも
+// 無い旧スキーマは null＝確立ユーザー扱い）は `pushSuspension.getRegisteredAt` に
+// 共通化した。配信停止ガードと同じ判定を使うため。
 
 /**
  * 休眠ユーザー除外システム（requirements.md §C）対応:
@@ -207,10 +209,20 @@ async function runDailyQuiz(hour: ValidHour): Promise<void> {
   // user doc は既に取得済みのため追加 read は発生しない。
   const now = new Date();
   const isRegularDeliveryDay = REGULAR_DELIVERY_WEEKDAYS.has(jstWeekday());
+  // 2026-07 配信枠ひっ迫による push 一時停止（pushSuspension.ts 参照）。
+  // 停止中は「登録3日以内」のユーザーだけに配信し、それ以外は全員スキップする。
+  const suspended = isPushSuspended(now);
   let scheduleSkipped = 0;
+  let suspendedSkipped = 0;
   // 毎日配信の最終日（daysSince===13）かつ未通知のユーザー。今日の1問のあとに
-  // 「明日から週3」案内を 1 回送る。
+  // 「明日から週3」案内を 1 回送る。停止中は週3配信自体が止まっているので集めない。
   const transitionCohort: UserDocSnap[] = [];
+  // 停止中の新規ユーザーの最終配信日に、その日の1問カードへ「配信はいったん
+  // おやすみ・1問解くで続けられる」案内を埋め込む（別メッセージにすると通数が
+  // 増えるため、intro としてカードに同梱して 1 通に収める）。
+  const pauseNoticeUids = new Set<string>();
+  const suspendedTomorrow =
+    suspended && isPushSuspended(new Date(now.getTime() + 24 * 60 * 60 * 1000));
   const eligibleDocs = notBlocked.filter((d) => {
     const data = d.data();
     const registeredAt = getRegisteredAt(data);
@@ -221,6 +233,19 @@ async function runDailyQuiz(hour: ValidHour): Promise<void> {
     // 登録日不明（旧スキーマ）は確立ユーザー扱い（= 週3）。
     const daysSince =
       registeredAt === null ? periodDays : daysBetweenJst(registeredAt, now);
+
+    if (suspended) {
+      if (!isWithinNewUserWindow(registeredAt, now)) {
+        suspendedSkipped++;
+        return false;
+      }
+      // 明日から配信が途切れる新規ユーザーにだけ、今日の1問に案内を添える。
+      if (daysSince === NEW_USER_PUSH_DAYS && suspendedTomorrow) {
+        pauseNoticeUids.add(d.id);
+      }
+      return true;
+    }
+
     if (
       daysSince === lastOnboardingDay &&
       data.deliveryTransitionNotifiedAt === undefined
@@ -240,11 +265,20 @@ async function runDailyQuiz(hour: ValidHour): Promise<void> {
   // selectAndSendQuestion が読む questions / 画像つき問題データが同時にメモリへ
   // 載り、256→512MB に増やしてもピークが膨らむ。CHUNK_SIZE 件ずつ順次処理して
   // 並列度を抑え、メモリ超過クラッシュ（一部ユーザーに未配信）を防ぐ。
+  const dailyQuizClient = await getLineClient();
   const results: PromiseSettledResult<unknown>[] = [];
   for (let i = 0; i < eligibleDocs.length; i += DELIVERY_CHUNK_SIZE) {
     const chunk = eligibleDocs.slice(i, i + DELIVERY_CHUNK_SIZE);
     const chunkResults = await Promise.allSettled(
-      chunk.map((doc) => selectAndSendQuestion(doc.id))
+      chunk.map((doc) =>
+        selectAndSendQuestion(
+          dailyQuizClient,
+          doc.id,
+          pauseNoticeUids.has(doc.id)
+            ? { introText: PUSH_PAUSE_NOTICE_INTRO }
+            : {}
+        )
+      )
     );
     results.push(...chunkResults);
   }
@@ -266,7 +300,8 @@ async function runDailyQuiz(hour: ValidHour): Promise<void> {
   console.log(
     `[dailyQuiz${pad(hour)}] done users=${eligibleDocs.length} success=${success} ` +
       `failed=${failed} blockedSkipped=${blockedSkipped} pausedSkipped=${pausedSkipped} ` +
-      `scheduleSkipped=${scheduleSkipped} ` +
+      `scheduleSkipped=${scheduleSkipped} suspended=${suspended} ` +
+      `suspendedSkipped=${suspendedSkipped} pauseNoticeSent=${pauseNoticeUids.size} ` +
       `transitionSent=${transitionSent} regularDeliveryDay=${isRegularDeliveryDay} elapsed=${elapsed}ms`
   );
 }

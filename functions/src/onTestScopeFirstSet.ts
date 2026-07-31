@@ -2,6 +2,7 @@ import * as functions from 'firebase-functions/v1';
 
 import {
   selectAndSendQuestion,
+  getLineClient,
   VALID_HOURS,
   HOUR_LABELS,
   type ValidHour,
@@ -74,7 +75,7 @@ export const onTestScopeFirstSet = functions
       `[onTestScopeFirstSet] pushing first question uid=${uid} hour=${hour}`
     );
     try {
-      await selectAndSendQuestion(uid, {
+      await selectAndSendQuestion(await getLineClient(), uid, {
         introText: getInitialFirstQuestionIntro(hourLabel),
         trailingText: getInitialFirstQuestionTrailing(hourLabel),
         isInitialSetup: true,

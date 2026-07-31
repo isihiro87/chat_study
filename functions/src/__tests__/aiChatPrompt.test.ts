@@ -11,7 +11,11 @@
  * scripts/eval-ai-chat.ts（要 GEMINI_API_KEY・手動実行）。
  */
 import { describe, it, expect } from 'vitest';
-import { buildSystemPrompt, buildUserStateContext } from '../aiChatPrompt';
+import {
+  buildPushPauseContext,
+  buildSystemPrompt,
+  buildUserStateContext,
+} from '../aiChatPrompt';
 import type { UserDoc } from '../userDocTypes';
 
 const prompt = buildSystemPrompt(undefined);
@@ -54,7 +58,7 @@ describe('aiChatPrompt: サービス知識の正本', () => {
     expect(prompt).toContain('つづもん');
     expect(prompt).toContain('TZM-');
     expect(prompt).toContain('継続希望');
-    expect(prompt).toContain('https://www.chatstudy.jp/tsudumon/');
+    expect(prompt).toContain('https://tsudumon.jp/');
   });
 
   it('カンニング防止（配信問題の答えは教えない）が残っている', () => {
@@ -141,5 +145,354 @@ describe('aiChatPrompt: ユーザー文脈の差し込み', () => {
   it('配信おやすみ中の注記が入る', () => {
     const p = buildSystemPrompt({ deliveryPaused: true } as UserDoc);
     expect(p).toContain('配信をおやすみ中');
+  });
+});
+
+describe('配信一時停止中（2026-07 配信枠ひっ迫）の案内', () => {
+  const ts = (d: Date) => ({ toDate: () => d });
+  // 停止期間内（PUSH_SUSPENSION_START=7/26 〜 END=8/1）の日時
+  const duringPause = new Date('2026-07-28T12:00:00+09:00');
+
+  it('停止対象ユーザーには「自動配信おやすみ中」の知識が入る', () => {
+    const user = {
+      onboardingStartedAt: ts(new Date('2026-05-01T12:00:00+09:00')),
+    } as unknown as UserDoc;
+    const ctx = buildPushPauseContext(
+      user as unknown as Record<string, unknown>,
+      duringPause
+    );
+    expect(ctx).toContain('自動でとどく問題配信');
+    expect(ctx).toContain('配信ワク');
+    expect(ctx).toContain('1問解く');
+    expect(ctx).toContain('来月');
+  });
+
+  it('登録3日以内の新規ユーザーには入らない（まだ配信が届くため）', () => {
+    const user = {
+      onboardingStartedAt: ts(new Date('2026-07-27T12:00:00+09:00')),
+    } as unknown as UserDoc;
+    expect(
+      buildPushPauseContext(
+        user as unknown as Record<string, unknown>,
+        duringPause
+      )
+    ).toBe('');
+  });
+
+  it('停止期間外は入らない（8月に自動復帰）', () => {
+    const user = {
+      onboardingStartedAt: ts(new Date('2026-05-01T12:00:00+09:00')),
+    } as unknown as UserDoc;
+    expect(
+      buildPushPauseContext(
+        user as unknown as Record<string, unknown>,
+        new Date('2026-08-05T12:00:00+09:00')
+      )
+    ).toBe('');
+  });
+
+  it('停止中は状態文脈でも「毎日／週3」と言わない', () => {
+    const user = {
+      onboardingStartedAt: ts(new Date('2026-05-01T12:00:00+09:00')),
+    } as unknown as UserDoc;
+    const ctx = buildUserStateContext(user, duringPause);
+    expect(ctx).toContain('自動配信をおやすみ中');
+    expect(ctx).not.toContain('週3回（月・水・金）の期間');
+  });
+});
+
+describe('aiChatPrompt: Bot種別分岐（フェーズ5b）', () => {
+  it('一問一答（既定・引数省略）は従来のプロンプトと完全に同一', () => {
+    // buildSystemPrompt(undefined) は第2引数を渡さない既存呼び出しパターン。
+    // 既定値 'ichimon' と明示的に 'ichimon' を渡した場合が完全一致すること、
+    // かつファイル先頭の `prompt`（この変更前から使われている既存定数）とも
+    // 一致することを保証し、「一問一答側は無変更」を機械的に検証する。
+    const withoutArg = buildSystemPrompt(undefined);
+    const withIchimon = buildSystemPrompt(undefined, 'ichimon');
+    expect(withoutArg).toBe(prompt);
+    expect(withIchimon).toBe(prompt);
+  });
+
+  it('つづもん用プロンプトは「全機能無料」を断言しない（むしろ禁止を明示する）', () => {
+    const p = buildSystemPrompt(undefined, 'tsudumon');
+    // 一問一答プロンプトが使う断言フレーズ（無料と言い切る文）が入っていないこと。
+    expect(p).not.toContain('この公式LINEの機能はすべて無料');
+    expect(p).not.toContain('お金はかからないから安心してね');
+    expect(p).not.toContain('この公式LINEはぜんぶ無料で使えるよ');
+    // 「全機能無料」という言い回し自体は、それを言うなという禁止指示として
+    // 含まれてよい（断言ではなく禁止）。ここでは禁止指示があることを確認する。
+    expect(p).toContain('絶対に言わない');
+    expect(p).toContain('全機能無料');
+  });
+
+  it('つづもん用プロンプトは月額1,280円・3日間無料お試しに言及する', () => {
+    const p = buildSystemPrompt(undefined, 'tsudumon');
+    expect(p).toContain('1,280円');
+    expect(p).toContain('サブスク');
+    expect(p).toContain('3日間');
+    expect(p).toContain('お試し');
+  });
+
+  it('つづもん用プロンプトは参考書・問題集・QR・AI採点・理解度チェックを説明する', () => {
+    const p = buildSystemPrompt(undefined, 'tsudumon');
+    expect(p).toContain('参考書');
+    expect(p).toContain('問題集');
+    expect(p).toContain('QRコード');
+    expect(p).toContain('採点');
+    expect(p).toContain('理解度チェック');
+  });
+
+  it('つづもん用プロンプトは一問一答固有の機能をつづもんの機能として案内しない', () => {
+    const p = buildSystemPrompt(undefined, 'tsudumon');
+    expect(p).toContain('つづもんには無い');
+    expect(p).toContain('出題範囲設定');
+    expect(p).toContain('成績・記録');
+  });
+
+  // 2026-07-26 実機事故の回帰テスト:
+  // users/{uid} は両Botで共有しているため、一問一答の登録教科（この人は地理）が
+  // つづもんのプロンプトに混ざり、「まずは地理の範囲を確認して、ワークのページを
+  // 分けて…」と、つづもんに存在しない教科の助言が返った。
+  it('つづもん用プロンプトに一問一答の登録教科・配信設定を混ぜない', () => {
+    const user = {
+      grade: '中2',
+      subject: 'geography',
+      preferredHour: 20,
+      testScope: { topics: ['世界の姿'] },
+    } as unknown as UserDoc;
+    const p = buildSystemPrompt(user, 'tsudumon');
+    expect(p).toContain('学年: 中2'); // 学年は共有情報として使ってよい
+    expect(p).not.toContain('登録教科'); // 一問一答の登録教科ブロックを注入しない
+    expect(p).not.toContain('夜8時'); // 一問一答の配信時刻
+    expect(p).not.toContain('世界の姿'); // 一問一答の出題範囲
+    expect(p).toContain('中学歴史');
+    // 他教科は「つづもんには無い」と明示する側で登場する（案内するためではない）
+    expect(p).toContain('教材はまだ無く');
+    expect(p).toContain('存在しない教材を前提にした具体案は出さない');
+  });
+
+  it('一問一答用プロンプトには従来どおり登録教科が入る（無改修の確認）', () => {
+    const p = buildSystemPrompt(
+      { grade: '中2', subject: 'geography' } as unknown as UserDoc,
+      'ichimon'
+    );
+    expect(p).toContain('登録教科: 地理');
+  });
+
+  // 2026-07-26: つづもんに「今日の1単元」日次配信を実装したため、
+  // 「毎日配信はつづもんに無い」と教えていた記述を撤去した。AIが自社の中心機能を
+  // 否定しないよう、逆に「毎日届く」ことを知っている状態を固定する。
+  it('つづもん用プロンプトは「今日の1単元」が毎日届くことを知っている', () => {
+    const p = buildSystemPrompt(undefined, 'tsudumon');
+    expect(p).toContain('今日の1単元');
+    expect(p).toContain('https://tsudumon.jp/map/');
+    expect(p).not.toContain('毎日決まった時刻に1問届く「毎日配信」');
+  });
+
+  it('つづもん用プロンプトと一問一答用プロンプトは別内容', () => {
+    const ichimon = buildSystemPrompt(undefined, 'ichimon');
+    const tsudumon = buildSystemPrompt(undefined, 'tsudumon');
+    expect(tsudumon).not.toBe(ichimon);
+  });
+
+  // AIペルソナの名前はBotごとに違う（2026-07-26 改名）。
+  // つづもん＝「つづ先生」／一問一答・ムビスタ＝「スタ先生」。取り違えると
+  // 生徒から見て別サービスの先生が名乗ることになるので、両方向を固定する。
+  it('つづもん用プロンプトのペルソナは「つづ先生」（スタ先生と名乗らない）', () => {
+    const p = buildSystemPrompt(undefined, 'tsudumon');
+    expect(p).toContain('つづ先生');
+    expect(p).toContain('「つづ先生だよ」');
+    expect(p).not.toContain('「スタ先生だよ」');
+  });
+});
+
+describe('つづもん: 教材リンクの説明（2026-07-26 実機事故の回帰）', () => {
+  // 単元が特定できた回はシステムがボタンを付けているのに、AIが
+  // 「個別のリンクを送る機能はない」と否定してしまった。仕組みを教える文が
+  // 消えると同じことが起きるので固定する。
+  const p = buildSystemPrompt(undefined, 'tsudumon');
+
+  it('「ボタンが付く」ことを知っている', () => {
+    expect(p).toContain('システムがこの返信にボタンを付けて');
+  });
+
+  it('「リンクは送れない」と言ってはいけない、と明示されている', () => {
+    expect(p).toContain('言ってはいけない');
+    expect(p).toContain('実際には出せる');
+  });
+
+  it('章番号つきURLを推測で書かないよう禁じている', () => {
+    expect(p).toContain('推測で作らない');
+    expect(p).toContain('https://tsudumon.jp/map/');
+  });
+});
+
+describe('つづもん: Web検索の使いどころ', () => {
+  const p = buildSystemPrompt(undefined, 'tsudumon');
+
+  // 2026-07-26: 「教材に無いことだけ」と絞りすぎて天気すら検索しなかったため、
+  // 「知識で確実に答えられないことは迷わず検索する」へ書き換えた。
+  it('日付が絡む質問は必ず検索する、と指示している', () => {
+    expect(p).toContain('迷わず検索する');
+    expect(p).toContain('あなたの記憶は古い');
+    expect(p).toContain('歴史の学習内容そのものは検索しない');
+  });
+
+  it('検索結果の扱い（URLを貼らない・推測で埋めない）を指示している', () => {
+    expect(p).toContain('URLは貼らない');
+    expect(p).toContain('推測で埋めない');
+  });
+});
+
+describe('つづもん: プロンプトの出し入れ（コスト最適化 2026-07-26）', () => {
+  it('ヒント無し（既存の呼び出し）は従来どおり全部入る', () => {
+    const p = buildSystemPrompt(undefined, 'tsudumon');
+    expect(p).toContain('つづもんの単元一覧');
+    expect(p).toContain('復習する」と言われたとき');
+    expect(p).toContain('インターネットで調べるとき');
+  });
+
+  it('雑談では重いブロック（単元一覧・復習・配信設定）を入れない', () => {
+    const p = buildSystemPrompt(undefined, 'tsudumon', {
+      promptText: '部活がしんどい',
+    });
+    expect(p).not.toContain('つづもんの単元一覧');
+    expect(p).not.toContain('復習する」と言われたとき');
+    expect(p).not.toContain('配信の曜日・時刻を変えたい');
+    // サービス知識と教科の範囲は常に入る（誤案内を防ぐため）
+    expect(p).toContain('つづもん');
+    expect(p).toContain('中学歴史');
+  });
+
+  it('話題に応じて必要なブロックだけ入る', () => {
+    expect(
+      buildSystemPrompt(undefined, 'tsudumon', {
+        promptText: 'テストの範囲を登録したい',
+      })
+    ).toContain('つづもんの単元一覧');
+    expect(
+      buildSystemPrompt(undefined, 'tsudumon', { promptText: '復習する' })
+    ).toContain('復習する」と言われたとき');
+    expect(
+      buildSystemPrompt(undefined, 'tsudumon', { promptText: '毎日はうるさい' })
+    ).toContain('配信の曜日・時刻を変えたい');
+    expect(
+      buildSystemPrompt(undefined, 'tsudumon', { promptText: '今日の天気は？' })
+    ).toContain('インターネットで調べるとき');
+  });
+
+  it('不変の知識が先頭・可変の情報が後ろ（キャッシュが効く並び）', () => {
+    const p = buildSystemPrompt(
+      { grade: '中2' } as unknown as UserDoc,
+      'tsudumon',
+      { promptText: 'テストの範囲を登録したい' }
+    );
+    // サービス知識（不変）→ 単元一覧（不変）→ 相手の情報（可変）の順
+    expect(p.indexOf('つづもんの単元一覧')).toBeLessThan(
+      p.indexOf('今話している相手の情報')
+    );
+    expect(p.indexOf('あなたは中学生向け教材サービス')).toBe(0);
+  });
+});
+
+describe('一問一答: プロンプトの出し入れ（コスト最適化 2026-07-26）', () => {
+  // 分割前は 11,322 文字を毎ターン全量送っており、入力がコストの約85%を占めていた。
+  // 話題別の7ブロック（約37%）を条件付きにする。
+  it('ヒント無し（既存の呼び出し・テスト）は従来どおり全部入る', () => {
+    const p = buildSystemPrompt(undefined);
+    expect(p).toContain('困ったときの対処');
+    expect(p).toContain('タイプでスタディ');
+    expect(p).toContain('別売の問題集「つづもん」について');
+    expect(p).toContain('このサービスを作っている人');
+    expect(p).toContain('このトークは運営');
+    expect(p).toContain('AIとのじょうずな付き合い方');
+    expect(p).toContain('学習の進み方・モチベーション');
+  });
+
+  it('ふつうの学習質問では話題別ブロックを入れない（入力を30%以上削る）', () => {
+    const full = buildSystemPrompt(undefined);
+    const scoped = buildSystemPrompt(undefined, 'ichimon', {
+      promptText: '鎌倉幕府はいつできたの？',
+    });
+    expect(scoped).not.toContain('タイプでスタディ');
+    expect(scoped).not.toContain('このサービスを作っている人');
+    expect(scoped.length).toBeLessThan(full.length * 0.7);
+  });
+
+  it('常時ブロックは話題に関わらず必ず入る（誤案内を防ぐ最低限）', () => {
+    const scoped = buildSystemPrompt(undefined, 'ichimon', {
+      promptText: '鎌倉幕府はいつできたの？',
+    });
+    // キャラクター・機能案内・操作方法・できないこと・守ること・料金
+    expect(scoped).toContain('スタ先生');
+    expect(scoped).toContain('メニューのボタン名は「出題範囲設定」');
+    expect(scoped).toContain('実行したフリをしない');
+    expect(scoped).toContain('守ること');
+    expect(scoped).toContain('この公式LINEの機能はすべて無料');
+    expect(scoped).toContain('Markdown');
+  });
+
+  it('料金の節はつづもんブロックが無くても自己完結している', () => {
+    const scoped = buildSystemPrompt(undefined, 'ichimon', {
+      promptText: '鎌倉幕府はいつできたの？',
+    });
+    expect(scoped).not.toContain('別売の問題集「つづもん」について');
+    // つづもんブロックが落ちても「有料商品がある」ことと参照先は残る
+    expect(scoped).toContain('1,280円');
+    expect(scoped).toContain('https://tsudumon.jp/');
+    // 「下の節を参照」のような宙に浮く参照を残さない
+    expect(scoped).not.toContain('下の節を参照');
+    expect(scoped).not.toContain('下の「つづもん」の節');
+  });
+
+  it('話題に応じて必要なブロックだけ入る', () => {
+    const has = (text: string, block: string) =>
+      buildSystemPrompt(undefined, 'ichimon', { promptText: text }).includes(
+        block
+      );
+    expect(has('ボタン押しても反応がない', '困ったときの対処')).toBe(true);
+    expect(has('タイピングのゲームってなに？', 'タイプでスタディ')).toBe(true);
+    expect(
+      has('つづもんっていくら？', '別売の問題集「つづもん」について')
+    ).toBe(true);
+    expect(has('これ誰が作ってるの？', 'このサービスを作っている人')).toBe(
+      true
+    );
+    expect(has('この会話って見られてるの？', 'このトークは運営')).toBe(true);
+    expect(has('宿題の答え教えて', 'AIとのじょうずな付き合い方')).toBe(true);
+    expect(has('何日連続で続いてる？', '学習の進み方・モチベーション')).toBe(
+      true
+    );
+  });
+
+  it('不変の知識が先頭・可変の情報が後ろ（キャッシュが効く並び）', () => {
+    const p = buildSystemPrompt(
+      { grade: '中2', subject: 'history' } as unknown as UserDoc,
+      'ichimon',
+      { promptText: 'つづもんっていくら？' }
+    );
+    expect(p.indexOf('あなたは中学生向け学習サービス')).toBe(0);
+    // 話題別ブロック（静的）→ 相手の情報（可変）の順
+    expect(p.indexOf('別売の問題集「つづもん」について')).toBeLessThan(
+      p.indexOf('今話している相手の情報')
+    );
+  });
+});
+
+describe('一問一答: 軽量プロフィール記憶の注入（2026-07-26）', () => {
+  it('プロフィールが無ければ何も足さない（未設定の3,000人にトークンを載せない）', () => {
+    expect(buildSystemPrompt(undefined)).not.toContain(
+      'この子について覚えていること'
+    );
+  });
+
+  it('覚えていることがあれば注入する', () => {
+    const p = buildSystemPrompt({
+      grade: '中2',
+      aiProfile: { studentName: 'ミナト', likes: 'バスケ部' },
+    } as unknown as UserDoc);
+    expect(p).toContain('この子について覚えていること');
+    expect(p).toContain('ミナト');
+    expect(p).toContain('バスケ部');
   });
 });

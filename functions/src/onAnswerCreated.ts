@@ -20,6 +20,18 @@ import { linkRichMenuForUser } from './lineRichMenu';
 import { recordPushDelivery } from './deliveryStats';
 import { logServerFunnelEvent } from './funnelEvent';
 import { computeTrialEndJst } from './trialDuration';
+import { evaluateTsudumonAccess } from './tsudumonCore';
+import {
+  getRegisteredAt,
+  shouldSuppressPushForRegisteredAt,
+} from './pushSuspension';
+import {
+  buildTsudumonIntroNudgeText,
+  shouldCountForOneOnOneTotal,
+  shouldSendOneOnOneNudges,
+  shouldSendTsudumonIntroNudge,
+  type TsudumonIntroNudgeContext,
+} from './onAnswerCreatedCore';
 
 // messageVariations.ts の DAY_STREAK_MILESTONES（3/7/14/30/100）と揃える
 const STREAK_MILESTONES = [3, 7, 14, 30, 100] as const;
@@ -98,6 +110,11 @@ interface NudgeContext {
   hasTestScope: boolean;
   /** これまでに範囲設定 nudge を送った回数（SCOPE_SETUP_NUDGE_MAX で打ち切り） */
   scopeSetupNudgeCount: number;
+  /**
+   * answers.source（'workbook' ならつづもん経由）。一問一答固有のナッジは
+   * source:'workbook' のとき送らない（shouldSendOneOnOneNudges 参照）。
+   */
+  source: string | null;
 }
 
 /**
@@ -116,6 +133,8 @@ interface FirstExtraFollowupContext {
   firstExtraFollowupSentAtMs: number | null;
   /** 公式 LINE をブロック中なら firstExtraFollowup の 2 通連続 push をスキップする */
   blocked: boolean;
+  /** answers.source（'workbook' ならつづもん経由）。一問一答固有のため workbook では送らない。 */
+  source: string | null;
 }
 
 type AutoTrialOutcome = 'started' | 'skipped' | 'failed';
@@ -212,6 +231,9 @@ async function maybeAutoStartTrial(
 }
 
 async function maybeSendPremiumNudge(ctx: NudgeContext): Promise<void> {
+  // つづもん経由（source:'workbook'）の回答には一問一答固有のナッジを送らない
+  // （つづもんユーザーに一問一答の文言が届くのを防ぐ）。
+  if (!shouldSendOneOnOneNudges(ctx.source)) return;
   // 2026-06 トライアル廃止・課金導線停止: 自動トライアル開放（maybeAutoStartTrial）
   // とプレミアム nudge はいったん全停止（TRIAL_FLOW_ENABLED 参照）。
   if (!TRIAL_FLOW_ENABLED) return;
@@ -350,6 +372,8 @@ async function maybeSendPremiumNudge(ctx: NudgeContext): Promise<void> {
  * 送信したら scopeSetupNudgeCount をインクリメントする。
  */
 async function maybeSendScopeSetupNudge(ctx: NudgeContext): Promise<void> {
+  // つづもん経由（source:'workbook'）の回答には一問一答固有のナッジを送らない。
+  if (!shouldSendOneOnOneNudges(ctx.source)) return;
   if (!ctx.lineUserId) return;
   if (ctx.blocked) return;
   if (ctx.hasTestScope) return;
@@ -424,6 +448,8 @@ async function maybeSendScopeSetupNudge(ctx: NudgeContext): Promise<void> {
 async function maybeSendFirstExtraFollowup(
   ctx: FirstExtraFollowupContext
 ): Promise<void> {
+  // つづもん経由（source:'workbook'）の回答には一問一答固有のナッジを送らない。
+  if (!shouldSendOneOnOneNudges(ctx.source)) return;
   // 2026-06 トライアル廃止: trial 中ユーザー向けの「じっくり学ぶ」60秒遅延 push は停止
   // （TRIAL_FLOW_ENABLED 参照）。じっくり学ぶは全ユーザーが回答後の
   // 「暗記カードを開く」ボタンから到達できる。
@@ -492,6 +518,59 @@ async function maybeSendFirstExtraFollowup(
   // うんざりされやすい。金額の案内は trial 3 日目以降のリマインダー側に寄せる。
 }
 
+/**
+ * 一問一答の累計回答数（source:'workbook' を除く）が10問に到達したユーザーへ、
+ * つづもんの案内を1回だけ送る（ユーザー指示 2026-07-25「登録直後ではなく、
+ * ある程度体験してもらってから案内」）。送信元は旧Bot（一問一答）。
+ * 案内文はまずLP（TSUDUMON_LP_URL）を紹介する形にする（ユーザー指示 2026-07-25
+ * 「10問時点の利用者はつづもんを知らないので、知らない商品のために別アカウントを
+ * 友だち追加させるのは要求が重い。LPで納得した人だけ友だち追加へ進む流れにする」）。
+ * 友だち追加リンクはこの案内文には載せない。
+ */
+async function maybeSendTsudumonIntroNudge(
+  ctx: TsudumonIntroNudgeContext & { uid: string }
+): Promise<void> {
+  if (!shouldSendTsudumonIntroNudge(ctx)) return;
+
+  let pushed = false;
+  try {
+    const client = await getLineClient();
+    await client.pushMessage({
+      to: ctx.lineUserId,
+      messages: [{ type: 'text', text: buildTsudumonIntroNudgeText() }],
+    });
+    pushed = true;
+    console.log(`[onAnswerCreated] tsudumon intro nudge sent uid=${ctx.uid}`);
+  } catch (error) {
+    console.error('[onAnswerCreated] tsudumon intro nudge push failed:', error);
+  }
+
+  if (!pushed) return;
+
+  await recordPushDelivery('tsudumonIntroNudge');
+
+  try {
+    const { initializeApp, getApps } = await import('firebase-admin/app');
+    const { getFirestore, FieldValue } =
+      await import('firebase-admin/firestore');
+    if (getApps().length === 0) {
+      initializeApp();
+    }
+    const db = getFirestore();
+    await db
+      .doc(`users/${ctx.uid}`)
+      .set(
+        { tsudumonNudgeSentAt: FieldValue.serverTimestamp() },
+        { merge: true }
+      );
+  } catch (error) {
+    console.error(
+      '[onAnswerCreated] tsudumonNudgeSentAt update failed:',
+      error
+    );
+  }
+}
+
 export const onAnswerCreated = functions
   .region('asia-northeast1')
   // first_extra_followup（trial 中ユーザーの追加で解く 60 秒遅延 push）と
@@ -510,6 +589,8 @@ export const onAnswerCreated = functions
       typeof data.topic === 'string' && data.topic.trim() !== ''
         ? data.topic
         : null;
+    // つづもん経由の回答には source:'workbook' が付く（lineWebhook.ts の workbook 系が書く）。
+    const source = typeof data.source === 'string' ? data.source : null;
 
     if (!questionId) {
       console.warn('[onAnswerCreated] missing questionId in answer:', snap.id);
@@ -555,6 +636,11 @@ export const onAnswerCreated = functions
     // 通知判定のため transaction 内で prev/next 値や plan を捕捉する
     let nudgeCtx: NudgeContext | null = null;
     let firstExtraCtx: FirstExtraFollowupContext | null = null;
+    let tsudumonNudgeCtx: (TsudumonIntroNudgeContext & { uid: string }) | null =
+      null;
+    // 2026-07 配信枠ひっ迫による push 一時停止（pushSuspension.ts）の判定に使う
+    // 登録日時。transaction 内で捕捉して追加 read を避ける。
+    let registeredAtMs: number | null = null;
     // 休眠→復帰（非active→active）を transaction 後に funnel へ記録するため、
     // 復帰元 status を捕捉する（active のままなら null）。retention 定点指標
     // 「status_transition→active」はこの経路でしか観測できない（夜間 cron は
@@ -594,6 +680,13 @@ export const onAnswerCreated = functions
         };
         if (isCorrect) {
           statsPatch.totalCorrect = FieldValue.increment(1);
+        }
+        // 一問一答の累計回答数（つづもん経由 source:'workbook' は含めない）。
+        // `stats.totalAnswered` は workbook 経由の回答も含むため、つづもん導線案内の
+        // 「累計10問」判定には使えない。この専用カウンタを新設して判定する
+        // （既存 read には影響しない・追加 read なしで transaction 内で維持できる）。
+        if (shouldCountForOneOnOneTotal(source)) {
+          statsPatch.oneOnOneTotalAnswered = FieldValue.increment(1);
         }
         if (subject) {
           const subjectPatch: Record<string, FirebaseFirestore.FieldValue> = {
@@ -676,6 +769,8 @@ export const onAnswerCreated = functions
             ? userData.scopeSetupNudgeCount
             : 0;
 
+        registeredAtMs = getRegisteredAt(userData)?.getTime() ?? null;
+
         nudgeCtx = {
           uid,
           lineUserId,
@@ -689,6 +784,7 @@ export const onAnswerCreated = functions
           blocked,
           hasTestScope,
           scopeSetupNudgeCount,
+          source,
         };
 
         // 体験中ユーザーの「追加で解く」初回フォロー用コンテキスト
@@ -721,6 +817,30 @@ export const onAnswerCreated = functions
           firstExtraQuestionAtMs,
           firstExtraFollowupSentAtMs,
           blocked,
+          source,
+        };
+
+        // つづもん導線案内（累計10問到達）用コンテキスト。
+        // カウントは shouldCountForOneOnOneTotal(source) を通した専用カウンタのみを見る
+        // （workbook 経由の回答はここでも数えない）。
+        const prevOneOnOneAnswered =
+          typeof prevStats.oneOnOneTotalAnswered === 'number'
+            ? prevStats.oneOnOneTotalAnswered
+            : 0;
+        const nextOneOnOneAnswered = shouldCountForOneOnOneTotal(source)
+          ? prevOneOnOneAnswered + 1
+          : prevOneOnOneAnswered;
+        const hasTsudumonAccess =
+          evaluateTsudumonAccess(userData.tsudumon, null, Date.now()) === 'ok';
+
+        tsudumonNudgeCtx = {
+          uid,
+          lineUserId,
+          blocked,
+          prevOneOnOneAnswered,
+          nextOneOnOneAnswered,
+          alreadySent: !!userData.tsudumonNudgeSentAt,
+          hasTsudumonAccess,
         };
       });
       console.log(`[onAnswerCreated] updated users/${uid}.stats`);
@@ -746,7 +866,21 @@ export const onAnswerCreated = functions
       }
     }
 
-    if (nudgeCtx) {
+    // 2026-07 配信枠ひっ迫による push 一時停止（pushSuspension.ts）。
+    // 回答直後のナッジ（マイルストーン / 範囲設定 / じっくり学ぶ案内 / つづもん案内）は
+    // いずれも push＝配信枠を消費するため、登録3日以内のユーザー以外には送らない。
+    // 停止期間外は従来どおり全員に送る。
+    const nudgeSuppressed = shouldSuppressPushForRegisteredAt(
+      registeredAtMs,
+      new Date()
+    );
+    if (nudgeSuppressed) {
+      console.log(
+        `[onAnswerCreated] nudges skipped (push suspended) uid=${uid ?? 'unknown'}`
+      );
+    }
+
+    if (nudgeCtx && !nudgeSuppressed) {
       try {
         await maybeSendPremiumNudge(nudgeCtx);
       } catch (error) {
@@ -762,12 +896,23 @@ export const onAnswerCreated = functions
       }
     }
 
-    if (firstExtraCtx) {
+    if (firstExtraCtx && !nudgeSuppressed) {
       try {
         await maybeSendFirstExtraFollowup(firstExtraCtx);
       } catch (error) {
         console.error(
           '[onAnswerCreated] maybeSendFirstExtraFollowup failed:',
+          error
+        );
+      }
+    }
+
+    if (tsudumonNudgeCtx && !nudgeSuppressed) {
+      try {
+        await maybeSendTsudumonIntroNudge(tsudumonNudgeCtx);
+      } catch (error) {
+        console.error(
+          '[onAnswerCreated] maybeSendTsudumonIntroNudge failed:',
           error
         );
       }

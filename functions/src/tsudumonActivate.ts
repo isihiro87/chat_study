@@ -2,8 +2,8 @@
  * つづもん ライセンスの「受け取りリンク」自動有効化。
  * 設計: pdf-workbook/docs/つづもん-登録フロー設計.md
  *
- * 購入者が受け取りリンク（www.chatstudy.jp/tsudumon/activate?c=CODE）を開くと、
- * www.chatstudy.jp の既存 LINE Login（Firebase Auth, uid=`line:{userId}`）で
+ * 購入者が受け取りリンク（https://tsudumon.jp/activate/?c=CODE）を開くと、
+ * tsudumon.jp の LINE Login（Firebase Auth, uid=`line:{userId}`）で
  * uid を取り、コードを手入力せずに自動でライセンスを有効化する。
  *
  * 有効化コア `activateTsudumonLicense` は LINE webhook のトーク送信有効化
@@ -264,9 +264,10 @@ export const tsudumonEntitlement = functions
       }
       const { db } = await getDb();
       const snap = await db.doc(`users/${uid}`).get();
-      const raw = snap.exists
-        ? (snap.data() as Record<string, unknown>).tsudumon
+      const data = snap.exists
+        ? (snap.data() as Record<string, unknown>)
         : null;
+      const raw = data ? data.tsudumon : null;
       const result = evaluateTsudumonAccess(raw, null, Date.now());
       const ent = readTsudumonEntitlement(raw);
       const grades = ent && result === 'ok' ? tsudumonPlanGrades(ent.plan) : [];
@@ -276,6 +277,9 @@ export const tsudumonEntitlement = functions
         grades,
         expiresLabel: ent ? expiresLabel(ent.expiresAtMs) : null,
         expiresAtMs: ent ? ent.expiresAtMs : null,
+        // 体験を使い切ったかどうか。ロックカードが「体験する／登録する」の
+        // どちらを主ボタンにするかの判定に使う（同じ1 read の中で返すので追加コストなし）。
+        trialUsed: !!(data && data.tsudumonTrialUsedAt),
       });
     } catch (error) {
       console.error('[tsudumonEntitlement] failed:', error);
@@ -289,7 +293,7 @@ export type TsudumonTrialOutcome =
   | { kind: 'trial_used' };
 
 /**
- * 「3日間ぜんぶ無料で試す」を uid に付与する（1 uid 1 回）。
+ * 「3日間無料で試す」を uid に付与する（1 uid 1 回）。
  *
  * トランザクションで users/{uid} を read し `evaluateTrialEligibility` で判定。
  * 'ok' のときだけ tsudumon を体験用エンティティで**丸ごと置き換え**（mergeFields で
@@ -357,13 +361,119 @@ export async function startTsudumonTrial(
     } catch (e) {
       console.error('[tsudumonTrialStart] trial_started log failed:', e);
     }
+    // 体験開始の合図をトークにも1通残す（Webのバナーは閉じたら消えてしまう）。
+    // 設計: pdf-workbook/docs/つづもん-メッセージ設計.md B-0
+    await pushTrialStarted(uid, expiresMs);
   }
 
   return outcome;
 }
 
 /**
- * 「3日間ぜんぶ無料で試す」開始 HTTP エンドポイント。
+ * B-0: 体験開始の直後に、つづもんBotから最初の1通を送る。
+ *
+ * ## 設計（2026-07-27 見直し）
+ * 体験は3日しかない。ここで「何をすればいいか分からない」と迷わせたら、
+ * その時点で終わる。だから**行動をひとつに絞る**:
+ *   - 「全19単元」から選ばせない。**具体的な1単元を名指し**する（学年が分かればその学年の先頭）
+ *   - 「まずは3問だけ」と量を極小にする（15分と言われても長い）
+ *   - **質問の仕方を実例で見せる**（AIに聞けることは、書かないと伝わらない）
+ *   - ボタン（クイックリプライ）で、次の一手をタップだけで選べるようにする
+ */
+async function pushTrialStarted(uid: string, expiresMs: number): Promise<void> {
+  const lineUserId = uid.startsWith('line:') ? uid.slice('line:'.length) : '';
+  if (!lineUserId) return;
+
+  // 学年が分かれば、その学年の先頭単元から始める（1 read）。
+  let grade: string | null = null;
+  try {
+    const { getFirestore } = await import('firebase-admin/firestore');
+    grade = ((await getFirestore().doc(`users/${uid}`).get()).data()?.grade ??
+      null) as string | null;
+  } catch {
+    // 学年が読めなくても第1章から案内すればよい
+  }
+
+  const { TSUDUMON_UNITS, cursorForGrade, referenceUrl, workbookUrl } =
+    await import('./tsudumonUnits');
+  const unit = TSUDUMON_UNITS[cursorForGrade(grade)] ?? TSUDUMON_UNITS[0];
+
+  const text = [
+    '3日間の無料体験がはじまりました🎉',
+    `${expiresLabel(expiresMs)}まで、中学歴史ぜんぶ（全19単元・問題集＋参考書）が使えます。`,
+    '',
+    `まずはここから ▶ 【${unit.grade}・${unit.no}】${unit.title}`,
+    '',
+    '① まず参考書を読む',
+    referenceUrl(unit.no),
+    '',
+    '② 問題を3問だけ解いてみる',
+    workbookUrl(unit.no),
+    '',
+    'わからないところは、このトークにそのまま書いてください。',
+    `例：「${unit.title}って何がポイント？」「さっきの問題の解説して」`,
+  ].join('\n');
+
+  try {
+    const { getTsudumonLineClient } = await import('./tsudumon/client');
+    const client = await getTsudumonLineClient();
+    await client.pushMessage({
+      to: lineUserId,
+      messages: [
+        {
+          type: 'text',
+          text,
+          quickReply: {
+            items: [
+              {
+                type: 'action',
+                action: {
+                  type: 'uri',
+                  label: '参考書を読む',
+                  uri: referenceUrl(unit.no),
+                },
+              },
+              {
+                type: 'action',
+                action: {
+                  type: 'uri',
+                  label: '問題を解く',
+                  uri: workbookUrl(unit.no),
+                },
+              },
+              {
+                type: 'action',
+                action: {
+                  type: 'message',
+                  label: '使い方をみる',
+                  text: '使い方',
+                },
+              },
+            ],
+          },
+        },
+      ],
+    } as never);
+    const { recordPushDelivery } = await import('./deliveryStats');
+    await recordPushDelivery('tsudumonTrialStart');
+  } catch (error) {
+    // 体験の付与自体は成功しているので、送信失敗はログのみ
+    console.error('[tsudumonTrialStart] trial start push failed:', error);
+  }
+
+  // **体験中も「今日の1単元」を届ける**ための予定表を作る。
+  // 商品の中核は「今日やることが毎日LINEに届く」ことなので、
+  // それを体験しないまま3日が終わると、価値が伝わらないまま離脱する。
+  try {
+    const { ensureTsudumonDaily } = await import('./tsudumonDailyUnit');
+    await ensureTsudumonDaily(uid, grade);
+  } catch (error) {
+    console.error('[tsudumonTrialStart] ensureTsudumonDaily failed:', error);
+  }
+}
+
+/**
+ * 「3日間無料で試す」開始 HTTP エンドポイント。
  * POST { idToken } → { ok:true, expiresLabel } | { ok:false, reason, message }
  * 認証・CORS・`line:` prefix チェックは tsudumonActivate と同型。
  */

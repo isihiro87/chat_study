@@ -8,6 +8,7 @@ import {
   getLineClient,
 } from './lineWebhook';
 import { recordPushDelivery } from './deliveryStats';
+import { shouldSuppressPush } from './pushSuspension';
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 const MAX_USERS_PER_RUN = 100;
@@ -118,6 +119,7 @@ export const remindIncompleteOnboarding = functions
     let reminded = 0;
     let skipped = 0;
     let blockedSkipped = 0;
+    let suspendedSkipped = 0;
 
     for (const doc of snap.docs) {
       const data = doc.data();
@@ -174,6 +176,14 @@ export const remindIncompleteOnboarding = functions
       const milestone = pickReminderMilestone(startedAtMs, now, alreadySent);
       if (!milestone) {
         skipped++;
+        continue;
+      }
+
+      // 2026-07 配信枠ひっ迫による push 一時停止（pushSuspension.ts）。
+      // 登録3日以内の新規だけに配信する方針なので、期間中に届くのは day1 / day3
+      // だけになり、day7 リマインドは送らない（対象者は登録から7日経っている）。
+      if (shouldSuppressPush(data, new Date(now))) {
+        suspendedSkipped++;
         continue;
       }
 
@@ -235,6 +245,7 @@ export const remindIncompleteOnboarding = functions
 
     console.log(
       `[remindIncompleteOnboarding] done: reminded=${reminded}, skipped=${skipped}, ` +
-        `blockedSkipped=${blockedSkipped}, total=${snap.size}`
+        `blockedSkipped=${blockedSkipped}, suspendedSkipped=${suspendedSkipped}, ` +
+        `total=${snap.size}`
     );
   });

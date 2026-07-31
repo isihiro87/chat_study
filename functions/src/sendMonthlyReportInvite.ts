@@ -13,17 +13,18 @@
  * その月の最終日のときだけ実処理する。
  */
 
-import * as functions from "firebase-functions/v1";
+import * as functions from 'firebase-functions/v1';
 
-import { getLineClient } from "./lineWebhook";
-import { logServerFunnelEvent } from "./funnelEvent";
-import { recordPushDelivery } from "./deliveryStats";
+import { getLineClient } from './lineWebhook';
+import { logServerFunnelEvent } from './funnelEvent';
+import { recordPushDelivery } from './deliveryStats';
+import { isPushSuspended } from './pushSuspension';
 import {
   buildMonthlyReportInviteMessage,
   currentJstMonthKey,
   monthKeyToRange,
-} from "./monthlyReport";
-import type { UserDoc } from "./userDocTypes";
+} from './monthlyReport';
+import type { UserDoc } from './userDocTypes';
 
 /** JST で date がその月の最終日かどうか。 */
 function isLastDayOfMonthJst(date: Date): boolean {
@@ -34,9 +35,9 @@ function isLastDayOfMonthJst(date: Date): boolean {
 }
 
 export const sendMonthlyReportInvite = functions
-  .region("asia-northeast1")
-  .pubsub.schedule("0 17 28-31 * *")
-  .timeZone("Asia/Tokyo")
+  .region('asia-northeast1')
+  .pubsub.schedule('0 17 28-31 * *')
+  .timeZone('Asia/Tokyo')
   .onRun(async () => {
     const now = new Date();
     if (!isLastDayOfMonthJst(now)) {
@@ -44,17 +45,28 @@ export const sendMonthlyReportInvite = functions
       return;
     }
 
+    // 2026-07 配信枠ひっ迫による push 一時停止（pushSuspension.ts）。
+    // この招待は「今月回答した全ユーザー」への一斉 push（枠を大量に消費する）ため、
+    // 期間中は丸ごと送らない。7/31 の招待は見送り、レポート機能自体（reply）は生きている。
+    if (isPushSuspended(now)) {
+      console.log(
+        '[sendMonthlyReportInvite] skipped: push suspended (2026-07 配信枠ひっ迫)'
+      );
+      return;
+    }
+
     const startedAt = Date.now();
     const monthKey = currentJstMonthKey(now);
     const range = monthKeyToRange(monthKey);
     if (!range) {
-      console.error("[sendMonthlyReportInvite] invalid monthKey:", monthKey);
+      console.error('[sendMonthlyReportInvite] invalid monthKey:', monthKey);
       return;
     }
     console.log(`[sendMonthlyReportInvite] start month=${monthKey}`);
 
-    const { initializeApp, getApps } = await import("firebase-admin/app");
-    const { getFirestore, Timestamp } = await import("firebase-admin/firestore");
+    const { initializeApp, getApps } = await import('firebase-admin/app');
+    const { getFirestore, Timestamp } =
+      await import('firebase-admin/firestore');
     if (getApps().length === 0) {
       initializeApp();
     }
@@ -64,7 +76,7 @@ export const sendMonthlyReportInvite = functions
     try {
       lineClient = await getLineClient();
     } catch (error) {
-      console.error("[sendMonthlyReportInvite] getLineClient failed:", error);
+      console.error('[sendMonthlyReportInvite] getLineClient failed:', error);
       return;
     }
 
@@ -80,11 +92,11 @@ export const sendMonthlyReportInvite = functions
     let snap;
     try {
       snap = await db
-        .collection("users")
-        .where("lastAnsweredAt", ">=", Timestamp.fromMillis(range.startMs))
+        .collection('users')
+        .where('lastAnsweredAt', '>=', Timestamp.fromMillis(range.startMs))
         .get();
     } catch (error) {
-      console.error("[sendMonthlyReportInvite] users query failed:", error);
+      console.error('[sendMonthlyReportInvite] users query failed:', error);
       return;
     }
 
@@ -100,11 +112,11 @@ export const sendMonthlyReportInvite = functions
       }
 
       const lineUserId =
-        typeof data.lineUserId === "string"
+        typeof data.lineUserId === 'string'
           ? data.lineUserId
-          : uid.startsWith("line:")
-            ? uid.slice("line:".length)
-            : "";
+          : uid.startsWith('line:')
+            ? uid.slice('line:'.length)
+            : '';
       if (!lineUserId) {
         skipped++;
         continue;
@@ -124,10 +136,10 @@ export const sendMonthlyReportInvite = functions
         continue;
       }
 
-      await logServerFunnelEvent("monthly_report_invite_sent", uid, {
+      await logServerFunnelEvent('monthly_report_invite_sent', uid, {
         month: monthKey,
       });
-      await recordPushDelivery("monthlyReport");
+      await recordPushDelivery('monthlyReport');
       sent++;
     }
 

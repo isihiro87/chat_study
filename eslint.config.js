@@ -24,9 +24,12 @@ export default tseslint.config(
       'react-hooks': reactHooks,
     },
     rules: {
+      // `_` 接頭辞は「意図的に使っていない」の目印。引数だけでなく変数・関数にも効かせる
+      // （`scripts/generate-geometry-figures.ts` の `_arcThrough` のように、
+      //   作図の途中式として残してある補助関数を消さずに済ませるため）。
       '@typescript-eslint/no-unused-vars': [
         'error',
-        { argsIgnorePattern: '^_' },
+        { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
       ],
       '@typescript-eslint/explicit-function-return-type': 'off',
       '@typescript-eslint/explicit-module-boundary-types': 'off',

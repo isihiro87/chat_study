@@ -7,6 +7,7 @@
 
 import type { AiChatTurn } from './userDocTypes';
 import type { UserPlan } from './lineWebhook';
+import { classifyDeterministic, type SafetyClass } from './aiSafetyCore';
 
 /** 全ユーザー共通の 1 日あたり AI 応答回数上限（プラン統合後）。 */
 export const DAILY_LIMIT = 40;
@@ -15,10 +16,13 @@ export const DAILY_LIMIT = 40;
  * 無料プランで保持する会話ターン数（user/model のペア数）。
  * 2026-07: 3→6 に拡大。3ターンだと AI が自分の直前の発言を忘れて
  * 釈明する事故が実会話で確認されたため（flash-lite の入力コストは十分小さい）。
+ * 2026-07-26: さらに 6→10。同じ事故が6ターンでも起きるため。増える入力は
+ * `aiChatPrompt` の話題別ブロック化（毎ターン全量送信をやめた分）で相殺している。
+ * ⚠️ `llmModelResolver.FREE_HISTORY_TURNS` と同値に保つこと。
  */
-export const FREE_HISTORY_TURNS = 6;
+export const FREE_HISTORY_TURNS = 10;
 /** トライアル・プレミアムで保持する会話ターン数。 */
-export const PREMIUM_HISTORY_TURNS = 6;
+export const PREMIUM_HISTORY_TURNS = 10;
 
 /** 1 日上限を返す（プラン統合により全ユーザー共通）。 */
 export function getDailyLimit(_plan: UserPlan): number {
@@ -52,6 +56,21 @@ export function trimHistory(
   const maxMessages = maxTurns * 2;
   if (history.length <= maxMessages) return history;
   return history.slice(history.length - maxMessages);
+}
+
+/**
+ * 無料Botの安全分類（`requirements.md` R1〜R3）。
+ *
+ * **LLM を一切呼ばない**（正規表現だけ）＝コストゼロ・レイテンシゼロ。
+ * paid は `unknown`（弱いシグナルはあるが判断がつかない）を最安モデルで補完するが、
+ * free は呼ばないので**傾聴側（`concern`）に倒す**——素通りさせるより安全で、
+ * 既定モデルは変わらないので追加コストも出ない。
+ *
+ * `crisis` を返したら、呼び出し側は**生成を1回も行わずに**固定文で受け止める。
+ */
+export function resolveFreeSafety(userText: string): SafetyClass {
+  const deterministic = classifyDeterministic(userText);
+  return deterministic === 'unknown' ? 'concern' : deterministic;
 }
 
 /** 当日カウント状態の最小形。 */

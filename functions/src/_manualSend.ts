@@ -18,9 +18,8 @@ if (!uid) {
 }
 
 async function main() {
-  const { initializeApp, getApps, applicationDefault } = await import(
-    'firebase-admin/app'
-  );
+  const { initializeApp, getApps, applicationDefault } =
+    await import('firebase-admin/app');
   if (getApps().length === 0) {
     initializeApp({
       credential: applicationDefault(),
@@ -44,13 +43,16 @@ async function main() {
   console.log(`  preferredHour    : ${u.preferredHour ?? '(unset)'}`);
   console.log(`  plan             : ${u.plan ?? '(unset)'}`);
   console.log(`  blocked          : ${u.blocked === true ? 'YES' : 'no'}`);
-  console.log(`  lastQuestionDeliveredAt: ${
-    u.lastQuestionDeliveredAt?.toDate?.()?.toISOString() ?? '(unset)'
-  }`);
+  console.log(
+    `  lastQuestionDeliveredAt: ${
+      u.lastQuestionDeliveredAt?.toDate?.()?.toISOString() ?? '(unset)'
+    }`
+  );
 
-  const { selectAndSendQuestion } = await import('./lineWebhook');
+  const { selectAndSendQuestion, getLineClient } =
+    await import('./lineWebhook');
   console.log(`\n[manualSend] sending question (bypassDailyLimit=true) ...`);
-  await selectAndSendQuestion(uid, {
+  await selectAndSendQuestion(await getLineClient(), uid, {
     bypassDailyLimit: true,
     pushType: 'dailyQuiz',
     source: 'manual',

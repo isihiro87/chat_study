@@ -4,6 +4,7 @@ import { describe, it, expect } from 'vitest';
 import {
   detectRestartIntent,
   detectQuestionRequest,
+  detectDeliveryMissingIntent,
   RESTART_KEYWORDS_INTERNAL,
 } from '../keywordMatcher';
 
@@ -78,5 +79,32 @@ describe('detectQuestionRequest - 「問題出して」意図検出', () => {
     expect(detectQuestionRequest('問題が難しい', '歴史')).toBe(false);
     expect(detectQuestionRequest('こんにちは', '歴史')).toBe(false);
     expect(detectQuestionRequest('', '歴史')).toBe(false);
+  });
+});
+
+describe('detectDeliveryMissingIntent - 「問題が届かない」検出', () => {
+  it('不達の訴えを拾う', () => {
+    expect(detectDeliveryMissingIntent('問題が届かないんだけど')).toBe(true);
+    expect(detectDeliveryMissingIntent('問題こない')).toBe(true);
+    expect(detectDeliveryMissingIntent('もんだいが来ません')).toBe(true);
+    expect(detectDeliveryMissingIntent('配信が止まっちゃった')).toBe(true);
+    expect(detectDeliveryMissingIntent('最近１問も届いてない')).toBe(true);
+    expect(detectDeliveryMissingIntent('なんで問題が来ないの？')).toBe(true);
+    expect(detectDeliveryMissingIntent('通知が来なくなった')).toBe(true);
+    expect(detectDeliveryMissingIntent('届かないよ問題')).toBe(true);
+  });
+
+  it('今日の1問の催促も同じ案内でよいので拾う', () => {
+    expect(detectDeliveryMissingIntent('今日の問題まだ？')).toBe(true);
+    expect(detectDeliveryMissingIntent('今日の1問は？')).toBe(true);
+  });
+
+  it('無関係な発話は拾わない', () => {
+    expect(detectDeliveryMissingIntent('問題出して')).toBe(false);
+    expect(detectDeliveryMissingIntent('この問題むずかしい')).toBe(false);
+    expect(detectDeliveryMissingIntent('問題ないよ')).toBe(false);
+    expect(detectDeliveryMissingIntent('こんにちは')).toBe(false);
+    expect(detectDeliveryMissingIntent('')).toBe(false);
+    expect(detectDeliveryMissingIntent(undefined)).toBe(false);
   });
 });

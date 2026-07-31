@@ -7,6 +7,7 @@ import {
   getJstDate,
   trimHistory,
   evaluateRateLimit,
+  resolveFreeSafety,
   DAILY_LIMIT,
   FREE_HISTORY_TURNS,
   PREMIUM_HISTORY_TURNS,
@@ -22,13 +23,15 @@ describe('getDailyLimit', () => {
 });
 
 describe('getHistoryTurns', () => {
-  it('free は 3 ターン', () => {
+  // 2026-07-26: 6 → 10（AI が直前の発言を忘れる事故が6でも起きたため）。
+  // 増える入力は aiChatPrompt の話題別ブロック化で相殺している。
+  it('free は 10 ターン', () => {
     expect(getHistoryTurns('free')).toBe(FREE_HISTORY_TURNS);
-    expect(getHistoryTurns('free')).toBe(6);
+    expect(getHistoryTurns('free')).toBe(10);
   });
-  it('premium は 6 ターン（微増）', () => {
+  it('premium も 10 ターン', () => {
     expect(getHistoryTurns('premium')).toBe(PREMIUM_HISTORY_TURNS);
-    expect(getHistoryTurns('premium')).toBe(6);
+    expect(getHistoryTurns('premium')).toBe(10);
   });
 });
 
@@ -116,5 +119,34 @@ describe('evaluateRateLimit', () => {
       40
     );
     expect(r2.limited).toBe(true);
+  });
+});
+
+describe('resolveFreeSafety（無料Botの安全分類・LLM を呼ばない）', () => {
+  it('自傷・虐待は crisis（呼び出し側は生成を1回も行わない）', () => {
+    expect(resolveFreeSafety('もう死にたい')).toBe('crisis');
+    expect(resolveFreeSafety('お父さんに殴られた')).toBe('crisis');
+  });
+
+  it('慣用表現は crisis にしない（通知が鳴りっぱなしにならない）', () => {
+    expect(resolveFreeSafety('テストで死んだwww')).not.toBe('crisis');
+    expect(resolveFreeSafety('死ぬほど眠い')).not.toBe('crisis');
+  });
+
+  it('気持ちの相談は concern（末尾に大人へつなげる一文が付く）', () => {
+    expect(resolveFreeSafety('友だちとけんかしてつらい')).toBe('concern');
+  });
+
+  it('ふつうの学習質問は normal', () => {
+    expect(resolveFreeSafety('鎌倉幕府っていつできたの？')).toBe('normal');
+    expect(resolveFreeSafety('')).toBe('normal');
+  });
+
+  it('判断がつかないときは concern に倒す（free は LLM で補完しないため）', () => {
+    // classifyDeterministic が 'unknown' を返すケースを直接与える
+    expect(['concern', 'normal', 'crisis']).toContain(
+      resolveFreeSafety('なんかしんどい')
+    );
+    expect(resolveFreeSafety('なんかしんどい')).not.toBe('normal');
   });
 });

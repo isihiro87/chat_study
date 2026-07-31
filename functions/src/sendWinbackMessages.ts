@@ -27,6 +27,7 @@ import { getLineClient } from './lineWebhook';
 import { logServerFunnelEvent } from './funnelEvent';
 import { recordPushDelivery } from './deliveryStats';
 import { selectNextWinbackVariation } from './winbackSelector';
+import { isPushSuspended } from './pushSuspension';
 import {
   daysBetweenJst,
   getJstDateString,
@@ -109,6 +110,17 @@ export const sendWinbackMessages = functions
 
     const now = new Date();
     const todayJst = getJstDateString(now);
+
+    // 2026-07 配信枠ひっ迫による push 一時停止（pushSuspension.ts）。
+    // Win-back の対象は「最終回答から4日以上」＝登録3日以内の新規ユーザーは
+    // 構造上ここに入らないため、期間中は cron ごと空振りさせる（users の
+    // 全 status スキャン read も無駄なので、クエリ前に return する）。
+    if (isPushSuspended(now)) {
+      console.log(
+        '[sendWinbackMessages] skipped: push suspended (2026-07 配信枠ひっ迫)'
+      );
+      return;
+    }
 
     // 今日 status 変化したユーザーを抽出（at-risk / dormant / churned のみ）
     const targets: UserStatus[] = ['at-risk', 'dormant', 'churned'];

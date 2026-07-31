@@ -7,7 +7,7 @@
  *   - `tsudumonTrials` を expiresAt レンジ（now-3日 〜 now+3日）で走査（体験者数ぶんの
  *     read のみ。users 全体は舐めない = Firestore read 規律）。
  *   - JST 暦日基準で 3 種の push を1回ずつ送る（`reminded` マップで既送管理）:
- *       day1     … 開始翌暦日: 使い方＋おすすめ単元
+ *       （day1 は廃止。体験中も tsudumonDailyUnit が「今日の1単元」を届ける）
  *       lastday  … 期限前暦日: あす終了＋つづきの案内
  *       expired  … 期限切れ後最初の実行: `trial_expired` funnel 記録＋無料単元案内
  *
@@ -20,40 +20,41 @@
 
 import * as functions from 'firebase-functions/v1';
 
-import { getLineClient } from './lineWebhook';
+import { getTsudumonLineClient } from './tsudumon/client';
 import { logServerFunnelEvent } from './funnelEvent';
 import { recordPushDelivery } from './deliveryStats';
 import { daysBetweenJst } from './userStatus';
+import { parentCardQuickReply } from './tsudumonParentCard';
 
-const MAP_URL = 'https://www.chatstudy.jp/tsudumon/map/';
-const LP_URL = 'https://www.chatstudy.jp/tsudumon/';
+const MAP_URL = 'https://tsudumon.jp/map/';
+const LP_URL = 'https://tsudumon.jp/';
+const SUB_URL = 'https://tsudumon.jp/account/?do=subscribe';
 
 /** 走査するレンジ（expiresAt が now ± この幅に入る doc だけ読む）。 */
 const RANGE_MS = 3 * 24 * 60 * 60 * 1000;
 
-/** 開始翌日: 使い方＋おすすめ単元。 */
-function day1Message(): string {
-  return [
-    'つづもんの無料体験、始まっています📚',
-    '',
-    '教材はLINEメニューの「教材を開く」からいつでも開けます。',
-    'まずは「律令国家と奈良時代」など、テスト範囲に近い単元から解いてみてください。',
-    '',
-    '📖 全単元はこちら',
-    MAP_URL,
-  ].join('\n');
-}
-
-/** 期限前日: あす終了＋つづきの案内。 */
+/**
+ * 期限前日: あす終了＋つづきの案内。
+ *
+ * 中学生本人はカードを持っていないので、「自分で登録する」だけを出しても行き止まりになる。
+ * **おうちの人に見せる導線を主にする**（下の quickReply）。
+ * ⚠️ 新しい push は増やさない（配信枠）。既存の2通に quickReply で載せる。
+ */
 function lastDayMessage(): string {
   return [
     'つづもんの3日間無料体験は、あすで終了します⏰',
     '',
-    'お子さまに合いそうでしたら、月額プランでそのまま全単元を続けられます',
-    '（準備中の場合は公式LINEでご案内します）。',
+    'ここまでの取り組みは、そのまま記録に残っています。',
+    'つづけたいときは、おうちの人に見てもらうのがいちばん早いです。',
+    'やった時間と問題数をまとめたページを、下のボタンから出せます。',
+    '',
+    '（見えるのは勉強の記録だけ。トークの内容は見えません）',
     '',
     '▶ 教材を見る',
     MAP_URL,
+    '',
+    '▶ 自分で続ける（1,280円・税込／月・いつでも解約OK）',
+    SUB_URL,
   ].join('\n');
 }
 
@@ -65,12 +66,18 @@ function expiredMessage(): string {
     '「律令国家と奈良時代」の単元は、体験のあともずっと無料で使えます。',
     'つづきが気になったら、いつでものぞいてみてくださいね。',
     '',
+    'つづけたいときは、下のボタンから「おうちの人に見せるページ」を出せます。',
+    '3日間でやった時間と問題数がそのまま出るので、言葉で説明しなくて大丈夫です。',
+    '',
+    '▶ つづきをはじめる（1,280円・税込／月・いつでも解約OK）',
+    SUB_URL,
+    '',
     '▶ つづもんについて',
     LP_URL,
   ].join('\n');
 }
 
-type ReminderKind = 'day1' | 'lastday' | 'expired';
+type ReminderKind = 'lastday' | 'expired';
 
 export const tsudumonTrialReminder = functions
   .region('asia-northeast1')
@@ -90,10 +97,10 @@ export const tsudumonTrialReminder = functions
 
     let lineClient;
     try {
-      lineClient = await getLineClient();
+      lineClient = await getTsudumonLineClient();
     } catch (error) {
       console.error(
-        '[tsudumonTrialReminder] getLineClient failed; abort:',
+        '[tsudumonTrialReminder] getTsudumonLineClient failed; abort:',
         error
       );
       return;
@@ -156,26 +163,43 @@ export const tsudumonTrialReminder = functions
         !reminded.lastday
       ) {
         kind = 'lastday';
-      } else if (daysBetweenJst(startedAtDate, now) === 1 && !reminded.day1) {
-        kind = 'day1';
       }
+      // ⚠️ day1（開始翌日の汎用「使い方」）は**廃止**（2026-07-27）。
+      // 体験中も `tsudumonDailyUnit` が「今日の1単元」を届けるようにしたので、
+      // 汎用の使い方メッセージを重ねると1日2通の枠を無駄に使う。
+      // 開始直後の案内は `tsudumonActivate.pushTrialStarted` が担当する。
 
       if (!kind) {
         skipped++;
         continue;
       }
 
-      const text =
-        kind === 'day1'
-          ? day1Message()
-          : kind === 'lastday'
-            ? lastDayMessage()
-            : expiredMessage();
+      // 配信除外判定は tsudumonBlockedAt（つづもんBotのブロック）のみを見る。
+      // 一問一答の `blocked` は無関係（一問一答だけブロックした人にも送ってよい）。
+      try {
+        const userSnap = await db.doc(`users/${uid}`).get();
+        if (userSnap.data()?.tsudumonBlockedAt) {
+          skipped++;
+          continue;
+        }
+      } catch (error) {
+        console.error(
+          `[tsudumonTrialReminder] tsudumonBlockedAt check failed uid=${uid}:`,
+          error
+        );
+        // 判定できない場合は安全側（送らない）に倒さず、従来どおり送信を試みる。
+      }
+
+      const text = kind === 'lastday' ? lastDayMessage() : expiredMessage();
 
       try {
         await lineClient.pushMessage({
           to: lineUserId,
-          messages: [{ type: 'text', text }],
+          // 「おうちの人に見せる」をワンタップで出せるようにする。postback なので
+          // 押されたときの応答は reply＝配信枠ゼロ。
+          messages: [
+            { type: 'text', text, quickReply: parentCardQuickReply() },
+          ],
         });
         await recordPushDelivery('tsudumonTrial');
       } catch (error) {

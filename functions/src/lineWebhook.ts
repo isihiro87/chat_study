@@ -34,6 +34,9 @@ import {
 } from './lineScopeFlow';
 import { recordPushDelivery } from './deliveryStats';
 import type { PushType } from './deliveryStatsTypes';
+// 参考書対話セッションの TTL・離脱ワード判定（純粋ロジック）
+import { isRefEndText, isRefSessionExpired } from './refSessionCore';
+import { PUSH_PAUSE_REPLY_TEXT, shouldSuppressPush } from './pushSuspension';
 import {
   resolveReferenceTopic,
   REF_LEVEL_LABEL,
@@ -49,6 +52,7 @@ import {
   refCheckGradePrompt,
 } from './referencePrompt';
 import type { LastQuestionSnapshot, ScopeNudgeVariant } from './userDocTypes';
+import type { AiChatBotKind } from './aiChatPrompt';
 import { QUESTION_INDEX } from './generated/line-question-index.generated';
 import {
   WORKBOOK_PREFIX_RE,
@@ -75,7 +79,7 @@ import {
   type TsudumonActivationOutcome,
 } from './tsudumonActivate';
 
-interface LineEvent {
+export interface LineEvent {
   type: string;
   source?: { type?: string; userId?: string };
   replyToken?: string;
@@ -701,7 +705,8 @@ export const PREMIUM_NOT_YET_AVAILABLE_TEXT =
 // 旧: https://www.chatstudy.jp/contact は Web 版に当該ページがなく 404 になっていた。
 const LIFF_CONTACT_URL =
   process.env.LIFF_CONTACT_URL ?? 'https://liff.line.me/2009587166-JG4bBwd2';
-const CONTACT_URL = LIFF_CONTACT_URL;
+/** お問い合わせ導線の URL。AI チャットの Quick Reply（`aiChat`）でも使う。 */
+export const CONTACT_URL = LIFF_CONTACT_URL;
 
 // LIFF URL（functions/.env で上書き可能、未設定なら known good fallback）
 const LIFF_REPORT_URL =
@@ -728,7 +733,8 @@ const LIFF_HELP_URL =
 const TEST_RANGE_SCOPE_URL =
   process.env.LINE_SCOPE_URL ??
   'https://line.chatstudy.jp/scope?openExternalBrowser=1';
-const LIFF_UNITS_URL =
+/** 「じっくり学ぶ」の LIFF URL。AI チャットの Quick Reply（`aiChat`）でも使う。 */
+export const LIFF_UNITS_URL =
   process.env.LIFF_UNITS_URL ?? 'https://liff.line.me/2009587166-LjyCza2c';
 // 授業動画アプリ「ムビスタ」。?lt=<link token> を付けて本人連携する。
 const MUBISTA_BASE_URL =
@@ -927,14 +933,14 @@ async function handleMessage(event: LineEvent): Promise<void> {
   // 画像・音声は AI チャットボット（Gemini）にマルチモーダル入力として渡す。
   // テキスト系コマンド（設定変更 / 復帰キーワード等）の判定は不要なので先に分岐。
   if (messageType === 'image' || messageType === 'audio') {
-    await handleMediaMessage(event, messageType);
+    await handleMediaMessage(await getLineClient(), event, messageType);
     return;
   }
 
   // スタンプは AI チャットボットに「スタンプの内容＋これまでの会話」を踏まえて
   // 返答させる。reply 送信なので配信枠は消費しない（コストは Gemini 分のみ）。
   if (messageType === 'sticker') {
-    await handleStickerMessage(event);
+    await handleStickerMessage(await getLineClient(), event);
     return;
   }
 
@@ -982,7 +988,12 @@ async function handleMessage(event: LineEvent): Promise<void> {
   if (tsudumonCode) {
     const uidForTsudumon = buildUid(event);
     if (uidForTsudumon && replyToken) {
-      await handleTsudumonActivation(uidForTsudumon, replyToken, tsudumonCode);
+      await handleTsudumonActivation(
+        await getLineClient(),
+        uidForTsudumon,
+        replyToken,
+        tsudumonCode
+      );
       return;
     }
   }
@@ -992,7 +1003,11 @@ async function handleMessage(event: LineEvent): Promise<void> {
   if (text === '継続希望') {
     const uidForContinue = buildUid(event);
     if (uidForContinue && replyToken) {
-      await handleTsudumonContinueRequest(uidForContinue, replyToken);
+      await handleTsudumonContinueRequest(
+        await getLineClient(),
+        uidForContinue,
+        replyToken
+      );
       return;
     }
   }
@@ -1022,6 +1037,7 @@ async function handleMessage(event: LineEvent): Promise<void> {
     const uidForWorkbook = buildUid(event);
     if (uidForWorkbook && replyToken) {
       const handled = await handleWorkbookQuestion(
+        await getLineClient(),
         uidForWorkbook,
         replyToken,
         text
@@ -1045,6 +1061,7 @@ async function handleMessage(event: LineEvent): Promise<void> {
         | undefined;
       if (wbSessionData?.awaiting?.qid && replyToken) {
         const consumed = await handleWorkbookTextAnswer(
+          await getLineClient(),
           uid,
           replyToken,
           text,
@@ -1058,6 +1075,7 @@ async function handleMessage(event: LineEvent): Promise<void> {
       const refSessionData = userData?.refSession as RefSessionData | undefined;
       if (refSessionData?.awaiting && replyToken) {
         const consumed = await handleReferenceTextInput(
+          await getLineClient(),
           uid,
           replyToken,
           text,
@@ -1066,6 +1084,46 @@ async function handleMessage(event: LineEvent): Promise<void> {
         if (consumed) return;
       }
 
+      const {
+        detectRestartIntent,
+        detectQuestionRequest,
+        detectDeliveryMissingIntent,
+      } = await import('./keywordMatcher');
+
+      // 2026-07 配信枠ひっ迫による push 一時停止（pushSuspension.ts）。
+      // 自動配信が止まっているユーザーが「問題が届かない」と言ってきたら、
+      // 不具合ではなく枠を使いきったこと＋「1問解く」で続けられることを伝え、
+      // そのまま1問を出す（説明も出題も reply なので配信枠を消費しない）。
+      // 自分で「配信をおやすみ」中の人は理由が違うので、AI 側の案内に任せる。
+      // オンボ未完了（学年・教科なし）だと selectAndSendQuestion が無言で
+      // return してしまうため、その場合も AI（同じ知識を持つ）に任せる。
+      if (
+        replyToken &&
+        userData?.deliveryPaused !== true &&
+        typeof userData?.grade === 'string' &&
+        typeof userData?.subject === 'string' &&
+        detectDeliveryMissingIntent(text) &&
+        shouldSuppressPush(userData, new Date())
+      ) {
+        console.log(
+          `[lineWebhook] delivery-missing inquiry (suspended) ${uid}`
+        );
+        try {
+          const { logServerFunnelEvent } = await import('./funnelEvent');
+          await logServerFunnelEvent('extra_question_tap', uid, {
+            src: 'push_pause_notice',
+          });
+        } catch (error) {
+          console.warn('[lineWebhook] push_pause_notice log failed:', error);
+        }
+        await selectAndSendQuestion(await getLineClient(), uid, {
+          replyToken,
+          introText: PUSH_PAUSE_REPLY_TEXT,
+          bypassDailyLimit: true,
+          source: 'extra',
+        });
+        return;
+      }
       // 休眠ユーザー除外システム（§C-3）対応:
       // 「再開」「またやりたい」「久しぶり」等の復帰キーワードを検知したら、
       // status を active に戻して即座に 1 問送信する。
@@ -1076,9 +1134,7 @@ async function handleMessage(event: LineEvent): Promise<void> {
       // 直近に学習しているユーザーやまだ一度も回答がないユーザーが復帰語を
       // 含むメッセージ（「また明日」「ごめん」等）を送っても誤爆させず、
       // そのまま下の AI チャットボットに自然に応答させる。
-      const { detectRestartIntent, detectQuestionRequest } =
-        await import('./keywordMatcher');
-      // 配信一時停止中（deliveryPaused）のユーザーは、直近に回答していても
+      // なお配信一時停止中（deliveryPaused）のユーザーは、直近に回答していても
       // 「再開」で配信を戻したい明確な意図があるため、8日ゲートをバイパスする。
       if (
         detectRestartIntent(text) &&
@@ -1112,7 +1168,7 @@ async function handleMessage(event: LineEvent): Promise<void> {
         } catch (error) {
           console.warn('[lineWebhook] text_request funnel log failed:', error);
         }
-        await selectAndSendQuestion(uid, {
+        await selectAndSendQuestion(await getLineClient(), uid, {
           replyToken,
           introText: getExtraQuestionIntro(),
           bypassDailyLimit: true,
@@ -1153,7 +1209,7 @@ async function handleMessage(event: LineEvent): Promise<void> {
 /** 緊急時の全開放スイッチ。env TSUDUMON_GATE_ENABLED=false でゲートを無効化。 */
 const TSUDUMON_GATE_ENABLED = process.env.TSUDUMON_GATE_ENABLED !== 'false';
 
-const TSUDUMON_LP_URL = 'https://www.chatstudy.jp/tsudumon/';
+const TSUDUMON_LP_URL = 'https://tsudumon.jp/';
 
 export interface TsudumonGateCheck {
   result: TsudumonAccessResult;
@@ -1195,9 +1251,9 @@ export function buildTsudumonGateText(
   if (check.result === 'expired') {
     return (
       'つづもんのご利用期間が終了しています🙏\n' +
-      'ダウンロード済みのPDF教材は、これからもそのままお使いいただけます。\n\n' +
-      'LINEでの問題演習・AI採点・スタ先生への質問を続けたい場合は、月額プランでの継続をご案内できます。' +
-      'このトークに「継続希望」と送ってください。'
+      '「律令国家と奈良時代」の1単元と、各単元の最初のページは、これからもずっと無料でお読みいただけます。\n\n' +
+      'Web教材の続き・LINEでの問題演習・AI採点・つづ先生への質問を再開したい場合は、月額プラン（1,280円／月・いつでも解約OK）にご登録ください。\n' +
+      'https://tsudumon.jp/account/?do=subscribe'
     );
   }
   if (check.result === 'wrong_grade') {
@@ -1226,7 +1282,8 @@ export function buildTsudumonGateText(
  * user 側（users/{uid}.tsudumon スナップショット）を同時に書く。
  * 登録済み uid の再送はエラーにせず「登録済み」として成功応答（機種変更・確認用）。
  */
-async function handleTsudumonActivation(
+export async function handleTsudumonActivation(
+  client: messagingApi.MessagingApiClient,
   uid: string,
   replyToken: string,
   code: string
@@ -1238,7 +1295,8 @@ async function handleTsudumonActivation(
     outcome = await activateTsudumonLicense(uid, code);
   } catch (error) {
     console.error('[lineWebhook] tsudumon activation failed:', error);
-    await replyText(
+    await replyTextWith(
+      client,
       replyToken,
       'すみません、登録処理でエラーが起きました。少し時間をおいてもう一度コードを送ってみてください。解決しないときは、このままメッセージでお知らせください。',
       '(tsudumon activation error)'
@@ -1251,19 +1309,28 @@ async function handleTsudumonActivation(
   );
 
   if (outcome.kind === 'ok') {
+    if (!outcome.already) {
+      try {
+        const { logServerFunnelEvent } = await import('./funnelEvent');
+        await logServerFunnelEvent('tsudumon_activated', uid);
+      } catch (error) {
+        console.error('[lineWebhook] tsudumon_activated log failed:', error);
+      }
+    }
     const dateLabel =
       getJstDateString(new Date(outcome.expiresMs)) ?? '期限情報なし';
     const head = outcome.already
       ? '✅ このアカウントは登録済みです！そのままお使いいただけます。'
       : '✅ ライセンス登録が完了しました！';
-    await replyText(
+    await replyTextWith(
+      client,
       replyToken,
       `${head}\n` +
         `プラン: ${TSUDUMON_PLAN_LABEL[outcome.plan]}／有効期限: ${dateLabel} まで\n\n` +
         '使い方はかんたん：\n' +
         '📖 冊子・PDFの各単元にあるQRコードを読む\n' +
         '✏️ その単元の問題がこのトークに届く → 解けばAIがすぐ丸つけ\n' +
-        '❓ 参考書のQRからは、スタ先生に質問や理解度チェックもできるよ\n\n' +
+        '❓ 参考書のQRからは、つづ先生に質問や理解度チェックもできるよ\n\n' +
         'さっそくQRコードを読んで、1問解いてみよう！',
       '(tsudumon activation ok)'
     );
@@ -1285,7 +1352,8 @@ async function handleTsudumonActivation(
       'このコードは、登録できるアカウント数の上限に達しています🙏\n' +
       'ご家族での追加利用のご相談は、このままメッセージでお知らせください。',
   };
-  await replyText(
+  await replyTextWith(
+    client,
     replyToken,
     failText[outcome.kind],
     `(tsudumon activation ${outcome.kind})`
@@ -1297,11 +1365,13 @@ async function handleTsudumonActivation(
  * ワークゲートの期限切れ）で「『継続希望』と送ってください」と誘導しているため、
  * AI チャットに流さず定型で受け付け、管理者（ADMIN_LINE_USER_IDS）へ push で通知する。
  */
-async function handleTsudumonContinueRequest(
+export async function handleTsudumonContinueRequest(
+  client: messagingApi.MessagingApiClient,
   uid: string,
   replyToken: string
 ): Promise<void> {
-  await replyText(
+  await replyTextWith(
+    client,
     replyToken,
     '継続のご希望を受け付けました！ありがとうございます🙏\n' +
       '運営が確認して、このトークからあらためてご案内をお送りします。少しだけお待ちください。\n' +
@@ -1320,11 +1390,14 @@ async function handleTsudumonContinueRequest(
     return;
   }
   try {
-    const client = await getLineClient();
+    // 管理者通知は必ず旧Bot（一問一答）から送る。ADMIN_LINE_USER_IDS の管理者は
+    // 一問一答の友だちである前提のため（つづもんwebhook経由だと、注入された client
+    // のままではつづもんBotを友だち追加していない限り届かない）。
+    const adminClient = await getLineClient();
     let pushed = 0;
     for (const adminId of admins) {
       try {
-        await client.pushMessage({
+        await adminClient.pushMessage({
           to: adminId,
           messages: [
             {
@@ -1355,7 +1428,8 @@ async function handleTsudumonContinueRequest(
  * 解決できなければ false を返し、呼び出し元は AI チャットへフォールスルーする。
  * この段階では Firestore を一切読まない（QUESTION_INDEX のメモリ検索のみ）。
  */
-async function handleWorkbookQuestion(
+export async function handleWorkbookQuestion(
+  client: messagingApi.MessagingApiClient,
   uid: string,
   replyToken: string,
   text: string
@@ -1365,7 +1439,7 @@ async function handleWorkbookQuestion(
 
   // 「ワーク成績」→ 進捗・苦手ダッシュボード
   if (topicName === '成績' || topicName === 'せいせき') {
-    await handleWorkbookStatsPostback(uid, replyToken);
+    await handleWorkbookStatsPostback(client, uid, replyToken);
     return true;
   }
 
@@ -1377,7 +1451,8 @@ async function handleWorkbookQuestion(
   if (!TSUDUMON_FREE_WORKBOOK_TOPICS.includes(topicName)) {
     const gate = await checkTsudumonAccess(uid, location.grade);
     if (gate.result !== 'ok') {
-      await replyText(
+      await replyTextWith(
+        client,
         replyToken,
         buildTsudumonGateText(gate, location.grade),
         `(tsudumon gate wb ${gate.result})`
@@ -1409,6 +1484,7 @@ async function handleWorkbookQuestion(
   if (availableKinds.length === 0) return false;
   if (availableKinds.length === 1) {
     await handleWorkbookKindPostback(
+      client,
       uid,
       replyToken,
       new URLSearchParams({ k: availableKinds[0], t: topicName })
@@ -1419,7 +1495,6 @@ async function handleWorkbookQuestion(
   const kindSelectFlex = buildWorkbookKindSelectFlex(topicName);
   if (!kindSelectFlex) return false;
   try {
-    const client = await getLineClient();
     await client.replyMessage({
       replyToken,
       messages: [kindSelectFlex] as unknown as messagingApi.Message[],
@@ -1544,6 +1619,7 @@ export function buildWorkbookKindSelectFlex(
  * 友だち未登録などで push できないときは 'push_failed' を返す。
  */
 export async function pushWorkbookStart(
+  client: messagingApi.MessagingApiClient,
   lineUserId: string,
   topicName: string
 ): Promise<'ok' | 'unknown_topic' | 'push_failed'> {
@@ -1560,7 +1636,6 @@ export async function pushWorkbookStart(
     );
     if (gate.result !== 'ok') {
       try {
-        const client = await getLineClient();
         await client.pushMessage({
           to: lineUserId,
           messages: [
@@ -1583,7 +1658,6 @@ export async function pushWorkbookStart(
     void linkWorkbookMenuIfEligible(`line:${lineUserId}`);
   }
   try {
-    const client = await getLineClient();
     await client.pushMessage({
       to: lineUserId,
       messages: [flex] as unknown as messagingApi.Message[],
@@ -1600,7 +1674,8 @@ export async function pushWorkbookStart(
  * postback: type=wb_kind&k=...&t=... — 問題の種類選択後。
  * 4択・一問一答は出題順の選択カードを返し、記述（2問）はすぐ開始する。
  */
-async function handleWorkbookKindPostback(
+export async function handleWorkbookKindPostback(
+  client: messagingApi.MessagingApiClient,
   uid: string,
   replyToken: string | undefined,
   params: URLSearchParams
@@ -1610,7 +1685,15 @@ async function handleWorkbookKindPostback(
   if (!replyToken) return;
 
   if (k === 'written') {
-    await sendWorkbookQuestion(uid, replyToken, topicName, 'written', 'seq', 0);
+    await sendWorkbookQuestion(
+      client,
+      uid,
+      replyToken,
+      topicName,
+      'written',
+      'seq',
+      0
+    );
     return;
   }
 
@@ -1708,7 +1791,6 @@ async function handleWorkbookKindPostback(
   };
 
   try {
-    const client = await getLineClient();
     await client.replyMessage({
       replyToken,
       messages: [modeSelectFlex] as unknown as messagingApi.Message[],
@@ -1742,6 +1824,7 @@ function parseWorkbookList(raw: string | null): number[] {
  * kind: choice=4択（Firestore のワーク専用問題）/ term・written=入力問題（メモリバンク）。
  */
 async function sendWorkbookQuestion(
+  client: messagingApi.MessagingApiClient,
   uid: string,
   replyToken: string | undefined,
   topicName: string,
@@ -1753,7 +1836,8 @@ async function sendWorkbookQuestion(
   const location = resolveWorkbookTopic(topicName, WORKBOOK_QUESTION_INDEX);
   if (!location) {
     if (replyToken) {
-      await replyText(
+      await replyTextWith(
+        client,
         replyToken,
         'ごめんね、この単元の問題が見つからなかったよ💦',
         '(workbook topic not found)'
@@ -1764,6 +1848,7 @@ async function sendWorkbookQuestion(
 
   if (kind === 'term' || kind === 'written') {
     await sendWorkbookInputQuestion(
+      client,
       uid,
       replyToken,
       topicName,
@@ -1789,7 +1874,8 @@ async function sendWorkbookQuestion(
       : allIds;
   if (ids.length === 0) {
     if (replyToken) {
-      await replyText(
+      await replyTextWith(
+        client,
         replyToken,
         'ごめんね、この単元の問題が見つからなかったよ💦',
         '(workbook empty ids)'
@@ -1801,6 +1887,7 @@ async function sendWorkbookQuestion(
   // 最後まで解き切ったら結果カード（正答数・間違えた問題・やり直しボタン）。
   if (index >= ids.length) {
     await sendWorkbookCompletion(
+      client,
       uid,
       replyToken,
       topicName,
@@ -1819,7 +1906,7 @@ async function sendWorkbookQuestion(
 
   // 出題はワーク専用問題（紙面の C 実戦問題と同一、q-wb-*）のみ。
   // 毎日配信プール（QUESTION_INDEX）とは完全に分離する。
-  await selectAndSendQuestion(uid, {
+  await selectAndSendQuestion(client, uid, {
     replyToken,
     introText: `📖 ワーク「${topicName}」 ${questionNoText}！`,
     bypassDailyLimit: true,
@@ -1970,6 +2057,7 @@ function buildWorkbookInputQuestionFlex(
  * rand は開始時に並びをシャッフルして list に固定する（全問を1周する）。
  */
 async function sendWorkbookInputQuestion(
+  client: messagingApi.MessagingApiClient,
   uid: string,
   replyToken: string | undefined,
   topicName: string,
@@ -1982,7 +2070,8 @@ async function sendWorkbookInputQuestion(
   const entries = kind === 'term' ? input.terms : input.written;
   if (entries.length === 0) {
     if (replyToken) {
-      await replyText(
+      await replyTextWith(
+        client,
         replyToken,
         'ごめんね、この単元にはまだこの形式の問題がないよ💦',
         '(workbook input empty)'
@@ -2003,6 +2092,7 @@ async function sendWorkbookInputQuestion(
 
   if (index >= positions.length) {
     await sendWorkbookCompletion(
+      client,
       uid,
       replyToken,
       topicName,
@@ -2054,7 +2144,6 @@ async function sendWorkbookInputQuestion(
 
   if (replyToken) {
     try {
-      const client = await getLineClient();
       await client.replyMessage({
         replyToken,
         messages: [questionFlex] as unknown as messagingApi.Message[],
@@ -2220,11 +2309,28 @@ interface RefSessionData {
   askedQuestions?: string[];
   lastQuestion?: string;
   correct?: number;
+  /** 最終やり取りの時刻(ms)。TTL 判定に使う（無い＝古いセッション＝期限切れ扱い）。 */
+  updatedAt?: number;
 }
 
-const REF_END_RE = /^(おわり|終わり|おわる|やめる|終了|stop|ストップ)$/i;
+/** 参考書対話の返信に必ず付ける「出口」。出口が見えないと閉じ込めになる。 */
+const REF_EXIT_QUICK_REPLY = {
+  items: [
+    {
+      type: 'action' as const,
+      action: {
+        type: 'message' as const,
+        label: 'この単元をおわる',
+        text: 'おわり',
+      },
+    },
+  ],
+};
 // 理解度チェックは全 REF_CHECK_TOTAL 問で1セット（無限に続かず自然に終われる）。
 const REF_CHECK_TOTAL = 5;
+
+// 参考書対話セッションの TTL / 離脱ワード判定は純粋ロジックとして切り出し済み。
+// テスト: functions/src/__tests__/refSessionCore.test.ts
 
 /** 理解度チェックの成績に応じた、しめの一言。 */
 function refCheckClosing(correct: number, total: number): string {
@@ -2234,10 +2340,11 @@ function refCheckClosing(correct: number, total: number): string {
 }
 
 /**
- * 参考書QR即開始: LIFF /ref 経由で「スタ先生と深める」メニュー（質問／理解度チェック）
+ * 参考書QR即開始: LIFF /ref 経由で「つづ先生と深める」メニュー（質問／理解度チェック）
  * を push する。reply ではなく push なので配信枠を消費（QR起点＝ユーザー操作の直後）。
  */
 export async function pushReferenceStart(
+  client: messagingApi.MessagingApiClient,
   lineUserId: string,
   topicKey: string
 ): Promise<'ok' | 'unknown_topic' | 'push_failed'> {
@@ -2249,7 +2356,6 @@ export async function pushReferenceStart(
     const gate = await checkTsudumonAccess(`line:${lineUserId}`, topic.grade);
     if (gate.result !== 'ok') {
       try {
-        const client = await getLineClient();
         await client.pushMessage({
           to: lineUserId,
           messages: [
@@ -2265,7 +2371,6 @@ export async function pushReferenceStart(
     }
   }
   try {
-    const client = await getLineClient();
     await client.pushMessage({
       to: lineUserId,
       messages: [
@@ -2285,7 +2390,8 @@ export async function pushReferenceStart(
  * その単元に合った「質問例」を quickReply ボタンで提示（タップで送信＝そのまま質問）。
  * もちろん自由記述の質問もできる。
  */
-async function handleReferenceAskPostback(
+export async function handleReferenceAskPostback(
+  client: messagingApi.MessagingApiClient,
   uid: string,
   replyToken: string | undefined,
   params: URLSearchParams
@@ -2301,7 +2407,13 @@ async function handleReferenceAskPostback(
     awaiting: true,
     history: [],
   };
-  await db.doc(`users/${uid}`).set({ refSession: session }, { merge: true });
+  await db
+    .doc(`users/${uid}`)
+    // updatedAt は TTL 判定用（放置されたセッションを自動で閉じる）
+    .set(
+      { refSession: { ...session, updatedAt: Date.now() } },
+      { merge: true }
+    );
 
   // 単元に合った質問例を AI で生成（失敗しても自由記述で続けられる）。
   let examples: string[] = [];
@@ -2332,7 +2444,6 @@ async function handleReferenceAskPostback(
     },
   ];
 
-  const client = await getLineClient();
   await client.replyMessage({
     replyToken,
     messages: [
@@ -2349,9 +2460,10 @@ async function handleReferenceAskPostback(
 
 /**
  * postback: type=ref_talk&t=... — 「対話で理解を深める」モードに入る。
- * スタ先生が最初に興味をひく一言＋問いかけを投げかけ、以降は対話で深めていく。
+ * つづ先生が最初に興味をひく一言＋問いかけを投げかけ、以降は対話で深めていく。
  */
-async function handleReferenceTalkPostback(
+export async function handleReferenceTalkPostback(
+  client: messagingApi.MessagingApiClient,
   uid: string,
   replyToken: string | undefined,
   params: URLSearchParams
@@ -2372,7 +2484,8 @@ async function handleReferenceTalkPostback(
     ).trim();
   } catch (error) {
     console.error('[lineWebhook] ref talk opener gen failed:', error);
-    await replyText(
+    await replyTextWith(
+      client,
       replyToken,
       'ごめんね、いま準備できなかった。もう一度ためしてね。',
       '(ref_talk_err)'
@@ -2387,9 +2500,14 @@ async function handleReferenceTalkPostback(
     awaiting: true,
     history: [{ role: 'model', text: opener }],
   };
-  await db.doc(`users/${uid}`).set({ refSession: session }, { merge: true });
+  await db
+    .doc(`users/${uid}`)
+    // updatedAt は TTL 判定用（放置されたセッションを自動で閉じる）
+    .set(
+      { refSession: { ...session, updatedAt: Date.now() } },
+      { merge: true }
+    );
 
-  const client = await getLineClient();
   await client.replyMessage({
     replyToken,
     messages: [
@@ -2414,7 +2532,8 @@ async function handleReferenceTalkPostback(
 }
 
 /** postback: type=ref_check&t=... — 難易度選択カードを返す（reply）。 */
-async function handleReferenceCheckPostback(
+export async function handleReferenceCheckPostback(
+  client: messagingApi.MessagingApiClient,
   _uid: string,
   replyToken: string | undefined,
   params: URLSearchParams
@@ -2422,7 +2541,6 @@ async function handleReferenceCheckPostback(
   const topicKey = params.get('t') ?? '';
   const topic = resolveReferenceTopic(topicKey);
   if (!topic || !replyToken) return;
-  const client = await getLineClient();
   await client.replyMessage({
     replyToken,
     messages: [
@@ -2432,7 +2550,8 @@ async function handleReferenceCheckPostback(
 }
 
 /** postback: type=ref_level&t=...&level=... — 出題開始（reply）。 */
-async function handleReferenceLevelPostback(
+export async function handleReferenceLevelPostback(
+  client: messagingApi.MessagingApiClient,
   uid: string,
   replyToken: string | undefined,
   params: URLSearchParams
@@ -2454,7 +2573,8 @@ async function handleReferenceLevelPostback(
     ).trim();
   } catch (error) {
     console.error('[lineWebhook] ref question gen failed:', error);
-    await replyText(
+    await replyTextWith(
+      client,
       replyToken,
       'ごめんね、いま問題を作れなかったみたい。もう一度ためしてね。',
       '(ref_level_err)'
@@ -2473,8 +2593,15 @@ async function handleReferenceLevelPostback(
     lastQuestion: question,
     correct: 0,
   };
-  await db.doc(`users/${uid}`).set({ refSession: session }, { merge: true });
-  await replyText(
+  await db
+    .doc(`users/${uid}`)
+    // updatedAt は TTL 判定用（放置されたセッションを自動で閉じる）
+    .set(
+      { refSession: { ...session, updatedAt: Date.now() } },
+      { merge: true }
+    );
+  await replyTextWith(
+    client,
     replyToken,
     `✅ 理解度チェック（${REF_LEVEL_LABEL[level]}）スタート！ぜんぶで${REF_CHECK_TOTAL}問だよ。\n\n` +
       `【第1問 / 全${REF_CHECK_TOTAL}問】\n${question}\n\n答えを送ってね。`,
@@ -2486,7 +2613,8 @@ async function handleReferenceLevelPostback(
  * 参考書対話中のテキスト（質問への回答 / チェックの答え）を処理。
  * handleMessage で userData 取得済みのため追加 read はなし。消費したら true。
  */
-async function handleReferenceTextInput(
+export async function handleReferenceTextInput(
+  client: messagingApi.MessagingApiClient,
   uid: string,
   replyToken: string,
   text: string,
@@ -2498,12 +2626,34 @@ async function handleReferenceTextInput(
   if (!topic) return false;
   const { db, FieldValue } = await getDb();
 
+  // 期限切れセッションは黙って閉じ、この入力は通常のAIチャットへ渡す（false を返す）。
+  // `updatedAt` が無いのは TTL 導入前に作られた古いセッション＝同じく期限切れ扱い。
+  //
+  // ⚠️ ここで refSession を**丸ごと消してはいけない**。`history` は
+  // 教材ページ内のつづ先生チャット（`referenceChat`）と共有しており、消すと
+  // Web側の会話履歴まで失われる。閉じ込めを解くのに必要なのは「LINEの自由文を
+  // この単元へ吸わせないこと」だけなので、`awaiting` だけ下ろす。
+  if (isRefSessionExpired(session, Date.now())) {
+    try {
+      await db
+        .doc(`users/${uid}`)
+        .set({ refSession: { awaiting: false } }, { merge: true });
+    } catch (error) {
+      console.error('[lineWebhook] ref session expire cleanup failed:', error);
+    }
+    console.log(
+      `[lineWebhook] ref session expired uid=${uid} topic=${session.topicKey}`
+    );
+    return false;
+  }
+
   // 終了ワードでセッションを閉じる。
-  if (REF_END_RE.test(text.trim())) {
+  if (isRefEndText(text)) {
     await db
       .doc(`users/${uid}`)
       .set({ refSession: FieldValue.delete() }, { merge: true });
-    await replyText(
+    await replyTextWith(
+      client,
       replyToken,
       `おつかれさま！「${topic.name}」の学習はここまで。またいつでも聞いてね😊`,
       '(ref_end)'
@@ -2516,7 +2666,7 @@ async function handleReferenceTextInput(
   if (session.mode === 'ask' || session.mode === 'talk') {
     const hist = (session.history ?? [])
       .slice(-6)
-      .map((h) => `${h.role === 'user' ? '生徒' : 'スタ先生'}: ${h.text}`)
+      .map((h) => `${h.role === 'user' ? '生徒' : 'つづ先生'}: ${h.text}`)
       .join('\n');
     const userText = hist
       ? `これまでのやり取り:\n${hist}\n\n生徒の発言: ${text}`
@@ -2530,7 +2680,8 @@ async function handleReferenceTextInput(
       answer = (await generateGeminiText(sysPrompt, userText, 500)).trim();
     } catch (error) {
       console.error('[lineWebhook] ref ask/talk gen failed:', error);
-      await replyText(
+      await replyTextWith(
+        client,
         replyToken,
         'ごめんね、いまうまく答えられなかった。もう一度おしえてくれる？',
         '(ref_ask_err)'
@@ -2544,8 +2695,18 @@ async function handleReferenceTextInput(
     ].slice(-8);
     await db
       .doc(`users/${uid}`)
-      .set({ refSession: { ...session, history } }, { merge: true });
-    await replyText(replyToken, answer, '(ref_ask_reply)');
+      .set(
+        { refSession: { ...session, history, updatedAt: Date.now() } },
+        { merge: true }
+      );
+    // 出口（この単元をおわる）を毎回そえる。見えないと閉じ込めになる。
+    await replyTextWith(
+      client,
+      replyToken,
+      answer,
+      '(ref_ask_reply)',
+      REF_EXIT_QUICK_REPLY
+    );
     return true;
   }
 
@@ -2563,7 +2724,8 @@ async function handleReferenceTextInput(
       ).trim();
     } catch (error) {
       console.error('[lineWebhook] ref grade gen failed:', error);
-      await replyText(
+      await replyTextWith(
+        client,
         replyToken,
         'ごめんね、いま採点できなかった。もう一度答えてくれる？',
         '(ref_check_err)'
@@ -2580,7 +2742,8 @@ async function handleReferenceTextInput(
       await db
         .doc(`users/${uid}`)
         .set({ refSession: FieldValue.delete() }, { merge: true });
-      await replyText(
+      await replyTextWith(
+        client,
         replyToken,
         `${grade}\n\n━━━━━\n🎉 理解度チェックおわり！\n` +
           `全${REF_CHECK_TOTAL}問中 ${correct}問 正解だったよ。\n` +
@@ -2622,6 +2785,7 @@ async function handleReferenceTextInput(
             askedQuestions: asked,
             lastQuestion: next,
             correct,
+            updatedAt: Date.now(),
           },
         },
         { merge: true }
@@ -2629,17 +2793,20 @@ async function handleReferenceTextInput(
       const heading = isLast
         ? `【第${nextCount}問 / 全${REF_CHECK_TOTAL}問・ラスト！】`
         : `【第${nextCount}問 / 全${REF_CHECK_TOTAL}問】`;
-      await replyText(
+      await replyTextWith(
+        client,
         replyToken,
         `${grade}\n\n━━━━━\n${heading}\n${next}`,
-        '(ref_check_reply)'
+        '(ref_check_reply)',
+        REF_EXIT_QUICK_REPLY
       );
     } else {
       // 次が作れなければ、その場でセットを締める（宙ぶらりんにしない）。
       await db
         .doc(`users/${uid}`)
         .set({ refSession: FieldValue.delete() }, { merge: true });
-      await replyText(
+      await replyTextWith(
+        client,
         replyToken,
         `${grade}\n\n━━━━━\n🎉 理解度チェックおわり！\n` +
           `ここまでで ${correct}問 正解だったよ。\n` +
@@ -2659,7 +2826,8 @@ async function handleReferenceTextInput(
  * handleMessage で userData 取得済みのため追加 read はなし。
  * 消費した（=AIチャットへ流さない）場合 true を返す。
  */
-async function handleWorkbookTextAnswer(
+export async function handleWorkbookTextAnswer(
+  client: messagingApi.MessagingApiClient,
   uid: string,
   replyToken: string,
   text: string,
@@ -2681,7 +2849,8 @@ async function handleWorkbookTextAnswer(
     } catch (error) {
       console.error('[lineWebhook] workbook quit cleanup failed:', error);
     }
-    await replyText(
+    await replyTextWith(
+      client,
       replyToken,
       'おつかれさま！✨ 続きはまたワークのQRコードからいつでも解けるよ📖',
       '(workbook quit)'
@@ -2876,7 +3045,6 @@ async function handleWorkbookTextAnswer(
     ...(completionFlex ? [completionFlex] : []),
   ];
   try {
-    const client = await getLineClient();
     await client.replyMessage({
       replyToken,
       messages: replyMessages as unknown as messagingApi.Message[],
@@ -2955,7 +3123,8 @@ async function gradeWrittenAnswer(
  * postback: type=wb_iskip&questionId=... — 入力問題の「わからない」。
  * 答えと解説（記述は模範解答）を見せ、不正解として記録して次に進めるようにする。
  */
-async function handleWorkbookInputSkipPostback(
+export async function handleWorkbookInputSkipPostback(
+  client: messagingApi.MessagingApiClient,
   uid: string,
   replyToken: string | undefined,
   params: URLSearchParams
@@ -2964,7 +3133,8 @@ async function handleWorkbookInputSkipPostback(
   if (!qid || !replyToken) return;
   const lookup = findWorkbookInputQuestion(qid);
   if (!lookup) {
-    await replyText(
+    await replyTextWith(
+      client,
       replyToken,
       'ごめんね、その問題が見つからなかったみたい💦 もう一度試してみてね。',
       '(wb_iskip not found)'
@@ -2981,7 +3151,8 @@ async function handleWorkbookInputSkipPostback(
     session = (data?.workbookSession as WorkbookSessionData) ?? {};
     statsFromRead = (data?.workbookStats as WorkbookStatsData) ?? {};
     if (data?.lastAnsweredQuestionId === qid) {
-      await replyText(
+      await replyTextWith(
+        client,
         replyToken,
         'その問題はもう答えを見てるよ😊 このまま続きをどうぞ！',
         '(wb_iskip duplicate)'
@@ -3096,7 +3267,6 @@ async function handleWorkbookInputSkipPostback(
     verdict: 'skip',
   });
   try {
-    const client = await getLineClient();
     await client.replyMessage({
       replyToken,
       messages: [
@@ -3115,7 +3285,8 @@ async function handleWorkbookInputSkipPostback(
  * 別解・表記ゆれの可能性を Gemini に判定させ、正解なら answers を訂正し
  * セッションの結果カウンタも直す。
  */
-async function handleWorkbookRegradePostback(
+export async function handleWorkbookRegradePostback(
+  client: messagingApi.MessagingApiClient,
   uid: string,
   replyToken: string | undefined
 ): Promise<void> {
@@ -3132,7 +3303,8 @@ async function handleWorkbookRegradePostback(
   const li = session.lastInput;
   const lookup = li?.qid ? findWorkbookInputQuestion(li.qid) : undefined;
   if (!li?.text || !lookup?.term) {
-    await replyText(
+    await replyTextWith(
+      client,
       replyToken,
       'ごめんね、再採点する解答が見つからなかったよ💦',
       '(wb_regrade no input)'
@@ -3160,7 +3332,8 @@ async function handleWorkbookRegradePostback(
     }
   } catch (error) {
     console.error('[lineWebhook] wb_regrade gemini failed:', error);
-    await replyText(
+    await replyTextWith(
+      client,
       replyToken,
       'ごめんね、再採点がうまくいかなかったよ💦 もう一度「再採点」を押してみてね。',
       '(wb_regrade ai error)'
@@ -3216,7 +3389,6 @@ async function handleWorkbookRegradePostback(
       fixedSession
     );
     try {
-      const client = await getLineClient();
       await client.replyMessage({
         replyToken,
         messages: [flex] as unknown as messagingApi.Message[],
@@ -3230,7 +3402,6 @@ async function handleWorkbookRegradePostback(
       session
     );
     try {
-      const client = await getLineClient();
       await client.replyMessage({
         replyToken,
         messages: [flex] as unknown as messagingApi.Message[],
@@ -3492,6 +3663,7 @@ async function buildWorkbookCompletionFlex(
 
 /** ワーク完走カードを reply で送る（wb_next 旧経路・wb_start 直後の完走用） */
 async function sendWorkbookCompletion(
+  client: messagingApi.MessagingApiClient,
   uid: string,
   replyToken: string | undefined,
   topicName: string,
@@ -3501,7 +3673,6 @@ async function sendWorkbookCompletion(
   if (!replyToken) return;
   const flex = await buildWorkbookCompletionFlex(uid, topicName, total, kind);
   try {
-    const client = await getLineClient();
     await client.replyMessage({
       replyToken,
       messages: [flex] as unknown as messagingApi.Message[],
@@ -3516,7 +3687,8 @@ function parseWorkbookKind(raw: string | null): WorkbookKind {
 }
 
 /** postback: type=wb_start&k=...&m={seq|rand|retry}&t={単元名}[&list=1,3] — ワーク演習の開始 */
-async function handleWorkbookStartPostback(
+export async function handleWorkbookStartPostback(
+  client: messagingApi.MessagingApiClient,
   uid: string,
   replyToken: string | undefined,
   params: URLSearchParams
@@ -3525,11 +3697,21 @@ async function handleWorkbookStartPostback(
   const mode = parseWorkbookMode(params.get('m'));
   const topicName = params.get('t') ?? '';
   const list = parseWorkbookList(params.get('list'));
-  await sendWorkbookQuestion(uid, replyToken, topicName, kind, mode, 0, list);
+  await sendWorkbookQuestion(
+    client,
+    uid,
+    replyToken,
+    topicName,
+    kind,
+    mode,
+    0,
+    list
+  );
 }
 
 /** postback: type=wb_next&k=...&m=...&t=...&i=N[&list=1,3] — ワークの次の問題 */
-async function handleWorkbookNextPostback(
+export async function handleWorkbookNextPostback(
+  client: messagingApi.MessagingApiClient,
   uid: string,
   replyToken: string | undefined,
   params: URLSearchParams
@@ -3540,6 +3722,7 @@ async function handleWorkbookNextPostback(
   const index = Number(params.get('i') ?? '0');
   const list = parseWorkbookList(params.get('list'));
   await sendWorkbookQuestion(
+    client,
     uid,
     replyToken,
     topicName,
@@ -3787,7 +3970,8 @@ function buildWorkbookAnswerFlexMessage(
  * 答えと解説を見せ、**不正解として answers に記録**して（苦手復習の対象になる）、
  * 次の問題（または完走カード）を同じ reply に同梱して演習を続けられるようにする。
  */
-async function handleWorkbookIdkPostback(
+export async function handleWorkbookIdkPostback(
+  client: messagingApi.MessagingApiClient,
   uid: string,
   replyToken: string | undefined,
   params: URLSearchParams
@@ -3802,7 +3986,8 @@ async function handleWorkbookIdkPostback(
     const userSnap = await db.doc(`users/${uid}`).get();
     currentUserData = userSnap.data();
     if (currentUserData?.lastAnsweredQuestionId === questionId) {
-      await replyText(
+      await replyTextWith(
+        client,
         replyToken,
         'その問題はもう答えを見てるよ😊 このまま続きをどうぞ！',
         '(wb_idk duplicate)'
@@ -3821,7 +4006,8 @@ async function handleWorkbookIdkPostback(
     console.error('[lineWebhook] wb_idk question read failed:', error);
   }
   if (!question) {
-    await replyText(
+    await replyTextWith(
+      client,
       replyToken,
       'ごめんね、その問題が見つからなかったみたい💦 もう一度試してみてね。',
       '(wb_idk not found)'
@@ -3883,7 +4069,6 @@ async function handleWorkbookIdkPostback(
   }
 
   try {
-    const client = await getLineClient();
     const messages: LineMessage[] = isWb
       ? [
           buildWorkbookAnswerFlexMessage(text, wbSession!, {
@@ -3956,7 +4141,8 @@ async function handleWorkbookIdkPostback(
  * postback: type=wb_stats（またはテキスト「ワーク成績」）— 進捗・苦手ダッシュボード。
  * データは回答時に蓄積済みの users.workbookStats を使う（1 read のみ・answers はスキャンしない）。
  */
-async function handleWorkbookStatsPostback(
+export async function handleWorkbookStatsPostback(
+  client: messagingApi.MessagingApiClient,
   uid: string,
   replyToken: string | undefined
 ): Promise<void> {
@@ -3973,7 +4159,8 @@ async function handleWorkbookStatsPostback(
 
   const total = stats.total ?? 0;
   if (total === 0) {
-    await replyText(
+    await replyTextWith(
+      client,
       replyToken,
       'まだワークの記録がないよ📖 ワークのQRコードから問題を解くと、ここに成績がたまっていくよ！',
       '(wb_stats empty)'
@@ -4185,7 +4372,6 @@ async function handleWorkbookStatsPostback(
   };
 
   try {
-    const client = await getLineClient();
     await client.replyMessage({
       replyToken,
       messages: [flex] as unknown as messagingApi.Message[],
@@ -4245,7 +4431,8 @@ async function linkWorkbookMenuIfEligible(uid: string): Promise<void> {
 }
 
 /** postback: type=wb_recent — 前回解いていた単元の種類選択カードを出す（リッチメニュー用） */
-async function handleWorkbookRecentPostback(
+export async function handleWorkbookRecentPostback(
+  client: messagingApi.MessagingApiClient,
   uid: string,
   replyToken: string | undefined
 ): Promise<void> {
@@ -4262,18 +4449,20 @@ async function handleWorkbookRecentPostback(
     console.error('[lineWebhook] wb_recent read failed:', error);
   }
   if (!topic) {
-    await replyText(
+    await replyTextWith(
+      client,
       replyToken,
       'まだ解いた単元がないよ📖 ワークのQRコードを読み取るか、「ワーク 単元名」と送って始めよう！',
       '(wb_recent empty)'
     );
     return;
   }
-  await handleWorkbookQuestion(uid, replyToken, `ワーク ${topic}`);
+  await handleWorkbookQuestion(client, uid, replyToken, `ワーク ${topic}`);
 }
 
 /** postback: type=wb_weak — いちばんニガテな単元にすぐ再挑戦（リッチメニュー用） */
-async function handleWorkbookWeakPostback(
+export async function handleWorkbookWeakPostback(
+  client: messagingApi.MessagingApiClient,
   uid: string,
   replyToken: string | undefined
 ): Promise<void> {
@@ -4298,18 +4487,25 @@ async function handleWorkbookWeakPostback(
   }
   const weak = rows.filter((r) => r.acc < 0.6).sort((a, b) => a.acc - b.acc);
   if (weak.length === 0) {
-    await replyText(
+    await replyTextWith(
+      client,
       replyToken,
       '🎉 いまのところ大きなニガテはないよ！この調子💪\n（5問以上解いた単元の正答率が60%を切るとここに出るよ）',
       '(wb_weak empty)'
     );
     return;
   }
-  await handleWorkbookQuestion(uid, replyToken, `ワーク ${weak[0].topic}`);
+  await handleWorkbookQuestion(
+    client,
+    uid,
+    replyToken,
+    `ワーク ${weak[0].topic}`
+  );
 }
 
 /** postback: type=wb_end — ワーク演習を切り上げる */
-async function handleWorkbookEndPostback(
+export async function handleWorkbookEndPostback(
+  client: messagingApi.MessagingApiClient,
   uid: string,
   replyToken: string | undefined
 ): Promise<void> {
@@ -4322,11 +4518,44 @@ async function handleWorkbookEndPostback(
     console.error('[lineWebhook] workbook end cleanup failed:', error);
   }
   if (replyToken) {
-    await replyText(
+    await replyTextWith(
+      client,
       replyToken,
       'おつかれさま！✨ 今日もよくがんばったね。続きはまたワークのQRコードからいつでも解けるよ📖',
       '(workbook end)'
     );
+  }
+}
+
+/**
+ * postback: type=wb_help — ワーク問題集の使い方案内。
+ * 旧webhookの handlePostback では type=wb_help をインラインで処理していたが、
+ * 新Bot（つづもんwebhook）からも呼べるよう独立関数として切り出したもの
+ * （文言・挙動は無変更）。
+ */
+export async function handleWorkbookHelpPostback(
+  client: messagingApi.MessagingApiClient,
+  replyToken: string | undefined
+): Promise<void> {
+  if (!replyToken) return;
+  try {
+    await client.replyMessage({
+      replyToken,
+      messages: [
+        {
+          type: 'text',
+          text:
+            '📖 ワーク問題集の使い方\n\n' +
+            '① 紙のワークにあるQRコードをスマホで読み取る（またはPDFのリンクをタップ）\n' +
+            '② 問題カードが自動でトークに届く\n' +
+            '③ 4択・入力・記述からえらんで挑戦！\n\n' +
+            '💡 直接「ワーク 大化の改新」のように送ってもOK\n' +
+            '💡「ワーク成績」でレベルやニガテを確認できるよ',
+        },
+      ],
+    });
+  } catch (error) {
+    console.error('[lineWebhook] wb_help reply failed:', error);
   }
 }
 
@@ -4408,9 +4637,11 @@ async function fetchLineMessageContent(message: {
  * - MIME は LINE の形式が決まっているため、種別から確実なものを与える
  *   （画像=image/jpeg、音声=audio/mp4 を基本に、ヘッダ優先で補正）。
  */
-async function handleMediaMessage(
+export async function handleMediaMessage(
+  client: messagingApi.MessagingApiClient,
   event: LineEvent,
-  messageType: 'image' | 'audio'
+  messageType: 'image' | 'audio',
+  botKind: AiChatBotKind = 'ichimon'
 ): Promise<void> {
   const message = event.message;
   const replyToken = event.replyToken;
@@ -4427,7 +4658,6 @@ async function handleMediaMessage(
     message.duration > MAX_AUDIO_DURATION_MS
   ) {
     try {
-      const client = await getLineClient();
       await client.replyMessage({
         replyToken,
         messages: [{ type: 'text', text: AUDIO_TOO_LONG_TEXT }],
@@ -4464,7 +4694,6 @@ async function handleMediaMessage(
       getDailyLimit(plan)
     );
     if (limited) {
-      const client = await getLineClient();
       await client.replyMessage({
         replyToken,
         messages: [{ type: 'text', text: LIMIT_REACHED_TEXT }],
@@ -4483,7 +4712,6 @@ async function handleMediaMessage(
   } catch (error) {
     console.error('[lineWebhook] fetchLineMessageContent failed:', error);
     try {
-      const client = await getLineClient();
       await client.replyMessage({
         replyToken,
         messages: [{ type: 'text', text: MEDIA_ERROR_TEXT }],
@@ -4506,10 +4734,16 @@ async function handleMediaMessage(
   }
 
   try {
-    const { handleAiChat } = await import('./aiChat');
-    await handleAiChat(uid, replyToken, '', userData as never, [
-      { mimeType, data: content.data },
-    ]);
+    const { handleAiChatWith } = await import('./aiChat');
+    await handleAiChatWith(
+      client,
+      uid,
+      replyToken,
+      '',
+      userData as never,
+      [{ mimeType, data: content.data }],
+      botKind
+    );
   } catch (error) {
     console.error('[lineWebhook] handleAiChat (media) failed:', error);
   }
@@ -4525,7 +4759,11 @@ async function handleMediaMessage(
 // いずれの場合も handleAiChat が会話履歴を含めて応答するため、「これまでの
 // 会話＋スタンプ」を踏まえた返事になる。レート制限・履歴・計測も handleAiChat
 // 内で完結する（reply 送信なので配信枠は消費しない）。
-async function handleStickerMessage(event: LineEvent): Promise<void> {
+export async function handleStickerMessage(
+  client: messagingApi.MessagingApiClient,
+  event: LineEvent,
+  botKind: AiChatBotKind = 'ichimon'
+): Promise<void> {
   const message = event.message;
   const replyToken = event.replyToken;
   const uid = buildUid(event);
@@ -4559,8 +4797,16 @@ async function handleStickerMessage(event: LineEvent): Promise<void> {
     const { db } = await getDb();
     const snap = await db.doc(`users/${uid}`).get();
     const userData = snap.data();
-    const { handleAiChat } = await import('./aiChat');
-    await handleAiChat(uid, replyToken, userText, userData as never);
+    const { handleAiChatWith } = await import('./aiChat');
+    await handleAiChatWith(
+      client,
+      uid,
+      replyToken,
+      userText,
+      userData as never,
+      undefined,
+      botKind
+    );
   } catch (error) {
     console.error('[lineWebhook] handleStickerMessage failed:', error);
   }
@@ -4671,7 +4917,7 @@ async function handleRestartIntent(
   }
 
   try {
-    await selectAndSendQuestion(uid, {
+    await selectAndSendQuestion(await getLineClient(), uid, {
       pushType: 'restartWelcome',
       source: 'restart',
       // 直前に「おかえり」replyを送っているため、問題カード側の
@@ -5063,93 +5309,127 @@ async function handlePostback(event: LineEvent): Promise<void> {
   }
 
   if (type === 'answer') {
-    await handleAnswerPostback(uid, replyToken, params);
+    await handleAnswerPostback(await getLineClient(), uid, replyToken, params);
     return;
   }
 
   if (type === 'wb_start') {
-    await handleWorkbookStartPostback(uid, replyToken, params);
+    await handleWorkbookStartPostback(
+      await getLineClient(),
+      uid,
+      replyToken,
+      params
+    );
     return;
   }
 
   if (type === 'wb_next') {
-    await handleWorkbookNextPostback(uid, replyToken, params);
+    await handleWorkbookNextPostback(
+      await getLineClient(),
+      uid,
+      replyToken,
+      params
+    );
     return;
   }
 
   if (type === 'wb_end') {
-    await handleWorkbookEndPostback(uid, replyToken);
+    await handleWorkbookEndPostback(await getLineClient(), uid, replyToken);
     return;
   }
 
   if (type === 'wb_idk') {
-    await handleWorkbookIdkPostback(uid, replyToken, params);
+    await handleWorkbookIdkPostback(
+      await getLineClient(),
+      uid,
+      replyToken,
+      params
+    );
     return;
   }
 
   if (type === 'wb_kind') {
-    await handleWorkbookKindPostback(uid, replyToken, params);
+    await handleWorkbookKindPostback(
+      await getLineClient(),
+      uid,
+      replyToken,
+      params
+    );
     return;
   }
 
   if (type === 'wb_iskip') {
-    await handleWorkbookInputSkipPostback(uid, replyToken, params);
+    await handleWorkbookInputSkipPostback(
+      await getLineClient(),
+      uid,
+      replyToken,
+      params
+    );
     return;
   }
 
   if (type === 'wb_regrade') {
-    await handleWorkbookRegradePostback(uid, replyToken);
+    await handleWorkbookRegradePostback(await getLineClient(), uid, replyToken);
     return;
   }
 
   if (type === 'wb_stats') {
-    await handleWorkbookStatsPostback(uid, replyToken);
+    await handleWorkbookStatsPostback(await getLineClient(), uid, replyToken);
     return;
   }
 
   if (type === 'wb_recent') {
-    await handleWorkbookRecentPostback(uid, replyToken);
+    await handleWorkbookRecentPostback(await getLineClient(), uid, replyToken);
     return;
   }
 
   if (type === 'wb_weak') {
-    await handleWorkbookWeakPostback(uid, replyToken);
+    await handleWorkbookWeakPostback(await getLineClient(), uid, replyToken);
     return;
   }
 
   if (type === 'wb_help') {
-    if (replyToken) {
-      await replyText(
-        replyToken,
-        '📖 ワーク問題集の使い方\n\n' +
-          '① 紙のワークにあるQRコードをスマホで読み取る（またはPDFのリンクをタップ）\n' +
-          '② 問題カードが自動でトークに届く\n' +
-          '③ 4択・入力・記述からえらんで挑戦！\n\n' +
-          '💡 直接「ワーク 大化の改新」のように送ってもOK\n' +
-          '💡「ワーク成績」でレベルやニガテを確認できるよ',
-        '(wb_help)'
-      );
-    }
+    await handleWorkbookHelpPostback(await getLineClient(), replyToken);
     return;
   }
 
   if (type === 'ref_ask') {
-    await handleReferenceAskPostback(uid, replyToken, params);
+    await handleReferenceAskPostback(
+      await getLineClient(),
+      uid,
+      replyToken,
+      params
+    );
     return;
   }
 
   if (type === 'ref_talk') {
-    await handleReferenceTalkPostback(uid, replyToken, params);
+    await handleReferenceTalkPostback(
+      await getLineClient(),
+      uid,
+      replyToken,
+      params
+    );
     return;
   }
 
   if (type === 'ref_check') {
-    await handleReferenceCheckPostback(uid, replyToken, params);
+    await handleReferenceCheckPostback(
+      await getLineClient(),
+      uid,
+      replyToken,
+      params
+    );
     return;
   }
 
   if (type === 'ref_level') {
-    await handleReferenceLevelPostback(uid, replyToken, params);
+    await handleReferenceLevelPostback(
+      await getLineClient(),
+      uid,
+      replyToken,
+      params
+    );
     return;
   }
 
@@ -5283,7 +5563,7 @@ async function handlePostback(event: LineEvent): Promise<void> {
     } else if (replyToken) {
       // 旧メニューには「1問解く」ボタンが無いため、案内だけで終わらせず
       // そのまま追加の1問を同じ reply で届ける（配信枠ゼロ）。
-      await selectAndSendQuestion(uid, {
+      await selectAndSendQuestion(await getLineClient(), uid, {
         replyToken,
         introText:
           'おしらせ：いまは追加問題も苦手復習も、ぜんぶ無料で使えるようになったよ🎉\n' +
@@ -5867,7 +6147,7 @@ async function handleScopeFinishPostback(
 
   if (isInitialSetup) {
     try {
-      await selectAndSendQuestion(uid, {
+      await selectAndSendQuestion(await getLineClient(), uid, {
         replyToken,
         prependMessages: [{ type: 'text', text: confirmText }],
         isInitialSetup: true,
@@ -6001,7 +6281,7 @@ async function handleScopeCommitPostback(
   // 初回設定なら確認文 + 1問目を一度の reply で送る（push トリガは抑止済み）
   if (isInitialSetup) {
     try {
-      await selectAndSendQuestion(uid, {
+      await selectAndSendQuestion(await getLineClient(), uid, {
         replyToken,
         prependMessages: [{ type: 'text', text: confirmText }],
         isInitialSetup: true,
@@ -6340,7 +6620,7 @@ async function handleNotLearnedApplyPostback(
   const confirmText = `OK！${scopeNote}\n習ったら、メニューの「出題範囲設定」でいつでも戻せるからね。\n\n代わりにこの1問はどうかな👇`;
 
   try {
-    await selectAndSendQuestion(uid, {
+    await selectAndSendQuestion(await getLineClient(), uid, {
       replyToken,
       prependMessages: [{ type: 'text', text: confirmText }],
       bypassDailyLimit: true,
@@ -9080,7 +9360,7 @@ async function handleExtraQuestionPostback(
     }
   }
 
-  await selectAndSendQuestion(uid, {
+  await selectAndSendQuestion(await getLineClient(), uid, {
     replyToken,
     introText: getExtraQuestionIntro(),
     bypassDailyLimit: true,
@@ -9625,7 +9905,8 @@ async function handleSelectTimePostback(
   }
 }
 
-async function handleAnswerPostback(
+export async function handleAnswerPostback(
+  client: messagingApi.MessagingApiClient,
   uid: string,
   replyToken: string | undefined,
   params: URLSearchParams
@@ -9640,7 +9921,8 @@ async function handleAnswerPostback(
       params.toString()
     );
     if (replyToken) {
-      await replyText(
+      await replyTextWith(
+        client,
         replyToken,
         'ごめんね、うまく受け取れなかったみたい💦 もう一度選択肢をタップしてみてね。',
         '(invalid params)'
@@ -9663,7 +9945,8 @@ async function handleAnswerPostback(
     currentUserData = userData;
     if (userData?.lastAnsweredQuestionId === questionId) {
       console.warn('[lineWebhook] handleAnswer duplicate:', uid, questionId);
-      await replyText(
+      await replyTextWith(
+        client,
         replyToken,
         'その問題はもう答えてくれてるよ😊 ちゃんと記録できてるから安心してね。また次の問題で待ってるね！',
         '(duplicate answer)'
@@ -9680,7 +9963,8 @@ async function handleAnswerPostback(
     questionSnap = await db.doc(`questions/${questionId}`).get();
   } catch (error) {
     console.error('[lineWebhook] handleAnswer firestore read failed:', error);
-    await replyText(
+    await replyTextWith(
+      client,
       replyToken,
       'ごめんね、うまく処理できなかったみたい💦 少し時間を置いて、もう一度試してみてね。',
       '(read error)'
@@ -9690,7 +9974,8 @@ async function handleAnswerPostback(
 
   if (!questionSnap.exists) {
     console.warn('[lineWebhook] handleAnswer question not found:', questionId);
-    await replyText(
+    await replyTextWith(
+      client,
       replyToken,
       'ごめんね、その問題が見つからなかったみたい💦 もう一度試してみてね。',
       '(not found)'
@@ -9832,7 +10117,6 @@ async function handleAnswerPostback(
   }
 
   try {
-    const client = await getLineClient();
     const prevXp = (wbStats.xp ?? 0) as number;
     // ワーク経路は正誤を色付きバナーで出すため、本文は見出しなしの
     // フィードバック＋解説のみにする（4択は解説画像なしの通常カードのみ）。
@@ -10013,20 +10297,35 @@ function workbookXpLine(prevXp: number, gain: number): string {
   return `⚡ +${gain}XP ・ Lv.${level}（あと${Math.max(0, next - total)}XPでLv.${level + 1}）`;
 }
 
+/**
+ * つづもん/一問一答どちらのBotからでも使える reply ヘルパー。
+ * client を注入し、reply token を発行したチャネルのアクセストークンで返信する。
+ */
+async function replyTextWith(
+  client: messagingApi.MessagingApiClient,
+  replyToken: string,
+  text: string,
+  context: string,
+  /** 任意のクイックリプライ（参考書対話の「この単元をおわる」など）。 */
+  quickReply?: messagingApi.QuickReply
+): Promise<void> {
+  try {
+    await client.replyMessage({
+      replyToken,
+      messages: [{ type: 'text', text, ...(quickReply ? { quickReply } : {}) }],
+    });
+  } catch (error) {
+    console.error(`[lineWebhook] replyText failed ${context}:`, error);
+  }
+}
+
+/** 旧Bot固定の薄いラッパー。既存の呼び出し元は無変更のまま使える。 */
 async function replyText(
   replyToken: string,
   text: string,
   context: string
 ): Promise<void> {
-  try {
-    const client = await getLineClient();
-    await client.replyMessage({
-      replyToken,
-      messages: [{ type: 'text', text }],
-    });
-  } catch (error) {
-    console.error(`[lineWebhook] replyText failed ${context}:`, error);
-  }
+  await replyTextWith(await getLineClient(), replyToken, text, context);
 }
 
 type LineMessage = { type: string } & Record<string, unknown>;
@@ -10183,6 +10482,7 @@ async function selectQuestionByFullScan(
 }
 
 export async function selectAndSendQuestion(
+  client: messagingApi.MessagingApiClient,
   uid: string,
   options: SendOptions = {}
 ): Promise<void> {
@@ -10278,7 +10578,6 @@ export async function selectAndSendQuestion(
         gradeEligible
       ) {
         try {
-          const client = await getLineClient();
           await client.replyMessage({
             replyToken,
             messages: [
@@ -10293,7 +10592,12 @@ export async function selectAndSendQuestion(
           );
         }
       } else {
-        await replyText(replyToken, text, '(already delivered today)');
+        await replyTextWith(
+          client,
+          replyToken,
+          text,
+          '(already delivered today)'
+        );
       }
     } else {
       console.log(
@@ -10392,7 +10696,6 @@ export async function selectAndSendQuestion(
       );
       if (replyToken) {
         try {
-          const client = await getLineClient();
           await client.replyMessage({
             replyToken,
             messages: [
@@ -10489,7 +10792,6 @@ export async function selectAndSendQuestion(
   }
 
   try {
-    const client = await getLineClient();
     const sdkMessages = messages as unknown as messagingApi.Message[];
     if (replyToken) {
       await client.replyMessage({ replyToken, messages: sdkMessages });

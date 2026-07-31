@@ -168,5 +168,30 @@ service cloud.firestore {
     match /tsudumonLicenses/{code} {
       allow read: if isAdmin();
     }
+
+    // ===== AI 個別サポート（つづもん有料）=====
+    // .steering/20260725-ai-personal-support/
+
+    // AI の月次コスト集計（サービス全体キャップの判定材料）。
+    // 書き込みは Cloud Functions（admin SDK）のみ。**クライアントに書かせない**
+    // ——ここを改竄されると全体キャップが無効化され高額請求につながる。
+    match /aiCostStats/{yearMonth} {
+      allow read: if isAdmin();
+    }
+
+    // AI との全会話アーカイブ（つづもん課金者の長期記憶）。生徒の会話原文を含むため
+    // クライアントからは読ませない（本人にも API 経由でしか出さない）。
+    // 書き込みは Cloud Functions のみ。削除は運用スクリプト（解約・削除要求時）。
+    match /aiThreads/{uid} {
+      allow read: if isAdmin();
+      match /{sub}/{docId} {
+        allow read: if isAdmin();
+      }
+    }
+
+    // 危険サイン（自傷・いじめ等）の検知記録。センシティブなので admin のみ。
+    match /aiSafetyFlags/{flagId} {
+      allow read: if isAdmin();
+    }
   }
 }

@@ -29,6 +29,18 @@ export type ServerFunnelEventType =
   | 'paid_contract_started'
   | 'paid_cancel_requested'
   | 'checkout_session_created'
+  // === つづもん 保護者導線（.steering/20260727-parent-handoff/）===
+  // 中学生本人は決済できないので、ここが唯一の課金経路。どこで落ちるかを段階で見る。
+  /** 子が「おうちの人にわたすカード」を発行した */
+  | 'parent_link_created'
+  /** 保護者がカード（保護者ページ）を開いた。uid は**子**で記録する */
+  | 'parent_page_viewed'
+  /** 保護者が決済に進んだ（context: sibling） */
+  | 'parent_checkout_started'
+  /** 保護者が公式LINEで子と連携した（context: childCount） */
+  | 'parent_linked'
+  /** 連携が解除された（context: by='child'|'parent'） */
+  | 'parent_unlinked'
   // 休眠ユーザー除外システム / Win-back（§B, §C）
   | 'winback_sent'
   | 'status_transition'
@@ -49,7 +61,26 @@ export type ServerFunnelEventType =
   | 'monthly_delivery_report_generated'
   // 月末ふり返りレポート（AI 学習分析）
   | 'monthly_report_invite_sent'
-  | 'monthly_report_viewed';
+  | 'monthly_report_viewed'
+
+  // === つづもん AI 個別サポート（.steering/20260725-ai-personal-support/）===
+  /** 学習プランを作成・保存した（context: weeks / testDate） */
+  | 'ai_plan_created'
+  /** 学習分析を返した（context: verified / hasData） */
+  | 'ai_analysis_view'
+  /** 悩み相談として応答した（context: なし。内容は載せない） */
+  | 'ai_counsel_reply'
+  /** 危険サインを検知した（context: なし。内容は載せない） */
+  | 'ai_safety_flag'
+  /** 予算デグレード・上限で応答を落とした（context: reason / degrade） */
+  | 'ai_budget_degraded'
+  /** 記憶を更新した（context: keys） */
+  | 'ai_memory_updated'
+  | 'ai_operator_handoff'
+  /** 教材へのリンクを添えた（context: topicKey） */
+  | 'ai_topic_linked'
+  /** 個別化した日次メッセージを送った（context: window） */
+  | 'ai_daily_message_sent';
 
 export async function logServerFunnelEvent(
   eventType: ServerFunnelEventType,

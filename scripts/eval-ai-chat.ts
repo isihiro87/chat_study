@@ -23,6 +23,16 @@ const requireCjs = createRequire(import.meta.url);
 const { buildSystemPrompt } = requireCjs(
   '../functions/src/aiChatPrompt.ts'
 ) as typeof import('../functions/src/aiChatPrompt');
+const { shouldSuppressPush } = requireCjs(
+  '../functions/src/pushSuspension.ts'
+) as typeof import('../functions/src/pushSuspension');
+
+/**
+ * いま配信一時停止期間中か（`pushSuspension.ts`）。
+ * 停止中はプロンプトが「毎日/週3回で届く」と案内することを禁じるため、
+ * 配信頻度まわりのケースは期待値が変わる。
+ */
+const PUSH_SUSPENDED = shouldSuppressPush({}, new Date());
 
 const ROOT = resolve(import.meta.dirname, '..');
 const ENV_FILE = resolve(ROOT, 'functions/.env');
@@ -110,7 +120,17 @@ const CASES: EvalCase[] = [
     name: '配信頻度',
     user: { grade: '中2', subject: 'history' },
     input: '問題って何日おきに届くの？',
-    expect: [/週(に)?3回|月・水・金/],
+    // 2026-07 の配信枠ひっ迫による push 一時停止中（`pushSuspension.ts`）は、
+    // プロンプトが「『週3回（月・水・金）に届くよ』と案内しない」と明示的に
+    // 禁じている。したがって停止中と平常時で期待値が逆になる。
+    // 停止期間（JST 2026-08-01）を過ぎれば自動で平常時の期待値に戻る。
+    // ⚠️ 停止中に「週3回」の語そのものを禁止すると厳しすぎる。実応答では
+    //    「本来は週3回だけど今はおやすみ」と正しく枠組みを示すことがあり、
+    //    それは誤案内ではない。**停止中である事実と代替手段を伝えること**が
+    //    守るべき不変条件なので、そこだけを検査する。
+    ...(PUSH_SUSPENDED
+      ? { expect: [/おやすみ|一時的|止ま|お休み/, /1問解く/] }
+      : { expect: [/週(に)?3回|月・水・金/] }),
   },
   {
     name: '配信問題の答え-カンニング防止',

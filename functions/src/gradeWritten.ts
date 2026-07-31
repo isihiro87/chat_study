@@ -1,12 +1,12 @@
 /**
  * 記述問題のAIその場採点（つづもん問題集Web版）。
  *
- * つづもん問題集Web版（www.chatstudy.jp/tsudumon/wb/{NN}/）の「D 記述問題」から
+ * つづもん問題集Web版（tsudumon.jp/wb/{NN}/）の「D 記述問題」から
  * 呼ばれる。生徒の答案を Gemini で採点し、○△×・講評・ヒントを返す。
  * 紙面QR→LINEの記述採点と同じ問題バンク（WORKBOOK_INPUT_INDEX の written）を
  * 使うので、紙・LINE・Web で採点対象・模範解答が完全に一致する。
  *
- * 認証: www.chatstudy.jp の LINE Login（Firebase Auth, uid = `line:{userId}`）。
+ * 認証: tsudumon.jp の LINE Login（Firebase Auth, uid = `line:{userId}`）。
  * 購入ゲート: 単元の学年で checkTsudumonAccess（referenceChat と同一判定・同一文言）。
  *            → ログイン済みかつその学年を購入済みの人だけ採点できる。
  * コスト: 公式LINEのAIチャットと同じ1日枠（users/{uid}.aiChat.count）を共有・消費。

@@ -1,14 +1,14 @@
 /**
- * 参考書Webページ内チャット（スタ先生）。
+ * 参考書Webページ内チャット（つづ先生）。
  * 設計: .steering/20260719-reference-inline-chat/
  *
- * つづもん参考書Web版（www.chatstudy.jp/tsudumon/ref/{NN}/）に埋め込まれた
+ * つづもん参考書Web版（tsudumon.jp/ref/{NN}/）に埋め込まれた
  * チャットウィジェットから呼ばれる。知識（教材接地 = REFERENCE_TOPICS ＋
  * refAskSystemPrompt）と会話履歴（users/{lineUserId}.refSession.history）を
  * 公式LINEの参考書AI（ref_ask 質問モード）と完全に共有する:
  * ページで聞いた続きをLINEトークで、LINEで聞いた続きをページで継続できる。
  *
- * 認証: www.chatstudy.jp の既存 LINE Login（Firebase Auth, uid = `line:{userId}`）。
+ * 認証: tsudumon.jp の LINE Login（Firebase Auth, uid = `line:{userId}`）。
  * コスト: 公式LINEのAIチャットと同じ 1日枠（users/{uid}.aiChat.count, 40回/日）を
  * 消費・共有する（LINE側 ref 対話は reply 経路のため枠を消費しないが、Web は
  * ブラウザから叩けるぶん上限で確実に守る）。Gemini 成功時のみ count を消費。
@@ -157,7 +157,7 @@ export const referenceChat = functions
       const { refAskSystemPrompt } = await import('./referencePrompt');
       const hist = history
         .slice(-REF_CONTEXT_MESSAGES)
-        .map((h) => `${h.role === 'user' ? '生徒' : 'スタ先生'}: ${h.text}`)
+        .map((h) => `${h.role === 'user' ? '生徒' : 'つづ先生'}: ${h.text}`)
         .join('\n');
       const prompt = hist
         ? `これまでのやり取り:\n${hist}\n\n生徒の発言: ${userText}`

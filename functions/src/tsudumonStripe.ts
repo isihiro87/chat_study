@@ -41,6 +41,114 @@ const MAX_TRIAL_DAYS = 3;
 
 const STRIPE_API_BASE = 'https://api.stripe.com/v1';
 
+/** 誰が支払ったか。保護者ペイリンク経由なら 'parent'。 */
+export type TsudumonPaidBy = 'self' | 'parent';
+
+export interface CheckoutParamsInput {
+  /** 課金先。**必ず子（教材を使う本人）の uid**。保護者が払う場合も子の uid を入れる。 */
+  uid: string;
+  /** users/{uid}.tsudumon（体験中なら残日数を trial_period_days に渡すため） */
+  tsudumonRaw: unknown;
+  nowMs: number;
+  priceId: string;
+  paidBy: TsudumonPaidBy;
+  successUrl: string;
+  cancelUrl: string;
+}
+
+/**
+ * Checkout Session の生成パラメータを組み立てる（純粋関数）。
+ *
+ * 本人が登録する経路（`tsudumonCreateCheckout`）と、保護者がペイリンクから登録する経路
+ * （`tsudumonParentCheckout`）の**唯一の実装**。差分は「uid をどう手に入れたか」と
+ * price / 戻り先 / paidBy だけなので、パラメータ生成を二重に持たない。
+ *
+ * `client_reference_id` と `subscription_data.metadata.uid` はどちらも**子の uid**。
+ * これにより webhook（`checkout.session.completed` / `invoice.paid`）は無改修で通る。
+ */
+export function buildTsudumonCheckoutParams(
+  input: CheckoutParamsInput
+): URLSearchParams {
+  const { uid, tsudumonRaw, nowMs, priceId, paidBy, successUrl, cancelUrl } =
+    input;
+
+  const params = new URLSearchParams();
+  params.append('mode', 'subscription');
+  params.append('line_items[0][price]', priceId);
+  params.append('line_items[0][quantity]', '1');
+  params.append('client_reference_id', uid);
+  params.append('subscription_data[metadata][uid]', uid);
+  // 商品タグ。同一 Stripe アカウントに相乗りしているプレミアム側 webhook との
+  // 相互汚染を防ぐ振り分けキー（stripeProductTag.ts 参照）。Session と
+  // Subscription の両方に載せることで、checkout.session.* / invoice.* /
+  // customer.subscription.* のどのイベントからもタグを引ける。
+  params.append('metadata[product]', TSUDUMON_PRODUCT_TAG);
+  params.append('subscription_data[metadata][product]', TSUDUMON_PRODUCT_TAG);
+  // 保護者経由の成約率を単独で追えるようにする。webhook が users に写す。
+  params.append('metadata[paidBy]', paidBy);
+  params.append('subscription_data[metadata][paidBy]', paidBy);
+  params.append('success_url', successUrl);
+  params.append('cancel_url', cancelUrl);
+  params.append('locale', 'ja');
+  params.append('allow_promotion_codes', 'true');
+
+  const trialPeriodDays = resolveTrialPeriodDays(tsudumonRaw, nowMs);
+  if (trialPeriodDays > 0) {
+    params.append(
+      'subscription_data[trial_period_days]',
+      String(trialPeriodDays)
+    );
+  }
+  // 改正特商法（2022-06 施行）の「特定申込みを受ける画面」の表示義務への対応。
+  // Stripe Checkout が標準で出すのは金額と請求サイクルだけで、
+  // 「自動更新であること」「引渡時期」「解約方法・違約金の有無」は出ない。
+  // 表示が欠けると申込みの取消事由になりうるので、ここで補う。
+  params.append(
+    'custom_text[submit][message]',
+    buildCheckoutNotice(trialPeriodDays)
+  );
+  return params;
+}
+
+/**
+ * Checkout の申込みボタンの上に出す注意書き（改正特商法の最終確認画面対応）。
+ *
+ * **金額は書かない。** きょうだい価格（2人目以降 980円）があり、ここに数字を置くと
+ * 価格表と二重管理になって食い違う。金額と請求サイクルは Stripe 自身が表示する。
+ *
+ * 上限は500文字（Stripe の custom_text の制限）。
+ */
+export function buildCheckoutNotice(trialPeriodDays: number): string {
+  const tail =
+    '決済が完了すると、すぐに中学歴史 全19単元のWeb教材（問題集・参考書）を' +
+    'ご利用いただけます。解約は「アカウント・お支払い管理」ページから' +
+    'いつでもお手続きいただけます。違約金はいただきません。';
+  return trialPeriodDays > 0
+    ? `無料体験の終了日から課金が始まり、以降は表示の金額で毎月自動更新されます。${tail}`
+    : `お申し込み日を起算日として、表示の金額で毎月自動更新されます。${tail}`;
+}
+
+/**
+ * 体験中の登録なら、体験終了までの残日数を返す（体験期間の二重取りを防ぐ）。
+ * 体験中でなければ 0。
+ */
+export function resolveTrialPeriodDays(
+  tsudumonRaw: unknown,
+  nowMs: number
+): number {
+  const source = getString(
+    tsudumonRaw && typeof tsudumonRaw === 'object'
+      ? (tsudumonRaw as Record<string, unknown>).source
+      : ''
+  );
+  if (source !== 'trial') return 0;
+  if (evaluateTsudumonAccess(tsudumonRaw, null, nowMs) !== 'ok') return 0;
+  const ent = readTsudumonEntitlement(tsudumonRaw);
+  if (!ent || ent.expiresAtMs <= nowMs) return 0;
+  const rawDays = Math.ceil((ent.expiresAtMs - nowMs) / (24 * 60 * 60 * 1000));
+  return Math.min(MAX_TRIAL_DAYS, Math.max(1, rawDays));
+}
+
 async function getDb() {
   const { initializeApp, getApps } = await import('firebase-admin/app');
   const { getFirestore } = await import('firebase-admin/firestore');
@@ -191,45 +299,16 @@ export const tsudumonCreateCheckout = functions
 
       // 体験中の登録は、体験終了までの残日数を trial_period_days に渡して
       // 「体験終了後から1ヶ月」を開始する（体験期間の二重取りを防ぐ）。
-      let trialPeriodDays = 0;
-      if (source === 'trial' && access === 'ok') {
-        const ent = readTsudumonEntitlement(raw);
-        if (ent && ent.expiresAtMs > nowMs) {
-          const rawDays = Math.ceil(
-            (ent.expiresAtMs - nowMs) / (24 * 60 * 60 * 1000)
-          );
-          trialPeriodDays = Math.min(MAX_TRIAL_DAYS, Math.max(1, rawDays));
-        }
-      }
-
-      const params = new URLSearchParams();
-      params.append('mode', 'subscription');
-      params.append('line_items[0][price]', priceId);
-      params.append('line_items[0][quantity]', '1');
-      params.append('client_reference_id', uid);
-      params.append('subscription_data[metadata][uid]', uid);
-      // 商品タグ。同一 Stripe アカウントに相乗りしているプレミアム側 webhook との
-      // 相互汚染を防ぐ振り分けキー（stripeProductTag.ts 参照）。Session と
-      // Subscription の両方に載せることで、checkout.session.* / invoice.* /
-      // customer.subscription.* のどのイベントからもタグを引ける。
-      params.append('metadata[product]', TSUDUMON_PRODUCT_TAG);
-      params.append(
-        'subscription_data[metadata][product]',
-        TSUDUMON_PRODUCT_TAG
-      );
-      params.append(
-        'success_url',
-        'https://www.chatstudy.jp/tsudumon/map/?sub=thanks'
-      );
-      params.append('cancel_url', 'https://www.chatstudy.jp/tsudumon/');
-      params.append('locale', 'ja');
-      params.append('allow_promotion_codes', 'true');
-      if (trialPeriodDays > 0) {
-        params.append(
-          'subscription_data[trial_period_days]',
-          String(trialPeriodDays)
-        );
-      }
+      const params = buildTsudumonCheckoutParams({
+        uid,
+        tsudumonRaw: raw,
+        nowMs,
+        priceId,
+        paidBy: 'self',
+        successUrl: 'https://tsudumon.jp/map/?sub=thanks',
+        cancelUrl: 'https://tsudumon.jp/',
+      });
+      const trialPeriodDays = resolveTrialPeriodDays(raw, nowMs);
 
       const result = await stripePost('/checkout/sessions', params, secretKey);
       const url = getString(result.data.url);
@@ -238,13 +317,11 @@ export const tsudumonCreateCheckout = functions
           '[tsudumonCreateCheckout] Stripe session creation failed',
           result.data
         );
-        res
-          .status(502)
-          .json({
-            ok: false,
-            reason: 'stripe_error',
-            message: '決済の準備に失敗しました。',
-          });
+        res.status(502).json({
+          ok: false,
+          reason: 'stripe_error',
+          message: '決済の準備に失敗しました。',
+        });
         return;
       }
 
@@ -308,9 +385,138 @@ function getMetadataUid(obj: Record<string, unknown>): string {
   return '';
 }
 
+/** Session / Subscription の metadata から paidBy を読む（無ければ空文字＝本人扱い）。 */
+function readPaidBy(obj: Record<string, unknown>): string {
+  const metadata = obj.metadata;
+  if (metadata && typeof metadata === 'object') {
+    return getString((metadata as Record<string, unknown>).paidBy);
+  }
+  return '';
+}
+
 function normalizeUid(value: string): string {
   if (!value) return '';
   return value.startsWith('line:') ? value : `line:${value}`;
+}
+
+/** 次回請求日の表示用ラベル（JST）。取れないときは null。 */
+function billingLabel(periodEndMs: number): string | null {
+  if (!periodEndMs || !Number.isFinite(periodEndMs)) return null;
+  const jst = new Date(periodEndMs + 9 * 60 * 60 * 1000);
+  return `${jst.getUTCMonth() + 1}月${jst.getUTCDate()}日`;
+}
+
+/**
+ * 決済完了の御礼を、つづもんBotから1通だけ push する。
+ *
+ * 決済直後に何の確認も返らないと「ちゃんと払えたのか」が分からない
+ * （Checkout の戻り先は /map/?sub=thanks だが、LINEには何も残らない）。
+ * 購入時のみ・つづもん枠の1通なので配信枠への影響は小さい。
+ * 失敗しても課金処理は成功扱いにする（ログのみ）。
+ *
+ * @param periodEndMs 次回請求日（猶予を足す前の current_period_end 相当）。0 なら日付を出さない。
+ */
+async function pushPurchaseThanks(
+  uid: string,
+  periodEndMs: number
+): Promise<void> {
+  const nextBilling = billingLabel(periodEndMs);
+  const text = [
+    'ご登録ありがとうございます！🎉',
+    '',
+    '中学歴史ぜんぶ（全19単元・問題集＋参考書）が使えるようになりました。',
+    'https://tsudumon.jp/map/',
+    '',
+    'あすから毎日、「今日の1単元」をこのトークにお届けします（はじめは平日 夜7時ごろ・土日 朝10時ごろ）。',
+    '届く曜日・時刻は、あとから https://tsudumon.jp/settings/ で変えられます。',
+    '',
+    nextBilling
+      ? `次回のお支払いは ${nextBilling} です（月額1,280円・税込）。`
+      : '月額1,280円（税込）で自動更新されます。',
+    'お支払い状況の確認と解約は、こちらのページからいつでもどうぞ。',
+    'https://tsudumon.jp/account/',
+    '',
+    'わからないところは、このトークでつづ先生に聞いてくださいね。',
+  ].join('\n');
+
+  await pushToTsudumon(uid, text, 'tsudumonPurchase', 'purchase thanks');
+
+  // 「あすから毎日…」で終わらせない。いちばん熱があるのは**いまこの瞬間**なので、
+  // 設定 → 範囲 → その場で学習開始、の3ステップへつなぐ（ユーザー要望 2026-07-27）。
+  try {
+    const { buildStep1Message, step1QuickReply } =
+      await import('./tsudumonOnboarding');
+    await pushToTsudumon(
+      uid,
+      buildStep1Message(),
+      'tsudumonPurchase',
+      'onboarding step1',
+      step1QuickReply()
+    );
+  } catch (error) {
+    console.error('[tsudumonStripe] onboarding push failed:', error);
+  }
+}
+
+/**
+ * つづもんBotへの1通 push（共通）。失敗しても課金処理は成功扱いにする。
+ * `deliveryStats` への計上もここでまとめて行う。
+ */
+async function pushToTsudumon(
+  uid: string,
+  text: string,
+  pushType: 'tsudumonPurchase' | 'tsudumonBilling',
+  label: string,
+  /** クイックリプライ（オンボーディングの選択肢など） */
+  quickReply?: unknown
+): Promise<void> {
+  const lineUserId = uid.startsWith('line:') ? uid.slice(5) : '';
+  if (!lineUserId) return;
+  try {
+    const { getTsudumonLineClient } = await import('./tsudumon/client');
+    const client = await getTsudumonLineClient();
+    await client.pushMessage({
+      to: lineUserId,
+      messages: [{ type: 'text', text, ...(quickReply ? { quickReply } : {}) }],
+    } as never);
+    const { recordPushDelivery } = await import('./deliveryStats');
+    await recordPushDelivery(pushType);
+  } catch (error) {
+    console.error(`[tsudumonStripeWebhook] ${label} push failed:`, error);
+  }
+}
+
+/** C-4: 決済失敗の案内。責めず、直し方（カード変更）だけを短く伝える。 */
+async function pushBillingFailed(uid: string): Promise<void> {
+  const text = [
+    'つづもんの月額プランのお支払いが確認できませんでした。',
+    '',
+    'カードの有効期限切れや上限などが考えられます。お手数ですが、下のページからお支払い方法をご確認ください。',
+    'https://tsudumon.jp/account/',
+    '',
+    'お手続きいただければ、そのまま続けてご利用いただけます。ご不明な点はこのトークにお送りください。',
+  ].join('\n');
+  await pushToTsudumon(uid, text, 'tsudumonBilling', 'billing failed');
+}
+
+/** C-5: 解約の受付。引き止めず、いつまで使えるかだけを伝える。 */
+async function pushCancelAccepted(
+  uid: string,
+  periodEndMs: number
+): Promise<void> {
+  const until = billingLabel(periodEndMs);
+  const text = [
+    'つづもんの月額プランの解約を承りました。ご利用ありがとうございました。',
+    '',
+    until
+      ? `${until}まではこれまでどおりお使いいただけます。`
+      : 'お支払い済みの期間の終了日まではこれまでどおりお使いいただけます。',
+    'そのあとも「律令国家と奈良時代」の単元と、各単元の最初のページは無料でお読みいただけます。',
+    '',
+    'またお使いになりたくなったら、いつでも再開できます。',
+    'https://tsudumon.jp/account/',
+  ].join('\n');
+  await pushToTsudumon(uid, text, 'tsudumonBilling', 'cancel accepted');
 }
 
 /**
@@ -430,12 +636,18 @@ export const tsudumonStripeWebhook = functions
             ? periodEndSec * 1000
             : Date.now() + 30 * 24 * 60 * 60 * 1000) + graceMs;
 
+        // 誰が払ったか（本人 / 保護者ペイリンク）。Checkout 生成時に metadata へ載せている。
+        // 保護者経由の成約率を単独で追うために users にも写す。
+        const paidBy: TsudumonPaidBy =
+          readPaidBy(obj) === 'parent' ? 'parent' : 'self';
+
         const db = await getDb();
         await db.doc(`users/${uid}`).set(
           {
             tsudumon: {
               plan: 'set',
               source: 'stripe',
+              paidBy,
               activatedAt: Timestamp.now(),
               expiresAt: Timestamp.fromMillis(expiresMs),
             },
@@ -451,10 +663,24 @@ export const tsudumonStripeWebhook = functions
           const { logServerFunnelEvent } = await import('./funnelEvent');
           await logServerFunnelEvent('tsudumon_activated', uid, {
             source: 'stripe',
+            paidBy,
           });
         } catch (e) {
           console.error(
             '[tsudumonStripeWebhook] tsudumon_activated log failed:',
+            e
+          );
+        }
+        // 決済の直後に何も返らないと「払えたのか」が分からない。つづもんBotから
+        // 完了の1通だけ push する（購入時のみ・つづもん枠。失敗しても課金処理は成功扱い）。
+        await pushPurchaseThanks(uid, expiresMs - graceMs);
+        // 「今日の1単元」日次配信の対象に加える（解約→再登録なら cursor は続きから）。
+        try {
+          const { ensureTsudumonDaily } = await import('./tsudumonDailyUnit');
+          await ensureTsudumonDaily(uid);
+        } catch (e) {
+          console.error(
+            '[tsudumonStripeWebhook] ensureTsudumonDaily failed:',
             e
           );
         }
@@ -507,11 +733,13 @@ export const tsudumonStripeWebhook = functions
         }
         const expiresMs = periodEnd * 1000 + graceMs;
         // tsudumon はネストマージを避けて丸ごと書き直す。activatedAt は既存を温存。
+        // paidBy も**必ず引き継ぐ**（丸ごと置き換えなので、書かないと継続課金のたびに消える）。
         await db.doc(`users/${uid}`).set(
           {
             tsudumon: {
               plan: 'set',
               source: 'stripe',
+              paidBy: getString(cur.paidBy) || 'self',
               activatedAt: cur.activatedAt ?? Timestamp.now(),
               expiresAt: Timestamp.fromMillis(expiresMs),
             },
@@ -525,16 +753,59 @@ export const tsudumonStripeWebhook = functions
         return;
       }
 
+      // C-4: 決済失敗。放置すると本人も気づかないまま失効するので必ず知らせる。
+      //      期限（expiresAt）はここでは動かさない（Stripeのリトライで復帰しうるため）。
+      if (eventType === 'invoice.payment_failed') {
+        const subscriptionId = getInvoiceSubscriptionId(obj);
+        const info = await retrieveSubscriptionInfo(subscriptionId, secretKey);
+        const uid =
+          (info && info.uid) ||
+          normalizeUid(getString(getInvoiceSubscriptionMetadata(obj).uid));
+        if (!uid) {
+          console.error(
+            '[tsudumonStripeWebhook] invoice.payment_failed: uid unresolved'
+          );
+          res.status(200).json({ received: true, skipped: 'no_uid' });
+          return;
+        }
+        console.warn(
+          `[tsudumonStripeWebhook] invoice.payment_failed uid=${uid}`
+        );
+        await pushBillingFailed(uid);
+        res.status(200).json({ received: true });
+        return;
+      }
+
       if (eventType === 'customer.subscription.deleted') {
         // 即失効はさせない。expiresAt（+猶予）経過で自然失効に任せる。
         // Subscription の `id` / `customer` / `metadata` は現行 API でもトップレベル
         // のまま（実イベントで確認済み）。`current_period_end` だけが items 配下へ
         // 移動しているので、ログ用に取り出すときは getSubscriptionPeriodEnd を使う。
+        const periodEndSec = getSubscriptionPeriodEnd(obj);
+        const uid = normalizeUid(getMetadataUid(obj));
         console.log(
           `[tsudumonStripeWebhook] customer.subscription.deleted id=${getString(
             obj.id
-          )} periodEnd=${getSubscriptionPeriodEnd(obj)} (natural expiry)`
+          )} periodEnd=${periodEndSec} (natural expiry)`
         );
+        if (uid && periodEndSec > 0) {
+          const usableUntilMs = periodEndSec * 1000 + graceMs;
+          // C-5: 解約を受け付けた事実と「いつまで使えるか」をその場で伝える。
+          await pushCancelAccepted(uid, periodEndSec * 1000);
+          // C-6: 期限の翌日に1通だけフォローする予約を入れる。
+          try {
+            const { scheduleAfterExpiryFollowUp } =
+              await import('./tsudumonLifecycle');
+            await scheduleAfterExpiryFollowUp(uid, usableUntilMs);
+          } catch (e) {
+            console.error(
+              '[tsudumonStripeWebhook] scheduleAfterExpiryFollowUp failed:',
+              e
+            );
+          }
+          // 日次配信は期限まで続け、失効時に cron 側が自動で止める
+          // （ここで止めると、支払い済みの残り期間に届かなくなる）。
+        }
         res.status(200).json({ received: true });
         return;
       }
@@ -599,7 +870,7 @@ export const tsudumonCreatePortal = functions
 
       const params = new URLSearchParams();
       params.append('customer', customerId);
-      params.append('return_url', 'https://www.chatstudy.jp/tsudumon/map/');
+      params.append('return_url', 'https://tsudumon.jp/map/');
 
       const result = await stripePost(
         '/billing_portal/sessions',

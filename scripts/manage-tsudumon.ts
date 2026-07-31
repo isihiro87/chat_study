@@ -18,7 +18,7 @@
  *
  * zip は Firebase Storage `tsudumon-deliveries/{code}.zip` に置き、
  * firebaseStorageDownloadTokens 付きURLを license doc に保存する。
- * 購入者に渡すDLリンクは https://www.chatstudy.jp/tsudumon/dl?c={code}
+ * 購入者に渡すDLリンクは https://tsudumon.jp/dl?c={code}
  * （Cloud Function tsudumonDownload が回数を数えて 302 する）。
  *
  * 設計: .steering/20260718-tsudumon-license/
@@ -35,8 +35,8 @@ const DEFAULT_BUCKETS = [
   `${FIREBASE_PROJECT_ID}.firebasestorage.app`,
   `${FIREBASE_PROJECT_ID}.appspot.com`,
 ];
-const DL_BASE = 'https://www.chatstudy.jp/tsudumon/dl';
-const ACTIVATE_BASE = 'https://www.chatstudy.jp/tsudumon/activate/';
+const DL_BASE = 'https://tsudumon.jp/dl';
+const ACTIVATE_BASE = 'https://tsudumon.jp/activate/';
 const LINE_BASIC_ID = '@215uijik';
 
 // functions/ は CJS（"type":"module" なし）のため、ESM の named import だと
@@ -155,7 +155,8 @@ ${buyerName} 様
 受け取りリンク:
 ${activateUrl}
 
-教材はいつも公式LINEのメニュー「📖 教材をひらく」から開けます（2回目以降はログイン不要）。
+教材トップはこちらです。ブックマークしておくと、次からすぐ開けます。
+https://tsudumon.jp/map/
 
 ■ 2. 教材のダウンロード
 ${hasZip ? dlUrl : '（zip未アップロード: set-zip 実行後にこのリンクが有効になります）\n' + dlUrl}

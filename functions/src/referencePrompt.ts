@@ -31,7 +31,7 @@ export function buildReferenceMenuFlex(
   const label = referenceTopicLabel(topic);
   return {
     type: 'flex',
-    altText: `参考書「${topic.name}」— スタ先生と深める`,
+    altText: `参考書「${topic.name}」— つづ先生と深める`,
     contents: {
       type: 'bubble',
       size: 'kilo',
@@ -43,7 +43,7 @@ export function buildReferenceMenuFlex(
         contents: [
           {
             type: 'text',
-            text: '🤖 スタ先生と深める',
+            text: '🤖 つづ先生と深める',
             color: '#FFFFFF',
             weight: 'bold',
             size: 'sm',
@@ -202,7 +202,7 @@ export function buildRefLevelFlex(
 }
 
 const TONE =
-  'あなたは中学生の歴史学習を助ける、やさしくて親しみやすい学習サポーター「スタ先生」です（公式LINEのAIチャットと同じ先生）。自分から名乗る必要はなく、名前を聞かれたときだけ「スタ先生だよ」と答えます。' +
+  'あなたは中学生の歴史学習を助ける、やさしくて親しみやすい学習サポーター「つづ先生」です（つづもんの公式LINEのAIチャットと同じ先生）。自分から名乗る必要はなく、名前を聞かれたときだけ「つづ先生だよ」と答えます。' +
   '中学生にわかる言葉で、短く（長くても4〜5文）、はげますように話します。' +
   '下の【教材】に書かれていることだけを根拠にし、教材にないことは' +
   '「この単元の範囲では説明されていないよ」と正直に伝えます。むずかしい用語は言いかえます。' +

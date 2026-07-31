@@ -14,13 +14,11 @@
  *   - プレミアム会員は常に active 扱い（computeStatusFromLastAnswer 内で判定）。
  */
 
-import * as functions from "firebase-functions/v1";
+import * as functions from 'firebase-functions/v1';
 
-import {
-  computeStatusFromLastAnswer,
-  shouldResetStreak,
-} from "./userStatus";
-import type { UserStatus } from "./userDocTypes";
+import { computeStatusFromLastAnswer, shouldResetStreak } from './userStatus';
+import type { UserStatus } from './userDocTypes';
+import { isPaidUser } from './aiContextBuilder';
 
 const BATCH_SIZE = 500;
 
@@ -33,15 +31,16 @@ interface RecalcStats {
 }
 
 export const recalculateUserStatuses = functions
-  .region("asia-northeast1")
-  .pubsub.schedule("0 2 * * *")
-  .timeZone("Asia/Tokyo")
+  .region('asia-northeast1')
+  .pubsub.schedule('0 2 * * *')
+  .timeZone('Asia/Tokyo')
   .onRun(async () => {
     const startedAt = Date.now();
-    console.log("[recalculateUserStatuses] start");
+    console.log('[recalculateUserStatuses] start');
 
-    const { initializeApp, getApps } = await import("firebase-admin/app");
-    const { getFirestore, FieldValue } = await import("firebase-admin/firestore");
+    const { initializeApp, getApps } = await import('firebase-admin/app');
+    const { getFirestore, FieldValue } =
+      await import('firebase-admin/firestore');
     if (getApps().length === 0) {
       initializeApp();
     }
@@ -49,7 +48,7 @@ export const recalculateUserStatuses = functions
 
     const stats: RecalcStats = {
       totalScanned: 0,
-      byStatus: { active: 0, "at-risk": 0, dormant: 0, churned: 0 },
+      byStatus: { active: 0, 'at-risk': 0, dormant: 0, churned: 0 },
       transitions: {},
       streakResets: 0,
       errors: 0,
@@ -58,16 +57,26 @@ export const recalculateUserStatuses = functions
     const now = new Date();
     let lastDoc: FirebaseFirestore.QueryDocumentSnapshot | null = null;
 
+    // つづもん課金者の学習分析（aiContext）をこの走査に相乗りさせる。
+    // 会話のホットパスで answers を集計しないための事前計算
+    // （.steering/20260725-ai-personal-support/ フェーズ7）。
+    // 対象は課金者のみ＝無料 3,000 人ぶんの追加 read を発生させない。
+    const aiContextTargets: Array<{
+      uid: string;
+      userData: Record<string, unknown>;
+    }> = [];
+
     // status 遷移を funnel に記録するため収集（書き込みはスキャン完了後にまとめて行い、
     // batch コミットのレイテンシに影響させない）。retention 計測の盲点だった
     // 「回復遷移（at-risk/dormant -> active）」もここで可視化する。
-    const transitionEvents: { uid: string; from: UserStatus; to: UserStatus }[] = [];
+    const transitionEvents: {
+      uid: string;
+      from: UserStatus;
+      to: UserStatus;
+    }[] = [];
 
     while (true) {
-      let query = db
-        .collection("users")
-        .orderBy("__name__")
-        .limit(BATCH_SIZE);
+      let query = db.collection('users').orderBy('__name__').limit(BATCH_SIZE);
       if (lastDoc) {
         query = query.startAfter(lastDoc);
       }
@@ -82,21 +91,26 @@ export const recalculateUserStatuses = functions
         stats.totalScanned++;
         const data = doc.data();
 
+        // 課金者だけ aiContext の計算対象に積む（判定は user doc だけ＝追加 read ゼロ）。
+        if (isPaidUser(data, now.getTime())) {
+          aiContextTargets.push({ uid: doc.id, userData: data });
+        }
+
         const oldStatus: UserStatus =
-          (data.status as UserStatus | undefined) ?? "active";
+          (data.status as UserStatus | undefined) ?? 'active';
         const lastAnsweredAt = data.lastAnsweredAt as
           | { toDate?: () => Date }
           | undefined;
         const lastAnsweredDate =
-          lastAnsweredAt && typeof lastAnsweredAt.toDate === "function"
+          lastAnsweredAt && typeof lastAnsweredAt.toDate === 'function'
             ? lastAnsweredAt.toDate()
             : null;
-        const plan = data.plan === "premium" ? "premium" : "free";
+        const plan = data.plan === 'premium' ? 'premium' : 'free';
         const premiumUntilRaw = data.premiumUntil as
           | { toDate?: () => Date }
           | undefined;
         const premiumUntil =
-          premiumUntilRaw && typeof premiumUntilRaw.toDate === "function"
+          premiumUntilRaw && typeof premiumUntilRaw.toDate === 'function'
             ? premiumUntilRaw.toDate()
             : null;
 
@@ -135,7 +149,10 @@ export const recalculateUserStatuses = functions
         try {
           await batch.commit();
         } catch (error) {
-          console.error("[recalculateUserStatuses] batch commit failed:", error);
+          console.error(
+            '[recalculateUserStatuses] batch commit failed:',
+            error
+          );
           stats.errors++;
         }
       }
@@ -147,12 +164,12 @@ export const recalculateUserStatuses = functions
     // 収集した status 遷移を funnel に記録（件数はユーザー数で上界、通常は数十/日）。
     // 失敗は許容（funnel データ欠損 OK・本体は止めない）。チャンクで並列化。
     if (transitionEvents.length > 0) {
-      const { logServerFunnelEvent } = await import("./funnelEvent");
+      const { logServerFunnelEvent } = await import('./funnelEvent');
       const CHUNK = 50;
       for (let i = 0; i < transitionEvents.length; i += CHUNK) {
         await Promise.all(
           transitionEvents.slice(i, i + CHUNK).map((t) =>
-            logServerFunnelEvent("status_transition", t.uid, {
+            logServerFunnelEvent('status_transition', t.uid, {
               from: t.from,
               to: t.to,
             })
@@ -164,10 +181,34 @@ export const recalculateUserStatuses = functions
       );
     }
 
+    // つづもん課金者の学習分析を計算する（status 更新の後・失敗しても本体は成功扱い）。
+    // 課金者が増えて cron 時間が伸びるようなら、別 cron へ切り出す。
+    if (aiContextTargets.length > 0) {
+      try {
+        const { runAiContextBatch } = await import('./aiContextBuilder');
+        const ctxStats = await runAiContextBatch({
+          db,
+          targets: aiContextTargets,
+          now,
+        });
+        console.log(
+          `[recalculateUserStatuses] aiContext: targets=${ctxStats.targets}, ` +
+            `written=${ctxStats.written}, failed=${ctxStats.failed}`
+        );
+      } catch (error) {
+        console.error(
+          '[recalculateUserStatuses] aiContext batch failed:',
+          error
+        );
+      }
+    } else {
+      console.log('[recalculateUserStatuses] aiContext: no paid users');
+    }
+
     const elapsed = Date.now() - startedAt;
     console.log(
       `[recalculateUserStatuses] done: scanned=${stats.totalScanned}, ` +
-        `active=${stats.byStatus.active}, atRisk=${stats.byStatus["at-risk"]}, ` +
+        `active=${stats.byStatus.active}, atRisk=${stats.byStatus['at-risk']}, ` +
         `dormant=${stats.byStatus.dormant}, churned=${stats.byStatus.churned}, ` +
         `streakResets=${stats.streakResets}, errors=${stats.errors}, ` +
         `elapsed=${elapsed}ms`

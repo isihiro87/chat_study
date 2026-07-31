@@ -68,3 +68,6 @@ data/content/**/*.pdf
 
 # src配下の元スキャン（同上・未参照）。ローカルには残す。
 src/data/subjects/**/*.pdf
+
+# Firebase CLI のデプロイキャッシュ（ローカル専用）
+.firebase/

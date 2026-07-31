@@ -61,6 +61,45 @@
 - **計測**: funnel イベント `delivery_paused` / `delivery_resumed`
   （`premiumFunnelEvents`）。dailyQuiz done ログに `pausedSkipped=N` が出る
 
+## 2.7 ⚠️ 配信枠ひっ迫による push 一時停止（2026-07-26〜7月末）
+
+7月分の配信枠がほぼ尽きたため、**7月いっぱいは cron / トリガ由来の push を止める**
+（超過分は従量課金 〜¥3/通）。判定は `functions/src/pushSuspension.ts` に集約。
+
+- **期間**: `PUSH_SUSPENSION_START`（JST 2026-07-26 00:00）〜
+  `PUSH_SUSPENSION_END`（JST 2026-08-01 00:00）。**過ぎれば自動で通常配信に戻る**
+  （LINE の枠は月初リセット）。延長するならこの定数を変えて再デプロイ。
+- **例外**: `NEW_USER_PUSH_DAYS`(=3) — **登録から3日以内**（登録日を0日目として
+  0〜3日目）のユーザーには従来どおり配信する。新規の最初の体験を守るため。
+  登録日は `onboardingStartedAt`（無ければ `createdAt`）。どちらも無い旧スキーマは
+  停止側に倒す。
+- **止まるもの**: dailyQuiz（毎日/週3・週3移行案内）/ sendWinbackMessages（cron ごと
+  即 return）/ remindIncompleteOnboarding（結果として day7 が止まる）/
+  onAnswerCreated の回答後ナッジ3種 / sendMonthlyReportInvite。
+- **止まらないもの**: reply 経路すべて（1問解く・苦手を復習・範囲設定・AIチャット・
+  じっくり学ぶ）、ユーザー操作への直接応答 push（範囲設定の確認・初回1問目・
+  ワーク/参考書QR）、管理者通知、**つづもんBot（@215uijik）の push（別チャネル＝
+  別の配信枠）**。
+- **新規ユーザーへの予告**: 停止中に登録した人の最終配信日（登録3日目）は、その日の
+  1問カードの intro に「配信ワクを使いきったので自動配信はここまで／『1問解く』は
+  いつでも使える」を**同梱**する（別メッセージにすると通数が増えるため）。
+- **「問題が届かない」への回答**（ユーザー指示 2026-07-26）: ①たくさん使ってもらえた
+  おかげで枠がなくなったこと ②故障ではないこと ③**「1問解く」でいつでも解ける**こと
+  ④来月には戻ること、を伝える。実装は2経路:
+  1. `keywordMatcher.detectDeliveryMissingIntent` → `lineWebhook.handleMessage` で
+     復帰キーワードより先に判定し、`PUSH_PAUSE_REPLY_TEXT` ＋ その場で1問を reply
+     （配信枠ゼロ）。計測は `extra_question_tap` の `src='push_pause_notice'`。
+  2. `aiChatPrompt.buildPushPauseContext` が停止対象ユーザーのプロンプトにだけ
+     同じ知識を差し込む（言い回しのゆれ対策）。停止中は「毎日／週3届く」と
+     案内しないよう `buildUserStateContext` の配信ペース行も差し替わる。
+- **全体お知らせは送っていない**。一斉送信自体が約3,000通必要で本末転倒なため、
+  聞かれたら答える方式にしている。
+- **監視**: `[dailyQuiz06] ... suspended=true suspendedSkipped=N` /
+  `[sendWinbackMessages] skipped: push suspended` / `deliveryStats/2026-07` の
+  `totalPushCount` が増えないこと。
+
+設計の詳細は `.steering/20260726-july-push-suspension/`。
+
 ## 2.52 友だち追加直後の「おためし1問」（2026-07 追加）
 
 follow の最初の reply に、学年不問の静的1問（`SAMPLE_QUESTION`、江戸幕府）を同梱する。

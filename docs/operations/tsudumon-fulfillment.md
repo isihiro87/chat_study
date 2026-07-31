@@ -43,7 +43,7 @@ npx tsx scripts/manage-tsudumon.ts issue --plan 中1 --years 1 `
 | 期間の起点 | **最初の登録日**から `years` 年（未登録のうちは減らない） |
 | 登録台数 | 1コード3アカウントまで（きょうだい用。`issue --max N` で変更可） |
 | ゲート | ワーク演習・参考書AI先生の入口3点で判定。無料体験単元（律令国家と奈良時代）は誰でも可 |
-| DLリンク | `https://www.chatstudy.jp/tsudumon/dl?c={code}`（既定10回まで・`tsudumonDownload` が302） |
+| DLリンク | `https://tsudumon.jp/dl?c={code}`（既定10回まで・`tsudumonDownload` が302） |
 | 複製抑止 | PDF全ページの購入者名透かし（主軸）＋ DL回数上限 ＋ 登録台数上限 ＋ revoke |
 | 緊急スイッチ | env `TSUDUMON_GATE_ENABLED=false` で全ゲート開放（lineWebhook 再デプロイ） |
 

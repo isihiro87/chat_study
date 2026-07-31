@@ -18,6 +18,16 @@ export type PushType =
   | 'onboardingReminder'
   | 'premiumNudge'
   | 'scopeSetupNudge'
+  | 'tsudumonIntroNudge'
+  | 'tsudumonPurchase'
+  | 'tsudumonDaily'
+  | 'tsudumonIntroFollow'
+  | 'tsudumonAfterExpiry'
+  | 'tsudumonBilling'
+  | 'tsudumonTrialStart'
+  | 'tsudumonRecap'
+  /** 保護者導線: カードが見られた／保護者と連携した の通知（子あて・各1通） */
+  | 'tsudumonParent'
   | 'abandonReminder'
   | 'postTrialFollowup'
   | 'restartWelcome'
@@ -55,6 +65,15 @@ export function emptyPushCountByType(): PushCountByType {
     onboardingReminder: 0,
     premiumNudge: 0,
     scopeSetupNudge: 0,
+    tsudumonIntroNudge: 0,
+    tsudumonPurchase: 0,
+    tsudumonDaily: 0,
+    tsudumonIntroFollow: 0,
+    tsudumonAfterExpiry: 0,
+    tsudumonBilling: 0,
+    tsudumonTrialStart: 0,
+    tsudumonRecap: 0,
+    tsudumonParent: 0,
     abandonReminder: 0,
     postTrialFollowup: 0,
     restartWelcome: 0,

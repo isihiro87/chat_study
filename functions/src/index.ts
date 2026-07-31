@@ -10,6 +10,9 @@ if (getApps().length === 0) {
 }
 
 export { lineWebhook } from './lineWebhook';
+// つづもん専用LINE Bot（@215uijik）のwebhook。一問一答（lineWebhook）とは別チャネル。
+// design: .steering/20260725-tsudumon-dedicated-line-bot/design.md
+export { tsudumonWebhook } from './tsudumon/webhook';
 export { instagramWebhook } from './instagramWebhook';
 // relaunchDispatcher は 2026-06-01 限定の一度きり再起動キャンペーン用で、
 // 以降は 2分おき cron が即 return する空打ちだった（無駄起動 約2.2万回/月 +
@@ -34,11 +37,61 @@ export { createStripeCheckoutSession } from './createStripeCheckoutSession';
 export { cancelStripeSubscription } from './cancelStripeSubscription';
 export { submitContactForm } from './submitContactForm';
 
-// つづもん納品zipのダウンロード口（回数制限つき・/tsudumon/dl から rewrite）
+// つづもん納品zipのダウンロード口（回数制限つき・tsudumon.jp/dl から rewrite）
 export { tsudumonDownload } from './tsudumonDownload';
-export { tsudumonActivate, tsudumonEntitlement } from './tsudumonActivate';
+// つづもんLPの相談チャット（tsudumon.jp/api/chat から rewrite）。
+// 独自ドメイン化で Vercel Serverless Function から移設した。
+export { tsudumonLpChat } from './tsudumonLpChat';
+export {
+  tsudumonActivate,
+  tsudumonEntitlement,
+  tsudumonTrialStart,
+} from './tsudumonActivate';
+// つづもん「3日間無料お試し」リマインド cron（毎日 JST 19:00）。
+// ⚠️ アーム（本番デプロイ）はユーザー承認が要る。
+export { tsudumonTrialReminder } from './tsudumonTrialReminder';
+// つづもん「今日の1単元」日次配信 cron（毎日 JST 19:00）。登録者（stripe/コード）のみ。
+// 設計: pdf-workbook/docs/つづもん-メッセージ設計.md ⚠️ アームはユーザー承認が要る。
+export { tsudumonDailyUnit } from './tsudumonDailyUnit';
+// つづもん 配信時刻の取得・保存（平日／土日を別々に選べる。アカウントページから呼ぶ）。
+export { tsudumonSchedule } from './tsudumonSchedule';
+// つづもん テストの予定（日付・範囲）の取得・保存（設定ページから呼ぶ。
+// 細かい調整はチャットの setExamScope ツールでもできる＝同じ保存先）。
+export { tsudumonExamSetting } from './tsudumonExamSetting';
+// つづもんWeb教材の学習ログ受け口（進み具合・時間・正誤）。AIの個別対応の土台。
+export { recordTsudumonProgress } from './recordTsudumonProgress';
+// 学習が一段落したら「ふり返りの会話」に誘う cron（10分おき）。
+export { tsudumonRecap } from './tsudumonRecap';
+// つづもん 未体験フォロー（追加2日後・7日後）＋期限終了の翌日フォロー cron（JST 19:30）。
+// ⚠️ アームはユーザー承認が要る。
+export { tsudumonLifecycle } from './tsudumonLifecycle';
+// つづもん 月額サブスク（Stripe Checkout 直付け）。env（STRIPE_TSUDUMON_*）未設定なら
+// checkout/portal は 503 not_configured を返す（安全側）。webhook 本番登録は別途。
+export {
+  tsudumonCreateCheckout,
+  tsudumonStripeWebhook,
+  tsudumonCreatePortal,
+} from './tsudumonStripe';
 
-// 参考書Webページ内チャット（スタ先生。LINEの参考書AIと知識・履歴・回数枠を共有）
+// つづもん 保護者導線（子がカードを発行 → 保護者が自分の端末で閲覧・決済）。
+// 中学生本人は決済できないので、ここが唯一の課金経路。
+// 設計: pdf-workbook/.steering/20260727-parent-handoff/design.md
+// env（TSUDUMON_INVITE_SECRET）未設定なら 503 not_configured を返す（安全側）。
+export {
+  tsudumonInviteCreate,
+  tsudumonInviteView,
+  tsudumonParentCheckout,
+  tsudumonInviteQr,
+  tsudumonParentLink,
+} from './tsudumonParent';
+// 保護者ダッシュボード（学習の記録のみ。トーク内容は構造的に読めない）。
+export {
+  tsudumonParentDashboard,
+  tsudumonParentPortal,
+  tsudumonParentRenameChild,
+} from './tsudumonParentDashboard';
+
+// 参考書Webページ内チャット（つづ先生。LINEの参考書AIと知識・履歴・回数枠を共有）
 export { referenceChat } from './referenceChat';
 
 // 記述問題のAIその場採点（問題集Web版。購入者ゲート＋LINEのAI枠を共有）
@@ -58,6 +111,11 @@ export { monthlyDeliveryReport } from './monthlyDeliveryReport';
 
 // 月末ふり返りレポート 招待 push（AI 学習分析。タップで reply 生成）
 export { sendMonthlyReportInvite } from './sendMonthlyReportInvite';
+
+// ⛔ sendTsudumonDailyMessage は**お蔵入り**（2026-07-27）。export しない。
+//    日次配信は `tsudumonDailyUnit` に一本化した（曜日・時刻の個別設定／テスト範囲を
+//    見た単元選び／その日勉強済みなら送らない、が入っているのはあちら）。
+//    口が2つあると「push は1日2通まで」の約束が壊れる。経緯は当該ファイルの冒頭。
 
 // 2026-06 トライアル廃止・課金導線停止:
 // 以下の trial 関連 cron は登録を停止（ファイル本体は dormant として残置）。
@@ -347,7 +405,12 @@ export const workbookLaunch = functions
       }
 
       const { pushWorkbookStart } = await import('./lineWebhook');
-      const result = await pushWorkbookStart(userId, topic.slice(0, 60));
+      const { getTsudumonLineClient } = await import('./tsudumon/client');
+      const result = await pushWorkbookStart(
+        await getTsudumonLineClient(),
+        userId,
+        topic.slice(0, 60)
+      );
       if (result === 'unknown_topic') {
         res.status(404).json({ error: 'unknown topic' });
         return;
@@ -366,7 +429,7 @@ export const workbookLaunch = functions
 
 /**
  * 参考書QR即開始: 参考書の QR（LIFF /liff/units/ref?t=章番号-topicId）から呼ばれ、
- * LIFF の ID トークンを検証して「スタ先生と深める」メニュー（質問／理解度チェック）を
+ * LIFF の ID トークンを検証して「つづ先生と深める」メニュー（質問／理解度チェック）を
  * トークへ push する。生徒は QR を読むだけで LINE 上のAI学習を始められる。
  *
  * レスポンス: 200 ok / 404 unknown topic / 424 push失敗 / 401 token不正
@@ -419,7 +482,12 @@ export const referenceLaunch = functions
       }
 
       const { pushReferenceStart } = await import('./lineWebhook');
-      const result = await pushReferenceStart(userId, topic.slice(0, 60));
+      const { getTsudumonLineClient } = await import('./tsudumon/client');
+      const result = await pushReferenceStart(
+        await getTsudumonLineClient(),
+        userId,
+        topic.slice(0, 60)
+      );
       if (result === 'unknown_topic') {
         res.status(404).json({ error: 'unknown topic' });
         return;
