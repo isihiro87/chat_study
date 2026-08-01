@@ -166,11 +166,10 @@ describe('buildParentCardFlex', () => {
     expect(json).not.toContain('980');
   });
 
-  it('呼び名の変更をカードの quickReply に置く（出す前には聞かない）', () => {
-    // 「おうちの人に見せたい」と言った子はリンクが今すぐ欲しい。
-    // 呼び名を先に聞くと、いちばん気持ちが乗っている瞬間で止めてしまう。
-    const action = card.quickReply?.items[0].action as { data?: string };
-    expect(action?.data).toBe('type=tzm_pname_ask');
+  it('カードに余計な選択肢を出さない（渡すことだけに集中させる）', () => {
+    // 呼び名を子に決めさせない。見分けたいのは保護者なので、
+    // 保護者ダッシュボードの「表示名を変える」に一本化してある。
+    expect(card.quickReply).toBeUndefined();
   });
 });
 

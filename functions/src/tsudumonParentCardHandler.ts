@@ -9,7 +9,6 @@ import type { messagingApi } from '@line/bot-sdk';
 import {
   buildParentCardErrorMessage,
   buildParentCardFlex,
-  buildParentNameAskMessage,
   sanitizeParentName,
 } from './tsudumonParentCard';
 import { createTsudumonInvite } from './tsudumonParent';
@@ -75,34 +74,6 @@ export async function handleParentCardPostback(
       expiresLabel: invite.expiresLabel,
     }),
   ]);
-}
-
-/**
- * カードの quickReply「呼び名を変える」（postback `type=tzm_pname_ask`）。
- * ここで初めて呼び名待ちにする。カードは既に出ているので、道を塞がない。
- */
-export async function handleParentNameAskPostback(
-  client: messagingApi.MessagingApiClient,
-  uid: string,
-  replyToken: string | undefined
-): Promise<void> {
-  if (!replyToken) return;
-
-  let grade: unknown = null;
-  try {
-    const db = await getDb();
-    const snap = await db.doc(`users/${uid}`).get();
-    grade = snap.data()?.grade ?? null;
-    await db
-      .doc(`users/${uid}`)
-      .set(
-        { tsudumonParentNameAwaiting: true },
-        { mergeFields: ['tsudumonParentNameAwaiting'] }
-      );
-  } catch (error) {
-    console.error('[tsudumonParentCard] name ask setup failed:', error);
-  }
-  await reply(client, replyToken, [buildParentNameAskMessage(grade)]);
 }
 
 /** 呼び名を保存する（quick reply の既定候補 / 自由入力の両方から呼ぶ）。 */

@@ -56,18 +56,18 @@ export function buildOpenMaterialMessage(opts: {
   const opener = opts.lead
     ? opts.lead
     : opts.firstTime
-      ? 'はじめの1単元です。ここから始めましょう📖'
-      : 'つづきから、いきましょう📖';
+      ? 'はじめの1単元。ここから始めよう'
+      : 'つづきから、いこう';
   return [
     opener,
     '',
-    `【${unit.grade}・${unit.no}】${unit.title}`,
-    unit.subtitle,
+    `📖【${unit.grade}・${unit.no}】${unit.title}`,
+    unit.hook,
     '',
-    '▶ 問題を解く',
+    '▶ そのまま解く',
     workbookUrl(unit.no),
     '',
-    '▶ 先に参考書で読む',
+    '▶ 先に読んでおく',
     referenceUrl(unit.no),
     '',
     '🗺 ぜんぶの単元から選ぶ',

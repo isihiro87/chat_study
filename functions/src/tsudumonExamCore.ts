@@ -283,11 +283,11 @@ export function pickReasonLead(
   const days = exam ? Math.max(0, daysUntilExam(exam, nowMs)) : 0;
   switch (reason) {
     case 'exam_review':
-      return `テストまであと${days}日。まちがえたままの問題があるから、ここから固めよう💪`;
+      return `テストまであと${days}日。まちがえたままの問題があるから、ここを固めるのが近道💪`;
     case 'exam_next':
-      return `テストまであと${days}日。範囲の中から、きょうの1単元です📖`;
+      return `テストまであと${days}日。範囲の中から、きょうはここ！`;
     case 'review':
-      return 'きょうは復習の日。まちがえたところをもう一度いこう🔁';
+      return 'きょうは復習の日。まちがえたところ、もう一度だけいこう🔁';
     default:
       return '';
   }

@@ -90,8 +90,84 @@ export function jstHour(date: Date): number {
 }
 
 /**
- * 配信本文。曜日で書き出しを変えて、毎日同じ文面に見えないようにする。
- * 純粋関数なのでテストしやすい（副作用なし）。
+ * 書き出しのバリエーション。`[曜日][カーソルの偶奇]` の2次元で **14通り**。
+ *
+ * 以前は曜日ごとの1文だけで、しかも7つ中4つが同一文字列（「きょうの1単元です📖」）
+ * だった＝**実質4パターン**で、毎日ほぼ同じ通知が並ぶ。読み飛ばされる文面は
+ * 開封率がそのまま落ちるので、単元が一巡（19日）しても同じ組み合わせに
+ * ならないよう、カーソルでもう1段ずらす。
+ *
+ * 文体は `docs/message-copy-guidelines.md` §2「タメ口やわらか」に合わせる
+ * （敬体が許されるのは購入・ライセンス・料金の案内のみ）。
+ */
+const OPENERS: readonly (readonly [string, string])[] = [
+  [
+    '日曜だ。ゆっくりでいいよ、きょうの1単元',
+    '休みの日こそ、10分だけやっとこう',
+  ],
+  ['今週もスタート。まずはここから', '月曜。とりあえず1単元だけいこう'],
+  ['きょうの1単元、いってみよう', '火曜。サクッと1単元'],
+  ['折り返しの水曜。ここまで来たね', '水曜。あと半分、いけるいける'],
+  ['あとちょっとで週末。きょうのぶん', '木曜。1単元だけ、いこう'],
+  ['金曜！週末の前に、ここだけ', '週末まであと少し。きょうの1単元'],
+  ['土曜。気楽に1単元いこう', 'きょうの1単元。無理しない範囲でね'],
+];
+
+/** 見直しの一行（間隔反復 or 「間違いが残っている章」）。 */
+interface DailyReview {
+  unit: string;
+  wrong: number;
+  text?: string;
+}
+
+/** 文面（テキスト）とカード（Flex）で共通の「その日の中身」。 */
+interface DailyUnitParts {
+  unit: (typeof TSUDUMON_UNITS)[number];
+  /** 書き出し。テスト前などの `lead` があればそれを優先する */
+  opener: string;
+  /** 出す価値のある見直し（今日の単元と重複していたら undefined） */
+  review?: { unitNo: string; text: string };
+}
+
+/**
+ * その日に見せる中身を1か所で決める。
+ *
+ * テキストとFlexで**別々に単元を選ばせない**ためのもの。片方だけ直して
+ * 「カードには第8章、通知文には第9章」がずれて出る事故を型で防ぐ。
+ */
+function resolveDailyUnitParts(
+  cursor: number,
+  date: Date,
+  review?: DailyReview,
+  unitNo?: string,
+  lead?: string
+): DailyUnitParts {
+  const unit = unitNo
+    ? (TSUDUMON_UNITS.find((u) => u.no === unitNo) ?? unitAtCursor(cursor))
+    : unitAtCursor(cursor);
+  const jst = new Date(date.getTime() + 9 * 60 * 60 * 1000);
+  const variant = Math.abs(Math.trunc(cursor)) % 2;
+  return {
+    unit,
+    opener: lead || OPENERS[jst.getUTCDay()][variant],
+    review:
+      review && review.unit !== unit.no
+        ? {
+            unitNo: review.unit,
+            text:
+              review.text ??
+              `📝 ${unitLabel(review.unit)}に、まちがえたままの問題が${review.wrong}問のこっているよ。`,
+          }
+        : undefined,
+  };
+}
+
+/**
+ * 配信本文（テキスト版）。
+ *
+ * ⚠️ 通常の配信は `buildDailyUnitFlex` の**カード**で送る。こちらは
+ * Flex の送信が失敗したときのフォールバック（＝行き止まりを作らない保険）。
+ * 文面の正はカード側なので、片方だけ直さないこと。
  */
 export function buildDailyUnitMessage(
   cursor: number,
@@ -100,7 +176,7 @@ export function buildDailyUnitMessage(
    * 見直しの一行。間隔反復（3日後・1週間後・2週間後）で「いま声をかけるべき」と
    * 判定された単元があればその文面、無ければ従来どおり「間違いが残っている章」。
    */
-  review?: { unit: string; wrong: number; text?: string },
+  review?: DailyReview,
   /** 出す章を明示する（テスト範囲・復習優先の選定結果）。未指定はカーソル順 */
   unitNo?: string,
   /** なぜこの章なのかの枕（テストまであと◯日 等） */
@@ -112,49 +188,212 @@ export function buildDailyUnitMessage(
    */
   firstTime?: boolean
 ): string {
-  const unit = unitNo
-    ? (TSUDUMON_UNITS.find((u) => u.no === unitNo) ?? unitAtCursor(cursor))
-    : unitAtCursor(cursor);
-  const jst = new Date(date.getTime() + 9 * 60 * 60 * 1000);
-  const openers = [
-    'きょうの1単元です📖', // 日
-    '今週もいきましょう。きょうの1単元です📖', // 月
-    'きょうの1単元です📖', // 火
-    '折り返しの水曜日。きょうの1単元です📖', // 水
-    'きょうの1単元です📖', // 木
-    '週末まであと少し。きょうの1単元です📖', // 金
-    'きょうの1単元です📖', // 土
-  ];
+  const parts = resolveDailyUnitParts(cursor, date, review, unitNo, lead);
+  const { unit } = parts;
   return [
-    lead || openers[jst.getUTCDay()],
+    parts.opener,
     '',
-    `【${unit.grade}・${unit.no}】${unit.title}`,
-    unit.subtitle,
+    `📖【${unit.grade}・${unit.no}】${unit.title}`,
+    // 目次の写し（subtitle）ではなく「きょうはこういう話」の1行を見せる。
+    // 「幕藩体制の確立／江戸幕府成立〜天保の改革」だけでは中身が想像できず、
+    // リンクを開く理由にならない（tsudumonUnits.hook のコメント参照）。
+    unit.hook,
     '',
-    '▶ まず参考書を読む',
+    '▶ まずは読む（5分でOK）',
     referenceUrl(unit.no),
     '',
-    '▶ 問題を解く',
+    '▶ そのまま解く',
     workbookUrl(unit.no),
     '',
-    '15分だけでも大丈夫。わからないところは、このトークでつづ先生に聞いてくださいね。',
+    '15分だけでも十分。「ここわからん」ってそのまま送ってくれたら、わたしが答えるよ💡',
     // 実データにもとづく見直しの提案（間違えたままの問題が残っている章だけ）
-    ...(review && review.unit !== unit.no
-      ? [
-          '',
-          review.text ??
-            `📝 ${unitLabel(review.unit)}に、まちがえたままの問題が${review.wrong}問のこっているよ。`,
-          workbookUrl(review.unit),
-        ]
+    ...(parts.review
+      ? ['', parts.review.text, workbookUrl(parts.review.unitNo)]
       : []),
     ...(firstTime
       ? [
           '',
-          '⏰ 届く曜日・時間は自分で決められます（このトークで「平日だけにして」と送ってもOK）',
+          '⏰ 届く曜日・時間は自分で変えられるよ（このトークに「平日だけにして」と送ってもOK）',
           SETTINGS_URL,
         ]
       : []),
   ].join('\n');
+}
+
+/** Flex の配色。`tsudumonParentCard.ts` と揃える（つづもんのカードは全部この色）。 */
+const BRAND = '#b45309';
+const INK = '#33291f';
+const MUTED = '#8a7a63';
+
+/**
+ * 配信カード（Flex）。**日次配信の見た目の正本。**
+ *
+ * なぜテキストをやめてカードにしたか（ユーザー指摘 2026-08-01「見た目から見やすく」）:
+ *   テキストで教材URLを2本並べると、LINEが**URLプレビューを2枚**下にぶら下げる。
+ *   本文より大きい面積のカードが2つ積まれて、肝心の「今日はここ」が埋もれていた。
+ *   Flex にすると URL は uri アクションに隠れる＝**プレビューが1枚も出ない**ので、
+ *   通知1件の縦の長さがおよそ半分になり、タップ先も曖昧さなくボタン2つに絞れる。
+ *
+ * 情報の並びにも意味がある:
+ *   ① 枕（小さく・軽く）→ ② 学年と章（バッジ）→ ③ **単元名を主役の大きさで**
+ *   → ④ ツカミ → ⑤ 見直し（あれば・別ブロック）→ ⑥ ボタン
+ *   ③④が読めれば「今日なにをやるか」が伝わる。①は読み飛ばして構わない情報なので上に小さく置く。
+ *
+ * 1通で完結させること（messages 配列に足すとその数だけ配信枠を消費する）。
+ */
+export function buildDailyUnitFlex(
+  cursor: number,
+  date: Date,
+  review?: DailyReview,
+  unitNo?: string,
+  lead?: string,
+  firstTime?: boolean
+): Record<string, unknown> {
+  const parts = resolveDailyUnitParts(cursor, date, review, unitNo, lead);
+  const { unit } = parts;
+  const text = (t: string, opts: Record<string, unknown> = {}) => ({
+    type: 'text',
+    text: t,
+    wrap: true,
+    ...opts,
+  });
+
+  return {
+    type: 'flex',
+    // 通知とトーク一覧に出る1行。ここが「きょうの1単元です」だけだと、
+    // 開かないと何の単元か分からない＝開かれない。単元名まで入れる。
+    altText: `きょうの1単元｜${unit.grade}・第${unit.no}章 ${unit.title}`,
+    contents: {
+      type: 'bubble',
+      body: {
+        type: 'box',
+        layout: 'vertical',
+        paddingAll: '18px',
+        contents: [
+          // ① 枕
+          text(parts.opener, { size: 'xs', color: MUTED }),
+          // ② 学年・章のバッジ。horizontal + filler で幅を中身ぶんに留める
+          {
+            type: 'box',
+            layout: 'horizontal',
+            margin: 'md',
+            contents: [
+              {
+                type: 'box',
+                layout: 'vertical',
+                flex: 0,
+                backgroundColor: '#fef3c7',
+                cornerRadius: '4px',
+                paddingAll: '5px',
+                paddingStart: '10px',
+                paddingEnd: '10px',
+                contents: [
+                  text(`${unit.grade}・第${unit.no}章`, {
+                    size: 'xxs',
+                    weight: 'bold',
+                    color: BRAND,
+                  }),
+                ],
+              },
+              { type: 'filler' },
+            ],
+          },
+          // ③ 主役
+          text(unit.title, {
+            size: 'xl',
+            weight: 'bold',
+            color: INK,
+            margin: 'md',
+          }),
+          // ④ ツカミ
+          text(unit.hook, { size: 'sm', color: MUTED, margin: 'sm' }),
+          // ⑤ 見直し（あるときだけ）。今日のぶんと混ざらないよう別ブロックにする
+          ...(parts.review
+            ? [
+                { type: 'separator', margin: 'lg' },
+                {
+                  type: 'box',
+                  layout: 'vertical',
+                  margin: 'lg',
+                  backgroundColor: '#fffbeb',
+                  cornerRadius: '8px',
+                  paddingAll: '10px',
+                  contents: [
+                    text(parts.review.text, { size: 'xs', color: '#92400e' }),
+                  ],
+                },
+              ]
+            : []),
+        ],
+      },
+      footer: {
+        type: 'box',
+        layout: 'vertical',
+        spacing: 'sm',
+        paddingAll: '18px',
+        paddingTop: 'none',
+        contents: [
+          {
+            type: 'button',
+            style: 'primary',
+            color: BRAND,
+            height: 'sm',
+            action: {
+              type: 'uri',
+              label: 'まずは読む（5分）',
+              uri: referenceUrl(unit.no),
+            },
+          },
+          {
+            type: 'button',
+            style: 'secondary',
+            height: 'sm',
+            action: {
+              type: 'uri',
+              label: 'そのまま解く',
+              uri: workbookUrl(unit.no),
+            },
+          },
+          ...(parts.review
+            ? [
+                {
+                  type: 'button',
+                  style: 'link',
+                  // link スタイルは色を指定しないと LINE 既定の青になる。
+                  // つづもんのカードは全部この茶系なので、青が1本だけ混ざらないようにする。
+                  color: BRAND,
+                  height: 'sm',
+                  action: {
+                    type: 'uri',
+                    label: 'まちがえた問題に戻る',
+                    uri: workbookUrl(parts.review.unitNo),
+                  },
+                },
+              ]
+            : []),
+          text(
+            '15分だけでも十分。わからないところは、このトークにそのまま送ってね💡',
+            {
+              size: 'xxs',
+              color: MUTED,
+              margin: 'md',
+            }
+          ),
+          // 初回だけ。通知がうるさいと感じた人の逃げ道を、ブロックより先に見せる
+          ...(firstTime
+            ? [
+                text('⏰ 届く曜日・時間を変える', {
+                  size: 'xxs',
+                  color: BRAND,
+                  margin: 'sm',
+                  action: { type: 'uri', label: '設定', uri: SETTINGS_URL },
+                }),
+              ]
+            : []),
+        ],
+      },
+    },
+  };
 }
 
 /**
@@ -426,34 +665,62 @@ export const tsudumonDailyUnit = functions
       if (!review) {
         review = unitsNeedingReview(userData.tsudumonProgress as never, 1)[0];
       }
+      // 初回配信（まだ一度も送っていない）だけ設定の案内を添える。
+      const firstTime = typeof data.lastSentDate !== 'string';
+      // ⚠️ 「終わったよ！」ボタン（クイックリプライ）はここに置かない（ユーザー指摘 2026-07-27）。
+      // クイックリプライは**送った瞬間から出る**ので、まだ何もしていない段階で
+      // 「終わったよ！」が並ぶのは不自然。LINE の仕様上、あとからボタンを
+      // 足したり出し分けたりはできない（送信時に固定される）。
+      // 報告は「終わったよ」と**打てば**受け付ける（webhook のテキスト分岐）。
       try {
         await lineClient.pushMessage({
           to: lineUserId,
           messages: [
-            {
-              type: 'text',
-              // ⚠️ 「終わったよ！」ボタンはここに置かない（ユーザー指摘 2026-07-27）。
-              // クイックリプライは**送った瞬間から出る**ので、まだ何もしていない段階で
-              // 「終わったよ！」が並ぶのは不自然。LINE の仕様上、あとからボタンを
-              // 足したり出し分けたりはできない（送信時に固定される）。
-              // 報告は「終わったよ」と**打てば**受け付ける（webhook のテキスト分岐）。
-              text: buildDailyUnitMessage(
-                cursor,
-                now,
-                review,
-                picked.unitNo,
-                lead,
-                // 初回配信（まだ一度も送っていない）だけ設定の案内を添える。
-                typeof data.lastSentDate !== 'string'
-              ),
-            },
+            buildDailyUnitFlex(
+              cursor,
+              now,
+              review,
+              picked.unitNo,
+              lead,
+              firstTime
+            ),
           ],
         } as never);
         await recordPushDelivery('tsudumonDaily');
       } catch (error) {
-        console.error(`[tsudumonDailyUnit] push failed uid=${uid}:`, error);
-        failed++;
-        continue;
+        // Flex は構造が1か所でも不正だと 400 で丸ごと落ちる。**その日の1通が
+        // 消えるのがいちばん損**なので、テキストで必ず配り直す（届いていない
+        // ＝配信枠も消費していないので、ここで1通ぶん使い直して構わない）。
+        console.error(
+          `[tsudumonDailyUnit] flex push failed uid=${uid}; falling back to text:`,
+          error
+        );
+        try {
+          await lineClient.pushMessage({
+            to: lineUserId,
+            messages: [
+              {
+                type: 'text',
+                text: buildDailyUnitMessage(
+                  cursor,
+                  now,
+                  review,
+                  picked.unitNo,
+                  lead,
+                  firstTime
+                ),
+              },
+            ],
+          } as never);
+          await recordPushDelivery('tsudumonDaily');
+        } catch (fallbackError) {
+          console.error(
+            `[tsudumonDailyUnit] text fallback failed uid=${uid}:`,
+            fallbackError
+          );
+          failed++;
+          continue;
+        }
       }
 
       try {

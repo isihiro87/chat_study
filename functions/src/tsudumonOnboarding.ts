@@ -99,20 +99,20 @@ export function buildStep3Message(unitNo: string, hasExam: boolean): string {
   const unit = TSUDUMON_UNITS.find((u) => u.no === unitNo) ?? TSUDUMON_UNITS[0];
   return [
     hasExam
-      ? 'ありがとう！さっそく、範囲の中から今日の1単元です📖'
-      : 'それじゃあ、さっそく始めよう。今日はここから📖',
+      ? 'ありがとう！さっそく、範囲の中からきょうの1単元'
+      : 'それじゃあ、さっそく始めよう。きょうはここから',
     '',
-    `【${unit.grade}・${unit.no}】${unit.title}`,
-    unit.subtitle,
+    `📖【${unit.grade}・${unit.no}】${unit.title}`,
+    unit.hook,
     '',
-    '▶ まず参考書を読む',
+    '▶ まずは読む（5分でOK）',
     referenceUrl(unit.no),
     '',
-    '▶ 問題を解く',
+    '▶ そのまま解く',
     workbookUrl(unit.no),
     '',
-    'まずは3問だけでも大丈夫。終わったら「終わったよ」と送ってくれれば、見にいくね。',
-    'わからないところは、このトークにそのまま書いてください。',
+    'まずは3問だけでも十分。終わったら「終わったよ」って送ってくれれば、見にいくね。',
+    'わからないところは、このトークにそのまま書いてね💡',
   ].join('\n');
 }
 

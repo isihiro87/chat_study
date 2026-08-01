@@ -16,6 +16,7 @@ import {
   workbookUrl,
 } from '../tsudumonUnits';
 import {
+  buildDailyUnitFlex,
   buildDailyUnitMessage,
   jstDateKey,
   jstHour,
@@ -74,6 +75,16 @@ describe('tsudumonUnits: 単元表', () => {
     expect(unitAtCursor(cursorForGrade('中4')).no).toBe('01');
   });
 
+  it('全19単元にツカミがあり、LINEで折り返さない長さに収まっている', () => {
+    for (const u of TSUDUMON_UNITS) {
+      expect(u.hook.length).toBeGreaterThanOrEqual(15);
+      expect(u.hook.length).toBeLessThanOrEqual(35);
+      // ツカミは「話の中身」。タイトルをそのまま繰り返しても情報が増えない。
+      expect(u.hook).not.toBe(u.title);
+      expect(u.hook).not.toBe(u.subtitle);
+    }
+  });
+
   it('教材URLは配信ビルドのパス（/wb/{no}/ , /ref/{no}/）と一致する', () => {
     expect(workbookUrl('04')).toBe('https://tsudumon.jp/wb/04/');
     expect(referenceUrl('04')).toBe('https://tsudumon.jp/ref/04/');
@@ -99,10 +110,115 @@ describe('tsudumonDailyUnit: 今日の1単元', () => {
     );
   });
 
+  it('書き出しは曜日×カーソルで14通りある（同じ曜日でも連続で同文にならない）', () => {
+    // 単元が一巡する19日のあいだ、各曜日で少なくとも2通りの書き出しが出る。
+    const openers = new Set<string>();
+    // 2026-07-26 は日曜（JST）。そこから19日ぶん＝全曜日×カーソル偶奇を通る。
+    const start = new Date('2026-07-26T10:00:00+09:00').getTime();
+    const day = 24 * 60 * 60 * 1000;
+    for (let cursor = 0; cursor < 19; cursor++) {
+      openers.add(
+        buildDailyUnitMessage(cursor, new Date(start + cursor * day)).split(
+          '\n'
+        )[0]
+      );
+    }
+    expect(openers.size).toBe(14);
+  });
+
+  it('目次の写し（subtitle）ではなく、中身が分かるツカミを見せる', () => {
+    // 「江戸幕府成立 〜 天保の改革」だけでは何の話か分からず、開く理由にならない。
+    const text = buildDailyUnitMessage(7, monJst); // 08 幕藩体制の確立
+    expect(text).toContain('幕藩体制の確立');
+    expect(text).toContain('参勤交代');
+    expect(text).not.toContain('江戸幕府成立 〜 天保の改革');
+  });
+
+  it('敬体を混ぜない（文言ガイドライン §2「基調はタメ口やわらか」）', () => {
+    // 敬体が許されるのは購入・ライセンス・料金の案内だけ。学習の声かけには使わない。
+    for (let cursor = 0; cursor < TSUDUMON_UNITS.length; cursor++) {
+      for (const firstTime of [false, true]) {
+        const text = buildDailyUnitMessage(
+          cursor,
+          monJst,
+          undefined,
+          undefined,
+          undefined,
+          firstTime
+        );
+        for (const ng of ['です', 'ます', 'ください', 'ましょう']) {
+          expect(text).not.toContain(ng);
+        }
+      }
+    }
+  });
+
   it('JST暦日キーは日本時間で切り替わる（UTCの日付ではない）', () => {
     // UTC では 2026-07-26 23:00 だが、JST では 2026-07-27
     expect(jstDateKey(new Date('2026-07-26T23:00:00Z'))).toBe('2026-07-27');
     expect(jstDateKey(new Date('2026-07-26T14:00:00Z'))).toBe('2026-07-26');
+  });
+});
+
+describe('tsudumonDailyUnit: 配信カード（Flex）', () => {
+  const monJst = new Date('2026-07-27T10:00:00+09:00');
+  /** バブル内の全テキストを拾う（本文にURLが露出していないかの検査用）。 */
+  const allText = (node: unknown): string[] => {
+    if (Array.isArray(node)) return node.flatMap(allText);
+    if (!node || typeof node !== 'object') return [];
+    const o = node as Record<string, unknown>;
+    const here =
+      o.type === 'text' && typeof o.text === 'string' ? [o.text] : [];
+    return [...here, ...Object.values(o).flatMap(allText)];
+  };
+
+  it('教材URLは本文に出さず、ボタンのuriにだけ持つ（プレビューを2枚出さないため）', () => {
+    // テキスト配信でURLを2本並べると、LINEが本文より大きいプレビューを2枚
+    // ぶら下げて肝心の単元名が埋もれる。カード化の主目的がこれ。
+    const flex = buildDailyUnitFlex(7, monJst); // 08 幕藩体制の確立
+    for (const t of allText(flex.contents)) {
+      expect(t).not.toContain('https://');
+    }
+    const json = JSON.stringify(flex);
+    expect(json).toContain('https://tsudumon.jp/ref/08/');
+    expect(json).toContain('https://tsudumon.jp/wb/08/');
+  });
+
+  it('altTextに単元名まで入れる（通知だけ見て開くか決められるように）', () => {
+    const flex = buildDailyUnitFlex(7, monJst);
+    expect(flex.altText).toContain('幕藩体制の確立');
+    expect(flex.altText).toContain('中2');
+  });
+
+  it('カードとテキスト版は必ず同じ単元を指す（片方だけ直す事故の検知）', () => {
+    for (let cursor = 0; cursor < TSUDUMON_UNITS.length; cursor++) {
+      const flex = buildDailyUnitFlex(cursor, monJst);
+      const unit = TSUDUMON_UNITS[cursor];
+      expect(allText(flex.contents)).toContain(unit.title);
+      expect(buildDailyUnitMessage(cursor, monJst)).toContain(unit.title);
+    }
+  });
+
+  it('見直しがあるときだけ、復習ブロックと3つ目のボタンが増える', () => {
+    const withoutReview = buildDailyUnitFlex(7, monJst);
+    const withReview = buildDailyUnitFlex(7, monJst, {
+      unit: '05',
+      wrong: 3,
+      text: '📝 「武士と鎌倉幕府」に、まちがえたままの問題が3問のこってるよ。',
+    });
+    expect(JSON.stringify(withoutReview)).not.toContain(
+      'https://tsudumon.jp/wb/05/'
+    );
+    expect(JSON.stringify(withReview)).toContain('https://tsudumon.jp/wb/05/');
+    expect(allText(withReview.contents).join('')).toContain('武士と鎌倉幕府');
+  });
+
+  it('今日と同じ単元の見直しは出さない（同じリンクを2回押させない）', () => {
+    const flex = buildDailyUnitFlex(7, monJst, { unit: '08', wrong: 2 });
+    // 08 のボタンは「読む」「解く」の2本だけ。復習ボタンは増えない
+    expect(
+      JSON.stringify(flex).split('https://tsudumon.jp/wb/08/').length - 1
+    ).toBe(1);
   });
 });
 

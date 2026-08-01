@@ -139,7 +139,7 @@ export function buildReviewNudge(due: DueUnit, unitTitle: string): string {
   const when =
     due.stage === 0 ? '3日前' : due.stage === 1 ? '1週間ほど前' : '少し前';
   return (
-    `📝 ${when}にやった「${unitTitle}」に、まちがえたままの問題が${due.wrong}問のこっています。` +
-    `\n忘れかけている今がいちばん効くタイミング。「復習する」と送れば、ここから出します。`
+    `📝 ${when}にやった「${unitTitle}」、まちがえたままの問題が${due.wrong}問のこってるよ。` +
+    `\n忘れかけの今がいちばん効くタイミング。「復習する」って送ってくれたら、ここから出すね。`
   );
 }

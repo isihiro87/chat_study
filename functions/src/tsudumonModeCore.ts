@@ -180,11 +180,11 @@ export function entranceReasonLead(reason: EntranceReason): string {
     case 'entrance_wrong':
       return '入試までの積み上げ。まちがえたままの問題があるから、ここを固めよう💪';
     case 'entrance_lowscore':
-      return '入試までの積み上げ。正答率が上がりきっていない単元をもう一度🔁';
+      return '入試までの積み上げ。正答率が上がりきってない単元をもう一度🔁';
     case 'entrance_new':
-      return '入試は全範囲から出ます。まだ手をつけていない単元をひとつ📖';
+      return '入試は全範囲から出るよ。まだ手をつけてない単元をひとつ';
     default:
-      return 'しばらく空いた単元です。思い出しながらいこう📖';
+      return 'しばらく空いた単元だよ。思い出しながらいこう';
   }
 }
 
