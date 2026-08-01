@@ -8,15 +8,15 @@
  *   1. **お金の話を切り出せない** → 台本と実績（自分から勉強したがっている証拠）で埋める
  *   2. **監視されそう** → 「トークは見えない」を**先に**見せることで埋める
  *
- * だから Flex の最初の行は「見える／見えない」にする。CTAより前に置く。
- * プライバシーの説明は付帯情報ではなく、**カードを出す気になるための条件**。
+ * だから1通目の冒頭で「見える／見えない」を伝える。
+ * プライバシーの説明は付帯情報ではなく、**渡す気になるための条件**。
+ *
+ * 渡し方は LINE の「転送」だけにする（2026-08-01）。QRページ・共有ページのような
+ * 中間地点を置くと、そのぶん確実に脱落する。
  *
  * 送信はすべて reply（配信枠ゼロ）。
  */
 import type { messagingApi } from '@line/bot-sdk';
-
-const BRAND = '#b45309';
-const MUTED = '#8a7a63';
 
 /** 呼び名の最大長。長い文章を保護者画面に出させない。 */
 export const PARENT_NAME_MAX = 12;
@@ -100,119 +100,61 @@ export function buildParentNameAskMessage(
   };
 }
 
-export interface ParentCardInput {
-  childName: string;
-  handoffUrl: string;
-  parentUrl: string;
-  expiresLabel: string;
-  /**
-   * LINE の送り先一覧（シェアターゲットピッカー）を開く LIFF URL。
-   * `LIFF_TSUDUMON_SHARE_ID` が未設定なら空で、その場合は `handoffUrl`（QR）に落ちる。
-   */
-  shareUrl?: string;
+/**
+ * 子のトークに出す案内（1通目）。
+ *
+ * ⚠️ **ページを挟まない。** QRページ・共有ページのような中間地点を置くと、
+ * そのぶん確実に脱落する。渡す手段は LINE がもともと持っている「転送」で足りる。
+ *
+ * ⚠️ **プライバシーの説明はここに書かない**（ユーザー指示 2026-08-01）。
+ * 以前は「見えるのは、やった時間と進んだ単元だけ／トークやまちがえた問題は
+ * 見えないよ」を入れていたが、**まだ疑っていない子に不安の存在を教える**文面に
+ * なっていた。加えて、この1通目は「長おし→転送」という一手の指示であり、
+ * 手を動かす直前に別の話題を挟むほど実行率は落ちる。
+ * 監視されないことの説明が要るのは**保護者ダッシュボード側**（実際に見える
+ * 範囲が決まる場所）で、子への1通目ではない。
+ */
+export function buildParentCardGuide(
+  expiresLabel: string
+): messagingApi.TextMessage {
+  return {
+    type: 'text',
+    text: [
+      '下のメッセージを長おししてね。',
+      '「転送」→ おうちの人をえらぶだけ。',
+      '',
+      `（リンクは${expiresLabel}まで使えるよ）`,
+    ].join('\n'),
+  };
 }
 
 /**
- * カード本体（Flex）。
+ * そのまま保護者へ転送してもらうメッセージ（2通目）。
  *
- * ⚠️ **要素を増やさない。** 中学生が5秒で判断できる量に保つ。
- * 読ませたいのは次の3つだけで、順番にも意味がある:
- *   ① 見えない（安心）→ ② ボタン → ③ 逃げ道（QR）
- * ①を後ろに置くと、読む前に閉じられる。②より前に説明文を挟むと、
- * 「めんどくさい」で止まる。手順は書かない（押せば分かる）。
+ * ⚠️ **この1通だけで完結させる。** 子はこれを転送するので、
+ * 子への指示（長おし、など）を混ぜてはいけない。保護者に意味不明な文が届く。
+ *
+ * ⚠️ URL は必ず **?t= 付きの保護者ページ**。裸の tsudumon.jp を送ると、
+ * 保護者が登録しても**保護者自身のアカウントに課金され、子の教材が開かない**。
+ * このトークンが「支払いは子のアカウントに付ける」印になっている。
+ * リンク先は保護者向けの案内ページそのもの（料金・解約・AIの扱い・登録）で、
+ * OGP も入っているので LINE 上ではカードとしてプレビューされる。
+ *
+ * Flex ではなく**ただのテキスト**にしてある。転送されたとき、
+ * 作り込んだカードより「子どもが送ってきたもの」に見えるほうが読まれる。
  */
-export function buildParentCardFlex(
-  input: ParentCardInput
-): messagingApi.FlexMessage {
-  const text = (
-    t: string,
-    opts: Record<string, unknown> = {}
-  ): messagingApi.FlexText =>
-    ({ type: 'text', text: t, wrap: true, ...opts }) as messagingApi.FlexText;
-
+export function buildParentForwardMessage(
+  parentUrl: string
+): messagingApi.TextMessage {
   return {
-    type: 'flex',
-    altText: 'おうちの人にわたすカード',
-    contents: {
-      type: 'bubble',
-      body: {
-        type: 'box',
-        layout: 'vertical',
-        spacing: 'md',
-        contents: [
-          text('おうちの人に送る', {
-            weight: 'bold',
-            size: 'lg',
-            color: BRAND,
-          }),
-          // ① 安心を先に置く。ここが中学生の最大の不安（監視されるのでは）。
-          //    ただし長いと読まれないので2行まで。
-          {
-            type: 'box',
-            layout: 'vertical',
-            spacing: 'xs',
-            backgroundColor: '#f0fdf4',
-            cornerRadius: '8px',
-            paddingAll: '10px',
-            contents: [
-              text('🔒 見えるのは、やった時間と進んだ単元だけ。', {
-                size: 'sm',
-                color: '#15803d',
-              }),
-              text('トークやまちがえた問題は見えないよ。', {
-                size: 'sm',
-                color: '#15803d',
-              }),
-            ],
-          },
-        ],
-      },
-      footer: {
-        type: 'box',
-        layout: 'vertical',
-        spacing: 'sm',
-        contents: [
-          {
-            type: 'button',
-            style: 'primary',
-            color: BRAND,
-            height: 'sm',
-            action: {
-              type: 'uri',
-              // shareUrl があれば、押した瞬間に LINE の送り先一覧が開く
-              // （送信は子のアカウントから＝親には「自分の子から」届く）。
-              // LIFF 未設定なら従来の QR ページへ。どちらでも行き止まりにしない。
-              label: input.shareUrl ? '送る相手をえらぶ' : '見せる画面をひらく',
-              uri: input.shareUrl || input.handoffUrl,
-            },
-          },
-          // ③ 逃げ道。話しかけて渡すのが苦手な子のための道で、
-          //    消すと「言い出せないまま終わる」子を取りこぼす。期限もここに畳む。
-          text(
-            input.shareUrl
-              ? `QRで見せることもできるよ（${input.expiresLabel}まで）`
-              : `QRを見せるだけでも大丈夫（${input.expiresLabel}まで）`,
-            { size: 'xxs', color: MUTED, align: 'center', wrap: true }
-          ),
-          // 送り先ピッカーが使えないときだけ、転送で渡せるように生URLを残す。
-          // ピッカーがあるときは長いトークンURLが目に入るだけなので出さない。
-          ...(input.shareUrl
-            ? []
-            : [
-                text(input.parentUrl, {
-                  size: 'xxs',
-                  color: MUTED,
-                  align: 'center',
-                }),
-              ]),
-        ],
-      },
-    },
-    // ⚠️ 呼び名の変更はここに出さない（2026-08-01）。
-    // 子に呼び名を決めさせる必要はない。既定の「お子さん」で困らないし、
-    // 見分けたいのは保護者のほうなので、保護者ダッシュボードの
-    // 「表示名を変える」に一本化する。カードは渡すことだけに集中させる。
-  } as messagingApi.FlexMessage;
+    type: 'text',
+    text: [
+      '中学歴史の教材「つづもん」を使っています。',
+      'つづけたいので、見てもらえますか。',
+      '',
+      parentUrl,
+    ].join('\n'),
+  };
 }
 
 /** カードを出せなかったときの案内（env未設定・障害時）。 */

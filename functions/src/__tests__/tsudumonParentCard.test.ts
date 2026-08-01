@@ -8,7 +8,8 @@
 import { describe, it, expect } from 'vitest';
 import {
   PARENT_NAME_MAX,
-  buildParentCardFlex,
+  buildParentCardGuide,
+  buildParentForwardMessage,
   buildParentNameAskMessage,
   defaultParentNameChoice,
   detectParentAskIntent,
@@ -111,67 +112,53 @@ describe('buildParentNameAskMessage', () => {
   });
 });
 
-describe('buildParentCardFlex', () => {
-  const card = buildParentCardFlex({
-    childName: 'けんた',
-    handoffUrl: 'https://tsudumon.jp/handoff/?t=abc',
-    parentUrl: 'https://tsudumon.jp/parents/?t=abc',
-    expiresLabel: '8月10日',
-  });
-  const json = JSON.stringify(card);
+describe('buildParentCardGuide（1通目・子への指示）', () => {
+  const msg = buildParentCardGuide('8月10日');
 
-  it('「見えない」を先に、CTAより前に置く', () => {
-    // 中学生がカードを出すかどうかは、監視される不安が消えるかで決まる。
-    const privacyAt = json.indexOf('見えないよ');
-    const ctaAt = json.indexOf('見せる画面をひらく');
-    expect(privacyAt).toBeGreaterThan(-1);
-    expect(ctaAt).toBeGreaterThan(-1);
-    expect(privacyAt).toBeLessThan(ctaAt);
+  it('やることを最初に書く（長おし→転送）', () => {
+    expect(msg.text).toContain('長おし');
+    expect(msg.text).toContain('転送');
   });
 
-  it('トーク内容が見えないことを明記する', () => {
-    expect(json).toContain('トーク');
-    expect(json).toContain('まちがえた問題');
-    expect(json).toContain('見えないよ');
-  });
-
-  it('QRで渡せることに触れる（言葉が出ない子の逃げ道）', () => {
-    expect(json).toContain('QR');
-  });
-
-  it('送り先ピッカーがあってもQRの逃げ道は消さない', () => {
-    const withShare = JSON.stringify(
-      buildParentCardFlex({
-        childName: 'けんた',
-        handoffUrl: 'https://tsudumon.jp/handoff/?t=abc',
-        shareUrl: 'https://liff.line.me/1234-abcd?t=abc',
-        parentUrl: 'https://tsudumon.jp/parents/?t=abc',
-        expiresLabel: '8月10日',
-      })
-    );
-    expect(withShare).toContain('QR');
-    expect(withShare).toContain('おうちの人に送る');
-    expect(withShare).toContain('https://liff.line.me/1234-abcd?t=abc');
-  });
-
-  it('送り先ピッカーが無いときは転送用に保護者ページのURLを載せる', () => {
-    // ピッカーが使えないなら、渡す手段は「転送」しか残らない。
-    expect(json).toContain('https://tsudumon.jp/parents/?t=abc');
+  it('「見えない」を伝える（渡す気になるための条件）', () => {
+    // 中学生が渡すかどうかは、監視される不安が消えるかで決まる。
+    expect(msg.text).toContain('見えないよ');
+    expect(msg.text).toContain('トーク');
+    expect(msg.text).toContain('まちがえた問題');
   });
 
   it('有効期限を出す', () => {
-    expect(json).toContain('8月10日');
+    expect(msg.text).toContain('8月10日');
   });
 
-  it('金額を子向けカードに書かない（お金の話は保護者ページで）', () => {
-    expect(json).not.toContain('1,280');
-    expect(json).not.toContain('980');
+  it('金額を子側に書かない（お金の話は保護者ページで）', () => {
+    expect(msg.text).not.toContain('1,280');
+    expect(msg.text).not.toContain('980');
+  });
+});
+
+describe('buildParentForwardMessage（2通目・そのまま転送される）', () => {
+  const url = 'https://tsudumon.jp/parents/?t=abc';
+  const msg = buildParentForwardMessage(url);
+
+  it('保護者ページのURLを載せる', () => {
+    expect(msg.text).toContain(url);
   });
 
-  it('カードに余計な選択肢を出さない（渡すことだけに集中させる）', () => {
-    // 呼び名を子に決めさせない。見分けたいのは保護者なので、
-    // 保護者ダッシュボードの「表示名を変える」に一本化してある。
-    expect(card.quickReply).toBeUndefined();
+  it('子への指示を混ぜない（転送されると保護者に意味不明な文が届く）', () => {
+    expect(msg.text).not.toContain('長おし');
+    expect(msg.text).not.toContain('転送');
+    expect(msg.text).not.toContain('おうちの人');
+  });
+
+  it('この1通だけで何のリンクか分かる', () => {
+    expect(msg.text).toContain('つづもん');
+    expect(msg.text).toContain('中学歴史');
+  });
+
+  it('金額を書かない（保護者ページに正本がある。二重管理にしない）', () => {
+    expect(msg.text).not.toContain('1,280');
+    expect(msg.text).not.toContain('980');
   });
 });
 

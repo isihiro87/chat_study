@@ -8,7 +8,8 @@ import type { messagingApi } from '@line/bot-sdk';
 
 import {
   buildParentCardErrorMessage,
-  buildParentCardFlex,
+  buildParentCardGuide,
+  buildParentForwardMessage,
   sanitizeParentName,
 } from './tsudumonParentCard';
 import { createTsudumonInvite } from './tsudumonParent';
@@ -65,14 +66,11 @@ export async function handleParentCardPostback(
   // 引数 skipNameAsk は呼び名を保存した直後の再入で使う（互換のため残す）。
   void skipNameAsk;
 
+  // 2通で返す。1通目＝子への指示、2通目＝**そのまま転送してもらうもの**。
+  // 指示を2通目に混ぜると、転送されたときに保護者に意味不明な文が届く。
   await reply(client, replyToken, [
-    buildParentCardFlex({
-      childName: invite.childName,
-      handoffUrl: invite.handoffUrl,
-      shareUrl: invite.shareUrl,
-      parentUrl: invite.url,
-      expiresLabel: invite.expiresLabel,
-    }),
+    buildParentCardGuide(invite.expiresLabel),
+    buildParentForwardMessage(invite.url),
   ]);
 }
 

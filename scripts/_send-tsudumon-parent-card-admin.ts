@@ -5,9 +5,9 @@
  * 違いは reply ではなく push で送る点だけ。
  *
  * 確認したいこと:
- *   - ボタンが「おうちの人に送る」になっているか（＝LIFF_TSUDUMON_SHARE_ID が効いているか）
- *   - 押すと LINE の送り先一覧（シェアターゲットピッカー）が開くか
- *   - 選んだ相手に案内が届き、そこから保護者ページへ行けるか
+ *   - 2通で届くか（1通目＝指示、2通目＝そのまま転送するもの）
+ *   - 2通目を長おし → 転送 で保護者に渡せるか
+ *   - 転送された側でリンクのプレビューが出て、保護者ページへ行けるか
  *
  * 使い方:
  *   npx tsx scripts/_send-tsudumon-parent-card-admin.ts            # dry-run（作らない・送らない）
@@ -66,7 +66,7 @@ async function main() {
   const { createTsudumonInvite } = requireCjs(
     '../functions/lib/tsudumonParent'
   ) as typeof import('../functions/src/tsudumonParent');
-  const { buildParentCardFlex } = requireCjs(
+  const { buildParentCardGuide, buildParentForwardMessage } = requireCjs(
     '../functions/lib/tsudumonParentCard'
   ) as typeof import('../functions/src/tsudumonParentCard');
 
@@ -83,17 +83,13 @@ async function main() {
   }
   console.log('\n発行しました:');
   console.log('  childName :', invite.childName);
-  console.log('  shareUrl  :', invite.shareUrl || '(空＝QRページに落ちる)');
   console.log('  parentUrl :', invite.url);
   console.log('  期限      :', invite.expiresLabel);
 
-  const flex = buildParentCardFlex({
-    childName: invite.childName,
-    handoffUrl: invite.handoffUrl,
-    shareUrl: invite.shareUrl,
-    parentUrl: invite.url,
-    expiresLabel: invite.expiresLabel,
-  });
+  const messages = [
+    buildParentCardGuide(invite.expiresLabel),
+    buildParentForwardMessage(invite.url),
+  ];
 
   const token = process.env.LINE_TSUDUMON_MESSAGING_CHANNEL_ACCESS_TOKEN || '';
   if (!token)
@@ -105,7 +101,7 @@ async function main() {
       Authorization: `Bearer ${token}`,
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ to: ADMIN_LINE_USER_ID, messages: [flex] }),
+    body: JSON.stringify({ to: ADMIN_LINE_USER_ID, messages }),
   });
   if (!r.ok) throw new Error(`push failed: ${r.status} ${await r.text()}`);
   console.log('\n送信しました。つづもんBotのトークを確認してください。');
