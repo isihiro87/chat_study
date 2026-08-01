@@ -122,7 +122,7 @@ describe('buildParentCardFlex', () => {
 
   it('「見えない」を先に、CTAより前に置く', () => {
     // 中学生がカードを出すかどうかは、監視される不安が消えるかで決まる。
-    const privacyAt = json.indexOf('見えません');
+    const privacyAt = json.indexOf('見えないよ');
     const ctaAt = json.indexOf('見せる画面をひらく');
     expect(privacyAt).toBeGreaterThan(-1);
     expect(ctaAt).toBeGreaterThan(-1);
@@ -130,8 +130,9 @@ describe('buildParentCardFlex', () => {
   });
 
   it('トーク内容が見えないことを明記する', () => {
-    expect(json).toContain('トークの内容');
+    expect(json).toContain('トーク');
     expect(json).toContain('まちがえた問題');
+    expect(json).toContain('見えないよ');
   });
 
   it('QRで渡せることに触れる（言葉が出ない子の逃げ道）', () => {
@@ -153,7 +154,8 @@ describe('buildParentCardFlex', () => {
     expect(withShare).toContain('https://liff.line.me/1234-abcd?t=abc');
   });
 
-  it('転送用に保護者ページのURLを載せる', () => {
+  it('送り先ピッカーが無いときは転送用に保護者ページのURLを載せる', () => {
+    // ピッカーが使えないなら、渡す手段は「転送」しか残らない。
     expect(json).toContain('https://tsudumon.jp/parents/?t=abc');
   });
 

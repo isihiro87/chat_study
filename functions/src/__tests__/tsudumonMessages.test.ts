@@ -199,7 +199,21 @@ describe('tsudumonDailyUnit: 配信カード（Flex）', () => {
     }
   });
 
-  it('見直しがあるときだけ、復習ブロックと3つ目のボタンが増える', () => {
+  it('主導線は「参考書で確認」「問題を解く」の2択だけ（フッターを増やさない）', () => {
+    // ボタンのラベルは行き先の名前にする。「まずは読む」「そのまま解く」だと
+    // 押した先が参考書なのか問題集なのか分からない（ユーザー指摘 2026-08-01）。
+    const footer = (
+      buildDailyUnitFlex(7, monJst, { unit: '05', wrong: 3 }).contents as {
+        footer: { contents: { type: string; action?: { label: string } }[] };
+      }
+    ).footer;
+    const labels = footer.contents
+      .filter((c) => c.type === 'button')
+      .map((c) => c.action?.label);
+    expect(labels).toEqual(['参考書で確認', '問題を解く']);
+  });
+
+  it('復習ボタンは説明文と同じブロックの中に置く（離すと何に戻るか分からない）', () => {
     const withoutReview = buildDailyUnitFlex(7, monJst);
     const withReview = buildDailyUnitFlex(7, monJst, {
       unit: '05',
@@ -209,8 +223,14 @@ describe('tsudumonDailyUnit: 配信カード（Flex）', () => {
     expect(JSON.stringify(withoutReview)).not.toContain(
       'https://tsudumon.jp/wb/05/'
     );
-    expect(JSON.stringify(withReview)).toContain('https://tsudumon.jp/wb/05/');
     expect(allText(withReview.contents).join('')).toContain('武士と鎌倉幕府');
+    // 復習のURLは body 側（説明文と同じブロック）にあり、footer には無い
+    const { body, footer } = withReview.contents as {
+      body: unknown;
+      footer: unknown;
+    };
+    expect(JSON.stringify(body)).toContain('https://tsudumon.jp/wb/05/');
+    expect(JSON.stringify(footer)).not.toContain('https://tsudumon.jp/wb/05/');
   });
 
   it('今日と同じ単元の見直しは出さない（同じリンクを2回押させない）', () => {

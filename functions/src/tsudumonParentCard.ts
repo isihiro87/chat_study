@@ -16,7 +16,6 @@
 import type { messagingApi } from '@line/bot-sdk';
 
 const BRAND = '#b45309';
-const INK = '#33291f';
 const MUTED = '#8a7a63';
 
 /** 呼び名の最大長。長い文章を保護者画面に出させない。 */
@@ -116,9 +115,11 @@ export interface ParentCardInput {
 /**
  * カード本体（Flex）。
  *
- * 並びに意味がある:
- *   ① 見える／見えない（安心）→ ② 何が起きるか → ③ ボタン → ④ URL（転送用）
- * ①を最後に置くと、読む前にカードを閉じられる。
+ * ⚠️ **要素を増やさない。** 中学生が5秒で判断できる量に保つ。
+ * 読ませたいのは次の3つだけで、順番にも意味がある:
+ *   ① 見えない（安心）→ ② ボタン → ③ 逃げ道（QR）
+ * ①を後ろに置くと、読む前に閉じられる。②より前に説明文を挟むと、
+ * 「めんどくさい」で止まる。手順は書かない（押せば分かる）。
  */
 export function buildParentCardFlex(
   input: ParentCardInput
@@ -137,56 +138,33 @@ export function buildParentCardFlex(
       body: {
         type: 'box',
         layout: 'vertical',
-        spacing: 'sm',
+        spacing: 'md',
         contents: [
-          text('おうちの人にわたす', {
+          text('おうちの人に送る', {
             weight: 'bold',
             size: 'lg',
             color: BRAND,
           }),
-          // ① 安心を先に置く
+          // ① 安心を先に置く。ここが中学生の最大の不安（監視されるのでは）。
+          //    ただし長いと読まれないので2行まで。
           {
             type: 'box',
             layout: 'vertical',
             spacing: 'xs',
-            margin: 'md',
             backgroundColor: '#f0fdf4',
             cornerRadius: '8px',
             paddingAll: '10px',
             contents: [
-              text(
-                '🔒 おうちの人に見えるのは、勉強した時間や進んだ単元だけ。',
-                {
-                  size: 'sm',
-                  color: '#15803d',
-                }
-              ),
-              text(
-                'トークの内容・質問したこと・まちがえた問題は、見えません。',
-                {
-                  size: 'sm',
-                  color: '#15803d',
-                }
-              ),
+              text('🔒 見えるのは、やった時間と進んだ単元だけ。', {
+                size: 'sm',
+                color: '#15803d',
+              }),
+              text('トークやまちがえた問題は見えないよ。', {
+                size: 'sm',
+                color: '#15803d',
+              }),
             ],
           },
-          // ② 何が起きるか
-          // ⚠️ QRには必ず触れる。話しかけて渡すのが苦手な子の逃げ道で、
-          //    ここが無いと「言い出せないまま終わる」子を取りこぼす。
-          text(
-            input.shareUrl
-              ? 'つづもんの案内ページを、おうちの人に送れます。' +
-                  '下のボタンを押すと送り先が出るので、えらぶだけ。' +
-                  '直接わたしたいときは、QRコードを見せることもできます。'
-              : 'つづもんの案内ページを、おうちの人に見てもらえます。' +
-                  '言いにくいときは、下のボタンからQRコードを見せるだけでも大丈夫。',
-            { size: 'sm', color: INK, margin: 'md' }
-          ),
-          text(`（このご案内は ${input.expiresLabel} まで使えます）`, {
-            size: 'xxs',
-            color: MUTED,
-            margin: 'sm',
-          }),
         ],
       },
       footer: {
@@ -201,20 +179,32 @@ export function buildParentCardFlex(
             height: 'sm',
             action: {
               type: 'uri',
-              // shareUrl が使えるなら、押した瞬間に LINE の送り先一覧が開く
+              // shareUrl があれば、押した瞬間に LINE の送り先一覧が開く
               // （送信は子のアカウントから＝親には「自分の子から」届く）。
               // LIFF 未設定なら従来の QR ページへ。どちらでも行き止まりにしない。
-              label: input.shareUrl ? 'おうちの人に送る' : '見せる画面をひらく',
+              label: input.shareUrl ? '送る相手をえらぶ' : '見せる画面をひらく',
               uri: input.shareUrl || input.handoffUrl,
             },
           },
+          // ③ 逃げ道。話しかけて渡すのが苦手な子のための道で、
+          //    消すと「言い出せないまま終わる」子を取りこぼす。期限もここに畳む。
           text(
             input.shareUrl
-              ? 'QRで見せたいときは、送り先の画面から切りかえられます'
-              : 'LINEで送るときは、このメッセージを長おしして「転送」',
-            { size: 'xxs', color: MUTED, align: 'center' }
+              ? `QRで見せることもできるよ（${input.expiresLabel}まで）`
+              : `QRを見せるだけでも大丈夫（${input.expiresLabel}まで）`,
+            { size: 'xxs', color: MUTED, align: 'center', wrap: true }
           ),
-          text(input.parentUrl, { size: 'xxs', color: MUTED, align: 'center' }),
+          // 送り先ピッカーが使えないときだけ、転送で渡せるように生URLを残す。
+          // ピッカーがあるときは長いトークンURLが目に入るだけなので出さない。
+          ...(input.shareUrl
+            ? []
+            : [
+                text(input.parentUrl, {
+                  size: 'xxs',
+                  color: MUTED,
+                  align: 'center',
+                }),
+              ]),
         ],
       },
     },

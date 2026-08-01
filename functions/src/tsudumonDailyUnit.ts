@@ -199,10 +199,10 @@ export function buildDailyUnitMessage(
     // リンクを開く理由にならない（tsudumonUnits.hook のコメント参照）。
     unit.hook,
     '',
-    '▶ まずは読む（5分でOK）',
+    '▶ 参考書で確認',
     referenceUrl(unit.no),
     '',
-    '▶ そのまま解く',
+    '▶ 問題を解く',
     workbookUrl(unit.no),
     '',
     '15分だけでも十分。「ここわからん」ってそのまま送ってくれたら、わたしが答えるよ💡',
@@ -307,7 +307,13 @@ export function buildDailyUnitFlex(
           }),
           // ④ ツカミ
           text(unit.hook, { size: 'sm', color: MUTED, margin: 'sm' }),
-          // ⑤ 見直し（あるときだけ）。今日のぶんと混ざらないよう別ブロックにする
+          // ⑤ 見直し（あるときだけ）。今日のぶんと混ざらないよう別ブロックにする。
+          //
+          // ⚠️ ボタンは**このブロックの中**に置く（ユーザー指摘 2026-08-01）。
+          // フッターに3本目として並べると、説明文（どの単元の話か）から離れて
+          // 「何に戻るのか分からない」ボタンになる。すぐ上の文が単元名を言って
+          // いる位置に置けば、ラベルは「もう一度解く」だけで意味が通る。
+          // フッターを主導線の2択に保つ意味でもこちらが正しい。
           ...(parts.review
             ? [
                 { type: 'separator', margin: 'lg' },
@@ -317,9 +323,20 @@ export function buildDailyUnitFlex(
                   margin: 'lg',
                   backgroundColor: '#fffbeb',
                   cornerRadius: '8px',
-                  paddingAll: '10px',
+                  paddingAll: '12px',
                   contents: [
                     text(parts.review.text, { size: 'xs', color: '#92400e' }),
+                    {
+                      type: 'button',
+                      style: 'link',
+                      color: '#92400e',
+                      height: 'sm',
+                      action: {
+                        type: 'uri',
+                        label: 'もう一度解く',
+                        uri: workbookUrl(parts.review.unitNo),
+                      },
+                    },
                   ],
                 },
               ]
@@ -333,6 +350,9 @@ export function buildDailyUnitFlex(
         paddingAll: '18px',
         paddingTop: 'none',
         contents: [
+          // ⚠️ 主導線は**この2つだけ**に保つ（ユーザー指摘 2026-08-01）。
+          // ラベルは行き先そのものの名前にする。「まずは読む」「そのまま解く」は
+          // 動作しか言っておらず、押した先が参考書なのか問題集なのか分からない。
           {
             type: 'button',
             style: 'primary',
@@ -340,7 +360,7 @@ export function buildDailyUnitFlex(
             height: 'sm',
             action: {
               type: 'uri',
-              label: 'まずは読む（5分）',
+              label: '参考書で確認',
               uri: referenceUrl(unit.no),
             },
           },
@@ -350,27 +370,10 @@ export function buildDailyUnitFlex(
             height: 'sm',
             action: {
               type: 'uri',
-              label: 'そのまま解く',
+              label: '問題を解く',
               uri: workbookUrl(unit.no),
             },
           },
-          ...(parts.review
-            ? [
-                {
-                  type: 'button',
-                  style: 'link',
-                  // link スタイルは色を指定しないと LINE 既定の青になる。
-                  // つづもんのカードは全部この茶系なので、青が1本だけ混ざらないようにする。
-                  color: BRAND,
-                  height: 'sm',
-                  action: {
-                    type: 'uri',
-                    label: 'まちがえた問題に戻る',
-                    uri: workbookUrl(parts.review.unitNo),
-                  },
-                },
-              ]
-            : []),
           text(
             '15分だけでも十分。わからないところは、このトークにそのまま送ってね💡',
             {
