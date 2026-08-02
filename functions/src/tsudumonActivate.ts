@@ -301,6 +301,13 @@ export const tsudumonEntitlement = functions
         // 体験を使い切ったかどうか。ロックカードが「体験する／登録する」の
         // どちらを主ボタンにするかの判定に使う（同じ1 read の中で返すので追加コストなし）。
         trialUsed: !!(data && data.tsudumonTrialUsedAt),
+        // 「いま誰としてログインしているか」を画面に出すために返す。
+        // 保護者が自分のLINEで登録してしまう事故（＝子の教材が開かない）を、
+        // 決済の**前**に気づけるようにするのが目的。同じ1 read の中なので追加コストなし。
+        displayName:
+          data && typeof data.displayName === 'string' ? data.displayName : '',
+        // 連携ずみの保護者なら、そもそも登録ボタンを出さずに正しい入口へ送る。
+        isParent: !!(data && data.tsudumonRole === 'parent'),
       });
     } catch (error) {
       console.error('[tsudumonEntitlement] failed:', error);
