@@ -56,59 +56,80 @@ export async function activateTsudumonLicense(
   const licRef = db.doc(`tsudumonLicenses/${code}`);
   const userRef = db.doc(`users/${uid}`);
 
-  return db.runTransaction(async (tx): Promise<TsudumonActivationOutcome> => {
-    const snap = await tx.get(licRef);
-    if (!snap.exists) return { kind: 'not_found' };
-    const lic = snap.data() as Record<string, unknown>;
-    if (lic.status !== 'active') return { kind: 'revoked' };
+  const outcome = await db.runTransaction(
+    async (tx): Promise<TsudumonActivationOutcome> => {
+      const snap = await tx.get(licRef);
+      if (!snap.exists) return { kind: 'not_found' };
+      const lic = snap.data() as Record<string, unknown>;
+      if (lic.status !== 'active') return { kind: 'revoked' };
 
-    const activated: string[] = Array.isArray(lic.activatedUids)
-      ? (lic.activatedUids as string[])
-      : [];
-    const max =
-      typeof lic.maxActivations === 'number'
-        ? lic.maxActivations
-        : TSUDUMON_DEFAULT_MAX_ACTIVATIONS;
-    const already = activated.includes(uid);
-    if (!already && activated.length >= max) return { kind: 'max', max };
+      const activated: string[] = Array.isArray(lic.activatedUids)
+        ? (lic.activatedUids as string[])
+        : [];
+      const max =
+        typeof lic.maxActivations === 'number'
+          ? lic.maxActivations
+          : TSUDUMON_DEFAULT_MAX_ACTIVATIONS;
+      const already = activated.includes(uid);
+      if (!already && activated.length >= max) return { kind: 'max', max };
 
-    const nowMs = Date.now();
-    const toMillis = (v: unknown): number | null => {
-      const t = v as { toMillis?: () => number } | null | undefined;
-      return t && typeof t.toMillis === 'function' ? t.toMillis() : null;
-    };
-    const years = typeof lic.years === 'number' ? lic.years : 1;
-    const firstMs = toMillis(lic.firstActivatedAt) ?? nowMs;
-    const expiresMs =
-      toMillis(lic.expiresAt) ?? computeTsudumonExpiresAtMs(firstMs, years);
-    if (nowMs >= expiresMs) return { kind: 'expired' };
+      const nowMs = Date.now();
+      const toMillis = (v: unknown): number | null => {
+        const t = v as { toMillis?: () => number } | null | undefined;
+        return t && typeof t.toMillis === 'function' ? t.toMillis() : null;
+      };
+      const years = typeof lic.years === 'number' ? lic.years : 1;
+      const firstMs = toMillis(lic.firstActivatedAt) ?? nowMs;
+      const expiresMs =
+        toMillis(lic.expiresAt) ?? computeTsudumonExpiresAtMs(firstMs, years);
+      if (nowMs >= expiresMs) return { kind: 'expired' };
 
-    const plan = lic.plan as TsudumonPlan;
-    tx.set(
-      licRef,
-      {
-        firstActivatedAt: lic.firstActivatedAt ?? Timestamp.fromMillis(firstMs),
-        expiresAt: lic.expiresAt ?? Timestamp.fromMillis(expiresMs),
-        activatedUids: FieldValue.arrayUnion(uid),
-        lastActivatedAt: Timestamp.fromMillis(nowMs),
-      },
-      { merge: true }
-    );
-    tx.set(
-      userRef,
-      {
-        tsudumon: {
-          code,
-          plan,
-          years,
-          activatedAt: Timestamp.fromMillis(nowMs),
-          expiresAt: Timestamp.fromMillis(expiresMs),
+      const plan = lic.plan as TsudumonPlan;
+      tx.set(
+        licRef,
+        {
+          firstActivatedAt:
+            lic.firstActivatedAt ?? Timestamp.fromMillis(firstMs),
+          expiresAt: lic.expiresAt ?? Timestamp.fromMillis(expiresMs),
+          activatedUids: FieldValue.arrayUnion(uid),
+          lastActivatedAt: Timestamp.fromMillis(nowMs),
         },
-      },
-      { mergeFields: ['tsudumon'] }
-    );
-    return { kind: 'ok', plan, expiresMs, already };
-  });
+        { merge: true }
+      );
+      tx.set(
+        userRef,
+        {
+          tsudumon: {
+            code,
+            plan,
+            years,
+            activatedAt: Timestamp.fromMillis(nowMs),
+            expiresAt: Timestamp.fromMillis(expiresMs),
+          },
+        },
+        { mergeFields: ['tsudumon'] }
+      );
+      return { kind: 'ok', plan, expiresMs, already };
+    }
+  );
+
+  // ⚠️ 日次配信の予定表をここでも作る（2026-08-02 追加）。
+  // これまで ensureTsudumonDaily を呼んでいたのは体験開始と Stripe 決済だけで、
+  // **ライセンスコード（TZM-）で有効化した人にだけ「今日の1単元」が届かなかった**。
+  // ギフト・手売り・紙のワーク経由の人が、商品の中核を受け取れない状態だった。
+  // 有効化は 1人1回なので、ここに置いても配信量は増えない（既にあれば更新のみ）。
+  if (outcome.kind === 'ok') {
+    try {
+      const { ensureTsudumonDaily } = await import('./tsudumonDailyUnit');
+      await ensureTsudumonDaily(uid);
+    } catch (error) {
+      console.error(
+        '[activateTsudumonLicense] ensureTsudumonDaily failed:',
+        error
+      );
+    }
+  }
+  return outcome;
 }
 
 /** 有効期限を「YYYY年M月D日」表記に（JST）。 */

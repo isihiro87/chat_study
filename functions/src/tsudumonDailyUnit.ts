@@ -43,6 +43,7 @@ import {
   type ReviewState,
 } from './tsudumonReviewCore';
 import {
+  firstInScopeTopicIndex,
   pickDailyUnit,
   pickReasonLead,
   type TsudumonExam,
@@ -57,6 +58,7 @@ import {
   cursorForGrade,
   referenceUrl,
   unitAtCursor,
+  workbookTopicUrl,
   workbookUrl,
 } from './tsudumonUnits';
 
@@ -127,6 +129,11 @@ interface DailyUnitParts {
   opener: string;
   /** 出す価値のある見直し（今日の単元と重複していたら undefined） */
   review?: { unitNo: string; text: string };
+  /**
+   * 今日の章のうち、テスト範囲に入っている最初の節番号（教材の `#t{index}`）。
+   * 範囲を節まで絞った人だけ入る。章の目次ではなくその節へ直接降ろすため。
+   */
+  topicIndex?: number;
 }
 
 /**
@@ -140,7 +147,8 @@ function resolveDailyUnitParts(
   date: Date,
   review?: DailyReview,
   unitNo?: string,
-  lead?: string
+  lead?: string,
+  topicIndex?: number
 ): DailyUnitParts {
   const unit = unitNo
     ? (TSUDUMON_UNITS.find((u) => u.no === unitNo) ?? unitAtCursor(cursor))
@@ -149,6 +157,7 @@ function resolveDailyUnitParts(
   const variant = Math.abs(Math.trunc(cursor)) % 2;
   return {
     unit,
+    topicIndex,
     opener: lead || OPENERS[jst.getUTCDay()][variant],
     review:
       review && review.unit !== unit.no
@@ -186,9 +195,18 @@ export function buildDailyUnitMessage(
    * 毎回入れると邪魔なので1回だけ——**通知がうるさいと感じた人の逃げ道が
    * 見つからないと、設定ではなくブロックが選ばれる**ため、最初に見せておく。
    */
-  firstTime?: boolean
+  firstTime?: boolean,
+  /** テスト範囲が節まで絞ってあるときの、章内の節番号（`#t{index}`） */
+  topicIndex?: number
 ): string {
-  const parts = resolveDailyUnitParts(cursor, date, review, unitNo, lead);
+  const parts = resolveDailyUnitParts(
+    cursor,
+    date,
+    review,
+    unitNo,
+    lead,
+    topicIndex
+  );
   const { unit } = parts;
   return [
     parts.opener,
@@ -203,12 +221,15 @@ export function buildDailyUnitMessage(
     referenceUrl(unit.no),
     '',
     '▶ 問題を解く',
-    workbookUrl(unit.no),
+    // 範囲を節まで絞ってある人は、その節へ直接（章の目次で探させない）
+    parts.topicIndex
+      ? workbookTopicUrl(unit.no, parts.topicIndex)
+      : workbookUrl(unit.no),
     '',
     '15分だけでも十分。「ここわからん」ってそのまま送ってくれたら、わたしが答えるよ💡',
     // 実データにもとづく見直しの提案（間違えたままの問題が残っている章だけ）
     ...(parts.review
-      ? ['', parts.review.text, workbookUrl(parts.review.unitNo)]
+      ? ['', parts.review.text, workbookTopicUrl(parts.review.unitNo)]
       : []),
     ...(firstTime
       ? [
@@ -247,9 +268,18 @@ export function buildDailyUnitFlex(
   review?: DailyReview,
   unitNo?: string,
   lead?: string,
-  firstTime?: boolean
+  firstTime?: boolean,
+  /** テスト範囲が節まで絞ってあるときの、章内の節番号（`#t{index}`） */
+  topicIndex?: number
 ): Record<string, unknown> {
-  const parts = resolveDailyUnitParts(cursor, date, review, unitNo, lead);
+  const parts = resolveDailyUnitParts(
+    cursor,
+    date,
+    review,
+    unitNo,
+    lead,
+    topicIndex
+  );
   const { unit } = parts;
   const text = (t: string, opts: Record<string, unknown> = {}) => ({
     type: 'text',
@@ -334,7 +364,10 @@ export function buildDailyUnitFlex(
                       action: {
                         type: 'uri',
                         label: 'もう一度解く',
-                        uri: workbookUrl(parts.review.unitNo),
+                        // 章の目次ではなく**節の「やり方をえらぼう」**へ直接降ろす
+                        // （ユーザー指示 2026-08-01）。目次に着地させると、
+                        // 復習しに来た人にもう一度「どれをやるか」を探させることになる。
+                        uri: workbookTopicUrl(parts.review.unitNo),
                       },
                     },
                   ],
@@ -371,7 +404,10 @@ export function buildDailyUnitFlex(
             action: {
               type: 'uri',
               label: '問題を解く',
-              uri: workbookUrl(unit.no),
+              // 範囲を節まで絞ってある人は、その節へ直接（章の目次で探させない）
+              uri: parts.topicIndex
+                ? workbookTopicUrl(unit.no, parts.topicIndex)
+                : workbookUrl(unit.no),
             },
           },
           text(
@@ -401,7 +437,9 @@ export function buildDailyUnitFlex(
 
 /**
  * 日次配信の予定表を作る／更新する。ライセンスが有効になった時点で呼ぶ
- * （Stripe決済完了・ライセンスコード有効化）。体験（trial）では作らない。
+ * （体験開始・Stripe決済完了・ライセンスコード有効化の3経路すべて）。
+ * ⚠️ 以前ここに「体験（trial）では作らない」と書いてあったが**実装と逆**だった。
+ * 体験でも作る（startTsudumonTrial が呼ぶ）。読んだ人が誤解するので直した。
  *
  * @param grade 開始学年（'中1' 等）。分かるときだけ渡す。未指定は先頭（中1）から。
  */
@@ -670,6 +708,8 @@ export const tsudumonDailyUnit = functions
       }
       // 初回配信（まだ一度も送っていない）だけ設定の案内を添える。
       const firstTime = typeof data.lastSentDate !== 'string';
+      // 範囲を節まで絞ってある人には、章の目次ではなくその節へ降ろす。
+      const topicIndex = firstInScopeTopicIndex(exam, picked.unitNo);
       // ⚠️ 「終わったよ！」ボタン（クイックリプライ）はここに置かない（ユーザー指摘 2026-07-27）。
       // クイックリプライは**送った瞬間から出る**ので、まだ何もしていない段階で
       // 「終わったよ！」が並ぶのは不自然。LINE の仕様上、あとからボタンを
@@ -685,17 +725,37 @@ export const tsudumonDailyUnit = functions
               review,
               picked.unitNo,
               lead,
-              firstTime
+              firstTime,
+              topicIndex
             ),
           ],
         } as never);
         await recordPushDelivery('tsudumonDaily');
       } catch (error) {
         // Flex は構造が1か所でも不正だと 400 で丸ごと落ちる。**その日の1通が
-        // 消えるのがいちばん損**なので、テキストで必ず配り直す（届いていない
-        // ＝配信枠も消費していないので、ここで1通ぶん使い直して構わない）。
+        // 消えるのがいちばん損**なので、テキストで配り直す。
+        //
+        // ⚠️ ただし**テキスト再送は 4xx のときだけ**にする。4xx は LINE が
+        // 受け取りを拒否した＝1通も配信されていないと確定できる。一方で
+        // タイムアウト・5xx・ネットワーク断は「実際は配信されたのに例外が
+        // 返った」があり得るので、再送すると**同じ人に2通届く**。
+        // 1日1通の約束を破るくらいなら、その日は落として翌日に回すほうがよい。
+        const status =
+          (error as { status?: number; statusCode?: number })?.status ??
+          (error as { statusCode?: number })?.statusCode;
+        const isRejected =
+          typeof status === 'number' && status >= 400 && status < 500;
+        if (!isRejected) {
+          console.error(
+            `[tsudumonDailyUnit] flex push failed uid=${uid} (status=${status ?? 'unknown'}); ` +
+              '配信済みの可能性があるためテキスト再送はしない:',
+            error
+          );
+          failed++;
+          continue;
+        }
         console.error(
-          `[tsudumonDailyUnit] flex push failed uid=${uid}; falling back to text:`,
+          `[tsudumonDailyUnit] flex push rejected uid=${uid} (status=${status}); falling back to text:`,
           error
         );
         try {
@@ -710,7 +770,8 @@ export const tsudumonDailyUnit = functions
                   review,
                   picked.unitNo,
                   lead,
-                  firstTime
+                  firstTime,
+                  topicIndex
                 ),
               },
             ],
