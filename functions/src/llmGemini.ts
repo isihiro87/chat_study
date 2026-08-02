@@ -8,6 +8,15 @@
  *
  * API キーは用途で分離できる（`docs/operations/ai-cost-guardrails.md §1-2`）:
  *   GEMINI_API_KEY_LINE_AI があればそれを使い、無ければ GEMINI_API_KEY にフォールバック。
+ *
+ * ⚠️ **キーを作り直すときは、必ず課金が有効なプロジェクトで作ること。**
+ * Gemini は無料枠だと送信内容が Google の製品改善（＝モデルの学習）に使われる。
+ * 有料枠なら使われない。つまり課金の有無がそのままデータの扱いを切り替える。
+ * つづもんは `lp/privacy.html` §4 と `web/parents/index.html` §04 で
+ * 「学習に使わせていない」と**公開の場で断言している**ので、無料枠のキーに
+ * 差し替えると、ページを1文字も変えないまま記述が虚偽になる。
+ * 現行の課金先は `gen-lang-client-0677055253`。詳細は
+ * `docs/operations/ai-cost-guardrails.md §1-0b`。
  */
 
 import type {
