@@ -275,9 +275,29 @@ export const tsudumonCreateCheckout = functions
 
       const db = await getDb();
       const snap = await db.doc(`users/${uid}`).get();
-      const raw = snap.exists
-        ? (snap.data() as Record<string, unknown>).tsudumon
-        : null;
+      const selfData = snap.exists
+        ? (snap.data() as Record<string, unknown>)
+        : {};
+
+      // ⚠️ 保護者が**自分のアカウント**に課金してしまう事故を防ぐ（2026-08-02）。
+      // この関数はログインした本人の uid に課金する。保護者がLPの
+      // 「月額プランに登録」を自分のLINEで踏むと、保護者に課金され、
+      // **お子さまの教材は一切開かない**。しかも本人は気づけない
+      // （決済は成功し、Stripeの領収書も届く）。
+      // 連携ずみの保護者はここで止めて、正しい入口（ダッシュボード）へ送る。
+      // users/{uid} は下でも読むので **追加の read はゼロ**。
+      if (selfData.tsudumonRole === 'parent') {
+        res.status(200).json({
+          ok: false,
+          reason: 'is_parent',
+          message:
+            'こちらは、お子さまご本人がご自身のアカウントに登録するためのページです。保護者の方は「学習の記録」のページから、お子さまを選んでご登録ください。',
+          url: 'https://tsudumon.jp/parents/dashboard/',
+        });
+        return;
+      }
+
+      const raw = selfData.tsudumon;
       const source = getString(
         raw && typeof raw === 'object'
           ? (raw as Record<string, unknown>).source

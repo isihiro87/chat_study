@@ -10,7 +10,6 @@ import {
   buildParentCardErrorMessage,
   buildParentCardGuide,
   buildParentForwardMessage,
-  sanitizeParentName,
 } from './tsudumonParentCard';
 import { createTsudumonInvite } from './tsudumonParent';
 
@@ -74,72 +73,21 @@ export async function handleParentCardPostback(
   ]);
 }
 
-/** 呼び名を保存する（quick reply の既定候補 / 自由入力の両方から呼ぶ）。 */
-async function saveParentName(uid: string, name: string): Promise<void> {
-  const db = await getDb();
-  await db
-    .doc(`users/${uid}`)
-    .set(
-      { tsudumonParentName: name, tsudumonParentNameAwaiting: false },
-      { mergeFields: ['tsudumonParentName', 'tsudumonParentNameAwaiting'] }
-    );
-}
-
 /**
- * 呼び名の既定候補が選ばれたとき（postback `type=tzm_pname&v=…`）。
- * 保存してから、そのままカードを出す（もう1タップさせない）。
+ * 旧カードの「呼び名」ボタン（postback `type=tzm_pname&v=…`）の受け皿。
+ *
+ * ⚠️ **値は保存しない**（2026-08-02）。呼び名を子に決めさせる導線は 8/1 に撤去し、
+ * 表示名は保護者ダッシュボードの「表示名を変える」に一本化した。読まれない項目に
+ * 書き続けても、古い値が混ざる余地を残すだけ。すでに配ったカードのボタンが
+ * 押されても行き止まりにならないよう、カードだけ出し直す。
  */
 export async function handleParentNamePostback(
   client: messagingApi.MessagingApiClient,
   uid: string,
   replyToken: string | undefined,
-  params: URLSearchParams
+  _params: URLSearchParams
 ): Promise<void> {
-  const name = sanitizeParentName(params.get('v') ?? '');
-  if (name) {
-    try {
-      await saveParentName(uid, name);
-    } catch (error) {
-      console.error('[tsudumonParentCard] name save failed:', error);
-    }
-  }
   await handleParentCardPostback(client, uid, replyToken, true);
-}
-
-/**
- * 呼び名の自由入力を受ける。呼び名待ちでなければ false（他の処理に流す）。
- *
- * @returns このテキストを消費したか
- */
-export async function handleParentNameInput(
-  client: messagingApi.MessagingApiClient,
-  uid: string,
-  replyToken: string | undefined,
-  text: string,
-  userData: Record<string, unknown> | undefined
-): Promise<boolean> {
-  if (!userData?.tsudumonParentNameAwaiting) return false;
-  if (!replyToken) return false;
-
-  const name = sanitizeParentName(text);
-  if (!name) {
-    // 長すぎ・URL・記号だけ。責めずにもう一度だけ促す（待ち状態は維持）。
-    await reply(client, replyToken, [
-      {
-        type: 'text',
-        text: `ごめんなさい、その名前は使えませんでした。${'ひらがな・カタカナ・漢字で12文字までにしてね。'}`,
-      },
-    ]);
-    return true;
-  }
-
-  try {
-    await saveParentName(uid, name);
-  } catch (error) {
-    console.error('[tsudumonParentCard] name save failed:', error);
-  }
-  await handleParentCardPostback(client, uid, replyToken, true);
-  return true;
 }
 
 /**

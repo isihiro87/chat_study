@@ -348,13 +348,11 @@ export async function dispatchTsudumonMessage(
   }
 
   if (replyToken) {
-    // 保護者画面での呼び名を聞いている最中なら、このテキストを呼び名として受け取る。
-    // （他の解答待ちより先に置く。呼び名を聞くのは一度きりで、期間も短い）
-    const { handleParentNameInput } =
-      await import('../tsudumonParentCardHandler');
-    if (await handleParentNameInput(client, uid, replyToken, text, userData)) {
-      return;
-    }
+    // ⚠️ 呼び名の自由入力を受ける分岐は**撤去した**（2026-08-02）。
+    // 呼び名を聞く導線は 8/1 に無くしたのに受け取り側だけが残っており、
+    // 古い「呼び名待ち」フラグが立ったままの子は、**次に送った文が何であれ
+    // 呼び名として保存**されていた（実例: 「テストの範囲がわからない」が
+    // 保護者ページの表示名になっていた）。聞かないものを待ち続けない。
 
     // ワーク入力演習（用語入力/記述）の解答待ちなら、このテキストを解答として採点する。
     const wbSession = userData?.workbookSession as

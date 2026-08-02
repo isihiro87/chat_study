@@ -164,8 +164,6 @@ export interface CreatedInvite {
   /** 送り先一覧を開く LIFF URL。LIFF 未設定なら空文字 */
   shareUrl: string;
   childName: string;
-  /** 呼び名が未設定＝保護者画面での表示名をまだ本人に聞いていない */
-  needsName: boolean;
   expiresLabel: string;
 }
 
@@ -194,11 +192,14 @@ export async function createTsudumonInvite(
   const data = snap.exists ? (snap.data() as Record<string, unknown>) : {};
 
   const grade = typeof data.grade === 'string' ? data.grade : null;
-  const hasName =
-    typeof data.tsudumonParentName === 'string' && !!data.tsudumonParentName;
-  const childName = hasName
-    ? (data.tsudumonParentName as string)
-    : fallbackChildName(grade);
+  // ⚠️ 子ドキュメントの `tsudumonParentName` は**読まない**（2026-08-02）。
+  // 呼び名を子に聞く導線は 2026-08-01 に撤去したのに受け取り側だけが残っており、
+  // 「呼び名待ち」状態の子が別件で送ったメッセージ本文がそのまま保存されていた。
+  // 実際に `childName: "テストの範囲がわからない"` の状態で発行されたカードがあり、
+  // 保護者ページの冒頭が「テストの範囲がわからないさんから届いています」になっていた。
+  // 見分けたいのは保護者のほうなので、表示名は保護者ダッシュボードの
+  // 「表示名を変える」に一本化する（8/1 の決定どおり）。
+  const childName = fallbackChildName(grade);
 
   // 旧カードは失効させる（1人1枚）。失敗しても発行は続ける。
   const previousId =
@@ -246,14 +247,13 @@ export async function createTsudumonInvite(
     handoffUrl: handoffUrl(token),
     shareUrl: shareUrl(token),
     childName,
-    needsName: !hasName,
     expiresLabel: dateLabel(expiresMs),
   };
 }
 
 /**
  * 「おうちの人にわたすカード」を発行する（Web用）。
- * POST { idToken } → { ok, token, url, qrUrl, handoffUrl, childName, needsName, expiresLabel }
+ * POST { idToken } → { ok, token, url, qrUrl, handoffUrl, childName, expiresLabel }
  */
 export const tsudumonInviteCreate = functions
   .region(REGION)
@@ -387,12 +387,17 @@ export const tsudumonInviteView = functions
         await pushToChild(
           childUid,
           [
-            'おうちの人が、つづもんのページを見てくれたみたいです👀',
+            // ⚠️ 「あとは待つだけ」と言わない（ユーザー指摘 2026-08-02）。
+            // ページを見てもらえた**直後がいちばん話しかけやすい**のに、待てと
+            // 言うと動く機会をこちらから閉じてしまう。ここは背中を押す場所。
+            // 「すぐに決まらなくても気にしないで」も外した。まだ断られてもいない
+            // 段階で断られる前提の慰めを渡すと、こちらから期待値を下げてしまう。
+            'おうちの人が、つづもんのページを見てくれたみたいだよ👀',
             '',
-            'ここから先は待つだけで大丈夫。',
-            'すぐに決まらなくても、よくあることなので気にしないでくださいね。',
+            'よかったら「どうだった？」って聞いてみてね。',
+            '見たあとのいまがいちばん話しやすいタイミングだよ。',
             '',
-            'いまは体験の続きをやっていきましょう。',
+            'そのあいだ、体験のつづきをやっておこう。',
           ].join('\n'),
           'invite viewed'
         );
@@ -740,12 +745,16 @@ export const tsudumonParentLink = functions
         await pushToChild(
           childUid,
           [
-            'おうちの人と、つづもんがつながりました👨‍👩‍👧',
+            'おうちの人と、つづもんがつながったよ👨‍👩‍👧',
             '',
-            'おうちの人に見えるのは、勉強した日・時間・進んだ単元・正答率だけです。',
-            'つづ先生に送ったトークの内容や、まちがえた問題は見えません。',
+            // ⚠️ ここでは見える範囲を書く。カードを渡す前（buildParentCardGuide）
+            // では外したが、あれは「まだ何も起きていない子に不安を教える」から。
+            // つながった**いま**は実際に見られる側になるので、何が見えて何が
+            // 見えないかを本人が知っておくべき場面。
+            'おうちの人に見えるのは、勉強した日・時間・進んだ単元・正答率だけ。',
+            'つづ先生に送ったトークの内容や、まちがえた問題は見えないよ。',
             '',
-            'つながりをやめたいときは、このトークで「保護者の連携を解除」と送ってください。',
+            'つながりをやめたいときは、このトークに「保護者の連携を解除」と送ってね。',
           ].join('\n'),
           'parent linked'
         );

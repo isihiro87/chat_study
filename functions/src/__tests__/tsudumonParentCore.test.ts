@@ -176,7 +176,11 @@ describe('buildChildSummary', () => {
 
   it('体験3日ぶんの実績をまとめる', () => {
     const s = buildChildSummary(userData, 'お子さん', NOW);
-    expect(s.name).toBe('けんた');
+    // 子ドキュメントの `tsudumonParentName` は読まない（2026-08-02）。
+    // 撤去済みの「呼び名」導線が、子の発言をそのまま保存していた実害があった
+    // （保護者ページに「テストの範囲がわからないさん」と出ていた）。
+    // 表示名は保護者ダッシュボードの「表示名を変える」に一本化する。
+    expect(s.name).toBe('お子さん');
     expect(s.grade).toBe('中2');
     expect(s.plan.state).toBe('trial');
     expect(s.study).toEqual({

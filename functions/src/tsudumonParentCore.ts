@@ -179,10 +179,10 @@ export function buildChildSummary(
     stripeTsudumon && typeof stripeTsudumon.customerId === 'string'
   );
 
-  const name =
-    typeof data.tsudumonParentName === 'string' && data.tsudumonParentName
-      ? data.tsudumonParentName
-      : fallbackName;
+  // 子ドキュメントの `tsudumonParentName` は読まない（tsudumonParent.ts と同じ理由。
+  // 撤去済みの導線が残した値に、子の発言が紛れ込んでいることがある）。
+  // 保護者が付けた表示名は保護者ドキュメント側に持つ（「表示名を変える」）。
+  const name = fallbackName;
   const grade = typeof data.grade === 'string' ? data.grade : null;
 
   return {

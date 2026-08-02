@@ -311,7 +311,9 @@ export const tsudumonEntitlement = functions
 export type TsudumonTrialOutcome =
   | { kind: 'ok'; expiresMs: number }
   | { kind: 'already_licensed' }
-  | { kind: 'trial_used' };
+  | { kind: 'trial_used' }
+  /** 連携ずみの保護者が、自分のアカウントで体験を始めようとした */
+  | { kind: 'is_parent' };
 
 /**
  * 「3日間無料で試す」を uid に付与する（1 uid 1 回）。
@@ -337,6 +339,12 @@ export async function startTsudumonTrial(
     async (tx): Promise<TsudumonTrialOutcome> => {
       const snap = await tx.get(userRef);
       const data = snap.exists ? (snap.data() as Record<string, unknown>) : {};
+      // ⚠️ 保護者が**自分のアカウント**で体験を始めてしまう事故を防ぐ（2026-08-02）。
+      // 体験はログインした本人に付くので、保護者がLPの「3日間無料でためす」を
+      // 自分のLINEで踏むと、保護者に中学生向けの「今日の1単元」が届きはじめ、
+      // しかも体験は1人1回なので二度と使えなくなる。お子さまの教材は開かない。
+      if (data.tsudumonRole === 'parent') return { kind: 'is_parent' };
+
       const eligibility = evaluateTrialEligibility(
         data.tsudumon,
         data.tsudumonTrialUsedAt,
@@ -555,6 +563,8 @@ export const tsudumonTrialStart = functions
           'すでにライセンスをお持ちです。そのまま全単元をご利用いただけます。',
         trial_used:
           '無料体験はおひとり様1回までです。つづきは月額プランでご利用ください。',
+        is_parent:
+          'こちらは、お子さまご本人が使いはじめるためのページです。保護者の方は「学習の記録」のページから、お子さまの様子をご覧いただけます。',
       };
       res.status(200).json({
         ok: false,
