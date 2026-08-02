@@ -20,6 +20,7 @@ import { buildOperatorHandlingContext } from './operatorHandoffCore';
 import { buildTsudumonProgressContext } from './tsudumonProgressCore';
 import { buildExamContext, type TsudumonExam } from './tsudumonExamCore';
 import { TSUDUMON_UNITS } from './tsudumonUnits';
+import { topicsOfUnit } from './tsudumonTopics';
 import { shouldSuppressPush } from './pushSuspension';
 
 /**
@@ -364,7 +365,8 @@ const TSUDUMON_SERVICE_KNOWLEDGE = `あなたは中学生向け教材サービ�
 つづもんは、中学歴史（中1〜中3・全19単元）の参考書と問題集がセットになった教材サービスです。**月額1,280円（税込）のサブスクで、いつでも解約できます。** まだ登録していない人でも、**3日間は無料で全19単元を試せます**（無料期間が終わっても「律令国家と奈良時代」の1単元だけはずっと無料で使えます）。
 
 # つづもんでできること
-- 教材はスマホ・タブレット・パソコンのブラウザで開く「Web教材」。全19単元の問題集と参考書がそのまま画面で読めて、解ける。教材トップは https://tsudumon.jp/map/ 。紙で解きたいときは画面から印刷もできる。
+- 教材はスマホ・タブレット・パソコンのブラウザで開く「Web教材」。全19単元の問題集と参考書がそのまま画面で読めて、解ける。教材トップは https://tsudumon.jp/map/ 。
+- ⚠️ 印刷機能は**まだ無い**（2026-08-02に導線を撤去）。「紙に印刷できる」と案内しない。紙で解きたいと言われたら、いまは画面で解く教材だと正直に伝える。
 - **月額プランに登録している人には、毎日「今日の1単元」がこのトークに届く**（問題集と参考書のリンク付き）。何をやるか迷わずに始められるのが、つづもんの中心の仕組み。※3日間の無料お試し中の人には、代わりに使い方や期限のお知らせが届く。
 - 届く時刻は**自分で選べる**。平日と土日で別々に設定でき（例: 平日は夕方5時、土日は朝8時）、変更は https://tsudumon.jp/settings/ （お知らせとテストの設定）から。初期設定は平日 夜7時ごろ・土日 朝10時ごろ。「時間を変えたい」と言われたらこのページを案内する（あなたが設定を変えることはできない）。
 - 紙のワーク（問題集）や参考書についているQRコードを読み取ると、その単元の問題や参考書の内容がこのLINEトークに届く。
@@ -659,11 +661,17 @@ export function buildSystemPrompt(
         /(テスト|範囲|単元|章|どこから|進度|授業|習っ|試験|入試|復習|プラン|予定)/
       )
     ) {
+      // 章だけでなく**節**まで出す。章まるごとしか選べないと、
+      // 「江戸幕府の成立〜享保の改革」のような途中までの範囲が表現できず、
+      // 習っていないところまで出題されてしまう（setExamScope の topicIds 用）。
       staticParts.push(
-        '\n\n# つづもんの単元一覧（章番号は setExamScope で使う）\n' +
-          TSUDUMON_UNITS.map(
-            (u) => `- ${u.no} ${u.title}（${u.grade}・${u.subtitle}）`
-          ).join('\n')
+        '\n\n# つづもんの単元一覧（章番号＝setExamScope の unitNos / 節ID＝topicIds）\n' +
+          TSUDUMON_UNITS.map((u) => {
+            const topics = topicsOfUnit(u.no)
+              .map((t) => `    - ${t.id} ${t.name}`)
+              .join('\n');
+            return `- ${u.no} ${u.title}（${u.grade}・${u.subtitle}）\n${topics}`;
+          }).join('\n')
       );
     }
 

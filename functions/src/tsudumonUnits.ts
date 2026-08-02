@@ -194,6 +194,21 @@ export function workbookUrl(no: string): string {
   return `https://tsudumon.jp/wb/${no}/`;
 }
 
+/**
+ * 問題集の**節に直接**入るURL（`#t{topic}` で「やり方をえらぼう」に着地する）。
+ *
+ * `workbookUrl()` だけだと章の**目次**に降りる。目次は「どれをやるか選ぶ」場所
+ * なので、行き先が決まっている導線（復習のうながし等）から送ると、本人が
+ * もう一度探すことになる。ハッシュは問題集ページ側の `fromHash()`
+ * （`pdf-workbook/generate_workbook_web.py`）が解釈する:
+ *   `#t{N}`      … 第N節の「やり方をえらぼう」
+ *   `#t{N}s{M}`  … 第N節のM番目のステップ
+ * ⚠️ ハッシュの形式を変えるときは問題集ジェネレータ側と必ず揃えること。
+ */
+export function workbookTopicUrl(no: string, topic = 1): string {
+  return `${workbookUrl(no)}#t${topic}`;
+}
+
 export function referenceUrl(no: string): string {
   return `https://tsudumon.jp/ref/${no}/`;
 }

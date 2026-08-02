@@ -451,16 +451,18 @@ async function pushPurchaseThanks(
   await pushToTsudumon(uid, text, 'tsudumonPurchase', 'purchase thanks');
 
   // 「あすから毎日…」で終わらせない。いちばん熱があるのは**いまこの瞬間**なので、
-  // 設定 → 範囲 → その場で学習開始、の3ステップへつなぐ（ユーザー要望 2026-07-27）。
+  // その場で学習に入れるところまでつなぐ（ユーザー要望 2026-07-27）。
+  // 聞くのは学年だけ＝**1タップで完了**（ユーザー指摘 2026-08-02）。
   try {
-    const { buildStep1Message, step1QuickReply } =
+    const { buildStep1Flex, buildStep1Message, step1QuickReply } =
       await import('./tsudumonOnboarding');
     await pushToTsudumon(
       uid,
       buildStep1Message(),
       'tsudumonPurchase',
       'onboarding step1',
-      step1QuickReply()
+      step1QuickReply(),
+      buildStep1Flex()
     );
   } catch (error) {
     console.error('[tsudumonStripe] onboarding push failed:', error);
@@ -477,17 +479,41 @@ async function pushToTsudumon(
   pushType: 'tsudumonPurchase' | 'tsudumonBilling',
   label: string,
   /** クイックリプライ（オンボーディングの選択肢など） */
-  quickReply?: unknown
+  quickReply?: unknown,
+  /**
+   * Flex カードで送るときの中身。指定すると `text` は使わず**カードだけ**を送る
+   * （`text` は Flex が 400 で落ちたときのフォールバックに回る）。
+   */
+  flex?: Record<string, unknown>
 ): Promise<void> {
   const lineUserId = uid.startsWith('line:') ? uid.slice(5) : '';
   if (!lineUserId) return;
   try {
     const { getTsudumonLineClient } = await import('./tsudumon/client');
     const client = await getTsudumonLineClient();
-    await client.pushMessage({
-      to: lineUserId,
-      messages: [{ type: 'text', text, ...(quickReply ? { quickReply } : {}) }],
-    } as never);
+    const message = flex
+      ? flex
+      : { type: 'text', text, ...(quickReply ? { quickReply } : {}) };
+    try {
+      await client.pushMessage({
+        to: lineUserId,
+        messages: [message],
+      } as never);
+    } catch (flexError) {
+      // Flex は構造が1か所でも不正だと丸ごと 400 になる。登録直後の1通目が
+      // 消えると「買ったのに何も来ない」になるので、テキストで配り直す。
+      if (!flex) throw flexError;
+      console.error(
+        `[tsudumonStripeWebhook] ${label} flex push failed; falling back to text:`,
+        flexError
+      );
+      await client.pushMessage({
+        to: lineUserId,
+        messages: [
+          { type: 'text', text, ...(quickReply ? { quickReply } : {}) },
+        ],
+      } as never);
+    }
     const { recordPushDelivery } = await import('./deliveryStats');
     await recordPushDelivery(pushType);
   } catch (error) {

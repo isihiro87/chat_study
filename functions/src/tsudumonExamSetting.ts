@@ -10,6 +10,8 @@
  *
  * POST { idToken }                                     → 現在の予定＋単元一覧＋学習モードを返す
  * POST { idToken, testDate, unitNos, confidence, note } → 検証して保存し、保存後の値を返す
+ *   `topicIds`（節ID）を渡すと**節の粒度**で保存する。渡さなければ従来どおり章の粒度
+ *   （＝その章ぜんぶ）。両方来たら節を正として章は計算し直す（validateExam）。
  * POST { idToken, mode }                               → 学習モードだけ保存する
  * POST { idToken, grade }                              → 学年だけ保存する
  * POST { idToken, clear: true }                        → 予定を削除する（テストが終わったとき）
@@ -20,6 +22,7 @@
 import * as functions from 'firebase-functions/v1';
 
 import { TSUDUMON_UNITS } from './tsudumonUnits';
+import { topicsOfUnit } from './tsudumonTopics';
 import {
   buildExamAckText,
   isExamActive,
@@ -38,12 +41,24 @@ import {
 /** 設定できる学年。`modeFromGrade` が「3」を含むかで両立モードを判定する。 */
 const TSUDUMON_GRADES: readonly string[] = ['中1', '中2', '中3'];
 
-/** 画面に出す単元の選択肢（学年つき）。文言の正本は `tsudumonUnits`。 */
+/**
+ * 画面に出す単元の選択肢（学年つき）。文言の正本は `tsudumonUnits` / `tsudumonTopics`。
+ *
+ * 章に**節をぶら下げて**返す。画面側は章のチェックだけで済ませてもよいし、
+ * 開いて節だけを選んでもよい（「もっと細かく決めたい人だけ深く入る」）。
+ * `topics[].index` は教材の `#t{index}` と一致するので、画面から
+ * その節へ直接リンクできる。
+ */
 const UNIT_CHOICES = TSUDUMON_UNITS.map((u) => ({
   no: u.no,
   title: u.title,
   subtitle: u.subtitle,
   grade: u.grade,
+  topics: topicsOfUnit(u.no).map((t) => ({
+    id: t.id,
+    index: t.index,
+    name: t.name,
+  })),
 }));
 
 export const tsudumonExamSetting = functions
@@ -60,8 +75,17 @@ export const tsudumonExamSetting = functions
       res.status(405).json({ error: 'Method not allowed' });
       return;
     }
-    const { idToken, testDate, unitNos, confidence, note, clear, mode, grade } =
-      req.body ?? {};
+    const {
+      idToken,
+      testDate,
+      unitNos,
+      topicIds,
+      confidence,
+      note,
+      clear,
+      mode,
+      grade,
+    } = req.body ?? {};
     if (typeof idToken !== 'string' || !idToken) {
       res.status(400).json({ error: 'idToken is required' });
       return;
@@ -94,6 +118,7 @@ export const tsudumonExamSetting = functions
         clear !== true &&
         testDate === undefined &&
         unitNos === undefined &&
+        topicIds === undefined &&
         mode === undefined &&
         grade === undefined
       ) {
@@ -171,7 +196,7 @@ export const tsudumonExamSetting = functions
       // ── 保存 ──
       // 検証はAIの `setExamScope` と**同じ関数**を使う（Web経由だけ緩い、を作らない）。
       const validated = validateExam(
-        { testDate, unitNos, confidence, note },
+        { testDate, unitNos, topicIds, confidence, note },
         now
       );
       if (!validated.ok) {
@@ -182,7 +207,8 @@ export const tsudumonExamSetting = functions
       const after = (await ref.get()).data() ?? {};
       console.log(
         `[tsudumonExamSetting] saved uid=${uid} date=${validated.value.date} ` +
-          `units=${validated.value.unitNos.length}`
+          `units=${validated.value.unitNos.length} ` +
+          `topics=${validated.value.topicIds?.length ?? '-'}`
       );
       res.status(200).json({
         ok: true,

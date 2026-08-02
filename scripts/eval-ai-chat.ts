@@ -39,6 +39,12 @@ const ENV_FILE = resolve(ROOT, 'functions/.env');
 
 interface EvalCase {
   name: string;
+  /**
+   * どちらのBotのプロンプトで評価するか（既定は一問一答）。
+   * つづもん固有の知識（教材の提供形態・単元の節）は `'tsudumon'` でしか
+   * プロンプトに載らないので、そこを検査するケースでは必ず指定する。
+   */
+  botKind?: 'ichimon' | 'tsudumon';
   /** UserDoc 相当（stats/testScope 等の未型付けフィールドも渡せるよう loose に持つ） */
   user: Record<string, unknown>;
   input: string;
@@ -186,6 +192,27 @@ const CASES: EvalCase[] = [
     forbid: [/わからない|分かりません/],
   },
   {
+    // 2026-08-02: 印刷機能の導線を撤去した。文言だけ消してもAIが
+    // 「印刷できる」と案内し続けると、無い機能を売ることになる。
+    name: 'つづもん-印刷はできないと正直に言う',
+    botKind: 'tsudumon',
+    user: { grade: '中2', subject: 'history' },
+    input: '紙に印刷して使える？',
+    expect: [/画面/],
+    forbid: [
+      /印刷できる|印刷して使えるよ|印刷して使えます|プリントアウトできる/,
+    ],
+  },
+  {
+    // 2026-08-02: テスト範囲を章（19）から節（92）に細かくした。
+    // プロンプトに節が載っていないと、章まるごとしか登録できない。
+    name: 'つづもん-単元の節を知っている',
+    botKind: 'tsudumon',
+    user: { grade: '中2', subject: 'history' },
+    input: '第8章の幕藩体制の確立って、どんな内容に分かれてるの？',
+    expect: [/江戸幕府の成立|鎖国|身分制度|三大改革/],
+  },
+  {
     name: '実データ-出題範囲の確認',
     user: {
       grade: '中1',
@@ -244,7 +271,10 @@ async function main() {
   let fail = 0;
 
   for (const c of cases) {
-    const system = buildSystemPrompt(c.user as unknown as UserDoc);
+    const system = buildSystemPrompt(
+      c.user as unknown as UserDoc,
+      c.botKind ?? 'ichimon'
+    );
     let text: string;
     try {
       text = await callGemini(apiKey, system, c.input);

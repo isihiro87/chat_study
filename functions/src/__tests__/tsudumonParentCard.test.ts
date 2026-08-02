@@ -120,11 +120,15 @@ describe('buildParentCardGuide（1通目・子への指示）', () => {
     expect(msg.text).toContain('転送');
   });
 
-  it('「見えない」を伝える（渡す気になるための条件）', () => {
-    // 中学生が渡すかどうかは、監視される不安が消えるかで決まる。
-    expect(msg.text).toContain('見えないよ');
-    expect(msg.text).toContain('トーク');
-    expect(msg.text).toContain('まちがえた問題');
+  it('プライバシーの説明は載せない（ユーザー指示 2026-08-01）', () => {
+    // 以前は「見えるのは、やった時間と進んだ単元だけ／トークやまちがえた問題は
+    // 見えないよ」を入れていたが、**まだ疑っていない子に不安の存在を教える**文面に
+    // なっていた。加えてこの1通目は「長おし→転送」という一手の指示で、
+    // 手を動かす直前に別の話題を挟むほど実行率が落ちる。
+    // 見える範囲の説明は保護者ダッシュボード側の仕事。
+    expect(msg.text).not.toContain('見えないよ');
+    expect(msg.text).not.toContain('トーク');
+    expect(msg.text).not.toContain('まちがえた問題');
   });
 
   it('有効期限を出す', () => {

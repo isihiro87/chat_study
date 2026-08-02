@@ -8,8 +8,8 @@
  *
  * そこで **設定 → 範囲 → 学習開始** の順に、1タップずつ進める:
  *   ステップ1: 何に向けてがんばる？（学習モード。ついでに学年）
- *   ステップ2: テストの範囲は決まってる？（決まっていれば設定ページ／
- *              分からなければチャットで相談）
+ *   ステップ2: テストの範囲は決まってる？（確定していれば設定ページ／
+ *              だいたい・分からないはチャットで相談）
  *   ステップ3: **その場で「今日はここから」** を出して学習に入る
  *
  * 各ステップは reply（配信枠ゼロ）。押さなければ何も起きない＝強制しない。
@@ -20,13 +20,21 @@
 
 import type { messagingApi } from '@line/bot-sdk';
 
-import { MODE_LABELS, isModeSetting } from './tsudumonModeCore';
+import { isModeSetting } from './tsudumonModeCore';
 import {
   isExamActive,
   pickDailyUnit,
   type TsudumonExam,
 } from './tsudumonExamCore';
-import { referenceUrl, workbookUrl, TSUDUMON_UNITS } from './tsudumonUnits';
+import {
+  cursorForGrade,
+  referenceUrl,
+  workbookUrl,
+  TSUDUMON_UNITS,
+} from './tsudumonUnits';
+
+/** 聞ける学年。設定ページ（`tsudumonExamSetting.TSUDUMON_GRADES`）と同じ並び。 */
+const TSUDUMON_GRADES: readonly string[] = ['中1', '中2', '中3'];
 
 const SETTINGS_URL = 'https://tsudumon.jp/settings/';
 const EXAM_SETTINGS_URL = 'https://tsudumon.jp/settings/#exam';
@@ -41,66 +49,250 @@ const post = (label: string, data: string, displayText?: string) => ({
     ...(displayText ? { displayText } : {}),
   } as Action,
 });
-const uri = (label: string, url: string) => ({
-  type: 'action' as const,
-  action: { type: 'uri' as const, label, uri: url } as Action,
-});
-const msg = (label: string, text: string) => ({
-  type: 'action' as const,
-  action: { type: 'message' as const, label, text } as Action,
-});
 
-/** ステップ1の質問（登録直後に送る本文）。 */
+/**
+ * ステップ1の質問（登録直後に送る本文）。
+ *
+ * ⚠️ ここで聞くのは**学年だけ**（2026-08-02 に「何に向けてがんばりたい？」から変更）。
+ *
+ * 理由は2つ。
+ *  ① **目的は学年から決まる**。`resolveEffectiveMode` は未設定を `auto` に丸め、
+ *     `auto` を `modeFromGrade`（中1・中2＝定期テスト／中3＝両立）で解決する。
+ *     つまり目的を別に聞くのは冗長だった。
+ *  ② **学年をLINEで聞いていなかった**ので、学年を入れるためだけに設定ページへ
+ *     行く必要があり、「LINEで答えたのにWebでまた入力」の二度手間になっていた
+ *     （ユーザー指摘 2026-08-02）。
+ *
+ * 中学生に聞く数は増やさない。目的を自分で決めたい人は、設定ページか
+ * チャットで変えられる（`tsudumonMode` は未設定のまま＝`auto` で害がない）。
+ */
 export function buildStep1Message(): string {
   return [
-    'さいしょに、ふたつだけ教えてください（30秒で終わります）。',
+    'さいしょに、ひとつだけ教えてください（10秒で終わります）。',
     '',
-    '① いま、何に向けてがんばりたい？',
+    '① きみは何年生？',
     '',
-    'これで「今日の1単元」の選び方が変わります。あとからいつでも変えられます。',
+    'これで「今日の1単元」をどこから出すかが決まります。あとからいつでも変えられます。',
   ].join('\n');
 }
 
 export function step1QuickReply() {
   return {
     items: [
-      post('定期テスト', 'type=tzm_ob&step=mode&v=exam', '定期テスト'),
-      post('入試（受験）', 'type=tzm_ob&step=mode&v=entrance', '入試'),
-      post('両方がんばる', 'type=tzm_ob&step=mode&v=both', '両方'),
-      post('おまかせ', 'type=tzm_ob&step=mode&v=auto', 'おまかせ'),
+      post(
+        '中1',
+        'type=tzm_ob&step=grade&v=' + encodeURIComponent('中1'),
+        '中1'
+      ),
+      post(
+        '中2',
+        'type=tzm_ob&step=grade&v=' + encodeURIComponent('中2'),
+        '中2'
+      ),
+      post(
+        '中3',
+        'type=tzm_ob&step=grade&v=' + encodeURIComponent('中3'),
+        '中3'
+      ),
     ],
   };
 }
 
-/** ステップ2: テスト範囲。 */
-export function buildStep2Message(mode: string): string {
-  return [
-    `わかった。《${MODE_LABELS[mode as keyof typeof MODE_LABELS] ?? 'おまかせ'}》で進めるね。`,
-    '',
-    '② つぎのテストの範囲は決まってる？',
-    '',
-    '登録すると、その範囲の中から「今日の1単元」を選ぶようになります。',
-    'まだ分からなくても大丈夫。あとからでも、話しながらでも決められます。',
-  ].join('\n');
-}
+/** Flex の配色。つづもんのカードは全部この色（`tsudumonParentCard.ts` と同じ）。 */
+const BRAND = '#b45309';
+const INK = '#33291f';
+const MUTED = '#8a7a63';
 
-export function step2QuickReply() {
+const fxText = (t: string, opts: Record<string, unknown> = {}) => ({
+  type: 'text',
+  text: t,
+  wrap: true,
+  ...opts,
+});
+
+/**
+ * ステップ1のカード。**押すのは1回だけ**で登録が終わる。
+ *
+ * テキスト＋クイックリプライだった頃は、質問が本文に埋もれて選択肢が
+ * トーク下部に離れて出るので「何を聞かれているか」が伝わりにくかった
+ * （ユーザー指摘 2026-08-02）。カードなら質問とボタンが同じ面に載る。
+ */
+export function buildStep1Flex(): Record<string, unknown> {
   return {
-    items: [
-      uri('決まってる（入力する）', EXAM_SETTINGS_URL),
-      msg('わからない（相談する）', 'テストの範囲がわからない'),
-      post('あとで決める', 'type=tzm_ob&step=start', 'あとで決める'),
-    ],
+    type: 'flex',
+    altText: 'つづもんへようこそ｜学年を教えてね',
+    contents: {
+      type: 'bubble',
+      body: {
+        type: 'box',
+        layout: 'vertical',
+        paddingAll: '18px',
+        contents: [
+          fxText('つづもん、はじめよう', { size: 'xs', color: MUTED }),
+          fxText('きみは何年生？', {
+            size: 'xl',
+            weight: 'bold',
+            color: INK,
+            margin: 'sm',
+          }),
+          fxText('これだけで準備は完了。すぐに始められるよ。', {
+            size: 'sm',
+            color: MUTED,
+            margin: 'sm',
+          }),
+        ],
+      },
+      footer: {
+        type: 'box',
+        layout: 'vertical',
+        spacing: 'sm',
+        paddingAll: '18px',
+        paddingTop: 'none',
+        contents: TSUDUMON_GRADES.map((g) => ({
+          type: 'button',
+          style: 'primary',
+          color: BRAND,
+          height: 'sm',
+          action: {
+            type: 'postback',
+            label: g,
+            data: `type=tzm_ob&step=grade&v=${encodeURIComponent(g)}`,
+            displayText: g,
+          },
+        })),
+      },
+    },
   };
 }
 
-/** ステップ3: いきなり始められるように、単元を名指しして出す。 */
+/**
+ * ステップ2のカード＝**その場で始められる1単元**。
+ *
+ * ⚠️ 以前ここにあった「② つぎのテストの範囲は決まってる？」は**廃止**した
+ * （ユーザー指摘 2026-08-02）。初めて使う中学生に、まだ触ってもいない教材の
+ * 「範囲」を4択で聞いても答えようがなく、いちばん混乱する場所だった。
+ * 範囲は**設定ページで選ぶもの**として、ここでは任意のボタン1つに落とす。
+ */
+export function buildStartFlex(
+  unitNo: string,
+  hasExam: boolean
+): Record<string, unknown> {
+  const unit = TSUDUMON_UNITS.find((u) => u.no === unitNo) ?? TSUDUMON_UNITS[0];
+  return {
+    type: 'flex',
+    altText: `準備できたよ｜${unit.grade}・第${unit.no}章 ${unit.title}`,
+    contents: {
+      type: 'bubble',
+      body: {
+        type: 'box',
+        layout: 'vertical',
+        paddingAll: '18px',
+        contents: [
+          fxText(
+            hasExam
+              ? '準備できたよ。範囲の中から、きょうはここ'
+              : '準備できたよ。きょうはここから',
+            { size: 'xs', color: MUTED }
+          ),
+          {
+            type: 'box',
+            layout: 'horizontal',
+            margin: 'md',
+            contents: [
+              {
+                type: 'box',
+                layout: 'vertical',
+                flex: 0,
+                backgroundColor: '#fef3c7',
+                cornerRadius: '4px',
+                paddingAll: '5px',
+                paddingStart: '10px',
+                paddingEnd: '10px',
+                contents: [
+                  fxText(`${unit.grade}・第${unit.no}章`, {
+                    size: 'xxs',
+                    weight: 'bold',
+                    color: BRAND,
+                  }),
+                ],
+              },
+              { type: 'filler' },
+            ],
+          },
+          fxText(unit.title, {
+            size: 'xl',
+            weight: 'bold',
+            color: INK,
+            margin: 'md',
+          }),
+          fxText(unit.hook, { size: 'sm', color: MUTED, margin: 'sm' }),
+        ],
+      },
+      footer: {
+        type: 'box',
+        layout: 'vertical',
+        spacing: 'sm',
+        paddingAll: '18px',
+        paddingTop: 'none',
+        contents: [
+          {
+            type: 'button',
+            style: 'primary',
+            color: BRAND,
+            height: 'sm',
+            action: {
+              type: 'uri',
+              label: '参考書で確認',
+              uri: referenceUrl(unit.no),
+            },
+          },
+          {
+            type: 'button',
+            style: 'secondary',
+            height: 'sm',
+            action: {
+              type: 'uri',
+              label: '問題を解く',
+              uri: workbookUrl(unit.no),
+            },
+          },
+          // 範囲は「あとでいい」ことが伝わる置き方にする。ここで止まらせない。
+          ...(hasExam
+            ? []
+            : [
+                {
+                  type: 'button',
+                  style: 'link',
+                  color: BRAND,
+                  height: 'sm',
+                  action: {
+                    type: 'uri',
+                    label: 'テスト範囲を決める（あとでOK）',
+                    uri: EXAM_SETTINGS_URL,
+                  },
+                },
+              ]),
+          fxText(
+            'まずは3問だけでも十分。わからないところは、このトークにそのまま送ってね💡',
+            {
+              size: 'xxs',
+              color: MUTED,
+              margin: 'md',
+            }
+          ),
+        ],
+      },
+    },
+  };
+}
+
+/** ステップ2のテキスト版（Flex が落ちたときのフォールバック）。 */
 export function buildStep3Message(unitNo: string, hasExam: boolean): string {
   const unit = TSUDUMON_UNITS.find((u) => u.no === unitNo) ?? TSUDUMON_UNITS[0];
   return [
     hasExam
-      ? 'ありがとう！さっそく、範囲の中からきょうの1単元'
-      : 'それじゃあ、さっそく始めよう。きょうはここから',
+      ? '準備できたよ。範囲の中から、きょうはここ'
+      : '準備できたよ。きょうはここから',
     '',
     `📖【${unit.grade}・${unit.no}】${unit.title}`,
     unit.hook,
@@ -110,21 +302,12 @@ export function buildStep3Message(unitNo: string, hasExam: boolean): string {
     '',
     '▶ 問題を解く',
     workbookUrl(unit.no),
+    ...(hasExam
+      ? []
+      : ['', '▶ テスト範囲を決める（あとでOK）', EXAM_SETTINGS_URL]),
     '',
-    'まずは3問だけでも十分。終わったら「終わったよ」って送ってくれれば、見にいくね。',
-    'わからないところは、このトークにそのまま書いてね💡',
+    'まずは3問だけでも十分。わからないところは、このトークにそのまま送ってね💡',
   ].join('\n');
-}
-
-export function step3QuickReply(unitNo: string) {
-  // 「終わったよ！」は置かない。まだ始めていない段階で完了ボタンが出るのは不自然
-  // （ユーザー指摘 2026-07-27）。終わったら「終わったよ」と打てば受け付ける。
-  return {
-    items: [
-      uri('参考書を読む', referenceUrl(unitNo)),
-      uri('問題を解く', workbookUrl(unitNo)),
-    ],
-  };
 }
 
 async function reply(
@@ -137,6 +320,27 @@ async function reply(
     replyToken,
     messages: [{ type: 'text', text, ...(quickReply ? { quickReply } : {}) }],
   } as never);
+}
+
+/**
+ * カードで返す。落ちたらテキストで返し直す（返事が消えるのがいちばん困る）。
+ * replyToken は**送信に成功したときだけ**消費されるので、400 のあとに使い直せる。
+ */
+async function replyFlex(
+  client: messagingApi.MessagingApiClient,
+  replyToken: string,
+  flex: Record<string, unknown>,
+  fallbackText: string
+): Promise<void> {
+  try {
+    await client.replyMessage({ replyToken, messages: [flex] } as never);
+  } catch (error) {
+    console.error(
+      '[tsudumonOnboarding] flex reply failed; text fallback:',
+      error
+    );
+    await reply(client, replyToken, fallbackText);
+  }
 }
 
 /**
@@ -158,6 +362,27 @@ export async function handleTsudumonOnboardingPostback(
   if (getApps().length === 0) initializeApp();
   const db = getFirestore();
 
+  // ステップ1の答え＝学年。**目的（tsudumonMode）は書かない**——未設定なら
+  // `auto` として学年から解決されるので、あえて固定すると「学年を変えたのに
+  // 目的が古いまま」というズレを自分で作ることになる。
+  if (step === 'grade') {
+    const value = params.get('v') ?? '';
+    const grade = TSUDUMON_GRADES.includes(value) ? value : '中1';
+    try {
+      await db.doc(`users/${uid}`).set({ grade }, { merge: true });
+      // 学年が決まったら、配信の開始位置もその学年の先頭章へ寄せる。
+      // ここを直さないと中2の子に第1章から届く（登録直後に予定表が
+      // 学年不明のまま作られているため）。
+      await db
+        .doc(`tsudumonDaily/${uid}`)
+        .set({ cursor: cursorForGrade(grade) }, { merge: true });
+    } catch (error) {
+      console.error('[tsudumonOnboarding] grade save failed:', error);
+    }
+    // 範囲は聞かない。そのまま**始められる状態**にして終わる（1タップで完了）。
+  }
+
+  // 旧ボタン（目的を聞いていた頃）の受け皿。押されたら保存だけして先へ進む。
   if (step === 'mode') {
     const value = params.get('v') ?? 'auto';
     const mode = isModeSetting(value) ? value : 'auto';
@@ -166,8 +391,6 @@ export async function handleTsudumonOnboardingPostback(
     } catch (error) {
       console.error('[tsudumonOnboarding] mode save failed:', error);
     }
-    await reply(client, replyToken, buildStep2Message(mode), step2QuickReply());
-    return;
   }
 
   // step=start: いまの記録から1単元を選んで、その場で始められるようにする。
@@ -194,11 +417,12 @@ export async function handleTsudumonOnboardingPostback(
     cursor,
     nowMs: Date.now(),
   });
-  await reply(
+  const hasExam = isExamActive(exam, Date.now());
+  await replyFlex(
     client,
     replyToken,
-    buildStep3Message(picked.unitNo, isExamActive(exam, Date.now())),
-    step3QuickReply(picked.unitNo)
+    buildStartFlex(picked.unitNo, hasExam),
+    buildStep3Message(picked.unitNo, hasExam)
   );
 }
 

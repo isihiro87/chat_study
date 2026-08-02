@@ -43,6 +43,13 @@ import {
   introDay2Message,
   introDay7Message,
 } from '../tsudumonLifecycle';
+import {
+  buildStartFlex,
+  buildStep1Flex,
+  buildStep1Message,
+  buildStep3Message,
+  step1QuickReply,
+} from '../tsudumonOnboarding';
 
 describe('tsudumonUnits: 単元表', () => {
   it('全19単元・番号は01〜19の連番', () => {
@@ -233,12 +240,103 @@ describe('tsudumonDailyUnit: 配信カード（Flex）', () => {
     expect(JSON.stringify(footer)).not.toContain('https://tsudumon.jp/wb/05/');
   });
 
+  it('復習の行き先は章の目次ではなく節の「やり方をえらぼう」（#t1）', () => {
+    // 目次に降ろすと、復習しに来た人にもう一度「どれをやるか」を探させることになる。
+    const review = { unit: '05', wrong: 3 };
+    expect(JSON.stringify(buildDailyUnitFlex(7, monJst, review))).toContain(
+      'https://tsudumon.jp/wb/05/#t1'
+    );
+    // テキスト版（Flex失敗時のフォールバック）も同じ行き先にする
+    expect(buildDailyUnitMessage(7, monJst, review)).toContain(
+      'https://tsudumon.jp/wb/05/#t1'
+    );
+  });
+
   it('今日と同じ単元の見直しは出さない（同じリンクを2回押させない）', () => {
     const flex = buildDailyUnitFlex(7, monJst, { unit: '08', wrong: 2 });
     // 08 のボタンは「読む」「解く」の2本だけ。復習ボタンは増えない
     expect(
       JSON.stringify(flex).split('https://tsudumon.jp/wb/08/').length - 1
     ).toBe(1);
+  });
+});
+
+describe('tsudumonOnboarding: 登録直後（1タップで完了）', () => {
+  const flexText = (node: unknown): string[] => {
+    if (Array.isArray(node)) return node.flatMap(flexText);
+    if (!node || typeof node !== 'object') return [];
+    const o = node as Record<string, unknown>;
+    const here =
+      o.type === 'text' && typeof o.text === 'string' ? [o.text] : [];
+    return [...here, ...Object.values(o).flatMap(flexText)];
+  };
+  const buttons = (flex: Record<string, unknown>) => {
+    const out: { label: string; type: string }[] = [];
+    const walk = (n: unknown): void => {
+      if (Array.isArray(n)) return n.forEach(walk);
+      if (!n || typeof n !== 'object') return;
+      const o = n as Record<string, unknown>;
+      if (o.type === 'button' && o.action) {
+        const a = o.action as { label: string; type: string };
+        out.push({ label: a.label, type: a.type });
+      }
+      Object.values(o).forEach(walk);
+    };
+    walk(flex.contents);
+    return out;
+  };
+
+  it('聞くのは学年だけ。カードのボタン3つで登録が終わる', () => {
+    // テキスト＋クイックリプライだと質問が本文に埋もれ、選択肢がトーク下部に
+    // 離れて出る。カードなら質問とボタンが同じ面に載る（ユーザー指摘 2026-08-02）。
+    const flex = buildStep1Flex();
+    expect(flexText(flex.contents).join('')).toContain('何年生');
+    expect(buttons(flex).map((b) => b.label)).toEqual(['中1', '中2', '中3']);
+    expect(buttons(flex).every((b) => b.type === 'postback')).toBe(true);
+  });
+
+  it('カードが落ちてもテキストで同じことを聞ける（学年だけ）', () => {
+    // push / reply とも Flex 失敗時はテキストに落とす。片方だけ直すと
+    // フォールバックだけ古い質問（目的）に戻る。
+    expect(buildStep1Message()).toContain('何年生');
+    const labels = step1QuickReply().items.map(
+      (i) => (i.action as { label: string }).label
+    );
+    expect(labels).toEqual(['中1', '中2', '中3']);
+  });
+
+  it('テスト範囲は質問しない（設定ページで選ぶものにする）', () => {
+    // 初めて使う中学生に、まだ触ってもいない教材の「範囲」を4択で聞いても
+    // 答えようがない。ここがいちばん混乱する場所だった。
+    const start = buildStartFlex('08', false);
+    const all = flexText(start.contents).join('') + JSON.stringify(start);
+    expect(all).not.toContain('範囲は決まってる');
+    expect(all).not.toContain('だいたい決まってる');
+    expect(all).not.toContain('わからない（相談する）');
+  });
+
+  it('学年を押した直後に、その場で始められる単元が出る', () => {
+    const start = buildStartFlex('08', false);
+    expect(flexText(start.contents).join('')).toContain('幕藩体制の確立');
+    const labels = buttons(start).map((b) => b.label);
+    expect(labels).toContain('参考書で確認');
+    expect(labels).toContain('問題を解く');
+  });
+
+  it('範囲未設定のときだけ「テスト範囲を決める（あとでOK）」を添える', () => {
+    // ここで止まらせないため、あとでよいと分かる置き方にする。
+    const without = buttons(buildStartFlex('08', false)).map((b) => b.label);
+    expect(without).toContain('テスト範囲を決める（あとでOK）');
+    // すでに範囲があるなら出さない（押す必要のないボタンを並べない）
+    const withExam = buttons(buildStartFlex('08', true)).map((b) => b.label);
+    expect(withExam).not.toContain('テスト範囲を決める（あとでOK）');
+  });
+
+  it('カードが落ちても同じ内容をテキストで返せる', () => {
+    const t = buildStep3Message('08', false);
+    expect(t).toContain('幕藩体制の確立');
+    expect(t).toContain('https://tsudumon.jp/wb/08/');
+    expect(t).toContain('テスト範囲を決める');
   });
 });
 

@@ -231,7 +231,18 @@ export const TOOL_DEFINITIONS: LlmToolDef[] = [
           type: 'array',
           items: { type: 'string' },
           description:
-            'テスト範囲の章番号（"01"〜"19"）。システムプロンプトの単元一覧から選ぶ。1つでもよい',
+            'テスト範囲の章番号（"01"〜"19"）。システムプロンプトの単元一覧から選ぶ。1つでもよい。' +
+            'topicIds を渡すときは省略してよい',
+        },
+        topicIds: {
+          type: 'array',
+          items: { type: 'string' },
+          description:
+            '範囲を**節まで**絞れたときの節ID（例 "08-edo-bakufu"）。' +
+            'システムプロンプトの単元一覧に出ている節IDから選ぶ。' +
+            '章まるごとより正確なので、「江戸幕府の成立から享保の改革まで」のように' +
+            '途中までと分かったら必ずこちらを使う。章の一部だけのときに unitNos で' +
+            '章ごと登録すると、習っていないところまで出題される',
         },
         confidence: {
           type: 'string',
@@ -245,7 +256,10 @@ export const TOOL_DEFINITIONS: LlmToolDef[] = [
             '目星の根拠（例:「学校は江戸幕府の途中まで進んでいる」）120文字まで',
         },
       },
-      required: ['testDate', 'unitNos'],
+      // unitNos は必須にしない。節まで絞れたときは topicIds だけで足り、
+      // 両方を要求すると AI が章と節の食い違うペアを作る（validateExam は
+      // topicIds を正として章を計算し直すので、渡されても害は無い）。
+      required: ['testDate'],
     },
   },
   {
