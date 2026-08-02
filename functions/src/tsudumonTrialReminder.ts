@@ -77,6 +77,25 @@ function expiredMessage(): string {
   ].join('\n');
 }
 
+/**
+ * 体験終了を保護者に伝える1通。
+ *
+ * 子に送る文面（`expiredMessage`）とは役割が違う。子には「無料で残るもの」を伝え、
+ * 保護者には**続けるかどうかの判断材料と入口**を渡す。
+ * ⚠️ 学習の中身（まちがえた問題・トーク）は書かない。開示範囲は記録だけ。
+ */
+export function expiredParentMessage(): string {
+  return [
+    'お子さまのつづもん 無料体験が終了しました。3日間ありがとうございました。',
+    '',
+    'これまでの取り組み（学習した日・時間・進んだ単元）は、下のページでご覧いただけます。',
+    'つづけるかどうかは、そちらを見てからご判断ください。',
+    'https://tsudumon.jp/parents/dashboard/',
+    '',
+    '体験のあとも「律令国家と奈良時代」の単元は、ずっと無料でお使いいただけます。',
+  ].join('\n');
+}
+
 type ReminderKind = 'lastday' | 'expired';
 
 export const tsudumonTrialReminder = functions
@@ -176,9 +195,11 @@ export const tsudumonTrialReminder = functions
 
       // 配信除外判定は tsudumonBlockedAt（つづもんBotのブロック）のみを見る。
       // 一問一答の `blocked` は無関係（一問一答だけブロックした人にも送ってよい）。
+      let userData: Record<string, unknown> | undefined;
       try {
         const userSnap = await db.doc(`users/${uid}`).get();
-        if (userSnap.data()?.tsudumonBlockedAt) {
+        userData = userSnap.data() as Record<string, unknown> | undefined;
+        if (userData?.tsudumonBlockedAt) {
           skipped++;
           continue;
         }
@@ -209,6 +230,34 @@ export const tsudumonTrialReminder = functions
         );
         failed++;
         continue;
+      }
+
+      // 体験終了は、**連携ずみの保護者にも知らせる**（2026-08-02 追加）。
+      // 中学生本人は決済できないので、期限切れを子にだけ伝えても手が止まる。
+      // ダッシュボードを見ている保護者は、いちばん決済に近い相手なのに
+      // これまで通知が届いていなかった。
+      // 宛先は上で読んだ users/{uid} から引くので **追加の read はゼロ**。
+      if (kind === 'expired' && userData) {
+        try {
+          const { readLinkedParents } = await import('./tsudumonParentCore');
+          for (const parent of readLinkedParents(userData)) {
+            const parentLineId = parent.uid.startsWith('line:')
+              ? parent.uid.slice('line:'.length)
+              : '';
+            if (!parentLineId) continue;
+            await lineClient.pushMessage({
+              to: parentLineId,
+              messages: [{ type: 'text', text: expiredParentMessage() }],
+            });
+            await recordPushDelivery('tsudumonTrial');
+          }
+        } catch (error) {
+          console.error(
+            `[tsudumonTrialReminder] parent notice failed uid=${uid}:`,
+            error
+          );
+          // 保護者への通知が失敗しても、子への通知は成立させる（既送扱いにする）。
+        }
       }
 
       try {

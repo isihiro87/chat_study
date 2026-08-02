@@ -12,6 +12,8 @@ import { readFileSync } from 'fs';
 import { join } from 'path';
 import { describe, it, expect } from 'vitest';
 
+import { expiredParentMessage } from '../tsudumonTrialReminder';
+
 const SRC = join(__dirname, '..');
 
 function sourceOf(file: string): string {
@@ -189,5 +191,24 @@ describe('保護者導線の入口', () => {
     ]) {
       expect(read(page)).not.toMatch(/href="\/account\//);
     }
+  });
+
+  describe('体験終了を保護者に知らせる1通', () => {
+    const msg = expiredParentMessage();
+
+    it('判断材料と入口だけを渡す（記録ページへ送る）', () => {
+      expect(msg).toContain('https://tsudumon.jp/parents/dashboard/');
+      expect(msg).toContain('無料体験が終了');
+    });
+
+    it('学習の中身は書かない（開示範囲は記録だけ）', () => {
+      for (const ng of ['まちがえ', 'トーク', '正答率', '点', '質問した']) {
+        expect(msg).not.toContain(ng);
+      }
+    });
+
+    it('保護者に /account/ を案内しない（子のログインが要る）', () => {
+      expect(msg).not.toContain('tsudumon.jp/account/');
+    });
   });
 });
