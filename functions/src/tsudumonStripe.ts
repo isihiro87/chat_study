@@ -418,8 +418,13 @@ function billingLabel(periodEndMs: number): string | null {
  */
 async function pushPurchaseThanks(
   uid: string,
-  periodEndMs: number
+  periodEndMs: number,
+  paidBy: TsudumonPaidBy = 'self'
 ): Promise<void> {
+  // ⚠️ 保護者が払ったときは、**お子さまに支払い・解約の話をしない**（2026-08-02）。
+  // 解約できるのは払った本人（保護者）で、/account/ はお子さま本人用のページ。
+  // ここで案内すると、子が触れてはいけない場所（保護者のカード情報・請求履歴）へ誘導する。
+  const byParent = paidBy === 'parent';
   const nextBilling = billingLabel(periodEndMs);
   const text = [
     'ご登録ありがとうございます！🎉',
@@ -430,11 +435,15 @@ async function pushPurchaseThanks(
     'あすから毎日、「今日の1単元」をこのトークにお届けします（はじめは平日 夜7時ごろ・土日 朝10時ごろ）。',
     '届く曜日・時刻は、あとから https://tsudumon.jp/settings/ で変えられます。',
     '',
-    nextBilling
-      ? `次回のお支払いは ${nextBilling} です（月額1,280円・税込）。`
-      : '月額1,280円（税込）で自動更新されます。',
-    'お支払い状況の確認と解約は、こちらのページからいつでもどうぞ。',
-    'https://tsudumon.jp/account/',
+    ...(byParent
+      ? ['おうちの人が手続きしてくれました。ありがとうを伝えてね。']
+      : [
+          nextBilling
+            ? `次回のお支払いは ${nextBilling} です（月額1,280円・税込）。`
+            : '月額1,280円（税込）で自動更新されます。',
+          'お支払い状況の確認と解約は、こちらのページからいつでもどうぞ。',
+          'https://tsudumon.jp/account/',
+        ]),
     '',
     'わからないところは、このトークでつづ先生に聞いてくださいね。',
   ].join('\n');
@@ -486,8 +495,82 @@ async function pushToTsudumon(
   }
 }
 
+/**
+ * 支払い関係の連絡を、**払った人に届ける**（2026-08-02 追加）。
+ *
+ * 保護者ペイリンクで払われた場合、カードを直せるのは保護者だけ。子にだけ送っても
+ * 誰も直せず、黙って失効する（設計 C-4 の「放置＝黙って失効が最悪」が達成できない）。
+ *
+ * `users/{childUid}.tsudumonParents` の 1 read だけで宛先が分かる（read 規律）。
+ * 連携していない保護者には届かないので、その場合は Stripe の督促メールが頼り。
+ */
+async function pushToLinkedParents(
+  childUid: string,
+  text: string,
+  label: string
+): Promise<void> {
+  try {
+    const db = await getDb();
+    const snap = await db.doc(`users/${childUid}`).get();
+    if (!snap.exists) return;
+    const { readLinkedParents } = await import('./tsudumonParentCore');
+    const parents = readLinkedParents(snap.data());
+    for (const p of parents) {
+      await pushToTsudumon(p.uid, text, 'tsudumonBilling', label);
+    }
+  } catch (e) {
+    console.error(`[tsudumonStripe] ${label} to parents failed:`, e);
+  }
+}
+
+/** その契約を保護者が払っているか（users/{uid}.tsudumon.paidBy）。 */
+async function isPaidByParent(uid: string): Promise<boolean> {
+  try {
+    const db = await getDb();
+    const snap = await db.doc(`users/${uid}`).get();
+    if (!snap.exists) return false;
+    const raw = (snap.data() as Record<string, unknown>).tsudumon;
+    return (
+      !!raw &&
+      typeof raw === 'object' &&
+      getString((raw as Record<string, unknown>).paidBy) === 'parent'
+    );
+  } catch {
+    return false;
+  }
+}
+
 /** C-4: 決済失敗の案内。責めず、直し方（カード変更）だけを短く伝える。 */
 async function pushBillingFailed(uid: string): Promise<void> {
+  const byParent = await isPaidByParent(uid);
+
+  if (byParent) {
+    // 子には「使えなくなるかも」だけ。カードの話をしても直せない。
+    await pushToTsudumon(
+      uid,
+      [
+        'つづもんのお支払いが確認できませんでした。',
+        '',
+        'おうちの人に、つづもんからお知らせが届いています。手続きが終われば、そのまま続けて使えます。',
+      ].join('\n'),
+      'tsudumonBilling',
+      'billing failed (child)'
+    );
+    await pushToLinkedParents(
+      uid,
+      [
+        'つづもんの月額プランのお支払いが確認できませんでした。',
+        '',
+        'カードの有効期限切れや上限などが考えられます。お手数ですが、下のページからお支払い方法をご確認ください。',
+        'https://tsudumon.jp/parents/dashboard/',
+        '',
+        'お手続きいただければ、そのまま続けてご利用いただけます。',
+      ].join('\n'),
+      'billing failed (parent)'
+    );
+    return;
+  }
+
   const text = [
     'つづもんの月額プランのお支払いが確認できませんでした。',
     '',
@@ -505,7 +588,8 @@ async function pushCancelAccepted(
   periodEndMs: number
 ): Promise<void> {
   const until = billingLabel(periodEndMs);
-  const text = [
+  const byParent = await isPaidByParent(uid);
+  const common = [
     'つづもんの月額プランの解約を承りました。ご利用ありがとうございました。',
     '',
     until
@@ -514,9 +598,28 @@ async function pushCancelAccepted(
     'そのあとも「律令国家と奈良時代」の単元と、各単元の最初のページは無料でお読みいただけます。',
     '',
     'またお使いになりたくなったら、いつでも再開できます。',
-    'https://tsudumon.jp/account/',
-  ].join('\n');
-  await pushToTsudumon(uid, text, 'tsudumonBilling', 'cancel accepted');
+  ];
+  // 再開の入口は「払える人」に合わせる。保護者が払っているのに子へ /account/ を
+  // 案内しても、そこからは操作できない（tsudumonCreatePortal が paidBy で断る）。
+  await pushToTsudumon(
+    uid,
+    common
+      .concat(
+        byParent
+          ? ['おうちの人にお願いしてね。']
+          : ['https://tsudumon.jp/account/']
+      )
+      .join('\n'),
+    'tsudumonBilling',
+    'cancel accepted'
+  );
+  if (byParent) {
+    await pushToLinkedParents(
+      uid,
+      common.concat(['https://tsudumon.jp/parents/dashboard/']).join('\n'),
+      'cancel accepted (parent)'
+    );
+  }
 }
 
 /**
@@ -673,7 +776,7 @@ export const tsudumonStripeWebhook = functions
         }
         // 決済の直後に何も返らないと「払えたのか」が分からない。つづもんBotから
         // 完了の1通だけ push する（購入時のみ・つづもん枠。失敗しても課金処理は成功扱い）。
-        await pushPurchaseThanks(uid, expiresMs - graceMs);
+        await pushPurchaseThanks(uid, expiresMs - graceMs, paidBy);
         // 「今日の1単元」日次配信の対象に加える（解約→再登録なら cursor は続きから）。
         try {
           const { ensureTsudumonDaily } = await import('./tsudumonDailyUnit');
@@ -856,9 +959,30 @@ export const tsudumonCreatePortal = functions
 
       const db = await getDb();
       const snap = await db.doc(`users/${uid}`).get();
-      const stripeTsudumon = snap.exists
-        ? (snap.data() as Record<string, unknown>).stripeTsudumon
-        : null;
+      const userData = snap.exists
+        ? (snap.data() as Record<string, unknown>)
+        : {};
+
+      // ⚠️ 保護者が払った契約を、お子さま本人に触らせない（2026-08-02）。
+      // customerId は「誰が払ったか」に関わらず**お子さまのuid**に書かれるため、
+      // ここを素通しすると Billing Portal が開き、**保護者のカード下4桁・請求先メール・
+      // 請求履歴が子に見え、解約もできてしまう**。paidBy は webhook が保存している。
+      const tsudumonRaw = userData.tsudumon;
+      const paidBy =
+        tsudumonRaw && typeof tsudumonRaw === 'object'
+          ? getString((tsudumonRaw as Record<string, unknown>).paidBy)
+          : '';
+      if (paidBy === 'parent') {
+        res.status(200).json({
+          ok: false,
+          reason: 'paid_by_parent',
+          message:
+            'このお支払いは、おうちの人の画面から手続きされています。お支払いの確認や解約は、おうちの人にお願いしてください。',
+        });
+        return;
+      }
+
+      const stripeTsudumon = userData.stripeTsudumon;
       const customerId =
         stripeTsudumon && typeof stripeTsudumon === 'object'
           ? getString((stripeTsudumon as Record<string, unknown>).customerId)
