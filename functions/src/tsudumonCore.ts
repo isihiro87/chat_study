@@ -138,12 +138,23 @@ export function evaluateTsudumonAccess(
 export const TSUDUMON_TRIAL_HOURS = 72;
 
 /**
- * 公開キャンペーン「8月15日まで無料でおためし」の終了時刻（JST 2026-08-15 23:59:59）。
+ * 公開キャンペーン「8月15日まで無料でおためし」。
  *
- * この時刻を過ぎたら、体験は通常どおり 72 時間に戻る。**定数を消すのではなく
- * 過去の日時のまま置いておけば自動で通常運用に戻る**ので、切り替え忘れが起きない。
+ * 2つの日付があるので混同しないこと。
+ *   - ENTRY_END … **登録の締切**（JST 2026-08-11 23:59:59）。ここまでに始めた人が対象
+ *   - UNTIL     … **使える期限**（JST 2026-08-15 23:59:59）
+ *
+ * 8月12日以降に登録した人は、通常どおり72時間（3日間）。
+ * 締切ぎりぎり（8/11 23:59）に始めても 8/15 まで使えるので、
+ * 通常運用（72時間＝8/14まで）より短くなることはない。
+ *
+ * ⚠️ キャンペーンが終わったら**定数を消さず、日付を過去のまま残す**。
+ * それだけで自動的に通常運用へ戻るので、切り替え忘れが起きない。
  */
-export const TSUDUMON_TRIAL_CAMPAIGN_END_MS = Date.parse(
+export const TSUDUMON_TRIAL_CAMPAIGN_ENTRY_END_MS = Date.parse(
+  '2026-08-11T14:59:59Z'
+);
+export const TSUDUMON_TRIAL_CAMPAIGN_UNTIL_MS = Date.parse(
   '2026-08-15T14:59:59Z'
 );
 
@@ -152,13 +163,13 @@ const DAY_MS = 24 * 60 * 60 * 1000;
 /**
  * 体験の期限を決める。
  *
- * キャンペーン中は「8月15日まで」。ただし**必ず72時間は確保する**ので、
- * 8月15日の直前に始めた人が数分で切れることはない（約束より短くならない）。
+ * 登録締切までに始めた人は「8月15日まで」。それ以降は通常の72時間。
+ * どちらの場合も**72時間は必ず確保する**（約束より短くしない）。
  */
 export function computeTsudumonTrialExpiresAtMs(nowMs: number): number {
   const normal = nowMs + TSUDUMON_TRIAL_HOURS * 60 * 60 * 1000;
-  if (nowMs >= TSUDUMON_TRIAL_CAMPAIGN_END_MS) return normal;
-  return Math.max(normal, TSUDUMON_TRIAL_CAMPAIGN_END_MS);
+  if (nowMs > TSUDUMON_TRIAL_CAMPAIGN_ENTRY_END_MS) return normal;
+  return Math.max(normal, TSUDUMON_TRIAL_CAMPAIGN_UNTIL_MS);
 }
 
 /**
@@ -166,13 +177,13 @@ export function computeTsudumonTrialExpiresAtMs(nowMs: number): number {
  *
  * ⚠️ Stripe の `trial_period_days` を丸めるのに使う。ここを 3 に固定したままだと、
  * キャンペーンで体験を延ばしたときに**無料期間の途中で課金が始まる**
- * （体験は8月15日まで無効なのに、3日後に請求されてしまう）。
+ * （8月15日まで無料なのに、3日後に請求されてしまう）。
  */
 export function tsudumonTrialMaxDays(nowMs: number): number {
   const base = Math.ceil(TSUDUMON_TRIAL_HOURS / 24);
-  if (nowMs >= TSUDUMON_TRIAL_CAMPAIGN_END_MS) return base;
+  if (nowMs > TSUDUMON_TRIAL_CAMPAIGN_ENTRY_END_MS) return base;
   const campaignDays = Math.ceil(
-    (TSUDUMON_TRIAL_CAMPAIGN_END_MS - nowMs) / DAY_MS
+    (TSUDUMON_TRIAL_CAMPAIGN_UNTIL_MS - nowMs) / DAY_MS
   );
   // +1 は端数と時差の保険（短く丸めて早く課金するより、長いほうが安全）。
   return Math.max(base, campaignDays + 1);

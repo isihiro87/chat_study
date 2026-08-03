@@ -73,7 +73,7 @@ function buildTsudumonFollowText(): string {
     // TSUDUMON_TRIAL_CAMPAIGN_END_MS）。キャンペーンが終わると体験は72時間に戻るので、
     // **この2行も戻すこと**。日付だけ残ると嘘になる。
     '▼ ぜんぶ無料でおためし',
-    '今だけ、8月15日まで使えます。',
+    '今だけ、8月15日まで無料で使えます（8月11日までに始めた人）。',
     TSUDUMON_TRIAL_URL,
     'お支払いの登録はいりません。',
     '',

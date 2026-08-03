@@ -198,7 +198,7 @@ describe('保護者導線の入口', () => {
 
     it('判断材料と入口だけを渡す（記録ページへ送る）', () => {
       expect(msg).toContain('https://tsudumon.jp/parents/dashboard/');
-      expect(msg).toContain('無料体験が終了');
+      expect(msg).toContain('無料おためしが終了');
     });
 
     it('学習の中身は書かない（開示範囲は記録だけ）', () => {
