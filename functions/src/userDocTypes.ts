@@ -150,7 +150,7 @@ export interface UserDoc {
   preferredHour?: PreferredHour;
 
   /**
-   * 毎日配信→週3配信の切替案内（新規=登録7日目 / 既存=14日目）を送った日時。
+   * 毎日配信→週2配信の切替案内（新規=登録7日目 / 既存=14日目）を送った日時。
    * `dailyQuiz` が二重送信を防ぐためのフラグ（2026-06 配信モデル）。
    */
   deliveryTransitionNotifiedAt?: Timestamp;
@@ -204,7 +204,7 @@ export interface UserDoc {
 
   /**
    * ユーザー自身による配信一時停止フラグ（設定メニューの「配信をおやすみ」）。
-   * true の間は cron 由来 push（dailyQuiz / 週3 / 移行案内 / Win-back）を送らない。
+   * true の間は cron 由来 push（dailyQuiz / 週2 / 移行案内 / Win-back）を送らない。
    * reply 系（1問解く / 苦手復習 / AIチャット / 範囲設定）は停止中も使える。
    * 解除は resume_delivery postback または復帰キーワード（handleRestartIntent）。
    */

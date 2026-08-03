@@ -36,7 +36,7 @@ import {
 } from './tsudumonUnits';
 
 const MAP_URL = 'https://tsudumon.jp/map/';
-const TRIAL_URL = 'https://tsudumon.jp/account/?do=trial';
+const TRIAL_URL = 'https://tsudumon.jp/start/';
 
 /**
  * 課金・体験中の人に返す本文（純粋関数）。

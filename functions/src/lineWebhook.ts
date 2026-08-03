@@ -37,6 +37,10 @@ import type { PushType } from './deliveryStatsTypes';
 // 参考書対話セッションの TTL・離脱ワード判定（純粋ロジック）
 import { isRefEndText, isRefSessionExpired } from './refSessionCore';
 import { PUSH_PAUSE_REPLY_TEXT, shouldSuppressPush } from './pushSuspension';
+// 2026-08-03 限定のおしらせ（7月末の配信停止のおわび＋つづもん先行公開の予告）。
+// 配信枠を使わないよう回答直後の reply に同梱する（設計:
+// .steering/20260803-tsudumon-teaser-in-answer-reply/）。
+import { AUG_NOTICE_TEXT, shouldSendAugNotice } from './augNotice';
 import {
   resolveReferenceTopic,
   REF_LEVEL_LABEL,
@@ -477,7 +481,7 @@ export function buildOnboardingCompleteSummaryFlex(opts: {
             type: 'text' as const,
             text:
               `📅 はじめの1週間は毎日1問お届け！\n` +
-              `そのあとは週3回（月・水・金）に届きます。`,
+              `そのあとは週2回（月・木）に届きます。`,
             wrap: true,
             size: 'xs' as const,
             color: '#111827',
@@ -6668,7 +6672,7 @@ async function isDeliveryPaused(uid: string): Promise<boolean> {
 
 /**
  * 配信の一時停止（設定メニューの「🔕 配信をおやすみ」）。
- * cron 由来 push（毎日/週3配信・Win-back）を止める。reply 系機能は使えるままなので、
+ * cron 由来 push（毎日/週2配信・Win-back）を止める。reply 系機能は使えるままなので、
  * その旨と再開手段（ボタン / 「再開」キーワード）を必ず案内する。
  * すでに停止中でも同じ確認を返すだけ（冪等）。
  */
@@ -7365,7 +7369,7 @@ function buildHelpFlexMessage(
   const bodyContents = [
     {
       type: 'text' as const,
-      text: 'はじめは毎日、そのあとは週3回（月・水・金）、決まった時間に1問届くよ。',
+      text: 'はじめは毎日、そのあとは週2回（月・木）、決まった時間に1問届くよ。',
       wrap: true,
       size: 'sm' as const,
       color: '#111827',
@@ -9847,7 +9851,7 @@ async function handleSelectTimePostback(
             type: 'text',
             text:
               `設定完了！明日から${hourLabel}に1問お届けします。\n\n` +
-              `📅 はじめの1週間は毎日、そのあとは週3回（月・水・金）に届きます。配信がない日も、メニューの「1問解く」を押せばいつでも問題に挑戦できるよ。\n\n` +
+              `📅 はじめの1週間は毎日、そのあとは週2回（月・木）に届きます。配信がない日も、メニューの「1問解く」を押せばいつでも問題に挑戦できるよ。\n\n` +
               `📖 届いた問題は選択肢をタップするだけ。すぐに正解と解説が出ます。メニューから「苦手を復習」「じっくり学ぶ」も使えます。\n\n` +
               `🤖 困ったときや勉強の質問は、このトークにそのまま送ればAIが答えるよ。`,
           },
@@ -10065,6 +10069,20 @@ export async function handleAnswerPostback(
         subject: question.subject,
       });
 
+  // 2026-08-03 限定のおしらせ（おわび＋つづもん先行公開の予告）を reply の最後に足す。
+  // 判定は既に読み込んだ currentUserData だけで行い、フラグ（augNoticeSentAt）は
+  // 末尾の users/{uid} write に相乗りさせる ＝ **read も write も増えない**。
+  // 単独 push（scripts/send-aug-notice.ts）と同じフラグを見るので、
+  // 1ユーザーあたりの配信枠消費は合計1通を超えない。
+  const showAugNotice = shouldSendAugNotice({
+    now: new Date(),
+    alreadySent: currentUserData?.augNoticeSentAt !== undefined,
+    hasTsudumonAccess:
+      evaluateTsudumonAccess(currentUserData?.tsudumon, null, Date.now()) ===
+      'ok',
+    isWorkbookAnswer,
+  });
+
   // 初回回答時のトライアル案内 flex（first_answer）は、reply には積まず
   // `onAnswerCreated` が解説直後に即 push する設計。
   // ここでは nextStep のみ reply に積む。
@@ -10116,6 +10134,9 @@ export async function handleAnswerPostback(
     }
   }
 
+  // reply が実際に成功したときだけフラグを立てる（届いていないのに
+  // 「送信済み」になって誰にも届かなくなるのを防ぐ）。
+  let augNoticeDelivered = false;
   try {
     const prevXp = (wbStats.xp ?? 0) as number;
     // ワーク経路は正誤を色付きバナーで出すため、本文は見出しなしの
@@ -10139,10 +10160,18 @@ export async function handleAnswerPostback(
     if (nextStepFlex) {
       replyMessages.push(nextStepFlex as LineMessage);
     }
+    // 最大 4 通（本文 + 解説flex + nextStep flex + おしらせ）= LINE の上限 5 通以内。
+    if (showAugNotice) {
+      replyMessages.push({ type: 'text', text: AUG_NOTICE_TEXT });
+    }
     await client.replyMessage({
       replyToken,
       messages: replyMessages as unknown as messagingApi.Message[],
     });
+    if (showAugNotice) {
+      augNoticeDelivered = true;
+      console.log(`[lineWebhook] aug notice delivered via reply uid=${uid}`);
+    }
   } catch (error) {
     console.error('[lineWebhook] handleAnswer reply failed:', error);
   }
@@ -10179,6 +10208,11 @@ export async function handleAnswerPostback(
       {
         lastAnsweredQuestionId: questionId,
         updatedAt: FieldValue.serverTimestamp(),
+        // 2026-08-03 のおしらせを reply で届けた印（単独 push 側の除外に使う）。
+        // 既存の write に相乗りさせるので write は増えない。
+        ...(augNoticeDelivered
+          ? { augNoticeSentAt: FieldValue.serverTimestamp() }
+          : {}),
         // ワーク演習中は完走カード（◯／◯問正解・間違えた問題リスト）用に
         // セッションへ結果を積み上げ、次の問題の状態（index 前進等）も相乗りさせる。
         ...(isWorkbookAnswer

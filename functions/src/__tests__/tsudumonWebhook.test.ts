@@ -273,7 +273,7 @@ describe('handleTsudumonFollow', () => {
     const text = arg.messages[0].text as string;
     // 入口は2つだけ。①登録の要らない1節 ②体験
     expect(text).toContain('https://tsudumon.jp/ref/04/');
-    expect(text).toContain('https://tsudumon.jp/account/?do=trial');
+    expect(text).toContain('https://tsudumon.jp/start/');
     expect(text).toContain('無料でおためし');
   });
 

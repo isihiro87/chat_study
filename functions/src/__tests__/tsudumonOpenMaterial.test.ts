@@ -57,7 +57,7 @@ describe('buildOpenMaterialLockedMessage（未登録・期限切れ）', () => {
   const text = buildOpenMaterialLockedMessage();
 
   it('体験の入口を出す', () => {
-    expect(text).toContain('https://tsudumon.jp/account/?do=trial');
+    expect(text).toContain('https://tsudumon.jp/start/');
     expect(text).toContain('3日間無料でためす');
   });
 

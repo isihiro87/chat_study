@@ -13,6 +13,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   buildPushPauseContext,
+  buildAugResumeContext,
   buildSystemPrompt,
   buildUserStateContext,
 } from '../aiChatPrompt';
@@ -37,8 +38,8 @@ describe('aiChatPrompt: サービス知識の正本', () => {
     expect(prompt).toContain('「テスト範囲設定」というボタンは無い');
   });
 
-  it('配信頻度: 初期は毎日→週3回（月・水・金）', () => {
-    expect(prompt).toContain('週3回（月・水・金）');
+  it('配信頻度: 初期は毎日→週2回（月・木）', () => {
+    expect(prompt).toContain('週2回（月・木）');
   });
 
   it('「できないこと」ガード（実行したフリ禁止）', () => {
@@ -108,13 +109,23 @@ describe('buildUserStateContext: 実データ注入', () => {
     expect(ctx).toContain('はじめの毎日配信');
   });
 
-  it('8日以降は週3期間・水曜は配信がある日', () => {
+  it('8日以降は週2期間・木曜は配信がある日', () => {
+    // 2026-07-16 は木曜（週2配信＝月・木の配信日）。
+    const thu = new Date('2026-07-16T12:00:00+09:00');
+    const user = {
+      onboardingStartedAt: ts(new Date('2026-05-01T12:00:00+09:00')),
+    } as unknown as UserDoc;
+    const ctx = buildUserStateContext(user, thu);
+    expect(ctx).toContain('週2回（月・木）');
+    expect(ctx).toContain('配信がある日');
+  });
+
+  it('水曜は週2（月・木）の非配信日になった', () => {
     const user = {
       onboardingStartedAt: ts(new Date('2026-05-01T12:00:00+09:00')),
     } as unknown as UserDoc;
     const ctx = buildUserStateContext(user, wed);
-    expect(ctx).toContain('週3回（月・水・金）');
-    expect(ctx).toContain('配信がある日');
+    expect(ctx).toContain('配信が無い日');
   });
 
   it('火曜（非配信日）は「配信が無い日」と伝える', () => {
@@ -191,13 +202,13 @@ describe('配信一時停止中（2026-07 配信枠ひっ迫）の案内', () =>
     ).toBe('');
   });
 
-  it('停止中は状態文脈でも「毎日／週3」と言わない', () => {
+  it('停止中は状態文脈でも「毎日／週2」と言わない', () => {
     const user = {
       onboardingStartedAt: ts(new Date('2026-05-01T12:00:00+09:00')),
     } as unknown as UserDoc;
     const ctx = buildUserStateContext(user, duringPause);
     expect(ctx).toContain('自動配信をおやすみ中');
-    expect(ctx).not.toContain('週3回（月・水・金）の期間');
+    expect(ctx).not.toContain('週2回（月・木）の期間');
   });
 });
 
@@ -494,5 +505,28 @@ describe('一問一答: 軽量プロフィール記憶の注入（2026-07-26）'
     expect(p).toContain('この子について覚えていること');
     expect(p).toContain('ミナト');
     expect(p).toContain('バスケ部');
+  });
+});
+
+describe('buildAugResumeContext（2026-08 の配信再開まわりの一時知識）', () => {
+  const jst = (iso: string) => new Date(`${iso}+09:00`);
+
+  it('掲出期間中はおわび・8/4先行公開・週2・17時配信の事実を含む', () => {
+    const ctx = buildAugResumeContext(jst('2026-08-03T18:00:00'));
+    expect(ctx).toContain('7/26');
+    expect(ctx).toContain('8月4日');
+    expect(ctx).toContain('週2回（月・木）');
+    expect(ctx).toContain('17時');
+    expect(ctx).toContain('つづもん');
+  });
+
+  it('価格を勝手に作らせない指示が入っている', () => {
+    const ctx = buildAugResumeContext(jst('2026-08-03T18:00:00'));
+    expect(ctx).toContain('自分で勝手に価格や条件を作らない');
+  });
+
+  it('期間を過ぎたら空文字（プロンプトを膨らませ続けない）', () => {
+    expect(buildAugResumeContext(jst('2026-08-11T00:00:00'))).toBe('');
+    expect(buildAugResumeContext(jst('2026-09-01T12:00:00'))).toBe('');
   });
 });

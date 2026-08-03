@@ -50,7 +50,7 @@ const COL_W = W / 3; // 833.33（2行×3列の6ボタン）
 
 /** 教材・アカウントの正規URL（独自ドメイン）。 */
 const MAP_URL = 'https://tsudumon.jp/map/';
-const TRIAL_URL = 'https://tsudumon.jp/account/?do=trial';
+const TRIAL_URL = 'https://tsudumon.jp/start/';
 /** お知らせの曜日・時刻＋テストの予定。**お支払いとは別ページ**（驚かせないため）。 */
 const SETTINGS_URL = 'https://tsudumon.jp/settings/';
 /** ご利用状況・お支払い・解約。 */

@@ -39,7 +39,7 @@ async function getTsudumonDb() {
 
 const TSUDUMON_LP_URL = 'https://tsudumon.jp/';
 /** 体験開始の一本道（未ログインなら LINE ログイン＝友だち追加を挟んで自動で体験開始→教材へ）。 */
-const TSUDUMON_TRIAL_URL = 'https://tsudumon.jp/account/?do=trial';
+const TSUDUMON_TRIAL_URL = 'https://tsudumon.jp/start/';
 /**
  * 常時無料の1節（律令国家と奈良時代）が開く参考書。登録もログインも要らない。
  * `/parents/` の「まず中身を見る」と同じ場所に揃えている。

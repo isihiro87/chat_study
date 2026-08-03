@@ -33,6 +33,8 @@ export type PushType =
   | 'restartWelcome'
   | 'deliveryTransition'
   | 'monthlyReport'
+  /** 2026-08-03 限定のおしらせ（7月末の配信停止のおわび＋つづもん先行公開の予告）。1人1通まで */
+  | 'augNotice'
   | 'other';
 
 /** 送信種別ごとのカウント。 */
@@ -79,6 +81,7 @@ export function emptyPushCountByType(): PushCountByType {
     restartWelcome: 0,
     deliveryTransition: 0,
     monthlyReport: 0,
+    augNotice: 0,
     other: 0,
   };
 }

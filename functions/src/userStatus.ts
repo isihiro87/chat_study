@@ -31,6 +31,54 @@ export function daysBetweenJst(from: Date, to: Date): number {
   return Math.round((toMs - fromMs) / MS_PER_DAY);
 }
 
+/**
+ * 2026-07-26〜07-31 の配信停止による「濡れ衣 dormant」の救済（ユーザー指示 2026-08-03）。
+ *
+ * 停止中はこちらが問題を送っていないので、ユーザーは解きようがなかった。
+ * それなのに `lastAnsweredAt` だけが古くなり、8/1 の再開時点で
+ * dormant / churned に落ちて **dailyQuiz の対象から外れていた**
+ * （実測 2026-08-03: active 1,152 / dormant 1,096 / churned 1,299 ＝ 64% が配信対象外。
+ * 朝6時・7時設定の人の約7割に今日の1問が届かず「送られてこない」と指摘が来た）。
+ *
+ * そこで「**停止の前後まで解いていた人**」に限り、最終回答日を再開日まで繰り上げて扱う。
+ * - 対象: `lastAnsweredAt` が「停止開始の30日前」〜「**停止終了**（8/1）」の間にある人
+ *   （＝停止のころまで現役だった人。春から放置している人は救済しない）
+ * - 上限を停止**終了**にしているのは、**停止中に自分から「1問解く」で解いていた人**を
+ *   取りこぼさないため。上限を停止開始にすると「7/1に解いた人は救われるのに
+ *   7/27に解いた人は救われない」という逆転が起きる（2026-08-03 に実測 211人が該当）。
+ * - 効果: 判定の起点が `GRACE_BASELINE` になるので、8/6（木）までは active。
+ *   週2（月・木）なので **8/3 と 8/6 の2回**配信を受けられる。
+ * - 自己終了する: 解いてくれた人は実際の `lastAnsweredAt` が baseline を追い越すので
+ *   この分岐に入らなくなり、解かなかった人は 8/7 以降ふつうに at-risk へ落ちる。
+ *
+ * ⚠️ `pushSuspension.ts` は本ファイルを import しているため、逆向きに import すると
+ * 循環参照になる。定数はここに持つ。
+ */
+const GRACE_SUSPENSION_START = new Date('2026-07-26T00:00:00+09:00');
+/** 配信が戻った日。ここまでに回答があった人を救済の対象にする。 */
+const GRACE_SUSPENSION_END = new Date('2026-08-01T00:00:00+09:00');
+/** 救済の対象にする「停止前の現役」の幅（日）。 */
+const GRACE_ACTIVE_WINDOW_DAYS = 30;
+/** 繰り上げ後の起点。配信再開のおしらせを送った日（JST 2026-08-03）。 */
+const GRACE_BASELINE = new Date('2026-08-03T00:00:00+09:00');
+
+/**
+ * 配信停止の影響を差し引いた「実質の最終回答日時」。
+ * 対象外の人はそのまま返す（＝挙動は変わらない）。
+ */
+export function effectiveLastAnsweredAt(
+  lastAnsweredAt: Date | null
+): Date | null {
+  if (!lastAnsweredAt) return lastAnsweredAt;
+  const t = lastAnsweredAt.getTime();
+  const windowStart =
+    GRACE_SUSPENSION_START.getTime() - GRACE_ACTIVE_WINDOW_DAYS * MS_PER_DAY;
+  if (t >= windowStart && t < GRACE_SUSPENSION_END.getTime()) {
+    return GRACE_BASELINE;
+  }
+  return lastAnsweredAt;
+}
+
 export interface ComputeStatusInput {
   /** 最終回答日時。一度も回答していなければ null */
   lastAnsweredAt: Date | null;
@@ -72,7 +120,8 @@ export function computeStatusFromLastAnswer(
     return 'active';
   }
 
-  const days = daysBetweenJst(lastAnsweredAt, now);
+  // 配信停止（7/26〜7/31）で解きようがなかった人は起点を再開日まで繰り上げる。
+  const days = daysBetweenJst(effectiveLastAnsweredAt(lastAnsweredAt)!, now);
   if (days <= 3) return 'active';
   if (days <= 7) return 'at-risk';
   if (days <= 14) return 'dormant';

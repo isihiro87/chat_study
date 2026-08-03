@@ -398,7 +398,7 @@ describe('tsudumonLifecycle: 未体験フォロー・期限終了フォロー', 
   it('2日後の1通目は、無料単元と体験開始の両方へ導く', () => {
     const t = introDay2Message();
     expect(t).toContain('https://tsudumon.jp/wb/04/');
-    expect(t).toContain('https://tsudumon.jp/account/?do=trial');
+    expect(t).toContain('https://tsudumon.jp/start/');
   });
 
   it('7日後の2通目は「これで最後」と明示する（しつこく追わない）', () => {

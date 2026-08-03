@@ -18,7 +18,7 @@ import { evaluateTsudumonAccess } from './tsudumonCore';
 import { getTsudumonLineClient } from './tsudumon/client';
 
 const LP_URL = 'https://tsudumon.jp/';
-const TRIAL_URL = 'https://tsudumon.jp/account/?do=trial';
+const TRIAL_URL = 'https://tsudumon.jp/start/';
 const SUB_URL = 'https://tsudumon.jp/account/?do=subscribe';
 /** 常時無料の単元（律令国家と奈良時代＝第4章）。 */
 const FREE_UNIT_URL = 'https://tsudumon.jp/wb/04/';

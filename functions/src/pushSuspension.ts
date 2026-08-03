@@ -15,7 +15,7 @@
  *     枠がなくなったことを伝え、「1問解く」ボタン（reply＝枠ゼロ）へ誘導する。
  *
  * 対象（このガードを通す push）:
- *   dailyQuiz（毎日/週3配信・週3移行案内）/ sendWinbackMessages /
+ *   dailyQuiz（毎日/週2配信・週2移行案内）/ sendWinbackMessages /
  *   remindIncompleteOnboarding / onAnswerCreated の各ナッジ /
  *   sendMonthlyReportInvite
  *

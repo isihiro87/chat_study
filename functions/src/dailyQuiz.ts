@@ -20,7 +20,8 @@ type UserDocSnap = FirebaseFirestore.QueryDocumentSnapshot;
  * JST 経過日数で自動配信の頻度を切り替える。
  *
  *   - 登録〜オンボ期間（新規7日 / 既存14日）: 毎日1問（手厚いオンボーディング）
- *   - 期間終了後: 週3（月・水・金）のみ自動配信
+ *   - 期間終了後: 週2（月・木）のみ自動配信
+ *     （2026-08-03 に週3〔月・水・金〕から変更。ユーザー指示）
  *
  * オンボ期間は登録時期で異なる。2026-06-22 のコスト対策で新規登録者は 7 日に
  * 短縮（ONBOARDING_SHORTEN_CUTOFF 以降）。既存登録者は 14 日のまま据え置き。
@@ -35,7 +36,7 @@ type UserDocSnap = FirebaseFirestore.QueryDocumentSnapshot;
  *
  * 送信通数（LINE 課金単位）コスト対策:
  *   LINE 公式アカウントの課金は push した通数だけにかかる。確立ユーザー
- *   （15日目以降）の自動配信を週3に絞ることで、スタンダードプラン枠
+ *   （15日目以降）の自動配信を週2に絞ることで、スタンダードプラン枠
  *   （30,000通/月）の超過従量（~¥3/通）を抑える。
  */
 // 登録から毎日配信する期間（暦日）。送信通数コスト対策で 2026-06-22 に
@@ -48,7 +49,9 @@ const NEW_ONBOARDING_DAYS = 7; // カットオフ以降に登録した新規ユ�
 // このカットオフ以降に登録（onboardingStartedAt）したユーザーは 7 日、
 // それより前の登録者は 14 日。変更デプロイ時刻を JST で固定する。
 const ONBOARDING_SHORTEN_CUTOFF = new Date('2026-06-22T15:36:00+09:00');
-const REGULAR_DELIVERY_WEEKDAYS = new Set<number>([1, 3, 5]); // 月・水・金
+// 曜日は JST の getUTCDay()（0=日 … 1=月, 4=木）。
+// 2026-08-03 に週3（月・水・金 = [1,3,5]）から週2（月・木）へ変更（ユーザー指示）。
+const REGULAR_DELIVERY_WEEKDAYS = new Set<number>([1, 4]); // 月・木
 // 1 回の配信枠で selectAndSendQuestion を同時並列実行する最大件数。
 // ピークメモリを抑えてメモリ超過クラッシュ（一部ユーザーに未配信）を防ぐため、
 // eligibleDocs を本サイズで分割し、チャンク単位で順次処理する（2026-06-25）。
@@ -58,7 +61,7 @@ const DELIVERY_CHUNK_SIZE = 20;
  * このユーザーの毎日配信期間（暦日）を返す。
  * - カットオフ以降の登録者 … NEW_ONBOARDING_DAYS（7日）
  * - カットオフ前の登録者 ……… LEGACY_ONBOARDING_DAYS（14日）
- * - 登録日不明（旧スキーマ）… LEGACY_ONBOARDING_DAYS（後段で週3に落ちる）
+ * - 登録日不明（旧スキーマ）… LEGACY_ONBOARDING_DAYS（後段で週2に落ちる）
  */
 function getOnboardingPeriodDays(registeredAt: Date | null): number {
   if (registeredAt === null) return LEGACY_ONBOARDING_DAYS;
@@ -69,7 +72,7 @@ function getOnboardingPeriodDays(registeredAt: Date | null): number {
 
 /**
  * 毎日配信の最終日（新規=登録7日目 / 既存=14日目）に、その日の1問と一緒に
- * 送る「明日からは週3（月・水・金）に変わるよ」案内 push。
+ * 送る「明日からは週2（月・木）に変わるよ」案内 push。
  *
  * - dailyQuiz が status=active・未ブロック・preferredHour 一致のユーザーを
  *   1 日 1 回だけ処理するため、daysSince===13 のユーザーには 1 回だけ届く。
@@ -93,8 +96,8 @@ async function sendTransitionNotices(
 
   const text =
     '📅 おしらせ\n' +
-    '今日で「毎日配信」は最終日だよ！明日からは週3回（月・水・金）に1問お届けします。\n\n' +
-    '週3配信がない日も、メニューの「1問解く」を押せばいつでも問題に挑戦できるよ。これからも一緒にコツコツ続けよう！';
+    '今日で「毎日配信」は最終日だよ！明日からは週2回（月・木）に1問お届けします。\n\n' +
+    '配信がない日も、メニューの「1問解く」を押せばいつでも問題に挑戦できるよ。これからも一緒にコツコツ続けよう！';
 
   for (const doc of cohort) {
     const data = doc.data();
@@ -205,7 +208,7 @@ async function runDailyQuiz(hour: ValidHour): Promise<void> {
 
   // 配信頻度モデル（getOnboardingPeriodDays / REGULAR_DELIVERY_WEEKDAYS 参照）:
   // オンボーディング期間中（新規7日 / 既存14日）のユーザーは曜日を問わず毎日
-  // 配信。期間を過ぎたユーザーは月・水・金のみ配信し、それ以外の曜日はスキップ。
+  // 配信。期間を過ぎたユーザーは月・木のみ配信し、それ以外の曜日はスキップ。
   // user doc は既に取得済みのため追加 read は発生しない。
   const now = new Date();
   const isRegularDeliveryDay = REGULAR_DELIVERY_WEEKDAYS.has(jstWeekday());
@@ -215,7 +218,7 @@ async function runDailyQuiz(hour: ValidHour): Promise<void> {
   let scheduleSkipped = 0;
   let suspendedSkipped = 0;
   // 毎日配信の最終日（daysSince===13）かつ未通知のユーザー。今日の1問のあとに
-  // 「明日から週3」案内を 1 回送る。停止中は週3配信自体が止まっているので集めない。
+  // 「明日から週2」案内を 1 回送る。停止中は週2配信自体が止まっているので集めない。
   const transitionCohort: UserDocSnap[] = [];
   // 停止中の新規ユーザーの最終配信日に、その日の1問カードへ「配信はいったん
   // おやすみ・1問解くで続けられる」案内を埋め込む（別メッセージにすると通数が
@@ -230,7 +233,7 @@ async function runDailyQuiz(hour: ValidHour): Promise<void> {
     const periodDays = getOnboardingPeriodDays(registeredAt);
     // 毎日配信の最終日（daysSince は 0 始まり＝登録当日0なので period-1）。
     const lastOnboardingDay = periodDays - 1;
-    // 登録日不明（旧スキーマ）は確立ユーザー扱い（= 週3）。
+    // 登録日不明（旧スキーマ）は確立ユーザー扱い（= 週2）。
     const daysSince =
       registeredAt === null ? periodDays : daysBetweenJst(registeredAt, now);
 
@@ -254,7 +257,7 @@ async function runDailyQuiz(hour: ValidHour): Promise<void> {
     }
     // オンボーディング期間中（新規7日 / 既存14日）は毎日配信。
     if (daysSince < periodDays) return true;
-    // 確立ユーザーは月・水・金のみ。
+    // 確立ユーザーは月・木のみ。
     if (isRegularDeliveryDay) return true;
     scheduleSkipped++;
     return false;
@@ -283,7 +286,7 @@ async function runDailyQuiz(hour: ValidHour): Promise<void> {
     results.push(...chunkResults);
   }
 
-  // 今日の1問を送ったあとに「明日から週3」案内を送る。
+  // 今日の1問を送ったあとに「明日から週2」案内を送る。
   const transitionSent = await sendTransitionNotices(
     db,
     FieldValue,

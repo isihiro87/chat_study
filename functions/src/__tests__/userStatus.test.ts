@@ -7,6 +7,7 @@ import {
   shouldResetStreak,
   shouldSkipCronPush,
   daysBetweenJst,
+  effectiveLastAnsweredAt,
 } from '../userStatus';
 
 /** JST の日付文字列から Date を作る（テスト用ヘルパー） */
@@ -219,5 +220,69 @@ describe('shouldSkipCronPush', () => {
   });
   it("truthy でも true 以外はスキップしない（文字列 'true' 等）", () => {
     expect(shouldSkipCronPush({ deliveryPaused: 'true' })).toBe(false);
+  });
+});
+
+describe('effectiveLastAnsweredAt（2026-07 配信停止の濡れ衣 dormant 救済）', () => {
+  const baseline = jstDate('2026-08-03', 0);
+
+  it('停止直前まで解いていた人は起点を再開日（8/3）まで繰り上げる', () => {
+    expect(effectiveLastAnsweredAt(jstDate('2026-07-25'))?.getTime()).toBe(
+      baseline.getTime()
+    );
+    expect(effectiveLastAnsweredAt(jstDate('2026-07-01'))?.getTime()).toBe(
+      baseline.getTime()
+    );
+  });
+
+  it('停止の30日より前から放置していた人は救済しない（そのまま）', () => {
+    const old = jstDate('2026-06-20');
+    expect(effectiveLastAnsweredAt(old)?.getTime()).toBe(old.getTime());
+  });
+
+  it('停止中に自分で「1問解く」して解いた人も救済する（上限は停止終了8/1）', () => {
+    // 上限を停止開始(7/26)にすると 7/27 に解いた人が救われず、7/1 の人より
+    // 不利になるという逆転が起きる。2026-08-03 に実測 211人が該当した。
+    expect(effectiveLastAnsweredAt(jstDate('2026-07-27'))?.getTime()).toBe(
+      baseline.getTime()
+    );
+    expect(effectiveLastAnsweredAt(jstDate('2026-07-31'))?.getTime()).toBe(
+      baseline.getTime()
+    );
+  });
+
+  it('配信が戻った8/1以降に解いた人はそのまま（繰り下げも繰り上げもしない）', () => {
+    const after = jstDate('2026-08-02');
+    expect(effectiveLastAnsweredAt(after)?.getTime()).toBe(after.getTime());
+  });
+
+  it('未回答（null）はそのまま', () => {
+    expect(effectiveLastAnsweredAt(null)).toBeNull();
+  });
+
+  it('救済対象は 8/6（木）まで active、8/7 で at-risk に落ちる', () => {
+    const input = {
+      lastAnsweredAt: jstDate('2026-07-25'),
+      plan: 'free' as const,
+    };
+    expect(
+      computeStatusFromLastAnswer({ ...input, now: jstDate('2026-08-03') })
+    ).toBe('active');
+    expect(
+      computeStatusFromLastAnswer({ ...input, now: jstDate('2026-08-06') })
+    ).toBe('active');
+    expect(
+      computeStatusFromLastAnswer({ ...input, now: jstDate('2026-08-07') })
+    ).toBe('at-risk');
+  });
+
+  it('救済対象外（6/20 最終回答）は従来どおり churned のまま', () => {
+    expect(
+      computeStatusFromLastAnswer({
+        lastAnsweredAt: jstDate('2026-06-20'),
+        now: jstDate('2026-08-03'),
+        plan: 'free',
+      })
+    ).toBe('churned');
   });
 });
