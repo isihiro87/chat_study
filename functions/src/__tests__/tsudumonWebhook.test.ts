@@ -263,7 +263,7 @@ describe('handleTsudumonFollow', () => {
     expect(payload).not.toHaveProperty('tsudumonFollowedAt');
   });
 
-  it('replyToken で follow 導線（3日間無料お試し・QRの使い方）を reply する', async () => {
+  it('replyToken で follow 導線（中身を見る・無料でおためし）を reply する', async () => {
     await handleTsudumonFollow(fakeClient, followEvent());
 
     expect(fakeClient.replyMessage).toHaveBeenCalledTimes(1);
@@ -271,6 +271,21 @@ describe('handleTsudumonFollow', () => {
       .calls[0];
     expect(arg.replyToken).toBe('reply1');
     const text = arg.messages[0].text as string;
-    expect(text).toContain('3日間');
+    // 入口は2つだけ。①登録の要らない1節 ②体験
+    expect(text).toContain('https://tsudumon.jp/ref/04/');
+    expect(text).toContain('https://tsudumon.jp/account/?do=trial');
+    expect(text).toContain('無料でおためし');
+  });
+
+  it('あいさつを短く保つ（読まれずに終わるのを防ぐ）', async () => {
+    await handleTsudumonFollow(fakeClient, followEvent());
+    const [arg] = (fakeClient.replyMessage as ReturnType<typeof vi.fn>).mock
+      .calls[0];
+    const text = arg.messages[0].text as string;
+    // まだ何も始めていない相手に要らない情報を足さない
+    for (const ng of ['ご登録ずみ', '1日2通', 'ライセンスコード', '印刷']) {
+      expect(text).not.toContain(ng);
+    }
+    expect(text.length).toBeLessThan(280);
   });
 });

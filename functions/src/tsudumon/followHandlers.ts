@@ -69,7 +69,11 @@ function buildTsudumonFollowText(): string {
     '▼ まずは中身を見てみる（無料）',
     TSUDUMON_FREE_UNIT_URL,
     '',
-    '▼ 3日間、ぜんぶ無料でおためし',
+    // ⚠️ 「8月15日まで」は実装と連動している（tsudumonCore の
+    // TSUDUMON_TRIAL_CAMPAIGN_END_MS）。キャンペーンが終わると体験は72時間に戻るので、
+    // **この2行も戻すこと**。日付だけ残ると嘘になる。
+    '▼ ぜんぶ無料でおためし',
+    '今だけ、8月15日まで使えます。',
     TSUDUMON_TRIAL_URL,
     'お支払いの登録はいりません。',
     '',

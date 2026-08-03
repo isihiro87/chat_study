@@ -16,7 +16,7 @@ import * as functions from 'firebase-functions/v1';
 import {
   TSUDUMON_DEFAULT_MAX_ACTIVATIONS,
   TSUDUMON_PLAN_LABEL,
-  TSUDUMON_TRIAL_HOURS,
+  computeTsudumonTrialExpiresAtMs,
   computeTsudumonExpiresAtMs,
   evaluateTrialEligibility,
   evaluateTsudumonAccess,
@@ -340,7 +340,8 @@ export async function startTsudumonTrial(
   const { Timestamp } = await import('firebase-admin/firestore');
   const userRef = db.doc(`users/${uid}`);
   const nowMs = Date.now();
-  const expiresMs = nowMs + TSUDUMON_TRIAL_HOURS * 60 * 60 * 1000;
+  // キャンペーン中は 8/15 まで。終わったら自動で 72 時間に戻る（tsudumonCore）。
+  const expiresMs = computeTsudumonTrialExpiresAtMs(nowMs);
 
   const outcome = await db.runTransaction(
     async (tx): Promise<TsudumonTrialOutcome> => {

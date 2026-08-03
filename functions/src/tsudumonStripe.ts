@@ -28,16 +28,14 @@ import { TSUDUMON_PRODUCT_TAG, getStripeProductTag } from './stripeProductTag';
 import {
   evaluateTsudumonAccess,
   readTsudumonEntitlement,
+  tsudumonTrialMaxDays,
 } from './tsudumonCore';
 
 /** サブスク期限に足す猶予（決済確定の遅延・失敗リトライ中の失効を防ぐ）。 */
 const GRACE_DAYS = 3;
-/**
- * 体験（trial）中に登録したとき、体験終了まで課金しないための trial_period_days の
- * キャップ。体験は最大3日なので、clock skew で 4 になっても 3 に丸める
- * （createStripeCheckoutSession.ts の MAX_TRIAL_DAYS と同じ考え方）。
- */
-const MAX_TRIAL_DAYS = 3;
+// 体験中に登録したときの trial_period_days のキャップは
+// tsudumonCore.tsudumonTrialMaxDays に移した（キャンペーンで体験が延びると
+// 固定3日では無料期間の途中で課金が始まるため）。
 
 const STRIPE_API_BASE = 'https://api.stripe.com/v1';
 
@@ -146,7 +144,9 @@ export function resolveTrialPeriodDays(
   const ent = readTsudumonEntitlement(tsudumonRaw);
   if (!ent || ent.expiresAtMs <= nowMs) return 0;
   const rawDays = Math.ceil((ent.expiresAtMs - nowMs) / (24 * 60 * 60 * 1000));
-  return Math.min(MAX_TRIAL_DAYS, Math.max(1, rawDays));
+  // ⚠️ 固定の3日で丸めない。キャンペーンで体験が長いとき、ここで切ると
+  // **無料期間の途中で課金が始まる**（8/15まで無料なのに3日後に請求）。
+  return Math.min(tsudumonTrialMaxDays(nowMs), Math.max(1, rawDays));
 }
 
 async function getDb() {

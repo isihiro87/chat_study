@@ -137,6 +137,47 @@ export function evaluateTsudumonAccess(
 /** 無料お試しの有効時間（時間）。開始から 72 時間（3日間）で自然失効する。 */
 export const TSUDUMON_TRIAL_HOURS = 72;
 
+/**
+ * 公開キャンペーン「8月15日まで無料でおためし」の終了時刻（JST 2026-08-15 23:59:59）。
+ *
+ * この時刻を過ぎたら、体験は通常どおり 72 時間に戻る。**定数を消すのではなく
+ * 過去の日時のまま置いておけば自動で通常運用に戻る**ので、切り替え忘れが起きない。
+ */
+export const TSUDUMON_TRIAL_CAMPAIGN_END_MS = Date.parse(
+  '2026-08-15T14:59:59Z'
+);
+
+const DAY_MS = 24 * 60 * 60 * 1000;
+
+/**
+ * 体験の期限を決める。
+ *
+ * キャンペーン中は「8月15日まで」。ただし**必ず72時間は確保する**ので、
+ * 8月15日の直前に始めた人が数分で切れることはない（約束より短くならない）。
+ */
+export function computeTsudumonTrialExpiresAtMs(nowMs: number): number {
+  const normal = nowMs + TSUDUMON_TRIAL_HOURS * 60 * 60 * 1000;
+  if (nowMs >= TSUDUMON_TRIAL_CAMPAIGN_END_MS) return normal;
+  return Math.max(normal, TSUDUMON_TRIAL_CAMPAIGN_END_MS);
+}
+
+/**
+ * その時点で認めてよい体験日数の上限。
+ *
+ * ⚠️ Stripe の `trial_period_days` を丸めるのに使う。ここを 3 に固定したままだと、
+ * キャンペーンで体験を延ばしたときに**無料期間の途中で課金が始まる**
+ * （体験は8月15日まで無効なのに、3日後に請求されてしまう）。
+ */
+export function tsudumonTrialMaxDays(nowMs: number): number {
+  const base = Math.ceil(TSUDUMON_TRIAL_HOURS / 24);
+  if (nowMs >= TSUDUMON_TRIAL_CAMPAIGN_END_MS) return base;
+  const campaignDays = Math.ceil(
+    (TSUDUMON_TRIAL_CAMPAIGN_END_MS - nowMs) / DAY_MS
+  );
+  // +1 は端数と時差の保険（短く丸めて早く課金するより、長いほうが安全）。
+  return Math.max(base, campaignDays + 1);
+}
+
 export type TsudumonTrialEligibility = 'ok' | 'already_licensed' | 'trial_used';
 
 /**
