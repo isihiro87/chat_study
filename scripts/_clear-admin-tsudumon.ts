@@ -48,22 +48,56 @@ async function main() {
   );
   console.log('');
   console.log(
-    '消すフィールド    : tsudumon / tsudumonTrialUsedAt / stripeTsudumon'
+    '消すフィールド    : tsudumon / tsudumonTrialUsedAt / stripeTsudumon /' +
+      ' grade / tsudumonExam / tsudumonInviteId / tsudumonParentName'
   );
-  console.log('消すドキュメント  : tsudumonTrials/' + TARGET_UID);
+  console.log(
+    '消すドキュメント  : tsudumonTrials / tsudumonDaily / tsudumonProgress /' +
+      ' tsudumonReview / tsudumonSnapshots ＋ 発行ずみの招待'
+  );
 
   if (!apply) {
     console.log('\n(dry-run。実行するには --apply を付ける)');
     return;
   }
 
+  // 発行ずみの保護者カードは、先に招待doc本体を消してから参照を外す
+  const inviteId = cur?.tsudumonInviteId;
+  if (typeof inviteId === 'string' && inviteId) {
+    await db
+      .doc(`tsudumonInvites/${inviteId}`)
+      .delete()
+      .catch(() => {});
+  }
+
   await db.doc(`users/${TARGET_UID}`).update({
     tsudumon: FieldValue.delete(),
     tsudumonTrialUsedAt: FieldValue.delete(),
     stripeTsudumon: FieldValue.delete(),
+    // 登録のやり直しに要るもの
+    grade: FieldValue.delete(),
+    tsudumonExam: FieldValue.delete(),
+    tsudumonInviteId: FieldValue.delete(),
+    // ⚠️ 撤去した「呼び名」導線が子の発言をそのまま保存していた残骸。
+    // 消しておかないと保護者ページに変な表示名が出続ける。
+    tsudumonParentName: FieldValue.delete(),
+    tsudumonParentNameAwaiting: FieldValue.delete(),
   });
-  // 体験リマインドの既送管理も消しておく（残っていると再体験時にスキップされる）
-  await db.doc(`tsudumonTrials/${TARGET_UID}`).delete();
+
+  // 体験リマインドの既送管理・日次配信の予定表・進捗の控えも消す
+  // （残っていると再体験時にスキップされたり、前回の続きが出たりする）。
+  for (const c of [
+    'tsudumonTrials',
+    'tsudumonDaily',
+    'tsudumonProgress',
+    'tsudumonReview',
+    'tsudumonSnapshots',
+  ]) {
+    await db
+      .doc(`${c}/${TARGET_UID}`)
+      .delete()
+      .catch(() => {});
+  }
 
   const after = (await db.doc(`users/${TARGET_UID}`).get()).data();
   console.log('\n完了。tsudumon =', JSON.stringify(after?.tsudumon ?? null));

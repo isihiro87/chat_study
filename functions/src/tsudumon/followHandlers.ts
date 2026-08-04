@@ -58,7 +58,8 @@ const TSUDUMON_FREE_UNIT_URL = 'https://tsudumon.jp/ref/04/';
  * ギフト／手売り用に併存しているだけなので、末尾の注記までトーンを落とす
  * （旧文面は紙のQRとコード入力が主役で、現在の商品実態と食い違っていた）。
  */
-function buildTsudumonFollowText(): string {
+/** export はプレビュー用（scripts/_send-tsudumon-follow-admin.ts）。挙動は変わらない。 */
+export function buildTsudumonFollowText(): string {
   return [
     'つづもんの公式LINEへの登録、ありがとうございます！',
     '',
@@ -70,14 +71,19 @@ function buildTsudumonFollowText(): string {
     TSUDUMON_FREE_UNIT_URL,
     '',
     // ⚠️ 「8月15日まで」は実装と連動している（tsudumonCore の
-    // TSUDUMON_TRIAL_CAMPAIGN_END_MS）。キャンペーンが終わると体験は72時間に戻るので、
+    // TSUDUMON_TRIAL_CAMPAIGN_*）。キャンペーンが終わると体験は72時間に戻るので、
     // **この2行も戻すこと**。日付だけ残ると嘘になる。
     '▼ ぜんぶ無料でおためし',
-    '今だけ、8月15日まで無料で使えます（8月11日までに始めた人）。',
+    '今だけ、8月15日まで無料で使えます。',
     TSUDUMON_TRIAL_URL,
-    'お支払いの登録はいりません。',
     '',
-    'わからないところは、このトークで「つづ先生」に何度でも聞けます。',
+    // お金の不安を先に消す。中学生がためらういちばんの理由がここで、
+    // 「あとで請求されるかも」と思われた時点で押してもらえない。
+    // 実装上もクレカ登録は無く、期限が来れば自然に失効する（自動課金は起きない）。
+    'お支払いの登録はいりません。期間が終わっても、お金が勝手にかかることはないから安心してね。',
+    '',
+    // 「つづ先生」はまだ知らない名前なので、最初は役割で言う。
+    'わからないところは、このトークでAIの先生に何度でも聞けます。',
     '',
     'くわしくはこちら → ' + TSUDUMON_LP_URL,
   ].join('\n');
@@ -94,7 +100,8 @@ function buildTsudumonFollowText(): string {
  * follow の時点ではまだ `tsudumonRole` が付いていないため。初回の受け皿は
  * `tsudumonParentLink` が連携成功時に送る push（`pushParentLinked`）が担う。
  */
-function buildTsudumonParentFollowText(): string {
+/** export はプレビュー用。挙動は変わらない。 */
+export function buildTsudumonParentFollowText(): string {
   return [
     'つづもんの公式LINEへの登録、ありがとうございます。',
     '',

@@ -436,8 +436,14 @@ async function pushTrialStarted(uid: string, expiresMs: number): Promise<void> {
   const unit = TSUDUMON_UNITS[cursorForGrade(grade)] ?? TSUDUMON_UNITS[0];
 
   const text = [
-    '3日間の無料体験がはじまりました🎉',
+    // ⚠️ 「3日間」と書かない。体験の長さはキャンペーンで変わる
+    // （tsudumonCore.computeTsudumonTrialExpiresAtMs）。実際の期限は次の行で出す。
+    '無料のおためしがはじまりました🎉',
     `${expiresLabel(expiresMs)}まで、中学歴史ぜんぶ（全19単元・問題集＋参考書）が使えます。`,
+    // お金の不安をここでも消す。始めた直後がいちばん気になるところで、
+    // 放っておくと「終わったら請求される」と思ったまま使うことになる。
+    // 実装上もクレカ登録は無く、期限が来れば自然に失効する（自動課金は起きない）。
+    'おためしが終わっても、勝手にお金がかかることはないから安心して使ってね。',
     '',
     `まずはここから ▶ 【${unit.grade}・${unit.no}】${unit.title}`,
     '',
