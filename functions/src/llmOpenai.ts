@@ -173,7 +173,7 @@ export async function callOpenaiAdapter(
     });
     if (!res.ok) {
       const errText = await res.text().catch(() => '');
-      throw new LlmHttpError(res.status, errText.slice(0, 300));
+      throw new LlmHttpError(res.status, errText.slice(0, 300), 'openai');
     }
     const data = (await res.json()) as OpenaiResponse;
     return parseOpenaiResponse(data);

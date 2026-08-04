@@ -27,18 +27,8 @@ export async function notifyIfProviderStopped(
 
     const { notifyAdminsThrottled } = await import('./adminNotify');
     await notifyAdminsThrottled(
-      `ai_provider_stopped:${error.status}`,
-      [
-        '🛑 Gemini API が停止しています',
-        `HTTP ${error.status}（費用上限またはレート制限）`,
-        `時刻: ${now.toISOString()}`,
-        '',
-        '⚠️ このプロジェクトの全キーが影響します',
-        '（つづもんAI・一問一答AI・LPチャット・ムビスタ）',
-        '',
-        '確認: Google AI Studio の費用上限 / Gemini API のクォータ',
-        '手順: docs/operations/ai-cost-guardrails.md §1',
-      ].join('\n'),
+      `ai_provider_stopped:${error.provider}:${error.status}`,
+      buildProviderStopText(error.provider, error.status, now),
       now.getTime()
     );
   } catch (notifyError) {
@@ -47,4 +37,47 @@ export async function notifyIfProviderStopped(
       notifyError
     );
   }
+}
+
+/**
+ * 通知の本文。**プロバイダごとに見に行く場所が違う**ので出し分ける。
+ *
+ * ⚠️ 以前はここが Gemini 決め打ちで、OpenAI が止まっても
+ * 「Gemini API が停止しています／確認: Google AI Studio」と送っていた。
+ * 2026-08-04 に OpenAI のクレジットが尽きたとき、通知は飛んでいたのに
+ * **まったく別のコンソールを案内していた**ため原因にたどり着けなかった。
+ * export はテスト用。
+ */
+export function buildProviderStopText(
+  provider: 'gemini' | 'openai',
+  status: number,
+  now: Date
+): string {
+  const head =
+    provider === 'openai'
+      ? [
+          '🛑 OpenAI API が停止しています',
+          `HTTP ${status}（クレジット残高ぎれ・レート制限）`,
+        ]
+      : [
+          '🛑 Gemini API が停止しています',
+          `HTTP ${status}（費用上限またはレート制限）`,
+        ];
+  const scope =
+    provider === 'openai'
+      ? [
+          '⚠️ つづもんの有料・体験ユーザーのAIチャットが止まります',
+          '（無料の一問一答Botは Gemini なので影響なし）',
+          '',
+          '確認: https://platform.openai.com/settings/organization/billing/',
+          '対処: クレジットを購入し、Auto recharge を有効にする',
+        ]
+      : [
+          '⚠️ このプロジェクトの全キーが影響します',
+          '（つづもんAI・一問一答AI・LPチャット・ムビスタ）',
+          '',
+          '確認: Google AI Studio の費用上限 / Gemini API のクォータ',
+          '手順: docs/operations/ai-cost-guardrails.md §1',
+        ];
+  return [...head, `時刻: ${now.toISOString()}`, '', ...scope].join('\n');
 }

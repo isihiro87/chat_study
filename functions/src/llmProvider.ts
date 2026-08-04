@@ -64,7 +64,18 @@ export class LlmHttpError extends Error {
   readonly billable: boolean;
   constructor(
     readonly status: number,
-    readonly detail: string
+    readonly detail: string,
+    /**
+     * どのプロバイダが返したか。**運営通知の宛先を間違えないために要る。**
+     *
+     * 2026-08-04、OpenAI のクレジット残高がゼロになって有料AIが全滅したとき、
+     * 運営に飛んだ通知は「🛑 Gemini API が停止しています／確認: Google AI Studio」
+     * だった（この項目が無く Gemini 決め打ちだったため）。**まったく別の
+     * コンソールを見にいく案内**なので、通知が届いても原因にたどり着けない。
+     *
+     * 省略時は 'gemini'（旧来の呼び出しとの互換）。新しいアダプタは必ず渡す。
+     */
+    readonly provider: 'gemini' | 'openai' = 'gemini'
   ) {
     super(`LLM HTTP ${status}: ${detail}`);
     this.name = 'LlmHttpError';
@@ -287,34 +298,108 @@ export async function generateText(req: LlmRequest): Promise<LlmResult> {
     maxOutputTokens: req.grant.maxOutputTokens,
   };
 
+  /** 1プロバイダぶんの呼び出し。失敗時のコスト計上規則をここに閉じ込める。 */
+  const attempt = async (target: {
+    provider: 'gemini' | 'openai';
+    model: string;
+  }): Promise<LlmAdapterOutput> => {
+    try {
+      return await callAdapter(target.provider, {
+        ...adapterInput,
+        model: target.model,
+      });
+    } catch (error) {
+      // タイムアウト等「課金され得る」失敗だけコストを載せて投げ直す。
+      // 4xx/5xx で拒否された場合はトークン未消費なので**載せない**——載せると
+      // 費用上限で停止している間、架空のコストが積まれて予算を食い潰す（実地で判明）。
+      if (isBillableError(error)) {
+        const cost = estimateCostJpy(
+          target.model,
+          { missing: true },
+          ceiling,
+          env
+        );
+        throw Object.assign(error as Error, { llmCost: cost });
+      }
+      throw error;
+    }
+  };
+
+  let used = resolved;
   let out: LlmAdapterOutput;
   try {
-    out = await callAdapter(resolved.provider, adapterInput);
+    out = await attempt(resolved);
   } catch (error) {
-    // タイムアウト等「課金され得る」失敗だけコストを載せて投げ直す。
-    // 4xx/5xx で拒否された場合はトークン未消費なので**載せない**——載せると
-    // 費用上限で停止している間、架空のコストが積まれて予算を食い潰す（実地で判明）。
-    if (isBillableError(error)) {
-      const cost = estimateCostJpy(
-        resolved.model,
-        { missing: true },
-        ceiling,
-        env
+    const relief = pickProviderFallback(resolved, error);
+    if (!relief) throw error;
+    // 沈黙より、質のすこし落ちた答えのほうがまし。ただし**黙って劣化させない**
+    // ——ERROR で残し、呼び出し側の通知（notifyIfProviderStopped）も従来どおり動く。
+    console.error(
+      `[llmProvider] ${resolved.provider}/${resolved.model} が使えないため ` +
+        `${relief.provider}/${relief.model} へ退避します:`,
+      error
+    );
+    try {
+      out = await attempt(relief);
+      used = relief;
+    } catch (reliefError) {
+      // 退避先でも駄目だったら、**元の失敗を投げ直す**。原因は主プロバイダ側に
+      // あり、呼び出し側の通知（notifyIfProviderStopped）もそちらを見せるべき。
+      // 退避先の失敗はログにだけ残す。
+      console.error(
+        `[llmProvider] 退避先 ${relief.provider}/${relief.model} も失敗:`,
+        reliefError
       );
-      throw Object.assign(error as Error, { llmCost: cost });
+      throw error;
     }
-    throw error;
   }
 
-  const cost = estimateCostJpy(resolved.model, out.usage, ceiling, env);
+  // コスト計上は**実際に answered したモデル**で行う（退避先で計上しないと実費とずれる）。
+  const cost = estimateCostJpy(used.model, out.usage, ceiling, env);
   return {
     text: out.text,
     toolCalls: out.toolCalls,
     truncated: out.truncated,
     usage: out.usage,
-    model: resolved.model,
+    model: used.model,
     cost,
   };
+}
+
+/**
+ * プロバイダが使えないときの退避先を決める。退避しないなら null。
+ *
+ * ## なぜ要るか（2026-08-04・公開当日に発生）
+ * OpenAI の前払いクレジットがゼロになり `429 credit_balance_exhausted` が返った。
+ * つづもんの有料・体験ユーザーは全員 OpenAI 経路なので、**AIチャットが全滅**して
+ * 「ごめんね、いまうまく答えられなかったみたい💦」しか返らなくなった。
+ * 片方のプロバイダの残高切れや障害で、商品の売りが丸ごと沈黙してはいけない。
+ *
+ * ## 退避する / しないの線引き
+ * - **する**: 401/402/403/429/5xx＝「このプロバイダが今つかえない」。
+ *   同じ内容を Gemini に投げれば答えられる。
+ * - **しない**: 400＝「このリクエストが不正」。Gemini でも同じく失敗するので、
+ *   待ち時間が倍になるだけ。
+ * - **しない**: タイムアウト。トークンを消費済みかもしれず（billable）、
+ *   二重生成・二重課金になる。ユーザーの待ち時間も倍になる。
+ * - **しない**: 元が Gemini のとき。倒す先が無い（OpenAI へ倒すと単価が上がる）。
+ */
+export function pickProviderFallback(
+  resolved: { provider: 'gemini' | 'openai'; model: string },
+  error: unknown
+): { provider: 'gemini' | 'openai'; model: string } | null {
+  if (resolved.provider !== 'openai') return null;
+  const relief = { provider: 'gemini' as const, model: CHEAPEST_MODEL };
+  if (error instanceof LlmProviderNotConfiguredError) return relief;
+  if (!(error instanceof LlmHttpError)) return null;
+  if (error.status === 400) return null;
+  const unusable =
+    error.status === 401 ||
+    error.status === 402 ||
+    error.status === 403 ||
+    error.status === 429 ||
+    error.status >= 500;
+  return unusable ? relief : null;
 }
 
 /**

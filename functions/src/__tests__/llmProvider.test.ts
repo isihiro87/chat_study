@@ -11,9 +11,11 @@ import {
   LlmHttpError,
   isBillableError,
   resolveRequestModel,
+  pickProviderFallback,
   DEFAULT_TIMEOUT_MS,
 } from '../llmProvider';
-import { MID_MODEL } from '../llmModelResolver';
+import { buildProviderStopText } from '../aiProviderAlert';
+import { MID_MODEL, CHEAPEST_MODEL } from '../llmModelResolver';
 import { parseGeminiResponse } from '../llmGemini';
 import { callOpenaiAdapter } from '../llmOpenai';
 import { evaluateGate, parseLimits } from '../aiCostCore';
@@ -374,5 +376,78 @@ describe('llmGemini.parseGeminiResponse', () => {
       usageMetadata: { promptTokenCount: 10, candidatesTokenCount: 5 },
     });
     expect(out.truncated).toBeUndefined();
+  });
+});
+
+describe('プロバイダが使えないときは Gemini へ退避する', () => {
+  // 2026-08-04（公開当日）、OpenAI のクレジットがゼロになり
+  // `429 credit_balance_exhausted` が返って、つづもんの有料・体験ユーザーの
+  // AIチャットが全滅した。片方の残高切れで商品の売りが沈黙してはいけない。
+  const openai = { provider: 'openai' as const, model: 'gpt-5.6-luna' };
+  const gemini = {
+    provider: 'gemini' as const,
+    model: 'gemini-3.1-flash-lite',
+  };
+
+  it('クレジット残高ぎれ（429）は退避する', () => {
+    const e = new LlmHttpError(429, 'credit_balance_exhausted', 'openai');
+    expect(pickProviderFallback(openai, e)).toEqual({
+      provider: 'gemini',
+      model: CHEAPEST_MODEL,
+    });
+  });
+
+  it('認証・上限（401/402/403）とサーバ障害（5xx）も退避する', () => {
+    for (const status of [401, 402, 403, 500, 503]) {
+      expect(
+        pickProviderFallback(openai, new LlmHttpError(status, 'x', 'openai'))
+      ).not.toBeNull();
+    }
+  });
+
+  it('400 は退避しない（リクエストが不正＝Gemini でも同じく失敗する）', () => {
+    const e = new LlmHttpError(400, 'bad request', 'openai');
+    expect(pickProviderFallback(openai, e)).toBeNull();
+  });
+
+  it('タイムアウトは退避しない（二重生成・二重課金と待ち時間の倍増を避ける）', () => {
+    expect(pickProviderFallback(openai, new LlmTimeoutError(1000))).toBeNull();
+  });
+
+  it('キー未設定も退避する（設定漏れでサービスを落とさない）', () => {
+    const e = new LlmProviderNotConfiguredError('openai');
+    expect(pickProviderFallback(openai, e)).not.toBeNull();
+  });
+
+  it('元が Gemini なら退避しない（倒す先が無い）', () => {
+    const e = new LlmHttpError(429, 'quota', 'gemini');
+    expect(pickProviderFallback(gemini, e)).toBeNull();
+  });
+});
+
+describe('プロバイダ停止の通知は宛先を出し分ける', () => {
+  // 以前は Gemini 決め打ちで、OpenAI が止まっても Google AI Studio を案内していた。
+  const now = new Date('2026-08-04T06:05:59.000Z');
+
+  it('OpenAI の停止は OpenAI の請求ページを案内する', () => {
+    const t = buildProviderStopText('openai', 429, now);
+    expect(t).toContain('OpenAI API が停止しています');
+    expect(t).toContain('platform.openai.com');
+    expect(t).not.toContain('AI Studio');
+    // 影響範囲を取り違えないよう、無料Botが無事なことも書く
+    expect(t).toContain('一問一答Bot');
+  });
+
+  it('Gemini の停止は AI Studio を案内する', () => {
+    const t = buildProviderStopText('gemini', 429, now);
+    expect(t).toContain('Gemini API が停止しています');
+    expect(t).toContain('AI Studio');
+    expect(t).not.toContain('platform.openai.com');
+  });
+
+  it('エラーはどちらのプロバイダが返したかを覚えている', () => {
+    expect(new LlmHttpError(429, 'x', 'openai').provider).toBe('openai');
+    // 省略時は従来どおり Gemini 扱い（既存の呼び出しとの互換）
+    expect(new LlmHttpError(429, 'x').provider).toBe('gemini');
   });
 });
