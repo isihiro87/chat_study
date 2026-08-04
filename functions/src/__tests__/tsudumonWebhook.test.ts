@@ -275,6 +275,12 @@ describe('handleTsudumonFollow', () => {
     expect(text).toContain('https://tsudumon.jp/ref/04/');
     expect(text).toContain('https://tsudumon.jp/start/');
     expect(text).toContain('無料でおためし');
+    // 「押したら何が起きるか」と「お金の不安」は、体験リンクの**直後に連続して**置く。
+    // 離すと押す前に読まれず、いちばん消したい不安が残ったままになる。
+    const lines = text.split('\n');
+    const i = lines.indexOf('https://tsudumon.jp/start/');
+    expect(lines[i + 1]).toContain('すぐ始められる');
+    expect(lines[i + 2]).toContain('お金はかからない');
   });
 
   it('あいさつを短く保つ（読まれずに終わるのを防ぐ）', async () => {
@@ -286,6 +292,8 @@ describe('handleTsudumonFollow', () => {
     for (const ng of ['ご登録ずみ', '1日2通', 'ライセンスコード', '印刷']) {
       expect(text).not.toContain(ng);
     }
-    expect(text.length).toBeLessThan(280);
+    // 上限は 300。287字（2026-08-04、安心の2行を体験リンク直後に足した時点）に対する
+    // 余白であって、増やしてよい枠ではない。足すときは何かを削って収める。
+    expect(text.length).toBeLessThan(300);
   });
 });
