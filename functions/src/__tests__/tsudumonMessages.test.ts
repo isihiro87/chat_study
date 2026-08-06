@@ -405,10 +405,14 @@ describe('tsudumonLifecycle: 未体験フォロー・期限終了フォロー', 
     expect(introDay7Message()).toContain('最後');
   });
 
-  it('期限終了フォローは、無料で残る範囲と再開導線を伝える', () => {
+  // ⚠️ 受付停止中（TSUDUMON_PAID_FLOW_ENABLED=false）は再開導線を出さない。
+  // 「またこちらから再開できます（1,280円／月）」は、申し込めない相手に
+  // 申し込みを勧める文になる。**再開したら再開導線の assert に戻すこと**。
+  it('期限終了フォローは、無料で残る範囲だけを伝える（受付停止中）', () => {
     const t = afterExpiryMessage();
     expect(t).toContain('律令国家と奈良時代');
-    expect(t).toContain('https://tsudumon.jp/account/?do=subscribe');
+    expect(t).not.toContain('do=subscribe');
+    expect(t).not.toContain('1,280');
   });
 
   it('どの文面にも一問一答（別サービス）の機能名を混ぜない', () => {

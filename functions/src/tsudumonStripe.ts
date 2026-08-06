@@ -25,6 +25,7 @@ import {
   resolvePeriodEnd,
 } from './stripeInvoiceFields';
 import { TSUDUMON_PRODUCT_TAG, getStripeProductTag } from './stripeProductTag';
+import { TSUDUMON_PAID_FLOW_ENABLED } from './tsudumonPaidFlow';
 import {
   evaluateTsudumonAccess,
   readTsudumonEntitlement,
@@ -252,6 +253,21 @@ export const tsudumonCreateCheckout = functions
     }
     if (req.method !== 'POST') {
       res.status(405).json({ error: 'Method not allowed' });
+      return;
+    }
+
+    // 有料受付の停止（2026-08-06）。env を消す運用にすると「消し忘れ」で
+    // 復活しうるので、**コード側の1スイッチ**で確実に塞ぐ。理由は
+    // tsudumonPaidFlow.ts。Web 側の導線も外しているが、URL を直接叩かれても
+    // ここで止まる（最後の砦）。
+    if (!TSUDUMON_PAID_FLOW_ENABLED) {
+      console.warn('[tsudumonCreateCheckout] paid flow is disabled');
+      res.status(410).json({
+        ok: false,
+        reason: 'paid_flow_disabled',
+        message:
+          'つづもんの新規のお申し込みは、現在受け付けておりません。いまお使いの方はそのままご利用いただけます。',
+      });
       return;
     }
 

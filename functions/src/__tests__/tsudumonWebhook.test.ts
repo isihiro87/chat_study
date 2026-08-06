@@ -263,7 +263,12 @@ describe('handleTsudumonFollow', () => {
     expect(payload).not.toHaveProperty('tsudumonFollowedAt');
   });
 
-  it('replyToken で follow 導線（中身を見る・無料でおためし）を reply する', async () => {
+  // ⚠️ 新規のお申し込み受付を停止した（2026-08-06、TSUDUMON_PAID_FLOW_ENABLED=false）。
+  // あいさつから体験（/start/）の勧誘を外している。体験を始めても続ける手段が無く、
+  // 3日後に行き止まりへ送ることになるため。
+  // **受付を再開したら、この it を「/start/ を含む」版へ戻すこと**
+  //（旧版は git 履歴のコミット d32fce3a を参照）。
+  it('受付停止中は、無料の単元と質問だけを案内し、体験へは誘わない', async () => {
     await handleTsudumonFollow(fakeClient, followEvent());
 
     expect(fakeClient.replyMessage).toHaveBeenCalledTimes(1);
@@ -271,16 +276,16 @@ describe('handleTsudumonFollow', () => {
       .calls[0];
     expect(arg.replyToken).toBe('reply1');
     const text = arg.messages[0].text as string;
-    // 入口は2つだけ。①登録の要らない1節 ②体験
+    // 登録の要らない1節は案内する（無料で残るものは伝える）
     expect(text).toContain('https://tsudumon.jp/ref/04/');
-    expect(text).toContain('https://tsudumon.jp/start/');
-    expect(text).toContain('無料でおためし');
-    // 「押したら何が起きるか」と「お金の不安」は、体験リンクの**直後に連続して**置く。
-    // 離すと押す前に読まれず、いちばん消したい不安が残ったままになる。
-    const lines = text.split('\n');
-    const i = lines.indexOf('https://tsudumon.jp/start/');
-    expect(lines[i + 1]).toContain('すぐ始められる');
-    expect(lines[i + 2]).toContain('お金はかからない');
+    // 売っていないものへは誘わない
+    expect(text).not.toContain('https://tsudumon.jp/start/');
+    expect(text).not.toContain('おためし');
+    expect(text).not.toContain('1,280');
+    // 受付を止めていることは、あいまいにせず先に言う
+    expect(text).toContain('受付をとめています');
+    // 質問はこれまでどおりできる（Botを残す判断＝価値が残る部分）
+    expect(text).toContain('AIの先生');
   });
 
   it('あいさつを短く保つ（読まれずに終わるのを防ぐ）', async () => {

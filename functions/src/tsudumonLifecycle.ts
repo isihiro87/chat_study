@@ -16,6 +16,7 @@ import * as functions from 'firebase-functions/v1';
 import { recordPushDelivery } from './deliveryStats';
 import { evaluateTsudumonAccess } from './tsudumonCore';
 import { getTsudumonLineClient } from './tsudumon/client';
+import { TSUDUMON_PAID_FLOW_ENABLED } from './tsudumonPaidFlow';
 
 const LP_URL = 'https://tsudumon.jp/';
 const TRIAL_URL = 'https://tsudumon.jp/start/';
@@ -74,6 +75,14 @@ export function introDay7Message(): string {
 
 /** C-6（期限終了の翌日）。引き止めず、残るものと戻り道だけ伝える。 */
 export function afterExpiryMessage(): string {
+  if (!TSUDUMON_PAID_FLOW_ENABLED) {
+    return [
+      'つづもんを使ってくれて、ありがとうございました。',
+      '',
+      '「律令国家と奈良時代」の単元と、各単元の最初のページは、これからも無料でお読みいただけます。',
+      FREE_UNIT_URL,
+    ].join('\n');
+  }
   return [
     'つづもんのご利用期間が終了しました。ありがとうございました。',
     '',
@@ -225,7 +234,13 @@ export const tsudumonLifecycle = functions
       targets.set(doc.id, { kind: 'afterExpiry', ref: doc.ref, lineUserId });
     }
 
-    for (const doc of followSnap.docs) {
+    // 有料受付の停止（2026-08-06）中は、未体験フォロー（2日後・7日後）を送らない。
+    // どちらも「3日間の無料おためし」と月額での再開を勧める**獲得のための文面**で、
+    // 売っていない商品の勧誘になる。8/4 に追加して動かなかった44人へ、
+    // 今日その1通目が飛ぶところだった。
+    // ⚠️ 送信済みフラグは立てずに素通りさせる。再開したときに、
+    //    本来届くはずだった人へ改めて送れるようにしておく。
+    for (const doc of TSUDUMON_PAID_FLOW_ENABLED ? followSnap.docs : []) {
       if (targets.has(doc.id)) continue;
       const data = doc.data() as Record<string, unknown>;
       const followedAt = toDate(data.followedAt);

@@ -39,6 +39,7 @@ import {
 } from './tsudumonParentCore';
 import { buildTsudumonCheckoutParams } from './tsudumonStripe';
 import { evaluateTsudumonAccess } from './tsudumonCore';
+import { TSUDUMON_PAID_FLOW_ENABLED } from './tsudumonPaidFlow';
 
 const REGION = 'asia-northeast1';
 
@@ -468,6 +469,20 @@ export const tsudumonParentCheckout = functions
     }
     if (req.method !== 'POST') {
       res.status(405).json({ error: 'Method not allowed' });
+      return;
+    }
+
+    // 有料受付の停止（2026-08-06）。保護者ペイリンク経由もここで塞ぐ。
+    // 本人経路（tsudumonCreateCheckout）だけ塞いでも、既に配布ずみの
+    // 保護者向けURLが生きていると課金できてしまう。理由は tsudumonPaidFlow.ts。
+    if (!TSUDUMON_PAID_FLOW_ENABLED) {
+      console.warn('[tsudumonParentCheckout] paid flow is disabled');
+      res.status(410).json({
+        ok: false,
+        reason: 'paid_flow_disabled',
+        message:
+          'つづもんの新規のお申し込みは、現在受け付けておりません。いまお使いのお子さまはそのままご利用いただけます。',
+      });
       return;
     }
 

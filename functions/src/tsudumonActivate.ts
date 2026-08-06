@@ -13,6 +13,8 @@
  * 認証は referenceChat.ts と同じ idToken 検証パターン。
  */
 import * as functions from 'firebase-functions/v1';
+
+import { TSUDUMON_PAID_FLOW_ENABLED } from './tsudumonPaidFlow';
 import {
   TSUDUMON_DEFAULT_MAX_ACTIVATIONS,
   TSUDUMON_PLAN_LABEL,
@@ -575,8 +577,11 @@ export const tsudumonTrialStart = functions
       > = {
         already_licensed:
           'すでにライセンスをお持ちです。そのまま全単元をご利用いただけます。',
-        trial_used:
-          '無料体験はおひとり様1回までです。つづきは月額プランでご利用ください。',
+        // 有料受付の停止（2026-08-06）以降、「月額プランで」とは案内できない。
+        // 売っていないものへ誘導せず、無料で残るものを伝える。tsudumonPaidFlow.ts。
+        trial_used: TSUDUMON_PAID_FLOW_ENABLED
+          ? '無料体験はおひとり様1回までです。つづきは月額プランでご利用ください。'
+          : '無料体験はおひとり様1回までです。「律令国家と奈良時代」の単元は、これからもずっと無料でお読みいただけます。',
         is_parent:
           'こちらは、お子さまご本人が使いはじめるためのページです。保護者の方は「学習の記録」のページから、お子さまの様子をご覧いただけます。',
       };

@@ -24,6 +24,8 @@
 
 import * as functions from 'firebase-functions/v1';
 
+import { TSUDUMON_PAID_FLOW_ENABLED } from './tsudumonPaidFlow';
+
 import { getTsudumonLineClient } from './tsudumon/client';
 import { logServerFunnelEvent } from './funnelEvent';
 import { recordPushDelivery } from './deliveryStats';
@@ -45,6 +47,21 @@ const RANGE_MS = 3 * 24 * 60 * 60 * 1000;
  * ⚠️ 新しい push は増やさない（配信枠）。既存の2通に quickReply で載せる。
  */
 function lastDayMessage(): string {
+  // ⚠️ 有料受付の停止（2026-08-06）以降、この文面から購入導線を外した。
+  // 「あすで終了」だけ残すと、続ける方法が無いのに終わりだけ告げることになる。
+  // 現在の体験ライセンスは失効させず延長したので、この経路は通常走らない。
+  // 理由は tsudumonPaidFlow.ts。
+  if (!TSUDUMON_PAID_FLOW_ENABLED) {
+    return [
+      'つづもんを使ってくれて、ありがとう！',
+      '',
+      'ここまでの取り組みは、そのまま記録に残っています。',
+      'いまお使いのぶんは、このまま使えるようにしてあります。',
+      '',
+      '▶ 教材を見る',
+      MAP_URL,
+    ].join('\n');
+  }
   return [
     'つづもんの無料おためしは、あすで終了します⏰',
     '',
@@ -64,6 +81,17 @@ function lastDayMessage(): string {
 
 /** 期限切れ後最初の実行: 無料単元案内＋つづきの案内。 */
 function expiredMessage(): string {
+  if (!TSUDUMON_PAID_FLOW_ENABLED) {
+    return [
+      'つづもんを使ってくれて、ありがとう！',
+      '',
+      '「律令国家と奈良時代」の単元は、これからもずっと無料で使えます。',
+      'いつでものぞいてみてくださいね。',
+      '',
+      '▶ 教材を見る',
+      MAP_URL,
+    ].join('\n');
+  }
   return [
     'つづもんの無料おためしが終了しました。おつかれさまでした！',
     '',
@@ -89,6 +117,17 @@ function expiredMessage(): string {
  * ⚠️ 学習の中身（まちがえた問題・トーク）は書かない。開示範囲は記録だけ。
  */
 export function expiredParentMessage(): string {
+  if (!TSUDUMON_PAID_FLOW_ENABLED) {
+    return [
+      'お子さまのつづもん 無料おためしが終了しました。ありがとうございました。',
+      '',
+      'これまでの取り組み（学習した日・時間・進んだ単元）は、下のページでご覧いただけます。',
+      'https://tsudumon.jp/parents/dashboard/',
+      '',
+      'なお、つづもんの新規のお申し込みは、現在受け付けておりません。',
+      'いまお使いのぶんは、そのままご利用いただけます。',
+    ].join('\n');
+  }
   return [
     'お子さまのつづもん 無料おためしが終了しました。ありがとうございました。',
     '',

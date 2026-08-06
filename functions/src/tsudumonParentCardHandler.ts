@@ -12,6 +12,7 @@ import {
   buildParentForwardMessage,
 } from './tsudumonParentCard';
 import { createTsudumonInvite } from './tsudumonParent';
+import { TSUDUMON_PAID_FLOW_ENABLED } from './tsudumonPaidFlow';
 
 async function getDb() {
   const { initializeApp, getApps } = await import('firebase-admin/app');
@@ -114,7 +115,13 @@ export async function handleSiblingAddGuide(
         '② そのメッセージを保護者の方へ転送してもらう（長おし →「転送」）',
         '③ 届いたリンクを開き、「公式LINEでお子さまの学習の記録を見る」を押す',
         '',
-        'すでにおつなぎいただいているので、2人目以降のご契約は月額980円（税込）になります。',
+        // 有料受付の停止（2026-08-06）中は、きょうだい価格の案内を出さない。
+        // 契約できないのに割引だけ提示することになる。tsudumonPaidFlow.ts。
+        ...(TSUDUMON_PAID_FLOW_ENABLED
+          ? [
+              'すでにおつなぎいただいているので、2人目以降のご契約は月額980円（税込）になります。',
+            ]
+          : []),
         'https://tsudumon.jp/parents/dashboard/',
       ].join('\n'),
     },

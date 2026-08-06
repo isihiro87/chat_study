@@ -8,6 +8,8 @@
 // 挙動——だからこそ、書き込むフィールドをBot別（tsudumonFollowed 系）に厳密に絞る。
 import type { messagingApi } from '@line/bot-sdk';
 
+import { TSUDUMON_PAID_FLOW_ENABLED } from '../tsudumonPaidFlow';
+
 /** 新webhookが受け取る follow/unfollow イベントの最小形。 */
 export interface TsudumonFollowEvent {
   source?: { type?: string; userId?: string };
@@ -60,6 +62,23 @@ const TSUDUMON_FREE_UNIT_URL = 'https://tsudumon.jp/ref/04/';
  */
 /** export はプレビュー用（scripts/_send-tsudumon-follow-admin.ts）。挙動は変わらない。 */
 export function buildTsudumonFollowText(): string {
+  // 新規のお申し込み受付を停止した（2026-08-06）。体験の勧誘はここで止める。
+  // 体験を始めても続ける手段が無く、3日後に行き止まりへ送ることになるため。
+  // 無料で読めるものと、質問できることだけを伝える。tsudumonPaidFlow.ts。
+  if (!TSUDUMON_PAID_FLOW_ENABLED) {
+    return [
+      'つづもんの公式LINEへの登録、ありがとうございます！',
+      '',
+      'いま、新しいお申し込みの受付をとめています。',
+      'ただ、下の単元は登録もログインもなしで、ぜんぶ読めます。',
+      '',
+      '▼ 律令国家と奈良時代（無料）',
+      TSUDUMON_FREE_UNIT_URL,
+      '',
+      'わからないところは、このトークでAIの先生に何度でも聞けます。',
+      '歴史でも、それ以外でも大丈夫です。',
+    ].join('\n');
+  }
   return [
     'つづもんの公式LINEへの登録、ありがとうございます！',
     '',
