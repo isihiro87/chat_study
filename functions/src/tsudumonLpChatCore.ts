@@ -31,6 +31,12 @@ export const REPLY = {
   failed: `すみません、いま回答の生成に失敗しました。少し時間をおいて試すか、公式LINEでご質問ください。 ${LINE_URL}`,
 } as const;
 
+import {
+  isTsudumonTrialCampaign,
+  tsudumonTrialOfferText,
+} from './tsudumonCore';
+import { TSUDUMON_PAID_FLOW_ENABLED } from './tsudumonPaidFlow';
+
 export const SYSTEM_PROMPT = `
 あなたは中学歴史のWeb教材「つづもん」の相談窓口です。名乗るときは「つづもん相談チャット」。
 
@@ -59,7 +65,7 @@ export const SYSTEM_PROMPT = `
 - 使い方: スマホ・タブレット・PCのブラウザでWeb教材を開いて解く。画面上のQRコードや導線から
   公式LINEでAIがその場で丸つけ・解説（記述問題も採点）。LINEだけで解くこともできる
 - 続く仕組み: すぐ丸がつく / 1単元15分 / 正答率・レベル・連続正解の記録 / まちがえた問題の自動再出題
-- 無料体験: 3日間、全19単元（参考書＋問題集）をまるごと無料で試せる。期限後も「律令国家と奈良時代」の1単元はずっと無料。体験開始は**このページの「3日間無料でためす」ボタン**から（公式LINEでログインするだけ・お支払いの登録は不要。ログインと同時に公式LINEの友だち追加になる）
+- 無料体験: 全19単元（参考書＋問題集）をまるごと無料で試せる。**期間は下の「いまの体験の条件」に従う**（ここに日数を書かない。キャンペーンで変わるため）。期限後も「律令国家と奈良時代」の1単元はずっと無料。体験開始は**このページの体験ボタン**から（公式LINEでログインするだけ・お支払いの登録は不要。ログインと同時に公式LINEの友だち追加になる）
 - 対象: 中学1〜3年生。学年をまたぐ復習・先取りOK。教科書を問わず定期テスト・実力テスト対策に使える
 - 利用開始: 決済が完了するとその場で全19単元が開く（即時）。公式LINEにも御礼と教材リンクが届く
 - AI先生の名前: つづもんのAIは「つづ先生」（別サービス「チャットでスタディ」のAIは「スタ先生」で別人）
@@ -178,10 +184,59 @@ export function parseGeminiReply(data: unknown): string {
   return text || REPLY.emptyCandidate;
 }
 
+/**
+ * いまの体験の条件（キャンペーン込み）。**日数はここでしか言わない。**
+ * 期限は `tsudumonCore` の定数が持っているので、過ぎれば自動で通常運用に戻る。
+ */
+export function lpOfferContext(nowMs: number): string {
+  // ⚠️ 新規のお申し込みを停止した（2026-08-06）。
+  // ここを入れないと、LPに「受付を停止しています」と出ているすぐ横で、
+  // AIが「月額1,280円でお申し込みいただけます」と答える。
+  // 上の SYSTEM_PROMPT には価格・解約・きょうだい割引が残っているので、
+  // **この節が最後に来て上書きする**構造を利用して打ち消す。
+  // 判断の経緯と再開手順: docs/operations/tsudumon-paid-shutdown.md
+  if (!TSUDUMON_PAID_FLOW_ENABLED) {
+    return `
+
+# 【最重要】いまの受付状況（ここが最新。上の記述より必ず優先する）
+- つづもんは **新規のお申し込みの受付を停止している**。内容を見直しているため。
+- **申し込み方法・購入手順・体験の始め方を案内してはいけない。** 上に書いてある
+  価格・解約・きょうだい割引・無料体験の説明は、停止前の内容なので**そのまま案内しない**。
+- 「いくら？」と聞かれたら、「月額1,280円（税込）でご案内していましたが、
+  現在は新規のお申し込みを停止しています」と、停止していることまで必ず添えて答える。
+- 「使ってみたい」「申し込みたい」には、申し込めないことを先に伝え、
+  そのうえで無料で読める単元を案内する:
+  https://tsudumon.jp/ref/04/ （登録もログインも不要）
+- すでにお使いの方は、これまでどおり利用できる。お支払いが発生することもない。
+- 再開の予定を聞かれたら「未定です」と答える。**時期を約束しない。**
+- 判断に迷ったら、無理に答えず公式LINEへ案内する。`;
+  }
+  return (
+    `
+
+# いまの体験の条件（ここが最新。上の記述より優先する）
+` +
+    `- 体験: ${tsudumonTrialOfferText(nowMs)}
+` +
+    `- 体験の入口: https://tsudumon.jp/start/ （お支払いの登録は不要）
+` +
+    (isTsudumonTrialCampaign(nowMs)
+      ? `- 「いつまで無料？」には「8月11日までに始めれば8月15日まで」と答える。
+`
+      : '') +
+    `- 体験は1人1回。`
+  );
+}
+
 /** Gemini generateContent のリクエストボディ。 */
-export function buildGeminiRequest(messages: GeminiContent[]): string {
+export function buildGeminiRequest(
+  messages: GeminiContent[],
+  nowMs: number = Date.now()
+): string {
   return JSON.stringify({
-    systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+    systemInstruction: {
+      parts: [{ text: SYSTEM_PROMPT + lpOfferContext(nowMs) }],
+    },
     contents: messages,
     generationConfig: {
       maxOutputTokens: MAX_OUTPUT_TOKENS,

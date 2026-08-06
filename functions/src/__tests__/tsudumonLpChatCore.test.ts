@@ -4,6 +4,7 @@ import {
   MAX_HISTORY,
   REPLY,
   SYSTEM_PROMPT,
+  lpOfferContext,
   buildGeminiRequest,
   jstToday,
   normalizeMessages,
@@ -167,7 +168,11 @@ describe('buildGeminiRequest', () => {
     const body = JSON.parse(
       buildGeminiRequest([{ role: 'user', parts: [{ text: '値段は？' }] }])
     );
-    expect(body.systemInstruction.parts[0].text).toBe(SYSTEM_PROMPT);
+    // 体験の条件・受付状況は SYSTEM_PROMPT に直書きせず、**末尾に足して上書きする**。
+    // 日数や受付の可否は変わるが、プロンプト本体は変えたくないため。
+    expect(body.systemInstruction.parts[0].text).toBe(
+      SYSTEM_PROMPT + lpOfferContext(Date.now())
+    );
     expect(body.contents).toHaveLength(1);
     expect(body.generationConfig.maxOutputTokens).toBe(400);
     expect(body.generationConfig.temperature).toBe(0.6);
@@ -194,11 +199,41 @@ describe('REPLY（移行前の Vercel 版と同一であること）', () => {
 describe('SYSTEM_PROMPT', () => {
   it('商品の基本事実を含む（LP文言との齟齬防止）', () => {
     expect(SYSTEM_PROMPT).toContain('月額1,280円');
-    expect(SYSTEM_PROMPT).toContain('3日間');
     expect(SYSTEM_PROMPT).toContain('つづもん相談チャット');
+    // ⚠️ 体験の日数はここに書かない。キャンペーンや受付停止で変わるので、
+    // lpOfferContext（末尾に足す節）だけが現状を語る。
+    expect(SYSTEM_PROMPT).not.toContain('3日間');
   });
 
   it('売り込みを禁止している', () => {
     expect(SYSTEM_PROMPT).toContain('売り込み・煽り');
+  });
+});
+
+// ⚠️ 新規のお申し込みを停止中（TSUDUMON_PAID_FLOW_ENABLED=false）。
+// LPには「受付を停止しています」と出ているので、その横でAIが
+// 「1,280円でお申し込みいただけます」と答えると正面から食い違う。
+// **受付を再開したら、この describe をキャンペーン版の assert へ戻すこと。**
+describe('lpOfferContext: 受付停止中は申し込みを案内しない', () => {
+  const ctx = lpOfferContext(Date.parse('2026-08-06T03:00:00Z'));
+
+  it('停止していることを最優先で伝える', () => {
+    expect(ctx).toContain('受付を停止している');
+    expect(ctx).toContain('上の記述より必ず優先する');
+  });
+
+  it('申し込み・体験の入口へは案内しない', () => {
+    expect(ctx).not.toContain('https://tsudumon.jp/start/');
+    expect(ctx).toContain(
+      '申し込み方法・購入手順・体験の始め方を案内してはいけない'
+    );
+  });
+
+  it('無料で読める単元は案内する（残る価値は伝える）', () => {
+    expect(ctx).toContain('https://tsudumon.jp/ref/04/');
+  });
+
+  it('再開時期を約束させない', () => {
+    expect(ctx).toContain('時期を約束しない');
   });
 });
