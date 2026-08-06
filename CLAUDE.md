@@ -20,7 +20,7 @@
 |---|---|---|
 | 規模・料金 | 約3,000フォロワー・**完全無料**（稼働中） | 新規・**月額1,280円のサブスク** |
 | webhook / クライアント | `lineWebhook` / `getLineClient()` | `tsudumonWebhook` / `getTsudumonLineClient()` |
-| AI | `gemini-3.1-flash-lite` 固定・1日40回・履歴6ターン | 用途別モデル階層・**月次コスト予算制（1人 月300〜400円）**・全会話を永続記憶（🚧未実装） |
+| AI | `gemini-3.1-flash-lite` 固定・1日40回・**履歴20ターン＋全会話アーカイブ**（2026-08-06〜）・予算ゲートあり | 用途別モデル階層・**月次コスト予算制（1人 月300〜400円）**・全会話を永続記憶（🚧未実装） |
 | ブロック判定 | `blocked` | `tsudumonBlockedAt`（**分離必須**） |
 
 **必ず守る3点**:
@@ -68,6 +68,8 @@ Firestore の課金は**ドキュメント1件読むごとに1 read**で、ク�
 | 2026-07-16 D7 anytime リテンション | `docs/operations/log-snapshots/2026-07-16-d7-anytime-retention.md`（取得: `scripts/_d7-anytime-retention.ts`、answers 全件スキャン済み・再取得不要） | つづもんLP実績表記用。1問以上回答者のうち初回から7日後以降にも回答=**64.8% (1,548/2,388)**。同日: D7ピンポイント33.5%・D7生存60.7% |
 | 2026-07-19 実会話スナップショット（AIチャット/問い合わせ） | `docs/operations/log-snapshots/2026-07-19-line-conversation-analysis.md`（分析）＋`…-snapshot-raw.md`（生データ。取得: `scripts/_line-conversation-snapshot.ts`、156 reads・再取得不要） | メッセージ一貫性監査用。判明: 「これで決定」手入力にAIが偽の完了確認／「せっていへんこう」等の表記ゆれ取りこぼし→AIが「変更したよ」と虚偽実行／復帰キーワード「再会/さいかい」漏れ／メニュー名誤案内（テスト範囲設定→正は出題範囲設定）／略称「ちゃすた」捏造。**全て2026-07-19に修正済み**（.steering/20260718-line-message-consistency/） |
 | 2026-07 月次 利用状況（一問一答） | `docs/operations/log-snapshots/2026-08-01-july-2026-usage.md`（取得: `scripts/_july-2026-usage{,2,3}.mjs` / `_july-2026-daily.mjs`、count集計中心・**再取得不要**） | 7月確定値。登録 3,638（月内新規1,745＝ほぼ倍増）／回答 **68,720問**（6月比+47%・累計116,359）／回答UU≈2,716（74.7%）／正答率61.2%。**push 29,952通=上限30,000の99.8%＝実質上限到達**（dailyQuiz65% winback23%＝6月比3.8倍）。**7/26 push停止で回答が 2,478→1,322問/日（−47%）**・status active 67.1%→20.0%。学習の**76.6%は reply の「もう1問」**＝枠は起点配布に消費。範囲設定76.7%（弱点解消）／数学は依然0% |
+| 2026-08-03 「おためし1問」効果測定 | `docs/operations/log-snapshots/2026-08-03-sample-question-impact.md`（取得: **`scripts/_sample-question-impact3.mjs` が正**。`_2.mjs` の結果は誤りなので使わない・**再取得不要**） | 導入 2026-07-03・回答775件・正答率77%・7月新規の約42%がタップ。経過日数をそろえた比較で **登録7日以内ブロック 6.6%→6.2%／7日以内の初回回答 91.5%→91.2%＝どちらもほぼ不変**。動いたのは**初日だけ**（24h以内の初回回答 82.3%→85.5%・+3.2pt）。**もともと9割が初週に解いており伸びしろが無かった**。⚠️**測定の教訓: 「◯日以内に解いたか」を `users.lastAnsweredAt`（＝最後の回答日）で測ってはいけない**——継続中の人が全部こぼれ、「早く始めて早くやめた人」だけを数えてしまう（これで+11ptの偽の改善が見えた）。初回接触は `answers` を見る（既存index は `answers(uid ASC, answeredAt DESC)` のみ） |
+| 2026-08-03 配信再開直後の status 崩壊 | `docs/operations/log-snapshots/2026-08-03-post-suspension-status-collapse.md`（取得: `scripts/_delivery-gap-check.mjs` count集計 ＋ `restore-status-after-suspension.ts` dry-run。**再取得不要**＝復旧済みで同じ数字は取れない） | 7月の配信停止で**解く機会が無かった**人まで dormant/churned に落ち、8/1 に配信が自動再開しても **64.5%（2,395人）が対象外**だった。朝6時設定486人中active145・朝7時524人中165＝**約7割に今日の1問が届かず**指摘で発覚。対策=`userStatus.effectiveLastAnsweredAt`（停止前30日以内に回答があった人だけ起点を8/3へ繰上げ・自己終了する）＋ **1,710件を active へ復旧**。教訓: **push を止めるときは status 判定側にも停止期間の除外を同時に入れる** |
 | KPIダッシュボード（週次・定点） | `docs/operations/line-kpi-dashboard.md`（取得: `scripts/report-user-stats.ts` / `report-funnel-stats.ts` / `report-kpi-gaps.ts`） | 獲得→活性化→継続→学習→収益化の目標vs実測。**06-15 ベースライン**: 登録784・週1学習UU514(北極星)・ブロック率15.1%(無回答層28.7%/48h以内46%)・範囲設定≈25%(新規初日11%=最大の弱点)・D1継続70.6%/D7 54.9%・追加学習率19.1%・正答率53.3%。**誤答後解説閲覧率は計測不能=解説は回答ごと自動同梱で構造上ほぼ100%**。登録日時の実フィールドは `onboardingStartedAt`（`createdAt` は無い）。週次で実測列を追記 |
 
 > 新しく過去ログ／Firestore集計を調査目的で取得したら、同様に `docs/operations/log-snapshots/` 等へ保存し、この表に1行追記してから「再取得不要」と明記すること。
@@ -368,8 +370,12 @@ npx tsx scripts/migrate-user-status.ts              # 実書き込み
 2. 出力トークン上限（free の会話は `FREE_CHAT_MAX_OUTPUT_TOKENS=700`）＋ 入力履歴ターン制限（**10ターン**）。
 3. **プロンプトの話題別ブロック化**（`ICHIMON_OPTIONAL_BLOCKS`）。ふつうの学習質問では入力が平均31%減る。**不変ブロックを先頭に置く並びを崩さないこと**（プロンプトキャッシュの prefix）。
 4. Gemini 呼び出し**成功時のみ** count を消費（エラーで枠を無駄にしない）。
-5. 支出を `aiCostStats/{YYYY-MM}`（`byTier.free`）に計上。**uid には計上しない**（free は回数制でユーザー予算を持たない）。
-6. 月の最初の応答に AI 注意書きを1通添える（`lastDisclaimerMonth`）。
+5. 支出を `aiCostStats/{YYYY-MM}`（`byTier.free` / `byTierDay.{日}.free`）に計上。**uid には計上しない**（free は回数制でユーザー予算を持たない）。
+6. **予算ゲート（2026-08-06〜・`aiCostCore.evaluateFreeGate`）**。生成の直前に ①全体キャップ（月30,000/日2,000円）②**無料ティア専用キャップ**（月3,000/日300円・`AI_FREE_MONTHLY_CAP_JPY` / `AI_FREE_DAILY_CAP_JPY`）③**個人の月次呼び出し上限**（600回・`AI_FREE_USER_MONTHLY_CALL_CAP`・`users/{uid}.aiChat.monthCount`）を判定し、超過なら **LLM を呼ばずに** 固定文＋Quick Reply で返す（count も消費しない）。①②に当たったら運営へ通知（スロットル1時間）。
+   - ⚠️ **2026-08-06 以前は「計上はするが判定しない」状態**で、全体キャップは free に効いていなかった。歯止めは「1日40回」だけで、理論上 1人 ¥650/月・上位1%が張り付けば ¥23,000/月 まで伸びうる状態だった（実測は月 ¥560／3,638人）。
+   - ⚠️ **集計が読めないとき free は止めない**（paid とは意図的に逆）。最安モデル固定＋1日40回が先に効くので数分の損失は小さく、deny に倒すと3,000人の AI が一斉に沈黙するため（損失が非対称）。
+   - 追加 Firestore read は TTL 60秒キャッシュ越しで **最大 1 read/ターン**（多くは 0）。
+7. 月の最初の応答に AI 注意書きを1通添える（`lastDisclaimerMonth`）。
 
 **安全（2026-07-26〜）**: `resolveFreeSafety`（正規表現のみ・**LLM 補完分類は呼ばない**）で分類し、
 `crisis` は **AI を1回も呼ばず**に固定文（公的窓口つき）を返し、`aiSafetyFlags` へ記録＋運営2人へ通知する。
@@ -389,6 +395,64 @@ npx tsx scripts/migrate-user-status.ts              # 実書き込み
 - メディアもテキストと同じ**1日40回枠**で計上。履歴には base64 を残さず `[画像を送信]` / `[音声を送信]` マーカーのみ保存。
 
 **直近の出題問題の認識**: 問題を送る各経路（`selectAndSendQuestion` / `handleWeakReview`）で `users/{uid}.lastQuestion`（id / topic / text / choices / correctChoiceId / explanation のスナップショット）を保存し、`buildSystemPrompt` が文脈に注入する。これでユーザーが「さっきの問題」「なんで？」と聞くと AI が正解・解説込みで答えられる。**新しい問題の送信経路を増やしたら `buildLastQuestionSnapshot` の書き込みも追加する**こと（`buildQuestionMessage` を呼ぶ箇所が目印）。
+
+**記憶（2026-08-06〜・無料にも開放）**: 「数回前の話を忘れる」がユーザー体感の最大の不満だったため、無料の記憶を2層にした。
+
+| 層 | 実体 | 保持 | コスト |
+|---|---|---|---|
+| 短期（直近ウィンドウ） | `users/{uid}.aiChat.history` | **20ターン**（10から拡大） | 入力 +約1,500トークン＝**+¥0.06/ターン** |
+| 長期（全会話アーカイブ） | `aiThreads/{uid}/segments/{seq}`（`appendTurn`） | **消さずに永続保存** | 1ターン 1read+1write（3,000人ぶんで月¥1未満） |
+
+| 想起（長期記憶の引き出し） | `aiRecallCore` + `aiThreads/{uid}/digests` | **1日1回まで**（`canRecallToday`） | トリガー時のみ・digests は `limit 20` |
+
+> **保存は安く、想起が高い。** だから「覚えておくこと」は無料にも開放し、差をつけるのは「思い出す深さ」。無料は**1日1回**、有料は毎ターン判定。記憶が貯まっていないと将来プレミアムを始めても思い出す中身が無いので、**今から貯め始めること自体に価値がある**。
+>
+> **想起の流れ**: ①`canRecallToday` で当日未使用か（Firestore を触る前に判定）→ ②`detectRecallIntent` で「前に話した◯◯」等の参照表現を決定論で検出（**当たらなければ Firestore に一切触らない**）→ ③`loadDigests`（要約索引・最大20件）を照合 → ④選ばれた**最大2セグメントだけ** `doc().get()` で原文を引く → ⑤`buildRecallContext` でプロンプトへ。
+>
+> **要約（索引）の生成**: 返信後に `aiDigest.generatePendingDigests({ tier:'free' })` が走る。セグメントは100メッセージ（＝50ターン）で閉じるので、ふつうの無料ユーザーではめったに発生しない（発生しても最安モデルで1回 約¥0.5）。**これが無いと `aiThreads` に貯めても引き当てられない。** free は `uid` を渡さず全体キャップだけに計上する（ユーザー予算を持たないため）。
+
+**公式LINE（webhook）での学習との連動（2026-08-06〜）**: AI の履歴には**チャットのやり取りしか入らない**ため、ユーザーが今日の1問・もう1問・苦手を復習で解いても、AI は「直近に出した問題1件」しか知らず**解いたのか・合っていたのかすら分からなかった**。`aiLearningContextCore.ts` で2つを文脈へ橋渡しする（**追加 read/write ゼロ**）。
+
+| 何 | 出どころ | 書き込み |
+|---|---|---|
+| 直近の学習イベント（いつ・どの単元・正誤・最大10件/14日） | `users/{uid}.aiEvents` | `onAnswerCreated` の**既存 transaction の `tx.set` に相乗り**（write 増ゼロ） |
+| ニガテ／得意な単元（正答率つき） | `users/{uid}.stats.byTopic`（既存集計） | **書き込み不要** |
+
+> 3問以上解いた単元だけを対象にする（1〜2問の偶然でニガテと決めつけない）。プロンプトでは「ここに無いことは知らない・解いていない問題を解いたことにしない」と明示する（2026-07-19 の“実行したフリ”事故の再発防止）。
+> **新しい学習経路（別の解き方・別の教材）を足したら `appendAiEvent` の記録も足す**こと。
+
+**AI チャットの入口（2026-08-06〜）**: AI は「コマンドに当たらなかった自由文」のフォールバックとして実装されているため、**存在に気づかない人が大半**だった（利用 591UU / 3,638人＝**16%**）。学習の 76.6% が始まる**回答後カード**（`buildPostAnswerNextStepFlexMessage`）に「🤖 AIに質問する」ボタンを追加し、postback `type=ai_intro` が `handleAiIntroPostback` で「何ができるか＋質問例チップ」を返す。チップは `message` アクションなので押すとその文が送信され、通常の AI 経路に流れる。**reply なので配信枠もコストも増えず、この時点では LLM も呼ばない。** 効果は funnel `ai_intro_tap`（context: src）で測る。
+
+**会話からの操作（2026-08-06〜・第一段階）**: 実会話の最大の損失は「**AI が正しく操作を案内しても、ユーザーがその操作をしない**」ことだった。従来 Quick Reply は**ユーザーの発話**だけを見ていたため、「テストが近いんだけど何すればいい？」→ AI が『出題範囲設定で決めよう』と案内しても、発話に「範囲」が無くボタンが出なかった。`aiChatQuickReply.buildIntentQuickReply(userText, urls, modelText)` が **AI の応答も見て**、実在するボタン名（`MODEL_ACTION_RULES`）が書かれていればそのボタンを出す（AI 由来を先頭に、最大3件）。
+- ⚠️ **AI 応答側は「実在するボタン名をそのまま書いたとき」だけ拾う。** 発話と同じ緩い正規表現をかけると、説明文の「問題」などで誤爆する（テストで固定）。ボタン名は `aiChatPrompt` のサービス知識の表記と揃えること。
+- ⚠️ 実行するのは**既存の postback ハンドラ**。AI が直接 Firestore を書くことは無いので、「範囲設定は確認タップ必須（誤設定＝配信ゼロ）」という方針を満たしたまま会話から操作へつなげられる。**真の function calling（AI がツールを実行）は未実装。**
+
+**AI 利用の計測（2026-08-06〜）**: `users/{uid}.aiChat.count` は JST 日付が変わるたび 0 に戻る（＝最終利用日ぶんしか残らない）ため、「7月の呼び出し 1,641回」のような集計は**すべて下限値**にしかならず改善効果を測れなかった。リセットされない **`aiChat.totalCount`（通算・`FieldValue.increment`）** と **`aiChat.firstChatAt`（初回利用日）** を追加した（**同じ set に相乗り＝write 増ゼロ**）。⚠️ 2026-08-06 より前から使っている人には `firstChatAt` が付かない（`totalCount` もその時点からの積算）。月次は `monthCount` を見る。
+
+**AI チャットボットの設定ページ（2026-08-06〜）**: 生徒が **AIの名前 / 呼んでほしい名前 / 話し方（4種） / 好きなこと / 目標 / 知っておいてほしいこと** を自分で決められる。
+
+| 項目 | 場所 |
+|---|---|
+| ページ | `src/pages/AiSettingsPage.tsx`（ルート **`/ai`**・LINE版アプリ） |
+| 保存先 | `users/{uid}.aiProfile`（firestore.rules の保護フィールドではないので本人が直接書ける） |
+| 認証 | **LIFF ではなく LINE Login OAuth**（`/welcome?next=/ai`）。`/scope` と同方式 |
+| 反映 | `aiProfileCore.buildFreeProfilePrompt` → `buildSystemPrompt` |
+| URL 定数 | `lineWebhook.AI_SETTINGS_URL`（env `LINE_AI_SETTINGS_URL` で上書き可） |
+| 入口 | ①「設定・サポート」flex の「🤖 AIの設定」 ②AI からの**初回応答に1回だけ**付く Quick Reply（`aiChat.personaPromptedAt`） |
+| 検証用 | `node scripts/_send-ai-settings-admin.mjs [userId]`（既定は管理人へ push） |
+
+- ⚠️ **`persona` が既定（`friendly`）のときは注入しない。** 設定ページは未選択でも `friendly` を保存するため、弾かないと「何も変えていない人」全員に毎ターン約60トークン載る。
+- ⚠️ **2026-08-06 まで無料Botは `persona` / `aiName` を無視していた**（「スタ先生で口調固定」のため）。いまは**明示指定があるときだけ**本体プロンプトの既定を上書きする。
+- ⚠️ 検証の正本はサーバー側 `aiProfileCore.validateProfilePatch`。`src/utils/aiProfile.ts` は**ブラウザ用の写し**なので、上限値・禁止語・個人情報フィルタを**必ず一致させる**。
+- ⚠️ **ページの反映には `dist-line` のデプロイ（Vercel への push）が必要**。Functions だけデプロイしても `/ai` は 404 のまま。
+
+**公式LINEが送ったものとの「順番」（2026-08-06〜）**: AI の会話履歴には**チャットのやり取りしか入らない**ため、
+
+```
+〔生徒の発言①〕→〔公式LINEが問題を配信〕→〔生徒の発言②〕
+```
+
+という流れで AI には配信が見えず、**②を①の続きと誤解**していた（実際は②は届いた問題についての発言であることが多い）。`lastQuestion.sentAtMs`（配信時刻）と `aiChat.lastChatAt`（AIの最終返信）を比べ、**配信のほうが後なら**「いまのメッセージはこの問題についての可能性が高い」とプロンプトで明示する（決めつけないよう釘も刺す）。**新しい問題の送信経路を足したら `sentAtMs` の記録も必ず入れる**こと。
 
 ## 月末ふり返りレポート（AI 学習分析）
 

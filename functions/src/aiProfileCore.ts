@@ -212,9 +212,10 @@ export function buildProfilePrompt(profile: AiProfile | undefined): string {
 /**
  * 無料Bot 用のプロフィール注入（`requirements.md` R17）。
  *
- * `buildProfilePrompt` との違い:
- *   - **persona（話し方）は使わない。** 無料Botは「スタ先生」の口調が固定で、
- *     プロンプト本体がそれを規定しているため、勝手に上書きしない
+ * `buildProfilePrompt`（有料）との違い:
+ *   - **2026-08-06 まで persona / aiName を無視していた**（「無料Botはスタ先生で
+ *     口調固定」という理由）。設定ページ（`/ai`）で本人が決められるようになったので、
+ *     **明示的に指定されたときだけ**本体プロンプトの既定を上書きする。未設定なら従来どおり
  *   - **中身が何も無ければ空文字**を返す（未設定の 3,000人に無駄なトークンを載せない）
  *
  * 覚えているのは「呼び名・好きなこと・目標・メモ」だけで、いずれも
@@ -222,6 +223,28 @@ export function buildProfilePrompt(profile: AiProfile | undefined): string {
  */
 export function buildFreeProfilePrompt(profile: AiProfile | undefined): string {
   const lines: string[] = [];
+
+  // ---- 本人がページで決めた設定（2026-08-06〜）----
+  // 設定ページ（`/ai`）で保存された値は「過去の会話からの推測」ではなく
+  // **本人の明示的な指定**なので、先頭に置いて確実に効かせる。
+  // 未設定なら1行も出さない（3,000人ぶんの無駄なトークンを載せない）。
+  if (profile?.aiName) {
+    lines.push(
+      `- **あなたの名前は「${profile.aiName}」**（この子が設定してくれた名前）。` +
+        `名乗るときは「スタ先生」ではなくこの名前を使う。`
+    );
+  }
+  // 既定（friendly）は本体プロンプトが規定している口調と同じなので注入しない。
+  // 設定ページは未選択でも `persona: 'friendly'` を保存するため、ここで弾かないと
+  // 「何も変えていない人」全員に約60トークンを毎ターン載せてしまう。
+  if (profile?.persona && profile.persona !== DEFAULT_PERSONA) {
+    const persona = PERSONA_PRESETS[profile.persona];
+    if (persona) {
+      lines.push(`- 話し方のタイプ: ${persona.label}`);
+      lines.push(`  ${persona.guidance}`);
+    }
+  }
+
   if (profile?.studentName) {
     lines.push(
       `- この子の呼び名: 「${profile.studentName}」（会話の中で自然に呼びかけてよい。呼びすぎない）`
@@ -238,11 +261,14 @@ export function buildFreeProfilePrompt(profile: AiProfile | undefined): string {
   if (lines.length === 0) return '';
 
   return (
-    `\n\n# この子について覚えていること（過去の会話から）\n` +
+    `\n\n# この子の設定と、覚えていること\n` +
     lines.join('\n') +
     `\n自然に会話へ活かしてよい。ただし**毎回むりに持ち出さない**し、` +
     `「前に言ってたよね」と詰めるような使い方はしない。` +
-    `内容が違っていたら本人の言うことを優先する。`
+    `内容が違っていたら本人の言うことを優先する。
+` +
+    `**この設定で変わるのは名前・話し方・呼びかけだけ。** 安全に関する方針、` +
+    `サービスの案内内容、「配信中の問題の答えを教えない」などのルールは変えない。`
   );
 }
 

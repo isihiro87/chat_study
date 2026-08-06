@@ -111,3 +111,87 @@ describe('buildFallbackQuickReply（上限到達・エラー時の出口）', ()
     ]);
   });
 });
+
+/**
+ * AI の応答からもチップを出す（2026-08-06）。
+ *
+ * 実会話で最大の損失は「AI が正しく操作を案内しても、ユーザーがその操作をしない」
+ * ことだった。AI がボタン名を出したら、そのボタンを出す。
+ */
+describe('buildIntentQuickReply（AI の応答からの操作提案）', () => {
+  /** ユーザー発話にはキーワードが無く、AI の応答にだけ操作名がある状況。 */
+  function aiActions(
+    userText: string,
+    modelText: string
+  ): Array<Record<string, string>> {
+    return (
+      buildIntentQuickReply(userText, URLS, modelText)?.items.map(
+        (i) => i.action
+      ) ?? []
+    );
+  }
+
+  it('発話に手がかりが無くても、AI が案内した操作のボタンが出る', () => {
+    // 「テストが近い」だけでは従来チップは出なかった
+    expect(actions('もうすぐテストなんだけどどうしよう')).toEqual([]);
+
+    const list = aiActions(
+      'もうすぐテストなんだけどどうしよう',
+      'まずは「出題範囲設定」で習ったところを選ぶといいよ！'
+    );
+    expect(list.map((a) => a.data)).toContain('type=scope_start');
+  });
+
+  it('「苦手を復習」を案内したらそのボタンが出る', () => {
+    const list = aiActions(
+      'まえより点数下がっちゃった',
+      '大丈夫だよ。「苦手を復習」からまちがえた問題をやり直してみよう'
+    );
+    expect(list.map((a) => a.data)).toContain('type=weak_review');
+  });
+
+  it('「じっくり学ぶ」を案内したら LIFF の URL が出る', () => {
+    const list = aiActions(
+      '暗記のコツ教えて',
+      '「じっくり学ぶ」がおすすめだよ'
+    );
+    expect(list.map((a) => a.uri)).toContain(URLS.units);
+  });
+
+  it('AI の案内がユーザー発話由来のチップより先に来る（案内を空振りさせない）', () => {
+    const list = aiActions(
+      '問題がもっと解きたい', // 発話由来 → 1問解く
+      '「出題範囲設定」で範囲を決めてからにしよう' // AI の案内 → 範囲設定
+    );
+    expect(list[0].data).toBe('type=scope_start');
+  });
+
+  it('同じボタンが重複しない', () => {
+    const list = aiActions('苦手を復習したい', '「苦手を復習」を押してみて');
+    const weak = list.filter((a) => a.data === 'type=weak_review');
+    expect(weak).toHaveLength(1);
+  });
+
+  it('ボタン名を書いていないふつうの説明では誤爆しない', () => {
+    // 「問題」という語は AI の説明文に頻出する。緩く拾うと毎回チップが出てしまう。
+    const list = aiActions(
+      '鎌倉幕府っていつできたの？',
+      '鎌倉幕府の成立には1185年説と1192年説があるよ。この問題は学者によって考え方がちがうんだ。'
+    );
+    expect(list).toEqual([]);
+  });
+
+  it('modelText を渡さなければ従来どおり（後方互換）', () => {
+    expect(buildIntentQuickReply('苦手を復習したい', URLS)?.items).toHaveLength(
+      1
+    );
+  });
+
+  it('最大3件は AI 由来でも守る', () => {
+    const list = aiActions(
+      'いろいろ教えて',
+      '「出題範囲設定」「苦手を復習」「じっくり学ぶ」「1問解く」が使えるよ'
+    );
+    expect(list.length).toBeLessThanOrEqual(MAX_QUICK_REPLY_ITEMS);
+  });
+});

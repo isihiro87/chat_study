@@ -8,6 +8,7 @@ import {
   trimHistory,
   evaluateRateLimit,
   resolveFreeSafety,
+  canRecallToday,
   DAILY_LIMIT,
   FREE_HISTORY_TURNS,
   PREMIUM_HISTORY_TURNS,
@@ -24,10 +25,11 @@ describe('getDailyLimit', () => {
 
 describe('getHistoryTurns', () => {
   // 2026-07-26: 6 → 10（AI が直前の発言を忘れる事故が6でも起きたため）。
+  // 2026-08-06: 10 → 20（「数回前の話を忘れる」が体感の最大の不満だったため）。
   // 増える入力は aiChatPrompt の話題別ブロック化で相殺している。
-  it('free は 10 ターン', () => {
+  it('free は 20 ターン', () => {
     expect(getHistoryTurns('free')).toBe(FREE_HISTORY_TURNS);
-    expect(getHistoryTurns('free')).toBe(10);
+    expect(getHistoryTurns('free')).toBe(20);
   });
   it('premium も 10 ターン', () => {
     expect(getHistoryTurns('premium')).toBe(PREMIUM_HISTORY_TURNS);
@@ -80,7 +82,11 @@ describe('evaluateRateLimit', () => {
       '2026-06-02',
       5
     );
-    expect(r).toEqual({ currentCount: 2, limited: false });
+    expect(r).toEqual({
+      currentCount: 2,
+      limited: false,
+      currentMonthCount: 0,
+    });
   });
 
   it('同日で上限到達 → limited=true', () => {
@@ -98,12 +104,77 @@ describe('evaluateRateLimit', () => {
       '2026-06-02',
       5
     );
-    expect(r).toEqual({ currentCount: 0, limited: false });
+    expect(r).toEqual({
+      currentCount: 0,
+      limited: false,
+      currentMonthCount: 0,
+    });
   });
 
   it('state 未定義 → 0 から開始', () => {
     const r = evaluateRateLimit(undefined, '2026-06-02', 5);
-    expect(r).toEqual({ currentCount: 0, limited: false });
+    expect(r).toEqual({
+      currentCount: 0,
+      limited: false,
+      currentMonthCount: 0,
+    });
+  });
+
+  // 2026-08-06: 無料の月次上限（公平性）のためのカウント。
+  // 上限判定そのものは aiCostCore.evaluateFreeGate が持つ（ここは数えるだけ）。
+  describe('月次カウント', () => {
+    it('同月なら monthCount を引き継ぐ', () => {
+      const r = evaluateRateLimit(
+        {
+          dateJST: '2026-06-02',
+          count: 2,
+          monthJST: '2026-06',
+          monthCount: 87,
+        },
+        '2026-06-02',
+        40
+      );
+      expect(r.currentMonthCount).toBe(87);
+    });
+
+    it('月が変わると 0 にリセット', () => {
+      const r = evaluateRateLimit(
+        {
+          dateJST: '2026-06-30',
+          count: 2,
+          monthJST: '2026-06',
+          monthCount: 599,
+        },
+        '2026-07-01',
+        40
+      );
+      expect(r.currentMonthCount).toBe(0);
+    });
+
+    it('日をまたいでも同月なら月次は続く（日次だけリセット）', () => {
+      const r = evaluateRateLimit(
+        {
+          dateJST: '2026-06-01',
+          count: 40,
+          monthJST: '2026-06',
+          monthCount: 40,
+        },
+        '2026-06-02',
+        40
+      );
+      expect(r.currentCount).toBe(0);
+      expect(r.limited).toBe(false);
+      expect(r.currentMonthCount).toBe(40);
+    });
+
+    it('monthJST が無い既存ユーザーは 0 から始まる（移行時に締め出さない）', () => {
+      const r = evaluateRateLimit(
+        { dateJST: '2026-06-02', count: 10 },
+        '2026-06-02',
+        40
+      );
+      expect(r.currentMonthCount).toBe(0);
+    });
   });
 
   it('統合後の上限（40）', () => {
@@ -119,6 +190,27 @@ describe('evaluateRateLimit', () => {
       40
     );
     expect(r2.limited).toBe(true);
+  });
+});
+
+// 2026-08-06: 無料の検索的想起は 1日1回まで（記憶は全員に残し、
+// 「思い出す深さ」で有料と差をつける方針）。
+describe('canRecallToday（無料の想起は1日1回）', () => {
+  it('未使用なら想起できる', () => {
+    expect(canRecallToday(undefined, '2026-08-06')).toBe(true);
+    expect(canRecallToday({ dateJST: '2026-08-06' }, '2026-08-06')).toBe(true);
+  });
+
+  it('当日すでに使っていれば想起しない', () => {
+    expect(canRecallToday({ recallDateJST: '2026-08-06' }, '2026-08-06')).toBe(
+      false
+    );
+  });
+
+  it('日付が変われば再び想起できる', () => {
+    expect(canRecallToday({ recallDateJST: '2026-08-05' }, '2026-08-06')).toBe(
+      true
+    );
   });
 });
 

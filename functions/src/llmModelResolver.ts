@@ -74,7 +74,16 @@ const PAID_DEFAULT: Record<LlmPurpose, string> = {
   classify: OPENAI_MID_MODEL,
   verify: OPENAI_MID_MODEL,
   chat: MID_MODEL,
-  analysis: UPPER_MODEL,
+  // 2026-08-06: analysis を UPPER → MID に変更。
+  //   `terra` は `luna` のちょうど10倍（1回 ¥7.01 vs ¥0.63）。一方 analysis は
+  //   **答えを既に持っている数字の読み上げ**であり、生成後に `verify` で自己検証も
+  //   している（`aiPaidChat.verifyAnalysisAnswer`）。地力より検算が効く領域なので、
+  //   「上位1回」より「中位で生成＋中位で検証」のほうが**5.6倍安く、質も落ちにくい**。
+  //   質の劣化が見えたら env `LLM_MODEL_ANALYSIS=openai:gpt-5.6-terra` で即戻せる。
+  analysis: MID_MODEL,
+  // plan / counsel は上位のまま。
+  //   plan は月1〜2回で長期の見通しを立てる質が要り、counsel は中学生のメンタルに
+  //   関わる。どちらも回数が少なく、削る場所ではない（合わせて月 ¥60 程度）。
   plan: UPPER_MODEL,
   counsel: UPPER_MODEL,
 };
@@ -278,8 +287,10 @@ export const PAID_HISTORY_TURNS: Record<DegradeLevel, number> = {
  * 2026-07: 6 → 10 に拡大。3→6 にした経緯（`aiChatCore.ts`）と同じ「AI が自分の
  * 直前の発言を忘れて釈明する」事故が 6 でも起きるため。プロンプト分割
  * （`aiChatPrompt` の話題別ブロック）で削った入力の範囲で買っている。
+ * 2026-08-06: 10 → 20。理由と費用は `aiChatCore.FREE_HISTORY_TURNS` を参照。
+ * ⚠️ `aiChatCore.FREE_HISTORY_TURNS` と同値に保つこと。
  */
-export const FREE_HISTORY_TURNS = 10;
+export const FREE_HISTORY_TURNS = 20;
 
 /**
  * 直近ウィンドウのターン数を返す。

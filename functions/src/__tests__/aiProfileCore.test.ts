@@ -178,8 +178,10 @@ describe('aiProfileCore.buildFreeProfilePrompt（無料Botの軽量記憶）', (
   it('中身が無ければ空文字（未設定の3,000人に無駄なトークンを載せない）', () => {
     expect(buildFreeProfilePrompt(undefined)).toBe('');
     expect(buildFreeProfilePrompt({})).toBe('');
-    // persona だけでは「覚えていること」にならない
-    expect(buildFreeProfilePrompt({ persona: 'calm' })).toBe('');
+    // 既定の persona は本体プロンプトと同じ口調なので注入しない。
+    // 設定ページは未選択でも 'friendly' を保存するため、ここを弾かないと
+    // 「何も変えていない人」全員に毎ターン約60トークンが載る。
+    expect(buildFreeProfilePrompt({ persona: 'friendly' })).toBe('');
   });
 
   it('覚えている項目だけを出す', () => {
@@ -192,12 +194,25 @@ describe('aiProfileCore.buildFreeProfilePrompt（無料Botの軽量記憶）', (
     expect(t).not.toContain('目標');
   });
 
-  it('persona（話し方）は出さない（無料Botの口調は固定）', () => {
+  // 2026-08-06: 設定ページ（/ai）で本人が選べるようになったので、
+  // **既定以外を明示的に選んだときだけ**話し方を反映する。
+  it('既定以外の persona は反映する（本人が選んだから）', () => {
     const t = buildFreeProfilePrompt({
       persona: 'buddy',
       studentName: 'ミナト',
     });
-    expect(t).not.toContain(PERSONA_PRESETS.buddy.label);
+    expect(t).toContain(PERSONA_PRESETS.buddy.label);
+  });
+
+  it('AI の名前を設定したら、その名前で名乗らせる', () => {
+    const t = buildFreeProfilePrompt({ aiName: 'ミナト先生' });
+    expect(t).toContain('ミナト先生');
+    expect(t).toContain('スタ先生'); // 「スタ先生ではなく」と上書きを明示している
+  });
+
+  it('設定で変わるのは名前・話し方だけだと明示する（安全方針は不変）', () => {
+    const t = buildFreeProfilePrompt({ aiName: 'ミナト先生' });
+    expect(t).toContain('安全に関する方針');
   });
 });
 

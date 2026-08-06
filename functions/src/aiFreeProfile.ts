@@ -67,11 +67,13 @@ export async function extractAndSaveProfile(opts: {
 
   try {
     const { generateText, createOneShotGrant } = await import('./llmProvider');
-    const { parseLimits, evaluateFreeGate } = await import('./aiCostCore');
+    const { parseLimits, freeGateAllowance } = await import('./aiCostCore');
     const limits = parseLimits(env);
 
     // classify 用途＝free では常に最安モデル。出力上限だけ絞る。
-    const gate = evaluateFreeGate('classify', limits);
+    // これは「予算ゲートを通過した会話ターンの後始末」なので、ゲート判定は
+    // 再実行せず上限値だけ受け取る（判定は `aiChat` が1回だけ行う）。
+    const gate = freeGateAllowance('classify', limits);
     const grant = createOneShotGrant({
       maxInputTokens: Math.min(gate.maxInputTokens, 8_000),
       maxOutputTokens: EXTRACT_MAX_OUTPUT_TOKENS,

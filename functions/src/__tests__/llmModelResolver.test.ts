@@ -110,9 +110,19 @@ describe('llmModelResolver.resolveModel', () => {
       expect(resolveModel('verify', 'paid', 0).model).toBe('gpt-5.6-luna');
     });
 
-    it('chat は luna・analysis は terra', () => {
+    // 2026-08-06: analysis を terra → luna に変更。terra は luna の10倍で、
+    // analysis は verify で自己検証しているため「上位1回」より「中位＋検証」が得。
+    it('chat / analysis は luna（analysis は verify で担保する）', () => {
       expect(resolveModel('chat', 'paid', 0).model).toBe('gpt-5.6-luna');
-      expect(resolveModel('analysis', 'paid', 0).model).toBe('gpt-5.6-terra');
+      expect(resolveModel('analysis', 'paid', 0).model).toBe('gpt-5.6-luna');
+    });
+
+    it('analysis は env で上位へ戻せる（質の劣化が見えたときの逃げ道）', () => {
+      expect(
+        resolveModel('analysis', 'paid', 0, {
+          LLM_MODEL_ANALYSIS: 'openai:gpt-5.6-terra',
+        }).model
+      ).toBe('gpt-5.6-terra');
     });
 
     it('plan / counsel は上位', () => {
@@ -221,9 +231,9 @@ describe('llmModelResolver.resolveMaxOutputTokens', () => {
 });
 
 describe('llmModelResolver.resolveHistoryTurns', () => {
-  it('free は 10 ターン（2026-07-26 に 6 から拡大）', () => {
+  it('free は 20 ターン（2026-08-06 に 10 から拡大）', () => {
     expect(resolveHistoryTurns('free', 0)).toBe(FREE_HISTORY_TURNS);
-    expect(FREE_HISTORY_TURNS).toBe(10);
+    expect(FREE_HISTORY_TURNS).toBe(20);
   });
 
   it('paid は free より広い', () => {

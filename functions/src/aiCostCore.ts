@@ -33,6 +33,29 @@ export const DEFAULT_GLOBAL_MONTHLY_CAP_JPY = 30_000;
 export const DEFAULT_GLOBAL_DAILY_CAP_JPY = 2_000;
 /** 課金ユーザー1人あたりの月次予算（円）。 */
 export const DEFAULT_USER_MONTHLY_BUDGET_JPY = 350;
+/**
+ * 無料ティア全体の月次上限（円）。
+ *
+ * 実測（2026-08-01〜06 の `aiCostStats.byTier.free`）は月換算 約 ¥560 なので
+ * **約5倍の余裕**を置く。無料は最安モデル固定で単価が低く、通常利用がここに
+ * 当たることはない。当たるのは「教材追加で利用が跳ねた」「暴走した」ときだけ。
+ */
+export const DEFAULT_FREE_MONTHLY_CAP_JPY = 3_000;
+/**
+ * 無料ティア全体の日次上限（円）。実測 約 ¥18.5/日 に対し 16倍の余裕。
+ * 月次だけだと「月初に一気に使い切って残り29日止まる」形になるため、
+ * **急増をその日のうちに止める**役割を持たせる。
+ */
+export const DEFAULT_FREE_DAILY_CAP_JPY = 300;
+/**
+ * 無料ユーザー1人あたりの月次呼び出し上限（回）。
+ *
+ * これは費用対策ではなく**公平性**の担保。1日40回 × 30日 = 1,200回 を1人が
+ * 使い切ると、その1人だけで無料ティア全体の月次枠を食い潰し、他の3,000人が
+ * 使えなくなる。20回/日ぶんに相当する 600 回で頭を押さえる
+ * （実測の中央値は月数回なので、通常利用がここに当たることはない）。
+ */
+export const DEFAULT_FREE_USER_MONTHLY_CALL_CAP = 600;
 /** 1リクエストの入力トークン上限。 */
 export const DEFAULT_MAX_INPUT_TOKENS = 20_000;
 /** paid の1日あたり呼び出し回数上限（暴走ガード）。 */
@@ -53,6 +76,12 @@ export interface CostLimits {
   userDailyCallCap: number;
   spikeRatio: number;
   dailyBudgetRatio: number;
+  /** 無料ティア全体の月次上限（円） */
+  freeMonthlyCapJpy: number;
+  /** 無料ティア全体の日次上限（円） */
+  freeDailyCapJpy: number;
+  /** 無料ユーザー1人あたりの月次呼び出し上限（回） */
+  freeUserMonthlyCallCap: number;
 }
 
 /**
@@ -87,6 +116,18 @@ export function parseLimits(
     dailyBudgetRatio: ratio(
       env.AI_DAILY_BUDGET_RATIO,
       DEFAULT_DAILY_BUDGET_RATIO
+    ),
+    freeMonthlyCapJpy: positiveNumber(
+      env.AI_FREE_MONTHLY_CAP_JPY,
+      DEFAULT_FREE_MONTHLY_CAP_JPY
+    ),
+    freeDailyCapJpy: positiveNumber(
+      env.AI_FREE_DAILY_CAP_JPY,
+      DEFAULT_FREE_DAILY_CAP_JPY
+    ),
+    freeUserMonthlyCallCap: positiveNumber(
+      env.AI_FREE_USER_MONTHLY_CALL_CAP,
+      DEFAULT_FREE_USER_MONTHLY_CALL_CAP
     ),
   };
 }
@@ -137,7 +178,13 @@ export type DenyReason =
   | 'user_daily_cost'
   | 'user_daily_count'
   | 'user_spike'
-  | 'user_monthly';
+  | 'user_monthly'
+  /** 無料ティア全体の日次上限に達した */
+  | 'free_daily'
+  /** 無料ティア全体の月次上限に達した */
+  | 'free_monthly'
+  /** 無料ユーザー個人の月次呼び出し上限に達した */
+  | 'free_user_monthly';
 
 export interface GateAllow {
   kind: 'allow';
@@ -257,16 +304,100 @@ export function evaluateGate(input: GateInput): GateDecision {
 }
 
 /**
- * `free` 用の通行証を作る。
+ * `evaluateFreeGate` に渡す集計値（全体ぶん＋無料ティアぶん）。
  *
- * `free` は予算制の対象外（1日40回の回数制のまま）なので、コスト状態を読まずに
- * 通行証だけ発行する＝**追加 Firestore read ゼロ**。`evaluateGate` に free を渡した
- * ときと同じ結果になる（重複ロジックを作らないため同じ `allow` を通す）。
- *
- * ⚠️ これは「予算チェックの迂回」ではない。free の上限は `aiChat` の
- * `evaluateRateLimit`（1日40回）が担い、支出は `recordCost` で全体キャップ②層に載る。
+ * 全体・ティア別の値は **`undefined`（＝集計が読めなかった）を許す**。
+ * その場合その項目の判定はスキップされる（`evaluateFreeGate` の doc 参照）。
  */
-export function evaluateFreeGate(
+export interface FreeCostState {
+  /** サービス全体の当月累計（円） */
+  globalMonthJpy: number | undefined;
+  /** サービス全体の当日累計（円） */
+  globalDayJpy: number | undefined;
+  /** 無料ティアの当月累計（円・`aiCostStats.byTier.free`） */
+  freeMonthJpy: number | undefined;
+  /** 無料ティアの当日累計（円・`aiCostStats.byTierDay[day].free`） */
+  freeDayJpy: number | undefined;
+  /** この無料ユーザーの当月呼び出し回数（`users/{uid}.aiChat.monthCount`） */
+  userMonthCount: number;
+}
+
+export interface FreeGateInput {
+  purpose: LlmPurpose;
+  limits: CostLimits;
+  state: FreeCostState;
+}
+
+/**
+ * `free`（一問一答・3,000人）の予算ゲート。
+ *
+ * ## 2026-08-06 まで: ここは無条件 allow だった
+ * 支出は `recordCost` で `aiCostStats` に**計上**されていたが、**判定には使われて
+ * いなかった**ため、無料側は全体キャップ（②層）で止まらなかった。歯止めは
+ * 「1人1日40回」だけで、理論上は 1人 ¥650/月・上位1%が張り付けば ¥23,000/月 まで
+ * 伸びうる状態だった。教材とAI機能を増やすほどこのリスクは実体化するので、
+ * 無料にも全体キャップ＋**無料ティア専用のサブキャップ**を通す。
+ *
+ * ## 判定順（早く止まる順）
+ * | 順 | 条件 | 結果 |
+ * |---|---|---|
+ * | 1 | 全体 日次超過 | deny: global_daily（運営通知） |
+ * | 2 | 全体 月次超過 | deny: global_monthly（運営通知） |
+ * | 3 | 無料ティア 日次超過 | deny: free_daily（運営通知） |
+ * | 4 | 無料ティア 月次超過 | deny: free_monthly（運営通知） |
+ * | 5 | 個人の月次回数超過 | deny: free_user_monthly（通知しない） |
+ * | 6 | それ以外 | allow（degrade は常に 0＝最安モデル固定） |
+ *
+ * ## `evaluateGate`（paid）との意図的な違い: 集計が読めないときは**止めない**
+ * paid は「読めなかったから無制限」を禁じて deny に倒すが、free は逆にする。
+ *   - free は最安モデル固定で、暴走しても「1人1日40回」が先に効く
+ *   - 集計が読めない数分間の想定損失は数十円で、事故になる額に達しない
+ *   - 一方 deny に倒すと **3,000人の AI が一斉に沈黙**する（損失が非対称）
+ * したがって非有限値は「未取得」とみなして通す。呼び出し側は WARN を残すこと。
+ */
+export function evaluateFreeGate(input: FreeGateInput): GateDecision {
+  const { purpose, limits, state } = input;
+
+  // 全体キャップ（②層）。無料もここに載せるのが今回の主目的。
+  if (overCap(state.globalDayJpy, limits.globalDailyCapJpy)) {
+    return { kind: 'deny', reason: 'global_daily', notifyAdmin: true };
+  }
+  if (overCap(state.globalMonthJpy, limits.globalMonthlyCapJpy)) {
+    return { kind: 'deny', reason: 'global_monthly', notifyAdmin: true };
+  }
+
+  // 無料ティア専用のサブキャップ。
+  // 全体キャップだけだと「無料の暴走が有料会員の予算まで食う」ので分けて持つ。
+  if (overCap(state.freeDayJpy, limits.freeDailyCapJpy)) {
+    return { kind: 'deny', reason: 'free_daily', notifyAdmin: true };
+  }
+  if (overCap(state.freeMonthJpy, limits.freeMonthlyCapJpy)) {
+    return { kind: 'deny', reason: 'free_monthly', notifyAdmin: true };
+  }
+
+  // 個人の月次回数（公平性）。運営通知はしない＝日常的に起きてよい上限。
+  if (overCap(state.userMonthCount, limits.freeUserMonthlyCallCap)) {
+    return { kind: 'deny', reason: 'free_user_monthly', notifyAdmin: false };
+  }
+
+  return allow(0, 'free', purpose, limits);
+}
+
+/**
+ * 上限に達しているか。**非有限値（未取得）は false＝通す**。
+ * free 専用の判断なので、paid の `isFiniteNumber` ガードとは意図的に逆に倒す
+ * （理由は `evaluateFreeGate` の doc コメント）。
+ */
+function overCap(value: number | undefined, cap: number): boolean {
+  if (!isFiniteNumber(value)) return false;
+  return value >= cap;
+}
+
+/**
+ * `free` の「予算ゲートを通した後」の追撃処理（プロフィール抽出など）が使う上限値。
+ * ゲート判定そのものは既に済んでいる前提なので、通行証の材料だけを返す。
+ */
+export function freeGateAllowance(
   purpose: LlmPurpose,
   limits: CostLimits
 ): GateAllow {
@@ -353,6 +484,12 @@ export function denyMessage(reason: DenyReason): string {
       return 'きょうはたくさん話せたね！このつづきは、また明日いっしょにやろう😊';
     case 'user_monthly':
       return '今月はたっぷり話せたね！来月またリセットされるから、それまではワークや参考書で進めていこう😊';
+    case 'free_user_monthly':
+      // AI 以外（1問解く・苦手を復習・じっくり学ぶ）はこの上限と無関係に使える。
+      // 呼び出し側が Quick Reply でそこへ逃がすので、文言でも次の一手を示す。
+      return '今月はたくさん話せたね！ここでのおしゃべりは来月またリセットされるよ😊 それまでは「1問解く」や「苦手を復習」でどんどん進めよう！';
+    case 'free_daily':
+    case 'free_monthly':
     case 'global_daily':
     case 'global_monthly':
     case 'state_unavailable':
@@ -367,6 +504,7 @@ export function isUserQuotaDeny(reason: DenyReason): boolean {
     reason === 'user_daily_cost' ||
     reason === 'user_daily_count' ||
     reason === 'user_monthly' ||
-    reason === 'user_spike'
+    reason === 'user_spike' ||
+    reason === 'free_user_monthly'
   );
 }

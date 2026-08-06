@@ -46,8 +46,8 @@
 ブロックの受け皿（「止めたい」の唯一の手段がブロックだった）と配信枠の節約を兼ねる。
 
 - **フィールド**: `users/{uid}.deliveryPaused`（boolean）、`deliveryPausedAt` / `deliveryResumedAt`
-- **停止中に止まるもの**: cron 由来 push すべて（dailyQuiz の毎日/週3配信・
-  週3移行案内・Win-back）。判定は `userStatus.ts` の `shouldSkipCronPush(data)`
+- **停止中に止まるもの**: cron 由来 push すべて（dailyQuiz の毎日/週2配信・
+  週2移行案内・Win-back）。判定は `userStatus.ts` の `shouldSkipCronPush(data)`
   （blocked と共通、ユニットテストあり）
 - **停止中も使えるもの**: reply 系すべて（1問解く / 苦手を復習 / 範囲設定 /
   AIチャット / じっくり学ぶ）。停止確認メッセージにその旨を明記している
@@ -73,7 +73,7 @@
   0〜3日目）のユーザーには従来どおり配信する。新規の最初の体験を守るため。
   登録日は `onboardingStartedAt`（無ければ `createdAt`）。どちらも無い旧スキーマは
   停止側に倒す。
-- **止まるもの**: dailyQuiz（毎日/週3・週3移行案内）/ sendWinbackMessages（cron ごと
+- **止まるもの**: dailyQuiz（毎日/週2・週2移行案内）/ sendWinbackMessages（cron ごと
   即 return）/ remindIncompleteOnboarding（結果として day7 が止まる）/
   onAnswerCreated の回答後ナッジ3種 / sendMonthlyReportInvite。
 - **止まらないもの**: reply 経路すべて（1問解く・苦手を復習・範囲設定・AIチャット・
@@ -90,7 +90,7 @@
      復帰キーワードより先に判定し、`PUSH_PAUSE_REPLY_TEXT` ＋ その場で1問を reply
      （配信枠ゼロ）。計測は `extra_question_tap` の `src='push_pause_notice'`。
   2. `aiChatPrompt.buildPushPauseContext` が停止対象ユーザーのプロンプトにだけ
-     同じ知識を差し込む（言い回しのゆれ対策）。停止中は「毎日／週3届く」と
+     同じ知識を差し込む（言い回しのゆれ対策）。停止中は「毎日／週2届く」と
      案内しないよう `buildUserStateContext` の配信ペース行も差し替わる。
 - **全体お知らせは送っていない**。一斉送信自体が約3,000通必要で本末転倒なため、
   聞かれたら答える方式にしている。
@@ -99,6 +99,64 @@
   `totalPushCount` が増えないこと。
 
 設計の詳細は `.steering/20260726-july-push-suspension/`。
+
+## 2.75 8月の再開おしらせ（おわび＋つづもん先行公開予告・2026-08-03 限定）
+
+§2.7 の停止が 8/1 に自動解除されたことを受けた**一度きりのおしらせ**。中身は
+①7月末に配信枠を使いきって問題を届けられなかったおわび ②翌 8/4 につづもんを
+**一問一答の公式LINE登録者だけへ先行公開**することの予告（つづもんの簡単な説明つき）。
+
+- **本文・判定**: `functions/src/augNotice.ts`（純粋・テスト `__tests__/augNotice.test.ts`）。
+  掲出は `AUG_NOTICE_START`〜`AUG_NOTICE_END`（**JST 8/3 の1日だけ**。本文が
+  「明日8月4日」表記のため日付とズレさせない）。**リンクは載せない**（8/4 の
+  先行配信 push の価値を下げないため）。
+- **配信枠は1人あたり最大1通**（ユーザー指示 2026-08-03）。重複防止は
+  `users/{uid}.augNoticeSentAt` の1フラグに集約し、次の2経路が**同じフラグを
+  見て・同じフラグを立てる**:
+
+  | 優先 | 経路 | 配信枠 | 対象 |
+  |---|---|---|---|
+  | 1 | `lineWebhook.handleAnswerPostback` の reply に同梱 | **0通** | 8/3 に問題を解いた人 |
+  | 2 | `scripts/send-aug-notice.ts`（手動・multicast） | **1通** | 経路1で届かなかった残り |
+
+- **経路1は read も write も増やさない**。判定は重複回答チェックで既に読んだ
+  `currentUserData` から行い、フラグは末尾の `users/{uid}` write に相乗りさせる。
+  reply が**成功したときだけ**フラグを立てる（届いていないのに送信済みにしない）。
+  reply の最大通数は 本文＋解説flex＋nextStep flex＋おしらせ ＝ **4**（LINE 上限5以内）。
+- **除外**: つづもん経由の回答（ワーク演習）／つづもん利用権が有効な人／
+  `blocked`・`deliveryPaused`（経路2）／管理者（経路2）。
+- **経路2の使い方**: 既定は dry-run。`--limit 1 --send` で自分だけ実送信して確認 →
+  `--send` で本送信。中断しても再実行すれば残りだけ送る（フラグで再送しない）。
+  掲出期間を過ぎると `--send` は警告して中止する。
+- **計上**: `deliveryStats/{YYYY-MM}.pushCountByType.augNotice`（`PushType` に追加済み）。
+
+設計の詳細は `.steering/20260803-tsudumon-teaser-in-answer-reply/`。
+
+## 2.8 ⚠️ 配信停止がつくった「濡れ衣 dormant」の救済（2026-08-03）
+
+§2.7 の停止（7/26〜7/31）で**こちらが問題を送っていなかった**ため、ユーザーは解きようが
+なかった。それなのに `lastAnsweredAt` だけが古くなり、8/1 の再開時点で大量のユーザーが
+dormant / churned に落ちて **dailyQuiz の対象から外れていた**。
+
+実測（2026-08-03・count集計）: **active 1,152 / at-risk 163 / dormant 1,096 / churned 1,299**（計 3,714）
+＝ **64% が自動配信の対象外**。朝6時設定 486人中 active 145人・朝7時設定 524人中 165人しかおらず、
+**約7割に今日の1問が届かず**「送られてこない」という指摘が実際に来た。
+
+**対策**: `userStatus.ts` の `effectiveLastAnsweredAt()`。
+**停止の30日前〜停止開始（6/26〜7/26）に回答があった人**だけ、判定の起点を
+再開日 `GRACE_BASELINE`（JST 2026-08-03）まで繰り上げる。
+
+- 「停止前は現役だった人」に限定 — 春から放置している人は救済しない（枠の無駄を避ける）。
+- **自己終了する**: 解いてくれた人は実際の `lastAnsweredAt` が baseline を追い越すので
+  この分岐に入らなくなり、解かなかった人は 8/7 以降ふつうに at-risk → dormant へ落ちる。
+  週2（月・木）なので、救済対象は **8/3 と 8/6 の2回**配信を受けられる。
+- `computeStatusFromLastAnswer` の中で適用しているので、**毎晩 02:00 の
+  `recalculateUserStatuses` でも同じ結果になる**（一度きりの書き込みが翌朝に巻き戻らない）。
+- 即時反映用の一度きりスクリプト: `scripts/restore-status-after-suspension.ts`
+  （`--apply` で書き込み。`lastAnsweredAt` の範囲クエリで候補を絞るので users 全件は読まない）。
+  **2026-08-03 実行済み: 1,710件を active へ復旧**（内訳 dormant 994 / churned 716）。
+- ⚠️ **この救済ぶんの配信増を必ず monitoring する**こと（`deliveryStats/2026-08`）。
+  用済みになったら `effectiveLastAnsweredAt` ごと削除してよい（削除すれば挙動は元に戻る）。
 
 ## 2.52 友だち追加直後の「おためし1問」（2026-07 追加）
 

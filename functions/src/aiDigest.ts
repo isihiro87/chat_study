@@ -15,6 +15,7 @@
 
 import { createOneShotGrant, generateText } from './llmProvider';
 import { recordCost } from './aiCostStore';
+import type { AiTier } from './aiTier';
 import type { ThreadMessage } from './aiThreadStore';
 
 /** 1回の呼び出しで作る digest の最大数（暴走ガード）。 */
@@ -122,6 +123,13 @@ export async function generatePendingDigests(opts: {
   now: Date;
   env?: Record<string, string | undefined>;
   limit?: number;
+  /**
+   * どのティアの支出か（既定 `'paid'`）。
+   * `'free'` のときは**ユーザー予算（`users/{uid}.aiBudget`）に計上しない**
+   * ——無料は回数制でユーザー予算を持たず、3,000人ぶんの transaction write を
+   * 増やさないため（`aiChat.recordFreeCost` と同じ方針）。全体キャップには載る。
+   */
+  tier?: AiTier;
 }): Promise<number> {
   const limit = Math.min(
     opts.limit ?? MAX_DIGESTS_PER_RUN,
@@ -141,6 +149,7 @@ export async function generatePendingDigests(opts: {
         messages: seg.messages,
         now: opts.now,
         env: opts.env,
+        tier: opts.tier ?? 'paid',
       });
       await writeDigest({
         uid: opts.uid,
@@ -163,7 +172,10 @@ async function summarizeSegment(opts: {
   messages: ThreadMessage[];
   now: Date;
   env?: Record<string, string | undefined>;
+  tier: AiTier;
 }): Promise<DigestResult> {
+  // free はユーザー予算を持たないので uid を渡さない（全体キャップだけに載せる）。
+  const costUid = opts.tier === 'free' ? undefined : opts.uid;
   const grant = createOneShotGrant({
     maxInputTokens: 8_000,
     maxOutputTokens: 400,
@@ -180,10 +192,11 @@ async function summarizeSegment(opts: {
     });
     // 索引作りのコストもユーザー予算に計上する（見えない支出を作らない）。
     await recordCost({
-      uid: opts.uid,
+      uid: costUid,
       purpose: 'classify',
       cost: result.cost,
       now: opts.now,
+      tier: opts.tier,
     });
     const parsed = parseDigestJson(result.text);
     if (parsed) return parsed;
@@ -195,10 +208,11 @@ async function summarizeSegment(opts: {
     ).llmCost;
     if (failedCost) {
       await recordCost({
-        uid: opts.uid,
+        uid: costUid,
         purpose: 'classify',
         cost: failedCost,
         now: opts.now,
+        tier: opts.tier,
       });
     }
   }

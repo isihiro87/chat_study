@@ -134,6 +134,10 @@ interface GlobalCacheEntry {
   dayKey: string;
   monthJpy: number;
   dayJpy: number;
+  /** 無料ティアの当月累計（`byTier.free`） */
+  freeMonthJpy: number;
+  /** 無料ティアの当日累計（`byTierDay[dayKey].free`） */
+  freeDayJpy: number;
   fetchedAtMs: number;
 }
 
@@ -145,9 +149,12 @@ export function __resetGlobalCostCache(): void {
   globalCache = null;
 }
 
-/** テスト用: キャッシュを差し込む。 */
-export function __seedGlobalCostCache(entry: GlobalCacheEntry): void {
-  globalCache = entry;
+/** テスト用: キャッシュを差し込む（無料ティア分は省略可＝0）。 */
+export function __seedGlobalCostCache(
+  entry: Omit<GlobalCacheEntry, 'freeMonthJpy' | 'freeDayJpy'> &
+    Partial<Pick<GlobalCacheEntry, 'freeMonthJpy' | 'freeDayJpy'>>
+): void {
+  globalCache = { freeMonthJpy: 0, freeDayJpy: 0, ...entry };
 }
 
 /**
@@ -161,7 +168,15 @@ export function __seedGlobalCostCache(entry: GlobalCacheEntry): void {
 export async function loadGlobalCost(
   now: Date,
   deps?: { fetchDoc?: () => Promise<Record<string, unknown> | undefined> }
-): Promise<{ monthJpy: number; dayJpy: number; fromCache: boolean }> {
+): Promise<{
+  monthJpy: number;
+  dayJpy: number;
+  /** 無料ティアの当月累計（`evaluateFreeGate` のサブキャップ用） */
+  freeMonthJpy: number;
+  /** 無料ティアの当日累計（同上） */
+  freeDayJpy: number;
+  fromCache: boolean;
+}> {
   const monthKey = jstMonthKey(now);
   const dayKey = jstDayKey(now);
   const nowMs = now.getTime();
@@ -175,6 +190,8 @@ export async function loadGlobalCost(
     return {
       monthJpy: globalCache.monthJpy,
       dayJpy: globalCache.dayJpy,
+      freeMonthJpy: globalCache.freeMonthJpy,
+      freeDayJpy: globalCache.freeDayJpy,
       fromCache: true,
     };
   }
@@ -185,8 +202,23 @@ export async function loadGlobalCost(
     const monthJpy = safeNumber(data?.totalJpy);
     const byDay = (data?.byDay ?? {}) as Record<string, unknown>;
     const dayJpy = safeNumber(byDay[dayKey]);
-    globalCache = { monthKey, dayKey, monthJpy, dayJpy, fetchedAtMs: nowMs };
-    return { monthJpy, dayJpy, fromCache: false };
+    // ティア別。`byTierDay` は 2026-08-06 以降に書かれ始めるので、
+    // 遡及分は 0 のまま（＝上限に当たらない）で問題ない。
+    const byTier = (data?.byTier ?? {}) as Record<string, unknown>;
+    const freeMonthJpy = safeNumber(byTier.free);
+    const byTierDay = (data?.byTierDay ?? {}) as Record<string, unknown>;
+    const todayTier = (byTierDay[dayKey] ?? {}) as Record<string, unknown>;
+    const freeDayJpy = safeNumber(todayTier.free);
+    globalCache = {
+      monthKey,
+      dayKey,
+      monthJpy,
+      dayJpy,
+      freeMonthJpy,
+      freeDayJpy,
+      fetchedAtMs: nowMs,
+    };
+    return { monthJpy, dayJpy, freeMonthJpy, freeDayJpy, fromCache: false };
   } catch (error) {
     // 古いキャッシュで代替できるならする（一時障害で全停止させない）。
     if (
@@ -198,10 +230,13 @@ export async function loadGlobalCost(
         '[aiCostStore] global cost read failed; using stale cache:',
         error
       );
+      const sameDay = globalCache.dayKey === dayKey;
       return {
         monthJpy: globalCache.monthJpy,
         // 日付が変わっていれば当日分は不明なので 0 ではなく月次を流用しない。
-        dayJpy: globalCache.dayKey === dayKey ? globalCache.dayJpy : 0,
+        dayJpy: sameDay ? globalCache.dayJpy : 0,
+        freeMonthJpy: globalCache.freeMonthJpy,
+        freeDayJpy: sameDay ? globalCache.freeDayJpy : 0,
         fromCache: true,
       };
     }
@@ -296,9 +331,15 @@ export async function recordCost(input: RecordCostInput): Promise<void> {
   const jpy = input.cost.costJpy;
 
   // 全体キャッシュにも即座に反映しておく（TTL 内の後続呼び出しが過小評価しないように）。
+  // ⚠️ 無料ティアは1分間に何十ターンも走るので、ここを更新しないと
+  //    TTL（60秒）のあいだ上限判定が古い値のままになり、キャップを踏み越える。
   if (globalCache && globalCache.monthKey === monthKey) {
     globalCache.monthJpy += jpy;
     if (globalCache.dayKey === dayKey) globalCache.dayJpy += jpy;
+    if (input.tier === 'free') {
+      globalCache.freeMonthJpy += jpy;
+      if (globalCache.dayKey === dayKey) globalCache.freeDayJpy += jpy;
+    }
   }
 
   try {
@@ -384,9 +425,16 @@ async function writeGlobalStats(
       byDay: { [dayKey]: FieldValue.increment(jpy) },
       byModel: { [input.cost.model]: FieldValue.increment(jpy) },
       byPurpose: { [input.purpose]: FieldValue.increment(jpy) },
-      // ティア別の内訳（free = 一問一答3,000人 / paid = つづもん課金者）。
+      // ティア別の内訳（free = 一問一答3,000人 / paid = 課金者）。
+      // `byTierDay` は「無料ティアの日次サブキャップ」の判定材料
+      // （`aiCostCore.evaluateFreeGate`）。月次だけだと月初の急増を当日に止められない。
       ...(input.tier
-        ? { byTier: { [input.tier]: FieldValue.increment(jpy) } }
+        ? {
+            byTier: { [input.tier]: FieldValue.increment(jpy) },
+            byTierDay: {
+              [dayKey]: { [input.tier]: FieldValue.increment(jpy) },
+            },
+          }
         : {}),
       lastUpdatedAt: FieldValue.serverTimestamp(),
     },

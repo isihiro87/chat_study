@@ -12,8 +12,12 @@ import {
   DEFAULT_GLOBAL_DAILY_CAP_JPY,
   DEFAULT_USER_MONTHLY_BUDGET_JPY,
   DEFAULT_MAX_INPUT_TOKENS,
+  DEFAULT_FREE_MONTHLY_CAP_JPY,
+  DEFAULT_FREE_DAILY_CAP_JPY,
+  DEFAULT_FREE_USER_MONTHLY_CALL_CAP,
   FLOOD_WINDOW_MS,
   type CostState,
+  type FreeCostState,
   type GateInput,
   type DenyReason,
 } from '../aiCostCore';
@@ -311,7 +315,7 @@ describe('aiCostCore.evaluateGate', () => {
       const d = evaluateGate(gate({ tier: FREE }));
       if (d.kind === 'allow') {
         expect(d.degrade).toBe(0);
-        expect(d.historyTurns).toBe(10);
+        expect(d.historyTurns).toBe(20);
         // gate() の既定 purpose は 'chat' なので free の会話上限（700）。
         expect(d.maxOutputTokens).toBe(700);
       } else {
@@ -322,18 +326,216 @@ describe('aiCostCore.evaluateGate', () => {
 });
 
 describe('aiCostCore.evaluateFreeGate', () => {
-  it('コスト状態を読まずに allow 相当の通行証を返す', () => {
-    const d = evaluateFreeGate('chat', LIMITS);
+  /** 何の上限にも当たっていない無料ティアの状態。 */
+  function freeState(over: Partial<FreeCostState> = {}): FreeCostState {
+    return {
+      globalMonthJpy: 0,
+      globalDayJpy: 0,
+      freeMonthJpy: 0,
+      freeDayJpy: 0,
+      userMonthCount: 0,
+      ...over,
+    };
+  }
+
+  function freeGate(over: Partial<FreeCostState> = {}) {
+    return evaluateFreeGate({
+      purpose: 'chat',
+      limits: LIMITS,
+      state: freeState(over),
+    });
+  }
+
+  it('健全なら allow（degrade 0＝最安モデル固定）', () => {
+    const d = freeGate();
     expect(d.kind).toBe('allow');
+    if (d.kind !== 'allow') return;
     expect(d.degrade).toBe(0);
     expect(d.maxInputTokens).toBe(LIMITS.maxInputTokens);
   });
 
-  it('evaluateGate(free) と同じ結果になる（ロジックが二重化していない）', () => {
+  it('allow のときは evaluateGate(free) と同じ通行証になる（二重化していない）', () => {
     for (const purpose of ['chat', 'counsel', 'classify'] as const) {
       const viaGate = evaluateGate(gate({ tier: FREE, purpose }));
-      expect(evaluateFreeGate(purpose, LIMITS)).toEqual(viaGate);
+      expect(
+        evaluateFreeGate({ purpose, limits: LIMITS, state: freeState() })
+      ).toEqual(viaGate);
     }
+  });
+
+  // ここが今回の主目的。2026-08-06 まで free は無条件 allow だった。
+  describe('全体キャップが free にも効く', () => {
+    it('全体 日次超過 → deny（運営通知あり）', () => {
+      const d = freeGate({ globalDayJpy: DEFAULT_GLOBAL_DAILY_CAP_JPY });
+      expect(d).toEqual({
+        kind: 'deny',
+        reason: 'global_daily',
+        notifyAdmin: true,
+      });
+    });
+
+    it('全体 月次超過 → deny（運営通知あり）', () => {
+      const d = freeGate({ globalMonthJpy: DEFAULT_GLOBAL_MONTHLY_CAP_JPY });
+      expect(d).toEqual({
+        kind: 'deny',
+        reason: 'global_monthly',
+        notifyAdmin: true,
+      });
+    });
+  });
+
+  describe('無料ティア専用のサブキャップ', () => {
+    it('無料 日次超過 → deny free_daily', () => {
+      const d = freeGate({ freeDayJpy: DEFAULT_FREE_DAILY_CAP_JPY });
+      expect(d).toEqual({
+        kind: 'deny',
+        reason: 'free_daily',
+        notifyAdmin: true,
+      });
+    });
+
+    it('無料 月次超過 → deny free_monthly', () => {
+      const d = freeGate({ freeMonthJpy: DEFAULT_FREE_MONTHLY_CAP_JPY });
+      expect(d).toEqual({
+        kind: 'deny',
+        reason: 'free_monthly',
+        notifyAdmin: true,
+      });
+    });
+
+    it('全体キャップに余裕があっても、無料枠を超えたら止まる（有料の予算を食わせない）', () => {
+      const d = freeGate({
+        globalMonthJpy: 0,
+        globalDayJpy: 0,
+        freeMonthJpy: DEFAULT_FREE_MONTHLY_CAP_JPY + 1,
+      });
+      expect(d.kind).toBe('deny');
+    });
+
+    it('上限直前は通す（境界: cap - 1）', () => {
+      expect(
+        freeGate({ freeMonthJpy: DEFAULT_FREE_MONTHLY_CAP_JPY - 1 }).kind
+      ).toBe('allow');
+      expect(
+        freeGate({ freeDayJpy: DEFAULT_FREE_DAILY_CAP_JPY - 1 }).kind
+      ).toBe('allow');
+    });
+  });
+
+  describe('個人の月次回数（公平性）', () => {
+    it('上限到達 → deny free_user_monthly（運営通知はしない）', () => {
+      const d = freeGate({
+        userMonthCount: DEFAULT_FREE_USER_MONTHLY_CALL_CAP,
+      });
+      expect(d).toEqual({
+        kind: 'deny',
+        reason: 'free_user_monthly',
+        notifyAdmin: false,
+      });
+    });
+
+    it('1人が全体枠を食い潰せない（1日40回×30日=1200 は通らない）', () => {
+      expect(freeGate({ userMonthCount: 1200 }).kind).toBe('deny');
+    });
+
+    it('上限直前は通す', () => {
+      expect(
+        freeGate({ userMonthCount: DEFAULT_FREE_USER_MONTHLY_CALL_CAP - 1 })
+          .kind
+      ).toBe('allow');
+    });
+
+    it('ユーザー都合の deny として分類される（計測用）', () => {
+      expect(isUserQuotaDeny('free_user_monthly')).toBe(true);
+      expect(isUserQuotaDeny('free_daily')).toBe(false);
+    });
+  });
+
+  describe('集計が読めないときは止めない（paid とは意図的に逆）', () => {
+    // free は最安モデル固定で「1人1日40回」が先に効くため、読めない数分間の
+    // 損失は数十円。deny に倒すと 3,000人の AI が一斉に沈黙する＝損失が非対称。
+    it('全体・ティア別がすべて undefined でも allow', () => {
+      const d = evaluateFreeGate({
+        purpose: 'chat',
+        limits: LIMITS,
+        state: {
+          globalMonthJpy: undefined,
+          globalDayJpy: undefined,
+          freeMonthJpy: undefined,
+          freeDayJpy: undefined,
+          userMonthCount: 0,
+        },
+      });
+      expect(d.kind).toBe('allow');
+    });
+
+    it('読めた項目だけは判定する（月次が読めて超過なら止める）', () => {
+      const d = evaluateFreeGate({
+        purpose: 'chat',
+        limits: LIMITS,
+        state: {
+          globalMonthJpy: undefined,
+          globalDayJpy: undefined,
+          freeMonthJpy: DEFAULT_FREE_MONTHLY_CAP_JPY,
+          freeDayJpy: undefined,
+          userMonthCount: 0,
+        },
+      });
+      expect(d.kind).toBe('deny');
+    });
+
+    it('集計が読めなくても個人の回数上限は効く（user doc 由来で常に読める）', () => {
+      const d = evaluateFreeGate({
+        purpose: 'chat',
+        limits: LIMITS,
+        state: {
+          globalMonthJpy: undefined,
+          globalDayJpy: undefined,
+          freeMonthJpy: undefined,
+          freeDayJpy: undefined,
+          userMonthCount: DEFAULT_FREE_USER_MONTHLY_CALL_CAP,
+        },
+      });
+      expect(d.kind).toBe('deny');
+    });
+  });
+
+  describe('env で調整できる', () => {
+    it('AI_FREE_MONTHLY_CAP_JPY を上げると通る', () => {
+      const limits = parseLimits({ AI_FREE_MONTHLY_CAP_JPY: '10000' });
+      const d = evaluateFreeGate({
+        purpose: 'chat',
+        limits,
+        state: freeState({ freeMonthJpy: 5000 }),
+      });
+      expect(d.kind).toBe('allow');
+    });
+
+    it('不正値は既定値（低い方）へ倒す', () => {
+      const limits = parseLimits({
+        AI_FREE_MONTHLY_CAP_JPY: '0',
+        AI_FREE_DAILY_CAP_JPY: 'abc',
+        AI_FREE_USER_MONTHLY_CALL_CAP: '-1',
+      });
+      expect(limits.freeMonthlyCapJpy).toBe(DEFAULT_FREE_MONTHLY_CAP_JPY);
+      expect(limits.freeDailyCapJpy).toBe(DEFAULT_FREE_DAILY_CAP_JPY);
+      expect(limits.freeUserMonthlyCallCap).toBe(
+        DEFAULT_FREE_USER_MONTHLY_CALL_CAP
+      );
+    });
+  });
+
+  describe('deny の文言', () => {
+    it('個人の月次上限は責めずに次の一手を示す', () => {
+      const text = denyMessage('free_user_monthly');
+      expect(text).toContain('来月');
+      expect(text).toMatch(/1問解く|苦手/);
+    });
+
+    it('ティア枠の超過はシステム都合の文言（ユーザーを責めない）', () => {
+      expect(denyMessage('free_daily')).toContain('混み合っている');
+      expect(denyMessage('free_monthly')).toContain('混み合っている');
+    });
   });
 });
 

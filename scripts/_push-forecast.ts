@@ -2,7 +2,7 @@
  * 7・8月の月次 push 配信数の投影（実測アンカー stock モデル）。
  *
  * モデル根拠（dailyQuiz.ts 実ロジック）: push 対象は status=active(直近3日回答) かつ
- * 未ブロックのみ。登録<7日=毎日 / >=7日=月水金のみ。push量は「直近3日アクティブ数」で
+ * 未ブロックのみ。登録<7日=毎日 / >=7日=月木のみ。push量は「直近3日アクティブ数」で
  * 完全ゲートされる（登録総数ではない）。
  *
  * 2026-06-26 実測アンカー:
@@ -20,7 +20,7 @@
  */
 
 const CAP = 30000;
-const MWF = new Set([1, 3, 5]); // 月水金
+const MWF = new Set([1, 4]); // 月木（2026-08-03 に月水金から変更）
 const BASE_WEEKDAY = 5; // 2026-06-26 = 金
 
 // 実測アンカー（登録100/日基準）
@@ -40,9 +40,19 @@ function ymd(offset: number): string {
   return new Date(d.getTime() + offset * 86400000).toISOString().slice(0, 10);
 }
 
-interface Agg { onboarding: number; grad: number; winback: number; nudge: number; }
+interface Agg {
+  onboarding: number;
+  grad: number;
+  winback: number;
+  nudge: number;
+}
 
-function simulate(reg: number, gradActiveAtGrad: number, decay: number, label: string) {
+function simulate(
+  reg: number,
+  gradActiveAtGrad: number,
+  decay: number,
+  label: string
+) {
   const onboardActive = ONBOARD_ACTIVE_AT_100 * (reg / 100);
   const inflow = reg * gradActiveAtGrad; // 7日前登録が卒業し active で G に加わる/日
   const Geq = inflow / decay;
@@ -58,7 +68,7 @@ function simulate(reg: number, gradActiveAtGrad: number, decay: number, label: s
     const isMWF = MWF.has(weekday(offset));
 
     const onboarding = onboardActive; // 毎日
-    const grad = isMWF ? G : 0; // 月水金のみ
+    const grad = isMWF ? G : 0; // 月木のみ
     const activeTotal = onboardActive + G;
     const winback = activeTotal * winbackRate;
     const nudge = reg * NUDGE_PER_REG;
@@ -72,27 +82,36 @@ function simulate(reg: number, gradActiveAtGrad: number, decay: number, label: s
 
     if (!capHit) {
       const a = months[m];
-      if (a.onboarding + a.grad + a.winback + a.nudge >= CAP) capHit = ymd(offset);
+      if (a.onboarding + a.grad + a.winback + a.nudge >= CAP)
+        capHit = ymd(offset);
     }
   }
 
-  console.log(`\n===== ${label}（登録${reg}/日, 卒業active率${gradActiveAtGrad}, δ${decay}）=====`);
+  console.log(
+    `\n===== ${label}（登録${reg}/日, 卒業active率${gradActiveAtGrad}, δ${decay}）=====`
+  );
   console.log(`  (G平衡値 ≈ ${Geq.toFixed(0)})`);
-  console.log("月        onboard  grad(MWF)  winback  nudge   合計    vs30,000");
-  for (const mm of ["2026-07", "2026-08"]) {
+  console.log(
+    '月        onboard  grad(MWF)  winback  nudge   合計    vs30,000'
+  );
+  for (const mm of ['2026-07', '2026-08']) {
     const a = months[mm];
     const total = a.onboarding + a.grad + a.winback + a.nudge;
     console.log(
       `${mm}  ${a.onboarding.toFixed(0).padStart(8)}  ${a.grad.toFixed(0).padStart(8)}  ` +
-      `${a.winback.toFixed(0).padStart(7)}  ${a.nudge.toFixed(0).padStart(6)}  ${total.toFixed(0).padStart(6)}   ${((total/CAP)*100).toFixed(0)}%`
+        `${a.winback.toFixed(0).padStart(7)}  ${a.nudge.toFixed(0).padStart(6)}  ${total.toFixed(0).padStart(6)}   ${((total / CAP) * 100).toFixed(0)}%`
     );
   }
-  console.log(`  CAP超過初日: ${capHit ?? "期間内なし"}`);
+  console.log(`  CAP超過初日: ${capHit ?? '期間内なし'}`);
 }
 
-console.log("※ 前提依存のモデル投影（実測ではない）。push対象=status=active(直近3日)のみ。");
-console.log("※ オンボ窓push≈18k/月は登録100/日で一定の床。成長は卒業active(G)とwinbackから。");
+console.log(
+  '※ 前提依存のモデル投影（実測ではない）。push対象=status=active(直近3日)のみ。'
+);
+console.log(
+  '※ オンボ窓push≈18k/月は登録100/日で一定の床。成長は卒業active(G)とwinbackから。'
+);
 // 卒業時active率: A(7)≈0.33（D7survival55%の一部が直近3日active）。δ: active半減期~15日→0.046。
-simulate(100, 0.30, 0.050, "基準");
-simulate(80, 0.30, 0.055, "保守(登録鈍化・離脱速め)");
-simulate(120, 0.35, 0.045, "強気(IG加速・定着良好)");
+simulate(100, 0.3, 0.05, '基準');
+simulate(80, 0.3, 0.055, '保守(登録鈍化・離脱速め)');
+simulate(120, 0.35, 0.045, '強気(IG加速・定着良好)');

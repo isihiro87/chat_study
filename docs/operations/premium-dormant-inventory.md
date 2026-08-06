@@ -36,7 +36,7 @@
 5. [ ] 価格を変える場合: `premiumCopy.ts` / `priceCalculator.ts` / flexビルダー / Stripe price env / `winbackVariations.ts` の価格ロック文言を一括更新（¥680/¥980 が分散している）
 6. [ ] リッチメニュー: free/trial/premium を create/upload/set-default し直す（LINE 上に実体なし）
 7. [ ] トライアル日数を変える場合: `trialDuration.ts` と全文言（「7日間」多数）を同期
-8. [ ] 配信頻度文言（「はじめは毎日→週3回」）と有料特典の整合を確認
+8. [ ] 配信頻度文言（「はじめは毎日→週2回（月・木）」）と有料特典の整合を確認
 9. [ ] `docs/message-copy-guidelines.md` に有料訴求のトーン規定を追記
 10. [ ] **`stripeWebhook.ts` の `current_period_end` 参照を現行 Stripe API 形に直す（2026-07-25 発見）**
     `customer.subscription.created` / `.updated` ハンドラ（L371-374 付近）が `obj.current_period_end` を

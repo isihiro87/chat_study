@@ -16,6 +16,13 @@ export type ServerFunnelEventType =
   // 学習エンゲージメント（回答後カード / メニューの追加学習動線）
   | 'extra_question_tap'
   | 'weak_review_tap'
+  /**
+   * AI チャットの入口（回答後カードの「AIに質問する」）をタップした（2026-08-06）。
+   * AI は自由文のフォールバックとして実装されていて**存在に気づかれていなかった**
+   * （利用 591UU / 3,638人＝16%）。この導線がどれだけ利用を押し上げたかを見る。
+   * context: src（どの面から来たか）
+   */
+  | 'ai_intro_tap'
   // 「まだ習ってない」ワンタップ出題除外（2026-07）
   | 'not_learned_tap'
   | 'not_learned_applied'

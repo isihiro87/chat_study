@@ -147,6 +147,39 @@ describe('aiCostStore.loadGlobalCost（TTL キャッシュ）', () => {
     expect(r.fromCache).toBe(false);
   });
 
+  // 2026-08-06: 無料ティアのサブキャップ（aiCostCore.evaluateFreeGate）の判定材料。
+  it('無料ティアの当月・当日を取り出す', async () => {
+    const fetchDoc = vi.fn().mockResolvedValue({
+      totalJpy: 1234,
+      byDay: { '2026-07-25': 99 },
+      byTier: { free: 400, paid: 834 },
+      byTierDay: { '2026-07-25': { free: 30, paid: 69 } },
+    });
+    const r = await loadGlobalCost(NOW, { fetchDoc });
+    expect(r.freeMonthJpy).toBe(400);
+    expect(r.freeDayJpy).toBe(30);
+  });
+
+  it('byTier / byTierDay が無い月（遡及分）は 0 として扱う', async () => {
+    const fetchDoc = vi.fn().mockResolvedValue({
+      totalJpy: 1234,
+      byDay: { '2026-07-25': 99 },
+    });
+    const r = await loadGlobalCost(NOW, { fetchDoc });
+    expect(r.freeMonthJpy).toBe(0);
+    expect(r.freeDayJpy).toBe(0);
+  });
+
+  it('当日の byTierDay が無ければ当日分は 0（他の日の値を拾わない）', async () => {
+    const fetchDoc = vi.fn().mockResolvedValue({
+      byTier: { free: 400 },
+      byTierDay: { '2026-07-24': { free: 380 } },
+    });
+    const r = await loadGlobalCost(NOW, { fetchDoc });
+    expect(r.freeMonthJpy).toBe(400);
+    expect(r.freeDayJpy).toBe(0);
+  });
+
   it('ドキュメントが無ければ 0', async () => {
     const fetchDoc = vi.fn().mockResolvedValue(undefined);
     const r = await loadGlobalCost(NOW, { fetchDoc });

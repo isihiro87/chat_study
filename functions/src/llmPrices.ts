@@ -45,25 +45,36 @@ export interface ModelPriceUsd {
  * 新しいモデルを使いたくなったら、必ず公式料金ページを見て1行足す。
  */
 export const MODEL_PRICES_USD: Readonly<Record<string, ModelPriceUsd>> = {
-  // ── OpenAI（つづもんのメイン頭脳・2026-07-26 切替）──
-  // 価格は Short context 帯（ユーザー提示の表）。1リクエストは約1万トークンなので
-  // 常に short 側に収まる。Long context 帯（128k超）は使わない前提。
-  // ⚠️ キャッシュ書き込み（cache writes）は現状の集計に列が無いため、
-  //    安全側として **入力単価に丸めて計上**する（実費より高く見積もる）。
+  // ── OpenAI（有料ティアのメイン頭脳・2026-07-26 切替）──
+  // 価格は Short context 帯。1リクエストは約2〜3万トークンなので常に short 側に
+  // 収まる。Long context 帯（128k超）は使わない前提。
+  //
+  // 🔻 2026-07-30 の値下げを反映（確認日 2026-08-06）:
+  //      luna  $1.00→$0.20 / $6.00→$1.20（**−80%**）
+  //      terra $2.50→$2.00 / $15.00→$12.00（−20%）
+  //      sol   据え置き（$5.00 / $30.00。高速化のみで値下げはされていない）
+  //    キャッシュ済み入力は**標準入力の1/10（90%off）**。
+  //    出典: https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/
+  //          https://www.elser.ai/blog/gpt-5-6-pricing-explained-sol-terra-luna-and-prompt-caching
+  //
+  // ⚠️ キャッシュ**書き込み**（cache writes・標準入力の 1.25倍）は集計に列が無く、
+  //    通常入力として計上している＝その分だけ**過小計上**になる。
+  //    静的 prefix は初回だけ書き込みが発生し以降は読み出しなので影響は小さいが、
+  //    実請求と計上が数%ずれる要因として認識しておく（手順: ai-cost-guardrails.md §4）。
   'gpt-5.6-sol': {
     inputPerMillion: 5.0,
     cachedInputPerMillion: 0.5,
     outputPerMillion: 30.0,
   },
   'gpt-5.6-terra': {
-    inputPerMillion: 2.5,
-    cachedInputPerMillion: 0.25,
-    outputPerMillion: 15.0,
+    inputPerMillion: 2.0,
+    cachedInputPerMillion: 0.2,
+    outputPerMillion: 12.0,
   },
   'gpt-5.6-luna': {
-    inputPerMillion: 1.0,
-    cachedInputPerMillion: 0.1,
-    outputPerMillion: 6.0,
+    inputPerMillion: 0.2,
+    cachedInputPerMillion: 0.02,
+    outputPerMillion: 1.2,
   },
 
   // ---- Gemini ----

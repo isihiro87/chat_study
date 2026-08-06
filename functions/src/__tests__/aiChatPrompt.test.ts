@@ -493,7 +493,7 @@ describe('一問一答: プロンプトの出し入れ（コスト最適化 2026
 describe('一問一答: 軽量プロフィール記憶の注入（2026-07-26）', () => {
   it('プロフィールが無ければ何も足さない（未設定の3,000人にトークンを載せない）', () => {
     expect(buildSystemPrompt(undefined)).not.toContain(
-      'この子について覚えていること'
+      'この子の設定と、覚えていること'
     );
   });
 
@@ -502,7 +502,7 @@ describe('一問一答: 軽量プロフィール記憶の注入（2026-07-26）'
       grade: '中2',
       aiProfile: { studentName: 'ミナト', likes: 'バスケ部' },
     } as unknown as UserDoc);
-    expect(p).toContain('この子について覚えていること');
+    expect(p).toContain('この子の設定と、覚えていること');
     expect(p).toContain('ミナト');
     expect(p).toContain('バスケ部');
   });
@@ -528,5 +528,120 @@ describe('buildAugResumeContext（2026-08 の配信再開まわりの一時知�
   it('期間を過ぎたら空文字（プロンプトを膨らませ続けない）', () => {
     expect(buildAugResumeContext(jst('2026-08-11T00:00:00'))).toBe('');
     expect(buildAugResumeContext(jst('2026-09-01T12:00:00'))).toBe('');
+  });
+});
+
+describe('ワーク入力問題を解いている最中の文脈（buildSystemPrompt）', () => {
+  // 実データの記述問題（古代文明の誕生 第1問）
+  const QID = 'q-wbw-history-02-ancient-civilizations-1';
+  const withSession = {
+    grade: '中1',
+    subject: 'history',
+    workbookSession: {
+      topic: '古代文明の誕生',
+      kind: 'written',
+      awaiting: { qid: QID },
+    },
+  } as unknown as UserDoc;
+
+  it('解答待ちのときは、いま解いている問題を文脈に入れる', () => {
+    const p = buildSystemPrompt(withSession);
+    expect(p).toContain('いま解いている最中の問題');
+    expect(p).toContain('古代文明の誕生');
+    expect(p).toContain('記述問題');
+  });
+
+  it('答えの出し方（ボタン／「答え：」）を必ず案内させる', () => {
+    const p = buildSystemPrompt(withSession);
+    expect(p).toContain('✏️ 答えを書く');
+    expect(p).toContain('答え：');
+  });
+
+  it('模範解答はプロンプトに載せない（そもそも漏らせない状態にする）', () => {
+    const p = buildSystemPrompt(withSession);
+    // 模範解答の本文が混ざっていないこと
+    expect(p).not.toContain('大きな川の流域では、水と肥えた土');
+  });
+
+  it('解答待ちでなければ何も足さない（平常時のプロンプトを変えない）', () => {
+    const p = buildSystemPrompt({
+      grade: '中1',
+      subject: 'history',
+    } as UserDoc);
+    expect(p).not.toContain('いま解いている最中の問題');
+  });
+
+  it('未知の問題IDなら何も足さない', () => {
+    const p = buildSystemPrompt({
+      grade: '中1',
+      workbookSession: { awaiting: { qid: 'q-wbw-does-not-exist' } },
+    } as unknown as UserDoc);
+    expect(p).not.toContain('いま解いている最中の問題');
+  });
+});
+
+/**
+ * 会話の順番（2026-08-06）。
+ *
+ * AI の履歴には**チャットのやり取りしか入らない**ため、
+ * 〔生徒の発言①〕→〔公式LINEが問題を配信〕→〔生徒の発言②〕という流れで、
+ * AI は配信に気づかず②を①の続きと誤解していた。
+ */
+describe('一問一答: 直近の配信との順番', () => {
+  const question = {
+    id: 'q1',
+    topic: '江戸幕府の成立',
+    text: '江戸幕府を開いたのは？',
+    choices: ['徳川家康', '織田信長', '豊臣秀吉', '足利尊氏'],
+    correctChoiceId: 0,
+    explanation: '1603年に徳川家康が開いた。',
+  };
+
+  it('AI の返信より後に問題が届いていたら、その順番を明示する', () => {
+    const prompt = buildSystemPrompt({
+      lastQuestion: { ...question, sentAtMs: 2_000 },
+      aiChat: { lastChatAt: { toMillis: () => 1_000 } },
+    } as never);
+    expect(prompt).toContain('会話の順番');
+    expect(prompt).toContain('あなたが最後に返信したあとに');
+  });
+
+  it('AI の返信のほうが後なら、順番の注意は出さない（無駄なトークンを載せない）', () => {
+    const prompt = buildSystemPrompt({
+      lastQuestion: { ...question, sentAtMs: 1_000 },
+      aiChat: { lastChatAt: { toMillis: () => 2_000 } },
+    } as never);
+    expect(prompt).not.toContain('会話の順番');
+  });
+
+  it('sentAtMs が無い古いデータでは順番の注意を出さない（誤った断定をしない）', () => {
+    const prompt = buildSystemPrompt({
+      lastQuestion: question,
+      aiChat: { lastChatAt: { toMillis: () => 1_000 } },
+    } as never);
+    expect(prompt).not.toContain('会話の順番');
+  });
+
+  it('AI と話したことが無い人にも出さない', () => {
+    const prompt = buildSystemPrompt({
+      lastQuestion: { ...question, sentAtMs: 2_000 },
+    } as never);
+    expect(prompt).not.toContain('会話の順番');
+  });
+
+  it('{ seconds } 形式の Timestamp でも判定できる', () => {
+    const prompt = buildSystemPrompt({
+      lastQuestion: { ...question, sentAtMs: 5_000 },
+      aiChat: { lastChatAt: { seconds: 1 } }, // = 1,000ms
+    } as never);
+    expect(prompt).toContain('会話の順番');
+  });
+
+  it('決めつけないよう釘を刺している', () => {
+    const prompt = buildSystemPrompt({
+      lastQuestion: { ...question, sentAtMs: 2_000 },
+      aiChat: { lastChatAt: { toMillis: () => 1_000 } },
+    } as never);
+    expect(prompt).toContain('決めつけない');
   });
 });

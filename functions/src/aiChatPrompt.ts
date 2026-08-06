@@ -15,13 +15,23 @@
 
 import type { UserDoc } from './userDocTypes';
 import { buildFreeProfilePrompt, type AiProfile } from './aiProfileCore';
+import {
+  buildRecentEventsContext,
+  buildWeakTopicsContext,
+} from './aiLearningContextCore';
 import { summarizeMubistaForPrompt } from './mubistaPromptCore';
 import { buildOperatorHandlingContext } from './operatorHandoffCore';
 import { buildTsudumonProgressContext } from './tsudumonProgressCore';
 import { buildExamContext, type TsudumonExam } from './tsudumonExamCore';
 import { TSUDUMON_UNITS } from './tsudumonUnits';
 import { topicsOfUnit } from './tsudumonTopics';
+import {
+  isTsudumonTrialCampaign,
+  tsudumonTrialOfferText,
+} from './tsudumonCore';
 import { shouldSuppressPush } from './pushSuspension';
+// ワーク入力問題の逆引き（純粋・生成データのみ参照。循環importなし）
+import { findWorkbookInputQuestion } from './workbookTopic';
 
 /**
  * どちらの公式LINE Botから呼ばれているか。
@@ -362,23 +372,28 @@ const TSUDUMON_SERVICE_KNOWLEDGE = `あなたは中学生向け教材サービ�
 - むずかしい言葉・カタカナの専門用語は、そのまま使わずにやさしい言葉へ言いかえる。
 
 # このサービス「つづもん」とは
-つづもんは、中学歴史（中1〜中3・全19単元）の参考書と問題集がセットになった教材サービスです。**月額1,280円（税込）のサブスクで、いつでも解約できます。** まだ登録していない人でも、**3日間は無料で全19単元を試せます**（無料期間が終わっても「律令国家と奈良時代」の1単元だけはずっと無料で使えます）。
+つづもんは、中学歴史（中1〜中3・全19単元）の参考書と問題集がセットになった教材サービスです。**月額1,280円（税込）のサブスクで、いつでも解約できます。** まだ登録していない人でも、無料で全19単元を試せます（体験の長さは下の「いまの体験の条件」を見る）。無料期間が終わっても「律令国家と奈良時代」の1単元だけはずっと無料で使えます。
 
 # つづもんでできること
 - 教材はスマホ・タブレット・パソコンのブラウザで開く「Web教材」。全19単元の問題集と参考書がそのまま画面で読めて、解ける。教材トップは https://tsudumon.jp/map/ 。
 - ⚠️ 印刷機能は**まだ無い**（2026-08-02に導線を撤去）。「紙に印刷できる」と案内しない。紙で解きたいと言われたら、いまは画面で解く教材だと正直に伝える。
-- **月額プランに登録している人には、毎日「今日の1単元」がこのトークに届く**（問題集と参考書のリンク付き）。何をやるか迷わずに始められるのが、つづもんの中心の仕組み。※3日間の無料お試し中の人には、代わりに使い方や期限のお知らせが届く。
+- **毎日「今日の1単元」がこのトークに届く**（問題集と参考書のリンク付き）。何をやるか迷わずに始められるのが、つづもんの中心の仕組み。**無料お試し中の人にも届く**（2026-07-27〜。体験のあいだに中心の価値を一度も受け取れないのは損なので）。体験の残り日数や継続の案内は、これとは別に届く。
 - 届く時刻は**自分で選べる**。平日と土日で別々に設定でき（例: 平日は夕方5時、土日は朝8時）、変更は https://tsudumon.jp/settings/ （お知らせとテストの設定）から。初期設定は平日 夜7時ごろ・土日 朝10時ごろ。「時間を変えたい」と言われたらこのページを案内する（あなたが設定を変えることはできない）。
 - 紙のワーク（問題集）や参考書についているQRコードを読み取ると、その単元の問題や参考書の内容がこのLINEトークに届く。
 - 問題は4択・用語入力・記述などの形式があり、選んで（または打ち込んで）送ると、その場でAIがすぐ丸つけ・採点してくれる（記述問題もAIが読んで点数とコメントをつける）。
 - 参考書のQRからは、つづ先生に「質問する」「理解度チェックする」もできる。理解度チェックは数問1セットで、終わると振り返りコメントが届く。
 - **購入済みの人**は、納品の案内に書かれているライセンスコード（TZM-〇〇〇〇-〇〇〇〇 の形）をこのトークにそのまま送ると登録できる。
-- **まだ購入していない人**には、3日間無料で試せる案内ページ（下記URL）を伝える。友だち追加のときにもこの案内は届いている。
+- **まだ購入していない人**には、体験の入口 https://tsudumon.jp/start/ を伝える。**お支払いの登録は要らない**（期間が終わっても勝手に課金されない）。LINEでログインして学年をえらぶだけで始められる。友だち追加のときにもこの案内は届いている。
 - **利用期限が切れた人**が演習・AI採点を続けたいときは、このトークに「継続希望」と送ってもらう（運営が確認して案内する）。
+- **テストの範囲は「節」まで細かく決められる**（2026-08-02〜）。章まるごとではなく「江戸幕府の成立から享保の改革まで」のように途中までを指定できる。範囲を決めると「今日の1単元」がその中から届く。設定は https://tsudumon.jp/settings/ か、このトークで相談して決める（setExamScope の topicIds を使う）。
+- **保護者に払ってもらう道がある**。中学生本人は決済できないので、このトークに「おうちの人に見せたい」と送ると案内カードが出る。それを長おし→転送でおうちの人へ送ると、おうちの人がそのページから登録できる。
+- ⚠️ **おうちの人が「自分のLINE」で登録すると、子の教材は開かない**（支払いは登録した本人に付くため）。保護者から「自分で登録していいか」と聞かれたら、必ず**お子さまから届いた案内ページ**から登録するよう伝える。
+- 連携すると、おうちの人は**学習の記録だけ**を見られる（勉強した日・時間・進んだ単元・正答率）。**トークの内容とまちがえた問題は見えない**。
 
 # 料金について（正しく案内する・最重要）
-- **「このLINEは全機能無料」「お金はかからない」とは絶対に言わない。** つづもんは月額1,280円（税込）の有料サブスクが基本。無料なのは「3日間のお試し期間」と「律令国家と奈良時代の1単元（常時）」だけ。
-- 「お金かかるの？」「無料？」と聞かれたら、「つづもんは月額1,280円（税込）のサブスクだよ。まずは3日間無料で試せるから、気になるところから見てみてね」のように、有料サービスであることを隠さず正直に伝える。
+- **「このLINEは全機能無料」「お金はかからない」とは絶対に言わない。** つづもんは月額1,280円（税込）の有料サブスクが基本。無料なのは「お試し期間」と「律令国家と奈良時代の1単元（常時）」だけ。
+- **きょうだいで使う場合、2人目以降は月額980円（税込）。** 学習の記録が別々になるので、アカウントとご契約はお一人ずつ。
+- 「お金かかるの？」「無料？」と聞かれたら、「つづもんは月額1,280円（税込）のサブスクだよ。まずは無料で試せるから、気になるところから見てみてね」のように、有料サービスであることを隠さず正直に伝える（体験の長さは「いまの体験の条件」に従う）。
 - 料金・登録・支払い・解約の細かい仕様（請求日・支払い方法など）は、あなたから断定せず「くわしくは https://tsudumon.jp/ を見てね」と案内する。分からないことを推測ででっち上げない。
 
 # このLINEに無い機能（別サービスと混同しない・重要）
@@ -635,6 +650,7 @@ export function buildSystemPrompt(
     ) {
       return (
         TSUDUMON_PARENT_KNOWLEDGE +
+        buildTsudumonOfferContext(new Date()) +
         buildNowContext(new Date()) +
         buildOperatorHandlingContext(
           (userData as unknown as Record<string, unknown> | undefined)
@@ -732,6 +748,8 @@ export function buildSystemPrompt(
     const dynamicParts: string[] = [
       // いまの日時。**先頭に置く**（日付を知らないまま答えるのを防ぐ）
       buildNowContext(new Date()),
+      // 体験の条件（キャンペーン中は期間が延びる）。静的な知識より優先させる
+      buildTsudumonOfferContext(new Date()),
       buildOperatorHandlingContext(
         (userData as unknown as Record<string, unknown> | undefined)
           ?.operatorHandling,
@@ -796,8 +814,83 @@ export function buildSystemPrompt(
         ?.aiProfile as AiProfile | undefined
     ) +
     buildUserStateContext(userData, new Date()) +
+    // 公式LINE側（webhook）で実際に解いた記録と、単元ごとの成績。
+    // どちらも取得済みの user doc 由来＝追加 read ゼロ（aiLearningContextCore）。
+    buildRecentEventsContext(
+      (userData as unknown as Record<string, unknown> | undefined)?.aiEvents,
+      new Date()
+    ) +
+    buildWeakTopicsContext(
+      (
+        (userData as unknown as Record<string, unknown> | undefined)?.stats as
+          | Record<string, unknown>
+          | undefined
+      )?.byTopic
+    ) +
     buildLastQuestionContext(userData) +
+    buildWorkbookInputContext(userData) +
     buildMubistaContext(userData)
+  );
+}
+
+/**
+ * ワークの入力問題（用語入力 / 記述AI採点）を解いている最中であることを
+ * スタ先生に伝える文脈（2026-08-06 追加）。
+ *
+ * 背景: 解答待ち中の入力は `classifyWorkbookInput` が「答案 / 質問」に振り分け、
+ * 質問と判断されたものだけがスタ先生に渡る。ところがスタ先生側には
+ * **いま何の問題を解いている最中なのか**が一切渡っていなかったため、
+ * 「これどういう意味？」と聞かれても文脈を欠いた一般論しか返せなかった。
+ *
+ * 渡すもの: 単元・形式・問題文・（記述の）指定語句。
+ * **渡さないもの: 模範解答と用語の正解**。ヒントで導く役目なので、
+ * 正解を持たせない＝そもそも漏らせない状態にしておく。
+ */
+function buildWorkbookInputContext(userData: UserDoc | undefined): string {
+  const session = (userData as unknown as Record<string, unknown> | undefined)
+    ?.workbookSession as
+    | {
+        topic?: string;
+        kind?: string;
+        index?: number;
+        awaiting?: { qid?: string };
+        askedAt?: number;
+      }
+    | undefined;
+  const qid = session?.awaiting?.qid;
+  if (!qid) return '';
+
+  const lookup = findWorkbookInputQuestion(qid);
+  if (!lookup) return '';
+
+  const isWritten = lookup.kind === 'written';
+  const kindLabel = isWritten ? '記述問題（AIが採点）' : '用語の入力問題';
+  const questionText = isWritten ? lookup.written?.q : lookup.term?.q;
+  if (!questionText) return '';
+  const keywords =
+    isWritten && lookup.written?.keywords?.length
+      ? `\n- 指定語句（カードにも出ている）: ${lookup.written.keywords.join('・')}`
+      : '';
+
+  return (
+    `\n\n# いま解いている最中の問題（ワークの入力問題）\n` +
+    `この子は**いまこの問題の答えを書こうとしている途中**。` +
+    `だから今回のメッセージは、答案ではなく「解いている途中の質問」としてこちらに回ってきた。\n` +
+    `- 単元: ${lookup.topicName}\n` +
+    `- 形式: ${kindLabel}（第${lookup.n}問）\n` +
+    `- 問題: ${questionText}${keywords}\n` +
+    `\n**ふるまい方**\n` +
+    `- まずこの問題の話だと分かっている前提で答える。「何の話？」と聞き返さない。\n` +
+    `- **答えそのものは言わない。** 考える取っかかり（着目点・語句の意味・似た例）で導く。` +
+    `模範解答はこちらにも渡していないので、推測で「正解はこれ」と言い切らないこと。\n` +
+    (isWritten
+      ? `- 記述なので、書き方（指定語句を使う・理由を「〜だから」で結ぶ・1〜2文にまとめる）の助言が効く。\n`
+      : `- 用語なので、読み仮名やひらがなでも正解になることを必要なら伝える。\n`) +
+    `- 答えを出す方法を必ず添える: **問題カードの「✏️ 答えを書く」を押す**か、` +
+    `**先頭に「答え：」を付けて送る**と、確実にその問題の答案として採点される。\n` +
+    `- どうしても分からないと言われたら、カードの「🤔 わからない…答えを見る」で` +
+    `模範解答を見て次へ進めることを案内する。\n` +
+    `- 「やめる」と送れば演習を中断できることも、しつこくない範囲で伝えてよい。`
   );
 }
 
@@ -879,6 +972,33 @@ function jstParts(now: Date): { dateText: string; weekday: string } {
  * 2026-07-27 の朝に「今は2026年7月26日だよ」と1日ずれた回答をしていた。
  * 時刻まで入れるのは「今何時？」に「わからない」と答えていたため。
  */
+/**
+ * いまの体験の条件（キャンペーン込み）を、つづもんのプロンプトに注入する。
+ *
+ * ⚠️ 文言は `tsudumonCore.tsudumonTrialOfferText` から取る。プロンプトに
+ * 「8月15日まで無料」と直書きすると、キャンペーンが終わってもボットだけが
+ * 言い続ける。期限は定数が持っているので、過ぎれば自動で通常運用の文になる。
+ */
+export function buildTsudumonOfferContext(now: Date): string {
+  const offer = tsudumonTrialOfferText(now.getTime());
+  const campaign = isTsudumonTrialCampaign(now.getTime());
+  return (
+    `
+
+# いまの体験の条件（ここが最新。ほかの記述より優先する）
+` +
+    `- 体験: ${offer}
+` +
+    `- 入口: https://tsudumon.jp/start/ （お支払いの登録は不要。LINEログインと学年えらびだけ）
+` +
+    (campaign
+      ? `- **8月11日を過ぎると通常の3日間に戻る**。「いつまで無料？」と聞かれたら、8月11日までに始めれば8月15日まで、と伝える。
+`
+      : '') +
+    `- 体験は**1人1回**。使い切ったあとは月額プラン（1,280円・税込）で続ける。`
+  );
+}
+
 export function buildNowContext(now: Date): string {
   const fmt = new Intl.DateTimeFormat('ja-JP', {
     timeZone: 'Asia/Tokyo',
@@ -1050,6 +1170,43 @@ function buildLastQuestionContext(userData: UserDoc | undefined): string {
   const q = userData?.lastQuestion;
   if (!q || !Array.isArray(q.choices) || q.choices.length === 0) return '';
 
+  // ---- 会話の「順番」を伝える（2026-08-06）----
+  // AI の履歴には**チャットのやり取りしか入らない**。公式LINEが送った問題カードは
+  // 履歴に現れないので、
+  //   〔生徒の発言①〕→〔問題の配信〕→〔生徒の発言②〕
+  // という流れのとき、AI からは配信が見えず **②を①の続き**だと誤解していた。
+  // 実際には②は「いま届いた問題」についてであることが多い。
+  // 配信時刻（`sentAtMs`）と AI の最終返信（`aiChat.lastChatAt`）を比べて、
+  // **配信のほうが後なら**その事実を明示する。
+  const sentAtMs = typeof q.sentAtMs === 'number' ? q.sentAtMs : null;
+  // Firestore の Timestamp は toMillis() を持つが、テストや古いデータでは
+  // { seconds } だけのこともあるので両方受ける。
+  const rawLastChat = userData?.aiChat?.lastChatAt as
+    | { toMillis?: () => number; seconds?: number }
+    | undefined;
+  const lastChatAtMs =
+    typeof rawLastChat?.toMillis === 'function'
+      ? rawLastChat.toMillis()
+      : typeof rawLastChat?.seconds === 'number'
+        ? rawLastChat.seconds * 1000
+        : null;
+  const deliveredAfterLastReply =
+    sentAtMs !== null && lastChatAtMs !== null && sentAtMs > lastChatAtMs;
+
+  const orderNote = deliveredAfterLastReply
+    ? `
+
+# ⚠️ 会話の順番（重要）
+` +
+      `**あなたが最後に返信したあとに、公式LINEがこの問題を送っている。**
+` +
+      `つまり、いま届いたメッセージは「あなたの前の返信への返事」ではなく、` +
+      `**この問題についての話**である可能性が高い（「わからない」「これ習ってない」` +
+      `「なんで？」「2番？」など）。まずそう解釈して答える。
+` +
+      `⚠️ ただし決めつけない。明らかに別の話題なら、そちらに答える。`
+    : '';
+
   const choices = q.choices.map((c, i) => `${i + 1}. ${c}`).join(' / ');
   const correct =
     q.choices[q.correctChoiceId] !== undefined
@@ -1071,6 +1228,7 @@ function buildLastQuestionContext(userData: UserDoc | undefined): string {
     `- 問題: ${q.text}\n` +
     `- 選択肢: ${choices}\n` +
     `- 正解（ヒントを作るための参考。本人にそのまま言わない）: ${correct}\n` +
-    `- 解説（同上）: ${q.explanation}`
+    `- 解説（同上）: ${q.explanation}` +
+    orderNote
   );
 }

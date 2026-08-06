@@ -16,6 +16,7 @@ import {
   pickScopeNudgeVariant,
   type PremiumNudgeReason,
 } from './lineWebhook';
+import { appendAiEvent } from './aiLearningContextCore';
 import { linkRichMenuForUser } from './lineRichMenu';
 import { recordPushDelivery } from './deliveryStats';
 import { logServerFunnelEvent } from './funnelEvent';
@@ -714,6 +715,17 @@ export const onAnswerCreated = functions
         const userUpdates: Record<string, unknown> = {
           stats: statsPatch,
           lastAnsweredAt: FieldValue.serverTimestamp(),
+          // AI チャットへ「webhook 側で何を解いたか」を橋渡しする（2026-08-06）。
+          // これが無いと AI は直近に出した問題1件しか知らず、解いたのか・
+          // 合っていたのかすら分からないまま会話することになる。
+          // **この transaction は userData を既に読んでいるので追加 read は無く、
+          // 書き戻しも同じ tx.set に相乗りするので write も増えない。**
+          aiEvents: appendAiEvent(userData.aiEvents, {
+            t: Date.now(),
+            k: 'answer',
+            ...(topic ? { topic } : {}),
+            ok: isCorrect,
+          }),
         };
 
         const currentStatus =

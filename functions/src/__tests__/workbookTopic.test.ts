@@ -6,6 +6,9 @@ import {
   findWorkbookInputQuestion,
   normalizeTermAnswer,
   judgeTermAnswer,
+  stripAnswerPrefix,
+  classifyWorkbookInput,
+  hasAnswerPrefix,
 } from '../workbookTopic';
 import { WORKBOOK_QUESTION_INDEX } from '../generated/workbook-question-index.generated';
 import { WORKBOOK_INPUT_INDEX } from '../generated/workbook-input-questions.generated';
@@ -173,5 +176,89 @@ describe('normalizeTermAnswer / judgeTermAnswer', () => {
     expect(judgeTermAnswer('シルク', kinu)).toBe(true);
     expect(judgeTermAnswer('きぬ', kinu)).toBe(true);
     expect(judgeTermAnswer('綿', kinu)).toBe(false);
+  });
+});
+
+describe('stripAnswerPrefix / hasAnswerPrefix（解答の接頭辞）', () => {
+  it('「答え：」を取り除く（全角コロン）', () => {
+    expect(stripAnswerPrefix('答え：紀元前は数字が大きいほど昔になる。')).toBe(
+      '紀元前は数字が大きいほど昔になる。'
+    );
+  });
+
+  it('半角コロン・ひらがな表記にも対応する', () => {
+    expect(stripAnswerPrefix('答え:大きな川の近くだから')).toBe(
+      '大きな川の近くだから'
+    );
+    expect(stripAnswerPrefix('こたえ：太陽暦')).toBe('太陽暦');
+    expect(stripAnswerPrefix('こたえ:太陽暦')).toBe('太陽暦');
+  });
+
+  it('接頭辞のうしろの空白も落とす', () => {
+    expect(stripAnswerPrefix('答え：　 大宝律令 ')).toBe('大宝律令');
+  });
+
+  it('接頭辞が無いテキストはそのまま（前後の空白だけ落とす）', () => {
+    expect(stripAnswerPrefix('  大宝律令  ')).toBe('大宝律令');
+  });
+
+  it('取り除くのは1回だけ（本文に「答え：」が含まれても壊さない）', () => {
+    expect(stripAnswerPrefix('答え：答え：は接頭辞です')).toBe(
+      '答え：は接頭辞です'
+    );
+  });
+
+  it('接頭辞だけのときは空文字（呼び出し側で書き直しを促す）', () => {
+    expect(stripAnswerPrefix('答え：')).toBe('');
+    expect(stripAnswerPrefix('答え：   ')).toBe('');
+  });
+
+  it('hasAnswerPrefix は明示的な解答かどうかを返す', () => {
+    expect(hasAnswerPrefix('答え：太陽暦')).toBe(true);
+    expect(hasAnswerPrefix('こたえ:太陽暦')).toBe(true);
+    expect(hasAnswerPrefix('ここ意味わかんない')).toBe(false);
+  });
+});
+
+describe('classifyWorkbookInput（答案 / 質問 / 中断の振り分け）', () => {
+  const ans = (t: string, mins: number | null = 1) =>
+    classifyWorkbookInput(t, { minutesSinceAsked: mins });
+
+  it('中断ワードは quit', () => {
+    expect(ans('やめる')).toBe('quit');
+    expect(ans('おわり')).toBe('quit');
+  });
+
+  it('ふつうの答案は answer', () => {
+    expect(
+      ans('大きな川の近くは土地が肥えていて農業がしやすかったから。')
+    ).toBe('answer');
+    expect(ans('太陽暦')).toBe('answer');
+  });
+
+  it('末尾が「？」なら質問', () => {
+    expect(ans('これってどういうこと？')).toBe('question');
+    expect(ans('ヒントある?')).toBe('question');
+  });
+
+  it('質問の言い回しは質問', () => {
+    expect(ans('わからない')).toBe('question');
+    expect(ans('ちょっとむずかしい')).toBe('question');
+    expect(ans('教えて')).toBe('question');
+  });
+
+  it('「答え：」が付いていれば、質問っぽくても必ず答案', () => {
+    // 本人が明示しているので判定より優先する（答案が消えないことを保証）
+    expect(ans('答え：わからない')).toBe('answer');
+    expect(ans('答え：なぜ川の近くなのか？')).toBe('answer');
+  });
+
+  it('出題から30分を過ぎたら質問（解き終えて雑談に戻っている）', () => {
+    expect(ans('太陽暦', 31)).toBe('question');
+    expect(ans('太陽暦', 30)).toBe('answer');
+  });
+
+  it('出題時刻が不明なら時間切れ判定はしない（従来どおり答案）', () => {
+    expect(ans('太陽暦', null)).toBe('answer');
   });
 });

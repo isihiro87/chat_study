@@ -112,6 +112,15 @@ export interface LastQuestionSnapshot {
   correctChoiceId: number;
   /** 解説文。 */
   explanation: string;
+  /**
+   * 公式LINE がこの問題を**送った時刻**（ms・2026-08-06 追加）。
+   *
+   * AI の会話履歴には「公式LINEが何を送ったか」が入らないため、
+   * 〔生徒の発言〕→〔問題の配信〕→〔生徒の発言②〕という順番のとき、
+   * AI からは配信が見えず**②を①の続き**と誤解していた。
+   * `aiChat.lastChatAt` と比べれば配信が AI の返信より後かが分かる。
+   */
+  sentAtMs?: number;
 }
 
 /**
@@ -132,6 +141,19 @@ export interface AiChatState {
    * 当月と異なる（未設定含む）なら、その月の最初の応答に注意書きを添える。
    */
   lastDisclaimerMonth?: string;
+  // ---- 2026-08-06 追加 ----
+  /** 当月の使用回数の基準となる JST 月（YYYY-MM）。 */
+  monthJST?: string;
+  /** 当月の使用回数（無料の月次上限＝公平性の判定に使う）。 */
+  monthCount?: number;
+  /** リセットされない通算の使用回数（計測用。`count` は日次でリセットされるため）。 */
+  totalCount?: number;
+  /** 初回利用日時（2026-08-06 以降に初めて使った人だけ入る）。 */
+  firstChatAt?: Timestamp;
+  /** 検索的想起を最後に行った JST 日（無料は1日1回まで）。 */
+  recallDateJST?: string;
+  /** AI 設定ページ（`/ai`）の案内チップを出した日時。**1人1回だけ**出す判定に使う。 */
+  personaPromptedAt?: Timestamp;
 }
 
 /**

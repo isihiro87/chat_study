@@ -11,8 +11,12 @@
  *      超過時は API を呼ばず固定文で断る（課金ゼロ）。
  *   2. 出力トークン上限・入力履歴ターン制限でトークンを抑制。
  *   3. Gemini 呼び出し成功時のみ count を消費（エラーで上限を無駄にしない）。
- *   4. **支出を `aiCostStats` に計上する**（2026-07-26〜）。free もサービス全体
- *      キャップ（②層）に載るようになり、実トークン・キャッシュヒット率が見える。
+ *   4. **支出を `aiCostStats` に計上する**（2026-07-26〜）。実トークン・
+ *      キャッシュヒット率が見える。
+ *   5. **予算ゲート**（2026-08-06〜）。①全体キャップ ②無料ティア専用キャップ
+ *      ③個人の月次回数（公平性）を `aiCostCore.evaluateFreeGate` で判定する。
+ *      ⚠️ 2026-08-06 以前は「計上はするが判定はしない」状態で、全体キャップは
+ *      free に効いていなかった（歯止めは 1日40回だけ＝1人 ¥650/月まで伸びうる）。
  *
  * 安全（2026-07-26〜）:
  *   - 決定論的な安全分類（`aiSafetyCore`）を通す。**LLM 補完分類は呼ばない**ので
@@ -28,6 +32,7 @@ import {
   getLineClient,
   CONTACT_URL,
   LIFF_UNITS_URL,
+  AI_SETTINGS_URL,
 } from './lineWebhook';
 import { buildSystemPrompt, type AiChatBotKind } from './aiChatPrompt';
 import { resolveTier } from './aiTier';
@@ -38,6 +43,7 @@ import {
   trimHistory,
   evaluateRateLimit,
   resolveFreeSafety,
+  canRecallToday,
 } from './aiChatCore';
 import { appendConcernFooter, type SafetyClass } from './aiSafetyCore';
 import { handleAiCrisis } from './aiCrisisHandler';
@@ -47,7 +53,13 @@ import {
   finishTruncated,
   splitReply,
 } from './aiReplySplit';
-import { evaluateFreeGate, parseLimits } from './aiCostCore';
+import {
+  denyMessage,
+  evaluateFreeGate,
+  parseLimits,
+  type CostLimits,
+  type GateDecision,
+} from './aiCostCore';
 import {
   buildIntentQuickReply as buildIntentQuickReplyPure,
   buildFallbackQuickReply as buildFallbackQuickReplyPure,
@@ -60,6 +72,11 @@ import type { AiProfile } from './aiProfileCore';
 
 /** Gemini の出力トークン上限。LINE で読める長さに抑える。 */
 const MAX_OUTPUT_TOKENS = 500;
+/**
+ * 無料ティアの想起で走査する要約索引の件数上限（既定の 60 から絞る）。
+ * 想起は1日1回だけだが、3,000人ぶんの read を積むと効いてくるため。
+ */
+const FREE_DIGEST_QUERY_LIMIT = 20;
 /**
  * 単発生成（`generateGeminiText`）の入力トークン上限。
  * 従来は無制限だったため、実害が出ない大きさで頭を押さえるだけの値にする
@@ -87,14 +104,28 @@ const AI_DISCLAIMER_TEXT =
  * いるので、モジュール評価時に読むと初期化順に依存してしまう。
  */
 function quickReplyUrls(): QuickReplyUrls {
-  return { units: LIFF_UNITS_URL, contact: CONTACT_URL };
+  return {
+    units: LIFF_UNITS_URL,
+    contact: CONTACT_URL,
+    aiSettings: AI_SETTINGS_URL,
+  };
 }
 
-/** 話題に応じたワンタップ導線（テキスト入力時のみ・追いコストなし）。 */
+/**
+ * 話題に応じたワンタップ導線（テキスト入力時のみ・追いコストなし）。
+ * `modelText` を渡すと **AI が案内した操作**もボタン化する（2026-08-06）。
+ */
 export function buildIntentQuickReply(
-  userText: string
+  userText: string,
+  modelText?: string,
+  includeAiSettings = false
 ): AiQuickReply | undefined {
-  return buildIntentQuickReplyPure(userText, quickReplyUrls());
+  return buildIntentQuickReplyPure(
+    userText,
+    quickReplyUrls(),
+    modelText,
+    includeAiSettings
+  );
 }
 
 /** AI が使えないとき（上限到達・生成エラー）の導線。 */
@@ -208,12 +239,21 @@ export async function handleAiChatWith(
   const todayJst = getJstDate(new Date());
 
   const aiChat = userData?.aiChat;
-  const { currentCount, limited } = evaluateRateLimit(aiChat, todayJst, limit);
+  const { currentCount, limited, currentMonthCount } = evaluateRateLimit(
+    aiChat,
+    todayJst,
+    limit
+  );
 
   // AI 注意書きを出すか: 初回利用 or 当月まだ出していない（毎月最初のやり取り）。
   // todayJst は "YYYY-MM-DD" なので先頭7文字が "YYYY-MM"（JST 基準の当月）。
   const currentMonth = todayJst.slice(0, 7);
   const needsDisclaimer = aiChat?.lastDisclaimerMonth !== currentMonth;
+
+  // AI 設定ページ（`/ai`）の案内を出すか。**1人につき1回だけ**（2026-08-06〜）。
+  // 「AI の名前や話し方を自分で決められる」ことは言われないと気づけない一方、
+  // 毎回出すとうるさい。最初の応答にだけチップを添える。
+  const needsPersonaPrompt = !aiChat?.personaPromptedAt;
 
   // ===== ティア分岐（この1箇所のみ）=====
   // つづもん（有料）の課金者・体験者は個別サポート用のパイプラインへ委譲する。
@@ -242,6 +282,8 @@ export async function handleAiChatWith(
         needsDisclaimer,
         disclaimerText: AI_DISCLAIMER_TEXT,
         quickReply: hasMedia ? undefined : buildIntentQuickReply(trimmed),
+        // 注: paid は応答生成が aiPaidChat 側なので、AI 応答由来のチップは
+        //     あちらで組む（ここでは発話由来のみ）。
       });
       return;
     } catch (error) {
@@ -298,24 +340,63 @@ export async function handleAiChatWith(
   // 3. 履歴（プラン downgrade に備え送信側でもトリミング）。
   const priorHistory = trimHistory(aiChat?.history ?? [], maxTurns);
 
-  // 4. 生成。`llmProvider` 経由にすることで実トークン・円換算が取れ、
-  //    支出がサービス全体キャップ（②層）に載る（requirements.md R5〜R7）。
-  //    悩み相談（concern）は用途を counsel にする。モデルは既定では最安のままで、
-  //    `LLM_MODEL_FREE_COUNSEL` を設定したときだけ1段上がる（env オプトイン）。
+  // 3-b. 検索的想起（2026-08-06〜・無料にも開放／**1日1回まで**）。
+  //   直近20ターンより前の話は履歴から落ちるが、原文は `aiThreads` に残っている。
+  //   「前に話した◯◯」のように過去を指されたときだけ、要約索引を照合して
+  //   該当セグメントの原文を引き戻す。トリガーが無ければ Firestore も触らない。
+  const recallAllowed = canRecallToday(aiChat, todayJst);
+  const recallContext = recallAllowed
+    ? await buildFreeRecall(uid, promptText)
+    : '';
+  const usedRecall = recallContext !== '';
+
+  // 4. 用途の決定。悩み相談（concern）は counsel にする。モデルは既定では
+  //    最安のままで、`LLM_MODEL_FREE_COUNSEL` を設定したときだけ1段上がる。
   const purpose: LlmPurpose = safety === 'concern' ? 'counsel' : 'chat';
+
+  // 5. 予算ゲート（2026-08-06〜）。
+  //    ここまで free は**計上だけして判定していなかった**ため、全体キャップが
+  //    効かず、歯止めは「1人1日40回」だけだった。無料にも全体キャップ＋
+  //    無料ティア専用キャップ＋個人の月次回数を通す（`aiCostCore.evaluateFreeGate`）。
+  //    Firestore read は TTL 60秒キャッシュ越しなので、増えても 1 read/ターン以下。
+  const limits = parseLimits(env);
+  const gate = await resolveFreeGate({
+    purpose,
+    limits,
+    userMonthCount: currentMonthCount,
+    now,
+  });
+  if (gate.kind === 'deny') {
+    console.warn(
+      `[aiChat] free denied uid=${uid.slice(0, 16)}… reason=${gate.reason}` +
+        ` (LLM は呼ばない＝課金ゼロ)`
+    );
+    if (gate.notifyAdmin) await notifyFreeCapReached(gate.reason, now);
+    try {
+      // AI 以外（1問解く・苦手を復習・じっくり学ぶ）は上限と無関係に使えるので、
+      // 会話をここで終端させずそちらへ逃がす。
+      await replyWith(client, replyToken, denyMessage(gate.reason), {
+        quickReply: buildFallbackQuickReply(),
+      });
+    } catch (error) {
+      console.error('[aiChat] deny reply failed:', error);
+    }
+    return; // count は消費しない（API を叩いていない）
+  }
+
+  // 6. 生成。`llmProvider` 経由にすることで実トークン・円換算が取れ、
+  //    支出が全体キャップ（②層）と無料ティアのサブキャップに載る。
   let answer: string;
   let truncated = false;
   try {
     const { generateText, createGrant } = await import('./llmProvider');
-    const grant = createGrant(
-      'free',
-      evaluateFreeGate(purpose, parseLimits(env))
-    );
+    const grant = createGrant('free', gate);
     const result = await generateText({
       purpose,
       grant,
       // 話題に合うブロックだけ注入する（入力トークンとコストを削る）。
-      system: buildSystemPrompt(userData, botKind, { promptText }),
+      system:
+        buildSystemPrompt(userData, botKind, { promptText }) + recallContext,
       history: priorHistory,
       userText: promptText,
       media,
@@ -358,17 +439,21 @@ export async function handleAiChatWith(
     return; // count は消費しない
   }
 
-  // 5. 応答の仕上げ。
+  // 7. 応答の仕上げ。
   //    - 出力上限で切れていたら未完の文を落として「つづき」を促す
   //    - 悩み相談なら大人につなげる一文をコード側で必ず付ける
   if (truncated) answer = finishTruncated(answer);
   if (safety === 'concern') answer = appendConcernFooter(answer);
 
-  // 6. 返信。初回・毎月最初のやり取りでは AI 注意書きを先頭に添えて送る。
+  // 8. 返信。初回・毎月最初のやり取りでは AI 注意書きを先頭に添えて送る。
   // 話題に応じたワンタップ導線を最後のメッセージに Quick Reply で添える
   // （テキスト入力時のみ・追いコストなし）。長い応答は吹き出しを分ける。
   try {
-    const quickReply = hasMedia ? undefined : buildIntentQuickReply(trimmed);
+    // AI が案内した操作もボタンにする（`answer` を渡す）。
+    // 「範囲を設定しよう」と言われたのにボタンが無い、という取りこぼしを無くす。
+    const quickReply = hasMedia
+      ? undefined
+      : buildIntentQuickReply(trimmed, answer, needsPersonaPrompt);
     const messages = buildReplyMessages(splitReply(answer), {
       quickReply,
       leadingText: needsDisclaimer ? AI_DISCLAIMER_TEXT : undefined,
@@ -382,7 +467,7 @@ export async function handleAiChatWith(
     return; // 返信できなければ count も履歴も更新しない
   }
 
-  // 7. count++ ＋ 履歴追記 ＋ 当月の注意書き表示済みを書き戻し（成功時のみ）。
+  // 9. count++ ＋ 履歴追記 ＋ 当月の注意書き表示済みを書き戻し（成功時のみ）。
   const newHistory = trimHistory(
     [
       ...priorHistory,
@@ -399,6 +484,26 @@ export async function handleAiChatWith(
         aiChat: {
           dateJST: todayJst,
           count: newCount,
+          // ---- 通算カウンタ（2026-08-06〜・計測のため）----
+          // `count` は JST 日付が変わるたび 0 に戻る（＝最終利用日ぶんしか残らない）。
+          // そのため「7月のAIチャット呼び出し回数 1,641回」のような集計は**すべて
+          // 下限値**にしかならず、改善の効果を測れなかった。
+          // リセットされない通算値をここで持つ。**write は増えない**（同じ set）。
+          totalCount: FieldValue.increment(1),
+          // 初回利用日。まだ一度も使っていない人にだけ書く（以後は上書きしない）。
+          ...(aiChat ? {} : { firstChatAt: FieldValue.serverTimestamp() }),
+          // 月次カウント（公平性の上限用）。日次と同じ set に相乗りするので
+          // 3,000人ぶんの write は増えない。月が変われば 0 から数え直す。
+          monthJST: currentMonth,
+          monthCount: currentMonthCount + 1,
+          // 当日ぶんの想起を使い切ったことを記録（使ったときだけ更新する）。
+          ...(usedRecall ? { recallDateJST: todayJst } : {}),
+          // AI 設定ページの案内は1人1回だけ。出したことを記録する。
+          // ⚠️ メディア送信時はチップを付けないので、そのときは記録もしない
+          //    （次のテキスト応答で必ず1回出す）。
+          ...(needsPersonaPrompt && !hasMedia
+            ? { personaPromptedAt: FieldValue.serverTimestamp() }
+            : {}),
           history: newHistory,
           lastChatAt: FieldValue.serverTimestamp(),
           // 当月分の注意書きは表示済みにする（needsDisclaimer に関わらず冪等）。
@@ -412,7 +517,41 @@ export async function handleAiChatWith(
     console.error('[aiChat] state write failed:', error);
   }
 
-  // 8. 軽量プロフィール記憶の抽出（返信後・N ターンに1回だけ）。
+  // 10. 全会話アーカイブへ追記（2026-08-06〜・無料にも開放）。
+  //    `users/{uid}.aiChat.history` は直近20ターンで古いものから消えるが、
+  //    こちらは**消さずに永続保存**する（`aiThreads/{uid}/segments/{seq}`）。
+  //
+  //    なぜ無料にも入れるか:
+  //      - 保存は安い（1ターン 1read+1write ≒ 月¥1未満／3,000人ぶん）。
+  //        高いのは「毎ターン思い出すこと」であって「覚えておくこと」ではない。
+  //      - 記憶が貯まっていないと、あとでプレミアムを始めても思い出す中身が無い。
+  //        **今から貯め始めることに価値がある。**
+  //    返信後に呼ぶので、失敗しても会話は成立する（appendTurn は throw しない）。
+  try {
+    const { appendTurn } = await import('./aiThreadStore');
+    await appendTurn({
+      uid,
+      userText: historyUserText,
+      modelText: answer,
+      now,
+    });
+  } catch (error) {
+    console.error('[aiChat] thread archive failed:', error);
+  }
+
+  // 10-b. セグメント要約（想起の検索インデックス）を作る。
+  //    100メッセージ（＝50ターン）たまってセグメントが閉じたときだけ走るので、
+  //    ふつうの無料ユーザーではめったに発生しない（発生しても最安モデルで
+  //    1回 約¥0.5）。**これが無いと `aiThreads` に貯めても引き当てられない。**
+  //    uid は渡すが tier:'free' なのでユーザー予算には計上しない（全体キャップのみ）。
+  try {
+    const { generatePendingDigests } = await import('./aiDigest');
+    await generatePendingDigests({ uid, now, env, tier: 'free' });
+  } catch (error) {
+    console.error('[aiChat] digest generation failed:', error);
+  }
+
+  // 11. 軽量プロフィール記憶の抽出（返信後・N ターンに1回だけ）。
   //    ユーザーはもう待っていないので、失敗しても会話は成立する。
   try {
     const { shouldExtractProfile, extractAndSaveProfile } =
@@ -435,6 +574,121 @@ export async function handleAiChatWith(
   // 消費しない。deliveryStats（push 配信枠モニター）には記録しない。
   // 利用量は users/{uid}.aiChat.count、コストは aiCostStats/{YYYY-MM}（byTier.free）
   // で把握する。
+}
+
+/**
+ * 無料ティアの検索的想起（過去会話の引き戻し）。
+ *
+ * 直近ウィンドウ（20ターン）から落ちた会話は `aiThreads` に原文が残っているので、
+ * 「前に話した◯◯」のように過去を指されたときだけ、要約索引（digests）を照合して
+ * 該当セグメントを引き戻す。
+ *
+ * ## read を増やさないための3段構え
+ * 1. **呼び出し側で1日1回に制限**（`canRecallToday`）。ここへ来る時点で当日未使用。
+ * 2. **トリガー検出は決定論・ゼロコスト**（`detectRecallIntent`）。
+ *    過去参照の言い回しが無ければ Firestore に一切触らずに返る。
+ * 3. digests は `limit` 付きで引き、原文は選ばれた**最大2件だけ** `doc().get()`。
+ *
+ * 失敗しても会話は続く（空文字を返すだけ）。
+ */
+async function buildFreeRecall(uid: string, userText: string): Promise<string> {
+  try {
+    const { detectRecallIntent, pickRecallSegments, buildRecallContext } =
+      await import('./aiRecallCore');
+    const intent = detectRecallIntent(userText);
+    if (!intent.needed) return ''; // ← ここで大半は Firestore を触らずに終わる
+
+    const { loadDigests, loadSegments } = await import('./aiThreadStore');
+    // 無料は索引の走査幅も絞る（既定60→20）。read 規律。
+    const digests = await loadDigests({ uid, limit: FREE_DIGEST_QUERY_LIMIT });
+    if (digests.length === 0) return '';
+
+    const seqs = pickRecallSegments(intent.hints, digests);
+    if (seqs.length === 0) return '';
+
+    const segments = await loadSegments({ uid, seqs });
+    console.log(
+      `[aiChat] free recall via=${intent.via} seqs=${seqs.join(',')} uid=${uid.slice(0, 16)}…`
+    );
+    return buildRecallContext(
+      segments.map((seg) => ({ seq: seg.seq, messages: seg.messages }))
+    );
+  } catch (error) {
+    console.error('[aiChat] free recall failed:', error);
+    return '';
+  }
+}
+
+/**
+ * 無料ティアの予算ゲートを解決する。
+ *
+ * 全体・ティア別の集計は `aiCostStats/{YYYY-MM}` の TTL キャッシュ（60秒）越しに
+ * 読むので、追加 Firestore read は最大でも 1回/ターン（多くはキャッシュヒットで 0）。
+ *
+ * ⚠️ **集計が読めなくても free は止めない**（paid とは逆）。free は最安モデル固定で
+ * 「1人1日40回」が先に効くため、読めない数分間の想定損失は数十円にとどまる。
+ * 一方 deny に倒すと 3,000人の AI が一斉に沈黙する＝損失が非対称。
+ * 判定の詳細は `aiCostCore.evaluateFreeGate` の doc コメント。
+ */
+async function resolveFreeGate(opts: {
+  purpose: LlmPurpose;
+  limits: CostLimits;
+  userMonthCount: number;
+  now: Date;
+}): Promise<GateDecision> {
+  let global: {
+    monthJpy: number | undefined;
+    dayJpy: number | undefined;
+    freeMonthJpy: number | undefined;
+    freeDayJpy: number | undefined;
+  };
+  try {
+    const { loadGlobalCost } = await import('./aiCostStore');
+    global = await loadGlobalCost(opts.now);
+  } catch (error) {
+    console.warn(
+      '[aiChat] global cost unavailable; allowing free turn (see evaluateFreeGate):',
+      error
+    );
+    global = {
+      monthJpy: undefined,
+      dayJpy: undefined,
+      freeMonthJpy: undefined,
+      freeDayJpy: undefined,
+    };
+  }
+  return evaluateFreeGate({
+    purpose: opts.purpose,
+    limits: opts.limits,
+    state: {
+      globalMonthJpy: global.monthJpy,
+      globalDayJpy: global.dayJpy,
+      freeMonthJpy: global.freeMonthJpy,
+      freeDayJpy: global.freeDayJpy,
+      userMonthCount: opts.userMonthCount,
+    },
+  });
+}
+
+/**
+ * 全体・無料ティアのキャップに当たったことを運営へ通知する（スロットル付き）。
+ * これが出たら「無料の利用が想定を超えた」合図なので、env で上限を上げるか
+ * 原因（暴走・新機能の想定外利用）を調べる。
+ */
+async function notifyFreeCapReached(reason: string, now: Date): Promise<void> {
+  try {
+    const { notifyAdminsThrottled } = await import('./adminNotify');
+    await notifyAdminsThrottled(
+      `ai_cost:free:${reason}`,
+      `⚠️ 無料AIチャットが上限に達しました（${reason}）\n` +
+        `無料ユーザーへの AI 応答を停止しています。\n` +
+        `確認: aiCostStats/${now.toISOString().slice(0, 7)} の byTier.free / byTierDay\n` +
+        `調整: functions/.env の AI_FREE_MONTHLY_CAP_JPY / AI_FREE_DAILY_CAP_JPY`,
+      now.getTime()
+    );
+  } catch (error) {
+    console.error('[aiChat] free cap notify failed:', error);
+  }
 }
 
 /**

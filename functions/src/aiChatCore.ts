@@ -18,9 +18,14 @@ export const DAILY_LIMIT = 40;
  * 釈明する事故が実会話で確認されたため（flash-lite の入力コストは十分小さい）。
  * 2026-07-26: さらに 6→10。同じ事故が6ターンでも起きるため。増える入力は
  * `aiChatPrompt` の話題別ブロック化（毎ターン全量送信をやめた分）で相殺している。
+ * 2026-08-06: 10→20。「数回前の話を忘れる」がユーザー体感の最大の不満だった。
+ *   - 増える入力は約1,500トークン＝**+¥0.06/ターン**（最安モデル）。
+ *     無料全体でも月 +¥80 程度で、無料ティアキャップ（月¥3,000）に対して十分小さい。
+ *   - user doc のサイズは 40メッセージ ≒ 8KB（1MB 上限に対して余裕）。
+ *   - **これは短期記憶。長期記憶は `aiThreads` のアーカイブが担う**（`appendTurn`）。
  * ⚠️ `llmModelResolver.FREE_HISTORY_TURNS` と同値に保つこと。
  */
-export const FREE_HISTORY_TURNS = 10;
+export const FREE_HISTORY_TURNS = 20;
 /** トライアル・プレミアムで保持する会話ターン数。 */
 export const PREMIUM_HISTORY_TURNS = 10;
 
@@ -77,18 +82,54 @@ export function resolveFreeSafety(userText: string): SafetyClass {
 export interface AiChatCountState {
   dateJST?: string;
   count?: number;
+  /** 集計対象の JST 月（YYYY-MM）。当月と違えば月次カウントは 0 扱い */
+  monthJST?: string;
+  /** 当月の使用済み回数（2026-08-06〜。無い場合は 0 から数え始める） */
+  monthCount?: number;
+  /** 検索的想起を最後に行った JST 日（YYYY-MM-DD） */
+  recallDateJST?: string;
+}
+
+/**
+ * 無料ティアで検索的想起（過去会話の引き戻し）を行ってよいか。
+ *
+ * **1日1回まで**に絞る。想起は「digests を引く（最大20 read）＋原文を引く（最大2 read）
+ * ＋プロンプトが数千トークン増える」ので、会話のたびに走らせると無料の枠を
+ * 一気に食う。有料は毎ターン判定してよいが、無料はここで差をつける
+ * （＝記憶は全員に残し、**思い出す深さ**で差をつけるという方針）。
+ *
+ * 判定はトリガー検出（`aiRecallCore.detectRecallIntent`）の**前**に置くこと。
+ * 当日ぶんを使い切っていれば、検出も Firestore アクセスも行わない。
+ */
+export function canRecallToday(
+  state: AiChatCountState | undefined,
+  todayJst: string
+): boolean {
+  return state?.recallDateJST !== todayJst;
 }
 
 /**
  * レート制限の判定。JST 日付が変わっていれば当日カウントは 0 に戻る。
- * @returns currentCount: 当日の使用済み回数 / limited: 上限到達済みか
+ *
+ * 月次カウントも同時に返す（2026-08-06〜）。**月次の上限判定はここではなく
+ * `aiCostCore.evaluateFreeGate` が行う**（無料の上限判定を1箇所に集めるため）。
+ * ここは「いま何回目か」を数えるだけに留める。
+ *
+ * 月次カウントを `users/{uid}.aiChat` に同居させているのは、日次カウントの
+ * 書き戻しと**同じ1回の set に相乗りできる**ため（3,000人ぶんの write を増やさない）。
+ *
+ * @returns currentCount: 当日の使用済み回数 / limited: 当日上限に到達済みか
+ *          / currentMonthCount: 当月の使用済み回数
  */
 export function evaluateRateLimit(
   state: AiChatCountState | undefined,
   todayJst: string,
   limit: number
-): { currentCount: number; limited: boolean } {
+): { currentCount: number; limited: boolean; currentMonthCount: number } {
   const sameDay = state?.dateJST === todayJst;
   const currentCount = sameDay ? (state?.count ?? 0) : 0;
-  return { currentCount, limited: currentCount >= limit };
+  // "YYYY-MM-DD" の先頭7文字が JST の当月。
+  const sameMonth = state?.monthJST === todayJst.slice(0, 7);
+  const currentMonthCount = sameMonth ? (state?.monthCount ?? 0) : 0;
+  return { currentCount, limited: currentCount >= limit, currentMonthCount };
 }

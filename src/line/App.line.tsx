@@ -59,6 +59,11 @@ const TestRangePage = lazyWithRetry(() =>
     default: m.TestRangePage,
   }))
 );
+const AiSettingsPage = lazyWithRetry(() =>
+  import('../pages/AiSettingsPage').then((m) => ({
+    default: m.AiSettingsPage,
+  }))
+);
 const LiffReportPage = lazyWithRetry(() =>
   import('../pages/LiffReportPage').then((m) => ({ default: m.LiffReportPage }))
 );
@@ -138,6 +143,9 @@ function LineAuthGuard() {
         {/* 出題範囲設定: LIFF を廃止し通常ブラウザページ /scope へ置き換え。
             旧 LIFF endpoint(/liff/scope) に来た場合も /scope へリダイレクト。 */}
         <Route path="/scope" element={<TestRangePage />} />
+        {/* AI チャットボットの設定（名前・呼び名・話し方・知っておいてほしいこと）。
+            /scope と同じく LIFF ではなく LINE Login OAuth で認証する。 */}
+        <Route path="/ai" element={<AiSettingsPage />} />
         <Route path="/liff/scope" element={<Navigate to="/scope" replace />} />
         <Route path="/liff/report" element={<LiffReportPage />} />
         <Route path="/liff/settings" element={<LiffSettingsPage />} />

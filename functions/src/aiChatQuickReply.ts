@@ -27,6 +27,22 @@ export interface QuickReplyUrls {
   units: string;
   /** お問い合わせの LIFF URL */
   contact: string;
+  /** AI 設定ページ（`/ai`）。1回だけ出す案内チップに使う */
+  aiSettings?: string;
+}
+
+/**
+ * AI 設定ページ（`/ai`）への案内チップ。
+ *
+ * **1人につき1回だけ**、AI からの最初の応答に添える（`aiChat.personaPromptedAt`）。
+ * 「AI の名前や話し方を自分で決められる」ことは、言われないと気づけない。
+ * かといって毎回出すとうるさいので、最初の1回に絞る。
+ */
+export function chipAiSettings(url: string): QuickReplyItem {
+  return {
+    type: 'action',
+    action: { type: 'uri', label: '🤖 AIの性格設定', uri: url },
+  };
 }
 
 /** 「1問解く」（postback は `lineWebhook.handlePostback` に実在するもの）。 */
@@ -64,15 +80,15 @@ export function chipDeepStudy(unitsUrl: string): QuickReplyItem {
 }
 
 /**
- * 話題から Quick Reply を組む。上から順に詰めて最大3件。
+ * **ユーザーの発話**から候補チップを組む（順序＝優先度）。
  *
  * 2026-07-26: 検出する意図を3種から8種に拡充（苦手復習・じっくり学ぶ・
  * 配信おやすみ/再開・お問い合わせ）。
  */
-export function buildIntentQuickReply(
+function intentItemsFromUserText(
   userText: string,
   urls: QuickReplyUrls
-): AiQuickReply | undefined {
+): QuickReplyItem[] {
   const items: QuickReplyItem[] = [];
 
   if (
@@ -160,6 +176,140 @@ export function buildIntentQuickReply(
     });
   }
 
+  return items;
+}
+
+/**
+ * **AI が案内した操作**を拾うためのパターン（2026-08-06 追加）。
+ *
+ * 従来はユーザーの発話だけを見ていたため、
+ * 「テストが近いんだけど何すればいい？」→ AI が『出題範囲設定で範囲を決めよう』と
+ * 案内しても、発話に「範囲」が無いのでボタンが出なかった。実会話でも
+ * **「AI が正しく操作を案内してもユーザーがその操作をしない」取りこぼしが最大の損失**
+ * だったので、AI の応答からもボタンを出す。
+ *
+ * ⚠️ **実在するボタン名をそのまま書いたときだけ**拾う。ユーザー発話と同じ緩い
+ * 正規表現をかけると、説明文に出てきただけの「問題」などで誤爆する。ここは表記を
+ * 絞って精度を優先する（`aiChatPrompt` のサービス知識に載っている名前と揃えること）。
+ *
+ * ⚠️ 実行するのは**既存の postback ハンドラ**。AI が直接 Firestore を書くことは無いので、
+ * 「範囲設定は確認タップ必須」という設計方針（誤設定＝配信ゼロ）を満たしたまま、
+ * 会話から操作へつなげられる。
+ */
+const MODEL_ACTION_RULES: ReadonlyArray<{
+  re: RegExp;
+  build: (urls: QuickReplyUrls) => QuickReplyItem;
+}> = [
+  {
+    re: /設定変更/,
+    build: () => ({
+      type: 'action',
+      action: {
+        type: 'message',
+        label: '⚙ 設定変更をひらく',
+        text: '設定変更',
+      },
+    }),
+  },
+  {
+    re: /出題範囲設定|出題範囲を設定/,
+    build: () => ({
+      type: 'action',
+      action: {
+        type: 'postback',
+        label: '🎯 出題範囲設定',
+        data: 'type=scope_start',
+        displayText: '出題範囲設定',
+      },
+    }),
+  },
+  { re: /1問解く|一問解く|もう1問|もう一問/, build: () => chipExtraQuestion() },
+  { re: /苦手を復習|ニガテを復習/, build: () => chipWeakReview() },
+  { re: /じっくり学ぶ/, build: (urls) => chipDeepStudy(urls.units) },
+  {
+    re: /配信をおやすみ|おやすみモード/,
+    build: () => ({
+      type: 'action',
+      action: {
+        type: 'postback',
+        label: '😴 配信をおやすみ',
+        data: 'type=pause_delivery',
+        displayText: '配信をおやすみする',
+      },
+    }),
+  },
+  {
+    re: /配信を再開/,
+    build: () => ({
+      type: 'action',
+      action: {
+        type: 'postback',
+        label: '▶️ 配信を再開',
+        data: 'type=resume_delivery',
+        displayText: '配信を再開する',
+      },
+    }),
+  },
+  {
+    re: /お問い合わせ/,
+    build: (urls) => ({
+      type: 'action',
+      action: { type: 'uri', label: '📩 お問い合わせ', uri: urls.contact },
+    }),
+  },
+];
+
+/** AI の応答から、案内された操作のチップを組む。 */
+export function modelActionItems(
+  modelText: string | undefined,
+  urls: QuickReplyUrls
+): QuickReplyItem[] {
+  if (!modelText) return [];
+  return MODEL_ACTION_RULES.filter((r) => r.re.test(modelText)).map((r) =>
+    r.build(urls)
+  );
+}
+
+/** 同じボタン（label が同一）を重複させない。 */
+function dedupeItems(items: QuickReplyItem[]): QuickReplyItem[] {
+  const seen = new Set<string>();
+  const out: QuickReplyItem[] = [];
+  for (const item of items) {
+    const key = item.action.label ?? JSON.stringify(item.action);
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push(item);
+  }
+  return out;
+}
+
+/**
+ * 話題から Quick Reply を組む。上から順に詰めて最大3件。
+ *
+ * **AI が案内した操作を優先**する（2026-08-06）。AI が『出題範囲設定で決めよう』と
+ * 言っているのに、ユーザー発話由来の別チップで枠が埋まると案内が空振りするため。
+ *
+ * @param modelText AI の応答本文。省略時は従来どおりユーザー発話だけで判定する。
+ */
+export function buildIntentQuickReply(
+  userText: string,
+  urls: QuickReplyUrls,
+  modelText?: string,
+  /**
+   * AI 設定ページの案内を**先頭に1つ**入れる（1人1回だけの初回案内）。
+   * 判定は呼び出し側（`aiChat`）が `personaPromptedAt` で行う。
+   */
+  includeAiSettings = false
+): AiQuickReply | undefined {
+  const settingsChip =
+    includeAiSettings && urls.aiSettings
+      ? [chipAiSettings(urls.aiSettings)]
+      : [];
+  const items = dedupeItems([
+    ...settingsChip,
+    ...modelActionItems(modelText, urls),
+    ...intentItemsFromUserText(userText, urls),
+  ]);
   if (items.length === 0) return undefined;
   return { items: items.slice(0, MAX_QUICK_REPLY_ITEMS) };
 }

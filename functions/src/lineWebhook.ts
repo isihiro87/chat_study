@@ -66,6 +66,8 @@ import {
   getWorkbookInput,
   findWorkbookInputQuestion,
   judgeTermAnswer,
+  stripAnswerPrefix,
+  classifyWorkbookInput,
   type WorkbookKind,
 } from './workbookTopic';
 import { WORKBOOK_QUESTION_INDEX } from './generated/workbook-question-index.generated';
@@ -737,6 +739,16 @@ const LIFF_HELP_URL =
 const TEST_RANGE_SCOPE_URL =
   process.env.LINE_SCOPE_URL ??
   'https://line.chatstudy.jp/scope?openExternalBrowser=1';
+/**
+ * AI チャットボットの設定ページ（名前・呼んでほしい名前・話し方・知っておいてほしいこと）。
+ *
+ * `/scope` と同じく **LIFF ではなく通常ブラウザ + LINE Login OAuth**。
+ * `openExternalBrowser=1` で端末の既定ブラウザを開き、実績のある認証環境に載せる。
+ */
+export const AI_SETTINGS_URL =
+  process.env.LINE_AI_SETTINGS_URL ??
+  'https://line.chatstudy.jp/ai?openExternalBrowser=1';
+
 /** 「じっくり学ぶ」の LIFF URL。AI チャットの Quick Reply（`aiChat`）でも使う。 */
 export const LIFF_UNITS_URL =
   process.env.LIFF_UNITS_URL ?? 'https://liff.line.me/2009587166-LjyCza2c';
@@ -900,6 +912,19 @@ async function showThinkingIndicator(
   }
 }
 
+/**
+ * ローディング（「考え中…」）を出してはいけない postback か。
+ *
+ * chat loading は **bot の返信が届いた時点で消える**仕様なので、返信を返さない
+ * postback で出すと loadingSeconds いっぱい（最大10秒）居座る。解答の入力中に
+ * 「考え中…」が出続けるのは誤解を招くため、この種の postback では出さない。
+ */
+function isSilentPostback(event: LineEvent): boolean {
+  const data = event.postback?.data;
+  if (!data) return false;
+  return new URLSearchParams(data).get('type') === 'wb_answer';
+}
+
 async function dispatchEvent(event: LineEvent): Promise<void> {
   try {
     switch (event.type) {
@@ -910,8 +935,13 @@ async function dispatchEvent(event: LineEvent): Promise<void> {
         await handleUnfollow(event);
         return;
       case 'postback':
-        // ボタン系は数秒で返るので短め（返信到着で自動的に消える）
-        await showThinkingIndicator(event, 10);
+        // ボタン系は数秒で返るので短め（返信到着で自動的に消える）。
+        // ただし「✏️ 答えを書く」(wb_answer) だけは例外。この postback は
+        // **返信を返さず、キーボードを開くだけ**なので、ローディングを出すと
+        // 消すきっかけが無く、答えを書いている間ずっと「考え中…」が居座る。
+        if (!isSilentPostback(event)) {
+          await showThinkingIndicator(event, 10);
+        }
         await handlePostback(event);
         return;
       case 'message':
@@ -2022,6 +2052,25 @@ function buildWorkbookInputQuestionFlex(
         spacing: 'sm',
         paddingAll: '12px',
         contents: [
+          // 「いま見ているカードの問題」に解答を結びつけるボタン。
+          // タップで ①このカードの問題を解答対象として登録（awaiting を差し替え）
+          // ②「答え：」入りでキーボードを開く、を同時にやる。
+          // これが無いと、古いカードまでスクロールして答えた場合や、
+          // 別経路でカードだけ表示された場合に、**最後に配信された問題**で
+          // 採点されてズレる（2026-08-06 に実測）。
+          {
+            type: 'button',
+            style: 'primary',
+            color: '#F59E0B',
+            height: 'sm',
+            action: {
+              type: 'postback',
+              label: '✏️ 答えを書く',
+              data: `type=wb_answer&qid=${encodeURIComponent(entry.id)}`,
+              inputOption: 'openKeyboard',
+              fillInText: '答え：',
+            },
+          },
           {
             type: 'box',
             layout: 'horizontal',
@@ -2052,6 +2101,52 @@ function buildWorkbookInputQuestionFlex(
       },
     },
   } as LineMessage;
+}
+
+/**
+ * postback: type=wb_answer&qid=... — 問題カードの「✏️ 答えを書く」。
+ *
+ * **採点対象を「いま見ているカード」に固定する**のが役目。タップされた問題を
+ * `workbookSession.awaiting` に据え直し、そのうえで（`inputOption:'openKeyboard'`
+ * によって）入力欄が開く。返信は送らない（キーボードが開くだけにして、
+ * 書き始める前に吹き出しを増やさない）。
+ *
+ * 別の単元の問題をタップした場合はセッションごとその単元へ移す。`index` は
+ * その問題の次（＝紙面の n）に合わせるので、答えたあとの「次の問題」も正しく続く。
+ *
+ * 背景（2026-08-06）: 解答は従来 `awaiting` だけを見ていたため、カードだけを
+ * 表示する経路や、古いカードまでスクロールして答えた場合に、**最後に配信された
+ * 問題**で採点されてズレていた。
+ */
+export async function handleWorkbookAnswerPromptPostback(
+  uid: string,
+  params: URLSearchParams
+): Promise<void> {
+  const qid = params.get('qid');
+  if (!qid) return;
+  const lookup = findWorkbookInputQuestion(qid);
+  if (!lookup) {
+    console.warn('[lineWebhook] wb_answer: unknown qid', qid);
+    return;
+  }
+  try {
+    const { db, FieldValue } = await getDb();
+    await db.doc(`users/${uid}`).set(
+      {
+        workbookSession: {
+          topic: lookup.topicName,
+          kind: lookup.kind,
+          index: lookup.n,
+          awaiting: { qid },
+        },
+        updatedAt: FieldValue.serverTimestamp(),
+      },
+      { merge: true }
+    );
+    console.log(`[lineWebhook] wb_answer: awaiting=${qid} uid=${uid}`);
+  } catch (error) {
+    console.error('[lineWebhook] wb_answer session write failed:', error);
+  }
 }
 
 /**
@@ -2131,6 +2226,9 @@ async function sendWorkbookInputQuestion(
           mode,
           index: index + 1,
           awaiting: { qid },
+          // 出題時刻。解答待ちのテキストが「答案か雑談か」の判定に使う
+          // （classifyWorkbookInput の時間切れ判定）。
+          askedAt: Date.now(),
           ...(list.length > 0
             ? { list }
             : index === 0
@@ -2264,6 +2362,7 @@ async function prepareWorkbookNextQuestion(
       mode,
       index: nextIndex + 1,
       awaiting: { qid: entry.id },
+      askedAt: Date.now(),
       ...(list.length > 0 ? { list } : {}),
     },
     topFields: {},
@@ -2271,17 +2370,8 @@ async function prepareWorkbookNextQuestion(
   };
 }
 
-/** ワーク入力演習を途中でやめる言葉（解答と誤判定しないよう先に拾う） */
-const WORKBOOK_QUIT_WORDS = new Set([
-  'やめる',
-  'やめたい',
-  'おわる',
-  'おわり',
-  '終わる',
-  '終わり',
-  'ストップ',
-  '中断',
-]);
+// 中断ワードの判定は workbookTopic.classifyWorkbookInput へ移した
+// （答案・質問・中断を一箇所で振り分けるため）。
 
 interface WorkbookSessionData {
   topic?: string;
@@ -2292,6 +2382,8 @@ interface WorkbookSessionData {
   correct?: number;
   wrong?: Array<{ n?: number; text?: string }>;
   awaiting?: { qid?: string };
+  /** 直近の出題時刻(ms)。答案か雑談かの時間切れ判定に使う。 */
+  askedAt?: number;
   lastInput?: {
     qid?: string;
     text?: string;
@@ -2844,8 +2936,26 @@ export async function handleWorkbookTextAnswer(
   const lookup = findWorkbookInputQuestion(qid);
   const { db, FieldValue } = await getDb();
 
+  // 届いたテキストを「中断 / 答案 / 質問」に振り分ける。
+  // 従来は解答待ちなら全部が答案だったため、「ここ意味わかんない」も採点されて
+  // 0点が記録され、AI採点も1回消費していた。
+  const askedAt = typeof session.askedAt === 'number' ? session.askedAt : null;
+  const intent = classifyWorkbookInput(text, {
+    minutesSinceAsked: askedAt === null ? null : (Date.now() - askedAt) / 60000,
+  });
+
+  if (intent === 'question') {
+    // 採点せず、スタ先生に答えさせる（consumed=false で AI チャットへ落とす）。
+    // 答案として出したければ、カードの「✏️ 答えを書く」を押して送り直せばよい
+    // （awaiting はそのまま維持されるので、この判定で答案が失われることはない）。
+    console.log(
+      `[lineWebhook] workbook input → question (採点せず): uid=${uid} qid=${qid}`
+    );
+    return false;
+  }
+
   // 「やめる」等は解答ではなく中断として扱う。
-  if (WORKBOOK_QUIT_WORDS.has(text.trim())) {
+  if (intent === 'quit') {
     try {
       await db
         .doc(`users/${uid}`)
@@ -2881,7 +2991,19 @@ export async function handleWorkbookTextAnswer(
     lookup.topicName,
     WORKBOOK_QUESTION_INDEX
   );
-  const userAnswer = text.trim().slice(0, 300);
+  // 「答え：」等の接頭辞（カードのボタンが fillInText で入れる）は採点前に外す。
+  // 外さないと接頭辞ごと AI に読ませてしまい、答案の一部として採点される。
+  const userAnswer = stripAnswerPrefix(text).slice(0, 300);
+  // 接頭辞だけ送られた（本文が空）ときは採点せず、書き直しを促す。
+  if (userAnswer.length === 0) {
+    await replyTextWith(
+      client,
+      replyToken,
+      '答えの続きが空っぽみたい💦「答え：」のあとに、答えの文章を書いて送ってね。',
+      '(workbook empty answer)'
+    );
+    return true;
+  }
 
   let isCorrect = false;
   let bodyText = '';
@@ -5362,6 +5484,12 @@ async function handlePostback(event: LineEvent): Promise<void> {
     return;
   }
 
+  // 「✏️ 答えを書く」= 採点対象をこのカードの問題に固定する（返信はしない）。
+  if (type === 'wb_answer') {
+    await handleWorkbookAnswerPromptPostback(uid, params);
+    return;
+  }
+
   if (type === 'wb_iskip') {
     await handleWorkbookInputSkipPostback(
       await getLineClient(),
@@ -5444,6 +5572,19 @@ async function handlePostback(event: LineEvent): Promise<void> {
 
   if (type === 'extra_question') {
     await handleExtraQuestionPostback(uid, replyToken, params.get('src'));
+    return;
+  }
+
+  if (type === 'ai_intro') {
+    await handleAiIntroPostback(replyToken, params.get('topic'));
+    try {
+      const { logServerFunnelEvent } = await import('./funnelEvent');
+      await logServerFunnelEvent('ai_intro_tap', uid, {
+        src: params.get('src') ?? 'unknown',
+      });
+    } catch (error) {
+      console.error('[lineWebhook] ai_intro funnel log failed:', error);
+    }
     return;
   }
 
@@ -7992,6 +8133,18 @@ function buildSettingsGuideFlexMessage(deliveryPaused: boolean) {
               uri: LIFF_SETTINGS_URL,
             },
           },
+          // AI の名前・呼んでほしい名前・話し方・知っておいてほしいことを本人が決める
+          // ページ（2026-08-06 追加）。保存先は users/{uid}.aiProfile。
+          {
+            type: 'button' as const,
+            style: 'secondary' as const,
+            height: 'sm' as const,
+            action: {
+              type: 'uri' as const,
+              label: '🤖 AIの設定',
+              uri: AI_SETTINGS_URL,
+            },
+          },
           buildDeliveryPauseToggleButton(deliveryPaused),
         ],
       },
@@ -8396,12 +8549,87 @@ function buildPostAnswerNextStepFlexMessage(options: {
                   displayText: 'もう一問解く',
                 },
               },
+              // AI チャットの入口（2026-08-06 追加）。
+              // AI は「コマンドに当たらなかった自由文」のフォールバックとして
+              // 実装されているため、**存在に気づかない人が大半**だった
+              // （利用は 591UU / 3,638人＝16%）。学習の 76.6% はこの回答後 reply
+              // から始まっているので、いちばん人が居る面に入口を置く。
+              // reply 内のボタンなので**配信枠もコストも増えない**。
+              {
+                type: 'button' as const,
+                style: 'secondary' as const,
+                height: 'sm' as const,
+                action: {
+                  type: 'postback' as const,
+                  label: '🤖 AIに質問する',
+                  data: `type=ai_intro&src=post_answer${
+                    options.topicName
+                      ? `&topic=${encodeURIComponent(options.topicName)}`
+                      : ''
+                  }`,
+                  displayText: 'AIに質問する',
+                },
+              },
             ],
           },
         ],
       },
     },
   };
+}
+
+/**
+ * AI チャットの入口（`ai_intro` postback）。
+ *
+ * 「AI に何ができるのか」「どう話しかければいいのか」が分からないまま
+ * 使われていなかったので、**質問例をワンタップで送れる形**で提示する。
+ * チップは `message` アクションなので、押すとその文がそのまま送信され、
+ * 通常のフォールバック経路（`handleAiChat`）に流れる。
+ *
+ * reply で返すので配信枠は消費せず、この時点では LLM も呼ばない（課金ゼロ）。
+ */
+async function handleAiIntroPostback(
+  replyToken: string | undefined,
+  topicName: string | null
+): Promise<void> {
+  if (!replyToken) return;
+  const chips: Array<{ label: string; text: string }> = [];
+  if (topicName) {
+    // 直前に解いた単元があれば、その場で深掘りできる質問を先頭に出す。
+    const short =
+      topicName.length > 8 ? `${topicName.slice(0, 8)}…` : topicName;
+    chips.push({
+      label: `📖 ${short}を解説`,
+      text: `${topicName}について、わかりやすく教えて`,
+    });
+  }
+  chips.push(
+    { label: '🔍 私のニガテは？', text: '私のニガテな単元はどこ？' },
+    { label: '📷 宿題の写真', text: '宿題の写真を送るから教えて' },
+    { label: '💬 相談したい', text: 'ちょっと相談したいことがあるんだけど' }
+  );
+
+  await replyTextWith(
+    await getLineClient(),
+    replyToken,
+    'なんでも聞いてね🤖\n\n' +
+      '・勉強でわからないところ（教科書の内容でもOK）\n' +
+      '・ニガテな単元や、これまでの学習の記録\n' +
+      '・宿題やノートの写真を送っての質問\n' +
+      '・勉強以外の悩みや雑談\n\n' +
+      'このトークにそのまま送ってくれれば答えるよ。下のボタンから選んでもいいし、自分の言葉で書いてもいいよ😊',
+    'ai_intro',
+    {
+      items: chips.slice(0, 4).map((c) => ({
+        type: 'action' as const,
+        action: {
+          type: 'message' as const,
+          label: c.label,
+          text: c.text,
+        },
+      })),
+    } as unknown as messagingApi.QuickReply
+  );
 }
 
 /**
@@ -10863,6 +11091,10 @@ function buildLastQuestionSnapshot(
     choices: [...q.choices],
     correctChoiceId: q.correctChoiceId,
     explanation: q.explanation,
+    // 「AI の最後の返信より後に届いたか」を判定するための時刻（2026-08-06）。
+    // これが無いと AI は配信の存在に気づけず、配信直後の発言を
+    // 自分の前の返信への返事だと誤解する（`aiChatPrompt.buildLastQuestionContext`）。
+    sentAtMs: Date.now(),
   };
 }
 

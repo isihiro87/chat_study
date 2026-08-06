@@ -189,6 +189,24 @@ export function tsudumonTrialMaxDays(nowMs: number): number {
   return Math.max(base, campaignDays + 1);
 }
 
+/**
+ * いまの体験の条件を**言葉**にする。案内文・AIプロンプトはここだけを見る。
+ *
+ * キャンペーンの日付は上の定数が唯一の正で、期限を過ぎればこの文も自動で
+ * 通常運用に戻る。文言を各所に直書きすると、8/15 を過ぎても「8月15日まで無料」と
+ * 言い続けるボットが残る（切り替え忘れが起きない形にするのが目的）。
+ */
+export function tsudumonTrialOfferText(nowMs: number): string {
+  const base = `${Math.round(TSUDUMON_TRIAL_HOURS / 24)}日間（${TSUDUMON_TRIAL_HOURS}時間）無料`;
+  if (nowMs > TSUDUMON_TRIAL_CAMPAIGN_ENTRY_END_MS) return base;
+  return `いまはキャンペーン中で、8月11日までに始めれば8月15日まで無料（通常は${base}）`;
+}
+
+/** キャンペーン期間中か（案内の出し分けに使う）。 */
+export function isTsudumonTrialCampaign(nowMs: number): boolean {
+  return nowMs <= TSUDUMON_TRIAL_CAMPAIGN_ENTRY_END_MS;
+}
+
 export type TsudumonTrialEligibility = 'ok' | 'already_licensed' | 'trial_used';
 
 /**
