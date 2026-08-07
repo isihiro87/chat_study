@@ -17,6 +17,8 @@ const JST_OFFSET_MS = 9 * 60 * 60 * 1000;
 const MS_PER_DAY = 24 * 60 * 60 * 1000;
 
 /** JST の日付文字列（YYYY-MM-DD）を返す */
+import { findSuspensionGrace } from './pushSuspensionWindows';
+
 export function getJstDateString(date: Date): string {
   const jst = new Date(date.getTime() + JST_OFFSET_MS);
   return jst.toISOString().slice(0, 10);
@@ -54,29 +56,26 @@ export function daysBetweenJst(from: Date, to: Date): number {
  * ⚠️ `pushSuspension.ts` は本ファイルを import しているため、逆向きに import すると
  * 循環参照になる。定数はここに持つ。
  */
-const GRACE_SUSPENSION_START = new Date('2026-07-26T00:00:00+09:00');
-/** 配信が戻った日。ここまでに回答があった人を救済の対象にする。 */
-const GRACE_SUSPENSION_END = new Date('2026-08-01T00:00:00+09:00');
-/** 救済の対象にする「停止前の現役」の幅（日）。 */
-const GRACE_ACTIVE_WINDOW_DAYS = 30;
-/** 繰り上げ後の起点。配信再開のおしらせを送った日（JST 2026-08-03）。 */
-const GRACE_BASELINE = new Date('2026-08-03T00:00:00+09:00');
-
 /**
  * 配信停止の影響を差し引いた「実質の最終回答日時」。
  * 対象外の人はそのまま返す（＝挙動は変わらない）。
+ *
+ * ## 2026-08-08: 期間の直書きをやめ、`pushSuspensionWindows` を参照するようにした
+ * それまでは 2026-07 の停止期間がこのファイルに**直書き**された一度きりの対応で、
+ * **次に配信を止めると同じ崩壊がそのまま再発する**状態だった
+ * （7月は 64.5%＝2,395人が配信対象外になった）。
+ * これからは停止するたびに `PUSH_SUSPENSION_WINDOWS` へ1行足せば、
+ * status 判定と「おかえり」フローの両方に自動で効く。
+ *
+ * ⚠️ `pushSuspension.ts` は本ファイルを import しているため、逆向きに import すると
+ * 循環参照になる。だから定義は**何も import しない** `pushSuspensionWindows.ts` に置く。
  */
 export function effectiveLastAnsweredAt(
   lastAnsweredAt: Date | null
 ): Date | null {
   if (!lastAnsweredAt) return lastAnsweredAt;
-  const t = lastAnsweredAt.getTime();
-  const windowStart =
-    GRACE_SUSPENSION_START.getTime() - GRACE_ACTIVE_WINDOW_DAYS * MS_PER_DAY;
-  if (t >= windowStart && t < GRACE_SUSPENSION_END.getTime()) {
-    return GRACE_BASELINE;
-  }
-  return lastAnsweredAt;
+  const grace = findSuspensionGrace(lastAnsweredAt);
+  return grace ? grace.baseline : lastAnsweredAt;
 }
 
 export interface ComputeStatusInput {

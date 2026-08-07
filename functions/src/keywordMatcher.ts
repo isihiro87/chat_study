@@ -9,35 +9,68 @@
  *     誤検知してもサーバー側の挙動は「おかえり flex + 1問」だけで害が少ないため）
  */
 
-const RESTART_KEYWORDS: readonly string[] = [
+/**
+ * どこに出てきても復帰意思とみなしてよい語。
+ * 日常会話に紛れて出ることがまず無いものだけを置く。
+ */
+const STRONG_RESTART_KEYWORDS: readonly string[] = [
   '再開',
   'さいかい',
   '再会', // 「再開」の変換ミスで届く実例あり（2026-07 実会話スナップショット）
-
   'リスタート',
   'やり直し',
   'やりなおし',
-  'また',
   'また始め',
   'またやる',
+  'またやりたい',
   'もう一度',
   'もう一回',
   'もういちど',
-  '戻って',
-  '戻る',
-  '戻った',
   '戻ってきた',
   '帰ってきた',
   '久しぶり',
   'ひさしぶり',
   'ひさびさ',
-  '休んで',
-  '休んでて',
   'サボってた',
-  'ごめん',
-  '再び',
   '復活',
   'カムバック',
+] as const;
+
+/**
+ * **短いメッセージとして単独で送られたときだけ**復帰とみなす語。
+ *
+ * ⚠️ ここに入っている語は**普通の会話にも当たり前に出てくる**。部分一致で
+ * どこでも拾うと、生徒の本文が AI に届かず「おかえり！今日の1問」に
+ * すり替わる。2026-08-08 の実会話で実害を確認:
+ *
+ *   生徒:「夜今度友達と 家には入らないけど **また**見に行くんだけどだめかな？」
+ *   AI  :「おかえり！戻ってきてくれてうれしい。早速だけど今日の1問…」
+ *
+ * この生徒は同じ質問を4回送り、「話聞いてよ」「？」と訴えていた。
+ * **相談ごとが握りつぶされる**ので「害が少ない」という当初の想定は誤りだった。
+ */
+const WEAK_RESTART_KEYWORDS: readonly string[] = [
+  'また',
+  '戻って',
+  '戻る',
+  '戻った',
+  '休んで',
+  '休んでて',
+  'ごめん',
+  '再び',
+] as const;
+
+/**
+ * 弱いキーワードを復帰とみなす最大文字数。
+ * 「また」「ごめん」だけを送るような**短い一言**を想定する。
+ * 文章の一部として出てきた場合は復帰意思ではない。
+ */
+export const WEAK_RESTART_MAX_LENGTH = 10;
+
+/** 後方互換（テスト・既存参照用）。全キーワードの一覧。 */
+const RESTART_KEYWORDS: readonly string[] = [
+  ...STRONG_RESTART_KEYWORDS,
+  ...WEAK_RESTART_KEYWORDS,
 ] as const;
 
 /**
@@ -50,7 +83,12 @@ export function detectRestartIntent(text: string | undefined | null): boolean {
   if (!text) return false;
   const normalized = text.trim();
   if (normalized.length === 0) return false;
-  return RESTART_KEYWORDS.some((kw) => normalized.includes(kw));
+  if (STRONG_RESTART_KEYWORDS.some((kw) => normalized.includes(kw))) {
+    return true;
+  }
+  // 弱いキーワードは「短い一言」のときだけ。文章の一部なら復帰意思ではない。
+  if (normalized.length > WEAK_RESTART_MAX_LENGTH) return false;
+  return WEAK_RESTART_KEYWORDS.some((kw) => normalized.includes(kw));
 }
 
 /** 内部公開（テスト用） */

@@ -8,9 +8,13 @@
  * プロンプト（functions/src/aiChatPrompt.ts）を変更したら必ず一度回すこと。
  * 静的チェックは functions/src/__tests__/aiChatPrompt.test.ts（vitest・無料）。
  *
- * 実行（GEMINI_API_KEY は functions/.env から読む。1回 約20リクエスト・flash-lite）:
+ * 実行（API キーは functions/.env から読む。1回 約20リクエスト）:
  *   npx tsx scripts/eval-ai-chat.ts
- *   npx tsx scripts/eval-ai-chat.ts --only 設定変更   # ケース名でフィルタ
+ *   npx tsx scripts/eval-ai-chat.ts --only 設定変更            # ケース名でフィルタ
+ *   npx tsx scripts/eval-ai-chat.ts --model gpt-5.6-luna      # モデルを変えて比較
+ *
+ * `--model` に `gpt-*` を渡すと **本番と同じ OpenAI アダプタ**（`llmOpenai`）を
+ * 通す。無料ティアのモデル切替を検討するとき、同じケースで勝ち負けを見るため。
  */
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
@@ -250,20 +254,50 @@ const CASES: EvalCase[] = [
   },
 ];
 
+/**
+ * `functions/.env` を丸ごと `process.env` へ流し込む（既存の値は上書きしない）。
+ *
+ * ⚠️ 以前は GEMINI_API_KEY だけを抜き出していたため、`--model gpt-*` で
+ * OpenAI アダプタを通したときに `OPENAI_API_KEY` が見つからず、
+ * 全ケースが `LlmProviderNotConfiguredError` で落ちていた（2026-08-07）。
+ */
+function loadEnvFile(): void {
+  let raw: string;
+  try {
+    raw = readFileSync(ENV_FILE, 'utf8');
+  } catch {
+    return; // .env が無い環境（CI など）はそのまま process.env を使う
+  }
+  for (const line of raw.split(/\r?\n/)) {
+    const t = line.trim();
+    if (!t || t.startsWith('#')) continue;
+    const eq = t.indexOf('=');
+    if (eq < 0) continue;
+    const k = t.slice(0, eq).trim();
+    let v = t.slice(eq + 1).trim();
+    if (
+      (v.startsWith('"') && v.endsWith('"')) ||
+      (v.startsWith("'") && v.endsWith("'"))
+    ) {
+      v = v.slice(1, -1);
+    }
+    if (!(k in process.env)) process.env[k] = v;
+  }
+}
+
 function loadGeminiKey(): string {
-  if (process.env.GEMINI_API_KEY) return process.env.GEMINI_API_KEY;
-  const env = readFileSync(ENV_FILE, 'utf8');
-  const m = env.match(/^GEMINI_API_KEY=(.+)$/m);
-  if (!m) throw new Error('GEMINI_API_KEY not found (env or functions/.env)');
-  return m[1].trim();
+  loadEnvFile();
+  const key = process.env.GEMINI_API_KEY;
+  if (!key) throw new Error('GEMINI_API_KEY not found (env or functions/.env)');
+  return key;
 }
 
 async function callGemini(
   apiKey: string,
   system: string,
-  input: string
+  input: string,
+  model = process.env.GEMINI_MODEL || 'gemini-3.1-flash-lite'
 ): Promise<string> {
-  const model = process.env.GEMINI_MODEL || 'gemini-3.1-flash-lite';
   const url =
     `https://generativelanguage.googleapis.com/v1beta/models/` +
     `${encodeURIComponent(model)}:generateContent?key=${apiKey}`;
@@ -287,10 +321,43 @@ async function callGemini(
   return text;
 }
 
+/**
+ * OpenAI（`gpt-*`）で1件生成する。**本番と同じアダプタ**を通すので、
+ * リクエストの組み立て・応答の解釈が実運用とズレない。
+ */
+async function callOpenai(
+  model: string,
+  system: string,
+  input: string
+): Promise<string> {
+  const { callOpenaiAdapter } = requireCjs(
+    '../functions/src/llmOpenai.ts'
+  ) as typeof import('../functions/src/llmOpenai');
+  const out = await callOpenaiAdapter({
+    model,
+    system,
+    history: [],
+    userText: input,
+    maxOutputTokens: 500,
+    timeoutMs: 30000,
+    env: process.env as Record<string, string | undefined>,
+  });
+  if (!out.text) throw new Error('empty response');
+  return out.text;
+}
+
 async function main() {
   const onlyIdx = process.argv.indexOf('--only');
   const only = onlyIdx >= 0 ? process.argv[onlyIdx + 1] : null;
+  const modelIdx = process.argv.indexOf('--model');
+  const model =
+    modelIdx >= 0
+      ? process.argv[modelIdx + 1]
+      : process.env.GEMINI_MODEL || 'gemini-3.1-flash-lite';
+  const isOpenai = model.startsWith('gpt-');
   const apiKey = loadGeminiKey();
+  console.log(`モデル: ${model}
+`);
 
   const cases = only ? CASES.filter((c) => c.name.includes(only)) : CASES;
   let pass = 0;
@@ -303,7 +370,9 @@ async function main() {
     );
     let text: string;
     try {
-      text = await callGemini(apiKey, system, c.input);
+      text = isOpenai
+        ? await callOpenai(model, system, c.input)
+        : await callGemini(apiKey, system, c.input, model);
     } catch (e) {
       console.log(`❌ ${c.name}: API error ${String(e).slice(0, 120)}`);
       fail++;

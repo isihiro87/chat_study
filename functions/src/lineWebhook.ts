@@ -641,13 +641,58 @@ function isInitialSetupComplete(
  * 最後に問題を解いた日からこの日数以上空いているユーザーだけに、復帰キーワードで
  * 「おかえり + 1問」を返す。8 日 = 休眠（dormant）以降に相当。
  */
-const RESTART_WELCOME_MIN_INACTIVE_DAYS = 8;
+/**
+ * 「おかえり」フローを出す最小の無回答日数。
+ *
+ * ## なぜ 8 → 11 に上げたか（2026-08-08）
+ * この 8 日は**毎日配信だった頃**に決めた値で、当時は「8回ぶん配信が届いたのに
+ * 一度も解いていない」＝明らかに離れている、を意味していた。
+ * いまの配信は **登録1週間後から週2回（月・木）** なので、配信間隔は3〜4日。
+ * 8 日はおおむね「**1回ぶん解き逃しただけ**」に相当し、
+ * 週1ペースで解いている普通の生徒にも当たってしまう。
+ * 週2で3回ぶん＝11日にして、「本当に離れている人」に寄せる。
+ *
+ * ⚠️ 誤って出したときの損失は非対称。出すべき人に出せなくても AI が普通に応答する
+ * だけだが、出すべきでない人に出すと**その生徒の本文が握りつぶされる**
+ * （2026-08-08 の実会話で確認）。迷ったら出さない側に倒す。
+ *
+ * 配信頻度を変えたらこの値も見直すこと。env で調整可。
+ */
+const RESTART_WELCOME_MIN_INACTIVE_DAYS = Number(
+  process.env.RESTART_WELCOME_MIN_INACTIVE_DAYS ?? 11
+);
 
 /**
  * 復帰キーワードに「おかえり + 1問」で応答してよいユーザーか。
  * 実際に一定期間 問題を解いていない（lastAnsweredAt が閾値以上前）場合のみ true。
  * 一度も回答がない / 直近に回答している場合は false（→ AI チャットが自然に応答）。
  */
+/**
+ * 「おかえり」フローを直近に出していないか（2026-08-08 追加）。
+ *
+ * ⚠️ **これが無いと同じ人に何度でも出る。** 「おかえり＋1問」を送っても生徒が
+ * その問題に答えなければ `lastAnsweredAt` は変わらないので、8日ゲートは
+ * 通り続ける。実会話では生徒が同じ相談を4回送り、4回とも本文が AI に届かず
+ * 「おかえり！今日の1問」に置き換わっていた（「話聞いてよ」と訴えられた）。
+ *
+ * 1度出したら24時間は出さない。2通目以降は通常どおり AI へ流れる。
+ */
+function isRestartWelcomeOnCooldown(
+  userData: Record<string, unknown> | undefined,
+  now: Date
+): boolean {
+  const raw = userData?.lastRestartWelcomeAt as
+    | { toDate?: () => Date }
+    | undefined
+    | null;
+  if (!raw || typeof raw.toDate !== 'function') return false;
+  const elapsed = now.getTime() - raw.toDate().getTime();
+  return elapsed >= 0 && elapsed < RESTART_WELCOME_COOLDOWN_MS;
+}
+
+/** 「おかえり」フローを再送しない期間。 */
+const RESTART_WELCOME_COOLDOWN_MS = 24 * 60 * 60 * 1000;
+
 async function isEligibleForRestartWelcome(
   userData: Record<string, unknown> | undefined
 ): Promise<boolean> {
@@ -656,8 +701,16 @@ async function isEligibleForRestartWelcome(
     | undefined
     | null;
   if (!raw || typeof raw.toDate !== 'function') return false;
-  const { daysBetweenJst } = await import('./userStatus');
-  const inactiveDays = daysBetweenJst(raw.toDate(), new Date());
+  const { daysBetweenJst, effectiveLastAnsweredAt } =
+    await import('./userStatus');
+  // ⚠️ **配信が止まっていた期間を差し引く**（2026-08-08 追加）。
+  //    生の `lastAnsweredAt` で数えると、「配信が来なかったから解けなかった」人まで
+  //    無回答日数が伸び、離れていないのに「おかえり！」が出てしまう。
+  //    status の判定（`computeStatusFromLastAnswer`）は既にこの補正を通しているので、
+  //    こちらだけ生の値を見ているのは単純な不整合だった。
+  const effective = effectiveLastAnsweredAt(raw.toDate());
+  if (!effective) return false;
+  const inactiveDays = daysBetweenJst(effective, new Date());
   return inactiveDays >= RESTART_WELCOME_MIN_INACTIVE_DAYS;
 }
 
@@ -1172,6 +1225,9 @@ async function handleMessage(event: LineEvent): Promise<void> {
       // 「再開」で配信を戻したい明確な意図があるため、8日ゲートをバイパスする。
       if (
         detectRestartIntent(text) &&
+        // 24時間以内に「おかえり」を出していたら、もう出さずに AI へ流す。
+        // （誤検知したときに同じ人へ延々と出し続けないための歯止め）
+        !isRestartWelcomeOnCooldown(userData, new Date()) &&
         (userData?.deliveryPaused === true ||
           (await isEligibleForRestartWelcome(userData)))
       ) {
@@ -5003,6 +5059,8 @@ async function handleRestartIntent(
         statusChangedAt: FieldValue.serverTimestamp(),
         // 復帰の意思表示なので、配信一時停止（設定メニューの「おやすみ」）も解除する。
         deliveryPaused: false,
+        // 「おかえり」を出した時刻。24時間は再送しない（`isRestartWelcomeOnCooldown`）。
+        lastRestartWelcomeAt: FieldValue.serverTimestamp(),
         updatedAt: FieldValue.serverTimestamp(),
       },
       { merge: true }

@@ -108,3 +108,58 @@ describe('detectDeliveryMissingIntent - 「問題が届かない」検出', () =
     expect(detectDeliveryMissingIntent(undefined)).toBe(false);
   });
 });
+
+/**
+ * 復帰キーワードの誤検知（2026-08-08 の実会話で実害を確認）。
+ *
+ * 生徒:「夜今度友達と 家には入らないけど また見に行くんだけどだめかな？」
+ * AI  :「おかえり！戻ってきてくれてうれしい。早速だけど今日の1問…」
+ *
+ * 'また' が部分一致で拾われ、生徒の本文が AI に届かなかった。同じ質問を4回送られ
+ * 「話聞いてよ」と訴えられている。**相談ごとが握りつぶされる**ので実害は大きい。
+ */
+describe('detectRestartIntent（誤検知の防止）', () => {
+  it('文章の一部の「また」は復帰とみなさない（実会話の再現）', () => {
+    expect(
+      detectRestartIntent(
+        '夜今度友達と家には入らないけどまた見に行くんだけどだめかな？'
+      )
+    ).toBe(false);
+  });
+
+  it('日常会話に出る語で誤検知しない', () => {
+    const everyday = [
+      'また明日学校で友だちに聞いてみる',
+      'ごめん、その問題まだ解けてないんだ',
+      'この前の続きから戻るにはどうすればいい？',
+      '部活を休んでいたから勉強が遅れちゃった',
+      'また今度やってみるね、ありがとう',
+    ];
+    for (const text of everyday) {
+      expect(detectRestartIntent(text), text).toBe(false);
+    }
+  });
+
+  it('短い一言なら復帰とみなす（本来の用途）', () => {
+    expect(detectRestartIntent('また')).toBe(true);
+    expect(detectRestartIntent('ごめん')).toBe(true);
+    expect(detectRestartIntent('また！')).toBe(true);
+  });
+
+  it('明確な復帰表現は文章中でも拾う', () => {
+    expect(detectRestartIntent('しばらく休んでたけど再開したいです')).toBe(
+      true
+    );
+    expect(detectRestartIntent('久しぶりに勉強がんばろうと思って')).toBe(true);
+    expect(detectRestartIntent('またやりたいんだけどいいかな')).toBe(true);
+    expect(detectRestartIntent('もう一度やってみます')).toBe(true);
+    expect(detectRestartIntent('さいかい')).toBe(true);
+    expect(detectRestartIntent('再会')).toBe(true);
+  });
+
+  it('空・空白は false', () => {
+    expect(detectRestartIntent('')).toBe(false);
+    expect(detectRestartIntent('   ')).toBe(false);
+    expect(detectRestartIntent(undefined)).toBe(false);
+  });
+});

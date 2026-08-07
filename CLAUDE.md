@@ -338,6 +338,26 @@ Instagram 投稿の特定キーワードコメントに対する DM 自動送信
 
 **⚠️ 2026-07 配信枠ひっ迫による push 一時停止（`functions/src/pushSuspension.ts`）**: 7月分の配信枠がほぼ尽きたため、**JST 2026-08-01 00:00 まで cron / トリガ由来の push を停止**中（ユーザー指示 2026-07-26）。例外は**登録3日以内のユーザー**（`NEW_USER_PUSH_DAYS=3`）だけで、新規のオンボ体験は守る。止まるのは dailyQuiz / Win-back / オンボ未完了リマインド day7 / 回答後ナッジ / 月末レポート招待。**reply 経路（1問解く・苦手復習・範囲設定・AIチャット）とつづもんBot（別チャネル＝別枠）は無関係**。期間を過ぎれば自動で通常配信に戻る。「問題が届かない」と聞かれたら「たくさん使ってもらえたおかげで枠がなくなった → 『1問解く』でいつでも解ける」と案内する（定型応答＋AIプロンプト両方に実装済み）。詳細は `docs/operations/line-message-system.md` §2.7。**新しい push を追加するときは `shouldSuppressPush(userData, now)` を通すこと。**
 
+**⚠️ 配信を止めるときの必須手順（2026-08-08 一般化）**: 配信が止まっている間は生徒に**解く機会が無い**ので、それを無回答として数えると離れていない人まで dormant/churned に落ちる（7月の停止で **64.5%＝2,395人が配信対象外**になった）。停止期間の正本は **`functions/src/pushSuspensionWindows.ts` の `PUSH_SUSPENSION_WINDOWS`**。
+
+```ts
+{ label: '2026-07 配信枠ひっ迫',
+  start: 停止開始, end: 配信が戻る時刻,
+  baseline: 再開のおしらせを送った日,   // 判定の起点をここへ繰り上げる
+  activeWindowDays: 30 }               // 停止前N日以内に回答があった人だけ救済
+```
+
+**次に配信を止めるときは、この配列に1行足すだけでよい。** `userStatus.effectiveLastAnsweredAt`（status 判定）と `lineWebhook.isEligibleForRestartWelcome`（「おかえり」フロー）の両方に自動で効く。
+- ⚠️ 2026-08-08 まで、この救済は 2026-07 の期間が `userStatus.ts` に**直書き**された一度きりの対応で、**次に止めると同じ崩壊が再発する**状態だった。
+- ⚠️ `pushSuspension.ts` は `userStatus.ts` を import しているため、逆向きの import は循環参照になる。だから定義は**何も import しない** `pushSuspensionWindows.ts` に置く。
+- 救済の上限を停止**終了**にしているのは、停止中に自分から「1問解く」で解いた人を取りこぼさないため（実測211人が該当）。
+
+**「おかえり」フロー（復帰キーワード）の注意（2026-08-08 修正）**: `keywordMatcher.detectRestartIntent` が誤検知すると、**生徒の本文が AI に届かず**「おかえり！今日の1問」に置き換わる。実会話で `'また'` の部分一致により、相談が4回連続で握りつぶされた（生徒は「話聞いてよ」と訴えていた）。
+- キーワードは**2段階**: 明確な語（再開・久しぶり等）は文中でも検知、日常語（また・ごめん・戻る等）は **10文字以内の短い一言**のときだけ（`WEAK_RESTART_MAX_LENGTH`）。
+- **24時間のクールダウン**（`lastRestartWelcomeAt`）。「おかえり＋1問」を送っても生徒が答えなければ `lastAnsweredAt` は動かず、日数ゲートは通り続けて**何度でも再発火**するため。
+- 日数ゲートは **8日 → 11日**（`RESTART_WELCOME_MIN_INACTIVE_DAYS`・env調整可）。8日は**毎日配信時代**の値で、週2（月・木）では「1回解き逃しただけ」に相当した。**配信頻度を変えたら見直す。**
+- 誤って出したときの損失は非対称（出さなくても AI が応答するだけ／出すと本文が消える）。**迷ったら出さない側に倒す。**
+
 **送信枠モニタリング**: `deliveryStats/{YYYY-MM}` collection に push 種別ごとの月次カウントを記録。`monthlyDeliveryReport` cron が毎月 1 日 09:00 JST に前月分を Cloud Logging へ出力（仮上限 30,000 通の 80% 超過時は WARNING）。
 
 詳細は `.steering/20260519-line-message-retention-overhaul/` 配下を参照。

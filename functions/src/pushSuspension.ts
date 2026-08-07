@@ -35,12 +35,21 @@
  */
 
 import { daysBetweenJst } from './userStatus';
+import {
+  CURRENT_SUSPENSION_WINDOW,
+  isWithinSuspension,
+} from './pushSuspensionWindows';
 
-/** 一時停止の開始（JST）。この時刻以降の cron / トリガ push が対象。 */
-export const PUSH_SUSPENSION_START = new Date('2026-07-26T00:00:00+09:00');
-
-/** 一時停止の終了（JST）。8 月分の配信枠にリセットされるタイミング。 */
-export const PUSH_SUSPENSION_END = new Date('2026-08-01T00:00:00+09:00');
+/**
+ * ⚠️ **停止期間の正本は `pushSuspensionWindows.ts`**（2026-08-08〜）。
+ * status 判定（`userStatus.effectiveLastAnsweredAt`）と同じ定義を使わないと、
+ * 「配信は止まっているのに status だけ落ちる」というズレが起きるため。
+ * **次に配信を止めるときは、あちらの `PUSH_SUSPENSION_WINDOWS` に1行足す。**
+ *
+ * 以下2つは既存の呼び出し元・テスト向けの後方互換エイリアス（直近の期間を指す）。
+ */
+export const PUSH_SUSPENSION_START = CURRENT_SUSPENSION_WINDOW.start;
+export const PUSH_SUSPENSION_END = CURRENT_SUSPENSION_WINDOW.end;
 
 /**
  * 停止中でも push を続ける「新規ユーザー」の範囲（JST 暦日）。
@@ -50,10 +59,8 @@ export const NEW_USER_PUSH_DAYS = 3;
 
 /** いま push 一時停止の期間中か。 */
 export function isPushSuspended(now: Date): boolean {
-  const t = now.getTime();
-  return (
-    t >= PUSH_SUSPENSION_START.getTime() && t < PUSH_SUSPENSION_END.getTime()
-  );
+  // 複数の停止期間を扱えるよう、共有定義へ委譲する。
+  return isWithinSuspension(now);
 }
 
 /**
