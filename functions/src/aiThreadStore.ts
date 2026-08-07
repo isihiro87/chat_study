@@ -27,8 +27,19 @@
 
 import type { DigestLite } from './aiRecallCore';
 
-/** 1セグメントに入れるメッセージ数。約20KB想定で 1MB 上限に十分な余裕。 */
-export const SEGMENT_MAX_MESSAGES = 100;
+/**
+ * 1セグメントに入れるメッセージ数。約20KB想定で 1MB 上限に十分な余裕。
+ *
+ * ⚠️ **この値は「いつ想起できるようになるか」を決める。**
+ * 要約索引（digest）は**セグメントが閉じたときだけ**作られ、索引が無いと
+ * `aiRecallCore.pickRecallSegments` は何も見つけられない。
+ *
+ * 2026-08-06 まで 100（＝50ターン）だったが、実測で **50ターンに達した利用者は
+ * 0人**で、想起の経路は一度も発火していなかった。直近ウィンドウ（20ターン＝
+ * 40メッセージ）を押し出された直後から思い出せるように **40** へ下げる。
+ * 要約1回のコストは最安モデルで約 ¥0.2〜0.5 なので費用面の影響は小さい。
+ */
+export const SEGMENT_MAX_MESSAGES = 40;
 
 /** digests を引くときの上限（read 規律）。 */
 export const DIGEST_QUERY_LIMIT = 60;

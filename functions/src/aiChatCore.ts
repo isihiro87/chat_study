@@ -26,8 +26,15 @@ export const DAILY_LIMIT = 40;
  * ⚠️ `llmModelResolver.FREE_HISTORY_TURNS` と同値に保つこと。
  */
 export const FREE_HISTORY_TURNS = 20;
-/** トライアル・プレミアムで保持する会話ターン数。 */
-export const PREMIUM_HISTORY_TURNS = 10;
+/**
+ * プレミアムで保持する会話ターン数。
+ *
+ * ⚠️ **無料（`FREE_HISTORY_TURNS`）を下回らせない。** 2026-08-06 に無料だけ
+ * 10→20 に広げた結果、一時的に「課金者のほうが記憶が短い」状態になっていた
+ * （`plan === 'premium'` は当時0人だったので実害は無し）。プレミアムを
+ * 再開するときに事故らないよう、無料以上であることを型ではなく値で担保する。
+ */
+export const PREMIUM_HISTORY_TURNS = 20;
 
 /** 1 日上限を返す（プラン統合により全ユーザー共通）。 */
 export function getDailyLimit(_plan: UserPlan): number {

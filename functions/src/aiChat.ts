@@ -69,6 +69,14 @@ import {
 import type { LlmPurpose } from './llmModelResolver';
 import type { CostBreakdown } from './llmPrices';
 import type { AiProfile } from './aiProfileCore';
+import {
+  evaluateSearchGate,
+  extractSearchRequest,
+  parseSearchLimits,
+  currentSearchCount,
+  searchUnavailableNote,
+  SEARCH_GUIDE,
+} from './aiSearchCore';
 
 /** Gemini の出力トークン上限。LINE で読める長さに抑える。 */
 const MAX_OUTPUT_TOKENS = 500;
@@ -386,8 +394,22 @@ export async function handleAiChatWith(
 
   // 6. 生成。`llmProvider` 経由にすることで実トークン・円換算が取れ、
   //    支出が全体キャップ（②層）と無料ティアのサブキャップに載る。
+  // 「調べる」機能を案内するか。**上限に達している人にはプロンプトごと出さない**
+  //（案内しておいて断るのは体験が悪いし、入力トークンの無駄）。
+  const searchLimits = parseSearchLimits(env);
+  const userSearchToday = currentSearchCount(aiChat, todayJst);
+  const searchGate = evaluateSearchGate({
+    tier: 'free',
+    limits: searchLimits,
+    userTodayCount: userSearchToday,
+    // 全体の月次はゲート判定のときだけ読む（下の実行時に確認する）。
+    globalMonthCount: undefined,
+  });
+  const searchEnabled = searchGate.allowed;
+
   let answer: string;
   let truncated = false;
+  let searchesUsed = 0;
   try {
     const { generateText, createGrant } = await import('./llmProvider');
     const grant = createGrant('free', gate);
@@ -396,7 +418,9 @@ export async function handleAiChatWith(
       grant,
       // 話題に合うブロックだけ注入する（入力トークンとコストを削る）。
       system:
-        buildSystemPrompt(userData, botKind, { promptText }) + recallContext,
+        buildSystemPrompt(userData, botKind, { promptText }) +
+        recallContext +
+        (searchEnabled ? SEARCH_GUIDE : ''),
       history: priorHistory,
       userText: promptText,
       media,
@@ -410,6 +434,37 @@ export async function handleAiChatWith(
     truncated = result.truncated === true;
 
     await recordFreeCost(purpose, result.cost, now);
+
+    // ---- 「調べる」機能（2026-08-07）----
+    // AI が応答に `[[SEARCH: ...]]` と書いていたら、コード側が検索して
+    // その結果を文脈に足し、**もう一度だけ**生成し直す。
+    // マーカーは検索するしないに関わらず必ず本文から取り除く。
+    const extracted = extractSearchRequest(answer);
+    answer = extracted.text;
+    if (extracted.query && searchEnabled) {
+      const searchResult = await runSearchAndRegenerate({
+        query: extracted.query,
+        userData,
+        botKind,
+        promptText,
+        priorHistory,
+        recallContext,
+        grant,
+        purpose,
+        env,
+        now,
+      });
+      if (searchResult) {
+        answer = searchResult;
+        searchesUsed = 1;
+      }
+    } else if (extracted.query && !searchEnabled) {
+      // 案内していないのに書いてきた場合（プロンプトを外しても稀に起きる）。
+      // 断りを一言添えて、検索したふりはさせない。
+      if (!searchGate.allowed) {
+        answer += searchUnavailableNote(searchGate.reason);
+      }
+    }
   } catch (error) {
     console.error('[aiChat] Gemini call failed:', error);
 
@@ -498,6 +553,13 @@ export async function handleAiChatWith(
           monthCount: currentMonthCount + 1,
           // 当日ぶんの想起を使い切ったことを記録（使ったときだけ更新する）。
           ...(usedRecall ? { recallDateJST: todayJst } : {}),
+          // 検索を使ったらその日のカウンタを進める（使った日だけ書く）。
+          ...(searchesUsed > 0
+            ? {
+                searchDateJST: todayJst,
+                searchCount: userSearchToday + searchesUsed,
+              }
+            : {}),
           // AI 設定ページの案内は1人1回だけ。出したことを記録する。
           // ⚠️ メディア送信時はチップを付けないので、そのときは記録もしない
           //    （次のテキスト応答で必ず1回出す）。
@@ -574,6 +636,74 @@ export async function handleAiChatWith(
   // 消費しない。deliveryStats（push 配信枠モニター）には記録しない。
   // 利用量は users/{uid}.aiChat.count、コストは aiCostStats/{YYYY-MM}（byTier.free）
   // で把握する。
+}
+
+/**
+ * インターネットで調べて、その結果をもとに応答を作り直す。
+ *
+ * 手順: ①全体の月次上限を確認 → ②`searchWeb` で1回だけ調べる →
+ * ③検索結果を文脈に足して**もう一度だけ**生成 → ④支出を計上。
+ *
+ * ⚠️ **replyToken は60秒**。生成→検索(12秒上限)→再生成 で最悪 25 秒ほどかかるので、
+ * ここから先で新しい外部呼び出しを増やさないこと。
+ *
+ * 失敗したら `null` を返す（呼び出し側は最初の応答をそのまま使う＝会話は止まらない）。
+ */
+async function runSearchAndRegenerate(opts: {
+  query: string;
+  userData: UserDoc | undefined;
+  botKind: AiChatBotKind;
+  promptText: string;
+  priorHistory: Parameters<typeof trimHistory>[0];
+  recallContext: string;
+  grant: unknown;
+  purpose: LlmPurpose;
+  env: Record<string, string | undefined>;
+  now: Date;
+}): Promise<string | null> {
+  try {
+    // 全体の月次上限（無料枠 5,000/月 の手前で止める）。読めなければ通す。
+    const { loadSearchCount, recordSearch } = await import('./aiCostStore');
+    const globalMonthCount = await loadSearchCount(opts.now);
+    const limits = parseSearchLimits(opts.env);
+    const gate = evaluateSearchGate({
+      tier: 'free',
+      limits,
+      userTodayCount: 0, // 呼び出し側で判定済み
+      globalMonthCount,
+    });
+    if (!gate.allowed) {
+      console.warn(`[aiChat] search denied: ${gate.reason}`);
+      return null;
+    }
+
+    const { searchWeb, buildSearchResultContext } =
+      await import('./aiWebSearch');
+    const result = await searchWeb(opts.query, opts.env);
+    await recordSearch(opts.now);
+
+    const { generateText } = await import('./llmProvider');
+    const regenerated = await generateText({
+      purpose: opts.purpose,
+      grant: opts.grant as never,
+      system:
+        buildSystemPrompt(opts.userData, opts.botKind, {
+          promptText: opts.promptText,
+        }) +
+        opts.recallContext +
+        buildSearchResultContext(opts.query, result),
+      history: opts.priorHistory,
+      userText: opts.promptText,
+      modelOverride: opts.env.GEMINI_MODEL || undefined,
+      env: opts.env,
+    });
+    await recordFreeCost(opts.purpose, regenerated.cost, opts.now);
+    // 再生成にもマーカーが残ることがあるので必ず取り除く。
+    return extractSearchRequest(regenerated.text).text;
+  } catch (error) {
+    console.error('[aiChat] search failed:', error);
+    return null;
+  }
 }
 
 /**

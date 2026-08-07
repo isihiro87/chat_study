@@ -154,6 +154,10 @@ export interface AiChatState {
   recallDateJST?: string;
   /** AI 設定ページ（`/ai`）の案内チップを出した日時。**1人1回だけ**出す判定に使う。 */
   personaPromptedAt?: Timestamp;
+  /** インターネット検索の回数の基準となる JST 日付。 */
+  searchDateJST?: string;
+  /** その日の検索回数（既定 3回/日で打ち止め）。 */
+  searchCount?: number;
 }
 
 /**

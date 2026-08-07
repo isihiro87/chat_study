@@ -31,9 +31,13 @@ describe('getHistoryTurns', () => {
     expect(getHistoryTurns('free')).toBe(FREE_HISTORY_TURNS);
     expect(getHistoryTurns('free')).toBe(20);
   });
-  it('premium も 10 ターン', () => {
+  // 2026-08-07: 無料を20に広げたとき premium が10のまま取り残され、
+  // 「課金者のほうが記憶が短い」状態になっていた（当時 premium は0人で実害なし）。
+  // プレミアム再開時に事故らないよう、無料以上であることをテストで固定する。
+  it('premium は 20 ターン（無料を下回らせない）', () => {
     expect(getHistoryTurns('premium')).toBe(PREMIUM_HISTORY_TURNS);
-    expect(getHistoryTurns('premium')).toBe(10);
+    expect(getHistoryTurns('premium')).toBe(20);
+    expect(PREMIUM_HISTORY_TURNS).toBeGreaterThanOrEqual(FREE_HISTORY_TURNS);
   });
 });
 

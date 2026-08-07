@@ -442,6 +442,50 @@ async function writeGlobalStats(
   );
 }
 
+// ---------------------------------------------------------------------------
+// 検索回数（Gemini の Google 検索グラウンディング）
+// ---------------------------------------------------------------------------
+
+/**
+ * 当月の検索回数を読む（`aiCostStats/{YYYY-MM}.searchCount`）。
+ *
+ * グラウンディングは **月5,000回まで無料**、超過後 $14/1,000回。
+ * 無料枠を越えないよう、この値で全体の上限を判定する（`aiSearchCore`）。
+ *
+ * TTL キャッシュ（`loadGlobalCost`）に相乗りせず単独で1 read するが、
+ * **検索が発火したときだけ**呼ばれるので回数は多くない。
+ * 読めなければ `undefined`（＝判定をスキップして通す）。
+ */
+export async function loadSearchCount(now: Date): Promise<number | undefined> {
+  try {
+    const { db } = await getDb();
+    const snap = await db.doc(`aiCostStats/${jstMonthKey(now)}`).get();
+    const v = snap.data()?.searchCount;
+    return typeof v === 'number' && Number.isFinite(v) ? v : 0;
+  } catch (error) {
+    console.error('[aiCostStore] loadSearchCount failed:', error);
+    return undefined;
+  }
+}
+
+/** 検索を1回ぶん計上する（日別の内訳も残す）。失敗しても throw しない。 */
+export async function recordSearch(now: Date): Promise<void> {
+  try {
+    const { db, FieldValue } = await getDb();
+    await db.doc(`aiCostStats/${jstMonthKey(now)}`).set(
+      {
+        yearMonth: jstMonthKey(now),
+        searchCount: FieldValue.increment(1),
+        searchByDay: { [jstDayKey(now)]: FieldValue.increment(1) },
+        lastUpdatedAt: FieldValue.serverTimestamp(),
+      },
+      { merge: true }
+    );
+  } catch (error) {
+    console.error('[aiCostStore] recordSearch failed:', error);
+  }
+}
+
 /** firebase-admin の遅延初期化（`aiChat` と同パターン）。 */
 async function getDb() {
   const { initializeApp, getApps } = await import('firebase-admin/app');
