@@ -2,6 +2,7 @@
 import * as functions from 'firebase-functions/v1';
 import type { messagingApi } from '@line/bot-sdk';
 import { makeLinkToken } from './mubistaSessionCore';
+import { isSetupComplete, firstMissingStep } from './onboardingSetupCore';
 import {
   getCorrectFeedback,
   getIncorrectFeedback,
@@ -626,14 +627,24 @@ function getJstDateString(date: Date | undefined): string | null {
   return formatter.format(date).replace(/\//g, '-');
 }
 
+/**
+ * 初期設定（学年・教科・配信時刻）が3つとも揃っているか。
+ *
+ * 判定の本体と経緯は `onboardingSetupCore.ts`（純粋・テスト済み）。
+ * ⚠️ 2026-08-08 まで `preferredHour` だけを見ており、学年が欠けた人が
+ *    学年カードを押しても保存されず**二度と設定できない**状態になっていた。
+ */
 function isInitialSetupComplete(
   userData: Record<string, unknown> | undefined
 ): boolean {
-  if (!userData) return false;
-  const stored = userData.preferredHour;
-  return (
-    typeof stored === 'number' && VALID_HOURS.includes(stored as ValidHour)
-  );
+  return isSetupComplete(userData);
+}
+
+/** 初期設定のうち、最初に欠けているステップ。揃っていれば null。 */
+function firstMissingSetupStep(
+  userData: Record<string, unknown> | undefined
+): 'grade' | 'subject' | 'hour' | null {
+  return firstMissingStep(userData);
 }
 
 /**
@@ -5335,11 +5346,21 @@ async function handleSampleAnswerPostback(
   }
 
   // オンボ完了済みかどうかで後続の案内を変える（1 read）。
+  // ⚠️ **欠けているステップから再開させる**（2026-08-08）。
+  //    おためし1問と学年選択を同じ reply で並べて送っているため、
+  //    生徒がおためしだけ answered して学年を飛ばすことがある。
+  //    以前は常に学年カードを出し直していたので、教科まで進んだ人を
+  //    step1 に引き戻していた（逆に混乱させる）。
   let setupComplete = false;
+  let missingStep: 'grade' | 'subject' | 'hour' | null = 'grade';
+  let storedGrade = '';
   try {
     const { db } = await getDb();
     const snap = await db.doc(`users/${uid}`).get();
-    setupComplete = isInitialSetupComplete(snap.data());
+    const data = snap.data();
+    setupComplete = isInitialSetupComplete(data);
+    missingStep = firstMissingSetupStep(data);
+    storedGrade = typeof data?.grade === 'string' ? data.grade : '';
   } catch (error) {
     console.warn('[lineWebhook] sample_answer user read failed:', error);
   }
@@ -5364,9 +5385,18 @@ async function handleSampleAnswerPostback(
           { type: 'text', text: body },
           {
             type: 'text',
-            text: 'きみに合った問題を届けるために、まずは学年を教えてね👇',
+            text:
+              missingStep === 'grade'
+                ? 'きみに合った問題を届けるために、まずは学年を教えてね👇'
+                : missingStep === 'subject'
+                  ? 'あと少し！つぎは教科を選んでね👇'
+                  : 'あと1つ！問題が届く時間を選んでね👇',
           },
-          buildGradeSelectMessage() as unknown as messagingApi.Message,
+          (missingStep === 'grade'
+            ? buildGradeSelectMessage()
+            : missingStep === 'subject'
+              ? buildSubjectSelectMessage(storedGrade)
+              : buildTimeSelectMessage()) as unknown as messagingApi.Message,
         ];
     await client.replyMessage({ replyToken, messages });
   } catch (error) {
@@ -9840,6 +9870,9 @@ async function handleSelectGradePostback(
   if (isInitialSetupComplete(userData)) {
     console.warn('[lineWebhook] handleSelectGrade locked (already set):', uid);
     if (replyToken) {
+      // ここへ来るのは3つとも揃っている人だけ（`isInitialSetupComplete`）。
+      // 以前は時刻だけで完了扱いだったため、学年が無い人に
+      // 「すでに登録済みの学年で登録済みだよ」という意味不明な文が出ていた。
       const storedGrade =
         typeof userData?.grade === 'string' ? userData.grade : '登録済みの学年';
       await replyText(

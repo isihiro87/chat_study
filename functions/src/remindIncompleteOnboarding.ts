@@ -9,6 +9,7 @@ import {
 } from './lineWebhook';
 import { recordPushDelivery } from './deliveryStats';
 import { shouldSuppressPush } from './pushSuspension';
+import { isSetupComplete } from './onboardingSetupCore';
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 const MAX_USERS_PER_RUN = 100;
@@ -137,7 +138,12 @@ export const remindIncompleteOnboarding = functions
         continue;
       }
 
-      if (typeof data.preferredHour === 'number') {
+      // ⚠️ **3つ揃って初めて完了**（2026-08-08 修正）。
+      //    以前は `preferredHour` だけで complete にしていたため、
+      //    学年や教科が欠けている人が**リマインドの対象から永久に外れて**いた
+      //    （本番で1人、教科と時刻はあるのに学年が無いまま complete 扱いだった）。
+      //    判定は `onboardingSetupCore`（webhook 側と同じ関数）に集約する。
+      if (isSetupComplete(data)) {
         try {
           await doc.ref.set(
             {
