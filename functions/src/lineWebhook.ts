@@ -5268,41 +5268,59 @@ function buildSampleQuestionFlex() {
         layout: 'vertical' as const,
         spacing: 'sm' as const,
         paddingAll: '16px',
-        contents: SAMPLE_QUESTION.choices.map((choice, i) => ({
-          type: 'box' as const,
-          layout: 'horizontal' as const,
-          paddingAll: '10px',
-          cornerRadius: 'md' as const,
-          backgroundColor: '#FFFFFF',
-          borderColor: '#E5E7EB',
-          borderWidth: '1px',
-          action: {
-            type: 'postback' as const,
-            label: choice,
-            data: `type=sample_answer&c=${i}`,
-            displayText: choice,
+        contents: [
+          ...SAMPLE_QUESTION.choices.map((choice, i) => ({
+            type: 'box' as const,
+            layout: 'horizontal' as const,
+            paddingAll: '10px',
+            cornerRadius: 'md' as const,
+            backgroundColor: '#FFFFFF',
+            borderColor: '#E5E7EB',
+            borderWidth: '1px',
+            action: {
+              type: 'postback' as const,
+              label: choice,
+              data: `type=sample_answer&c=${i}`,
+              displayText: choice,
+            },
+            contents: [
+              {
+                type: 'text' as const,
+                text: String.fromCharCode(65 + i),
+                flex: 0,
+                size: 'sm' as const,
+                weight: 'bold' as const,
+                color: '#F59E0B',
+                gravity: 'top' as const,
+              },
+              {
+                type: 'text' as const,
+                text: choice,
+                flex: 1,
+                wrap: true,
+                size: 'sm' as const,
+                color: '#111827',
+                margin: 'md' as const,
+              },
+            ],
+          })),
+          // 「あとで」導線（2026-08-08）。おためしに答えなくても必ず教科選択へ
+          // 進めるようにする。これが無いと、答えなかった人がここで止まる。
+          {
+            type: 'text' as const,
+            text: 'あとで（教科をえらぶ）',
+            size: 'xs' as const,
+            color: '#9CA3AF',
+            align: 'center' as const,
+            margin: 'md' as const,
+            action: {
+              type: 'postback' as const,
+              label: 'あとで',
+              data: 'type=sample_skip',
+              displayText: 'あとでにする',
+            },
           },
-          contents: [
-            {
-              type: 'text' as const,
-              text: String.fromCharCode(65 + i),
-              flex: 0,
-              size: 'sm' as const,
-              weight: 'bold' as const,
-              color: '#F59E0B',
-              gravity: 'top' as const,
-            },
-            {
-              type: 'text' as const,
-              text: choice,
-              flex: 1,
-              wrap: true,
-              size: 'sm' as const,
-              color: '#111827',
-              margin: 'md' as const,
-            },
-          ],
-        })),
+        ],
       },
     },
   };
@@ -5313,6 +5331,64 @@ function buildSampleQuestionFlex() {
  * オンボ未完了ならそのまま学年選択 flex を再提示して登録に接続する。
  * 何度タップしても同じように応える（状態を持たない・冪等）。
  */
+/**
+ * おためし1問を「あとで」にしたときの導線（2026-08-08）。
+ *
+ * オンボは**1画面1アクション**にしたので、おためしに答えないと教科選択へ
+ * 進めなくなる。ここで欠けているステップへ確実につなぐ。
+ */
+async function handleSampleSkipPostback(
+  uid: string,
+  replyToken: string | undefined
+): Promise<void> {
+  if (!replyToken) return;
+  let missingStep: 'grade' | 'subject' | 'hour' | null = 'grade';
+  let storedGrade = '';
+  try {
+    const { db } = await getDb();
+    const snap = await db.doc(`users/${uid}`).get();
+    const data = snap.data();
+    missingStep = firstMissingSetupStep(data);
+    storedGrade = typeof data?.grade === 'string' ? data.grade : '';
+  } catch (error) {
+    console.warn('[lineWebhook] sample_skip user read failed:', error);
+  }
+
+  if (missingStep === null) {
+    await replyText(
+      replyToken,
+      '設定はぜんぶ終わっているよ😊 メニューの「1問解く」からいつでも問題に挑戦できるよ！',
+      '(sample_skip: complete)'
+    );
+    return;
+  }
+
+  try {
+    const client = await getLineClient();
+    await client.replyMessage({
+      replyToken,
+      messages: [
+        {
+          type: 'text',
+          text:
+            missingStep === 'grade'
+              ? 'わかった！まずは学年を教えてね👇'
+              : missingStep === 'subject'
+                ? 'わかった！つぎは教科を選んでね👇'
+                : 'わかった！あと1つ、問題が届く時間を選んでね👇',
+        },
+        (missingStep === 'grade'
+          ? buildGradeSelectMessage()
+          : missingStep === 'subject'
+            ? buildSubjectSelectMessage(storedGrade)
+            : buildTimeSelectMessage()) as unknown as messagingApi.Message,
+      ],
+    });
+  } catch (error) {
+    console.error('[lineWebhook] sample_skip reply failed:', error);
+  }
+}
+
 async function handleSampleAnswerPostback(
   uid: string,
   replyToken: string | undefined,
@@ -5452,10 +5528,9 @@ async function handleFollow(event: LineEvent): Promise<void> {
           type: 'text',
           text:
             'はじめまして！「チャットでスタディ」に登録してくれてありがとう😊\n\n' +
-            'まずは、ためしにこんな1問をどうぞ👇（例として歴史の問題だよ。選択肢をタップするだけ！）\n\n' +
-            'そのあと、学年・教科・配信時刻の3つだけ教えてね。すぐ終わるよ！\n（保護者の方は、お子様の情報を選んでください）',
+            'まずは学年・教科・配信時刻の3つだけ教えてね。すぐ終わるよ！\n' +
+            'とちゅうで、ためしに1問といてみることもできるよ😊\n（保護者の方は、お子様の情報を選んでください）',
         },
-        buildSampleQuestionFlex() as unknown as messagingApi.Message,
         buildGradeSelectMessage(),
       ],
     });
@@ -5506,6 +5581,11 @@ async function handlePostback(event: LineEvent): Promise<void> {
 
   const params = new URLSearchParams(data);
   const type = params.get('type');
+
+  if (type === 'sample_skip') {
+    await handleSampleSkipPostback(uid, replyToken);
+    return;
+  }
 
   if (type === 'select_grade') {
     await handleSelectGradePostback(uid, replyToken, params);
@@ -9935,9 +10015,14 @@ async function handleSelectGradePostback(
       messages: [
         {
           type: 'text',
-          text: `${grade}ですね！次は教科を選んでね。`,
+          text:
+            `${grade}ですね！ありがとう😊
+
+` + 'つぎに進む前に、ためしに1問といてみよう👇（例として歴史の問題だよ）',
         },
-        buildSubjectSelectMessage(grade),
+        // ⚠️ ここでも**カードは1枚だけ**。答えても「あとで」を押しても、
+        //    次は必ず教科選択へ進む（`sample_answer` / `sample_skip`）。
+        buildSampleQuestionFlex() as unknown as messagingApi.Message,
       ],
     });
   } catch (error) {
